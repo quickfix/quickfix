@@ -79,14 +79,14 @@ public:
   void backup();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
     m_event << UtcTimeStampConvertor::convert( now, m_millisecondsInTimeStamp )
-    << " : " << value << std::endl << std::flush;
+            << " : " << value << std::endl;
   }
 
   bool getMillisecondsInTimeStamp() const
