@@ -28,6 +28,7 @@
 #include <FileStore.h>
 #include <Session.h>
 #include <fstream>
+#include <typeinfo>
 #include "TestHelper.h"
 
 using namespace FIX;

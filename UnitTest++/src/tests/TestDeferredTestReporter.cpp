@@ -2,6 +2,7 @@
 #include "../DeferredTestReporter.h"
 
 #include <string>
+#include <cstring>
 
 namespace UnitTest
 {
