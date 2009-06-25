@@ -26,8 +26,6 @@
 
 #include "C++/Utility.h"
 #include "C++/SessionSettings.h"
-#include <CPPTest/TestStandardOutputDisplay.h>
-#include <CPPTest/TestXMLFileOutputDisplay.h>
 #ifndef _MSC_VER
 #include <DataDictionaryTestCase.cpp>
 #include <DictionaryTestCase.cpp>
@@ -73,8 +71,6 @@ void print_usage( char** argv )
 
 int main( int argc, char** argv )
 {
-  CPPTest::TestDisplay * display;
-
   if( argc != 5 )
   {
     print_usage( argv );
@@ -98,10 +94,9 @@ int main( int argc, char** argv )
     }
   }
 
-  display = new CPPTest::TestXMLFileOutputDisplay();
+  std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
+  int result = UnitTest::RunAllTests();
+  std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
 
-  return UnitTest::RunAllTests();
-
-  delete display;
-  return 0;
+  return result;
 }
