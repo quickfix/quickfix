@@ -24,19 +24,31 @@
 #include "config.h"
 #endif
 
-#include "NullStoreTestCase.h"
-#include "fix42/Logon.h"
-#include "fix42/Heartbeat.h"
-#include "fix42/TestRequest.h"
-#include "fix42/NewOrderSingle.h"
-#include "fix42/ExecutionReport.h"
+#include <UnitTest++.h>
+#include <NullStoreTestCase.h>
+#include <fix42/Logon.h>
+#include <fix42/Heartbeat.h>
+#include <fix42/TestRequest.h>
+#include <fix42/NewOrderSingle.h>
+#include <fix42/ExecutionReport.h>
 
-namespace FIX
-{
+using namespace FIX;
 using namespace FIX42;
 
-void NullStoreTestCase::setGet::onRun( NullStore& object )
+SUITE(NullStoreTests)
 {
+
+struct sharedObjectFixture
+{
+  static NullStore object;
+};
+
+NullStore sharedObjectFixture::object;
+
+TEST( setGet )
+{
+  NullStore object;
+
   Logon logon;
   logon.getHeader().setField( MsgSeqNum( 1 ) );
   object.set( 1, logon.toString() );
@@ -60,8 +72,10 @@ void NullStoreTestCase::setGet::onRun( NullStore& object )
   assert( messages.size() == 0 );
 }
 
-void NullStoreTestCase::setGetWithQuote::onRun( NullStore& object )
+TEST( setGetWithQuote )
 {
+  NullStore object;
+
   ExecutionReport singleQuote;
   singleQuote.setField( Text("Some Text") );
   object.set( 1, singleQuote.toString() );
@@ -83,7 +97,7 @@ void NullStoreTestCase::setGetWithQuote::onRun( NullStore& object )
   assert( messages.size() == 0 );
 }
 
-void NullStoreTestCase::other::onRun( NullStore& object )
+TEST_FIXTURE( sharedObjectFixture, other )
 {
   object.setNextSenderMsgSeqNum( 10 );
   assert( object.getNextSenderMsgSeqNum() == 10 );
@@ -98,14 +112,14 @@ void NullStoreTestCase::other::onRun( NullStore& object )
   object.setNextTargetMsgSeqNum( 6 );
 }
 
-void NullStoreTestCase::reload::onRun( NullStore& object )
+TEST_FIXTURE( sharedObjectFixture, reload )
 {
   // use same session from previous test
   assert( object.getNextSenderMsgSeqNum() == 5 );
   assert( object.getNextTargetMsgSeqNum() == 6 );
 }
 
-void NullStoreTestCase::refresh::onRun( NullStore& object )
+TEST_FIXTURE( sharedObjectFixture, refresh )
 {
   // use same session from previous test
   object.refresh();

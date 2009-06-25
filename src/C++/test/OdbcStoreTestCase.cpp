@@ -26,75 +26,85 @@
 
 #ifdef HAVE_ODBC
 
-#include "OdbcStoreTestCase.h"
+#include <UnitTest++.h>
+#include <TestHelper.h>
+#include <OdbcStore.h>
+#include "MessageStoreTestCase.h"
 
-namespace FIX
+using namespace FIX;
+
+SUITE(OdbcStoreTests)
 {
-bool OdbcStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+
+struct odbcStoreFixture
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+  odbcSQLStoreFixture( bool reset )
+  : factory( TestSettings::sessionSettings.get() )
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
+    try
+    {
+      object = factory.create( sessionID );
+    }
+    catch( std::exception& e )
+    {
+      std::cerr << e.what() << std::endl;
+      throw;
+    }
 
-  return true;
+    if( reset )
+      object->reset();
+
+    this->resetAfter = resetAfter;
+  }
+
+  ~odbcSQLStoreFixture()
+  {
+    factory.destroy( object );
+  }
+
+  OdbcStoreFactory factory;
+  MessageStore* object;
+  bool resetAfter;
+};
+
+struct noResetOdbcStoreFixture : odbcStoreFixture
+{
+  noResetOdbcStoreFixture() : odbcStoreFixture( false ) {}
+};
+
+struct resetOdbcStoreFixture : odbcStoreFixture
+{
+  resetOdbcStoreFixture() : odbcStoreFixture( true ) {}
+};
+
+TEST_FIXTURE(resetOdbcStoreFixture, setGet)
+{
+  CHECK_MESSAGE_STORE_SET_GET;
 }
 
-void OdbcStoreTestCase::setGet::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(resetOdbcStoreFixture, setGetWithQuote)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-bool OdbcStoreTestCase::other::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(resetOdbcStoreFixture, other)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
-
-  return true;
+  CHECK_MESSAGE_STORE_OTHER
 }
 
-void OdbcStoreTestCase::other::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(noResetOdbcStoreFixture, reload)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-bool OdbcStoreTestCase::reload::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(noResetOdbcStoreFixture, refresh)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-void OdbcStoreTestCase::reload::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
-
-bool OdbcStoreTestCase::refresh::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void OdbcStoreTestCase::refresh::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
 }
 
 #endif

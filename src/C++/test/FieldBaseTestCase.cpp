@@ -27,7 +27,9 @@
 #include <UnitTest++.h>
 #include <Field.h>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(FieldBaseTests)
 {
 
 TEST(set)
