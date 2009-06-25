@@ -25,12 +25,26 @@
 #endif
 
 #include <UnitTest++.h>
-#include <MessagesTestCase.h>
 #include <Values.h>
 #include <Utility.h>
 #include <fix44/MarketDataRequest.h>
 #include <fix42/News.h>
 #include <fix42/NewOrderList.h>
+#include <fix42/Logon.h>
+#include <fix42/TestRequest.h>
+#include <fix42/ResendRequest.h>
+#include <fix42/Reject.h>
+#include <fix42/SequenceReset.h>
+#include <fix42/Logout.h>
+#include <fix42/NewOrderSingle.h>
+#include <fix42/ExecutionReport.h>
+#include <fix42/DontKnowTrade.h>
+#include <fix42/OrderCancelReplaceRequest.h>
+#include <fix42/OrderCancelRequest.h>
+#include <fix42/OrderCancelReject.h>
+#include <fix42/OrderStatusRequest.h>
+#include <fix42/MassQuote.h>
+#include <fix44/NewOrderCross.h>
 
 using namespace FIX;
 using namespace FIX42;
@@ -179,8 +193,8 @@ TEST(setStringWithGroup)
     "350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110="
     "138\001";
 
-    object.setString( str, true, &dataDictionary );
-    CHECK_EQUAL( str, object.toString() );
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
 }
 
 TEST(setStringWithHeaderGroup)
@@ -537,24 +551,17 @@ TEST(replaceGroup)
   CHECK_EQUAL( "C", group.getField(clOrdID).getString() );
 }
 
-
 TEST(logonGetString)
 {
   Logon object;
 
-  try
-  {
-    EncryptMethod encryptMethod;
-    object.get( encryptMethod );
-    assert( false );
-  }
-  catch ( std::logic_error& ) {}
+  EncryptMethod encryptMethod;
+  CHECK_THROW( object.get( encryptMethod ), std::logic_error );
 
   object.set( HeartBtInt( 30 ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=12\00135=A\001"
-          "108=30\00110=026\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=12\00135=A\001"
+               "108=30\00110=026\001", object.toString() );
 }
 
 TEST(logonSetString)
@@ -565,7 +572,7 @@ TEST(logonSetString)
     ( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001" ) ;
 
   HeartBtInt heartBtInt;
-  assert( object.get( heartBtInt ) == 30 );
+  CHECK_EQUAL( 30, object.get( heartBtInt ) );
 }
 
 TEST(testRequestGetString)
@@ -574,8 +581,8 @@ TEST(testRequestGetString)
 
   object.set( TestReqID( "23" ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001",
+	       object.toString() );
 }
 
 TEST(testRequestSetString)
@@ -586,7 +593,7 @@ TEST(testRequestSetString)
     ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
 
   TestReqID testReqID;
-  assert( object.get( testReqID ) == "23" );
+  CHECK_EQUAL( "23", object.get( testReqID ) );
 }
 
 TEST(resendRequestGetString)
@@ -596,8 +603,8 @@ TEST(resendRequestGetString)
   object.set( BeginSeqNo( 1 ) );
   object.set( EndSeqNo( 233 ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001",
+               object.toString() );
 }
 
 TEST(resendRequestSetString)
@@ -609,8 +616,8 @@ TEST(resendRequestSetString)
 
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
-  assert( object.get( beginSeqNo ) == 1 );
-  assert( object.get( endSeqNo ) == 233 );
+  CHECK_EQUAL( 1, object.get( beginSeqNo ) );
+  CHECK_EQUAL( 233, object.get( endSeqNo ) );
 }
 
 TEST(rejectGetString)
@@ -620,9 +627,9 @@ TEST(rejectGetString)
   object.set( RefSeqNum( 73 ) );
   object.set( Text( "This Message SUCKS!!!" ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=36\00135=3\00145=73\001"
-          "58=This Message SUCKS!!!\00110=029\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+               "58=This Message SUCKS!!!\00110=029\001",
+               object.toString() );
 }
 
 TEST(rejectSetString)
@@ -635,8 +642,8 @@ TEST(rejectSetString)
 
   RefSeqNum refSeqNum;
   Text text;
-  assert( object.get( refSeqNum ) == 73 );
-  assert( object.get( text ) == "This Message SUCKS!!!" );
+  CHECK_EQUAL( 73, object.get( refSeqNum ) );
+  CHECK_EQUAL( "This Message SUCKS!!!", object.get( text ) );
 }
 
 TEST(sequenceResetGetString)
@@ -646,8 +653,8 @@ TEST(sequenceResetGetString)
   object.set( GapFillFlag( true ) );
   object.set( NewSeqNo( 88 ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001",
+               object.toString() );
 }
 
 TEST(sequenceResetSetString)
@@ -659,8 +666,8 @@ TEST(sequenceResetSetString)
 
   GapFillFlag gapFillFlag;
   NewSeqNo newSeqNo;
-  assert( object.get( gapFillFlag ) == true );
-  assert( object.get( newSeqNo ) == 88 );
+  CHECK( object.get( gapFillFlag ) );
+  CHECK_EQUAL( 88, object.get( newSeqNo ) );
 }
 
 TEST(logoutGetString)
@@ -669,8 +676,8 @@ TEST(logoutGetString)
 
   object.set( Text( "See Ya..." ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001",
+               object.toString() );
 }
 
 TEST(logoutSetString)
@@ -681,7 +688,7 @@ TEST(logoutSetString)
     ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
 
   Text text;
-  assert( object.get( text ) == "See Ya..." );
+  CHECK_EQUAL( "See Ya...", object.get( text ) );
 }
 
 TEST(newOrderSingleGetString)
@@ -695,9 +702,9 @@ TEST(newOrderSingleGetString)
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '2' ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
-          "54=1\00155=MSFT\00160=19000101-00:00:00\00110=226\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
+               "54=1\00155=MSFT\00160=19000101-00:00:00\00110=226\001",
+               object.toString() );
 }
 
 TEST(newOrderSingleSetString)
@@ -714,12 +721,12 @@ TEST(newOrderSingleSetString)
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  assert( object.get( clOrdID ) == "ORDERID" );
-  assert( object.get( handlInst ) == '3' );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '1' );
-  //assert( object.get(transactTime) == 0 );
-  assert( object.get( ordType ) == '2' );
+  CHECK_EQUAL( "ORDERID", object.get( clOrdID ) );
+  CHECK_EQUAL( '3', object.get( handlInst ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '1', object.get( side ) );
+  //CHECK_EQUAL( 0, object.get(transactTime) );
+  CHECK_EQUAL( '2', object.get( ordType ) );
 }
 
 TEST(executionReportGetString)
@@ -737,10 +744,10 @@ TEST(executionReportGetString)
   object.set( CumQty( 300 ) );
   object.set( AvgPx( 23.4 ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
-          "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\00155=MSFT\001"
-          "150=2\001151=200\00110=052\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+               "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\00155=MSFT\001"
+               "150=2\001151=200\00110=052\001",
+               object.toString() );
 }
 
 TEST(executionReportSetString)
@@ -762,16 +769,16 @@ TEST(executionReportSetString)
   LeavesQty leavesQty;
   CumQty cumQty;
   AvgPx avgPx;
-  assert( object.get( orderID ) == "ORDERID" );
-  assert( object.get( execID ) == "EXECID" );
-  assert( object.get( execTransType ) == '1' );
-  assert( object.get( execType ) == '2' );
-  assert( object.get( ordStatus ) == '3' );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '4' );
-  assert( object.get( leavesQty ) == 200 );
-  assert( object.get( cumQty ) == 300 );
-  assert( object.get( avgPx ) == 23.4 );
+  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
+  CHECK_EQUAL( "EXECID", object.get( execID ) );
+  CHECK_EQUAL( '1', object.get( execTransType ) );
+  CHECK_EQUAL( '2', object.get( execType ) );
+  CHECK_EQUAL( '3', object.get( ordStatus ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '4', object.get( side ) );
+  CHECK_EQUAL( 200, object.get( leavesQty ) );
+  CHECK_EQUAL( 300, object.get( cumQty ) );
+  CHECK_EQUAL( 23.4, object.get( avgPx ) );
 }
 
 TEST(dontKnowTradeGetString)
@@ -784,9 +791,9 @@ TEST(dontKnowTradeGetString)
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '2' ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
-          "54=2\00155=MSFT\001127=1\00110=195\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+               "54=2\00155=MSFT\001127=1\00110=195\001",
+               object.toString() );
 }
 
 TEST(dontKnowTradeSetString)
@@ -802,11 +809,11 @@ TEST(dontKnowTradeSetString)
   DKReason dKReason;
   Symbol symbol;
   Side side;
-  assert( object.get( orderID ) == "ORDERID" );
-  assert( object.get( execID ) == "EXECID" );
-  assert( object.get( dKReason ) == '1' );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '2' );
+  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
+  CHECK_EQUAL( "EXECID", object.get( execID ) );
+  CHECK_EQUAL( '1', object.get( dKReason ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '2', object.get( side ) );
 }
 
 TEST(orderCancelReplaceGetString)
@@ -821,10 +828,10 @@ TEST(orderCancelReplaceGetString)
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '3' ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
-          "40=3\00141=ORIGINALID\00154=2\00155=MSFT\001"
-          "60=19000101-00:00:00\00110=179\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
+               "40=3\00141=ORIGINALID\00154=2\00155=MSFT\001"
+               "60=19000101-00:00:00\00110=179\001",
+               object.toString() );
 }
 
 TEST(orderCancelReplaceRequestSetString)
@@ -843,12 +850,12 @@ TEST(orderCancelReplaceRequestSetString)
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  assert( object.get( origClOrdID ) == "ORIGINALID" );
-  assert( object.get( clOrdID ) == "CLIENTID" );
-  assert( object.get( handlInst ) == '1' );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '2' );
-  assert( object.get( ordType ) == '3' );
+  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
+  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
+  CHECK_EQUAL( '1', object.get( handlInst ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '2', object.get( side ) );
+  CHECK_EQUAL( '3', object.get( ordType ) );
 }
 
 TEST(orderCancelRequestGetString)
@@ -861,10 +868,9 @@ TEST(orderCancelRequestGetString)
   object.set( Side( '1' ) );
   object.set( TransactTime( create_tm() ) );
 
-  assert( object.toString()
-          ==
-          "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
-          "54=1\00155=MSFT\00160=19000101-00:00:00\00110=009\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+               "54=1\00155=MSFT\00160=19000101-00:00:00\00110=009\001",
+               object.toString() );
 }
 
 TEST(orderCancelRequestSetString)
@@ -880,10 +886,10 @@ TEST(orderCancelRequestSetString)
   Symbol symbol;
   Side side;
   TransactTime transactTime;
-  assert( object.get( origClOrdID ) == "ORIGINALID" );
-  assert( object.get( clOrdID ) == "CLIENTID" );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '1' );
+  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
+  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '1', object.get( side ) );
 }
 
 TEST(orderCancelRejectGetString)
@@ -896,9 +902,9 @@ TEST(orderCancelRejectGetString)
   object.set( OrdStatus( '1' ) );
   object.set( CxlRejResponseTo( '2' ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
-          "39=1\00141=ORIGINALID\001434=2\00110=229\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+               "39=1\00141=ORIGINALID\001434=2\00110=229\001",
+               object.toString() );
 }
 
 TEST(orderCancelRejectSetString)
@@ -914,11 +920,11 @@ TEST(orderCancelRejectSetString)
   OrigClOrdID origClOrdID;
   OrdStatus ordStatus;
   CxlRejResponseTo cxlRejResponseTo;
-  assert( object.get( orderID ) == "ORDERID" );
-  assert( object.get( clOrdID ) == "CLIENTID" );
-  assert( object.get( origClOrdID ) == "ORIGINALID" );
-  assert( object.get( ordStatus ) == '1' );
-  assert( object.get( cxlRejResponseTo ) == '2' );
+  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
+  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
+  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
+  CHECK_EQUAL( '1', object.get( ordStatus ) );
+  CHECK_EQUAL( '2', object.get( cxlRejResponseTo ) );
 }
 
 TEST(orderStatusRequestGetString)
@@ -929,9 +935,9 @@ TEST(orderStatusRequestGetString)
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '1' ) );
 
-  assert( object.toString() ==
-          "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
-          "55=MSFT\00110=141\001" );
+  CHECK_EQUAL( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+               "55=MSFT\00110=141\001",
+               object.toString() );
 }
 
 TEST(orderStatusRequestSetString)
@@ -945,9 +951,9 @@ TEST(orderStatusRequestSetString)
   ClOrdID clOrdID;
   Symbol symbol;
   Side side;
-  assert( object.get( clOrdID ) == "CLIENTID" );
-  assert( object.get( symbol ) == "MSFT" );
-  assert( object.get( side ) == '1' );
+  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
+  CHECK_EQUAL( "MSFT", object.get( symbol ) );
+  CHECK_EQUAL( '1', object.get( side ) );
 }
 
 TEST(newOrderListGetString)
@@ -977,12 +983,12 @@ TEST(newOrderListGetString)
   group.set( Side( '3' ) );
   object.addGroup( group );
 
-  assert( object.toString() ==
+  CHECK_EQUAL(
           ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
             "11=A\00167=1\00155=DELL\00154=1\001"
             "11=B\00167=2\00155=LNUX\00154=2\001"
             "11=C\00167=3\00155=RHAT\00154=3\001"
-            "394=0\00110=233\001" ) );
+            "394=0\00110=233\001" ), object.toString() );
 }
 
 TEST(newOrderListSetString)
@@ -990,17 +996,13 @@ TEST(newOrderListSetString)
   FIX42::NewOrderList object;
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
-  try
-  {
-    object.setString
-      ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
-        "11=A\00154=1\00155=DELL\00167=1\001"
-        "11=B\00154=2\00155=LNUX\00167=2\001"
-        "11=C\00154=3\00155=RHAT\00167=3\001"
-        "394=0\00110=233\001", true, &dataDictionary );
-  }
-  catch ( ... )
-  { assert(false); }
+  
+  object.setString
+    ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
+      "11=A\00154=1\00155=DELL\00167=1\001"
+      "11=B\00154=2\00155=LNUX\00167=2\001"
+      "11=C\00154=3\00155=RHAT\00167=3\001"
+      "394=0\00110=233\001", true, &dataDictionary );
 
   ListID listID;
   BidType bidType;
@@ -1022,10 +1024,10 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  assert( clOrdID.getValue() == "A" );
-  assert( listSeqNo == 1 );
-  assert( symbol == "DELL" );
-  assert( side == '1' );
+  CHECK_EQUAL( "A", clOrdID.getValue() );
+  CHECK_EQUAL( 1, listSeqNo );
+  CHECK_EQUAL( "DELL", symbol );
+  CHECK_EQUAL( '1', side );
 
   object.getGroup( 2, group );
   group.get( clOrdID );
@@ -1033,10 +1035,10 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  assert( clOrdID.getValue() == "B" );
-  assert( listSeqNo == 2 );
-  assert( symbol == "LNUX" );
-  assert( side == '2' );
+  CHECK_EQUAL( "B", clOrdID.getValue() );
+  CHECK_EQUAL( 2, listSeqNo );
+  CHECK_EQUAL( "LNUX", symbol );
+  CHECK_EQUAL( '2', side );
 
   object.getGroup( 3, group );
   group.get( clOrdID );
@@ -1044,19 +1046,14 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  assert( clOrdID.getValue() == "C" );
-  assert( listSeqNo == 3 );
-  assert( symbol == "RHAT" );
-  assert( side == '3' );
+  CHECK_EQUAL( "C", clOrdID.getValue() );
+  CHECK_EQUAL( 3, listSeqNo );
+  CHECK_EQUAL( "RHAT", symbol );
+  CHECK_EQUAL( '3', side );
 
-  try
-  {
-    object.setString
-      ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
-        "394=0\00110=137\001", true, &dataDictionary );
-  }
-  catch ( ... )
-  { assert(false); }
+  object.setString
+    ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
+      "394=0\00110=137\001", true, &dataDictionary );
 }
 
 TEST(massQuoteParseGetString)
@@ -1072,9 +1069,9 @@ TEST(massQuoteParseGetString)
   group.set( EncodedUnderlyingSecurityDesc( "DELL\001COMP\001" ) );
   object.addGroup( group );
 
-  assert( object.toString() ==
+  CHECK_EQUAL(
           ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
-            "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001" ) );
+            "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001" ), object.toString() );
 }
 
 TEST(massQuoteSetString)
@@ -1082,15 +1079,11 @@ TEST(massQuoteSetString)
   MassQuote object;
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
-  try
-  {
-    object.setString
-      ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
-        "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001",
-         true, &dataDictionary );
-  }
-  catch ( ... )
-  { assert(false); }
+
+  object.setString
+    ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
+      "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001",
+       true, &dataDictionary );
 
   QuoteID quoteID;
 
@@ -1108,10 +1101,10 @@ TEST(massQuoteSetString)
   group.get( encLen );
   group.get( encDesc );
 
-  assert( quoteSetID == "A" );
-  assert( underlyingSymbol == "DELL" );
-  assert( encLen == 10 );
-  assert( encDesc == "DELL\001COMP\001" );
+  CHECK_EQUAL( "A", quoteSetID );
+  CHECK_EQUAL( "DELL", underlyingSymbol );
+  CHECK_EQUAL( 10, encLen );
+  CHECK_EQUAL( "DELL\001COMP\001", encDesc );
 }
 
 TEST(newOrderCrossGetString)
@@ -1138,9 +1131,9 @@ TEST(newOrderCrossGetString)
 
   object.addGroup( noSides );
 
-  assert( object.toString() ==
+  CHECK_EQUAL(
           ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
-            "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001" ) );
+            "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001" ), object.toString() );
 }
 
 TEST(newOrderCrossSetString)
@@ -1148,22 +1141,18 @@ TEST(newOrderCrossSetString)
   NewOrderCross object;
 
   DataDictionary dataDictionary( "../spec/FIX44.xml" );
-  try
-  {
-    object.setString
-      ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
-        "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001",
-         true, &dataDictionary );
-  }
-  catch ( ... )
-  { assert(false); }
+
+  object.setString
+    ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
+      "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001",
+       true, &dataDictionary );
 
   FIX44::NewOrderCross::NoSides noSides;
   object.getGroup( 1, noSides );
 
   FIX::Side side;
   noSides.get( side );
-  assert( side == FIX::Side_BUY );
+  CHECK_EQUAL( FIX::Side_BUY, side );
 
   FIX::PartyID partyID;
   FIX::PartyIDSource partyIDSource;
@@ -1174,21 +1163,21 @@ TEST(newOrderCrossSetString)
   noPartyIDs.get( partyID );
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
-  assert( partyID == "PARTY1" );
-  assert( partyIDSource == FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE );
-  assert( partyRole == FIX::PartyRole_CLIENT_ID );
+  CHECK_EQUAL( "PARTY1", partyID );
+  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE, partyIDSource );
+  CHECK_EQUAL( FIX::PartyRole_CLIENT_ID, partyRole );
 
   noSides.getGroup( 2, noPartyIDs );
   noPartyIDs.get( partyID );
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
-  assert( partyID == "PARTY2" );
-  assert( partyIDSource == FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE );
-  assert( partyRole == FIX::PartyRole_CLIENT_ID );
+  CHECK_EQUAL( "PARTY2", partyID );
+  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE, partyIDSource );
+  CHECK_EQUAL( FIX::PartyRole_CLIENT_ID,  partyRole );
 
   FIX::OrderQty orderQty;
   noSides.get( orderQty );
-  assert( orderQty == 100 );
+  CHECK_EQUAL( 100, orderQty );
 }
 
 }

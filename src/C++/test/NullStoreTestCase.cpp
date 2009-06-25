@@ -25,7 +25,7 @@
 #endif
 
 #include <UnitTest++.h>
-#include <NullStoreTestCase.h>
+#include <NullStore.h>
 #include <fix42/Logon.h>
 #include <fix42/Heartbeat.h>
 #include <fix42/TestRequest.h>

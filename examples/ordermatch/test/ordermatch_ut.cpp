@@ -24,13 +24,11 @@
 #endif
 
 #include "../../../src/getopt-repl.h"
-#include "TestSuite.h"
-#include <CPPTest/TestStandardOutputDisplay.h>
+#include <UnitTest++.h>
+
+#include "OrderMatcherTestCase.cpp"
 
 int main( int argc, char** argv )
 {
-  CPPTest::TestStandardOutputDisplay display;
-  TestSuite suite(display);
-  suite.run();
-  return 0;
+  return UnitTest::RunAllTests();
 }

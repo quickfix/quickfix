@@ -526,5 +526,4 @@ AC_OUTPUT(
 	examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
 	examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
 	doc/Makefile
-	doc/html/Makefile
-        CPPTest/Makefile)
+	doc/html/Makefile)

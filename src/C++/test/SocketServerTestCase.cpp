@@ -26,7 +26,7 @@
 
 #include <UnitTest++.h>
 #include <TestHelper.h>
-#include <SocketUtilitiesTestCase.h>
+#include <SocketServer.h>
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif

@@ -1,4 +1,4 @@
-SUBDIRS = UnitTest++ src bin spec test examples CPPTest doc
+SUBDIRS = UnitTest++ src bin spec test examples doc
 
 # Install pkgconf definition
 

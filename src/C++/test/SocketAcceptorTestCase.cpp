@@ -25,7 +25,7 @@
 #endif
 
 #include <UnitTest++.h>
-#include <SocketAcceptorTestCase.h>
+#include <SocketAcceptor.h>
 #include <Utility.h>
 #include <fix42/Logon.h>
 #include <sstream>

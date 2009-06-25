@@ -23,10 +23,12 @@
 #include "config.h"
 #endif
 
-#include "OrderMatcherTestCase.h"
+#include <UnitTest++.h>
+#include "OrderMatcher.h"
 
-void OrderMatcherTestCase::matchFull::onRun( OrderMatcher& object )
+TEST( matchFull )
 {
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -63,8 +65,9 @@ void OrderMatcherTestCase::matchFull::onRun( OrderMatcher& object )
   assert(matchedOrder2.getLastExecutedQuantity() == 100);
 }
 
-void OrderMatcherTestCase::matchPartial::onRun( OrderMatcher& object )
+TEST( matchPartial )
 {
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -130,8 +133,9 @@ void OrderMatcherTestCase::matchPartial::onRun( OrderMatcher& object )
   assert(matchedOrder3.getLastExecutedQuantity() == 50);
 }
 
-void OrderMatcherTestCase::matchTimePriority::onRun( OrderMatcher& object )
+TEST( matchTimePriority )
 {
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -160,8 +164,9 @@ void OrderMatcherTestCase::matchTimePriority::onRun( OrderMatcher& object )
   assert(matchedOrder3.getClientID() == "3");
 }
 
-void OrderMatcherTestCase::matchPricePriority::onRun( OrderMatcher& object )
-{
+TEST( matchPricePriority )
+{  
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -190,8 +195,9 @@ void OrderMatcherTestCase::matchPricePriority::onRun( OrderMatcher& object )
   assert(matchedOrder3.getClientID() == "3");
 }
 
-void OrderMatcherTestCase::matchMultiple::onRun( OrderMatcher& object )
+TEST( matchMultiple )
 {
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -253,8 +259,9 @@ void OrderMatcherTestCase::matchMultiple::onRun( OrderMatcher& object )
   assert(matchedOrder1.getLastExecutedQuantity() == 50);
 }
 
-void OrderMatcherTestCase::overMatch::onRun( OrderMatcher& object )
+TEST( overMatch )
 {
+  OrderMatcher object;
   Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
   Order order2("2", "LNUX", "OWNER2", "TARGET",
@@ -320,5 +327,3 @@ void OrderMatcherTestCase::overMatch::onRun( OrderMatcher& object )
   assert(matchedOrder2.getLastExecutedQuantity() == 10);
 
 }
-
-
