@@ -108,11 +108,11 @@ TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
   logon.getHeader().set( SendingTime() );
   logon.set( HeartBtInt(30) );
 
-  assert( socket_send( s, logon.toString().c_str(), strlen(logon.toString().c_str()) ) );
+  CHECK( socket_send( s, logon.toString().c_str(), strlen(logon.toString().c_str()) ) );
   object->poll();
-  assert( socket_send( s, firstPart.c_str(), strlen(firstPart.c_str()) ) );
+  CHECK( socket_send( s, firstPart.c_str(), strlen(firstPart.c_str()) ) );
   object->poll();
-  assert( socket_send( s, secondPart.c_str(), strlen(secondPart.c_str()) ) );
+  CHECK( socket_send( s, secondPart.c_str(), strlen(secondPart.c_str()) ) );
   object->poll();
 }
 }

@@ -34,35 +34,35 @@ TEST( matchFull )
   Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.32, 100);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
 
   std::queue<Order> orders;
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(1, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
   Order matchedOrder2 = orders.front();
   orders.pop();
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(matchedOrder1.isFilled());
-  assert(matchedOrder1.isClosed());
-  assert(matchedOrder1.getOpenQuantity() == 0);
-  assert(matchedOrder1.getExecutedQuantity() == 100);
-  assert(matchedOrder1.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedQuantity() == 100);
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK(matchedOrder1.isFilled());
+  CHECK(matchedOrder1.isClosed());
+  CHECK_EQUAL(0, matchedOrder1.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder1.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder1.getLastExecutedPrice());
+  CHECK_EQUAL(100, matchedOrder1.getLastExecutedQuantity());
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(matchedOrder2.isFilled());
-  assert(matchedOrder2.isClosed());
-  assert(matchedOrder2.getOpenQuantity() == 0);
-  assert(matchedOrder2.getExecutedQuantity() == 100);
-  assert(matchedOrder2.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedQuantity() == 100);
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK(matchedOrder2.isFilled());
+  CHECK(matchedOrder2.isClosed());
+  CHECK_EQUAL(0, matchedOrder2.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder2.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder2.getLastExecutedPrice());
+  CHECK_EQUAL(100, matchedOrder2.getLastExecutedQuantity());
 }
 
 TEST( matchPartial )
@@ -75,62 +75,62 @@ TEST( matchPartial )
   Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::sell, Order::limit, 12.30, 50);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
 
   std::queue<Order> orders;
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
   Order matchedOrder2 = orders.front();
   orders.pop();
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(!matchedOrder1.isFilled());
-  assert(!matchedOrder1.isClosed());
-  assert(matchedOrder1.getOpenQuantity() == 50);
-  assert(matchedOrder1.getExecutedQuantity() == 50);
-  assert(matchedOrder1.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK(!matchedOrder1.isFilled());
+  CHECK(!matchedOrder1.isClosed());
+  CHECK_EQUAL(50, matchedOrder1.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder1.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder1.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder1.getLastExecutedQuantity());
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(matchedOrder2.isFilled());
-  assert(matchedOrder2.isClosed());
-  assert(matchedOrder2.getOpenQuantity() == 0);
-  assert(matchedOrder2.getExecutedQuantity() == 50);
-  assert(matchedOrder2.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK(matchedOrder2.isFilled());
+  CHECK(matchedOrder2.isClosed());
+  CHECK_EQUAL(0, matchedOrder2.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder2.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder2.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder2.getLastExecutedQuantity());
 
-  assert(object.insert(order3));
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.insert(order3));
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   matchedOrder1 = orders.front();
   orders.pop();
   Order matchedOrder3 = orders.front();
   orders.pop();
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(matchedOrder1.isFilled());
-  assert(matchedOrder1.isClosed());
-  assert(matchedOrder1.getOpenQuantity() == 0);
-  assert(matchedOrder1.getExecutedQuantity() == 100);
-  assert(matchedOrder1.getAvgExecutedPrice() == 12.31);
-  assert(matchedOrder1.getLastExecutedPrice() == 12.30);
-  assert(matchedOrder1.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK(!matchedOrder1.isFilled());
+  CHECK(!matchedOrder1.isClosed());
+  CHECK_EQUAL(0, matchedOrder1.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder1.getExecutedQuantity());
+  CHECK_EQUAL(12.31, matchedOrder1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.30, matchedOrder1.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder1.getLastExecutedQuantity());
 
-  assert(matchedOrder3.getClientID() == "3");
-  assert(matchedOrder3.isFilled());
-  assert(matchedOrder3.isClosed());
-  assert(matchedOrder3.getOpenQuantity() == 0);
-  assert(matchedOrder3.getExecutedQuantity() == 50);
-  assert(matchedOrder3.getAvgExecutedPrice() == 12.30);
-  assert(matchedOrder3.getLastExecutedPrice() == 12.30);
-  assert(matchedOrder3.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("3", matchedOrder3.getClientID());
+  CHECK(matchedOrder3.isFilled());
+  CHECK(matchedOrder3.isClosed());
+  CHECK_EQUAL(0, matchedOrder3.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder3.getExecutedQuantity());
+  CHECK_EQUAL(12.30, matchedOrder3.getAvgExecutedPrice());
+  CHECK_EQUAL(12.30, matchedOrder3.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder3.getLastExecutedQuantity());
 }
 
 TEST( matchTimePriority )
@@ -143,25 +143,25 @@ TEST( matchTimePriority )
   Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 50);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
 
   std::queue<Order> orders;
-  assert(!object.match("LNUX", orders));
-  assert(orders.size() == 0);
+  CHECK(!object.match("LNUX", orders));
+  CHECK_EQUAL(0, orders.size());
 
-  assert(object.insert(order3));
+  CHECK(object.insert(order3));
 
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();
   Order matchedOrder1 = orders.front();
   orders.pop();
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(matchedOrder3.getClientID() == "3");
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK_EQUAL("3", matchedOrder3.getClientID());
 }
 
 TEST( matchPricePriority )
@@ -174,25 +174,25 @@ TEST( matchPricePriority )
   Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 50);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
 
   std::queue<Order> orders;
-  assert(!object.match("LNUX", orders));
-  assert(orders.size() == 0);
+  CHECK(!object.match("LNUX", orders));
+  CHECK_EQUAL(0, orders.size());
 
-  assert(object.insert(order3));
+  CHECK(object.insert(order3));
 
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();
   Order matchedOrder2 = orders.front();
   orders.pop();
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(matchedOrder3.getClientID() == "3");
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK_EQUAL("3", matchedOrder3.getClientID());
 }
 
 TEST( matchMultiple )
@@ -205,13 +205,13 @@ TEST( matchMultiple )
   Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
-  assert(object.insert(order3));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
+  CHECK(object.insert(order3));
 
   std::queue<Order> orders;
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 4);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(4, orders.size());
 
   Order matchedOrder3_1 = orders.front();
   orders.pop();
@@ -222,41 +222,41 @@ TEST( matchMultiple )
   Order matchedOrder1 = orders.front();
   orders.pop();
 
-  assert(matchedOrder3_1.getClientID() == "3");
-  assert(!matchedOrder3_1.isFilled());
-  assert(!matchedOrder3_1.isClosed());
-  assert(matchedOrder3_1.getOpenQuantity() == 50);
-  assert(matchedOrder3_1.getExecutedQuantity() == 50);
-  assert(matchedOrder3_1.getAvgExecutedPrice() == 12.30);
-  assert(matchedOrder3_1.getLastExecutedPrice() == 12.30);
-  assert(matchedOrder3_1.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("3", matchedOrder3_1.getClientID());
+  CHECK(!matchedOrder3_1.isFilled());
+  CHECK(!matchedOrder3_1.isClosed());
+  CHECK_EQUAL(50, matchedOrder3_1.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder3_1.getExecutedQuantity());
+  CHECK_EQUAL(12.30, matchedOrder3_1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.30, matchedOrder3_1.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder3_1.getLastExecutedQuantity());
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(matchedOrder2.isFilled());
-  assert(matchedOrder2.isClosed());
-  assert(matchedOrder2.getOpenQuantity() == 0);
-  assert(matchedOrder2.getExecutedQuantity() == 50);
-  assert(matchedOrder2.getAvgExecutedPrice() == 12.30);
-  assert(matchedOrder2.getLastExecutedPrice() == 12.30);
-  assert(matchedOrder2.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK(matchedOrder2.isFilled());
+  CHECK(matchedOrder2.isClosed());
+  CHECK_EQUAL(0, matchedOrder2.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder2.getExecutedQuantity());
+  CHECK_EQUAL(12.3, matchedOrder2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.3, matchedOrder2.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder2.getLastExecutedQuantity());
 
-  assert(matchedOrder3_2.getClientID() == "3");
-  assert(matchedOrder3_2.isFilled());
-  assert(matchedOrder3_2.isClosed());
-  assert(matchedOrder3_2.getOpenQuantity() == 0);
-  assert(matchedOrder3_2.getExecutedQuantity() == 100);
-  assert(matchedOrder3_2.getAvgExecutedPrice() == 12.31);
-  assert(matchedOrder3_2.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder3_2.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("3", matchedOrder3_2.getClientID());
+  CHECK(matchedOrder3_2.isFilled());
+  CHECK(matchedOrder3_2.isClosed());
+  CHECK_EQUAL(0, matchedOrder3_2.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder3_2.getExecutedQuantity());
+  CHECK_EQUAL(12.31, matchedOrder3_2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder3_2.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder3_2.getLastExecutedQuantity());
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(matchedOrder1.isFilled());
-  assert(matchedOrder1.isClosed());
-  assert(matchedOrder1.getOpenQuantity() == 0);
-  assert(matchedOrder1.getExecutedQuantity() == 50);
-  assert(matchedOrder1.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedQuantity() == 50);
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK(matchedOrder1.isFilled());
+  CHECK(matchedOrder1.isClosed());
+  CHECK_EQUAL(0, matchedOrder1.getOpenQuantity());
+  CHECK_EQUAL(50, matchedOrder1.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder1.getLastExecutedPrice());
+  CHECK_EQUAL(50, matchedOrder1.getLastExecutedQuantity());
 }
 
 TEST( overMatch )
@@ -269,61 +269,61 @@ TEST( overMatch )
   Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
 
-  assert(object.insert(order1));
-  assert(object.insert(order2));
+  CHECK(object.insert(order1));
+  CHECK(object.insert(order2));
 
   std::queue<Order> orders;
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
   Order matchedOrder2 = orders.front();
   orders.pop();
 
-  assert(matchedOrder1.getClientID() == "1");
-  assert(matchedOrder1.isFilled());
-  assert(matchedOrder1.isClosed());
-  assert(matchedOrder1.getOpenQuantity() == 0);
-  assert(matchedOrder1.getExecutedQuantity() == 100);
-  assert(matchedOrder1.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder1.getLastExecutedQuantity() == 100);
+  CHECK_EQUAL("1", matchedOrder1.getClientID());
+  CHECK(matchedOrder1.isFilled());
+  CHECK(matchedOrder1.isClosed());
+  CHECK_EQUAL(0, matchedOrder1.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder1.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder1.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder1.getLastExecutedPrice());
+  CHECK_EQUAL(100, matchedOrder1.getLastExecutedQuantity());
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(!matchedOrder2.isFilled());
-  assert(!matchedOrder2.isClosed());
-  assert(matchedOrder2.getOpenQuantity() == 10);
-  assert(matchedOrder2.getExecutedQuantity() == 100);
-  assert(matchedOrder2.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedQuantity() == 100);
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK(!matchedOrder2.isFilled());
+  CHECK(!matchedOrder2.isClosed());
+  CHECK_EQUAL(10, matchedOrder2.getOpenQuantity());
+  CHECK_EQUAL(100, matchedOrder2.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder2.getLastExecutedPrice());
+  CHECK_EQUAL(100, matchedOrder2.getLastExecutedQuantity());
 
-  assert(object.insert(order3));
-  assert(object.match("LNUX", orders));
-  assert(orders.size() == 2);
+  CHECK(object.insert(order3));
+  CHECK(object.match("LNUX", orders));
+  CHECK_EQUAL(2, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();
   matchedOrder2 = orders.front();
   orders.pop();
 
-  assert(matchedOrder3.getClientID() == "3");
-  assert(!matchedOrder3.isFilled());
-  assert(!matchedOrder3.isClosed());
-  assert(matchedOrder3.getOpenQuantity() == 90);
-  assert(matchedOrder3.getExecutedQuantity() == 10);
-  assert(matchedOrder3.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder3.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder3.getLastExecutedQuantity() == 10);
+  CHECK_EQUAL("3", matchedOrder3.getClientID());
+  CHECK(!matchedOrder3.isFilled());
+  CHECK(!matchedOrder3.isClosed());
+  CHECK_EQUAL(90, matchedOrder3.getOpenQuantity());
+  CHECK_EQUAL(10, matchedOrder3.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder3.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder3.getLastExecutedPrice());
+  CHECK_EQUAL(10, matchedOrder3.getLastExecutedQuantity());
 
-  assert(matchedOrder2.getClientID() == "2");
-  assert(matchedOrder2.isFilled());
-  assert(matchedOrder2.isClosed());
-  assert(matchedOrder2.getOpenQuantity() == 0);
-  assert(matchedOrder2.getExecutedQuantity() == 110);
-  assert(matchedOrder2.getAvgExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedPrice() == 12.32);
-  assert(matchedOrder2.getLastExecutedQuantity() == 10);
+  CHECK_EQUAL("2", matchedOrder2.getClientID());
+  CHECK(matchedOrder2.isFilled());
+  CHECK(matchedOrder2.isClosed());
+  CHECK_EQUAL(0, matchedOrder2.getOpenQuantity());
+  CHECK_EQUAL(110, matchedOrder2.getExecutedQuantity());
+  CHECK_EQUAL(12.32, matchedOrder2.getAvgExecutedPrice());
+  CHECK_EQUAL(12.32, matchedOrder2.getLastExecutedPrice());
+  CHECK_EQUAL(10, matchedOrder2.getLastExecutedQuantity());
 
 }
