@@ -1,11 +1,21 @@
 #include "../UnitTest++.h"
 #include "../DeferredTestReporter.h"
-
-#include <string>
+#include "../Config.h"
 #include <cstring>
 
 namespace UnitTest
 {
+
+namespace 
+{
+
+#ifdef UNITTEST_USE_CUSTOM_STREAMS
+	MemoryOutStream& operator <<(MemoryOutStream& lhs, const std::string& rhs)
+	{
+		lhs << rhs.c_str();
+		return lhs;
+	}
+#endif
 
 struct MockDeferredTestReporter : public DeferredTestReporter
 {
@@ -80,7 +90,7 @@ TEST_FIXTURE(DeferredTestReporterFixture, ReportFailureSavesFailureDetailsForMul
     reporter.ReportFailure(details, failure2);
 
     DeferredTestResult const& result = reporter.GetResults().at(0);
-    CHECK_EQUAL(2u, result.failures.size());
+    CHECK_EQUAL(2, (int)result.failures.size());
     CHECK_EQUAL(failure1, result.failures[0].second);
     CHECK_EQUAL(failure2, result.failures[1].second);
 }
@@ -93,13 +103,15 @@ TEST_FIXTURE(DeferredTestReporterFixture, DeferredTestReporterTakesCopyOfFailure
     char const* goodStr = "Real failure message";
     char const* badStr = "Bogus failure message";
     
-    std::strcpy(failureMessage, goodStr);
+	using namespace std;
+
+    strcpy(failureMessage, goodStr);
     reporter.ReportFailure(details, failureMessage);
-    std::strcpy(failureMessage, badStr);
+    strcpy(failureMessage, badStr);
 
     DeferredTestResult const& result = reporter.GetResults().at(0);
     DeferredTestResult::Failure const& failure = result.failures.at(0);
     CHECK_EQUAL(goodStr, failure.second);
 }
 
-}
+}}

@@ -1,6 +1,5 @@
 #include "DeferredTestResult.h"
-
-#include <cstdlib>
+#include "Config.h"
 
 namespace UnitTest
 {
@@ -20,6 +19,10 @@ DeferredTestResult::DeferredTestResult(char const* suite, char const* test)
 	, failureFile("")
 	, timeElapsed(0.0f)
 	, failed(false)
+{
+}
+
+DeferredTestResult::~DeferredTestResult()
 {
 }
 

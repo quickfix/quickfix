@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS ?= -g -ansi -Wall -W -ansi # -pedantic
+CXXFLAGS ?= -g -Wall -W -Winline -ansi 
 LDFLAGS ?= 
 SED = sed
 MV = mv
@@ -24,7 +24,8 @@ src = src/AssertException.cpp \
 	src/MemoryOutStream.cpp \
 	src/DeferredTestReporter.cpp \
 	src/DeferredTestResult.cpp \
-	src/XmlTestReporter.cpp
+	src/XmlTestReporter.cpp \
+	src/CurrentTest.cpp
 	
 ifeq ($(MSYSTEM), MINGW32)
   src += src/Win32/TimeHelpers.cpp
@@ -47,7 +48,8 @@ test_src = src/tests/Main.cpp \
 	src/tests/TestTimeConstraintMacro.cpp \
 	src/tests/TestMemoryOutStream.cpp \
 	src/tests/TestDeferredTestReporter.cpp \
-	src/tests/TestXmlTestReporter.cpp
+	src/tests/TestXmlTestReporter.cpp \
+	src/tests/TestCurrentTest.cpp
 
 objects = $(patsubst %.cpp, %.o, $(src))
 test_objects = $(patsubst %.cpp, %.o, $(test_src))
@@ -81,9 +83,6 @@ $(test): $(lib) $(test_objects)
 
 clean:
 	-@$(RM) $(objects) $(test_objects) $(dependencies) $(test_dependencies) $(test) $(lib) 2> /dev/null
-
-install:
-
 
 %.o : %.cpp
 	@echo $<

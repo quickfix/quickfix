@@ -117,7 +117,10 @@
 		<File
 			RelativePath=".\src\tests\RecordingReporter.h">
 		</File>
-		<File
+        <File
+            RelativePath=".\src\tests\ScopedCurrentTest.h">
+        </File>
+        <File
 			RelativePath=".\src\tests\TestAssertHandler.cpp">
 		</File>
 		<File
@@ -126,6 +129,9 @@
 		<File
 			RelativePath=".\src\tests\TestChecks.cpp">
 		</File>
+        <File
+            RelativePath=".\src\tests\TestCurrentTest.cpp">
+        </File>
         <File
             RelativePath=".\src\tests\TestDeferredTestReporter.cpp">
         </File>

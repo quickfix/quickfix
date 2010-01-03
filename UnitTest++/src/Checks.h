@@ -66,13 +66,18 @@ void CheckArrayEqual(TestResults& results, Expected const& expected, Actual cons
     if (!equal)
     {
         UnitTest::MemoryOutStream stream;
-        stream << "Expected [ ";
-        for (int i = 0; i < count; ++i)
-            stream << expected[i] << " ";
-        stream << "] but was [ ";
-        for (int i = 0; i < count; ++i)
-            stream << actual[i] << " ";
-        stream << "]";
+
+		stream << "Expected [ ";
+
+		for (int expectedIndex = 0; expectedIndex < count; ++expectedIndex)
+            stream << expected[expectedIndex] << " ";
+
+		stream << "] but was [ ";
+
+		for (int actualIndex = 0; actualIndex < count; ++actualIndex)
+            stream << actual[actualIndex] << " ";
+
+		stream << "]";
 
         results.OnTestFailure(details, stream.GetText());
     }
@@ -96,12 +101,14 @@ void CheckArrayClose(TestResults& results, Expected const& expected, Actual cons
     if (!equal)
     {
         UnitTest::MemoryOutStream stream;
+
         stream << "Expected [ ";
-        for (int i = 0; i < count; ++i)
-            stream << expected[i] << " ";
+        for (int expectedIndex = 0; expectedIndex < count; ++expectedIndex)
+            stream << expected[expectedIndex] << " ";
         stream << "] +/- " << tolerance << " but was [ ";
-        for (int i = 0; i < count; ++i)
-            stream << actual[i] << " ";
+
+		for (int actualIndex = 0; actualIndex < count; ++actualIndex)
+            stream << actual[actualIndex] << " ";
         stream << "]";
 
         results.OnTestFailure(details, stream.GetText());
@@ -119,23 +126,28 @@ void CheckArray2DClose(TestResults& results, Expected const& expected, Actual co
     if (!equal)
     {
         UnitTest::MemoryOutStream stream;
+
         stream << "Expected [ ";    
-        for (int i = 0; i < rows; ++i)
+
+		for (int expectedRow = 0; expectedRow < rows; ++expectedRow)
         {
             stream << "[ ";
-            for (int j = 0; j < columns; ++j)
-                stream << expected[i][j] << " ";
+            for (int expectedColumn = 0; expectedColumn < columns; ++expectedColumn)
+                stream << expected[expectedRow][expectedColumn] << " ";
             stream << "] ";
         }
-        stream << "] +/- " << tolerance << " but was [ ";
-        for (int i = 0; i < rows; ++i)
+
+		stream << "] +/- " << tolerance << " but was [ ";
+
+		for (int actualRow = 0; actualRow < rows; ++actualRow)
         {
             stream << "[ ";
-            for (int j = 0; j < columns; ++j)
-                stream << actual[i][j] << " ";
+            for (int actualColumn = 0; actualColumn < columns; ++actualColumn)
+                stream << actual[actualRow][actualColumn] << " ";
             stream << "] ";
         }
-        stream << "]";
+
+		stream << "]";
 
         results.OnTestFailure(details, stream.GetText());
     }

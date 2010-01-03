@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\lib\debug"
+			OutputDirectory="$(SolutionDir)lib\debug"
 			IntermediateDirectory="obj\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -80,7 +80,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\lib"
+			OutputDirectory="$(SolutionDir)lib"
 			IntermediateDirectory="obj\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -178,6 +178,14 @@
 		</File>
 		<File
 			RelativePath=".\src\Config.h"
+			>
+		</File>
+		<File
+			RelativePath=".\src\CurrentTest.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\src\CurrentTest.h"
 			>
 		</File>
 		<File

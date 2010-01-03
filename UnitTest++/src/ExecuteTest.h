@@ -4,6 +4,7 @@
 #include "TestDetails.h"
 #include "MemoryOutStream.h"
 #include "AssertException.h"
+#include "CurrentTest.h"
 
 #ifdef UNITTEST_POSIX
 	#include "Posix/SignalTranslator.h"
@@ -12,28 +13,31 @@
 namespace UnitTest {
 
 template< typename T >
-void ExecuteTest(T& testObject, TestResults& testResults, TestDetails const& details)
+void ExecuteTest(T& testObject, TestDetails const& details)
 {
+	CurrentTest::Details() = &details;
+
 	try
 	{
 #ifdef UNITTEST_POSIX
 		UNITTEST_THROW_SIGNALS
 #endif
-		testObject.RunImpl(testResults);
+		testObject.RunImpl();
 	}
 	catch (AssertException const& e)
 	{
-		testResults.OnTestFailure( TestDetails(details.testName, details.suiteName, e.Filename(), e.LineNumber()), e.what());
+		CurrentTest::Results()->OnTestFailure(
+			TestDetails(details.testName, details.suiteName, e.Filename(), e.LineNumber()), e.what());
 	}
 	catch (std::exception const& e)
 	{
 		MemoryOutStream stream;
 		stream << "Unhandled exception: " << e.what();
-		testResults.OnTestFailure(details, stream.GetText());
+		CurrentTest::Results()->OnTestFailure(details, stream.GetText());
 	}
 	catch (...)
 	{
-		testResults.OnTestFailure(details, "Unhandled exception: Crash!");
+		CurrentTest::Results()->OnTestFailure(details, "Unhandled exception: Crash!");
 	}
 }
 

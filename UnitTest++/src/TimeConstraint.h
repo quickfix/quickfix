@@ -11,7 +11,7 @@ class TestDetails;
 class TimeConstraint
 {
 public:
-    TimeConstraint(int ms, TestResults& result, TestDetails const& details);
+    TimeConstraint(int ms, TestDetails const& details);
     ~TimeConstraint();
 
 private:
@@ -19,13 +19,12 @@ private:
 	TimeConstraint(TimeConstraint const&);
 
 	Timer m_timer;
-    TestResults& m_result;
     TestDetails const& m_details;
 	int const m_maxMs;
 };
 
 #define UNITTEST_TIME_CONSTRAINT(ms) \
-	UnitTest::TimeConstraint unitTest__timeConstraint__(ms, testResults_, UnitTest::TestDetails(m_details, __LINE__))
+	UnitTest::TimeConstraint unitTest__timeConstraint__(ms, UnitTest::TestDetails(m_details, __LINE__))
 
 #define UNITTEST_TIME_CONSTRAINT_EXEMPT() do { m_timeConstraintExempt = true; } while (0)
 

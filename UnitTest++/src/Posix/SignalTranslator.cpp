@@ -6,7 +6,7 @@ sigjmp_buf* SignalTranslator::s_jumpTarget = 0;
 
 namespace {
 
-void SignalHandler (int sig)
+void SignalHandler(int sig)
 {
     siglongjmp(*SignalTranslator::s_jumpTarget, sig );
 }
@@ -14,7 +14,7 @@ void SignalHandler (int sig)
 }
 
 
-SignalTranslator::SignalTranslator ()
+SignalTranslator::SignalTranslator()
 {
     m_oldJumpTarget = s_jumpTarget;
     s_jumpTarget = &m_currentJumpTarget;

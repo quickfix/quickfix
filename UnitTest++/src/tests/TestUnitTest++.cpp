@@ -1,5 +1,6 @@
 #include "../UnitTest++.h"
 #include "../ReportAssert.h"
+#include "ScopedCurrentTest.h"
 
 #include <vector>
 
@@ -30,7 +31,7 @@ TEST(ValidCheckEqualSucceeds)
 TEST(CheckEqualWorksWithPointers)
 {
     void* p = (void *)0;
-    CHECK_EQUAL ((void*)0, p);
+    CHECK_EQUAL((void*)0, p);
 }
 
 TEST(ValidCheckCloseSucceeds)
@@ -43,7 +44,7 @@ TEST(ArrayCloseSucceeds)
 {
     float const a1[] = {1, 2, 3};
     float const a2[] = {1, 2.01f, 3};
-    CHECK_ARRAY_CLOSE (a1, a2, 3, 0.1f);
+    CHECK_ARRAY_CLOSE(a1, a2, 3, 0.1f);
 }
 
 TEST (CheckArrayCloseWorksWithVectors)
@@ -52,7 +53,7 @@ TEST (CheckArrayCloseWorksWithVectors)
     for (int i = 0; i < 4; ++i)
         a[i] = (float)i;
 
-    CHECK_ARRAY_CLOSE (a, a, (int)a.size(), 0.0001f);
+    CHECK_ARRAY_CLOSE(a, a, (int)a.size(), 0.0001f);
 }
 
 TEST(CheckThrowMacroSucceedsOnCorrectException)
@@ -76,17 +77,21 @@ TEST(CheckThrowMacroFailsOnMissingException)
         {
         }
 
-        virtual void RunImpl(UnitTest::TestResults& testResults_) const
+        virtual void RunImpl() const
         {
             CHECK_THROW(DontThrow(), int);
         }
     };
 
     UnitTest::TestResults results;
+	{
+		ScopedCurrentTest scopedResults(results);
 
-    NoThrowTest test;
-    test.Run(results);
-    CHECK_EQUAL(1, results.GetFailureCount());
+		NoThrowTest test;
+		test.Run();
+	}
+
+	CHECK_EQUAL(1, results.GetFailureCount());
 }
 
 TEST(CheckThrowMacroFailsOnWrongException)
@@ -95,17 +100,21 @@ TEST(CheckThrowMacroFailsOnWrongException)
     {
     public:
         WrongThrowTest() : Test("wrongthrow") {}
-        virtual void RunImpl(UnitTest::TestResults& testResults_) const
+        virtual void RunImpl() const
         {
             CHECK_THROW(throw "oops", int);
         }
     };
 
     UnitTest::TestResults results;
+	{
+		ScopedCurrentTest scopedResults(results);
 
-    WrongThrowTest test;
-    test.Run(results);
-    CHECK_EQUAL(1, results.GetFailureCount());
+		WrongThrowTest test;
+		test.Run();
+	}
+
+	CHECK_EQUAL(1, results.GetFailureCount());
 }
 
 struct SimpleFixture
@@ -134,14 +143,14 @@ TEST_FIXTURE(SimpleFixture, OnlyOneFixtureAliveAtATime)
     CHECK_EQUAL(1, SimpleFixture::instanceCount);
 }
 
-TEST_UTILITY(UtilityTest, (int x))
+void CheckBool(const bool b)
 {
-	CHECK(x > 0);
+	CHECK(b);
 }
 
-TEST(CanCallUtilityTests)
+TEST(CanCallCHECKOutsideOfTestFunction)
 {
-	TEST_UTILITY_FUNC(UtilityTest)(3);
+	CheckBool(true);
 }
 
 }

@@ -16,7 +16,7 @@ void DeferredTestReporter::ReportFailure(TestDetails const& details, char const*
     r.failureFile = details.filename;
 }
 
-void DeferredTestReporter::ReportTestFinish(TestDetails const&, float const secondsElapsed)
+void DeferredTestReporter::ReportTestFinish(TestDetails const&, float secondsElapsed)
 {
     DeferredTestResult& r = m_results.back();
     r.timeElapsed = secondsElapsed;

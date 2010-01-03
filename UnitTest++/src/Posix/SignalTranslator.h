@@ -26,7 +26,7 @@ private:
     struct sigaction m_old_SIGALRM_action;
 };
 
-#ifdef SOLARIS
+#if !defined (__GNUC__)
     #define UNITTEST_EXTENSION
 #else
     #define UNITTEST_EXTENSION __extension__

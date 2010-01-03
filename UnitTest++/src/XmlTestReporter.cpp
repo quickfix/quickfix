@@ -1,4 +1,5 @@
 #include "XmlTestReporter.h"
+#include "Config.h"
 
 #include <iostream>
 #include <sstream>
@@ -10,7 +11,7 @@ using std::ostream;
 
 namespace {
 
-void ReplaceChar(string& str, char const c, string const& replacement)
+void ReplaceChar(string& str, char c, string const& replacement)
 {
     for (size_t pos = str.find(c); pos != string::npos; pos = str.find(c, pos + 1))
         str.replace(pos, 1, replacement);
@@ -29,7 +30,7 @@ string XmlEscape(string const& value)
     return escaped;
 }
 
-string BuildFailureMessage(string const& file, int const line, string const& message)
+string BuildFailureMessage(string const& file, int line, string const& message)
 {
     ostringstream failureMessage;
     failureMessage << file << "(" << line << ") : " << message;
@@ -45,8 +46,8 @@ XmlTestReporter::XmlTestReporter(ostream& ostream)
 {
 }
 
-void XmlTestReporter::ReportSummary(int const totalTestCount, int const failedTestCount,
-                                    int const failureCount, float const secondsElapsed)
+void XmlTestReporter::ReportSummary(int totalTestCount, int failedTestCount,
+                                    int failureCount, float secondsElapsed)
 {
     AddXmlElement(m_ostream, NULL);
 
@@ -76,8 +77,8 @@ void XmlTestReporter::AddXmlElement(ostream& os, char const* encoding)
     os << "?>";
 }
 
-void XmlTestReporter::BeginResults(std::ostream& os, int const totalTestCount, int const failedTestCount, 
-                                   int const failureCount, float const secondsElapsed)
+void XmlTestReporter::BeginResults(std::ostream& os, int totalTestCount, int failedTestCount, 
+                                   int failureCount, float secondsElapsed)
 {
    os << "<unittest-results"
        << " tests=\"" << totalTestCount << "\"" 

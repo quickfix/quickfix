@@ -7,7 +7,6 @@ SUITE(SameTestSuite)
 {
     TEST(DummyTest2)
     {
-        (void)testResults_;
     }
 }
 

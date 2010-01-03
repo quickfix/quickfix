@@ -17,12 +17,12 @@ class Timer
 public:
     Timer();
 	void Start();
-	int GetTimeInMs() const;    
+	double GetTimeInMs() const;    
 
 private:
     __int64 GetTime() const;
 
-    void* m_threadId;
+    void* m_threadHandle;
 
 #if defined(_WIN64)
     unsigned __int64 m_processAffinityMask;

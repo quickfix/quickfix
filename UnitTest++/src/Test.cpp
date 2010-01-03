@@ -18,7 +18,7 @@ TestList& Test::GetTestList()
     return s_list;
 }
 
-Test::Test(char const* testName, char const* suiteName, char const* filename, int const lineNumber)
+Test::Test(char const* testName, char const* suiteName, char const* filename, int lineNumber)
     : m_details(testName, suiteName, filename, lineNumber)
     , next(0)
     , m_timeConstraintExempt(false)
@@ -29,12 +29,12 @@ Test::~Test()
 {
 }
 
-void Test::Run(TestResults& testResults)
+void Test::Run()
 {
-	ExecuteTest(*this, testResults, m_details);
+	ExecuteTest(*this, m_details);
 }
 
-void Test::RunImpl(TestResults&) const
+void Test::RunImpl() const
 {
 }
 

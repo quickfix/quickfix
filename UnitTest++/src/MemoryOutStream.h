@@ -14,6 +14,7 @@ class MemoryOutStream : public std::ostringstream
 {
 public:
     MemoryOutStream() {}
+    ~MemoryOutStream() {}
     char const* GetText() const;
 
 private:

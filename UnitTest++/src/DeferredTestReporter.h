@@ -3,6 +3,7 @@
 
 #include "TestReporter.h"
 #include "DeferredTestResult.h"
+#include "Config.h"
 
 #include <vector>
 

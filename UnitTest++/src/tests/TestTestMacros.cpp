@@ -3,7 +3,9 @@
 #include "../TestList.h"
 #include "../TestResults.h"
 #include "../TestReporter.h"
+#include "../ReportAssert.h"
 #include "RecordingReporter.h"
+#include "ScopedCurrentTest.h"
 
 using namespace UnitTest;
 
@@ -12,13 +14,12 @@ namespace {
 TestList list1;
 TEST_EX(DummyTest, list1)
 {
-    (void)testResults_;
 }
 
 TEST (TestsAreAddedToTheListThroughMacro)
 {
-    CHECK (list1.GetHead() != 0);
-    CHECK (list1.GetHead()->next == 0);
+    CHECK(list1.GetHead() != 0);
+    CHECK(list1.GetHead()->next == 0);
 }
 
 struct ThrowingThingie
@@ -27,25 +28,28 @@ struct ThrowingThingie
     {
         if (!dummy)
             throw "Oops";
-    } 
+    }
+
     bool dummy;
 };
 
 TestList list2;
-TEST_FIXTURE_EX(ThrowingThingie,DummyTestName,list2)
+TEST_FIXTURE_EX(ThrowingThingie, DummyTestName, list2)
 {
-    (void)testResults_;
 }
 
 TEST (ExceptionsInFixtureAreReportedAsHappeningInTheFixture)
 {
     RecordingReporter reporter;
     TestResults result(&reporter);
-    list2.GetHead()->Run(result);
+	{
+		ScopedCurrentTest scopedResults(result);
+		list2.GetHead()->Run();
+	}
 
-    CHECK (strstr(reporter.lastFailedMessage, "xception"));
-    CHECK (strstr(reporter.lastFailedMessage, "fixture"));
-    CHECK (strstr(reporter.lastFailedMessage, "ThrowingThingie"));
+    CHECK(strstr(reporter.lastFailedMessage, "xception"));
+    CHECK(strstr(reporter.lastFailedMessage, "fixture"));
+    CHECK(strstr(reporter.lastFailedMessage, "ThrowingThingie"));
 }
 
 struct DummyFixture
@@ -56,38 +60,29 @@ struct DummyFixture
 // We're really testing the macros so we just want them to compile and link
 SUITE(TestSuite1)
 {
-
 	TEST(SimilarlyNamedTestsInDifferentSuitesWork)
 	{
-		(void)testResults_;
 	}
 
-	TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
+	TEST_FIXTURE(DummyFixture, SimilarlyNamedFixtureTestsInDifferentSuitesWork)
 	{
-	    (void)testResults_;
 	}
-
 }
 
 SUITE(TestSuite2)
 {
-
 	TEST(SimilarlyNamedTestsInDifferentSuitesWork)
 	{
-	    (void)testResults_;
 	}
 
 	TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
 	{
-	    (void)testResults_;
 	}
-
 }
 
 TestList macroTestList1;
-TEST_EX(MacroTestHelper1,macroTestList1)
+TEST_EX(MacroTestHelper1, macroTestList1)
 {
-    (void)testResults_;
 }
 
 TEST(TestAddedWithTEST_EXMacroGetsDefaultSuite)
@@ -98,9 +93,8 @@ TEST(TestAddedWithTEST_EXMacroGetsDefaultSuite)
 }
 
 TestList macroTestList2;
-TEST_FIXTURE_EX(DummyFixture,MacroTestHelper2,macroTestList2)
+TEST_FIXTURE_EX(DummyFixture, MacroTestHelper2, macroTestList2)
 {
-    (void)testResults_;
 }
 
 TEST(TestAddedWithTEST_FIXTURE_EXMacroGetsDefaultSuite)
@@ -118,7 +112,6 @@ struct FixtureCtorThrows
 TestList throwingFixtureTestList1;
 TEST_FIXTURE_EX(FixtureCtorThrows, FixtureCtorThrowsTestName, throwingFixtureTestList1)
 {
-	(void)testResults_;
 }
 
 TEST(FixturesWithThrowingCtorsAreFailures)
@@ -126,7 +119,10 @@ TEST(FixturesWithThrowingCtorsAreFailures)
 	CHECK(throwingFixtureTestList1.GetHead() != NULL);
 	RecordingReporter reporter;
 	TestResults result(&reporter);
-	throwingFixtureTestList1.GetHead()->Run(result);
+	{
+		ScopedCurrentTest scopedResult(result);
+		throwingFixtureTestList1.GetHead()->Run();
+	}
 
 	int const failureCount = result.GetFailedTestCount();
 	CHECK_EQUAL(1, failureCount);
@@ -141,19 +137,52 @@ struct FixtureDtorThrows
 TestList throwingFixtureTestList2;
 TEST_FIXTURE_EX(FixtureDtorThrows, FixtureDtorThrowsTestName, throwingFixtureTestList2)
 {
-	(void)testResults_;
 }
 
 TEST(FixturesWithThrowingDtorsAreFailures)
 {
 	CHECK(throwingFixtureTestList2.GetHead() != NULL);
+
 	RecordingReporter reporter;
 	TestResults result(&reporter);
-	throwingFixtureTestList2.GetHead()->Run(result);
+	{
+		ScopedCurrentTest scopedResult(result);
+		throwingFixtureTestList2.GetHead()->Run();
+	}
 
 	int const failureCount = result.GetFailedTestCount();
 	CHECK_EQUAL(1, failureCount);
 	CHECK(strstr(reporter.lastFailedMessage, "while destroying fixture"));
+}
+
+const int FailingLine = 123;
+
+struct FixtureCtorAsserts
+{
+	FixtureCtorAsserts()
+	{
+		UnitTest::ReportAssert("assert failure", "file", FailingLine);
+	}
+};
+
+TestList ctorAssertFixtureTestList;
+TEST_FIXTURE_EX(FixtureCtorAsserts, CorrectlyReportsAssertFailureInCtor, ctorAssertFixtureTestList)
+{
+}
+
+TEST(CorrectlyReportsFixturesWithCtorsThatAssert)
+{
+	RecordingReporter reporter;
+	TestResults result(&reporter);
+	{
+		ScopedCurrentTest scopedResults(result);
+		ctorAssertFixtureTestList.GetHead()->Run();
+	}
+
+	const int failureCount = result.GetFailedTestCount();
+	CHECK_EQUAL(1, failureCount);
+	CHECK_EQUAL(FailingLine, reporter.lastFailedLine);
+	CHECK(strstr(reporter.lastFailedMessage, "assert failure"));
 }
 
 }
@@ -165,7 +194,19 @@ SUITE(SameTestSuite)
 {
 	TEST(DummyTest1)
 	{
-	    (void)testResults_;
 	}
 }
 
+#define CUR_TEST_NAME CurrentTestDetailsContainCurrentTestInfo
+#define INNER_STRINGIFY(X) #X
+#define STRINGIFY(X) INNER_STRINGIFY(X)
+
+TEST(CUR_TEST_NAME)
+{
+	const UnitTest::TestDetails* details = CurrentTest::Details();
+	CHECK_EQUAL(STRINGIFY(CUR_TEST_NAME), details->testName);
+}
+
+#undef CUR_TEST_NAME
+#undef INNER_STRINGIFY
+#undef STRINGIFY
