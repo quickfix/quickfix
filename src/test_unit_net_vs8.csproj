@@ -43,7 +43,6 @@
     <Compile Include="FieldTest.cs" />
     <Compile Include="MessageTest.cs" />
     <Compile Include="OrderTest.cs" />
-    <Compile Include="Properties\TestAssemblyInfo_vs8.cs" />
     <Compile Include="SessionSettingsTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +55,9 @@
       <Name>quickfix_net_vs8</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -67,7 +69,6 @@
   <PropertyGroup>
     <PostBuildEvent>set CONFIGURATION_NAME=$(ConfigurationName)
 if "%25CONFIGURATION_NAME%25" == "Release" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib"
-if "%25CONFIGURATION_NAME%25" == "Debug" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib\debug"
- xcopy "$(SolutionDir)\lib\nunit.framework.dll" /Y "$(SolutionDir)lib\debug"</PostBuildEvent>
+if "%25CONFIGURATION_NAME%25" == "Debug" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib\debug"</PostBuildEvent>
   </PropertyGroup>
 </Project>

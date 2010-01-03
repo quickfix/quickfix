@@ -15,6 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_jni_vs7", "src\jav
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_unit_vs7", "src\test_unit_vs7.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5} = {7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
@@ -56,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example_executor_csharp_vs7
 	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "example_executor_vbnet_vs7", "examples\executor\vbnet\example_executor_vbnet_vs7.vbproj", "{DA675460-F6E5-458C-BCEB-45B2986C90FC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest++.vsnet2003", "UnitTest++\UnitTest++.vsnet2003.vcproj", "{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -117,6 +122,10 @@ Global
 		{DA675460-F6E5-458C-BCEB-45B2986C90FC}.Debug.Build.0 = Debug|.NET
 		{DA675460-F6E5-458C-BCEB-45B2986C90FC}.Release.ActiveCfg = Release|.NET
 		{DA675460-F6E5-458C-BCEB-45B2986C90FC}.Release.Build.0 = Release|.NET
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Debug.ActiveCfg = Debug|Win32
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Debug.Build.0 = Debug|Win32
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Release.ActiveCfg = Release|Win32
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

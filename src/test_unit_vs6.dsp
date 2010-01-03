@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I ".." /I "c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I /src/socket" " /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I ".." /I "c++" /I "c++\test" /I "..\UnitTest++\src" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I /src/socket" " /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -51,7 +51,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
-# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"..\test\release\ut\ut.exe" /libpath:"..\lib"
+# ADD LINK32 quickfix.lib UnitTestPP_vs6.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"..\test\release\ut\ut.exe" /libpath:"..\lib"
 # SUBTRACT LINK32 /profile
 
 !ELSEIF  "$(CFG)" == "test_unit_vs6 - Win32 Debug"
@@ -68,7 +68,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I ".." /I "c++" /D "_CONSOLE" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /I /src/socket" /GZ " /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I ".." /I "c++" /I "c++\test" /I "..\UnitTest++\src" /D "_CONSOLE" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /I /src/socket" /GZ " /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -77,7 +77,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"..\test\debug\ut\ut.exe" /pdbtype:sept /libpath:"..\lib\debug"
+# ADD LINK32 quickfix.lib UnitTestPP_vs6.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"..\test\debug\ut\ut.exe" /pdbtype:sept /libpath:"..\lib\debug"
 
 !ENDIF 
 
@@ -88,10 +88,6 @@ LINK32=link.exe
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
-# Begin Source File
-
-SOURCE=".\C++\test\AcceptorTestCase.cpp"
-# End Source File
 # Begin Source File
 
 SOURCE=".\C++\test\DataDictionaryTestCase.cpp"
@@ -142,10 +138,6 @@ SOURCE=".\C++\test\MessagesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\MessageStoreTestCase.cpp"
-# End Source File
-# Begin Source File
-
 SOURCE=".\C++\test\MySQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -190,11 +182,11 @@ SOURCE=".\C++\test\SocketServerTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\SocketUtilitiesTestCase.cpp"
+SOURCE=".\C++\test\StringUtilitiesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\StringUtilitiesTestCase.cpp"
+SOURCE=".\C++\test\TestHelper.cpp"
 # End Source File
 # Begin Source File
 
@@ -323,6 +315,10 @@ SOURCE=".\C++\test\SocketUtilitiesTestCase.h"
 # Begin Source File
 
 SOURCE=".\C++\test\StringUtilitiesTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\TestHelper.h"
 # End Source File
 # Begin Source File
 

@@ -1,150 +1,152 @@
-#include "ProcessTestCase.h"
+/****************************************************************************
+** Copyright (c) quickfixengine.org  All rights reserved.
+**
+** This file is part of the QuickFIX FIX Engine
+**
+** This file may be distributed under the terms of the quickfixengine.org
+** license as defined by quickfixengine.org and appearing in the file
+** LICENSE included in the packaging of this file.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+**
+** See http://www.quickfixengine.org/LICENSE for licensing information.
+**
+** Contact ask@quickfixengine.org if any conditions of this licensing are
+** not clear to you.
+**
+****************************************************************************/
 
+#include <UnitTest++.h>
 #include <fstream>
+#include "../Process.h"
 
-namespace ATRUN
+using namespace ATRUN;
+
+std::string chompDriveLetter(const std::string& s)
 {
-  std::string chompDriveLetter(const std::string& s)
-  {
-    std::string::size_type pos = s.find_first_of('\\');
-    if(pos == std::string::npos)
-      return s;
+  std::string::size_type pos = s.find_first_of('\\');
+  if(pos == std::string::npos)
+    return s;
 
-    std::string result = s;
-    result.replace(0,pos+1,"\\");
+  std::string result = s;
+  result.replace(0,pos+1,"\\");
 
-    return result;
-  }
+  return result;
+}
 
-  static std::string g_startDir("\\projects\\quickfix\\test");
+static std::string g_startDir("\\projects\\quickfix\\test");
 
-  bool ProcessTestCase::createProcess::onSetup( Process*& pObject )
-  {
-    SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
-    pObject = &m_Process; return true;
-  }
+TEST(createProcess)
+{
+  SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
+  Process object;
 
-  void ProcessTestCase::createProcess::onRun( Process& object )
-  {
-    object.setCommandLine("noproc yada yada");
-    object.setWorkingDirectory("..");
+  object.setCommandLine("noproc yada yada");
+  object.setWorkingDirectory("..");
 
-    object.create();
-    assert(object.created() == false);
+  object.create();
+  CHECK(!object.created());
 
-    object.setCommandLine("cmd /C ECHO Hello World!");
+  object.setCommandLine("cmd /C ECHO Hello World!");
 
-    object.create();
-    assert(object.created() == true);
+  object.create();
+  CHECK(object.created());
+}
 
-  }
+TEST(sendOutputToFile)
+{
+  SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
+  Process object;
 
-  bool ProcessTestCase::sendOutputToFile::onSetup( Process*& pObject )
-  {
-    SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
-    pObject = &m_Process; return true;
-  }
+  std::string expected = "Heidy Ho!";
+  std::string cmdl = "cmd /C ECHO ";
+  object.setCommandLine(cmdl + expected);
 
-  void ProcessTestCase::sendOutputToFile::onRun( Process& object )
-  {
-    std::string expected = "Heidy Ho!";
-    std::string cmdl = "cmd /C ECHO ";
-    object.setCommandLine(cmdl + expected);
+  std::string outfile = "sendOutputToFile.txt";
+  object.setOutFile(outfile);
+  object.sendToFile(true);
 
-    std::string outfile = "sendOutputToFile.txt";
-    object.setOutFile(outfile);
-    object.sendToFile(true);
+  object.create();
+  object.waitFor();
 
-    object.create();
-    object.waitFor();
+  std::string line;
+  std::ifstream f(outfile.c_str());
+  std::getline(f,line);
+  CHECK_EQUAL(expected, line);
+}
 
-    std::string line;
-    std::ifstream f(outfile.c_str());
-    std::getline(f,line);
-    assert(line == expected);
-  }
+TEST(setWorkingDirectory)
+{
+  SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
+  Process object;
 
-  bool ProcessTestCase::setWorkingDirectory::onSetup( Process*& pObject )
-  {
-    SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
-    pObject = &m_Process; return true;
-  }
+  std::string outfile("setWorkingDirectory.txt");
 
-  void ProcessTestCase::setWorkingDirectory::onRun( Process& object )
-  {
-    std::string outfile("setWorkingDirectory.txt");
+  object.setCommandLine("cmd /C ECHO %CD%");  //write the current directory to file
+  object.setOutFile(outfile);
+  object.sendToFile(true);
+  object.setWorkingDirectory("..");
 
-    object.setCommandLine("cmd /C ECHO %CD%");  //write the current directory to file
-    object.setOutFile(outfile);
-    object.sendToFile(true);
-    object.setWorkingDirectory("..");
+  object.create();
+  object.waitFor();
 
-    object.create();
-    object.waitFor();
+  std::string line;
+  std::ifstream f(outfile.c_str());
+  std::getline(f,line);
+  CHECK_EQUAL("\\projects\\quickfix", chompDriveLetter(line));
 
-    std::string line;
-    std::ifstream f(outfile.c_str());
-    std::getline(f,line);
-    assert(chompDriveLetter(line) == "\\projects\\quickfix");
+  char curdir[100];
+  GetCurrentDirectory(sizeof(curdir), curdir);
+  std::string expected(curdir);
+  CHECK_EQUAL( g_startDir, chompDriveLetter(expected) );
+}
 
-    char curdir[100];
-    GetCurrentDirectory(sizeof(curdir), curdir);
-    std::string expected(curdir);
-    assert( chompDriveLetter(expected) == g_startDir );
-  }
+TEST(terminateProcess)
+{
+  SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
+  Process object;
 
-  bool ProcessTestCase::terminateProcess::onSetup( Process*& pObject )
-  {
-    SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
-    pObject = &m_Process; return true;
-  }
+  std::string cmdl = "cmd /C PAUSE";
+  object.setCommandLine(cmdl);
 
-  void ProcessTestCase::terminateProcess::onRun( Process& object )
-  {
-    std::string cmdl = "cmd /C PAUSE";
-    object.setCommandLine(cmdl);
+  std::string outfile("destroyProcess.txt");
+  object.setOutFile(outfile);
+  object.sendToFile(true);
 
-    std::string outfile("destroyProcess.txt");
-    object.setOutFile(outfile);
-    object.sendToFile(true);
+  object.create();
+  CHECK(object.created());
+  CHECK(object.getProcessId() > 0);
 
-    object.create();
-    assert(object.created() == true);
-    assert(object.getProcessId() > 0);
+  object.terminate();
+  CHECK(!object.created());
+  CHECK_EQUAL(-1, object.getProcessId());
 
-    object.terminate();
-    assert(object.created() == false);
-    assert(object.getProcessId() == -1);
+  Sleep(1000); //give file a chance to close
+  std::ofstream f(outfile.c_str());
+  CHECK(!f.fail());
+}
 
-    Sleep(1000); //give file a chance to close
-    std::ofstream f(outfile.c_str());
-    assert(!f.fail());
-  }
+TEST(waitFor)
+{
+  SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
+  Process object;
 
-  bool ProcessTestCase::waitFor::onSetup( Process*& pObject )
-  {
-    SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
-    pObject = &m_Process; return true;
-  }
+  std::string outfile("waitfor.txt");
 
-  void ProcessTestCase::waitFor::onRun( Process& object )
-  {
-    std::string outfile("waitfor.txt");
+  object.setCommandLine("cmd /C sleep 5");  //requires cygwin
+  object.setOutFile(outfile);
+  object.sendToFile(true);
 
-    object.setCommandLine("cmd /C sleep 5");  //requires cygwin
-    object.setOutFile(outfile);
-    object.sendToFile(true);
+  object.create();
+  object.waitFor();
+  CHECK(!object.created());
 
-    object.create();
-    object.waitFor();
-    assert(object.created() == false);
+  std::ofstream f(outfile.c_str());
+  CHECK( !(f.fail()) );
 
-    std::ofstream f(outfile.c_str());
-    assert( !(f.fail()) );
+  CHECK_EQUAL(-1, object.getProcessId());
 
-    assert(object.getProcessId() == -1);
-
-    //could also assert that the waitFor() call holds for 5 seconds
-    //because of the sleep call
-  }
-} //namespcae ATRUN
+  //could also assert that the waitFor() call holds for 5 seconds
+  //because of the sleep call
+}

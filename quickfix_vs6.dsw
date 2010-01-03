@@ -3,6 +3,18 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
+Project: "UnitTestPP_vs6"=".\UnitTest++\UnitTestPP_vs6.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
 Project: "example_executor_cpp_vs6"=".\examples\executor\C++\example_executor_cpp_vs6.dsp" - Package Owner=<4>
 
 Package=<5>
@@ -127,6 +139,9 @@ Package=<4>
 {{{
     Begin Project Dependency
     Project_Dep_Name quickfix_vs6
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UnitTestPP_vs6
     End Project Dependency
 }}}
 

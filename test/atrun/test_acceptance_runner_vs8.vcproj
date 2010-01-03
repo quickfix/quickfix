@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..,..\..\.."
+				AdditionalIncludeDirectories="..\..,..\..\..,$(SolutionDir)\UnitTest++\src"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -72,10 +72,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib UnitTest++.vsnet2005.lib"
 				OutputFile="$(OutDir)\atrun.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Debug/atrun.pdb"
 				SubSystem="1"
@@ -134,7 +135,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..,..\..\.."
+				AdditionalIncludeDirectories="..\..,..\..\..,$(SolutionDir)\UnitTest++\src"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -163,10 +164,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib  UnitTest++.vsnet2005.lib"
 				OutputFile="$(OutDir)\atrun.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib\release"
 				ProgramDatabaseFile=".\Release/atrun.pdb"
 				SubSystem="1"
 			/>

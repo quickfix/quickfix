@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <signal.h>
+#include <UnitTest++.h>
 
 #include "TestSuite.h"
-#include <CPPTest/TestStandardOutputDisplay.h>
 
 #include "Process.h"
 
@@ -60,9 +60,9 @@ int main( int argc, char** argv )
 
 int doTestMode()
 {
-  CPPTest::TestStandardOutputDisplay display;
-  TestSuite suite(display);
-  suite.run();
+  std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
+  int result = UnitTest::RunAllTests();
+  std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
   return 0;
 }
 

@@ -24,7 +24,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="$(SolutionDir),$(SolutionDir)\src\C++"
+				AdditionalIncludeDirectories="$(SolutionDir),$(SolutionDir)\src\C++,$(SolutionDir)\src\C++\test,$(SolutionDir)\UnitTest++\src"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -44,7 +44,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				AdditionalDependencies="quickfix.lib UnitTest++.vsnet2003.lib ws2_32.lib odbc32.lib odbccp32.lib"
 				OutputFile="$(OutDir)\ut.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -87,7 +87,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "
 				Optimization="0"
-				AdditionalIncludeDirectories="$(SolutionDir),$(SolutionDir)\src\C++"
+				AdditionalIncludeDirectories="$(SolutionDir),$(SolutionDir)\src\C++,$(SolutionDir)\src\C++\test,$(SolutionDir)\UnitTest++\src"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -108,7 +108,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				AdditionalDependencies="quickfix.lib UnitTest++.vsnet2003.lib ws2_32.lib odbc32.lib odbccp32.lib"
 				OutputFile="$(OutDir)\ut.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -148,9 +148,6 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath=".\C++\test\AcceptorTestCase.cpp">
-			</File>
-			<File
 				RelativePath=".\C++\test\DataDictionaryTestCase.cpp">
 			</File>
 			<File
@@ -185,9 +182,6 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\MessagesTestCase.cpp">
-			</File>
-			<File
-				RelativePath=".\C++\test\MessageStoreTestCase.cpp">
 			</File>
 			<File
 				RelativePath=".\C++\test\MySQLStoreTestCase.cpp">
@@ -226,10 +220,10 @@
 				RelativePath=".\C++\test\SocketServerTestCase.cpp">
 			</File>
 			<File
-				RelativePath=".\C++\test\SocketUtilitiesTestCase.cpp">
+				RelativePath=".\C++\test\StringUtilitiesTestCase.cpp">
 			</File>
 			<File
-				RelativePath=".\C++\test\StringUtilitiesTestCase.cpp">
+				RelativePath=".\C++\test\TestHelper.cpp">
 			</File>
 			<File
 				RelativePath=".\C++\test\TimeRangeTestCase.cpp">
@@ -330,6 +324,9 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\StringUtilitiesTestCase.h">
+			</File>
+			<File
+				RelativePath=".\C++\test\TestHelper.h">
 			</File>
 			<File
 				RelativePath=".\C++\test\TestSuite.h">
