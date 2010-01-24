@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 package quickfix.fix40;
 
 import quickfix.Message;

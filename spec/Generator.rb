@@ -5,13 +5,15 @@ require "GeneratorNET"
 require "GeneratorPython"
 require "GeneratorRuby"
 
-def generateVersion( v )
+def generateVersion( major, minor )
   dir = "../src"
-  Processor.new("FIX4#{v}.xml", "#{dir}/C++", GeneratorCPP.new("4", v.to_s, "#{dir}/C++"))
-  Processor.new("FIX4#{v}.xml", "#{dir}/java", GeneratorJava.new("4", v.to_s, "#{dir}/java"))
-  Processor.new("FIX4#{v}.xml", "#{dir}/.NET", GeneratorNET.new("4", v.to_s, "#{dir}/.NET"))
-  Processor.new("FIX4#{v}.xml", "#{dir}/python", GeneratorPython.new("4", v.to_s, "#{dir}/python"))
-  Processor.new("FIX4#{v}.xml", "#{dir}/ruby", GeneratorRuby.new("4", v.to_s, "#{dir}/ruby"))
+  xml = "FIX#{major}#{minor}.xml"
+  Processor.new(xml, "#{dir}/C++", GeneratorCPP.new(major.to_s, minor.to_s, "#{dir}/C++"))
+  Processor.new(xml, "#{dir}/java", GeneratorJava.new(major.to_s, minor.to_s, "#{dir}/java"))
+  Processor.new(xml, "#{dir}/.NET", GeneratorNET.new(major.to_s, minor.to_s, "#{dir}/.NET"))
+  Processor.new(xml, "#{dir}/python", GeneratorPython.new(major.to_s, minor.to_s, "#{dir}/python"))
+  Processor.new(xml, "#{dir}/ruby", GeneratorRuby.new(major.to_s, minor.to_s, "#{dir}/ruby"))
 end
 
-(0..4).each { |i| generateVersion( i ) }
+(0..4).each { |i| generateVersion( 4, i ) }
+generateVersion( 5, 0 )

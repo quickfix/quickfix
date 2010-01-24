@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX41_MESSAGECRACKER_H
 #define FIX41_MESSAGECRACKER_H
 
@@ -340,4 +340,3 @@ void crack( Message& message,
 }
 
 #endif //FIX41_MESSAGECRACKER_H
-
