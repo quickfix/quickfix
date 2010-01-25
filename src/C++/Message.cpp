@@ -288,7 +288,7 @@ throw( InvalidMessage )
   int count = 0;
   std::string msg;
 
-  static FIELD::Field const headerOrder[] =
+  static int const headerOrder[] =
   {
     FIELD::BeginString,
     FIELD::BodyLength,

@@ -25,8 +25,8 @@
 
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
-#ifndef FIX_FIELDNUMBERS_H
-#define FIX_FIELDNUMBERS_H
+#ifndef <xsl:value-of select="//fix/@type"/>_FIELDNUMBERS_H
+#define <xsl:value-of select="//fix/@type"/>_FIELDNUMBERS_H
 
 #include &lt;iostream&gt;
 #include "DeprecatedFieldNumbers.h"
@@ -35,42 +35,21 @@ namespace FIX
 {
   namespace FIELD
   {
-    enum Field
-    {
-      <xsl:apply-templates/>
-      ,FIX40_LastField = PrevClosePx
-      ,FIX41_LastField = PegDifference
-      ,FIX42_LastField = EncodedListStatusText
-      ,FIX43_LastField = SideComplianceID
-      ,FIX44_LastField = LegInterestAccrualDate
-    };
-
-    const int NormalMin = 1;
-    const int NormalMax = 4999;
-    const int UserMin = 5000;
-    const int UserMax = 9999;
-    const int InternalMin = 10000;
-  }
-
-  inline std::istream&amp; operator>> (std::istream&amp; stream, FIELD::Field&amp; field)
-  {
-    int fieldInteger;
-    stream >> fieldInteger;
-    field = static_cast&lt;FIELD::Field>(fieldInteger);
-    return stream;
+    <xsl:apply-templates/>
   }
 }
 
-#endif //FIX_FIELDNUMBERS_H&#013;
+#endif //<xsl:value-of select="//fix/@type"/>_FIELDNUMBERS_H
+
 </xsl:template>
 <xsl:template match="fields/field[position()=1]">
-     <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+     const int <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>;
 </xsl:template>
 <xsl:template match="fields/field[position()!=1]">
-     ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+     const int <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>;
 </xsl:template>
 <xsl:template match="fields/field[@name='TotNoOrders']">
-     ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
-     ,ListNoOrds = <xsl:value-of select="@number"/>
+     const int <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>;
+     const int ListNoOrds = <xsl:value-of select="@number"/>;
 </xsl:template>
 </xsl:stylesheet>

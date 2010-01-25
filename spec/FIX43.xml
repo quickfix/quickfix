@@ -1,4 +1,4 @@
-<fix major="4" minor="3">
+<fix type="FIX" major="4" minor="3">
   <header>
     <field name="BeginString" required="Y" />
     <field name="BodyLength" required="Y" />

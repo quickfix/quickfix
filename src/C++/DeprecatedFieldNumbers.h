@@ -26,37 +26,34 @@ namespace FIX
 {
   namespace FIELD
   {
-    enum DeprecatedField
-    {
-      IDSource = 22,
-      IOIOthSvc = 24,
-      IOIShares = 27,
-      LastShares = 32,
-      LinesOfText = 33,
-      RelatdSym = 46,
-      Rule80A = 47,
-      Shares = 53,
-      SettlmntTyp = 63,
-      FutSettDate = 64,
-      AvgPrxPrecision = 74,
-      OpenClose = 77,
-      AllocShares = 80,
-      FutSettDate2 = 193,
-      PegDifference = 211,
-      SpreadToBenchmark = 218,
-      OpenCloseSettleFlag = 286,
-      QuoteAckStatus = 297,
-      TotQuoteEntries = 304,
-      UnderlyingIDSource = 305,
-      DiscretionOffset = 389,
-      TotalNumSecurities = 393,
-      TradeType = 418,
-      CardIssNo = 491,
-      RegistDetls = 509,
-      TotalNumSecurityTypes = 557,
-      LegSettlmntTyp = 587,
-      LegFutSettDate = 588
-    };
+    const int IDSource = 22;
+    const int IOIOthSvc = 24;
+    const int IOIShares = 27;
+    const int LastShares = 32;
+    const int LinesOfText = 33;
+    const int RelatdSym = 46;
+    const int Rule80A = 47;
+    const int Shares = 53;
+    const int SettlmntTyp = 63;
+    const int FutSettDate = 64;
+    const int AvgPrxPrecision = 74;
+    const int OpenClose = 77;
+    const int AllocShares = 80;
+    const int FutSettDate2 = 193;
+    const int PegDifference = 211;
+    const int SpreadToBenchmark = 218;
+    const int OpenCloseSettleFlag = 286;
+    const int QuoteAckStatus = 297;
+    const int TotQuoteEntries = 304;
+    const int UnderlyingIDSource = 305;
+    const int DiscretionOffset = 389;
+    const int TotalNumSecurities = 393;
+    const int TradeType = 418;
+    const int CardIssNo = 491;
+    const int RegistDetls = 509;
+    const int TotalNumSecurityTypes = 557;
+    const int LegSettlmntTyp = 587;
+    const int LegFutSettDate = 588;
   }
 }
 

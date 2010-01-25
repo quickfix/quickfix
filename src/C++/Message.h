@@ -40,7 +40,7 @@ namespace FIX
 typedef FieldMap Header;
 typedef FieldMap Trailer;
 
-static FIELD::Field const headerOrder[] =
+static int const headerOrder[] =
   {
     FIELD::BeginString,
     FIELD::BodyLength,

@@ -597,6 +597,8 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type ) const
   if ( type == "QTY" ) return TYPE::Qty;
   if ( type == "CURRENCY" ) return TYPE::Currency;
   if ( type == "MULTIPLEVALUESTRING" ) return TYPE::MultipleValueString;
+  if ( type == "MULTIPLESTRINGVALUE" ) return TYPE::MultipleStringValue;
+  if ( type == "MULTIPLECHARVALUE" ) return TYPE::MultipleCharValue;
   if ( type == "EXCHANGE" ) return TYPE::Exchange;
   if ( type == "UTCTIMESTAMP" ) return TYPE::UtcTimeStamp;
   if ( type == "BOOLEAN" ) return TYPE::Boolean;

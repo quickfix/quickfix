@@ -636,6 +636,8 @@ typedef DoubleConvertor AMT_CONVERTOR;
 typedef DoubleConvertor QTY_CONVERTOR;
 typedef StringConvertor CURRENCY_CONVERTOR;
 typedef StringConvertor MULTIPLEVALUESTRING_CONVERTOR;
+typedef StringConvertor MULTIPLESTRINGVALUE_CONVERTOR;
+typedef StringConvertor MULTIPLECHARVALUE_CONVERTOR;
 typedef StringConvertor EXCHANGE_CONVERTOR;
 typedef UtcTimeStampConvertor UTCTIMESTAMP_CONVERTOR;
 typedef BoolConvertor BOOLEAN_CONVERTOR;
@@ -652,6 +654,8 @@ typedef DoubleConvertor PERCENTAGE_CONVERTOR;
 typedef IntConvertor SEQNUM_CONVERTOR;
 typedef IntConvertor LENGTH_CONVERTOR;
 typedef StringConvertor COUNTRY_CONVERTOR;
+typedef StringConvertor TZTIMEONLY_CONVERTOR;
+typedef StringConvertor TZTIMESTAMP_CONVERTOR;
 typedef CheckSumConvertor CHECKSUM_CONVERTOR;
 }
 

@@ -25,10 +25,9 @@
 
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
-#ifndef FIX_FIELDS_H
-#define FIX_FIELDS_H
+#ifndef <xsl:value-of select="//fix/@type"/>_FIELDS_H
+#define <xsl:value-of select="//fix/@type"/>_FIELDS_H
 
-#include "DeprecatedFields.h"
 #include "Field.h"
 
 #undef Yield
@@ -37,7 +36,7 @@ namespace FIX
 {
   <xsl:apply-templates/>
 }
-#endif //FIX_FIELDS_H&#013;
+#endif //<xsl:value-of select="//fix/@type"/>_FIELDS_H
 </xsl:template>
 
 <xsl:template match="fields/field[@name='CheckSum']">

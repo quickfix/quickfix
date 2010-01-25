@@ -631,6 +631,8 @@ typedef double FIX_AMT;
 typedef double FIX_QTY;
 typedef std::string FIX_CURRENCY;
 typedef std::string FIX_MULTIPLEVALUESTRING;
+typedef std::string FIX_MULTIPLESTRINGVALUE;
+typedef std::string FIX_MULTIPLECHARVALUE;
 typedef std::string FIX_EXCHANGE;
 typedef UtcTimeStamp FIX_UTCTIMESTAMP;
 typedef bool FIX_BOOLEAN;
@@ -648,6 +650,8 @@ typedef double FIX_PERCENTAGE;
 typedef int FIX_SEQNUM;
 typedef int FIX_LENGTH;
 typedef std::string FIX_COUNTRY;
+typedef std::string FIX_TZTIMEONLY;
+typedef std::string FIX_TZTIMESTAMP;
 
 namespace TYPE
 {
@@ -662,6 +666,8 @@ enum Type
   Qty,
   Currency,
   MultipleValueString,
+  MultipleStringValue,
+  MultipleCharValue,
   Exchange,
   UtcTimeStamp,
   Boolean,
@@ -678,7 +684,9 @@ enum Type
   Percentage,
   SeqNum,
   Length,
-  Country
+  Country,
+  TzTimeOnly,
+  TzTimeStamp
 };
 }
 }

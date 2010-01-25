@@ -219,10 +219,10 @@ public:
     FieldToValue::const_iterator i = m_fieldValues.find( field );
     if ( i == m_fieldValues.end() )
       return false;
-    if( !isMultipleValueStringField( field ) )
+    if( !isMultipleValueField( field ) )
       return i->second.find( value ) != i->second.end();
 
-    // MultipleValueString
+    // MultipleValue
     std::string::size_type startPos = 0;
     std::string::size_type endPos = 0;
     do
@@ -269,10 +269,13 @@ public:
     return i != m_fieldTypes.end() && i->second == TYPE::Data;
   }
 
-  bool isMultipleValueStringField( int field ) const
+  bool isMultipleValueField( int field ) const
   {
     FieldTypes::const_iterator i = m_fieldTypes.find( field );
-    return i != m_fieldTypes.end() && i->second == TYPE::MultipleValueString;
+    return i != m_fieldTypes.end() 
+      && (i->second == TYPE::MultipleValueString 
+          || i->second == TYPE::MultipleCharValue 
+          || i->second == TYPE::MultipleStringValue );
   }
 
   void checkFieldsOutOfOrder( bool value )
@@ -339,6 +342,10 @@ private:
         CURRENCY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::MultipleValueString:
         MULTIPLEVALUESTRING_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::MultipleStringValue:
+        MULTIPLESTRINGVALUE_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::MultipleCharValue:
+        MULTIPLECHARVALUE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Exchange:
         EXCHANGE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::UtcTimeStamp:
@@ -371,6 +378,10 @@ private:
         LENGTH_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Country:
         COUNTRY_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::TzTimeOnly:
+        TZTIMEONLY_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::TzTimeStamp:
+        TZTIMESTAMP_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Unknown: break;
       }
     }
