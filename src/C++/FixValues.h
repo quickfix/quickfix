@@ -119,7 +119,7 @@ namespace FIX
  const char MsgType_ExecutionAcknowledgement[] = "BN";
  const char MsgType_TradingSessionList[] = "BJ";
  const char MsgType_TradingSessionListRequest[] = "BI";
- const char MsgType_IOI[] = "6";
+ const char MsgType_IndicationOfInterest[] = "6";
  const char AdvSide_BUY = 'B';
  const char AdvSide_SELL = 'S';
  const char AdvSide_CROSS = 'X';

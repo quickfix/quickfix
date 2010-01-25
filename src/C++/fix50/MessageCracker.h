@@ -120,7 +120,7 @@ namespace FIX50
   class ExecutionAcknowledgement; 
   class TradingSessionList; 
   class TradingSessionListRequest; 
-  class IOI;
+  class IndicationOfInterest;
 
   class MessageCracker
   {
@@ -309,7 +309,7 @@ namespace FIX50
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const TradingSessionListRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const IOI&, const FIX::SessionID& ) 
+  virtual void onMessage( const IndicationOfInterest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( BusinessMessageReject&, const FIX::SessionID& ) {} 
  virtual void onMessage( UserRequest&, const FIX::SessionID& ) {} 
@@ -403,7 +403,7 @@ namespace FIX50
  virtual void onMessage( ExecutionAcknowledgement&, const FIX::SessionID& ) {} 
  virtual void onMessage( TradingSessionList&, const FIX::SessionID& ) {} 
  virtual void onMessage( TradingSessionListRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( IOI&, const FIX::SessionID& ) {} 
+ virtual void onMessage( IndicationOfInterest&, const FIX::SessionID& ) {} 
 
 public:
   void crack( const Message& message, 
@@ -689,7 +689,7 @@ public:
       onMessage( (const TradingSessionListRequest&)message, sessionID );
     else
     if( msgTypeValue == "6" )
-      onMessage( (const IOI&)message, sessionID );
+      onMessage( (const IndicationOfInterest&)message, sessionID );
     else onMessage( message, sessionID );
   }
   
@@ -977,7 +977,7 @@ void crack( Message& message,
       onMessage( (TradingSessionListRequest&)message, sessionID );
     else
     if( msgTypeValue == "6" )
-      onMessage( (IOI&)message, sessionID );
+      onMessage( (IndicationOfInterest&)message, sessionID );
     else onMessage( message, sessionID );
   }
 

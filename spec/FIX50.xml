@@ -2662,7 +2662,7 @@
       <field name="TradSesMode" required="N"/>
       <field name="SubscriptionRequestType" required="Y"/>
     </message>
-    <message name="IOI" msgtype="6" msgcat="app">
+    <message name="IndicationOfInterest" msgtype="6" msgcat="app">
       <field name="IOIid" required="Y"/>
       <field name="IOITransType" required="Y"/>
       <field name="IOIRefID" required="N"/>

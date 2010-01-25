@@ -6,21 +6,31 @@ class Processor
 
   def initialize(filename, outputdir, generator)
     file = File.new( filename )
+    fileT = File.new( "FIXT11.xml" )
     @doc = Document.new file
+    @docT = Document.new fileT
     @major = @doc.root.attributes["major"]
     @minor = @doc.root.attributes["minor"]
     @header = @doc.elements["fix/header"]
     @trailer = @doc.elements["fix/trailer"]
     @messages = @doc.elements["fix/messages"]
     @fields = @doc.elements["fix/fields"]
+    @fieldsT = @docT.elements["fix/fields"]
     @components = @doc.elements["fix/components"]
     populateFieldHash()
     @generator = generator    
     process
   end
 
-  def populateFieldHash()
+  def populateFieldHash
     @fieldHash = Hash.new
+    if( @major == "5" )
+      @fieldsT.elements.each("field") { |field|
+        name = field.attributes["name"]
+        number = field.attributes["number"]
+        @fieldHash[name] = number;
+      }
+    end
     @fields.elements.each("field") { |field|
       name = field.attributes["name"]
       number = field.attributes["number"]
@@ -151,6 +161,14 @@ class Processor
 
   def fields
     @generator.fieldsStart
+    if( @major == "5" )
+      @fieldsT.elements.each("field") { |field|
+        name = field.attributes["name"]
+        number = field.attributes["number"]
+        type = field.attributes["type"]
+        @generator.fields(name, number, type)
+      }
+    end
     @fields.elements.each("field") { |field|
       name = field.attributes["name"]
       number = field.attributes["number"]
