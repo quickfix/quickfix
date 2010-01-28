@@ -1,9 +1,10 @@
 class GeneratorCPP
-  def initialize(major, minor, dir)
+  def initialize(type, major, minor, dir)
+    @type = type
     @major = major
     @minor = minor
-    @namespace = "FIX" + major + minor
-    @beginstring = "FIX." + major + "." + minor
+    @namespace = type + major + minor
+    @beginstring = type + "." + major + "." + minor
     @depth = 0;
     @dir = dir + "/" + @namespace.downcase + "/"
     @basefile = createFile("Message.h")

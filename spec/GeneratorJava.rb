@@ -1,11 +1,12 @@
 class GeneratorJava
-  def initialize(major, minor, dir)
+  def initialize(type, major, minor, dir)
+    @type = type
     @major = major
     @minor = minor
-    @package = "quickfix.fix" + major + minor
-    @beginstring = "FIX." + major + "." + minor
+    @package = "quickfix." + type.downcase + major + minor
+    @beginstring = type + "." + major + "." + minor
     @depth = 0;
-    @dir = dir + "/" + "src/quickfix/fix" + major + minor + "/"
+    @dir = dir + "/" + "src/quickfix/" + type.downcase + major + minor + "/"
     @basefile = createFile("Message.java")
     @f = @basefile
   end

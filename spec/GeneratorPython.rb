@@ -1,11 +1,12 @@
 class GeneratorPython
-  def initialize(major, minor, dir)
+  def initialize(type, major, minor, dir)
+    @type = type
     @major = major
     @minor = minor
-    @beginstring = "FIX." + major + "." + minor
+    @beginstring = type + "." + major + "." + minor
     @depth = 0;
     @dir = dir + "/"
-    @f = createFile( "quickfix" + major + minor + ".py" )
+    @f = createFile( "quick" + type.downcase + major + minor + ".py" )
     @messageStarted = false
   end
 

@@ -1,11 +1,16 @@
 class GeneratorNET
-  def initialize(major, minor, dir)
+  def initialize(type, major, minor, dir)
+    @type = type
     @major = major
     @minor = minor
-    @namespace = "QuickFix" + major + minor
-    @beginstring = "FIX." + major + "." + minor
+    if(type == "FIXT")
+        @namespace = "QuickFixT" + major + minor
+    else
+        @namespace = "QuickFix" + major + minor
+    end
+    @beginstring = type + "." + major + "." + minor
     @depth = 0;
-    @dir = dir + "/" + "fix" + major + minor + "/"
+    @dir = dir + "/" + type.downcase + major + minor + "/"
     @basefile = createFile("Message.cs")
     @f = @basefile
   end

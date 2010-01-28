@@ -1,11 +1,12 @@
 class GeneratorRuby
-  def initialize(major, minor, dir)
+  def initialize(type, major, minor, dir)
+    @type = type
     @major = major
     @minor = minor
-    @beginstring = "FIX." + major + "." + minor
+    @beginstring = type + "." + major + "." + minor
     @depth = 0;
     @dir = dir + "/"
-    @f = createFile( "quickfix" + major + minor + ".rb" )
+    @f = createFile( "quick" + type.downcase + major + minor + ".rb" )
     @messageStarted = false
   end
 
