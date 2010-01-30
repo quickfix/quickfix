@@ -1,0 +1,5 @@
+# Disconnect if we receive a bad begin string
+
+iCONNECT
+I8=FIX.3.935=A34=149=TW52=<TIME>56=ISLD98=0108=301137=7
+eDISCONNECT

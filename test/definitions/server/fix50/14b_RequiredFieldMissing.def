@@ -1,0 +1,32 @@
+# @testcase 14.b
+# @condition Receive message with a required field identifier (tag number) missing
+# @expected Send Reject (session-level) message referencing required tag missing. Increment inbound MsgSeqNum. Generate an error condition in test output.
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=7
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=710=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# heartbeat message with a required field missing (TargetCompID) in the message header
+I8=FIXT.1.135=034=249=TW52=<TIME>
+# expect a session reject
+E8=FIXT.1.19=9735=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Required tag missing371=56372=0373=110=0
+
+# quote message with a required field missing (Side/54)
+I8=FIXT.1.135=D49=TW34=356=ISLD52=<TIME>40=160=<TIME>11=id21=3
+# expect a session reject
+E8=FIXT.1.19=9735=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Required tag missing371=54372=D373=110=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=449=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=449=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

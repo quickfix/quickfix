@@ -1,0 +1,42 @@
+# @testcase 14.a
+# @condition Recieve message with a field identifier (tag number) not defined in the specification (not user defined)
+# @expected Send Reject (session-level) message referencing invalid tag number. Increment inbound MsgSeqNum. Generate an error condition in test output.
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=7
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=710=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# heartbeat message with a field that is not in the specification, but is in the correct range
+I8=FIXT.1.135=034=249=TW52=<TIME>56=ISLD999=HI
+# expect a reject
+E8=FIXT.1.19=9635=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Invalid tag number371=999372=0373=010=0
+
+# heartbeat message with a field that is below the valid range for fields
+I8=FIXT.1.135=034=349=TW52=<TIME>56=ISLD0=HI
+# expect a reject
+E8=FIXT.1.19=9435=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Invalid tag number371=0372=0373=010=0
+
+# heartbeat message with a field that is negative
+I8=FIXT.1.135=034=449=TW52=<TIME>56=ISLD-1=HI
+# expect a reject
+E8=FIXT.1.19=9535=334=449=ISLD52=00000000-00:00:00.00056=TW45=458=Invalid tag number371=-1372=0373=010=0
+
+# heartbeat message with a field that is above the valid range for specification defined fields (user defined is not implemented yet)
+I8=FIXT.1.135=034=549=TW52=<TIME>56=ISLD5000=HI
+# expect a reject
+E8=FIXT.1.19=9735=334=549=ISLD52=00000000-00:00:00.00056=TW45=558=Invalid tag number371=5000372=0373=010=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=649=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=649=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

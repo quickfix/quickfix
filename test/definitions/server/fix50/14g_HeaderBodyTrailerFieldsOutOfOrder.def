@@ -1,0 +1,32 @@
+# @testcase 14.g
+# @condition Recieve message in which the following are not true: header+body+trailer is the order
+# @expected Send Reject (session-level) message referencing incorrect message structure. Increment inbound MsgSeqNum. Generate an error condition in test output.
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=7
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=710=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# new order message with all body tags first
+I8=FIXT.1.135=D11=id21=340=154=155=MSFT60=<TIME>34=249=TW52=<TIME>56=ISLD
+# expect a reject
+E8=FIXT.1.19=11335=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Tag specified out of required order371=34372=D373=1410=0
+
+# new order message with one body tag first
+I8=FIXT.1.135=D55=MSFT34=349=TW52=<TIME>56=ISLD11=id21=340=154=160=<TIME>
+# expect a reject
+E8=FIXT.1.19=11335=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Tag specified out of required order371=34372=D373=1410=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=449=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=449=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

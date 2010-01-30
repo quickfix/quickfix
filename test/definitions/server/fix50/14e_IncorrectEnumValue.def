@@ -1,0 +1,36 @@
+# @testcase 14e
+# @Receive message with incorrect value (out of range or not part of valid list of enumerated values) for a particular field identifier (tag number).
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=7
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=710=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+#New order message with incorrect enum value. Handling instructions (21) = 4
+I8=FIXT.1.135=D34=249=TW52=<TIME>56=ISLD11=ID21=440=154=138=002000.0055=INTC60=<TIME>
+# expect a reject
+E8=FIXT.1.19=12335=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Value is incorrect (out of range) for this tag371=21372=D373=510=0
+
+#New order message with incorrect enum value. SecurityType (167) = BOO
+I8=FIXT.1.135=D34=349=TW52=<TIME>56=ISLD11=ID21=140=154=138=002000.0055=INTC60=<TIME>167=BOO
+# expect a reject
+E8=FIXT.1.19=12435=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Value is incorrect (out of range) for this tag371=167372=D373=510=0
+
+#New order message with correct enum value. SecurityType (167) = CS
+I8=FIXT.1.135=D34=449=TW52=<TIME>56=ISLD11=ID21=140=154=138=002000.0055=INTC60=<TIME>167=CS
+# do not expect a reject
+E8=FIXT.1.19=11935=D34=449=ISLD52=20020619-16:14:1056=TW11=ID21=138=002000.0040=154=155=INTC60=00000000-00:00:00167=CS10=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=549=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=549=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT
