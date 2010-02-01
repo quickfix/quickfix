@@ -25,18 +25,6 @@
 
 namespace QuickFix
 {
-  public __gc class ExecTransType : public CharField
-  {
-  public:
-  static const int FIELD = 20;
-  static const __wchar_t NEW = '0';
-  static const __wchar_t CANCEL = '1';
-  static const __wchar_t CORRECT = '2';
-  static const __wchar_t STATUS = '3';
-  ExecTransType() : CharField(20) {}
-    ExecTransType(__wchar_t data) : CharField(20, data) {}
-  };
-
   public __gc class IDSource : public StringField
   {
   public:
@@ -163,14 +151,6 @@ namespace QuickFix
     AvgPrxPrecision(int data) : IntField(74, data) {}
   };
 
-  public __gc class ExecBroker : public StringField
-  {
-  public:
-  static const int FIELD = 76;
-  ExecBroker() : StringField(76) {}
-    ExecBroker(String* data) : StringField(76, data) {}
-  };
-
   public __gc class OpenClose : public CharField
   {
   public:
@@ -189,208 +169,12 @@ namespace QuickFix
     AllocShares(double data) : DoubleField(80, data) {}
   };
 
-  public __gc class DlvyInst : public CharField
-  {
-  public:
-  static const int FIELD = 86;
-  DlvyInst() : CharField(86) {}
-    DlvyInst(__wchar_t data) : CharField(86, data) {}
-  };
-
-  public __gc class BrokerOfCredit : public StringField
-  {
-  public:
-  static const int FIELD = 92;
-  BrokerOfCredit() : StringField(92) {}
-    BrokerOfCredit(String* data) : StringField(92, data) {}
-  };
-
-  public __gc class ClientID : public StringField
-  {
-  public:
-  static const int FIELD = 109;
-  ClientID() : StringField(109) {}
-    ClientID(String* data) : StringField(109, data) {}
-  };
-
-  public __gc class CxlType : public CharField
-  {
-  public:
-  static const int FIELD = 125;
-  static const __wchar_t PARTIAL_CANCEL = 'P';
-  static const __wchar_t FULL_REMAINING_QUANTITY = 'F';
-  CxlType() : CharField(125) {}
-    CxlType(__wchar_t data) : CharField(125, data) {}
-  };
-
-  public __gc class SettlLocation : public StringField
-  {
-  public:
-  static const int FIELD = 166;
-  static const String* CEDEL = "CED";
-  static const String* DEPOSITORY_TRUST_COMPANY = "DTC";
-  static const String* EUROCLEAR = "EUR";
-  static const String* FEDERAL_BOOK_ENTRY = "FED";
-  static const String* PHYSICAL = "PED";
-  static const String* PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY = "PTC";
-  SettlLocation() : StringField(166) {}
-    SettlLocation(String* data) : StringField(166, data) {}
-  };
-
-  public __gc class SettlDepositoryCode : public StringField
-  {
-  public:
-  static const int FIELD = 173;
-  SettlDepositoryCode() : StringField(173) {}
-    SettlDepositoryCode(String* data) : StringField(173, data) {}
-  };
-
-  public __gc class SettlBrkrCode : public StringField
-  {
-  public:
-  static const int FIELD = 174;
-  SettlBrkrCode() : StringField(174) {}
-    SettlBrkrCode(String* data) : StringField(174, data) {}
-  };
-
-  public __gc class SettlInstCode : public StringField
-  {
-  public:
-  static const int FIELD = 175;
-  SettlInstCode() : StringField(175) {}
-    SettlInstCode(String* data) : StringField(175, data) {}
-  };
-
-  public __gc class SecuritySettlAgentName : public StringField
-  {
-  public:
-  static const int FIELD = 176;
-  SecuritySettlAgentName() : StringField(176) {}
-    SecuritySettlAgentName(String* data) : StringField(176, data) {}
-  };
-
-  public __gc class SecuritySettlAgentCode : public StringField
-  {
-  public:
-  static const int FIELD = 177;
-  SecuritySettlAgentCode() : StringField(177) {}
-    SecuritySettlAgentCode(String* data) : StringField(177, data) {}
-  };
-
-  public __gc class SecuritySettlAgentAcctNum : public StringField
-  {
-  public:
- static const int FIELD = 178;
-  SecuritySettlAgentAcctNum() : StringField(178) {}
-    SecuritySettlAgentAcctNum(String* data) : StringField(178, data) {}
-  };
-
-  public __gc class SecuritySettlAgentAcctName : public StringField
-  {
-  public:
-  static const int FIELD = 179;
-  SecuritySettlAgentAcctName() : StringField(179) {}
-    SecuritySettlAgentAcctName(String* data) : StringField(179, data) {}
-  };
-
-  public __gc class SecuritySettlAgentContactName : public StringField
-  {
-  public:
-  static const int FIELD = 180;
-  SecuritySettlAgentContactName() : StringField(180) {}
-    SecuritySettlAgentContactName(String* data) : StringField(180, data) {}
-  };
-
-  public __gc class SecuritySettlAgentContactPhone : public StringField
-  {
-  public:
-  static const int FIELD = 181;
-  SecuritySettlAgentContactPhone() : StringField(181) {}
-    SecuritySettlAgentContactPhone(String* data) : StringField(181, data) {}
-  };
-
-  public __gc class CashSettlAgentName : public StringField
-  {
-  public:
-  static const int FIELD = 182;
-  CashSettlAgentName() : StringField(182) {}
-    CashSettlAgentName(String* data) : StringField(182, data) {}
-  };
-
-  public __gc class CashSettlAgentCode : public StringField
-  {
-  public:
-  static const int FIELD = 183;
-  CashSettlAgentCode() : StringField(183) {}
-    CashSettlAgentCode(String* data) : StringField(183, data) {}
-  };
-
-  public __gc class CashSettlAgentAcctNum : public StringField
-  {
-  public:
-  static const int FIELD = 184;
-  CashSettlAgentAcctNum() : StringField(184) {}
-    CashSettlAgentAcctNum(String* data) : StringField(184, data) {}
-  };
-
-  public __gc class CashSettlAgentAcctName : public StringField
-  {
-  public:
-  static const int FIELD = 185;
-  CashSettlAgentAcctName() : StringField(185) {}
-    CashSettlAgentAcctName(String* data) : StringField(185, data) {}
-  };
-
-  public __gc class CashSettlAgentContactName : public StringField
-  {
-  public:
-  static const int FIELD = 186;
-  CashSettlAgentContactName() : StringField(186) {}
-    CashSettlAgentContactName(String* data) : StringField(186, data) {}
-  };
-
-  public __gc class CashSettlAgentContactPhone : public StringField
-  {
-  public:
-  static const int FIELD = 187;
-  CashSettlAgentContactPhone() : StringField(187) {}
-    CashSettlAgentContactPhone(String* data) : StringField(187, data) {}
-  };
-
   public __gc class FutSettDate2 : public StringField
   {
   public:
   static const int FIELD = 193;
   FutSettDate2() : StringField(193) {}
     FutSettDate2(String* data) : StringField(193, data) {}
-  };
-
-  public __gc class PutOrCall : public IntField
-  {
-  public:
-  static const int FIELD = 201;
-  static const int PUT = 0;
-  static const int CALL = 1;
-  PutOrCall() : IntField(201) {}
-    PutOrCall(int data) : IntField(201, data) {}
-  };
-
-  public __gc class CustomerOrFirm : public IntField
-  {
-  public:
-  static const int FIELD = 204;
-  static const int CUSTOMER = 0;
-  static const int FIRM = 1;
-  CustomerOrFirm() : IntField(204) {}
-    CustomerOrFirm(int data) : IntField(204, data) {}
-  };
-
-  public __gc class MaturityDay : public StringField
-  {
-  public:
-  static const int FIELD = 205;
-  MaturityDay() : StringField(205) {}
-    MaturityDay(String* data) : StringField(205, data) {}
   };
 
   public __gc class PegDifference : public DoubleField
@@ -407,23 +191,6 @@ namespace QuickFix
   static const int FIELD = 218;
   SpreadToBenchmark() : IntField(218) {}
     SpreadToBenchmark(int data) : IntField(218, data) {}
-  };
-
-  public __gc class Benchmark : public CharField
-  {
-  public:
-  static const int FIELD = 219;
-  static const __wchar_t CURVE = '1';
-  static const __wchar_t FIVEYR = '2';
-  static const __wchar_t OLD5 = '3';
-  static const __wchar_t TENYR = '4';
-  static const __wchar_t OLD10 = '5';
-  static const __wchar_t THIRTYYR = '6';
-  static const __wchar_t OLD30 = '7';
-  static const __wchar_t THREEMOLIBOR = '8';
-  static const __wchar_t SIXMOLIBOR = '9';
-  Benchmark() : CharField(219) {}
-    Benchmark(__wchar_t data) : CharField(219, data) {}
   };
 
   public __gc class UnderlyingIDSource : public IntField
@@ -463,38 +230,6 @@ namespace QuickFix
     TotQuoteEntries(int data) : IntField(304, data) {}
   };
 
-  public __gc class UnderlyingMaturityDay : public StringField
-  {
-  public:
-  static const int FIELD = 314;
-  UnderlyingMaturityDay() : StringField(314) {}
-    UnderlyingMaturityDay(String* data) : StringField(314, data) {}
-  };
-
-  public __gc class UnderlyingPutOrCall : public IntField
-  {
-  public:
-  static const int FIELD = 315;
-  UnderlyingPutOrCall() : IntField(315) {}
-    UnderlyingPutOrCall(int data) : IntField(315, data) {}
-  };
-
-  public __gc class RatioQty : public DoubleField
-  {
-  public:
-  static const int FIELD = 319;
-  RatioQty() : DoubleField(319) {}
-    RatioQty(double data) : DoubleField(319, data) {}
-  };
-
-  public __gc class OnBehalfOfSendingTime : public UtcTimeStampField
-  {
-  public:
-  static const int FIELD = 370;
-  OnBehalfOfSendingTime() : UtcTimeStampField(370) {}
-    OnBehalfOfSendingTime(DateTime data) : UtcTimeStampField(370, data) {}
-  };
-
   public __gc class DiscretionOffset : public DoubleField
   {
   public:
@@ -517,38 +252,6 @@ namespace QuickFix
   static const int FIELD = 418;
   TradeType() : CharField(418) {}
     TradeType(__wchar_t data) : CharField(418, data) {}
-  };
-
-  public __gc class ClearingFirm : public StringField
-  {
-  public:
-  static const int FIELD = 439;
-  ClearingFirm() : StringField(439) {}
-    ClearingFirm(String* data) : StringField(439, data) {}
-  };
-
-  public __gc class ClearingAccount : public StringField
-  {
-  public:
-  static const int FIELD = 440;
-  ClearingAccount() : StringField(440) {}
-    ClearingAccount(String* data) : StringField(440, data) {}
-  };
-
-  public __gc class TotalVolumeTradedDate : public UtcDateField
-  {
-  public:
-  static const int FIELD = 449;
-  TotalVolumeTradedDate() : UtcDateField(449) {}
-    TotalVolumeTradedDate(DateTime data) : UtcDateField(449, data) {}
-  };
-
-  public __gc class TotalVolumeTradedTime : public UtcTimeOnlyField
-  {
-  public:
-  static const int FIELD = 450;
-  TotalVolumeTradedTime() : UtcTimeOnlyField(450) {}
-    TotalVolumeTradedTime(DateTime data) : UtcTimeOnlyField(450, data) {}
   };
 
   public __gc class CardIssNo : public StringField
@@ -589,5 +292,13 @@ namespace QuickFix
   static const int FIELD = 588;
   LegFutSettDate() : StringField(588) {}
     LegFutSettDate(String* data) : StringField(588, data) {}
+  };
+
+  public __gc class LinesOfText : public IntField
+  {
+  public:
+  static const int FIELD = 33;
+  LinesOfText() : IntField(33) {}
+    LinesOfText(int data) : IntField(33, data) {}    
   };
 }

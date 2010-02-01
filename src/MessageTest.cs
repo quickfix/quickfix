@@ -14,18 +14,18 @@ public class MessageTestCase
 		{
 			Assert.AreEqual( "A", Message.identifyType( "8=FIX.4.219=1235=A108=3010=031" ).getValue() );
 		} 
-		catch( MessageParseError e ) { Assert.IsTrue(false, "Message could not be parsed"); }
+		catch( MessageParseError ) { Assert.IsTrue(false, "Message could not be parsed"); }
 
         try 
 		{
             Assert.AreEqual( "AB", Message.identifyType("8=FIX.4.29=1235=AB108=3010=031").getValue() );
-		} catch( MessageParseError e ) { Assert.IsTrue(false, "Message could not be parsed"); }
+		} catch( MessageParseError ) { Assert.IsTrue(false, "Message could not be parsed"); }
 
         try 
 		{
             Message.identifyType("8=FIX.4.29=12108=3010=031");
             Assert.IsTrue(false, "Message should not have a type");
-		} catch( MessageParseError e ) {}
+		} catch( MessageParseError ) {}
 
 		try
 		{
@@ -89,7 +89,7 @@ public class MessageTestCase
             Assert.IsTrue( 2020.20 ==
                     numAllocs.getField( new AllocShares() ).getValue() );
         } 
-		catch( FieldNotFound e ) 
+		catch( FieldNotFound ) 
 		{
             Assert.Fail( "no exception should be thrown" );
         }
@@ -99,7 +99,7 @@ public class MessageTestCase
             message.getGroup( 3, numAllocs );
             Assert.Fail( "exception should be thrown" );
         } 
-		catch( FieldNotFound e ) {}
+		catch( FieldNotFound ) {}
     }
 
 	[Test]
@@ -111,14 +111,14 @@ public class MessageTestCase
 		{
             message.getString(5);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
         message.setString(5, "string5");
 
         try 
 		{
             Assert.AreEqual("string5", message.getString(5));
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
 
         try 
 		{
@@ -135,14 +135,14 @@ public class MessageTestCase
         try {
             message.getBoolean(7);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
         message.setBoolean(7, true);
 
         try 
 		{
             Assert.AreEqual(true, message.getBoolean(7));
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
     }
 
 	[Test]
@@ -154,14 +154,14 @@ public class MessageTestCase
 		{
             message.getChar(12);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
         message.setChar(12, 'a');
 
         try 
 		{
             Assert.AreEqual('a', message.getChar(12));
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
     }
 
 	[Test]
@@ -173,14 +173,14 @@ public class MessageTestCase
 		{
             message.getInt(56);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
         message.setInt(56, 23);
 
         try 
 		{
             Assert.AreEqual(23, message.getInt(56));
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
     }
 
 	[Test]
@@ -192,14 +192,14 @@ public class MessageTestCase
 		{
             message.getDouble(9812);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
         message.setDouble(9812, 12.3443);
 
         try 
 		{
             Assert.AreEqual(12.3443, message.getDouble(9812));
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
 
 
 		message.setDouble(9813, 5.0, 3);
@@ -209,7 +209,7 @@ public class MessageTestCase
 		{
 			Assert.AreEqual("5.000", message.getString(9813));
 			Assert.AreEqual("-2.1004", message.getString(9814));
-		} catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+		} catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
     }
 
 	[Test]
@@ -221,7 +221,7 @@ public class MessageTestCase
 		{
             message.getUtcTimeStamp(8);
             Assert.IsTrue(false, "exception not thrown");
-        } catch(FieldNotFound e) {}
+        } catch(FieldNotFound) {}
 
 		DateTime time = new DateTime(2002, 8, 6, 12, 34, 56, 0);
         message.setUtcTimeStamp(8, time);
@@ -229,7 +229,7 @@ public class MessageTestCase
         try 
 		{
             Assert.AreEqual(message.getUtcTimeStamp(8).Ticks, time.Ticks);
-        } catch(FieldNotFound e) { Assert.IsTrue(false, "exception thrown"); }
+        } catch(FieldNotFound) { Assert.IsTrue(false, "exception thrown"); }
     }
 
 	[Test]
@@ -277,7 +277,7 @@ public class MessageTestCase
 
             Assert.IsFalse(j.MoveNext());
         } 
-		catch( InvalidMessage e ) 
+		catch( InvalidMessage ) 
 		{
             Assert.Fail("exception thrown");
         }

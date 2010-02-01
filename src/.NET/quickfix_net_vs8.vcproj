@@ -364,6 +364,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\FixFields.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FixTFields.h"
+				>
+			</File>
+			<File
 				RelativePath="Group.h"
 				>
 			</File>

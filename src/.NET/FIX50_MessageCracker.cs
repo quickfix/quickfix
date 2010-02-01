@@ -206,7 +206,7 @@ namespace QuickFix50
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( TradingSessionListRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( IOI message, QuickFix.SessionID session ) 
+  public virtual void onMessage( IndicationOfInterest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
  
   public  void crack( QuickFix.Message message,
@@ -493,7 +493,7 @@ namespace QuickFix50
       onMessage( (TradingSessionListRequest)(message), sessionID );
     else
     if( msgTypeValue == "6" )
-      onMessage( (IOI)(message), sessionID );
+      onMessage( (IndicationOfInterest)(message), sessionID );
     else onMessage( message, sessionID );    
   }
 

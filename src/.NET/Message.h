@@ -363,7 +363,7 @@ public:
       int soh = message->IndexOf( "\001", startValue );
       if( soh == -1 ) throw new MessageParseError();
       String* value = message->Substring( startValue, soh - startValue );
-      return new MsgType( value );
+	  return new QuickFix::MsgType( value );
     }
     catch( Exception* e ) 
     {

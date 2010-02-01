@@ -922,6 +922,10 @@
       <Name>quickfix_net_vs8</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="fix50\" />
+    <Folder Include="fixt11\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

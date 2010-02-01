@@ -397,7 +397,7 @@ namespace QuickFix50
      }
    
      if(msgType.Equals("6")) {
-       return new QuickFix50.IOI();
+       return new QuickFix50.IndicationOfInterest();
      }
    
     return new QuickFix50.Message();

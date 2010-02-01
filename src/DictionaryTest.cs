@@ -62,20 +62,20 @@ public class DictionaryTestCase
             testObject.getLong( "key1" );
             Assert.Fail();
         } 
-        catch( ConfigError ce ) {}
+        catch( ConfigError ) {}
 
         try 
         {
             testObject.getDouble( "key1" );
             Assert.Fail();
         } 
-        catch( ConfigError ce ) {}
+        catch( ConfigError ) {}
 
         try 
         {
             testObject.getBool( "key1" );
             Assert.Fail();
         } 
-        catch( ConfigError ce ) {}
+        catch( ConfigError ) {}
     }
 }

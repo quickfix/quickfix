@@ -41,7 +41,7 @@ public class ApplicationImpl : Application {
                 if(stopRunning) return;
                 Thread.Sleep(1000);
             }
-            catch(Exception e) {}
+            catch(Exception) {}
         }
     }
 
@@ -69,7 +69,7 @@ public class ApplicationImpl : Application {
                 }
 				Thread.Sleep(100);
             }
-        } catch(Exception e) {}
+        } catch(Exception) {}
 
         return message;
     }

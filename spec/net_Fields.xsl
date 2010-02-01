@@ -30,6 +30,7 @@
 #undef Yield
 #undef DUPLICATE
 #undef STRICT
+#undef DIFFERENCE
 #include "Field.h"
 #include "DeprecatedFields.h"
 
