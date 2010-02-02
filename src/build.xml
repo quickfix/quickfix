@@ -19,7 +19,7 @@
     </target>
 
     <target name="compile">
-        <javac srcdir="${src}" includes="at*.java" destdir="${build}" deprecation="true" >
+        <javac srcdir="${src}" includes="at*.java" destdir="${build}" deprecation="true" fork="true" >
             <classpath>
                 <fileset dir="${lib}">
                     <include name="quickfix.jar"/>

@@ -19,7 +19,7 @@
     </target>
 
     <target name="compile">
-        <javac destdir="${build}" deprecation="true" debug="true">
+        <javac destdir="${build}" deprecation="true" debug="true" fork="true">
             <src path="${src}"/>
             <classpath>
                 <fileset dir="${lib}">
