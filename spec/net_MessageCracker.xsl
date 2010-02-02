@@ -24,7 +24,7 @@
  <xsl:template match="text()"/>
 
  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
- <xsl:variable name="uppercase" select="'ABCDEfGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="uppercase" select="'ABCDEfGHIJKLMNOPQRStUVWXYZ'" />
  <xsl:variable name="type" select="//fix/@type"/>
  <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
 
@@ -74,12 +74,22 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
 </xsl:template>
 
 <xsl:template name="base-class">
- <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">: QuickFix40.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='2'">: QuickFix41.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='3'">: QuickFix42.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='4'">: QuickFix43.MessageCracker</xsl:if>
- </xsl:if>
+  <xsl:if test="//fix/@type='FIX'">
+    <xsl:if test="//fix/@major='4'">
+      <xsl:if test="//fix/@minor='1'">: QuickFix40.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='2'">: QuickFix41.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='3'">: QuickFix42.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='4'">: QuickFix43.MessageCracker</xsl:if>
+    </xsl:if>
+    <xsl:if test="//fix/@major='5'">
+      <xsl:if test="//fix/@minor='0'">: QuickFix44.MessageCracker</xsl:if>
+    </xsl:if>
+  </xsl:if>
+  <xsl:if test="//fix/@type='FIXT'">
+    <xsl:if test="//fix/@major='1'">
+      <xsl:if test="//fix/@minor='1'">: QuickFix50.MessageCracker</xsl:if>
+    </xsl:if>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

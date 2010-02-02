@@ -21,9 +21,9 @@
 
 using System;
 
-namespace QuickFixt11
+namespace QuickFixT11
 {
-  public class MessageCracker 
+  public class MessageCracker : QuickFix50.MessageCracker
   {
   public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
     { throw new QuickFix.UnsupportedMessageType(); }

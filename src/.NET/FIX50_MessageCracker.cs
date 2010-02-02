@@ -23,7 +23,7 @@ using System;
 
 namespace QuickFix50
 {
-  public class MessageCracker 
+  public class MessageCracker : QuickFix44.MessageCracker
   {
   public  void onMessage( QuickFix.Message message, QuickFix.SessionID session )
     { throw new QuickFix.UnsupportedMessageType(); }

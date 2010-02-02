@@ -79,12 +79,22 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
 </xsl:template>
 
 <xsl:template name="base-class">
- <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">extends quickfix.fix40.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='2'">extends quickfix.fix41.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='3'">extends quickfix.fix42.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='4'">extends quickfix.fix43.MessageCracker</xsl:if>
- </xsl:if>
+  <xsl:if test="//fix/@type='FIX'">
+    <xsl:if test="//fix/@major='4'">
+      <xsl:if test="//fix/@minor='1'">extends quickfix.fix40.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='2'">extends quickfix.fix41.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='3'">extends quickfix.fix42.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='4'">extends quickfix.fix43.MessageCracker</xsl:if>
+    </xsl:if>
+    <xsl:if test="//fix/@major='5'">
+      <xsl:if test="//fix/@minor='0'">extends quickfix.fix44.MessageCracker</xsl:if>
+    </xsl:if>
+  </xsl:if>
+  <xsl:if test="//fix/@type='FIXT'">
+    <xsl:if test="//fix/@major='1'">
+      <xsl:if test="//fix/@minor='1'">extends quickfix.fix50.MessageCracker</xsl:if>
+    </xsl:if>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

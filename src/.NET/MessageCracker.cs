@@ -23,7 +23,7 @@ using System;
 
 namespace QuickFix
 {
-  public class MessageCracker : QuickFix44.MessageCracker
+  public class MessageCracker : QuickFixT11.MessageCracker
   {
     public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     {

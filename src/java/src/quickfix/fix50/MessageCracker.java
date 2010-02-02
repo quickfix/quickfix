@@ -24,7 +24,7 @@ package quickfix.fix50;
 import quickfix.*;
 import quickfix.field.*;
 
-public class MessageCracker 
+public class MessageCracker extends quickfix.fix44.MessageCracker
 {
 public void onMessage( quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
   { throw new UnsupportedMessageType(); }
