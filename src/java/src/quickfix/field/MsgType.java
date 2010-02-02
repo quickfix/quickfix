@@ -98,6 +98,14 @@ public static final String USER_REQUEST = "BE";
 public static final String USER_RESPONSE = "BF"; 
 public static final String COLLATERAL_INQUIRY_ACK = "BG"; 
 public static final String CONFIRMATION_REQUEST = "BH"; 
+public static final String TRADING_SESSION_LIST_REQUEST = "BI"; 
+public static final String TRADING_SESSION_LIST = "BJ"; 
+public static final String SECURITY_LIST_UPDATE_REPORT = "BK"; 
+public static final String ADJUSTED_POSITION_REPORT = "BL"; 
+public static final String ALLOCATION_INSTRUCTION_ALERT = "BM"; 
+public static final String EXECUTION_ACKNOWLEDGEMENT = "BN"; 
+public static final String CONTRARY_INTENTION_REPORT = "BO"; 
+public static final String SECURITY_DEFINITION_UPDATE_REPORT = "BP"; 
 
   public MsgType() 
   { 

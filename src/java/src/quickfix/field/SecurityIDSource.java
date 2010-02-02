@@ -24,6 +24,8 @@ public static final String COMMON = "G";
 public static final String CLEARING_HOUSE_CLEARING_ORGANIZATION = "H"; 
 public static final String ISDA_FPML_PRODUCT_SPECIFICATION = "I"; 
 public static final String OPTIONS_PRICE_REPORTING_AUTHORITY = "J"; 
+public static final String ISDA_FPML_PRODUCT_URL = "K"; 
+public static final String LETTER_OF_CREDIT = "L"; 
 
   public SecurityIDSource() 
   { 

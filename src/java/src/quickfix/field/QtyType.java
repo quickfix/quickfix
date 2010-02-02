@@ -7,6 +7,7 @@ public class QtyType extends IntField
   public static final int FIELD = 854; 
 public static final int UNITS = 0; 
 public static final int CONTRACTS = 1; 
+public static final int UNITS_OF_MEASURE_PER_TIME_UNIT = 2; 
 
   public QtyType() 
   { 

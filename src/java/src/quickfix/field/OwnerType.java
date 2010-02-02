@@ -14,6 +14,10 @@ public static final int PENSION_PLAN = 6;
 public static final int CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT = 7; 
 public static final int TRUSTS = 8; 
 public static final int FIDUCIARIES = 9; 
+public static final int NETWORKING_SUB_ACCOUNT = 10; 
+public static final int NON_PROFIT_ORGANIZATION = 11; 
+public static final int CORPORATE_BODY = 12; 
+public static final int NOMINEE = 13; 
 
   public OwnerType() 
   { 

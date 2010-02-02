@@ -13,6 +13,12 @@ public static final String FIRMS_106H_AND_106J = "H";
 public static final String GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS = "I"; 
 public static final String LESSEE_AND_106F_EMPLOYEES = "L"; 
 public static final String ALL_OTHER_OWNERSHIP_TYPES = "M"; 
+public static final String _1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "1"; 
+public static final String _2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "2"; 
+public static final String _3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "3"; 
+public static final String _4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "4"; 
+public static final String _5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "5"; 
+public static final String _6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = "9"; 
 
   public ClearingFeeIndicator() 
   { 

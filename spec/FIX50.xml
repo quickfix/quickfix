@@ -1455,7 +1455,7 @@
       <field name="EncodedTextLen" required="N"/>
       <field name="EncodedText" required="N"/>
     </message>
-    <message name="AllocationInstruction" msgtype="J" msgcat="Allocation">
+    <message name="AllocationInstruction" msgtype="J" msgcat="app">
       <field name="AllocID" required="Y"/>
       <field name="AllocTransType" required="Y"/>
       <field name="AllocType" required="Y"/>
@@ -1530,7 +1530,7 @@
       <field name="MessageEventSource" required="N"/>
       <field name="RndPx" required="N"/>
     </message>
-    <message name="AllocationInstructionAck" msgtype="P" msgcat="Allocation">
+    <message name="AllocationInstructionAck" msgtype="P" msgcat="app">
       <field name="AllocID" required="Y"/>
       <component name="Parties" required="N"/>
       <field name="SecondaryAllocID" required="N"/>
@@ -1548,7 +1548,7 @@
       <field name="EncodedText" required="N"/>
       <component name="AllocAckGrp" required="N"/>
     </message>
-    <message name="AllocationReport" msgtype="AS" msgcat="Allocation">
+    <message name="AllocationReport" msgtype="AS" msgcat="app">
       <field name="AllocReportID" required="Y"/>
       <field name="AllocID" required="N"/>
       <field name="AllocTransType" required="Y"/>
@@ -1628,7 +1628,7 @@
       <field name="AvgPxIndicator" required="N"/>
       <component name="PositionAmountData" required="N"/>
     </message>
-    <message name="AllocationReportAck" msgtype="AT" msgcat="Allocation">
+    <message name="AllocationReportAck" msgtype="AT" msgcat="app">
       <field name="AllocReportID" required="Y"/>
       <field name="AllocID" required="Y"/>
       <component name="Parties" required="N"/>
@@ -2552,7 +2552,7 @@
       <field name="PriorSettlPrice" required="N"/>
       <field name="PosMaintRptRefID" required="N"/>
     </message>
-    <message name="AllocationInstructionAlert" msgtype="BM" msgcat="Allocation">
+    <message name="AllocationInstructionAlert" msgtype="BM" msgcat="app">
       <field name="AllocID" required="Y"/>
       <field name="AllocTransType" required="Y"/>
       <field name="AllocType" required="Y"/>

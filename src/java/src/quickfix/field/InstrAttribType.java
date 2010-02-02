@@ -14,6 +14,20 @@ public static final int LESS_FEE_FOR_PUT = 6;
 public static final int STEPPED_COUPON = 7; 
 public static final int COUPON_PERIOD = 8; 
 public static final int WHEN_AND_IF_ISSUED = 9; 
+public static final int ORIGINAL_ISSUE_DISCOUNT = 10; 
+public static final int CALLABLE_PUTTABLE = 11; 
+public static final int ESCROWED_TO_MATURITY = 12; 
+public static final int ESCROWED_TO_REDEMPTION_DATE = 13; 
+public static final int PRE_REFUNDED = 14; 
+public static final int IN_DEFAULT = 15; 
+public static final int UNRATED = 16; 
+public static final int TAXABLE = 17; 
+public static final int INDEXED = 18; 
+public static final int SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX = 19; 
+public static final int ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE = 20; 
+public static final int CALLABLE_BELOW_MATURITY_VALUE = 21; 
+public static final int CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED = 22; 
+public static final int TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE = 99; 
 
   public InstrAttribType() 
   { 

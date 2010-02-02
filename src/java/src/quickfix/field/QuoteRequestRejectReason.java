@@ -14,6 +14,9 @@ public static final int NOT_AUTHORIZED_TO_REQUEST_QUOTE = 6;
 public static final int NO_MATCH_FOR_INQUIRY = 7; 
 public static final int NO_MARKET_FOR_INSTRUMENT = 8; 
 public static final int NO_INVENTORY = 9; 
+public static final int PASS = 10; 
+public static final int INSUFFICIENT_CREDIT = 11; 
+public static final int OTHER = 99; 
 
   public QuoteRequestRejectReason() 
   { 

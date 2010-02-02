@@ -10,6 +10,7 @@ public static final int SID_CODE = 2;
 public static final int TFM = 3; 
 public static final int OMGEO = 4; 
 public static final int DTCC_CODE = 5; 
+public static final int OTHER = 99; 
 
   public AcctIDSource() 
   { 

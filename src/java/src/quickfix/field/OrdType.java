@@ -28,6 +28,7 @@ public static final char MARKET_WITH_LEFTOVER_AS_LIMIT = 'K';
 public static final char PREVIOUS_FUND_VALUATION_POINT = 'L'; 
 public static final char NEXT_FUND_VALUATION_POINT = 'M'; 
 public static final char PEGGED = 'P'; 
+public static final char COUNTER_ORDER_SELECTION = 'Q'; 
 
   public OrdType() 
   { 

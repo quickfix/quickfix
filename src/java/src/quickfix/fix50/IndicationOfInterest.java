@@ -3,13 +3,13 @@ import quickfix.FieldNotFound;
 import quickfix.Group;
 import quickfix.field.*;
 
-public class IOI extends Message
+public class IndicationOfInterest extends Message
 {
-  public IOI()
+  public IndicationOfInterest()
   {
     getHeader().setField(new MsgType("6"));
   }
-  public IOI(
+  public IndicationOfInterest(
     quickfix.field.IOIid aIOIid,
     quickfix.field.IOITransType aIOITransType,
     quickfix.field.Side aSide,

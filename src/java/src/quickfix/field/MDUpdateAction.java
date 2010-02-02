@@ -8,6 +8,8 @@ public class MDUpdateAction extends CharField
 public static final char NEW = '0'; 
 public static final char CHANGE = '1'; 
 public static final char DELETE = '2'; 
+public static final char DELETE_THRU = '3'; 
+public static final char DELETE_FROM = '4'; 
 
   public MDUpdateAction() 
   { 

@@ -24,6 +24,10 @@ public static final String DELIVERY_QTY = "DLV";
 public static final String TOTAL_TRANSACTION_QTY = "TOT"; 
 public static final String CROSS_MARGIN_QTY = "XM"; 
 public static final String INTEGRAL_SPLIT = "SPL"; 
+public static final String RECEIVE_QUANTITY = "RCV"; 
+public static final String CORPORATE_ACTION_ADJUSTMENT = "CAA"; 
+public static final String DELIVERY_NOTICE_QTY = "DN"; 
+public static final String EXCHANGE_FOR_PHYSICAL_QTY = "EP"; 
 
   public PosType() 
   { 

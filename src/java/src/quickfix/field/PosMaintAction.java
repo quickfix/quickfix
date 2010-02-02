@@ -8,6 +8,7 @@ public class PosMaintAction extends IntField
 public static final int NEW = 1; 
 public static final int REPLACE = 2; 
 public static final int CANCEL = 3; 
+public static final int REVERSE = 4; 
 
   public PosMaintAction() 
   { 

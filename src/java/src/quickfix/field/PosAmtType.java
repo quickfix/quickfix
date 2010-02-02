@@ -13,6 +13,7 @@ public static final String PREMIUM_AMOUNT = "PREM";
 public static final String CASH_RESIDUAL_AMOUNT = "CRES"; 
 public static final String CASH_AMOUNT = "CASH"; 
 public static final String VALUE_ADJUSTED_AMOUNT = "VADJ"; 
+public static final String SETTLEMENT_VALUE = "SETL"; 
 
   public PosAmtType() 
   { 

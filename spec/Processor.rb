@@ -6,6 +6,7 @@ class Processor
 
   def initialize(filename, outputdir, generator)
     file = File.new( filename )
+    puts filename
     fileT = File.new( "FIXT11.xml" )
     @doc = Document.new file
     @docT = Document.new fileT
@@ -139,6 +140,7 @@ class Processor
   def messages
     @messages.elements.each("message") { |message|
       name = message.attributes["name"]
+      puts name
       msgtype = message.attributes["msgtype"]
 
       required = Array.new

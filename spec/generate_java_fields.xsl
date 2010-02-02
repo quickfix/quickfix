@@ -120,6 +120,8 @@ echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.
 <xsl:choose>
   <xsl:when test="../@type='STRING'">echo public static final String <xsl:value-of select="@description"/> = "<xsl:value-of select="@enum"/>"; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="../@name"/>.java
   </xsl:when>
+  <xsl:when test="../@type='MULTIPLESTRINGVALUE'">echo public static final String <xsl:value-of select="@description"/> = "<xsl:value-of select="@enum"/>"; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="../@name"/>.java
+  </xsl:when>
   <xsl:when test="../@type='BOOLEAN'">echo public static final boolean <xsl:value-of select="@description"/> = <xsl:call-template name="y-or-n-to-bool" />; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="../@name"/>.java
   </xsl:when>
   <xsl:when test="../@type='INT'">echo public static final int <xsl:value-of select="@description"/> = <xsl:value-of select="@enum"/>; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="../@name"/>.java

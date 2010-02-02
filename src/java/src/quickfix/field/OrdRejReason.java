@@ -21,6 +21,7 @@ public static final int SURVEILLENCE_OPTION = 12;
 public static final int INCORRECT_QUANTITY = 13; 
 public static final int INCORRECT_ALLOCATED_QUANTITY = 14; 
 public static final int UNKNOWN_ACCOUNT = 15; 
+public static final int INVALID_PRICE_INCREMENT = 18; 
 public static final int OTHER = 99; 
 
   public OrdRejReason() 

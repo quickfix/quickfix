@@ -23,9 +23,14 @@
 
  <xsl:template match="text()"/>
 
+ <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+ <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="type" select="//fix/@type"/>
+ <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
+
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
-package quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
+package quickfix.<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
 
 import quickfix.Message;
 
@@ -33,7 +38,7 @@ public class MessageFactory implements quickfix.MessageFactory
 {
   public Message create( String beginString, String msgType ) {
   <xsl:call-template name="if-statement"/>
-  return new quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
+  return new quickfix.<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
   }
 }
 
@@ -42,7 +47,7 @@ public class MessageFactory implements quickfix.MessageFactory
 <xsl:template name="if-statement">
  <xsl:for-each select="//fix/messages/message">
    if("<xsl:value-of select="@msgtype"/>".equals(msgType)) {
-     return new quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
+     return new quickfix.<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
    }
  </xsl:for-each>
 </xsl:template>

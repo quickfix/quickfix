@@ -14,6 +14,12 @@ public static final int TELEGRAPHIC_TRANSFER = 6;
 public static final int FEDWIRE = 7; 
 public static final int DEBIT_CARD = 8; 
 public static final int DIRECT_DEBIT = 9; 
+public static final int DIRECT_CREDIT = 10; 
+public static final int CREDIT_CARD = 11; 
+public static final int ACH_DEBIT = 12; 
+public static final int ACH_CREDIT = 13; 
+public static final int BPAY = 14; 
+public static final int HIGH_VALUE_CLEARING_SYSTEM = 15; 
 
   public PaymentMethod() 
   { 

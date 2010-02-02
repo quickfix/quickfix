@@ -24,6 +24,9 @@ public static final char TRADE = 'F';
 public static final char TRADE_CORRECT = 'G'; 
 public static final char TRADE_CANCEL = 'H'; 
 public static final char ORDER_STATUS = 'I'; 
+public static final char TRADE_IN_A_CLEARING_HOLD = 'J'; 
+public static final char TRADE_HAS_BEEN_RELEASED_TO_CLEARING = 'K'; 
+public static final char TRIGGERED_OR_ACTIVATED_BY_SYSTEM = 'L'; 
 
   public ExecType() 
   { 

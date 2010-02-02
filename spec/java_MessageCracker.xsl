@@ -23,9 +23,14 @@
 
  <xsl:template match="text()"/>
 
+ <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+ <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="type" select="//fix/@type"/>
+ <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
+  
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
-package quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
+package quickfix.<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
 
 import quickfix.*;
 import quickfix.field.*;

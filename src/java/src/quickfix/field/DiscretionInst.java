@@ -12,6 +12,7 @@ public static final char RELATED_TO_LOCAL_PRIMARY_PRICE = '3';
 public static final char RELATED_TO_MIDPOINT_PRICE = '4'; 
 public static final char RELATED_TO_LAST_TRADE_PRICE = '5'; 
 public static final char RELATED_TO_VWAP = '6'; 
+public static final char AVERAGE_PRICE_GUARANTEE = '7'; 
 
   public DiscretionInst() 
   { 

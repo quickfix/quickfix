@@ -139,9 +139,13 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
   public void onMessage( ListStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( AllocationInstruction message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( AllocationInstructionAck message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( AllocationReport message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( AllocationReportAck message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( Confirmation message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( Confirmation_Ack message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
@@ -201,13 +205,14 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
   public void onMessage( AdjustedPositionReport message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( AllocationInstructionAlert message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( ExecutionAcknowledgement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( TradingSessionList message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( TradingSessionListRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
-  public void onMessage( IOI message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+  public void onMessage( IndicationOfInterest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
  
   public void crack( quickfix.Message message, SessionID sessionID )
@@ -498,7 +503,7 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
       onMessage( (TradingSessionListRequest)message, sessionID );
     else
     if( msgTypeValue.equals("6") )
-      onMessage( (IOI)message, sessionID );
+      onMessage( (IndicationOfInterest)message, sessionID );
     else onMessage( message, sessionID );
   }
 

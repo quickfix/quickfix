@@ -5,6 +5,8 @@ import java.util.Date;
 public class CxlType extends CharField 
 { 
   public static final int FIELD = 125; 
+public static final char PARTIAL_CANCEL = 'P'; 
+public static final char FULL_REMAINING_QUANTITY = 'F'; 
 
   public CxlType() 
   { 

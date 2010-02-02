@@ -396,7 +396,7 @@ public class MessageFactory implements quickfix.MessageFactory
    }
  
    if("6".equals(msgType)) {
-     return new quickfix.fix50.IOI();
+     return new quickfix.fix50.IndicationOfInterest();
    }
  
   return new quickfix.fix50.Message();

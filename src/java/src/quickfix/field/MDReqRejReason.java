@@ -18,6 +18,7 @@ public static final char UNSUPPORTED_TRADINGSESSIONID = '9';
 public static final char UNSUPPORTED_SCOPE = 'A'; 
 public static final char UNSUPPORTED_OPENCLOSESETTLEFLAG = 'B'; 
 public static final char UNSUPPORTED_MDIMPLICITDELETE = 'C'; 
+public static final char INSUFFICIENT_CREDIT = 'D'; 
 
   public MDReqRejReason() 
   { 

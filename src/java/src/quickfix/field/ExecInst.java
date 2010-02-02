@@ -5,6 +5,7 @@ import java.util.Date;
 public class ExecInst extends StringField 
 { 
   public static final int FIELD = 18; 
+public static final char STAY_ON_OFFERSIDE = '0'; 
 public static final char NOT_HELD = '1'; 
 public static final char WORK = '2'; 
 public static final char GO_ALONG = '3'; 
@@ -14,7 +15,6 @@ public static final char PARTICIPATE_DONT_INITIATE = '6';
 public static final char STRICT_SCALE = '7'; 
 public static final char TRY_TO_SCALE = '8'; 
 public static final char STAY_ON_BIDSIDE = '9'; 
-public static final char STAY_ON_OFFERSIDE = '0'; 
 public static final char NO_CROSS = 'A'; 
 public static final char OK_TO_CROSS = 'B'; 
 public static final char CALL_FIRST = 'C'; 
@@ -46,6 +46,12 @@ public static final char STRICT_LIMIT = 'b';
 public static final char IGNORE_PRICE_VALIDITY_CHECKS = 'c'; 
 public static final char PEG_TO_LIMIT_PRICE = 'd'; 
 public static final char WORK_TO_TARGET_STRATEGY = 'e'; 
+public static final char INTERMARKET_SWEEP = 'f'; 
+public static final char EXTERNAL_ROUTING_ALLOWED = 'g'; 
+public static final char EXTERNAL_ROUTING_NOT_ALLOWED = 'h'; 
+public static final char IMBALANCE_ONLY = 'i'; 
+public static final char SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE = 'j'; 
+public static final char BEST_EXECUTION = 'k'; 
 
   public ExecInst() 
   { 

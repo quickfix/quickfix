@@ -8,6 +8,7 @@ public class CancellationRights extends CharField
 public static final char NO_EXECUTION_ONLY = 'N'; 
 public static final char NO_WAIVER_AGREEMENT = 'M'; 
 public static final char NO_INSTITUTIONAL = 'O'; 
+public static final char YES = 'Y'; 
 
   public CancellationRights() 
   { 
