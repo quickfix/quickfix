@@ -241,9 +241,13 @@ namespace FIX50
   virtual void onMessage( const ListStatusRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationInstruction&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationInstructionAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationReportAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Confirmation&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Confirmation_Ack&, const FIX::SessionID& ) 
@@ -303,6 +307,7 @@ namespace FIX50
   virtual void onMessage( const AdjustedPositionReport&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationInstructionAlert&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ExecutionAcknowledgement&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const TradingSessionList&, const FIX::SessionID& ) 

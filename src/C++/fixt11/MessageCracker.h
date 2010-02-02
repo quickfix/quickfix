@@ -19,14 +19,14 @@
 **
 ****************************************************************************/
 
-#ifndef FIX11_MESSAGECRACKER_H
-#define FIX11_MESSAGECRACKER_H
+#ifndef FIXT11_MESSAGECRACKER_H
+#define FIXT11_MESSAGECRACKER_H
 
 #include "../SessionID.h"
 #include "../Exceptions.h"
-#include "../fix11/Message.h"
+#include "../fixt11/Message.h"
 
-namespace FIX11
+namespace FIXT11
 {  
   class Heartbeat; 
   class TestRequest; 
@@ -129,4 +129,4 @@ void crack( Message& message,
   };
 }
 
-#endif //FIX11_MESSAGECRACKER_H
+#endif //FIXT11_MESSAGECRACKER_H

@@ -23,16 +23,21 @@
 
  <xsl:template match="text()"/>
 
+ <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+ <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="type" select="//fix/@type"/>
+ <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
+
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
-#ifndef FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
-#define FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
+#ifndef <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
+#define <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
 
 #include "../SessionID.h"
 #include "../Exceptions.h"
-#include "../fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>/Message.h"
+#include "../<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>/Message.h"
 
-namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
+namespace <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 { <xsl:call-template name="forward-declarations"/>
 
   class MessageCracker
@@ -49,7 +54,7 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
   };
 }
 
-#endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H&#013;
+#endif //<xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H&#013;
 </xsl:template>
 
 <xsl:template name="forward-declarations"><xsl:for-each select="//fix/messages/message"> 
