@@ -138,9 +138,13 @@ namespace QuickFix50
   public virtual void onMessage( ListStatusRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationInstruction message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationInstructionAck message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationReport message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationReportAck message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Confirmation message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Confirmation_Ack message, QuickFix.SessionID session ) 
@@ -200,6 +204,7 @@ namespace QuickFix50
   public virtual void onMessage( AdjustedPositionReport message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationInstructionAlert message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ExecutionAcknowledgement message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( TradingSessionList message, QuickFix.SessionID session ) 

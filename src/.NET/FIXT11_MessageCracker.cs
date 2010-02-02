@@ -21,7 +21,7 @@
 
 using System;
 
-namespace QuickFix11
+namespace QuickFixt11
 {
   public class MessageCracker 
   {

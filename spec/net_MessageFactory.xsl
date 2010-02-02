@@ -23,11 +23,16 @@
 
  <xsl:template match="text()"/>
 
+ <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+ <xsl:variable name="uppercase" select="'ABCDEfGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="type" select="//fix/@type"/>
+ <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
+
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
 using System;
 
-namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
+namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 {
 
   public class MessageFactory : QuickFix.MessageFactory
