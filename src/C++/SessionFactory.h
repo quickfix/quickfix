@@ -36,6 +36,7 @@ class SessionID;
 class Session;
 class Application;
 class MessageStoreFactory;
+class DataDictionaryProvider;
 
 /** Responsible for creating Session objects.  This factory will use
  *  QuickFIX SessionID, Dictionary settings, MessageStoreFactory, and
@@ -59,6 +60,18 @@ public:
 
 private:
   typedef std::map < std::string, DataDictionary* > Dictionaries;
+
+  DataDictionary& createDataDictionary(const SessionID& sessionID, 
+                                       const Dictionary& settings, 
+                                       const std::string& settingsKey) throw(ConfigError);
+
+  void processFixtDataDictionaries(const SessionID& sessionID, 
+                                   const Dictionary& settings, 
+                                   DataDictionaryProvider& provider) throw(ConfigError);
+
+  void processFixDataDictionary(const SessionID& sessionID, 
+                                const Dictionary& settings, 
+                                DataDictionaryProvider& provider) throw(ConfigError);
 
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;

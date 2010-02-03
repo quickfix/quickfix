@@ -25,3 +25,8 @@ echo DataDictionary=..\spec\FIX43.xml >> cfg\at.cfg
 echo [SESSION] >> cfg\at.cfg
 echo BeginString=FIX.4.4 >> cfg\at.cfg
 echo DataDictionary=..\spec\FIX44.xml >> cfg\at.cfg
+echo [SESSION] >> cfg\at.cfg
+echo BeginString=FIXT.1.1 >> cfg\at.cfg
+echo DefaultApplVerID=FIX.5.0 >> cfg\at.cfg
+echo TransportDataDictionary=..\spec\FIXT11.xml >> cfg\at.cfg
+echo ApplDataDictionary=..\spec\FIX50.xml >> cfg\at.cfg

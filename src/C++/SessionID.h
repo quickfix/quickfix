@@ -42,9 +42,12 @@ public:
   : m_beginString( BeginString(beginString) ),
     m_senderCompID( SenderCompID(senderCompID) ),
     m_targetCompID( TargetCompID(targetCompID) ),
-    m_sessionQualifier( sessionQualifier )
+    m_sessionQualifier( sessionQualifier ),
+	  m_isFIXT(false)
   {
-        toString(m_frozenString);
+    toString(m_frozenString);
+		if( beginString.substr(0, 4) == "FIXT" )
+			m_isFIXT = true;
   }
 
   const BeginString& getBeginString() const
@@ -55,6 +58,8 @@ public:
     { return m_targetCompID; }
   const std::string& getSessionQualifier() const
     { return m_sessionQualifier; }
+  const bool isFIXT() const
+    { return m_isFIXT; }
 
   /// Get a string representation of the SessionID
   std::string toString() const
@@ -124,6 +129,7 @@ private:
   SenderCompID m_senderCompID;
   TargetCompID m_targetCompID;
   std::string m_sessionQualifier;
+  bool m_isFIXT;
   std::string m_frozenString;
 };
 /*! @} */

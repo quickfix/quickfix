@@ -69,7 +69,11 @@ TEST(readFromIstream)
     "SenderCompID=NYSE\n"
     "TargetCompID=TW\n"
     "SessionQualifier=QUAL2\n"
-    "Value=6\n";
+    "Value=6\n"
+	"[SESSION]\n"
+	"BeginString=FIXT.1.1\n"
+	"SenderCompID=NYSE\n"
+	"TargetCompID=TW\n";
 
   std::istringstream input( configuration );
 

@@ -128,4 +128,16 @@ TEST(streamIn)
   CHECK_EQUAL( "FIX.4.2:SENDER-ID->TARGET:QUALIFIER", object.toString() );
 }
 
+TEST(isTransportSession)
+{
+  SessionID object( BeginString( "FIX.4.2" ),
+                    SenderCompID( "SENDER" ),
+                    TargetCompID( "TARGET" ) );
+  CHECK( !object.isFIXT() );
+
+  object = SessionID( BeginString( "FIXT.1.1" ),
+                      SenderCompID( "SENDER" ),
+                      TargetCompID( "TARGET" ) );
+  CHECK( object.isFIXT() );
+}
 }

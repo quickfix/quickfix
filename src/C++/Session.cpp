@@ -42,7 +42,7 @@ Mutex Session::s_mutex;
 Session::Session( Application& application,
                   MessageStoreFactory& messageStoreFactory,
                   const SessionID& sessionID,
-                  const DataDictionary& dataDictionary,
+                  const DataDictionaryProvider& dataDictionaryProvider,
                   const TimeRange& sessionTime,
                   int heartBtInt, LogFactory* pLogFactory )
 : m_application( application ),
@@ -59,7 +59,7 @@ Session::Session( Application& application,
   m_refreshOnLogon( false ),
   m_millisecondsInTimeStamp( true ),
   m_persistMessages( true ),
-  m_dataDictionary( dataDictionary ),
+  m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
   m_pResponder( 0 )
@@ -397,7 +397,10 @@ void Session::nextResendRequest( const Message& resendRequest )
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
-    Message msg( *i, m_dataDictionary );
+    const DataDictionary& dataDictionary = 
+      m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+
+    Message msg( *i, dataDictionary );
     msg.getHeader().getField( msgSeqNum );
     msg.getHeader().getField( msgType );
 
@@ -1253,7 +1256,9 @@ void Session::next( const std::string& msg, bool queued )
   try
   {
     m_state.onIncoming( msg );
-    next( Message( msg, m_dataDictionary ), queued );
+    const DataDictionary& dataDictionary = 
+      m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+    next( Message( msg, dataDictionary ), queued );
   }
   catch( InvalidMessage& e )
   {
@@ -1291,7 +1296,10 @@ void Session::next( const Message& message, bool queued )
     if ( beginString != m_sessionID.getBeginString() )
       throw UnsupportedVersion();
 
-    m_dataDictionary.validate( message );
+    const DataDictionary& dataDictionary = 
+      m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+
+    dataDictionary.validate( message );
 
     if ( msgType == MsgType_Logon )
       nextLogon( message );

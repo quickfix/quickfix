@@ -31,7 +31,7 @@
 #include "SessionID.h"
 #include "Responder.h"
 #include "Fields.h"
-#include "DataDictionary.h"
+#include "DataDictionaryProvider.h"
 #include "Application.h"
 #include "Mutex.h"
 #include "Log.h"
@@ -47,7 +47,7 @@ class Session
 public:
   Session( Application&, MessageStoreFactory&,
            const SessionID&,
-           const DataDictionary&,
+           const DataDictionaryProvider&,
            const TimeRange&,
            int heartBtInt, LogFactory* pLogFactory );
   ~Session();
@@ -74,10 +74,10 @@ public:
 
   const SessionID& getSessionID() const
   { return m_sessionID; }
-  void setDataDictionary( const DataDictionary& dataDictionary )
-  { m_dataDictionary = dataDictionary; }
-  const DataDictionary& getDataDictionary() const
-  { return m_dataDictionary; }
+  void setDataDictionaryProvider( const DataDictionaryProvider& dataDictionaryProvider )
+  { m_dataDictionaryProvider = dataDictionaryProvider; }
+  const DataDictionaryProvider& getDataDictionaryProvider() const
+  { return m_dataDictionaryProvider; }
 
   static bool sendToTarget( Message& message,
                             const std::string& qualifier = "" )
@@ -307,7 +307,7 @@ private:
   bool m_persistMessages;
 
   SessionState m_state;
-  DataDictionary m_dataDictionary;
+  DataDictionaryProvider m_dataDictionaryProvider;
   MessageStoreFactory& m_messageStoreFactory;
   LogFactory* m_pLogFactory;
   Responder* m_pResponder;

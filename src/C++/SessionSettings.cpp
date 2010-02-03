@@ -183,9 +183,10 @@ throw( ConfigError )
       beginString != BeginString_FIX41 &&
       beginString != BeginString_FIX42 &&
       beginString != BeginString_FIX43 &&
-      beginString != BeginString_FIX44 )
+      beginString != BeginString_FIX44 &&
+	  beginString != BeginString_FIXT11 )
   {
-    throw ConfigError( std::string(BEGINSTRING) + " must be FIX.4.0 to FIX.4.4" );
+    throw ConfigError( std::string(BEGINSTRING) + " must be FIX.4.0 to FIX.4.4 or FIXT.1.1" );
   }
 
   std::string connectionType = dictionary.getString( CONNECTION_TYPE );

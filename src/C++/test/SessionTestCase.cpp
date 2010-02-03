@@ -32,6 +32,7 @@
 #include <SessionID.h>
 #include <TimeRange.h>
 #include <Message.h>
+#include <DataDictionaryProvider.h>
 #include <fix42/Logon.h>
 #include <fix42/Logout.h>
 #include <fix42/Heartbeat.h>
@@ -288,7 +289,9 @@ struct sessionFixture : public TestCallback
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
     TimeRange sessionTime( startTime, endTime );
 
-    object = new Session( *this, factory, sessionID, DataDictionary("../spec/FIX42.xml"),
+    DataDictionaryProvider provider;
+    provider.addTransportDataDictionary( sessionID.getBeginString(), DataDictionary("../spec/FIX42.xml") );
+    object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setResponder( this );
   }
@@ -462,26 +465,29 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
 
 TEST_FIXTURE(sessionFixture, doesSessionExist)
 {
+  DataDictionaryProvider provider;
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+
   Session * pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession2 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession3 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession4 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession5 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
   pSession1->setResponder( this );
   pSession2->setResponder( this );
@@ -530,26 +536,29 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
 
 TEST_FIXTURE(sessionFixture, lookupSession)
 {
+  DataDictionaryProvider provider;
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+
   Session* pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession2 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession3 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession4 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession5 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                                   SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                 SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), provider,
+                                 TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
   pSession1->setResponder( this );
   pSession2->setResponder( this );
@@ -582,10 +591,13 @@ TEST_FIXTURE(sessionFixture, lookupSession)
 
 TEST_FIXTURE(sessionFixture, registerSession)
 {
+  DataDictionaryProvider provider;
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+
   Session* pSession = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
-                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                        TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                      SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), provider,
+                      TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
   CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.1" ),
                                                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );

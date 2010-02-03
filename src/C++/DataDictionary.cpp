@@ -115,7 +115,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   QF_STACK_POP
 }
 
-void DataDictionary::validate( const Message& message )
+void DataDictionary::validate( const Message& message ) const
 throw( FIX::Exception )
 { QF_STACK_PUSH(DataDictionary::validate)
 
@@ -144,7 +144,7 @@ throw( FIX::Exception )
   QF_STACK_POP
 }
 
-void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
+void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) const
 { QF_STACK_PUSH(DataDictionary::iterate)
 
   int lastField = 0;

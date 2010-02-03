@@ -286,12 +286,12 @@ public:
   { m_checkUserDefinedFields = value; }
 
   /// Validate a message.
-  void validate( const Message& message ) throw( FIX::Exception );
+  void validate( const Message& message ) const throw( FIX::Exception );
   DataDictionary& operator=( const DataDictionary& rhs );
 
 private:
   /// Iterate through fields while applying checks.
-  void iterate( const FieldMap& map, const MsgType& msgType );
+  void iterate( const FieldMap& map, const MsgType& msgType ) const;
 
   /// Check if message type is defined in spec.
   void checkMsgType( const MsgType& msgType ) const

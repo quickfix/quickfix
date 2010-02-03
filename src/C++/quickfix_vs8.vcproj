@@ -1025,6 +1025,10 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\DataDictionaryProvider.h"
+					>
+				</File>
+				<File
 					RelativePath=".\Group.h"
 					>
 					<FileConfiguration
@@ -2664,6 +2668,10 @@
 				>
 				<File
 					RelativePath=".\DataDictionary.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\DataDictionaryProvider.cpp"
 					>
 				</File>
 				<File

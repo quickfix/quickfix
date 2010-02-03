@@ -42,6 +42,15 @@ struct Exception : public std::logic_error
   std::string detail;
 };
 
+/// DataDictionary not found for BeginString or ApplVerID
+struct DataDictionaryNotFound : public Exception
+{
+  DataDictionaryNotFound( const std::string& v, const std::string& what = "" )
+    : Exception( "Could not find data dictionary", what ),
+                 version( v ) {}
+    std::string version;
+};
+
 /// Field not found inside a message
 struct FieldNotFound : public Exception
 {

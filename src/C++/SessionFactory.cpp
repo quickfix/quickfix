@@ -24,6 +24,7 @@
 #endif
 #include "CallStack.h"
 
+#include "DataDictionaryProvider.h"
 #include "SessionFactory.h"
 #include "SessionSettings.h"
 #include "Session.h"
@@ -53,36 +54,28 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( settings.has( USE_DATA_DICTIONARY ) )
     useDataDictionary = settings.getBool( USE_DATA_DICTIONARY );
 
-  DataDictionary dataDictionary;
-  if ( useDataDictionary )
+  std::string defaultApplVerID;
+  if( sessionID.isFIXT() )
   {
-    std::string path = settings.getString( DATA_DICTIONARY );
-    Dictionaries::iterator i = m_dictionaries.find( path );
-    if ( i != m_dictionaries.end() )
-      dataDictionary = *i->second;
-    else
+    if( !settings.has(DEFAULT_APPLVERID) )
     {
-      DataDictionary* p = new DataDictionary( path );
-      dataDictionary = *p;
-      m_dictionaries[ path ] = p;
+      throw ConfigError("ApplVerID is required for FIXT transport");
     }
+    defaultApplVerID = DefaultApplVerID( settings.getString(DEFAULT_APPLVERID) );
   }
 
-  if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
+  DataDictionaryProvider dataDictionaryProvider;
+  if( useDataDictionary )
   {
-    dataDictionary.checkFieldsOutOfOrder
-    ( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
+    if( sessionID.isFIXT() )
+    {
+      processFixtDataDictionaries(sessionID, settings, dataDictionaryProvider);
+    }
+    else
+    {
+      processFixDataDictionary(sessionID, settings, dataDictionaryProvider);
+    }
   }
-  if( settings.has( VALIDATE_FIELDS_HAVE_VALUES ) )
-  {
-    dataDictionary.checkFieldsHaveValues
-    ( settings.getBool( VALIDATE_FIELDS_HAVE_VALUES ) );
-  }
-  if( settings.has( VALIDATE_USER_DEFINED_FIELDS ) )
-  {
-    dataDictionary.checkUserDefinedFields
-    ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
-  }    
 
   bool useLocalTime = false;
   if( settings.has(USE_LOCAL_TIME) )
@@ -131,7 +124,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
   Session* pSession = 0;
   pSession = new Session( m_application, m_messageStoreFactory,
-                          sessionID, dataDictionary, sessionTimeRange,
+                          sessionID, dataDictionaryProvider, sessionTimeRange,
                           heartBtInt, m_pLogFactory );
 
   int logonDay = startDay;
@@ -201,6 +194,90 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setPersistMessages( settings.getBool( PERSIST_MESSAGES ) );
 
   return pSession;
+
+  QF_STACK_POP
+}
+
+DataDictionary& SessionFactory::createDataDictionary(const SessionID& sessionID, 
+                                                     const Dictionary& settings, 
+                                                     const std::string& settingsKey) throw(ConfigError)
+{ QF_STACK_PUSH(SessionFactory::createDataDictionary)
+
+  DataDictionary dataDictionary;
+  std::string path = settings.getString( settingsKey );
+  Dictionaries::iterator i = m_dictionaries.find( path );
+  if ( i != m_dictionaries.end() )
+    dataDictionary = *i->second;
+  else
+  {
+    DataDictionary* p = new DataDictionary( path );
+    dataDictionary = *p;
+    m_dictionaries[ path ] = p;
+  }
+
+  if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
+  {
+    dataDictionary.checkFieldsOutOfOrder
+    ( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
+  }
+  if( settings.has( VALIDATE_FIELDS_HAVE_VALUES ) )
+  {
+    dataDictionary.checkFieldsHaveValues
+    ( settings.getBool( VALIDATE_FIELDS_HAVE_VALUES ) );
+  }
+  if( settings.has( VALIDATE_USER_DEFINED_FIELDS ) )
+  {
+    dataDictionary.checkUserDefinedFields
+    ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
+  }
+
+  return *m_dictionaries[ path ];    
+
+  QF_STACK_POP
+}
+
+void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID, 
+                                                 const Dictionary& settings, 
+                                                 DataDictionaryProvider& provider) throw(ConfigError)
+{ QF_STACK_PUSH(SessionFactory::processFixtDataDictionaries)
+
+  DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
+  provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
+  
+  for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
+  {
+    const std::string& key = data->first;
+    const std::string value = data->second;
+    if( key.substr(0, strlen(APP_DATA_DICTIONARY)) == APP_DATA_DICTIONARY )
+    {
+      if( key == APP_DATA_DICTIONARY )
+      {
+        DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
+        provider.addApplicationDataDictionary(ApplVerID(sessionID.getBeginString()), dataDictionary);
+      }
+      else
+      {
+        std::string::size_type offset = key.find('.');
+        if( offset == std::string::npos )
+          throw ConfigError(std::string("Malformed ") + APP_DATA_DICTIONARY + ": " + key);
+        std::string beginStringQualifier = key.substr(offset);
+        DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, key);
+        provider.addApplicationDataDictionary(ApplVerID(beginStringQualifier), dataDictionary);
+      }
+    }
+  }
+
+  QF_STACK_POP
+}
+
+void SessionFactory::processFixDataDictionary(const SessionID& sessionID, 
+                                              const Dictionary& settings, 
+                                              DataDictionaryProvider& provider) throw(ConfigError)
+{ QF_STACK_PUSH(SessionFactory::processFixDataDictionary)
+
+  DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
+  provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
+  provider.addApplicationDataDictionary(ApplVerID(sessionID.getBeginString()), dataDictionary);
 
   QF_STACK_POP
 }
