@@ -308,7 +308,7 @@ throw( ConfigError )
   }
 
   // HEADER
-  if( type == "FIXT" || (type == "FIX" && major < 5) )
+  if( type == "FIXT" || (type == "FIX" && major < "5") )
   {
     DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
     if(!pHeaderNode.get())
@@ -343,7 +343,7 @@ throw( ConfigError )
   }
 
   // TRAILER
-    if( type == "FIXT" || (type == "FIX" && major < 5) )
+    if( type == "FIXT" || (type == "FIX" && major < "5") )
     {
     DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
     if(!pTrailerNode.get())
