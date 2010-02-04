@@ -129,7 +129,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
                           sessionID, dataDictionaryProvider, sessionTimeRange,
                           heartBtInt, m_pLogFactory );
 
-  pSession->setDefaultApplVerID(defaultApplVerID);
+  pSession->setSenderDefaultApplVerID(defaultApplVerID);
 
   int logonDay = startDay;
   int logoutDay = endDay;

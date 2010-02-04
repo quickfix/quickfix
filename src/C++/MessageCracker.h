@@ -85,7 +85,7 @@ public:
         if(!message.getHeader().isSetField(applVerID))
         {
           Session* pSession = Session::lookupSession( sessionID );
-          applVerID = pSession->getDefaultApplVerID();
+          applVerID = pSession->getSenderDefaultApplVerID();
         }
         else
         {
@@ -152,7 +152,7 @@ public:
         if(!message.getHeader().isSetField(applVerID))
         {
           Session* pSession = Session::lookupSession( sessionID );
-          applVerID = pSession->getDefaultApplVerID();
+          applVerID = pSession->getSenderDefaultApplVerID();
         }
         else
         {

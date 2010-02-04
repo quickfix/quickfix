@@ -133,9 +133,13 @@ throw( FIX::Exception )
     }
   }
 
-  /*int field = 0;
-  if ( m_checkFieldsOutOfOrder && !message.hasValidStructure(field) )
-    throw TagOutOfOrder(field);*/
+  int field = 0;
+  if( (pSessionDD !=0 && pSessionDD->m_checkFieldsOutOfOrder) 
+      || (pAppDD != 0 && pAppDD->m_checkFieldsOutOfOrder) )
+  {
+    if ( !message.hasValidStructure(field) )
+      throw TagOutOfOrder(field);
+  }
 
   if ( pAppDD != 0 && pAppDD->m_hasVersion )
   {
@@ -528,6 +532,15 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
 
       DD.addField(field);
       DD.addMsgField(msgtype, field);
+    }
+    if(pComponentFieldNode->getName() == "component")
+    {
+      DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
+      std::string required;
+      attrs->get("required", required);
+      bool isRequired = (required == "Y" || required == "y");
+      addXMLComponentFields(pDoc, pComponentFieldNode.get(),
+                            msgtype, *this, isRequired);
     }
     if(pComponentFieldNode->getName() == "group")
     {

@@ -91,7 +91,12 @@ void Session::insertSendingTime( Header& header )
 { QF_STACK_PUSH(Session::insertSendingTime)
 
   UtcTimeStamp now;
-  bool showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+  bool showMilliseconds = false;
+  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
+    showMilliseconds = true;
+  else
+    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+
   header.setField( SendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
 
   QF_STACK_POP
@@ -100,7 +105,12 @@ void Session::insertSendingTime( Header& header )
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 { QF_STACK_PUSH(Session::insertSendingTime)
 
-  bool showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+  bool showMilliseconds = false;
+  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
+    showMilliseconds = true;
+  else
+    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+
   header.setField( OrigSendingTime(when, showMilliseconds && m_millisecondsInTimeStamp) );
 
   QF_STACK_POP
@@ -621,7 +631,7 @@ void Session::generateLogon()
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
   if( m_sessionID.isFIXT() )
-    logon.setField( DefaultApplVerID(m_defaultApplVerID) );  
+    logon.setField( DefaultApplVerID(m_senderDefaultApplVerID) );  
   if( m_refreshOnLogon )
     refresh();
   if( m_resetOnLogon )
@@ -647,7 +657,7 @@ void Session::generateLogon( const Message& aLogon )
   HeartBtInt heartBtInt;
   logon.setField( EncryptMethod( 0 ) );
   if( m_sessionID.isFIXT() )
-    logon.setField( DefaultApplVerID(m_defaultApplVerID) );  
+    logon.setField( DefaultApplVerID(m_senderDefaultApplVerID) );  
   if( m_state.receivedReset() )
     logon.setField( ResetSeqNumFlag(true) );
   aLogon.getField( heartBtInt );
@@ -1264,7 +1274,7 @@ void Session::next( const std::string& msg, bool queued )
     if( m_sessionID.isFIXT() )
     {
       const DataDictionary& applicationDD =
-        m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
       next( Message( msg, sessionDD, applicationDD ), queued );
     }
     else
@@ -1308,13 +1318,21 @@ void Session::next( const Message& message, bool queued )
     if ( beginString != m_sessionID.getBeginString() )
       throw UnsupportedVersion();
 
+    if( msgType == MsgType_Logon )
+    {
+      if( m_sessionID.isFIXT() )
+      {
+        const DefaultApplVerID& applVerID = FIELD_GET_REF( message, DefaultApplVerID );
+      }
+    }
+
     const DataDictionary& sessionDataDictionary = 
         m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
 
     if( m_sessionID.isFIXT() && message.isApp() )
     {
       const DataDictionary& applicationDataDictionary = 
-        m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
       DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );
     }
     else
