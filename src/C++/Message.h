@@ -32,6 +32,7 @@
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include "CallStack.h"
+#include "Values.h"
 #include <vector>
 #include <memory>
 
@@ -243,6 +244,44 @@ public:
     return strchr
            ( "0A12345",
              msgType.getValue().c_str() [ 0 ] ) != 0;
+  }
+
+  static ApplVerID toApplVerID(const BeginString& value)
+  { QF_STACK_PUSH(SessionFactory::toApplVerID)
+
+    if( value == ApplVerId_FIX40 )
+      return ApplVerID_FIX40;
+    if( value == ApplVerId_FIX41 )
+      return ApplVerID_FIX41;
+    if( value == ApplVerId_FIX42 )
+      return ApplVerID_FIX42;
+    if( value == ApplVerId_FIX43 )
+      return ApplVerID_FIX43;
+    if( value == ApplVerId_FIX44 )
+      return ApplVerID_FIX44;
+    if( value == ApplVerId_FIX50 )
+      return ApplVerID_FIX50;
+    return ApplVerID(value);
+
+    QF_STACK_POP
+  }
+
+  static BeginString toBeginString( const ApplVerID& applVerID )
+  {
+    if( applVerID == ApplVerID_FIX40 )
+      return BeginString_FIX40;
+    else if( applVerID == ApplVerID_FIX41 )
+      return BeginString_FIX41;
+    else if( applVerID == ApplVerID_FIX42 )
+      return BeginString_FIX42;
+    else if( applVerID == ApplVerID_FIX43 )
+      return BeginString_FIX43;
+    else if( applVerID == ApplVerID_FIX44 )
+      return BeginString_FIX44;
+    else if( applVerID == ApplVerID_FIX50 )
+      return ApplVerId_FIX50;
+    else
+      return "";
   }
 
   static bool isHeaderField( int field );

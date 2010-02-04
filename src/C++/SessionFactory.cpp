@@ -63,7 +63,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     {
       throw ConfigError("ApplVerID is required for FIXT transport");
     }
-    defaultApplVerID = toApplVerID( settings.getString(DEFAULT_APPLVERID) );
+    defaultApplVerID = Message::toApplVerID( settings.getString(DEFAULT_APPLVERID) );
   }
 
   DataDictionaryProvider dataDictionaryProvider;
@@ -258,7 +258,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
       if( key == string_toUpper(APP_DATA_DICTIONARY) )
       {
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
-        provider.addApplicationDataDictionary(toApplVerID(settings.getString(DEFAULT_APPLVERID)), dataDictionary);
+        provider.addApplicationDataDictionary(Message::toApplVerID(settings.getString(DEFAULT_APPLVERID)), dataDictionary);
       }
       else
       {
@@ -267,7 +267,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
           throw ConfigError(std::string("Malformed ") + APP_DATA_DICTIONARY + ": " + key);
         std::string beginStringQualifier = key.substr(offset);
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, key);
-        provider.addApplicationDataDictionary(toApplVerID(beginStringQualifier), dataDictionary);
+        provider.addApplicationDataDictionary(Message::toApplVerID(beginStringQualifier), dataDictionary);
       }
     }
   }
@@ -282,27 +282,7 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
 
   DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
-  provider.addApplicationDataDictionary(toApplVerID(sessionID.getBeginString()), dataDictionary);
-
-  QF_STACK_POP
-}
-
-std::string SessionFactory::toApplVerID(const std::string& value)
-{ QF_STACK_PUSH(SessionFactory::toApplVerID)
-
-  if( value == ApplVerId_FIX40 )
-    return ApplVerID_FIX40;
-  if( value == ApplVerId_FIX41 )
-    return ApplVerID_FIX41;
-  if( value == ApplVerId_FIX42 )
-    return ApplVerID_FIX42;
-  if( value == ApplVerId_FIX43 )
-    return ApplVerID_FIX43;
-  if( value == ApplVerId_FIX44 )
-    return ApplVerID_FIX44;
-  if( value == ApplVerId_FIX50 )
-    return ApplVerID_FIX50;
-  return value;
+  provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), dataDictionary);
 
   QF_STACK_POP
 }

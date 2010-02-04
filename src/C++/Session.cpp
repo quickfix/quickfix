@@ -1323,6 +1323,11 @@ void Session::next( const Message& message, bool queued )
       if( m_sessionID.isFIXT() )
       {
         const DefaultApplVerID& applVerID = FIELD_GET_REF( message, DefaultApplVerID );
+        setTargetDefaultApplVerID(applVerID);
+      }
+      else
+      {
+        setTargetDefaultApplVerID(Message::toApplVerID(beginString));
       }
     }
 
@@ -1331,8 +1336,11 @@ void Session::next( const Message& message, bool queued )
 
     if( m_sessionID.isFIXT() && message.isApp() )
     {
+      ApplVerID applVerID = m_targetDefaultApplVerID;
+      if( header.isSetField(FIELD::ApplVerID) )
+        header.getField(applVerID);
       const DataDictionary& applicationDataDictionary = 
-        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
+        m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
       DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );
     }
     else

@@ -92,27 +92,9 @@ public:
           message.getHeader().getField( applVerID );
         }
 
-        crack( message, sessionID, toBeginString(applVerID) );
+        crack( message, sessionID, Message::toBeginString(applVerID) );
       }
     }
-  }
-
-  BeginString toBeginString( const ApplVerID& applVerID )
-  {
-    if( applVerID == ApplVerID_FIX40 )
-      return BeginString_FIX40;
-    else if( applVerID == ApplVerID_FIX41 )
-      return BeginString_FIX41;
-    else if( applVerID == ApplVerID_FIX42 )
-      return BeginString_FIX42;
-    else if( applVerID == ApplVerID_FIX43 )
-      return BeginString_FIX43;
-    else if( applVerID == ApplVerID_FIX44 )
-      return BeginString_FIX44;
-    else if( applVerID == ApplVerID_FIX50 )
-      return ApplVerId_FIX50;
-    else
-      return "";
   }
 
   void crack( Message& message,
@@ -159,7 +141,7 @@ public:
           message.getHeader().getField( applVerID );
         }
 
-        crack( message, sessionID, toBeginString(applVerID) );
+        crack( message, sessionID, Message::toBeginString(applVerID) );
       }
     }
   }

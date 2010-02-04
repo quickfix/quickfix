@@ -124,6 +124,11 @@ public:
   void setSenderDefaultApplVerID( const std::string& senderDefaultApplVerID )
     { m_senderDefaultApplVerID = senderDefaultApplVerID; }
 
+  const std::string& getTargetDefaultApplVerID()
+    { return m_targetDefaultApplVerID; }
+  void setTargetDefaultApplVerID( const std::string& targetDefaultApplVerID )
+    { m_targetDefaultApplVerID = targetDefaultApplVerID; }
+
   bool getSendRedundantResendRequests()
     { return m_sendRedundantResendRequests; }
   void setSendRedundantResendRequests ( bool value )
@@ -301,6 +306,7 @@ private:
   TimeRange m_logonTime;
 
   std::string m_senderDefaultApplVerID;
+  std::string m_targetDefaultApplVerID;
   bool m_sendRedundantResendRequests;
   bool m_checkCompId;
   bool m_checkLatency;
