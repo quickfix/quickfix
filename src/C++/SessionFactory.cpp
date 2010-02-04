@@ -24,6 +24,7 @@
 #endif
 #include "CallStack.h"
 
+#include "Utility.h"
 #include "Values.h"
 #include "DataDictionaryProvider.h"
 #include "SessionFactory.h"
@@ -62,19 +63,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     {
       throw ConfigError("ApplVerID is required for FIXT transport");
     }
-    defaultApplVerID = DefaultApplVerID( settings.getString(DEFAULT_APPLVERID) );
-    if( defaultApplVerID == ApplVerId_FIX40 )
-      defaultApplVerID = ApplVerID_FIX40;
-    if( defaultApplVerID == ApplVerId_FIX41 )
-      defaultApplVerID = ApplVerID_FIX41;
-    if( defaultApplVerID == ApplVerId_FIX42 )
-      defaultApplVerID = ApplVerID_FIX42;
-    if( defaultApplVerID == ApplVerId_FIX43 )
-      defaultApplVerID = ApplVerID_FIX43;
-    if( defaultApplVerID == ApplVerId_FIX44 )
-      defaultApplVerID = ApplVerID_FIX44;
-    if( defaultApplVerID == ApplVerId_FIX50 )
-      defaultApplVerID = ApplVerID_FIX50;
+    std::string defaultAppVerID = toApplVerID( settings.getString(DEFAULT_APPLVERID) );
   }
 
   DataDictionaryProvider dataDictionaryProvider;
@@ -262,13 +251,14 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
   {
     const std::string& key = data->first;
-    const std::string value = data->second;
-    if( key.substr(0, strlen(APP_DATA_DICTIONARY)) == APP_DATA_DICTIONARY )
+    const std::string& value = data->second;
+    const std::string frontKey = key.substr(0, strlen(APP_DATA_DICTIONARY) + 1);
+    if( frontKey == string_toUpper(APP_DATA_DICTIONARY) )
     {
-      if( key == APP_DATA_DICTIONARY )
+      if( key == string_toUpper(APP_DATA_DICTIONARY) )
       {
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
-        provider.addApplicationDataDictionary(ApplVerID(sessionID.getBeginString()), dataDictionary);
+        provider.addApplicationDataDictionary(toApplVerID(sessionID.getBeginString()), dataDictionary);
       }
       else
       {
@@ -277,7 +267,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
           throw ConfigError(std::string("Malformed ") + APP_DATA_DICTIONARY + ": " + key);
         std::string beginStringQualifier = key.substr(offset);
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, key);
-        provider.addApplicationDataDictionary(ApplVerID(beginStringQualifier), dataDictionary);
+        provider.addApplicationDataDictionary(toApplVerID(beginStringQualifier), dataDictionary);
       }
     }
   }
@@ -293,6 +283,26 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
   DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
   provider.addApplicationDataDictionary(ApplVerID(sessionID.getBeginString()), dataDictionary);
+
+  QF_STACK_POP
+}
+
+std::string SessionFactory::toApplVerID(const std::string& value)
+{ QF_STACK_PUSH(SessionFactory::toApplVerID)
+
+  if( value == ApplVerId_FIX40 )
+    return ApplVerID_FIX40;
+  if( value == ApplVerId_FIX41 )
+    return ApplVerID_FIX41;
+  if( value == ApplVerId_FIX42 )
+    return ApplVerID_FIX42;
+  if( value == ApplVerId_FIX43 )
+    return ApplVerID_FIX43;
+  if( value == ApplVerId_FIX44 )
+    return ApplVerID_FIX44;
+  if( value == ApplVerId_FIX50 )
+    return ApplVerID_FIX50;
+  return value;
 
   QF_STACK_POP
 }

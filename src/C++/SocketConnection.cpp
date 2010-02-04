@@ -149,7 +149,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       {
         m_pSession = 0;
         if( a.getLog() )
-	{
+        {
           a.getLog()->onEvent( "Session not found for incoming message: " + msg );
           a.getLog()->onIncoming( msg );
         }

@@ -1259,9 +1259,11 @@ void Session::next( const std::string& msg, bool queued )
   try
   {
     m_state.onIncoming( msg );
-    const DataDictionary& dataDictionary = 
+    const DataDictionary& sessionDD = 
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
-    next( Message( msg, dataDictionary ), queued );
+    const DataDictionary& applicationDD =
+      m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
+    next( Message( msg, sessionDD ), queued );
   }
   catch( InvalidMessage& e )
   {

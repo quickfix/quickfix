@@ -29,4 +29,4 @@ echo [SESSION] >> cfg\at.cfg
 echo BeginString=FIXT.1.1 >> cfg\at.cfg
 echo DefaultApplVerID=FIX.5.0 >> cfg\at.cfg
 echo TransportDataDictionary=..\spec\FIXT11.xml >> cfg\at.cfg
-echo ApplDataDictionary=..\spec\FIX50.xml >> cfg\at.cfg
+echo AppDataDictionary=..\spec\FIX50.xml >> cfg\at.cfg

@@ -72,6 +72,11 @@ public:
            bool validate = true )
   throw( InvalidMessage );
 
+  /// Construct a message from a string using a session and application data dictionary
+  Message( const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
+           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
+  throw( InvalidMessage );
+
   Message( const Message& copy )
   : FieldMap( copy ),
     m_header( message_order( message_order::header ) ),
@@ -147,9 +152,20 @@ public:
    * that is passed in.  It will return true on success and false
    * on failure.
    */
+  void setString( const std::string& string )
+  { setString(string, true); }
+  void setString( const std::string& string, bool validate )
+  { setString(string, validate, 0); }
   void setString( const std::string& string,
-                  bool validate = true,
-                  const FIX::DataDictionary* pDataDictionary = 0 )
+                  bool validate,
+                  const FIX::DataDictionary* pDataDictionary )
+  throw( InvalidMessage )
+  { setString(string, validate, pDataDictionary, pDataDictionary); }
+
+  void setString( const std::string& string,
+                  bool validate,
+                  const FIX::DataDictionary* pSessionDataDictionary,
+                  const FIX::DataDictionary* pApplicationDataDictionary )
   throw( InvalidMessage );
 
   void setGroup( const std::string& msg, const FieldBase& field,
@@ -246,7 +262,8 @@ public:
 private:
   FieldBase extractField
   ( const std::string& string, std::string::size_type& pos,
-    const DataDictionary* pDD = 0, const Group* pGroup = 0)
+    const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
+    const Group* pGroup = 0)
   { QF_STACK_PUSH(extractField)
 
     std::string::size_type equalSign
@@ -262,7 +279,7 @@ private:
     if ( soh == std::string::npos )
       throw InvalidMessage("SOH not found at end of field");
 
-    if ( pDD && pDD->isDataField(field) )
+    if ( (pSessionDD && pSessionDD->isDataField(field)) || (pAppDD && pAppDD->isDataField(field)) )
     {
       std::string fieldLength;
       // Assume length field is 1 less.

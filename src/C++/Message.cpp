@@ -55,7 +55,23 @@ throw( InvalidMessage )
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
 {
-  setString( string, validate, &dataDictionary );
+  setString( string, validate, &dataDictionary, &dataDictionary );
+}
+
+Message::Message( const std::string& string,
+                  const DataDictionary& sessionDataDictionary,
+                  const DataDictionary& applicationDataDictionary,
+                  bool validate )
+throw( InvalidMessage )
+: m_header( message_order( message_order::header ) ),
+  m_trailer( message_order( message_order::trailer ) ),
+  m_validStructure( true )
+{
+  setStringHeader( string );
+  if( isAdmin() )
+    setString( string, validate, &sessionDataDictionary, &sessionDataDictionary );
+  else
+    setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
 }
 
 bool Message::InitializeXML( const std::string& url )
@@ -278,7 +294,8 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
 
 void Message::setString( const std::string& string,
                          bool doValidation,
-                         const DataDictionary* pDataDictionary )
+                         const DataDictionary* pSessionDataDictionary,
+                         const DataDictionary* pApplicationDataDictionary )
 throw( InvalidMessage )
 { QF_STACK_PUSH(Message::setString)
 
@@ -299,11 +316,11 @@ throw( InvalidMessage )
 
   while ( pos < string.size() )
   {
-    FieldBase field = extractField( string, pos, pDataDictionary );
+    FieldBase field = extractField( string, pos, pSessionDataDictionary, pApplicationDataDictionary );
     if ( count < 3 && headerOrder[ count++ ] != field.getField() )
       if ( doValidation ) throw InvalidMessage("Header fields out of order");
 
-    if ( isHeaderField( field, pDataDictionary ) )
+    if ( isHeaderField( field, pSessionDataDictionary ) )
     {
       if ( type != header )
       {
@@ -316,16 +333,16 @@ throw( InvalidMessage )
 
       m_header.setField( field, false );
 
-      if ( pDataDictionary )
-        setGroup( "_header_", field, string, pos, getHeader(), *pDataDictionary );
+      if ( pSessionDataDictionary )
+        setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
     }
-    else if ( isTrailerField( field, pDataDictionary ) )
+    else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
       type = trailer;
       m_trailer.setField( field, false );
 
-      if ( pDataDictionary )
-        setGroup( "_trailer_", field, string, pos, getTrailer(), *pDataDictionary );
+      if ( pSessionDataDictionary )
+        setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
     }
     else
     {
@@ -338,8 +355,8 @@ throw( InvalidMessage )
       type = body;
       setField( field, false );
 
-      if ( pDataDictionary )
-        setGroup( msg, field, string, pos, *this, *pDataDictionary );
+      if ( pApplicationDataDictionary )
+        setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
     }
   }
 
@@ -364,7 +381,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   while ( pos < string.size() )
   {
     std::string::size_type oldPos = pos;
-    FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
+    FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup );
     if ( (field.getField() == delim)
         || (pGroup == 0 && pDD->isField(field.getField())) )
     {
