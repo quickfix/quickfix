@@ -298,67 +298,73 @@ throw( ConfigError )
   }
 
   // HEADER
-  DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
-  if(!pHeaderNode.get())
-    throw ConfigError("<header> section not found in data dictionary");
-
-  DOMNodePtr pHeaderFieldNode = pHeaderNode->getFirstChildNode();
-  if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");
-
-  while(pHeaderFieldNode.get())
+  if( type == "FIXT" || (type == "FIX" && major < 5) )
   {
-    if(pHeaderFieldNode->getName() == "field" || pHeaderFieldNode->getName() == "group" )
-    {
-      DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
-      std::string name;
-      if(!attrs->get("name", name))
-        throw ConfigError("<field> does not have a name attribute");
-      std::string required = "false";
-      attrs->get("required", required);
-      addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
-    }
-    if(pHeaderFieldNode->getName() == "group")
-    {
-      DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
-      std::string required;
-      attrs->get("required", required);
-      bool isRequired = (required == "Y" || required == "y");
-      addXMLGroup(pDoc.get(), pHeaderFieldNode.get(), "_header_", *this, isRequired);
-    }
+    DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
+    if(!pHeaderNode.get())
+      throw ConfigError("<header> section not found in data dictionary");
 
-    RESET_AUTO_PTR(pHeaderFieldNode, pHeaderFieldNode->getNextSiblingNode());
+    DOMNodePtr pHeaderFieldNode = pHeaderNode->getFirstChildNode();
+    if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");
+
+    while(pHeaderFieldNode.get())
+    {
+      if(pHeaderFieldNode->getName() == "field" || pHeaderFieldNode->getName() == "group" )
+      {
+        DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
+        std::string name;
+        if(!attrs->get("name", name))
+          throw ConfigError("<field> does not have a name attribute");
+        std::string required = "false";
+        attrs->get("required", required);
+        addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+      }
+      if(pHeaderFieldNode->getName() == "group")
+      {
+        DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
+        std::string required;
+        attrs->get("required", required);
+        bool isRequired = (required == "Y" || required == "y");
+        addXMLGroup(pDoc.get(), pHeaderFieldNode.get(), "_header_", *this, isRequired);
+      }
+
+      RESET_AUTO_PTR(pHeaderFieldNode, pHeaderFieldNode->getNextSiblingNode());
+    }
   }
 
   // TRAILER
-  DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
-  if(!pTrailerNode.get())
-    throw ConfigError("<trailer> section not found in data dictionary");
-
-  DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
-  if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");
-
-  while(pTrailerFieldNode.get())
-  {
-    if(pTrailerFieldNode->getName() == "field" || pTrailerFieldNode->getName() == "group" )
+    if( type == "FIXT" || (type == "FIX" && major < 5) )
     {
-      DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
-      std::string name;
-      if(!attrs->get("name", name))
-        throw ConfigError("<field> does not have a name attribute");
-      std::string required = "false";
-      attrs->get("required", required);
-      addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
-    }
-    if(pTrailerFieldNode->getName() == "group")
-    {
-      DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
-      std::string required;
-      attrs->get("required", required);
-      bool isRequired = (required == "Y" || required == "y");
-      addXMLGroup(pDoc.get(), pTrailerFieldNode.get(), "_trailer_", *this, isRequired);
-    }
+    DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
+    if(!pTrailerNode.get())
+      throw ConfigError("<trailer> section not found in data dictionary");
 
-    RESET_AUTO_PTR(pTrailerFieldNode, pTrailerFieldNode->getNextSiblingNode());
+    DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
+    if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");
+
+    while(pTrailerFieldNode.get())
+    {
+      if(pTrailerFieldNode->getName() == "field" || pTrailerFieldNode->getName() == "group" )
+      {
+        DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
+        std::string name;
+        if(!attrs->get("name", name))
+          throw ConfigError("<field> does not have a name attribute");
+        std::string required = "false";
+        attrs->get("required", required);
+        addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+      }
+      if(pTrailerFieldNode->getName() == "group")
+      {
+        DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
+        std::string required;
+        attrs->get("required", required);
+        bool isRequired = (required == "Y" || required == "y");
+        addXMLGroup(pDoc.get(), pTrailerFieldNode.get(), "_trailer_", *this, isRequired);
+      }
+
+      RESET_AUTO_PTR(pTrailerFieldNode, pTrailerFieldNode->getNextSiblingNode());
+    }
   }
 
   // MSGTYPE
