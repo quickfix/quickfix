@@ -4546,6 +4546,109 @@
     <field number="31" name="LastPx" type="PRICE"/>
     <field number="32" name="LastQty" type="QTY"/>
     <field number="33" name="NoLinesOfText" type="NUMINGROUP"/>
+    <field number="35" name="MsgType" type="STRING">
+      <value enum="0" description="HEARTBEAT"/>
+      <value enum="1" description="TEST_REQUEST"/>
+      <value enum="2" description="RESEND_REQUEST"/>
+      <value enum="3" description="REJECT"/>
+      <value enum="4" description="SEQUENCE_RESET"/>
+      <value enum="5" description="LOGOUT"/>
+      <value enum="6" description="INDICATION_OF_INTEREST"/>
+      <value enum="7" description="ADVERTISEMENT"/>
+      <value enum="8" description="EXECUTION_REPORT"/>
+      <value enum="9" description="ORDER_CANCEL_REJECT"/>
+      <value enum="A" description="LOGON"/>
+      <value enum="B" description="NEWS"/>
+      <value enum="C" description="EMAIL"/>
+      <value enum="D" description="ORDER_SINGLE"/>
+      <value enum="E" description="ORDER_LIST"/>
+      <value enum="F" description="ORDER_CANCEL_REQUEST"/>
+      <value enum="G" description="ORDER_CANCEL_REPLACE_REQUEST"/>
+      <value enum="H" description="ORDER_STATUS_REQUEST"/>
+      <value enum="J" description="ALLOCATION_INSTRUCTION"/>
+      <value enum="K" description="LIST_CANCEL_REQUEST"/>
+      <value enum="L" description="LIST_EXECUTE"/>
+      <value enum="M" description="LIST_STATUS_REQUEST"/>
+      <value enum="N" description="LIST_STATUS"/>
+      <value enum="P" description="ALLOCATION_INSTRUCTION_ACK"/>
+      <value enum="Q" description="DONT_KNOW_TRADE"/>
+      <value enum="R" description="QUOTE_REQUEST"/>
+      <value enum="S" description="QUOTE"/>
+      <value enum="T" description="SETTLEMENT_INSTRUCTIONS"/>
+      <value enum="V" description="MARKET_DATA_REQUEST"/>
+      <value enum="W" description="MARKET_DATA_SNAPSHOT_FULL_REFRESH"/>
+      <value enum="X" description="MARKET_DATA_INCREMENTAL_REFRESH"/>
+      <value enum="Y" description="MARKET_DATA_REQUEST_REJECT"/>
+      <value enum="Z" description="QUOTE_CANCEL"/>
+      <value enum="a" description="QUOTE_STATUS_REQUEST"/>
+      <value enum="b" description="MASS_QUOTE_ACKNOWLEDGEMENT"/>
+      <value enum="c" description="SECURITY_DEFINITION_REQUEST"/>
+      <value enum="d" description="SECURITY_DEFINITION"/>
+      <value enum="e" description="SECURITY_STATUS_REQUEST"/>
+      <value enum="f" description="SECURITY_STATUS"/>
+      <value enum="g" description="TRADING_SESSION_STATUS_REQUEST"/>
+      <value enum="h" description="TRADING_SESSION_STATUS"/>
+      <value enum="i" description="MASS_QUOTE"/>
+      <value enum="j" description="BUSINESS_MESSAGE_REJECT"/>
+      <value enum="k" description="BID_REQUEST"/>
+      <value enum="l" description="BID_RESPONSE"/>
+      <value enum="m" description="LIST_STRIKE_PRICE"/>
+      <value enum="n" description="XML_MESSAGE"/>
+      <value enum="o" description="REGISTRATION_INSTRUCTIONS"/>
+      <value enum="p" description="REGISTRATION_INSTRUCTIONS_RESPONSE"/>
+      <value enum="q" description="ORDER_MASS_CANCEL_REQUEST"/>
+      <value enum="r" description="ORDER_MASS_CANCEL_REPORT"/>
+      <value enum="s" description="NEW_ORDER_CROSS"/>
+      <value enum="t" description="CROSS_ORDER_CANCEL_REPLACE_REQUEST"/>
+      <value enum="u" description="CROSS_ORDER_CANCEL_REQUEST"/>
+      <value enum="v" description="SECURITY_TYPE_REQUEST"/>
+      <value enum="w" description="SECURITY_TYPES"/>
+      <value enum="x" description="SECURITY_LIST_REQUEST"/>
+      <value enum="y" description="SECURITY_LIST"/>
+      <value enum="z" description="DERIVATIVE_SECURITY_LIST_REQUEST"/>
+      <value enum="AA" description="DERIVATIVE_SECURITY_LIST"/>
+      <value enum="AB" description="NEW_ORDER_MULTILEG"/>
+      <value enum="AC" description="MULTILEG_ORDER_CANCEL_REPLACE"/>
+      <value enum="AD" description="TRADE_CAPTURE_REPORT_REQUEST"/>
+      <value enum="AE" description="TRADE_CAPTURE_REPORT"/>
+      <value enum="AF" description="ORDER_MASS_STATUS_REQUEST"/>
+      <value enum="AG" description="QUOTE_REQUEST_REJECT"/>
+      <value enum="AH" description="RFQ_REQUEST"/>
+      <value enum="AI" description="QUOTE_STATUS_REPORT"/>
+      <value enum="AJ" description="QUOTE_RESPONSE"/>
+      <value enum="AK" description="CONFIRMATION"/>
+      <value enum="AL" description="POSITION_MAINTENANCE_REQUEST"/>
+      <value enum="AM" description="POSITION_MAINTENANCE_REPORT"/>
+      <value enum="AN" description="REQUEST_FOR_POSITIONS"/>
+      <value enum="AO" description="REQUEST_FOR_POSITIONS_ACK"/>
+      <value enum="AP" description="POSITION_REPORT"/>
+      <value enum="AQ" description="TRADE_CAPTURE_REPORT_REQUEST_ACK"/>
+      <value enum="AR" description="TRADE_CAPTURE_REPORT_ACK"/>
+      <value enum="AS" description="ALLOCATION_REPORT"/>
+      <value enum="AT" description="ALLOCATION_REPORT_ACK"/>
+      <value enum="AU" description="CONFIRMATION_ACK"/>
+      <value enum="AV" description="SETTLEMENT_INSTRUCTION_REQUEST"/>
+      <value enum="AW" description="ASSIGNMENT_REPORT"/>
+      <value enum="AX" description="COLLATERAL_REQUEST"/>
+      <value enum="AY" description="COLLATERAL_ASSIGNMENT"/>
+      <value enum="AZ" description="COLLATERAL_RESPONSE"/>
+      <value enum="BA" description="COLLATERAL_REPORT"/>
+      <value enum="BB" description="COLLATERAL_INQUIRY"/>
+      <value enum="BC" description="NETWORK_STATUS_REQUEST"/>
+      <value enum="BD" description="NETWORK_STATUS_RESPONSE"/>
+      <value enum="BE" description="USER_REQUEST"/>
+      <value enum="BF" description="USER_RESPONSE"/>
+      <value enum="BG" description="COLLATERAL_INQUIRY_ACK"/>
+      <value enum="BH" description="CONFIRMATION_REQUEST"/>
+      <value enum="BI" description="TRADING_SESSION_LIST_REQUEST"/>
+      <value enum="BJ" description="TRADING_SESSION_LIST"/>
+      <value enum="BK" description="SECURITY_LIST_UPDATE_REPORT"/>
+      <value enum="BL" description="ADJUSTED_POSITION_REPORT"/>
+      <value enum="BM" description="ALLOCATION_INSTRUCTION_ALERT"/>
+      <value enum="BN" description="EXECUTION_ACKNOWLEDGEMENT"/>
+      <value enum="BO" description="CONTRARY_INTENTION_REPORT"/>
+      <value enum="BP" description="SECURITY_DEFINITION_UPDATE_REPORT"/>
+    </field>
     <field number="37" name="OrderID" type="STRING"/>
     <field number="38" name="OrderQty" type="QTY"/>
     <field number="39" name="OrdStatus" type="CHAR">
@@ -4594,6 +4697,7 @@
     <field number="41" name="OrigClOrdID" type="STRING"/>
     <field number="42" name="OrigTime" type="UTCTIMESTAMP"/>
     <field number="44" name="Price" type="PRICE"/>
+    <field number="45" name="RefSeqNum" type="SEQNUM"/>
     <field number="48" name="SecurityID" type="STRING"/>
     <field number="53" name="Quantity" type="QTY"/>
     <field number="54" name="Side" type="CHAR">
@@ -4615,6 +4719,7 @@
       <value enum="G" description="BORROW"/>
     </field>
     <field number="55" name="Symbol" type="STRING"/>
+    <field number="58" name="Text" type="STRING"/>
     <field number="59" name="TimeInForce" type="CHAR">
       <value enum="0" description="DAY"/>
       <value enum="1" description="GOOD_TILL_CANCEL"/>
@@ -4725,6 +4830,8 @@
       <value enum="1" description="REPLY"/>
       <value enum="2" description="ADMIN_REPLY"/>
     </field>
+    <field number="95" name="RawDataLength" type="LENGTH"/>
+    <field number="96" name="RawData" type="DATA"/>
     <field number="99" name="StopPx" type="PRICE"/>
     <field number="100" name="ExDestination" type="EXCHANGE"/>
     <field number="102" name="CxlRejReason" type="INT">
@@ -5695,6 +5802,8 @@
     <field number="351" name="EncodedSecurityDesc" type="DATA"/>
     <field number="352" name="EncodedListExecInstLen" type="LENGTH"/>
     <field number="353" name="EncodedListExecInst" type="DATA"/>
+    <field number="354" name="EncodedTextLen" type="LENGTH"/>
+    <field number="355" name="EncodedText" type="DATA"/>
     <field number="356" name="EncodedSubjectLen" type="LENGTH"/>
     <field number="357" name="EncodedSubject" type="DATA"/>
     <field number="358" name="EncodedHeadlineLen" type="LENGTH"/>
@@ -5720,6 +5829,29 @@
       <value enum="99" description="OTHER"/>
     </field>
     <field number="370" name="OnBehalfOfSendingTime" type="UTCTIMESTAMP"/>
+    <field number="371" name="RefTagID" type="INT"/>
+    <field number="372" name="RefMsgType" type="STRING"/>
+    <field number="373" name="SessionRejectReason" type="INT">
+      <value enum="0" description="INVALID_TAG_NUMBER"/>
+      <value enum="1" description="REQUIRED_TAG_MISSING"/>
+      <value enum="10" description="SENDINGTIME_ACCURACY_PROBLEM"/>
+      <value enum="11" description="INVALID_MSGTYPE"/>
+      <value enum="12" description="XML_VALIDATION_ERROR"/>
+      <value enum="13" description="TAG_APPEARS_MORE_THAN_ONCE"/>
+      <value enum="14" description="TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER"/>
+      <value enum="15" description="REPEATING_GROUP_FIELDS_OUT_OF_ORDER"/>
+      <value enum="16" description="INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP"/>
+      <value enum="17" description="NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER"/>
+      <value enum="2" description="TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE"/>
+      <value enum="3" description="UNDEFINED_TAG"/>
+      <value enum="4" description="TAG_SPECIFIED_WITHOUT_A_VALUE"/>
+      <value enum="5" description="VALUE_IS_INCORRECT"/>
+      <value enum="6" description="INCORRECT_DATA_FORMAT_FOR_VALUE"/>
+      <value enum="7" description="DECRYPTION_PROBLEM"/>
+      <value enum="8" description="SIGNATURE_PROBLEM"/>
+      <value enum="9" description="COMPID_PROBLEM"/>
+      <value enum="99" description="OTHER"/>
+    </field>
     <field number="374" name="BidRequestTransType" type="CHAR">
       <value enum="C" description="CANCEL"/>
       <value enum="N" description="NEW"/>
@@ -6374,6 +6506,8 @@
       <value enum="1" description="ONE_SIDE"/>
       <value enum="2" description="BOTH_SIDES"/>
     </field>
+    <field number="553" name="Username" type="STRING"/>
+    <field number="554" name="Password" type="STRING"/>
     <field number="555" name="NoLegs" type="NUMINGROUP"/>
     <field number="556" name="LegCurrency" type="CURRENCY"/>
     <field number="557" name="TotNoSecurityTypes" type="INT"/>

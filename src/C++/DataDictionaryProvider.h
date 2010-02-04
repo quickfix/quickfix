@@ -51,8 +51,8 @@ public:
   void addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary& dd);
 
 private:
-  std::map<BeginString, DataDictionary> m_transportDictionaries;
-  std::map<ApplVerID, DataDictionary> m_applicationDictionaries;
+  std::map<std::string, DataDictionary> m_transportDictionaries;
+  std::map<std::string, DataDictionary> m_applicationDictionaries;
   DataDictionary emptyDataDictionary;
 };
 }

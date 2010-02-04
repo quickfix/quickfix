@@ -31,7 +31,7 @@
 namespace FIX
 {
 const DataDictionary& DataDictionaryProvider::getSessionDataDictionary(const BeginString& beginString) {
-  std::map<BeginString, DataDictionary>::iterator find =
+  std::map<std::string, DataDictionary>::iterator find =
     m_transportDictionaries.find(beginString);
   if( find != m_transportDictionaries.end() )
     return find->second;
@@ -40,7 +40,7 @@ const DataDictionary& DataDictionaryProvider::getSessionDataDictionary(const Beg
 }
 
 const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary(const ApplVerID& applVerID) {
-  std::map<ApplVerID, DataDictionary>::iterator find =
+  std::map<std::string, DataDictionary>::iterator find =
     m_applicationDictionaries.find(applVerID);
   if( find != m_applicationDictionaries.end() )
     return find->second;
@@ -50,11 +50,11 @@ const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary(const
 
 void DataDictionaryProvider::addTransportDataDictionary(const BeginString& beginString, const DataDictionary& dd)
 {
-  m_transportDictionaries[beginString] = dd;
+  m_transportDictionaries[beginString.getValue()] = dd;
 }
 
 void DataDictionaryProvider::addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary& dd)
 {
-  m_applicationDictionaries[applVerID] = dd;
+  m_applicationDictionaries[applVerID.getValue()] = dd;
 }
 }

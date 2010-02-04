@@ -115,31 +115,41 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   QF_STACK_POP
 }
 
-void DataDictionary::validate( const Message& message ) const
+void DataDictionary::validate( const Message& message,
+                               const DataDictionary* const pSessionDD,
+                               const DataDictionary* const pAppDD )
 throw( FIX::Exception )
-{ QF_STACK_PUSH(DataDictionary::validate)
-
+{ QF_STACK_PUSH( DataDictionary::validate )
+  
+  const bool bodyOnly = pSessionDD == 0;
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
   const MsgType& msgType = FIELD_GET_REF( header, MsgType );
-
-  std::string ddBeginString = getVersion();
-  if ( m_hasVersion && m_beginString != beginString )
-    throw UnsupportedVersion();
-
-  int field = 0;
-  if ( m_checkFieldsOutOfOrder && !message.hasValidStructure(field) )
-    throw TagOutOfOrder(field);
-
-  if ( m_hasVersion )
+  if ( pSessionDD != 0 && pSessionDD->m_hasVersion )
   {
-    checkMsgType( msgType );
-    checkHasRequired( message.getHeader(), message, message.getTrailer(), msgType );
+    if( pSessionDD->getVersion() != beginString )
+    {
+      throw UnsupportedVersion();
+    }
   }
 
-  iterate( message.getHeader(), msgType );
-  iterate( message.getTrailer(), msgType );
-  iterate( message, msgType );
+  /*int field = 0;
+  if ( m_checkFieldsOutOfOrder && !message.hasValidStructure(field) )
+    throw TagOutOfOrder(field);*/
+
+  if ( pAppDD != 0 && pAppDD->m_hasVersion )
+  {
+    pAppDD->checkMsgType( msgType );
+    pAppDD->checkHasRequired( message.getHeader(), message, message.getTrailer(), msgType );
+  }
+
+  if( !bodyOnly )
+  {
+    pSessionDD->iterate( message.getHeader(), msgType );
+    pSessionDD->iterate( message.getTrailer(), msgType );
+  }
+
+  pAppDD->iterate( message, msgType );
 
   QF_STACK_POP
 }

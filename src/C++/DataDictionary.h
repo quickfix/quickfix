@@ -286,7 +286,15 @@ public:
   { m_checkUserDefinedFields = value; }
 
   /// Validate a message.
-  void validate( const Message& message ) const throw( FIX::Exception );
+  static void validate( const Message& message,
+                        const DataDictionary* const pSessionDD,
+                        const DataDictionary* const pAppID ) throw( FIX::Exception );
+
+  void validate( const Message& message ) const throw ( FIX::Exception )
+  { validate( message, false ); }
+  void validate( const Message& message, bool bodyOnly ) const throw( FIX::Exception )
+  { validate( message, bodyOnly ? (DataDictionary*)0 : this, this ); }
+
   DataDictionary& operator=( const DataDictionary& rhs );
 
 private:

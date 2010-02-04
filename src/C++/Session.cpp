@@ -1261,9 +1261,16 @@ void Session::next( const std::string& msg, bool queued )
     m_state.onIncoming( msg );
     const DataDictionary& sessionDD = 
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
-    const DataDictionary& applicationDD =
-      m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
-    next( Message( msg, sessionDD ), queued );
+    if( m_sessionID.isFIXT() )
+    {
+      const DataDictionary& applicationDD =
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
+      next( Message( msg, sessionDD, applicationDD ), queued );
+    }
+    else
+    {
+      next( Message( msg, sessionDD ), queued );
+    }
   }
   catch( InvalidMessage& e )
   {
@@ -1301,10 +1308,19 @@ void Session::next( const Message& message, bool queued )
     if ( beginString != m_sessionID.getBeginString() )
       throw UnsupportedVersion();
 
-    const DataDictionary& dataDictionary = 
-      m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+    const DataDictionary& sessionDataDictionary = 
+        m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
 
-    dataDictionary.validate( message );
+    if( m_sessionID.isFIXT() && message.isApp() )
+    {
+      const DataDictionary& applicationDataDictionary = 
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_defaultApplVerID);
+      DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );
+    }
+    else
+    {
+      sessionDataDictionary.validate( message );
+    }
 
     if ( msgType == MsgType_Logon )
       nextLogon( message );

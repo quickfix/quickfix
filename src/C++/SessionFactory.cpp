@@ -63,7 +63,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     {
       throw ConfigError("ApplVerID is required for FIXT transport");
     }
-    std::string defaultAppVerID = toApplVerID( settings.getString(DEFAULT_APPLVERID) );
+    defaultApplVerID = toApplVerID( settings.getString(DEFAULT_APPLVERID) );
   }
 
   DataDictionaryProvider dataDictionaryProvider;
@@ -258,7 +258,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
       if( key == string_toUpper(APP_DATA_DICTIONARY) )
       {
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
-        provider.addApplicationDataDictionary(toApplVerID(sessionID.getBeginString()), dataDictionary);
+        provider.addApplicationDataDictionary(toApplVerID(settings.getString(DEFAULT_APPLVERID)), dataDictionary);
       }
       else
       {
@@ -282,7 +282,7 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
 
   DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
-  provider.addApplicationDataDictionary(ApplVerID(sessionID.getBeginString()), dataDictionary);
+  provider.addApplicationDataDictionary(toApplVerID(sessionID.getBeginString()), dataDictionary);
 
   QF_STACK_POP
 }
