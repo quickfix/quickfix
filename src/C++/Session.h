@@ -119,7 +119,7 @@ public:
   void setLogonTime( const TimeRange& value )
     { m_logonTime = value; }
 
-  const std::string& setDefaultApplVerID()
+  const std::string& getDefaultApplVerID()
     { return m_defaultApplVerID; }
   void setDefaultApplVerID( const std::string& defaultApplVerID )
     { m_defaultApplVerID = defaultApplVerID; }
