@@ -236,13 +236,19 @@ throw( ConfigError )
     throw ConfigError("Could not parse data dictionary file"
                       ", or no <fix> node found at root");
   DOMAttributesPtr attrs = pFixNode->getAttributes();
+  std::string type = "FIX";
+  if(attrs->get("type", type))
+  {
+    if(type != "FIX" && type != "FIXT")
+      throw ConfigError("type attribute must be FIX or FIXT");
+  }
   std::string major;
   if(!attrs->get("major", major))
     throw ConfigError("major attribute not found on <fix>");
   std::string minor;
   if(!attrs->get("minor", minor))
     throw ConfigError("minor attribute not found on <fix>");
-  setVersion("FIX." + major + "." + minor);
+  setVersion(type + "." + major + "." + minor);
 
   // FIELDS
   DOMNodePtr pFieldsNode = pDoc->getNode("/fix/fields");

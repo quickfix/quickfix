@@ -620,7 +620,8 @@ void Session::generateLogon()
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
-
+  if( m_sessionID.isFIXT() )
+    logon.setField( DefaultApplVerID(m_defaultApplVerID) );  
   if( m_refreshOnLogon )
     refresh();
   if( m_resetOnLogon )
@@ -645,6 +646,8 @@ void Session::generateLogon( const Message& aLogon )
   EncryptMethod encryptMethod;
   HeartBtInt heartBtInt;
   logon.setField( EncryptMethod( 0 ) );
+  if( m_sessionID.isFIXT() )
+    logon.setField( DefaultApplVerID(m_defaultApplVerID) );  
   if( m_state.receivedReset() )
     logon.setField( ResetSeqNumFlag(true) );
   aLogon.getField( heartBtInt );

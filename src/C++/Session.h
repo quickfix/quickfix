@@ -119,6 +119,11 @@ public:
   void setLogonTime( const TimeRange& value )
     { m_logonTime = value; }
 
+  const std::string& setDefaultApplVerID()
+    { return m_defaultApplVerID; }
+  void setDefaultApplVerID( const std::string& defaultApplVerID )
+    { m_defaultApplVerID = defaultApplVerID; }
+
   bool getSendRedundantResendRequests()
     { return m_sendRedundantResendRequests; }
   void setSendRedundantResendRequests ( bool value )
@@ -295,6 +300,7 @@ private:
   TimeRange m_sessionTime;
   TimeRange m_logonTime;
 
+  std::string m_defaultApplVerID;
   bool m_sendRedundantResendRequests;
   bool m_checkCompId;
   bool m_checkLatency;

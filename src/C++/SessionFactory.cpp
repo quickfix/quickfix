@@ -24,6 +24,7 @@
 #endif
 #include "CallStack.h"
 
+#include "Values.h"
 #include "DataDictionaryProvider.h"
 #include "SessionFactory.h"
 #include "SessionSettings.h"
@@ -62,6 +63,18 @@ Session* SessionFactory::create( const SessionID& sessionID,
       throw ConfigError("ApplVerID is required for FIXT transport");
     }
     defaultApplVerID = DefaultApplVerID( settings.getString(DEFAULT_APPLVERID) );
+    if( defaultApplVerID == ApplVerId_FIX40 )
+      defaultApplVerID = ApplVerID_FIX40;
+    if( defaultApplVerID == ApplVerId_FIX41 )
+      defaultApplVerID = ApplVerID_FIX41;
+    if( defaultApplVerID == ApplVerId_FIX42 )
+      defaultApplVerID = ApplVerID_FIX42;
+    if( defaultApplVerID == ApplVerId_FIX43 )
+      defaultApplVerID = ApplVerID_FIX43;
+    if( defaultApplVerID == ApplVerId_FIX44 )
+      defaultApplVerID = ApplVerID_FIX44;
+    if( defaultApplVerID == ApplVerId_FIX50 )
+      defaultApplVerID = ApplVerID_FIX50;
   }
 
   DataDictionaryProvider dataDictionaryProvider;
@@ -126,6 +139,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
   pSession = new Session( m_application, m_messageStoreFactory,
                           sessionID, dataDictionaryProvider, sessionTimeRange,
                           heartBtInt, m_pLogFactory );
+
+  pSession->setDefaultApplVerID(defaultApplVerID);
 
   int logonDay = startDay;
   int logoutDay = endDay;
