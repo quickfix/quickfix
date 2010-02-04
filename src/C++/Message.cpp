@@ -465,6 +465,9 @@ bool Message::isHeaderField( int field )
     case FIELD::MessageEncoding:
     case FIELD::LastMsgSeqNumProcessed:
     case FIELD::OnBehalfOfSendingTime:
+    case FIELD::ApplVerID;
+    case FIELD::CstmApplVerID;
+    case FIELD::NoHops;
     return true;
     default:
     return false;
