@@ -82,16 +82,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include=".NET\quickfix_net_messages_vs8.csproj">
-      <Name>quickfix_net_messages_vs7</Name>
-      <Project>{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
-    <ProjectReference Include=".NET\quickfix_net_vs8.vcproj">
-      <Name>quickfix_net_vs7</Name>
-      <Project>{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}</Project>
-      <Package>{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
@@ -99,6 +89,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pt.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include=".NET\quickfix_net_messages_vs8.csproj">
+      <Project>{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}</Project>
+      <Name>quickfix_net_messages_vs8</Name>
+    </ProjectReference>
+    <ProjectReference Include=".NET\quickfix_net_vs8.vcproj">
+      <Project>{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}</Project>
+      <Name>quickfix_net_vs8</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

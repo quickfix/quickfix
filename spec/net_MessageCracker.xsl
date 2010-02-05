@@ -64,8 +64,14 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
 </xsl:template>
 
 <xsl:template name="switch-statement">
-  public <xsl:if test="//fix/@minor!='0'">new</xsl:if> void crack( QuickFix.Message message,
-                     QuickFix.SessionID sessionID )
+  <xsl:choose>
+    <xsl:when test="//fix/@major='4' and //fix/@minor='0'">
+    public void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    </xsl:when>
+    <xsl:otherwise>
+    public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    </xsl:otherwise>
+  </xsl:choose>
   {
     QuickFix.MsgType msgType = new QuickFix.MsgType();
     message.getHeader().getField(msgType);
