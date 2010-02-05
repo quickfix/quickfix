@@ -21,7 +21,7 @@
 
 using System;
 
-namespace QuickFixt11
+namespace QuickFixT11
 {
 
   public class MessageFactory : QuickFix.MessageFactory
@@ -29,34 +29,34 @@ namespace QuickFixt11
     public QuickFix.Message create( String beginString, String msgType ) {
     
      if(msgType.Equals("0")) {
-       return new QuickFix11.Heartbeat();
+       return new QuickFixT11.Heartbeat();
      }
    
      if(msgType.Equals("1")) {
-       return new QuickFix11.TestRequest();
+       return new QuickFixT11.TestRequest();
      }
    
      if(msgType.Equals("2")) {
-       return new QuickFix11.ResendRequest();
+       return new QuickFixT11.ResendRequest();
      }
    
      if(msgType.Equals("3")) {
-       return new QuickFix11.Reject();
+       return new QuickFixT11.Reject();
      }
    
      if(msgType.Equals("4")) {
-       return new QuickFix11.SequenceReset();
+       return new QuickFixT11.SequenceReset();
      }
    
      if(msgType.Equals("5")) {
-       return new QuickFix11.Logout();
+       return new QuickFixT11.Logout();
      }
    
      if(msgType.Equals("A")) {
-       return new QuickFix11.Logon();
+       return new QuickFixT11.Logon();
      }
    
-    return new QuickFix11.Message();
+    return new QuickFixT11.Message();
     }
   };
 }

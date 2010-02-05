@@ -164,8 +164,8 @@ namespace QuickFix43
   public virtual void onMessage( RegistrationInstructionsResponse message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
  
-  public new void crack( QuickFix.Message message,
-                     QuickFix.SessionID sessionID )
+    public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    
   {
     QuickFix.MsgType msgType = new QuickFix.MsgType();
     message.getHeader().getField(msgType);

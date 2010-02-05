@@ -1018,6 +1018,7 @@
     <Compile Include="fix50\UserRequest.cs" />
     <Compile Include="fix50\UserResponse.cs" />
     <Compile Include="FIX50_MessageCracker.cs" />
+    <Compile Include="FIX50_MessageFactory.cs" />
     <Compile Include="fixt11\Heartbeat.cs" />
     <Compile Include="fixt11\Logon.cs" />
     <Compile Include="fixt11\Logout.cs" />
@@ -1027,6 +1028,7 @@
     <Compile Include="fixt11\SequenceReset.cs" />
     <Compile Include="fixt11\TestRequest.cs" />
     <Compile Include="FIXT11_MessageCracker.cs" />
+    <Compile Include="FIXT11_MessageFactory.cs" />
     <Compile Include="MessageCracker.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -122,8 +122,8 @@ namespace QuickFix42
   public virtual void onMessage( BusinessMessageReject message, QuickFix.SessionID session ) 
     {}
  
-  public new void crack( QuickFix.Message message,
-                     QuickFix.SessionID sessionID )
+    public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    
   {
     QuickFix.MsgType msgType = new QuickFix.MsgType();
     message.getHeader().getField(msgType);

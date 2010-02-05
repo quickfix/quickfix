@@ -29,17 +29,46 @@ namespace QuickFix
     {
       BeginString beginString = new BeginString();
       message.getHeader().getField( beginString );
+      crack( message, sessionID, beginString );
+    }
+
+    public void crack( QuickFix.Message message, QuickFix.SessionID sessionID, BeginString beginString )
+    {
       String value = beginString.getValue();
-      if( value.Equals("FIX.4.0") )
-        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
-      else if( value.Equals("FIX.4.1") )
-        ((QuickFix41.MessageCracker)this).crack( message, sessionID );
-      else if( value.Equals("FIX.4.2") )
-        ((QuickFix42.MessageCracker)this).crack( message, sessionID );
-      else if( value.Equals("FIX.4.3") )
-        ((QuickFix43.MessageCracker)this).crack( message, sessionID );
-      else if( value.Equals("FIX.4.4") )
-        ((QuickFix44.MessageCracker)this).crack( message, sessionID );
+      if (value.Equals("FIX.4.0"))
+        ((QuickFix40.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.4.1"))
+        ((QuickFix41.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.4.2"))
+        ((QuickFix42.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.4.3"))
+        ((QuickFix43.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.4.4"))
+        ((QuickFix44.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.5.0"))
+        ((QuickFix50.MessageCracker)this).crack(message, sessionID);
+      else if( value.Equals("FIXT.1.1") )
+      {
+        if( message.isAdmin() )
+        {
+          ((QuickFixT11.MessageCracker)this).crack( message, sessionID );
+        }
+        else
+        {
+          ApplVerID applVerID = new ApplVerID();
+          if( !message.getHeader().isSetField(applVerID) )
+          {
+            Session session = Session.lookupSession( sessionID );
+            applVerID.setValue(session.getSenderDefaultApplVerID());
+          }
+          else
+          {
+            message.getHeader().getField( applVerID );
+          }
+
+          crack( message, sessionID, Message.toBeginString( applVerID ));
+        }
+      }
       else
         onMessage( message, sessionID );
     }

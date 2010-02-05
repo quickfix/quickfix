@@ -32,6 +32,8 @@ namespace QuickFix
       fix42Factory = new QuickFix42.MessageFactory();
       fix43Factory = new QuickFix43.MessageFactory();
       fix44Factory = new QuickFix44.MessageFactory();
+      fix50Factory = new QuickFix50.MessageFactory();
+      fixt11Factory = new QuickFixT11.MessageFactory();
     }
 
     public QuickFix.Message create( String beginString, String msgType )
@@ -46,6 +48,15 @@ namespace QuickFix
         return fix43Factory.create( beginString, msgType );
       if ( beginString.Equals( "FIX.4.4" ) )
         return fix44Factory.create( beginString, msgType );
+      if ( beginString.Equals( "FIX.5.0" ) )
+        return fix50Factory.create( beginString, msgType );
+      if ( beginString.Equals( "FIXT.1.1" ) )
+      {
+        if( Message.isAdminMsgType(msgType) )
+          return fixt11Factory.create( beginString, msgType );
+        else
+          return fix50Factory.create( beginString, msgType );
+      }
       return new Message();
     }
 
@@ -54,5 +65,7 @@ namespace QuickFix
     private QuickFix42.MessageFactory fix42Factory;
     private QuickFix43.MessageFactory fix43Factory;
     private QuickFix44.MessageFactory fix44Factory;
+    private QuickFix50.MessageFactory fix50Factory;
+    private QuickFixT11.MessageFactory fixt11Factory;
   };
 }

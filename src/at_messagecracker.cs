@@ -47,7 +47,23 @@ class at_messagecracker : QuickFix.MessageCracker
       if (orderIDs.Contains(pair))
         return;
     }
-    orderIDs.Add(pair, pair);
+    if(!orderIDs.Contains(pair))
+      orderIDs.Add(pair, pair);
+    try
+    {
+      Session.sendToTarget(echo, sessionID);
+    }
+    catch (SessionNotFound) { }
+  }
+
+  public override void onMessage(QuickFix50.NewOrderSingle message, SessionID sessionID)
+  {
+    process(message, sessionID);
+  }
+
+  public override void onMessage(QuickFix50.SecurityDefinition message, SessionID sessionID)
+  {
+    QuickFix50.SecurityDefinition echo = message;
     try
     {
       Session.sendToTarget(echo, sessionID);

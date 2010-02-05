@@ -35,6 +35,8 @@ using namespace System::Collections;
 #include "quickfix/Message.h"
 #include "quickfix/CallStack.h"
 
+#include <vcclr.h>
+
 namespace QuickFix
 {
 public __gc class BeginString;
@@ -781,6 +783,25 @@ public:
   { checkDisposed(); return unmanaged().isEmpty(); }
   void clear()
   { checkDisposed(); unmanaged().clear(); }
+
+  static bool isAdminMsgType( String* msgType )
+  {
+    return FIX::Message::isAdminMsgType( FIX::MsgType(convertString(msgType)) );
+  }
+
+  static ApplVerID* toApplVerID( BeginString* value )
+  { 
+    FIX::BeginString beginString( convertString(value->getValue()) );
+    FIX::ApplVerID applVerID = FIX::Message::toApplVerID(beginString);
+    return new ApplVerID(applVerID.getValue().c_str());
+  }
+
+  static BeginString* toBeginString( ApplVerID* value )
+  { 
+    FIX::ApplVerID applVerID( convertString(value->getValue()) );
+    FIX::BeginString beginString = FIX::Message::toBeginString(applVerID);
+    return new BeginString(beginString.getValue().c_str());
+  }
 
   IEnumerator* GetEnumerator()
   {

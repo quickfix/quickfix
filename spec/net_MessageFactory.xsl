@@ -24,7 +24,7 @@
  <xsl:template match="text()"/>
 
  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
- <xsl:variable name="uppercase" select="'ABCDEfGHIJKLMNOPQRSTUVWXYZ'" />
+ <xsl:variable name="uppercase" select="'ABCDEfGHIJKLMNOPQRStUVWXYZ'" />
  <xsl:variable name="type" select="//fix/@type"/>
  <xsl:variable name="lowertype" select="translate($type, $uppercase, $lowercase)"/>
 
@@ -39,7 +39,7 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
   {
     public QuickFix.Message create( String beginString, String msgType ) {
     <xsl:call-template name="if-statement"/>
-    return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
+    return new Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
     }
   };
 }
@@ -48,7 +48,7 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
   <xsl:template name="if-statement">
    <xsl:for-each select="//fix/messages/message">
      if(msgType.Equals("<xsl:value-of select="@msgtype"/>")) {
-       return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
+       return new Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
      }
    </xsl:for-each>
   </xsl:template>
