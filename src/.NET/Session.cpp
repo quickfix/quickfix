@@ -221,6 +221,36 @@ bool Session::isSessionTime()
   QF_STACK_CATCH
 }
 
+bool Session::isLogonTime()
+{ QF_STACK_TRY
+  return unmanaged().isLogonTime();
+  QF_STACK_CATCH
+}
+
+bool Session::isInitiator()
+{ QF_STACK_TRY
+  return unmanaged().isInitiator();
+  QF_STACK_CATCH
+}
+
+bool Session::isAcceptor()
+{ QF_STACK_TRY
+  return unmanaged().isAcceptor();
+  QF_STACK_CATCH
+}
+
+String* Session::getSenderDefaultApplVerID()
+{ QF_STACK_TRY
+  return unmanaged().getSenderDefaultApplVerID().c_str();
+  QF_STACK_CATCH
+}
+
+String* Session::getTargetDefaultApplVerID()
+{ QF_STACK_TRY
+  return unmanaged().getTargetDefaultApplVerID().c_str();
+  QF_STACK_CATCH
+}
+
 int Session::getExpectedSenderNum()
 { QF_STACK_TRY
   return unmanaged().getExpectedSenderNum();

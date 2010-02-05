@@ -30,6 +30,11 @@
 
 namespace FIX
 {
+DataDictionaryProvider::DataDictionaryProvider( const DataDictionaryProvider& copy )
+{
+  *this = copy;
+}
+
 const DataDictionary& DataDictionaryProvider::getSessionDataDictionary(const BeginString& beginString) {
   std::map<std::string, DataDictionary>::iterator find =
     m_transportDictionaries.find(beginString);

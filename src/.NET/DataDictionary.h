@@ -193,9 +193,9 @@ public:
   
     const FIX::DataDictionary* pDataDictionary = 0;
     bool result = unmanaged().getGroup( convertString(msg), field, delim, pDataDictionary );
-	if( result == false ) return false;
-	(*dataDictionary)->unmanaged() = *pDataDictionary;
-	return true;
+	  if( result == false ) return false;
+	  (*dataDictionary)->unmanaged() = *pDataDictionary;
+	  return true;
 
     QF_STACK_CATCH
   }

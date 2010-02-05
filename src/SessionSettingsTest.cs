@@ -27,7 +27,7 @@ public class SessionSettingsTestCase
 	}
 
 	[Test]
-    public void testSetGetSessionID()
+  public void testSetGetSessionID()
 	{
 		Dictionary dictionary1 = new Dictionary();
 		dictionary1.setString( "ConnectionType", "initiator" );

@@ -84,6 +84,13 @@ public:
   InvalidMessage( String* what ) : Exception( what ) {}
 };
 
+public __gc class DataDictionaryNotFound : public Exception
+{
+public:
+  DataDictionaryNotFound( String* version, String* what ) : Exception( what ) {}
+  String* version;
+};
+
 public __gc class SessionNotFound : public Exception {};
 public __gc class DoNotSend : public Exception {};
 public __gc class RejectLogon : public Exception {};

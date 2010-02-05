@@ -21,6 +21,7 @@
 
 #include "quickfix_net.h"
 #include "DataDictionary.h"
+#include "DataDictionaryProvider.h"
 #include "SessionSettings.h"
 #include "Dictionary.h"
 #include "Application.h"

@@ -25,7 +25,9 @@ namespace QuickFix50
 {
   public class MessageCracker : QuickFix44.MessageCracker
   {
-  public  void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+  
+    public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+    
     { throw new QuickFix.UnsupportedMessageType(); }
  public virtual void onMessage( BusinessMessageReject message, QuickFix.SessionID session ) 
     {}

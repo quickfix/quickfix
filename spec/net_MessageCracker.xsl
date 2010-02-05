@@ -36,7 +36,14 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
 {
   public class MessageCracker <xsl:call-template name="base-class"/>
   {
-  public <xsl:if test="//fix/@minor!='0'">new</xsl:if> void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+  <xsl:choose>
+    <xsl:when test="//fix/@major='4' and //fix/@minor='0'">
+    public void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+    </xsl:when>
+    <xsl:otherwise>
+    public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+    </xsl:otherwise>
+  </xsl:choose>
     { throw new QuickFix.UnsupportedMessageType(); }
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>

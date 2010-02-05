@@ -28,6 +28,7 @@ using namespace System::IO;
 
 #include "Message.h"
 #include "SessionID.h"
+#include "DataDictionaryProvider.h"
 #include "CPPLog.h"
 #include "CPPMessageStore.h"
 #include "quickfix/SessionID.h"
@@ -53,10 +54,8 @@ public:
 
   SessionID* getSessionID()
   { return new SessionID(unmanaged().getSessionID()); }
-  void setDataDictionary( DataDictionary* dataDictionary )
-  { unmanaged().setDataDictionary(dataDictionary->unmanaged()); }
-  DataDictionary* getDataDictionary()
-  { return new DataDictionary(unmanaged().getDataDictionary()); }
+  DataDictionaryProvider* getDataDictionaryProvider()
+  { return new DataDictionaryProvider(unmanaged().getDataDictionaryProvider()); }
 
   static bool sendToTarget( Message* message );
   static bool sendToTarget( Message* message, String* qualifier );
@@ -72,6 +71,12 @@ public:
   static int numSessions();
 
   bool isSessionTime();
+  bool isLogonTime();
+  bool isInitiator();
+  bool isAcceptor();
+
+  String* getSenderDefaultApplVerID();
+  String* getTargetDefaultApplVerID();
 
   int getExpectedSenderNum();
   int getExpectedTargetNum();

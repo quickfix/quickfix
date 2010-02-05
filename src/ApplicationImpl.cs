@@ -3,74 +3,74 @@ using System.Threading;
 using QuickFix;
 
 public class ApplicationImpl : Application {
-    private bool loggedOn = false;
-    private bool created = false;
-    private bool stopRunning = false;
-    private Message message = null;
+  private bool loggedOn = false;
+  private bool created = false;
+  private bool stopRunning = false;
+  private Message message = null;
 
-    public void onCreate(SessionID sessionId) 
+  public void onCreate(SessionID sessionId) 
 	{
-        created = true;
-    }
+    created = true;
+  }
 
-    public void onLogon(SessionID sessionId) 
+  public void onLogon(SessionID sessionId) 
 	{
-        loggedOn = true;
-    }
+    loggedOn = true;
+  }
 
-    public void onLogout(SessionID sessionId) 
+  public void onLogout(SessionID sessionId) 
 	{
-        loggedOn = false;
-    }
+    loggedOn = false;
+  }
 
-    public void toAdmin(Message message, SessionID sessionId) {}
-    public void toApp(Message message, SessionID sessionId) {}
-    public void fromAdmin(Message message, SessionID sessionId) {}
+  public void toAdmin(Message message, SessionID sessionId) {}
+  public void toApp(Message message, SessionID sessionId) {}
+  public void fromAdmin(Message message, SessionID sessionId) {}
 
-    public void fromApp(Message message, SessionID sessionId) 
+  public void fromApp(Message message, SessionID sessionId) 
 	{
-        this.message = message;
-    }
+    this.message = message;
+  }
 
-    public void run() 
+  public void run() 
 	{
-        while(true) 
+    while(true) 
 		{
-            try 
+      try 
 			{
-                if(stopRunning) return;
-                Thread.Sleep(1000);
-            }
-            catch(Exception) {}
-        }
-    }
+        if(stopRunning) return;
+        Thread.Sleep(1000);
+      }
+      catch(Exception) {}
+     }
+   }
 
-    public void stop() { stopRunning = true; }
+  public void stop() { stopRunning = true; }
 
-    public bool isLoggedOn() 
+  public bool isLoggedOn() 
 	{
-        return loggedOn;
-    }
+    return loggedOn;
+  }
 
-    public bool isCreated() 
+  public bool isCreated() 
 	{
-        return created;
-    }
+    return created;
+  }
 
-    public Message getMessage() 
+  public Message getMessage() 
 	{
-        try 
+    try 
 		{
-            for(int i = 0; i < 50; ++i) 
+      for(int i = 0; i < 50; ++i) 
 			{
-                if(message != null) 
+        if(message != null) 
 				{
-                    return message;
-                }
+          return message;
+        }
 				Thread.Sleep(100);
-            }
-        } catch(Exception) {}
+      }
+    } catch(Exception) {}
 
-        return message;
-    }
+    return message;
+  }
 }
