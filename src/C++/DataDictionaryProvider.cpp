@@ -35,7 +35,9 @@ DataDictionaryProvider::DataDictionaryProvider( const DataDictionaryProvider& co
   *this = copy;
 }
 
-const DataDictionary& DataDictionaryProvider::getSessionDataDictionary(const BeginString& beginString) {
+const DataDictionary& DataDictionaryProvider::getSessionDataDictionary
+(const BeginString& beginString) throw( DataDictionaryNotFound )
+{
   std::map<std::string, DataDictionary>::iterator find =
     m_transportDictionaries.find(beginString);
   if( find != m_transportDictionaries.end() )
@@ -44,7 +46,9 @@ const DataDictionary& DataDictionaryProvider::getSessionDataDictionary(const Beg
   return emptyDataDictionary;
 }
 
-const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary(const ApplVerID& applVerID) {
+const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary
+(const ApplVerID& applVerID) throw( DataDictionaryNotFound )
+{
   std::map<std::string, DataDictionary>::iterator find =
     m_applicationDictionaries.find(applVerID);
   if( find != m_applicationDictionaries.end() )
@@ -53,12 +57,14 @@ const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary(const
   throw DataDictionaryNotFound(applVerID, "DataDictionary not found for ApplVerID");
 }
 
-void DataDictionaryProvider::addTransportDataDictionary(const BeginString& beginString, const DataDictionary& dd)
+void DataDictionaryProvider::addTransportDataDictionary
+(const BeginString& beginString, const DataDictionary& dd)
 {
   m_transportDictionaries[beginString.getValue()] = dd;
 }
 
-void DataDictionaryProvider::addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary& dd)
+void DataDictionaryProvider::addApplicationDataDictionary
+(const ApplVerID applVerID, const DataDictionary& dd)
 {
   m_applicationDictionaries[applVerID.getValue()] = dd;
 }

@@ -250,18 +250,18 @@ public:
   { QF_STACK_PUSH(SessionFactory::toApplVerID)
 
     if( value == ApplVerId_FIX40 )
-      return ApplVerID_FIX40;
+      return ApplVerID(ApplVerID_FIX40);
     if( value == ApplVerId_FIX41 )
-      return ApplVerID_FIX41;
+      return ApplVerID(ApplVerID_FIX41);
     if( value == ApplVerId_FIX42 )
-      return ApplVerID_FIX42;
+      return ApplVerID(ApplVerID_FIX42);
     if( value == ApplVerId_FIX43 )
-      return ApplVerID_FIX43;
+      return ApplVerID(ApplVerID_FIX43);
     if( value == ApplVerId_FIX44 )
-      return ApplVerID_FIX44;
+      return ApplVerID(ApplVerID_FIX44);
     if( value == ApplVerId_FIX50 )
-      return ApplVerID_FIX50;
-    return ApplVerID(value);
+      return ApplVerID(ApplVerID_FIX50);
+    return ApplVerID(ApplVerID(value));
 
     QF_STACK_POP
   }
@@ -269,19 +269,19 @@ public:
   static BeginString toBeginString( const ApplVerID& applVerID )
   {
     if( applVerID == ApplVerID_FIX40 )
-      return BeginString_FIX40;
+      return BeginString(BeginString_FIX40);
     else if( applVerID == ApplVerID_FIX41 )
-      return BeginString_FIX41;
+      return BeginString(BeginString_FIX41);
     else if( applVerID == ApplVerID_FIX42 )
-      return BeginString_FIX42;
+      return BeginString(BeginString_FIX42);
     else if( applVerID == ApplVerID_FIX43 )
-      return BeginString_FIX43;
+      return BeginString(BeginString_FIX43);
     else if( applVerID == ApplVerID_FIX44 )
-      return BeginString_FIX44;
+      return BeginString(BeginString_FIX44);
     else if( applVerID == ApplVerID_FIX50 )
-      return ApplVerId_FIX50;
+      return BeginString(ApplVerId_FIX50);
     else
-      return "";
+      return BeginString("");
   }
 
   static bool isHeaderField( int field );

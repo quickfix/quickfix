@@ -63,6 +63,8 @@ libquickfix_la_SOURCES = \
 	Dictionary.h \
 	DataDictionary.cpp \
 	DataDictionary.h \
+	DataDictionaryProvider.cpp \
+	DataDictionaryProvider.h \
 	SessionSettings.cpp \
 	SessionSettings.h \
 	Application.h \
