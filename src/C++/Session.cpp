@@ -380,9 +380,9 @@ void Session::nextResendRequest( const Message& resendRequest )
                    " TO: " + IntConvertor::convert( endSeqNo ) );
 
   std::string beginString = m_sessionID.getBeginString();
-  if ( beginString >= FIX::BeginString_FIX42 && endSeqNo == 0 ||
-       beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999 ||
-       endSeqNo >= getExpectedSenderNum() )
+  if ( (beginString >= FIX::BeginString_FIX42 && endSeqNo == 0) ||
+       (beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999) ||
+       (endSeqNo >= getExpectedSenderNum()) )
   { endSeqNo = getExpectedSenderNum() - 1; }
 
   if ( !m_persistMessages )
@@ -1090,10 +1090,11 @@ bool Session::shouldSendReset()
 bool Session::validLogonState( const MsgType& msgType )
 { QF_STACK_PUSH(Session::validLogonState)
 
-  if ( msgType == MsgType_Logon && m_state.sentReset() || m_state.receivedReset() )
+  if ( (msgType == MsgType_Logon && m_state.sentReset()) 
+       || (m_state.receivedReset()) )
     return true;
-  if ( msgType == MsgType_Logon && !m_state.receivedLogon()
-       || msgType != MsgType_Logon && m_state.receivedLogon() )
+  if ( (msgType == MsgType_Logon && !m_state.receivedLogon())
+       || (msgType != MsgType_Logon && m_state.receivedLogon()) )
     return true;
   if ( msgType == MsgType_Logout && m_state.sentLogon() )
     return true;

@@ -73,7 +73,7 @@ private:
                                 const Dictionary& settings, 
                                 DataDictionaryProvider& provider) throw(ConfigError);
 
-  std::string SessionFactory::toApplVerID(const std::string& value);
+  std::string toApplVerID(const std::string& value);
 
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;

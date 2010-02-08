@@ -186,9 +186,9 @@ AM_CONDITIONAL(HAVE_RUBY, $has_ruby)
 ########################################
 # JAVA
 ########################################
-has_python=false
+has_java=false
 AC_ARG_WITH(java,
-    [  --with-java     will use JAVA_HOME settings to find jni.h and javac],
+    [  --with-java     will use JAVA_HOME settings to find javac],
     [if test $withval == "no"
      then
        has_java=false
@@ -201,15 +201,8 @@ AC_ARG_WITH(java,
 if test $has_java = true
 then
   jarlib=$libdir
-  jni_mt=$build_os
-  case $build_os in
-    linux-*) jni_mt=linux;;
-    solaris*.*) jni_mt=solaris;;
-    darwin*) jarlib=/Library/Java/Extensions;;
-  esac
 
   AC_SUBST(jarlib)
-  JAVA_CFLAGS="-I$JAVA_HOME/include -I$JAVA_HOME/include/$jni_mt"
   AC_SUBST(JAVA_CFLAGS)
   AC_DEFINE(HAVE_JAVA, 1, Define if you have java)
 fi
@@ -260,7 +253,7 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 # libs
 LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS $LIBS"
 # gcc flags
-SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
@@ -489,16 +482,6 @@ AC_OUTPUT(
 	src/Makefile
 	src/C++/Makefile
 	src/C++/test/Makefile
-	src/java/Makefile
-	src/java/cfg/Makefile
-	src/java/src/Makefile
-	src/java/src/quickfix/Makefile
-	src/java/src/quickfix/field/Makefile
-	src/java/src/quickfix/fix40/Makefile
-	src/java/src/quickfix/fix41/Makefile
-	src/java/src/quickfix/fix42/Makefile
-	src/java/src/quickfix/fix43/Makefile
-	src/java/src/quickfix/fix44/Makefile
 	src/python/Makefile
 	src/ruby/Makefile
 	bin/Makefile

@@ -13093,7 +13093,7 @@ class TradingSessionListRequest < Message
 	end
 end
 
-class IOI < Message
+class IndicationOfInterest < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("6") )

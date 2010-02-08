@@ -24,10 +24,6 @@ public class Executor {
 
     private static Acceptor acceptor = null;
 
-    static {
-        System.loadLibrary("quickfix_jni");
-    }
-
     public static void main(String args[]) throws Exception {
         if(args.length != 1) {
             System.out.println("usage: run_executor_java FILE.");

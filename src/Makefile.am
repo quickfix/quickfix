@@ -1,7 +1,3 @@
-if HAVE_JAVA
-JAVA_DIR = java
-endif
-
 if HAVE_PYTHON
 PYTHON_DIR = python
 endif
@@ -10,7 +6,7 @@ if HAVE_RUBY
 RUBY_DIR = ruby
 endif
 
-SUBDIRS = C++ ${JAVA_DIR} ${PYTHON_DIR} ${RUBY_DIR}
+SUBDIRS = C++ ${PYTHON_DIR} ${RUBY_DIR}
 
 noinst_PROGRAMS = at ut pt
 

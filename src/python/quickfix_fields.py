@@ -1,5 +1,439 @@
 import quickfix
 
+class BeginSeqNo(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 7)
+		else:
+			quickfix.IntField.__init__(self, 7, data)
+
+class BeginString(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 8)
+		else:
+			quickfix.StringField.__init__(self, 8, data)
+
+class BodyLength(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 9)
+		else:
+			quickfix.IntField.__init__(self, 9, data)
+
+class CheckSum(quickfix.CheckSumField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CheckSumField.__init__(self, 10)
+		else:
+			quickfix.CheckSumField.__init__(self, 10, data)
+
+class EndSeqNo(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 16)
+		else:
+			quickfix.IntField.__init__(self, 16, data)
+
+class MsgSeqNum(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 34)
+		else:
+			quickfix.IntField.__init__(self, 34, data)
+
+class MsgType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 35)
+		else:
+			quickfix.StringField.__init__(self, 35, data)
+
+class NewSeqNo(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 36)
+		else:
+			quickfix.IntField.__init__(self, 36, data)
+
+class PossDupFlag(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 43)
+		else:
+			quickfix.BoolField.__init__(self, 43, data)
+
+class RefSeqNum(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 45)
+		else:
+			quickfix.IntField.__init__(self, 45, data)
+
+class SenderCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 49)
+		else:
+			quickfix.StringField.__init__(self, 49, data)
+
+class SenderSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 50)
+		else:
+			quickfix.StringField.__init__(self, 50, data)
+
+class SendingTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 52)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 52, data)
+
+class TargetCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 56)
+		else:
+			quickfix.StringField.__init__(self, 56, data)
+
+class TargetSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 57)
+		else:
+			quickfix.StringField.__init__(self, 57, data)
+
+class Text(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 58)
+		else:
+			quickfix.StringField.__init__(self, 58, data)
+
+class Signature(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 89)
+		else:
+			quickfix.StringField.__init__(self, 89, data)
+
+class SecureDataLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 90)
+		else:
+			quickfix.IntField.__init__(self, 90, data)
+
+class SecureData(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 91)
+		else:
+			quickfix.StringField.__init__(self, 91, data)
+
+class SignatureLength(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 93)
+		else:
+			quickfix.IntField.__init__(self, 93, data)
+
+class RawDataLength(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 95)
+		else:
+			quickfix.IntField.__init__(self, 95, data)
+
+class RawData(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 96)
+		else:
+			quickfix.StringField.__init__(self, 96, data)
+
+class PossResend(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 97)
+		else:
+			quickfix.BoolField.__init__(self, 97, data)
+
+class EncryptMethod(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 98)
+		else:
+			quickfix.IntField.__init__(self, 98, data)
+
+class HeartBtInt(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 108)
+		else:
+			quickfix.IntField.__init__(self, 108, data)
+
+class TestReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 112)
+		else:
+			quickfix.StringField.__init__(self, 112, data)
+
+class OnBehalfOfCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 115)
+		else:
+			quickfix.StringField.__init__(self, 115, data)
+
+class OnBehalfOfSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 116)
+		else:
+			quickfix.StringField.__init__(self, 116, data)
+
+class OrigSendingTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 122)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 122, data)
+
+class GapFillFlag(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 123)
+		else:
+			quickfix.BoolField.__init__(self, 123, data)
+
+class DeliverToCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 128)
+		else:
+			quickfix.StringField.__init__(self, 128, data)
+
+class DeliverToSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 129)
+		else:
+			quickfix.StringField.__init__(self, 129, data)
+
+class ResetSeqNumFlag(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 141)
+		else:
+			quickfix.BoolField.__init__(self, 141, data)
+
+class SenderLocationID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 142)
+		else:
+			quickfix.StringField.__init__(self, 142, data)
+
+class TargetLocationID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 143)
+		else:
+			quickfix.StringField.__init__(self, 143, data)
+
+class OnBehalfOfLocationID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 144)
+		else:
+			quickfix.StringField.__init__(self, 144, data)
+
+class DeliverToLocationID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 145)
+		else:
+			quickfix.StringField.__init__(self, 145, data)
+
+class XmlDataLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 212)
+		else:
+			quickfix.IntField.__init__(self, 212, data)
+
+class XmlData(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 213)
+		else:
+			quickfix.StringField.__init__(self, 213, data)
+
+class MessageEncoding(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 347)
+		else:
+			quickfix.StringField.__init__(self, 347, data)
+
+class EncodedTextLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 354)
+		else:
+			quickfix.IntField.__init__(self, 354, data)
+
+class EncodedText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 355)
+		else:
+			quickfix.StringField.__init__(self, 355, data)
+
+class LastMsgSeqNumProcessed(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 369)
+		else:
+			quickfix.IntField.__init__(self, 369, data)
+
+class RefTagID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 371)
+		else:
+			quickfix.IntField.__init__(self, 371, data)
+
+class RefMsgType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 372)
+		else:
+			quickfix.StringField.__init__(self, 372, data)
+
+class SessionRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 373)
+		else:
+			quickfix.IntField.__init__(self, 373, data)
+
+class MaxMessageSize(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 383)
+		else:
+			quickfix.IntField.__init__(self, 383, data)
+
+class NoMsgTypes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 384)
+		else:
+			quickfix.IntField.__init__(self, 384, data)
+
+class MsgDirection(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 385)
+		else:
+			quickfix.CharField.__init__(self, 385, data)
+
+class TestMessageIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 464)
+		else:
+			quickfix.BoolField.__init__(self, 464, data)
+
+class Username(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 553)
+		else:
+			quickfix.StringField.__init__(self, 553, data)
+
+class Password(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 554)
+		else:
+			quickfix.StringField.__init__(self, 554, data)
+
+class NoHops(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 627)
+		else:
+			quickfix.IntField.__init__(self, 627, data)
+
+class HopCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 628)
+		else:
+			quickfix.StringField.__init__(self, 628, data)
+
+class HopSendingTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 629)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 629, data)
+
+class HopRefID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 630)
+		else:
+			quickfix.IntField.__init__(self, 630, data)
+
+class NextExpectedMsgSeqNum(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 789)
+		else:
+			quickfix.IntField.__init__(self, 789, data)
+
+class ApplVerID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1128)
+		else:
+			quickfix.StringField.__init__(self, 1128, data)
+
+class CstmApplVerID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1129)
+		else:
+			quickfix.StringField.__init__(self, 1129, data)
+
+class RefApplVerID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1130)
+		else:
+			quickfix.StringField.__init__(self, 1130, data)
+
+class RefCstmApplVerID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1131)
+		else:
+			quickfix.StringField.__init__(self, 1131, data)
+
+class DefaultApplVerID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1137)
+		else:
+			quickfix.StringField.__init__(self, 1137, data)
+
 class Account(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42,34 +476,6 @@ class AvgPx(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 6, data)
 
-class BeginSeqNo(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 7)
-		else:
-			quickfix.IntField.__init__(self, 7, data)
-
-class BeginString(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 8)
-		else:
-			quickfix.StringField.__init__(self, 8, data)
-
-class BodyLength(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 9)
-		else:
-			quickfix.IntField.__init__(self, 9, data)
-
-class CheckSum(quickfix.CheckSumField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CheckSumField.__init__(self, 10)
-		else:
-			quickfix.CheckSumField.__init__(self, 10, data)
-
 class ClOrdID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -104,13 +510,6 @@ class Currency(quickfix.StringField):
 			quickfix.StringField.__init__(self, 15)
 		else:
 			quickfix.StringField.__init__(self, 15, data)
-
-class EndSeqNo(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 16)
-		else:
-			quickfix.IntField.__init__(self, 16, data)
 
 class ExecID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -224,27 +623,6 @@ class NoLinesOfText(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 33, data)
 
-class MsgSeqNum(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 34)
-		else:
-			quickfix.IntField.__init__(self, 34, data)
-
-class MsgType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 35)
-		else:
-			quickfix.StringField.__init__(self, 35, data)
-
-class NewSeqNo(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 36)
-		else:
-			quickfix.IntField.__init__(self, 36, data)
-
 class OrderID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -287,13 +665,6 @@ class OrigTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 42, data)
 
-class PossDupFlag(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 43)
-		else:
-			quickfix.BoolField.__init__(self, 43, data)
-
 class Price(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -301,40 +672,12 @@ class Price(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 44, data)
 
-class RefSeqNum(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 45)
-		else:
-			quickfix.IntField.__init__(self, 45, data)
-
 class SecurityID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.StringField.__init__(self, 48)
 		else:
 			quickfix.StringField.__init__(self, 48, data)
-
-class SenderCompID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 49)
-		else:
-			quickfix.StringField.__init__(self, 49, data)
-
-class SenderSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 50)
-		else:
-			quickfix.StringField.__init__(self, 50, data)
-
-class SendingTime(quickfix.UtcTimeStampField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.UtcTimeStampField.__init__(self, 52)
-		else:
-			quickfix.UtcTimeStampField.__init__(self, 52, data)
 
 class Quantity(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -356,27 +699,6 @@ class Symbol(quickfix.StringField):
 			quickfix.StringField.__init__(self, 55)
 		else:
 			quickfix.StringField.__init__(self, 55, data)
-
-class TargetCompID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 56)
-		else:
-			quickfix.StringField.__init__(self, 56, data)
-
-class TargetSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 57)
-		else:
-			quickfix.StringField.__init__(self, 57, data)
-
-class Text(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 58)
-		else:
-			quickfix.StringField.__init__(self, 58, data)
 
 class TimeInForce(quickfix.CharField):
 	def __init__(self, data = None):
@@ -588,27 +910,6 @@ class AllocRejCode(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 88, data)
 
-class Signature(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 89)
-		else:
-			quickfix.StringField.__init__(self, 89, data)
-
-class SecureDataLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 90)
-		else:
-			quickfix.IntField.__init__(self, 90, data)
-
-class SecureData(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 91)
-		else:
-			quickfix.StringField.__init__(self, 91, data)
-
 class BrokerOfCredit(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -616,47 +917,12 @@ class BrokerOfCredit(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 92, data)
 
-class SignatureLength(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 93)
-		else:
-			quickfix.IntField.__init__(self, 93, data)
-
 class EmailType(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.CharField.__init__(self, 94)
 		else:
 			quickfix.CharField.__init__(self, 94, data)
-
-class RawDataLength(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 95)
-		else:
-			quickfix.IntField.__init__(self, 95, data)
-
-class RawData(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 96)
-		else:
-			quickfix.StringField.__init__(self, 96, data)
-
-class PossResend(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 97)
-		else:
-			quickfix.BoolField.__init__(self, 97, data)
-
-class EncryptMethod(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 98)
-		else:
-			quickfix.IntField.__init__(self, 98, data)
 
 class StopPx(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -714,13 +980,6 @@ class SecurityDesc(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 107, data)
 
-class HeartBtInt(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 108)
-		else:
-			quickfix.IntField.__init__(self, 108, data)
-
 class ClientID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -742,13 +1001,6 @@ class MaxFloor(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 111, data)
 
-class TestReqID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 112)
-		else:
-			quickfix.StringField.__init__(self, 112, data)
-
 class ReportToExch(quickfix.BoolField):
 	def __init__(self, data = None):
 		if data == None:
@@ -762,20 +1014,6 @@ class LocateReqd(quickfix.BoolField):
 			quickfix.BoolField.__init__(self, 114)
 		else:
 			quickfix.BoolField.__init__(self, 114, data)
-
-class OnBehalfOfCompID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 115)
-		else:
-			quickfix.StringField.__init__(self, 115, data)
-
-class OnBehalfOfSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 116)
-		else:
-			quickfix.StringField.__init__(self, 116, data)
 
 class QuoteID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -812,20 +1050,6 @@ class ForexReq(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 121, data)
 
-class OrigSendingTime(quickfix.UtcTimeStampField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.UtcTimeStampField.__init__(self, 122)
-		else:
-			quickfix.UtcTimeStampField.__init__(self, 122, data)
-
-class GapFillFlag(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 123)
-		else:
-			quickfix.BoolField.__init__(self, 123, data)
-
 class NoExecs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -853,20 +1077,6 @@ class DKReason(quickfix.CharField):
 			quickfix.CharField.__init__(self, 127)
 		else:
 			quickfix.CharField.__init__(self, 127, data)
-
-class DeliverToCompID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 128)
-		else:
-			quickfix.StringField.__init__(self, 128, data)
-
-class DeliverToSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 129)
-		else:
-			quickfix.StringField.__init__(self, 129, data)
 
 class IOINaturalFlag(quickfix.BoolField):
 	def __init__(self, data = None):
@@ -944,41 +1154,6 @@ class PrevClosePx(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 140)
 		else:
 			quickfix.DoubleField.__init__(self, 140, data)
-
-class ResetSeqNumFlag(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 141)
-		else:
-			quickfix.BoolField.__init__(self, 141, data)
-
-class SenderLocationID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 142)
-		else:
-			quickfix.StringField.__init__(self, 142, data)
-
-class TargetLocationID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 143)
-		else:
-			quickfix.StringField.__init__(self, 143, data)
-
-class OnBehalfOfLocationID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 144)
-		else:
-			quickfix.StringField.__init__(self, 144, data)
-
-class DeliverToLocationID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 145)
-		else:
-			quickfix.StringField.__init__(self, 145, data)
 
 class NoRelatedSym(quickfix.IntField):
 	def __init__(self, data = None):
@@ -1441,20 +1616,6 @@ class PegOffsetValue(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 211)
 		else:
 			quickfix.DoubleField.__init__(self, 211, data)
-
-class XmlDataLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 212)
-		else:
-			quickfix.IntField.__init__(self, 212, data)
-
-class XmlData(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 213)
-		else:
-			quickfix.StringField.__init__(self, 213, data)
 
 class SettlInstRefID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -2380,13 +2541,6 @@ class NumberOfOrders(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 346, data)
 
-class MessageEncoding(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 347)
-		else:
-			quickfix.StringField.__init__(self, 347, data)
-
 class EncodedIssuerLen(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -2428,20 +2582,6 @@ class EncodedListExecInst(quickfix.StringField):
 			quickfix.StringField.__init__(self, 353)
 		else:
 			quickfix.StringField.__init__(self, 353, data)
-
-class EncodedTextLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 354)
-		else:
-			quickfix.IntField.__init__(self, 354, data)
-
-class EncodedText(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 355)
-		else:
-			quickfix.StringField.__init__(self, 355, data)
 
 class EncodedSubjectLen(quickfix.IntField):
 	def __init__(self, data = None):
@@ -2534,40 +2674,12 @@ class QuoteEntryRejectReason(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 368, data)
 
-class LastMsgSeqNumProcessed(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 369)
-		else:
-			quickfix.IntField.__init__(self, 369, data)
-
 class OnBehalfOfSendingTime(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.UtcTimeStampField.__init__(self, 370)
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 370, data)
-
-class RefTagID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 371)
-		else:
-			quickfix.IntField.__init__(self, 371, data)
-
-class RefMsgType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 372)
-		else:
-			quickfix.StringField.__init__(self, 372, data)
-
-class SessionRejectReason(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 373)
-		else:
-			quickfix.IntField.__init__(self, 373, data)
 
 class BidRequestTransType(quickfix.CharField):
 	def __init__(self, data = None):
@@ -2631,27 +2743,6 @@ class NoContraBrokers(quickfix.IntField):
 			quickfix.IntField.__init__(self, 382)
 		else:
 			quickfix.IntField.__init__(self, 382, data)
-
-class MaxMessageSize(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 383)
-		else:
-			quickfix.IntField.__init__(self, 383, data)
-
-class NoMsgTypes(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 384)
-		else:
-			quickfix.IntField.__init__(self, 384, data)
-
-class MsgDirection(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 385)
-		else:
-			quickfix.CharField.__init__(self, 385, data)
 
 class NoTradingSessions(quickfix.IntField):
 	def __init__(self, data = None):
@@ -3198,13 +3289,6 @@ class UnderlyingCFICode(quickfix.StringField):
 			quickfix.StringField.__init__(self, 463)
 		else:
 			quickfix.StringField.__init__(self, 463, data)
-
-class TestMessageIndicator(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 464)
-		else:
-			quickfix.BoolField.__init__(self, 464, data)
 
 class QuantityType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -3822,20 +3906,6 @@ class NoSides(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 552, data)
 
-class Username(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 553)
-		else:
-			quickfix.StringField.__init__(self, 553, data)
-
-class Password(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 554)
-		else:
-			quickfix.StringField.__init__(self, 554, data)
-
 class NoLegs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -4339,34 +4409,6 @@ class AllocType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 626)
 		else:
 			quickfix.IntField.__init__(self, 626, data)
-
-class NoHops(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 627)
-		else:
-			quickfix.IntField.__init__(self, 627, data)
-
-class HopCompID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 628)
-		else:
-			quickfix.StringField.__init__(self, 628, data)
-
-class HopSendingTime(quickfix.UtcTimeStampField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.UtcTimeStampField.__init__(self, 629)
-		else:
-			quickfix.UtcTimeStampField.__init__(self, 629, data)
-
-class HopRefID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 630)
-		else:
-			quickfix.IntField.__init__(self, 630, data)
 
 class MidPx(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -5473,13 +5515,6 @@ class TerminationType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 788)
 		else:
 			quickfix.IntField.__init__(self, 788, data)
-
-class NextExpectedMsgSeqNum(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 789)
-		else:
-			quickfix.IntField.__init__(self, 789, data)
 
 class OrdStatusReqID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -7798,34 +7833,6 @@ class OrigSecondaryTradeID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1127, data)
 
-class ApplVerID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1128)
-		else:
-			quickfix.StringField.__init__(self, 1128, data)
-
-class CstmApplVerID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1129)
-		else:
-			quickfix.StringField.__init__(self, 1129, data)
-
-class RefApplVerID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1130)
-		else:
-			quickfix.StringField.__init__(self, 1130, data)
-
-class RefCstmApplVerID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1131)
-		else:
-			quickfix.StringField.__init__(self, 1131, data)
-
 class TZTransactTime(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7861,13 +7868,6 @@ class AllocClearingFeeIndicator(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1136, data)
 
-class DefaultApplVerID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1137)
-		else:
-			quickfix.StringField.__init__(self, 1137, data)
-
 class DisplayQty(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7881,46 +7881,4 @@ class ExchangeSpecialInstructions(quickfix.StringField):
 			quickfix.StringField.__init__(self, 1139)
 		else:
 			quickfix.StringField.__init__(self, 1139, data)
-
-class MDElementName(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 5450)
-		else:
-			quickfix.IntField.__init__(self, 5450, data)
-
-class SimulatedTime(quickfix.UtcTimeStampField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.UtcTimeStampField.__init__(self, 8000)
-		else:
-			quickfix.UtcTimeStampField.__init__(self, 8000, data)
-
-class NoNestedUserData(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 9000)
-		else:
-			quickfix.IntField.__init__(self, 9000, data)
-
-class NestedUserDataName(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 9001)
-		else:
-			quickfix.StringField.__init__(self, 9001, data)
-
-class NestedUserDataValue(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 9002)
-		else:
-			quickfix.StringField.__init__(self, 9002, data)
-
-class SpotValueDateForNDF(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 9995)
-		else:
-			quickfix.StringField.__init__(self, 9995, data)
 

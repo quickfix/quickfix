@@ -22,9 +22,10 @@
         <javac srcdir="${src}" includes="at*.java" destdir="${build}" deprecation="true" fork="true" >
             <classpath>
                 <fileset dir="${lib}">
-                    <include name="quickfix.jar"/>
+                    <include name="**/*.jar"/>
                 </fileset>
             </classpath>
+            <compilerarg value="-Xlint"/>
         </javac>
     </target>
 

@@ -39,8 +39,6 @@ public class Banzai {
     private static boolean stop = false;
 
     static {
-        System.loadLibrary("quickfix_jni");
-
         try {
             UIManager.setLookAndFeel
             ("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");

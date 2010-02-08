@@ -11929,7 +11929,7 @@ class TradingSessionListRequest(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BI") )
 
-class IOI(Message):
+class IndicationOfInterest(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("6") )
