@@ -224,6 +224,39 @@ Public Class Application
         End Try
     End Sub
 
+    Public Overloads Overrides Sub onMessage(ByVal order As QuickFix50.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
+
+        order.get(ordType)
+
+        If ((ordType.getValue() <> ordType.LIMIT)) Then
+            Throw New IncorrectTagValue(ordType.getField())
+        End If
+
+        order.get(symbol)
+        order.get(side)
+        order.get(orderQty)
+        order.get(price)
+        order.get(clOrdID)
+
+        Dim executionReport As New QuickFix50.ExecutionReport(genOrderID(), genExecID(), New ExecType(ExecType.FILL), New OrdStatus(OrdStatus.FILLED), side, New LeavesQty(0), New CumQty(orderQty.getValue()))
+        executionReport.set(clOrdID)
+        executionReport.set(orderQty)
+        executionReport.set(New LastQty(orderQty.getValue()))
+        executionReport.set(New LastPx(price.getValue()))
+        executionReport.set(New AvgPx(price.getValue()))
+
+        Try
+            Session.sendToTarget(executionReport, sessionID)
+        Catch e As SessionNotFound
+        End Try
+    End Sub
+
     Private Function genOrderID() As OrderID
         m_orderID += 1
         genOrderID = New OrderID(m_orderID)

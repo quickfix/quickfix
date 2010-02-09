@@ -81,6 +81,10 @@ void Application::onMessage
 ( const FIX44::ExecutionReport&, const FIX::SessionID& ) {}
 void Application::onMessage
 ( const FIX44::OrderCancelReject&, const FIX::SessionID& ) {}
+void Application::onMessage
+( const FIX50::ExecutionReport&, const FIX::SessionID& ) {}
+void Application::onMessage
+( const FIX50::OrderCancelReject&, const FIX::SessionID& ) {}
 
 void Application::run()
 {
@@ -129,6 +133,10 @@ void Application::queryEnterOrder()
     break;
   case 44:
     order = queryNewOrderSingle44();
+    break;
+  case 50:
+    order = queryNewOrderSingle50();
+    break;
   default:
     std::cerr << "No test for version " << version << std::endl;
     break;
@@ -159,6 +167,9 @@ void Application::queryCancelOrder()
     break;
   case 44:
     cancel = queryOrderCancelRequest44();
+    break;
+  case 50:
+    cancel = queryOrderCancelRequest50();
     break;
   default:
     std::cerr << "No test for version " << version << std::endl;
@@ -191,6 +202,9 @@ void Application::queryReplaceOrder()
   case 44:
     replace = queryCancelReplaceRequest44();
     break;
+  case 50:
+    replace = queryCancelReplaceRequest50();
+    break;
   default:
     std::cerr << "No test for version " << version << std::endl;
     break;
@@ -212,6 +226,9 @@ void Application::queryMarketDataRequest()
     break;
   case 44:
     md = queryMarketDataRequest44();
+    break;
+  case 50:
+    md = queryMarketDataRequest50();
     break;
   default:
     std::cerr << "No test for version " << version << std::endl;
@@ -318,6 +335,27 @@ FIX44::NewOrderSingle Application::queryNewOrderSingle44()
   return newOrderSingle;
 }
 
+FIX50::NewOrderSingle Application::queryNewOrderSingle50()
+{
+  FIX::OrdType ordType;
+
+  FIX50::NewOrderSingle newOrderSingle(
+    queryClOrdID(), querySide(),
+    FIX::TransactTime(), ordType = queryOrdType() );
+
+  newOrderSingle.set( FIX::HandlInst('1') );
+  newOrderSingle.set( querySymbol() );
+  newOrderSingle.set( queryOrderQty() );
+  newOrderSingle.set( queryTimeInForce() );
+  if ( ordType == FIX::OrdType_LIMIT || ordType == FIX::OrdType_STOP_LIMIT )
+    newOrderSingle.set( queryPrice() );
+  if ( ordType == FIX::OrdType_STOP || ordType == FIX::OrdType_STOP_LIMIT )
+    newOrderSingle.set( queryStopPx() );
+
+  queryHeader( newOrderSingle.getHeader() );
+  return newOrderSingle;
+}
+
 FIX40::OrderCancelRequest Application::queryOrderCancelRequest40()
 {
   FIX40::OrderCancelRequest orderCancelRequest(
@@ -362,6 +400,17 @@ FIX43::OrderCancelRequest Application::queryOrderCancelRequest43()
 FIX44::OrderCancelRequest Application::queryOrderCancelRequest44()
 {
   FIX44::OrderCancelRequest orderCancelRequest( queryOrigClOrdID(),
+      queryClOrdID(), querySide(), FIX::TransactTime() );
+
+  orderCancelRequest.set( querySymbol() );
+  orderCancelRequest.set( queryOrderQty() );
+  queryHeader( orderCancelRequest.getHeader() );
+  return orderCancelRequest;
+}
+
+FIX50::OrderCancelRequest Application::queryOrderCancelRequest50()
+{
+  FIX50::OrderCancelRequest orderCancelRequest( queryOrigClOrdID(),
       queryClOrdID(), querySide(), FIX::TransactTime() );
 
   orderCancelRequest.set( querySymbol() );
@@ -448,6 +497,23 @@ FIX44::OrderCancelReplaceRequest Application::queryCancelReplaceRequest44()
   return cancelReplaceRequest;
 }
 
+FIX50::OrderCancelReplaceRequest Application::queryCancelReplaceRequest50()
+{
+  FIX50::OrderCancelReplaceRequest cancelReplaceRequest(
+    queryOrigClOrdID(), queryClOrdID(),
+    querySide(), FIX::TransactTime(), queryOrdType() );
+
+  cancelReplaceRequest.set( FIX::HandlInst('1') );
+  cancelReplaceRequest.set( querySymbol() );
+  if ( queryConfirm( "New price" ) )
+    cancelReplaceRequest.set( queryPrice() );
+  if ( queryConfirm( "New quantity" ) )
+    cancelReplaceRequest.set( queryOrderQty() );
+
+  queryHeader( cancelReplaceRequest.getHeader() );
+  return cancelReplaceRequest;
+}
+
 FIX43::MarketDataRequest Application::queryMarketDataRequest43()
 {
   FIX::MDReqID mdReqID( "MARKETDATAID" );
@@ -500,6 +566,32 @@ FIX44::MarketDataRequest Application::queryMarketDataRequest44()
   return message;
 }
 
+FIX50::MarketDataRequest Application::queryMarketDataRequest50()
+{
+  FIX::MDReqID mdReqID( "MARKETDATAID" );
+  FIX::SubscriptionRequestType subType( FIX::SubscriptionRequestType_SNAPSHOT );
+  FIX::MarketDepth marketDepth( 0 );
+
+  FIX50::MarketDataRequest::NoMDEntryTypes marketDataEntryGroup;
+  FIX::MDEntryType mdEntryType( FIX::MDEntryType_BID );
+  marketDataEntryGroup.set( mdEntryType );
+
+  FIX50::MarketDataRequest::NoRelatedSym symbolGroup;
+  FIX::Symbol symbol( "LNUX" );
+  symbolGroup.set( symbol );
+
+  FIX50::MarketDataRequest message( mdReqID, subType, marketDepth );
+  message.addGroup( marketDataEntryGroup );
+  message.addGroup( symbolGroup );
+
+  queryHeader( message.getHeader() );
+
+  std::cout << message.toXML() << std::endl;
+  std::cout << message.toString() << std::endl;
+
+  return message;
+}
+
 void Application::queryHeader( FIX::Header& header )
 {
   header.setField( querySenderCompID() );
@@ -537,6 +629,7 @@ int Application::queryVersion()
   << "3) FIX.4.2" << std::endl
   << "4) FIX.4.3" << std::endl
   << "5) FIX.4.4" << std::endl
+  << "6) FIXT.1.1 (FIX.5.0)" << std::endl
   << "BeginString: ";
   std::cin >> value;
   switch ( value )
@@ -546,6 +639,7 @@ int Application::queryVersion()
     case '3': return 42;
     case '4': return 43;
     case '5': return 44;
+    case '6': return 50;
     default: throw std::exception();
   }
 }

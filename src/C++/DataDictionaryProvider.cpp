@@ -54,7 +54,7 @@ const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary
   if( find != m_applicationDictionaries.end() )
     return find->second;
 
-  throw DataDictionaryNotFound(applVerID, "DataDictionary not found for ApplVerID");
+  return emptyDataDictionary;
 }
 
 void DataDictionaryProvider::addTransportDataDictionary

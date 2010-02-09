@@ -81,7 +81,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         if( executionReport.isSet(account) )
             executionReport.setField( executionReport.get(account) );
 
-        try 
+        try
         {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
@@ -128,7 +128,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         if( executionReport.isSet(account) )
             executionReport.setField( executionReport.get(account) );
 
-        try 
+        try
         {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
@@ -175,7 +175,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         if( executionReport.isSet(account) )
             executionReport.setField( executionReport.get(account) );
 
-        try 
+        try
         {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
@@ -221,7 +221,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         if( executionReport.isSet(account) )
             executionReport.setField( executionReport.get(account) );
 
-        try 
+        try
         {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
@@ -267,7 +267,53 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         if( executionReport.isSet(account) )
             executionReport.setField( executionReport.get(account) );
 
-        try 
+        try
+        {
+            Session.sendToTarget(executionReport, sessionID);
+        } catch(SessionNotFound e) {}
+    }
+
+    public void onMessage( quickfix.fix50.NewOrderSingle order, SessionID sessionID )
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+        Symbol symbol = new Symbol();
+        Side side = new Side();
+        OrdType ordType = new OrdType();
+        OrderQty orderQty = new OrderQty();
+        Price price = new Price();
+        ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
+
+        order.get(ordType);
+
+        if(ordType.getValue() != OrdType.LIMIT)
+            throw new IncorrectTagValue(ordType.getField());
+
+        order.get(symbol);
+        order.get(side);
+        order.get(orderQty);
+        order.get(price);
+        order.get(clOrdID);
+
+        quickfix.fix50.ExecutionReport executionReport = new quickfix.fix50.ExecutionReport
+                ( genOrderID(),
+                  genExecID(),
+                  new ExecType     ( ExecType.FILL ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
+                  side,
+                  new LeavesQty    ( 0 ),
+                  new CumQty       ( orderQty.getValue() ));
+
+        executionReport.set(clOrdID);
+        executionReport.set(symbol);
+        executionReport.set(orderQty);
+        executionReport.set(new LastQty(orderQty.getValue()));
+        executionReport.set(new LastPx(price.getValue()));
+        executionReport.set(new AvgPx(price.getValue()));
+
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
+
+        try
         {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}

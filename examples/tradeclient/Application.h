@@ -59,6 +59,13 @@
 #include "quickfix/fix44/OrderCancelReplaceRequest.h"
 #include "quickfix/fix44/MarketDataRequest.h"
 
+#include "quickfix/fix50/NewOrderSingle.h"
+#include "quickfix/fix50/ExecutionReport.h"
+#include "quickfix/fix50/OrderCancelRequest.h"
+#include "quickfix/fix50/OrderCancelReject.h"
+#include "quickfix/fix50/OrderCancelReplaceRequest.h"
+#include "quickfix/fix50/MarketDataRequest.h"
+
 #include <queue>
 
 class Application :
@@ -90,6 +97,8 @@ private:
   void onMessage( const FIX43::OrderCancelReject&, const FIX::SessionID& );
   void onMessage( const FIX44::ExecutionReport&, const FIX::SessionID& );
   void onMessage( const FIX44::OrderCancelReject&, const FIX::SessionID& );
+  void onMessage( const FIX50::ExecutionReport&, const FIX::SessionID& );
+  void onMessage( const FIX50::OrderCancelReject&, const FIX::SessionID& );
 
   void queryEnterOrder();
   void queryCancelOrder();
@@ -101,18 +110,22 @@ private:
   FIX42::NewOrderSingle queryNewOrderSingle42();
   FIX43::NewOrderSingle queryNewOrderSingle43();
   FIX44::NewOrderSingle queryNewOrderSingle44();
+  FIX50::NewOrderSingle queryNewOrderSingle50();
   FIX40::OrderCancelRequest queryOrderCancelRequest40();
   FIX41::OrderCancelRequest queryOrderCancelRequest41();
   FIX42::OrderCancelRequest queryOrderCancelRequest42();
   FIX43::OrderCancelRequest queryOrderCancelRequest43();
   FIX44::OrderCancelRequest queryOrderCancelRequest44();
+  FIX50::OrderCancelRequest queryOrderCancelRequest50();
   FIX40::OrderCancelReplaceRequest queryCancelReplaceRequest40();
   FIX41::OrderCancelReplaceRequest queryCancelReplaceRequest41();
   FIX42::OrderCancelReplaceRequest queryCancelReplaceRequest42();
   FIX43::OrderCancelReplaceRequest queryCancelReplaceRequest43();
   FIX44::OrderCancelReplaceRequest queryCancelReplaceRequest44();
+  FIX50::OrderCancelReplaceRequest queryCancelReplaceRequest50();
   FIX43::MarketDataRequest queryMarketDataRequest43();
   FIX44::MarketDataRequest queryMarketDataRequest44();
+  FIX50::MarketDataRequest queryMarketDataRequest50();
 
   void queryHeader( FIX::Header& header );
   char queryAction();

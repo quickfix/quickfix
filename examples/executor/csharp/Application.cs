@@ -266,6 +266,52 @@ public class Application: MessageCracker, QuickFix.Application
     catch ( SessionNotFound ) {}
   }
 
+  public override void onMessage(QuickFix50.NewOrderSingle order, SessionID sessionID)
+  {
+    Symbol symbol = new Symbol();
+    Side side = new Side();
+    OrdType ordType = new OrdType();
+    OrderQty orderQty = new OrderQty();
+    Price price = new Price();
+    ClOrdID clOrdID = new ClOrdID();
+
+    order.get(ordType);
+
+    if (ordType.getValue() != OrdType.LIMIT)
+      throw new IncorrectTagValue(ordType.getField());
+
+    order.get(symbol);
+    order.get(side);
+    order.get(orderQty);
+    order.get(price);
+    order.get(clOrdID);
+
+    QuickFix50.ExecutionReport executionReport = new QuickFix50.ExecutionReport
+     (genOrderID(),
+      genExecID(),
+      new ExecType(ExecType.FILL),
+      new OrdStatus(OrdStatus.FILLED),
+      side,
+      new LeavesQty(0),
+      new CumQty(orderQty.getValue()));
+
+    executionReport.set(clOrdID);
+    executionReport.set(symbol);
+    executionReport.set(orderQty);
+    executionReport.set(new LastQty(orderQty.getValue()));
+    executionReport.set(new LastPx(price.getValue()));
+    executionReport.set(new AvgPx(price.getValue()));
+
+    if (order.isSetAccount())
+      executionReport.setField(order.getAccount());
+
+    try
+    {
+      Session.sendToTarget(executionReport, sessionID);
+    }
+    catch (SessionNotFound) { }
+  }
+
   private OrderID genOrderID()
   {
     return new OrderID( ( ++m_orderID ).ToString() );

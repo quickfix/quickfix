@@ -31,6 +31,7 @@
 #include "quickfix/fix42/ExecutionReport.h"
 #include "quickfix/fix43/ExecutionReport.h"
 #include "quickfix/fix44/ExecutionReport.h"
+#include "quickfix/fix50/ExecutionReport.h"
 
 void Application::onCreate( const FIX::SessionID& sessionID ) {}
 void Application::onLogon( const FIX::SessionID& sessionID ) {}
@@ -280,6 +281,54 @@ void Application::onMessage( const FIX44::NewOrderSingle& message,
   executionReport.set( orderQty );
   executionReport.set( FIX::LastQty( orderQty ) );
   executionReport.set( FIX::LastPx( price ) );
+
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
+
+  try
+  {
+    FIX::Session::sendToTarget( executionReport, sessionID );
+  }
+  catch ( FIX::SessionNotFound& ) {}
+}
+
+void Application::onMessage( const FIX50::NewOrderSingle& message,
+                             const FIX::SessionID& sessionID )
+{
+  FIX::Symbol symbol;
+  FIX::Side side;
+  FIX::OrdType ordType;
+  FIX::OrderQty orderQty;
+  FIX::Price price;
+  FIX::ClOrdID clOrdID;
+  FIX::Account account;
+
+  message.get( ordType );
+
+  if ( ordType != FIX::OrdType_LIMIT )
+    throw FIX::IncorrectTagValue( ordType.getField() );
+
+  message.get( symbol );
+  message.get( side );
+  message.get( orderQty );
+  message.get( price );
+  message.get( clOrdID );
+
+  FIX50::ExecutionReport executionReport = FIX50::ExecutionReport
+      ( FIX::OrderID( genOrderID() ),
+        FIX::ExecID( genExecID() ),
+        FIX::ExecType( FIX::ExecType_FILL ),
+        FIX::OrdStatus( FIX::OrdStatus_FILLED ),
+        side,
+        FIX::LeavesQty( 0 ),
+        FIX::CumQty( orderQty ) );
+  
+  executionReport.set( clOrdID );
+  executionReport.set( symbol );
+  executionReport.set( orderQty );
+  executionReport.set( FIX::LastQty( orderQty ) );
+  executionReport.set( FIX::LastPx( price ) );
+  executionReport.set( FIX::AvgPx( price ) );
 
   if( message.isSet(account) )
     executionReport.setField( message.get(account) );

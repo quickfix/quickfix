@@ -49,8 +49,7 @@ int main( int argc, char** argv )
 
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
-    FIX::ScreenLogFactory logFactory( true, true, true );
-    FIX::SocketInitiator initiator( application, storeFactory, settings, logFactory );
+    FIX::SocketInitiator initiator( application, storeFactory, settings );
 
     initiator.start();
     application.run();
