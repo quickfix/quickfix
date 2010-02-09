@@ -6,9 +6,6 @@
 // Define if you are using stlport
 // #define HAVE_STLPORT
 
-// Define if you want to build the java JNI wrapper
-// #define HAVE_JAVA 1
-
 // Define if you have sql library (libMySQL.lib)
 // #define HAVE_MYSQL 1
 
