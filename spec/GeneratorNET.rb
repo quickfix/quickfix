@@ -9,6 +9,9 @@ class GeneratorNET
         @namespace = "QuickFix" + major + minor
     end
     @beginstring = type + "." + major + "." + minor
+    if @type == "FIX" && major >= "5"
+      @beginstring = "FIXT.1.1"
+    end
     @depth = 0;
     @dir = dir + "/" + type.downcase + major + minor + "/"
     @basefile = createFile("Message.cs")

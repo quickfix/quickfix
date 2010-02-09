@@ -5,7 +5,7 @@ class GeneratorCPP
     @minor = minor
     @namespace = type + major + minor
     @beginstring = type + "." + major + "." + minor
-    if @namespace == "FIX.5.0"
+    if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
     @depth = 0;

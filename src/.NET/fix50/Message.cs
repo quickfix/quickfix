@@ -14,13 +14,13 @@ namespace QuickFix50
 
   public class Message : QuickFix.Message
   {
-    public Message() : base(new QuickFix.BeginString("FIX.5.0"))
+    public Message() : base(new QuickFix.BeginString("FIXT.1.1"))
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);
     }
 
-    public Message( QuickFix.MsgType msgType ) : base(new QuickFix.BeginString("FIX.5.0"), msgType)
+    public Message( QuickFix.MsgType msgType ) : base(new QuickFix.BeginString("FIXT.1.1"), msgType)
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);

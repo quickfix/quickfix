@@ -3,7 +3,7 @@ module Quickfix50
 class Message < Quickfix::Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::BeginString.new("FIX.5.0") )
+		getHeader().setField( Quickfix::BeginString.new("FIXT.1.1") )
 	end
 end
 

@@ -4,6 +4,9 @@ class GeneratorPython
     @major = major
     @minor = minor
     @beginstring = type + "." + major + "." + minor
+    if @type == "FIX" && major >= "5"
+      @beginstring = "FIXT.1.1"
+    end
     @depth = 0;
     @dir = dir + "/"
     @f = createFile( "quick" + type.downcase + major + minor + ".py" )

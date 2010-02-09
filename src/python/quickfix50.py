@@ -3,7 +3,7 @@ import quickfix as fix
 class Message(fix.Message):
 	def __init__(self):
 		fix.Message.__init__(self)
-		self.getHeader().setField( fix.BeginString("FIX.5.0") )
+		self.getHeader().setField( fix.BeginString("FIXT.1.1") )
 
 class BusinessMessageReject(Message):
 	def __init__(self):
