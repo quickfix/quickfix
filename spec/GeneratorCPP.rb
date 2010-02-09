@@ -5,6 +5,9 @@ class GeneratorCPP
     @minor = minor
     @namespace = type + major + minor
     @beginstring = type + "." + major + "." + minor
+    if @namespace == "FIX.5.0"
+      @beginstring = "FIXT.1.1"
+    end
     @depth = 0;
     @dir = dir + "/" + @namespace.downcase + "/"
     @basefile = createFile("Message.h")
