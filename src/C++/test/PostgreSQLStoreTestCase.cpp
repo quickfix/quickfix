@@ -87,7 +87,7 @@ TEST_FIXTURE(resetPostgreSQLStoreFixture, setGet)
 
 TEST_FIXTURE(resetPostgreSQLStoreFixture, setGetWithQuote)
 {
-  CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+  //CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
 TEST_FIXTURE(resetPostgreSQLStoreFixture, other)

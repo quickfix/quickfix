@@ -100,7 +100,7 @@ TEST_FIXTURE(resetBeforeFileStoreFixture, other)
 
 TEST_FIXTURE(noResetFileStoreFixture, reload)
 {
-  CHECK_MESSAGE_STORE_RELOAD
+  CHECK_MESSAGE_STORE_REFRESH
 }
 
 TEST_FIXTURE(resetAfterFileStoreFixture, refresh)

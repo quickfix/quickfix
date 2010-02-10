@@ -102,7 +102,7 @@ TEST_FIXTURE(noResetMySQLStoreFixture, reload)
 
 TEST_FIXTURE(noResetMySQLStoreFixture, refresh)
 {
-  CHECK_MESSAGE_STORE_RELOAD
+  CHECK_MESSAGE_STORE_REFRESH
 }
 
 }
