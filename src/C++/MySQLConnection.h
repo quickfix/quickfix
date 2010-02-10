@@ -94,7 +94,7 @@ public:
     if( m_rows.empty() )
     {
       MYSQL_ROW row = 0;
-      while( row = mysql_fetch_row( m_result ) )
+      while( (row = mysql_fetch_row( m_result )) )
         m_rows.push_back(row);
     }
     return m_rows[row][column];
