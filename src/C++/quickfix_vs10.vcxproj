@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>quickfix_vs10</ProjectName>
+    <ProjectGuid>{D5D558EA-BBAC-4862-A946-D3881BACE3B7}</ProjectGuid>
+    <RootNamespace>quickfix_vc10</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)lib\debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs10\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs10\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">quickfix</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">quickfix</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug/quickfix.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo test\ &gt; EXCLUDE
+echo stdafx.h &gt;&gt; EXCLUDE
+xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
+del /F EXCLUDE
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release/quickfix.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo test\ &gt; EXCLUDE
+echo stdafx.h &gt;&gt; EXCLUDE
+xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
+del /F EXCLUDE
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="CallStack.cpp" />
+    <ClCompile Include="Dictionary.cpp" />
+    <ClCompile Include="Initiator.cpp" />
+    <ClCompile Include="LIBXML_DOMDocument.cpp" />
+    <ClCompile Include="MSXML_DOMDocument.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionFactory.cpp" />
+    <ClCompile Include="SessionSettings.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="strptime.c" />
+    <ClCompile Include="TimeRange.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="FieldMap.cpp" />
+    <ClCompile Include="FieldTypes.cpp" />
+    <ClCompile Include="DataDictionary.cpp" />
+    <ClCompile Include="Group.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="MessageSorters.cpp" />
+    <ClCompile Include="HttpConnection.cpp" />
+    <ClCompile Include="HttpMessage.cpp" />
+    <ClCompile Include="HttpParser.cpp" />
+    <ClCompile Include="HttpServer.cpp" />
+    <ClCompile Include="SocketAcceptor.cpp" />
+    <ClCompile Include="SocketConnection.cpp" />
+    <ClCompile Include="SocketConnector.cpp" />
+    <ClCompile Include="SocketInitiator.cpp" />
+    <ClCompile Include="SocketMonitor.cpp" />
+    <ClCompile Include="SocketServer.cpp" />
+    <ClCompile Include="ThreadedSocketAcceptor.cpp" />
+    <ClCompile Include="ThreadedSocketConnection.cpp" />
+    <ClCompile Include="ThreadedSocketInitiator.cpp" />
+    <ClCompile Include="FileLog.cpp" />
+    <ClCompile Include="FileStore.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="MessageStore.cpp" />
+    <ClCompile Include="MySQLLog.cpp" />
+    <ClCompile Include="MySQLStore.cpp" />
+    <ClCompile Include="NullStore.cpp" />
+    <ClCompile Include="OdbcLog.cpp" />
+    <ClCompile Include="OdbcStore.cpp" />
+    <ClCompile Include="PostgreSQLLog.cpp" />
+    <ClCompile Include="PostgreSQLStore.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Acceptor.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Application.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="CallStack.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionary.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="DOMDocument.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Event.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Exceptions.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FlexLexer.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="index.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Initiator.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="LIBXML_DOMDocument.h" />
+    <CustomBuild Include="MSXML_DOMDocument.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Mutex.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Parser.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Queue.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Responder.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Session.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SessionFactory.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SessionID.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SessionSettings.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SessionState.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Settings.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="strptime.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="TimeRange.h" />
+    <CustomBuild Include="Utility.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="DeprecatedFieldNumbers.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="DeprecatedFields.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="DeprecatedValues.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Field.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FieldConvertors.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FieldMap.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FieldNumbers.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Fields.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FieldTypes.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Values.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="DataDictionary.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Group.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Message.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="MessageCracker.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Messages.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="MessageSorters.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="fix40\Advertisement.h" />
+    <ClInclude Include="fix40\Allocation.h" />
+    <ClInclude Include="fix40\AllocationACK.h" />
+    <ClInclude Include="fix40\DontKnowTrade.h" />
+    <ClInclude Include="fix40\Email.h" />
+    <ClInclude Include="fix40\ExecutionReport.h" />
+    <ClInclude Include="fix40\Heartbeat.h" />
+    <ClInclude Include="fix40\IndicationofInterest.h" />
+    <ClInclude Include="fix40\ListCancelRequest.h" />
+    <ClInclude Include="fix40\ListExecute.h" />
+    <ClInclude Include="fix40\ListStatus.h" />
+    <ClInclude Include="fix40\ListStatusRequest.h" />
+    <ClInclude Include="fix40\Logon.h" />
+    <ClInclude Include="fix40\Logout.h" />
+    <ClInclude Include="fix40\Message.h" />
+    <ClInclude Include="fix40\MessageCracker.h" />
+    <ClInclude Include="fix40\NewOrderList.h" />
+    <ClInclude Include="fix40\NewOrderSingle.h" />
+    <ClInclude Include="fix40\News.h" />
+    <ClInclude Include="fix40\OrderCancelReject.h" />
+    <ClInclude Include="fix40\OrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix40\OrderCancelRequest.h" />
+    <ClInclude Include="fix40\OrderStatusRequest.h" />
+    <ClInclude Include="fix40\Quote.h" />
+    <ClInclude Include="fix40\QuoteRequest.h" />
+    <ClInclude Include="fix40\Reject.h" />
+    <ClInclude Include="fix40\ResendRequest.h" />
+    <ClInclude Include="fix40\SequenceReset.h" />
+    <ClInclude Include="fix40\TestRequest.h" />
+    <ClInclude Include="fix41\Advertisement.h" />
+    <ClInclude Include="fix41\Allocation.h" />
+    <ClInclude Include="fix41\AllocationACK.h" />
+    <ClInclude Include="fix41\DontKnowTrade.h" />
+    <ClInclude Include="fix41\Email.h" />
+    <ClInclude Include="fix41\ExecutionReport.h" />
+    <ClInclude Include="fix41\Heartbeat.h" />
+    <ClInclude Include="fix41\IndicationofInterest.h" />
+    <ClInclude Include="fix41\ListCancelRequest.h" />
+    <ClInclude Include="fix41\ListExecute.h" />
+    <ClInclude Include="fix41\ListStatus.h" />
+    <ClInclude Include="fix41\ListStatusRequest.h" />
+    <ClInclude Include="fix41\Logon.h" />
+    <ClInclude Include="fix41\Logout.h" />
+    <ClInclude Include="fix41\Message.h" />
+    <ClInclude Include="fix41\MessageCracker.h" />
+    <ClInclude Include="fix41\NewOrderList.h" />
+    <ClInclude Include="fix41\NewOrderSingle.h" />
+    <ClInclude Include="fix41\News.h" />
+    <ClInclude Include="fix41\OrderCancelReject.h" />
+    <ClInclude Include="fix41\OrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix41\OrderCancelRequest.h" />
+    <ClInclude Include="fix41\OrderStatusRequest.h" />
+    <ClInclude Include="fix41\Quote.h" />
+    <ClInclude Include="fix41\QuoteRequest.h" />
+    <ClInclude Include="fix41\Reject.h" />
+    <ClInclude Include="fix41\ResendRequest.h" />
+    <ClInclude Include="fix41\SequenceReset.h" />
+    <ClInclude Include="fix41\SettlementInstructions.h" />
+    <ClInclude Include="fix41\TestRequest.h" />
+    <ClInclude Include="fix42\Advertisement.h" />
+    <ClInclude Include="fix42\Allocation.h" />
+    <ClInclude Include="fix42\AllocationACK.h" />
+    <ClInclude Include="fix42\BidRequest.h" />
+    <ClInclude Include="fix42\BidResponse.h" />
+    <ClInclude Include="fix42\BusinessMessageReject.h" />
+    <ClInclude Include="fix42\DontKnowTrade.h" />
+    <ClInclude Include="fix42\Email.h" />
+    <ClInclude Include="fix42\ExecutionReport.h" />
+    <ClInclude Include="fix42\Heartbeat.h" />
+    <ClInclude Include="fix42\IndicationofInterest.h" />
+    <ClInclude Include="fix42\ListCancelRequest.h" />
+    <ClInclude Include="fix42\ListExecute.h" />
+    <ClInclude Include="fix42\ListStatus.h" />
+    <ClInclude Include="fix42\ListStatusRequest.h" />
+    <ClInclude Include="fix42\ListStrikePrice.h" />
+    <ClInclude Include="fix42\Logon.h" />
+    <ClInclude Include="fix42\Logout.h" />
+    <ClInclude Include="fix42\MarketDataIncrementalRefresh.h" />
+    <ClInclude Include="fix42\MarketDataRequest.h" />
+    <ClInclude Include="fix42\MarketDataRequestReject.h" />
+    <ClInclude Include="fix42\MarketDataSnapshotFullRefresh.h" />
+    <ClInclude Include="fix42\MassQuote.h" />
+    <ClInclude Include="fix42\Message.h" />
+    <ClInclude Include="fix42\MessageCracker.h" />
+    <ClInclude Include="fix42\NewOrderList.h" />
+    <ClInclude Include="fix42\NewOrderSingle.h" />
+    <ClInclude Include="fix42\News.h" />
+    <ClInclude Include="fix42\OrderCancelReject.h" />
+    <ClInclude Include="fix42\OrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix42\OrderCancelRequest.h" />
+    <ClInclude Include="fix42\OrderStatusRequest.h" />
+    <ClInclude Include="fix42\Quote.h" />
+    <ClInclude Include="fix42\QuoteAcknowledgement.h" />
+    <ClInclude Include="fix42\QuoteCancel.h" />
+    <ClInclude Include="fix42\QuoteRequest.h" />
+    <ClInclude Include="fix42\QuoteStatusRequest.h" />
+    <ClInclude Include="fix42\Reject.h" />
+    <ClInclude Include="fix42\ResendRequest.h" />
+    <ClInclude Include="fix42\SecurityDefinition.h" />
+    <ClInclude Include="fix42\SecurityDefinitionRequest.h" />
+    <ClInclude Include="fix42\SecurityStatus.h" />
+    <ClInclude Include="fix42\SecurityStatusRequest.h" />
+    <ClInclude Include="fix42\SequenceReset.h" />
+    <ClInclude Include="fix42\SettlementInstructions.h" />
+    <ClInclude Include="fix42\TestRequest.h" />
+    <ClInclude Include="fix42\TradingSessionStatus.h" />
+    <ClInclude Include="fix42\TradingSessionStatusRequest.h" />
+    <ClInclude Include="fix43\Advertisement.h" />
+    <ClInclude Include="fix43\Allocation.h" />
+    <ClInclude Include="fix43\AllocationACK.h" />
+    <ClInclude Include="fix43\BidRequest.h" />
+    <ClInclude Include="fix43\BidResponse.h" />
+    <ClInclude Include="fix43\BusinessMessageReject.h" />
+    <ClInclude Include="fix43\CrossOrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix43\CrossOrderCancelRequest.h" />
+    <ClInclude Include="fix43\DerivativeSecurityList.h" />
+    <ClInclude Include="fix43\DerivativeSecurityListRequest.h" />
+    <ClInclude Include="fix43\DontKnowTrade.h" />
+    <ClInclude Include="fix43\Email.h" />
+    <ClInclude Include="fix43\ExecutionReport.h" />
+    <ClInclude Include="fix43\Heartbeat.h" />
+    <ClInclude Include="fix43\IndicationOfInterest.h" />
+    <ClInclude Include="fix43\ListCancelRequest.h" />
+    <ClInclude Include="fix43\ListExecute.h" />
+    <ClInclude Include="fix43\ListStatus.h" />
+    <ClInclude Include="fix43\ListStatusRequest.h" />
+    <ClInclude Include="fix43\ListStrikePrice.h" />
+    <ClInclude Include="fix43\Logon.h" />
+    <ClInclude Include="fix43\Logout.h" />
+    <ClInclude Include="fix43\MarketDataIncrementalRefresh.h" />
+    <ClInclude Include="fix43\MarketDataRequest.h" />
+    <ClInclude Include="fix43\MarketDataRequestReject.h" />
+    <ClInclude Include="fix43\MarketDataSnapshotFullRefresh.h" />
+    <ClInclude Include="fix43\MassQuote.h" />
+    <ClInclude Include="fix43\MassQuoteAcknowledgement.h" />
+    <ClInclude Include="fix43\Message.h" />
+    <ClInclude Include="fix43\MessageCracker.h" />
+    <ClInclude Include="fix43\MultilegOrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix43\NewOrderCross.h" />
+    <ClInclude Include="fix43\NewOrderList.h" />
+    <ClInclude Include="fix43\NewOrderMultileg.h" />
+    <ClInclude Include="fix43\NewOrderSingle.h" />
+    <ClInclude Include="fix43\News.h" />
+    <ClInclude Include="fix43\OrderCancelReject.h" />
+    <ClInclude Include="fix43\OrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix43\OrderCancelRequest.h" />
+    <ClInclude Include="fix43\OrderMassCancelReport.h" />
+    <ClInclude Include="fix43\OrderMassCancelRequest.h" />
+    <ClInclude Include="fix43\OrderMassStatusRequest.h" />
+    <ClInclude Include="fix43\OrderStatusRequest.h" />
+    <ClInclude Include="fix43\Quote.h" />
+    <ClInclude Include="fix43\QuoteCancel.h" />
+    <ClInclude Include="fix43\QuoteRequest.h" />
+    <ClInclude Include="fix43\QuoteRequestReject.h" />
+    <ClInclude Include="fix43\QuoteStatusReport.h" />
+    <ClInclude Include="fix43\QuoteStatusRequest.h" />
+    <ClInclude Include="fix43\RegistrationInstructions.h" />
+    <ClInclude Include="fix43\RegistrationInstructionsResponse.h" />
+    <ClInclude Include="fix43\Reject.h" />
+    <ClInclude Include="fix43\ResendRequest.h" />
+    <ClInclude Include="fix43\RFQRequest.h" />
+    <ClInclude Include="fix43\SecurityDefinition.h" />
+    <ClInclude Include="fix43\SecurityDefinitionRequest.h" />
+    <ClInclude Include="fix43\SecurityList.h" />
+    <ClInclude Include="fix43\SecurityListRequest.h" />
+    <ClInclude Include="fix43\SecurityStatus.h" />
+    <ClInclude Include="fix43\SecurityStatusRequest.h" />
+    <ClInclude Include="fix43\SecurityTypeRequest.h" />
+    <ClInclude Include="fix43\SecurityTypes.h" />
+    <ClInclude Include="fix43\SequenceReset.h" />
+    <ClInclude Include="fix43\SettlementInstructions.h" />
+    <ClInclude Include="fix43\TestRequest.h" />
+    <ClInclude Include="fix43\TradeCaptureReport.h" />
+    <ClInclude Include="fix43\TradeCaptureReportRequest.h" />
+    <ClInclude Include="fix43\TradingSessionStatus.h" />
+    <ClInclude Include="fix43\TradingSessionStatusRequest.h" />
+    <ClInclude Include="fix44\Advertisement.h" />
+    <ClInclude Include="fix44\AllocationInstruction.h" />
+    <ClInclude Include="fix44\AllocationInstructionAck.h" />
+    <ClInclude Include="fix44\AllocationReport.h" />
+    <ClInclude Include="fix44\AllocationReportAck.h" />
+    <ClInclude Include="fix44\AssignmentReport.h" />
+    <ClInclude Include="fix44\BidRequest.h" />
+    <ClInclude Include="fix44\BidResponse.h" />
+    <ClInclude Include="fix44\BusinessMessageReject.h" />
+    <ClInclude Include="fix44\CollateralAssignment.h" />
+    <ClInclude Include="fix44\CollateralInquiry.h" />
+    <ClInclude Include="fix44\CollateralInquiryAck.h" />
+    <ClInclude Include="fix44\CollateralReport.h" />
+    <ClInclude Include="fix44\CollateralRequest.h" />
+    <ClInclude Include="fix44\CollateralResponse.h" />
+    <ClInclude Include="fix44\Confirmation.h" />
+    <ClInclude Include="fix44\ConfirmationAck.h" />
+    <ClInclude Include="fix44\ConfirmationRequest.h" />
+    <ClInclude Include="fix44\CrossOrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix44\CrossOrderCancelRequest.h" />
+    <ClInclude Include="fix44\DerivativeSecurityList.h" />
+    <ClInclude Include="fix44\DerivativeSecurityListRequest.h" />
+    <ClInclude Include="fix44\DontKnowTrade.h" />
+    <ClInclude Include="fix44\Email.h" />
+    <ClInclude Include="fix44\ExecutionReport.h" />
+    <ClInclude Include="fix44\Heartbeat.h" />
+    <ClInclude Include="fix44\IndicationOfInterest.h" />
+    <ClInclude Include="fix44\ListCancelRequest.h" />
+    <ClInclude Include="fix44\ListExecute.h" />
+    <ClInclude Include="fix44\ListStatus.h" />
+    <ClInclude Include="fix44\ListStatusRequest.h" />
+    <ClInclude Include="fix44\ListStrikePrice.h" />
+    <ClInclude Include="fix44\Logon.h" />
+    <ClInclude Include="fix44\Logout.h" />
+    <ClInclude Include="fix44\MarketDataIncrementalRefresh.h" />
+    <ClInclude Include="fix44\MarketDataRequest.h" />
+    <ClInclude Include="fix44\MarketDataRequestReject.h" />
+    <ClInclude Include="fix44\MarketDataSnapshotFullRefresh.h" />
+    <ClInclude Include="fix44\MassQuote.h" />
+    <ClInclude Include="fix44\MassQuoteAcknowledgement.h" />
+    <ClInclude Include="fix44\Message.h" />
+    <ClInclude Include="fix44\MessageCracker.h" />
+    <ClInclude Include="fix44\MultilegOrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix44\NetworkStatusRequest.h" />
+    <ClInclude Include="fix44\NetworkStatusResponse.h" />
+    <ClInclude Include="fix44\NewOrderCross.h" />
+    <ClInclude Include="fix44\NewOrderList.h" />
+    <ClInclude Include="fix44\NewOrderMultileg.h" />
+    <ClInclude Include="fix44\NewOrderSingle.h" />
+    <ClInclude Include="fix44\News.h" />
+    <ClInclude Include="fix44\OrderCancelReject.h" />
+    <ClInclude Include="fix44\OrderCancelReplaceRequest.h" />
+    <ClInclude Include="fix44\OrderCancelRequest.h" />
+    <ClInclude Include="fix44\OrderMassCancelReport.h" />
+    <ClInclude Include="fix44\OrderMassCancelRequest.h" />
+    <ClInclude Include="fix44\OrderMassStatusRequest.h" />
+    <ClInclude Include="fix44\OrderStatusRequest.h" />
+    <ClInclude Include="fix44\PositionMaintenanceReport.h" />
+    <ClInclude Include="fix44\PositionMaintenanceRequest.h" />
+    <ClInclude Include="fix44\PositionReport.h" />
+    <ClInclude Include="fix44\Quote.h" />
+    <ClInclude Include="fix44\QuoteCancel.h" />
+    <ClInclude Include="fix44\QuoteRequest.h" />
+    <ClInclude Include="fix44\QuoteRequestReject.h" />
+    <ClInclude Include="fix44\QuoteResponse.h" />
+    <ClInclude Include="fix44\QuoteStatusReport.h" />
+    <ClInclude Include="fix44\QuoteStatusRequest.h" />
+    <ClInclude Include="fix44\RegistrationInstructions.h" />
+    <ClInclude Include="fix44\RegistrationInstructionsResponse.h" />
+    <ClInclude Include="fix44\Reject.h" />
+    <ClInclude Include="fix44\RequestForPositions.h" />
+    <ClInclude Include="fix44\RequestForPositionsAck.h" />
+    <ClInclude Include="fix44\ResendRequest.h" />
+    <ClInclude Include="fix44\RFQRequest.h" />
+    <ClInclude Include="fix44\SecurityDefinition.h" />
+    <ClInclude Include="fix44\SecurityDefinitionRequest.h" />
+    <ClInclude Include="fix44\SecurityList.h" />
+    <ClInclude Include="fix44\SecurityListRequest.h" />
+    <ClInclude Include="fix44\SecurityStatus.h" />
+    <ClInclude Include="fix44\SecurityStatusRequest.h" />
+    <ClInclude Include="fix44\SecurityTypeRequest.h" />
+    <ClInclude Include="fix44\SecurityTypes.h" />
+    <ClInclude Include="fix44\SequenceReset.h" />
+    <ClInclude Include="fix44\SettlementInstructionRequest.h" />
+    <ClInclude Include="fix44\SettlementInstructions.h" />
+    <ClInclude Include="fix44\TestRequest.h" />
+    <ClInclude Include="fix44\TradeCaptureReport.h" />
+    <ClInclude Include="fix44\TradeCaptureReportAck.h" />
+    <ClInclude Include="fix44\TradeCaptureReportRequest.h" />
+    <ClInclude Include="fix44\TradeCaptureReportRequestAck.h" />
+    <ClInclude Include="fix44\TradingSessionStatus.h" />
+    <ClInclude Include="fix44\TradingSessionStatusRequest.h" />
+    <ClInclude Include="fix44\UserRequest.h" />
+    <ClInclude Include="fix44\UserResponse.h" />
+    <ClInclude Include="HttpConnection.h" />
+    <ClInclude Include="HttpMessage.h" />
+    <ClInclude Include="HttpParser.h" />
+    <ClInclude Include="HttpServer.h" />
+    <CustomBuild Include="SocketAcceptor.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SocketConnection.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SocketConnector.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SocketInitiator.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SocketMonitor.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="SocketServer.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ThreadedSocketAcceptor.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ThreadedSocketConnection.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ThreadedSocketInitiator.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="DatabaseConnectionID.h" />
+    <ClInclude Include="DatabaseConnectionPool.h" />
+    <CustomBuild Include="FileLog.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FileStore.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Log.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="MessageStore.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="MySQLConnection.h" />
+    <CustomBuild Include="MySQLLog.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="MySQLStore.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="NullStore.h" />
+    <ClInclude Include="OdbcConnection.h" />
+    <ClInclude Include="OdbcLog.h" />
+    <ClInclude Include="OdbcStore.h" />
+    <ClInclude Include="PostgreSQLConnection.h" />
+    <ClInclude Include="PostgreSQLLog.h" />
+    <ClInclude Include="PostgreSQLStore.h" />
+    <ClInclude Include="..\config_windows.h" />
+    <ClInclude Include="..\stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

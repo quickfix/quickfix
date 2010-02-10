@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
-	Name="test_acceptance_runner_vs8"
-	ProjectGUID="{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
-	RootNamespace="atrun_vs8"
+	Version="9.00"
+	Name="test_performance_vs9"
+	ProjectGUID="{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
+	RootNamespace="test_performance_vs9"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -16,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\test\debug\at"
-			IntermediateDirectory="debug\vs8"
+			OutputDirectory="$(SolutionDir)\test\debug\pt"
+			IntermediateDirectory="debug\vs9"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -38,18 +39,19 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Debug/atrun.tlb"
+				TypeLibraryName=".\Debug/pt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..,..\..\..,$(SolutionDir)\UnitTest++\src"
+				FavorSizeOrSpeed="0"
+				AdditionalIncludeDirectories="$(SolutionDir)/src,$(SolutionDir)/src/c++"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderFile=".\Debug/atrun.pch"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Debug/pt.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -72,14 +74,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib UnitTest++.vsnet2003.lib"
-				OutputFile="$(OutDir)\atrun.exe"
+				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				OutputFile="$(OutDir)\pt.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/atrun.pdb"
+				ProgramDatabaseFile=".\Debug/pt.pdb"
 				SubSystem="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -100,16 +104,13 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\test\release\at"
-			IntermediateDirectory="release\vs8"
+			OutputDirectory="$(SolutionDir)\test\release\pt"
+			IntermediateDirectory="release\vs9"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -130,19 +131,20 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/atrun.tlb"
+				TypeLibraryName=".\Release/pt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..,..\..\..,$(SolutionDir)\UnitTest++\src"
+				FavorSizeOrSpeed="0"
+				AdditionalIncludeDirectories="$(SolutionDir)/src,$(SolutionDir)/src/c++"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderFile=".\Release/atrun.pch"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Release/pt.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
@@ -164,13 +166,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib  UnitTest++.vsnet2003.lib"
-				OutputFile="$(OutDir)\atrun.exe"
+				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				OutputFile="$(OutDir)\pt.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="$(SolutionDir)\lib\release"
-				ProgramDatabaseFile=".\Release/atrun.pdb"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib"
+				ProgramDatabaseFile=".\Release/pt.pdb"
 				SubSystem="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -191,9 +195,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -206,19 +207,11 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath="..\..\src\getopt.c"
+				RelativePath=".\getopt.c"
 				>
 			</File>
 			<File
-				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Process.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\test\ProcessTestCase.cpp"
+				RelativePath=".\pt.cpp"
 				>
 			</File>
 		</Filter>
@@ -227,15 +220,7 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath=".\Process.h"
-				>
-			</File>
-			<File
-				RelativePath=".\test\ProcessTestCase.h"
-				>
-			</File>
-			<File
-				RelativePath=".\TestSuite.h"
+				RelativePath=".\getopt-repl.h"
 				>
 			</File>
 		</Filter>
