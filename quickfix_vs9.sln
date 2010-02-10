@@ -1,22 +1,21 @@
-
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages_vs9", "src\.NET\quickfix_net_messages_vs9.csproj", "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
 	ProjectSection(ProjectDependencies) = postProject
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C} = {FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example_executor_csharp_vs9", "examples\executor\csharp\example_executor_csharp_vs9.csproj", "{BA234002-9F1A-4B01-98D6-DE05C7E78B58}"
 	ProjectSection(ProjectDependencies) = postProject
-		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9} = {30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C} = {FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9} = {30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}
 	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "example_executor_vbnet_vs9", "examples\executor\vbnet\example_executor_vbnet_vs9.vbproj", "{DA675460-F6E5-458C-BCEB-45B2986C90FC}"
 	ProjectSection(ProjectDependencies) = postProject
-		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9} = {30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C} = {FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9} = {30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example_executor_cpp_vs9", "examples\executor\C++\example_executor_cpp_vs9.vcproj", "{AC97D259-3231-4575-8CA5-BF9EF79B5A87}"
@@ -30,11 +29,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example_ordermatch_vs9", "e
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example_tradeclient_vs9", "examples\tradeclient\example_tradeclient_vs9.vcproj", "{760375AB-01FD-4E38-A778-FAA2A27F8C41}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_jni_vs9", "src\java\quickfix_jni_vs9.vcproj", "{562C1936-7288-48EF-ACB5-E8516CE776DC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
@@ -58,11 +52,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_performance_vs9", "src
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_unit_vs9", "src\test_unit_vs9.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 	ProjectSection(ProjectDependencies) = postProject
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5} = {7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_acceptance_runner_vs9", "test\atrun\test_acceptance_runner_vs9.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5} = {7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_performance_net_vs9", "src\test_performance_net_vs9.csproj", "{408B3028-1B7E-4CFA-802B-79C08901E88E}"
 EndProject
@@ -140,16 +137,6 @@ Global
 		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Release|Win32.ActiveCfg = Release|Win32
 		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Release|Win32.Build.0 = Release|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug|Win32.Build.0 = Debug|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release|Any CPU.ActiveCfg = Release|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release|Win32.ActiveCfg = Release|Win32
-		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release|Win32.Build.0 = Release|Win32
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug|Mixed Platforms.Build.0 = Debug|Win32
