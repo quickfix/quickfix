@@ -1,316 +1,224 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="7.10"
 	Name="UnitTest++.vsnet2003"
-	ProjectGUID="{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}"
+	ProjectGUID="{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}"
 	RootNamespace="UnitTest++.vsnet2003"
-	Keyword="Win32Proj"
-	>
+	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)lib\debug"
 			IntermediateDirectory="obj\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="4"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/UnitTest++.vsnet2003.lib"
-			/>
+				OutputFile="$(OutDir)/UnitTest++.vsnet2003.lib"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)lib"
 			IntermediateDirectory="obj\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="4"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="3"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/UnitTest++.vsnet2003.lib"
-			/>
+				OutputFile="$(OutDir)/UnitTest++.vsnet2003.lib"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<Filter
-			Name="Win32"
-			>
+			Name="Win32">
 			<File
-				RelativePath=".\src\Win32\TimeHelpers.cpp"
-				>
+				RelativePath=".\src\Win32\TimeHelpers.cpp">
 			</File>
 			<File
-				RelativePath=".\src\Win32\TimeHelpers.h"
-				>
+				RelativePath=".\src\Win32\TimeHelpers.h">
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\src\AssertException.cpp"
-			>
+			RelativePath=".\src\AssertException.cpp">
 		</File>
 		<File
-			RelativePath=".\src\AssertException.h"
-			>
+			RelativePath=".\src\AssertException.h">
 		</File>
 		<File
-			RelativePath=".\src\CheckMacros.h"
-			>
+			RelativePath=".\src\CheckMacros.h">
 		</File>
 		<File
-			RelativePath=".\src\Checks.cpp"
-			>
+			RelativePath=".\src\Checks.cpp">
 		</File>
 		<File
-			RelativePath=".\src\Checks.h"
-			>
+			RelativePath=".\src\Checks.h">
 		</File>
 		<File
-			RelativePath=".\src\Config.h"
-			>
+			RelativePath=".\src\Config.h">
 		</File>
 		<File
-			RelativePath=".\src\CurrentTest.cpp"
-			>
+			RelativePath=".\src\CurrentTest.cpp">
 		</File>
 		<File
-			RelativePath=".\src\CurrentTest.h"
-			>
+			RelativePath=".\src\CurrentTest.h">
 		</File>
 		<File
-			RelativePath=".\src\DeferredTestReporter.cpp"
-			>
+			RelativePath=".\src\DeferredTestReporter.cpp">
 		</File>
 		<File
-			RelativePath=".\src\DeferredTestReporter.h"
-			>
+			RelativePath=".\src\DeferredTestReporter.h">
 		</File>
 		<File
-			RelativePath=".\src\DeferredTestResult.cpp"
-			>
+			RelativePath=".\src\DeferredTestResult.cpp">
 		</File>
 		<File
-			RelativePath=".\src\DeferredTestResult.h"
-			>
+			RelativePath=".\src\DeferredTestResult.h">
 		</File>
 		<File
-			RelativePath=".\src\ExecuteTest.h"
-			>
+			RelativePath=".\src\ExecuteTest.h">
 		</File>
 		<File
-			RelativePath=".\src\MemoryOutStream.cpp"
-			>
+			RelativePath=".\src\MemoryOutStream.cpp">
 		</File>
 		<File
-			RelativePath=".\src\MemoryOutStream.h"
-			>
+			RelativePath=".\src\MemoryOutStream.h">
 		</File>
 		<File
-			RelativePath=".\src\ReportAssert.cpp"
-			>
+			RelativePath=".\src\ReportAssert.cpp">
 		</File>
 		<File
-			RelativePath=".\src\ReportAssert.h"
-			>
+			RelativePath=".\src\ReportAssert.h">
 		</File>
 		<File
-			RelativePath=".\src\Test.cpp"
-			>
+			RelativePath=".\src\Test.cpp">
 		</File>
 		<File
-			RelativePath=".\src\Test.h"
-			>
+			RelativePath=".\src\Test.h">
 		</File>
 		<File
-			RelativePath=".\src\TestDetails.cpp"
-			>
+			RelativePath=".\src\TestDetails.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestDetails.h"
-			>
+			RelativePath=".\src\TestDetails.h">
 		</File>
 		<File
-			RelativePath=".\src\TestList.cpp"
-			>
+			RelativePath=".\src\TestList.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestList.h"
-			>
+			RelativePath=".\src\TestList.h">
 		</File>
 		<File
-			RelativePath=".\src\TestMacros.h"
-			>
+			RelativePath=".\src\TestMacros.h">
 		</File>
 		<File
-			RelativePath=".\src\TestReporter.cpp"
-			>
+			RelativePath=".\src\TestReporter.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestReporter.h"
-			>
+			RelativePath=".\src\TestReporter.h">
 		</File>
 		<File
-			RelativePath=".\src\TestReporterStdout.cpp"
-			>
+			RelativePath=".\src\TestReporterStdout.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestReporterStdout.h"
-			>
+			RelativePath=".\src\TestReporterStdout.h">
 		</File>
 		<File
-			RelativePath=".\src\TestResults.cpp"
-			>
+			RelativePath=".\src\TestResults.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestResults.h"
-			>
+			RelativePath=".\src\TestResults.h">
 		</File>
 		<File
-			RelativePath=".\src\TestRunner.cpp"
-			>
+			RelativePath=".\src\TestRunner.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TestRunner.h"
-			>
+			RelativePath=".\src\TestRunner.h">
 		</File>
 		<File
-			RelativePath=".\src\TestSuite.h"
-			>
+			RelativePath=".\src\TestSuite.h">
 		</File>
 		<File
-			RelativePath=".\src\TimeConstraint.cpp"
-			>
+			RelativePath=".\src\TimeConstraint.cpp">
 		</File>
 		<File
-			RelativePath=".\src\TimeConstraint.h"
-			>
+			RelativePath=".\src\TimeConstraint.h">
 		</File>
 		<File
-			RelativePath=".\src\TimeHelpers.h"
-			>
+			RelativePath=".\src\TimeHelpers.h">
 		</File>
 		<File
-			RelativePath=".\src\UnitTest++.h"
-			>
+			RelativePath=".\src\UnitTest++.h">
 		</File>
 		<File
-			RelativePath=".\src\XmlTestReporter.cpp"
-			>
+			RelativePath=".\src\XmlTestReporter.cpp">
 		</File>
 		<File
-			RelativePath=".\src\XmlTestReporter.h"
-			>
+			RelativePath=".\src\XmlTestReporter.h">
 		</File>
 	</Files>
 	<Globals>
