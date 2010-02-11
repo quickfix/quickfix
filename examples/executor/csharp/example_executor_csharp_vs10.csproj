@@ -137,9 +137,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\src\.NET\quickfix_net_messages_vs10.csproj">
       <Project>{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}</Project>
       <Name>quickfix_net_messages_vs10</Name>

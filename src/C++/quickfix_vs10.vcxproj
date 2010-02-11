@@ -124,6 +124,7 @@ del /F EXCLUDE
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="CallStack.cpp" />
+    <ClCompile Include="DataDictionaryProvider.cpp" />
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="Initiator.cpp" />
     <ClCompile Include="LIBXML_DOMDocument.cpp" />
@@ -248,6 +249,7 @@ del /F EXCLUDE
       </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Outputs)</Outputs>
     </CustomBuild>
+    <ClInclude Include="DataDictionaryProvider.h" />
     <ClInclude Include="LIBXML_DOMDocument.h" />
     <CustomBuild Include="MSXML_DOMDocument.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
