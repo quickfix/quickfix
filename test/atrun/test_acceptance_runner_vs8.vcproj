@@ -164,11 +164,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib  UnitTest++.vsnet2003.lib"
+				AdditionalDependencies="odbc32.lib odbccp32.lib  UnitTest++.vsnet2005.lib"
 				OutputFile="$(OutDir)\atrun.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="$(SolutionDir)\lib\release"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				ProgramDatabaseFile=".\Release/atrun.pdb"
 				SubSystem="1"
 			/>

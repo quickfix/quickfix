@@ -74,7 +74,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix.lib UnitTest++.vsnet2003.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				AdditionalDependencies="quickfix.lib UnitTest++.vsnet2005.lib ws2_32.lib odbc32.lib odbccp32.lib"
 				OutputFile="$(OutDir)\ut.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
