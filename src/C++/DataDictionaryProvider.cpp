@@ -69,3 +69,4 @@ void DataDictionaryProvider::addApplicationDataDictionary
   m_applicationDictionaries[applVerID.getValue()] = dd;
 }
 }
+
