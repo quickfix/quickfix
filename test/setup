@@ -31,4 +31,6 @@ DataDictionary=../spec/FIX44.xml
 [SESSION]
 BeginString=FIXT.1.1
 DefaultApplVerID=FIX.5.0
+TransportDataDictionary=../spec/FIXT11.xml
+AppDataDictionary=../spec/FIX50.xml
 EOF

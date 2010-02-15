@@ -247,7 +247,7 @@ fi
 ########################################
 # LIBXML
 ########################################
-AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
+AM_PATH_XML2('2.0.0', , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
