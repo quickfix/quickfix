@@ -251,7 +251,6 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
   {
     const std::string& key = data->first;
-    const std::string& value = data->second;
     const std::string frontKey = key.substr(0, strlen(APP_DATA_DICTIONARY) + 1);
     if( frontKey == string_toUpper(APP_DATA_DICTIONARY) )
     {
