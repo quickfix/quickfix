@@ -61,7 +61,7 @@
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>BeginString</I> </TD>
     <TD> Version of FIX this session should use </TD>
-    <TD> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
+    <TD> FIXT.1.1 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
@@ -72,16 +72,21 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>TargetCompID</I> </TD>
-    <TD> counter parties ID as associated with this FIX session </TD>
+    <TD> Counter parties ID as associated with this FIX session </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SessionQualifier</I> </TD>
-    <TD> additional qualifier to disambiguate otherwise identical sessions </TD>
+    <TD> Additional qualifier to disambiguate otherwise identical sessions </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>DefaultApplVerID</I> </TD>
+    <TD> Required only for FIXT 1.1 (and newer). Ignored for earlier transport versions. Specifies the default application version ID for the session. This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version. </TD>
+    <TD> FIXT.5.0 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 <br> 7 <br> 6 <br> 5 <br> 4 <br> 3 <br> 2 </TD>
+    <TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ConnectionType</I> </TD>
     <TD> Defines if session will act as an acceptor or an initiator </TD>
@@ -167,8 +172,28 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>DataDictionary</I> </TD>
-    <TD> XML definition file for validating incoming FIX messages. If no DataDictionary is supplied, only basic message validation will be done</TD>
+    <TD> XML definition file for validating incoming FIX messages. If no DataDictionary is supplied, only basic message validation will be done <br><br>This setting should only be used with FIX transport versions older than FIXT.1.1. See TransportDataDictionary and AppDataDictionary for FIXT.1.1 settings.</TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory<br><br>FIX44.xml <br> FIX43.xml <br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>TransportDataDictionary</I> </TD>
+    <TD> XML definition file for validating admin (transport) messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information.</TD>
+    <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory</br><br>FIXT1.1.xml </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>AppDataDictionary</I> </TD>
+    <TD> XML definition file for validating application messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information. <br><br>This setting supports the possibility of a custom application data dictionary for each session. This setting would only be used with FIXT 1.1 and new transport protocols. This setting can be used as a prefix to specify multiple application dictionaries for the FIXT transport. For example:
+<pre><code>
+DefaultApplVerID=FIX.4.2
+# For default application version ID
+AppDataDictionary=FIX42.xml
+# For nondefault application version ID
+# Use BeginString suffix for app version
+AppDataDictionary.FIX.4.4=FIX44.xml
+</code></pre></TD>
+    <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory</br><br>FIXT1.1.xml </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
