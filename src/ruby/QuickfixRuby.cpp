@@ -1927,197 +1927,163 @@ namespace Swig {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Application swig_types[0]
-#define SWIGTYPE_p_BeginString swig_types[1]
-#define SWIGTYPE_p_DOMDocumentPtr swig_types[2]
-#define SWIGTYPE_p_Data swig_types[3]
-#define SWIGTYPE_p_DataDictionary swig_types[4]
-#define SWIGTYPE_p_Dictionaries swig_types[5]
-#define SWIGTYPE_p_DoubleField swig_types[6]
-#define SWIGTYPE_p_FIELD__Field swig_types[7]
-#define SWIGTYPE_p_FIX_CHAR swig_types[8]
-#define SWIGTYPE_p_FIX_DAYOFMONTH swig_types[9]
+#define SWIGTYPE_p_ApplVerID swig_types[0]
+#define SWIGTYPE_p_Application swig_types[1]
+#define SWIGTYPE_p_BeginString swig_types[2]
+#define SWIGTYPE_p_DOMDocumentPtr swig_types[3]
+#define SWIGTYPE_p_Data swig_types[4]
+#define SWIGTYPE_p_DataDictionary swig_types[5]
+#define SWIGTYPE_p_DataDictionaryProvider swig_types[6]
+#define SWIGTYPE_p_Dictionaries swig_types[7]
+#define SWIGTYPE_p_DoubleField swig_types[8]
+#define SWIGTYPE_p_FIX_CHAR swig_types[9]
 #define SWIGTYPE_p_FIX_INT swig_types[10]
 #define SWIGTYPE_p_FIX_LOCALMKTDATE swig_types[11]
-#define SWIGTYPE_p_FIX_PRICEOFFSET swig_types[12]
-#define SWIGTYPE_p_FIX_QTY swig_types[13]
-#define SWIGTYPE_p_FIX_STRING swig_types[14]
-#define SWIGTYPE_p_FIX_UTCDATE swig_types[15]
-#define SWIGTYPE_p_FIX_UTCTIMEONLY swig_types[16]
-#define SWIGTYPE_p_FIX_UTCTIMESTAMP swig_types[17]
-#define SWIGTYPE_p_FIX__Acceptor swig_types[18]
-#define SWIGTYPE_p_FIX__AllocShares swig_types[19]
-#define SWIGTYPE_p_FIX__Application swig_types[20]
-#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[21]
-#define SWIGTYPE_p_FIX__Benchmark swig_types[22]
-#define SWIGTYPE_p_FIX__BoolField swig_types[23]
-#define SWIGTYPE_p_FIX__BrokerOfCredit swig_types[24]
-#define SWIGTYPE_p_FIX__CardIssNo swig_types[25]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctName swig_types[26]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctNum swig_types[27]
-#define SWIGTYPE_p_FIX__CashSettlAgentCode swig_types[28]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactName swig_types[29]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactPhone swig_types[30]
-#define SWIGTYPE_p_FIX__CashSettlAgentName swig_types[31]
-#define SWIGTYPE_p_FIX__CharField swig_types[32]
-#define SWIGTYPE_p_FIX__CheckSumField swig_types[33]
-#define SWIGTYPE_p_FIX__ClearingAccount swig_types[34]
-#define SWIGTYPE_p_FIX__ClearingFirm swig_types[35]
-#define SWIGTYPE_p_FIX__ClientID swig_types[36]
-#define SWIGTYPE_p_FIX__ConfigError swig_types[37]
-#define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[38]
-#define SWIGTYPE_p_FIX__CxlType swig_types[39]
-#define SWIGTYPE_p_FIX__DataDictionary swig_types[40]
-#define SWIGTYPE_p_FIX__Dictionary swig_types[41]
-#define SWIGTYPE_p_FIX__Dictionary__Data__const_iterator swig_types[42]
-#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[43]
-#define SWIGTYPE_p_FIX__DlvyInst swig_types[44]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[45]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[46]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[47]
-#define SWIGTYPE_p_FIX__Exception swig_types[48]
-#define SWIGTYPE_p_FIX__ExecBroker swig_types[49]
-#define SWIGTYPE_p_FIX__ExecTransType swig_types[50]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[51]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[52]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[53]
-#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[54]
-#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[55]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[56]
-#define SWIGTYPE_p_FIX__FileLog swig_types[57]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[58]
-#define SWIGTYPE_p_FIX__FileStore swig_types[59]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[60]
-#define SWIGTYPE_p_FIX__FutSettDate swig_types[61]
-#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[62]
-#define SWIGTYPE_p_FIX__Group swig_types[63]
-#define SWIGTYPE_p_FIX__IDSource swig_types[64]
-#define SWIGTYPE_p_FIX__IOException swig_types[65]
-#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[66]
-#define SWIGTYPE_p_FIX__IOIShares swig_types[67]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[68]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[69]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[70]
-#define SWIGTYPE_p_FIX__Initiator swig_types[71]
-#define SWIGTYPE_p_FIX__IntField swig_types[72]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[73]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[74]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[75]
-#define SWIGTYPE_p_FIX__LastShares swig_types[76]
-#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[77]
-#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[78]
-#define SWIGTYPE_p_FIX__Log swig_types[79]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[80]
-#define SWIGTYPE_p_FIX__MaturityDay swig_types[81]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[82]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[83]
-#define SWIGTYPE_p_FIX__Message swig_types[84]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[85]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[86]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[87]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[88]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[89]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[90]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[91]
-#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[92]
-#define SWIGTYPE_p_FIX__OpenClose swig_types[93]
-#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[94]
-#define SWIGTYPE_p_FIX__PegDifference swig_types[95]
-#define SWIGTYPE_p_FIX__PutOrCall swig_types[96]
-#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[97]
-#define SWIGTYPE_p_FIX__RatioQty swig_types[98]
-#define SWIGTYPE_p_FIX__RegistDetls swig_types[99]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[100]
-#define SWIGTYPE_p_FIX__RelatdSym swig_types[101]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[102]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[103]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[104]
-#define SWIGTYPE_p_FIX__Rule80A swig_types[105]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[106]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[107]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[108]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[109]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[110]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[111]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[112]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[113]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[114]
-#define SWIGTYPE_p_FIX__Session swig_types[115]
-#define SWIGTYPE_p_FIX__SessionID swig_types[116]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[117]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[118]
-#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[119]
-#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[120]
-#define SWIGTYPE_p_FIX__SettlInstCode swig_types[121]
-#define SWIGTYPE_p_FIX__SettlLocation swig_types[122]
-#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[123]
-#define SWIGTYPE_p_FIX__Shares swig_types[124]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[125]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[126]
-#define SWIGTYPE_p_FIX__SocketException swig_types[127]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[128]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[129]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[130]
-#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[131]
-#define SWIGTYPE_p_FIX__StringField swig_types[132]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[133]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[134]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[135]
-#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[136]
-#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[137]
-#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[138]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[139]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[140]
-#define SWIGTYPE_p_FIX__TradeType swig_types[141]
-#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[142]
-#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[143]
-#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[144]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[145]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[146]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[147]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[148]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[149]
-#define SWIGTYPE_p_Fields swig_types[150]
-#define SWIGTYPE_p_Group swig_types[151]
-#define SWIGTYPE_p_Groups swig_types[152]
-#define SWIGTYPE_p_IntArray swig_types[153]
-#define SWIGTYPE_p_IntField swig_types[154]
-#define SWIGTYPE_p_Log swig_types[155]
-#define SWIGTYPE_p_LogFactory swig_types[156]
-#define SWIGTYPE_p_MessageStore swig_types[157]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[158]
-#define SWIGTYPE_p_MsgType swig_types[159]
-#define SWIGTYPE_p_Mutex swig_types[160]
-#define SWIGTYPE_p_Responder swig_types[161]
-#define SWIGTYPE_p_SenderCompID swig_types[162]
-#define SWIGTYPE_p_SessionID swig_types[163]
-#define SWIGTYPE_p_StringField swig_types[164]
-#define SWIGTYPE_p_TYPE__Type swig_types[165]
-#define SWIGTYPE_p_TargetCompID swig_types[166]
-#define SWIGTYPE_p_TimeRange swig_types[167]
-#define SWIGTYPE_p_UtcDate swig_types[168]
-#define SWIGTYPE_p_UtcDateField swig_types[169]
-#define SWIGTYPE_p_UtcDateOnly swig_types[170]
-#define SWIGTYPE_p_UtcTimeOnly swig_types[171]
-#define SWIGTYPE_p_UtcTimeStamp swig_types[172]
-#define SWIGTYPE_p_bool swig_types[173]
-#define SWIGTYPE_p_char swig_types[174]
-#define SWIGTYPE_p_const_iterator swig_types[175]
-#define SWIGTYPE_p_double swig_types[176]
-#define SWIGTYPE_p_g_const_iterator swig_types[177]
-#define SWIGTYPE_p_g_iterator swig_types[178]
-#define SWIGTYPE_p_int swig_types[179]
-#define SWIGTYPE_p_iterator swig_types[180]
-#define SWIGTYPE_p_message_order swig_types[181]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[182]
-#define SWIGTYPE_p_std__istream swig_types[183]
-#define SWIGTYPE_p_std__ostream swig_types[184]
-#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[185]
-#define SWIGTYPE_p_std__string swig_types[186]
-#define SWIGTYPE_p_std__string__size_type swig_types[187]
-#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[188]
-static swig_type_info *swig_types[190];
-static swig_module_info swig_module = {swig_types, 189, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX_NUMINGROUP swig_types[12]
+#define SWIGTYPE_p_FIX_PRICEOFFSET swig_types[13]
+#define SWIGTYPE_p_FIX_QTY swig_types[14]
+#define SWIGTYPE_p_FIX_STRING swig_types[15]
+#define SWIGTYPE_p_FIX__Acceptor swig_types[16]
+#define SWIGTYPE_p_FIX__AllocShares swig_types[17]
+#define SWIGTYPE_p_FIX__Application swig_types[18]
+#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[19]
+#define SWIGTYPE_p_FIX__BoolField swig_types[20]
+#define SWIGTYPE_p_FIX__CardIssNo swig_types[21]
+#define SWIGTYPE_p_FIX__CharField swig_types[22]
+#define SWIGTYPE_p_FIX__CheckSumField swig_types[23]
+#define SWIGTYPE_p_FIX__ConfigError swig_types[24]
+#define SWIGTYPE_p_FIX__DataDictionary swig_types[25]
+#define SWIGTYPE_p_FIX__DataDictionaryNotFound swig_types[26]
+#define SWIGTYPE_p_FIX__Dictionary swig_types[27]
+#define SWIGTYPE_p_FIX__Dictionary__Data__const_iterator swig_types[28]
+#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[29]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[30]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[31]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[32]
+#define SWIGTYPE_p_FIX__Exception swig_types[33]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[34]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[35]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[36]
+#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[37]
+#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[38]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[39]
+#define SWIGTYPE_p_FIX__FileLog swig_types[40]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[41]
+#define SWIGTYPE_p_FIX__FileStore swig_types[42]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[43]
+#define SWIGTYPE_p_FIX__FutSettDate swig_types[44]
+#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[45]
+#define SWIGTYPE_p_FIX__Group swig_types[46]
+#define SWIGTYPE_p_FIX__IDSource swig_types[47]
+#define SWIGTYPE_p_FIX__IOException swig_types[48]
+#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[49]
+#define SWIGTYPE_p_FIX__IOIShares swig_types[50]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[51]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[52]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[53]
+#define SWIGTYPE_p_FIX__Initiator swig_types[54]
+#define SWIGTYPE_p_FIX__IntField swig_types[55]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[56]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[57]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[58]
+#define SWIGTYPE_p_FIX__LastShares swig_types[59]
+#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[60]
+#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[61]
+#define SWIGTYPE_p_FIX__LinesOfText swig_types[62]
+#define SWIGTYPE_p_FIX__Log swig_types[63]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[64]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[65]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[66]
+#define SWIGTYPE_p_FIX__Message swig_types[67]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[68]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[69]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[70]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[71]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[72]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[73]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[74]
+#define SWIGTYPE_p_FIX__OpenClose swig_types[75]
+#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[76]
+#define SWIGTYPE_p_FIX__PegDifference swig_types[77]
+#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[78]
+#define SWIGTYPE_p_FIX__RegistDetls swig_types[79]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[80]
+#define SWIGTYPE_p_FIX__RelatdSym swig_types[81]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[82]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[83]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[84]
+#define SWIGTYPE_p_FIX__Rule80A swig_types[85]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[86]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[87]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[88]
+#define SWIGTYPE_p_FIX__Session swig_types[89]
+#define SWIGTYPE_p_FIX__SessionID swig_types[90]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[91]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[92]
+#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[93]
+#define SWIGTYPE_p_FIX__Shares swig_types[94]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[95]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[96]
+#define SWIGTYPE_p_FIX__SocketException swig_types[97]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[98]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[99]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[100]
+#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[101]
+#define SWIGTYPE_p_FIX__StringField swig_types[102]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[103]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[104]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[105]
+#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[106]
+#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[107]
+#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[108]
+#define SWIGTYPE_p_FIX__TradeType swig_types[109]
+#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[110]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[111]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[112]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[113]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[114]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[115]
+#define SWIGTYPE_p_Fields swig_types[116]
+#define SWIGTYPE_p_Group swig_types[117]
+#define SWIGTYPE_p_Groups swig_types[118]
+#define SWIGTYPE_p_IntArray swig_types[119]
+#define SWIGTYPE_p_IntField swig_types[120]
+#define SWIGTYPE_p_Log swig_types[121]
+#define SWIGTYPE_p_LogFactory swig_types[122]
+#define SWIGTYPE_p_MessageStore swig_types[123]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[124]
+#define SWIGTYPE_p_MsgType swig_types[125]
+#define SWIGTYPE_p_Mutex swig_types[126]
+#define SWIGTYPE_p_Responder swig_types[127]
+#define SWIGTYPE_p_SenderCompID swig_types[128]
+#define SWIGTYPE_p_SessionID swig_types[129]
+#define SWIGTYPE_p_StringField swig_types[130]
+#define SWIGTYPE_p_TYPE__Type swig_types[131]
+#define SWIGTYPE_p_TargetCompID swig_types[132]
+#define SWIGTYPE_p_TimeRange swig_types[133]
+#define SWIGTYPE_p_UtcDate swig_types[134]
+#define SWIGTYPE_p_UtcDateField swig_types[135]
+#define SWIGTYPE_p_UtcDateOnly swig_types[136]
+#define SWIGTYPE_p_UtcTimeOnly swig_types[137]
+#define SWIGTYPE_p_UtcTimeStamp swig_types[138]
+#define SWIGTYPE_p_bool swig_types[139]
+#define SWIGTYPE_p_char swig_types[140]
+#define SWIGTYPE_p_const_iterator swig_types[141]
+#define SWIGTYPE_p_double swig_types[142]
+#define SWIGTYPE_p_g_const_iterator swig_types[143]
+#define SWIGTYPE_p_g_iterator swig_types[144]
+#define SWIGTYPE_p_int swig_types[145]
+#define SWIGTYPE_p_iterator swig_types[146]
+#define SWIGTYPE_p_message_order swig_types[147]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[148]
+#define SWIGTYPE_p_std__istream swig_types[149]
+#define SWIGTYPE_p_std__ostream swig_types[150]
+#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[151]
+#define SWIGTYPE_p_std__string swig_types[152]
+#define SWIGTYPE_p_std__string__size_type swig_types[153]
+#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[154]
+static swig_type_info *swig_types[156];
+static swig_module_info swig_module = {swig_types, 155, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3554,6 +3520,237 @@ _wrap_Exception___str__(int argc, VALUE *argv, VALUE self) {
   arg1 = reinterpret_cast< FIX::Exception * >(argp1);
   result = FIX_Exception___str__(arg1);
   vresult = SWIG_From_std_string(static_cast< std::string >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+swig_class cDataDictionaryNotFound;
+
+SWIGINTERN VALUE
+_wrap_new_DataDictionaryNotFound__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  FIX::DataDictionaryNotFound *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  const char *classname SWIGUNUSED = "Quickfix::DataDictionaryNotFound";
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DataDictionaryNotFound" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DataDictionaryNotFound" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::DataDictionaryNotFound" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DataDictionaryNotFound" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  result = (FIX::DataDictionaryNotFound *)new FIX::DataDictionaryNotFound((std::string const &)*arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_DataDictionaryNotFound_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_DataDictionaryNotFound_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__DataDictionaryNotFound);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_DataDictionaryNotFound__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  FIX::DataDictionaryNotFound *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  const char *classname SWIGUNUSED = "Quickfix::DataDictionaryNotFound";
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DataDictionaryNotFound" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DataDictionaryNotFound" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (FIX::DataDictionaryNotFound *)new FIX::DataDictionaryNotFound((std::string const &)*arg1);DATA_PTR(self) = result;
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_DataDictionaryNotFound(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[2];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 2) SWIG_fail;
+  for (ii = 0; (ii < argc); ii++) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_DataDictionaryNotFound__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_DataDictionaryNotFound__SWIG_0(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  rb_raise(rb_eArgError, "No matching function for overloaded 'new_DataDictionaryNotFound'");
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_DataDictionaryNotFound(FIX::DataDictionaryNotFound *arg1) {
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_DataDictionaryNotFound_version_set(int argc, VALUE *argv, VALUE self) {
+  FIX::DataDictionaryNotFound *arg1 = (FIX::DataDictionaryNotFound *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DataDictionaryNotFound, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "version" "', argument " "1"" of type '" "FIX::DataDictionaryNotFound *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionaryNotFound * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "version" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "version" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  if (arg1) (arg1)->version = *arg2;
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DataDictionaryNotFound_version_get(int argc, VALUE *argv, VALUE self) {
+  FIX::DataDictionaryNotFound *arg1 = (FIX::DataDictionaryNotFound *) 0 ;
+  std::string *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DataDictionaryNotFound, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "version" "', argument " "1"" of type '" "FIX::DataDictionaryNotFound *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionaryNotFound * >(argp1);
+  {
+    std::string const &_result_ref =  ((arg1)->version);
+    result = (std::string *) &_result_ref;
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
   return vresult;
 fail:
   return Qnil;
@@ -13535,7 +13732,7 @@ SWIGINTERN VALUE
 headerOrder_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_NewPointerObj(SWIG_as_voidptr(FIX::headerOrder), SWIGTYPE_p_FIELD__Field,  0 );
+  _val = SWIG_NewPointerObj(SWIG_as_voidptr(FIX::headerOrder), SWIGTYPE_p_int,  0 );
   return _val;
 }
 
@@ -13768,6 +13965,144 @@ fail:
 }
 
 
+SWIGINTERN VALUE
+_wrap_new_Message__SWIG_5(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg3 = 0 ;
+  bool arg4 ;
+  FIX::Message *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::Message";
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Message" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DataDictionary,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__DataDictionary,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::Message" "', argument " "3"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "3"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg3 = reinterpret_cast< FIX::DataDictionary * >(argp3);
+  ecode4 = SWIG_AsVal_bool(argv[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "FIX::Message" "', argument " "4"" of type '" "bool""'");
+  } 
+  arg4 = static_cast< bool >(val4);
+  try {
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2,(FIX::DataDictionary const &)*arg3,arg4);DATA_PTR(self) = result;
+  }
+  catch(FIX::InvalidMessage &_e) {
+    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
+  }
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_Message__SWIG_6(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg3 = 0 ;
+  FIX::Message *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::Message";
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Message" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DataDictionary,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__DataDictionary,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::Message" "', argument " "3"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "3"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg3 = reinterpret_cast< FIX::DataDictionary * >(argp3);
+  try {
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2,(FIX::DataDictionary const &)*arg3);DATA_PTR(self) = result;
+  }
+  catch(FIX::InvalidMessage &_e) {
+    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
+  }
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
 #ifdef HAVE_RB_DEFINE_ALLOC_FUNC
 SWIGINTERN VALUE
 _wrap_Message_allocate(VALUE self) {
@@ -13786,7 +14121,7 @@ _wrap_Message_allocate(VALUE self) {
   
 
 SWIGINTERN VALUE
-_wrap_new_Message__SWIG_5(int argc, VALUE *argv, VALUE self) {
+_wrap_new_Message__SWIG_7(int argc, VALUE *argv, VALUE self) {
   FIX::Message *arg1 = 0 ;
   FIX::Message *result = 0 ;
   void *argp1 ;
@@ -13814,11 +14149,11 @@ fail:
 
 SWIGINTERN VALUE _wrap_new_Message(int nargs, VALUE *args, VALUE self) {
   int argc;
-  VALUE argv[3];
+  VALUE argv[4];
   int ii;
   
   argc = nargs;
-  if (argc > 3) SWIG_fail;
+  if (argc > 4) SWIG_fail;
   for (ii = 0; (ii < argc); ii++) {
     argv[ii] = args[ii];
   }
@@ -13831,7 +14166,7 @@ SWIGINTERN VALUE _wrap_new_Message(int nargs, VALUE *args, VALUE self) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Message, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_new_Message__SWIG_5(nargs, args, self);
+      return _wrap_new_Message__SWIG_7(nargs, args, self);
     }
   }
   if (argc == 1) {
@@ -13878,12 +14213,54 @@ SWIGINTERN VALUE _wrap_new_Message(int nargs, VALUE *args, VALUE self) {
       int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_Message__SWIG_6(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
         {
           int res = SWIG_AsVal_bool(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           return _wrap_new_Message__SWIG_3(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          {
+            int res = SWIG_AsVal_bool(argv[3], NULL);
+            _v = SWIG_CheckState(res);
+          }
+          if (_v) {
+            return _wrap_new_Message__SWIG_5(nargs, args, self);
+          }
         }
       }
     }
@@ -14197,7 +14574,7 @@ _wrap_Message_hasGroup__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hasGroup" "', argument " "1"" of type '" "FIX::Message *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hasGroup" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
   res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__Group,  0 );
@@ -14208,7 +14585,7 @@ _wrap_Message_hasGroup__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "hasGroup" "', argument " "2"" of type '" "FIX::Group const &""'"); 
   }
   arg2 = reinterpret_cast< FIX::Group * >(argp2);
-  result = (bool)(arg1)->hasGroup((FIX::Group const &)*arg2);
+  result = (bool)((FIX::Message const *)arg1)->hasGroup((FIX::Group const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
   return vresult;
 fail:
@@ -14235,7 +14612,7 @@ _wrap_Message_hasGroup__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hasGroup" "', argument " "1"" of type '" "FIX::Message *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hasGroup" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
   ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
@@ -14251,7 +14628,7 @@ _wrap_Message_hasGroup__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "hasGroup" "', argument " "3"" of type '" "FIX::Group &""'"); 
   }
   arg3 = reinterpret_cast< FIX::Group * >(argp3);
-  result = (bool)(arg1)->hasGroup(arg2,*arg3);
+  result = (bool)((FIX::Message const *)arg1)->hasGroup(arg2,*arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
   return vresult;
 fail:
@@ -14986,6 +15363,102 @@ SWIGINTERN VALUE
 _wrap_Message_setString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::Message *arg1 = (FIX::Message *) 0 ;
   std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setString" "', argument " "1"" of type '" "FIX::Message *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Message * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->setString((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Message_setString__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::Message *arg1 = (FIX::Message *) 0 ;
+  std::string *arg2 = 0 ;
+  bool arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setString" "', argument " "1"" of type '" "FIX::Message *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Message * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_bool(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "setString" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  (arg1)->setString((std::string const &)*arg2,arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Message_setString__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  FIX::Message *arg1 = (FIX::Message *) 0 ;
+  std::string *arg2 = 0 ;
   bool arg3 ;
   FIX::DataDictionary *arg4 = (FIX::DataDictionary *) 0 ;
   void *argp1 = 0 ;
@@ -15049,19 +15522,25 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Message_setString__SWIG_1(int argc, VALUE *argv, VALUE self) {
+_wrap_Message_setString__SWIG_3(int argc, VALUE *argv, VALUE self) {
   FIX::Message *arg1 = (FIX::Message *) 0 ;
   std::string *arg2 = 0 ;
   bool arg3 ;
+  FIX::DataDictionary *arg4 = (FIX::DataDictionary *) 0 ;
+  FIX::DataDictionary *arg5 = (FIX::DataDictionary *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   bool val3 ;
   int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
   VALUE vresult = Qnil;
   
-  if ((argc < 2) || (argc > 2)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
@@ -15084,58 +15563,18 @@ _wrap_Message_setString__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "setString" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = static_cast< bool >(val3);
+  res4 = SWIG_ConvertPtr(argv[2], &argp4,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "setString" "', argument " "4"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg4 = reinterpret_cast< FIX::DataDictionary * >(argp4);
+  res5 = SWIG_ConvertPtr(argv[3], &argp5,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "setString" "', argument " "5"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg5 = reinterpret_cast< FIX::DataDictionary * >(argp5);
   try {
-    (arg1)->setString((std::string const &)*arg2,arg3);
-  }
-  catch(FIX::InvalidMessage &_e) {
-    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
-  }
-  
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Message_setString__SWIG_2(int argc, VALUE *argv, VALUE self) {
-  FIX::Message *arg1 = (FIX::Message *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setString" "', argument " "1"" of type '" "FIX::Message *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setString" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  try {
-    (arg1)->setString((std::string const &)*arg2);
+    (arg1)->setString((std::string const &)*arg2,arg3,(FIX::DataDictionary const *)arg4,(FIX::DataDictionary const *)arg5);
   }
   catch(FIX::InvalidMessage &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
@@ -15158,12 +15597,12 @@ fail:
 
 SWIGINTERN VALUE _wrap_Message_setString(int nargs, VALUE *args, VALUE self) {
   int argc;
-  VALUE argv[5];
+  VALUE argv[6];
   int ii;
   
   argc = nargs + 1;
   argv[0] = self;
-  if (argc > 5) SWIG_fail;
+  if (argc > 6) SWIG_fail;
   for (ii = 1; (ii < argc); ii++) {
     argv[ii] = args[ii-1];
   }
@@ -15176,7 +15615,7 @@ SWIGINTERN VALUE _wrap_Message_setString(int nargs, VALUE *args, VALUE self) {
       int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
       _v = SWIG_CheckState(res);
       if (_v) {
-        return _wrap_Message_setString__SWIG_2(nargs, args, self);
+        return _wrap_Message_setString__SWIG_0(nargs, args, self);
       }
     }
   }
@@ -15217,7 +15656,36 @@ SWIGINTERN VALUE _wrap_Message_setString(int nargs, VALUE *args, VALUE self) {
           int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
           _v = SWIG_CheckState(res);
           if (_v) {
-            return _wrap_Message_setString__SWIG_0(nargs, args, self);
+            return _wrap_Message_setString__SWIG_2(nargs, args, self);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Message, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          int res = SWIG_AsVal_bool(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            void *vptr = 0;
+            int res = SWIG_ConvertPtr(argv[4], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              return _wrap_Message_setString__SWIG_3(nargs, args, self);
+            }
           }
         }
       }
@@ -16055,6 +16523,60 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_Message_toApplVerID(int argc, VALUE *argv, VALUE self) {
+  BeginString *arg1 = 0 ;
+  ApplVerID result;
+  void *argp1 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_BeginString,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Message::toApplVerID" "', argument " "1"" of type '" "BeginString const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message::toApplVerID" "', argument " "1"" of type '" "BeginString const &""'"); 
+  }
+  arg1 = reinterpret_cast< BeginString * >(argp1);
+  result = FIX::Message::toApplVerID((BeginString const &)*arg1);
+  vresult = SWIG_NewPointerObj((new ApplVerID(static_cast< const ApplVerID& >(result))), SWIGTYPE_p_ApplVerID, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Message_toBeginString(int argc, VALUE *argv, VALUE self) {
+  ApplVerID *arg1 = 0 ;
+  BeginString result;
+  void *argp1 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_ApplVerID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Message::toBeginString" "', argument " "1"" of type '" "ApplVerID const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message::toBeginString" "', argument " "1"" of type '" "ApplVerID const &""'"); 
+  }
+  arg1 = reinterpret_cast< ApplVerID * >(argp1);
+  result = FIX::Message::toBeginString((ApplVerID const &)*arg1);
+  vresult = SWIG_NewPointerObj((new BeginString(static_cast< const BeginString& >(result))), SWIGTYPE_p_BeginString, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_Message_isHeaderField__SWIG_0(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   bool result;
@@ -16341,7 +16863,7 @@ _wrap_Message_getSessionID__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getSessionID" "', argument " "1"" of type '" "FIX::Message *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getSessionID" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
   {
@@ -16356,7 +16878,7 @@ _wrap_Message_getSessionID__SWIG_0(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   try {
-    result = (arg1)->getSessionID((std::string const &)*arg2);
+    result = ((FIX::Message const *)arg1)->getSessionID((std::string const &)*arg2);
   }
   catch(FIX::FieldNotFound &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__FieldNotFound, SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN))); SWIG_fail;
@@ -16391,11 +16913,11 @@ _wrap_Message_getSessionID__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Message, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getSessionID" "', argument " "1"" of type '" "FIX::Message *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getSessionID" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
   try {
-    result = (arg1)->getSessionID();
+    result = ((FIX::Message const *)arg1)->getSessionID();
   }
   catch(FIX::FieldNotFound &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__FieldNotFound, SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN))); SWIG_fail;
@@ -17267,102 +17789,6 @@ fail:
 
 SWIGINTERN void
 free_FIX_Group(FIX::Group *arg1) {
-    delete arg1;
-}
-
-swig_class cExecTransType;
-
-SWIGINTERN VALUE
-_wrap_new_ExecTransType__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::ExecTransType *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ExecTransType";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::ExecTransType *)new FIX::ExecTransType();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_ExecTransType_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_ExecTransType_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ExecTransType);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_ExecTransType__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_CHAR *arg1 = 0 ;
-  FIX::ExecTransType *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ExecTransType";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ExecTransType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ExecTransType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
-  result = (FIX::ExecTransType *)new FIX::ExecTransType((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_ExecTransType(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_ExecTransType__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ExecTransType__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_ExecTransType'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_ExecTransType(FIX::ExecTransType *arg1) {
     delete arg1;
 }
 
@@ -18326,102 +18752,6 @@ free_FIX_AvgPrxPrecision(FIX::AvgPrxPrecision *arg1) {
     delete arg1;
 }
 
-swig_class cExecBroker;
-
-SWIGINTERN VALUE
-_wrap_new_ExecBroker__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::ExecBroker *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ExecBroker";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::ExecBroker *)new FIX::ExecBroker();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_ExecBroker_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_ExecBroker_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ExecBroker);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_ExecBroker__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::ExecBroker *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ExecBroker";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::ExecBroker *)new FIX::ExecBroker((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_ExecBroker(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_ExecBroker__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ExecBroker__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_ExecBroker'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_ExecBroker(FIX::ExecBroker *arg1) {
-    delete arg1;
-}
-
 swig_class cOpenClose;
 
 SWIGINTERN VALUE
@@ -18555,7 +18885,7 @@ _wrap_AllocShares_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_AllocShares__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_INT *arg1 = 0 ;
+  FIX_QTY *arg1 = 0 ;
   FIX::AllocShares *result = 0 ;
   void *argp1 ;
   int res1 = 0 ;
@@ -18564,15 +18894,15 @@ _wrap_new_AllocShares__SWIG_1(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_QTY,  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
   }
   if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
   }
-  arg1 = reinterpret_cast< FIX_INT * >(argp1);
-  result = (FIX::AllocShares *)new FIX::AllocShares((FIX_INT const &)*arg1);DATA_PTR(self) = result;
+  arg1 = reinterpret_cast< FIX_QTY * >(argp1);
+  result = (FIX::AllocShares *)new FIX::AllocShares((FIX_QTY const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -18596,7 +18926,7 @@ SWIGINTERN VALUE _wrap_new_AllocShares(int nargs, VALUE *args, VALUE self) {
   if (argc == 1) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_QTY, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_AllocShares__SWIG_1(nargs, args, self);
@@ -18611,1926 +18941,6 @@ fail:
 
 SWIGINTERN void
 free_FIX_AllocShares(FIX::AllocShares *arg1) {
-    delete arg1;
-}
-
-swig_class cDlvyInst;
-
-SWIGINTERN VALUE
-_wrap_new_DlvyInst__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::DlvyInst *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::DlvyInst";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::DlvyInst *)new FIX::DlvyInst();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_DlvyInst_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_DlvyInst_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__DlvyInst);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_DlvyInst__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_CHAR *arg1 = 0 ;
-  FIX::DlvyInst *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::DlvyInst";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DlvyInst" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DlvyInst" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
-  result = (FIX::DlvyInst *)new FIX::DlvyInst((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_DlvyInst(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_DlvyInst__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_DlvyInst__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_DlvyInst'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_DlvyInst(FIX::DlvyInst *arg1) {
-    delete arg1;
-}
-
-swig_class cBrokerOfCredit;
-
-SWIGINTERN VALUE
-_wrap_new_BrokerOfCredit__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::BrokerOfCredit *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::BrokerOfCredit";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::BrokerOfCredit *)new FIX::BrokerOfCredit();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_BrokerOfCredit_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_BrokerOfCredit_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__BrokerOfCredit);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_BrokerOfCredit__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::BrokerOfCredit *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::BrokerOfCredit";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::BrokerOfCredit *)new FIX::BrokerOfCredit((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_BrokerOfCredit(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_BrokerOfCredit__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_BrokerOfCredit__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_BrokerOfCredit'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_BrokerOfCredit(FIX::BrokerOfCredit *arg1) {
-    delete arg1;
-}
-
-swig_class cClientID;
-
-SWIGINTERN VALUE
-_wrap_new_ClientID__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::ClientID *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClientID";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::ClientID *)new FIX::ClientID();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_ClientID_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_ClientID_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ClientID);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_ClientID__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::ClientID *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClientID";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClientID" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClientID" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::ClientID *)new FIX::ClientID((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_ClientID(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_ClientID__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ClientID__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_ClientID'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_ClientID(FIX::ClientID *arg1) {
-    delete arg1;
-}
-
-swig_class cCxlType;
-
-SWIGINTERN VALUE
-_wrap_new_CxlType__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CxlType *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CxlType";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CxlType *)new FIX::CxlType();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CxlType_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CxlType_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CxlType);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CxlType__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_CHAR *arg1 = 0 ;
-  FIX::CxlType *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CxlType";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CxlType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CxlType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
-  result = (FIX::CxlType *)new FIX::CxlType((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CxlType(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CxlType__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CxlType__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CxlType'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CxlType(FIX::CxlType *arg1) {
-    delete arg1;
-}
-
-swig_class cSettlLocation;
-
-SWIGINTERN VALUE
-_wrap_new_SettlLocation__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SettlLocation *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlLocation";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SettlLocation *)new FIX::SettlLocation();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SettlLocation_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SettlLocation_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SettlLocation);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SettlLocation__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SettlLocation *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlLocation";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SettlLocation *)new FIX::SettlLocation((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SettlLocation(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SettlLocation__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SettlLocation__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SettlLocation'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SettlLocation(FIX::SettlLocation *arg1) {
-    delete arg1;
-}
-
-swig_class cSettlDepositoryCode;
-
-SWIGINTERN VALUE
-_wrap_new_SettlDepositoryCode__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SettlDepositoryCode *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlDepositoryCode";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SettlDepositoryCode *)new FIX::SettlDepositoryCode();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SettlDepositoryCode_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SettlDepositoryCode_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SettlDepositoryCode);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SettlDepositoryCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SettlDepositoryCode *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlDepositoryCode";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SettlDepositoryCode *)new FIX::SettlDepositoryCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SettlDepositoryCode(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SettlDepositoryCode__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SettlDepositoryCode__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SettlDepositoryCode'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SettlDepositoryCode(FIX::SettlDepositoryCode *arg1) {
-    delete arg1;
-}
-
-swig_class cSettlBrkrCode;
-
-SWIGINTERN VALUE
-_wrap_new_SettlBrkrCode__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SettlBrkrCode *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlBrkrCode";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SettlBrkrCode *)new FIX::SettlBrkrCode();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SettlBrkrCode_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SettlBrkrCode_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SettlBrkrCode);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SettlBrkrCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SettlBrkrCode *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlBrkrCode";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SettlBrkrCode *)new FIX::SettlBrkrCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SettlBrkrCode(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SettlBrkrCode__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SettlBrkrCode__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SettlBrkrCode'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SettlBrkrCode(FIX::SettlBrkrCode *arg1) {
-    delete arg1;
-}
-
-swig_class cSettlInstCode;
-
-SWIGINTERN VALUE
-_wrap_new_SettlInstCode__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SettlInstCode *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlInstCode";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SettlInstCode *)new FIX::SettlInstCode();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SettlInstCode_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SettlInstCode_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SettlInstCode);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SettlInstCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SettlInstCode *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SettlInstCode";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SettlInstCode *)new FIX::SettlInstCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SettlInstCode(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SettlInstCode__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SettlInstCode__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SettlInstCode'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SettlInstCode(FIX::SettlInstCode *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentName;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentName *)new FIX::SecuritySettlAgentName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentName *)new FIX::SecuritySettlAgentName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentName(FIX::SecuritySettlAgentName *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentCode;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentCode__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentCode *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentCode";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentCode *)new FIX::SecuritySettlAgentCode();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentCode_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentCode_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentCode);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentCode *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentCode";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentCode *)new FIX::SecuritySettlAgentCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentCode(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentCode__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentCode__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentCode'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentCode(FIX::SecuritySettlAgentCode *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentAcctNum;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentAcctNum__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentAcctNum *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctNum";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentAcctNum *)new FIX::SecuritySettlAgentAcctNum();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentAcctNum_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentAcctNum_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentAcctNum__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentAcctNum *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctNum";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentAcctNum *)new FIX::SecuritySettlAgentAcctNum((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentAcctNum(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentAcctNum__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentAcctNum__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentAcctNum'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentAcctNum(FIX::SecuritySettlAgentAcctNum *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentAcctName;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentAcctName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentAcctName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentAcctName *)new FIX::SecuritySettlAgentAcctName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentAcctName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentAcctName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentAcctName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentAcctName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentAcctName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentAcctName *)new FIX::SecuritySettlAgentAcctName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentAcctName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentAcctName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentAcctName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentAcctName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentAcctName(FIX::SecuritySettlAgentAcctName *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentContactName;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentContactName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentContactName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentContactName *)new FIX::SecuritySettlAgentContactName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentContactName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentContactName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentContactName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentContactName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentContactName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentContactName *)new FIX::SecuritySettlAgentContactName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentContactName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentContactName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentContactName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentContactName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentContactName(FIX::SecuritySettlAgentContactName *arg1) {
-    delete arg1;
-}
-
-swig_class cSecuritySettlAgentContactPhone;
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentContactPhone__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SecuritySettlAgentContactPhone *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactPhone";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::SecuritySettlAgentContactPhone *)new FIX::SecuritySettlAgentContactPhone();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_SecuritySettlAgentContactPhone_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_SecuritySettlAgentContactPhone_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_SecuritySettlAgentContactPhone__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::SecuritySettlAgentContactPhone *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactPhone";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::SecuritySettlAgentContactPhone *)new FIX::SecuritySettlAgentContactPhone((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_SecuritySettlAgentContactPhone(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_SecuritySettlAgentContactPhone__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_SecuritySettlAgentContactPhone__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_SecuritySettlAgentContactPhone'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_SecuritySettlAgentContactPhone(FIX::SecuritySettlAgentContactPhone *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentName;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentName *)new FIX::CashSettlAgentName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentName *)new FIX::CashSettlAgentName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentName(FIX::CashSettlAgentName *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentCode;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentCode__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentCode *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentCode";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentCode *)new FIX::CashSettlAgentCode();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentCode_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentCode_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentCode);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentCode *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentCode";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentCode *)new FIX::CashSettlAgentCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentCode(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentCode__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentCode__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentCode'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentCode(FIX::CashSettlAgentCode *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentAcctNum;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentAcctNum__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentAcctNum *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctNum";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentAcctNum *)new FIX::CashSettlAgentAcctNum();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentAcctNum_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentAcctNum_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentAcctNum);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentAcctNum__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentAcctNum *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctNum";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentAcctNum *)new FIX::CashSettlAgentAcctNum((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentAcctNum(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentAcctNum__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentAcctNum__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentAcctNum'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentAcctNum(FIX::CashSettlAgentAcctNum *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentAcctName;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentAcctName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentAcctName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentAcctName *)new FIX::CashSettlAgentAcctName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentAcctName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentAcctName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentAcctName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentAcctName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentAcctName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentAcctName *)new FIX::CashSettlAgentAcctName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentAcctName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentAcctName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentAcctName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentAcctName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentAcctName(FIX::CashSettlAgentAcctName *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentContactName;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentContactName__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentContactName *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactName";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentContactName *)new FIX::CashSettlAgentContactName();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentContactName_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentContactName_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentContactName);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentContactName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentContactName *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactName";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentContactName *)new FIX::CashSettlAgentContactName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentContactName(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentContactName__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentContactName__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentContactName'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentContactName(FIX::CashSettlAgentContactName *arg1) {
-    delete arg1;
-}
-
-swig_class cCashSettlAgentContactPhone;
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentContactPhone__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CashSettlAgentContactPhone *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactPhone";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CashSettlAgentContactPhone *)new FIX::CashSettlAgentContactPhone();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CashSettlAgentContactPhone_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CashSettlAgentContactPhone_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CashSettlAgentContactPhone);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CashSettlAgentContactPhone__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::CashSettlAgentContactPhone *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactPhone";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::CashSettlAgentContactPhone *)new FIX::CashSettlAgentContactPhone((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CashSettlAgentContactPhone(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CashSettlAgentContactPhone__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CashSettlAgentContactPhone__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CashSettlAgentContactPhone'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CashSettlAgentContactPhone(FIX::CashSettlAgentContactPhone *arg1) {
     delete arg1;
 }
 
@@ -20627,294 +19037,6 @@ fail:
 
 SWIGINTERN void
 free_FIX_FutSettDate2(FIX::FutSettDate2 *arg1) {
-    delete arg1;
-}
-
-swig_class cPutOrCall;
-
-SWIGINTERN VALUE
-_wrap_new_PutOrCall__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::PutOrCall *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::PutOrCall";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::PutOrCall *)new FIX::PutOrCall();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_PutOrCall_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_PutOrCall_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PutOrCall);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_PutOrCall__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_INT *arg1 = 0 ;
-  FIX::PutOrCall *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::PutOrCall";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::PutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::PutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_INT * >(argp1);
-  result = (FIX::PutOrCall *)new FIX::PutOrCall((FIX_INT const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_PutOrCall(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_PutOrCall__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_PutOrCall__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_PutOrCall'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_PutOrCall(FIX::PutOrCall *arg1) {
-    delete arg1;
-}
-
-swig_class cCustomerOrFirm;
-
-SWIGINTERN VALUE
-_wrap_new_CustomerOrFirm__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::CustomerOrFirm *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CustomerOrFirm";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::CustomerOrFirm *)new FIX::CustomerOrFirm();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_CustomerOrFirm_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_CustomerOrFirm_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__CustomerOrFirm);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_CustomerOrFirm__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_INT *arg1 = 0 ;
-  FIX::CustomerOrFirm *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::CustomerOrFirm";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CustomerOrFirm" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CustomerOrFirm" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_INT * >(argp1);
-  result = (FIX::CustomerOrFirm *)new FIX::CustomerOrFirm((FIX_INT const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_CustomerOrFirm(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_CustomerOrFirm__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_CustomerOrFirm__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_CustomerOrFirm'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_CustomerOrFirm(FIX::CustomerOrFirm *arg1) {
-    delete arg1;
-}
-
-swig_class cMaturityDay;
-
-SWIGINTERN VALUE
-_wrap_new_MaturityDay__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::MaturityDay *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::MaturityDay";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::MaturityDay *)new FIX::MaturityDay();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_MaturityDay_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_MaturityDay_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MaturityDay);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_MaturityDay__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_DAYOFMONTH *arg1 = 0 ;
-  FIX::MaturityDay *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::MaturityDay";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_DAYOFMONTH,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_DAYOFMONTH * >(argp1);
-  result = (FIX::MaturityDay *)new FIX::MaturityDay((FIX_DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_MaturityDay(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_MaturityDay__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_DAYOFMONTH, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_MaturityDay__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_MaturityDay'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_MaturityDay(FIX::MaturityDay *arg1) {
     delete arg1;
 }
 
@@ -21107,102 +19229,6 @@ fail:
 
 SWIGINTERN void
 free_FIX_SpreadToBenchmark(FIX::SpreadToBenchmark *arg1) {
-    delete arg1;
-}
-
-swig_class cBenchmark;
-
-SWIGINTERN VALUE
-_wrap_new_Benchmark__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::Benchmark *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::Benchmark";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::Benchmark *)new FIX::Benchmark();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_Benchmark_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_Benchmark_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__Benchmark);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_Benchmark__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_CHAR *arg1 = 0 ;
-  FIX::Benchmark *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::Benchmark";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Benchmark" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Benchmark" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
-  result = (FIX::Benchmark *)new FIX::Benchmark((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_Benchmark(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_Benchmark__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_Benchmark__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_Benchmark'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_Benchmark(FIX::Benchmark *arg1) {
     delete arg1;
 }
 
@@ -21590,474 +19616,6 @@ free_FIX_TotQuoteEntries(FIX::TotQuoteEntries *arg1) {
     delete arg1;
 }
 
-swig_class cUnderlyingMaturityDay;
-
-SWIGINTERN VALUE
-_wrap_new_UnderlyingMaturityDay__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::UnderlyingMaturityDay *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::UnderlyingMaturityDay";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::UnderlyingMaturityDay *)new FIX::UnderlyingMaturityDay();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_UnderlyingMaturityDay_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_UnderlyingMaturityDay_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__UnderlyingMaturityDay);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_UnderlyingMaturityDay__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_DAYOFMONTH *arg1 = 0 ;
-  FIX::UnderlyingMaturityDay *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::UnderlyingMaturityDay";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_DAYOFMONTH,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_DAYOFMONTH * >(argp1);
-  result = (FIX::UnderlyingMaturityDay *)new FIX::UnderlyingMaturityDay((FIX_DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_UnderlyingMaturityDay(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_UnderlyingMaturityDay__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_DAYOFMONTH, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_UnderlyingMaturityDay__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_UnderlyingMaturityDay'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_UnderlyingMaturityDay(FIX::UnderlyingMaturityDay *arg1) {
-    delete arg1;
-}
-
-swig_class cUnderlyingPutOrCall;
-
-SWIGINTERN VALUE
-_wrap_new_UnderlyingPutOrCall__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::UnderlyingPutOrCall *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::UnderlyingPutOrCall";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::UnderlyingPutOrCall *)new FIX::UnderlyingPutOrCall();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_UnderlyingPutOrCall_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_UnderlyingPutOrCall_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__UnderlyingPutOrCall);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_UnderlyingPutOrCall__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_INT *arg1 = 0 ;
-  FIX::UnderlyingPutOrCall *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::UnderlyingPutOrCall";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingPutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingPutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_INT * >(argp1);
-  result = (FIX::UnderlyingPutOrCall *)new FIX::UnderlyingPutOrCall((FIX_INT const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_UnderlyingPutOrCall(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_UnderlyingPutOrCall__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_UnderlyingPutOrCall__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_UnderlyingPutOrCall'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_UnderlyingPutOrCall(FIX::UnderlyingPutOrCall *arg1) {
-    delete arg1;
-}
-
-swig_class cRatioQty;
-
-SWIGINTERN VALUE
-_wrap_new_RatioQty__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::RatioQty *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::RatioQty";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::RatioQty *)new FIX::RatioQty();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_RatioQty_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_RatioQty_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__RatioQty);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_RatioQty__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_QTY *arg1 = 0 ;
-  FIX::RatioQty *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::RatioQty";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_QTY,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RatioQty" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RatioQty" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_QTY * >(argp1);
-  result = (FIX::RatioQty *)new FIX::RatioQty((FIX_QTY const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_RatioQty(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_RatioQty__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_QTY, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_RatioQty__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_RatioQty'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_RatioQty(FIX::RatioQty *arg1) {
-    delete arg1;
-}
-
-swig_class cOnBehalfOfSendingTime;
-
-SWIGINTERN VALUE
-_wrap_new_OnBehalfOfSendingTime__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::OnBehalfOfSendingTime *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::OnBehalfOfSendingTime";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_new_OnBehalfOfSendingTime__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  bool arg1 ;
-  FIX::OnBehalfOfSendingTime *result = 0 ;
-  bool val1 ;
-  int ecode1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::OnBehalfOfSendingTime";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  ecode1 = SWIG_AsVal_bool(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "bool""'");
-  } 
-  arg1 = static_cast< bool >(val1);
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime(arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_new_OnBehalfOfSendingTime__SWIG_2(int argc, VALUE *argv, VALUE self) {
-  FIX_UTCTIMESTAMP *arg1 = 0 ;
-  FIX::OnBehalfOfSendingTime *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::OnBehalfOfSendingTime";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMESTAMP,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_UTCTIMESTAMP * >(argp1);
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((FIX_UTCTIMESTAMP const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_OnBehalfOfSendingTime_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_OnBehalfOfSendingTime_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__OnBehalfOfSendingTime);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_OnBehalfOfSendingTime__SWIG_3(int argc, VALUE *argv, VALUE self) {
-  FIX_UTCTIMESTAMP *arg1 = 0 ;
-  bool arg2 ;
-  FIX::OnBehalfOfSendingTime *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::OnBehalfOfSendingTime";
-  
-  if ((argc < 2) || (argc > 2)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMESTAMP,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_UTCTIMESTAMP * >(argp1);
-  ecode2 = SWIG_AsVal_bool(argv[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((FIX_UTCTIMESTAMP const &)*arg1,arg2);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_OnBehalfOfSendingTime(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[2];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 2) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_OnBehalfOfSendingTime__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMESTAMP, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_OnBehalfOfSendingTime__SWIG_2(nargs, args, self);
-    }
-  }
-  if (argc == 1) {
-    int _v;
-    {
-      int res = SWIG_AsVal_bool(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      return _wrap_new_OnBehalfOfSendingTime__SWIG_1(nargs, args, self);
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMESTAMP, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_bool(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_OnBehalfOfSendingTime__SWIG_3(nargs, args, self);
-      }
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_OnBehalfOfSendingTime'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_OnBehalfOfSendingTime(FIX::OnBehalfOfSendingTime *arg1) {
-    delete arg1;
-}
-
 swig_class cDiscretionOffset;
 
 SWIGINTERN VALUE
@@ -22343,390 +19901,6 @@ fail:
 
 SWIGINTERN void
 free_FIX_TradeType(FIX::TradeType *arg1) {
-    delete arg1;
-}
-
-swig_class cClearingFirm;
-
-SWIGINTERN VALUE
-_wrap_new_ClearingFirm__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::ClearingFirm *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClearingFirm";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::ClearingFirm *)new FIX::ClearingFirm();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_ClearingFirm_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_ClearingFirm_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ClearingFirm);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_ClearingFirm__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::ClearingFirm *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClearingFirm";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::ClearingFirm *)new FIX::ClearingFirm((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_ClearingFirm(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_ClearingFirm__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ClearingFirm__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_ClearingFirm'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_ClearingFirm(FIX::ClearingFirm *arg1) {
-    delete arg1;
-}
-
-swig_class cClearingAccount;
-
-SWIGINTERN VALUE
-_wrap_new_ClearingAccount__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::ClearingAccount *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClearingAccount";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::ClearingAccount *)new FIX::ClearingAccount();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_ClearingAccount_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_ClearingAccount_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ClearingAccount);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_ClearingAccount__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_STRING *arg1 = 0 ;
-  FIX::ClearingAccount *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::ClearingAccount";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
-  result = (FIX::ClearingAccount *)new FIX::ClearingAccount((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_ClearingAccount(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_ClearingAccount__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ClearingAccount__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_ClearingAccount'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_ClearingAccount(FIX::ClearingAccount *arg1) {
-    delete arg1;
-}
-
-swig_class cTotalVolumeTradedDate;
-
-SWIGINTERN VALUE
-_wrap_new_TotalVolumeTradedDate__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::TotalVolumeTradedDate *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::TotalVolumeTradedDate";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::TotalVolumeTradedDate *)new FIX::TotalVolumeTradedDate();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_TotalVolumeTradedDate_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_TotalVolumeTradedDate_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__TotalVolumeTradedDate);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_TotalVolumeTradedDate__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_UTCDATE *arg1 = 0 ;
-  FIX::TotalVolumeTradedDate *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::TotalVolumeTradedDate";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCDATE,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "FIX_UTCDATE const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "FIX_UTCDATE const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_UTCDATE * >(argp1);
-  result = (FIX::TotalVolumeTradedDate *)new FIX::TotalVolumeTradedDate((FIX_UTCDATE const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_TotalVolumeTradedDate(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_TotalVolumeTradedDate__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCDATE, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_TotalVolumeTradedDate__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_TotalVolumeTradedDate'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_TotalVolumeTradedDate(FIX::TotalVolumeTradedDate *arg1) {
-    delete arg1;
-}
-
-swig_class cTotalVolumeTradedTime;
-
-SWIGINTERN VALUE
-_wrap_new_TotalVolumeTradedTime__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::TotalVolumeTradedTime *result = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::TotalVolumeTradedTime";
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  result = (FIX::TotalVolumeTradedTime *)new FIX::TotalVolumeTradedTime();DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_TotalVolumeTradedTime_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_TotalVolumeTradedTime_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__TotalVolumeTradedTime);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
-SWIGINTERN VALUE
-_wrap_new_TotalVolumeTradedTime__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  FIX_UTCTIMEONLY *arg1 = 0 ;
-  FIX::TotalVolumeTradedTime *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::TotalVolumeTradedTime";
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMEONLY,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "FIX_UTCTIMEONLY const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "FIX_UTCTIMEONLY const &""'"); 
-  }
-  arg1 = reinterpret_cast< FIX_UTCTIMEONLY * >(argp1);
-  result = (FIX::TotalVolumeTradedTime *)new FIX::TotalVolumeTradedTime((FIX_UTCTIMEONLY const &)*arg1);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap_new_TotalVolumeTradedTime(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[1];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 1) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 0) {
-    return _wrap_new_TotalVolumeTradedTime__SWIG_0(nargs, args, self);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMEONLY, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_TotalVolumeTradedTime__SWIG_1(nargs, args, self);
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_TotalVolumeTradedTime'");
-  return Qnil;
-}
-
-
-SWIGINTERN void
-free_FIX_TotalVolumeTradedTime(FIX::TotalVolumeTradedTime *arg1) {
     delete arg1;
 }
 
@@ -23210,6 +20384,111 @@ free_FIX_LegFutSettDate(FIX::LegFutSettDate *arg1) {
     delete arg1;
 }
 
+swig_class cLinesOfText;
+
+SWIGINTERN VALUE
+_wrap_new_LinesOfText__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::LinesOfText *result = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::LinesOfText";
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  result = (FIX::LinesOfText *)new FIX::LinesOfText();DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_LinesOfText_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_LinesOfText_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__LinesOfText);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_LinesOfText__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX_NUMINGROUP *arg1 = 0 ;
+  FIX::LinesOfText *result = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::LinesOfText";
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_NUMINGROUP,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::LinesOfText" "', argument " "1"" of type '" "FIX_NUMINGROUP const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::LinesOfText" "', argument " "1"" of type '" "FIX_NUMINGROUP const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_NUMINGROUP * >(argp1);
+  result = (FIX::LinesOfText *)new FIX::LinesOfText((FIX_NUMINGROUP const &)*arg1);DATA_PTR(self) = result;
+  
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_LinesOfText(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[1];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 1) SWIG_fail;
+  for (ii = 0; (ii < argc); ii++) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 0) {
+    return _wrap_new_LinesOfText__SWIG_0(nargs, args, self);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_NUMINGROUP, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_LinesOfText__SWIG_1(nargs, args, self);
+    }
+  }
+  
+fail:
+  rb_raise(rb_eArgError, "No matching function for overloaded 'new_LinesOfText'");
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_LinesOfText(FIX::LinesOfText *arg1) {
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+BeginString_FIXT11_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::BeginString_FIXT11);
+  return _val;
+}
+
+
 SWIGINTERN VALUE
 BeginString_FIX44_get(VALUE self) {
   VALUE _val;
@@ -23256,14842 +20535,55 @@ BeginString_FIX40_get(VALUE self) {
 
 
 SWIGINTERN VALUE
-MsgType_Heartbeat_get(VALUE self) {
+ApplVerId_FIX50_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_Heartbeat);
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX50);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-MsgType_Logon_get(VALUE self) {
+ApplVerId_FIX44_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_Logon);
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX44);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-MsgType_TestRequest_get(VALUE self) {
+ApplVerId_FIX43_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_TestRequest);
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX43);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-MsgType_ResendRequest_get(VALUE self) {
+ApplVerId_FIX42_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_ResendRequest);
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX42);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-MsgType_Reject_get(VALUE self) {
+ApplVerId_FIX41_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_Reject);
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX41);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-MsgType_SequenceReset_get(VALUE self) {
+ApplVerId_FIX40_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::MsgType_SequenceReset);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_Logout_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_Logout);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BusinessMessageReject_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BusinessMessageReject);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_UserRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_UserRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_UserResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_UserResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_Advertisement_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_Advertisement);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_IndicationOfInterest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_IndicationOfInterest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_News_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_News);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_Email_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_Email);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteRequestReject_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteRequestReject);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RFQRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RFQRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_Quote_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_Quote);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteCancel_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteCancel);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QuoteStatusReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QuoteStatusReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MassQuote_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MassQuote);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MassQuoteAcknowledgement_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MassQuoteAcknowledgement);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MarketDataRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MarketDataRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MarketDataSnapshotFullRefresh_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MarketDataSnapshotFullRefresh);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MarketDataIncrementalRefresh_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MarketDataIncrementalRefresh);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MarketDataRequestReject_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MarketDataRequestReject);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityDefinitionRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityDefinitionRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityDefinition_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityDefinition);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityTypeRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityTypeRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityTypes_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityTypes);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityListRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityListRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityList_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityList);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DerivativeSecurityListRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DerivativeSecurityListRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DerivativeSecurityList_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DerivativeSecurityList);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SecurityStatus_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SecurityStatus);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradingSessionStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradingSessionStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradingSessionStatus_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradingSessionStatus);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NewOrderSingle_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NewOrderSingle);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ExecutionReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ExecutionReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DontKnowTrade_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DontKnowTrade);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderCancelReplaceRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderCancelReplaceRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderCancelRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderCancelRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderCancelReject_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderCancelReject);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderMassCancelRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderMassCancelRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderMassCancelReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderMassCancelReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_OrderMassStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_OrderMassStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NewOrderCross_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NewOrderCross);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CrossOrderCancelReplaceRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CrossOrderCancelReplaceRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CrossOrderCancelRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CrossOrderCancelRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NewOrderMultileg_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NewOrderMultileg);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MultilegOrderCancelReplaceRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MultilegOrderCancelReplaceRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BidRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BidRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BidResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BidResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NewOrderList_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NewOrderList);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ListStrikePrice_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ListStrikePrice);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ListStatus_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ListStatus);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ListExecute_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ListExecute);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ListCancelRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ListCancelRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ListStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ListStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_AllocationInstruction_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_AllocationInstruction);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_AllocationInstructionAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_AllocationInstructionAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_AllocationReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_AllocationReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_AllocationReportAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_AllocationReportAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_Confirmation_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_Confirmation);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ConfirmationAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ConfirmationAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ConfirmationRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ConfirmationRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SettlementInstructions_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SettlementInstructions);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SettlementInstructionRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SettlementInstructionRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradeCaptureReportRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradeCaptureReportRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradeCaptureReportRequestAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradeCaptureReportRequestAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradeCaptureReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradeCaptureReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TradeCaptureReportAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TradeCaptureReportAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RegistrationInstructions_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RegistrationInstructions);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RegistrationInstructionsResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RegistrationInstructionsResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_PositionMaintenanceRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_PositionMaintenanceRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_PositionMaintenanceReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_PositionMaintenanceReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RequestForPositions_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RequestForPositions);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RequestForPositionsAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RequestForPositionsAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_PositionReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_PositionReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_AssignmentReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_AssignmentReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralAssignment_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralAssignment);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralReport_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralReport);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralInquiry_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralInquiry);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NetworkStatusRequest_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NetworkStatusRequest);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NetworkStatusResponse_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NetworkStatusResponse);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CollateralInquiryAck_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CollateralInquiryAck);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvSide_BUY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AdvSide_BUY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvSide_SELL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AdvSide_SELL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvSide_CROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AdvSide_CROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvSide_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AdvSide_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::AdvTransType_NEW);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::AdvTransType_CANCEL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdvTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::AdvTransType_REPLACE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_PER_UNIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_PER_UNIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_PERCENTAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_PERCENTAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_ABSOLUTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_ABSOLUTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CommType_POINTS_PER_BOND_OR_OR_CONTRACT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CommType_POINTS_PER_BOND_OR_OR_CONTRACT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_NOT_HELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_NOT_HELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_WORK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_WORK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_GO_ALONG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_GO_ALONG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_OVER_THE_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_OVER_THE_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_HELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_HELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_PARTICIPATE_DONT_INITIATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_PARTICIPATE_DONT_INITIATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_STRICT_SCALE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_STRICT_SCALE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_TRY_TO_SCALE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_TRY_TO_SCALE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_STAY_ON_BIDSIDE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_STAY_ON_BIDSIDE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_STAY_ON_OFFERSIDE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_STAY_ON_OFFERSIDE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_NO_CROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_NO_CROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_OK_TO_CROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_OK_TO_CROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_CALL_FIRST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_CALL_FIRST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_PERCENT_OF_VOLUME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_PERCENT_OF_VOLUME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_DO_NOT_INCREASE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_DO_NOT_INCREASE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_DO_NOT_REDUCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_DO_NOT_REDUCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_ALL_OR_NONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_ALL_OR_NONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_REINSTATE_ON_SYSTEM_FAILURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_REINSTATE_ON_SYSTEM_FAILURE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_INSTITUTIONS_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_INSTITUTIONS_ONLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_REINSTATE_ON_TRADING_HALT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_REINSTATE_ON_TRADING_HALT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_CANCEL_ON_TRADING_HALT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_CANCEL_ON_TRADING_HALT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_LAST_PEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_LAST_PEG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_MID_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_MID_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_NON_NEGOTIABLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_NON_NEGOTIABLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_OPENING_PEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_OPENING_PEG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_MARKET_PEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_MARKET_PEG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_CANCEL_ON_SYSTEM_FAILURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_CANCEL_ON_SYSTEM_FAILURE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_PRIMARY_PEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_PRIMARY_PEG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_SUSPEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_SUSPEND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_CUSTOMER_DISPLAY_INSTRUCTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_CUSTOMER_DISPLAY_INSTRUCTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_NETTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_NETTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_PEG_TO_VWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_PEG_TO_VWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_TRADE_ALONG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_TRADE_ALONG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_TRY_TO_STOP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_TRY_TO_STOP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_CANCEL_IF_NOT_BEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_CANCEL_IF_NOT_BEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_TRAILING_STOP_PEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_TRAILING_STOP_PEG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_STRICT_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_STRICT_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_IGNORE_PRICE_VALIDITY_CHECKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_IGNORE_PRICE_VALIDITY_CHECKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_PEG_TO_LIMIT_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_PEG_TO_LIMIT_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecInst_WORK_TO_TARGET_STRATEGY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecInst_WORK_TO_TARGET_STRATEGY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HandlInst_MANUAL_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HandlInst_MANUAL_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_CUSIP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_CUSIP);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_SEDOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_SEDOL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_QUIK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_QUIK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_ISIN_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_ISIN_NUMBER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_RIC_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_RIC_CODE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_ISO_CURRENCY_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_ISO_CURRENCY_CODE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_ISO_COUNTRY_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_ISO_COUNTRY_CODE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_EXCHANGE_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_EXCHANGE_SYMBOL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_BLOOMBERG_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_BLOOMBERG_SYMBOL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_WERTPAPIER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_WERTPAPIER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_DUTCH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_DUTCH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_VALOREN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_VALOREN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_SICOVAM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_SICOVAM);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_BELGIAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_BELGIAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_COMMON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_COMMON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQltyInd_LOW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQltyInd_LOW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQltyInd_MEDIUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQltyInd_MEDIUM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQltyInd_HIGH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQltyInd_HIGH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOITransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOITransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOITransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOITransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOITransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOITransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastCapacity_AGENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::LastCapacity_AGENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastCapacity_CROSS_AS_AGENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::LastCapacity_CROSS_AS_AGENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastCapacity_CROSS_AS_PRINCIPAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::LastCapacity_CROSS_AS_PRINCIPAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastCapacity_PRINCIPAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::LastCapacity_PRINCIPAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_HEARTBEAT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_HEARTBEAT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TEST_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TEST_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RESEND_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RESEND_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_REJECT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SEQUENCE_RESET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SEQUENCE_RESET);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LOGOUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LOGOUT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_INDICATION_OF_INTEREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_INDICATION_OF_INTEREST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ADVERTISEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ADVERTISEMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_EXECUTION_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_EXECUTION_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_CANCEL_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_CANCEL_REJECT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LOGON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LOGON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NEWS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NEWS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_EMAIL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_EMAIL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_SINGLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_SINGLE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_LIST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_LIST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_CANCEL_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_CANCEL_REPLACE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_CANCEL_REPLACE_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ALLOCATION_INSTRUCTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ALLOCATION_INSTRUCTION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LIST_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LIST_CANCEL_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LIST_EXECUTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LIST_EXECUTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LIST_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LIST_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LIST_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LIST_STATUS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ALLOCATION_INSTRUCTION_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ALLOCATION_INSTRUCTION_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DONT_KNOW_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DONT_KNOW_TRADE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SETTLEMENT_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SETTLEMENT_INSTRUCTIONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MARKET_DATA_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MARKET_DATA_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MARKET_DATA_INCREMENTAL_REFRESH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MARKET_DATA_INCREMENTAL_REFRESH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MARKET_DATA_REQUEST_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MARKET_DATA_REQUEST_REJECT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_CANCEL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MASS_QUOTE_ACKNOWLEDGEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MASS_QUOTE_ACKNOWLEDGEMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_DEFINITION_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_DEFINITION_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_DEFINITION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_DEFINITION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_STATUS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADING_SESSION_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADING_SESSION_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADING_SESSION_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADING_SESSION_STATUS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MASS_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MASS_QUOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BUSINESS_MESSAGE_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BUSINESS_MESSAGE_REJECT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BID_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BID_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_BID_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_BID_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_LIST_STRIKE_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_LIST_STRIKE_PRICE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_XML_MESSAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_XML_MESSAGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_REGISTRATION_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_REGISTRATION_INSTRUCTIONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_MASS_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_MASS_CANCEL_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_MASS_CANCEL_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_MASS_CANCEL_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NEW_ORDER_CROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NEW_ORDER_CROSS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CROSS_ORDER_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CROSS_ORDER_CANCEL_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_TYPE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_TYPE_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_TYPES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_TYPES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_LIST_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_LIST_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SECURITY_LIST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SECURITY_LIST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DERIVATIVE_SECURITY_LIST_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DERIVATIVE_SECURITY_LIST_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_DERIVATIVE_SECURITY_LIST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_DERIVATIVE_SECURITY_LIST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NEW_ORDER_MULTILEG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NEW_ORDER_MULTILEG);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_MULTILEG_ORDER_CANCEL_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_MULTILEG_ORDER_CANCEL_REPLACE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADE_CAPTURE_REPORT_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADE_CAPTURE_REPORT_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADE_CAPTURE_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADE_CAPTURE_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ORDER_MASS_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ORDER_MASS_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_REQUEST_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_REQUEST_REJECT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_RFQ_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_RFQ_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_STATUS_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_STATUS_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_QUOTE_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_QUOTE_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CONFIRMATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CONFIRMATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_POSITION_MAINTENANCE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_POSITION_MAINTENANCE_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_POSITION_MAINTENANCE_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_POSITION_MAINTENANCE_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_REQUEST_FOR_POSITIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_REQUEST_FOR_POSITIONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_REQUEST_FOR_POSITIONS_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_REQUEST_FOR_POSITIONS_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_POSITION_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_POSITION_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_TRADE_CAPTURE_REPORT_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_TRADE_CAPTURE_REPORT_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ALLOCATION_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ALLOCATION_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ALLOCATION_REPORT_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ALLOCATION_REPORT_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CONFIRMATION_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CONFIRMATION_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_SETTLEMENT_INSTRUCTION_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_SETTLEMENT_INSTRUCTION_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_ASSIGNMENT_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_ASSIGNMENT_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_ASSIGNMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_ASSIGNMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_REPORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_REPORT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_INQUIRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_INQUIRY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NETWORK_STATUS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NETWORK_STATUS_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_NETWORK_STATUS_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_NETWORK_STATUS_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_USER_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_USER_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_USER_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_USER_RESPONSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_COLLATERAL_INQUIRY_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_COLLATERAL_INQUIRY_ACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgType_CONFIRMATION_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MsgType_CONFIRMATION_REQUEST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_PARTIALLY_FILLED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_PARTIALLY_FILLED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_FILLED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_FILLED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_DONE_FOR_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_DONE_FOR_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_CANCELED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_CANCELED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_REPLACED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_REPLACED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_PENDING_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_PENDING_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_STOPPED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_STOPPED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_SUSPENDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_SUSPENDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_PENDING_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_PENDING_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_CALCULATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_CALCULATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_EXPIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_EXPIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_ACCEPTED_FOR_BIDDING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_ACCEPTED_FOR_BIDDING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdStatus_PENDING_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdStatus_PENDING_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_STOP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_STOP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_STOP_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_STOP_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_MARKET_ON_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_MARKET_ON_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_WITH_OR_WITHOUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_WITH_OR_WITHOUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_LIMIT_OR_BETTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_LIMIT_OR_BETTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_LIMIT_WITH_OR_WITHOUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_LIMIT_WITH_OR_WITHOUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_ON_BASIS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_ON_BASIS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_ON_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_ON_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_LIMIT_ON_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_LIMIT_ON_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_FOREX_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_FOREX_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_PREVIOUSLY_QUOTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_PREVIOUSLY_QUOTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_PREVIOUSLY_INDICATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_PREVIOUSLY_INDICATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_FOREX_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_FOREX_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_FOREX_SWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_FOREX_SWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_FOREX_PREVIOUSLY_QUOTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_FOREX_PREVIOUSLY_QUOTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_FUNARI_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_FUNARI));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_MARKET_IF_TOUCHED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_MARKET_IF_TOUCHED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_PREVIOUS_FUND_VALUATION_POINT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_PREVIOUS_FUND_VALUATION_POINT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_NEXT_FUND_VALUATION_POINT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_NEXT_FUND_VALUATION_POINT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdType_PEGGED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrdType_PEGGED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_BUY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_BUY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_SELL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_SELL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_BUY_MINUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_BUY_MINUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_SELL_PLUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_SELL_PLUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_SELL_SHORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_SELL_SHORT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_SELL_SHORT_EXEMPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_SELL_SHORT_EXEMPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_UNDISCLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_UNDISCLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_CROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_CROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_CROSS_SHORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_CROSS_SHORT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_CROSS_SHORT_EXEMPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_CROSS_SHORT_EXEMPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_AS_DEFINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_AS_DEFINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_OPPOSITE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_OPPOSITE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_SUBSCRIBE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_SUBSCRIBE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_REDEEM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_REDEEM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_LEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_LEND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Side_BORROW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Side_BORROW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_GOOD_TILL_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_GOOD_TILL_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_AT_THE_OPENING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_AT_THE_OPENING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_IMMEDIATE_OR_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_IMMEDIATE_OR_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_FILL_OR_KILL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_FILL_OR_KILL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_GOOD_TILL_CROSSING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_GOOD_TILL_CROSSING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_GOOD_TILL_DATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_GOOD_TILL_DATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TimeInForce_AT_THE_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TimeInForce_AT_THE_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Urgency_NORMAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Urgency_NORMAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Urgency_FLASH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Urgency_FLASH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Urgency_BACKGROUND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Urgency_BACKGROUND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_REGULAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_REGULAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_CASH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_CASH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_NEXT_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_NEXT_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_T_PLUS_2_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_T_PLUS_2));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_T_PLUS_3_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_T_PLUS_3));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_T_PLUS_4_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_T_PLUS_4));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_FUTURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_FUTURE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_WHEN_AND_IF_ISSUED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_WHEN_AND_IF_ISSUED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_SELLERS_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_SELLERS_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlType_T_PLUS_5_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlType_T_PLUS_5));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SymbolSfx_WHEN_ISSUED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SymbolSfx_WHEN_ISSUED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AllocTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AllocTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AllocTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PositionEffect_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PositionEffect_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PositionEffect_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PositionEffect_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PositionEffect_ROLLED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PositionEffect_ROLLED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PositionEffect_FIFO_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PositionEffect_FIFO));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_REGULAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_REGULAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_SOFT_DOLLAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_SOFT_DOLLAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_STEP_IN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_STEP_IN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_STEP_OUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_STEP_OUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_SOFT_DOLLAR_STEP_IN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_SOFT_DOLLAR_STEP_IN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_SOFT_DOLLAR_STEP_OUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_SOFT_DOLLAR_STEP_OUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProcessCode_PLAN_SPONSOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ProcessCode_PLAN_SPONSOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_BLOCK_LEVEL_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_BLOCK_LEVEL_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_ACCOUNT_LEVEL_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_ACCOUNT_LEVEL_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_RECEIVED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_RECEIVED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_INCOMPLETE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_INCOMPLETE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocStatus_REJECTED_BY_INTERMEDIARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocStatus_REJECTED_BY_INTERMEDIARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_UNKNOWN_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_UNKNOWN_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_INCORRECT_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_INCORRECT_QUANTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_INCORRECT_AVERAGE_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_INCORRECT_AVERAGE_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_COMMISSION_DIFFERENCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_COMMISSION_DIFFERENCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_UNKNOWN_ORDERID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_UNKNOWN_ORDERID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_UNKNOWN_LISTID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_UNKNOWN_LISTID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_INCORRECT_ALLOCATED_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_INCORRECT_ALLOCATED_QUANTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocRejCode_CALCULATION_DIFFERENCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocRejCode_CALCULATION_DIFFERENCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EmailType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::EmailType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EmailType_REPLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::EmailType_REPLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EmailType_ADMIN_REPLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::EmailType_ADMIN_REPLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_NONE_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_NONE_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_PKCS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_PKCS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_DES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_DES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_PKCS_DES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_PKCS_DES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_PGP_DES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_PGP_DES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_PGP_DES_MD5_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_PGP_DES_MD5));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EncryptMethod_PEM_DES_MD5_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EncryptMethod_PEM_DES_MD5));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_TOO_LATE_TO_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_TOO_LATE_TO_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_UNKNOWN_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_UNKNOWN_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_BROKER_EXCHANGE_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_BROKER_EXCHANGE_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_DUPLICATE_CLORDID_RECEIVED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_DUPLICATE_CLORDID_RECEIVED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejReason_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CxlRejReason_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_BROKER_EXCHANGE_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_BROKER_EXCHANGE_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_EXCHANGE_CLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_EXCHANGE_CLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_ORDER_EXCEEDS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_ORDER_EXCEEDS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_TOO_LATE_TO_ENTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_TOO_LATE_TO_ENTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_UNKNOWN_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_UNKNOWN_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_DUPLICATE_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_DUPLICATE_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_STALE_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_STALE_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_TRADE_ALONG_REQUIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_TRADE_ALONG_REQUIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_INVALID_INVESTOR_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_INVALID_INVESTOR_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_SURVEILLENCE_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_SURVEILLENCE_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_INCORRECT_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_INCORRECT_QUANTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_INCORRECT_ALLOCATED_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_INCORRECT_ALLOCATED_QUANTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_UNKNOWN_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_UNKNOWN_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrdRejReason_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OrdRejReason_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_ALL_OR_NONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_ALL_OR_NONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_MARKET_ON_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_MARKET_ON_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_AT_THE_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_AT_THE_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_VWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_VWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_IN_TOUCH_WITH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_IN_TOUCH_WITH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_MORE_BEHIND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_MORE_BEHIND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_AT_THE_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_AT_THE_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_TAKING_A_POSITION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_TAKING_A_POSITION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_AT_THE_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_AT_THE_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_READY_TO_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_READY_TO_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_PORTFOLIO_SHOWN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_PORTFOLIO_SHOWN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_THROUGH_THE_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_THROUGH_THE_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_VERSUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_VERSUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_INDICATION_WORKING_AWAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_INDICATION_WORKING_AWAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_CROSSING_OPPORTUNITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_CROSSING_OPPORTUNITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_AT_THE_MIDPOINT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_AT_THE_MIDPOINT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IOIQualifier_PRE_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::IOIQualifier_PRE_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_WRONG_SIDE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_WRONG_SIDE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_QUANTITY_EXCEEDS_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_QUANTITY_EXCEEDS_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_NO_MATCHING_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_NO_MATCHING_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_PRICE_EXCEEDS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_PRICE_EXCEEDS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_CALCULATION_DIFFERENCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_CALCULATION_DIFFERENCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DKReason_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DKReason_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_REGULATORY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_REGULATORY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_TAX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_TAX));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_LOCAL_COMMISSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_LOCAL_COMMISSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_EXCHANGE_FEES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_EXCHANGE_FEES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_STAMP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_STAMP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_LEVY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_LEVY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_MARKUP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_MARKUP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeType_CONSUMPTION_TAX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MiscFeeType_CONSUMPTION_TAX));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_PARTIAL_FILL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_PARTIAL_FILL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_FILL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_FILL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_DONE_FOR_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_DONE_FOR_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_CANCELED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_CANCELED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_PENDING_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_PENDING_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_STOPPED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_STOPPED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_SUSPENDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_SUSPENDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_PENDING_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_PENDING_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_CALCULATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_CALCULATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_EXPIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_EXPIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_RESTATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_RESTATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_PENDING_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_PENDING_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_TRADE_CORRECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_TRADE_CORRECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_TRADE_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_TRADE_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecType_ORDER_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecType_ORDER_STATUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlCurrFxRateCalc_MULTIPLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlCurrFxRateCalc_MULTIPLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlCurrFxRateCalc_DIVIDE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlCurrFxRateCalc_DIVIDE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstMode_DEFAULT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstMode_DEFAULT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstMode_REQUEST_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstMode_REQUEST_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstTransType_RESTATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstTransType_RESTATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstSource_BROKERS_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstSource_BROKERS_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstSource_INSTITUTIONS_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstSource_INSTITUTIONS_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstSource_INVESTOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SettlInstSource_INVESTOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EURO_SUPRANATIONAL_COUPONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EURO_SUPRANATIONAL_COUPONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_FEDERAL_AGENCY_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_FEDERAL_AGENCY_COUPON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PRIVATE_EXPORT_FUNDING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PRIVATE_EXPORT_FUNDING);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_USD_SUPRANATIONAL_COUPONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_USD_SUPRANATIONAL_COUPONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_FUTURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_FUTURE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_OPTION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CORPORATE_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CORPORATE_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CORPORATE_PRIVATE_PLACEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CORPORATE_PRIVATE_PLACEMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CONVERTIBLE_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CONVERTIBLE_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_DUAL_CURRENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_DUAL_CURRENCY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EURO_CORPORATE_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EURO_CORPORATE_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_INDEXED_LINKED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_INDEXED_LINKED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_STRUCTURED_NOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_STRUCTURED_NOTES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_YANKEE_CORPORATE_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_YANKEE_CORPORATE_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_FOREIGN_EXCHANGE_CONTRACT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_FOREIGN_EXCHANGE_CONTRACT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_COMMON_STOCK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_COMMON_STOCK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PREFERRED_STOCK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PREFERRED_STOCK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BRADY_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BRADY_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EURO_SOVEREIGNS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EURO_SOVEREIGNS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_US_TREASURY_BOND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_US_TREASURY_BOND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_US_TREASURY_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_US_TREASURY_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_US_TREASURY_BILL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_US_TREASURY_BILL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REPURCHASE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REPURCHASE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_FORWARD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_FORWARD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BUY_SELLBACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BUY_SELLBACK);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SECURITIES_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SECURITIES_LOAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SECURITIES_PLEDGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SECURITIES_PLEDGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TERM_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TERM_LOAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REVOLVER_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REVOLVER_LOAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REVOLVER_TERM_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REVOLVER_TERM_LOAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BRIDGE_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BRIDGE_LOAN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_LETTER_OF_CREDIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_LETTER_OF_CREDIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SWING_LINE_FACILITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SWING_LINE_FACILITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_DEBTOR_IN_POSSESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_DEBTOR_IN_POSSESSION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_DEFAULTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_DEFAULTED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_WITHDRAWN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_WITHDRAWN);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REPLACED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REPLACED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MATURED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MATURED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_AMENDED_AND_RESTATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_AMENDED_AND_RESTATED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_RETIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_RETIRED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BANKERS_ACCEPTANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BANKERS_ACCEPTANCE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BANK_NOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BANK_NOTES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_BILL_OF_EXCHANGES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_BILL_OF_EXCHANGES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CERTIFICATE_OF_DEPOSIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CERTIFICATE_OF_DEPOSIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CALL_LOANS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CALL_LOANS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_COMMERCIAL_PAPER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_COMMERCIAL_PAPER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_DEPOSIT_NOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_DEPOSIT_NOTES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EURO_CERTIFICATE_OF_DEPOSIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EURO_CERTIFICATE_OF_DEPOSIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EURO_COMMERCIAL_PAPER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EURO_COMMERCIAL_PAPER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_LIQUIDITY_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_LIQUIDITY_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MEDIUM_TERM_NOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MEDIUM_TERM_NOTES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_OVERNIGHT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_OVERNIGHT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PROMISSORY_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PROMISSORY_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PLAZOS_FIJOS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PLAZOS_FIJOS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SHORT_TERM_LOAN_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SHORT_TERM_LOAN_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TIME_DEPOSIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TIME_DEPOSIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_EXTENDED_COMM_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_EXTENDED_COMM_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_ASSET_BACKED_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_ASSET_BACKED_SECURITIES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CORP_MORTGAGE_BACKED_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CORP_MORTGAGE_BACKED_SECURITIES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_IOETTE_MORTGAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_IOETTE_MORTGAGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MORTGAGE_BACKED_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MORTGAGE_BACKED_SECURITIES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MORTGAGE_INTEREST_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MORTGAGE_INTEREST_ONLY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MORTGAGE_PRINCIPAL_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MORTGAGE_PRINCIPAL_ONLY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MORTGAGE_PRIVATE_PLACEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MORTGAGE_PRIVATE_PLACEMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MISCELLANEOUS_PASS_THROUGH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MISCELLANEOUS_PASS_THROUGH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_PFANDBRIEFE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_PFANDBRIEFE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TO_BE_ANNOUNCED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TO_BE_ANNOUNCED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_OTHER_ANTICIPATION_NOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_OTHER_ANTICIPATION_NOTES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CERTIFICATE_OF_OBLIGATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CERTIFICATE_OF_OBLIGATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_CERTIFICATE_OF_PARTICIPATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_CERTIFICATE_OF_PARTICIPATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_GENERAL_OBLIGATION_BONDS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_GENERAL_OBLIGATION_BONDS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MANDATORY_TENDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MANDATORY_TENDER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REVENUE_ANTICIPATION_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REVENUE_ANTICIPATION_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_REVENUE_BONDS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_REVENUE_BONDS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SPECIAL_ASSESSMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SPECIAL_ASSESSMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SPECIAL_OBLIGATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SPECIAL_OBLIGATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_SPECIAL_TAX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_SPECIAL_TAX);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TAX_ANTICIPATION_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TAX_ANTICIPATION_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TAX_ALLOCATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TAX_ALLOCATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_VARIABLE_RATE_DEMAND_NOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_VARIABLE_RATE_DEMAND_NOTE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_WARRANT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_WARRANT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MUTUAL_FUND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MUTUAL_FUND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_MULTI_LEG_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_MULTI_LEG_INSTRUMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_NO_SECURITY_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_NO_SECURITY_TYPE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityType_WILDCARD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SecurityType_WILDCARD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StandInstDbType_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StandInstDbType_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StandInstDbType_DTC_SID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StandInstDbType_DTC_SID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StandInstDbType_THOMSON_ALERT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StandInstDbType_THOMSON_ALERT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StandInstDbType_A_GLOBAL_CUSTODIAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StandInstDbType_A_GLOBAL_CUSTODIAN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StandInstDbType_ACCOUNTNET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StandInstDbType_ACCOUNTNET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlDeliveryType_VERSUS_PAYMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlDeliveryType_VERSUS_PAYMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlDeliveryType_FREE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlDeliveryType_FREE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlDeliveryType_TRI_PARTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlDeliveryType_TRI_PARTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlDeliveryType_HOLD_IN_CUSTODY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlDeliveryType_HOLD_IN_CUSTODY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocLinkType_F_X_NETTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocLinkType_F_X_NETTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocLinkType_F_X_SWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocLinkType_F_X_SWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CoveredOrUncovered_COVERED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CoveredOrUncovered_COVERED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CoveredOrUncovered_UNCOVERED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CoveredOrUncovered_UNCOVERED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocHandlInst_MATCH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocHandlInst_MATCH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocHandlInst_FORWARD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocHandlInst_FORWARD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocHandlInst_FORWARD_AND_MATCH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocHandlInst_FORWARD_AND_MATCH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoutingType_TARGET_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RoutingType_TARGET_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoutingType_TARGET_LIST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RoutingType_TARGET_LIST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoutingType_BLOCK_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RoutingType_BLOCK_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoutingType_BLOCK_LIST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RoutingType_BLOCK_LIST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_MUNIAAA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_MUNIAAA);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_FUTURESWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_FUTURESWAP);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_LIBID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_LIBID);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_LIBOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_LIBOR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_OTHER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_SWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_SWAP);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_TREASURY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_TREASURY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_EURIBOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_EURIBOR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_PFANDBRIEFE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_PFANDBRIEFE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_EONIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_EONIA);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_SONIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_SONIA);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BenchmarkCurveName_EUREPO_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::BenchmarkCurveName_EUREPO);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_AMT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_AMT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_BANK_QUALIFIED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_BANK_QUALIFIED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_BARGAIN_CONDITIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_BARGAIN_CONDITIONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_COUPON_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_COUPON_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_ISO_CURRENCY_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_ISO_CURRENCY_CODE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_CUSTOM_START_END_DATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_CUSTOM_START_END_DATE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_VALUATION_DISCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_VALUATION_DISCOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_INSURED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_INSURED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_ISSUERS_TICKER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_ISSUERS_TICKER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_ISSUE_SIZE_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_ISSUE_SIZE_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_LOOKBACK_DAYS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_LOOKBACK_DAYS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_EXPLICIT_LOT_IDENTIFIER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_EXPLICIT_LOT_IDENTIFIER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_LOT_VARIANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_LOT_VARIANCE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MATURITY_YEAR_AND_MONTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MATURITY_YEAR_AND_MONTH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MATURITY_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MATURITY_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MAXIMUM_SUBSTITUTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MAXIMUM_SUBSTITUTIONS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MINIMUM_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MINIMUM_QUANTITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MINIMUM_INCREMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MINIMUM_INCREMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MINIMUM_DENOMINATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MINIMUM_DENOMINATION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PAYMENT_FREQUENCY_CALENDAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PAYMENT_FREQUENCY_CALENDAR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_NUMBER_OF_PIECES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_NUMBER_OF_PIECES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_POOLS_MAXIMUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_POOLS_MAXIMUM);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_POOLS_PER_MILLION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_POOLS_PER_MILLION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_POOLS_PER_LOT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_POOLS_PER_LOT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_POOLS_PER_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_POOLS_PER_TRADE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PRICE_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PRICE_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PRICING_FREQUENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PRICING_FREQUENCY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PRODUCTION_YEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PRODUCTION_YEAR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_CALL_PROTECTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_CALL_PROTECTION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PURPOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PURPOSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_BENCHMARK_PRICE_SOURCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_BENCHMARK_PRICE_SOURCE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_RATING_SOURCE_AND_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_RATING_SOURCE_AND_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_RESTRICTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_RESTRICTED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MARKET_SECTOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MARKET_SECTOR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_STRUCTURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_STRUCTURE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_SUBSTITUTIONS_FREQUENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_SUBSTITUTIONS_FREQUENCY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_SUBSTITUTIONS_LEFT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_SUBSTITUTIONS_LEFT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_FREEFORM_TEXT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_FREEFORM_TEXT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_TRADE_VARIANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_TRADE_VARIANCE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_WEIGHTED_AVERAGE_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_WEIGHTED_AVERAGE_COUPON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_WEIGHTED_AVERAGE_LOAN_AGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_WEIGHTED_AVERAGE_LOAN_AGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_WEIGHTED_AVERAGE_MATURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_WEIGHTED_AVERAGE_MATURITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_WHOLE_POOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_WHOLE_POOL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_YIELD_RANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_YIELD_RANGE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_SINGLE_MONTHLY_MORTALITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_SINGLE_MONTHLY_MORTALITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_CONSTANT_PREPAYMENT_RATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_CONSTANT_PREPAYMENT_RATE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_CONSTANT_PREPAYMENT_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_CONSTANT_PREPAYMENT_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_CONSTANT_PREPAYMENT_PENALTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_CONSTANT_PREPAYMENT_PENALTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_ABSOLUTE_PREPAYMENT_SPEED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_ABSOLUTE_PREPAYMENT_SPEED);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_MONTHLY_PREPAYMENT_RATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_MONTHLY_PREPAYMENT_RATE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_CUM_DIVIDEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_CUM_DIVIDEND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_EX_DIVIDEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_EX_DIVIDEND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_CUM_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_CUM_COUPON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_EX_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_EX_COUPON);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_CUM_BONUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_CUM_BONUS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_EX_BONUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_EX_BONUS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_CUM_RIGHTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_CUM_RIGHTS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_EX_RIGHTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_EX_RIGHTS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_CASH_SETTLEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_CASH_SETTLEMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_SPECIAL_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_SPECIAL_PRICE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StipulationValue_GUARANTEED_DELIVERY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::StipulationValue_GUARANTEED_DELIVERY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_AFTER_TAX_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_AFTER_TAX_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_ANNUAL_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_ANNUAL_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_AT_ISSUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_AT_ISSUE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_AVERAGE_MATURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_AVERAGE_MATURITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_BOOK_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_BOOK_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_NEXT_CALL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_NEXT_CALL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_CHANGE_SINCE_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_CHANGE_SINCE_CLOSE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_CLOSING_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_CLOSING_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_COMPOUND_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_COMPOUND_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_CURRENT_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_CURRENT_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_TRUE_GROSS_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_TRUE_GROSS_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_GOVERNMENT_EQUIVALENT_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_GOVERNMENT_EQUIVALENT_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_WITH_INFLATION_ASSUMPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_WITH_INFLATION_ASSUMPTION);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_INVERSE_FLOATER_BOND_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_INVERSE_FLOATER_BOND_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_MOST_RECENT_CLOSING_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_MOST_RECENT_CLOSING_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_CLOSING_YIELD_MOST_RECENT_MONTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_CLOSING_YIELD_MOST_RECENT_MONTH);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_CLOSING_YIELD_MOST_RECENT_YEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_CLOSING_YIELD_MOST_RECENT_YEAR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_MARK_TO_MARKET_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_MARK_TO_MARKET_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_MATURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_MATURITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_NEXT_REFUND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_NEXT_REFUND);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_OPEN_AVERAGE_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_OPEN_AVERAGE_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_NEXT_PUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_NEXT_PUT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_PREVIOUS_CLOSE_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_PREVIOUS_CLOSE_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_PROCEEDS_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_PROCEEDS_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_SEMI_ANNUAL_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_SEMI_ANNUAL_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_SIMPLE_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_SIMPLE_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_TAX_EQUIVALENT_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_TAX_EQUIVALENT_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_TENDER_DATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_TENDER_DATE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_TRUE_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_TRUE_YIELD);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_VALUE_OF_1_32_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_VALUE_OF_1_32);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-YieldType_YIELD_TO_WORST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::YieldType_YIELD_TO_WORST);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SubscriptionRequestType_SNAPSHOT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SubscriptionRequestType_SNAPSHOT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDUpdateType_FULL_REFRESH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MDUpdateType_FULL_REFRESH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDUpdateType_INCREMENTAL_REFRESH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MDUpdateType_INCREMENTAL_REFRESH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_BID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_BID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_OFFER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_OFFER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_INDEX_VALUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_INDEX_VALUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_OPENING_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_OPENING_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_CLOSING_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_CLOSING_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_SETTLEMENT_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_SETTLEMENT_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_TRADING_SESSION_HIGH_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_TRADING_SESSION_HIGH_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_TRADING_SESSION_LOW_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_TRADING_SESSION_LOW_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_TRADING_SESSION_VWAP_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_TRADING_SESSION_VWAP_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_IMBALANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_IMBALANCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_TRADE_VOLUME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_TRADE_VOLUME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDEntryType_OPEN_INTEREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDEntryType_OPEN_INTEREST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TickDirection_PLUS_TICK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TickDirection_PLUS_TICK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TickDirection_ZERO_PLUS_TICK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TickDirection_ZERO_PLUS_TICK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TickDirection_MINUS_TICK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TickDirection_MINUS_TICK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TickDirection_ZERO_MINUS_TICK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TickDirection_ZERO_MINUS_TICK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_OPEN_ACTIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_OPEN_ACTIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_CLOSED_INACTIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_CLOSED_INACTIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_EXCHANGE_BEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_EXCHANGE_BEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_CONSOLIDATED_BEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_CONSOLIDATED_BEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_LOCKED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_LOCKED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_CROSSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_CROSSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_DEPTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_DEPTH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_FAST_TRADING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_FAST_TRADING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCondition_NON_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::QuoteCondition_NON_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_CASH_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_CASH_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_AVERAGE_PRICE_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_AVERAGE_PRICE_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_CASH_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_CASH_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_NEXT_DAY_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_NEXT_DAY_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_OPENING_REOPENING_TRADE_DETAIL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_OPENING_REOPENING_TRADE_DETAIL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_INTRADAY_TRADE_DETAIL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_INTRADAY_TRADE_DETAIL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_RULE127_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_RULE127));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_RULE155_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_RULE155));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_SOLD_LAST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_SOLD_LAST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_NEXT_DAY_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_NEXT_DAY_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_OPENED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_OPENED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_SELLER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_SELLER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_SOLD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_SOLD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_STOPPED_STOCK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_STOPPED_STOCK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_IMBALANCE_MORE_BUYERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_IMBALANCE_MORE_BUYERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_IMBALANCE_MORE_SELLERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_IMBALANCE_MORE_SELLERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeCondition_OPENING_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::TradeCondition_OPENING_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDUpdateAction_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDUpdateAction_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDUpdateAction_CHANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDUpdateAction_CHANGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDUpdateAction_DELETE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDUpdateAction_DELETE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_DUPLICATE_MDREQID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_DUPLICATE_MDREQID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_INSUFFICIENT_BANDWIDTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_INSUFFICIENT_BANDWIDTH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_INSUFFICIENT_PERMISSIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_INSUFFICIENT_PERMISSIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_MARKETDEPTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_MARKETDEPTH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_MDUPDATETYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_MDUPDATETYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_MDENTRYTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_MDENTRYTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_SCOPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_SCOPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeleteReason_CANCELATION_TRADE_BUST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DeleteReason_CANCELATION_TRADE_BUST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeleteReason_ERROR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DeleteReason_ERROR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_EXPECTED_ENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_EXPECTED_ENTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-FinancialStatus_BANKRUPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::FinancialStatus_BANKRUPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-FinancialStatus_PENDING_DELISTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::FinancialStatus_PENDING_DELISTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CorporateAction_EX_DIVIDEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CorporateAction_EX_DIVIDEND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CorporateAction_EX_DISTRIBUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CorporateAction_EX_DISTRIBUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CorporateAction_EX_RIGHTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CorporateAction_EX_RIGHTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CorporateAction_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CorporateAction_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CorporateAction_EX_INTEREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CorporateAction_EX_INTEREST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_FOR_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_FOR_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_FOR_SECURITY_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_FOR_SECURITY_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_FOR_UNDERLYING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_FOR_UNDERLYING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_ALL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_ALL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_REMOVED_FROM_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_REMOVED_FROM_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_EXPIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_EXPIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_QUERY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_QUERY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_QUOTE_NOT_FOUND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_QUOTE_NOT_FOUND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_PENDING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_PENDING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_PASS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_PASS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_LOCKED_MARKET_WARNING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_LOCKED_MARKET_WARNING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CROSS_MARKET_WARNING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CROSS_MARKET_WARNING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCancelType_CANCEL_FOR_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteCancelType_CANCEL_FOR_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCancelType_CANCEL_FOR_SECURITY_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteCancelType_CANCEL_FOR_SECURITY_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteCancelType_CANCEL_ALL_QUOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteCancelType_CANCEL_ALL_QUOTES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_EXCHANGE_CLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_EXCHANGE_CLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_TOO_LATE_TO_ENTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_TOO_LATE_TO_ENTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_UNKNOWN_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_UNKNOWN_QUOTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_DUPLICATE_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_DUPLICATE_QUOTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_INVALID_BID_ASK_SPREAD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_INVALID_BID_ASK_SPREAD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_INVALID_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_INVALID_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteResponseLevel_NO_ACKNOWLEDGEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteResponseLevel_NO_ACKNOWLEDGEMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestType_MANUAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestType_MANUAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestType_AUTOMATIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestType_AUTOMATIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestType_REQUEST_LIST_SECURITY_TYPES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestType_REQUEST_LIST_SECURITY_TYPES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestType_REQUEST_LIST_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestType_REQUEST_LIST_SECURITIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_REJECT_SECURITY_PROPOSAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_REJECT_SECURITY_PROPOSAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_OPENING_DELAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_OPENING_DELAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_TRADING_HALT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_TRADING_HALT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_RESUME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_RESUME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NO_OPEN_NO_RESUME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NO_OPEN_NO_RESUME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_PRICE_INDICATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_PRICE_INDICATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_TRADING_RANGE_INDICATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_TRADING_RANGE_INDICATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_MARKET_IMBALANCE_BUY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_MARKET_IMBALANCE_BUY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_MARKET_IMBALANCE_SELL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_MARKET_IMBALANCE_SELL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NOT_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NOT_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NO_MARKET_IMBALANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NO_MARKET_IMBALANCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_ITS_PRE_OPENING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_ITS_PRE_OPENING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NEW_PRICE_INDICATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NEW_PRICE_INDICATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_TRADE_DISSEMINATION_TIME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_TRADE_DISSEMINATION_TIME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_UNKNOWN_OR_INVALID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_UNKNOWN_OR_INVALID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_PRE_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_PRE_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_OPENING_ROTATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_OPENING_ROTATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityTradingStatus_FAST_MARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityTradingStatus_FAST_MARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_ORDER_IMBALANCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_ORDER_IMBALANCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_EQUIPMENT_CHANGEOVER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_EQUIPMENT_CHANGEOVER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_NEWS_PENDING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_NEWS_PENDING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_NEWS_DISSEMINATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_NEWS_DISSEMINATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_ORDER_INFLUX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_ORDER_INFLUX));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-HaltReason_ADDITIONAL_INFORMATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::HaltReason_ADDITIONAL_INFORMATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Adjustment_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Adjustment_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Adjustment_ERROR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Adjustment_ERROR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Adjustment_CORRECTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Adjustment_CORRECTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMethod_ELECTRONIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMethod_ELECTRONIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMethod_OPEN_OUTCRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMethod_OPEN_OUTCRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMethod_TWO_PARTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMethod_TWO_PARTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMode_TESTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMode_TESTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMode_SIMULATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMode_SIMULATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesMode_PRODUCTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesMode_PRODUCTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_UNKNOWN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_UNKNOWN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_HALTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_HALTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_CLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_CLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_PRE_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_PRE_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_PRE_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_PRE_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatus_REQUEST_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatus_REQUEST_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MessageEncoding_ISO_2022_JP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MessageEncoding_ISO_2022_JP);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MessageEncoding_EUC_JP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MessageEncoding_EUC_JP);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MessageEncoding_SHIFT_JIS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MessageEncoding_SHIFT_JIS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MessageEncoding_UTF_8_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::MessageEncoding_UTF_8);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_EXCHANGE_CLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_EXCHANGE_CLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_TOO_LATE_TO_ENTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_TOO_LATE_TO_ENTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_UNKNOWN_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_UNKNOWN_QUOTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_DUPLICATE_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_DUPLICATE_QUOTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_INVALID_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_INVALID_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_INVALID_TAG_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_INVALID_TAG_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_REQUIRED_TAG_MISSING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_REQUIRED_TAG_MISSING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_UNDEFINED_TAG_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_UNDEFINED_TAG));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_VALUE_IS_INCORRECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_VALUE_IS_INCORRECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_DECRYPTION_PROBLEM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_DECRYPTION_PROBLEM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_SIGNATURE_PROBLEM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_SIGNATURE_PROBLEM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_COMPID_PROBLEM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_COMPID_PROBLEM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_INVALID_MSGTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_INVALID_MSGTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_XML_VALIDATION_ERROR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_XML_VALIDATION_ERROR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SessionRejectReason_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SessionRejectReason_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidRequestTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidRequestTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidRequestTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidRequestTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_GT_CORPORATE_ACTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_GT_CORPORATE_ACTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_GT_RENEWAL_RESTATEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_GT_RENEWAL_RESTATEMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_VERBAL_CHANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_VERBAL_CHANGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_REPRICING_OF_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_REPRICING_OF_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_BROKER_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_BROKER_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_CANCEL_ON_TRADING_HALT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_CANCEL_ON_TRADING_HALT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_MARKET_OPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_MARKET_OPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecRestatementReason_CANCELED_NOT_BEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExecRestatementReason_CANCELED_NOT_BEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_UNKOWN_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_UNKOWN_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_UNKNOWN_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_UNKNOWN_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_APPLICATION_NOT_AVAILABLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_APPLICATION_NOT_AVAILABLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_NOT_AUTHORIZED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_NOT_AUTHORIZED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgDirection_SEND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MsgDirection_SEND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MsgDirection_RECEIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MsgDirection_RECEIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_DISPLAYED_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_DISPLAYED_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_MARKET_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_MARKET_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_PRIMARY_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_PRIMARY_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_MIDPOINT_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_MIDPOINT_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_LAST_TRADE_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_LAST_TRADE_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionInst_RELATED_TO_VWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DiscretionInst_RELATED_TO_VWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidType_NON_DISCLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidType_NON_DISCLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidType_DISCLOSED_STYLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidType_DISCLOSED_STYLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidType_NO_BIDDING_PROCESS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidType_NO_BIDDING_PROCESS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidDescriptorType_SECTOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidDescriptorType_SECTOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidDescriptorType_COUNTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidDescriptorType_COUNTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidDescriptorType_INDEX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BidDescriptorType_INDEX));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SideValueInd_SIDEVALUE1_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SideValueInd_SIDEVALUE1));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SideValueInd_SIDEVALUE2_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SideValueInd_SIDEVALUE2));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LiquidityIndType_FIVEDAY_MOVING_AVERAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LiquidityIndType_FIVEDAY_MOVING_AVERAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LiquidityIndType_TWENTYDAY_MOVING_AVERAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LiquidityIndType_TWENTYDAY_MOVING_AVERAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LiquidityIndType_NORMAL_MARKET_SIZE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LiquidityIndType_NORMAL_MARKET_SIZE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LiquidityIndType_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LiquidityIndType_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ProgRptReqs_REAL_TIME_EXECUTION_REPORTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ProgRptReqs_REAL_TIME_EXECUTION_REPORTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IncTaxInd_NET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::IncTaxInd_NET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-IncTaxInd_GROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::IncTaxInd_GROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidTradeType_RISK_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidTradeType_RISK_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidTradeType_VWAP_GUARANTEE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidTradeType_VWAP_GUARANTEE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidTradeType_AGENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidTradeType_AGENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BidTradeType_GUARANTEED_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BidTradeType_GUARANTEED_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_CLOSING_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_CLOSING_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_CURRENT_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_CURRENT_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_SQ_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_SQ));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_A_DAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_A_DAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_A_MORNING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_STRIKE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_STRIKE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BasisPxType_OTHERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BasisPxType_OTHERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_PERCENTAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_PERCENTAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_PER_UNIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_PER_UNIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_FIXED_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_FIXED_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_DISCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_DISCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_PREMIUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_PREMIUM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_SPREAD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_SPREAD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_TED_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_TED_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_TED_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_TED_YIELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriceType_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriceType_YIELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_ACK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_ACK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_RESPONSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_RESPONSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_TIMED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_TIMED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_EXECSTARTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_EXECSTARTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_ALLDONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_ALLDONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListStatusType_ALERT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListStatusType_ALERT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetGrossInd_NET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetGrossInd_NET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetGrossInd_GROSS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetGrossInd_GROSS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_INBIDDINGPROCESS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_INBIDDINGPROCESS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_RECEIVEDFOREXECUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_RECEIVEDFOREXECUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_EXECUTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_EXECUTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_CANCELING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_CANCELING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_ALERT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_ALERT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_ALL_DONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_ALL_DONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListOrderStatus_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ListOrderStatus_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListExecInstType_IMMEDIATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ListExecInstType_IMMEDIATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejResponseTo_ORDER_CANCEL_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CxlRejResponseTo_ORDER_CANCEL_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegReportingType_SINGLE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MultiLegReportingType_SINGLE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegReportingType_MULTI_LEG_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MultiLegReportingType_MULTI_LEG_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_BIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_BIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_PROPRIETARY_CUSTOM_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_ISO_COUNTRY_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_ISO_COUNTRY_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_SETTLEMENT_ENTITY_LOCATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_SETTLEMENT_ENTITY_LOCATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_MIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_MIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_KOREAN_INVESTOR_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_KOREAN_INVESTOR_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_TAIWANESE_TRADING_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_TAIWANESE_TRADING_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_CHINESE_B_SHARE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_CHINESE_B_SHARE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_US_SOCIAL_SECURITY_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_US_SOCIAL_SECURITY_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyIDSource_DIRECTED_BROKER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PartyIDSource_DIRECTED_BROKER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_EXECUTING_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_EXECUTING_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_BROKER_OF_CREDIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_BROKER_OF_CREDIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_CLIENT_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_CLIENT_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_CLEARING_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_CLEARING_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_INVESTOR_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_INVESTOR_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_INTRODUCING_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_INTRODUCING_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_ENTERING_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_ENTERING_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_LOCATE_LENDING_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_LOCATE_LENDING_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PartyRole_FUND_MANAGER_CLIENT_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PartyRole_FUND_MANAGER_CLIENT_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_AGENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_AGENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_COMMODITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_COMMODITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_CORPORATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_CORPORATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_CURRENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_CURRENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_EQUITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_EQUITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_GOVERNMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_GOVERNMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_INDEX_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_INDEX));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_LOAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_LOAN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_MONEYMARKET_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_MONEYMARKET));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_MORTGAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_MORTGAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_MUNICIPAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_MUNICIPAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Product_FINANCING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::Product_FINANCING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_SHARES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_SHARES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_BONDS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_BONDS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_CURRENTFACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_CURRENTFACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_ORIGINALFACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_ORIGINALFACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_CURRENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_CURRENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_CONTRACTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_CONTRACTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuantityType_PAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuantityType_PAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoundingDirection_ROUND_TO_NEAREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RoundingDirection_ROUND_TO_NEAREST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoundingDirection_ROUND_DOWN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RoundingDirection_ROUND_DOWN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RoundingDirection_ROUND_UP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RoundingDirection_ROUND_UP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_CREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_CREST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_NSCC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_NSCC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_EUROCLEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_EUROCLEAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_CLEARSTREAM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_CLEARSTREAM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_CHEQUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_CHEQUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_TELEGRAPHIC_TRANSFER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_TELEGRAPHIC_TRANSFER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_FEDWIRE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_FEDWIRE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_DIRECT_CREDIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_DIRECT_CREDIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DistribPaymentMethod_ACH_CREDIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DistribPaymentMethod_ACH_CREDIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CancellationRights_NO_EXECUTION_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CancellationRights_NO_EXECUTION_ONLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CancellationRights_NO_WAIVER_AGREEMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CancellationRights_NO_WAIVER_AGREEMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CancellationRights_NO_INSTITUTIONAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CancellationRights_NO_INSTITUTIONAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MoneyLaunderingStatus_PASSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MoneyLaunderingStatus_PASSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MoneyLaunderingStatus_NOT_CHECKED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MoneyLaunderingStatus_NOT_CHECKED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_BID_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_BID_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_CREATION_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_CREATION_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_OFFER_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_OFFER_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecPriceType_SINGLE_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecPriceType_SINGLE_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportTransType_RELEASE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportTransType_RELEASE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportTransType_REVERSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportTransType_REVERSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_CREST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_CREST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_NSCC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_NSCC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_EUROCLEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_EUROCLEAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_CLEARSTREAM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_CLEARSTREAM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_CHEQUE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_CHEQUE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_TELEGRAPHIC_TRANSFER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_TELEGRAPHIC_TRANSFER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_FEDWIRE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_FEDWIRE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_DEBIT_CARD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_DEBIT_CARD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PaymentMethod_DIRECT_DEBIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PaymentMethod_DIRECT_DEBIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_NONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_NONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_MAXI_ISA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_MAXI_ISA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_TESSA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_TESSA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_MINI_CASH_ISA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_MINI_CASH_ISA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_MINI_INSURANCE_ISA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_MINI_INSURANCE_ISA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_CURRENT_YEAR_PAYMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_CURRENT_YEAR_PAYMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_PRIOR_YEAR_PAYMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_PRIOR_YEAR_PAYMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_ASSET_TRANSFER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_ASSET_TRANSFER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_EMPLOYEE_PRIOR_YEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_EMPLOYEE_PRIOR_YEAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TaxAdvantageType_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TaxAdvantageType_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-FundRenewWaiv_YES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::FundRenewWaiv_YES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-FundRenewWaiv_NO_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::FundRenewWaiv_NO));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistStatus_HELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistStatus_HELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistStatus_REMINDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistStatus_REMINDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistRejReasonCode_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::RegistRejReasonCode_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-RegistTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::RegistTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnershipType_JOINT_INVESTORS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OwnershipType_JOINT_INVESTORS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnershipType_TENANTS_IN_COMMON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OwnershipType_TENANTS_IN_COMMON));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnershipType_JOINT_TRUSTEES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OwnershipType_JOINT_TRUSTEES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_COMMISSION_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_COMMISSION_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_COMMISSION_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_COMMISSION_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_INITIAL_CHARGE_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_INITIAL_CHARGE_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_INITIAL_CHARGE_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_INITIAL_CHARGE_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_DISCOUNT_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_DISCOUNT_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_DISCOUNT_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_DISCOUNT_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_DILUTION_LEVY_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_DILUTION_LEVY_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_DILUTION_LEVY_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_DILUTION_LEVY_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ContAmtType_EXIT_CHARGE_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ContAmtType_EXIT_CHARGE_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_INDIVIDUAL_INVESTOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_INDIVIDUAL_INVESTOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_PUBLIC_COMPANY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_PUBLIC_COMPANY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_PRIVATE_COMPANY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_PRIVATE_COMPANY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_INDIVIDUAL_TRUSTEE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_INDIVIDUAL_TRUSTEE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_COMPANY_TRUSTEE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_COMPANY_TRUSTEE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_PENSION_PLAN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_PENSION_PLAN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_TRUSTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_TRUSTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OwnerType_FIDUCIARIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::OwnerType_FIDUCIARIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_AGENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_AGENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_PROPRIETARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_PROPRIETARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_INDIVIDUAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_INDIVIDUAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_PRINCIPAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_PRINCIPAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_RISKLESS_PRINCIPAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_RISKLESS_PRINCIPAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderCapacity_AGENT_FOR_OTHER_MEMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderCapacity_AGENT_FOR_OTHER_MEMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_PROGRAM_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_PROGRAM_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_INDEX_ARBITRAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_INDEX_ARBITRAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_NON_INDEX_ARBITRAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_NON_INDEX_ARBITRAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_COMPETING_MARKET_MAKER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_COMPETING_MARKET_MAKER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_FOREIGN_ENTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_FOREIGN_ENTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-OrderRestrictions_RISKLESS_ARBITRAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::OrderRestrictions_RISKLESS_ARBITRAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRequestType_CANCEL_ALL_ORDERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRequestType_CANCEL_ALL_ORDERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_REQUEST_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_REQUEST_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelResponse_CANCEL_ALL_ORDERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelResponse_CANCEL_ALL_ORDERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteType_INDICATIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteType_INDICATIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteType_TRADEABLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteType_TRADEABLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteType_RESTRICTED_TRADEABLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteType_RESTRICTED_TRADEABLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteType_COUNTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteType_COUNTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CashMargin_CASH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CashMargin_CASH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CashMargin_MARGIN_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CashMargin_MARGIN_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CashMargin_MARGIN_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CashMargin_MARGIN_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Scope_LOCAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Scope_LOCAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Scope_NATIONAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Scope_NATIONAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Scope_GLOBAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Scope_GLOBAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossPrioritization_NONE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossPrioritization_NONE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossPrioritization_BUY_SIDE_IS_PRIORITIZED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossPrioritization_BUY_SIDE_IS_PRIORITIZED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CrossPrioritization_SELL_SIDE_IS_PRIORITIZED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CrossPrioritization_SELL_SIDE_IS_PRIORITIZED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NoSides_ONE_SIDE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::NoSides_ONE_SIDE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NoSides_BOTH_SIDES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::NoSides_BOTH_SIDES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityListRequestType_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityListRequestType_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityListRequestType_PRODUCT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityListRequestType_PRODUCT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityListRequestType_TRADINGSESSIONID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityListRequestType_TRADINGSESSIONID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityListRequestType_ALL_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityListRequestType_ALL_SECURITIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_VALID_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_VALID_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestType_ALL_TRADES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestType_ALL_TRADES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MatchStatus_COMPARED_MATCHED_OR_AFFIRMED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MatchStatus_COMPARED_MATCHED_OR_AFFIRMED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MatchStatus_ADVISORY_OR_ALERT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::MatchStatus_ADVISORY_OR_ALERT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_PROCESS_NORMALLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_PROCESS_NORMALLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_EXCLUDE_FROM_ALL_NETTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_EXCLUDE_FROM_ALL_NETTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_BILATERAL_NETTING_ONLY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_BILATERAL_NETTING_ONLY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_EX_CLEARING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_EX_CLEARING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_SPECIAL_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_SPECIAL_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_MULTILATERAL_NETTING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_MULTILATERAL_NETTING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_MANUAL_MODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_MANUAL_MODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingInstruction_AUTOMATIC_POSTING_MODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ClearingInstruction_AUTOMATIC_POSTING_MODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_HOUSE_TRADER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_HOUSE_TRADER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_FLOOR_TRADER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_FLOOR_TRADER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AccountType_JOINT_BACKOFFICE_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AccountType_JOINT_BACKOFFICE_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustOrderCapacity_ALL_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustOrderCapacity_ALL_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ALL_ORDERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ALL_ORDERS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DayBookingInst_ACCUMULATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DayBookingInst_ACCUMULATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingUnit_AGGREGATE_EXECUTIONS_FOR_THIS_SYMBOL_SIDE_AND_SETTLEMENT_DATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::BookingUnit_AGGREGATE_EXECUTIONS_FOR_THIS_SYMBOL_SIDE_AND_SETTLEMENT_DATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PreallocMethod_PRO_RATA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PreallocMethod_PRO_RATA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PreallocMethod_DO_NOT_PRO_RATA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::PreallocMethod_DO_NOT_PRO_RATA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocType_CALCULATED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocType_CALCULATED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocType_PRELIMINARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocType_PRELIMINARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocType_READY_TO_BOOK_SINGLE_ORDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocType_READY_TO_BOOK_SINGLE_ORDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocType_WAREHOUSE_INSTRUCTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocType_WAREHOUSE_INSTRUCTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocType_REQUEST_TO_INTERMEDIARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocType_REQUEST_TO_INTERMEDIARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_CBOE_MEMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_CBOE_MEMBER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_FIRMS_106H_AND_106J_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_FIRMS_106H_AND_106J);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriorityIndicator_PRIORITY_UNCHANGED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriorityIndicator_PRIORITY_UNCHANGED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_UNKNOWN_SYMBOL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_UNKNOWN_SYMBOL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_EXCHANGE_CLOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_EXCHANGE_CLOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_TOO_LATE_TO_ENTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_TOO_LATE_TO_ENTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_INVALID_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_INVALID_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRequestRejectReason_NO_INVENTORY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRequestRejectReason_NO_INVENTORY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AcctIDSource_BIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AcctIDSource_BIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AcctIDSource_SID_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AcctIDSource_SID_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AcctIDSource_TFM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AcctIDSource_TFM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AcctIDSource_OMGEO_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AcctIDSource_OMGEO));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AcctIDSource_DTCC_CODE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AcctIDSource_DTCC_CODE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmStatus_RECEIVED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmStatus_RECEIVED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmStatus_MISMATCHED_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmStatus_MISMATCHED_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmStatus_CONFIRMED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmStatus_CONFIRMED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmStatus_REQUEST_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmStatus_REQUEST_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryForm_BOOKENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryForm_BOOKENTRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryForm_BEARER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryForm_BEARER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LegSwapType_PAR_FOR_PAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LegSwapType_PAR_FOR_PAR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LegSwapType_MODIFIED_DURATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LegSwapType_MODIFIED_DURATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LegSwapType_RISK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LegSwapType_RISK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LegSwapType_PROCEEDS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LegSwapType_PROCEEDS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_PERCENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_PERCENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_PER_SHARE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_PER_SHARE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_FIXED_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_FIXED_AMOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_DISCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_DISCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_PREMIUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_PREMIUM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_TED_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_TED_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_TED_YIELD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_TED_YIELD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuotePriceType_YIELD_SPREAD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuotePriceType_YIELD_SPREAD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_HIT_LIFT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_HIT_LIFT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_COUNTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_COUNTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_EXPIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_EXPIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_COVER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_COVER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_DONE_AWAY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_DONE_AWAY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QuoteRespType_PASS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QuoteRespType_PASS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_TRANSACTION_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_TRANSACTION_QUANTITY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_INTRA_SPREAD_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_INTRA_SPREAD_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_INTER_SPREAD_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_INTER_SPREAD_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_END_OF_DAY_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_END_OF_DAY_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_START_OF_DAY_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_START_OF_DAY_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_OPTION_EXERCISE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_OPTION_EXERCISE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_OPTION_ASSIGNMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_OPTION_ASSIGNMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_TRANSACTION_FROM_EXERCISE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_TRANSACTION_FROM_EXERCISE);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_TRANSACTION_FROM_ASSIGNMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_TRANSACTION_FROM_ASSIGNMENT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_PIT_TRADE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_PIT_TRADE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_TRANSFER_TRADE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_TRANSFER_TRADE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_ELECTRONIC_TRADE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_ELECTRONIC_TRADE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_ALLOCATION_TRADE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_ALLOCATION_TRADE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_ADJUSTMENT_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_ADJUSTMENT_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_AS_OF_TRADE_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_AS_OF_TRADE_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_DELIVERY_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_DELIVERY_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_TOTAL_TRANSACTION_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_TOTAL_TRANSACTION_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_CROSS_MARGIN_QTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_CROSS_MARGIN_QTY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosType_INTEGRAL_SPLIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosType_INTEGRAL_SPLIT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosQtyStatus_SUBMITTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosQtyStatus_SUBMITTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosQtyStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosQtyStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosQtyStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosQtyStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_TRADE_VARIATION_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_TRADE_VARIATION_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_PREMIUM_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_PREMIUM_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_CASH_RESIDUAL_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_CASH_RESIDUAL_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_CASH_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_CASH_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosAmtType_VALUE_ADJUSTED_AMOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::PosAmtType_VALUE_ADJUSTED_AMOUNT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosTransType_EXERCISE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosTransType_EXERCISE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosTransType_DO_NOT_EXERCISE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosTransType_DO_NOT_EXERCISE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosTransType_POSITION_ADJUSTMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosTransType_POSITION_ADJUSTMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosTransType_PLEDGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosTransType_PLEDGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintAction_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintAction_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintAction_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintAction_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintAction_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintAction_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdjustmentType_DELTA_PLUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AdjustmentType_DELTA_PLUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdjustmentType_DELTA_MINUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AdjustmentType_DELTA_MINUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AdjustmentType_FINAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AdjustmentType_FINAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintStatus_ACCEPTED_WITH_WARNINGS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintStatus_ACCEPTED_WITH_WARNINGS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintStatus_COMPLETED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintStatus_COMPLETED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintStatus_COMPLETED_WITH_WARNINGS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintStatus_COMPLETED_WITH_WARNINGS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosMaintResult_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosMaintResult_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqType_POSITIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqType_POSITIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqType_TRADES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqType_TRADES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqType_EXERCISES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqType_EXERCISES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqType_ASSIGNMENTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqType_ASSIGNMENTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ResponseTransportType_INBAND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ResponseTransportType_INBAND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ResponseTransportType_OUT_OF_BAND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ResponseTransportType_OUT_OF_BAND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_VALID_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_VALID_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqResult_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqResult_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqStatus_COMPLETED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqStatus_COMPLETED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqStatus_COMPLETED_WITH_WARNINGS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqStatus_COMPLETED_WITH_WARNINGS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PosReqStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PosReqStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlPriceType_FINAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlPriceType_FINAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlPriceType_THEORETICAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlPriceType_THEORETICAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AssignmentMethod_RANDOM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AssignmentMethod_RANDOM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AssignmentMethod_PRORATA_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::AssignmentMethod_PRORATA));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExerciseMethod_AUTOMATIC_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExerciseMethod_AUTOMATIC));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExerciseMethod_MANUAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExerciseMethod_MANUAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_SUCCESSFUL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_SUCCESSFUL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_INVALID_PARTIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_INVALID_PARTIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_INVALID_DESTINATION_REQUESTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_INVALID_DESTINATION_REQUESTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestStatus_COMPLETED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestStatus_COMPLETED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeRequestStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeRequestStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportRejectReason_SUCCESSFUL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportRejectReason_SUCCESSFUL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportRejectReason_INVALID_PARTY_INFORMATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportRejectReason_INVALID_PARTY_INFORMATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportRejectReason_UNKNOWN_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportRejectReason_UNKNOWN_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportRejectReason_INVALID_TRADE_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportRejectReason_INVALID_TRADE_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SideMultiLegReportingType_SINGLE_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SideMultiLegReportingType_SINGLE_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SideMultiLegReportingType_MULTI_LEG_SECURITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SideMultiLegReportingType_MULTI_LEG_SECURITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRegTimestampType_EXECUTION_TIME_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRegTimestampType_EXECUTION_TIME));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRegTimestampType_TIME_IN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRegTimestampType_TIME_IN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRegTimestampType_TIME_OUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRegTimestampType_TIME_OUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRegTimestampType_BROKER_RECEIPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRegTimestampType_BROKER_RECEIPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRegTimestampType_BROKER_EXECUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRegTimestampType_BROKER_EXECUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmType_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmType_STATUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmType_CONFIRMATION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmType_CONFIRMATION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmType_CONFIRMATION_REQUEST_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmType_CONFIRMATION_REQUEST_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmRejReason_MISMATCHED_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmRejReason_MISMATCHED_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingType_REGULAR_BOOKING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BookingType_REGULAR_BOOKING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingType_CFD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BookingType_CFD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-BookingType_TOTAL_RETURN_SWAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::BookingType_TOTAL_RETURN_SWAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocSettlInstType_FULL_DETAILS_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocSettlInstType_FULL_DETAILS_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocSettlInstType_SSI_DB_IDS_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocSettlInstType_SSI_DB_IDS_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocSettlInstType_PHONE_FOR_INSTRUCTIONS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocSettlInstType_PHONE_FOR_INSTRUCTIONS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DlvyInstType_SECURITIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DlvyInstType_SECURITIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DlvyInstType_CASH_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::DlvyInstType_CASH));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TerminationType_OVERNIGHT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TerminationType_OVERNIGHT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TerminationType_TERM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TerminationType_TERM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TerminationType_FLEXIBLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TerminationType_FLEXIBLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TerminationType_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TerminationType_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstReqRejCode_UNKNOWN_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlInstReqRejCode_UNKNOWN_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocReportType_WAREHOUSE_RECAP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocReportType_WAREHOUSE_RECAP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocReportType_REQUEST_TO_INTERMEDIARY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocReportType_REQUEST_TO_INTERMEDIARY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_HOUSE_TRADER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_HOUSE_TRADER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_FLOOR_TRADER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_FLOOR_TRADER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocAccountType_JOINT_BACKOFFICE_ACCOUNT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocAccountType_JOINT_BACKOFFICE_ACCOUNT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_PENDING_ACCEPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_PENDING_ACCEPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_PENDING_RELEASE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_PENDING_RELEASE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_PENDING_REVERSAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_PENDING_REVERSAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_ACCEPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_ACCEPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_BLOCK_LEVEL_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_BLOCK_LEVEL_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocIntermedReqType_ACCOUNT_LEVEL_REJECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocIntermedReqType_ACCOUNT_LEVEL_REJECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueResolution_NO_ACTION_TAKEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueResolution_NO_ACTION_TAKEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueResolution_QUEUE_FLUSHED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueResolution_QUEUE_FLUSHED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueResolution_OVERLAY_LAST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueResolution_OVERLAY_LAST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueResolution_END_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueResolution_END_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueAction_NO_ACTION_TAKEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueAction_NO_ACTION_TAKEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueAction_QUEUE_FLUSHED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueAction_QUEUE_FLUSHED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueAction_OVERLAY_LAST_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueAction_OVERLAY_LAST));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ApplQueueAction_END_SESSION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ApplQueueAction_END_SESSION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AvgPxIndicator_NO_AVERAGE_PRICING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AvgPxIndicator_NO_AVERAGE_PRICING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeAllocIndicator_ALLOCATION_NOT_REQUIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeAllocIndicator_ALLOCATION_NOT_REQUIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeAllocIndicator_ALLOCATION_REQUIRED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeAllocIndicator_ALLOCATION_REQUIRED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_REGULAR_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_REGULAR_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_BLOCK_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_BLOCK_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_EFP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_EFP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_TRANSFER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_TRANSFER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_LATE_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_LATE_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_T_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_T_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_WEIGHTED_AVERAGE_PRICE_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_WEIGHTED_AVERAGE_PRICE_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_BUNCHED_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_BUNCHED_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_LATE_BUNCHED_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_LATE_BUNCHED_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdType_PRIOR_REFERENCE_PRICE_TRADE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdType_PRIOR_REFERENCE_PRICE_TRADE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegMoveType_FLOATING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegMoveType_FLOATING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegMoveType_FIXED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegMoveType_FIXED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegOffsetType_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegOffsetType_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegOffsetType_BASIS_POINTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegOffsetType_BASIS_POINTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegOffsetType_TICKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegOffsetType_TICKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegOffsetType_PRICE_TIER_LEVEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegOffsetType_PRICE_TIER_LEVEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegLimitType_OR_BETTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegLimitType_OR_BETTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegLimitType_STRICT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegLimitType_STRICT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegLimitType_OR_WORSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegLimitType_OR_WORSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegRoundDirection_MORE_AGGRESSIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegRoundDirection_MORE_AGGRESSIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegRoundDirection_MORE_PASSIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegRoundDirection_MORE_PASSIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegScope_LOCAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegScope_LOCAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegScope_NATIONAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegScope_NATIONAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegScope_GLOBAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegScope_GLOBAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PegScope_NATIONAL_EXCLUDING_LOCAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PegScope_NATIONAL_EXCLUDING_LOCAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionMoveType_FLOATING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionMoveType_FLOATING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionMoveType_FIXED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionMoveType_FIXED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionOffsetType_PRICE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionOffsetType_PRICE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionOffsetType_BASIS_POINTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionOffsetType_BASIS_POINTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionOffsetType_TICKS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionOffsetType_TICKS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionOffsetType_PRICE_TIER_LEVEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionOffsetType_PRICE_TIER_LEVEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionLimitType_OR_BETTER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionLimitType_OR_BETTER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionLimitType_STRICT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionLimitType_STRICT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionLimitType_OR_WORSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionLimitType_OR_WORSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionRoundDirection_MORE_AGGRESSIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionRoundDirection_MORE_AGGRESSIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionRoundDirection_MORE_PASSIVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionRoundDirection_MORE_PASSIVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionScope_LOCAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionScope_LOCAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionScope_NATIONAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionScope_NATIONAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionScope_GLOBAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionScope_GLOBAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DiscretionScope_NATIONAL_EXCLUDING_LOCAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DiscretionScope_NATIONAL_EXCLUDING_LOCAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastLiquidityInd_ADDED_LIQUIDITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LastLiquidityInd_ADDED_LIQUIDITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastLiquidityInd_REMOVED_LIQUIDITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LastLiquidityInd_REMOVED_LIQUIDITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-LastLiquidityInd_LIQUIDITY_ROUTED_OUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::LastLiquidityInd_LIQUIDITY_ROUTED_OUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_DEALER_SOLD_SHORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_DEALER_SOLD_SHORT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QtyType_UNITS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QtyType_UNITS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-QtyType_CONTRACTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::QtyType_CONTRACTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_SUBMIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_SUBMIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_ALLEGED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_ALLEGED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_ACCEPT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_ACCEPT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_DECLINE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_DECLINE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_ADDENDUM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_ADDENDUM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_NO_WAS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_NO_WAS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_TRADE_REPORT_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_TRADE_REPORT_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TradeReportType_LOCKED_IN_TRADE_BREAK_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TradeReportType_LOCKED_IN_TRADE_BREAK));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocNoOrdersType_NOT_SPECIFIED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocNoOrdersType_NOT_SPECIFIED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AllocNoOrdersType_EXPLICIT_LIST_PROVIDED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AllocNoOrdersType_EXPLICIT_LIST_PROVIDED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EventType_PUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EventType_PUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EventType_CALL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EventType_CALL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EventType_TENDER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EventType_TENDER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-EventType_SINKING_FUND_CALL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::EventType_SINKING_FUND_CALL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_FLAT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_FLAT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_ZERO_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_ZERO_COUPON));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_INTEREST_BEARING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_INTEREST_BEARING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_NO_PERIODIC_PAYMENTS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_NO_PERIODIC_PAYMENTS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_VARIABLE_RATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_VARIABLE_RATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_LESS_FEE_FOR_PUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_LESS_FEE_FOR_PUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_STEPPED_COUPON_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_STEPPED_COUPON));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_COUPON_PERIOD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_COUPON_PERIOD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-InstrAttribType_WHEN_AND_IF_ISSUED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::InstrAttribType_WHEN_AND_IF_ISSUED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeBasis_ABSOLUTE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MiscFeeBasis_ABSOLUTE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeBasis_PER_UNIT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MiscFeeBasis_PER_UNIT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-MiscFeeBasis_PERCENTAGE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::MiscFeeBasis_PERCENTAGE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_INITIAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_INITIAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_SCHEDULED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_SCHEDULED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_TIME_WARNING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_TIME_WARNING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_MARGIN_DEFICIENCY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_MARGIN_DEFICIENCY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_MARGIN_EXCESS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_MARGIN_EXCESS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_FORWARD_COLLATERAL_DEMAND_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_FORWARD_COLLATERAL_DEMAND));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_EVENT_OF_DEFAULT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_EVENT_OF_DEFAULT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnReason_ADVERSE_TAX_EVENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnReason_ADVERSE_TAX_EVENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_TRADEDATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_TRADEDATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_GC_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_GC_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_COLLATERALINSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_COLLATERALINSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_SUBSTITUTION_ELIGIBLE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_SUBSTITUTION_ELIGIBLE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_NOT_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_NOT_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_PARTIALLY_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_PARTIALLY_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_FULLY_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_FULLY_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryQualifier_OUTSTANDING_TRADES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryQualifier_OUTSTANDING_TRADES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnTransType_REPLACE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnTransType_REPLACE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnTransType_RELEASE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnTransType_RELEASE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnTransType_REVERSE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnTransType_REVERSE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRespType_RECEIVED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRespType_RECEIVED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRespType_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRespType_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRespType_DECLINED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRespType_DECLINED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRespType_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRespType_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_UNKNOWN_DEAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_UNKNOWN_DEAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_INSUFFICIENT_COLLATERAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_INSUFFICIENT_COLLATERAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollStatus_UNASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollStatus_UNASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollStatus_PARTIALLY_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollStatus_PARTIALLY_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollStatus_ASSIGNMENT_PROPOSED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollStatus_ASSIGNMENT_PROPOSED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollStatus_ASSIGNED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollStatus_ASSIGNED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollStatus_CHALLENGED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollStatus_CHALLENGED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryType_VERSUS_PAYMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryType_VERSUS_PAYMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryType_FREE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryType_FREE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryType_TRI_PARTY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryType_TRI_PARTY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-DeliveryType_HOLD_IN_CUSTODY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::DeliveryType_HOLD_IN_CUSTODY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserRequestType_LOGONUSER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserRequestType_LOGONUSER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserRequestType_LOGOFFUSER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserRequestType_LOGOFFUSER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserRequestType_CHANGEPASSWORDFORUSER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserRequestType_CHANGEPASSWORDFORUSER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_LOGGED_IN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_LOGGED_IN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_NOT_LOGGED_IN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_NOT_LOGGED_IN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_USER_NOT_RECOGNISED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_USER_NOT_RECOGNISED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_PASSWORD_INCORRECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_PASSWORD_INCORRECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_PASSWORD_CHANGED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_PASSWORD_CHANGED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-UserStatus_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::UserStatus_OTHER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StatusValue_CONNECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StatusValue_CONNECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-StatusValue_IN_PROCESS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::StatusValue_IN_PROCESS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkRequestType_SNAPSHOT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkRequestType_SNAPSHOT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkRequestType_SUBSCRIBE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkRequestType_SUBSCRIBE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkRequestType_STOP_SUBSCRIBING_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkRequestType_STOP_SUBSCRIBING));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkRequestType_LEVEL_OF_DETAIL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkRequestType_LEVEL_OF_DETAIL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkStatusResponseType_FULL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkStatusResponseType_FULL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-NetworkStatusResponseType_INCREMENTAL_UPDATE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::NetworkStatusResponseType_INCREMENTAL_UPDATE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRptStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRptStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-TrdRptStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::TrdRptStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AffirmStatus_RECEIVED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AffirmStatus_RECEIVED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AffirmStatus_CONFIRM_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AffirmStatus_CONFIRM_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-AffirmStatus_AFFIRMED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::AffirmStatus_AFFIRMED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAction_RETAIN_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAction_RETAIN));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAction_ADD_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAction_ADD));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollAction_REMOVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollAction_REMOVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryStatus_ACCEPTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryStatus_ACCEPTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryStatus_ACCEPTED_WITH_WARNINGS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryStatus_ACCEPTED_WITH_WARNINGS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryStatus_COMPLETED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryStatus_COMPLETED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryStatus_COMPLETED_WITH_WARNINGS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryStatus_COMPLETED_WITH_WARNINGS));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryStatus_REJECTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryStatus_REJECTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_SUCCESSFUL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_SUCCESSFUL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_INVALID_PARTIES_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_INVALID_PARTIES));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_INVALID_DESTINATION_REQUESTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_INVALID_DESTINATION_REQUESTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CollInquiryResult_OTHER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CollInquiryResult_OTHER));
+  _val = SWIG_FromCharPtr(FIX::ApplVerId_FIX40);
   return _val;
 }
 
@@ -38299,42 +20791,6 @@ BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT_get(VALUE se
   VALUE _val;
   
   _val = SWIG_FromCharPtr(FIX::BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecTransType_NEW_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecTransType_NEW));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecTransType_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecTransType_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecTransType_CORRECT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecTransType_CORRECT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-ExecTransType_STATUS_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::ExecTransType_STATUS));
   return _val;
 }
 
@@ -38772,195 +21228,6 @@ OpenClose_CLOSE_get(VALUE self) {
 
 
 SWIGINTERN VALUE
-CxlType_PARTIAL_CANCEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CxlType_PARTIAL_CANCEL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CxlType_FULL_REMAINING_QUANTITY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::CxlType_FULL_REMAINING_QUANTITY));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_CEDEL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_CEDEL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_DEPOSITORY_TRUST_COMPANY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_DEPOSITORY_TRUST_COMPANY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_EUROCLEAR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_EUROCLEAR);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_FEDERAL_BOOK_ENTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_FEDERAL_BOOK_ENTRY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_PHYSICAL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_PHYSICAL);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_FromCharPtr(FIX::SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY);
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PutOrCall_PUT_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PutOrCall_PUT));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-PutOrCall_CALL_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::PutOrCall_CALL));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustomerOrFirm_CUSTOMER_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustomerOrFirm_CUSTOMER));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-CustomerOrFirm_FIRM_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_int(static_cast< int >(FIX::CustomerOrFirm_FIRM));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_CURVE_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_CURVE));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_FIVEYR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_FIVEYR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_OLD5_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_OLD5));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_TENYR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_TENYR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_OLD10_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_OLD10));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_THIRTYYR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_THIRTYYR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_OLD30_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_OLD30));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_THREEMOLIBOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_THREEMOLIBOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
-Benchmark_SIXMOLIBOR_get(VALUE self) {
-  VALUE _val;
-  
-  _val = SWIG_From_char(static_cast< char >(FIX::Benchmark_SIXMOLIBOR));
-  return _val;
-}
-
-
-SWIGINTERN VALUE
 OpenCloseSettleFlag_DAILY_OPEN_get(VALUE self) {
   VALUE _val;
   
@@ -39025,126 +21292,6 @@ fail:
 
 SWIGINTERN VALUE
 _wrap_new_SessionID__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  BeginString *arg1 = 0 ;
-  SenderCompID *arg2 = 0 ;
-  TargetCompID *arg3 = 0 ;
-  std::string *arg4 = 0 ;
-  FIX::SessionID *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  void *argp3 ;
-  int res3 = 0 ;
-  int res4 = SWIG_OLDOBJ ;
-  const char *classname SWIGUNUSED = "Quickfix::SessionID";
-  
-  if ((argc < 4) || (argc > 4)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_BeginString,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SessionID" "', argument " "1"" of type '" "BeginString const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "1"" of type '" "BeginString const &""'"); 
-  }
-  arg1 = reinterpret_cast< BeginString * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_SenderCompID,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::SessionID" "', argument " "2"" of type '" "SenderCompID const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "2"" of type '" "SenderCompID const &""'"); 
-  }
-  arg2 = reinterpret_cast< SenderCompID * >(argp2);
-  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_TargetCompID,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::SessionID" "', argument " "3"" of type '" "TargetCompID const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "3"" of type '" "TargetCompID const &""'"); 
-  }
-  arg3 = reinterpret_cast< TargetCompID * >(argp3);
-  {
-    std::string *ptr = (std::string *)0;
-    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
-    if (!SWIG_IsOK(res4)) {
-      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "FIX::SessionID" "', argument " "4"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "4"" of type '" "std::string const &""'"); 
-    }
-    arg4 = ptr;
-  }
-  result = (FIX::SessionID *)new FIX::SessionID((BeginString const &)*arg1,(SenderCompID const &)*arg2,(TargetCompID const &)*arg3,(std::string const &)*arg4);DATA_PTR(self) = result;
-  
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[3], 0 );
-      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res4)) delete arg4;
-  return self;
-fail:
-  if (SWIG_IsNewObj(res4)) delete arg4;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_new_SessionID__SWIG_2(int argc, VALUE *argv, VALUE self) {
-  BeginString *arg1 = 0 ;
-  SenderCompID *arg2 = 0 ;
-  TargetCompID *arg3 = 0 ;
-  FIX::SessionID *result = 0 ;
-  void *argp1 ;
-  int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  void *argp3 ;
-  int res3 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::SessionID";
-  
-  if ((argc < 3) || (argc > 3)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_BeginString,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SessionID" "', argument " "1"" of type '" "BeginString const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "1"" of type '" "BeginString const &""'"); 
-  }
-  arg1 = reinterpret_cast< BeginString * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_SenderCompID,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::SessionID" "', argument " "2"" of type '" "SenderCompID const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "2"" of type '" "SenderCompID const &""'"); 
-  }
-  arg2 = reinterpret_cast< SenderCompID * >(argp2);
-  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_TargetCompID,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::SessionID" "', argument " "3"" of type '" "TargetCompID const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SessionID" "', argument " "3"" of type '" "TargetCompID const &""'"); 
-  }
-  arg3 = reinterpret_cast< TargetCompID * >(argp3);
-  result = (FIX::SessionID *)new FIX::SessionID((BeginString const &)*arg1,(SenderCompID const &)*arg2,(TargetCompID const &)*arg3);DATA_PTR(self) = result;
-  
-  return self;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_new_SessionID__SWIG_3(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
   std::string *arg2 = 0 ;
   std::string *arg3 = 0 ;
@@ -39265,7 +21412,7 @@ _wrap_SessionID_allocate(VALUE self) {
   
 
 SWIGINTERN VALUE
-_wrap_new_SessionID__SWIG_4(int argc, VALUE *argv, VALUE self) {
+_wrap_new_SessionID__SWIG_2(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
   std::string *arg2 = 0 ;
   std::string *arg3 = 0 ;
@@ -39361,16 +21508,13 @@ SWIGINTERN VALUE _wrap_new_SessionID(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 3) {
     int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_BeginString, 0);
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
     _v = SWIG_CheckState(res);
     if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_SenderCompID, 0);
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
       _v = SWIG_CheckState(res);
       if (_v) {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_TargetCompID, 0);
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
         _v = SWIG_CheckState(res);
         if (_v) {
           return _wrap_new_SessionID__SWIG_2(nargs, args, self);
@@ -39378,7 +21522,7 @@ SWIGINTERN VALUE _wrap_new_SessionID(int nargs, VALUE *args, VALUE self) {
       }
     }
   }
-  if (argc == 3) {
+  if (argc == 4) {
     int _v;
     int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
     _v = SWIG_CheckState(res);
@@ -39387,51 +21531,12 @@ SWIGINTERN VALUE _wrap_new_SessionID(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_new_SessionID__SWIG_4(nargs, args, self);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_BeginString, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_SenderCompID, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_TargetCompID, 0);
         _v = SWIG_CheckState(res);
         if (_v) {
           int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
             return _wrap_new_SessionID__SWIG_1(nargs, args, self);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_new_SessionID__SWIG_3(nargs, args, self);
           }
         }
       }
@@ -39559,6 +21664,30 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_SessionID_isFIXT(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = (FIX::SessionID *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__SessionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "isFIXT" "', argument " "1"" of type '" "FIX::SessionID const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  result = (bool)((FIX::SessionID const *)arg1)->isFIXT();
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_SessionID_toString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::SessionID *arg1 = (FIX::SessionID *) 0 ;
   std::string result;
@@ -39576,6 +21705,33 @@ _wrap_SessionID_toString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
   result = ((FIX::SessionID const *)arg1)->toString();
   vresult = SWIG_From_std_string(static_cast< std::string >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_SessionID_toStringFrozen(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = (FIX::SessionID *) 0 ;
+  std::string *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__SessionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toStringFrozen" "', argument " "1"" of type '" "FIX::SessionID const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  {
+    std::string const &_result_ref = ((FIX::SessionID const *)arg1)->toStringFrozen();
+    result = (std::string *) &_result_ref;
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
   return vresult;
 fail:
   return Qnil;
@@ -41063,6 +23219,15 @@ SESSION_QUALIFIER_get(VALUE self) {
 
 
 SWIGINTERN VALUE
+DEFAULT_APPLVERID_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::DEFAULT_APPLVERID);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
 CONNECTION_TYPE_get(VALUE self) {
   VALUE _val;
   
@@ -41103,6 +23268,24 @@ DATA_DICTIONARY_get(VALUE self) {
   VALUE _val;
   
   _val = SWIG_FromCharPtr(FIX::DATA_DICTIONARY);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+TRANSPORT_DATA_DICTIONARY_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::TRANSPORT_DATA_DICTIONARY);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+APP_DATA_DICTIONARY_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::APP_DATA_DICTIONARY);
   return _val;
 }
 
@@ -41265,6 +23448,24 @@ SOCKET_NODELAY_get(VALUE self) {
   VALUE _val;
   
   _val = SWIG_FromCharPtr(FIX::SOCKET_NODELAY);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+SOCKET_SEND_BUFFER_SIZE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::SOCKET_SEND_BUFFER_SIZE);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+SOCKET_RECEIVE_BUFFER_SIZE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::SOCKET_RECEIVE_BUFFER_SIZE);
   return _val;
 }
 
@@ -41472,6 +23673,15 @@ FILE_LOG_PATH_get(VALUE self) {
   VALUE _val;
   
   _val = SWIG_FromCharPtr(FIX::FILE_LOG_PATH);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+FILE_LOG_BACKUP_PATH_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::FILE_LOG_BACKUP_PATH);
   return _val;
 }
 
@@ -42500,7 +24710,7 @@ _wrap_new_Session(int argc, VALUE *argv, VALUE self) {
   Application *arg1 = 0 ;
   MessageStoreFactory *arg2 = 0 ;
   FIX::SessionID *arg3 = 0 ;
-  DataDictionary *arg4 = 0 ;
+  DataDictionaryProvider *arg4 = 0 ;
   TimeRange *arg5 = 0 ;
   int arg6 ;
   LogFactory *arg7 = (LogFactory *) 0 ;
@@ -42548,14 +24758,14 @@ _wrap_new_Session(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Session" "', argument " "3"" of type '" "FIX::SessionID const &""'"); 
   }
   arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
-  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_DataDictionary,  0 );
+  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_DataDictionaryProvider,  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "FIX::Session" "', argument " "4"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "FIX::Session" "', argument " "4"" of type '" "DataDictionaryProvider const &""'"); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Session" "', argument " "4"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Session" "', argument " "4"" of type '" "DataDictionaryProvider const &""'"); 
   }
-  arg4 = reinterpret_cast< DataDictionary * >(argp4);
+  arg4 = reinterpret_cast< DataDictionaryProvider * >(argp4);
   res5 = SWIG_ConvertPtr(argv[4], &argp5, SWIGTYPE_p_TimeRange,  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "FIX::Session" "', argument " "5"" of type '" "TimeRange const &""'"); 
@@ -42574,7 +24784,7 @@ _wrap_new_Session(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "FIX::Session" "', argument " "7"" of type '" "LogFactory *""'"); 
   }
   arg7 = reinterpret_cast< LogFactory * >(argp7);
-  result = (FIX::Session *)new FIX::Session(*arg1,*arg2,(FIX::SessionID const &)*arg3,(DataDictionary const &)*arg4,(TimeRange const &)*arg5,arg6,arg7);DATA_PTR(self) = result;
+  result = (FIX::Session *)new FIX::Session(*arg1,*arg2,(FIX::SessionID const &)*arg3,(DataDictionaryProvider const &)*arg4,(TimeRange const &)*arg5,arg6,arg7);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -42985,9 +25195,9 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Session_setDataDictionary(int argc, VALUE *argv, VALUE self) {
+_wrap_Session_setDataDictionaryProvider(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
-  DataDictionary *arg2 = 0 ;
+  DataDictionaryProvider *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 ;
@@ -42998,18 +25208,18 @@ _wrap_Session_setDataDictionary(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setDataDictionary" "', argument " "1"" of type '" "FIX::Session *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setDataDictionaryProvider" "', argument " "1"" of type '" "FIX::Session *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Session * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_DataDictionary,  0 );
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_DataDictionaryProvider,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setDataDictionary" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setDataDictionaryProvider" "', argument " "2"" of type '" "DataDictionaryProvider const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setDataDictionary" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setDataDictionaryProvider" "', argument " "2"" of type '" "DataDictionaryProvider const &""'"); 
   }
-  arg2 = reinterpret_cast< DataDictionary * >(argp2);
-  (arg1)->setDataDictionary((DataDictionary const &)*arg2);
+  arg2 = reinterpret_cast< DataDictionaryProvider * >(argp2);
+  (arg1)->setDataDictionaryProvider((DataDictionaryProvider const &)*arg2);
   return Qnil;
 fail:
   return Qnil;
@@ -43017,9 +25227,9 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Session_getDataDictionary(int argc, VALUE *argv, VALUE self) {
+_wrap_Session_getDataDictionaryProvider(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
-  DataDictionary *result = 0 ;
+  DataDictionaryProvider *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   VALUE vresult = Qnil;
@@ -43029,14 +25239,14 @@ _wrap_Session_getDataDictionary(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getDataDictionary" "', argument " "1"" of type '" "FIX::Session const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getDataDictionaryProvider" "', argument " "1"" of type '" "FIX::Session const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Session * >(argp1);
   {
-    DataDictionary const &_result_ref = ((FIX::Session const *)arg1)->getDataDictionary();
-    result = (DataDictionary *) &_result_ref;
+    DataDictionaryProvider const &_result_ref = ((FIX::Session const *)arg1)->getDataDictionaryProvider();
+    result = (DataDictionaryProvider *) &_result_ref;
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DataDictionary, 0 |  0 );
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DataDictionaryProvider, 0 |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -44063,6 +26273,148 @@ _wrap_Session_setLogonTime(int argc, VALUE *argv, VALUE self) {
   (arg1)->setLogonTime((TimeRange const &)*arg2);
   return Qnil;
 fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Session_getSenderDefaultApplVerID(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  std::string *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getSenderDefaultApplVerID" "', argument " "1"" of type '" "FIX::Session *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  {
+    std::string const &_result_ref = (arg1)->getSenderDefaultApplVerID();
+    result = (std::string *) &_result_ref;
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Session_setSenderDefaultApplVerID(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setSenderDefaultApplVerID" "', argument " "1"" of type '" "FIX::Session *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setSenderDefaultApplVerID" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setSenderDefaultApplVerID" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->setSenderDefaultApplVerID((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Session_getTargetDefaultApplVerID(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  std::string *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getTargetDefaultApplVerID" "', argument " "1"" of type '" "FIX::Session *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  {
+    std::string const &_result_ref = (arg1)->getTargetDefaultApplVerID();
+    result = (std::string *) &_result_ref;
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Session_setTargetDefaultApplVerID(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setTargetDefaultApplVerID" "', argument " "1"" of type '" "FIX::Session *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "setTargetDefaultApplVerID" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "setTargetDefaultApplVerID" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->setTargetDefaultApplVerID((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
 }
 
@@ -45599,6 +27951,27 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_Log_backup(int argc, VALUE *argv, VALUE self) {
+  FIX::Log *arg1 = (FIX::Log *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "backup" "', argument " "1"" of type '" "FIX::Log *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Log * >(argp1);
+  (arg1)->backup();
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_Log_onIncoming(int argc, VALUE *argv, VALUE self) {
   FIX::Log *arg1 = (FIX::Log *) 0 ;
   std::string *arg2 = 0 ;
@@ -45928,6 +28301,27 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_ScreenLog_backup(int argc, VALUE *argv, VALUE self) {
+  FIX::ScreenLog *arg1 = (FIX::ScreenLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__ScreenLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "backup" "', argument " "1"" of type '" "FIX::ScreenLog *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::ScreenLog * >(argp1);
+  (arg1)->backup();
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_ScreenLog_onIncoming(int argc, VALUE *argv, VALUE self) {
   FIX::ScreenLog *arg1 = (FIX::ScreenLog *) 0 ;
   std::string *arg2 = 0 ;
@@ -46059,6 +28453,59 @@ fail:
 }
 
 
+SWIGINTERN VALUE
+_wrap_ScreenLog_getMillisecondsInTimeStamp(int argc, VALUE *argv, VALUE self) {
+  FIX::ScreenLog *arg1 = (FIX::ScreenLog *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__ScreenLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getMillisecondsInTimeStamp" "', argument " "1"" of type '" "FIX::ScreenLog const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::ScreenLog * >(argp1);
+  result = (bool)((FIX::ScreenLog const *)arg1)->getMillisecondsInTimeStamp();
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_ScreenLog_setMillisecondsInTimeStamp(int argc, VALUE *argv, VALUE self) {
+  FIX::ScreenLog *arg1 = (FIX::ScreenLog *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__ScreenLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setMillisecondsInTimeStamp" "', argument " "1"" of type '" "FIX::ScreenLog *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::ScreenLog * >(argp1);
+  ecode2 = SWIG_AsVal_bool(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "setMillisecondsInTimeStamp" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  (arg1)->setMillisecondsInTimeStamp(arg2);
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
 SWIGINTERN void
 free_FIX_ScreenLog(FIX::ScreenLog *arg1) {
     delete arg1;
@@ -46092,23 +28539,6 @@ fail:
   return Qnil;
 }
 
-
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_FileLogFactory_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_FileLogFactory_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__FileLogFactory);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
 
 SWIGINTERN VALUE
 _wrap_new_FileLogFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
@@ -46148,13 +28578,90 @@ fail:
 }
 
 
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_FileLogFactory_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_FileLogFactory_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__FileLogFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_FileLogFactory__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  FIX::FileLogFactory *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  const char *classname SWIGUNUSED = "Quickfix::FileLogFactory";
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FileLogFactory" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FileLogFactory" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::FileLogFactory" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FileLogFactory" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  result = (FIX::FileLogFactory *)new FIX::FileLogFactory((std::string const &)*arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
 SWIGINTERN VALUE _wrap_new_FileLogFactory(int nargs, VALUE *args, VALUE self) {
   int argc;
-  VALUE argv[1];
+  VALUE argv[2];
   int ii;
   
   argc = nargs;
-  if (argc > 1) SWIG_fail;
+  if (argc > 2) SWIG_fail;
   for (ii = 0; (ii < argc); ii++) {
     argv[ii] = args[ii];
   }
@@ -46173,6 +28680,18 @@ SWIGINTERN VALUE _wrap_new_FileLogFactory(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_FileLogFactory__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_FileLogFactory__SWIG_2(nargs, args, self);
+      }
     }
   }
   
@@ -46356,23 +28875,6 @@ fail:
 }
 
 
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-SWIGINTERN VALUE
-_wrap_FileLog_allocate(VALUE self) {
-#else
-  SWIGINTERN VALUE
-  _wrap_FileLog_allocate(int argc, VALUE *argv, VALUE self) {
-#endif
-    
-    
-    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__FileLog);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-    rb_obj_call_init(vresult, argc, argv);
-#endif
-    return vresult;
-  }
-  
-
 SWIGINTERN VALUE
 _wrap_new_FileLog__SWIG_1(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
@@ -46422,13 +28924,101 @@ fail:
 }
 
 
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+SWIGINTERN VALUE
+_wrap_FileLog_allocate(VALUE self) {
+#else
+  SWIGINTERN VALUE
+  _wrap_FileLog_allocate(int argc, VALUE *argv, VALUE self) {
+#endif
+    
+    
+    VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__FileLog);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+    rb_obj_call_init(vresult, argc, argv);
+#endif
+    return vresult;
+  }
+  
+
+SWIGINTERN VALUE
+_wrap_new_FileLog__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  FIX::SessionID *arg3 = 0 ;
+  FIX::FileLog *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  void *argp3 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::FileLog";
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FileLog" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FileLog" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::FileLog" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FileLog" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::FileLog" "', argument " "3"" of type '" "FIX::SessionID const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FileLog" "', argument " "3"" of type '" "FIX::SessionID const &""'"); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
+  result = (FIX::FileLog *)new FIX::FileLog((std::string const &)*arg1,(std::string const &)*arg2,(FIX::SessionID const &)*arg3);DATA_PTR(self) = result;
+  
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
 SWIGINTERN VALUE _wrap_new_FileLog(int nargs, VALUE *args, VALUE self) {
   int argc;
-  VALUE argv[2];
+  VALUE argv[3];
   int ii;
   
   argc = nargs;
-  if (argc > 2) SWIG_fail;
+  if (argc > 3) SWIG_fail;
   for (ii = 0; (ii < argc); ii++) {
     argv[ii] = args[ii];
   }
@@ -46450,6 +29040,23 @@ SWIGINTERN VALUE _wrap_new_FileLog(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         return _wrap_new_FileLog__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__SessionID, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_FileLog__SWIG_2(nargs, args, self);
+        }
       }
     }
   }
@@ -46480,6 +29087,27 @@ _wrap_FileLog_clear(int argc, VALUE *argv, VALUE self) {
   }
   arg1 = reinterpret_cast< FIX::FileLog * >(argp1);
   (arg1)->clear();
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_FileLog_backup(int argc, VALUE *argv, VALUE self) {
+  FIX::FileLog *arg1 = (FIX::FileLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__FileLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "backup" "', argument " "1"" of type '" "FIX::FileLog *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::FileLog * >(argp1);
+  (arg1)->backup();
   return Qnil;
 fail:
   return Qnil;
@@ -46614,6 +29242,59 @@ _wrap_FileLog_onEvent(int argc, VALUE *argv, VALUE self) {
   return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_FileLog_getMillisecondsInTimeStamp(int argc, VALUE *argv, VALUE self) {
+  FIX::FileLog *arg1 = (FIX::FileLog *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__FileLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getMillisecondsInTimeStamp" "', argument " "1"" of type '" "FIX::FileLog const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::FileLog * >(argp1);
+  result = (bool)((FIX::FileLog const *)arg1)->getMillisecondsInTimeStamp();
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_FileLog_setMillisecondsInTimeStamp(int argc, VALUE *argv, VALUE self) {
+  FIX::FileLog *arg1 = (FIX::FileLog *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__FileLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "setMillisecondsInTimeStamp" "', argument " "1"" of type '" "FIX::FileLog *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::FileLog * >(argp1);
+  ecode2 = SWIG_AsVal_bool(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "setMillisecondsInTimeStamp" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  (arg1)->setMillisecondsInTimeStamp(arg2);
+  return Qnil;
+fail:
   return Qnil;
 }
 
@@ -53372,7 +36053,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_isMultipleValueStringField(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary_isMultipleValueField(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   int arg2 ;
   bool result;
@@ -53387,15 +36068,15 @@ _wrap_DataDictionary_isMultipleValueStringField(int argc, VALUE *argv, VALUE sel
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "isMultipleValueStringField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "isMultipleValueField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
   ecode2 = SWIG_AsVal_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "isMultipleValueStringField" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "isMultipleValueField" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  result = (bool)((FIX::DataDictionary const *)arg1)->isMultipleValueStringField(arg2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isMultipleValueField(arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
   return vresult;
 fail:
@@ -53491,7 +36172,53 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_validate(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary_validate__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::Message *arg1 = 0 ;
+  FIX::DataDictionary *arg2 = (FIX::DataDictionary *) (FIX::DataDictionary *)0 ;
+  FIX::DataDictionary *arg3 = (FIX::DataDictionary *) (FIX::DataDictionary *)0 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Message,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DataDictionary::validate" "', argument " "1"" of type '" "FIX::Message const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DataDictionary::validate" "', argument " "1"" of type '" "FIX::Message const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Message * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::DataDictionary::validate" "', argument " "2"" of type '" "FIX::DataDictionary const *const""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "FIX::DataDictionary::validate" "', argument " "3"" of type '" "FIX::DataDictionary const *const""'"); 
+  }
+  arg3 = reinterpret_cast< FIX::DataDictionary * >(argp3);
+  try {
+    FIX::DataDictionary::validate((FIX::Message const &)*arg1,(FIX::DataDictionary const *)arg2,(FIX::DataDictionary const *)arg3);
+  }
+  catch(FIX::Exception &_e) {
+    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__Exception, SWIG_NewPointerObj((new FIX::Exception(static_cast< const FIX::Exception& >(_e))),SWIGTYPE_p_FIX__Exception,SWIG_POINTER_OWN))); SWIG_fail;
+  }
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DataDictionary_validate__SWIG_1(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   FIX::Message *arg2 = 0 ;
   void *argp1 = 0 ;
@@ -53504,7 +36231,7 @@ _wrap_DataDictionary_validate(int argc, VALUE *argv, VALUE self) {
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "validate" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "validate" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
   res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__Message,  0 );
@@ -53516,7 +36243,7 @@ _wrap_DataDictionary_validate(int argc, VALUE *argv, VALUE self) {
   }
   arg2 = reinterpret_cast< FIX::Message * >(argp2);
   try {
-    (arg1)->validate((FIX::Message const &)*arg2);
+    ((FIX::DataDictionary const *)arg1)->validate((FIX::Message const &)*arg2);
   }
   catch(FIX::Exception &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__Exception, SWIG_NewPointerObj((new FIX::Exception(static_cast< const FIX::Exception& >(_e))),SWIGTYPE_p_FIX__Exception,SWIG_POINTER_OWN))); SWIG_fail;
@@ -53524,6 +36251,123 @@ _wrap_DataDictionary_validate(int argc, VALUE *argv, VALUE self) {
   
   return Qnil;
 fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DataDictionary_validate__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  FIX::Message *arg2 = 0 ;
+  bool arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "validate" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__Message,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "validate" "', argument " "2"" of type '" "FIX::Message const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "validate" "', argument " "2"" of type '" "FIX::Message const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::Message * >(argp2);
+  ecode3 = SWIG_AsVal_bool(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "validate" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  try {
+    ((FIX::DataDictionary const *)arg1)->validate((FIX::Message const &)*arg2,arg3);
+  }
+  catch(FIX::Exception &_e) {
+    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__Exception, SWIG_NewPointerObj((new FIX::Exception(static_cast< const FIX::Exception& >(_e))),SWIGTYPE_p_FIX__Exception,SWIG_POINTER_OWN))); SWIG_fail;
+  }
+  
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_DataDictionary_validate(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[4];
+  int ii;
+  
+  argc = nargs + 1;
+  argv[0] = self;
+  if (argc > 4) SWIG_fail;
+  for (ii = 1; (ii < argc); ii++) {
+    argv[ii] = args[ii-1];
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__Message, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_DataDictionary_validate__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Message, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_DataDictionary_validate__SWIG_0(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__Message, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          int res = SWIG_AsVal_bool(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_DataDictionary_validate__SWIG_2(nargs, args, self);
+        }
+      }
+    }
+  }
+  
+fail:
+  rb_raise(rb_eArgError, "No matching function for overloaded 'DataDictionary_validate'");
   return Qnil;
 }
 
@@ -53543,104 +36387,35 @@ static void *_p_FIX__NullApplicationTo_p_FIX__Application(void *x) {
 static void *_p_IntArrayTo_p_int(void *x) {
     return (void *)((int *)  ((IntArray *) x));
 }
-static void *_p_FIX__SecuritySettlAgentNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentName *) x));
-}
-static void *_p_FIX__ExecBrokerTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::ExecBroker *) x));
-}
-static void *_p_FIX__CashSettlAgentNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentName *) x));
-}
-static void *_p_FIX__BrokerOfCreditTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::BrokerOfCredit *) x));
-}
-static void *_p_FIX__SettlBrkrCodeTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SettlBrkrCode *) x));
-}
-static void *_p_FIX__SettlLocationTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SettlLocation *) x));
-}
-static void *_p_FIX__RegistDetlsTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::RegistDetls *) x));
-}
-static void *_p_FIX__CardIssNoTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CardIssNo *) x));
-}
-static void *_p_FIX__OpenCloseSettleFlagTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::OpenCloseSettleFlag *) x));
-}
-static void *_p_FIX__ClearingFirmTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::ClearingFirm *) x));
-}
-static void *_p_FIX__SecuritySettlAgentCodeTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentCode *) x));
-}
-static void *_p_FIX__CashSettlAgentCodeTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentCode *) x));
+static void *_p_FIX__IDSourceTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::IDSource *) x));
 }
 static void *_p_FIX__FutSettDateTo_p_FIX__StringField(void *x) {
     return (void *)((FIX::StringField *)  ((FIX::FutSettDate *) x));
 }
+static void *_p_FIX__UnderlyingIDSourceTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::UnderlyingIDSource *) x));
+}
 static void *_p_FIX__LegFutSettDateTo_p_FIX__StringField(void *x) {
     return (void *)((FIX::StringField *)  ((FIX::LegFutSettDate *) x));
+}
+static void *_p_FIX__OpenCloseSettleFlagTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::OpenCloseSettleFlag *) x));
+}
+static void *_p_FIX__RegistDetlsTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::RegistDetls *) x));
 }
 static void *_p_FIX__RelatdSymTo_p_FIX__StringField(void *x) {
     return (void *)((FIX::StringField *)  ((FIX::RelatdSym *) x));
 }
-static void *_p_FIX__ClearingAccountTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::ClearingAccount *) x));
-}
-static void *_p_FIX__SettlDepositoryCodeTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SettlDepositoryCode *) x));
-}
-static void *_p_FIX__IDSourceTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::IDSource *) x));
-}
-static void *_p_FIX__SecuritySettlAgentAcctNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentAcctName *) x));
-}
-static void *_p_FIX__SecuritySettlAgentContactNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentContactName *) x));
-}
-static void *_p_FIX__CashSettlAgentAcctNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentAcctName *) x));
-}
-static void *_p_FIX__CashSettlAgentContactNameTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentContactName *) x));
-}
-static void *_p_FIX__MaturityDayTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::MaturityDay *) x));
-}
-static void *_p_FIX__UnderlyingIDSourceTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::UnderlyingIDSource *) x));
-}
-static void *_p_FIX__UnderlyingMaturityDayTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::UnderlyingMaturityDay *) x));
-}
-static void *_p_FIX__ClientIDTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::ClientID *) x));
-}
-static void *_p_FIX__SecuritySettlAgentContactPhoneTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentContactPhone *) x));
-}
-static void *_p_FIX__CashSettlAgentContactPhoneTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentContactPhone *) x));
+static void *_p_FIX__IOISharesTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::IOIShares *) x));
 }
 static void *_p_FIX__FutSettDate2To_p_FIX__StringField(void *x) {
     return (void *)((FIX::StringField *)  ((FIX::FutSettDate2 *) x));
 }
-static void *_p_FIX__SecuritySettlAgentAcctNumTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SecuritySettlAgentAcctNum *) x));
-}
-static void *_p_FIX__SettlInstCodeTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::SettlInstCode *) x));
-}
-static void *_p_FIX__IOISharesTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::IOIShares *) x));
-}
-static void *_p_FIX__CashSettlAgentAcctNumTo_p_FIX__StringField(void *x) {
-    return (void *)((FIX::StringField *)  ((FIX::CashSettlAgentAcctNum *) x));
+static void *_p_FIX__CardIssNoTo_p_FIX__StringField(void *x) {
+    return (void *)((FIX::StringField *)  ((FIX::CardIssNo *) x));
 }
 static void *_p_FIX__MemoryStoreTo_p_FIX__MessageStore(void *x) {
     return (void *)((FIX::MessageStore *)  ((FIX::MemoryStore *) x));
@@ -53651,9 +36426,6 @@ static void *_p_FIX__FileStoreTo_p_FIX__MessageStore(void *x) {
 static void *_p_FIX__SpreadToBenchmarkTo_p_FIX__DoubleField(void *x) {
     return (void *)((FIX::DoubleField *)  ((FIX::SpreadToBenchmark *) x));
 }
-static void *_p_FIX__RatioQtyTo_p_FIX__DoubleField(void *x) {
-    return (void *)((FIX::DoubleField *)  ((FIX::RatioQty *) x));
-}
 static void *_p_FIX__DiscretionOffsetTo_p_FIX__DoubleField(void *x) {
     return (void *)((FIX::DoubleField *)  ((FIX::DiscretionOffset *) x));
 }
@@ -53663,11 +36435,11 @@ static void *_p_FIX__LastSharesTo_p_FIX__DoubleField(void *x) {
 static void *_p_FIX__SharesTo_p_FIX__DoubleField(void *x) {
     return (void *)((FIX::DoubleField *)  ((FIX::Shares *) x));
 }
+static void *_p_FIX__AllocSharesTo_p_FIX__DoubleField(void *x) {
+    return (void *)((FIX::DoubleField *)  ((FIX::AllocShares *) x));
+}
 static void *_p_FIX__PegDifferenceTo_p_FIX__DoubleField(void *x) {
     return (void *)((FIX::DoubleField *)  ((FIX::PegDifference *) x));
-}
-static void *_p_FIX__TotalVolumeTradedDateTo_p_FIX__UtcDateField(void *x) {
-    return (void *)((FIX::UtcDateField *)  ((FIX::TotalVolumeTradedDate *) x));
 }
 static void *_p_FIX__SocketInitiatorTo_p_FIX__Initiator(void *x) {
     return (void *)((FIX::Initiator *)  ((FIX::SocketInitiator *) x));
@@ -53684,17 +36456,11 @@ static void *_p_FIX__FileLogTo_p_FIX__Log(void *x) {
 static void *_p_FIX__ScreenLogTo_p_FIX__Log(void *x) {
     return (void *)((FIX::Log *)  ((FIX::ScreenLog *) x));
 }
-static void *_p_FIX__CustomerOrFirmTo_p_FIX__IntField(void *x) {
-    return (void *)((FIX::IntField *)  ((FIX::CustomerOrFirm *) x));
-}
 static void *_p_FIX__QuoteAckStatusTo_p_FIX__IntField(void *x) {
     return (void *)((FIX::IntField *)  ((FIX::QuoteAckStatus *) x));
 }
 static void *_p_FIX__AvgPrxPrecisionTo_p_FIX__IntField(void *x) {
     return (void *)((FIX::IntField *)  ((FIX::AvgPrxPrecision *) x));
-}
-static void *_p_FIX__AllocSharesTo_p_FIX__IntField(void *x) {
-    return (void *)((FIX::IntField *)  ((FIX::AllocShares *) x));
 }
 static void *_p_FIX__TotQuoteEntriesTo_p_FIX__IntField(void *x) {
     return (void *)((FIX::IntField *)  ((FIX::TotQuoteEntries *) x));
@@ -53702,11 +36468,8 @@ static void *_p_FIX__TotQuoteEntriesTo_p_FIX__IntField(void *x) {
 static void *_p_FIX__TotalNumSecurityTypesTo_p_FIX__IntField(void *x) {
     return (void *)((FIX::IntField *)  ((FIX::TotalNumSecurityTypes *) x));
 }
-static void *_p_FIX__PutOrCallTo_p_FIX__IntField(void *x) {
-    return (void *)((FIX::IntField *)  ((FIX::PutOrCall *) x));
-}
-static void *_p_FIX__UnderlyingPutOrCallTo_p_FIX__IntField(void *x) {
-    return (void *)((FIX::IntField *)  ((FIX::UnderlyingPutOrCall *) x));
+static void *_p_FIX__LinesOfTextTo_p_FIX__IntField(void *x) {
+    return (void *)((FIX::IntField *)  ((FIX::LinesOfText *) x));
 }
 static void *_p_FIX__TotalNumSecuritiesTo_p_FIX__IntField(void *x) {
     return (void *)((FIX::IntField *)  ((FIX::TotalNumSecurities *) x));
@@ -53735,20 +36498,23 @@ static void *_p_FIX__TagNotDefinedForMessageTo_p_FIX__Exception(void *x) {
 static void *_p_FIX__InvalidMessageTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::InvalidMessage *) x));
 }
-static void *_p_FIX__DuplicateFieldNumberTo_p_FIX__Exception(void *x) {
-    return (void *)((FIX::Exception *)  ((FIX::DuplicateFieldNumber *) x));
-}
 static void *_p_FIX__RuntimeErrorTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::RuntimeError *) x));
 }
 static void *_p_FIX__MessageParseErrorTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::MessageParseError *) x));
 }
+static void *_p_FIX__DuplicateFieldNumberTo_p_FIX__Exception(void *x) {
+    return (void *)((FIX::Exception *)  ((FIX::DuplicateFieldNumber *) x));
+}
 static void *_p_FIX__DoNotSendTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::DoNotSend *) x));
 }
 static void *_p_FIX__FieldNotFoundTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::FieldNotFound *) x));
+}
+static void *_p_FIX__DataDictionaryNotFoundTo_p_FIX__Exception(void *x) {
+    return (void *)((FIX::Exception *)  ((FIX::DataDictionaryNotFound *) x));
 }
 static void *_p_FIX__SessionNotFoundTo_p_FIX__Exception(void *x) {
     return (void *)((FIX::Exception *)  ((FIX::SessionNotFound *) x));
@@ -53807,9 +36573,6 @@ static void *_p_FIX__SocketCloseFailedTo_p_FIX__SocketException(void *x) {
 static void *_p_FIX__Rule80ATo_p_FIX__CharField(void *x) {
     return (void *)((FIX::CharField *)  ((FIX::Rule80A *) x));
 }
-static void *_p_FIX__BenchmarkTo_p_FIX__CharField(void *x) {
-    return (void *)((FIX::CharField *)  ((FIX::Benchmark *) x));
-}
 static void *_p_FIX__SettlmntTypTo_p_FIX__CharField(void *x) {
     return (void *)((FIX::CharField *)  ((FIX::SettlmntTyp *) x));
 }
@@ -53819,23 +36582,11 @@ static void *_p_FIX__LegSettlmntTypTo_p_FIX__CharField(void *x) {
 static void *_p_FIX__OpenCloseTo_p_FIX__CharField(void *x) {
     return (void *)((FIX::CharField *)  ((FIX::OpenClose *) x));
 }
-static void *_p_FIX__CxlTypeTo_p_FIX__CharField(void *x) {
-    return (void *)((FIX::CharField *)  ((FIX::CxlType *) x));
-}
-static void *_p_FIX__ExecTransTypeTo_p_FIX__CharField(void *x) {
-    return (void *)((FIX::CharField *)  ((FIX::ExecTransType *) x));
-}
-static void *_p_FIX__DlvyInstTo_p_FIX__CharField(void *x) {
-    return (void *)((FIX::CharField *)  ((FIX::DlvyInst *) x));
-}
 static void *_p_FIX__IOIOthSvcTo_p_FIX__CharField(void *x) {
     return (void *)((FIX::CharField *)  ((FIX::IOIOthSvc *) x));
 }
 static void *_p_FIX__TradeTypeTo_p_FIX__CharField(void *x) {
     return (void *)((FIX::CharField *)  ((FIX::TradeType *) x));
-}
-static void *_p_FIX__TotalVolumeTradedTimeTo_p_FIX__UtcTimeOnlyField(void *x) {
-    return (void *)((FIX::UtcTimeOnlyField *)  ((FIX::TotalVolumeTradedTime *) x));
 }
 static void *_p_FIX__QuoteAckStatusTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::QuoteAckStatus *) x));
@@ -53849,15 +36600,6 @@ static void *_p_FIX__DoubleFieldTo_p_FIX__FieldBase(void *x) {
 static void *_p_FIX__UtcDateFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::UtcDateField *) x));
 }
-static void *_p_FIX__SecuritySettlAgentNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentName *) x));
-}
-static void *_p_FIX__CashSettlAgentNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentName *) x));
-}
-static void *_p_FIX__TotalVolumeTradedDateTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::UtcDateField *) ((FIX::TotalVolumeTradedDate *) x));
-}
 static void *_p_FIX__CheckSumFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::CheckSumField *) x));
 }
@@ -53865,22 +36607,13 @@ static void *_p_FIX__TotalNumSecurityTypesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::TotalNumSecurityTypes *) x));
 }
 static void *_p_FIX__AllocSharesTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::AllocShares *) x));
+    return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::AllocShares *) x));
 }
 static void *_p_FIX__IOISharesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::IOIShares *) x));
 }
-static void *_p_FIX__SecuritySettlAgentAcctNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentAcctName *) x));
-}
-static void *_p_FIX__SecuritySettlAgentContactNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentContactName *) x));
-}
-static void *_p_FIX__CashSettlAgentAcctNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentAcctName *) x));
-}
-static void *_p_FIX__CashSettlAgentContactNameTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentContactName *) x));
+static void *_p_FIX__FutSettDate2To_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::FutSettDate2 *) x));
 }
 static void *_p_FIX__RelatdSymTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::RelatdSym *) x));
@@ -53888,17 +36621,14 @@ static void *_p_FIX__RelatdSymTo_p_FIX__FieldBase(void *x) {
 static void *_p_FIX__FutSettDateTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::FutSettDate *) x));
 }
-static void *_p_FIX__StringFieldTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *)  ((FIX::StringField *) x));
-}
-static void *_p_FIX__FutSettDate2To_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::FutSettDate2 *) x));
-}
 static void *_p_FIX__PegDifferenceTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::PegDifference *) x));
 }
 static void *_p_FIX__RegistDetlsTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::RegistDetls *) x));
+}
+static void *_p_FIX__StringFieldTo_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *)  ((FIX::StringField *) x));
 }
 static void *_p_FIX__LegFutSettDateTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::LegFutSettDate *) x));
@@ -53906,95 +36636,47 @@ static void *_p_FIX__LegFutSettDateTo_p_FIX__FieldBase(void *x) {
 static void *_p_FIX__IntFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::IntField *) x));
 }
-static void *_p_FIX__SettlLocationTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SettlLocation *) x));
-}
 static void *_p_FIX__CardIssNoTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CardIssNo *) x));
-}
-static void *_p_FIX__ClearingAccountTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::ClearingAccount *) x));
-}
-static void *_p_FIX__PutOrCallTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::PutOrCall *) x));
 }
 static void *_p_FIX__TotQuoteEntriesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::TotQuoteEntries *) x));
 }
-static void *_p_FIX__UnderlyingPutOrCallTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::UnderlyingPutOrCall *) x));
-}
 static void *_p_FIX__IOIOthSvcTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::IOIOthSvc *) x));
-}
-static void *_p_FIX__TotalVolumeTradedTimeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::UtcTimeOnlyField *) ((FIX::TotalVolumeTradedTime *) x));
-}
-static void *_p_FIX__IDSourceTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::IDSource *) x));
 }
 static void *_p_FIX__UnderlyingIDSourceTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::UnderlyingIDSource *) x));
 }
-static void *_p_FIX__DlvyInstTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::DlvyInst *) x));
-}
-static void *_p_FIX__ClearingFirmTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::ClearingFirm *) x));
+static void *_p_FIX__IDSourceTo_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::IDSource *) x));
 }
 static void *_p_FIX__SpreadToBenchmarkTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::SpreadToBenchmark *) x));
 }
-static void *_p_FIX__BenchmarkTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::Benchmark *) x));
-}
-static void *_p_FIX__SettlDepositoryCodeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SettlDepositoryCode *) x));
-}
 static void *_p_FIX__BoolFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::BoolField *) x));
-}
-static void *_p_FIX__BrokerOfCreditTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::BrokerOfCredit *) x));
-}
-static void *_p_FIX__OnBehalfOfSendingTimeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::UtcTimeStampField *) ((FIX::OnBehalfOfSendingTime *) x));
 }
 static void *_p_FIX__OpenCloseTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::OpenClose *) x));
 }
-static void *_p_FIX__AvgPrxPrecisionTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::AvgPrxPrecision *) x));
-}
-static void *_p_FIX__SecuritySettlAgentContactPhoneTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentContactPhone *) x));
-}
-static void *_p_FIX__CashSettlAgentContactPhoneTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentContactPhone *) x));
-}
 static void *_p_FIX__DiscretionOffsetTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::DiscretionOffset *) x));
 }
-static void *_p_FIX__ExecTransTypeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::ExecTransType *) x));
+static void *_p_FIX__AvgPrxPrecisionTo_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::AvgPrxPrecision *) x));
 }
 static void *_p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::UtcTimeStampField *) x));
 }
+static void *_p_FIX__LinesOfTextTo_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::LinesOfText *) x));
+}
 static void *_p_FIX__CharFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::CharField *) x));
 }
-static void *_p_FIX__SettlBrkrCodeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SettlBrkrCode *) x));
-}
-static void *_p_FIX__ExecBrokerTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::ExecBroker *) x));
-}
-static void *_p_FIX__CustomerOrFirmTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::CustomerOrFirm *) x));
-}
-static void *_p_FIX__RatioQtyTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::RatioQty *) x));
+static void *_p_FIX__TradeTypeTo_p_FIX__FieldBase(void *x) {
+    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::TradeType *) x));
 }
 static void *_p_FIX__SharesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::Shares *) x));
@@ -54002,44 +36684,14 @@ static void *_p_FIX__SharesTo_p_FIX__FieldBase(void *x) {
 static void *_p_FIX__LastSharesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::DoubleField *) ((FIX::LastShares *) x));
 }
-static void *_p_FIX__TradeTypeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::TradeType *) x));
-}
-static void *_p_FIX__SecuritySettlAgentAcctNumTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentAcctNum *) x));
-}
 static void *_p_FIX__Rule80ATo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::Rule80A *) x));
-}
-static void *_p_FIX__CxlTypeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::CxlType *) x));
 }
 static void *_p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *)  ((FIX::UtcTimeOnlyField *) x));
 }
-static void *_p_FIX__CashSettlAgentAcctNumTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentAcctNum *) x));
-}
-static void *_p_FIX__SettlInstCodeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SettlInstCode *) x));
-}
-static void *_p_FIX__SecuritySettlAgentCodeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::SecuritySettlAgentCode *) x));
-}
-static void *_p_FIX__CashSettlAgentCodeTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::CashSettlAgentCode *) x));
-}
 static void *_p_FIX__TotalNumSecuritiesTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::IntField *) ((FIX::TotalNumSecurities *) x));
-}
-static void *_p_FIX__MaturityDayTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::MaturityDay *) x));
-}
-static void *_p_FIX__UnderlyingMaturityDayTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::UnderlyingMaturityDay *) x));
-}
-static void *_p_FIX__ClientIDTo_p_FIX__FieldBase(void *x) {
-    return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::ClientID *) x));
 }
 static void *_p_FIX__SettlmntTypTo_p_FIX__FieldBase(void *x) {
     return (void *)((FIX::FieldBase *) (FIX::CharField *) ((FIX::SettlmntTyp *) x));
@@ -54059,60 +36711,40 @@ static void *_p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory(void *x) {
 static void *_p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory(void *x) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::FileStoreFactory *) x));
 }
-static void *_p_FIX__OnBehalfOfSendingTimeTo_p_FIX__UtcTimeStampField(void *x) {
-    return (void *)((FIX::UtcTimeStampField *)  ((FIX::OnBehalfOfSendingTime *) x));
-}
+static swig_type_info _swigt__p_ApplVerID = {"_p_ApplVerID", "ApplVerID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Application = {"_p_Application", "Application *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_BeginString = {"_p_BeginString", "BeginString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DOMDocumentPtr = {"_p_DOMDocumentPtr", "DOMDocumentPtr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Data = {"_p_Data", "Data *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DataDictionary = {"_p_DataDictionary", "DataDictionary *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_DataDictionaryProvider = {"_p_DataDictionaryProvider", "DataDictionaryProvider *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Dictionaries = {"_p_Dictionaries", "Dictionaries *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DoubleField = {"_p_DoubleField", "DoubleField *|PercentageField *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIELD__Field = {"_p_FIELD__Field", "FIELD::Field *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_CHAR = {"_p_FIX_CHAR", "FIX_CHAR *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX_DAYOFMONTH = {"_p_FIX_DAYOFMONTH", "FIX_DAYOFMONTH *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_INT = {"_p_FIX_INT", "FIX_INT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_LOCALMKTDATE = {"_p_FIX_LOCALMKTDATE", "FIX_LOCALMKTDATE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_NUMINGROUP = {"_p_FIX_NUMINGROUP", "FIX_NUMINGROUP *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_PRICEOFFSET = {"_p_FIX_PRICEOFFSET", "FIX_PRICEOFFSET *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_QTY = {"_p_FIX_QTY", "FIX_QTY *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_STRING = {"_p_FIX_STRING", "FIX_STRING *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX_UTCDATE = {"_p_FIX_UTCDATE", "FIX_UTCDATE *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX_UTCTIMEONLY = {"_p_FIX_UTCTIMEONLY", "FIX_UTCTIMEONLY *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX_UTCTIMESTAMP = {"_p_FIX_UTCTIMESTAMP", "FIX_UTCTIMESTAMP *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Acceptor = {"_p_FIX__Acceptor", "FIX::Acceptor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__AllocShares = {"_p_FIX__AllocShares", "FIX::AllocShares *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Application = {"_p_FIX__Application", "FIX::Application *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__AvgPrxPrecision = {"_p_FIX__AvgPrxPrecision", "FIX::AvgPrxPrecision *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__Benchmark = {"_p_FIX__Benchmark", "FIX::Benchmark *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__BoolField = {"_p_FIX__BoolField", "FIX::BoolField *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__BrokerOfCredit = {"_p_FIX__BrokerOfCredit", "FIX::BrokerOfCredit *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CardIssNo = {"_p_FIX__CardIssNo", "FIX::CardIssNo *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentAcctName = {"_p_FIX__CashSettlAgentAcctName", "FIX::CashSettlAgentAcctName *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentAcctNum = {"_p_FIX__CashSettlAgentAcctNum", "FIX::CashSettlAgentAcctNum *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentCode = {"_p_FIX__CashSettlAgentCode", "FIX::CashSettlAgentCode *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentContactName = {"_p_FIX__CashSettlAgentContactName", "FIX::CashSettlAgentContactName *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentContactPhone = {"_p_FIX__CashSettlAgentContactPhone", "FIX::CashSettlAgentContactPhone *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CashSettlAgentName = {"_p_FIX__CashSettlAgentName", "FIX::CashSettlAgentName *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CharField = {"_p_FIX__CharField", "FIX::CharField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CheckSumField = {"_p_FIX__CheckSumField", "FIX::CheckSumField *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__ClearingAccount = {"_p_FIX__ClearingAccount", "FIX::ClearingAccount *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__ClearingFirm = {"_p_FIX__ClearingFirm", "FIX::ClearingFirm *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__ClientID = {"_p_FIX__ClientID", "FIX::ClientID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__ConfigError = {"_p_FIX__ConfigError", "FIX::ConfigError *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CustomerOrFirm = {"_p_FIX__CustomerOrFirm", "FIX::CustomerOrFirm *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__CxlType = {"_p_FIX__CxlType", "FIX::CxlType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DataDictionary = {"_p_FIX__DataDictionary", "FIX::DataDictionary *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__DataDictionaryNotFound = {"_p_FIX__DataDictionaryNotFound", "FIX::DataDictionaryNotFound *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Dictionary = {"_p_FIX__Dictionary", "FIX::Dictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Dictionary__Data__const_iterator = {"_p_FIX__Dictionary__Data__const_iterator", "FIX::Dictionary::Data::const_iterator *|FIX::Dictionary::iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DiscretionOffset = {"_p_FIX__DiscretionOffset", "FIX::DiscretionOffset *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__DlvyInst = {"_p_FIX__DlvyInst", "FIX::DlvyInst *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoNotSend = {"_p_FIX__DoNotSend", "FIX::DoNotSend *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoubleField = {"_p_FIX__DoubleField", "FIX::DoubleField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DuplicateFieldNumber = {"_p_FIX__DuplicateFieldNumber", "FIX::DuplicateFieldNumber *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Exception = {"_p_FIX__Exception", "FIX::Exception *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__ExecBroker = {"_p_FIX__ExecBroker", "FIX::ExecBroker *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__ExecTransType = {"_p_FIX__ExecTransType", "FIX::ExecTransType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__FieldBase = {"_p_FIX__FieldBase", "FIX::FieldBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__FieldConvertError = {"_p_FIX__FieldConvertError", "FIX::FieldConvertError *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__FieldMap = {"_p_FIX__FieldMap", "FIX::FieldMap *", 0, 0, (void*)0, 0};
@@ -54141,9 +36773,9 @@ static swig_type_info _swigt__p_FIX__InvalidTagNumber = {"_p_FIX__InvalidTagNumb
 static swig_type_info _swigt__p_FIX__LastShares = {"_p_FIX__LastShares", "FIX::LastShares *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__LegFutSettDate = {"_p_FIX__LegFutSettDate", "FIX::LegFutSettDate *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__LegSettlmntTyp = {"_p_FIX__LegSettlmntTyp", "FIX::LegSettlmntTyp *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__LinesOfText = {"_p_FIX__LinesOfText", "FIX::LinesOfText *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Log = {"_p_FIX__Log", "FIX::Log *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__LogFactory = {"_p_FIX__LogFactory", "FIX::LogFactory *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__MaturityDay = {"_p_FIX__MaturityDay", "FIX::MaturityDay *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__MemoryStore = {"_p_FIX__MemoryStore", "FIX::MemoryStore *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__MemoryStoreFactory = {"_p_FIX__MemoryStoreFactory", "FIX::MemoryStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Message = {"_p_FIX__Message", "FIX::Message *", 0, 0, (void*)0, 0};
@@ -54154,13 +36786,10 @@ static swig_type_info _swigt__p_FIX__MessageStoreFactory = {"_p_FIX__MessageStor
 static swig_type_info _swigt__p_FIX__MessageStoreFactoryExceptionWrapper = {"_p_FIX__MessageStoreFactoryExceptionWrapper", "FIX::MessageStoreFactoryExceptionWrapper *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NoTagValue = {"_p_FIX__NoTagValue", "FIX::NoTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullApplication = {"_p_FIX__NullApplication", "FIX::NullApplication *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__OnBehalfOfSendingTime = {"_p_FIX__OnBehalfOfSendingTime", "FIX::OnBehalfOfSendingTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__OpenClose = {"_p_FIX__OpenClose", "FIX::OpenClose *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__OpenCloseSettleFlag = {"_p_FIX__OpenCloseSettleFlag", "FIX::OpenCloseSettleFlag *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__PegDifference = {"_p_FIX__PegDifference", "FIX::PegDifference *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__PutOrCall = {"_p_FIX__PutOrCall", "FIX::PutOrCall *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__QuoteAckStatus = {"_p_FIX__QuoteAckStatus", "FIX::QuoteAckStatus *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__RatioQty = {"_p_FIX__RatioQty", "FIX::RatioQty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RegistDetls = {"_p_FIX__RegistDetls", "FIX::RegistDetls *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RejectLogon = {"_p_FIX__RejectLogon", "FIX::RejectLogon *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RelatdSym = {"_p_FIX__RelatdSym", "FIX::RelatdSym *", 0, 0, (void*)0, 0};
@@ -54171,20 +36800,10 @@ static swig_type_info _swigt__p_FIX__Rule80A = {"_p_FIX__Rule80A", "FIX::Rule80A
 static swig_type_info _swigt__p_FIX__RuntimeError = {"_p_FIX__RuntimeError", "FIX::RuntimeError *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__ScreenLog = {"_p_FIX__ScreenLog", "FIX::ScreenLog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__ScreenLogFactory = {"_p_FIX__ScreenLogFactory", "FIX::ScreenLogFactory *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentAcctName = {"_p_FIX__SecuritySettlAgentAcctName", "FIX::SecuritySettlAgentAcctName *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentAcctNum = {"_p_FIX__SecuritySettlAgentAcctNum", "FIX::SecuritySettlAgentAcctNum *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentCode = {"_p_FIX__SecuritySettlAgentCode", "FIX::SecuritySettlAgentCode *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentContactName = {"_p_FIX__SecuritySettlAgentContactName", "FIX::SecuritySettlAgentContactName *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentContactPhone = {"_p_FIX__SecuritySettlAgentContactPhone", "FIX::SecuritySettlAgentContactPhone *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SecuritySettlAgentName = {"_p_FIX__SecuritySettlAgentName", "FIX::SecuritySettlAgentName *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Session = {"_p_FIX__Session", "FIX::Session *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__SessionID = {"_p_FIX__SessionID", "FIX::SessionID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__SessionNotFound = {"_p_FIX__SessionNotFound", "FIX::SessionNotFound *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__SessionSettings = {"_p_FIX__SessionSettings", "FIX::SessionSettings *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SettlBrkrCode = {"_p_FIX__SettlBrkrCode", "FIX::SettlBrkrCode *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SettlDepositoryCode = {"_p_FIX__SettlDepositoryCode", "FIX::SettlDepositoryCode *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SettlInstCode = {"_p_FIX__SettlInstCode", "FIX::SettlInstCode *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__SettlLocation = {"_p_FIX__SettlLocation", "FIX::SettlLocation *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__SettlmntTyp = {"_p_FIX__SettlmntTyp", "FIX::SettlmntTyp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Shares = {"_p_FIX__Shares", "FIX::Shares *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__SocketAcceptor = {"_p_FIX__SocketAcceptor", "FIX::SocketAcceptor *", 0, 0, (void*)0, 0};
@@ -54201,15 +36820,11 @@ static swig_type_info _swigt__p_FIX__TagOutOfOrder = {"_p_FIX__TagOutOfOrder", "
 static swig_type_info _swigt__p_FIX__TotQuoteEntries = {"_p_FIX__TotQuoteEntries", "FIX::TotQuoteEntries *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__TotalNumSecurities = {"_p_FIX__TotalNumSecurities", "FIX::TotalNumSecurities *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__TotalNumSecurityTypes = {"_p_FIX__TotalNumSecurityTypes", "FIX::TotalNumSecurityTypes *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__TotalVolumeTradedDate = {"_p_FIX__TotalVolumeTradedDate", "FIX::TotalVolumeTradedDate *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__TotalVolumeTradedTime = {"_p_FIX__TotalVolumeTradedTime", "FIX::TotalVolumeTradedTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__TradeType = {"_p_FIX__TradeType", "FIX::TradeType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnderlyingIDSource = {"_p_FIX__UnderlyingIDSource", "FIX::UnderlyingIDSource *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__UnderlyingMaturityDay = {"_p_FIX__UnderlyingMaturityDay", "FIX::UnderlyingMaturityDay *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__UnderlyingPutOrCall = {"_p_FIX__UnderlyingPutOrCall", "FIX::UnderlyingPutOrCall *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedMessageType = {"_p_FIX__UnsupportedMessageType", "FIX::UnsupportedMessageType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedVersion = {"_p_FIX__UnsupportedVersion", "FIX::UnsupportedVersion *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__UtcDateField = {"_p_FIX__UtcDateField", "FIX::UtcDateField *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__UtcDateField = {"_p_FIX__UtcDateField", "FIX::UtcDateField *|FIX::UtcDateOnlyField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UtcTimeOnlyField = {"_p_FIX__UtcTimeOnlyField", "FIX::UtcTimeOnlyField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UtcTimeStampField = {"_p_FIX__UtcTimeStampField", "FIX::UtcTimeStampField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Fields = {"_p_Fields", "Fields *", 0, 0, (void*)0, 0};
@@ -54253,57 +36868,40 @@ static swig_type_info _swigt__p_std__string__size_type = {"_p_std__string__size_
 static swig_type_info _swigt__p_std__vectorTstd__string_t = {"_p_std__vectorTstd__string_t", "std::vector<std::string > *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_ApplVerID,
   &_swigt__p_Application,
   &_swigt__p_BeginString,
   &_swigt__p_DOMDocumentPtr,
   &_swigt__p_Data,
   &_swigt__p_DataDictionary,
+  &_swigt__p_DataDictionaryProvider,
   &_swigt__p_Dictionaries,
   &_swigt__p_DoubleField,
-  &_swigt__p_FIELD__Field,
   &_swigt__p_FIX_CHAR,
-  &_swigt__p_FIX_DAYOFMONTH,
   &_swigt__p_FIX_INT,
   &_swigt__p_FIX_LOCALMKTDATE,
+  &_swigt__p_FIX_NUMINGROUP,
   &_swigt__p_FIX_PRICEOFFSET,
   &_swigt__p_FIX_QTY,
   &_swigt__p_FIX_STRING,
-  &_swigt__p_FIX_UTCDATE,
-  &_swigt__p_FIX_UTCTIMEONLY,
-  &_swigt__p_FIX_UTCTIMESTAMP,
   &_swigt__p_FIX__Acceptor,
   &_swigt__p_FIX__AllocShares,
   &_swigt__p_FIX__Application,
   &_swigt__p_FIX__AvgPrxPrecision,
-  &_swigt__p_FIX__Benchmark,
   &_swigt__p_FIX__BoolField,
-  &_swigt__p_FIX__BrokerOfCredit,
   &_swigt__p_FIX__CardIssNo,
-  &_swigt__p_FIX__CashSettlAgentAcctName,
-  &_swigt__p_FIX__CashSettlAgentAcctNum,
-  &_swigt__p_FIX__CashSettlAgentCode,
-  &_swigt__p_FIX__CashSettlAgentContactName,
-  &_swigt__p_FIX__CashSettlAgentContactPhone,
-  &_swigt__p_FIX__CashSettlAgentName,
   &_swigt__p_FIX__CharField,
   &_swigt__p_FIX__CheckSumField,
-  &_swigt__p_FIX__ClearingAccount,
-  &_swigt__p_FIX__ClearingFirm,
-  &_swigt__p_FIX__ClientID,
   &_swigt__p_FIX__ConfigError,
-  &_swigt__p_FIX__CustomerOrFirm,
-  &_swigt__p_FIX__CxlType,
   &_swigt__p_FIX__DataDictionary,
+  &_swigt__p_FIX__DataDictionaryNotFound,
   &_swigt__p_FIX__Dictionary,
   &_swigt__p_FIX__Dictionary__Data__const_iterator,
   &_swigt__p_FIX__DiscretionOffset,
-  &_swigt__p_FIX__DlvyInst,
   &_swigt__p_FIX__DoNotSend,
   &_swigt__p_FIX__DoubleField,
   &_swigt__p_FIX__DuplicateFieldNumber,
   &_swigt__p_FIX__Exception,
-  &_swigt__p_FIX__ExecBroker,
-  &_swigt__p_FIX__ExecTransType,
   &_swigt__p_FIX__FieldBase,
   &_swigt__p_FIX__FieldConvertError,
   &_swigt__p_FIX__FieldMap,
@@ -54332,9 +36930,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__LastShares,
   &_swigt__p_FIX__LegFutSettDate,
   &_swigt__p_FIX__LegSettlmntTyp,
+  &_swigt__p_FIX__LinesOfText,
   &_swigt__p_FIX__Log,
   &_swigt__p_FIX__LogFactory,
-  &_swigt__p_FIX__MaturityDay,
   &_swigt__p_FIX__MemoryStore,
   &_swigt__p_FIX__MemoryStoreFactory,
   &_swigt__p_FIX__Message,
@@ -54345,13 +36943,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__MessageStoreFactoryExceptionWrapper,
   &_swigt__p_FIX__NoTagValue,
   &_swigt__p_FIX__NullApplication,
-  &_swigt__p_FIX__OnBehalfOfSendingTime,
   &_swigt__p_FIX__OpenClose,
   &_swigt__p_FIX__OpenCloseSettleFlag,
   &_swigt__p_FIX__PegDifference,
-  &_swigt__p_FIX__PutOrCall,
   &_swigt__p_FIX__QuoteAckStatus,
-  &_swigt__p_FIX__RatioQty,
   &_swigt__p_FIX__RegistDetls,
   &_swigt__p_FIX__RejectLogon,
   &_swigt__p_FIX__RelatdSym,
@@ -54362,20 +36957,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__RuntimeError,
   &_swigt__p_FIX__ScreenLog,
   &_swigt__p_FIX__ScreenLogFactory,
-  &_swigt__p_FIX__SecuritySettlAgentAcctName,
-  &_swigt__p_FIX__SecuritySettlAgentAcctNum,
-  &_swigt__p_FIX__SecuritySettlAgentCode,
-  &_swigt__p_FIX__SecuritySettlAgentContactName,
-  &_swigt__p_FIX__SecuritySettlAgentContactPhone,
-  &_swigt__p_FIX__SecuritySettlAgentName,
   &_swigt__p_FIX__Session,
   &_swigt__p_FIX__SessionID,
   &_swigt__p_FIX__SessionNotFound,
   &_swigt__p_FIX__SessionSettings,
-  &_swigt__p_FIX__SettlBrkrCode,
-  &_swigt__p_FIX__SettlDepositoryCode,
-  &_swigt__p_FIX__SettlInstCode,
-  &_swigt__p_FIX__SettlLocation,
   &_swigt__p_FIX__SettlmntTyp,
   &_swigt__p_FIX__Shares,
   &_swigt__p_FIX__SocketAcceptor,
@@ -54392,12 +36977,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__TotQuoteEntries,
   &_swigt__p_FIX__TotalNumSecurities,
   &_swigt__p_FIX__TotalNumSecurityTypes,
-  &_swigt__p_FIX__TotalVolumeTradedDate,
-  &_swigt__p_FIX__TotalVolumeTradedTime,
   &_swigt__p_FIX__TradeType,
   &_swigt__p_FIX__UnderlyingIDSource,
-  &_swigt__p_FIX__UnderlyingMaturityDay,
-  &_swigt__p_FIX__UnderlyingPutOrCall,
   &_swigt__p_FIX__UnsupportedMessageType,
   &_swigt__p_FIX__UnsupportedVersion,
   &_swigt__p_FIX__UtcDateField,
@@ -54444,58 +37025,41 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorTstd__string_t,
 };
 
+static swig_cast_info _swigc__p_ApplVerID[] = {  {&_swigt__p_ApplVerID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Application[] = {  {&_swigt__p_Application, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_BeginString[] = {  {&_swigt__p_BeginString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DOMDocumentPtr[] = {  {&_swigt__p_DOMDocumentPtr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Data[] = {  {&_swigt__p_Data, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DataDictionary[] = {  {&_swigt__p_DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_DataDictionaryProvider[] = {  {&_swigt__p_DataDictionaryProvider, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dictionaries[] = {  {&_swigt__p_Dictionaries, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DoubleField[] = {  {&_swigt__p_DoubleField, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIELD__Field[] = {  {&_swigt__p_FIELD__Field, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_CHAR[] = {  {&_swigt__p_FIX_CHAR, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX_DAYOFMONTH[] = {  {&_swigt__p_FIX_DAYOFMONTH, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_INT[] = {  {&_swigt__p_FIX_INT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_LOCALMKTDATE[] = {  {&_swigt__p_FIX_LOCALMKTDATE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_NUMINGROUP[] = {  {&_swigt__p_FIX_NUMINGROUP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_PRICEOFFSET[] = {  {&_swigt__p_FIX_PRICEOFFSET, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_QTY[] = {  {&_swigt__p_FIX_QTY, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_STRING[] = {  {&_swigt__p_FIX_STRING, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX_UTCDATE[] = {  {&_swigt__p_FIX_UTCDATE, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX_UTCTIMEONLY[] = {  {&_swigt__p_FIX_UTCTIMEONLY, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX_UTCTIMESTAMP[] = {  {&_swigt__p_FIX_UTCTIMESTAMP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Acceptor[] = {  {&_swigt__p_FIX__Acceptor, 0, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Acceptor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__AllocShares[] = {  {&_swigt__p_FIX__AllocShares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Application[] = {  {&_swigt__p_FIX__Application, 0, 0, 0},  {&_swigt__p_FIX__SynchronizedApplication, _p_FIX__SynchronizedApplicationTo_p_FIX__Application, 0, 0},  {&_swigt__p_FIX__NullApplication, _p_FIX__NullApplicationTo_p_FIX__Application, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__AvgPrxPrecision[] = {  {&_swigt__p_FIX__AvgPrxPrecision, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Benchmark[] = {  {&_swigt__p_FIX__Benchmark, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__BoolField[] = {  {&_swigt__p_FIX__BoolField, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__BrokerOfCredit[] = {  {&_swigt__p_FIX__BrokerOfCredit, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__CardIssNo[] = {  {&_swigt__p_FIX__CardIssNo, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentAcctName[] = {  {&_swigt__p_FIX__CashSettlAgentAcctName, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentAcctNum[] = {  {&_swigt__p_FIX__CashSettlAgentAcctNum, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentCode[] = {  {&_swigt__p_FIX__CashSettlAgentCode, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentContactName[] = {  {&_swigt__p_FIX__CashSettlAgentContactName, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentContactPhone[] = {  {&_swigt__p_FIX__CashSettlAgentContactPhone, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CashSettlAgentName[] = {  {&_swigt__p_FIX__CashSettlAgentName, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CharField[] = {  {&_swigt__p_FIX__CharField, 0, 0, 0},  {&_swigt__p_FIX__Rule80A, _p_FIX__Rule80ATo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__Benchmark, _p_FIX__BenchmarkTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__SettlmntTyp, _p_FIX__SettlmntTypTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__LegSettlmntTyp, _p_FIX__LegSettlmntTypTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__OpenClose, _p_FIX__OpenCloseTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__CxlType, _p_FIX__CxlTypeTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__ExecTransType, _p_FIX__ExecTransTypeTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__DlvyInst, _p_FIX__DlvyInstTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__IOIOthSvc, _p_FIX__IOIOthSvcTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__TradeType, _p_FIX__TradeTypeTo_p_FIX__CharField, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__CharField[] = {  {&_swigt__p_FIX__CharField, 0, 0, 0},  {&_swigt__p_FIX__Rule80A, _p_FIX__Rule80ATo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__SettlmntTyp, _p_FIX__SettlmntTypTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__LegSettlmntTyp, _p_FIX__LegSettlmntTypTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__OpenClose, _p_FIX__OpenCloseTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__IOIOthSvc, _p_FIX__IOIOthSvcTo_p_FIX__CharField, 0, 0},  {&_swigt__p_FIX__TradeType, _p_FIX__TradeTypeTo_p_FIX__CharField, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__CheckSumField[] = {  {&_swigt__p_FIX__CheckSumField, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__ClearingAccount[] = {  {&_swigt__p_FIX__ClearingAccount, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__ClearingFirm[] = {  {&_swigt__p_FIX__ClearingFirm, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__ClientID[] = {  {&_swigt__p_FIX__ClientID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__ConfigError[] = {  {&_swigt__p_FIX__ConfigError, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CustomerOrFirm[] = {  {&_swigt__p_FIX__CustomerOrFirm, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__CxlType[] = {  {&_swigt__p_FIX__CxlType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DataDictionary[] = {  {&_swigt__p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DataDictionaryNotFound[] = {  {&_swigt__p_FIX__DataDictionaryNotFound, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Dictionary[] = {  {&_swigt__p_FIX__Dictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Dictionary__Data__const_iterator[] = {  {&_swigt__p_FIX__Dictionary__Data__const_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DiscretionOffset[] = {  {&_swigt__p_FIX__DiscretionOffset, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__DlvyInst[] = {  {&_swigt__p_FIX__DlvyInst, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__DoubleField[] = {  {&_swigt__p_FIX__SpreadToBenchmark, _p_FIX__SpreadToBenchmarkTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__RatioQty, _p_FIX__RatioQtyTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__DiscretionOffset, _p_FIX__DiscretionOffsetTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__DoubleField, 0, 0, 0},  {&_swigt__p_FIX__LastShares, _p_FIX__LastSharesTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__Shares, _p_FIX__SharesTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__PegDifference, _p_FIX__PegDifferenceTo_p_FIX__DoubleField, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DoubleField[] = {  {&_swigt__p_FIX__SpreadToBenchmark, _p_FIX__SpreadToBenchmarkTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__DiscretionOffset, _p_FIX__DiscretionOffsetTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__DoubleField, 0, 0, 0},  {&_swigt__p_FIX__LastShares, _p_FIX__LastSharesTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__Shares, _p_FIX__SharesTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__AllocShares, _p_FIX__AllocSharesTo_p_FIX__DoubleField, 0, 0},  {&_swigt__p_FIX__PegDifference, _p_FIX__PegDifferenceTo_p_FIX__DoubleField, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DuplicateFieldNumber[] = {  {&_swigt__p_FIX__DuplicateFieldNumber, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Exception[] = {  {&_swigt__p_FIX__RequiredTagMissing, _p_FIX__RequiredTagMissingTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketSendFailed, _p_FIX__SocketSendFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketRecvFailed, _p_FIX__SocketRecvFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidTagNumber, _p_FIX__InvalidTagNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RejectLogon, _p_FIX__RejectLogonTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectDataFormat, _p_FIX__IncorrectDataFormatTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagNotDefinedForMessage, _p_FIX__TagNotDefinedForMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessage, _p_FIX__InvalidMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DoNotSend, _p_FIX__DoNotSendTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DuplicateFieldNumber, _p_FIX__DuplicateFieldNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RuntimeError, _p_FIX__RuntimeErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__MessageParseError, _p_FIX__MessageParseErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldNotFound, _p_FIX__FieldNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SessionNotFound, _p_FIX__SessionNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__Exception, 0, 0, 0},  {&_swigt__p_FIX__IOException, _p_FIX__IOExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketException, _p_FIX__SocketExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__ConfigError, _p_FIX__ConfigErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessageType, _p_FIX__InvalidMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedMessageType, _p_FIX__UnsupportedMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedVersion, _p_FIX__UnsupportedVersionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectTagValue, _p_FIX__IncorrectTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__NoTagValue, _p_FIX__NoTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketCloseFailed, _p_FIX__SocketCloseFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagOutOfOrder, _p_FIX__TagOutOfOrderTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatedTag, _p_FIX__RepeatedTagTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldConvertError, _p_FIX__FieldConvertErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectMessageStructure, _p_FIX__IncorrectMessageStructureTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatingGroupCountMismatch, _p_FIX__RepeatingGroupCountMismatchTo_p_FIX__Exception, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__ExecBroker[] = {  {&_swigt__p_FIX__ExecBroker, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__ExecTransType[] = {  {&_swigt__p_FIX__ExecTransType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__QuoteAckStatus, _p_FIX__QuoteAckStatusTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__OpenCloseSettleFlag, _p_FIX__OpenCloseSettleFlagTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalVolumeTradedDate, _p_FIX__TotalVolumeTradedDateTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentName, _p_FIX__SecuritySettlAgentNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentName, _p_FIX__CashSettlAgentNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalNumSecurityTypes, _p_FIX__TotalNumSecurityTypesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IOIShares, _p_FIX__IOISharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__AllocShares, _p_FIX__AllocSharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Shares, _p_FIX__SharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentContactName, _p_FIX__SecuritySettlAgentContactNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentAcctName, _p_FIX__SecuritySettlAgentAcctNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentAcctName, _p_FIX__CashSettlAgentAcctNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentContactName, _p_FIX__CashSettlAgentContactNameTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FutSettDate2, _p_FIX__FutSettDate2To_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__RelatdSym, _p_FIX__RelatdSymTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FutSettDate, _p_FIX__FutSettDateTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LegFutSettDate, _p_FIX__LegFutSettDateTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__PegDifference, _p_FIX__PegDifferenceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__RegistDetls, _p_FIX__RegistDetlsTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlLocation, _p_FIX__SettlLocationTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CardIssNo, _p_FIX__CardIssNoTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__ClearingAccount, _p_FIX__ClearingAccountTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotQuoteEntries, _p_FIX__TotQuoteEntriesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__PutOrCall, _p_FIX__PutOrCallTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UnderlyingPutOrCall, _p_FIX__UnderlyingPutOrCallTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IOIOthSvc, _p_FIX__IOIOthSvcTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalVolumeTradedTime, _p_FIX__TotalVolumeTradedTimeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IDSource, _p_FIX__IDSourceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UnderlyingIDSource, _p_FIX__UnderlyingIDSourceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DlvyInst, _p_FIX__DlvyInstTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__ClearingFirm, _p_FIX__ClearingFirmTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SpreadToBenchmark, _p_FIX__SpreadToBenchmarkTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Benchmark, _p_FIX__BenchmarkTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlDepositoryCode, _p_FIX__SettlDepositoryCodeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BrokerOfCredit, _p_FIX__BrokerOfCreditTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__OnBehalfOfSendingTime, _p_FIX__OnBehalfOfSendingTimeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__OpenClose, _p_FIX__OpenCloseTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DiscretionOffset, _p_FIX__DiscretionOffsetTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentContactPhone, _p_FIX__CashSettlAgentContactPhoneTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentContactPhone, _p_FIX__SecuritySettlAgentContactPhoneTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__AvgPrxPrecision, _p_FIX__AvgPrxPrecisionTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__ExecTransType, _p_FIX__ExecTransTypeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__RatioQty, _p_FIX__RatioQtyTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlBrkrCode, _p_FIX__SettlBrkrCodeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__ExecBroker, _p_FIX__ExecBrokerTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CustomerOrFirm, _p_FIX__CustomerOrFirmTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LastShares, _p_FIX__LastSharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TradeType, _p_FIX__TradeTypeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentAcctNum, _p_FIX__CashSettlAgentAcctNumTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentAcctNum, _p_FIX__SecuritySettlAgentAcctNumTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Rule80A, _p_FIX__Rule80ATo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CxlType, _p_FIX__CxlTypeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlInstCode, _p_FIX__SettlInstCodeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentCode, _p_FIX__SecuritySettlAgentCodeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CashSettlAgentCode, _p_FIX__CashSettlAgentCodeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalNumSecurities, _p_FIX__TotalNumSecuritiesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UnderlyingMaturityDay, _p_FIX__UnderlyingMaturityDayTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__MaturityDay, _p_FIX__MaturityDayTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__ClientID, _p_FIX__ClientIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlmntTyp, _p_FIX__SettlmntTypTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LegSettlmntTyp, _p_FIX__LegSettlmntTypTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Exception[] = {  {&_swigt__p_FIX__RequiredTagMissing, _p_FIX__RequiredTagMissingTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketSendFailed, _p_FIX__SocketSendFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketRecvFailed, _p_FIX__SocketRecvFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidTagNumber, _p_FIX__InvalidTagNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RejectLogon, _p_FIX__RejectLogonTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectDataFormat, _p_FIX__IncorrectDataFormatTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagNotDefinedForMessage, _p_FIX__TagNotDefinedForMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessage, _p_FIX__InvalidMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DoNotSend, _p_FIX__DoNotSendTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RuntimeError, _p_FIX__RuntimeErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__MessageParseError, _p_FIX__MessageParseErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DuplicateFieldNumber, _p_FIX__DuplicateFieldNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldNotFound, _p_FIX__FieldNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DataDictionaryNotFound, _p_FIX__DataDictionaryNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SessionNotFound, _p_FIX__SessionNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__Exception, 0, 0, 0},  {&_swigt__p_FIX__IOException, _p_FIX__IOExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketException, _p_FIX__SocketExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__ConfigError, _p_FIX__ConfigErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessageType, _p_FIX__InvalidMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedMessageType, _p_FIX__UnsupportedMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedVersion, _p_FIX__UnsupportedVersionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectTagValue, _p_FIX__IncorrectTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__NoTagValue, _p_FIX__NoTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketCloseFailed, _p_FIX__SocketCloseFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagOutOfOrder, _p_FIX__TagOutOfOrderTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatedTag, _p_FIX__RepeatedTagTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldConvertError, _p_FIX__FieldConvertErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectMessageStructure, _p_FIX__IncorrectMessageStructureTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatingGroupCountMismatch, _p_FIX__RepeatingGroupCountMismatchTo_p_FIX__Exception, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__QuoteAckStatus, _p_FIX__QuoteAckStatusTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__OpenCloseSettleFlag, _p_FIX__OpenCloseSettleFlagTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalNumSecurityTypes, _p_FIX__TotalNumSecurityTypesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Shares, _p_FIX__SharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__AllocShares, _p_FIX__AllocSharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IOIShares, _p_FIX__IOISharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FutSettDate2, _p_FIX__FutSettDate2To_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__RelatdSym, _p_FIX__RelatdSymTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FutSettDate, _p_FIX__FutSettDateTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LegFutSettDate, _p_FIX__LegFutSettDateTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__PegDifference, _p_FIX__PegDifferenceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__RegistDetls, _p_FIX__RegistDetlsTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CardIssNo, _p_FIX__CardIssNoTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotQuoteEntries, _p_FIX__TotQuoteEntriesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IOIOthSvc, _p_FIX__IOIOthSvcTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UnderlyingIDSource, _p_FIX__UnderlyingIDSourceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IDSource, _p_FIX__IDSourceTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__SpreadToBenchmark, _p_FIX__SpreadToBenchmarkTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__OpenClose, _p_FIX__OpenCloseTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DiscretionOffset, _p_FIX__DiscretionOffsetTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__AvgPrxPrecision, _p_FIX__AvgPrxPrecisionTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LinesOfText, _p_FIX__LinesOfTextTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LastShares, _p_FIX__LastSharesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TradeType, _p_FIX__TradeTypeTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Rule80A, _p_FIX__Rule80ATo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TotalNumSecurities, _p_FIX__TotalNumSecuritiesTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SettlmntTyp, _p_FIX__SettlmntTypTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__LegSettlmntTyp, _p_FIX__LegSettlmntTypTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldConvertError[] = {  {&_swigt__p_FIX__FieldConvertError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldMap[] = {  {&_swigt__p_FIX__Group, _p_FIX__GroupTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Message, _p_FIX__MessageTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__FieldMap, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldMap__Fields__const_iterator[] = {  {&_swigt__p_FIX__FieldMap__Fields__const_iterator, 0, 0, 0},{0, 0, 0, 0}};
@@ -54516,16 +37080,16 @@ static swig_cast_info _swigc__p_FIX__IncorrectDataFormat[] = {  {&_swigt__p_FIX_
 static swig_cast_info _swigc__p_FIX__IncorrectMessageStructure[] = {  {&_swigt__p_FIX__IncorrectMessageStructure, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IncorrectTagValue[] = {  {&_swigt__p_FIX__IncorrectTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Initiator[] = {  {&_swigt__p_FIX__Initiator, 0, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Initiator, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__IntField[] = {  {&_swigt__p_FIX__CustomerOrFirm, _p_FIX__CustomerOrFirmTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__QuoteAckStatus, _p_FIX__QuoteAckStatusTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__AvgPrxPrecision, _p_FIX__AvgPrxPrecisionTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__AllocShares, _p_FIX__AllocSharesTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__IntField, 0, 0, 0},  {&_swigt__p_FIX__TotQuoteEntries, _p_FIX__TotQuoteEntriesTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__TotalNumSecurityTypes, _p_FIX__TotalNumSecurityTypesTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__PutOrCall, _p_FIX__PutOrCallTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__UnderlyingPutOrCall, _p_FIX__UnderlyingPutOrCallTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__TotalNumSecurities, _p_FIX__TotalNumSecuritiesTo_p_FIX__IntField, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__IntField[] = {  {&_swigt__p_FIX__QuoteAckStatus, _p_FIX__QuoteAckStatusTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__AvgPrxPrecision, _p_FIX__AvgPrxPrecisionTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__IntField, 0, 0, 0},  {&_swigt__p_FIX__TotQuoteEntries, _p_FIX__TotQuoteEntriesTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__TotalNumSecurityTypes, _p_FIX__TotalNumSecurityTypesTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__LinesOfText, _p_FIX__LinesOfTextTo_p_FIX__IntField, 0, 0},  {&_swigt__p_FIX__TotalNumSecurities, _p_FIX__TotalNumSecuritiesTo_p_FIX__IntField, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidMessage[] = {  {&_swigt__p_FIX__InvalidMessage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidMessageType[] = {  {&_swigt__p_FIX__InvalidMessageType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidTagNumber[] = {  {&_swigt__p_FIX__InvalidTagNumber, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LastShares[] = {  {&_swigt__p_FIX__LastShares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegFutSettDate[] = {  {&_swigt__p_FIX__LegFutSettDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegSettlmntTyp[] = {  {&_swigt__p_FIX__LegSettlmntTyp, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__LinesOfText[] = {  {&_swigt__p_FIX__LinesOfText, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MaturityDay[] = {  {&_swigt__p_FIX__MaturityDay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryStore, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStoreFactory[] = {  {&_swigt__p_FIX__MemoryStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Message[] = {  {&_swigt__p_FIX__Message, 0, 0, 0},{0, 0, 0, 0}};
@@ -54536,13 +37100,10 @@ static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX_
 static swig_cast_info _swigc__p_FIX__MessageStoreFactoryExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreFactoryExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NoTagValue[] = {  {&_swigt__p_FIX__NoTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullApplication[] = {  {&_swigt__p_FIX__NullApplication, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__OnBehalfOfSendingTime[] = {  {&_swigt__p_FIX__OnBehalfOfSendingTime, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__OpenClose[] = {  {&_swigt__p_FIX__OpenClose, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__OpenCloseSettleFlag[] = {  {&_swigt__p_FIX__OpenCloseSettleFlag, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__PegDifference[] = {  {&_swigt__p_FIX__PegDifference, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__PutOrCall[] = {  {&_swigt__p_FIX__PutOrCall, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__QuoteAckStatus[] = {  {&_swigt__p_FIX__QuoteAckStatus, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__RatioQty[] = {  {&_swigt__p_FIX__RatioQty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RegistDetls[] = {  {&_swigt__p_FIX__RegistDetls, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RejectLogon[] = {  {&_swigt__p_FIX__RejectLogon, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RelatdSym[] = {  {&_swigt__p_FIX__RelatdSym, 0, 0, 0},{0, 0, 0, 0}};
@@ -54553,20 +37114,10 @@ static swig_cast_info _swigc__p_FIX__Rule80A[] = {  {&_swigt__p_FIX__Rule80A, 0,
 static swig_cast_info _swigc__p_FIX__RuntimeError[] = {  {&_swigt__p_FIX__RuntimeError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__ScreenLog[] = {  {&_swigt__p_FIX__ScreenLog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__ScreenLogFactory[] = {  {&_swigt__p_FIX__ScreenLogFactory, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentAcctName[] = {  {&_swigt__p_FIX__SecuritySettlAgentAcctName, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentAcctNum[] = {  {&_swigt__p_FIX__SecuritySettlAgentAcctNum, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentCode[] = {  {&_swigt__p_FIX__SecuritySettlAgentCode, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentContactName[] = {  {&_swigt__p_FIX__SecuritySettlAgentContactName, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentContactPhone[] = {  {&_swigt__p_FIX__SecuritySettlAgentContactPhone, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SecuritySettlAgentName[] = {  {&_swigt__p_FIX__SecuritySettlAgentName, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Session[] = {  {&_swigt__p_FIX__Session, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SessionID[] = {  {&_swigt__p_FIX__SessionID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SessionNotFound[] = {  {&_swigt__p_FIX__SessionNotFound, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SessionSettings[] = {  {&_swigt__p_FIX__SessionSettings, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SettlBrkrCode[] = {  {&_swigt__p_FIX__SettlBrkrCode, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SettlDepositoryCode[] = {  {&_swigt__p_FIX__SettlDepositoryCode, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SettlInstCode[] = {  {&_swigt__p_FIX__SettlInstCode, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__SettlLocation[] = {  {&_swigt__p_FIX__SettlLocation, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SettlmntTyp[] = {  {&_swigt__p_FIX__SettlmntTyp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Shares[] = {  {&_swigt__p_FIX__Shares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SocketAcceptor[] = {  {&_swigt__p_FIX__SocketAcceptor, 0, 0, 0},{0, 0, 0, 0}};
@@ -54576,24 +37127,20 @@ static swig_cast_info _swigc__p_FIX__SocketInitiator[] = {  {&_swigt__p_FIX__Soc
 static swig_cast_info _swigc__p_FIX__SocketRecvFailed[] = {  {&_swigt__p_FIX__SocketRecvFailed, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SocketSendFailed[] = {  {&_swigt__p_FIX__SocketSendFailed, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SpreadToBenchmark[] = {  {&_swigt__p_FIX__SpreadToBenchmark, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__StringField[] = {  {&_swigt__p_FIX__OpenCloseSettleFlag, _p_FIX__OpenCloseSettleFlagTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentName, _p_FIX__SecuritySettlAgentNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentName, _p_FIX__CashSettlAgentNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__IOIShares, _p_FIX__IOISharesTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentContactName, _p_FIX__CashSettlAgentContactNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentAcctName, _p_FIX__CashSettlAgentAcctNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentContactName, _p_FIX__SecuritySettlAgentContactNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentAcctName, _p_FIX__SecuritySettlAgentAcctNameTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__FutSettDate2, _p_FIX__FutSettDate2To_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__RelatdSym, _p_FIX__RelatdSymTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__LegFutSettDate, _p_FIX__LegFutSettDateTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__FutSettDate, _p_FIX__FutSettDateTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__RegistDetls, _p_FIX__RegistDetlsTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__StringField, 0, 0, 0},  {&_swigt__p_FIX__SettlLocation, _p_FIX__SettlLocationTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CardIssNo, _p_FIX__CardIssNoTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__ClearingAccount, _p_FIX__ClearingAccountTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__IDSource, _p_FIX__IDSourceTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__UnderlyingIDSource, _p_FIX__UnderlyingIDSourceTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__ClearingFirm, _p_FIX__ClearingFirmTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SettlDepositoryCode, _p_FIX__SettlDepositoryCodeTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__BrokerOfCredit, _p_FIX__BrokerOfCreditTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentContactPhone, _p_FIX__SecuritySettlAgentContactPhoneTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentContactPhone, _p_FIX__CashSettlAgentContactPhoneTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SettlBrkrCode, _p_FIX__SettlBrkrCodeTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__ExecBroker, _p_FIX__ExecBrokerTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentAcctNum, _p_FIX__SecuritySettlAgentAcctNumTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentAcctNum, _p_FIX__CashSettlAgentAcctNumTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SettlInstCode, _p_FIX__SettlInstCodeTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CashSettlAgentCode, _p_FIX__CashSettlAgentCodeTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__SecuritySettlAgentCode, _p_FIX__SecuritySettlAgentCodeTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__MaturityDay, _p_FIX__MaturityDayTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__UnderlyingMaturityDay, _p_FIX__UnderlyingMaturityDayTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__ClientID, _p_FIX__ClientIDTo_p_FIX__StringField, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__StringField[] = {  {&_swigt__p_FIX__StringField, 0, 0, 0},  {&_swigt__p_FIX__IDSource, _p_FIX__IDSourceTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__FutSettDate, _p_FIX__FutSettDateTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__UnderlyingIDSource, _p_FIX__UnderlyingIDSourceTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__LegFutSettDate, _p_FIX__LegFutSettDateTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__OpenCloseSettleFlag, _p_FIX__OpenCloseSettleFlagTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__RegistDetls, _p_FIX__RegistDetlsTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__RelatdSym, _p_FIX__RelatdSymTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__IOIShares, _p_FIX__IOISharesTo_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__FutSettDate2, _p_FIX__FutSettDate2To_p_FIX__StringField, 0, 0},  {&_swigt__p_FIX__CardIssNo, _p_FIX__CardIssNoTo_p_FIX__StringField, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__SynchronizedApplication[] = {  {&_swigt__p_FIX__SynchronizedApplication, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TagNotDefinedForMessage[] = {  {&_swigt__p_FIX__TagNotDefinedForMessage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TagOutOfOrder[] = {  {&_swigt__p_FIX__TagOutOfOrder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TotQuoteEntries[] = {  {&_swigt__p_FIX__TotQuoteEntries, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TotalNumSecurities[] = {  {&_swigt__p_FIX__TotalNumSecurities, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TotalNumSecurityTypes[] = {  {&_swigt__p_FIX__TotalNumSecurityTypes, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__TotalVolumeTradedDate[] = {  {&_swigt__p_FIX__TotalVolumeTradedDate, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__TotalVolumeTradedTime[] = {  {&_swigt__p_FIX__TotalVolumeTradedTime, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TradeType[] = {  {&_swigt__p_FIX__TradeType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnderlyingIDSource[] = {  {&_swigt__p_FIX__UnderlyingIDSource, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__UnderlyingMaturityDay[] = {  {&_swigt__p_FIX__UnderlyingMaturityDay, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__UnderlyingPutOrCall[] = {  {&_swigt__p_FIX__UnderlyingPutOrCall, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedMessageType[] = {  {&_swigt__p_FIX__UnsupportedMessageType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedVersion[] = {  {&_swigt__p_FIX__UnsupportedVersion, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__UtcDateField[] = {  {&_swigt__p_FIX__UtcDateField, 0, 0, 0},  {&_swigt__p_FIX__TotalVolumeTradedDate, _p_FIX__TotalVolumeTradedDateTo_p_FIX__UtcDateField, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__UtcTimeOnlyField[] = {  {&_swigt__p_FIX__UtcTimeOnlyField, 0, 0, 0},  {&_swigt__p_FIX__TotalVolumeTradedTime, _p_FIX__TotalVolumeTradedTimeTo_p_FIX__UtcTimeOnlyField, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__UtcTimeStampField[] = {  {&_swigt__p_FIX__UtcTimeStampField, 0, 0, 0},  {&_swigt__p_FIX__OnBehalfOfSendingTime, _p_FIX__OnBehalfOfSendingTimeTo_p_FIX__UtcTimeStampField, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__UtcDateField[] = {  {&_swigt__p_FIX__UtcDateField, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__UtcTimeOnlyField[] = {  {&_swigt__p_FIX__UtcTimeOnlyField, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__UtcTimeStampField[] = {  {&_swigt__p_FIX__UtcTimeStampField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Fields[] = {  {&_swigt__p_Fields, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Group[] = {  {&_swigt__p_Group, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Groups[] = {  {&_swigt__p_Groups, 0, 0, 0},{0, 0, 0, 0}};
@@ -54635,57 +37182,40 @@ static swig_cast_info _swigc__p_std__string__size_type[] = {  {&_swigt__p_std__s
 static swig_cast_info _swigc__p_std__vectorTstd__string_t[] = {  {&_swigt__p_std__vectorTstd__string_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_ApplVerID,
   _swigc__p_Application,
   _swigc__p_BeginString,
   _swigc__p_DOMDocumentPtr,
   _swigc__p_Data,
   _swigc__p_DataDictionary,
+  _swigc__p_DataDictionaryProvider,
   _swigc__p_Dictionaries,
   _swigc__p_DoubleField,
-  _swigc__p_FIELD__Field,
   _swigc__p_FIX_CHAR,
-  _swigc__p_FIX_DAYOFMONTH,
   _swigc__p_FIX_INT,
   _swigc__p_FIX_LOCALMKTDATE,
+  _swigc__p_FIX_NUMINGROUP,
   _swigc__p_FIX_PRICEOFFSET,
   _swigc__p_FIX_QTY,
   _swigc__p_FIX_STRING,
-  _swigc__p_FIX_UTCDATE,
-  _swigc__p_FIX_UTCTIMEONLY,
-  _swigc__p_FIX_UTCTIMESTAMP,
   _swigc__p_FIX__Acceptor,
   _swigc__p_FIX__AllocShares,
   _swigc__p_FIX__Application,
   _swigc__p_FIX__AvgPrxPrecision,
-  _swigc__p_FIX__Benchmark,
   _swigc__p_FIX__BoolField,
-  _swigc__p_FIX__BrokerOfCredit,
   _swigc__p_FIX__CardIssNo,
-  _swigc__p_FIX__CashSettlAgentAcctName,
-  _swigc__p_FIX__CashSettlAgentAcctNum,
-  _swigc__p_FIX__CashSettlAgentCode,
-  _swigc__p_FIX__CashSettlAgentContactName,
-  _swigc__p_FIX__CashSettlAgentContactPhone,
-  _swigc__p_FIX__CashSettlAgentName,
   _swigc__p_FIX__CharField,
   _swigc__p_FIX__CheckSumField,
-  _swigc__p_FIX__ClearingAccount,
-  _swigc__p_FIX__ClearingFirm,
-  _swigc__p_FIX__ClientID,
   _swigc__p_FIX__ConfigError,
-  _swigc__p_FIX__CustomerOrFirm,
-  _swigc__p_FIX__CxlType,
   _swigc__p_FIX__DataDictionary,
+  _swigc__p_FIX__DataDictionaryNotFound,
   _swigc__p_FIX__Dictionary,
   _swigc__p_FIX__Dictionary__Data__const_iterator,
   _swigc__p_FIX__DiscretionOffset,
-  _swigc__p_FIX__DlvyInst,
   _swigc__p_FIX__DoNotSend,
   _swigc__p_FIX__DoubleField,
   _swigc__p_FIX__DuplicateFieldNumber,
   _swigc__p_FIX__Exception,
-  _swigc__p_FIX__ExecBroker,
-  _swigc__p_FIX__ExecTransType,
   _swigc__p_FIX__FieldBase,
   _swigc__p_FIX__FieldConvertError,
   _swigc__p_FIX__FieldMap,
@@ -54714,9 +37244,9 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__LastShares,
   _swigc__p_FIX__LegFutSettDate,
   _swigc__p_FIX__LegSettlmntTyp,
+  _swigc__p_FIX__LinesOfText,
   _swigc__p_FIX__Log,
   _swigc__p_FIX__LogFactory,
-  _swigc__p_FIX__MaturityDay,
   _swigc__p_FIX__MemoryStore,
   _swigc__p_FIX__MemoryStoreFactory,
   _swigc__p_FIX__Message,
@@ -54727,13 +37257,10 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__MessageStoreFactoryExceptionWrapper,
   _swigc__p_FIX__NoTagValue,
   _swigc__p_FIX__NullApplication,
-  _swigc__p_FIX__OnBehalfOfSendingTime,
   _swigc__p_FIX__OpenClose,
   _swigc__p_FIX__OpenCloseSettleFlag,
   _swigc__p_FIX__PegDifference,
-  _swigc__p_FIX__PutOrCall,
   _swigc__p_FIX__QuoteAckStatus,
-  _swigc__p_FIX__RatioQty,
   _swigc__p_FIX__RegistDetls,
   _swigc__p_FIX__RejectLogon,
   _swigc__p_FIX__RelatdSym,
@@ -54744,20 +37271,10 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__RuntimeError,
   _swigc__p_FIX__ScreenLog,
   _swigc__p_FIX__ScreenLogFactory,
-  _swigc__p_FIX__SecuritySettlAgentAcctName,
-  _swigc__p_FIX__SecuritySettlAgentAcctNum,
-  _swigc__p_FIX__SecuritySettlAgentCode,
-  _swigc__p_FIX__SecuritySettlAgentContactName,
-  _swigc__p_FIX__SecuritySettlAgentContactPhone,
-  _swigc__p_FIX__SecuritySettlAgentName,
   _swigc__p_FIX__Session,
   _swigc__p_FIX__SessionID,
   _swigc__p_FIX__SessionNotFound,
   _swigc__p_FIX__SessionSettings,
-  _swigc__p_FIX__SettlBrkrCode,
-  _swigc__p_FIX__SettlDepositoryCode,
-  _swigc__p_FIX__SettlInstCode,
-  _swigc__p_FIX__SettlLocation,
   _swigc__p_FIX__SettlmntTyp,
   _swigc__p_FIX__Shares,
   _swigc__p_FIX__SocketAcceptor,
@@ -54774,12 +37291,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__TotQuoteEntries,
   _swigc__p_FIX__TotalNumSecurities,
   _swigc__p_FIX__TotalNumSecurityTypes,
-  _swigc__p_FIX__TotalVolumeTradedDate,
-  _swigc__p_FIX__TotalVolumeTradedTime,
   _swigc__p_FIX__TradeType,
   _swigc__p_FIX__UnderlyingIDSource,
-  _swigc__p_FIX__UnderlyingMaturityDay,
-  _swigc__p_FIX__UnderlyingPutOrCall,
   _swigc__p_FIX__UnsupportedMessageType,
   _swigc__p_FIX__UnsupportedVersion,
   _swigc__p_FIX__UtcDateField,
@@ -55107,6 +37620,16 @@ SWIGEXPORT void Init_quickfix(void) {
   cException.mark = 0;
   cException.destroy = (void (*)(void *)) free_FIX_Exception;
   cException.trackObjects = 0;
+  
+  cDataDictionaryNotFound.klass = rb_define_class_under(mQuickfix, "DataDictionaryNotFound", ((swig_class *) SWIGTYPE_p_FIX__Exception->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__DataDictionaryNotFound, (void *) &cDataDictionaryNotFound);
+  rb_define_alloc_func(cDataDictionaryNotFound.klass, _wrap_DataDictionaryNotFound_allocate);
+  rb_define_method(cDataDictionaryNotFound.klass, "initialize", VALUEFUNC(_wrap_new_DataDictionaryNotFound), -1);
+  rb_define_method(cDataDictionaryNotFound.klass, "version=", VALUEFUNC(_wrap_DataDictionaryNotFound_version_set), -1);
+  rb_define_method(cDataDictionaryNotFound.klass, "version", VALUEFUNC(_wrap_DataDictionaryNotFound_version_get), -1);
+  cDataDictionaryNotFound.mark = 0;
+  cDataDictionaryNotFound.destroy = (void (*)(void *)) free_FIX_DataDictionaryNotFound;
+  cDataDictionaryNotFound.trackObjects = 0;
   
   cFieldNotFound.klass = rb_define_class_under(mQuickfix, "FieldNotFound", ((swig_class *) SWIGTYPE_p_FIX__Exception->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__FieldNotFound, (void *) &cFieldNotFound);
@@ -55535,6 +38058,8 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cMessage.klass, "isEmpty", VALUEFUNC(_wrap_Message_isEmpty), -1);
   rb_define_method(cMessage.klass, "clear", VALUEFUNC(_wrap_Message_clear), -1);
   rb_define_singleton_method(cMessage.klass, "isAdminMsgType", VALUEFUNC(_wrap_Message_isAdminMsgType), -1);
+  rb_define_singleton_method(cMessage.klass, "toApplVerID", VALUEFUNC(_wrap_Message_toApplVerID), -1);
+  rb_define_singleton_method(cMessage.klass, "toBeginString", VALUEFUNC(_wrap_Message_toBeginString), -1);
   rb_define_singleton_method(cMessage.klass, "isHeaderField", VALUEFUNC(_wrap_Message_isHeaderField), -1);
   rb_define_singleton_method(cMessage.klass, "isTrailerField", VALUEFUNC(_wrap_Message_isTrailerField), -1);
   rb_define_method(cMessage.klass, "getSessionID", VALUEFUNC(_wrap_Message_getSessionID), -1);
@@ -55559,14 +38084,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cGroup.mark = 0;
   cGroup.destroy = (void (*)(void *)) free_FIX_Group;
   cGroup.trackObjects = 0;
-  
-  cExecTransType.klass = rb_define_class_under(mQuickfix, "ExecTransType", ((swig_class *) SWIGTYPE_p_FIX__CharField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__ExecTransType, (void *) &cExecTransType);
-  rb_define_alloc_func(cExecTransType.klass, _wrap_ExecTransType_allocate);
-  rb_define_method(cExecTransType.klass, "initialize", VALUEFUNC(_wrap_new_ExecTransType), -1);
-  cExecTransType.mark = 0;
-  cExecTransType.destroy = (void (*)(void *)) free_FIX_ExecTransType;
-  cExecTransType.trackObjects = 0;
   
   cIDSource.klass = rb_define_class_under(mQuickfix, "IDSource", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__IDSource, (void *) &cIDSource);
@@ -55648,14 +38165,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cAvgPrxPrecision.destroy = (void (*)(void *)) free_FIX_AvgPrxPrecision;
   cAvgPrxPrecision.trackObjects = 0;
   
-  cExecBroker.klass = rb_define_class_under(mQuickfix, "ExecBroker", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__ExecBroker, (void *) &cExecBroker);
-  rb_define_alloc_func(cExecBroker.klass, _wrap_ExecBroker_allocate);
-  rb_define_method(cExecBroker.klass, "initialize", VALUEFUNC(_wrap_new_ExecBroker), -1);
-  cExecBroker.mark = 0;
-  cExecBroker.destroy = (void (*)(void *)) free_FIX_ExecBroker;
-  cExecBroker.trackObjects = 0;
-  
   cOpenClose.klass = rb_define_class_under(mQuickfix, "OpenClose", ((swig_class *) SWIGTYPE_p_FIX__CharField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__OpenClose, (void *) &cOpenClose);
   rb_define_alloc_func(cOpenClose.klass, _wrap_OpenClose_allocate);
@@ -55664,173 +38173,13 @@ SWIGEXPORT void Init_quickfix(void) {
   cOpenClose.destroy = (void (*)(void *)) free_FIX_OpenClose;
   cOpenClose.trackObjects = 0;
   
-  cAllocShares.klass = rb_define_class_under(mQuickfix, "AllocShares", ((swig_class *) SWIGTYPE_p_FIX__IntField->clientdata)->klass);
+  cAllocShares.klass = rb_define_class_under(mQuickfix, "AllocShares", ((swig_class *) SWIGTYPE_p_FIX__DoubleField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__AllocShares, (void *) &cAllocShares);
   rb_define_alloc_func(cAllocShares.klass, _wrap_AllocShares_allocate);
   rb_define_method(cAllocShares.klass, "initialize", VALUEFUNC(_wrap_new_AllocShares), -1);
   cAllocShares.mark = 0;
   cAllocShares.destroy = (void (*)(void *)) free_FIX_AllocShares;
   cAllocShares.trackObjects = 0;
-  
-  cDlvyInst.klass = rb_define_class_under(mQuickfix, "DlvyInst", ((swig_class *) SWIGTYPE_p_FIX__CharField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__DlvyInst, (void *) &cDlvyInst);
-  rb_define_alloc_func(cDlvyInst.klass, _wrap_DlvyInst_allocate);
-  rb_define_method(cDlvyInst.klass, "initialize", VALUEFUNC(_wrap_new_DlvyInst), -1);
-  cDlvyInst.mark = 0;
-  cDlvyInst.destroy = (void (*)(void *)) free_FIX_DlvyInst;
-  cDlvyInst.trackObjects = 0;
-  
-  cBrokerOfCredit.klass = rb_define_class_under(mQuickfix, "BrokerOfCredit", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__BrokerOfCredit, (void *) &cBrokerOfCredit);
-  rb_define_alloc_func(cBrokerOfCredit.klass, _wrap_BrokerOfCredit_allocate);
-  rb_define_method(cBrokerOfCredit.klass, "initialize", VALUEFUNC(_wrap_new_BrokerOfCredit), -1);
-  cBrokerOfCredit.mark = 0;
-  cBrokerOfCredit.destroy = (void (*)(void *)) free_FIX_BrokerOfCredit;
-  cBrokerOfCredit.trackObjects = 0;
-  
-  cClientID.klass = rb_define_class_under(mQuickfix, "ClientID", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__ClientID, (void *) &cClientID);
-  rb_define_alloc_func(cClientID.klass, _wrap_ClientID_allocate);
-  rb_define_method(cClientID.klass, "initialize", VALUEFUNC(_wrap_new_ClientID), -1);
-  cClientID.mark = 0;
-  cClientID.destroy = (void (*)(void *)) free_FIX_ClientID;
-  cClientID.trackObjects = 0;
-  
-  cCxlType.klass = rb_define_class_under(mQuickfix, "CxlType", ((swig_class *) SWIGTYPE_p_FIX__CharField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CxlType, (void *) &cCxlType);
-  rb_define_alloc_func(cCxlType.klass, _wrap_CxlType_allocate);
-  rb_define_method(cCxlType.klass, "initialize", VALUEFUNC(_wrap_new_CxlType), -1);
-  cCxlType.mark = 0;
-  cCxlType.destroy = (void (*)(void *)) free_FIX_CxlType;
-  cCxlType.trackObjects = 0;
-  
-  cSettlLocation.klass = rb_define_class_under(mQuickfix, "SettlLocation", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SettlLocation, (void *) &cSettlLocation);
-  rb_define_alloc_func(cSettlLocation.klass, _wrap_SettlLocation_allocate);
-  rb_define_method(cSettlLocation.klass, "initialize", VALUEFUNC(_wrap_new_SettlLocation), -1);
-  cSettlLocation.mark = 0;
-  cSettlLocation.destroy = (void (*)(void *)) free_FIX_SettlLocation;
-  cSettlLocation.trackObjects = 0;
-  
-  cSettlDepositoryCode.klass = rb_define_class_under(mQuickfix, "SettlDepositoryCode", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SettlDepositoryCode, (void *) &cSettlDepositoryCode);
-  rb_define_alloc_func(cSettlDepositoryCode.klass, _wrap_SettlDepositoryCode_allocate);
-  rb_define_method(cSettlDepositoryCode.klass, "initialize", VALUEFUNC(_wrap_new_SettlDepositoryCode), -1);
-  cSettlDepositoryCode.mark = 0;
-  cSettlDepositoryCode.destroy = (void (*)(void *)) free_FIX_SettlDepositoryCode;
-  cSettlDepositoryCode.trackObjects = 0;
-  
-  cSettlBrkrCode.klass = rb_define_class_under(mQuickfix, "SettlBrkrCode", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SettlBrkrCode, (void *) &cSettlBrkrCode);
-  rb_define_alloc_func(cSettlBrkrCode.klass, _wrap_SettlBrkrCode_allocate);
-  rb_define_method(cSettlBrkrCode.klass, "initialize", VALUEFUNC(_wrap_new_SettlBrkrCode), -1);
-  cSettlBrkrCode.mark = 0;
-  cSettlBrkrCode.destroy = (void (*)(void *)) free_FIX_SettlBrkrCode;
-  cSettlBrkrCode.trackObjects = 0;
-  
-  cSettlInstCode.klass = rb_define_class_under(mQuickfix, "SettlInstCode", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SettlInstCode, (void *) &cSettlInstCode);
-  rb_define_alloc_func(cSettlInstCode.klass, _wrap_SettlInstCode_allocate);
-  rb_define_method(cSettlInstCode.klass, "initialize", VALUEFUNC(_wrap_new_SettlInstCode), -1);
-  cSettlInstCode.mark = 0;
-  cSettlInstCode.destroy = (void (*)(void *)) free_FIX_SettlInstCode;
-  cSettlInstCode.trackObjects = 0;
-  
-  cSecuritySettlAgentName.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentName, (void *) &cSecuritySettlAgentName);
-  rb_define_alloc_func(cSecuritySettlAgentName.klass, _wrap_SecuritySettlAgentName_allocate);
-  rb_define_method(cSecuritySettlAgentName.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentName), -1);
-  cSecuritySettlAgentName.mark = 0;
-  cSecuritySettlAgentName.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentName;
-  cSecuritySettlAgentName.trackObjects = 0;
-  
-  cSecuritySettlAgentCode.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentCode", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentCode, (void *) &cSecuritySettlAgentCode);
-  rb_define_alloc_func(cSecuritySettlAgentCode.klass, _wrap_SecuritySettlAgentCode_allocate);
-  rb_define_method(cSecuritySettlAgentCode.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentCode), -1);
-  cSecuritySettlAgentCode.mark = 0;
-  cSecuritySettlAgentCode.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentCode;
-  cSecuritySettlAgentCode.trackObjects = 0;
-  
-  cSecuritySettlAgentAcctNum.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentAcctNum", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum, (void *) &cSecuritySettlAgentAcctNum);
-  rb_define_alloc_func(cSecuritySettlAgentAcctNum.klass, _wrap_SecuritySettlAgentAcctNum_allocate);
-  rb_define_method(cSecuritySettlAgentAcctNum.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentAcctNum), -1);
-  cSecuritySettlAgentAcctNum.mark = 0;
-  cSecuritySettlAgentAcctNum.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentAcctNum;
-  cSecuritySettlAgentAcctNum.trackObjects = 0;
-  
-  cSecuritySettlAgentAcctName.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentAcctName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentAcctName, (void *) &cSecuritySettlAgentAcctName);
-  rb_define_alloc_func(cSecuritySettlAgentAcctName.klass, _wrap_SecuritySettlAgentAcctName_allocate);
-  rb_define_method(cSecuritySettlAgentAcctName.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentAcctName), -1);
-  cSecuritySettlAgentAcctName.mark = 0;
-  cSecuritySettlAgentAcctName.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentAcctName;
-  cSecuritySettlAgentAcctName.trackObjects = 0;
-  
-  cSecuritySettlAgentContactName.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentContactName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentContactName, (void *) &cSecuritySettlAgentContactName);
-  rb_define_alloc_func(cSecuritySettlAgentContactName.klass, _wrap_SecuritySettlAgentContactName_allocate);
-  rb_define_method(cSecuritySettlAgentContactName.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentContactName), -1);
-  cSecuritySettlAgentContactName.mark = 0;
-  cSecuritySettlAgentContactName.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentContactName;
-  cSecuritySettlAgentContactName.trackObjects = 0;
-  
-  cSecuritySettlAgentContactPhone.klass = rb_define_class_under(mQuickfix, "SecuritySettlAgentContactPhone", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone, (void *) &cSecuritySettlAgentContactPhone);
-  rb_define_alloc_func(cSecuritySettlAgentContactPhone.klass, _wrap_SecuritySettlAgentContactPhone_allocate);
-  rb_define_method(cSecuritySettlAgentContactPhone.klass, "initialize", VALUEFUNC(_wrap_new_SecuritySettlAgentContactPhone), -1);
-  cSecuritySettlAgentContactPhone.mark = 0;
-  cSecuritySettlAgentContactPhone.destroy = (void (*)(void *)) free_FIX_SecuritySettlAgentContactPhone;
-  cSecuritySettlAgentContactPhone.trackObjects = 0;
-  
-  cCashSettlAgentName.klass = rb_define_class_under(mQuickfix, "CashSettlAgentName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentName, (void *) &cCashSettlAgentName);
-  rb_define_alloc_func(cCashSettlAgentName.klass, _wrap_CashSettlAgentName_allocate);
-  rb_define_method(cCashSettlAgentName.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentName), -1);
-  cCashSettlAgentName.mark = 0;
-  cCashSettlAgentName.destroy = (void (*)(void *)) free_FIX_CashSettlAgentName;
-  cCashSettlAgentName.trackObjects = 0;
-  
-  cCashSettlAgentCode.klass = rb_define_class_under(mQuickfix, "CashSettlAgentCode", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentCode, (void *) &cCashSettlAgentCode);
-  rb_define_alloc_func(cCashSettlAgentCode.klass, _wrap_CashSettlAgentCode_allocate);
-  rb_define_method(cCashSettlAgentCode.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentCode), -1);
-  cCashSettlAgentCode.mark = 0;
-  cCashSettlAgentCode.destroy = (void (*)(void *)) free_FIX_CashSettlAgentCode;
-  cCashSettlAgentCode.trackObjects = 0;
-  
-  cCashSettlAgentAcctNum.klass = rb_define_class_under(mQuickfix, "CashSettlAgentAcctNum", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentAcctNum, (void *) &cCashSettlAgentAcctNum);
-  rb_define_alloc_func(cCashSettlAgentAcctNum.klass, _wrap_CashSettlAgentAcctNum_allocate);
-  rb_define_method(cCashSettlAgentAcctNum.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentAcctNum), -1);
-  cCashSettlAgentAcctNum.mark = 0;
-  cCashSettlAgentAcctNum.destroy = (void (*)(void *)) free_FIX_CashSettlAgentAcctNum;
-  cCashSettlAgentAcctNum.trackObjects = 0;
-  
-  cCashSettlAgentAcctName.klass = rb_define_class_under(mQuickfix, "CashSettlAgentAcctName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentAcctName, (void *) &cCashSettlAgentAcctName);
-  rb_define_alloc_func(cCashSettlAgentAcctName.klass, _wrap_CashSettlAgentAcctName_allocate);
-  rb_define_method(cCashSettlAgentAcctName.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentAcctName), -1);
-  cCashSettlAgentAcctName.mark = 0;
-  cCashSettlAgentAcctName.destroy = (void (*)(void *)) free_FIX_CashSettlAgentAcctName;
-  cCashSettlAgentAcctName.trackObjects = 0;
-  
-  cCashSettlAgentContactName.klass = rb_define_class_under(mQuickfix, "CashSettlAgentContactName", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentContactName, (void *) &cCashSettlAgentContactName);
-  rb_define_alloc_func(cCashSettlAgentContactName.klass, _wrap_CashSettlAgentContactName_allocate);
-  rb_define_method(cCashSettlAgentContactName.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentContactName), -1);
-  cCashSettlAgentContactName.mark = 0;
-  cCashSettlAgentContactName.destroy = (void (*)(void *)) free_FIX_CashSettlAgentContactName;
-  cCashSettlAgentContactName.trackObjects = 0;
-  
-  cCashSettlAgentContactPhone.klass = rb_define_class_under(mQuickfix, "CashSettlAgentContactPhone", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CashSettlAgentContactPhone, (void *) &cCashSettlAgentContactPhone);
-  rb_define_alloc_func(cCashSettlAgentContactPhone.klass, _wrap_CashSettlAgentContactPhone_allocate);
-  rb_define_method(cCashSettlAgentContactPhone.klass, "initialize", VALUEFUNC(_wrap_new_CashSettlAgentContactPhone), -1);
-  cCashSettlAgentContactPhone.mark = 0;
-  cCashSettlAgentContactPhone.destroy = (void (*)(void *)) free_FIX_CashSettlAgentContactPhone;
-  cCashSettlAgentContactPhone.trackObjects = 0;
   
   cFutSettDate2.klass = rb_define_class_under(mQuickfix, "FutSettDate2", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__FutSettDate2, (void *) &cFutSettDate2);
@@ -55839,30 +38188,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cFutSettDate2.mark = 0;
   cFutSettDate2.destroy = (void (*)(void *)) free_FIX_FutSettDate2;
   cFutSettDate2.trackObjects = 0;
-  
-  cPutOrCall.klass = rb_define_class_under(mQuickfix, "PutOrCall", ((swig_class *) SWIGTYPE_p_FIX__IntField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__PutOrCall, (void *) &cPutOrCall);
-  rb_define_alloc_func(cPutOrCall.klass, _wrap_PutOrCall_allocate);
-  rb_define_method(cPutOrCall.klass, "initialize", VALUEFUNC(_wrap_new_PutOrCall), -1);
-  cPutOrCall.mark = 0;
-  cPutOrCall.destroy = (void (*)(void *)) free_FIX_PutOrCall;
-  cPutOrCall.trackObjects = 0;
-  
-  cCustomerOrFirm.klass = rb_define_class_under(mQuickfix, "CustomerOrFirm", ((swig_class *) SWIGTYPE_p_FIX__IntField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__CustomerOrFirm, (void *) &cCustomerOrFirm);
-  rb_define_alloc_func(cCustomerOrFirm.klass, _wrap_CustomerOrFirm_allocate);
-  rb_define_method(cCustomerOrFirm.klass, "initialize", VALUEFUNC(_wrap_new_CustomerOrFirm), -1);
-  cCustomerOrFirm.mark = 0;
-  cCustomerOrFirm.destroy = (void (*)(void *)) free_FIX_CustomerOrFirm;
-  cCustomerOrFirm.trackObjects = 0;
-  
-  cMaturityDay.klass = rb_define_class_under(mQuickfix, "MaturityDay", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__MaturityDay, (void *) &cMaturityDay);
-  rb_define_alloc_func(cMaturityDay.klass, _wrap_MaturityDay_allocate);
-  rb_define_method(cMaturityDay.klass, "initialize", VALUEFUNC(_wrap_new_MaturityDay), -1);
-  cMaturityDay.mark = 0;
-  cMaturityDay.destroy = (void (*)(void *)) free_FIX_MaturityDay;
-  cMaturityDay.trackObjects = 0;
   
   cPegDifference.klass = rb_define_class_under(mQuickfix, "PegDifference", ((swig_class *) SWIGTYPE_p_FIX__DoubleField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__PegDifference, (void *) &cPegDifference);
@@ -55879,14 +38204,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cSpreadToBenchmark.mark = 0;
   cSpreadToBenchmark.destroy = (void (*)(void *)) free_FIX_SpreadToBenchmark;
   cSpreadToBenchmark.trackObjects = 0;
-  
-  cBenchmark.klass = rb_define_class_under(mQuickfix, "Benchmark", ((swig_class *) SWIGTYPE_p_FIX__CharField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__Benchmark, (void *) &cBenchmark);
-  rb_define_alloc_func(cBenchmark.klass, _wrap_Benchmark_allocate);
-  rb_define_method(cBenchmark.klass, "initialize", VALUEFUNC(_wrap_new_Benchmark), -1);
-  cBenchmark.mark = 0;
-  cBenchmark.destroy = (void (*)(void *)) free_FIX_Benchmark;
-  cBenchmark.trackObjects = 0;
   
   cOpenCloseSettleFlag.klass = rb_define_class_under(mQuickfix, "OpenCloseSettleFlag", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__OpenCloseSettleFlag, (void *) &cOpenCloseSettleFlag);
@@ -55920,38 +38237,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cTotQuoteEntries.destroy = (void (*)(void *)) free_FIX_TotQuoteEntries;
   cTotQuoteEntries.trackObjects = 0;
   
-  cUnderlyingMaturityDay.klass = rb_define_class_under(mQuickfix, "UnderlyingMaturityDay", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__UnderlyingMaturityDay, (void *) &cUnderlyingMaturityDay);
-  rb_define_alloc_func(cUnderlyingMaturityDay.klass, _wrap_UnderlyingMaturityDay_allocate);
-  rb_define_method(cUnderlyingMaturityDay.klass, "initialize", VALUEFUNC(_wrap_new_UnderlyingMaturityDay), -1);
-  cUnderlyingMaturityDay.mark = 0;
-  cUnderlyingMaturityDay.destroy = (void (*)(void *)) free_FIX_UnderlyingMaturityDay;
-  cUnderlyingMaturityDay.trackObjects = 0;
-  
-  cUnderlyingPutOrCall.klass = rb_define_class_under(mQuickfix, "UnderlyingPutOrCall", ((swig_class *) SWIGTYPE_p_FIX__IntField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__UnderlyingPutOrCall, (void *) &cUnderlyingPutOrCall);
-  rb_define_alloc_func(cUnderlyingPutOrCall.klass, _wrap_UnderlyingPutOrCall_allocate);
-  rb_define_method(cUnderlyingPutOrCall.klass, "initialize", VALUEFUNC(_wrap_new_UnderlyingPutOrCall), -1);
-  cUnderlyingPutOrCall.mark = 0;
-  cUnderlyingPutOrCall.destroy = (void (*)(void *)) free_FIX_UnderlyingPutOrCall;
-  cUnderlyingPutOrCall.trackObjects = 0;
-  
-  cRatioQty.klass = rb_define_class_under(mQuickfix, "RatioQty", ((swig_class *) SWIGTYPE_p_FIX__DoubleField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__RatioQty, (void *) &cRatioQty);
-  rb_define_alloc_func(cRatioQty.klass, _wrap_RatioQty_allocate);
-  rb_define_method(cRatioQty.klass, "initialize", VALUEFUNC(_wrap_new_RatioQty), -1);
-  cRatioQty.mark = 0;
-  cRatioQty.destroy = (void (*)(void *)) free_FIX_RatioQty;
-  cRatioQty.trackObjects = 0;
-  
-  cOnBehalfOfSendingTime.klass = rb_define_class_under(mQuickfix, "OnBehalfOfSendingTime", ((swig_class *) SWIGTYPE_p_FIX__UtcTimeStampField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__OnBehalfOfSendingTime, (void *) &cOnBehalfOfSendingTime);
-  rb_define_alloc_func(cOnBehalfOfSendingTime.klass, _wrap_OnBehalfOfSendingTime_allocate);
-  rb_define_method(cOnBehalfOfSendingTime.klass, "initialize", VALUEFUNC(_wrap_new_OnBehalfOfSendingTime), -1);
-  cOnBehalfOfSendingTime.mark = 0;
-  cOnBehalfOfSendingTime.destroy = (void (*)(void *)) free_FIX_OnBehalfOfSendingTime;
-  cOnBehalfOfSendingTime.trackObjects = 0;
-  
   cDiscretionOffset.klass = rb_define_class_under(mQuickfix, "DiscretionOffset", ((swig_class *) SWIGTYPE_p_FIX__DoubleField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__DiscretionOffset, (void *) &cDiscretionOffset);
   rb_define_alloc_func(cDiscretionOffset.klass, _wrap_DiscretionOffset_allocate);
@@ -55975,38 +38260,6 @@ SWIGEXPORT void Init_quickfix(void) {
   cTradeType.mark = 0;
   cTradeType.destroy = (void (*)(void *)) free_FIX_TradeType;
   cTradeType.trackObjects = 0;
-  
-  cClearingFirm.klass = rb_define_class_under(mQuickfix, "ClearingFirm", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__ClearingFirm, (void *) &cClearingFirm);
-  rb_define_alloc_func(cClearingFirm.klass, _wrap_ClearingFirm_allocate);
-  rb_define_method(cClearingFirm.klass, "initialize", VALUEFUNC(_wrap_new_ClearingFirm), -1);
-  cClearingFirm.mark = 0;
-  cClearingFirm.destroy = (void (*)(void *)) free_FIX_ClearingFirm;
-  cClearingFirm.trackObjects = 0;
-  
-  cClearingAccount.klass = rb_define_class_under(mQuickfix, "ClearingAccount", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__ClearingAccount, (void *) &cClearingAccount);
-  rb_define_alloc_func(cClearingAccount.klass, _wrap_ClearingAccount_allocate);
-  rb_define_method(cClearingAccount.klass, "initialize", VALUEFUNC(_wrap_new_ClearingAccount), -1);
-  cClearingAccount.mark = 0;
-  cClearingAccount.destroy = (void (*)(void *)) free_FIX_ClearingAccount;
-  cClearingAccount.trackObjects = 0;
-  
-  cTotalVolumeTradedDate.klass = rb_define_class_under(mQuickfix, "TotalVolumeTradedDate", ((swig_class *) SWIGTYPE_p_FIX__UtcDateField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__TotalVolumeTradedDate, (void *) &cTotalVolumeTradedDate);
-  rb_define_alloc_func(cTotalVolumeTradedDate.klass, _wrap_TotalVolumeTradedDate_allocate);
-  rb_define_method(cTotalVolumeTradedDate.klass, "initialize", VALUEFUNC(_wrap_new_TotalVolumeTradedDate), -1);
-  cTotalVolumeTradedDate.mark = 0;
-  cTotalVolumeTradedDate.destroy = (void (*)(void *)) free_FIX_TotalVolumeTradedDate;
-  cTotalVolumeTradedDate.trackObjects = 0;
-  
-  cTotalVolumeTradedTime.klass = rb_define_class_under(mQuickfix, "TotalVolumeTradedTime", ((swig_class *) SWIGTYPE_p_FIX__UtcTimeOnlyField->clientdata)->klass);
-  SWIG_TypeClientData(SWIGTYPE_p_FIX__TotalVolumeTradedTime, (void *) &cTotalVolumeTradedTime);
-  rb_define_alloc_func(cTotalVolumeTradedTime.klass, _wrap_TotalVolumeTradedTime_allocate);
-  rb_define_method(cTotalVolumeTradedTime.klass, "initialize", VALUEFUNC(_wrap_new_TotalVolumeTradedTime), -1);
-  cTotalVolumeTradedTime.mark = 0;
-  cTotalVolumeTradedTime.destroy = (void (*)(void *)) free_FIX_TotalVolumeTradedTime;
-  cTotalVolumeTradedTime.trackObjects = 0;
   
   cCardIssNo.klass = rb_define_class_under(mQuickfix, "CardIssNo", ((swig_class *) SWIGTYPE_p_FIX__StringField->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__CardIssNo, (void *) &cCardIssNo);
@@ -56047,1660 +38300,26 @@ SWIGEXPORT void Init_quickfix(void) {
   cLegFutSettDate.mark = 0;
   cLegFutSettDate.destroy = (void (*)(void *)) free_FIX_LegFutSettDate;
   cLegFutSettDate.trackObjects = 0;
+  
+  cLinesOfText.klass = rb_define_class_under(mQuickfix, "LinesOfText", ((swig_class *) SWIGTYPE_p_FIX__IntField->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__LinesOfText, (void *) &cLinesOfText);
+  rb_define_alloc_func(cLinesOfText.klass, _wrap_LinesOfText_allocate);
+  rb_define_method(cLinesOfText.klass, "initialize", VALUEFUNC(_wrap_new_LinesOfText), -1);
+  cLinesOfText.mark = 0;
+  cLinesOfText.destroy = (void (*)(void *)) free_FIX_LinesOfText;
+  cLinesOfText.trackObjects = 0;
+  rb_define_singleton_method(mQuickfix, "BeginString_FIXT11", VALUEFUNC(BeginString_FIXT11_get), 0);
   rb_define_singleton_method(mQuickfix, "BeginString_FIX44", VALUEFUNC(BeginString_FIX44_get), 0);
   rb_define_singleton_method(mQuickfix, "BeginString_FIX43", VALUEFUNC(BeginString_FIX43_get), 0);
   rb_define_singleton_method(mQuickfix, "BeginString_FIX42", VALUEFUNC(BeginString_FIX42_get), 0);
   rb_define_singleton_method(mQuickfix, "BeginString_FIX41", VALUEFUNC(BeginString_FIX41_get), 0);
   rb_define_singleton_method(mQuickfix, "BeginString_FIX40", VALUEFUNC(BeginString_FIX40_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Heartbeat", VALUEFUNC(MsgType_Heartbeat_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Logon", VALUEFUNC(MsgType_Logon_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TestRequest", VALUEFUNC(MsgType_TestRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ResendRequest", VALUEFUNC(MsgType_ResendRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Reject", VALUEFUNC(MsgType_Reject_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SequenceReset", VALUEFUNC(MsgType_SequenceReset_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Logout", VALUEFUNC(MsgType_Logout_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BusinessMessageReject", VALUEFUNC(MsgType_BusinessMessageReject_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_UserRequest", VALUEFUNC(MsgType_UserRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_UserResponse", VALUEFUNC(MsgType_UserResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Advertisement", VALUEFUNC(MsgType_Advertisement_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_IndicationOfInterest", VALUEFUNC(MsgType_IndicationOfInterest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_News", VALUEFUNC(MsgType_News_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Email", VALUEFUNC(MsgType_Email_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteRequest", VALUEFUNC(MsgType_QuoteRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteResponse", VALUEFUNC(MsgType_QuoteResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteRequestReject", VALUEFUNC(MsgType_QuoteRequestReject_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RFQRequest", VALUEFUNC(MsgType_RFQRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Quote", VALUEFUNC(MsgType_Quote_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteCancel", VALUEFUNC(MsgType_QuoteCancel_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteStatusRequest", VALUEFUNC(MsgType_QuoteStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QuoteStatusReport", VALUEFUNC(MsgType_QuoteStatusReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MassQuote", VALUEFUNC(MsgType_MassQuote_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MassQuoteAcknowledgement", VALUEFUNC(MsgType_MassQuoteAcknowledgement_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MarketDataRequest", VALUEFUNC(MsgType_MarketDataRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MarketDataSnapshotFullRefresh", VALUEFUNC(MsgType_MarketDataSnapshotFullRefresh_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MarketDataIncrementalRefresh", VALUEFUNC(MsgType_MarketDataIncrementalRefresh_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MarketDataRequestReject", VALUEFUNC(MsgType_MarketDataRequestReject_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityDefinitionRequest", VALUEFUNC(MsgType_SecurityDefinitionRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityDefinition", VALUEFUNC(MsgType_SecurityDefinition_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityTypeRequest", VALUEFUNC(MsgType_SecurityTypeRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityTypes", VALUEFUNC(MsgType_SecurityTypes_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityListRequest", VALUEFUNC(MsgType_SecurityListRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityList", VALUEFUNC(MsgType_SecurityList_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DerivativeSecurityListRequest", VALUEFUNC(MsgType_DerivativeSecurityListRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DerivativeSecurityList", VALUEFUNC(MsgType_DerivativeSecurityList_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityStatusRequest", VALUEFUNC(MsgType_SecurityStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SecurityStatus", VALUEFUNC(MsgType_SecurityStatus_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradingSessionStatusRequest", VALUEFUNC(MsgType_TradingSessionStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradingSessionStatus", VALUEFUNC(MsgType_TradingSessionStatus_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NewOrderSingle", VALUEFUNC(MsgType_NewOrderSingle_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ExecutionReport", VALUEFUNC(MsgType_ExecutionReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DontKnowTrade", VALUEFUNC(MsgType_DontKnowTrade_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderCancelReplaceRequest", VALUEFUNC(MsgType_OrderCancelReplaceRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderCancelRequest", VALUEFUNC(MsgType_OrderCancelRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderCancelReject", VALUEFUNC(MsgType_OrderCancelReject_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderStatusRequest", VALUEFUNC(MsgType_OrderStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderMassCancelRequest", VALUEFUNC(MsgType_OrderMassCancelRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderMassCancelReport", VALUEFUNC(MsgType_OrderMassCancelReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_OrderMassStatusRequest", VALUEFUNC(MsgType_OrderMassStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NewOrderCross", VALUEFUNC(MsgType_NewOrderCross_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CrossOrderCancelReplaceRequest", VALUEFUNC(MsgType_CrossOrderCancelReplaceRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CrossOrderCancelRequest", VALUEFUNC(MsgType_CrossOrderCancelRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NewOrderMultileg", VALUEFUNC(MsgType_NewOrderMultileg_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MultilegOrderCancelReplaceRequest", VALUEFUNC(MsgType_MultilegOrderCancelReplaceRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BidRequest", VALUEFUNC(MsgType_BidRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BidResponse", VALUEFUNC(MsgType_BidResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NewOrderList", VALUEFUNC(MsgType_NewOrderList_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ListStrikePrice", VALUEFUNC(MsgType_ListStrikePrice_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ListStatus", VALUEFUNC(MsgType_ListStatus_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ListExecute", VALUEFUNC(MsgType_ListExecute_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ListCancelRequest", VALUEFUNC(MsgType_ListCancelRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ListStatusRequest", VALUEFUNC(MsgType_ListStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_AllocationInstruction", VALUEFUNC(MsgType_AllocationInstruction_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_AllocationInstructionAck", VALUEFUNC(MsgType_AllocationInstructionAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_AllocationReport", VALUEFUNC(MsgType_AllocationReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_AllocationReportAck", VALUEFUNC(MsgType_AllocationReportAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_Confirmation", VALUEFUNC(MsgType_Confirmation_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ConfirmationAck", VALUEFUNC(MsgType_ConfirmationAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ConfirmationRequest", VALUEFUNC(MsgType_ConfirmationRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SettlementInstructions", VALUEFUNC(MsgType_SettlementInstructions_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SettlementInstructionRequest", VALUEFUNC(MsgType_SettlementInstructionRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradeCaptureReportRequest", VALUEFUNC(MsgType_TradeCaptureReportRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradeCaptureReportRequestAck", VALUEFUNC(MsgType_TradeCaptureReportRequestAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradeCaptureReport", VALUEFUNC(MsgType_TradeCaptureReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TradeCaptureReportAck", VALUEFUNC(MsgType_TradeCaptureReportAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RegistrationInstructions", VALUEFUNC(MsgType_RegistrationInstructions_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RegistrationInstructionsResponse", VALUEFUNC(MsgType_RegistrationInstructionsResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_PositionMaintenanceRequest", VALUEFUNC(MsgType_PositionMaintenanceRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_PositionMaintenanceReport", VALUEFUNC(MsgType_PositionMaintenanceReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RequestForPositions", VALUEFUNC(MsgType_RequestForPositions_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RequestForPositionsAck", VALUEFUNC(MsgType_RequestForPositionsAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_PositionReport", VALUEFUNC(MsgType_PositionReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_AssignmentReport", VALUEFUNC(MsgType_AssignmentReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralRequest", VALUEFUNC(MsgType_CollateralRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralAssignment", VALUEFUNC(MsgType_CollateralAssignment_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralResponse", VALUEFUNC(MsgType_CollateralResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralReport", VALUEFUNC(MsgType_CollateralReport_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralInquiry", VALUEFUNC(MsgType_CollateralInquiry_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NetworkStatusRequest", VALUEFUNC(MsgType_NetworkStatusRequest_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NetworkStatusResponse", VALUEFUNC(MsgType_NetworkStatusResponse_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CollateralInquiryAck", VALUEFUNC(MsgType_CollateralInquiryAck_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvSide_BUY", VALUEFUNC(AdvSide_BUY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvSide_SELL", VALUEFUNC(AdvSide_SELL_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvSide_CROSS", VALUEFUNC(AdvSide_CROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvSide_TRADE", VALUEFUNC(AdvSide_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvTransType_NEW", VALUEFUNC(AdvTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvTransType_CANCEL", VALUEFUNC(AdvTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdvTransType_REPLACE", VALUEFUNC(AdvTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_PER_UNIT", VALUEFUNC(CommType_PER_UNIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_PERCENTAGE", VALUEFUNC(CommType_PERCENTAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_ABSOLUTE", VALUEFUNC(CommType_ABSOLUTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT", VALUEFUNC(CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS", VALUEFUNC(CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CommType_POINTS_PER_BOND_OR_OR_CONTRACT", VALUEFUNC(CommType_POINTS_PER_BOND_OR_OR_CONTRACT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_NOT_HELD", VALUEFUNC(ExecInst_NOT_HELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_WORK", VALUEFUNC(ExecInst_WORK_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_GO_ALONG", VALUEFUNC(ExecInst_GO_ALONG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_OVER_THE_DAY", VALUEFUNC(ExecInst_OVER_THE_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_HELD", VALUEFUNC(ExecInst_HELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_PARTICIPATE_DONT_INITIATE", VALUEFUNC(ExecInst_PARTICIPATE_DONT_INITIATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_STRICT_SCALE", VALUEFUNC(ExecInst_STRICT_SCALE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_TRY_TO_SCALE", VALUEFUNC(ExecInst_TRY_TO_SCALE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_STAY_ON_BIDSIDE", VALUEFUNC(ExecInst_STAY_ON_BIDSIDE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_STAY_ON_OFFERSIDE", VALUEFUNC(ExecInst_STAY_ON_OFFERSIDE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_NO_CROSS", VALUEFUNC(ExecInst_NO_CROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_OK_TO_CROSS", VALUEFUNC(ExecInst_OK_TO_CROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_CALL_FIRST", VALUEFUNC(ExecInst_CALL_FIRST_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_PERCENT_OF_VOLUME", VALUEFUNC(ExecInst_PERCENT_OF_VOLUME_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_DO_NOT_INCREASE", VALUEFUNC(ExecInst_DO_NOT_INCREASE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_DO_NOT_REDUCE", VALUEFUNC(ExecInst_DO_NOT_REDUCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_ALL_OR_NONE", VALUEFUNC(ExecInst_ALL_OR_NONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_REINSTATE_ON_SYSTEM_FAILURE", VALUEFUNC(ExecInst_REINSTATE_ON_SYSTEM_FAILURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_INSTITUTIONS_ONLY", VALUEFUNC(ExecInst_INSTITUTIONS_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_REINSTATE_ON_TRADING_HALT", VALUEFUNC(ExecInst_REINSTATE_ON_TRADING_HALT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_CANCEL_ON_TRADING_HALT", VALUEFUNC(ExecInst_CANCEL_ON_TRADING_HALT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_LAST_PEG", VALUEFUNC(ExecInst_LAST_PEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_MID_PRICE", VALUEFUNC(ExecInst_MID_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_NON_NEGOTIABLE", VALUEFUNC(ExecInst_NON_NEGOTIABLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_OPENING_PEG", VALUEFUNC(ExecInst_OPENING_PEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_MARKET_PEG", VALUEFUNC(ExecInst_MARKET_PEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_CANCEL_ON_SYSTEM_FAILURE", VALUEFUNC(ExecInst_CANCEL_ON_SYSTEM_FAILURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_PRIMARY_PEG", VALUEFUNC(ExecInst_PRIMARY_PEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_SUSPEND", VALUEFUNC(ExecInst_SUSPEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER", VALUEFUNC(ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_CUSTOMER_DISPLAY_INSTRUCTION", VALUEFUNC(ExecInst_CUSTOMER_DISPLAY_INSTRUCTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_NETTING", VALUEFUNC(ExecInst_NETTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_PEG_TO_VWAP", VALUEFUNC(ExecInst_PEG_TO_VWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_TRADE_ALONG", VALUEFUNC(ExecInst_TRADE_ALONG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_TRY_TO_STOP", VALUEFUNC(ExecInst_TRY_TO_STOP_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_CANCEL_IF_NOT_BEST", VALUEFUNC(ExecInst_CANCEL_IF_NOT_BEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_TRAILING_STOP_PEG", VALUEFUNC(ExecInst_TRAILING_STOP_PEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_STRICT_LIMIT", VALUEFUNC(ExecInst_STRICT_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_IGNORE_PRICE_VALIDITY_CHECKS", VALUEFUNC(ExecInst_IGNORE_PRICE_VALIDITY_CHECKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_PEG_TO_LIMIT_PRICE", VALUEFUNC(ExecInst_PEG_TO_LIMIT_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecInst_WORK_TO_TARGET_STRATEGY", VALUEFUNC(ExecInst_WORK_TO_TARGET_STRATEGY_get), 0);
-  rb_define_singleton_method(mQuickfix, "HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE", VALUEFUNC(HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC", VALUEFUNC(HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "HandlInst_MANUAL_ORDER", VALUEFUNC(HandlInst_MANUAL_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_CUSIP", VALUEFUNC(SecurityIDSource_CUSIP_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_SEDOL", VALUEFUNC(SecurityIDSource_SEDOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_QUIK", VALUEFUNC(SecurityIDSource_QUIK_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_ISIN_NUMBER", VALUEFUNC(SecurityIDSource_ISIN_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_RIC_CODE", VALUEFUNC(SecurityIDSource_RIC_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_ISO_CURRENCY_CODE", VALUEFUNC(SecurityIDSource_ISO_CURRENCY_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_ISO_COUNTRY_CODE", VALUEFUNC(SecurityIDSource_ISO_COUNTRY_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_EXCHANGE_SYMBOL", VALUEFUNC(SecurityIDSource_EXCHANGE_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION", VALUEFUNC(SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_BLOOMBERG_SYMBOL", VALUEFUNC(SecurityIDSource_BLOOMBERG_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_WERTPAPIER", VALUEFUNC(SecurityIDSource_WERTPAPIER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_DUTCH", VALUEFUNC(SecurityIDSource_DUTCH_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_VALOREN", VALUEFUNC(SecurityIDSource_VALOREN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_SICOVAM", VALUEFUNC(SecurityIDSource_SICOVAM_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_BELGIAN", VALUEFUNC(SecurityIDSource_BELGIAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_COMMON", VALUEFUNC(SecurityIDSource_COMMON_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION", VALUEFUNC(SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION", VALUEFUNC(SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY", VALUEFUNC(SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQltyInd_LOW", VALUEFUNC(IOIQltyInd_LOW_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQltyInd_MEDIUM", VALUEFUNC(IOIQltyInd_MEDIUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQltyInd_HIGH", VALUEFUNC(IOIQltyInd_HIGH_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOITransType_NEW", VALUEFUNC(IOITransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOITransType_CANCEL", VALUEFUNC(IOITransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOITransType_REPLACE", VALUEFUNC(IOITransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastCapacity_AGENT", VALUEFUNC(LastCapacity_AGENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastCapacity_CROSS_AS_AGENT", VALUEFUNC(LastCapacity_CROSS_AS_AGENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastCapacity_CROSS_AS_PRINCIPAL", VALUEFUNC(LastCapacity_CROSS_AS_PRINCIPAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastCapacity_PRINCIPAL", VALUEFUNC(LastCapacity_PRINCIPAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_HEARTBEAT", VALUEFUNC(MsgType_HEARTBEAT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TEST_REQUEST", VALUEFUNC(MsgType_TEST_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RESEND_REQUEST", VALUEFUNC(MsgType_RESEND_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_REJECT", VALUEFUNC(MsgType_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SEQUENCE_RESET", VALUEFUNC(MsgType_SEQUENCE_RESET_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LOGOUT", VALUEFUNC(MsgType_LOGOUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_INDICATION_OF_INTEREST", VALUEFUNC(MsgType_INDICATION_OF_INTEREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ADVERTISEMENT", VALUEFUNC(MsgType_ADVERTISEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_EXECUTION_REPORT", VALUEFUNC(MsgType_EXECUTION_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_CANCEL_REJECT", VALUEFUNC(MsgType_ORDER_CANCEL_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LOGON", VALUEFUNC(MsgType_LOGON_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NEWS", VALUEFUNC(MsgType_NEWS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_EMAIL", VALUEFUNC(MsgType_EMAIL_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_SINGLE", VALUEFUNC(MsgType_ORDER_SINGLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_LIST", VALUEFUNC(MsgType_ORDER_LIST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_CANCEL_REQUEST", VALUEFUNC(MsgType_ORDER_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_CANCEL_REPLACE_REQUEST", VALUEFUNC(MsgType_ORDER_CANCEL_REPLACE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_STATUS_REQUEST", VALUEFUNC(MsgType_ORDER_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ALLOCATION_INSTRUCTION", VALUEFUNC(MsgType_ALLOCATION_INSTRUCTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LIST_CANCEL_REQUEST", VALUEFUNC(MsgType_LIST_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LIST_EXECUTE", VALUEFUNC(MsgType_LIST_EXECUTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LIST_STATUS_REQUEST", VALUEFUNC(MsgType_LIST_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LIST_STATUS", VALUEFUNC(MsgType_LIST_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ALLOCATION_INSTRUCTION_ACK", VALUEFUNC(MsgType_ALLOCATION_INSTRUCTION_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DONT_KNOW_TRADE", VALUEFUNC(MsgType_DONT_KNOW_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_REQUEST", VALUEFUNC(MsgType_QUOTE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE", VALUEFUNC(MsgType_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SETTLEMENT_INSTRUCTIONS", VALUEFUNC(MsgType_SETTLEMENT_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MARKET_DATA_REQUEST", VALUEFUNC(MsgType_MARKET_DATA_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH", VALUEFUNC(MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MARKET_DATA_INCREMENTAL_REFRESH", VALUEFUNC(MsgType_MARKET_DATA_INCREMENTAL_REFRESH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MARKET_DATA_REQUEST_REJECT", VALUEFUNC(MsgType_MARKET_DATA_REQUEST_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_CANCEL", VALUEFUNC(MsgType_QUOTE_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_STATUS_REQUEST", VALUEFUNC(MsgType_QUOTE_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MASS_QUOTE_ACKNOWLEDGEMENT", VALUEFUNC(MsgType_MASS_QUOTE_ACKNOWLEDGEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_DEFINITION_REQUEST", VALUEFUNC(MsgType_SECURITY_DEFINITION_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_DEFINITION", VALUEFUNC(MsgType_SECURITY_DEFINITION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_STATUS_REQUEST", VALUEFUNC(MsgType_SECURITY_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_STATUS", VALUEFUNC(MsgType_SECURITY_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADING_SESSION_STATUS_REQUEST", VALUEFUNC(MsgType_TRADING_SESSION_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADING_SESSION_STATUS", VALUEFUNC(MsgType_TRADING_SESSION_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MASS_QUOTE", VALUEFUNC(MsgType_MASS_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BUSINESS_MESSAGE_REJECT", VALUEFUNC(MsgType_BUSINESS_MESSAGE_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BID_REQUEST", VALUEFUNC(MsgType_BID_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_BID_RESPONSE", VALUEFUNC(MsgType_BID_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_LIST_STRIKE_PRICE", VALUEFUNC(MsgType_LIST_STRIKE_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_XML_MESSAGE", VALUEFUNC(MsgType_XML_MESSAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_REGISTRATION_INSTRUCTIONS", VALUEFUNC(MsgType_REGISTRATION_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE", VALUEFUNC(MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_MASS_CANCEL_REQUEST", VALUEFUNC(MsgType_ORDER_MASS_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_MASS_CANCEL_REPORT", VALUEFUNC(MsgType_ORDER_MASS_CANCEL_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NEW_ORDER_CROSS", VALUEFUNC(MsgType_NEW_ORDER_CROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST", VALUEFUNC(MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CROSS_ORDER_CANCEL_REQUEST", VALUEFUNC(MsgType_CROSS_ORDER_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_TYPE_REQUEST", VALUEFUNC(MsgType_SECURITY_TYPE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_TYPES", VALUEFUNC(MsgType_SECURITY_TYPES_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_LIST_REQUEST", VALUEFUNC(MsgType_SECURITY_LIST_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SECURITY_LIST", VALUEFUNC(MsgType_SECURITY_LIST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DERIVATIVE_SECURITY_LIST_REQUEST", VALUEFUNC(MsgType_DERIVATIVE_SECURITY_LIST_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_DERIVATIVE_SECURITY_LIST", VALUEFUNC(MsgType_DERIVATIVE_SECURITY_LIST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NEW_ORDER_MULTILEG", VALUEFUNC(MsgType_NEW_ORDER_MULTILEG_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_MULTILEG_ORDER_CANCEL_REPLACE", VALUEFUNC(MsgType_MULTILEG_ORDER_CANCEL_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADE_CAPTURE_REPORT_REQUEST", VALUEFUNC(MsgType_TRADE_CAPTURE_REPORT_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADE_CAPTURE_REPORT", VALUEFUNC(MsgType_TRADE_CAPTURE_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ORDER_MASS_STATUS_REQUEST", VALUEFUNC(MsgType_ORDER_MASS_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_REQUEST_REJECT", VALUEFUNC(MsgType_QUOTE_REQUEST_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_RFQ_REQUEST", VALUEFUNC(MsgType_RFQ_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_STATUS_REPORT", VALUEFUNC(MsgType_QUOTE_STATUS_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_QUOTE_RESPONSE", VALUEFUNC(MsgType_QUOTE_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CONFIRMATION", VALUEFUNC(MsgType_CONFIRMATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_POSITION_MAINTENANCE_REQUEST", VALUEFUNC(MsgType_POSITION_MAINTENANCE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_POSITION_MAINTENANCE_REPORT", VALUEFUNC(MsgType_POSITION_MAINTENANCE_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_REQUEST_FOR_POSITIONS", VALUEFUNC(MsgType_REQUEST_FOR_POSITIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_REQUEST_FOR_POSITIONS_ACK", VALUEFUNC(MsgType_REQUEST_FOR_POSITIONS_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_POSITION_REPORT", VALUEFUNC(MsgType_POSITION_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK", VALUEFUNC(MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_TRADE_CAPTURE_REPORT_ACK", VALUEFUNC(MsgType_TRADE_CAPTURE_REPORT_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ALLOCATION_REPORT", VALUEFUNC(MsgType_ALLOCATION_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ALLOCATION_REPORT_ACK", VALUEFUNC(MsgType_ALLOCATION_REPORT_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CONFIRMATION_ACK", VALUEFUNC(MsgType_CONFIRMATION_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_SETTLEMENT_INSTRUCTION_REQUEST", VALUEFUNC(MsgType_SETTLEMENT_INSTRUCTION_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_ASSIGNMENT_REPORT", VALUEFUNC(MsgType_ASSIGNMENT_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_REQUEST", VALUEFUNC(MsgType_COLLATERAL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_ASSIGNMENT", VALUEFUNC(MsgType_COLLATERAL_ASSIGNMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_RESPONSE", VALUEFUNC(MsgType_COLLATERAL_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_REPORT", VALUEFUNC(MsgType_COLLATERAL_REPORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_INQUIRY", VALUEFUNC(MsgType_COLLATERAL_INQUIRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NETWORK_STATUS_REQUEST", VALUEFUNC(MsgType_NETWORK_STATUS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_NETWORK_STATUS_RESPONSE", VALUEFUNC(MsgType_NETWORK_STATUS_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_USER_REQUEST", VALUEFUNC(MsgType_USER_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_USER_RESPONSE", VALUEFUNC(MsgType_USER_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_COLLATERAL_INQUIRY_ACK", VALUEFUNC(MsgType_COLLATERAL_INQUIRY_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgType_CONFIRMATION_REQUEST", VALUEFUNC(MsgType_CONFIRMATION_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_NEW", VALUEFUNC(OrdStatus_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_PARTIALLY_FILLED", VALUEFUNC(OrdStatus_PARTIALLY_FILLED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_FILLED", VALUEFUNC(OrdStatus_FILLED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_DONE_FOR_DAY", VALUEFUNC(OrdStatus_DONE_FOR_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_CANCELED", VALUEFUNC(OrdStatus_CANCELED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_REPLACED", VALUEFUNC(OrdStatus_REPLACED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_PENDING_CANCEL", VALUEFUNC(OrdStatus_PENDING_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_STOPPED", VALUEFUNC(OrdStatus_STOPPED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_REJECTED", VALUEFUNC(OrdStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_SUSPENDED", VALUEFUNC(OrdStatus_SUSPENDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_PENDING_NEW", VALUEFUNC(OrdStatus_PENDING_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_CALCULATED", VALUEFUNC(OrdStatus_CALCULATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_EXPIRED", VALUEFUNC(OrdStatus_EXPIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_ACCEPTED_FOR_BIDDING", VALUEFUNC(OrdStatus_ACCEPTED_FOR_BIDDING_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdStatus_PENDING_REPLACE", VALUEFUNC(OrdStatus_PENDING_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_MARKET", VALUEFUNC(OrdType_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_LIMIT", VALUEFUNC(OrdType_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_STOP", VALUEFUNC(OrdType_STOP_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_STOP_LIMIT", VALUEFUNC(OrdType_STOP_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_MARKET_ON_CLOSE", VALUEFUNC(OrdType_MARKET_ON_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_WITH_OR_WITHOUT", VALUEFUNC(OrdType_WITH_OR_WITHOUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_LIMIT_OR_BETTER", VALUEFUNC(OrdType_LIMIT_OR_BETTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_LIMIT_WITH_OR_WITHOUT", VALUEFUNC(OrdType_LIMIT_WITH_OR_WITHOUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_ON_BASIS", VALUEFUNC(OrdType_ON_BASIS_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_ON_CLOSE", VALUEFUNC(OrdType_ON_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_LIMIT_ON_CLOSE", VALUEFUNC(OrdType_LIMIT_ON_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_FOREX_MARKET", VALUEFUNC(OrdType_FOREX_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_PREVIOUSLY_QUOTED", VALUEFUNC(OrdType_PREVIOUSLY_QUOTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_PREVIOUSLY_INDICATED", VALUEFUNC(OrdType_PREVIOUSLY_INDICATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_FOREX_LIMIT", VALUEFUNC(OrdType_FOREX_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_FOREX_SWAP", VALUEFUNC(OrdType_FOREX_SWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_FOREX_PREVIOUSLY_QUOTED", VALUEFUNC(OrdType_FOREX_PREVIOUSLY_QUOTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_FUNARI", VALUEFUNC(OrdType_FUNARI_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_MARKET_IF_TOUCHED", VALUEFUNC(OrdType_MARKET_IF_TOUCHED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT", VALUEFUNC(OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_PREVIOUS_FUND_VALUATION_POINT", VALUEFUNC(OrdType_PREVIOUS_FUND_VALUATION_POINT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_NEXT_FUND_VALUATION_POINT", VALUEFUNC(OrdType_NEXT_FUND_VALUATION_POINT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdType_PEGGED", VALUEFUNC(OrdType_PEGGED_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_BUY", VALUEFUNC(Side_BUY_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_SELL", VALUEFUNC(Side_SELL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_BUY_MINUS", VALUEFUNC(Side_BUY_MINUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_SELL_PLUS", VALUEFUNC(Side_SELL_PLUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_SELL_SHORT", VALUEFUNC(Side_SELL_SHORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_SELL_SHORT_EXEMPT", VALUEFUNC(Side_SELL_SHORT_EXEMPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_UNDISCLOSED", VALUEFUNC(Side_UNDISCLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_CROSS", VALUEFUNC(Side_CROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_CROSS_SHORT", VALUEFUNC(Side_CROSS_SHORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_CROSS_SHORT_EXEMPT", VALUEFUNC(Side_CROSS_SHORT_EXEMPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_AS_DEFINED", VALUEFUNC(Side_AS_DEFINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_OPPOSITE", VALUEFUNC(Side_OPPOSITE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_SUBSCRIBE", VALUEFUNC(Side_SUBSCRIBE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_REDEEM", VALUEFUNC(Side_REDEEM_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_LEND", VALUEFUNC(Side_LEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "Side_BORROW", VALUEFUNC(Side_BORROW_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_DAY", VALUEFUNC(TimeInForce_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_GOOD_TILL_CANCEL", VALUEFUNC(TimeInForce_GOOD_TILL_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_AT_THE_OPENING", VALUEFUNC(TimeInForce_AT_THE_OPENING_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_IMMEDIATE_OR_CANCEL", VALUEFUNC(TimeInForce_IMMEDIATE_OR_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_FILL_OR_KILL", VALUEFUNC(TimeInForce_FILL_OR_KILL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_GOOD_TILL_CROSSING", VALUEFUNC(TimeInForce_GOOD_TILL_CROSSING_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_GOOD_TILL_DATE", VALUEFUNC(TimeInForce_GOOD_TILL_DATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TimeInForce_AT_THE_CLOSE", VALUEFUNC(TimeInForce_AT_THE_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Urgency_NORMAL", VALUEFUNC(Urgency_NORMAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Urgency_FLASH", VALUEFUNC(Urgency_FLASH_get), 0);
-  rb_define_singleton_method(mQuickfix, "Urgency_BACKGROUND", VALUEFUNC(Urgency_BACKGROUND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_REGULAR", VALUEFUNC(SettlType_REGULAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_CASH", VALUEFUNC(SettlType_CASH_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_NEXT_DAY", VALUEFUNC(SettlType_NEXT_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_T_PLUS_2", VALUEFUNC(SettlType_T_PLUS_2_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_T_PLUS_3", VALUEFUNC(SettlType_T_PLUS_3_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_T_PLUS_4", VALUEFUNC(SettlType_T_PLUS_4_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_FUTURE", VALUEFUNC(SettlType_FUTURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_WHEN_AND_IF_ISSUED", VALUEFUNC(SettlType_WHEN_AND_IF_ISSUED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_SELLERS_OPTION", VALUEFUNC(SettlType_SELLERS_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlType_T_PLUS_5", VALUEFUNC(SettlType_T_PLUS_5_get), 0);
-  rb_define_singleton_method(mQuickfix, "SymbolSfx_WHEN_ISSUED", VALUEFUNC(SymbolSfx_WHEN_ISSUED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST", VALUEFUNC(SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocTransType_NEW", VALUEFUNC(AllocTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocTransType_REPLACE", VALUEFUNC(AllocTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocTransType_CANCEL", VALUEFUNC(AllocTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PositionEffect_OPEN", VALUEFUNC(PositionEffect_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "PositionEffect_CLOSE", VALUEFUNC(PositionEffect_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PositionEffect_ROLLED", VALUEFUNC(PositionEffect_ROLLED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PositionEffect_FIFO", VALUEFUNC(PositionEffect_FIFO_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_REGULAR", VALUEFUNC(ProcessCode_REGULAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_SOFT_DOLLAR", VALUEFUNC(ProcessCode_SOFT_DOLLAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_STEP_IN", VALUEFUNC(ProcessCode_STEP_IN_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_STEP_OUT", VALUEFUNC(ProcessCode_STEP_OUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_SOFT_DOLLAR_STEP_IN", VALUEFUNC(ProcessCode_SOFT_DOLLAR_STEP_IN_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_SOFT_DOLLAR_STEP_OUT", VALUEFUNC(ProcessCode_SOFT_DOLLAR_STEP_OUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProcessCode_PLAN_SPONSOR", VALUEFUNC(ProcessCode_PLAN_SPONSOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_ACCEPTED", VALUEFUNC(AllocStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_BLOCK_LEVEL_REJECT", VALUEFUNC(AllocStatus_BLOCK_LEVEL_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_ACCOUNT_LEVEL_REJECT", VALUEFUNC(AllocStatus_ACCOUNT_LEVEL_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_RECEIVED", VALUEFUNC(AllocStatus_RECEIVED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_INCOMPLETE", VALUEFUNC(AllocStatus_INCOMPLETE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocStatus_REJECTED_BY_INTERMEDIARY", VALUEFUNC(AllocStatus_REJECTED_BY_INTERMEDIARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_UNKNOWN_ACCOUNT", VALUEFUNC(AllocRejCode_UNKNOWN_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_INCORRECT_QUANTITY", VALUEFUNC(AllocRejCode_INCORRECT_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_INCORRECT_AVERAGE_PRICE", VALUEFUNC(AllocRejCode_INCORRECT_AVERAGE_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC", VALUEFUNC(AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_COMMISSION_DIFFERENCE", VALUEFUNC(AllocRejCode_COMMISSION_DIFFERENCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_UNKNOWN_ORDERID", VALUEFUNC(AllocRejCode_UNKNOWN_ORDERID_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_UNKNOWN_LISTID", VALUEFUNC(AllocRejCode_UNKNOWN_LISTID_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_OTHER", VALUEFUNC(AllocRejCode_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_INCORRECT_ALLOCATED_QUANTITY", VALUEFUNC(AllocRejCode_INCORRECT_ALLOCATED_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocRejCode_CALCULATION_DIFFERENCE", VALUEFUNC(AllocRejCode_CALCULATION_DIFFERENCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "EmailType_NEW", VALUEFUNC(EmailType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "EmailType_REPLY", VALUEFUNC(EmailType_REPLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "EmailType_ADMIN_REPLY", VALUEFUNC(EmailType_ADMIN_REPLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_NONE_OTHER", VALUEFUNC(EncryptMethod_NONE_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_PKCS", VALUEFUNC(EncryptMethod_PKCS_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_DES", VALUEFUNC(EncryptMethod_DES_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_PKCS_DES", VALUEFUNC(EncryptMethod_PKCS_DES_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_PGP_DES", VALUEFUNC(EncryptMethod_PGP_DES_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_PGP_DES_MD5", VALUEFUNC(EncryptMethod_PGP_DES_MD5_get), 0);
-  rb_define_singleton_method(mQuickfix, "EncryptMethod_PEM_DES_MD5", VALUEFUNC(EncryptMethod_PEM_DES_MD5_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_TOO_LATE_TO_CANCEL", VALUEFUNC(CxlRejReason_TOO_LATE_TO_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_UNKNOWN_ORDER", VALUEFUNC(CxlRejReason_UNKNOWN_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_BROKER_EXCHANGE_OPTION", VALUEFUNC(CxlRejReason_BROKER_EXCHANGE_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS", VALUEFUNC(CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST", VALUEFUNC(CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER", VALUEFUNC(CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_DUPLICATE_CLORDID_RECEIVED", VALUEFUNC(CxlRejReason_DUPLICATE_CLORDID_RECEIVED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejReason_OTHER", VALUEFUNC(CxlRejReason_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_BROKER_EXCHANGE_OPTION", VALUEFUNC(OrdRejReason_BROKER_EXCHANGE_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_UNKNOWN_SYMBOL", VALUEFUNC(OrdRejReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_EXCHANGE_CLOSED", VALUEFUNC(OrdRejReason_EXCHANGE_CLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_ORDER_EXCEEDS_LIMIT", VALUEFUNC(OrdRejReason_ORDER_EXCEEDS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_TOO_LATE_TO_ENTER", VALUEFUNC(OrdRejReason_TOO_LATE_TO_ENTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_UNKNOWN_ORDER", VALUEFUNC(OrdRejReason_UNKNOWN_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_DUPLICATE_ORDER", VALUEFUNC(OrdRejReason_DUPLICATE_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER", VALUEFUNC(OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_STALE_ORDER", VALUEFUNC(OrdRejReason_STALE_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_TRADE_ALONG_REQUIRED", VALUEFUNC(OrdRejReason_TRADE_ALONG_REQUIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_INVALID_INVESTOR_ID", VALUEFUNC(OrdRejReason_INVALID_INVESTOR_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC", VALUEFUNC(OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_SURVEILLENCE_OPTION", VALUEFUNC(OrdRejReason_SURVEILLENCE_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_INCORRECT_QUANTITY", VALUEFUNC(OrdRejReason_INCORRECT_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_INCORRECT_ALLOCATED_QUANTITY", VALUEFUNC(OrdRejReason_INCORRECT_ALLOCATED_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_UNKNOWN_ACCOUNT", VALUEFUNC(OrdRejReason_UNKNOWN_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrdRejReason_OTHER", VALUEFUNC(OrdRejReason_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_ALL_OR_NONE", VALUEFUNC(IOIQualifier_ALL_OR_NONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_MARKET_ON_CLOSE", VALUEFUNC(IOIQualifier_MARKET_ON_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_AT_THE_CLOSE", VALUEFUNC(IOIQualifier_AT_THE_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_VWAP", VALUEFUNC(IOIQualifier_VWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_IN_TOUCH_WITH", VALUEFUNC(IOIQualifier_IN_TOUCH_WITH_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_LIMIT", VALUEFUNC(IOIQualifier_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_MORE_BEHIND", VALUEFUNC(IOIQualifier_MORE_BEHIND_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_AT_THE_OPEN", VALUEFUNC(IOIQualifier_AT_THE_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_TAKING_A_POSITION", VALUEFUNC(IOIQualifier_TAKING_A_POSITION_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_AT_THE_MARKET", VALUEFUNC(IOIQualifier_AT_THE_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_READY_TO_TRADE", VALUEFUNC(IOIQualifier_READY_TO_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_PORTFOLIO_SHOWN", VALUEFUNC(IOIQualifier_PORTFOLIO_SHOWN_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_THROUGH_THE_DAY", VALUEFUNC(IOIQualifier_THROUGH_THE_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_VERSUS", VALUEFUNC(IOIQualifier_VERSUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_INDICATION_WORKING_AWAY", VALUEFUNC(IOIQualifier_INDICATION_WORKING_AWAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_CROSSING_OPPORTUNITY", VALUEFUNC(IOIQualifier_CROSSING_OPPORTUNITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_AT_THE_MIDPOINT", VALUEFUNC(IOIQualifier_AT_THE_MIDPOINT_get), 0);
-  rb_define_singleton_method(mQuickfix, "IOIQualifier_PRE_OPEN", VALUEFUNC(IOIQualifier_PRE_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_UNKNOWN_SYMBOL", VALUEFUNC(DKReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_WRONG_SIDE", VALUEFUNC(DKReason_WRONG_SIDE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_QUANTITY_EXCEEDS_ORDER", VALUEFUNC(DKReason_QUANTITY_EXCEEDS_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_NO_MATCHING_ORDER", VALUEFUNC(DKReason_NO_MATCHING_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_PRICE_EXCEEDS_LIMIT", VALUEFUNC(DKReason_PRICE_EXCEEDS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_CALCULATION_DIFFERENCE", VALUEFUNC(DKReason_CALCULATION_DIFFERENCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DKReason_OTHER", VALUEFUNC(DKReason_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_REGULATORY", VALUEFUNC(MiscFeeType_REGULATORY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_TAX", VALUEFUNC(MiscFeeType_TAX_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_LOCAL_COMMISSION", VALUEFUNC(MiscFeeType_LOCAL_COMMISSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_EXCHANGE_FEES", VALUEFUNC(MiscFeeType_EXCHANGE_FEES_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_STAMP", VALUEFUNC(MiscFeeType_STAMP_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_LEVY", VALUEFUNC(MiscFeeType_LEVY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_OTHER", VALUEFUNC(MiscFeeType_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_MARKUP", VALUEFUNC(MiscFeeType_MARKUP_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeType_CONSUMPTION_TAX", VALUEFUNC(MiscFeeType_CONSUMPTION_TAX_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_NEW", VALUEFUNC(ExecType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_PARTIAL_FILL", VALUEFUNC(ExecType_PARTIAL_FILL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_FILL", VALUEFUNC(ExecType_FILL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_DONE_FOR_DAY", VALUEFUNC(ExecType_DONE_FOR_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_CANCELED", VALUEFUNC(ExecType_CANCELED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_REPLACE", VALUEFUNC(ExecType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_PENDING_CANCEL", VALUEFUNC(ExecType_PENDING_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_STOPPED", VALUEFUNC(ExecType_STOPPED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_REJECTED", VALUEFUNC(ExecType_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_SUSPENDED", VALUEFUNC(ExecType_SUSPENDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_PENDING_NEW", VALUEFUNC(ExecType_PENDING_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_CALCULATED", VALUEFUNC(ExecType_CALCULATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_EXPIRED", VALUEFUNC(ExecType_EXPIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_RESTATED", VALUEFUNC(ExecType_RESTATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_PENDING_REPLACE", VALUEFUNC(ExecType_PENDING_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_TRADE", VALUEFUNC(ExecType_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_TRADE_CORRECT", VALUEFUNC(ExecType_TRADE_CORRECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_TRADE_CANCEL", VALUEFUNC(ExecType_TRADE_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecType_ORDER_STATUS", VALUEFUNC(ExecType_ORDER_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlCurrFxRateCalc_MULTIPLY", VALUEFUNC(SettlCurrFxRateCalc_MULTIPLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlCurrFxRateCalc_DIVIDE", VALUEFUNC(SettlCurrFxRateCalc_DIVIDE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstMode_DEFAULT", VALUEFUNC(SettlInstMode_DEFAULT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED", VALUEFUNC(SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT", VALUEFUNC(SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstMode_REQUEST_REJECT", VALUEFUNC(SettlInstMode_REQUEST_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstTransType_NEW", VALUEFUNC(SettlInstTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstTransType_CANCEL", VALUEFUNC(SettlInstTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstTransType_REPLACE", VALUEFUNC(SettlInstTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstTransType_RESTATE", VALUEFUNC(SettlInstTransType_RESTATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstSource_BROKERS_INSTRUCTIONS", VALUEFUNC(SettlInstSource_BROKERS_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstSource_INSTITUTIONS_INSTRUCTIONS", VALUEFUNC(SettlInstSource_INSTITUTIONS_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstSource_INVESTOR", VALUEFUNC(SettlInstSource_INVESTOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EURO_SUPRANATIONAL_COUPONS", VALUEFUNC(SecurityType_EURO_SUPRANATIONAL_COUPONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_FEDERAL_AGENCY_COUPON", VALUEFUNC(SecurityType_FEDERAL_AGENCY_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE", VALUEFUNC(SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PRIVATE_EXPORT_FUNDING", VALUEFUNC(SecurityType_PRIVATE_EXPORT_FUNDING_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_USD_SUPRANATIONAL_COUPONS", VALUEFUNC(SecurityType_USD_SUPRANATIONAL_COUPONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_FUTURE", VALUEFUNC(SecurityType_FUTURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_OPTION", VALUEFUNC(SecurityType_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CORPORATE_BOND", VALUEFUNC(SecurityType_CORPORATE_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CORPORATE_PRIVATE_PLACEMENT", VALUEFUNC(SecurityType_CORPORATE_PRIVATE_PLACEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CONVERTIBLE_BOND", VALUEFUNC(SecurityType_CONVERTIBLE_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_DUAL_CURRENCY", VALUEFUNC(SecurityType_DUAL_CURRENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EURO_CORPORATE_BOND", VALUEFUNC(SecurityType_EURO_CORPORATE_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_INDEXED_LINKED", VALUEFUNC(SecurityType_INDEXED_LINKED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_STRUCTURED_NOTES", VALUEFUNC(SecurityType_STRUCTURED_NOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_YANKEE_CORPORATE_BOND", VALUEFUNC(SecurityType_YANKEE_CORPORATE_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_FOREIGN_EXCHANGE_CONTRACT", VALUEFUNC(SecurityType_FOREIGN_EXCHANGE_CONTRACT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_COMMON_STOCK", VALUEFUNC(SecurityType_COMMON_STOCK_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PREFERRED_STOCK", VALUEFUNC(SecurityType_PREFERRED_STOCK_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BRADY_BOND", VALUEFUNC(SecurityType_BRADY_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EURO_SOVEREIGNS", VALUEFUNC(SecurityType_EURO_SOVEREIGNS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_US_TREASURY_BOND", VALUEFUNC(SecurityType_US_TREASURY_BOND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE", VALUEFUNC(SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES", VALUEFUNC(SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE", VALUEFUNC(SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE", VALUEFUNC(SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_US_TREASURY_NOTE", VALUEFUNC(SecurityType_US_TREASURY_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_US_TREASURY_BILL", VALUEFUNC(SecurityType_US_TREASURY_BILL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REPURCHASE", VALUEFUNC(SecurityType_REPURCHASE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_FORWARD", VALUEFUNC(SecurityType_FORWARD_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BUY_SELLBACK", VALUEFUNC(SecurityType_BUY_SELLBACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SECURITIES_LOAN", VALUEFUNC(SecurityType_SECURITIES_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SECURITIES_PLEDGE", VALUEFUNC(SecurityType_SECURITIES_PLEDGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TERM_LOAN", VALUEFUNC(SecurityType_TERM_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REVOLVER_LOAN", VALUEFUNC(SecurityType_REVOLVER_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REVOLVER_TERM_LOAN", VALUEFUNC(SecurityType_REVOLVER_TERM_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BRIDGE_LOAN", VALUEFUNC(SecurityType_BRIDGE_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_LETTER_OF_CREDIT", VALUEFUNC(SecurityType_LETTER_OF_CREDIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SWING_LINE_FACILITY", VALUEFUNC(SecurityType_SWING_LINE_FACILITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_DEBTOR_IN_POSSESSION", VALUEFUNC(SecurityType_DEBTOR_IN_POSSESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_DEFAULTED", VALUEFUNC(SecurityType_DEFAULTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_WITHDRAWN", VALUEFUNC(SecurityType_WITHDRAWN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REPLACED", VALUEFUNC(SecurityType_REPLACED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MATURED", VALUEFUNC(SecurityType_MATURED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_AMENDED_AND_RESTATED", VALUEFUNC(SecurityType_AMENDED_AND_RESTATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_RETIRED", VALUEFUNC(SecurityType_RETIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BANKERS_ACCEPTANCE", VALUEFUNC(SecurityType_BANKERS_ACCEPTANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BANK_NOTES", VALUEFUNC(SecurityType_BANK_NOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_BILL_OF_EXCHANGES", VALUEFUNC(SecurityType_BILL_OF_EXCHANGES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CERTIFICATE_OF_DEPOSIT", VALUEFUNC(SecurityType_CERTIFICATE_OF_DEPOSIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CALL_LOANS", VALUEFUNC(SecurityType_CALL_LOANS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_COMMERCIAL_PAPER", VALUEFUNC(SecurityType_COMMERCIAL_PAPER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_DEPOSIT_NOTES", VALUEFUNC(SecurityType_DEPOSIT_NOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EURO_CERTIFICATE_OF_DEPOSIT", VALUEFUNC(SecurityType_EURO_CERTIFICATE_OF_DEPOSIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EURO_COMMERCIAL_PAPER", VALUEFUNC(SecurityType_EURO_COMMERCIAL_PAPER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_LIQUIDITY_NOTE", VALUEFUNC(SecurityType_LIQUIDITY_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MEDIUM_TERM_NOTES", VALUEFUNC(SecurityType_MEDIUM_TERM_NOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_OVERNIGHT", VALUEFUNC(SecurityType_OVERNIGHT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PROMISSORY_NOTE", VALUEFUNC(SecurityType_PROMISSORY_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PLAZOS_FIJOS", VALUEFUNC(SecurityType_PLAZOS_FIJOS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SHORT_TERM_LOAN_NOTE", VALUEFUNC(SecurityType_SHORT_TERM_LOAN_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TIME_DEPOSIT", VALUEFUNC(SecurityType_TIME_DEPOSIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_EXTENDED_COMM_NOTE", VALUEFUNC(SecurityType_EXTENDED_COMM_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT", VALUEFUNC(SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_ASSET_BACKED_SECURITIES", VALUEFUNC(SecurityType_ASSET_BACKED_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CORP_MORTGAGE_BACKED_SECURITIES", VALUEFUNC(SecurityType_CORP_MORTGAGE_BACKED_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION", VALUEFUNC(SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_IOETTE_MORTGAGE", VALUEFUNC(SecurityType_IOETTE_MORTGAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MORTGAGE_BACKED_SECURITIES", VALUEFUNC(SecurityType_MORTGAGE_BACKED_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MORTGAGE_INTEREST_ONLY", VALUEFUNC(SecurityType_MORTGAGE_INTEREST_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MORTGAGE_PRINCIPAL_ONLY", VALUEFUNC(SecurityType_MORTGAGE_PRINCIPAL_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MORTGAGE_PRIVATE_PLACEMENT", VALUEFUNC(SecurityType_MORTGAGE_PRIVATE_PLACEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MISCELLANEOUS_PASS_THROUGH", VALUEFUNC(SecurityType_MISCELLANEOUS_PASS_THROUGH_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_PFANDBRIEFE", VALUEFUNC(SecurityType_PFANDBRIEFE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TO_BE_ANNOUNCED", VALUEFUNC(SecurityType_TO_BE_ANNOUNCED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_OTHER_ANTICIPATION_NOTES", VALUEFUNC(SecurityType_OTHER_ANTICIPATION_NOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CERTIFICATE_OF_OBLIGATION", VALUEFUNC(SecurityType_CERTIFICATE_OF_OBLIGATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_CERTIFICATE_OF_PARTICIPATION", VALUEFUNC(SecurityType_CERTIFICATE_OF_PARTICIPATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_GENERAL_OBLIGATION_BONDS", VALUEFUNC(SecurityType_GENERAL_OBLIGATION_BONDS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MANDATORY_TENDER", VALUEFUNC(SecurityType_MANDATORY_TENDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REVENUE_ANTICIPATION_NOTE", VALUEFUNC(SecurityType_REVENUE_ANTICIPATION_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_REVENUE_BONDS", VALUEFUNC(SecurityType_REVENUE_BONDS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SPECIAL_ASSESSMENT", VALUEFUNC(SecurityType_SPECIAL_ASSESSMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SPECIAL_OBLIGATION", VALUEFUNC(SecurityType_SPECIAL_OBLIGATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_SPECIAL_TAX", VALUEFUNC(SecurityType_SPECIAL_TAX_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TAX_ANTICIPATION_NOTE", VALUEFUNC(SecurityType_TAX_ANTICIPATION_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TAX_ALLOCATION", VALUEFUNC(SecurityType_TAX_ALLOCATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER", VALUEFUNC(SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE", VALUEFUNC(SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_VARIABLE_RATE_DEMAND_NOTE", VALUEFUNC(SecurityType_VARIABLE_RATE_DEMAND_NOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_WARRANT", VALUEFUNC(SecurityType_WARRANT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MUTUAL_FUND", VALUEFUNC(SecurityType_MUTUAL_FUND_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_MULTI_LEG_INSTRUMENT", VALUEFUNC(SecurityType_MULTI_LEG_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_NO_SECURITY_TYPE", VALUEFUNC(SecurityType_NO_SECURITY_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityType_WILDCARD", VALUEFUNC(SecurityType_WILDCARD_get), 0);
-  rb_define_singleton_method(mQuickfix, "StandInstDbType_OTHER", VALUEFUNC(StandInstDbType_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "StandInstDbType_DTC_SID", VALUEFUNC(StandInstDbType_DTC_SID_get), 0);
-  rb_define_singleton_method(mQuickfix, "StandInstDbType_THOMSON_ALERT", VALUEFUNC(StandInstDbType_THOMSON_ALERT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StandInstDbType_A_GLOBAL_CUSTODIAN", VALUEFUNC(StandInstDbType_A_GLOBAL_CUSTODIAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "StandInstDbType_ACCOUNTNET", VALUEFUNC(StandInstDbType_ACCOUNTNET_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlDeliveryType_VERSUS_PAYMENT", VALUEFUNC(SettlDeliveryType_VERSUS_PAYMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlDeliveryType_FREE", VALUEFUNC(SettlDeliveryType_FREE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlDeliveryType_TRI_PARTY", VALUEFUNC(SettlDeliveryType_TRI_PARTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlDeliveryType_HOLD_IN_CUSTODY", VALUEFUNC(SettlDeliveryType_HOLD_IN_CUSTODY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocLinkType_F_X_NETTING", VALUEFUNC(AllocLinkType_F_X_NETTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocLinkType_F_X_SWAP", VALUEFUNC(AllocLinkType_F_X_SWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "CoveredOrUncovered_COVERED", VALUEFUNC(CoveredOrUncovered_COVERED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CoveredOrUncovered_UNCOVERED", VALUEFUNC(CoveredOrUncovered_UNCOVERED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocHandlInst_MATCH", VALUEFUNC(AllocHandlInst_MATCH_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocHandlInst_FORWARD", VALUEFUNC(AllocHandlInst_FORWARD_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocHandlInst_FORWARD_AND_MATCH", VALUEFUNC(AllocHandlInst_FORWARD_AND_MATCH_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoutingType_TARGET_FIRM", VALUEFUNC(RoutingType_TARGET_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoutingType_TARGET_LIST", VALUEFUNC(RoutingType_TARGET_LIST_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoutingType_BLOCK_FIRM", VALUEFUNC(RoutingType_BLOCK_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoutingType_BLOCK_LIST", VALUEFUNC(RoutingType_BLOCK_LIST_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_MUNIAAA", VALUEFUNC(BenchmarkCurveName_MUNIAAA_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_FUTURESWAP", VALUEFUNC(BenchmarkCurveName_FUTURESWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_LIBID", VALUEFUNC(BenchmarkCurveName_LIBID_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_LIBOR", VALUEFUNC(BenchmarkCurveName_LIBOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_OTHER", VALUEFUNC(BenchmarkCurveName_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_SWAP", VALUEFUNC(BenchmarkCurveName_SWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_TREASURY", VALUEFUNC(BenchmarkCurveName_TREASURY_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_EURIBOR", VALUEFUNC(BenchmarkCurveName_EURIBOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_PFANDBRIEFE", VALUEFUNC(BenchmarkCurveName_PFANDBRIEFE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_EONIA", VALUEFUNC(BenchmarkCurveName_EONIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_SONIA", VALUEFUNC(BenchmarkCurveName_SONIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "BenchmarkCurveName_EUREPO", VALUEFUNC(BenchmarkCurveName_EUREPO_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_AMT", VALUEFUNC(StipulationType_AMT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER", VALUEFUNC(StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_BANK_QUALIFIED", VALUEFUNC(StipulationType_BANK_QUALIFIED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_BARGAIN_CONDITIONS", VALUEFUNC(StipulationType_BARGAIN_CONDITIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_COUPON_RANGE", VALUEFUNC(StipulationType_COUPON_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_ISO_CURRENCY_CODE", VALUEFUNC(StipulationType_ISO_CURRENCY_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_CUSTOM_START_END_DATE", VALUEFUNC(StipulationType_CUSTOM_START_END_DATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE", VALUEFUNC(StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_VALUATION_DISCOUNT", VALUEFUNC(StipulationType_VALUATION_DISCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_INSURED", VALUEFUNC(StipulationType_INSURED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE", VALUEFUNC(StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_ISSUERS_TICKER", VALUEFUNC(StipulationType_ISSUERS_TICKER_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_ISSUE_SIZE_RANGE", VALUEFUNC(StipulationType_ISSUE_SIZE_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_LOOKBACK_DAYS", VALUEFUNC(StipulationType_LOOKBACK_DAYS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_EXPLICIT_LOT_IDENTIFIER", VALUEFUNC(StipulationType_EXPLICIT_LOT_IDENTIFIER_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_LOT_VARIANCE", VALUEFUNC(StipulationType_LOT_VARIANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MATURITY_YEAR_AND_MONTH", VALUEFUNC(StipulationType_MATURITY_YEAR_AND_MONTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MATURITY_RANGE", VALUEFUNC(StipulationType_MATURITY_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MAXIMUM_SUBSTITUTIONS", VALUEFUNC(StipulationType_MAXIMUM_SUBSTITUTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MINIMUM_QUANTITY", VALUEFUNC(StipulationType_MINIMUM_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MINIMUM_INCREMENT", VALUEFUNC(StipulationType_MINIMUM_INCREMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MINIMUM_DENOMINATION", VALUEFUNC(StipulationType_MINIMUM_DENOMINATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PAYMENT_FREQUENCY_CALENDAR", VALUEFUNC(StipulationType_PAYMENT_FREQUENCY_CALENDAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_NUMBER_OF_PIECES", VALUEFUNC(StipulationType_NUMBER_OF_PIECES_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_POOLS_MAXIMUM", VALUEFUNC(StipulationType_POOLS_MAXIMUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_POOLS_PER_MILLION", VALUEFUNC(StipulationType_POOLS_PER_MILLION_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_POOLS_PER_LOT", VALUEFUNC(StipulationType_POOLS_PER_LOT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_POOLS_PER_TRADE", VALUEFUNC(StipulationType_POOLS_PER_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PRICE_RANGE", VALUEFUNC(StipulationType_PRICE_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PRICING_FREQUENCY", VALUEFUNC(StipulationType_PRICING_FREQUENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PRODUCTION_YEAR", VALUEFUNC(StipulationType_PRODUCTION_YEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_CALL_PROTECTION", VALUEFUNC(StipulationType_CALL_PROTECTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PURPOSE", VALUEFUNC(StipulationType_PURPOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_BENCHMARK_PRICE_SOURCE", VALUEFUNC(StipulationType_BENCHMARK_PRICE_SOURCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_RATING_SOURCE_AND_RANGE", VALUEFUNC(StipulationType_RATING_SOURCE_AND_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_RESTRICTED", VALUEFUNC(StipulationType_RESTRICTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MARKET_SECTOR", VALUEFUNC(StipulationType_MARKET_SECTOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED", VALUEFUNC(StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_STRUCTURE", VALUEFUNC(StipulationType_STRUCTURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_SUBSTITUTIONS_FREQUENCY", VALUEFUNC(StipulationType_SUBSTITUTIONS_FREQUENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_SUBSTITUTIONS_LEFT", VALUEFUNC(StipulationType_SUBSTITUTIONS_LEFT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_FREEFORM_TEXT", VALUEFUNC(StipulationType_FREEFORM_TEXT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_TRADE_VARIANCE", VALUEFUNC(StipulationType_TRADE_VARIANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_WEIGHTED_AVERAGE_COUPON", VALUEFUNC(StipulationType_WEIGHTED_AVERAGE_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON", VALUEFUNC(StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_WEIGHTED_AVERAGE_LOAN_AGE", VALUEFUNC(StipulationType_WEIGHTED_AVERAGE_LOAN_AGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_WEIGHTED_AVERAGE_MATURITY", VALUEFUNC(StipulationType_WEIGHTED_AVERAGE_MATURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_WHOLE_POOL", VALUEFUNC(StipulationType_WHOLE_POOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_YIELD_RANGE", VALUEFUNC(StipulationType_YIELD_RANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_SINGLE_MONTHLY_MORTALITY", VALUEFUNC(StipulationType_SINGLE_MONTHLY_MORTALITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_CONSTANT_PREPAYMENT_RATE", VALUEFUNC(StipulationType_CONSTANT_PREPAYMENT_RATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_CONSTANT_PREPAYMENT_YIELD", VALUEFUNC(StipulationType_CONSTANT_PREPAYMENT_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_CONSTANT_PREPAYMENT_PENALTY", VALUEFUNC(StipulationType_CONSTANT_PREPAYMENT_PENALTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_ABSOLUTE_PREPAYMENT_SPEED", VALUEFUNC(StipulationType_ABSOLUTE_PREPAYMENT_SPEED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_MONTHLY_PREPAYMENT_RATE", VALUEFUNC(StipulationType_MONTHLY_PREPAYMENT_RATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE", VALUEFUNC(StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE", VALUEFUNC(StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE", VALUEFUNC(StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE", VALUEFUNC(StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_CUM_DIVIDEND", VALUEFUNC(StipulationValue_SPECIAL_CUM_DIVIDEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_EX_DIVIDEND", VALUEFUNC(StipulationValue_SPECIAL_EX_DIVIDEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_CUM_COUPON", VALUEFUNC(StipulationValue_SPECIAL_CUM_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_EX_COUPON", VALUEFUNC(StipulationValue_SPECIAL_EX_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_CUM_BONUS", VALUEFUNC(StipulationValue_SPECIAL_CUM_BONUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_EX_BONUS", VALUEFUNC(StipulationValue_SPECIAL_EX_BONUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_CUM_RIGHTS", VALUEFUNC(StipulationValue_SPECIAL_CUM_RIGHTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_EX_RIGHTS", VALUEFUNC(StipulationValue_SPECIAL_EX_RIGHTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS", VALUEFUNC(StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS", VALUEFUNC(StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_CASH_SETTLEMENT", VALUEFUNC(StipulationValue_CASH_SETTLEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_SPECIAL_PRICE", VALUEFUNC(StipulationValue_SPECIAL_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES", VALUEFUNC(StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "StipulationValue_GUARANTEED_DELIVERY", VALUEFUNC(StipulationValue_GUARANTEED_DELIVERY_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_AFTER_TAX_YIELD", VALUEFUNC(YieldType_AFTER_TAX_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_ANNUAL_YIELD", VALUEFUNC(YieldType_ANNUAL_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_AT_ISSUE", VALUEFUNC(YieldType_YIELD_AT_ISSUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_AVERAGE_MATURITY", VALUEFUNC(YieldType_YIELD_TO_AVERAGE_MATURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_BOOK_YIELD", VALUEFUNC(YieldType_BOOK_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_NEXT_CALL", VALUEFUNC(YieldType_YIELD_TO_NEXT_CALL_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_CHANGE_SINCE_CLOSE", VALUEFUNC(YieldType_YIELD_CHANGE_SINCE_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_CLOSING_YIELD", VALUEFUNC(YieldType_CLOSING_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_COMPOUND_YIELD", VALUEFUNC(YieldType_COMPOUND_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_CURRENT_YIELD", VALUEFUNC(YieldType_CURRENT_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_TRUE_GROSS_YIELD", VALUEFUNC(YieldType_TRUE_GROSS_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_GOVERNMENT_EQUIVALENT_YIELD", VALUEFUNC(YieldType_GOVERNMENT_EQUIVALENT_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_WITH_INFLATION_ASSUMPTION", VALUEFUNC(YieldType_YIELD_WITH_INFLATION_ASSUMPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_INVERSE_FLOATER_BOND_YIELD", VALUEFUNC(YieldType_INVERSE_FLOATER_BOND_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_MOST_RECENT_CLOSING_YIELD", VALUEFUNC(YieldType_MOST_RECENT_CLOSING_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_CLOSING_YIELD_MOST_RECENT_MONTH", VALUEFUNC(YieldType_CLOSING_YIELD_MOST_RECENT_MONTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER", VALUEFUNC(YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_CLOSING_YIELD_MOST_RECENT_YEAR", VALUEFUNC(YieldType_CLOSING_YIELD_MOST_RECENT_YEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE", VALUEFUNC(YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_MARK_TO_MARKET_YIELD", VALUEFUNC(YieldType_MARK_TO_MARKET_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_MATURITY", VALUEFUNC(YieldType_YIELD_TO_MATURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_NEXT_REFUND", VALUEFUNC(YieldType_YIELD_TO_NEXT_REFUND_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_OPEN_AVERAGE_YIELD", VALUEFUNC(YieldType_OPEN_AVERAGE_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_NEXT_PUT", VALUEFUNC(YieldType_YIELD_TO_NEXT_PUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_PREVIOUS_CLOSE_YIELD", VALUEFUNC(YieldType_PREVIOUS_CLOSE_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_PROCEEDS_YIELD", VALUEFUNC(YieldType_PROCEEDS_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_SEMI_ANNUAL_YIELD", VALUEFUNC(YieldType_SEMI_ANNUAL_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE", VALUEFUNC(YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_SIMPLE_YIELD", VALUEFUNC(YieldType_SIMPLE_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_TAX_EQUIVALENT_YIELD", VALUEFUNC(YieldType_TAX_EQUIVALENT_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_TENDER_DATE", VALUEFUNC(YieldType_YIELD_TO_TENDER_DATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_TRUE_YIELD", VALUEFUNC(YieldType_TRUE_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_VALUE_OF_1_32", VALUEFUNC(YieldType_YIELD_VALUE_OF_1_32_get), 0);
-  rb_define_singleton_method(mQuickfix, "YieldType_YIELD_TO_WORST", VALUEFUNC(YieldType_YIELD_TO_WORST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SubscriptionRequestType_SNAPSHOT", VALUEFUNC(SubscriptionRequestType_SNAPSHOT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES", VALUEFUNC(SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST", VALUEFUNC(SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDUpdateType_FULL_REFRESH", VALUEFUNC(MDUpdateType_FULL_REFRESH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDUpdateType_INCREMENTAL_REFRESH", VALUEFUNC(MDUpdateType_INCREMENTAL_REFRESH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_BID", VALUEFUNC(MDEntryType_BID_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_OFFER", VALUEFUNC(MDEntryType_OFFER_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_TRADE", VALUEFUNC(MDEntryType_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_INDEX_VALUE", VALUEFUNC(MDEntryType_INDEX_VALUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_OPENING_PRICE", VALUEFUNC(MDEntryType_OPENING_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_CLOSING_PRICE", VALUEFUNC(MDEntryType_CLOSING_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_SETTLEMENT_PRICE", VALUEFUNC(MDEntryType_SETTLEMENT_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_TRADING_SESSION_HIGH_PRICE", VALUEFUNC(MDEntryType_TRADING_SESSION_HIGH_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_TRADING_SESSION_LOW_PRICE", VALUEFUNC(MDEntryType_TRADING_SESSION_LOW_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_TRADING_SESSION_VWAP_PRICE", VALUEFUNC(MDEntryType_TRADING_SESSION_VWAP_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_IMBALANCE", VALUEFUNC(MDEntryType_IMBALANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_TRADE_VOLUME", VALUEFUNC(MDEntryType_TRADE_VOLUME_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDEntryType_OPEN_INTEREST", VALUEFUNC(MDEntryType_OPEN_INTEREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "TickDirection_PLUS_TICK", VALUEFUNC(TickDirection_PLUS_TICK_get), 0);
-  rb_define_singleton_method(mQuickfix, "TickDirection_ZERO_PLUS_TICK", VALUEFUNC(TickDirection_ZERO_PLUS_TICK_get), 0);
-  rb_define_singleton_method(mQuickfix, "TickDirection_MINUS_TICK", VALUEFUNC(TickDirection_MINUS_TICK_get), 0);
-  rb_define_singleton_method(mQuickfix, "TickDirection_ZERO_MINUS_TICK", VALUEFUNC(TickDirection_ZERO_MINUS_TICK_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_OPEN_ACTIVE", VALUEFUNC(QuoteCondition_OPEN_ACTIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_CLOSED_INACTIVE", VALUEFUNC(QuoteCondition_CLOSED_INACTIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_EXCHANGE_BEST", VALUEFUNC(QuoteCondition_EXCHANGE_BEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_CONSOLIDATED_BEST", VALUEFUNC(QuoteCondition_CONSOLIDATED_BEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_LOCKED", VALUEFUNC(QuoteCondition_LOCKED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_CROSSED", VALUEFUNC(QuoteCondition_CROSSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_DEPTH", VALUEFUNC(QuoteCondition_DEPTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_FAST_TRADING", VALUEFUNC(QuoteCondition_FAST_TRADING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCondition_NON_FIRM", VALUEFUNC(QuoteCondition_NON_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_CASH_MARKET", VALUEFUNC(TradeCondition_CASH_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_AVERAGE_PRICE_TRADE", VALUEFUNC(TradeCondition_AVERAGE_PRICE_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_CASH_TRADE", VALUEFUNC(TradeCondition_CASH_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_NEXT_DAY_MARKET", VALUEFUNC(TradeCondition_NEXT_DAY_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_OPENING_REOPENING_TRADE_DETAIL", VALUEFUNC(TradeCondition_OPENING_REOPENING_TRADE_DETAIL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_INTRADAY_TRADE_DETAIL", VALUEFUNC(TradeCondition_INTRADAY_TRADE_DETAIL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_RULE127", VALUEFUNC(TradeCondition_RULE127_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_RULE155", VALUEFUNC(TradeCondition_RULE155_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_SOLD_LAST", VALUEFUNC(TradeCondition_SOLD_LAST_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_NEXT_DAY_TRADE", VALUEFUNC(TradeCondition_NEXT_DAY_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_OPENED", VALUEFUNC(TradeCondition_OPENED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_SELLER", VALUEFUNC(TradeCondition_SELLER_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_SOLD", VALUEFUNC(TradeCondition_SOLD_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_STOPPED_STOCK", VALUEFUNC(TradeCondition_STOPPED_STOCK_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_IMBALANCE_MORE_BUYERS", VALUEFUNC(TradeCondition_IMBALANCE_MORE_BUYERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_IMBALANCE_MORE_SELLERS", VALUEFUNC(TradeCondition_IMBALANCE_MORE_SELLERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeCondition_OPENING_PRICE", VALUEFUNC(TradeCondition_OPENING_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDUpdateAction_NEW", VALUEFUNC(MDUpdateAction_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDUpdateAction_CHANGE", VALUEFUNC(MDUpdateAction_CHANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDUpdateAction_DELETE", VALUEFUNC(MDUpdateAction_DELETE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNKNOWN_SYMBOL", VALUEFUNC(MDReqRejReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_DUPLICATE_MDREQID", VALUEFUNC(MDReqRejReason_DUPLICATE_MDREQID_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_INSUFFICIENT_BANDWIDTH", VALUEFUNC(MDReqRejReason_INSUFFICIENT_BANDWIDTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_INSUFFICIENT_PERMISSIONS", VALUEFUNC(MDReqRejReason_INSUFFICIENT_PERMISSIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE", VALUEFUNC(MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_MARKETDEPTH", VALUEFUNC(MDReqRejReason_UNSUPPORTED_MARKETDEPTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_MDUPDATETYPE", VALUEFUNC(MDReqRejReason_UNSUPPORTED_MDUPDATETYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK", VALUEFUNC(MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_MDENTRYTYPE", VALUEFUNC(MDReqRejReason_UNSUPPORTED_MDENTRYTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID", VALUEFUNC(MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_SCOPE", VALUEFUNC(MDReqRejReason_UNSUPPORTED_SCOPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG", VALUEFUNC(MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG_get), 0);
-  rb_define_singleton_method(mQuickfix, "MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE", VALUEFUNC(MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeleteReason_CANCELATION_TRADE_BUST", VALUEFUNC(DeleteReason_CANCELATION_TRADE_BUST_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeleteReason_ERROR", VALUEFUNC(DeleteReason_ERROR_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY", VALUEFUNC(OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY", VALUEFUNC(OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY", VALUEFUNC(OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_EXPECTED_ENTRY", VALUEFUNC(OpenCloseSettlFlag_EXPECTED_ENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY", VALUEFUNC(OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE", VALUEFUNC(OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "FinancialStatus_BANKRUPT", VALUEFUNC(FinancialStatus_BANKRUPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "FinancialStatus_PENDING_DELISTING", VALUEFUNC(FinancialStatus_PENDING_DELISTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "CorporateAction_EX_DIVIDEND", VALUEFUNC(CorporateAction_EX_DIVIDEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "CorporateAction_EX_DISTRIBUTION", VALUEFUNC(CorporateAction_EX_DISTRIBUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "CorporateAction_EX_RIGHTS", VALUEFUNC(CorporateAction_EX_RIGHTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CorporateAction_NEW", VALUEFUNC(CorporateAction_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "CorporateAction_EX_INTEREST", VALUEFUNC(CorporateAction_EX_INTEREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_ACCEPTED", VALUEFUNC(QuoteStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_FOR_SYMBOL", VALUEFUNC(QuoteStatus_CANCELED_FOR_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_FOR_SECURITY_TYPE", VALUEFUNC(QuoteStatus_CANCELED_FOR_SECURITY_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_FOR_UNDERLYING", VALUEFUNC(QuoteStatus_CANCELED_FOR_UNDERLYING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_ALL", VALUEFUNC(QuoteStatus_CANCELED_ALL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_REJECTED", VALUEFUNC(QuoteStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_REMOVED_FROM_MARKET", VALUEFUNC(QuoteStatus_REMOVED_FROM_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_EXPIRED", VALUEFUNC(QuoteStatus_EXPIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_QUERY", VALUEFUNC(QuoteStatus_QUERY_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_QUOTE_NOT_FOUND", VALUEFUNC(QuoteStatus_QUOTE_NOT_FOUND_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_PENDING", VALUEFUNC(QuoteStatus_PENDING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_PASS", VALUEFUNC(QuoteStatus_PASS_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_LOCKED_MARKET_WARNING", VALUEFUNC(QuoteStatus_LOCKED_MARKET_WARNING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CROSS_MARKET_WARNING", VALUEFUNC(QuoteStatus_CROSS_MARKET_WARNING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET", VALUEFUNC(QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET", VALUEFUNC(QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCancelType_CANCEL_FOR_SYMBOL", VALUEFUNC(QuoteCancelType_CANCEL_FOR_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCancelType_CANCEL_FOR_SECURITY_TYPE", VALUEFUNC(QuoteCancelType_CANCEL_FOR_SECURITY_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL", VALUEFUNC(QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteCancelType_CANCEL_ALL_QUOTES", VALUEFUNC(QuoteCancelType_CANCEL_ALL_QUOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_UNKNOWN_SYMBOL", VALUEFUNC(QuoteRejectReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_EXCHANGE_CLOSED", VALUEFUNC(QuoteRejectReason_EXCHANGE_CLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT", VALUEFUNC(QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_TOO_LATE_TO_ENTER", VALUEFUNC(QuoteRejectReason_TOO_LATE_TO_ENTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_UNKNOWN_QUOTE", VALUEFUNC(QuoteRejectReason_UNKNOWN_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_DUPLICATE_QUOTE", VALUEFUNC(QuoteRejectReason_DUPLICATE_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_INVALID_BID_ASK_SPREAD", VALUEFUNC(QuoteRejectReason_INVALID_BID_ASK_SPREAD_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_INVALID_PRICE", VALUEFUNC(QuoteRejectReason_INVALID_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY", VALUEFUNC(QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteResponseLevel_NO_ACKNOWLEDGEMENT", VALUEFUNC(QuoteResponseLevel_NO_ACKNOWLEDGEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES", VALUEFUNC(QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES", VALUEFUNC(QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestType_MANUAL", VALUEFUNC(QuoteRequestType_MANUAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestType_AUTOMATIC", VALUEFUNC(QuoteRequestType_AUTOMATIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS", VALUEFUNC(SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED", VALUEFUNC(SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestType_REQUEST_LIST_SECURITY_TYPES", VALUEFUNC(SecurityRequestType_REQUEST_LIST_SECURITY_TYPES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestType_REQUEST_LIST_SECURITIES", VALUEFUNC(SecurityRequestType_REQUEST_LIST_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS", VALUEFUNC(SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE", VALUEFUNC(SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST", VALUEFUNC(SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST", VALUEFUNC(SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_REJECT_SECURITY_PROPOSAL", VALUEFUNC(SecurityResponseType_REJECT_SECURITY_PROPOSAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA", VALUEFUNC(SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_OPENING_DELAY", VALUEFUNC(SecurityTradingStatus_OPENING_DELAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_TRADING_HALT", VALUEFUNC(SecurityTradingStatus_TRADING_HALT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_RESUME", VALUEFUNC(SecurityTradingStatus_RESUME_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NO_OPEN_NO_RESUME", VALUEFUNC(SecurityTradingStatus_NO_OPEN_NO_RESUME_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_PRICE_INDICATION", VALUEFUNC(SecurityTradingStatus_PRICE_INDICATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_TRADING_RANGE_INDICATION", VALUEFUNC(SecurityTradingStatus_TRADING_RANGE_INDICATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_MARKET_IMBALANCE_BUY", VALUEFUNC(SecurityTradingStatus_MARKET_IMBALANCE_BUY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_MARKET_IMBALANCE_SELL", VALUEFUNC(SecurityTradingStatus_MARKET_IMBALANCE_SELL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY", VALUEFUNC(SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL", VALUEFUNC(SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NOT_ASSIGNED", VALUEFUNC(SecurityTradingStatus_NOT_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NO_MARKET_IMBALANCE", VALUEFUNC(SecurityTradingStatus_NO_MARKET_IMBALANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE", VALUEFUNC(SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_ITS_PRE_OPENING", VALUEFUNC(SecurityTradingStatus_ITS_PRE_OPENING_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NEW_PRICE_INDICATION", VALUEFUNC(SecurityTradingStatus_NEW_PRICE_INDICATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_TRADE_DISSEMINATION_TIME", VALUEFUNC(SecurityTradingStatus_TRADE_DISSEMINATION_TIME_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION", VALUEFUNC(SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION", VALUEFUNC(SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET", VALUEFUNC(SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_UNKNOWN_OR_INVALID", VALUEFUNC(SecurityTradingStatus_UNKNOWN_OR_INVALID_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_PRE_OPEN", VALUEFUNC(SecurityTradingStatus_PRE_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_OPENING_ROTATION", VALUEFUNC(SecurityTradingStatus_OPENING_ROTATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityTradingStatus_FAST_MARKET", VALUEFUNC(SecurityTradingStatus_FAST_MARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_ORDER_IMBALANCE", VALUEFUNC(HaltReason_ORDER_IMBALANCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_EQUIPMENT_CHANGEOVER", VALUEFUNC(HaltReason_EQUIPMENT_CHANGEOVER_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_NEWS_PENDING", VALUEFUNC(HaltReason_NEWS_PENDING_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_NEWS_DISSEMINATION", VALUEFUNC(HaltReason_NEWS_DISSEMINATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_ORDER_INFLUX", VALUEFUNC(HaltReason_ORDER_INFLUX_get), 0);
-  rb_define_singleton_method(mQuickfix, "HaltReason_ADDITIONAL_INFORMATION", VALUEFUNC(HaltReason_ADDITIONAL_INFORMATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "Adjustment_CANCEL", VALUEFUNC(Adjustment_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Adjustment_ERROR", VALUEFUNC(Adjustment_ERROR_get), 0);
-  rb_define_singleton_method(mQuickfix, "Adjustment_CORRECTION", VALUEFUNC(Adjustment_CORRECTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMethod_ELECTRONIC", VALUEFUNC(TradSesMethod_ELECTRONIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMethod_OPEN_OUTCRY", VALUEFUNC(TradSesMethod_OPEN_OUTCRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMethod_TWO_PARTY", VALUEFUNC(TradSesMethod_TWO_PARTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMode_TESTING", VALUEFUNC(TradSesMode_TESTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMode_SIMULATED", VALUEFUNC(TradSesMode_SIMULATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesMode_PRODUCTION", VALUEFUNC(TradSesMode_PRODUCTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_UNKNOWN", VALUEFUNC(TradSesStatus_UNKNOWN_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_HALTED", VALUEFUNC(TradSesStatus_HALTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_OPEN", VALUEFUNC(TradSesStatus_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_CLOSED", VALUEFUNC(TradSesStatus_CLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_PRE_OPEN", VALUEFUNC(TradSesStatus_PRE_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_PRE_CLOSE", VALUEFUNC(TradSesStatus_PRE_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatus_REQUEST_REJECTED", VALUEFUNC(TradSesStatus_REQUEST_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MessageEncoding_ISO_2022_JP", VALUEFUNC(MessageEncoding_ISO_2022_JP_get), 0);
-  rb_define_singleton_method(mQuickfix, "MessageEncoding_EUC_JP", VALUEFUNC(MessageEncoding_EUC_JP_get), 0);
-  rb_define_singleton_method(mQuickfix, "MessageEncoding_SHIFT_JIS", VALUEFUNC(MessageEncoding_SHIFT_JIS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MessageEncoding_UTF_8", VALUEFUNC(MessageEncoding_UTF_8_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_UNKNOWN_SYMBOL", VALUEFUNC(QuoteEntryRejectReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_EXCHANGE_CLOSED", VALUEFUNC(QuoteEntryRejectReason_EXCHANGE_CLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT", VALUEFUNC(QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_TOO_LATE_TO_ENTER", VALUEFUNC(QuoteEntryRejectReason_TOO_LATE_TO_ENTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_UNKNOWN_QUOTE", VALUEFUNC(QuoteEntryRejectReason_UNKNOWN_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_DUPLICATE_QUOTE", VALUEFUNC(QuoteEntryRejectReason_DUPLICATE_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD", VALUEFUNC(QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_INVALID_PRICE", VALUEFUNC(QuoteEntryRejectReason_INVALID_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY", VALUEFUNC(QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_INVALID_TAG_NUMBER", VALUEFUNC(SessionRejectReason_INVALID_TAG_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_REQUIRED_TAG_MISSING", VALUEFUNC(SessionRejectReason_REQUIRED_TAG_MISSING_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE", VALUEFUNC(SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_UNDEFINED_TAG", VALUEFUNC(SessionRejectReason_UNDEFINED_TAG_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE", VALUEFUNC(SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_VALUE_IS_INCORRECT", VALUEFUNC(SessionRejectReason_VALUE_IS_INCORRECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE", VALUEFUNC(SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_DECRYPTION_PROBLEM", VALUEFUNC(SessionRejectReason_DECRYPTION_PROBLEM_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_SIGNATURE_PROBLEM", VALUEFUNC(SessionRejectReason_SIGNATURE_PROBLEM_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_COMPID_PROBLEM", VALUEFUNC(SessionRejectReason_COMPID_PROBLEM_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM", VALUEFUNC(SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_INVALID_MSGTYPE", VALUEFUNC(SessionRejectReason_INVALID_MSGTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_XML_VALIDATION_ERROR", VALUEFUNC(SessionRejectReason_XML_VALIDATION_ERROR_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE", VALUEFUNC(SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER", VALUEFUNC(SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER", VALUEFUNC(SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP", VALUEFUNC(SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER", VALUEFUNC(SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER_get), 0);
-  rb_define_singleton_method(mQuickfix, "SessionRejectReason_OTHER", VALUEFUNC(SessionRejectReason_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidRequestTransType_NEW", VALUEFUNC(BidRequestTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidRequestTransType_CANCEL", VALUEFUNC(BidRequestTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_GT_CORPORATE_ACTION", VALUEFUNC(ExecRestatementReason_GT_CORPORATE_ACTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_GT_RENEWAL_RESTATEMENT", VALUEFUNC(ExecRestatementReason_GT_RENEWAL_RESTATEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_VERBAL_CHANGE", VALUEFUNC(ExecRestatementReason_VERBAL_CHANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_REPRICING_OF_ORDER", VALUEFUNC(ExecRestatementReason_REPRICING_OF_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_BROKER_OPTION", VALUEFUNC(ExecRestatementReason_BROKER_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY", VALUEFUNC(ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_CANCEL_ON_TRADING_HALT", VALUEFUNC(ExecRestatementReason_CANCEL_ON_TRADING_HALT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE", VALUEFUNC(ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_MARKET_OPTION", VALUEFUNC(ExecRestatementReason_MARKET_OPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecRestatementReason_CANCELED_NOT_BEST", VALUEFUNC(ExecRestatementReason_CANCELED_NOT_BEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_OTHER", VALUEFUNC(BusinessRejectReason_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_UNKOWN_ID", VALUEFUNC(BusinessRejectReason_UNKOWN_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_UNKNOWN_SECURITY", VALUEFUNC(BusinessRejectReason_UNKNOWN_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE", VALUEFUNC(BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_APPLICATION_NOT_AVAILABLE", VALUEFUNC(BusinessRejectReason_APPLICATION_NOT_AVAILABLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING", VALUEFUNC(BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_NOT_AUTHORIZED", VALUEFUNC(BusinessRejectReason_NOT_AUTHORIZED_get), 0);
-  rb_define_singleton_method(mQuickfix, "BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME", VALUEFUNC(BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgDirection_SEND", VALUEFUNC(MsgDirection_SEND_get), 0);
-  rb_define_singleton_method(mQuickfix, "MsgDirection_RECEIVE", VALUEFUNC(MsgDirection_RECEIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_DISPLAYED_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_DISPLAYED_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_MARKET_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_MARKET_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_PRIMARY_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_PRIMARY_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_MIDPOINT_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_MIDPOINT_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_LAST_TRADE_PRICE", VALUEFUNC(DiscretionInst_RELATED_TO_LAST_TRADE_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionInst_RELATED_TO_VWAP", VALUEFUNC(DiscretionInst_RELATED_TO_VWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidType_NON_DISCLOSED", VALUEFUNC(BidType_NON_DISCLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidType_DISCLOSED_STYLE", VALUEFUNC(BidType_DISCLOSED_STYLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidType_NO_BIDDING_PROCESS", VALUEFUNC(BidType_NO_BIDDING_PROCESS_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidDescriptorType_SECTOR", VALUEFUNC(BidDescriptorType_SECTOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidDescriptorType_COUNTRY", VALUEFUNC(BidDescriptorType_COUNTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidDescriptorType_INDEX", VALUEFUNC(BidDescriptorType_INDEX_get), 0);
-  rb_define_singleton_method(mQuickfix, "SideValueInd_SIDEVALUE1", VALUEFUNC(SideValueInd_SIDEVALUE1_get), 0);
-  rb_define_singleton_method(mQuickfix, "SideValueInd_SIDEVALUE2", VALUEFUNC(SideValueInd_SIDEVALUE2_get), 0);
-  rb_define_singleton_method(mQuickfix, "LiquidityIndType_FIVEDAY_MOVING_AVERAGE", VALUEFUNC(LiquidityIndType_FIVEDAY_MOVING_AVERAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "LiquidityIndType_TWENTYDAY_MOVING_AVERAGE", VALUEFUNC(LiquidityIndType_TWENTYDAY_MOVING_AVERAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "LiquidityIndType_NORMAL_MARKET_SIZE", VALUEFUNC(LiquidityIndType_NORMAL_MARKET_SIZE_get), 0);
-  rb_define_singleton_method(mQuickfix, "LiquidityIndType_OTHER", VALUEFUNC(LiquidityIndType_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST", VALUEFUNC(ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS", VALUEFUNC(ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ProgRptReqs_REAL_TIME_EXECUTION_REPORTS", VALUEFUNC(ProgRptReqs_REAL_TIME_EXECUTION_REPORTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "IncTaxInd_NET", VALUEFUNC(IncTaxInd_NET_get), 0);
-  rb_define_singleton_method(mQuickfix, "IncTaxInd_GROSS", VALUEFUNC(IncTaxInd_GROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidTradeType_RISK_TRADE", VALUEFUNC(BidTradeType_RISK_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidTradeType_VWAP_GUARANTEE", VALUEFUNC(BidTradeType_VWAP_GUARANTEE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidTradeType_AGENCY", VALUEFUNC(BidTradeType_AGENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "BidTradeType_GUARANTEED_CLOSE", VALUEFUNC(BidTradeType_GUARANTEED_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION", VALUEFUNC(BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_CLOSING_PRICE", VALUEFUNC(BasisPxType_CLOSING_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_CURRENT_PRICE", VALUEFUNC(BasisPxType_CURRENT_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_SQ", VALUEFUNC(BasisPxType_SQ_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_A_DAY", VALUEFUNC(BasisPxType_VWAP_THROUGH_A_DAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_A_MORNING_SESSION", VALUEFUNC(BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION", VALUEFUNC(BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI", VALUEFUNC(BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI", VALUEFUNC(BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI", VALUEFUNC(BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_STRIKE", VALUEFUNC(BasisPxType_STRIKE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_OPEN", VALUEFUNC(BasisPxType_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "BasisPxType_OTHERS", VALUEFUNC(BasisPxType_OTHERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_PERCENTAGE", VALUEFUNC(PriceType_PERCENTAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_PER_UNIT", VALUEFUNC(PriceType_PER_UNIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_FIXED_AMOUNT", VALUEFUNC(PriceType_FIXED_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_DISCOUNT", VALUEFUNC(PriceType_DISCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_PREMIUM", VALUEFUNC(PriceType_PREMIUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_SPREAD", VALUEFUNC(PriceType_SPREAD_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_TED_PRICE", VALUEFUNC(PriceType_TED_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_TED_YIELD", VALUEFUNC(PriceType_TED_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriceType_YIELD", VALUEFUNC(PriceType_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION", VALUEFUNC(GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES", VALUEFUNC(GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES_get), 0);
-  rb_define_singleton_method(mQuickfix, "GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE", VALUEFUNC(GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_ACK", VALUEFUNC(ListStatusType_ACK_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_RESPONSE", VALUEFUNC(ListStatusType_RESPONSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_TIMED", VALUEFUNC(ListStatusType_TIMED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_EXECSTARTED", VALUEFUNC(ListStatusType_EXECSTARTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_ALLDONE", VALUEFUNC(ListStatusType_ALLDONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListStatusType_ALERT", VALUEFUNC(ListStatusType_ALERT_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetGrossInd_NET", VALUEFUNC(NetGrossInd_NET_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetGrossInd_GROSS", VALUEFUNC(NetGrossInd_GROSS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_INBIDDINGPROCESS", VALUEFUNC(ListOrderStatus_INBIDDINGPROCESS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_RECEIVEDFOREXECUTION", VALUEFUNC(ListOrderStatus_RECEIVEDFOREXECUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_EXECUTING", VALUEFUNC(ListOrderStatus_EXECUTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_CANCELING", VALUEFUNC(ListOrderStatus_CANCELING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_ALERT", VALUEFUNC(ListOrderStatus_ALERT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_ALL_DONE", VALUEFUNC(ListOrderStatus_ALL_DONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListOrderStatus_REJECT", VALUEFUNC(ListOrderStatus_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListExecInstType_IMMEDIATE", VALUEFUNC(ListExecInstType_IMMEDIATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION", VALUEFUNC(ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN", VALUEFUNC(ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP", VALUEFUNC(ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP_get), 0);
-  rb_define_singleton_method(mQuickfix, "ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW", VALUEFUNC(ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejResponseTo_ORDER_CANCEL_REQUEST", VALUEFUNC(CxlRejResponseTo_ORDER_CANCEL_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST", VALUEFUNC(CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegReportingType_SINGLE_SECURITY", VALUEFUNC(MultiLegReportingType_SINGLE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY", VALUEFUNC(MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegReportingType_MULTI_LEG_SECURITY", VALUEFUNC(MultiLegReportingType_MULTI_LEG_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_BIC", VALUEFUNC(PartyIDSource_BIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER", VALUEFUNC(PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_PROPRIETARY_CUSTOM_CODE", VALUEFUNC(PartyIDSource_PROPRIETARY_CUSTOM_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_ISO_COUNTRY_CODE", VALUEFUNC(PartyIDSource_ISO_COUNTRY_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_SETTLEMENT_ENTITY_LOCATION", VALUEFUNC(PartyIDSource_SETTLEMENT_ENTITY_LOCATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_MIC", VALUEFUNC(PartyIDSource_MIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE", VALUEFUNC(PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_KOREAN_INVESTOR_ID", VALUEFUNC(PartyIDSource_KOREAN_INVESTOR_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID", VALUEFUNC(PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_TAIWANESE_TRADING_ACCOUNT", VALUEFUNC(PartyIDSource_TAIWANESE_TRADING_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER", VALUEFUNC(PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_CHINESE_B_SHARE", VALUEFUNC(PartyIDSource_CHINESE_B_SHARE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER", VALUEFUNC(PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_US_SOCIAL_SECURITY_NUMBER", VALUEFUNC(PartyIDSource_US_SOCIAL_SECURITY_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER", VALUEFUNC(PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER", VALUEFUNC(PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER", VALUEFUNC(PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyIDSource_DIRECTED_BROKER", VALUEFUNC(PartyIDSource_DIRECTED_BROKER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_EXECUTING_FIRM", VALUEFUNC(PartyRole_EXECUTING_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_BROKER_OF_CREDIT", VALUEFUNC(PartyRole_BROKER_OF_CREDIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_CLIENT_ID", VALUEFUNC(PartyRole_CLIENT_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_CLEARING_FIRM", VALUEFUNC(PartyRole_CLEARING_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_INVESTOR_ID", VALUEFUNC(PartyRole_INVESTOR_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_INTRODUCING_FIRM", VALUEFUNC(PartyRole_INTRODUCING_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_ENTERING_FIRM", VALUEFUNC(PartyRole_ENTERING_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_LOCATE_LENDING_FIRM", VALUEFUNC(PartyRole_LOCATE_LENDING_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PartyRole_FUND_MANAGER_CLIENT_ID", VALUEFUNC(PartyRole_FUND_MANAGER_CLIENT_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_AGENCY", VALUEFUNC(Product_AGENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_COMMODITY", VALUEFUNC(Product_COMMODITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_CORPORATE", VALUEFUNC(Product_CORPORATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_CURRENCY", VALUEFUNC(Product_CURRENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_EQUITY", VALUEFUNC(Product_EQUITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_GOVERNMENT", VALUEFUNC(Product_GOVERNMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_INDEX", VALUEFUNC(Product_INDEX_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_LOAN", VALUEFUNC(Product_LOAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_MONEYMARKET", VALUEFUNC(Product_MONEYMARKET_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_MORTGAGE", VALUEFUNC(Product_MORTGAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_MUNICIPAL", VALUEFUNC(Product_MUNICIPAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_OTHER", VALUEFUNC(Product_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "Product_FINANCING", VALUEFUNC(Product_FINANCING_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_SHARES", VALUEFUNC(QuantityType_SHARES_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_BONDS", VALUEFUNC(QuantityType_BONDS_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_CURRENTFACE", VALUEFUNC(QuantityType_CURRENTFACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_ORIGINALFACE", VALUEFUNC(QuantityType_ORIGINALFACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_CURRENCY", VALUEFUNC(QuantityType_CURRENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_CONTRACTS", VALUEFUNC(QuantityType_CONTRACTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_OTHER", VALUEFUNC(QuantityType_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuantityType_PAR", VALUEFUNC(QuantityType_PAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoundingDirection_ROUND_TO_NEAREST", VALUEFUNC(RoundingDirection_ROUND_TO_NEAREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoundingDirection_ROUND_DOWN", VALUEFUNC(RoundingDirection_ROUND_DOWN_get), 0);
-  rb_define_singleton_method(mQuickfix, "RoundingDirection_ROUND_UP", VALUEFUNC(RoundingDirection_ROUND_UP_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_CREST", VALUEFUNC(DistribPaymentMethod_CREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_NSCC", VALUEFUNC(DistribPaymentMethod_NSCC_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_EUROCLEAR", VALUEFUNC(DistribPaymentMethod_EUROCLEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_CLEARSTREAM", VALUEFUNC(DistribPaymentMethod_CLEARSTREAM_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_CHEQUE", VALUEFUNC(DistribPaymentMethod_CHEQUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_TELEGRAPHIC_TRANSFER", VALUEFUNC(DistribPaymentMethod_TELEGRAPHIC_TRANSFER_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_FEDWIRE", VALUEFUNC(DistribPaymentMethod_FEDWIRE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_DIRECT_CREDIT", VALUEFUNC(DistribPaymentMethod_DIRECT_CREDIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "DistribPaymentMethod_ACH_CREDIT", VALUEFUNC(DistribPaymentMethod_ACH_CREDIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CancellationRights_NO_EXECUTION_ONLY", VALUEFUNC(CancellationRights_NO_EXECUTION_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "CancellationRights_NO_WAIVER_AGREEMENT", VALUEFUNC(CancellationRights_NO_WAIVER_AGREEMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CancellationRights_NO_INSTITUTIONAL", VALUEFUNC(CancellationRights_NO_INSTITUTIONAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "MoneyLaunderingStatus_PASSED", VALUEFUNC(MoneyLaunderingStatus_PASSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MoneyLaunderingStatus_NOT_CHECKED", VALUEFUNC(MoneyLaunderingStatus_NOT_CHECKED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT", VALUEFUNC(MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION", VALUEFUNC(MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION", VALUEFUNC(MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_BID_PRICE", VALUEFUNC(ExecPriceType_BID_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_CREATION_PRICE", VALUEFUNC(ExecPriceType_CREATION_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT", VALUEFUNC(ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT", VALUEFUNC(ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_OFFER_PRICE", VALUEFUNC(ExecPriceType_OFFER_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT", VALUEFUNC(ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT", VALUEFUNC(ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecPriceType_SINGLE_PRICE", VALUEFUNC(ExecPriceType_SINGLE_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportTransType_NEW", VALUEFUNC(TradeReportTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportTransType_CANCEL", VALUEFUNC(TradeReportTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportTransType_REPLACE", VALUEFUNC(TradeReportTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportTransType_RELEASE", VALUEFUNC(TradeReportTransType_RELEASE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportTransType_REVERSE", VALUEFUNC(TradeReportTransType_REVERSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_CREST", VALUEFUNC(PaymentMethod_CREST_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_NSCC", VALUEFUNC(PaymentMethod_NSCC_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_EUROCLEAR", VALUEFUNC(PaymentMethod_EUROCLEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_CLEARSTREAM", VALUEFUNC(PaymentMethod_CLEARSTREAM_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_CHEQUE", VALUEFUNC(PaymentMethod_CHEQUE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_TELEGRAPHIC_TRANSFER", VALUEFUNC(PaymentMethod_TELEGRAPHIC_TRANSFER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_FEDWIRE", VALUEFUNC(PaymentMethod_FEDWIRE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_DEBIT_CARD", VALUEFUNC(PaymentMethod_DEBIT_CARD_get), 0);
-  rb_define_singleton_method(mQuickfix, "PaymentMethod_DIRECT_DEBIT", VALUEFUNC(PaymentMethod_DIRECT_DEBIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_NONE", VALUEFUNC(TaxAdvantageType_NONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_MAXI_ISA", VALUEFUNC(TaxAdvantageType_MAXI_ISA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_TESSA", VALUEFUNC(TaxAdvantageType_TESSA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_MINI_CASH_ISA", VALUEFUNC(TaxAdvantageType_MINI_CASH_ISA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA", VALUEFUNC(TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_MINI_INSURANCE_ISA", VALUEFUNC(TaxAdvantageType_MINI_INSURANCE_ISA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_CURRENT_YEAR_PAYMENT", VALUEFUNC(TaxAdvantageType_CURRENT_YEAR_PAYMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_PRIOR_YEAR_PAYMENT", VALUEFUNC(TaxAdvantageType_PRIOR_YEAR_PAYMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_ASSET_TRANSFER", VALUEFUNC(TaxAdvantageType_ASSET_TRANSFER_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_EMPLOYEE_PRIOR_YEAR", VALUEFUNC(TaxAdvantageType_EMPLOYEE_PRIOR_YEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "TaxAdvantageType_OTHER", VALUEFUNC(TaxAdvantageType_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "FundRenewWaiv_YES", VALUEFUNC(FundRenewWaiv_YES_get), 0);
-  rb_define_singleton_method(mQuickfix, "FundRenewWaiv_NO", VALUEFUNC(FundRenewWaiv_NO_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistStatus_ACCEPTED", VALUEFUNC(RegistStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistStatus_REJECTED", VALUEFUNC(RegistStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistStatus_HELD", VALUEFUNC(RegistStatus_HELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistStatus_REMINDER", VALUEFUNC(RegistStatus_REMINDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM", VALUEFUNC(RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistRejReasonCode_OTHER", VALUEFUNC(RegistRejReasonCode_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistTransType_NEW", VALUEFUNC(RegistTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistTransType_REPLACE", VALUEFUNC(RegistTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "RegistTransType_CANCEL", VALUEFUNC(RegistTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnershipType_JOINT_INVESTORS", VALUEFUNC(OwnershipType_JOINT_INVESTORS_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnershipType_TENANTS_IN_COMMON", VALUEFUNC(OwnershipType_TENANTS_IN_COMMON_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnershipType_JOINT_TRUSTEES", VALUEFUNC(OwnershipType_JOINT_TRUSTEES_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_COMMISSION_AMOUNT", VALUEFUNC(ContAmtType_COMMISSION_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_COMMISSION_PERCENT", VALUEFUNC(ContAmtType_COMMISSION_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_INITIAL_CHARGE_AMOUNT", VALUEFUNC(ContAmtType_INITIAL_CHARGE_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_INITIAL_CHARGE_PERCENT", VALUEFUNC(ContAmtType_INITIAL_CHARGE_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_DISCOUNT_AMOUNT", VALUEFUNC(ContAmtType_DISCOUNT_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_DISCOUNT_PERCENT", VALUEFUNC(ContAmtType_DISCOUNT_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_DILUTION_LEVY_AMOUNT", VALUEFUNC(ContAmtType_DILUTION_LEVY_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_DILUTION_LEVY_PERCENT", VALUEFUNC(ContAmtType_DILUTION_LEVY_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ContAmtType_EXIT_CHARGE_AMOUNT", VALUEFUNC(ContAmtType_EXIT_CHARGE_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_INDIVIDUAL_INVESTOR", VALUEFUNC(OwnerType_INDIVIDUAL_INVESTOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_PUBLIC_COMPANY", VALUEFUNC(OwnerType_PUBLIC_COMPANY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_PRIVATE_COMPANY", VALUEFUNC(OwnerType_PRIVATE_COMPANY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_INDIVIDUAL_TRUSTEE", VALUEFUNC(OwnerType_INDIVIDUAL_TRUSTEE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_COMPANY_TRUSTEE", VALUEFUNC(OwnerType_COMPANY_TRUSTEE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_PENSION_PLAN", VALUEFUNC(OwnerType_PENSION_PLAN_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT", VALUEFUNC(OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_TRUSTS", VALUEFUNC(OwnerType_TRUSTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "OwnerType_FIDUCIARIES", VALUEFUNC(OwnerType_FIDUCIARIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_AGENCY", VALUEFUNC(OrderCapacity_AGENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_PROPRIETARY", VALUEFUNC(OrderCapacity_PROPRIETARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_INDIVIDUAL", VALUEFUNC(OrderCapacity_INDIVIDUAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_PRINCIPAL", VALUEFUNC(OrderCapacity_PRINCIPAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_RISKLESS_PRINCIPAL", VALUEFUNC(OrderCapacity_RISKLESS_PRINCIPAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderCapacity_AGENT_FOR_OTHER_MEMBER", VALUEFUNC(OrderCapacity_AGENT_FOR_OTHER_MEMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_PROGRAM_TRADE", VALUEFUNC(OrderRestrictions_PROGRAM_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_INDEX_ARBITRAGE", VALUEFUNC(OrderRestrictions_INDEX_ARBITRAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_NON_INDEX_ARBITRAGE", VALUEFUNC(OrderRestrictions_NON_INDEX_ARBITRAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_COMPETING_MARKET_MAKER", VALUEFUNC(OrderRestrictions_COMPETING_MARKET_MAKER_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY", VALUEFUNC(OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY", VALUEFUNC(OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_FOREIGN_ENTITY", VALUEFUNC(OrderRestrictions_FOREIGN_ENTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT", VALUEFUNC(OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE", VALUEFUNC(OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "OrderRestrictions_RISKLESS_ARBITRAGE", VALUEFUNC(OrderRestrictions_RISKLESS_ARBITRAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION", VALUEFUNC(MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRequestType_CANCEL_ALL_ORDERS", VALUEFUNC(MassCancelRequestType_CANCEL_ALL_ORDERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_REQUEST_REJECTED", VALUEFUNC(MassCancelResponse_CANCEL_REQUEST_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION", VALUEFUNC(MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelResponse_CANCEL_ALL_ORDERS", VALUEFUNC(MassCancelResponse_CANCEL_ALL_ORDERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED", VALUEFUNC(MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION", VALUEFUNC(MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteType_INDICATIVE", VALUEFUNC(QuoteType_INDICATIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteType_TRADEABLE", VALUEFUNC(QuoteType_TRADEABLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteType_RESTRICTED_TRADEABLE", VALUEFUNC(QuoteType_RESTRICTED_TRADEABLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteType_COUNTER", VALUEFUNC(QuoteType_COUNTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "CashMargin_CASH", VALUEFUNC(CashMargin_CASH_get), 0);
-  rb_define_singleton_method(mQuickfix, "CashMargin_MARGIN_OPEN", VALUEFUNC(CashMargin_MARGIN_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "CashMargin_MARGIN_CLOSE", VALUEFUNC(CashMargin_MARGIN_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Scope_LOCAL", VALUEFUNC(Scope_LOCAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Scope_NATIONAL", VALUEFUNC(Scope_NATIONAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "Scope_GLOBAL", VALUEFUNC(Scope_GLOBAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT", VALUEFUNC(CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED", VALUEFUNC(CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE", VALUEFUNC(CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE", VALUEFUNC(CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossPrioritization_NONE", VALUEFUNC(CrossPrioritization_NONE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossPrioritization_BUY_SIDE_IS_PRIORITIZED", VALUEFUNC(CrossPrioritization_BUY_SIDE_IS_PRIORITIZED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CrossPrioritization_SELL_SIDE_IS_PRIORITIZED", VALUEFUNC(CrossPrioritization_SELL_SIDE_IS_PRIORITIZED_get), 0);
-  rb_define_singleton_method(mQuickfix, "NoSides_ONE_SIDE", VALUEFUNC(NoSides_ONE_SIDE_get), 0);
-  rb_define_singleton_method(mQuickfix, "NoSides_BOTH_SIDES", VALUEFUNC(NoSides_BOTH_SIDES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityListRequestType_SYMBOL", VALUEFUNC(SecurityListRequestType_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE", VALUEFUNC(SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityListRequestType_PRODUCT", VALUEFUNC(SecurityListRequestType_PRODUCT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityListRequestType_TRADINGSESSIONID", VALUEFUNC(SecurityListRequestType_TRADINGSESSIONID_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityListRequestType_ALL_SECURITIES", VALUEFUNC(SecurityListRequestType_ALL_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_VALID_REQUEST", VALUEFUNC(SecurityRequestResult_VALID_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST", VALUEFUNC(SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA", VALUEFUNC(SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA", VALUEFUNC(SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE", VALUEFUNC(SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED", VALUEFUNC(SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY", VALUEFUNC(MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY", VALUEFUNC(MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY", VALUEFUNC(MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID", VALUEFUNC(TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestType_ALL_TRADES", VALUEFUNC(TradeRequestType_ALL_TRADES_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST", VALUEFUNC(TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA", VALUEFUNC(TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA", VALUEFUNC(TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA", VALUEFUNC(TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "MatchStatus_COMPARED_MATCHED_OR_AFFIRMED", VALUEFUNC(MatchStatus_COMPARED_MATCHED_OR_AFFIRMED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED", VALUEFUNC(MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MatchStatus_ADVISORY_OR_ALERT", VALUEFUNC(MatchStatus_ADVISORY_OR_ALERT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_PROCESS_NORMALLY", VALUEFUNC(ClearingInstruction_PROCESS_NORMALLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_EXCLUDE_FROM_ALL_NETTING", VALUEFUNC(ClearingInstruction_EXCLUDE_FROM_ALL_NETTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_BILATERAL_NETTING_ONLY", VALUEFUNC(ClearingInstruction_BILATERAL_NETTING_ONLY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_EX_CLEARING", VALUEFUNC(ClearingInstruction_EX_CLEARING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_SPECIAL_TRADE", VALUEFUNC(ClearingInstruction_SPECIAL_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_MULTILATERAL_NETTING", VALUEFUNC(ClearingInstruction_MULTILATERAL_NETTING_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY", VALUEFUNC(ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY", VALUEFUNC(ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_MANUAL_MODE", VALUEFUNC(ClearingInstruction_MANUAL_MODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingInstruction_AUTOMATIC_POSTING_MODE", VALUEFUNC(ClearingInstruction_AUTOMATIC_POSTING_MODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS", VALUEFUNC(AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS", VALUEFUNC(AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_HOUSE_TRADER", VALUEFUNC(AccountType_HOUSE_TRADER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_FLOOR_TRADER", VALUEFUNC(AccountType_FLOOR_TRADER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED", VALUEFUNC(AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED", VALUEFUNC(AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AccountType_JOINT_BACKOFFICE_ACCOUNT", VALUEFUNC(AccountType_JOINT_BACKOFFICE_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT", VALUEFUNC(CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT", VALUEFUNC(CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER", VALUEFUNC(CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustOrderCapacity_ALL_OTHER", VALUEFUNC(CustOrderCapacity_ALL_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ALL_ORDERS", VALUEFUNC(MassStatusReqType_STATUS_FOR_ALL_ORDERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID", VALUEFUNC(MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID_get), 0);
-  rb_define_singleton_method(mQuickfix, "DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR", VALUEFUNC(DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING", VALUEFUNC(DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING_get), 0);
-  rb_define_singleton_method(mQuickfix, "DayBookingInst_ACCUMULATE", VALUEFUNC(DayBookingInst_ACCUMULATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT", VALUEFUNC(BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER", VALUEFUNC(BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingUnit_AGGREGATE_EXECUTIONS_FOR_THIS_SYMBOL_SIDE_AND_SETTLEMENT_DATE", VALUEFUNC(BookingUnit_AGGREGATE_EXECUTIONS_FOR_THIS_SYMBOL_SIDE_AND_SETTLEMENT_DATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PreallocMethod_PRO_RATA", VALUEFUNC(PreallocMethod_PRO_RATA_get), 0);
-  rb_define_singleton_method(mQuickfix, "PreallocMethod_DO_NOT_PRO_RATA", VALUEFUNC(PreallocMethod_DO_NOT_PRO_RATA_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocType_CALCULATED", VALUEFUNC(AllocType_CALCULATED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocType_PRELIMINARY", VALUEFUNC(AllocType_PRELIMINARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocType_READY_TO_BOOK_SINGLE_ORDER", VALUEFUNC(AllocType_READY_TO_BOOK_SINGLE_ORDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocType_WAREHOUSE_INSTRUCTION", VALUEFUNC(AllocType_WAREHOUSE_INSTRUCTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocType_REQUEST_TO_INTERMEDIARY", VALUEFUNC(AllocType_REQUEST_TO_INTERMEDIARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_CBOE_MEMBER", VALUEFUNC(ClearingFeeIndicator_CBOE_MEMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER", VALUEFUNC(ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER", VALUEFUNC(ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS", VALUEFUNC(ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_FIRMS_106H_AND_106J", VALUEFUNC(ClearingFeeIndicator_FIRMS_106H_AND_106J_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS", VALUEFUNC(ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES", VALUEFUNC(ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES_get), 0);
-  rb_define_singleton_method(mQuickfix, "ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES", VALUEFUNC(ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriorityIndicator_PRIORITY_UNCHANGED", VALUEFUNC(PriorityIndicator_PRIORITY_UNCHANGED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE", VALUEFUNC(PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_UNKNOWN_SYMBOL", VALUEFUNC(QuoteRequestRejectReason_UNKNOWN_SYMBOL_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_EXCHANGE_CLOSED", VALUEFUNC(QuoteRequestRejectReason_EXCHANGE_CLOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT", VALUEFUNC(QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_TOO_LATE_TO_ENTER", VALUEFUNC(QuoteRequestRejectReason_TOO_LATE_TO_ENTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_INVALID_PRICE", VALUEFUNC(QuoteRequestRejectReason_INVALID_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE", VALUEFUNC(QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY", VALUEFUNC(QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT", VALUEFUNC(QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRequestRejectReason_NO_INVENTORY", VALUEFUNC(QuoteRequestRejectReason_NO_INVENTORY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AcctIDSource_BIC", VALUEFUNC(AcctIDSource_BIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "AcctIDSource_SID_CODE", VALUEFUNC(AcctIDSource_SID_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AcctIDSource_TFM", VALUEFUNC(AcctIDSource_TFM_get), 0);
-  rb_define_singleton_method(mQuickfix, "AcctIDSource_OMGEO", VALUEFUNC(AcctIDSource_OMGEO_get), 0);
-  rb_define_singleton_method(mQuickfix, "AcctIDSource_DTCC_CODE", VALUEFUNC(AcctIDSource_DTCC_CODE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmStatus_RECEIVED", VALUEFUNC(ConfirmStatus_RECEIVED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmStatus_MISMATCHED_ACCOUNT", VALUEFUNC(ConfirmStatus_MISMATCHED_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS", VALUEFUNC(ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmStatus_CONFIRMED", VALUEFUNC(ConfirmStatus_CONFIRMED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmStatus_REQUEST_REJECTED", VALUEFUNC(ConfirmStatus_REQUEST_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmTransType_NEW", VALUEFUNC(ConfirmTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmTransType_REPLACE", VALUEFUNC(ConfirmTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmTransType_CANCEL", VALUEFUNC(ConfirmTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryForm_BOOKENTRY", VALUEFUNC(DeliveryForm_BOOKENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryForm_BEARER", VALUEFUNC(DeliveryForm_BEARER_get), 0);
-  rb_define_singleton_method(mQuickfix, "LegSwapType_PAR_FOR_PAR", VALUEFUNC(LegSwapType_PAR_FOR_PAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "LegSwapType_MODIFIED_DURATION", VALUEFUNC(LegSwapType_MODIFIED_DURATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "LegSwapType_RISK", VALUEFUNC(LegSwapType_RISK_get), 0);
-  rb_define_singleton_method(mQuickfix, "LegSwapType_PROCEEDS", VALUEFUNC(LegSwapType_PROCEEDS_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_PERCENT", VALUEFUNC(QuotePriceType_PERCENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_PER_SHARE", VALUEFUNC(QuotePriceType_PER_SHARE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_FIXED_AMOUNT", VALUEFUNC(QuotePriceType_FIXED_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_DISCOUNT", VALUEFUNC(QuotePriceType_DISCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_PREMIUM", VALUEFUNC(QuotePriceType_PREMIUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK", VALUEFUNC(QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_TED_PRICE", VALUEFUNC(QuotePriceType_TED_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_TED_YIELD", VALUEFUNC(QuotePriceType_TED_YIELD_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuotePriceType_YIELD_SPREAD", VALUEFUNC(QuotePriceType_YIELD_SPREAD_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_HIT_LIFT", VALUEFUNC(QuoteRespType_HIT_LIFT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_COUNTER", VALUEFUNC(QuoteRespType_COUNTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_EXPIRED", VALUEFUNC(QuoteRespType_EXPIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_COVER", VALUEFUNC(QuoteRespType_COVER_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_DONE_AWAY", VALUEFUNC(QuoteRespType_DONE_AWAY_get), 0);
-  rb_define_singleton_method(mQuickfix, "QuoteRespType_PASS", VALUEFUNC(QuoteRespType_PASS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_TRANSACTION_QUANTITY", VALUEFUNC(PosType_TRANSACTION_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_INTRA_SPREAD_QTY", VALUEFUNC(PosType_INTRA_SPREAD_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_INTER_SPREAD_QTY", VALUEFUNC(PosType_INTER_SPREAD_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_END_OF_DAY_QTY", VALUEFUNC(PosType_END_OF_DAY_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_START_OF_DAY_QTY", VALUEFUNC(PosType_START_OF_DAY_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_OPTION_EXERCISE_QTY", VALUEFUNC(PosType_OPTION_EXERCISE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_OPTION_ASSIGNMENT", VALUEFUNC(PosType_OPTION_ASSIGNMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_TRANSACTION_FROM_EXERCISE", VALUEFUNC(PosType_TRANSACTION_FROM_EXERCISE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_TRANSACTION_FROM_ASSIGNMENT", VALUEFUNC(PosType_TRANSACTION_FROM_ASSIGNMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_PIT_TRADE_QTY", VALUEFUNC(PosType_PIT_TRADE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_TRANSFER_TRADE_QTY", VALUEFUNC(PosType_TRANSFER_TRADE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_ELECTRONIC_TRADE_QTY", VALUEFUNC(PosType_ELECTRONIC_TRADE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_ALLOCATION_TRADE_QTY", VALUEFUNC(PosType_ALLOCATION_TRADE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_ADJUSTMENT_QTY", VALUEFUNC(PosType_ADJUSTMENT_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_AS_OF_TRADE_QTY", VALUEFUNC(PosType_AS_OF_TRADE_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_DELIVERY_QTY", VALUEFUNC(PosType_DELIVERY_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_TOTAL_TRANSACTION_QTY", VALUEFUNC(PosType_TOTAL_TRANSACTION_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_CROSS_MARGIN_QTY", VALUEFUNC(PosType_CROSS_MARGIN_QTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosType_INTEGRAL_SPLIT", VALUEFUNC(PosType_INTEGRAL_SPLIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosQtyStatus_SUBMITTED", VALUEFUNC(PosQtyStatus_SUBMITTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosQtyStatus_ACCEPTED", VALUEFUNC(PosQtyStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosQtyStatus_REJECTED", VALUEFUNC(PosQtyStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT", VALUEFUNC(PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT", VALUEFUNC(PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_TRADE_VARIATION_AMOUNT", VALUEFUNC(PosAmtType_TRADE_VARIATION_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT", VALUEFUNC(PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_PREMIUM_AMOUNT", VALUEFUNC(PosAmtType_PREMIUM_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_CASH_RESIDUAL_AMOUNT", VALUEFUNC(PosAmtType_CASH_RESIDUAL_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_CASH_AMOUNT", VALUEFUNC(PosAmtType_CASH_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosAmtType_VALUE_ADJUSTED_AMOUNT", VALUEFUNC(PosAmtType_VALUE_ADJUSTED_AMOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosTransType_EXERCISE", VALUEFUNC(PosTransType_EXERCISE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosTransType_DO_NOT_EXERCISE", VALUEFUNC(PosTransType_DO_NOT_EXERCISE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosTransType_POSITION_ADJUSTMENT", VALUEFUNC(PosTransType_POSITION_ADJUSTMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION", VALUEFUNC(PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosTransType_PLEDGE", VALUEFUNC(PosTransType_PLEDGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintAction_NEW", VALUEFUNC(PosMaintAction_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintAction_REPLACE", VALUEFUNC(PosMaintAction_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintAction_CANCEL", VALUEFUNC(PosMaintAction_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION", VALUEFUNC(AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdjustmentType_DELTA_PLUS", VALUEFUNC(AdjustmentType_DELTA_PLUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdjustmentType_DELTA_MINUS", VALUEFUNC(AdjustmentType_DELTA_MINUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AdjustmentType_FINAL", VALUEFUNC(AdjustmentType_FINAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintStatus_ACCEPTED", VALUEFUNC(PosMaintStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintStatus_ACCEPTED_WITH_WARNINGS", VALUEFUNC(PosMaintStatus_ACCEPTED_WITH_WARNINGS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintStatus_REJECTED", VALUEFUNC(PosMaintStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintStatus_COMPLETED", VALUEFUNC(PosMaintStatus_COMPLETED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintStatus_COMPLETED_WITH_WARNINGS", VALUEFUNC(PosMaintStatus_COMPLETED_WITH_WARNINGS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS", VALUEFUNC(PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosMaintResult_REJECTED", VALUEFUNC(PosMaintResult_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqType_POSITIONS", VALUEFUNC(PosReqType_POSITIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqType_TRADES", VALUEFUNC(PosReqType_TRADES_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqType_EXERCISES", VALUEFUNC(PosReqType_EXERCISES_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqType_ASSIGNMENTS", VALUEFUNC(PosReqType_ASSIGNMENTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ResponseTransportType_INBAND", VALUEFUNC(ResponseTransportType_INBAND_get), 0);
-  rb_define_singleton_method(mQuickfix, "ResponseTransportType_OUT_OF_BAND", VALUEFUNC(ResponseTransportType_OUT_OF_BAND_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_VALID_REQUEST", VALUEFUNC(PosReqResult_VALID_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST", VALUEFUNC(PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA", VALUEFUNC(PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS", VALUEFUNC(PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED", VALUEFUNC(PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqResult_OTHER", VALUEFUNC(PosReqResult_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqStatus_COMPLETED", VALUEFUNC(PosReqStatus_COMPLETED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqStatus_COMPLETED_WITH_WARNINGS", VALUEFUNC(PosReqStatus_COMPLETED_WITH_WARNINGS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PosReqStatus_REJECTED", VALUEFUNC(PosReqStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlPriceType_FINAL", VALUEFUNC(SettlPriceType_FINAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlPriceType_THEORETICAL", VALUEFUNC(SettlPriceType_THEORETICAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "AssignmentMethod_RANDOM", VALUEFUNC(AssignmentMethod_RANDOM_get), 0);
-  rb_define_singleton_method(mQuickfix, "AssignmentMethod_PRORATA", VALUEFUNC(AssignmentMethod_PRORATA_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExerciseMethod_AUTOMATIC", VALUEFUNC(ExerciseMethod_AUTOMATIC_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExerciseMethod_MANUAL", VALUEFUNC(ExerciseMethod_MANUAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_SUCCESSFUL", VALUEFUNC(TradeRequestResult_SUCCESSFUL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT", VALUEFUNC(TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED", VALUEFUNC(TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_INVALID_PARTIES", VALUEFUNC(TradeRequestResult_INVALID_PARTIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED", VALUEFUNC(TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_INVALID_DESTINATION_REQUESTED", VALUEFUNC(TradeRequestResult_INVALID_DESTINATION_REQUESTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED", VALUEFUNC(TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST", VALUEFUNC(TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestStatus_ACCEPTED", VALUEFUNC(TradeRequestStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestStatus_COMPLETED", VALUEFUNC(TradeRequestStatus_COMPLETED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeRequestStatus_REJECTED", VALUEFUNC(TradeRequestStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportRejectReason_SUCCESSFUL", VALUEFUNC(TradeReportRejectReason_SUCCESSFUL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportRejectReason_INVALID_PARTY_INFORMATION", VALUEFUNC(TradeReportRejectReason_INVALID_PARTY_INFORMATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportRejectReason_UNKNOWN_INSTRUMENT", VALUEFUNC(TradeReportRejectReason_UNKNOWN_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES", VALUEFUNC(TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportRejectReason_INVALID_TRADE_TYPE", VALUEFUNC(TradeReportRejectReason_INVALID_TRADE_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SideMultiLegReportingType_SINGLE_SECURITY", VALUEFUNC(SideMultiLegReportingType_SINGLE_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY", VALUEFUNC(SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SideMultiLegReportingType_MULTI_LEG_SECURITY", VALUEFUNC(SideMultiLegReportingType_MULTI_LEG_SECURITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRegTimestampType_EXECUTION_TIME", VALUEFUNC(TrdRegTimestampType_EXECUTION_TIME_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRegTimestampType_TIME_IN", VALUEFUNC(TrdRegTimestampType_TIME_IN_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRegTimestampType_TIME_OUT", VALUEFUNC(TrdRegTimestampType_TIME_OUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRegTimestampType_BROKER_RECEIPT", VALUEFUNC(TrdRegTimestampType_BROKER_RECEIPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRegTimestampType_BROKER_EXECUTION", VALUEFUNC(TrdRegTimestampType_BROKER_EXECUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmType_STATUS", VALUEFUNC(ConfirmType_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmType_CONFIRMATION", VALUEFUNC(ConfirmType_CONFIRMATION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmType_CONFIRMATION_REQUEST_REJECTED", VALUEFUNC(ConfirmType_CONFIRMATION_REQUEST_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmRejReason_MISMATCHED_ACCOUNT", VALUEFUNC(ConfirmRejReason_MISMATCHED_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS", VALUEFUNC(ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingType_REGULAR_BOOKING", VALUEFUNC(BookingType_REGULAR_BOOKING_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingType_CFD", VALUEFUNC(BookingType_CFD_get), 0);
-  rb_define_singleton_method(mQuickfix, "BookingType_TOTAL_RETURN_SWAP", VALUEFUNC(BookingType_TOTAL_RETURN_SWAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS", VALUEFUNC(AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED", VALUEFUNC(AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocSettlInstType_FULL_DETAILS_PROVIDED", VALUEFUNC(AllocSettlInstType_FULL_DETAILS_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocSettlInstType_SSI_DB_IDS_PROVIDED", VALUEFUNC(AllocSettlInstType_SSI_DB_IDS_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocSettlInstType_PHONE_FOR_INSTRUCTIONS", VALUEFUNC(AllocSettlInstType_PHONE_FOR_INSTRUCTIONS_get), 0);
-  rb_define_singleton_method(mQuickfix, "DlvyInstType_SECURITIES", VALUEFUNC(DlvyInstType_SECURITIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "DlvyInstType_CASH", VALUEFUNC(DlvyInstType_CASH_get), 0);
-  rb_define_singleton_method(mQuickfix, "TerminationType_OVERNIGHT", VALUEFUNC(TerminationType_OVERNIGHT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TerminationType_TERM", VALUEFUNC(TerminationType_TERM_get), 0);
-  rb_define_singleton_method(mQuickfix, "TerminationType_FLEXIBLE", VALUEFUNC(TerminationType_FLEXIBLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TerminationType_OPEN", VALUEFUNC(TerminationType_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST", VALUEFUNC(SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstReqRejCode_UNKNOWN_ACCOUNT", VALUEFUNC(SettlInstReqRejCode_UNKNOWN_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND", VALUEFUNC(SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY", VALUEFUNC(AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY", VALUEFUNC(AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocReportType_WAREHOUSE_RECAP", VALUEFUNC(AllocReportType_WAREHOUSE_RECAP_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocReportType_REQUEST_TO_INTERMEDIARY", VALUEFUNC(AllocReportType_REQUEST_TO_INTERMEDIARY_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT", VALUEFUNC(AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS", VALUEFUNC(AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS", VALUEFUNC(AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS", VALUEFUNC(AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_HOUSE_TRADER", VALUEFUNC(AllocAccountType_HOUSE_TRADER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_FLOOR_TRADER", VALUEFUNC(AllocAccountType_FLOOR_TRADER_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED", VALUEFUNC(AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED", VALUEFUNC(AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocAccountType_JOINT_BACKOFFICE_ACCOUNT", VALUEFUNC(AllocAccountType_JOINT_BACKOFFICE_ACCOUNT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_PENDING_ACCEPT", VALUEFUNC(AllocIntermedReqType_PENDING_ACCEPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_PENDING_RELEASE", VALUEFUNC(AllocIntermedReqType_PENDING_RELEASE_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_PENDING_REVERSAL", VALUEFUNC(AllocIntermedReqType_PENDING_REVERSAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_ACCEPT", VALUEFUNC(AllocIntermedReqType_ACCEPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_BLOCK_LEVEL_REJECT", VALUEFUNC(AllocIntermedReqType_BLOCK_LEVEL_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocIntermedReqType_ACCOUNT_LEVEL_REJECT", VALUEFUNC(AllocIntermedReqType_ACCOUNT_LEVEL_REJECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueResolution_NO_ACTION_TAKEN", VALUEFUNC(ApplQueueResolution_NO_ACTION_TAKEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueResolution_QUEUE_FLUSHED", VALUEFUNC(ApplQueueResolution_QUEUE_FLUSHED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueResolution_OVERLAY_LAST", VALUEFUNC(ApplQueueResolution_OVERLAY_LAST_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueResolution_END_SESSION", VALUEFUNC(ApplQueueResolution_END_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueAction_NO_ACTION_TAKEN", VALUEFUNC(ApplQueueAction_NO_ACTION_TAKEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueAction_QUEUE_FLUSHED", VALUEFUNC(ApplQueueAction_QUEUE_FLUSHED_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueAction_OVERLAY_LAST", VALUEFUNC(ApplQueueAction_OVERLAY_LAST_get), 0);
-  rb_define_singleton_method(mQuickfix, "ApplQueueAction_END_SESSION", VALUEFUNC(ApplQueueAction_END_SESSION_get), 0);
-  rb_define_singleton_method(mQuickfix, "AvgPxIndicator_NO_AVERAGE_PRICING", VALUEFUNC(AvgPxIndicator_NO_AVERAGE_PRICING_get), 0);
-  rb_define_singleton_method(mQuickfix, "AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID", VALUEFUNC(AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID_get), 0);
-  rb_define_singleton_method(mQuickfix, "AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID", VALUEFUNC(AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeAllocIndicator_ALLOCATION_NOT_REQUIRED", VALUEFUNC(TradeAllocIndicator_ALLOCATION_NOT_REQUIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeAllocIndicator_ALLOCATION_REQUIRED", VALUEFUNC(TradeAllocIndicator_ALLOCATION_REQUIRED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE", VALUEFUNC(TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE", VALUEFUNC(ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN", VALUEFUNC(ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_REGULAR_TRADE", VALUEFUNC(TrdType_REGULAR_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_BLOCK_TRADE", VALUEFUNC(TrdType_BLOCK_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_EFP", VALUEFUNC(TrdType_EFP_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_TRANSFER", VALUEFUNC(TrdType_TRANSFER_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_LATE_TRADE", VALUEFUNC(TrdType_LATE_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_T_TRADE", VALUEFUNC(TrdType_T_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_WEIGHTED_AVERAGE_PRICE_TRADE", VALUEFUNC(TrdType_WEIGHTED_AVERAGE_PRICE_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_BUNCHED_TRADE", VALUEFUNC(TrdType_BUNCHED_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_LATE_BUNCHED_TRADE", VALUEFUNC(TrdType_LATE_BUNCHED_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdType_PRIOR_REFERENCE_PRICE_TRADE", VALUEFUNC(TrdType_PRIOR_REFERENCE_PRICE_TRADE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegMoveType_FLOATING", VALUEFUNC(PegMoveType_FLOATING_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegMoveType_FIXED", VALUEFUNC(PegMoveType_FIXED_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegOffsetType_PRICE", VALUEFUNC(PegOffsetType_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegOffsetType_BASIS_POINTS", VALUEFUNC(PegOffsetType_BASIS_POINTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegOffsetType_TICKS", VALUEFUNC(PegOffsetType_TICKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegOffsetType_PRICE_TIER_LEVEL", VALUEFUNC(PegOffsetType_PRICE_TIER_LEVEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegLimitType_OR_BETTER", VALUEFUNC(PegLimitType_OR_BETTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegLimitType_STRICT", VALUEFUNC(PegLimitType_STRICT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegLimitType_OR_WORSE", VALUEFUNC(PegLimitType_OR_WORSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegRoundDirection_MORE_AGGRESSIVE", VALUEFUNC(PegRoundDirection_MORE_AGGRESSIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegRoundDirection_MORE_PASSIVE", VALUEFUNC(PegRoundDirection_MORE_PASSIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegScope_LOCAL", VALUEFUNC(PegScope_LOCAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegScope_NATIONAL", VALUEFUNC(PegScope_NATIONAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegScope_GLOBAL", VALUEFUNC(PegScope_GLOBAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "PegScope_NATIONAL_EXCLUDING_LOCAL", VALUEFUNC(PegScope_NATIONAL_EXCLUDING_LOCAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionMoveType_FLOATING", VALUEFUNC(DiscretionMoveType_FLOATING_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionMoveType_FIXED", VALUEFUNC(DiscretionMoveType_FIXED_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionOffsetType_PRICE", VALUEFUNC(DiscretionOffsetType_PRICE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionOffsetType_BASIS_POINTS", VALUEFUNC(DiscretionOffsetType_BASIS_POINTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionOffsetType_TICKS", VALUEFUNC(DiscretionOffsetType_TICKS_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionOffsetType_PRICE_TIER_LEVEL", VALUEFUNC(DiscretionOffsetType_PRICE_TIER_LEVEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionLimitType_OR_BETTER", VALUEFUNC(DiscretionLimitType_OR_BETTER_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionLimitType_STRICT", VALUEFUNC(DiscretionLimitType_STRICT_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionLimitType_OR_WORSE", VALUEFUNC(DiscretionLimitType_OR_WORSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionRoundDirection_MORE_AGGRESSIVE", VALUEFUNC(DiscretionRoundDirection_MORE_AGGRESSIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionRoundDirection_MORE_PASSIVE", VALUEFUNC(DiscretionRoundDirection_MORE_PASSIVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionScope_LOCAL", VALUEFUNC(DiscretionScope_LOCAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionScope_NATIONAL", VALUEFUNC(DiscretionScope_NATIONAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionScope_GLOBAL", VALUEFUNC(DiscretionScope_GLOBAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "DiscretionScope_NATIONAL_EXCLUDING_LOCAL", VALUEFUNC(DiscretionScope_NATIONAL_EXCLUDING_LOCAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastLiquidityInd_ADDED_LIQUIDITY", VALUEFUNC(LastLiquidityInd_ADDED_LIQUIDITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastLiquidityInd_REMOVED_LIQUIDITY", VALUEFUNC(LastLiquidityInd_REMOVED_LIQUIDITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "LastLiquidityInd_LIQUIDITY_ROUTED_OUT", VALUEFUNC(LastLiquidityInd_LIQUIDITY_ROUTED_OUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_DEALER_SOLD_SHORT", VALUEFUNC(ShortSaleReason_DEALER_SOLD_SHORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT", VALUEFUNC(ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT", VALUEFUNC(ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT", VALUEFUNC(ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT", VALUEFUNC(ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT", VALUEFUNC(ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "QtyType_UNITS", VALUEFUNC(QtyType_UNITS_get), 0);
-  rb_define_singleton_method(mQuickfix, "QtyType_CONTRACTS", VALUEFUNC(QtyType_CONTRACTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_SUBMIT", VALUEFUNC(TradeReportType_SUBMIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_ALLEGED", VALUEFUNC(TradeReportType_ALLEGED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_ACCEPT", VALUEFUNC(TradeReportType_ACCEPT_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_DECLINE", VALUEFUNC(TradeReportType_DECLINE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_ADDENDUM", VALUEFUNC(TradeReportType_ADDENDUM_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_NO_WAS", VALUEFUNC(TradeReportType_NO_WAS_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_TRADE_REPORT_CANCEL", VALUEFUNC(TradeReportType_TRADE_REPORT_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "TradeReportType_LOCKED_IN_TRADE_BREAK", VALUEFUNC(TradeReportType_LOCKED_IN_TRADE_BREAK_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocNoOrdersType_NOT_SPECIFIED", VALUEFUNC(AllocNoOrdersType_NOT_SPECIFIED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AllocNoOrdersType_EXPLICIT_LIST_PROVIDED", VALUEFUNC(AllocNoOrdersType_EXPLICIT_LIST_PROVIDED_get), 0);
-  rb_define_singleton_method(mQuickfix, "EventType_PUT", VALUEFUNC(EventType_PUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "EventType_CALL", VALUEFUNC(EventType_CALL_get), 0);
-  rb_define_singleton_method(mQuickfix, "EventType_TENDER", VALUEFUNC(EventType_TENDER_get), 0);
-  rb_define_singleton_method(mQuickfix, "EventType_SINKING_FUND_CALL", VALUEFUNC(EventType_SINKING_FUND_CALL_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_FLAT", VALUEFUNC(InstrAttribType_FLAT_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_ZERO_COUPON", VALUEFUNC(InstrAttribType_ZERO_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_INTEREST_BEARING", VALUEFUNC(InstrAttribType_INTEREST_BEARING_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_NO_PERIODIC_PAYMENTS", VALUEFUNC(InstrAttribType_NO_PERIODIC_PAYMENTS_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_VARIABLE_RATE", VALUEFUNC(InstrAttribType_VARIABLE_RATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_LESS_FEE_FOR_PUT", VALUEFUNC(InstrAttribType_LESS_FEE_FOR_PUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_STEPPED_COUPON", VALUEFUNC(InstrAttribType_STEPPED_COUPON_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_COUPON_PERIOD", VALUEFUNC(InstrAttribType_COUPON_PERIOD_get), 0);
-  rb_define_singleton_method(mQuickfix, "InstrAttribType_WHEN_AND_IF_ISSUED", VALUEFUNC(InstrAttribType_WHEN_AND_IF_ISSUED_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeBasis_ABSOLUTE", VALUEFUNC(MiscFeeBasis_ABSOLUTE_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeBasis_PER_UNIT", VALUEFUNC(MiscFeeBasis_PER_UNIT_get), 0);
-  rb_define_singleton_method(mQuickfix, "MiscFeeBasis_PERCENTAGE", VALUEFUNC(MiscFeeBasis_PERCENTAGE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_INITIAL", VALUEFUNC(CollAsgnReason_INITIAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_SCHEDULED", VALUEFUNC(CollAsgnReason_SCHEDULED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_TIME_WARNING", VALUEFUNC(CollAsgnReason_TIME_WARNING_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_MARGIN_DEFICIENCY", VALUEFUNC(CollAsgnReason_MARGIN_DEFICIENCY_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_MARGIN_EXCESS", VALUEFUNC(CollAsgnReason_MARGIN_EXCESS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_FORWARD_COLLATERAL_DEMAND", VALUEFUNC(CollAsgnReason_FORWARD_COLLATERAL_DEMAND_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_EVENT_OF_DEFAULT", VALUEFUNC(CollAsgnReason_EVENT_OF_DEFAULT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnReason_ADVERSE_TAX_EVENT", VALUEFUNC(CollAsgnReason_ADVERSE_TAX_EVENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_TRADEDATE", VALUEFUNC(CollInquiryQualifier_TRADEDATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_GC_INSTRUMENT", VALUEFUNC(CollInquiryQualifier_GC_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_COLLATERALINSTRUMENT", VALUEFUNC(CollInquiryQualifier_COLLATERALINSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_SUBSTITUTION_ELIGIBLE", VALUEFUNC(CollInquiryQualifier_SUBSTITUTION_ELIGIBLE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_NOT_ASSIGNED", VALUEFUNC(CollInquiryQualifier_NOT_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_PARTIALLY_ASSIGNED", VALUEFUNC(CollInquiryQualifier_PARTIALLY_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_FULLY_ASSIGNED", VALUEFUNC(CollInquiryQualifier_FULLY_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryQualifier_OUTSTANDING_TRADES", VALUEFUNC(CollInquiryQualifier_OUTSTANDING_TRADES_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnTransType_NEW", VALUEFUNC(CollAsgnTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnTransType_REPLACE", VALUEFUNC(CollAsgnTransType_REPLACE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnTransType_CANCEL", VALUEFUNC(CollAsgnTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnTransType_RELEASE", VALUEFUNC(CollAsgnTransType_RELEASE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnTransType_REVERSE", VALUEFUNC(CollAsgnTransType_REVERSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRespType_RECEIVED", VALUEFUNC(CollAsgnRespType_RECEIVED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRespType_ACCEPTED", VALUEFUNC(CollAsgnRespType_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRespType_DECLINED", VALUEFUNC(CollAsgnRespType_DECLINED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRespType_REJECTED", VALUEFUNC(CollAsgnRespType_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_UNKNOWN_DEAL", VALUEFUNC(CollAsgnRejectReason_UNKNOWN_DEAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT", VALUEFUNC(CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION", VALUEFUNC(CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_INSUFFICIENT_COLLATERAL", VALUEFUNC(CollAsgnRejectReason_INSUFFICIENT_COLLATERAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL", VALUEFUNC(CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION", VALUEFUNC(CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollStatus_UNASSIGNED", VALUEFUNC(CollStatus_UNASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollStatus_PARTIALLY_ASSIGNED", VALUEFUNC(CollStatus_PARTIALLY_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollStatus_ASSIGNMENT_PROPOSED", VALUEFUNC(CollStatus_ASSIGNMENT_PROPOSED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollStatus_ASSIGNED", VALUEFUNC(CollStatus_ASSIGNED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollStatus_CHALLENGED", VALUEFUNC(CollStatus_CHALLENGED_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryType_VERSUS_PAYMENT", VALUEFUNC(DeliveryType_VERSUS_PAYMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryType_FREE", VALUEFUNC(DeliveryType_FREE_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryType_TRI_PARTY", VALUEFUNC(DeliveryType_TRI_PARTY_get), 0);
-  rb_define_singleton_method(mQuickfix, "DeliveryType_HOLD_IN_CUSTODY", VALUEFUNC(DeliveryType_HOLD_IN_CUSTODY_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserRequestType_LOGONUSER", VALUEFUNC(UserRequestType_LOGONUSER_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserRequestType_LOGOFFUSER", VALUEFUNC(UserRequestType_LOGOFFUSER_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserRequestType_CHANGEPASSWORDFORUSER", VALUEFUNC(UserRequestType_CHANGEPASSWORDFORUSER_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS", VALUEFUNC(UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_LOGGED_IN", VALUEFUNC(UserStatus_LOGGED_IN_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_NOT_LOGGED_IN", VALUEFUNC(UserStatus_NOT_LOGGED_IN_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_USER_NOT_RECOGNISED", VALUEFUNC(UserStatus_USER_NOT_RECOGNISED_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_PASSWORD_INCORRECT", VALUEFUNC(UserStatus_PASSWORD_INCORRECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_PASSWORD_CHANGED", VALUEFUNC(UserStatus_PASSWORD_CHANGED_get), 0);
-  rb_define_singleton_method(mQuickfix, "UserStatus_OTHER", VALUEFUNC(UserStatus_OTHER_get), 0);
-  rb_define_singleton_method(mQuickfix, "StatusValue_CONNECTED", VALUEFUNC(StatusValue_CONNECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP", VALUEFUNC(StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP_get), 0);
-  rb_define_singleton_method(mQuickfix, "StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN", VALUEFUNC(StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN_get), 0);
-  rb_define_singleton_method(mQuickfix, "StatusValue_IN_PROCESS", VALUEFUNC(StatusValue_IN_PROCESS_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkRequestType_SNAPSHOT", VALUEFUNC(NetworkRequestType_SNAPSHOT_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkRequestType_SUBSCRIBE", VALUEFUNC(NetworkRequestType_SUBSCRIBE_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkRequestType_STOP_SUBSCRIBING", VALUEFUNC(NetworkRequestType_STOP_SUBSCRIBING_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkRequestType_LEVEL_OF_DETAIL", VALUEFUNC(NetworkRequestType_LEVEL_OF_DETAIL_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkStatusResponseType_FULL", VALUEFUNC(NetworkStatusResponseType_FULL_get), 0);
-  rb_define_singleton_method(mQuickfix, "NetworkStatusResponseType_INCREMENTAL_UPDATE", VALUEFUNC(NetworkStatusResponseType_INCREMENTAL_UPDATE_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRptStatus_ACCEPTED", VALUEFUNC(TrdRptStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "TrdRptStatus_REJECTED", VALUEFUNC(TrdRptStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AffirmStatus_RECEIVED", VALUEFUNC(AffirmStatus_RECEIVED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AffirmStatus_CONFIRM_REJECTED", VALUEFUNC(AffirmStatus_CONFIRM_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "AffirmStatus_AFFIRMED", VALUEFUNC(AffirmStatus_AFFIRMED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAction_RETAIN", VALUEFUNC(CollAction_RETAIN_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAction_ADD", VALUEFUNC(CollAction_ADD_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollAction_REMOVE", VALUEFUNC(CollAction_REMOVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryStatus_ACCEPTED", VALUEFUNC(CollInquiryStatus_ACCEPTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryStatus_ACCEPTED_WITH_WARNINGS", VALUEFUNC(CollInquiryStatus_ACCEPTED_WITH_WARNINGS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryStatus_COMPLETED", VALUEFUNC(CollInquiryStatus_COMPLETED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryStatus_COMPLETED_WITH_WARNINGS", VALUEFUNC(CollInquiryStatus_COMPLETED_WITH_WARNINGS_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryStatus_REJECTED", VALUEFUNC(CollInquiryStatus_REJECTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_SUCCESSFUL", VALUEFUNC(CollInquiryResult_SUCCESSFUL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT", VALUEFUNC(CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE", VALUEFUNC(CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_INVALID_PARTIES", VALUEFUNC(CollInquiryResult_INVALID_PARTIES_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED", VALUEFUNC(CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_INVALID_DESTINATION_REQUESTED", VALUEFUNC(CollInquiryResult_INVALID_DESTINATION_REQUESTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED", VALUEFUNC(CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED", VALUEFUNC(CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED", VALUEFUNC(CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY", VALUEFUNC(CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "CollInquiryResult_OTHER", VALUEFUNC(CollInquiryResult_OTHER_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX50", VALUEFUNC(ApplVerId_FIX50_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX44", VALUEFUNC(ApplVerId_FIX44_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX43", VALUEFUNC(ApplVerId_FIX43_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX42", VALUEFUNC(ApplVerId_FIX42_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX41", VALUEFUNC(ApplVerId_FIX41_get), 0);
+  rb_define_singleton_method(mQuickfix, "ApplVerId_FIX40", VALUEFUNC(ApplVerId_FIX40_get), 0);
   rb_define_singleton_method(mQuickfix, "SessionRejectReason_INVALID_TAG_NUMBER_TEXT", VALUEFUNC(SessionRejectReason_INVALID_TAG_NUMBER_TEXT_get), 0);
   rb_define_singleton_method(mQuickfix, "SessionRejectReason_REQUIRED_TAG_MISSING_TEXT", VALUEFUNC(SessionRejectReason_REQUIRED_TAG_MISSING_TEXT_get), 0);
   rb_define_singleton_method(mQuickfix, "SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT", VALUEFUNC(SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT_get), 0);
@@ -57724,10 +38343,6 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT", VALUEFUNC(BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT_get), 0);
   rb_define_singleton_method(mQuickfix, "BusinessRejectReason_NOT_AUTHORIZED_TEXT", VALUEFUNC(BusinessRejectReason_NOT_AUTHORIZED_TEXT_get), 0);
   rb_define_singleton_method(mQuickfix, "BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT", VALUEFUNC(BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecTransType_NEW", VALUEFUNC(ExecTransType_NEW_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecTransType_CANCEL", VALUEFUNC(ExecTransType_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecTransType_CORRECT", VALUEFUNC(ExecTransType_CORRECT_get), 0);
-  rb_define_singleton_method(mQuickfix, "ExecTransType_STATUS", VALUEFUNC(ExecTransType_STATUS_get), 0);
   rb_define_singleton_method(mQuickfix, "IDSource_CUSIP", VALUEFUNC(IDSource_CUSIP_get), 0);
   rb_define_singleton_method(mQuickfix, "IDSource_SEDOL", VALUEFUNC(IDSource_SEDOL_get), 0);
   rb_define_singleton_method(mQuickfix, "IDSource_QUIK", VALUEFUNC(IDSource_QUIK_get), 0);
@@ -57776,27 +38391,6 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "SettlmntTyp_T_PLUS_1", VALUEFUNC(SettlmntTyp_T_PLUS_1_get), 0);
   rb_define_singleton_method(mQuickfix, "OpenClose_OPEN", VALUEFUNC(OpenClose_OPEN_get), 0);
   rb_define_singleton_method(mQuickfix, "OpenClose_CLOSE", VALUEFUNC(OpenClose_CLOSE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlType_PARTIAL_CANCEL", VALUEFUNC(CxlType_PARTIAL_CANCEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CxlType_FULL_REMAINING_QUANTITY", VALUEFUNC(CxlType_FULL_REMAINING_QUANTITY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_CEDEL", VALUEFUNC(SettlLocation_CEDEL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_DEPOSITORY_TRUST_COMPANY", VALUEFUNC(SettlLocation_DEPOSITORY_TRUST_COMPANY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_EUROCLEAR", VALUEFUNC(SettlLocation_EUROCLEAR_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_FEDERAL_BOOK_ENTRY", VALUEFUNC(SettlLocation_FEDERAL_BOOK_ENTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_PHYSICAL", VALUEFUNC(SettlLocation_PHYSICAL_get), 0);
-  rb_define_singleton_method(mQuickfix, "SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY", VALUEFUNC(SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY_get), 0);
-  rb_define_singleton_method(mQuickfix, "PutOrCall_PUT", VALUEFUNC(PutOrCall_PUT_get), 0);
-  rb_define_singleton_method(mQuickfix, "PutOrCall_CALL", VALUEFUNC(PutOrCall_CALL_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustomerOrFirm_CUSTOMER", VALUEFUNC(CustomerOrFirm_CUSTOMER_get), 0);
-  rb_define_singleton_method(mQuickfix, "CustomerOrFirm_FIRM", VALUEFUNC(CustomerOrFirm_FIRM_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_CURVE", VALUEFUNC(Benchmark_CURVE_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_FIVEYR", VALUEFUNC(Benchmark_FIVEYR_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_OLD5", VALUEFUNC(Benchmark_OLD5_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_TENYR", VALUEFUNC(Benchmark_TENYR_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_OLD10", VALUEFUNC(Benchmark_OLD10_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_THIRTYYR", VALUEFUNC(Benchmark_THIRTYYR_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_OLD30", VALUEFUNC(Benchmark_OLD30_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_THREEMOLIBOR", VALUEFUNC(Benchmark_THREEMOLIBOR_get), 0);
-  rb_define_singleton_method(mQuickfix, "Benchmark_SIXMOLIBOR", VALUEFUNC(Benchmark_SIXMOLIBOR_get), 0);
   rb_define_singleton_method(mQuickfix, "OpenCloseSettleFlag_DAILY_OPEN", VALUEFUNC(OpenCloseSettleFlag_DAILY_OPEN_get), 0);
   rb_define_singleton_method(mQuickfix, "OpenCloseSettleFlag_SESSION_OPEN", VALUEFUNC(OpenCloseSettleFlag_SESSION_OPEN_get), 0);
   rb_define_singleton_method(mQuickfix, "OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE", VALUEFUNC(OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE_get), 0);
@@ -57811,6 +38405,8 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cSessionID.klass, "getSenderCompID", VALUEFUNC(_wrap_SessionID_getSenderCompID), -1);
   rb_define_method(cSessionID.klass, "getTargetCompID", VALUEFUNC(_wrap_SessionID_getTargetCompID), -1);
   rb_define_method(cSessionID.klass, "getSessionQualifier", VALUEFUNC(_wrap_SessionID_getSessionQualifier), -1);
+  rb_define_method(cSessionID.klass, "isFIXT", VALUEFUNC(_wrap_SessionID_isFIXT), -1);
+  rb_define_method(cSessionID.klass, "toStringFrozen", VALUEFUNC(_wrap_SessionID_toStringFrozen), -1);
   rb_define_method(cSessionID.klass, "fromString", VALUEFUNC(_wrap_SessionID_fromString), -1);
   rb_define_method(cSessionID.klass, "toString", VALUEFUNC(_wrap_SessionID_toString), -1);
   rb_define_method(cSessionID.klass, "~", VALUEFUNC(_wrap_SessionID___invert__), -1);
@@ -57848,11 +38444,14 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "SENDERCOMPID", VALUEFUNC(SENDERCOMPID_get), 0);
   rb_define_singleton_method(mQuickfix, "TARGETCOMPID", VALUEFUNC(TARGETCOMPID_get), 0);
   rb_define_singleton_method(mQuickfix, "SESSION_QUALIFIER", VALUEFUNC(SESSION_QUALIFIER_get), 0);
+  rb_define_singleton_method(mQuickfix, "DEFAULT_APPLVERID", VALUEFUNC(DEFAULT_APPLVERID_get), 0);
   rb_define_singleton_method(mQuickfix, "CONNECTION_TYPE", VALUEFUNC(CONNECTION_TYPE_get), 0);
   rb_define_singleton_method(mQuickfix, "USE_DATA_DICTIONARY", VALUEFUNC(USE_DATA_DICTIONARY_get), 0);
   rb_define_singleton_method(mQuickfix, "SEND_RESETSEQNUMFLAG", VALUEFUNC(SEND_RESETSEQNUMFLAG_get), 0);
   rb_define_singleton_method(mQuickfix, "SEND_REDUNDANT_RESENDREQUESTS", VALUEFUNC(SEND_REDUNDANT_RESENDREQUESTS_get), 0);
   rb_define_singleton_method(mQuickfix, "DATA_DICTIONARY", VALUEFUNC(DATA_DICTIONARY_get), 0);
+  rb_define_singleton_method(mQuickfix, "TRANSPORT_DATA_DICTIONARY", VALUEFUNC(TRANSPORT_DATA_DICTIONARY_get), 0);
+  rb_define_singleton_method(mQuickfix, "APP_DATA_DICTIONARY", VALUEFUNC(APP_DATA_DICTIONARY_get), 0);
   rb_define_singleton_method(mQuickfix, "USE_LOCAL_TIME", VALUEFUNC(USE_LOCAL_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "START_TIME", VALUEFUNC(START_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "END_TIME", VALUEFUNC(END_TIME_get), 0);
@@ -57871,6 +38470,8 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "SOCKET_CONNECT_HOST", VALUEFUNC(SOCKET_CONNECT_HOST_get), 0);
   rb_define_singleton_method(mQuickfix, "SOCKET_CONNECT_PORT", VALUEFUNC(SOCKET_CONNECT_PORT_get), 0);
   rb_define_singleton_method(mQuickfix, "SOCKET_NODELAY", VALUEFUNC(SOCKET_NODELAY_get), 0);
+  rb_define_singleton_method(mQuickfix, "SOCKET_SEND_BUFFER_SIZE", VALUEFUNC(SOCKET_SEND_BUFFER_SIZE_get), 0);
+  rb_define_singleton_method(mQuickfix, "SOCKET_RECEIVE_BUFFER_SIZE", VALUEFUNC(SOCKET_RECEIVE_BUFFER_SIZE_get), 0);
   rb_define_singleton_method(mQuickfix, "RECONNECT_INTERVAL", VALUEFUNC(RECONNECT_INTERVAL_get), 0);
   rb_define_singleton_method(mQuickfix, "VALIDATE_FIELDS_OUT_OF_ORDER", VALUEFUNC(VALIDATE_FIELDS_OUT_OF_ORDER_get), 0);
   rb_define_singleton_method(mQuickfix, "VALIDATE_FIELDS_HAVE_VALUES", VALUEFUNC(VALIDATE_FIELDS_HAVE_VALUES_get), 0);
@@ -57894,6 +38495,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "ODBC_STORE_PASSWORD", VALUEFUNC(ODBC_STORE_PASSWORD_get), 0);
   rb_define_singleton_method(mQuickfix, "ODBC_STORE_CONNECTION_STRING", VALUEFUNC(ODBC_STORE_CONNECTION_STRING_get), 0);
   rb_define_singleton_method(mQuickfix, "FILE_LOG_PATH", VALUEFUNC(FILE_LOG_PATH_get), 0);
+  rb_define_singleton_method(mQuickfix, "FILE_LOG_BACKUP_PATH", VALUEFUNC(FILE_LOG_BACKUP_PATH_get), 0);
   rb_define_singleton_method(mQuickfix, "SCREEN_LOG_SHOW_INCOMING", VALUEFUNC(SCREEN_LOG_SHOW_INCOMING_get), 0);
   rb_define_singleton_method(mQuickfix, "SCREEN_LOG_SHOW_OUTGOING", VALUEFUNC(SCREEN_LOG_SHOW_OUTGOING_get), 0);
   rb_define_singleton_method(mQuickfix, "SCREEN_LOG_SHOW_EVENTS", VALUEFUNC(SCREEN_LOG_SHOW_EVENTS_get), 0);
@@ -57960,8 +38562,8 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cSession.klass, "setNextSenderMsgSeqNum", VALUEFUNC(_wrap_Session_setNextSenderMsgSeqNum), -1);
   rb_define_method(cSession.klass, "setNextTargetMsgSeqNum", VALUEFUNC(_wrap_Session_setNextTargetMsgSeqNum), -1);
   rb_define_method(cSession.klass, "getSessionID", VALUEFUNC(_wrap_Session_getSessionID), -1);
-  rb_define_method(cSession.klass, "setDataDictionary", VALUEFUNC(_wrap_Session_setDataDictionary), -1);
-  rb_define_method(cSession.klass, "getDataDictionary", VALUEFUNC(_wrap_Session_getDataDictionary), -1);
+  rb_define_method(cSession.klass, "setDataDictionaryProvider", VALUEFUNC(_wrap_Session_setDataDictionaryProvider), -1);
+  rb_define_method(cSession.klass, "getDataDictionaryProvider", VALUEFUNC(_wrap_Session_getDataDictionaryProvider), -1);
   rb_define_singleton_method(cSession.klass, "sendToTarget", VALUEFUNC(_wrap_Session_sendToTarget), -1);
   rb_define_singleton_method(cSession.klass, "getSessions", VALUEFUNC(_wrap_Session_getSessions), -1);
   rb_define_singleton_method(cSession.klass, "doesSessionExist", VALUEFUNC(_wrap_Session_doesSessionExist), -1);
@@ -57976,6 +38578,10 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cSession.klass, "isAcceptor", VALUEFUNC(_wrap_Session_isAcceptor), -1);
   rb_define_method(cSession.klass, "getLogonTime", VALUEFUNC(_wrap_Session_getLogonTime), -1);
   rb_define_method(cSession.klass, "setLogonTime", VALUEFUNC(_wrap_Session_setLogonTime), -1);
+  rb_define_method(cSession.klass, "getSenderDefaultApplVerID", VALUEFUNC(_wrap_Session_getSenderDefaultApplVerID), -1);
+  rb_define_method(cSession.klass, "setSenderDefaultApplVerID", VALUEFUNC(_wrap_Session_setSenderDefaultApplVerID), -1);
+  rb_define_method(cSession.klass, "getTargetDefaultApplVerID", VALUEFUNC(_wrap_Session_getTargetDefaultApplVerID), -1);
+  rb_define_method(cSession.klass, "setTargetDefaultApplVerID", VALUEFUNC(_wrap_Session_setTargetDefaultApplVerID), -1);
   rb_define_method(cSession.klass, "getSendRedundantResendRequests", VALUEFUNC(_wrap_Session_getSendRedundantResendRequests), -1);
   rb_define_method(cSession.klass, "setSendRedundantResendRequests", VALUEFUNC(_wrap_Session_setSendRedundantResendRequests), -1);
   rb_define_method(cSession.klass, "getCheckCompId", VALUEFUNC(_wrap_Session_getCheckCompId), -1);
@@ -58035,6 +38641,7 @@ SWIGEXPORT void Init_quickfix(void) {
   SWIG_TypeClientData(SWIGTYPE_p_FIX__Log, (void *) &cLog);
   rb_undef_alloc_func(cLog.klass);
   rb_define_method(cLog.klass, "clear", VALUEFUNC(_wrap_Log_clear), -1);
+  rb_define_method(cLog.klass, "backup", VALUEFUNC(_wrap_Log_backup), -1);
   rb_define_method(cLog.klass, "onIncoming", VALUEFUNC(_wrap_Log_onIncoming), -1);
   rb_define_method(cLog.klass, "onOutgoing", VALUEFUNC(_wrap_Log_onOutgoing), -1);
   rb_define_method(cLog.klass, "onEvent", VALUEFUNC(_wrap_Log_onEvent), -1);
@@ -58047,9 +38654,12 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_alloc_func(cScreenLog.klass, _wrap_ScreenLog_allocate);
   rb_define_method(cScreenLog.klass, "initialize", VALUEFUNC(_wrap_new_ScreenLog), -1);
   rb_define_method(cScreenLog.klass, "clear", VALUEFUNC(_wrap_ScreenLog_clear), -1);
+  rb_define_method(cScreenLog.klass, "backup", VALUEFUNC(_wrap_ScreenLog_backup), -1);
   rb_define_method(cScreenLog.klass, "onIncoming", VALUEFUNC(_wrap_ScreenLog_onIncoming), -1);
   rb_define_method(cScreenLog.klass, "onOutgoing", VALUEFUNC(_wrap_ScreenLog_onOutgoing), -1);
   rb_define_method(cScreenLog.klass, "onEvent", VALUEFUNC(_wrap_ScreenLog_onEvent), -1);
+  rb_define_method(cScreenLog.klass, "getMillisecondsInTimeStamp", VALUEFUNC(_wrap_ScreenLog_getMillisecondsInTimeStamp), -1);
+  rb_define_method(cScreenLog.klass, "setMillisecondsInTimeStamp", VALUEFUNC(_wrap_ScreenLog_setMillisecondsInTimeStamp), -1);
   cScreenLog.mark = 0;
   cScreenLog.destroy = (void (*)(void *)) free_FIX_ScreenLog;
   cScreenLog.trackObjects = 0;
@@ -58069,9 +38679,12 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_alloc_func(cFileLog.klass, _wrap_FileLog_allocate);
   rb_define_method(cFileLog.klass, "initialize", VALUEFUNC(_wrap_new_FileLog), -1);
   rb_define_method(cFileLog.klass, "clear", VALUEFUNC(_wrap_FileLog_clear), -1);
+  rb_define_method(cFileLog.klass, "backup", VALUEFUNC(_wrap_FileLog_backup), -1);
   rb_define_method(cFileLog.klass, "onIncoming", VALUEFUNC(_wrap_FileLog_onIncoming), -1);
   rb_define_method(cFileLog.klass, "onOutgoing", VALUEFUNC(_wrap_FileLog_onOutgoing), -1);
   rb_define_method(cFileLog.klass, "onEvent", VALUEFUNC(_wrap_FileLog_onEvent), -1);
+  rb_define_method(cFileLog.klass, "getMillisecondsInTimeStamp", VALUEFUNC(_wrap_FileLog_getMillisecondsInTimeStamp), -1);
+  rb_define_method(cFileLog.klass, "setMillisecondsInTimeStamp", VALUEFUNC(_wrap_FileLog_setMillisecondsInTimeStamp), -1);
   cFileLog.mark = 0;
   cFileLog.destroy = (void (*)(void *)) free_FIX_FileLog;
   cFileLog.trackObjects = 0;
@@ -58327,7 +38940,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cDataDictionary.klass, "isGroup", VALUEFUNC(_wrap_DataDictionary_isGroup), -1);
   rb_define_method(cDataDictionary.klass, "_getGroup", VALUEFUNC(_wrap_DataDictionary__getGroup), -1);
   rb_define_method(cDataDictionary.klass, "isDataField", VALUEFUNC(_wrap_DataDictionary_isDataField), -1);
-  rb_define_method(cDataDictionary.klass, "isMultipleValueStringField", VALUEFUNC(_wrap_DataDictionary_isMultipleValueStringField), -1);
+  rb_define_method(cDataDictionary.klass, "isMultipleValueField", VALUEFUNC(_wrap_DataDictionary_isMultipleValueField), -1);
   rb_define_method(cDataDictionary.klass, "checkFieldsOutOfOrder", VALUEFUNC(_wrap_DataDictionary_checkFieldsOutOfOrder), -1);
   rb_define_method(cDataDictionary.klass, "checkFieldsHaveValues", VALUEFUNC(_wrap_DataDictionary_checkFieldsHaveValues), -1);
   rb_define_method(cDataDictionary.klass, "checkUserDefinedFields", VALUEFUNC(_wrap_DataDictionary_checkUserDefinedFields), -1);
