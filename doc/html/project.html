@@ -58,18 +58,6 @@
         <LI><B>Linker | General | Additional Library Directories</B>, must have the directory where <I>quickfix.lib</I> resides.
       </UL>
     </p>
-    <p>
-      If you are using Visual Studio 6, you can find the equivalent settings under <B>project | settings</B>
-      in the following locations:
-      <UL>
-        <LI><B>C/C++ | General | Optimizations</B>
-	    <LI><B>C/C++ | C++ Language | Enable exception handling</B>
-	    <LI><B>C/C++ | Code Generation | Use run-time library</B>
-	    <LI><B>C/C++ | Preprocessor | Additional include directories</B>
-	    <LI><B>Link | Input | Object/library modules</B>
-	    <LI><B>Link | Input | Additional library path</B>
-      </UL>
-    </p>
 
     <A NAME="Windows (.NET)"/>
     <H3>Windows (.NET)</H3>
@@ -130,17 +118,12 @@
   <A NAME="Java"/>
   <H3>Java</H3>
     <p>
-      This is what you must do to access QuickFIX from Java.
+      The QuickFIX/J jar file has been provided for your convenience. It is recommended you
+      download the full QuickFIX/J projects from <a href="http://www.quickfixj.org">www.quickfixj.org</a>.
     </p>
     <p>
       <UL>
-	    <LI>Create a static initializer on your class containing your main method. Add the line
-	    <B>System.loadLibrary("quickfix_jni");</B>
-	    in order to load the appropriate QuickFIX DLL or shared object.
-	    <LI>When compiling, make sure <B>quickfix.jar</B> is in your classpath.
-	    <LI>When running your application, add <I>-Djava.library.path=&lt;directory>;</I>
-	        so the QuickFIX JNI DLL or shared object can be found. Alternatively, make sure
-	        that QuickFIX JNI library is in your working directory.
+	    <LI>When compiling, make sure <B>quickfixj.jar</B> is in your classpath.
 	  </UL>
 	</p>
 </html>

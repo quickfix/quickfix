@@ -17,9 +17,9 @@
     <A NAME="Windows (C++)"/>
     <H3>Windows (C++)</H3>
     <p>
-      Solution and project files are provided for building under Visual Studio.  QuickFIX supports
-      Visual Studion 6, Visual Studio 7 (2003), and Visual Studio 8 (2005).  The solution files
-      provided for these versions are <B>quickfix_vs6.dsw</B>, <B>quickfix_vs7.sln</B>, and <B>quickfix_vs8.sln</B>
+      Solution and project files are provided for building under Visual Studio.  QuickFIX supports Visual Studio 7 (2003), 
+      Visual Studio 8 (2005), Visual Studio 9 (2008) and Visual Studio 10 (2010). The solution files
+      provided for these versions are <B>quickfix_vs7.dsw</B>, <B>quickfix_vs8.sln</B>, <B>quickfix_vs9.sln</B>, and <B>quickfix_vs10.sln</B>
       respectively.
     </p>
     <p>
@@ -59,25 +59,16 @@
 	  to access QuickFIX.
 	</p>
 	<p>
-	  The instruction for building under .NET are the same as the instructions for windows listed above,
-	  however you must use the <B>quickfix_vs7.sln</B> or <B>quickfix_vs8.sln</B> files. In addition to
-	  the quickfix lib files, DLLs named <B>quickfix_net.dll</B> and <B>quickfix_net_messages.dll</B>
+	  The instruction for building under .NET are the same as the instructions for windows listed above. 
+          In addition to the quickfix lib files, DLLs named <B>quickfix_net.dll</B> and <B>quickfix_net_messages.dll</B>
 	  will be placed into your <I>lib</I> and <I>lib\debug</I> directories.
 	</p>
 	<A NAME="Windows (Java)"/>
     <H3>Windows (Java)</H3>
 	<p>
-	  To build the JNI layer, you need to make sure HAVE_JAVA is defined in config_windows.h. Before
-	  building, make sure to add the JNI include directories to your include search path.
-      Based on your <B>JAVA_HOME</B> environment settings, add the jdk's <I>include</I> and <I>include\win32</I>
-      directories to your search path. These will probably be something like <I>C:\jdk1.4.2\include</I> and
-      <I>C:\jdk1.4.2\include\win32</I>.  Now do a batch build of all project configurations. DLLs named
-      <B>quickfix_jni.dll</B> and <B>quickfix_debug_jni.dll</B> will be placed into your
-	  <I>lib</I> and <I>lib\debug</I> directories.
-	</p>
-	  Once you have built the JNI dll, you must now build the QuickFIX java API. Simply run the <B>build_java.bat</B>
-	  file in the <I>quickfix</I> directory. A jar file name <B>quickfix.jar</B> will be placed into your
-	  <I>lib</I> directory.
+	  The QuickFIX JNI wrapper for Java has been deprecated.  It is now recommended that you use <a href="http://www.quickfixj.org">QuickFIX/J</a>,
+	  a native port of the QuickFIX engine. For those of you using the JNI interface, <B>quickfixj.jar</B> has
+	  been provided for your convenience.
 	</p>
     <A NAME="Linux / Solaris / FreeBSD / Mac OS X (C++/Java)"/>
     <H3>Linux / Solaris / FreeBSD / Mac OS X (C++/Java)</H3>
@@ -99,7 +90,7 @@
     <p>
       There are some options you can pass to <I>./configure</I> to enable compile time features.
       These are:<br><br>
-      <FONT color="#0000FF">--with-java</FONT> - Build the Java API.  JAVA_HOME will be used to find Java.<br>
+      <FONT color="#0000FF">--with-java</FONT> - Build the Java examples against QuickFIX/J.  JAVA_HOME will be used to find Java.<br>
       <FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT> - Build the Python API.  Use directory which contains python headers.<br>
       <FONT color="#0000FF">--with-ruby</FONT> - Build the Ruby API.  Ruby interpreter in your path will be used.<br>
       <FONT color="#0000FF">--with-mysql=&lt;base directory&gt;</FONT> - Compile in mysql support<br>
@@ -121,15 +112,12 @@
     </p>
     <p>
       After succesfully building QuickFIX, you should run <B>make install</B> as root.
-      This will place the library <B>libquickfix.so</B> and <B>libquickfix_jni.so</B> if java is
-      detected, and the quickfix header files into the appropriate directories.  If you do not
+      This will place the library <B>libquickfix.so</B> and the quickfix header files into the appropriate directories.  If you do not
       have root access, you can also run configure with the
       <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
       is some directory which your account has write
-      access. <B>note: </b> under Mac OS X, the files are
+      access. <B>note: </b> under Mac OS X, the library is named
       called <B>libquickfix.dylib</B>
-      and <B>libquickfix_jni.jnilib</B>, you may need to create a
-      symlink to <B>libquickfix_jni.so</B>.
     </p>
   </body>
 </html>

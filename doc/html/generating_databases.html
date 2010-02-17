@@ -23,12 +23,14 @@
     </p>
     <p>
       Everything needed to generate your MySQL database is in the <I>src/sql/mysql</I> directory. Here,
-      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
-      These scripts will work on a newly installed mysql database with default permisions. The
-      scripts will try to generate the database using the root MySQL account with no password. If
-      you need to use a different account or need a password, you will have to edit the script.
-      To select a different user, simply change 'root' to another user.  To add a password,
-      use pass the -p <password> option after the username.
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>. You must pass in a mysql
+      user with permissions to create a new database.
+    </p>
+    <p>
+      <code>./create.sh mysql</code>
+    </p>
+    <p>
+      <code>create.bat mysql</code>
     </p>
     <A NAME="MSSQL Database">
     <H3>MSSQL Database</H3>
@@ -39,12 +41,10 @@
     </p>
     <p>
       Everything needed to generate your MSSQL database is in the <I>src/sql/mssql</I> directory. Here,
-      there is the batch file <B>create.bat</B>.
-      This script will work on a newly installed mssql database with default permisions. The
-      scripts will try to generate the database using the sa account with no password. If
-      you need to use a different account or need a password, you will have to edit the script.
-      To select a different user, simply change 'sa' to another user.  To add a password,
-      use pass the -P <password> option after the username.
+      there is the batch file <B>create.bat</B>. Pass in a user with permissions to create a new database.
+    </p>
+    <p>
+      <code>create.bat sa</code>
     </p>
     <A NAME="PostgreSQL Database">
     <H3>PostgreSQL Database</H3>
@@ -55,12 +55,14 @@
     </p>
     <p>
       Everything needed to generate your PostgreSQL database is in the <I>src/sql/postgresql</I> directory. Here,
-      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
-      These scripts will work on a newly installed postgresql database with default permisions. The
-      scripts will try to generate the database using the postgres account with no password. If
-      you need to use a different account or need a password, you will have to edit the script.
-      To select a different user, simply change 'postgres' to another user.  To add a password,
-      use the -W option, otherwise you will be prompted for a password.
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>. You must pass in a postgresql
+      user with permissions to create a new database.
+    </p>
+    <p>
+      <code>./create.sh postgres</code>
+    </p>
+    <p>
+      <code>create.bat postgres</code>
     </p>
   </body>
 </html>
