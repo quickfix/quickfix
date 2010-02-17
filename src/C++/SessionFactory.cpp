@@ -251,7 +251,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
   {
     const std::string& key = data->first;
-    const std::string frontKey = key.substr(0, strlen(APP_DATA_DICTIONARY) + 1);
+    const std::string frontKey = key.substr(0, strlen(APP_DATA_DICTIONARY));
     if( frontKey == string_toUpper(APP_DATA_DICTIONARY) )
     {
       if( key == string_toUpper(APP_DATA_DICTIONARY) )
@@ -264,7 +264,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
         std::string::size_type offset = key.find('.');
         if( offset == std::string::npos )
           throw ConfigError(std::string("Malformed ") + APP_DATA_DICTIONARY + ": " + key);
-        std::string beginStringQualifier = key.substr(offset);
+        std::string beginStringQualifier = key.substr(offset+1);
         DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, key);
         provider.addApplicationDataDictionary(Message::toApplVerID(beginStringQualifier), dataDictionary);
       }
