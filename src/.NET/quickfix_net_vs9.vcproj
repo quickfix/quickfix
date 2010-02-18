@@ -69,6 +69,7 @@
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="true"
+				AssemblyDebug="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 			/>

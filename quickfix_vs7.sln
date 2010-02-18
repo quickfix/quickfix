@@ -59,6 +59,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest++.vsnet2003", "UnitTest++\UnitTest++.vsnet2003.vcproj", "{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_acceptance_net_vs7", "src\test_acceptance_net_vs7.csproj", "{49CDD4F8-96E0-4EBA-844F-E9AF580D7247}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_performance_net_vs7", "src\test_performance_net_vs7.csproj", "{F63B434A-8E9A-4673-A6C4-F96F3492BF80}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -120,6 +126,14 @@ Global
 		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Debug.Build.0 = Debug|Win32
 		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Release.ActiveCfg = Release|Win32
 		{7E5DD804-EC63-4FA5-BB6D-53DA86806EF5}.Release.Build.0 = Release|Win32
+		{49CDD4F8-96E0-4EBA-844F-E9AF580D7247}.Debug.ActiveCfg = Debug|.NET
+		{49CDD4F8-96E0-4EBA-844F-E9AF580D7247}.Debug.Build.0 = Debug|.NET
+		{49CDD4F8-96E0-4EBA-844F-E9AF580D7247}.Release.ActiveCfg = Release|.NET
+		{49CDD4F8-96E0-4EBA-844F-E9AF580D7247}.Release.Build.0 = Release|.NET
+		{F63B434A-8E9A-4673-A6C4-F96F3492BF80}.Debug.ActiveCfg = Debug|.NET
+		{F63B434A-8E9A-4673-A6C4-F96F3492BF80}.Debug.Build.0 = Debug|.NET
+		{F63B434A-8E9A-4673-A6C4-F96F3492BF80}.Release.ActiveCfg = Release|.NET
+		{F63B434A-8E9A-4673-A6C4-F96F3492BF80}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

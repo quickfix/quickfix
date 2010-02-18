@@ -20,7 +20,7 @@
 using System;
 using QuickFix;
 
-public class at_application : Application
+public class at_application : QuickFix.Application
 {
   private at_messagecracker cracker = new at_messagecracker();
 
