@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4B063D0D-B606-44EE-A626-B9AB4D32418C}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -14,6 +14,7 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -43,13 +47,13 @@
     <Compile Include="at_messagecracker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include=".NET\quickfix_net_messages_vs8.csproj">
+    <ProjectReference Include=".NET\quickfix_net_messages_vs9.csproj">
       <Project>{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}</Project>
-      <Name>quickfix_net_messages_vs8</Name>
+      <Name>quickfix_net_messages_vs9</Name>
     </ProjectReference>
-    <ProjectReference Include=".NET\quickfix_net_vs8.vcproj">
+    <ProjectReference Include=".NET\quickfix_net_vs9.vcproj">
       <Project>{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}</Project>
-      <Name>quickfix_net_vs8</Name>
+      <Name>quickfix_net_vs9</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
