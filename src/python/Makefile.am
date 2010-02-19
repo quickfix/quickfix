@@ -2,7 +2,7 @@ lib_LTLIBRARIES = libquickfix_python.la
 libquickfix_python_la_SOURCES = \
 	QuickfixPython.cpp
 
-pkgdata_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.py quickfix44.py
+pkgdata_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.py quickfix44.py quickfix50.py quickfixt11.py
 
 all-local:
 	mkdir -p $(top_builddir)/lib/python
@@ -49,7 +49,7 @@ uninstall-local:
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix50.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfixt11.py
 
-libquickfix_python_la_LDFLAGS = -version-info 7:0:0
+libquickfix_python_la_LDFLAGS = -version-info 8:0:0
 libquickfix_python_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
 INCLUDES =-I. -I.. -I../..
