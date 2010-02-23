@@ -128,7 +128,7 @@ private:
   SessionIDs m_disconnected;
   SessionState m_sessionState;
 
-  size_t m_threadid;
+  thread_id m_threadid;
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
   SessionSettings m_settings;

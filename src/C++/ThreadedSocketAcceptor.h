@@ -72,7 +72,7 @@ private:
   typedef std::set < SessionID > Sessions;
   typedef std::map < int, Sessions > PortToSessions;
   typedef std::map < int, int > SocketToPort;
-  typedef std::map < int, size_t > SocketToThread;
+  typedef std::map < int, thread_id > SocketToThread;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError );
@@ -81,7 +81,7 @@ private:
   bool onPoll( double timeout );
   void onStop();
 
-  void addThread( int s, size_t t );
+  void addThread( int s, thread_id t );
   void removeThread( int s );
   static THREAD_PROC socketAcceptorThread( void* p );
   static THREAD_PROC socketConnectionThread( void* p );

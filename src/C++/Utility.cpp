@@ -471,7 +471,7 @@ tm time_localtime( const time_t* t)
   QF_STACK_POP
 }
 
-bool thread_spawn( THREAD_START_ROUTINE func, void* var, size_t& thread )
+bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
 {
 #ifdef _MSC_VER
   unsigned int result = 0;
@@ -482,16 +482,17 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, size_t& thread )
   pthread_t result = 0;
   if( pthread_create( &result, 0, func, var ) != 0 ) return false;
 #endif
-  thread = (size_t)result;
+  thread = result;
   return true;
 }
 
 bool thread_spawn( THREAD_START_ROUTINE func, void* var )
-{ size_t thread = 0;
+{ 
+  thread_id thread = 0;
   return thread_spawn( func, var, thread );
 }
 
-void thread_join( size_t thread )
+void thread_join( thread_id thread )
 { QF_STACK_PUSH(thread_join)
 
 #ifdef _MSC_VER
@@ -504,25 +505,25 @@ void thread_join( size_t thread )
   QF_STACK_POP
 }
 
-void thread_detach( size_t thread )
+void thread_detach( thread_id thread )
 { QF_STACK_PUSH(thread_detach)
 
 #ifdef _MSC_VER
   CloseHandle((HANDLE)thread);
 #else
-  pthread_t t = (pthread_t)thread;
+  pthread_t t = thread;
   pthread_detach( t );
 #endif
 
   QF_STACK_POP
 }
 
-size_t thread_self()
+thread_id thread_self()
 {
 #ifdef _MSC_VER
-  return ( size_t ) GetCurrentThread();
+  return GetCurrentThread();
 #else
-  return ( size_t ) pthread_self();
+  return pthread_self();
 #endif
 }
 

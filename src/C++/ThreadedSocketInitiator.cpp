@@ -174,7 +174,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
 
     {
       Locker l( m_mutex );
-      size_t thread;
+      thread_id thread;
       if ( thread_spawn( &socketThread, pair, thread ) )
       {
         addThread( socket, thread );

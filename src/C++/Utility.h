@@ -143,11 +143,17 @@ extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *
 #endif
 
-bool thread_spawn( THREAD_START_ROUTINE func, void* var, size_t& thread );
+#ifdef _MSC_VER
+typedef unsigned thread_id;
+#else
+typedef pthread_t thread_id;
+#endif
+
+bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread );
 bool thread_spawn( THREAD_START_ROUTINE func, void* var );
-void thread_join( size_t thread );
-void thread_detach( size_t thread );
-size_t thread_self();
+void thread_join( thread_id thread );
+void thread_detach( thread_id thread );
+thread_id thread_self();
 
 void process_sleep( double s );
 
