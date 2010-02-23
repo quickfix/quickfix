@@ -1,3 +1,60 @@
+1.13.0
+------
+Support for FIX 5.0 and FIXT 1.1 session transport.
+
+Added solution files for Visual Studio 2008 and 2010.
+
+Compiles under newer versions of gcc.
+
+JNI API is no longer.  QuickFIX/J is recommended.  JAR file
+included with quickfix distribution for your convenience.
+
+Full support for 64 bit systems.
+
+Switched from proprietary unit testing framework to UnitTest++.
+
+Added settings for send and recieve buffer size on sockets.
+
+Header and Trailer generated instead of hardcoded.
+
+Groups can be queries against DataDictionary.
+
+ConfigError will be generated if session is defined twice. Several other
+improvements to recognizing bad configuration files.
+
+PersistMessages is true by default.
+
+identifyMessage exposed to .NET API.
+
+Fixed some potential deadlock scenarios with socket implementation.
+
+Added support for backing up logs.
+
+Added millisecond resolution to logs.
+
+Added NullMessageStore implementation.
+
+Sessions can be queried for data dictionary and configuration settings.
+
+Fixed problems with resent messages going out with repeating groups
+fields in the wrong order.
+
+Fixed some issues with database connection pools.
+
+Persistance is done before sending and will fail if message cannot be
+stored or sequence number cannot be incremented.
+
+Builds against STLPORT 5.
+
+Log messages can be redirected to different database tables.
+
+Added memory pressure to .NET messages to give a hint to the
+GC that memory should be reclaimed.
+
+When polling you can pass in a timeout value.
+ 
+Many other minor bug fixes.
+
 1.12.4
 ------
 ODBC escape values for times used in time values so they work with any database.
