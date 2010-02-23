@@ -53,6 +53,8 @@ using namespace FIX;
 %typedef DoubleField QtyField;
 %typedef StringField CurrencyField;
 %typedef StringField MultipleValueStringField;
+%typedef StringField MultipleStringValueField;
+%typedef StringField MultipleCharValueField;
 %typedef StringField ExchangeField;
 %typedef StringField LocalMktDateField;
 %typedef StringField DataField;
@@ -67,6 +69,8 @@ using namespace FIX;
 %typedef IntField SeqNumField;
 %typedef DoubleField PercentageField;
 %typedef StringField CountryField;
+%typedef StringField TzTimeOnlyField;
+%typedef StringField TzTimeStampField;
 
 %typedef std::string STRING;
 %typedef char CHAR;
@@ -76,6 +80,8 @@ using namespace FIX;
 %typedef double QTY;
 %typedef std::string CURRENCY;
 %typedef std::string MULTIPLEVALUESTRING;
+%typedef std::string MULTIPLESTRINGVALUE;
+%typedef std::string MULTIPLECHARVALUE;
 %typedef std::string EXCHANGE;
 %typedef UtcTimeStamp UTCTIMESTAMP;
 %typedef bool BOOLEAN;
@@ -93,6 +99,8 @@ using namespace FIX;
 %typedef int SEQNUM;
 %typedef int LENGTH;
 %typedef std::string COUNTRY;
+%typedef std::string TZTIMEONLY;
+%typedef std::string TZTIMESTAMP;
 
 %exceptionclass FIX::Exception;
 
