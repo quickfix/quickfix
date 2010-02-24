@@ -474,12 +474,12 @@ tm time_localtime( const time_t* t)
 bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
 {
 #ifdef _MSC_VER
-  unsigned int result = 0;
+  thread_id result = 0;
   unsigned int id = 0;
   result = _beginthreadex( NULL, 0, &func, var, 0, &id );
   if ( result == 0 ) return false;
 #else
-  pthread_t result = 0;
+  thread_id result = 0;
   if( pthread_create( &result, 0, func, var ) != 0 ) return false;
 #endif
   thread = result;
@@ -521,7 +521,7 @@ void thread_detach( thread_id thread )
 thread_id thread_self()
 {
 #ifdef _MSC_VER
-  return GetCurrentThread();
+  return (unsigned)GetCurrentThread();
 #else
   return pthread_self();
 #endif

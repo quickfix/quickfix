@@ -144,7 +144,7 @@ extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #endif
 
 #ifdef _MSC_VER
-typedef HANDLE thread_id;
+typedef unsigned thread_id;
 #else
 typedef pthread_t thread_id;
 #endif
