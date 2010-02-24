@@ -90,7 +90,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="echo test\ &gt; EXCLUDE&#x0D;&#x0A;echo stdafx.h &gt;&gt; EXCLUDE&#x0D;&#x0A;xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix&#x0D;&#x0A;del /F EXCLUDE&#x0D;&#x0A;"
+				CommandLine="echo test\ &gt; EXCLUDE&#x0D;&#x0A;echo stdafx.h &gt;&gt; EXCLUDE&#x0D;&#x0A;echo release\ &gt;&gt; EXCLUDE&#x0D;&#x0A;echo debug\ &gt;&gt; EXCLUDE&#x0D;&#x0A;xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix&#x0D;&#x0A;del /F EXCLUDE&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -168,7 +168,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="echo test\ &gt; EXCLUDE&#x0D;&#x0A;echo stdafx.h &gt;&gt; EXCLUDE&#x0D;&#x0A;xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix&#x0D;&#x0A;del /F EXCLUDE&#x0D;&#x0A;"
+				CommandLine="echo test\ &gt; EXCLUDE&#x0D;&#x0A;echo stdafx.h &gt;&gt; EXCLUDE&#x0D;&#x0A;echo release\ &gt;&gt; EXCLUDE&#x0D;&#x0A;echo debug\ &gt;&gt; EXCLUDE&#x0D;&#x0A;xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix&#x0D;&#x0A;del /F EXCLUDE&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>

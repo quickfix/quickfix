@@ -79,6 +79,8 @@
     <PostBuildEvent>
       <Command>echo test\ &gt; EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
+echo release\ &gt;&gt; EXCLUDE
+echo debug\ &gt;&gt; EXCLUDE
 xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 </Command>
@@ -116,6 +118,8 @@ del /F EXCLUDE
     <PostBuildEvent>
       <Command>echo test\ &gt; EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
+echo release\ &gt;&gt; EXCLUDE
+echo debug\ &gt;&gt; EXCLUDE
 xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 </Command>
