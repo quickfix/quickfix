@@ -1,7 +1,8 @@
 @setlocal
 
 REM set up classpath
-set CLASSPATH=../../../lib/ant.jar;../../../lib/optional.jar;../../../lib/junit.jar;../../../lib/crimson.jar;%JAVA_HOME%/lib/tools.jar
+set JAR=../../../lib/jar
+set CLASSPATH=%JAR%/ant.jar;%JAR%/optional.jar;%JAR%/lib/junit.jar;%JAR%/lib/crimson.jar;%JAVA_HOME%/lib/tools.jar
 
 REM call ant
 java org.apache.tools.ant.Main %*

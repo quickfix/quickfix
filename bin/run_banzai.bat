@@ -1,3 +1,4 @@
-set CLASSPATH=../lib/banzai.jar;../lib/quickfixj-all-1.4.0.jar;../lib/slf4j-api-1.5.3.jar;../lib/slf4j-jdk14-1.5.3.jar;../lib/mina-core-1.0.3.jar;../lib/backport-util-concurrent-3.0.jar;../lib/log4j.jar
+set JAR=../lib/jar
+set CLASSPATH=%JAR%/banzai.jar;%JAR%/quickfixj-all-1.4.0.jar;%JAR%/slf4j-api-1.5.3.jar;%JAR%/slf4j-jdk14-1.5.3.jar;%JAR%/mina-core-1.0.3.jar;%JAR%/backport-util-concurrent-3.0.jar;%JAR%/log4j.jar
 
-java -Djava.library.path=../lib; Banzai
+java Banzai

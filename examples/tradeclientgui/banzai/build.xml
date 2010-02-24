@@ -1,9 +1,9 @@
 <project name="banzai" default="all">
     <property name="src" value="src"/>
     <property name="build" value="build"/>
-    <property name="dist" value="../../../lib"/>
+    <property name="dist" value="../../../lib/jar"/>
     <property name="test" value="test"/>
-    <property name="lib" value="../../../lib"/>
+    <property name="lib" value="../../../lib/jar"/>
 
     <target name="all" depends="init, compile, jar"/>
 
