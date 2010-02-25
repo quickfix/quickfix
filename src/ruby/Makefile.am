@@ -11,6 +11,7 @@ all-local:
 	ln -sf ../../src/ruby/quickfix43.rb $(top_builddir)/lib/ruby/quickfix43.rb
 	ln -sf ../../src/ruby/quickfix44.rb $(top_builddir)/lib/ruby/quickfix44.rb
 	ln -sf ../../src/ruby/quickfix50.rb $(top_builddir)/lib/ruby/quickfix50.rb
+	ln -sf ../../src/ruby/quickfixt11.rb $(top_builddir)/lib/ruby/quickfix50.rb
 	ln -sf ../../src/ruby/quickfix.so $(top_builddir)/lib/ruby/quickfix.so
 	ln -sf ../../src/ruby/quickfix.bundle $(top_builddir)/lib/ruby/quickfix.bundle
 

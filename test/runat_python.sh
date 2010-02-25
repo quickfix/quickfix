@@ -4,7 +4,7 @@ export PYTHONPATH=../lib/python
 
 DIR=`pwd`
 PORT=$1
-./setup $PORT
+./setup.sh $PORT
 
 python  ../src/at.py cfg/at.cfg &
 PROCID=$!

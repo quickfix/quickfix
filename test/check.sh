@@ -3,7 +3,7 @@ sleep 1
 
 QUICKFIX_TEST_PORT=5001
 
-./runut $QUICKFIX_TEST_PORT
+./runut.sh $QUICKFIX_TEST_PORT
 RESULT=$?
 if [ $RESULT != 0 ]
 then 
@@ -15,7 +15,7 @@ then
   exit $?
 fi
 
-./runat $QUICKFIX_TEST_PORT
+./runat.sh $QUICKFIX_TEST_PORT
 RESULT=$?
 if [ $RESULT != 0 ]
 then 

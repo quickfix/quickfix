@@ -6,7 +6,7 @@ export RUBYLIB=../lib/ruby
 
 DIR=`pwd`
 PORT=$1
-./setup $PORT
+./setup.sh $PORT
 
 ruby -I ../lib/ruby ../src/at.rb cfg/at.cfg &
 PROCID=$!

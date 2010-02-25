@@ -2,7 +2,7 @@
 
 DIR=`pwd`
 PORT=$1
-./setup $PORT
+./setup.sh $PORT
 
 ./at -f cfg/at.cfg &
 PROCID=$!
