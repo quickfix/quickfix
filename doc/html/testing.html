@@ -73,16 +73,16 @@
 	<tbody><tr><td align=left>
       <H4>Unit Tests</H4>
 	  <p>
-		Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
-		directory. To run unit tests, type <B>./runut [port]</B> where the port is used to test
-		the socket functionality.  If you built QuickFIX with one of its supporting databases, you will
+	    Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+	    directory. To run unit tests, type <B>./runut.sh [port]</B> where the port is used to test
+	    the socket functionality.  If you built QuickFIX with one of its supporting databases, you will
 	    need to update <I>cfg/ut.cfg</I> to reflect your database settings.
 	  </p>
 	  <H4>Acceptance Tests</H4>
 	  <p>
-		Go to the <I>test</I> directory under the root quickfix directory.  Type <B>./runat
+		Go to the <I>test</I> directory under the root quickfix directory.  Type <B>./runat.sh
 		[port]</B>. The port is used to listen for connections on a socket server.
-        This should be a port that is not already in use on your system. <B>runat_threaded</B> is
+        This should be a port that is not already in use on your system. <B>runat_threaded.sh</B> is
         also provided if you want to test using threaded socket code. The parameters are the same.
 	  </p>
     </td></tr></tbody></table>
