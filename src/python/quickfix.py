@@ -19066,6 +19066,1060 @@ class ExchangeSpecialInstructions(StringField):
 ExchangeSpecialInstructions_swigregister = _quickfix.ExchangeSpecialInstructions_swigregister
 ExchangeSpecialInstructions_swigregister(ExchangeSpecialInstructions)
 
+class BeginSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BeginSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BeginSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BeginSeqNo
+    __del__ = lambda self : None;
+BeginSeqNo_swigregister = _quickfix.BeginSeqNo_swigregister
+BeginSeqNo_swigregister(BeginSeqNo)
+
+class BeginString(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginString, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BeginString, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BeginString(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BeginString
+    __del__ = lambda self : None;
+BeginString_swigregister = _quickfix.BeginString_swigregister
+BeginString_swigregister(BeginString)
+
+class BodyLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BodyLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BodyLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BodyLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BodyLength
+    __del__ = lambda self : None;
+BodyLength_swigregister = _quickfix.BodyLength_swigregister
+BodyLength_swigregister(BodyLength)
+
+class CheckSum(CheckSumField):
+    __swig_setmethods__ = {}
+    for _s in [CheckSumField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CheckSum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CheckSumField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, CheckSum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_CheckSum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_CheckSum
+    __del__ = lambda self : None;
+CheckSum_swigregister = _quickfix.CheckSum_swigregister
+CheckSum_swigregister(CheckSum)
+
+class EndSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EndSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EndSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EndSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EndSeqNo
+    __del__ = lambda self : None;
+EndSeqNo_swigregister = _quickfix.EndSeqNo_swigregister
+EndSeqNo_swigregister(EndSeqNo)
+
+class MsgSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgSeqNum
+    __del__ = lambda self : None;
+MsgSeqNum_swigregister = _quickfix.MsgSeqNum_swigregister
+MsgSeqNum_swigregister(MsgSeqNum)
+
+class MsgType(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgType, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgType, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgType(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgType
+    __del__ = lambda self : None;
+MsgType_swigregister = _quickfix.MsgType_swigregister
+MsgType_swigregister(MsgType)
+
+class NewSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NewSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NewSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NewSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NewSeqNo
+    __del__ = lambda self : None;
+NewSeqNo_swigregister = _quickfix.NewSeqNo_swigregister
+NewSeqNo_swigregister(NewSeqNo)
+
+class PossDupFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PossDupFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PossDupFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_PossDupFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_PossDupFlag
+    __del__ = lambda self : None;
+PossDupFlag_swigregister = _quickfix.PossDupFlag_swigregister
+PossDupFlag_swigregister(PossDupFlag)
+
+class RefSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefSeqNum
+    __del__ = lambda self : None;
+RefSeqNum_swigregister = _quickfix.RefSeqNum_swigregister
+RefSeqNum_swigregister(RefSeqNum)
+
+class SenderCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderCompID
+    __del__ = lambda self : None;
+SenderCompID_swigregister = _quickfix.SenderCompID_swigregister
+SenderCompID_swigregister(SenderCompID)
+
+class SenderSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderSubID
+    __del__ = lambda self : None;
+SenderSubID_swigregister = _quickfix.SenderSubID_swigregister
+SenderSubID_swigregister(SenderSubID)
+
+class SendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SendingTime
+    __del__ = lambda self : None;
+SendingTime_swigregister = _quickfix.SendingTime_swigregister
+SendingTime_swigregister(SendingTime)
+
+class TargetCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetCompID
+    __del__ = lambda self : None;
+TargetCompID_swigregister = _quickfix.TargetCompID_swigregister
+TargetCompID_swigregister(TargetCompID)
+
+class TargetSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetSubID
+    __del__ = lambda self : None;
+TargetSubID_swigregister = _quickfix.TargetSubID_swigregister
+TargetSubID_swigregister(TargetSubID)
+
+class Text(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Text, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Text, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Text(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Text
+    __del__ = lambda self : None;
+Text_swigregister = _quickfix.Text_swigregister
+Text_swigregister(Text)
+
+class Signature(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Signature, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Signature, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Signature(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Signature
+    __del__ = lambda self : None;
+Signature_swigregister = _quickfix.Signature_swigregister
+Signature_swigregister(Signature)
+
+class SecureDataLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureDataLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SecureDataLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SecureDataLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SecureDataLen
+    __del__ = lambda self : None;
+SecureDataLen_swigregister = _quickfix.SecureDataLen_swigregister
+SecureDataLen_swigregister(SecureDataLen)
+
+class SecureData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SecureData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SecureData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SecureData
+    __del__ = lambda self : None;
+SecureData_swigregister = _quickfix.SecureData_swigregister
+SecureData_swigregister(SecureData)
+
+class SignatureLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SignatureLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SignatureLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SignatureLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SignatureLength
+    __del__ = lambda self : None;
+SignatureLength_swigregister = _quickfix.SignatureLength_swigregister
+SignatureLength_swigregister(SignatureLength)
+
+class RawDataLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RawDataLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RawDataLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RawDataLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RawDataLength
+    __del__ = lambda self : None;
+RawDataLength_swigregister = _quickfix.RawDataLength_swigregister
+RawDataLength_swigregister(RawDataLength)
+
+class RawData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RawData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RawData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RawData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RawData
+    __del__ = lambda self : None;
+RawData_swigregister = _quickfix.RawData_swigregister
+RawData_swigregister(RawData)
+
+class PossResend(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PossResend, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PossResend, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_PossResend(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_PossResend
+    __del__ = lambda self : None;
+PossResend_swigregister = _quickfix.PossResend_swigregister
+PossResend_swigregister(PossResend)
+
+class EncryptMethod(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncryptMethod, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncryptMethod, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncryptMethod(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncryptMethod
+    __del__ = lambda self : None;
+EncryptMethod_swigregister = _quickfix.EncryptMethod_swigregister
+EncryptMethod_swigregister(EncryptMethod)
+
+class HeartBtInt(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HeartBtInt, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HeartBtInt, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HeartBtInt(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HeartBtInt
+    __del__ = lambda self : None;
+HeartBtInt_swigregister = _quickfix.HeartBtInt_swigregister
+HeartBtInt_swigregister(HeartBtInt)
+
+class TestReqID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TestReqID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TestReqID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TestReqID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TestReqID
+    __del__ = lambda self : None;
+TestReqID_swigregister = _quickfix.TestReqID_swigregister
+TestReqID_swigregister(TestReqID)
+
+class OnBehalfOfCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfCompID
+    __del__ = lambda self : None;
+OnBehalfOfCompID_swigregister = _quickfix.OnBehalfOfCompID_swigregister
+OnBehalfOfCompID_swigregister(OnBehalfOfCompID)
+
+class OnBehalfOfSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfSubID
+    __del__ = lambda self : None;
+OnBehalfOfSubID_swigregister = _quickfix.OnBehalfOfSubID_swigregister
+OnBehalfOfSubID_swigregister(OnBehalfOfSubID)
+
+class OrigSendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OrigSendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OrigSendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OrigSendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OrigSendingTime
+    __del__ = lambda self : None;
+OrigSendingTime_swigregister = _quickfix.OrigSendingTime_swigregister
+OrigSendingTime_swigregister(OrigSendingTime)
+
+class GapFillFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, GapFillFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, GapFillFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_GapFillFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_GapFillFlag
+    __del__ = lambda self : None;
+GapFillFlag_swigregister = _quickfix.GapFillFlag_swigregister
+GapFillFlag_swigregister(GapFillFlag)
+
+class DeliverToCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToCompID
+    __del__ = lambda self : None;
+DeliverToCompID_swigregister = _quickfix.DeliverToCompID_swigregister
+DeliverToCompID_swigregister(DeliverToCompID)
+
+class DeliverToSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToSubID
+    __del__ = lambda self : None;
+DeliverToSubID_swigregister = _quickfix.DeliverToSubID_swigregister
+DeliverToSubID_swigregister(DeliverToSubID)
+
+class ResetSeqNumFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ResetSeqNumFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, ResetSeqNumFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_ResetSeqNumFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_ResetSeqNumFlag
+    __del__ = lambda self : None;
+ResetSeqNumFlag_swigregister = _quickfix.ResetSeqNumFlag_swigregister
+ResetSeqNumFlag_swigregister(ResetSeqNumFlag)
+
+class SenderLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderLocationID
+    __del__ = lambda self : None;
+SenderLocationID_swigregister = _quickfix.SenderLocationID_swigregister
+SenderLocationID_swigregister(SenderLocationID)
+
+class TargetLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetLocationID
+    __del__ = lambda self : None;
+TargetLocationID_swigregister = _quickfix.TargetLocationID_swigregister
+TargetLocationID_swigregister(TargetLocationID)
+
+class OnBehalfOfLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfLocationID
+    __del__ = lambda self : None;
+OnBehalfOfLocationID_swigregister = _quickfix.OnBehalfOfLocationID_swigregister
+OnBehalfOfLocationID_swigregister(OnBehalfOfLocationID)
+
+class DeliverToLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToLocationID
+    __del__ = lambda self : None;
+DeliverToLocationID_swigregister = _quickfix.DeliverToLocationID_swigregister
+DeliverToLocationID_swigregister(DeliverToLocationID)
+
+class XmlDataLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlDataLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, XmlDataLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_XmlDataLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_XmlDataLen
+    __del__ = lambda self : None;
+XmlDataLen_swigregister = _quickfix.XmlDataLen_swigregister
+XmlDataLen_swigregister(XmlDataLen)
+
+class XmlData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_XmlData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_XmlData
+    __del__ = lambda self : None;
+XmlData_swigregister = _quickfix.XmlData_swigregister
+XmlData_swigregister(XmlData)
+
+class MessageEncoding(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MessageEncoding, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MessageEncoding, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MessageEncoding(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MessageEncoding
+    __del__ = lambda self : None;
+MessageEncoding_swigregister = _quickfix.MessageEncoding_swigregister
+MessageEncoding_swigregister(MessageEncoding)
+
+class EncodedTextLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedTextLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncodedTextLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncodedTextLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncodedTextLen
+    __del__ = lambda self : None;
+EncodedTextLen_swigregister = _quickfix.EncodedTextLen_swigregister
+EncodedTextLen_swigregister(EncodedTextLen)
+
+class EncodedText(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedText, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncodedText, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncodedText(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncodedText
+    __del__ = lambda self : None;
+EncodedText_swigregister = _quickfix.EncodedText_swigregister
+EncodedText_swigregister(EncodedText)
+
+class LastMsgSeqNumProcessed(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LastMsgSeqNumProcessed, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LastMsgSeqNumProcessed, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LastMsgSeqNumProcessed(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_LastMsgSeqNumProcessed
+    __del__ = lambda self : None;
+LastMsgSeqNumProcessed_swigregister = _quickfix.LastMsgSeqNumProcessed_swigregister
+LastMsgSeqNumProcessed_swigregister(LastMsgSeqNumProcessed)
+
+class RefTagID(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefTagID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefTagID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefTagID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefTagID
+    __del__ = lambda self : None;
+RefTagID_swigregister = _quickfix.RefTagID_swigregister
+RefTagID_swigregister(RefTagID)
+
+class RefMsgType(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefMsgType, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefMsgType, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefMsgType(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefMsgType
+    __del__ = lambda self : None;
+RefMsgType_swigregister = _quickfix.RefMsgType_swigregister
+RefMsgType_swigregister(RefMsgType)
+
+class SessionRejectReason(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SessionRejectReason, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SessionRejectReason, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SessionRejectReason(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SessionRejectReason
+    __del__ = lambda self : None;
+SessionRejectReason_swigregister = _quickfix.SessionRejectReason_swigregister
+SessionRejectReason_swigregister(SessionRejectReason)
+
+class MaxMessageSize(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MaxMessageSize, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MaxMessageSize, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MaxMessageSize(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MaxMessageSize
+    __del__ = lambda self : None;
+MaxMessageSize_swigregister = _quickfix.MaxMessageSize_swigregister
+MaxMessageSize_swigregister(MaxMessageSize)
+
+class NoMsgTypes(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoMsgTypes, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NoMsgTypes, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NoMsgTypes(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NoMsgTypes
+    __del__ = lambda self : None;
+NoMsgTypes_swigregister = _quickfix.NoMsgTypes_swigregister
+NoMsgTypes_swigregister(NoMsgTypes)
+
+class MsgDirection(CharField):
+    __swig_setmethods__ = {}
+    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgDirection, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgDirection, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgDirection(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgDirection
+    __del__ = lambda self : None;
+MsgDirection_swigregister = _quickfix.MsgDirection_swigregister
+MsgDirection_swigregister(MsgDirection)
+
+class TestMessageIndicator(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TestMessageIndicator, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TestMessageIndicator, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TestMessageIndicator(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TestMessageIndicator
+    __del__ = lambda self : None;
+TestMessageIndicator_swigregister = _quickfix.TestMessageIndicator_swigregister
+TestMessageIndicator_swigregister(TestMessageIndicator)
+
+class Username(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Username, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Username, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Username(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Username
+    __del__ = lambda self : None;
+Username_swigregister = _quickfix.Username_swigregister
+Username_swigregister(Username)
+
+class Password(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Password, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Password, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Password(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Password
+    __del__ = lambda self : None;
+Password_swigregister = _quickfix.Password_swigregister
+Password_swigregister(Password)
+
+class NoHops(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoHops, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NoHops, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NoHops(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NoHops
+    __del__ = lambda self : None;
+NoHops_swigregister = _quickfix.NoHops_swigregister
+NoHops_swigregister(NoHops)
+
+class HopCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopCompID
+    __del__ = lambda self : None;
+HopCompID_swigregister = _quickfix.HopCompID_swigregister
+HopCompID_swigregister(HopCompID)
+
+class HopSendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopSendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopSendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopSendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopSendingTime
+    __del__ = lambda self : None;
+HopSendingTime_swigregister = _quickfix.HopSendingTime_swigregister
+HopSendingTime_swigregister(HopSendingTime)
+
+class HopRefID(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopRefID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopRefID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopRefID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopRefID
+    __del__ = lambda self : None;
+HopRefID_swigregister = _quickfix.HopRefID_swigregister
+HopRefID_swigregister(HopRefID)
+
+class NextExpectedMsgSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NextExpectedMsgSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NextExpectedMsgSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NextExpectedMsgSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NextExpectedMsgSeqNum
+    __del__ = lambda self : None;
+NextExpectedMsgSeqNum_swigregister = _quickfix.NextExpectedMsgSeqNum_swigregister
+NextExpectedMsgSeqNum_swigregister(NextExpectedMsgSeqNum)
+
+class ApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, ApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_ApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_ApplVerID
+    __del__ = lambda self : None;
+ApplVerID_swigregister = _quickfix.ApplVerID_swigregister
+ApplVerID_swigregister(ApplVerID)
+
+class CstmApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CstmApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, CstmApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_CstmApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_CstmApplVerID
+    __del__ = lambda self : None;
+CstmApplVerID_swigregister = _quickfix.CstmApplVerID_swigregister
+CstmApplVerID_swigregister(CstmApplVerID)
+
+class RefApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefApplVerID
+    __del__ = lambda self : None;
+RefApplVerID_swigregister = _quickfix.RefApplVerID_swigregister
+RefApplVerID_swigregister(RefApplVerID)
+
+class RefCstmApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefCstmApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefCstmApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefCstmApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefCstmApplVerID
+    __del__ = lambda self : None;
+RefCstmApplVerID_swigregister = _quickfix.RefCstmApplVerID_swigregister
+RefCstmApplVerID_swigregister(RefCstmApplVerID)
+
+class DefaultApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DefaultApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DefaultApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DefaultApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DefaultApplVerID
+    __del__ = lambda self : None;
+DefaultApplVerID_swigregister = _quickfix.DefaultApplVerID_swigregister
+DefaultApplVerID_swigregister(DefaultApplVerID)
+
 class IDSource(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -21913,6 +22967,154 @@ ExDestinationIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = cvar.Ex
 ExDestinationIDSource_PROPRIETARY = cvar.ExDestinationIDSource_PROPRIETARY
 ExDestinationIDSource_ISO_COUNTRY_CODE = cvar.ExDestinationIDSource_ISO_COUNTRY_CODE
 ExDestinationIDSource_MIC = cvar.ExDestinationIDSource_MIC
+MsgType_Heartbeat = cvar.MsgType_Heartbeat
+MsgType_TestRequest = cvar.MsgType_TestRequest
+MsgType_ResendRequest = cvar.MsgType_ResendRequest
+MsgType_Reject = cvar.MsgType_Reject
+MsgType_SequenceReset = cvar.MsgType_SequenceReset
+MsgType_Logout = cvar.MsgType_Logout
+MsgType_Logon = cvar.MsgType_Logon
+MsgType_HEARTBEAT = cvar.MsgType_HEARTBEAT
+MsgType_TEST_REQUEST = cvar.MsgType_TEST_REQUEST
+MsgType_RESEND_REQUEST = cvar.MsgType_RESEND_REQUEST
+MsgType_REJECT = cvar.MsgType_REJECT
+MsgType_SEQUENCE_RESET = cvar.MsgType_SEQUENCE_RESET
+MsgType_LOGOUT = cvar.MsgType_LOGOUT
+MsgType_INDICATION_OF_INTEREST = cvar.MsgType_INDICATION_OF_INTEREST
+MsgType_ADVERTISEMENT = cvar.MsgType_ADVERTISEMENT
+MsgType_EXECUTION_REPORT = cvar.MsgType_EXECUTION_REPORT
+MsgType_ORDER_CANCEL_REJECT = cvar.MsgType_ORDER_CANCEL_REJECT
+MsgType_LOGON = cvar.MsgType_LOGON
+MsgType_NEWS = cvar.MsgType_NEWS
+MsgType_EMAIL = cvar.MsgType_EMAIL
+MsgType_ORDER_SINGLE = cvar.MsgType_ORDER_SINGLE
+MsgType_ORDER_LIST = cvar.MsgType_ORDER_LIST
+MsgType_ORDER_CANCEL_REQUEST = cvar.MsgType_ORDER_CANCEL_REQUEST
+MsgType_ORDER_CANCEL_REPLACE_REQUEST = cvar.MsgType_ORDER_CANCEL_REPLACE_REQUEST
+MsgType_ORDER_STATUS_REQUEST = cvar.MsgType_ORDER_STATUS_REQUEST
+MsgType_ALLOCATION_INSTRUCTION = cvar.MsgType_ALLOCATION_INSTRUCTION
+MsgType_LIST_CANCEL_REQUEST = cvar.MsgType_LIST_CANCEL_REQUEST
+MsgType_LIST_EXECUTE = cvar.MsgType_LIST_EXECUTE
+MsgType_LIST_STATUS_REQUEST = cvar.MsgType_LIST_STATUS_REQUEST
+MsgType_LIST_STATUS = cvar.MsgType_LIST_STATUS
+MsgType_ALLOCATION_INSTRUCTION_ACK = cvar.MsgType_ALLOCATION_INSTRUCTION_ACK
+MsgType_DONT_KNOW_TRADE = cvar.MsgType_DONT_KNOW_TRADE
+MsgType_QUOTE_REQUEST = cvar.MsgType_QUOTE_REQUEST
+MsgType_QUOTE = cvar.MsgType_QUOTE
+MsgType_SETTLEMENT_INSTRUCTIONS = cvar.MsgType_SETTLEMENT_INSTRUCTIONS
+MsgType_MARKET_DATA_REQUEST = cvar.MsgType_MARKET_DATA_REQUEST
+MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH = cvar.MsgType_MARKET_DATA_SNAPSHOT_FULL_REFRESH
+MsgType_MARKET_DATA_INCREMENTAL_REFRESH = cvar.MsgType_MARKET_DATA_INCREMENTAL_REFRESH
+MsgType_MARKET_DATA_REQUEST_REJECT = cvar.MsgType_MARKET_DATA_REQUEST_REJECT
+MsgType_QUOTE_CANCEL = cvar.MsgType_QUOTE_CANCEL
+MsgType_QUOTE_STATUS_REQUEST = cvar.MsgType_QUOTE_STATUS_REQUEST
+MsgType_MASS_QUOTE_ACKNOWLEDGEMENT = cvar.MsgType_MASS_QUOTE_ACKNOWLEDGEMENT
+MsgType_SECURITY_DEFINITION_REQUEST = cvar.MsgType_SECURITY_DEFINITION_REQUEST
+MsgType_SECURITY_DEFINITION = cvar.MsgType_SECURITY_DEFINITION
+MsgType_SECURITY_STATUS_REQUEST = cvar.MsgType_SECURITY_STATUS_REQUEST
+MsgType_SECURITY_STATUS = cvar.MsgType_SECURITY_STATUS
+MsgType_TRADING_SESSION_STATUS_REQUEST = cvar.MsgType_TRADING_SESSION_STATUS_REQUEST
+MsgType_TRADING_SESSION_STATUS = cvar.MsgType_TRADING_SESSION_STATUS
+MsgType_MASS_QUOTE = cvar.MsgType_MASS_QUOTE
+MsgType_BUSINESS_MESSAGE_REJECT = cvar.MsgType_BUSINESS_MESSAGE_REJECT
+MsgType_BID_REQUEST = cvar.MsgType_BID_REQUEST
+MsgType_BID_RESPONSE = cvar.MsgType_BID_RESPONSE
+MsgType_LIST_STRIKE_PRICE = cvar.MsgType_LIST_STRIKE_PRICE
+MsgType_XML_MESSAGE = cvar.MsgType_XML_MESSAGE
+MsgType_REGISTRATION_INSTRUCTIONS = cvar.MsgType_REGISTRATION_INSTRUCTIONS
+MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE = cvar.MsgType_REGISTRATION_INSTRUCTIONS_RESPONSE
+MsgType_ORDER_MASS_CANCEL_REQUEST = cvar.MsgType_ORDER_MASS_CANCEL_REQUEST
+MsgType_ORDER_MASS_CANCEL_REPORT = cvar.MsgType_ORDER_MASS_CANCEL_REPORT
+MsgType_NEW_ORDER_CROSS = cvar.MsgType_NEW_ORDER_CROSS
+MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST = cvar.MsgType_CROSS_ORDER_CANCEL_REPLACE_REQUEST
+MsgType_CROSS_ORDER_CANCEL_REQUEST = cvar.MsgType_CROSS_ORDER_CANCEL_REQUEST
+MsgType_SECURITY_TYPE_REQUEST = cvar.MsgType_SECURITY_TYPE_REQUEST
+MsgType_SECURITY_TYPES = cvar.MsgType_SECURITY_TYPES
+MsgType_SECURITY_LIST_REQUEST = cvar.MsgType_SECURITY_LIST_REQUEST
+MsgType_SECURITY_LIST = cvar.MsgType_SECURITY_LIST
+MsgType_DERIVATIVE_SECURITY_LIST_REQUEST = cvar.MsgType_DERIVATIVE_SECURITY_LIST_REQUEST
+MsgType_DERIVATIVE_SECURITY_LIST = cvar.MsgType_DERIVATIVE_SECURITY_LIST
+MsgType_NEW_ORDER_MULTILEG = cvar.MsgType_NEW_ORDER_MULTILEG
+MsgType_MULTILEG_ORDER_CANCEL_REPLACE = cvar.MsgType_MULTILEG_ORDER_CANCEL_REPLACE
+MsgType_TRADE_CAPTURE_REPORT_REQUEST = cvar.MsgType_TRADE_CAPTURE_REPORT_REQUEST
+MsgType_TRADE_CAPTURE_REPORT = cvar.MsgType_TRADE_CAPTURE_REPORT
+MsgType_ORDER_MASS_STATUS_REQUEST = cvar.MsgType_ORDER_MASS_STATUS_REQUEST
+MsgType_QUOTE_REQUEST_REJECT = cvar.MsgType_QUOTE_REQUEST_REJECT
+MsgType_RFQ_REQUEST = cvar.MsgType_RFQ_REQUEST
+MsgType_QUOTE_STATUS_REPORT = cvar.MsgType_QUOTE_STATUS_REPORT
+MsgType_QUOTE_RESPONSE = cvar.MsgType_QUOTE_RESPONSE
+MsgType_CONFIRMATION = cvar.MsgType_CONFIRMATION
+MsgType_POSITION_MAINTENANCE_REQUEST = cvar.MsgType_POSITION_MAINTENANCE_REQUEST
+MsgType_POSITION_MAINTENANCE_REPORT = cvar.MsgType_POSITION_MAINTENANCE_REPORT
+MsgType_REQUEST_FOR_POSITIONS = cvar.MsgType_REQUEST_FOR_POSITIONS
+MsgType_REQUEST_FOR_POSITIONS_ACK = cvar.MsgType_REQUEST_FOR_POSITIONS_ACK
+MsgType_POSITION_REPORT = cvar.MsgType_POSITION_REPORT
+MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK = cvar.MsgType_TRADE_CAPTURE_REPORT_REQUEST_ACK
+MsgType_TRADE_CAPTURE_REPORT_ACK = cvar.MsgType_TRADE_CAPTURE_REPORT_ACK
+MsgType_ALLOCATION_REPORT = cvar.MsgType_ALLOCATION_REPORT
+MsgType_ALLOCATION_REPORT_ACK = cvar.MsgType_ALLOCATION_REPORT_ACK
+MsgType_CONFIRMATION_ACK = cvar.MsgType_CONFIRMATION_ACK
+MsgType_SETTLEMENT_INSTRUCTION_REQUEST = cvar.MsgType_SETTLEMENT_INSTRUCTION_REQUEST
+MsgType_ASSIGNMENT_REPORT = cvar.MsgType_ASSIGNMENT_REPORT
+MsgType_COLLATERAL_REQUEST = cvar.MsgType_COLLATERAL_REQUEST
+MsgType_COLLATERAL_ASSIGNMENT = cvar.MsgType_COLLATERAL_ASSIGNMENT
+MsgType_COLLATERAL_RESPONSE = cvar.MsgType_COLLATERAL_RESPONSE
+MsgType_COLLATERAL_REPORT = cvar.MsgType_COLLATERAL_REPORT
+MsgType_COLLATERAL_INQUIRY = cvar.MsgType_COLLATERAL_INQUIRY
+MsgType_NETWORK_STATUS_REQUEST = cvar.MsgType_NETWORK_STATUS_REQUEST
+MsgType_NETWORK_STATUS_RESPONSE = cvar.MsgType_NETWORK_STATUS_RESPONSE
+MsgType_USER_REQUEST = cvar.MsgType_USER_REQUEST
+MsgType_USER_RESPONSE = cvar.MsgType_USER_RESPONSE
+MsgType_COLLATERAL_INQUIRY_ACK = cvar.MsgType_COLLATERAL_INQUIRY_ACK
+MsgType_CONFIRMATION_REQUEST = cvar.MsgType_CONFIRMATION_REQUEST
+MsgType_TRADING_SESSION_LIST_REQUEST = cvar.MsgType_TRADING_SESSION_LIST_REQUEST
+MsgType_TRADING_SESSION_LIST = cvar.MsgType_TRADING_SESSION_LIST
+MsgType_SECURITY_LIST_UPDATE_REPORT = cvar.MsgType_SECURITY_LIST_UPDATE_REPORT
+MsgType_ADJUSTED_POSITION_REPORT = cvar.MsgType_ADJUSTED_POSITION_REPORT
+MsgType_ALLOCATION_INSTRUCTION_ALERT = cvar.MsgType_ALLOCATION_INSTRUCTION_ALERT
+MsgType_EXECUTION_ACKNOWLEDGEMENT = cvar.MsgType_EXECUTION_ACKNOWLEDGEMENT
+MsgType_CONTRARY_INTENTION_REPORT = cvar.MsgType_CONTRARY_INTENTION_REPORT
+MsgType_SECURITY_DEFINITION_UPDATE_REPORT = cvar.MsgType_SECURITY_DEFINITION_UPDATE_REPORT
+EncryptMethod_NONE_OTHER = cvar.EncryptMethod_NONE_OTHER
+EncryptMethod_PKCS = cvar.EncryptMethod_PKCS
+EncryptMethod_DES = cvar.EncryptMethod_DES
+EncryptMethod_PKCS_DES = cvar.EncryptMethod_PKCS_DES
+EncryptMethod_PGP_DES = cvar.EncryptMethod_PGP_DES
+EncryptMethod_PGP_DES_MD5 = cvar.EncryptMethod_PGP_DES_MD5
+EncryptMethod_PEM_DES_MD5 = cvar.EncryptMethod_PEM_DES_MD5
+MessageEncoding_ISO_2022_JP = cvar.MessageEncoding_ISO_2022_JP
+MessageEncoding_EUC_JP = cvar.MessageEncoding_EUC_JP
+MessageEncoding_SHIFT_JIS = cvar.MessageEncoding_SHIFT_JIS
+MessageEncoding_UTF_8 = cvar.MessageEncoding_UTF_8
+SessionRejectReason_INVALID_TAG_NUMBER = cvar.SessionRejectReason_INVALID_TAG_NUMBER
+SessionRejectReason_REQUIRED_TAG_MISSING = cvar.SessionRejectReason_REQUIRED_TAG_MISSING
+SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM = cvar.SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM
+SessionRejectReason_INVALID_MSGTYPE = cvar.SessionRejectReason_INVALID_MSGTYPE
+SessionRejectReason_XML_VALIDATION_ERROR = cvar.SessionRejectReason_XML_VALIDATION_ERROR
+SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE = cvar.SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE
+SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER = cvar.SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER
+SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER = cvar.SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER
+SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP = cvar.SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP
+SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER = cvar.SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER
+SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE = cvar.SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE
+SessionRejectReason_UNDEFINED_TAG = cvar.SessionRejectReason_UNDEFINED_TAG
+SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE = cvar.SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE
+SessionRejectReason_VALUE_IS_INCORRECT = cvar.SessionRejectReason_VALUE_IS_INCORRECT
+SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE = cvar.SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE
+SessionRejectReason_DECRYPTION_PROBLEM = cvar.SessionRejectReason_DECRYPTION_PROBLEM
+SessionRejectReason_SIGNATURE_PROBLEM = cvar.SessionRejectReason_SIGNATURE_PROBLEM
+SessionRejectReason_COMPID_PROBLEM = cvar.SessionRejectReason_COMPID_PROBLEM
+SessionRejectReason_OTHER = cvar.SessionRejectReason_OTHER
+MsgDirection_RECEIVE = cvar.MsgDirection_RECEIVE
+MsgDirection_SEND = cvar.MsgDirection_SEND
+ApplVerID_FIX27 = cvar.ApplVerID_FIX27
+ApplVerID_FIX30 = cvar.ApplVerID_FIX30
+ApplVerID_FIX40 = cvar.ApplVerID_FIX40
+ApplVerID_FIX41 = cvar.ApplVerID_FIX41
+ApplVerID_FIX42 = cvar.ApplVerID_FIX42
+ApplVerID_FIX43 = cvar.ApplVerID_FIX43
+ApplVerID_FIX44 = cvar.ApplVerID_FIX44
+ApplVerID_FIX50 = cvar.ApplVerID_FIX50
 IDSource_CUSIP = cvar.IDSource_CUSIP
 IDSource_SEDOL = cvar.IDSource_SEDOL
 IDSource_QUIK = cvar.IDSource_QUIK
