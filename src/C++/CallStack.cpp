@@ -29,8 +29,8 @@
 
 namespace FIX
 {
-  std::map<unsigned, CallStack::Context> CallStack::s_stack;
-  std::map<unsigned, CallStack::Context> CallStack::s_error;
+  std::map<thread_id, CallStack::Context> CallStack::s_stack;
+  std::map<thread_id, CallStack::Context> CallStack::s_error;
   Mutex CallStack::s_mutex;
   int CallStack::Ignore::s_count = 0;
 
@@ -63,7 +63,7 @@ namespace FIX
   void CallStack::output()
   {
     Locker locker(s_mutex);
-    std::map<unsigned, CallStack::Context>::iterator i;
+    std::map<thread_id, CallStack::Context>::iterator i;
     for( i = s_error.begin(); i != s_error.end(); ++i )
     {
       Context& c = i->second;

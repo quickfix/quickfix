@@ -105,8 +105,8 @@ private:
   static Context& getContext();
   static Context& getErrorContext();
 
-  static std::map<unsigned, Context> s_stack;
-  static std::map<unsigned, Context> s_error;
+  static std::map<thread_id, Context> s_stack;
+  static std::map<thread_id, Context> s_error;
   static Mutex s_mutex;
 };
 

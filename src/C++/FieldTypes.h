@@ -623,35 +623,35 @@ public:
 
 typedef UtcDate UtcDateOnly;
 
-typedef std::string FIX_STRING;
-typedef char FIX_CHAR;
-typedef double FIX_PRICE;
-typedef int FIX_INT;
-typedef double FIX_AMT;
-typedef double FIX_QTY;
-typedef std::string FIX_CURRENCY;
-typedef std::string FIX_MULTIPLEVALUESTRING;
-typedef std::string FIX_MULTIPLESTRINGVALUE;
-typedef std::string FIX_MULTIPLECHARVALUE;
-typedef std::string FIX_EXCHANGE;
-typedef UtcTimeStamp FIX_UTCTIMESTAMP;
-typedef bool FIX_BOOLEAN;
-typedef std::string FIX_LOCALMKTDATE;
-typedef std::string FIX_DATA;
-typedef double FIX_FLOAT;
-typedef double FIX_PRICEOFFSET;
-typedef std::string FIX_MONTHYEAR;
-typedef std::string FIX_DAYOFMONTH;
-typedef UtcDate FIX_UTCDATE;
-typedef UtcDateOnly FIX_UTCDATEONLY;
-typedef UtcTimeOnly FIX_UTCTIMEONLY;
-typedef int FIX_NUMINGROUP;
-typedef double FIX_PERCENTAGE;
-typedef int FIX_SEQNUM;
-typedef int FIX_LENGTH;
-typedef std::string FIX_COUNTRY;
-typedef std::string FIX_TZTIMEONLY;
-typedef std::string FIX_TZTIMESTAMP;
+typedef std::string STRING;
+typedef char CHAR;
+typedef double PRICE;
+typedef int INT;
+typedef double AMT;
+typedef double QTY;
+typedef std::string CURRENCY;
+typedef std::string MULTIPLEVALUESTRING;
+typedef std::string MULTIPLESTRINGVALUE;
+typedef std::string MULTIPLECHARVALUE;
+typedef std::string EXCHANGE;
+typedef UtcTimeStamp UTCTIMESTAMP;
+typedef bool BOOLEAN;
+typedef std::string LOCALMKTDATE;
+typedef std::string DATA;
+typedef double FLOAT;
+typedef double PRICEOFFSET;
+typedef std::string MONTHYEAR;
+typedef std::string DAYOFMONTH;
+typedef UtcDate UTCDATE;
+typedef UtcDateOnly UTCDATEONLY;
+typedef UtcTimeOnly UTCTIMEONLY;
+typedef int NUMINGROUP;
+typedef double PERCENTAGE;
+typedef int SEQNUM;
+typedef int LENGTH;
+typedef std::string COUNTRY;
+typedef std::string TZTIMEONLY;
+typedef std::string TZTIMESTAMP;
 
 namespace TYPE
 {
