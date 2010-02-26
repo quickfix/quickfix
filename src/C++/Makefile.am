@@ -146,22 +146,26 @@ clean-local:
 	rm -f $(top_builddir)/include/quickfix/*.h
 
 install-exec-local: *.h
-	rm -rf $(pkgincludedir)
-	mkdir -p $(pkgincludedir)
-	mkdir $(pkgincludedir)/fix40
-	mkdir $(pkgincludedir)/fix41
-	mkdir $(pkgincludedir)/fix42
-	mkdir $(pkgincludedir)/fix43
-	mkdir $(pkgincludedir)/fix44
-	cp *.h $(pkgincludedir)
-	cp fix40/*.h $(pkgincludedir)/fix40
-	cp fix41/*.h $(pkgincludedir)/fix41
-	cp fix42/*.h $(pkgincludedir)/fix42
-	cp fix43/*.h $(pkgincludedir)/fix43
-	cp fix44/*.h $(pkgincludedir)/fix44
+	rm -rf $(DESTDIR)$(pkgincludedir)
+	mkdir -p $(DESTDIR)$(pkgincludedir)
+	mkdir $(DESTDIR)$(pkgincludedir)/fix40
+	mkdir $(DESTDIR)$(pkgincludedir)/fix41
+	mkdir $(DESTDIR)$(pkgincludedir)/fix42
+	mkdir $(DESTDIR)$(pkgincludedir)/fix43
+	mkdir $(DESTDIR)$(pkgincludedir)/fix44
+	mkdir $(DESTDIR)$(pkgincludedir)/fix50
+	mkdir $(DESTDIR)$(pkgincludedir)/fixt11
+	cp *.h $(DESTDIR)$(pkgincludedir)
+	cp fix40/*.h $(DESTDIR)$(pkgincludedir)/fix40
+	cp fix41/*.h $(DESTDIR)$(pkgincludedir)/fix41
+	cp fix42/*.h $(DESTDIR)$(pkgincludedir)/fix42
+	cp fix43/*.h $(DESTDIR)$(pkgincludedir)/fix43
+	cp fix44/*.h $(DESTDIR)$(pkgincludedir)/fix44
+	cp fix50/*.h $(DESTDIR)$(pkgincludedir)/fix50
+	cp fixt11/*.h $(DESTDIR)$(pkgincludedir)/fixt11
 
 uninstall-local:
-	rm -rf $(pkgincludedir)
+	rm -rf $(DESTDIR)$(pkgincludedir)
 
 EXTRA_DIST = strptime.c strptime.h
 
