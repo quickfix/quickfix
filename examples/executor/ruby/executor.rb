@@ -59,7 +59,6 @@ class Application < Quickfix::Application
 
 		executionReport.setField( Quickfix::OrderID.new(genOrderID()) )
 		executionReport.setField( Quickfix::ExecID.new(genExecID()) )
-		executionReport.setField( Quickfix::ExecTransType.new(Quickfix.ExecTransType_NEW) )
 		executionReport.setField( Quickfix::OrdStatus.new(Quickfix.OrdStatus_FILLED) )
 		executionReport.setField( symbol )
 		executionReport.setField( side )
@@ -69,6 +68,10 @@ class Application < Quickfix::Application
 		executionReport.setField( Quickfix::LastPx.new(price.getValue()) )
 		executionReport.setField( clOrdID )
 		executionReport.setField( orderQty )
+
+		if( beginString.getValue() == Quickfix.BeginString_FIX40 || beginString.getValue() == Quickfix.BeginString_FIX41 || beginString.getValue() == Quickfix.BeginString_FIX42 )
+			executionReport.setField( Quickfix::ExecTransType.new(Quickfix.ExecTransType_NEW) )
+		end
 
 		if( beginString.getValue() >= Quickfix.BeginString_FIX41 )
 			executionReport.setField( Quickfix::ExecType.new(Quickfix.ExecType_FILL) )

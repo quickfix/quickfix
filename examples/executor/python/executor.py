@@ -43,7 +43,6 @@ class Application(fix.Application):
 
 		executionReport.setField( fix.OrderID(self.genOrderID()) )
 		executionReport.setField( fix.ExecID(self.genExecID()) )
-		executionReport.setField( fix.ExecTransType(fix.ExecTransType_NEW) )
 		executionReport.setField( fix.OrdStatus(fix.OrdStatus_FILLED) )
 		executionReport.setField( symbol )
 		executionReport.setField( side )
@@ -53,6 +52,9 @@ class Application(fix.Application):
 		executionReport.setField( fix.LastPx(price.getValue()) )
 		executionReport.setField( clOrdID )
 		executionReport.setField( orderQty )
+
+		if beginString.getValue() == fix.BeginString_FIX40 or beginString.getValue() == fix.BeginString_FIX41 or beginString.getValue() == fix.BeginString_FIX42:
+			executionReport.setField( fix.ExecTransType(fix.ExecTransType_NEW) )
 
 		if beginString.getValue() >= fix.BeginString_FIX41:
 			executionReport.setField( fix.ExecType(fix.ExecType_FILL) )
