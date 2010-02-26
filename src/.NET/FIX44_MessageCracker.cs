@@ -217,284 +217,280 @@ namespace QuickFix44
     public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     
   {
-    QuickFix.MsgType msgType = new QuickFix.MsgType();
-    message.getHeader().getField(msgType);
-    String msgTypeValue = msgType.getValue();
-
-    if( msgTypeValue == "0" )
+    if( message is Heartbeat )
       onMessage( (Heartbeat)(message), sessionID );
     else
-    if( msgTypeValue == "A" )
+    if( message is Logon )
       onMessage( (Logon)(message), sessionID );
     else
-    if( msgTypeValue == "1" )
+    if( message is TestRequest )
       onMessage( (TestRequest)(message), sessionID );
     else
-    if( msgTypeValue == "2" )
+    if( message is ResendRequest )
       onMessage( (ResendRequest)(message), sessionID );
     else
-    if( msgTypeValue == "3" )
+    if( message is Reject )
       onMessage( (Reject)(message), sessionID );
     else
-    if( msgTypeValue == "4" )
+    if( message is SequenceReset )
       onMessage( (SequenceReset)(message), sessionID );
     else
-    if( msgTypeValue == "5" )
+    if( message is Logout )
       onMessage( (Logout)(message), sessionID );
     else
-    if( msgTypeValue == "j" )
+    if( message is BusinessMessageReject )
       onMessage( (BusinessMessageReject)(message), sessionID );
     else
-    if( msgTypeValue == "BE" )
+    if( message is UserRequest )
       onMessage( (UserRequest)(message), sessionID );
     else
-    if( msgTypeValue == "BF" )
+    if( message is UserResponse )
       onMessage( (UserResponse)(message), sessionID );
     else
-    if( msgTypeValue == "7" )
+    if( message is Advertisement )
       onMessage( (Advertisement)(message), sessionID );
     else
-    if( msgTypeValue == "6" )
+    if( message is IndicationOfInterest )
       onMessage( (IndicationOfInterest)(message), sessionID );
     else
-    if( msgTypeValue == "B" )
+    if( message is News )
       onMessage( (News)(message), sessionID );
     else
-    if( msgTypeValue == "C" )
+    if( message is Email )
       onMessage( (Email)(message), sessionID );
     else
-    if( msgTypeValue == "R" )
+    if( message is QuoteRequest )
       onMessage( (QuoteRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AJ" )
+    if( message is QuoteResponse )
       onMessage( (QuoteResponse)(message), sessionID );
     else
-    if( msgTypeValue == "AG" )
+    if( message is QuoteRequestReject )
       onMessage( (QuoteRequestReject)(message), sessionID );
     else
-    if( msgTypeValue == "AH" )
+    if( message is RFQRequest )
       onMessage( (RFQRequest)(message), sessionID );
     else
-    if( msgTypeValue == "S" )
+    if( message is Quote )
       onMessage( (Quote)(message), sessionID );
     else
-    if( msgTypeValue == "Z" )
+    if( message is QuoteCancel )
       onMessage( (QuoteCancel)(message), sessionID );
     else
-    if( msgTypeValue == "a" )
+    if( message is QuoteStatusRequest )
       onMessage( (QuoteStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AI" )
+    if( message is QuoteStatusReport )
       onMessage( (QuoteStatusReport)(message), sessionID );
     else
-    if( msgTypeValue == "i" )
+    if( message is MassQuote )
       onMessage( (MassQuote)(message), sessionID );
     else
-    if( msgTypeValue == "b" )
+    if( message is MassQuoteAcknowledgement )
       onMessage( (MassQuoteAcknowledgement)(message), sessionID );
     else
-    if( msgTypeValue == "V" )
+    if( message is MarketDataRequest )
       onMessage( (MarketDataRequest)(message), sessionID );
     else
-    if( msgTypeValue == "W" )
+    if( message is MarketDataSnapshotFullRefresh )
       onMessage( (MarketDataSnapshotFullRefresh)(message), sessionID );
     else
-    if( msgTypeValue == "X" )
+    if( message is MarketDataIncrementalRefresh )
       onMessage( (MarketDataIncrementalRefresh)(message), sessionID );
     else
-    if( msgTypeValue == "Y" )
+    if( message is MarketDataRequestReject )
       onMessage( (MarketDataRequestReject)(message), sessionID );
     else
-    if( msgTypeValue == "c" )
+    if( message is SecurityDefinitionRequest )
       onMessage( (SecurityDefinitionRequest)(message), sessionID );
     else
-    if( msgTypeValue == "d" )
+    if( message is SecurityDefinition )
       onMessage( (SecurityDefinition)(message), sessionID );
     else
-    if( msgTypeValue == "v" )
+    if( message is SecurityTypeRequest )
       onMessage( (SecurityTypeRequest)(message), sessionID );
     else
-    if( msgTypeValue == "w" )
+    if( message is SecurityTypes )
       onMessage( (SecurityTypes)(message), sessionID );
     else
-    if( msgTypeValue == "x" )
+    if( message is SecurityListRequest )
       onMessage( (SecurityListRequest)(message), sessionID );
     else
-    if( msgTypeValue == "y" )
+    if( message is SecurityList )
       onMessage( (SecurityList)(message), sessionID );
     else
-    if( msgTypeValue == "z" )
+    if( message is DerivativeSecurityListRequest )
       onMessage( (DerivativeSecurityListRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AA" )
+    if( message is DerivativeSecurityList )
       onMessage( (DerivativeSecurityList)(message), sessionID );
     else
-    if( msgTypeValue == "e" )
+    if( message is SecurityStatusRequest )
       onMessage( (SecurityStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "f" )
+    if( message is SecurityStatus )
       onMessage( (SecurityStatus)(message), sessionID );
     else
-    if( msgTypeValue == "g" )
+    if( message is TradingSessionStatusRequest )
       onMessage( (TradingSessionStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "h" )
+    if( message is TradingSessionStatus )
       onMessage( (TradingSessionStatus)(message), sessionID );
     else
-    if( msgTypeValue == "D" )
+    if( message is NewOrderSingle )
       onMessage( (NewOrderSingle)(message), sessionID );
     else
-    if( msgTypeValue == "8" )
+    if( message is ExecutionReport )
       onMessage( (ExecutionReport)(message), sessionID );
     else
-    if( msgTypeValue == "Q" )
+    if( message is DontKnowTrade )
       onMessage( (DontKnowTrade)(message), sessionID );
     else
-    if( msgTypeValue == "G" )
+    if( message is OrderCancelReplaceRequest )
       onMessage( (OrderCancelReplaceRequest)(message), sessionID );
     else
-    if( msgTypeValue == "F" )
+    if( message is OrderCancelRequest )
       onMessage( (OrderCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "9" )
+    if( message is OrderCancelReject )
       onMessage( (OrderCancelReject)(message), sessionID );
     else
-    if( msgTypeValue == "H" )
+    if( message is OrderStatusRequest )
       onMessage( (OrderStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "q" )
+    if( message is OrderMassCancelRequest )
       onMessage( (OrderMassCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "r" )
+    if( message is OrderMassCancelReport )
       onMessage( (OrderMassCancelReport)(message), sessionID );
     else
-    if( msgTypeValue == "AF" )
+    if( message is OrderMassStatusRequest )
       onMessage( (OrderMassStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "s" )
+    if( message is NewOrderCross )
       onMessage( (NewOrderCross)(message), sessionID );
     else
-    if( msgTypeValue == "t" )
+    if( message is CrossOrderCancelReplaceRequest )
       onMessage( (CrossOrderCancelReplaceRequest)(message), sessionID );
     else
-    if( msgTypeValue == "u" )
+    if( message is CrossOrderCancelRequest )
       onMessage( (CrossOrderCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AB" )
+    if( message is NewOrderMultileg )
       onMessage( (NewOrderMultileg)(message), sessionID );
     else
-    if( msgTypeValue == "AC" )
+    if( message is MultilegOrderCancelReplaceRequest )
       onMessage( (MultilegOrderCancelReplaceRequest)(message), sessionID );
     else
-    if( msgTypeValue == "k" )
+    if( message is BidRequest )
       onMessage( (BidRequest)(message), sessionID );
     else
-    if( msgTypeValue == "l" )
+    if( message is BidResponse )
       onMessage( (BidResponse)(message), sessionID );
     else
-    if( msgTypeValue == "E" )
+    if( message is NewOrderList )
       onMessage( (NewOrderList)(message), sessionID );
     else
-    if( msgTypeValue == "m" )
+    if( message is ListStrikePrice )
       onMessage( (ListStrikePrice)(message), sessionID );
     else
-    if( msgTypeValue == "N" )
+    if( message is ListStatus )
       onMessage( (ListStatus)(message), sessionID );
     else
-    if( msgTypeValue == "L" )
+    if( message is ListExecute )
       onMessage( (ListExecute)(message), sessionID );
     else
-    if( msgTypeValue == "K" )
+    if( message is ListCancelRequest )
       onMessage( (ListCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "M" )
+    if( message is ListStatusRequest )
       onMessage( (ListStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "J" )
+    if( message is AllocationInstruction )
       onMessage( (AllocationInstruction)(message), sessionID );
     else
-    if( msgTypeValue == "P" )
+    if( message is AllocationInstructionAck )
       onMessage( (AllocationInstructionAck)(message), sessionID );
     else
-    if( msgTypeValue == "AS" )
+    if( message is AllocationReport )
       onMessage( (AllocationReport)(message), sessionID );
     else
-    if( msgTypeValue == "AT" )
+    if( message is AllocationReportAck )
       onMessage( (AllocationReportAck)(message), sessionID );
     else
-    if( msgTypeValue == "AK" )
+    if( message is Confirmation )
       onMessage( (Confirmation)(message), sessionID );
     else
-    if( msgTypeValue == "AU" )
+    if( message is ConfirmationAck )
       onMessage( (ConfirmationAck)(message), sessionID );
     else
-    if( msgTypeValue == "BH" )
+    if( message is ConfirmationRequest )
       onMessage( (ConfirmationRequest)(message), sessionID );
     else
-    if( msgTypeValue == "T" )
+    if( message is SettlementInstructions )
       onMessage( (SettlementInstructions)(message), sessionID );
     else
-    if( msgTypeValue == "AV" )
+    if( message is SettlementInstructionRequest )
       onMessage( (SettlementInstructionRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AD" )
+    if( message is TradeCaptureReportRequest )
       onMessage( (TradeCaptureReportRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AQ" )
+    if( message is TradeCaptureReportRequestAck )
       onMessage( (TradeCaptureReportRequestAck)(message), sessionID );
     else
-    if( msgTypeValue == "AE" )
+    if( message is TradeCaptureReport )
       onMessage( (TradeCaptureReport)(message), sessionID );
     else
-    if( msgTypeValue == "AR" )
+    if( message is TradeCaptureReportAck )
       onMessage( (TradeCaptureReportAck)(message), sessionID );
     else
-    if( msgTypeValue == "o" )
+    if( message is RegistrationInstructions )
       onMessage( (RegistrationInstructions)(message), sessionID );
     else
-    if( msgTypeValue == "p" )
+    if( message is RegistrationInstructionsResponse )
       onMessage( (RegistrationInstructionsResponse)(message), sessionID );
     else
-    if( msgTypeValue == "AL" )
+    if( message is PositionMaintenanceRequest )
       onMessage( (PositionMaintenanceRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AM" )
+    if( message is PositionMaintenanceReport )
       onMessage( (PositionMaintenanceReport)(message), sessionID );
     else
-    if( msgTypeValue == "AN" )
+    if( message is RequestForPositions )
       onMessage( (RequestForPositions)(message), sessionID );
     else
-    if( msgTypeValue == "AO" )
+    if( message is RequestForPositionsAck )
       onMessage( (RequestForPositionsAck)(message), sessionID );
     else
-    if( msgTypeValue == "AP" )
+    if( message is PositionReport )
       onMessage( (PositionReport)(message), sessionID );
     else
-    if( msgTypeValue == "AW" )
+    if( message is AssignmentReport )
       onMessage( (AssignmentReport)(message), sessionID );
     else
-    if( msgTypeValue == "AX" )
+    if( message is CollateralRequest )
       onMessage( (CollateralRequest)(message), sessionID );
     else
-    if( msgTypeValue == "AY" )
+    if( message is CollateralAssignment )
       onMessage( (CollateralAssignment)(message), sessionID );
     else
-    if( msgTypeValue == "AZ" )
+    if( message is CollateralResponse )
       onMessage( (CollateralResponse)(message), sessionID );
     else
-    if( msgTypeValue == "BA" )
+    if( message is CollateralReport )
       onMessage( (CollateralReport)(message), sessionID );
     else
-    if( msgTypeValue == "BB" )
+    if( message is CollateralInquiry )
       onMessage( (CollateralInquiry)(message), sessionID );
     else
-    if( msgTypeValue == "BC" )
+    if( message is NetworkStatusRequest )
       onMessage( (NetworkStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "BD" )
+    if( message is NetworkStatusResponse )
       onMessage( (NetworkStatusResponse)(message), sessionID );
     else
-    if( msgTypeValue == "BG" )
+    if( message is CollateralInquiryAck )
       onMessage( (CollateralInquiryAck)(message), sessionID );
     else onMessage( message, sessionID );    
   }

@@ -73,14 +73,10 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
     </xsl:otherwise>
   </xsl:choose>
   {
-    QuickFix.MsgType msgType = new QuickFix.MsgType();
-    message.getHeader().getField(msgType);
-    String msgTypeValue = msgType.getValue();
-
     <xsl:for-each select="//fix/messages/message">
     <xsl:if test="position()!=1">
     else
-    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+    </xsl:if>if( message is <xsl:value-of select="@name"/> )
       onMessage( (<xsl:value-of select="@name"/>)(message), sessionID );</xsl:for-each>
     else onMessage( message, sessionID );    
   }

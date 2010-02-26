@@ -125,146 +125,142 @@ namespace QuickFix42
     public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     
   {
-    QuickFix.MsgType msgType = new QuickFix.MsgType();
-    message.getHeader().getField(msgType);
-    String msgTypeValue = msgType.getValue();
-
-    if( msgTypeValue == "0" )
+    if( message is Heartbeat )
       onMessage( (Heartbeat)(message), sessionID );
     else
-    if( msgTypeValue == "A" )
+    if( message is Logon )
       onMessage( (Logon)(message), sessionID );
     else
-    if( msgTypeValue == "1" )
+    if( message is TestRequest )
       onMessage( (TestRequest)(message), sessionID );
     else
-    if( msgTypeValue == "2" )
+    if( message is ResendRequest )
       onMessage( (ResendRequest)(message), sessionID );
     else
-    if( msgTypeValue == "3" )
+    if( message is Reject )
       onMessage( (Reject)(message), sessionID );
     else
-    if( msgTypeValue == "4" )
+    if( message is SequenceReset )
       onMessage( (SequenceReset)(message), sessionID );
     else
-    if( msgTypeValue == "5" )
+    if( message is Logout )
       onMessage( (Logout)(message), sessionID );
     else
-    if( msgTypeValue == "7" )
+    if( message is Advertisement )
       onMessage( (Advertisement)(message), sessionID );
     else
-    if( msgTypeValue == "6" )
+    if( message is IndicationofInterest )
       onMessage( (IndicationofInterest)(message), sessionID );
     else
-    if( msgTypeValue == "B" )
+    if( message is News )
       onMessage( (News)(message), sessionID );
     else
-    if( msgTypeValue == "C" )
+    if( message is Email )
       onMessage( (Email)(message), sessionID );
     else
-    if( msgTypeValue == "R" )
+    if( message is QuoteRequest )
       onMessage( (QuoteRequest)(message), sessionID );
     else
-    if( msgTypeValue == "S" )
+    if( message is Quote )
       onMessage( (Quote)(message), sessionID );
     else
-    if( msgTypeValue == "i" )
+    if( message is MassQuote )
       onMessage( (MassQuote)(message), sessionID );
     else
-    if( msgTypeValue == "Z" )
+    if( message is QuoteCancel )
       onMessage( (QuoteCancel)(message), sessionID );
     else
-    if( msgTypeValue == "a" )
+    if( message is QuoteStatusRequest )
       onMessage( (QuoteStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "b" )
+    if( message is QuoteAcknowledgement )
       onMessage( (QuoteAcknowledgement)(message), sessionID );
     else
-    if( msgTypeValue == "V" )
+    if( message is MarketDataRequest )
       onMessage( (MarketDataRequest)(message), sessionID );
     else
-    if( msgTypeValue == "W" )
+    if( message is MarketDataSnapshotFullRefresh )
       onMessage( (MarketDataSnapshotFullRefresh)(message), sessionID );
     else
-    if( msgTypeValue == "X" )
+    if( message is MarketDataIncrementalRefresh )
       onMessage( (MarketDataIncrementalRefresh)(message), sessionID );
     else
-    if( msgTypeValue == "Y" )
+    if( message is MarketDataRequestReject )
       onMessage( (MarketDataRequestReject)(message), sessionID );
     else
-    if( msgTypeValue == "c" )
+    if( message is SecurityDefinitionRequest )
       onMessage( (SecurityDefinitionRequest)(message), sessionID );
     else
-    if( msgTypeValue == "d" )
+    if( message is SecurityDefinition )
       onMessage( (SecurityDefinition)(message), sessionID );
     else
-    if( msgTypeValue == "e" )
+    if( message is SecurityStatusRequest )
       onMessage( (SecurityStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "f" )
+    if( message is SecurityStatus )
       onMessage( (SecurityStatus)(message), sessionID );
     else
-    if( msgTypeValue == "g" )
+    if( message is TradingSessionStatusRequest )
       onMessage( (TradingSessionStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "h" )
+    if( message is TradingSessionStatus )
       onMessage( (TradingSessionStatus)(message), sessionID );
     else
-    if( msgTypeValue == "D" )
+    if( message is NewOrderSingle )
       onMessage( (NewOrderSingle)(message), sessionID );
     else
-    if( msgTypeValue == "8" )
+    if( message is ExecutionReport )
       onMessage( (ExecutionReport)(message), sessionID );
     else
-    if( msgTypeValue == "Q" )
+    if( message is DontKnowTrade )
       onMessage( (DontKnowTrade)(message), sessionID );
     else
-    if( msgTypeValue == "G" )
+    if( message is OrderCancelReplaceRequest )
       onMessage( (OrderCancelReplaceRequest)(message), sessionID );
     else
-    if( msgTypeValue == "F" )
+    if( message is OrderCancelRequest )
       onMessage( (OrderCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "9" )
+    if( message is OrderCancelReject )
       onMessage( (OrderCancelReject)(message), sessionID );
     else
-    if( msgTypeValue == "H" )
+    if( message is OrderStatusRequest )
       onMessage( (OrderStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "J" )
+    if( message is Allocation )
       onMessage( (Allocation)(message), sessionID );
     else
-    if( msgTypeValue == "P" )
+    if( message is AllocationACK )
       onMessage( (AllocationACK)(message), sessionID );
     else
-    if( msgTypeValue == "T" )
+    if( message is SettlementInstructions )
       onMessage( (SettlementInstructions)(message), sessionID );
     else
-    if( msgTypeValue == "k" )
+    if( message is BidRequest )
       onMessage( (BidRequest)(message), sessionID );
     else
-    if( msgTypeValue == "l" )
+    if( message is BidResponse )
       onMessage( (BidResponse)(message), sessionID );
     else
-    if( msgTypeValue == "E" )
+    if( message is NewOrderList )
       onMessage( (NewOrderList)(message), sessionID );
     else
-    if( msgTypeValue == "m" )
+    if( message is ListStrikePrice )
       onMessage( (ListStrikePrice)(message), sessionID );
     else
-    if( msgTypeValue == "N" )
+    if( message is ListStatus )
       onMessage( (ListStatus)(message), sessionID );
     else
-    if( msgTypeValue == "L" )
+    if( message is ListExecute )
       onMessage( (ListExecute)(message), sessionID );
     else
-    if( msgTypeValue == "K" )
+    if( message is ListCancelRequest )
       onMessage( (ListCancelRequest)(message), sessionID );
     else
-    if( msgTypeValue == "M" )
+    if( message is ListStatusRequest )
       onMessage( (ListStatusRequest)(message), sessionID );
     else
-    if( msgTypeValue == "j" )
+    if( message is BusinessMessageReject )
       onMessage( (BusinessMessageReject)(message), sessionID );
     else onMessage( message, sessionID );    
   }
