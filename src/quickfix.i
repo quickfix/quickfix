@@ -14,13 +14,6 @@
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
 
-#ifdef SWIGRUBY
-%rename(_getFieldName) FIX::DataDictionary::getFieldName;
-%rename(_getValueName) FIX::DataDictionary::getValueName;
-%rename(_getFieldTag) FIX::DataDictionary::getFieldTag;
-%rename(_getGroup) FIX::DataDictionary::getGroup;
-#endif
-
 %{
 #include <config.h>
 #include "../C++/Exceptions.h"
@@ -28,13 +21,7 @@
 #include "../C++/Message.h"
 #include "../C++/Group.h"
 #include "../C++/Fields.h"
-#include "../C++/FixFields.h"
-#include "../C++/FixTFields.h"
-#include "../C++/DeprecatedFields.h"
 #include "../C++/Values.h"
-#include "../C++/FixValues.h"
-#include "../C++/FixTValues.h"
-#include "../C++/DeprecatedValues.h"
 #include "../C++/SessionID.h"
 #include "../C++/Dictionary.h"
 #include "../C++/SessionSettings.h"
@@ -108,92 +95,6 @@ using namespace FIX;
 %typedef std::string TZTIMESTAMP;
 
 %exceptionclass FIX::Exception;
-
-#ifdef SWIGRUBY
-%typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)STR2CSTR($input));
-  $1 = &temp;
-}
-
-%typemap(argout) std::string& {
-  if( std::string("$1_type") == "std::string &" )
-  {
-    rb_str_resize( $input, 0 );
-    rb_str_append( $input, rb_str_new2($1->c_str()) );
-  }
-}
-
-%typemap(in) int& (int temp) {
-  temp = NUM2INT($input);
-  $1 = &temp;
-}
-
-%typemap(argout) int& {
-  if( std::string("$1_type") == "int &" )
-  {
-    vresult = result ? SWIG_From_int(static_cast< int >(*$1)) : Qnil;
-  }
-}
-#endif
-
-#ifdef SWIGPYTHON
-%typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)PyString_AsString($input));
-  $1 = &temp;
-}
-
-%typemap(argout) std::string& {
-  if( std::string("$1_type") == "std::string &" )
-  {
-    if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
-  }
-}
-
-%typemap(in) int& (int temp) {
-  SWIG_AsVal_int($input, &temp);
-  $1 = &temp;
-}
-
-%typemap(argout) int& {
-  if( std::string("$1_type") == "int &" )
-  {
-    if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );
-  }
-}
-#endif
-
-%typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
-  $1 = new FIX::DataDictionary*[1];
-  *$1 = temp;
-}
-
-%typemap(free) FIX::DataDictionary const *& {
-  delete[] temp;
-}
-
-%typemap(argout) FIX::DataDictionary const *& {
-  void* argp;
-  FIX::DataDictionary* pDD = 0;
-  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
-  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
-  *pDD = *(*$1);
-}
-
-%typemap(out) const BeginString & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
-}
-
-%typemap(out) const SenderCompID & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
-}
-
-%typemap(out) const TargetCompID & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
-}
 
 %init %{
 #ifndef _MSC_VER
