@@ -190,6 +190,8 @@ public:
   {
     Locker locker( m_mutex );
     SQLDisconnect( m_connection );
+    SQLFreeHandle( SQL_HANDLE_DBC, m_connection );
+    m_connection = 0;
     connect();
     return true;
   }
@@ -210,13 +212,17 @@ private:
   {
     m_connected = false;
 
-    RETCODE result = SQLAllocHandle( SQL_HANDLE_ENV, SQL_NULL_HANDLE, &m_environment );
-    if( !odbcSuccess(result) )
+    RETCODE result;
+    if(!m_environment)
+    {
+      result = SQLAllocHandle( SQL_HANDLE_ENV, SQL_NULL_HANDLE, &m_environment );
+      if( !odbcSuccess(result) )
       throw ConfigError( "Unable to allocate ODBC environment" );
-    
-    result = SQLSetEnvAttr(m_environment, SQL_ATTR_ODBC_VERSION, (void*)SQL_OV_ODBC3, 0);
-    if( !odbcSuccess(result) )
-      throw ConfigError( "Unable to find ODBC version 3.0" );
+	    
+      result = SQLSetEnvAttr(m_environment, SQL_ATTR_ODBC_VERSION, (void*)SQL_OV_ODBC3, 0);
+      if( !odbcSuccess(result) )
+        throw ConfigError( "Unable to find ODBC version 3.0" );
+    }
 
     result = SQLAllocHandle( SQL_HANDLE_DBC, m_environment, &m_connection );
     if( !odbcSuccess(result) )
