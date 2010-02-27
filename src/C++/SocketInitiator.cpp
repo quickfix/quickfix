@@ -263,22 +263,26 @@ void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
   SessionToHostNum::iterator i = m_sessionToHostNum.find( s );
   if ( i != m_sessionToHostNum.end() ) num = i->second;
 
-  try
-  {
-    std::stringstream hostStream;
-    hostStream << SOCKET_CONNECT_HOST << num;
-    address = d.getString( hostStream.str() );
+  std::stringstream hostStream;
+  hostStream << SOCKET_CONNECT_HOST << num;
+  std::string hostString = hostStream.str();
 
-    std::stringstream portStream;
-    portStream << SOCKET_CONNECT_PORT << num;
-    port = ( short ) d.getLong( portStream.str() );
+  std::stringstream portStream;
+  std::string portString = portStream.str();
+  portStream << SOCKET_CONNECT_PORT << num;
+
+  if( d.has(hostString) && d.has(portString) )
+  {
+    address = d.getString( hostString );
+    port = ( short ) d.getLong( portString );
   }
-  catch ( ConfigError& )
+  else
   {
     num = 0;
     address = d.getString( SOCKET_CONNECT_HOST );
     port = ( short ) d.getLong( SOCKET_CONNECT_PORT );
   }
+
   m_sessionToHostNum[ s ] = ++num;
 
   QF_STACK_POP
