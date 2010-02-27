@@ -407,8 +407,13 @@ const char* socket_peername( int socket )
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
   if( getpeername( socket, (struct sockaddr*)&addr, &len ) < 0 )
-    return 0;
-  return inet_ntoa( addr.sin_addr );
+    return "UNKNOWN";
+  char* result = inet_ntoa( addr.sin_addr );
+  if( result )
+    return result;
+  else
+    return "UNKNOWN";
+    
 
   QF_STACK_POP
 }
