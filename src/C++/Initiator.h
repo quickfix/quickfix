@@ -48,7 +48,7 @@ class Client;
  * Most users will not need to implement one of these.  The default
  * SocketInitiator implementation will be used in most cases.
  */
-  class Initiator
+class Initiator
 {
 public:
   Initiator( Application&, MessageStoreFactory&,
@@ -87,7 +87,11 @@ public:
   MessageStoreFactory& getMessageStoreFactory()
   { return m_messageStoreFactory; }
 
-  Log* getLog() { return m_pLog; }
+  Log* getLog() 
+  { 
+    if( m_pLog ) return m_pLog; 
+    return &m_nullLog;
+  }
 
 protected:
   void setPending( const SessionID& );
@@ -134,6 +138,7 @@ private:
   SessionSettings m_settings;
   LogFactory* m_pLogFactory;
   Log* m_pLog;
+  NullLog m_nullLog;
   bool m_firstPoll;
   bool m_stop;
   Mutex m_mutex;

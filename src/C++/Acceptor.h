@@ -56,7 +56,11 @@ public:
 
   virtual ~Acceptor();
 
-  Log* getLog() { return m_pLog; }
+  Log* getLog() 
+  { 
+    if( m_pLog ) return m_pLog;
+    return &m_nullLog;
+  }
 
   /// Start acceptor.
   void start() throw ( ConfigError, RuntimeError );
@@ -113,6 +117,7 @@ private:
   SessionSettings m_settings;
   LogFactory* m_pLogFactory;
   Log* m_pLog;
+  NullLog m_nullLog;
   bool m_firstPoll;
   bool m_stop;
 };

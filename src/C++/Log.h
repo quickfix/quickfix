@@ -92,6 +92,22 @@ public:
 /*! @} */
 
 /**
+ * Null implementation of Log
+ *
+ * This is only for internal use. Used when no log factory is
+ * passed to the initiator or acceptor.
+ */
+class NullLog : public Log
+{
+public:
+  void clear() {}
+  void backup() {}
+  void onIncoming( const std::string& ) {}
+  void onOutgoing( const std::string& ) {}
+  void onEvent( const std::string& ) {}
+};
+
+/**
  * Screen based implementation of Log.
  *
  * This will display all log information onto the standard output
