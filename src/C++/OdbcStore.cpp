@@ -177,7 +177,7 @@ throw ( IOException )
 { QF_STACK_PUSH(OdbcStore::set)
 
   std::string msgCopy = msg;
-  string_replace( "\"", "\\\"", msgCopy );
+  string_replace( "'", "''", valueCopy );
 
   std::stringstream queryString;
   queryString << "INSERT INTO messages "
@@ -195,7 +195,7 @@ throw ( IOException )
   {
     query.close();
     std::stringstream queryString2;
-    queryString2 << "UPDATE messages SET message=\"" << msg << "\" WHERE "
+    queryString2 << "UPDATE messages SET message='" << msgCopy << "' WHERE "
     << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
     << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
     << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
@@ -203,7 +203,7 @@ throw ( IOException )
     << "msgseqnum=" << msgSeqNum;
     OdbcQuery query2( queryString2.str() );
     if( !m_pConnection->execute(query2) )
-      query.throwException();
+      query2.throwException();
   }
   return true;
 

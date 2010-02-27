@@ -235,7 +235,7 @@ void OdbcLog::insert( const std::string& table, const std::string value )
                   year, month, day, hour, minute, second, millis );
 
   std::string valueCopy = value;
-  string_replace( "\"", "\\\"", valueCopy );
+  string_replace( "'", "''", valueCopy );
 
   std::stringstream queryString;
   queryString << "INSERT INTO " << table << " "
