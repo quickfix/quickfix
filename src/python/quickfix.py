@@ -23460,6 +23460,28 @@ class Log(_object):
 Log_swigregister = _quickfix.Log_swigregister
 Log_swigregister(Log)
 
+class NullLog(Log):
+    __swig_setmethods__ = {}
+    for _s in [Log]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NullLog, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Log]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NullLog, name)
+    __repr__ = _swig_repr
+    def clear(*args): return _quickfix.NullLog_clear(*args)
+    def backup(*args): return _quickfix.NullLog_backup(*args)
+    def onIncoming(*args): return _quickfix.NullLog_onIncoming(*args)
+    def onOutgoing(*args): return _quickfix.NullLog_onOutgoing(*args)
+    def onEvent(*args): return _quickfix.NullLog_onEvent(*args)
+    def __init__(self, *args): 
+        this = _quickfix.new_NullLog(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NullLog
+    __del__ = lambda self : None;
+NullLog_swigregister = _quickfix.NullLog_swigregister
+NullLog_swigregister(NullLog)
+
 class ScreenLog(Log):
     __swig_setmethods__ = {}
     for _s in [Log]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
