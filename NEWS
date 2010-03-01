@@ -1,3 +1,27 @@
+1.13.1
+------
+Fixed install script under unix systems. The new FIX 5.0 and 
+FIXT 1.1 headers were not being installed.
+
+Fixed compiler errors under windows due to typedefs conflicting
+with #defines.
+
+Fixed exception being thrown when no LogFactory is provided.
+
+User defined UTC timestamps will have milliseconds now.
+
+Fixed memory leaks and other bugs in odbc interfaces.
+
+Fixed exception caused by peername returning a null char*.
+
+Corrected installation problems when DESTDIR is provided.
+
+QuickFIX should build on netbsd, though it is not yet
+officially supported.
+
+Perfomance optimization for .NET messagecrackers.
+
+
 1.13.0
 ------
 Support for FIX 5.0 and FIXT 1.1 session transport.
