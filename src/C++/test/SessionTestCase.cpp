@@ -196,6 +196,7 @@ FIXT11::Logon createT11Logon( const char* sender, const char* target, int seq )
   FIXT11::Logon logon;
   logon.set( EncryptMethod( 0 ) );
   logon.set( HeartBtInt( 30 ) );
+  logon.set( DefaultApplVerID("7") );
   fillHeader( logon.getHeader(), sender, target, seq );
   return logon;
 }
@@ -282,7 +283,27 @@ FIX42::ExecutionReport createExecutionReport( const char* sender, const char* ta
   return executionReport;
 }
 
-FIX42::ExecutionReport create50ExecutionReport( const char* sender, const char* target, int seq )
+FIX42::ExecutionReport createT1142ExecutionReport( const char* sender, const char* target, int seq )
+{
+  FIX42::ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecTransType('0'), ExecType('0'), OrdStatus('0'), Symbol("SYMBOL"), Side(Side_BUY), LeavesQty(100), CumQty(0), AvgPx(0) );
+  fillHeader( executionReport.getHeader(), sender, target, seq );
+  executionReport.getHeader().set( BeginString("FIXT.1.1") );
+  executionReport.getHeader().setField( ApplVerID(Message::toApplVerID(BeginString("FIX.4.2"))) );
+  FIX42::ExecutionReport::NoContraBrokers noContraBrokers;
+  noContraBrokers.set( ContraBroker("BROKER") );
+  noContraBrokers.set( ContraTrader("TRADER") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  noContraBrokers.set( ContraBroker("BROKER2") );
+  noContraBrokers.set( ContraTrader("TRADER2") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  return executionReport;
+}
+
+FIX42::ExecutionReport createT1150ExecutionReport( const char* sender, const char* target, int seq )
 {
   FIX50::ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecType('0'), OrdStatus('0'), Side(Side_BUY), LeavesQty(100), CumQty(0) );
   fillHeader( executionReport.getHeader(), sender, target, seq );
@@ -373,6 +394,7 @@ struct sessionT11Fixture : public TestCallback
     provider.addApplicationDataDictionary( applVerID, DataDictionary("../spec/FIX50.xml") );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
+    object->setSenderDefaultApplVerID( Message::toApplVerID(BeginString("FIX.5.0")) );
     object->setResponder( this );
   }
 
@@ -1005,22 +1027,41 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
   CHECK_EQUAL( message.toString(), lastResent.toString() );
 }
 
-TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT11RepeatingGroup)
+TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
 {
   object->next( createT11Logon( "ISLD", "TW", 1 ) );
-  FIX::Message message = create50ExecutionReport( "ISLD", "TW", 2 );
+  FIX::Message message = createT1142ExecutionReport( "ISLD", "TW", 2 );
   CHECK( object->send( message ) );
   object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ) );
 
   PossDupFlag possDupFlag;
   OrigSendingTime origSendingTime;
   SendingTime sendingTime;
-  //lastResent.getHeader().getField( possDupFlag );
-  //lastResent.getHeader().getField( origSendingTime );
-  //lastResent.getHeader().getField( sendingTime );
-  //message.getHeader().setField( possDupFlag );
-  //message.getHeader().setField( origSendingTime );
-  //message.getHeader().setField( sendingTime );
+  lastResent.getHeader().getField( possDupFlag );
+  lastResent.getHeader().getField( origSendingTime );
+  lastResent.getHeader().getField( sendingTime );
+  message.getHeader().setField( possDupFlag );
+  message.getHeader().setField( origSendingTime );
+  message.getHeader().setField( sendingTime );
+  CHECK_EQUAL( message.toString(), lastResent.toString() );
+}
+
+TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
+{
+  object->next( createT11Logon( "ISLD", "TW", 1 ) );
+  FIX::Message message = createT1150ExecutionReport( "ISLD", "TW", 2 );
+  CHECK( object->send( message ) );
+  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ) );
+
+  PossDupFlag possDupFlag;
+  OrigSendingTime origSendingTime;
+  SendingTime sendingTime;
+  lastResent.getHeader().getField( possDupFlag );
+  lastResent.getHeader().getField( origSendingTime );
+  lastResent.getHeader().getField( sendingTime );
+  message.getHeader().setField( possDupFlag );
+  message.getHeader().setField( origSendingTime );
+  message.getHeader().setField( sendingTime );
   CHECK_EQUAL( message.toString(), lastResent.toString() );
 }
 
