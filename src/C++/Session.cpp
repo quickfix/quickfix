@@ -404,13 +404,25 @@ void Session::nextResendRequest( const Message& resendRequest )
   int begin = 0;
   int current = beginSeqNo;
   std::string messageString;
+  Message msg;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
-    const DataDictionary& dataDictionary = 
+    const DataDictionary& sessionDD = 
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
 
-    Message msg( *i, dataDictionary );
+    if( m_sessionID.isFIXT() )
+    {
+      const DataDictionary& applicationDD =
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
+      msg = Message( *i, sessionDD, applicationDD );
+    }
+    else
+    {
+      msg = Message( *i, sessionDD );
+    }
+
+
     msg.getHeader().getField( msgSeqNum );
     msg.getHeader().getField( msgType );
 

@@ -42,6 +42,9 @@
 #include <fix42/Reject.h>
 #include <fix42/NewOrderSingle.h>
 #include <fix42/ExecutionReport.h>
+#include <fixt11/Logon.h>
+#include <fixt11/ResendRequest.h>
+#include <fix50/ExecutionReport.h>
 
 using namespace FIX;
 
@@ -188,6 +191,15 @@ FIX42::Logon createLogon( const char* sender, const char* target, int seq )
   return logon;
 }
 
+FIXT11::Logon createT11Logon( const char* sender, const char* target, int seq )
+{
+  FIXT11::Logon logon;
+  logon.set( EncryptMethod( 0 ) );
+  logon.set( HeartBtInt( 30 ) );
+  fillHeader( logon.getHeader(), sender, target, seq );
+  return logon;
+}
+
 FIX42::Logout createLogout( const char* sender, const char* target, int seq )
 {
   FIX42::Logout logout;
@@ -227,6 +239,15 @@ FIX42::ResendRequest createResendRequest( const char* sender, const char* target
   return resendRequest;
 }
 
+FIXT11::ResendRequest createT11ResendRequest( const char* sender, const char* target, int seq, int begin, int end )
+{
+  FIXT11::ResendRequest resendRequest;
+  resendRequest.set( BeginSeqNo( begin ) );
+  resendRequest.set( EndSeqNo( end ) );
+  fillHeader( resendRequest.getHeader(), sender, target, seq );
+  return resendRequest;
+}
+
 FIX42::Reject createReject( const char* sender, const char* target, int seq, int refSeq )
 {
   FIX42::Reject reject;
@@ -246,6 +267,24 @@ FIX42::NewOrderSingle createNewOrderSingle( const char* sender, const char* targ
 FIX42::ExecutionReport createExecutionReport( const char* sender, const char* target, int seq )
 {
   FIX42::ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecTransType('0'), ExecType('0'), OrdStatus('0'), Symbol("SYMBOL"), Side(Side_BUY), LeavesQty(100), CumQty(0), AvgPx(0) );
+  fillHeader( executionReport.getHeader(), sender, target, seq );
+  FIX42::ExecutionReport::NoContraBrokers noContraBrokers;
+  noContraBrokers.set( ContraBroker("BROKER") );
+  noContraBrokers.set( ContraTrader("TRADER") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  noContraBrokers.set( ContraBroker("BROKER2") );
+  noContraBrokers.set( ContraTrader("TRADER2") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  return executionReport;
+}
+
+FIX42::ExecutionReport create50ExecutionReport( const char* sender, const char* target, int seq )
+{
+  FIX50::ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecType('0'), OrdStatus('0'), Side(Side_BUY), LeavesQty(100), CumQty(0) );
   fillHeader( executionReport.getHeader(), sender, target, seq );
   FIX42::ExecutionReport::NoContraBrokers noContraBrokers;
   noContraBrokers.set( ContraBroker("BROKER") );
@@ -300,18 +339,65 @@ struct sessionFixture : public TestCallback
   MemoryStoreFactory factory;
 };
 
+struct sessionT11Fixture : public TestCallback
+{
+  sessionT11Fixture() 
+  {
+    object = 0;
+  }
+
+  sessionT11Fixture( int heartBtInt )
+  {
+    object = 0;
+    createSession( heartBtInt );
+  }
+
+  ~sessionT11Fixture()
+  {
+    if( object )
+      delete object;
+  }
+
+  virtual void createSession( int heartBtInt )
+  {
+    if( object )
+      delete object;
+
+    SessionID sessionID( BeginString( "FIXT.1.1" ),
+                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
+    TimeRange sessionTime( startTime, endTime );
+
+    DataDictionaryProvider provider;
+    provider.addTransportDataDictionary( sessionID.getBeginString(), DataDictionary("../spec/FIXT11.xml") );
+    ApplVerID applVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
+    provider.addApplicationDataDictionary( applVerID, DataDictionary("../spec/FIX50.xml") );
+    object = new Session( *this, factory, sessionID, provider,
+                           sessionTime, heartBtInt, 0 );
+    object->setResponder( this );
+  }
+
+  Session* object;
+  MemoryStoreFactory factory;
+};
+
 struct initiatorFixture : public sessionFixture
 {
-  initiatorFixture() : sessionFixture( 1 )
-  {
-  }
+  initiatorFixture() : sessionFixture( 1 ) {}
 };
 
 struct acceptorFixture : public sessionFixture
 {
-  acceptorFixture() : sessionFixture( 0 )
-  {
-  }
+  acceptorFixture() : sessionFixture( 0 ) {}
+};
+
+struct initiatorT11Fixture : public sessionT11Fixture
+{
+  initiatorT11Fixture() : sessionT11Fixture( 1 ) {}
+};
+
+struct acceptorT11Fixture : public sessionT11Fixture
+{
+  acceptorT11Fixture() : sessionT11Fixture( 0 ) {}
 };
 
 TEST_FIXTURE(acceptorFixture, nextLogon)
@@ -916,6 +1002,25 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
   message.getHeader().setField( possDupFlag );
   message.getHeader().setField( origSendingTime );
   message.getHeader().setField( sendingTime );
+  CHECK_EQUAL( message.toString(), lastResent.toString() );
+}
+
+TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT11RepeatingGroup)
+{
+  object->next( createT11Logon( "ISLD", "TW", 1 ) );
+  FIX::Message message = create50ExecutionReport( "ISLD", "TW", 2 );
+  CHECK( object->send( message ) );
+  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ) );
+
+  PossDupFlag possDupFlag;
+  OrigSendingTime origSendingTime;
+  SendingTime sendingTime;
+  //lastResent.getHeader().getField( possDupFlag );
+  //lastResent.getHeader().getField( origSendingTime );
+  //lastResent.getHeader().getField( sendingTime );
+  //message.getHeader().setField( possDupFlag );
+  //message.getHeader().setField( origSendingTime );
+  //message.getHeader().setField( sendingTime );
   CHECK_EQUAL( message.toString(), lastResent.toString() );
 }
 
