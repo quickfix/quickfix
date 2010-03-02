@@ -1,3 +1,8 @@
+1.13.2
+------
+Fixed bug where FIX 5.0 messages containing repeating groups would 
+not be properly resent under a FIXT.1.1 session
+
 1.13.1
 ------
 Fixed install script under unix systems. The new FIX 5.0 and 

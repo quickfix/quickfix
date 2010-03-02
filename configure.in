@@ -2,7 +2,7 @@
 
 AC_INIT(src/ut.cpp)
 AC_CONFIG_AUX_DIR(config)
-AM_INIT_AUTOMAKE(quickfix, 1.13.1)
+AM_INIT_AUTOMAKE(quickfix, 1.13.2)
 AM_CONFIG_HEADER(config.h)
 AM_DISABLE_STATIC
 
