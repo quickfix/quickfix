@@ -249,17 +249,17 @@ public:
   static ApplVerID toApplVerID(const BeginString& value)
   { QF_STACK_PUSH(SessionFactory::toApplVerID)
 
-    if( value == ApplVerId_FIX40 )
+    if( value == BeginString_FIX40 )
       return ApplVerID(ApplVerID_FIX40);
-    if( value == ApplVerId_FIX41 )
+    if( value == BeginString_FIX41 )
       return ApplVerID(ApplVerID_FIX41);
-    if( value == ApplVerId_FIX42 )
+    if( value == BeginString_FIX42 )
       return ApplVerID(ApplVerID_FIX42);
-    if( value == ApplVerId_FIX43 )
+    if( value == BeginString_FIX43 )
       return ApplVerID(ApplVerID_FIX43);
-    if( value == ApplVerId_FIX44 )
+    if( value == BeginString_FIX44 )
       return ApplVerID(ApplVerID_FIX44);
-    if( value == ApplVerId_FIX50 )
+    if( value == BeginString_FIX50 )
       return ApplVerID(ApplVerID_FIX50);
     return ApplVerID(ApplVerID(value));
 
@@ -279,7 +279,7 @@ public:
     else if( applVerID == ApplVerID_FIX44 )
       return BeginString(BeginString_FIX44);
     else if( applVerID == ApplVerID_FIX50 )
-      return BeginString(ApplVerId_FIX50);
+      return BeginString(BeginString_FIX50);
     else
       return BeginString("");
   }
