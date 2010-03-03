@@ -49,6 +49,8 @@ Session::Session( Application& application,
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
   m_logonTime( sessionTime ),
+  m_senderDefaultApplVerID(ApplVerID_FIX50),
+  m_targetDefaultApplVerID(ApplVerID_FIX50),
   m_sendRedundantResendRequests( false ),
   m_checkCompId( true ),
   m_checkLatency( true ), 
@@ -413,8 +415,15 @@ void Session::nextResendRequest( const Message& resendRequest )
 
     if( m_sessionID.isFIXT() )
     {
+      msg.setStringHeader(*i);
+      ApplVerID applVerID;
+      if( msg.getHeader().isSetField(applVerID) )
+        msg.getHeader().getField(applVerID);
+      else
+        applVerID = m_senderDefaultApplVerID;
+
       const DataDictionary& applicationDD =
-        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
+        m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
       msg = Message( *i, sessionDD, applicationDD );
     }
     else
