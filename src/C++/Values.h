@@ -36,12 +36,12 @@ namespace FIX
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
 
-  const char ApplVerId_FIX50[] = "FIX.5.0";
-  const char ApplVerId_FIX44[] = "FIX.4.4";
-  const char ApplVerId_FIX43[] = "FIX.4.3";
-  const char ApplVerId_FIX42[] = "FIX.4.2";
-  const char ApplVerId_FIX41[] = "FIX.4.1";
-  const char ApplVerId_FIX40[] = "FIX.4.0";
+  const char ApplVerId_FIX50[] = "7";
+  const char ApplVerId_FIX44[] = "6";
+  const char ApplVerId_FIX43[] = "5";
+  const char ApplVerId_FIX42[] = "4";
+  const char ApplVerId_FIX41[] = "3";
+  const char ApplVerId_FIX40[] = "2";
 
   const char SessionRejectReason_INVALID_TAG_NUMBER_TEXT[] = "Invalid tag number";
   const char SessionRejectReason_REQUIRED_TAG_MISSING_TEXT[] = "Required tag missing";
