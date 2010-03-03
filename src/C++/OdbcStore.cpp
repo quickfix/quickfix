@@ -177,7 +177,7 @@ throw ( IOException )
 { QF_STACK_PUSH(OdbcStore::set)
 
   std::string msgCopy = msg;
-  string_replace( "'", "''", valueCopy );
+  string_replace( "'", "''", msgCopy );
 
   std::stringstream queryString;
   queryString << "INSERT INTO messages "
