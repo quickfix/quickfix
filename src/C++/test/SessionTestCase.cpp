@@ -288,7 +288,7 @@ FIX42::ExecutionReport createT1142ExecutionReport( const char* sender, const cha
   FIX42::ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecTransType('0'), ExecType('0'), OrdStatus('0'), Symbol("SYMBOL"), Side(Side_BUY), LeavesQty(100), CumQty(0), AvgPx(0) );
   fillHeader( executionReport.getHeader(), sender, target, seq );
   executionReport.getHeader().set( BeginString("FIXT.1.1") );
-  executionReport.getHeader().setField( ApplVerID(Message::toApplVerID(BeginString("FIX.4.2"))) );
+  executionReport.getHeader().setField( ApplVerID(FIX::Message::toApplVerID(BeginString("FIX.4.2"))) );
   FIX42::ExecutionReport::NoContraBrokers noContraBrokers;
   noContraBrokers.set( ContraBroker("BROKER") );
   noContraBrokers.set( ContraTrader("TRADER") );
@@ -394,7 +394,7 @@ struct sessionT11Fixture : public TestCallback
     provider.addApplicationDataDictionary( applVerID, DataDictionary("../spec/FIX50.xml") );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
-    object->setSenderDefaultApplVerID( Message::toApplVerID(BeginString("FIX.5.0")) );
+    object->setSenderDefaultApplVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
     object->setResponder( this );
   }
 
