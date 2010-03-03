@@ -390,8 +390,8 @@ struct sessionT11Fixture : public TestCallback
 
     DataDictionaryProvider provider;
     provider.addTransportDataDictionary( sessionID.getBeginString(), DataDictionary("../spec/FIXT11.xml") );
-    ApplVerID applVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
-    provider.addApplicationDataDictionary( applVerID, DataDictionary("../spec/FIX50.xml") );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), DataDictionary("../spec/FIX50.xml") );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), DataDictionary("../spec/FIX42.xml") );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setSenderDefaultApplVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );

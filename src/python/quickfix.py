@@ -20621,17 +20621,12 @@ class SessionID(_object):
 SessionID_swigregister = _quickfix.SessionID_swigregister
 SessionID_swigregister(SessionID)
 BeginString_FIXT11 = cvar.BeginString_FIXT11
+BeginString_FIX50 = cvar.BeginString_FIX50
 BeginString_FIX44 = cvar.BeginString_FIX44
 BeginString_FIX43 = cvar.BeginString_FIX43
 BeginString_FIX42 = cvar.BeginString_FIX42
 BeginString_FIX41 = cvar.BeginString_FIX41
 BeginString_FIX40 = cvar.BeginString_FIX40
-ApplVerId_FIX50 = cvar.ApplVerId_FIX50
-ApplVerId_FIX44 = cvar.ApplVerId_FIX44
-ApplVerId_FIX43 = cvar.ApplVerId_FIX43
-ApplVerId_FIX42 = cvar.ApplVerId_FIX42
-ApplVerId_FIX41 = cvar.ApplVerId_FIX41
-ApplVerId_FIX40 = cvar.ApplVerId_FIX40
 SessionRejectReason_INVALID_TAG_NUMBER_TEXT = cvar.SessionRejectReason_INVALID_TAG_NUMBER_TEXT
 SessionRejectReason_REQUIRED_TAG_MISSING_TEXT = cvar.SessionRejectReason_REQUIRED_TAG_MISSING_TEXT
 SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT = cvar.SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT

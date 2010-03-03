@@ -1,7 +1,9 @@
 1.13.2
 ------
-Fixed bug where FIX 5.0 messages containing repeating groups would 
+Fixed bug where messages containing repeating groups would 
 not be properly resent under a FIXT.1.1 session
+
+Fixed compilation error with OdbcStore
 
 1.13.1
 ------
