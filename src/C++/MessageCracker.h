@@ -71,7 +71,7 @@ public:
       ((FIX43::MessageCracker&)(*this)).crack((const FIX43::Message&) message, sessionID);
     else if ( beginString == BeginString_FIX44 )
       ((FIX44::MessageCracker&)(*this)).crack((const FIX44::Message&) message, sessionID);
-    else if ( beginString == ApplVerId_FIX50 )
+    else if ( beginString == BeginString_FIX50 )
       ((FIX50::MessageCracker&)(*this)).crack((const FIX50::Message&) message, sessionID);
     else if ( beginString == BeginString_FIXT11 )
     {
@@ -120,7 +120,7 @@ public:
       ((FIX43::MessageCracker&)(*this)).crack((const FIX43::Message&) message, sessionID);
     else if ( beginString == BeginString_FIX44 )
       ((FIX44::MessageCracker&)(*this)).crack((const FIX44::Message&) message, sessionID);
-    else if ( beginString == ApplVerId_FIX50 )
+    else if ( beginString == BeginString_FIX50 )
       ((FIX50::MessageCracker&)(*this)).crack((const FIX50::Message&) message, sessionID);
     else if ( beginString == BeginString_FIXT11 )
     {
