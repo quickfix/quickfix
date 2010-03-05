@@ -43,7 +43,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
-  m_stop( false )
+  m_stop( true )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
@@ -56,7 +56,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
-  m_stop( false )
+  m_stop( true )
 { initialize(); }
 
 void Initiator::initialize() throw ( ConfigError )

@@ -45,7 +45,7 @@ throw( ConfigError )
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
   m_firstPoll( true ),
-  m_stop( false )
+  m_stop( true )
 {
   initialize();
 }
@@ -62,7 +62,7 @@ throw( ConfigError )
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
   m_firstPoll( true ),
-  m_stop( false )
+  m_stop( true )
 {
   initialize();
 }

@@ -5,6 +5,9 @@ not be properly resent under a FIXT.1.1 session
 
 Fixed compilation error with OdbcStore
 
+Updated m_stop variable in initator and acceptor to true
+to better reflect initial state.
+
 1.13.1
 ------
 Fixed install script under unix systems. The new FIX 5.0 and 
