@@ -8,6 +8,9 @@ Fixed compilation error with OdbcStore
 Updated m_stop variable in initator and acceptor to true
 to better reflect initial state.
 
+Fixed issue with reconnect when acceptor not available and timeout
+interval is reached.
+
 1.13.1
 ------
 Fixed install script under unix systems. The new FIX 5.0 and 
