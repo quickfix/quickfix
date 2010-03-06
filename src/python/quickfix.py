@@ -7,10 +7,6 @@
 import _quickfix
 import new
 new_instancemethod = new.instancemethod
-try:
-    _swig_property = property
-except NameError:
-    pass # Python < 2.2 doesn't have 'property'.
 def _swig_setattr_nondynamic(self,class_type,name,value,static=1):
     if (name == "thisown"): return self.this.own(value)
     if (name == "this"):
@@ -38,16 +34,6 @@ def _swig_repr(self):
     except: strthis = ""
     return "<%s.%s; %s >" % (self.__class__.__module__, self.__class__.__name__, strthis,)
 
-import types
-try:
-    _object = types.ObjectType
-    _newclass = 1
-except AttributeError:
-    class _object : pass
-    _newclass = 0
-del types
-
-
 try:
     import weakref
     weakref_proxy = weakref.proxy
@@ -55,23 +41,22 @@ except:
     weakref_proxy = lambda x: x
 
 
-class IntArray(_object):
+class IntArray:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, IntArray, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, IntArray, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IntArray(*args)
+        this = apply(_quickfix.new_IntArray, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IntArray
     __del__ = lambda self : None;
-    def __getitem__(*args): return _quickfix.IntArray___getitem__(*args)
-    def __setitem__(*args): return _quickfix.IntArray___setitem__(*args)
-    def cast(*args): return _quickfix.IntArray_cast(*args)
+    def __getitem__(*args): return apply(_quickfix.IntArray___getitem__, args)
+    def __setitem__(*args): return apply(_quickfix.IntArray___setitem__, args)
+    def cast(*args): return apply(_quickfix.IntArray_cast, args)
     __swig_getmethods__["frompointer"] = lambda x: _quickfix.IntArray_frompointer
-    if _newclass:frompointer = staticmethod(_quickfix.IntArray_frompointer)
 IntArray_swigregister = _quickfix.IntArray_swigregister
 IntArray_swigregister(IntArray)
 IntArray_frompointer = _quickfix.IntArray_frompointer
@@ -90,7 +75,7 @@ class Exception:
     __getattr__ = lambda self, name: _swig_getattr(self, Exception, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Exception(*args)
+        this = apply(_quickfix.new_Exception, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Exception
@@ -99,7 +84,7 @@ class Exception:
     __swig_getmethods__["type"] = _quickfix.Exception_type_get
     __swig_setmethods__["detail"] = _quickfix.Exception_detail_set
     __swig_getmethods__["detail"] = _quickfix.Exception_detail_get
-    def __str__(*args): return _quickfix.Exception___str__(*args)
+    def __str__(*args): return apply(_quickfix.Exception___str__, args)
 Exception_swigregister = _quickfix.Exception_swigregister
 Exception_swigregister(Exception)
 
@@ -112,14 +97,13 @@ class DataDictionaryNotFound(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, DataDictionaryNotFound, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DataDictionaryNotFound(*args)
+        this = apply(_quickfix.new_DataDictionaryNotFound, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DataDictionaryNotFound
     __del__ = lambda self : None;
     __swig_setmethods__["version"] = _quickfix.DataDictionaryNotFound_version_set
     __swig_getmethods__["version"] = _quickfix.DataDictionaryNotFound_version_get
-    if _newclass:version = _swig_property(_quickfix.DataDictionaryNotFound_version_get, _quickfix.DataDictionaryNotFound_version_set)
 DataDictionaryNotFound_swigregister = _quickfix.DataDictionaryNotFound_swigregister
 DataDictionaryNotFound_swigregister(DataDictionaryNotFound)
 
@@ -132,7 +116,7 @@ class FieldNotFound(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, FieldNotFound, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FieldNotFound(*args)
+        this = apply(_quickfix.new_FieldNotFound, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.FieldNotFound_field_set
@@ -151,7 +135,7 @@ class FieldConvertError(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, FieldConvertError, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FieldConvertError(*args)
+        this = apply(_quickfix.new_FieldConvertError, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FieldConvertError
@@ -168,7 +152,7 @@ class MessageParseError(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageParseError, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MessageParseError(*args)
+        this = apply(_quickfix.new_MessageParseError, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MessageParseError
@@ -185,7 +169,7 @@ class InvalidMessage(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessage, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InvalidMessage(*args)
+        this = apply(_quickfix.new_InvalidMessage, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InvalidMessage
@@ -202,7 +186,7 @@ class ConfigError(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfigError, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfigError(*args)
+        this = apply(_quickfix.new_ConfigError, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfigError
@@ -219,7 +203,7 @@ class RuntimeError(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, RuntimeError, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RuntimeError(*args)
+        this = apply(_quickfix.new_RuntimeError, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RuntimeError
@@ -236,7 +220,7 @@ class InvalidTagNumber(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidTagNumber, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InvalidTagNumber(*args)
+        this = apply(_quickfix.new_InvalidTagNumber, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.InvalidTagNumber_field_set
@@ -255,7 +239,7 @@ class RequiredTagMissing(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, RequiredTagMissing, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RequiredTagMissing(*args)
+        this = apply(_quickfix.new_RequiredTagMissing, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.RequiredTagMissing_field_set
@@ -274,7 +258,7 @@ class TagNotDefinedForMessage(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, TagNotDefinedForMessage, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TagNotDefinedForMessage(*args)
+        this = apply(_quickfix.new_TagNotDefinedForMessage, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_set
@@ -293,7 +277,7 @@ class NoTagValue(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, NoTagValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoTagValue(*args)
+        this = apply(_quickfix.new_NoTagValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.NoTagValue_field_set
@@ -312,7 +296,7 @@ class IncorrectTagValue(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectTagValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IncorrectTagValue(*args)
+        this = apply(_quickfix.new_IncorrectTagValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectTagValue_field_set
@@ -331,7 +315,7 @@ class IncorrectDataFormat(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectDataFormat, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IncorrectDataFormat(*args)
+        this = apply(_quickfix.new_IncorrectDataFormat, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectDataFormat_field_set
@@ -350,7 +334,7 @@ class IncorrectMessageStructure(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectMessageStructure, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IncorrectMessageStructure(*args)
+        this = apply(_quickfix.new_IncorrectMessageStructure, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IncorrectMessageStructure
@@ -367,7 +351,7 @@ class DuplicateFieldNumber(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, DuplicateFieldNumber, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DuplicateFieldNumber(*args)
+        this = apply(_quickfix.new_DuplicateFieldNumber, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DuplicateFieldNumber
@@ -384,7 +368,7 @@ class InvalidMessageType(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessageType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InvalidMessageType(*args)
+        this = apply(_quickfix.new_InvalidMessageType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InvalidMessageType
@@ -401,7 +385,7 @@ class UnsupportedMessageType(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedMessageType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnsupportedMessageType(*args)
+        this = apply(_quickfix.new_UnsupportedMessageType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnsupportedMessageType
@@ -418,7 +402,7 @@ class UnsupportedVersion(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedVersion, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnsupportedVersion(*args)
+        this = apply(_quickfix.new_UnsupportedVersion, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnsupportedVersion
@@ -435,12 +419,11 @@ class TagOutOfOrder(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, TagOutOfOrder, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TagOutOfOrder(*args)
+        this = apply(_quickfix.new_TagOutOfOrder, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.TagOutOfOrder_field_set
     __swig_getmethods__["field"] = _quickfix.TagOutOfOrder_field_get
-    if _newclass:field = _swig_property(_quickfix.TagOutOfOrder_field_get, _quickfix.TagOutOfOrder_field_set)
     __swig_destroy__ = _quickfix.delete_TagOutOfOrder
     __del__ = lambda self : None;
 TagOutOfOrder_swigregister = _quickfix.TagOutOfOrder_swigregister
@@ -455,7 +438,7 @@ class RepeatedTag(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatedTag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RepeatedTag(*args)
+        this = apply(_quickfix.new_RepeatedTag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatedTag_field_set
@@ -474,7 +457,7 @@ class RepeatingGroupCountMismatch(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatingGroupCountMismatch, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RepeatingGroupCountMismatch(*args)
+        this = apply(_quickfix.new_RepeatingGroupCountMismatch, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_set
@@ -493,7 +476,7 @@ class DoNotSend(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, DoNotSend, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DoNotSend(*args)
+        this = apply(_quickfix.new_DoNotSend, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DoNotSend
@@ -510,7 +493,7 @@ class RejectLogon(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, RejectLogon, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RejectLogon(*args)
+        this = apply(_quickfix.new_RejectLogon, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RejectLogon
@@ -527,7 +510,7 @@ class SessionNotFound(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, SessionNotFound, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SessionNotFound(*args)
+        this = apply(_quickfix.new_SessionNotFound, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SessionNotFound
@@ -544,7 +527,7 @@ class IOException(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, IOException, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOException(*args)
+        this = apply(_quickfix.new_IOException, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOException
@@ -561,13 +544,12 @@ class SocketException(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketException, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketException(*args)
+        this = apply(_quickfix.new_SocketException, args)
         try: self.this.append(this)
         except: self.this = this
-    def errorToWhat(*args): return _quickfix.SocketException_errorToWhat(*args)
+    def errorToWhat(*args): return apply(_quickfix.SocketException_errorToWhat, args)
     __swig_setmethods__["error"] = _quickfix.SocketException_error_set
     __swig_getmethods__["error"] = _quickfix.SocketException_error_get
-    if _newclass:error = _swig_property(_quickfix.SocketException_error_get, _quickfix.SocketException_error_set)
     __swig_destroy__ = _quickfix.delete_SocketException
     __del__ = lambda self : None;
 SocketException_swigregister = _quickfix.SocketException_swigregister
@@ -582,7 +564,7 @@ class SocketSendFailed(SocketException):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketSendFailed, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketSendFailed(*args)
+        this = apply(_quickfix.new_SocketSendFailed, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SocketSendFailed
@@ -599,7 +581,7 @@ class SocketRecvFailed(SocketException):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketRecvFailed, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketRecvFailed(*args)
+        this = apply(_quickfix.new_SocketRecvFailed, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SocketRecvFailed
@@ -616,7 +598,7 @@ class SocketCloseFailed(SocketException):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketCloseFailed, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketCloseFailed(*args)
+        this = apply(_quickfix.new_SocketCloseFailed, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SocketCloseFailed
@@ -624,27 +606,27 @@ class SocketCloseFailed(SocketException):
 SocketCloseFailed_swigregister = _quickfix.SocketCloseFailed_swigregister
 SocketCloseFailed_swigregister(SocketCloseFailed)
 
-class FieldBase(_object):
+class FieldBase:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldBase, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, FieldBase, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FieldBase(*args)
+        this = apply(_quickfix.new_FieldBase, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FieldBase
     __del__ = lambda self : None;
-    def setField(*args): return _quickfix.FieldBase_setField(*args)
-    def setString(*args): return _quickfix.FieldBase_setString(*args)
-    def getField(*args): return _quickfix.FieldBase_getField(*args)
-    def getString(*args): return _quickfix.FieldBase_getString(*args)
-    def getValue(*args): return _quickfix.FieldBase_getValue(*args)
-    def getLength(*args): return _quickfix.FieldBase_getLength(*args)
-    def getTotal(*args): return _quickfix.FieldBase_getTotal(*args)
-    def __lt__(*args): return _quickfix.FieldBase___lt__(*args)
-    def __str__(*args): return _quickfix.FieldBase___str__(*args)
+    def setField(*args): return apply(_quickfix.FieldBase_setField, args)
+    def setString(*args): return apply(_quickfix.FieldBase_setString, args)
+    def getField(*args): return apply(_quickfix.FieldBase_getField, args)
+    def getString(*args): return apply(_quickfix.FieldBase_getString, args)
+    def getValue(*args): return apply(_quickfix.FieldBase_getValue, args)
+    def getLength(*args): return apply(_quickfix.FieldBase_getLength, args)
+    def getTotal(*args): return apply(_quickfix.FieldBase_getTotal, args)
+    def __lt__(*args): return apply(_quickfix.FieldBase___lt__, args)
+    def __str__(*args): return apply(_quickfix.FieldBase___str__, args)
 FieldBase_swigregister = _quickfix.FieldBase_swigregister
 FieldBase_swigregister(FieldBase)
 
@@ -657,17 +639,17 @@ class StringField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, StringField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StringField(*args)
+        this = apply(_quickfix.new_StringField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.StringField_setValue(*args)
-    def getValue(*args): return _quickfix.StringField_getValue(*args)
-    def __lt__(*args): return _quickfix.StringField___lt__(*args)
-    def __gt__(*args): return _quickfix.StringField___gt__(*args)
-    def __eq__(*args): return _quickfix.StringField___eq__(*args)
-    def __ne__(*args): return _quickfix.StringField___ne__(*args)
-    def __le__(*args): return _quickfix.StringField___le__(*args)
-    def __ge__(*args): return _quickfix.StringField___ge__(*args)
+    def setValue(*args): return apply(_quickfix.StringField_setValue, args)
+    def getValue(*args): return apply(_quickfix.StringField_getValue, args)
+    def __lt__(*args): return apply(_quickfix.StringField___lt__, args)
+    def __gt__(*args): return apply(_quickfix.StringField___gt__, args)
+    def __eq__(*args): return apply(_quickfix.StringField___eq__, args)
+    def __ne__(*args): return apply(_quickfix.StringField___ne__, args)
+    def __le__(*args): return apply(_quickfix.StringField___le__, args)
+    def __ge__(*args): return apply(_quickfix.StringField___ge__, args)
     __swig_destroy__ = _quickfix.delete_StringField
     __del__ = lambda self : None;
 StringField_swigregister = _quickfix.StringField_swigregister
@@ -682,11 +664,11 @@ class CharField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, CharField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CharField(*args)
+        this = apply(_quickfix.new_CharField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.CharField_setValue(*args)
-    def getValue(*args): return _quickfix.CharField_getValue(*args)
+    def setValue(*args): return apply(_quickfix.CharField_setValue, args)
+    def getValue(*args): return apply(_quickfix.CharField_getValue, args)
     __swig_destroy__ = _quickfix.delete_CharField
     __del__ = lambda self : None;
 CharField_swigregister = _quickfix.CharField_swigregister
@@ -704,11 +686,11 @@ class DoubleField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, DoubleField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DoubleField(*args)
+        this = apply(_quickfix.new_DoubleField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.DoubleField_setValue(*args)
-    def getValue(*args): return _quickfix.DoubleField_getValue(*args)
+    def setValue(*args): return apply(_quickfix.DoubleField_setValue, args)
+    def getValue(*args): return apply(_quickfix.DoubleField_getValue, args)
     __swig_destroy__ = _quickfix.delete_DoubleField
     __del__ = lambda self : None;
 DoubleField_swigregister = _quickfix.DoubleField_swigregister
@@ -723,11 +705,11 @@ class IntField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, IntField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IntField(*args)
+        this = apply(_quickfix.new_IntField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.IntField_setValue(*args)
-    def getValue(*args): return _quickfix.IntField_getValue(*args)
+    def setValue(*args): return apply(_quickfix.IntField_setValue, args)
+    def getValue(*args): return apply(_quickfix.IntField_getValue, args)
     __swig_destroy__ = _quickfix.delete_IntField
     __del__ = lambda self : None;
 IntField_swigregister = _quickfix.IntField_swigregister
@@ -742,11 +724,11 @@ class BoolField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, BoolField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BoolField(*args)
+        this = apply(_quickfix.new_BoolField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.BoolField_setValue(*args)
-    def getValue(*args): return _quickfix.BoolField_getValue(*args)
+    def setValue(*args): return apply(_quickfix.BoolField_setValue, args)
+    def getValue(*args): return apply(_quickfix.BoolField_getValue, args)
     __swig_destroy__ = _quickfix.delete_BoolField
     __del__ = lambda self : None;
 BoolField_swigregister = _quickfix.BoolField_swigregister
@@ -761,14 +743,14 @@ class UtcTimeStampField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeStampField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UtcTimeStampField(*args)
+        this = apply(_quickfix.new_UtcTimeStampField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.UtcTimeStampField_setValue(*args)
-    def getValue(*args): return _quickfix.UtcTimeStampField_getValue(*args)
-    def __lt__(*args): return _quickfix.UtcTimeStampField___lt__(*args)
-    def __eq__(*args): return _quickfix.UtcTimeStampField___eq__(*args)
-    def __ne__(*args): return _quickfix.UtcTimeStampField___ne__(*args)
+    def setValue(*args): return apply(_quickfix.UtcTimeStampField_setValue, args)
+    def getValue(*args): return apply(_quickfix.UtcTimeStampField_getValue, args)
+    def __lt__(*args): return apply(_quickfix.UtcTimeStampField___lt__, args)
+    def __eq__(*args): return apply(_quickfix.UtcTimeStampField___eq__, args)
+    def __ne__(*args): return apply(_quickfix.UtcTimeStampField___ne__, args)
     __swig_destroy__ = _quickfix.delete_UtcTimeStampField
     __del__ = lambda self : None;
 UtcTimeStampField_swigregister = _quickfix.UtcTimeStampField_swigregister
@@ -783,14 +765,14 @@ class UtcDateField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, UtcDateField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UtcDateField(*args)
+        this = apply(_quickfix.new_UtcDateField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.UtcDateField_setValue(*args)
-    def getValue(*args): return _quickfix.UtcDateField_getValue(*args)
-    def __lt__(*args): return _quickfix.UtcDateField___lt__(*args)
-    def __eq__(*args): return _quickfix.UtcDateField___eq__(*args)
-    def __ne__(*args): return _quickfix.UtcDateField___ne__(*args)
+    def setValue(*args): return apply(_quickfix.UtcDateField_setValue, args)
+    def getValue(*args): return apply(_quickfix.UtcDateField_getValue, args)
+    def __lt__(*args): return apply(_quickfix.UtcDateField___lt__, args)
+    def __eq__(*args): return apply(_quickfix.UtcDateField___eq__, args)
+    def __ne__(*args): return apply(_quickfix.UtcDateField___ne__, args)
     __swig_destroy__ = _quickfix.delete_UtcDateField
     __del__ = lambda self : None;
 UtcDateField_swigregister = _quickfix.UtcDateField_swigregister
@@ -805,14 +787,14 @@ class UtcTimeOnlyField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeOnlyField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UtcTimeOnlyField(*args)
+        this = apply(_quickfix.new_UtcTimeOnlyField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.UtcTimeOnlyField_setValue(*args)
-    def getValue(*args): return _quickfix.UtcTimeOnlyField_getValue(*args)
-    def __lt__(*args): return _quickfix.UtcTimeOnlyField___lt__(*args)
-    def __eq__(*args): return _quickfix.UtcTimeOnlyField___eq__(*args)
-    def __ne__(*args): return _quickfix.UtcTimeOnlyField___ne__(*args)
+    def setValue(*args): return apply(_quickfix.UtcTimeOnlyField_setValue, args)
+    def getValue(*args): return apply(_quickfix.UtcTimeOnlyField_getValue, args)
+    def __lt__(*args): return apply(_quickfix.UtcTimeOnlyField___lt__, args)
+    def __eq__(*args): return apply(_quickfix.UtcTimeOnlyField___eq__, args)
+    def __ne__(*args): return apply(_quickfix.UtcTimeOnlyField___ne__, args)
     __swig_destroy__ = _quickfix.delete_UtcTimeOnlyField
     __del__ = lambda self : None;
 UtcTimeOnlyField_swigregister = _quickfix.UtcTimeOnlyField_swigregister
@@ -827,52 +809,52 @@ class CheckSumField(FieldBase):
     __getattr__ = lambda self, name: _swig_getattr(self, CheckSumField, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CheckSumField(*args)
+        this = apply(_quickfix.new_CheckSumField, args)
         try: self.this.append(this)
         except: self.this = this
-    def setValue(*args): return _quickfix.CheckSumField_setValue(*args)
-    def getValue(*args): return _quickfix.CheckSumField_getValue(*args)
+    def setValue(*args): return apply(_quickfix.CheckSumField_setValue, args)
+    def getValue(*args): return apply(_quickfix.CheckSumField_getValue, args)
     __swig_destroy__ = _quickfix.delete_CheckSumField
     __del__ = lambda self : None;
 CheckSumField_swigregister = _quickfix.CheckSumField_swigregister
 CheckSumField_swigregister(CheckSumField)
 
-class FieldMap(_object):
+class FieldMap:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldMap, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, FieldMap, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FieldMap(*args)
+        this = apply(_quickfix.new_FieldMap, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FieldMap
     __del__ = lambda self : None;
-    def setField(*args): return _quickfix.FieldMap_setField(*args)
-    def getField(*args): return _quickfix.FieldMap_getField(*args)
-    def getFieldRef(*args): return _quickfix.FieldMap_getFieldRef(*args)
-    def getFieldPtr(*args): return _quickfix.FieldMap_getFieldPtr(*args)
-    def isSetField(*args): return _quickfix.FieldMap_isSetField(*args)
-    def removeField(*args): return _quickfix.FieldMap_removeField(*args)
-    def addGroup(*args): return _quickfix.FieldMap_addGroup(*args)
-    def replaceGroup(*args): return _quickfix.FieldMap_replaceGroup(*args)
-    def getGroup(*args): return _quickfix.FieldMap_getGroup(*args)
-    def getGroupRef(*args): return _quickfix.FieldMap_getGroupRef(*args)
-    def getGroupPtr(*args): return _quickfix.FieldMap_getGroupPtr(*args)
-    def removeGroup(*args): return _quickfix.FieldMap_removeGroup(*args)
-    def hasGroup(*args): return _quickfix.FieldMap_hasGroup(*args)
-    def groupCount(*args): return _quickfix.FieldMap_groupCount(*args)
-    def clear(*args): return _quickfix.FieldMap_clear(*args)
-    def isEmpty(*args): return _quickfix.FieldMap_isEmpty(*args)
-    def totalFields(*args): return _quickfix.FieldMap_totalFields(*args)
-    def calculateString(*args): return _quickfix.FieldMap_calculateString(*args)
-    def calculateLength(*args): return _quickfix.FieldMap_calculateLength(*args)
-    def calculateTotal(*args): return _quickfix.FieldMap_calculateTotal(*args)
-    def begin(*args): return _quickfix.FieldMap_begin(*args)
-    def end(*args): return _quickfix.FieldMap_end(*args)
-    def g_begin(*args): return _quickfix.FieldMap_g_begin(*args)
-    def g_end(*args): return _quickfix.FieldMap_g_end(*args)
+    def setField(*args): return apply(_quickfix.FieldMap_setField, args)
+    def getField(*args): return apply(_quickfix.FieldMap_getField, args)
+    def getFieldRef(*args): return apply(_quickfix.FieldMap_getFieldRef, args)
+    def getFieldPtr(*args): return apply(_quickfix.FieldMap_getFieldPtr, args)
+    def isSetField(*args): return apply(_quickfix.FieldMap_isSetField, args)
+    def removeField(*args): return apply(_quickfix.FieldMap_removeField, args)
+    def addGroup(*args): return apply(_quickfix.FieldMap_addGroup, args)
+    def replaceGroup(*args): return apply(_quickfix.FieldMap_replaceGroup, args)
+    def getGroup(*args): return apply(_quickfix.FieldMap_getGroup, args)
+    def getGroupRef(*args): return apply(_quickfix.FieldMap_getGroupRef, args)
+    def getGroupPtr(*args): return apply(_quickfix.FieldMap_getGroupPtr, args)
+    def removeGroup(*args): return apply(_quickfix.FieldMap_removeGroup, args)
+    def hasGroup(*args): return apply(_quickfix.FieldMap_hasGroup, args)
+    def groupCount(*args): return apply(_quickfix.FieldMap_groupCount, args)
+    def clear(*args): return apply(_quickfix.FieldMap_clear, args)
+    def isEmpty(*args): return apply(_quickfix.FieldMap_isEmpty, args)
+    def totalFields(*args): return apply(_quickfix.FieldMap_totalFields, args)
+    def calculateString(*args): return apply(_quickfix.FieldMap_calculateString, args)
+    def calculateLength(*args): return apply(_quickfix.FieldMap_calculateLength, args)
+    def calculateTotal(*args): return apply(_quickfix.FieldMap_calculateTotal, args)
+    def begin(*args): return apply(_quickfix.FieldMap_begin, args)
+    def end(*args): return apply(_quickfix.FieldMap_end, args)
+    def g_begin(*args): return apply(_quickfix.FieldMap_g_begin, args)
+    def g_end(*args): return apply(_quickfix.FieldMap_g_end, args)
 FieldMap_swigregister = _quickfix.FieldMap_swigregister
 FieldMap_swigregister(FieldMap)
 
@@ -885,44 +867,38 @@ class Message(FieldMap):
     __getattr__ = lambda self, name: _swig_getattr(self, Message, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Message(*args)
+        this = apply(_quickfix.new_Message, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_getmethods__["InitializeXML"] = lambda x: _quickfix.Message_InitializeXML
-    if _newclass:InitializeXML = staticmethod(_quickfix.Message_InitializeXML)
-    def addGroup(*args): return _quickfix.Message_addGroup(*args)
-    def replaceGroup(*args): return _quickfix.Message_replaceGroup(*args)
-    def getGroup(*args): return _quickfix.Message_getGroup(*args)
-    def removeGroup(*args): return _quickfix.Message_removeGroup(*args)
-    def hasGroup(*args): return _quickfix.Message_hasGroup(*args)
-    def toString(*args): return _quickfix.Message_toString(*args)
-    def toXML(*args): return _quickfix.Message_toXML(*args)
-    def reverseRoute(*args): return _quickfix.Message_reverseRoute(*args)
-    def setString(*args): return _quickfix.Message_setString(*args)
-    def setGroup(*args): return _quickfix.Message_setGroup(*args)
-    def setStringHeader(*args): return _quickfix.Message_setStringHeader(*args)
-    def getHeader(*args): return _quickfix.Message_getHeader(*args)
-    def getTrailer(*args): return _quickfix.Message_getTrailer(*args)
-    def hasValidStructure(*args): return _quickfix.Message_hasValidStructure(*args)
-    def bodyLength(*args): return _quickfix.Message_bodyLength(*args)
-    def checkSum(*args): return _quickfix.Message_checkSum(*args)
-    def isAdmin(*args): return _quickfix.Message_isAdmin(*args)
-    def isApp(*args): return _quickfix.Message_isApp(*args)
-    def isEmpty(*args): return _quickfix.Message_isEmpty(*args)
-    def clear(*args): return _quickfix.Message_clear(*args)
+    def addGroup(*args): return apply(_quickfix.Message_addGroup, args)
+    def replaceGroup(*args): return apply(_quickfix.Message_replaceGroup, args)
+    def getGroup(*args): return apply(_quickfix.Message_getGroup, args)
+    def removeGroup(*args): return apply(_quickfix.Message_removeGroup, args)
+    def hasGroup(*args): return apply(_quickfix.Message_hasGroup, args)
+    def toString(*args): return apply(_quickfix.Message_toString, args)
+    def toXML(*args): return apply(_quickfix.Message_toXML, args)
+    def reverseRoute(*args): return apply(_quickfix.Message_reverseRoute, args)
+    def setString(*args): return apply(_quickfix.Message_setString, args)
+    def setGroup(*args): return apply(_quickfix.Message_setGroup, args)
+    def setStringHeader(*args): return apply(_quickfix.Message_setStringHeader, args)
+    def getHeader(*args): return apply(_quickfix.Message_getHeader, args)
+    def getTrailer(*args): return apply(_quickfix.Message_getTrailer, args)
+    def hasValidStructure(*args): return apply(_quickfix.Message_hasValidStructure, args)
+    def bodyLength(*args): return apply(_quickfix.Message_bodyLength, args)
+    def checkSum(*args): return apply(_quickfix.Message_checkSum, args)
+    def isAdmin(*args): return apply(_quickfix.Message_isAdmin, args)
+    def isApp(*args): return apply(_quickfix.Message_isApp, args)
+    def isEmpty(*args): return apply(_quickfix.Message_isEmpty, args)
+    def clear(*args): return apply(_quickfix.Message_clear, args)
     __swig_getmethods__["isAdminMsgType"] = lambda x: _quickfix.Message_isAdminMsgType
-    if _newclass:isAdminMsgType = staticmethod(_quickfix.Message_isAdminMsgType)
     __swig_getmethods__["toApplVerID"] = lambda x: _quickfix.Message_toApplVerID
-    if _newclass:toApplVerID = staticmethod(_quickfix.Message_toApplVerID)
     __swig_getmethods__["toBeginString"] = lambda x: _quickfix.Message_toBeginString
-    if _newclass:toBeginString = staticmethod(_quickfix.Message_toBeginString)
     __swig_getmethods__["isHeaderField"] = lambda x: _quickfix.Message_isHeaderField
-    if _newclass:isHeaderField = staticmethod(_quickfix.Message_isHeaderField)
     __swig_getmethods__["isTrailerField"] = lambda x: _quickfix.Message_isTrailerField
-    if _newclass:isTrailerField = staticmethod(_quickfix.Message_isTrailerField)
-    def getSessionID(*args): return _quickfix.Message_getSessionID(*args)
-    def setSessionID(*args): return _quickfix.Message_setSessionID(*args)
-    def __str__(*args): return _quickfix.Message___str__(*args)
+    def getSessionID(*args): return apply(_quickfix.Message_getSessionID, args)
+    def setSessionID(*args): return apply(_quickfix.Message_setSessionID, args)
+    def __str__(*args): return apply(_quickfix.Message___str__, args)
     __swig_destroy__ = _quickfix.delete_Message
     __del__ = lambda self : None;
 Message_swigregister = _quickfix.Message_swigregister
@@ -946,16 +922,16 @@ class Group(FieldMap):
     __getattr__ = lambda self, name: _swig_getattr(self, Group, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Group(*args)
+        this = apply(_quickfix.new_Group, args)
         try: self.this.append(this)
         except: self.this = this
-    def field(*args): return _quickfix.Group_field(*args)
-    def delim(*args): return _quickfix.Group_delim(*args)
-    def addGroup(*args): return _quickfix.Group_addGroup(*args)
-    def replaceGroup(*args): return _quickfix.Group_replaceGroup(*args)
-    def getGroup(*args): return _quickfix.Group_getGroup(*args)
-    def removeGroup(*args): return _quickfix.Group_removeGroup(*args)
-    def hasGroup(*args): return _quickfix.Group_hasGroup(*args)
+    def field(*args): return apply(_quickfix.Group_field, args)
+    def delim(*args): return apply(_quickfix.Group_delim, args)
+    def addGroup(*args): return apply(_quickfix.Group_addGroup, args)
+    def replaceGroup(*args): return apply(_quickfix.Group_replaceGroup, args)
+    def getGroup(*args): return apply(_quickfix.Group_getGroup, args)
+    def removeGroup(*args): return apply(_quickfix.Group_removeGroup, args)
+    def hasGroup(*args): return apply(_quickfix.Group_hasGroup, args)
     __swig_destroy__ = _quickfix.delete_Group
     __del__ = lambda self : None;
 Group_swigregister = _quickfix.Group_swigregister
@@ -970,7 +946,7 @@ class Account(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Account, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Account(*args)
+        this = apply(_quickfix.new_Account, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Account
@@ -987,7 +963,7 @@ class AdvId(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AdvId, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AdvId(*args)
+        this = apply(_quickfix.new_AdvId, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AdvId
@@ -1004,7 +980,7 @@ class AdvRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AdvRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AdvRefID(*args)
+        this = apply(_quickfix.new_AdvRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AdvRefID
@@ -1021,7 +997,7 @@ class AdvSide(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, AdvSide, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AdvSide(*args)
+        this = apply(_quickfix.new_AdvSide, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AdvSide
@@ -1038,7 +1014,7 @@ class AdvTransType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AdvTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AdvTransType(*args)
+        this = apply(_quickfix.new_AdvTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AdvTransType
@@ -1055,7 +1031,7 @@ class AvgPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AvgPx(*args)
+        this = apply(_quickfix.new_AvgPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPx
@@ -1072,7 +1048,7 @@ class ClOrdID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClOrdID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClOrdID(*args)
+        this = apply(_quickfix.new_ClOrdID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClOrdID
@@ -1089,7 +1065,7 @@ class Commission(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Commission, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Commission(*args)
+        this = apply(_quickfix.new_Commission, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Commission
@@ -1106,7 +1082,7 @@ class CommType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, CommType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CommType(*args)
+        this = apply(_quickfix.new_CommType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CommType
@@ -1123,7 +1099,7 @@ class CumQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CumQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CumQty(*args)
+        this = apply(_quickfix.new_CumQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CumQty
@@ -1140,7 +1116,7 @@ class Currency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Currency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Currency(*args)
+        this = apply(_quickfix.new_Currency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Currency
@@ -1157,7 +1133,7 @@ class ExecID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecID(*args)
+        this = apply(_quickfix.new_ExecID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecID
@@ -1174,7 +1150,7 @@ class ExecInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecInst(*args)
+        this = apply(_quickfix.new_ExecInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecInst
@@ -1191,7 +1167,7 @@ class ExecRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecRefID(*args)
+        this = apply(_quickfix.new_ExecRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecRefID
@@ -1208,7 +1184,7 @@ class ExecTransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecTransType(*args)
+        this = apply(_quickfix.new_ExecTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecTransType
@@ -1225,7 +1201,7 @@ class HandlInst(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, HandlInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HandlInst(*args)
+        this = apply(_quickfix.new_HandlInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HandlInst
@@ -1242,7 +1218,7 @@ class SecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityIDSource(*args)
+        this = apply(_quickfix.new_SecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityIDSource
@@ -1259,7 +1235,7 @@ class IOIid(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIid, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIid(*args)
+        this = apply(_quickfix.new_IOIid, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIid
@@ -1276,7 +1252,7 @@ class IOIQltyInd(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQltyInd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIQltyInd(*args)
+        this = apply(_quickfix.new_IOIQltyInd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQltyInd
@@ -1293,7 +1269,7 @@ class IOIRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIRefID(*args)
+        this = apply(_quickfix.new_IOIRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIRefID
@@ -1310,7 +1286,7 @@ class IOIQty(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIQty(*args)
+        this = apply(_quickfix.new_IOIQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQty
@@ -1327,7 +1303,7 @@ class IOITransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOITransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOITransType(*args)
+        this = apply(_quickfix.new_IOITransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOITransType
@@ -1344,7 +1320,7 @@ class LastCapacity(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastCapacity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastCapacity(*args)
+        this = apply(_quickfix.new_LastCapacity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastCapacity
@@ -1361,7 +1337,7 @@ class LastMkt(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastMkt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastMkt(*args)
+        this = apply(_quickfix.new_LastMkt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastMkt
@@ -1378,7 +1354,7 @@ class LastPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastPx(*args)
+        this = apply(_quickfix.new_LastPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastPx
@@ -1395,7 +1371,7 @@ class LastQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastQty(*args)
+        this = apply(_quickfix.new_LastQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastQty
@@ -1412,7 +1388,7 @@ class NoLinesOfText(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoLinesOfText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoLinesOfText(*args)
+        this = apply(_quickfix.new_NoLinesOfText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoLinesOfText
@@ -1429,7 +1405,7 @@ class OrderID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderID(*args)
+        this = apply(_quickfix.new_OrderID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderID
@@ -1446,7 +1422,7 @@ class OrderQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderQty(*args)
+        this = apply(_quickfix.new_OrderQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderQty
@@ -1463,7 +1439,7 @@ class OrdStatus(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrdStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrdStatus(*args)
+        this = apply(_quickfix.new_OrdStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrdStatus
@@ -1480,7 +1456,7 @@ class OrdType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrdType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrdType(*args)
+        this = apply(_quickfix.new_OrdType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrdType
@@ -1497,7 +1473,7 @@ class OrigClOrdID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigClOrdID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigClOrdID(*args)
+        this = apply(_quickfix.new_OrigClOrdID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigClOrdID
@@ -1514,7 +1490,7 @@ class OrigTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigTime(*args)
+        this = apply(_quickfix.new_OrigTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTime
@@ -1531,7 +1507,7 @@ class Price(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Price, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Price(*args)
+        this = apply(_quickfix.new_Price, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Price
@@ -1548,7 +1524,7 @@ class SecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityID(*args)
+        this = apply(_quickfix.new_SecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityID
@@ -1565,7 +1541,7 @@ class Quantity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Quantity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Quantity(*args)
+        this = apply(_quickfix.new_Quantity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Quantity
@@ -1582,7 +1558,7 @@ class Side(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Side, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Side(*args)
+        this = apply(_quickfix.new_Side, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Side
@@ -1599,7 +1575,7 @@ class Symbol(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Symbol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Symbol(*args)
+        this = apply(_quickfix.new_Symbol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Symbol
@@ -1616,7 +1592,7 @@ class TimeInForce(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TimeInForce, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TimeInForce(*args)
+        this = apply(_quickfix.new_TimeInForce, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TimeInForce
@@ -1633,7 +1609,7 @@ class TransactTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TransactTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TransactTime(*args)
+        this = apply(_quickfix.new_TransactTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TransactTime
@@ -1650,7 +1626,7 @@ class Urgency(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Urgency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Urgency(*args)
+        this = apply(_quickfix.new_Urgency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Urgency
@@ -1667,7 +1643,7 @@ class ValidUntilTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, ValidUntilTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ValidUntilTime(*args)
+        this = apply(_quickfix.new_ValidUntilTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ValidUntilTime
@@ -1684,7 +1660,7 @@ class SettlType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlType(*args)
+        this = apply(_quickfix.new_SettlType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlType
@@ -1701,7 +1677,7 @@ class SettlDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlDate(*args)
+        this = apply(_quickfix.new_SettlDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDate
@@ -1718,7 +1694,7 @@ class SymbolSfx(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SymbolSfx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SymbolSfx(*args)
+        this = apply(_quickfix.new_SymbolSfx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SymbolSfx
@@ -1735,7 +1711,7 @@ class ListID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListID(*args)
+        this = apply(_quickfix.new_ListID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListID
@@ -1752,7 +1728,7 @@ class ListSeqNo(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListSeqNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListSeqNo(*args)
+        this = apply(_quickfix.new_ListSeqNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListSeqNo
@@ -1769,7 +1745,7 @@ class TotNoOrders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoOrders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoOrders(*args)
+        this = apply(_quickfix.new_TotNoOrders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoOrders
@@ -1786,7 +1762,7 @@ class ListNoOrds(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListNoOrds, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListNoOrds(*args)
+        this = apply(_quickfix.new_ListNoOrds, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListNoOrds
@@ -1803,7 +1779,7 @@ class ListExecInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListExecInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListExecInst(*args)
+        this = apply(_quickfix.new_ListExecInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListExecInst
@@ -1820,7 +1796,7 @@ class AllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocID(*args)
+        this = apply(_quickfix.new_AllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocID
@@ -1837,7 +1813,7 @@ class AllocTransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocTransType(*args)
+        this = apply(_quickfix.new_AllocTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocTransType
@@ -1854,7 +1830,7 @@ class RefAllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefAllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefAllocID(*args)
+        this = apply(_quickfix.new_RefAllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefAllocID
@@ -1871,7 +1847,7 @@ class NoOrders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoOrders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoOrders(*args)
+        this = apply(_quickfix.new_NoOrders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoOrders
@@ -1888,7 +1864,7 @@ class AvgPxPrecision(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPxPrecision, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AvgPxPrecision(*args)
+        this = apply(_quickfix.new_AvgPxPrecision, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPxPrecision
@@ -1905,7 +1881,7 @@ class TradeDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeDate(*args)
+        this = apply(_quickfix.new_TradeDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeDate
@@ -1922,7 +1898,7 @@ class ExecBroker(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecBroker, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecBroker(*args)
+        this = apply(_quickfix.new_ExecBroker, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecBroker
@@ -1939,7 +1915,7 @@ class PositionEffect(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, PositionEffect, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PositionEffect(*args)
+        this = apply(_quickfix.new_PositionEffect, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PositionEffect
@@ -1956,7 +1932,7 @@ class NoAllocs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoAllocs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoAllocs(*args)
+        this = apply(_quickfix.new_NoAllocs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoAllocs
@@ -1973,7 +1949,7 @@ class AllocAccount(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocAccount(*args)
+        this = apply(_quickfix.new_AllocAccount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccount
@@ -1990,7 +1966,7 @@ class AllocQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocQty(*args)
+        this = apply(_quickfix.new_AllocQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocQty
@@ -2007,7 +1983,7 @@ class ProcessCode(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ProcessCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ProcessCode(*args)
+        this = apply(_quickfix.new_ProcessCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ProcessCode
@@ -2024,7 +2000,7 @@ class NoRpts(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRpts, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRpts(*args)
+        this = apply(_quickfix.new_NoRpts, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRpts
@@ -2041,7 +2017,7 @@ class RptSeq(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RptSeq, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RptSeq(*args)
+        this = apply(_quickfix.new_RptSeq, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RptSeq
@@ -2058,7 +2034,7 @@ class CxlQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CxlQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CxlQty(*args)
+        this = apply(_quickfix.new_CxlQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CxlQty
@@ -2075,7 +2051,7 @@ class NoDlvyInst(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoDlvyInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoDlvyInst(*args)
+        this = apply(_quickfix.new_NoDlvyInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoDlvyInst
@@ -2092,7 +2068,7 @@ class DlvyInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DlvyInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DlvyInst(*args)
+        this = apply(_quickfix.new_DlvyInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DlvyInst
@@ -2109,7 +2085,7 @@ class AllocStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocStatus(*args)
+        this = apply(_quickfix.new_AllocStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocStatus
@@ -2126,7 +2102,7 @@ class AllocRejCode(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocRejCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocRejCode(*args)
+        this = apply(_quickfix.new_AllocRejCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocRejCode
@@ -2143,7 +2119,7 @@ class BrokerOfCredit(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BrokerOfCredit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BrokerOfCredit(*args)
+        this = apply(_quickfix.new_BrokerOfCredit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BrokerOfCredit
@@ -2160,7 +2136,7 @@ class EmailType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, EmailType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EmailType(*args)
+        this = apply(_quickfix.new_EmailType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EmailType
@@ -2177,7 +2153,7 @@ class StopPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, StopPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StopPx(*args)
+        this = apply(_quickfix.new_StopPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StopPx
@@ -2194,7 +2170,7 @@ class ExDestination(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExDestination, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExDestination(*args)
+        this = apply(_quickfix.new_ExDestination, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExDestination
@@ -2211,7 +2187,7 @@ class CxlRejReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CxlRejReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CxlRejReason(*args)
+        this = apply(_quickfix.new_CxlRejReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CxlRejReason
@@ -2228,7 +2204,7 @@ class OrdRejReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrdRejReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrdRejReason(*args)
+        this = apply(_quickfix.new_OrdRejReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrdRejReason
@@ -2245,7 +2221,7 @@ class IOIQualifier(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQualifier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIQualifier(*args)
+        this = apply(_quickfix.new_IOIQualifier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQualifier
@@ -2262,7 +2238,7 @@ class WaveNo(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, WaveNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_WaveNo(*args)
+        this = apply(_quickfix.new_WaveNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_WaveNo
@@ -2279,7 +2255,7 @@ class Issuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Issuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Issuer(*args)
+        this = apply(_quickfix.new_Issuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Issuer
@@ -2296,7 +2272,7 @@ class SecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityDesc(*args)
+        this = apply(_quickfix.new_SecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityDesc
@@ -2313,7 +2289,7 @@ class ClientID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClientID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClientID(*args)
+        this = apply(_quickfix.new_ClientID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClientID
@@ -2330,7 +2306,7 @@ class MinQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MinQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MinQty(*args)
+        this = apply(_quickfix.new_MinQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MinQty
@@ -2347,7 +2323,7 @@ class MaxFloor(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaxFloor, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaxFloor(*args)
+        this = apply(_quickfix.new_MaxFloor, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaxFloor
@@ -2364,7 +2340,7 @@ class ReportToExch(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ReportToExch, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ReportToExch(*args)
+        this = apply(_quickfix.new_ReportToExch, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ReportToExch
@@ -2381,7 +2357,7 @@ class LocateReqd(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, LocateReqd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LocateReqd(*args)
+        this = apply(_quickfix.new_LocateReqd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LocateReqd
@@ -2398,7 +2374,7 @@ class QuoteID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteID(*args)
+        this = apply(_quickfix.new_QuoteID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteID
@@ -2415,7 +2391,7 @@ class NetMoney(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetMoney, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetMoney(*args)
+        this = apply(_quickfix.new_NetMoney, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetMoney
@@ -2432,7 +2408,7 @@ class SettlCurrAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrAmt(*args)
+        this = apply(_quickfix.new_SettlCurrAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrAmt
@@ -2449,7 +2425,7 @@ class SettlCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrency(*args)
+        this = apply(_quickfix.new_SettlCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrency
@@ -2466,7 +2442,7 @@ class ForexReq(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ForexReq, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ForexReq(*args)
+        this = apply(_quickfix.new_ForexReq, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ForexReq
@@ -2483,7 +2459,7 @@ class NoExecs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoExecs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoExecs(*args)
+        this = apply(_quickfix.new_NoExecs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoExecs
@@ -2500,7 +2476,7 @@ class CxlType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, CxlType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CxlType(*args)
+        this = apply(_quickfix.new_CxlType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CxlType
@@ -2517,7 +2493,7 @@ class ExpireTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExpireTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExpireTime(*args)
+        this = apply(_quickfix.new_ExpireTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExpireTime
@@ -2534,7 +2510,7 @@ class DKReason(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DKReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DKReason(*args)
+        this = apply(_quickfix.new_DKReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DKReason
@@ -2551,7 +2527,7 @@ class IOINaturalFlag(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOINaturalFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOINaturalFlag(*args)
+        this = apply(_quickfix.new_IOINaturalFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOINaturalFlag
@@ -2568,7 +2544,7 @@ class QuoteReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteReqID(*args)
+        this = apply(_quickfix.new_QuoteReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteReqID
@@ -2585,7 +2561,7 @@ class BidPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidPx(*args)
+        this = apply(_quickfix.new_BidPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidPx
@@ -2602,7 +2578,7 @@ class OfferPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferPx(*args)
+        this = apply(_quickfix.new_OfferPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferPx
@@ -2619,7 +2595,7 @@ class BidSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidSize(*args)
+        this = apply(_quickfix.new_BidSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidSize
@@ -2636,7 +2612,7 @@ class OfferSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferSize(*args)
+        this = apply(_quickfix.new_OfferSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSize
@@ -2653,7 +2629,7 @@ class NoMiscFees(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoMiscFees, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoMiscFees(*args)
+        this = apply(_quickfix.new_NoMiscFees, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoMiscFees
@@ -2670,7 +2646,7 @@ class MiscFeeAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MiscFeeAmt(*args)
+        this = apply(_quickfix.new_MiscFeeAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeAmt
@@ -2687,7 +2663,7 @@ class MiscFeeCurr(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeCurr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MiscFeeCurr(*args)
+        this = apply(_quickfix.new_MiscFeeCurr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeCurr
@@ -2704,7 +2680,7 @@ class MiscFeeType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MiscFeeType(*args)
+        this = apply(_quickfix.new_MiscFeeType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeType
@@ -2721,7 +2697,7 @@ class PrevClosePx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PrevClosePx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PrevClosePx(*args)
+        this = apply(_quickfix.new_PrevClosePx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PrevClosePx
@@ -2738,7 +2714,7 @@ class NoRelatedSym(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedSym, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedSym(*args)
+        this = apply(_quickfix.new_NoRelatedSym, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRelatedSym
@@ -2755,7 +2731,7 @@ class Subject(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Subject, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Subject(*args)
+        this = apply(_quickfix.new_Subject, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Subject
@@ -2772,7 +2748,7 @@ class Headline(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Headline, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Headline(*args)
+        this = apply(_quickfix.new_Headline, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Headline
@@ -2789,7 +2765,7 @@ class URLLink(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, URLLink, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_URLLink(*args)
+        this = apply(_quickfix.new_URLLink, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_URLLink
@@ -2806,7 +2782,7 @@ class ExecType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecType(*args)
+        this = apply(_quickfix.new_ExecType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecType
@@ -2823,7 +2799,7 @@ class LeavesQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LeavesQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LeavesQty(*args)
+        this = apply(_quickfix.new_LeavesQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LeavesQty
@@ -2840,7 +2816,7 @@ class CashOrderQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashOrderQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashOrderQty(*args)
+        this = apply(_quickfix.new_CashOrderQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashOrderQty
@@ -2857,7 +2833,7 @@ class AllocAvgPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAvgPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocAvgPx(*args)
+        this = apply(_quickfix.new_AllocAvgPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAvgPx
@@ -2874,7 +2850,7 @@ class AllocNetMoney(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocNetMoney, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocNetMoney(*args)
+        this = apply(_quickfix.new_AllocNetMoney, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocNetMoney
@@ -2891,7 +2867,7 @@ class SettlCurrFxRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrFxRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrFxRate(*args)
+        this = apply(_quickfix.new_SettlCurrFxRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrFxRate
@@ -2908,7 +2884,7 @@ class SettlCurrFxRateCalc(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrFxRateCalc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrFxRateCalc(*args)
+        this = apply(_quickfix.new_SettlCurrFxRateCalc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrFxRateCalc
@@ -2925,7 +2901,7 @@ class NumDaysInterest(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NumDaysInterest, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NumDaysInterest(*args)
+        this = apply(_quickfix.new_NumDaysInterest, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NumDaysInterest
@@ -2942,7 +2918,7 @@ class AccruedInterestRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AccruedInterestRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AccruedInterestRate(*args)
+        this = apply(_quickfix.new_AccruedInterestRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AccruedInterestRate
@@ -2959,7 +2935,7 @@ class AccruedInterestAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AccruedInterestAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AccruedInterestAmt(*args)
+        this = apply(_quickfix.new_AccruedInterestAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AccruedInterestAmt
@@ -2976,7 +2952,7 @@ class SettlInstMode(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstMode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstMode(*args)
+        this = apply(_quickfix.new_SettlInstMode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstMode
@@ -2993,7 +2969,7 @@ class AllocText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocText(*args)
+        this = apply(_quickfix.new_AllocText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocText
@@ -3010,7 +2986,7 @@ class SettlInstID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstID(*args)
+        this = apply(_quickfix.new_SettlInstID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstID
@@ -3027,7 +3003,7 @@ class SettlInstTransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstTransType(*args)
+        this = apply(_quickfix.new_SettlInstTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstTransType
@@ -3044,7 +3020,7 @@ class EmailThreadID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EmailThreadID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EmailThreadID(*args)
+        this = apply(_quickfix.new_EmailThreadID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EmailThreadID
@@ -3061,7 +3037,7 @@ class SettlInstSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstSource(*args)
+        this = apply(_quickfix.new_SettlInstSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstSource
@@ -3078,7 +3054,7 @@ class SettlLocation(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlLocation, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlLocation(*args)
+        this = apply(_quickfix.new_SettlLocation, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlLocation
@@ -3095,7 +3071,7 @@ class SecurityType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityType(*args)
+        this = apply(_quickfix.new_SecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityType
@@ -3112,7 +3088,7 @@ class EffectiveTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, EffectiveTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EffectiveTime(*args)
+        this = apply(_quickfix.new_EffectiveTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EffectiveTime
@@ -3129,7 +3105,7 @@ class StandInstDbType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StandInstDbType(*args)
+        this = apply(_quickfix.new_StandInstDbType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbType
@@ -3146,7 +3122,7 @@ class StandInstDbName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StandInstDbName(*args)
+        this = apply(_quickfix.new_StandInstDbName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbName
@@ -3163,7 +3139,7 @@ class StandInstDbID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StandInstDbID(*args)
+        this = apply(_quickfix.new_StandInstDbID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbID
@@ -3180,7 +3156,7 @@ class SettlDeliveryType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDeliveryType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlDeliveryType(*args)
+        this = apply(_quickfix.new_SettlDeliveryType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDeliveryType
@@ -3197,7 +3173,7 @@ class SettlDepositoryCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDepositoryCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlDepositoryCode(*args)
+        this = apply(_quickfix.new_SettlDepositoryCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDepositoryCode
@@ -3214,7 +3190,7 @@ class SettlBrkrCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlBrkrCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlBrkrCode(*args)
+        this = apply(_quickfix.new_SettlBrkrCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlBrkrCode
@@ -3231,7 +3207,7 @@ class SettlInstCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstCode(*args)
+        this = apply(_quickfix.new_SettlInstCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstCode
@@ -3248,7 +3224,7 @@ class SecuritySettlAgentName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentName(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentName
@@ -3265,7 +3241,7 @@ class SecuritySettlAgentCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentCode(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentCode
@@ -3282,7 +3258,7 @@ class SecuritySettlAgentAcctNum(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentAcctNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentAcctNum(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentAcctNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentAcctNum
@@ -3299,7 +3275,7 @@ class SecuritySettlAgentAcctName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentAcctName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentAcctName(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentAcctName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentAcctName
@@ -3316,7 +3292,7 @@ class SecuritySettlAgentContactName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentContactName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentContactName(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentContactName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentContactName
@@ -3333,7 +3309,7 @@ class SecuritySettlAgentContactPhone(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentContactPhone, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySettlAgentContactPhone(*args)
+        this = apply(_quickfix.new_SecuritySettlAgentContactPhone, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentContactPhone
@@ -3350,7 +3326,7 @@ class CashSettlAgentName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentName(*args)
+        this = apply(_quickfix.new_CashSettlAgentName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentName
@@ -3367,7 +3343,7 @@ class CashSettlAgentCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentCode(*args)
+        this = apply(_quickfix.new_CashSettlAgentCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentCode
@@ -3384,7 +3360,7 @@ class CashSettlAgentAcctNum(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentAcctNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentAcctNum(*args)
+        this = apply(_quickfix.new_CashSettlAgentAcctNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentAcctNum
@@ -3401,7 +3377,7 @@ class CashSettlAgentAcctName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentAcctName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentAcctName(*args)
+        this = apply(_quickfix.new_CashSettlAgentAcctName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentAcctName
@@ -3418,7 +3394,7 @@ class CashSettlAgentContactName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentContactName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentContactName(*args)
+        this = apply(_quickfix.new_CashSettlAgentContactName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentContactName
@@ -3435,7 +3411,7 @@ class CashSettlAgentContactPhone(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentContactPhone, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashSettlAgentContactPhone(*args)
+        this = apply(_quickfix.new_CashSettlAgentContactPhone, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentContactPhone
@@ -3452,7 +3428,7 @@ class BidSpotRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidSpotRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidSpotRate(*args)
+        this = apply(_quickfix.new_BidSpotRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidSpotRate
@@ -3469,7 +3445,7 @@ class BidForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidForwardPoints(*args)
+        this = apply(_quickfix.new_BidForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidForwardPoints
@@ -3486,7 +3462,7 @@ class OfferSpotRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferSpotRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferSpotRate(*args)
+        this = apply(_quickfix.new_OfferSpotRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSpotRate
@@ -3503,7 +3479,7 @@ class OfferForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferForwardPoints(*args)
+        this = apply(_quickfix.new_OfferForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferForwardPoints
@@ -3520,7 +3496,7 @@ class OrderQty2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderQty2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderQty2(*args)
+        this = apply(_quickfix.new_OrderQty2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderQty2
@@ -3537,7 +3513,7 @@ class SettlDate2(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDate2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlDate2(*args)
+        this = apply(_quickfix.new_SettlDate2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDate2
@@ -3554,7 +3530,7 @@ class LastSpotRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastSpotRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastSpotRate(*args)
+        this = apply(_quickfix.new_LastSpotRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastSpotRate
@@ -3571,7 +3547,7 @@ class LastForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastForwardPoints(*args)
+        this = apply(_quickfix.new_LastForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastForwardPoints
@@ -3588,7 +3564,7 @@ class AllocLinkID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocLinkID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocLinkID(*args)
+        this = apply(_quickfix.new_AllocLinkID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocLinkID
@@ -3605,7 +3581,7 @@ class AllocLinkType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocLinkType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocLinkType(*args)
+        this = apply(_quickfix.new_AllocLinkType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocLinkType
@@ -3622,7 +3598,7 @@ class SecondaryOrderID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryOrderID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryOrderID(*args)
+        this = apply(_quickfix.new_SecondaryOrderID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryOrderID
@@ -3639,7 +3615,7 @@ class NoIOIQualifiers(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoIOIQualifiers, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoIOIQualifiers(*args)
+        this = apply(_quickfix.new_NoIOIQualifiers, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoIOIQualifiers
@@ -3656,7 +3632,7 @@ class MaturityMonthYear(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityMonthYear, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaturityMonthYear(*args)
+        this = apply(_quickfix.new_MaturityMonthYear, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityMonthYear
@@ -3673,7 +3649,7 @@ class PutOrCall(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PutOrCall, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PutOrCall(*args)
+        this = apply(_quickfix.new_PutOrCall, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PutOrCall
@@ -3690,7 +3666,7 @@ class StrikePrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrikePrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrikePrice(*args)
+        this = apply(_quickfix.new_StrikePrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrikePrice
@@ -3707,7 +3683,7 @@ class CoveredOrUncovered(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CoveredOrUncovered, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CoveredOrUncovered(*args)
+        this = apply(_quickfix.new_CoveredOrUncovered, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CoveredOrUncovered
@@ -3724,7 +3700,7 @@ class CustomerOrFirm(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CustomerOrFirm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CustomerOrFirm(*args)
+        this = apply(_quickfix.new_CustomerOrFirm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CustomerOrFirm
@@ -3741,7 +3717,7 @@ class MaturityDay(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityDay, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaturityDay(*args)
+        this = apply(_quickfix.new_MaturityDay, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityDay
@@ -3758,7 +3734,7 @@ class OptAttribute(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OptAttribute, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OptAttribute(*args)
+        this = apply(_quickfix.new_OptAttribute, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OptAttribute
@@ -3775,7 +3751,7 @@ class SecurityExchange(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityExchange, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityExchange(*args)
+        this = apply(_quickfix.new_SecurityExchange, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityExchange
@@ -3792,7 +3768,7 @@ class NotifyBrokerOfCredit(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, NotifyBrokerOfCredit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NotifyBrokerOfCredit(*args)
+        this = apply(_quickfix.new_NotifyBrokerOfCredit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NotifyBrokerOfCredit
@@ -3809,7 +3785,7 @@ class AllocHandlInst(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocHandlInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocHandlInst(*args)
+        this = apply(_quickfix.new_AllocHandlInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocHandlInst
@@ -3826,7 +3802,7 @@ class MaxShow(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaxShow, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaxShow(*args)
+        this = apply(_quickfix.new_MaxShow, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaxShow
@@ -3843,7 +3819,7 @@ class PegOffsetValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegOffsetValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegOffsetValue(*args)
+        this = apply(_quickfix.new_PegOffsetValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegOffsetValue
@@ -3860,7 +3836,7 @@ class SettlInstRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstRefID(*args)
+        this = apply(_quickfix.new_SettlInstRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstRefID
@@ -3877,7 +3853,7 @@ class NoRoutingIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRoutingIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRoutingIDs(*args)
+        this = apply(_quickfix.new_NoRoutingIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRoutingIDs
@@ -3894,7 +3870,7 @@ class RoutingType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RoutingType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RoutingType(*args)
+        this = apply(_quickfix.new_RoutingType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RoutingType
@@ -3911,7 +3887,7 @@ class RoutingID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RoutingID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RoutingID(*args)
+        this = apply(_quickfix.new_RoutingID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RoutingID
@@ -3928,7 +3904,7 @@ class Spread(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Spread, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Spread(*args)
+        this = apply(_quickfix.new_Spread, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Spread
@@ -3945,7 +3921,7 @@ class Benchmark(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Benchmark, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Benchmark(*args)
+        this = apply(_quickfix.new_Benchmark, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Benchmark
@@ -3962,7 +3938,7 @@ class BenchmarkCurveCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurveCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkCurveCurrency(*args)
+        this = apply(_quickfix.new_BenchmarkCurveCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurveCurrency
@@ -3979,7 +3955,7 @@ class BenchmarkCurveName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurveName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkCurveName(*args)
+        this = apply(_quickfix.new_BenchmarkCurveName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurveName
@@ -3996,7 +3972,7 @@ class BenchmarkCurvePoint(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurvePoint, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkCurvePoint(*args)
+        this = apply(_quickfix.new_BenchmarkCurvePoint, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurvePoint
@@ -4013,7 +3989,7 @@ class CouponRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CouponRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CouponRate(*args)
+        this = apply(_quickfix.new_CouponRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CouponRate
@@ -4030,7 +4006,7 @@ class CouponPaymentDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CouponPaymentDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CouponPaymentDate(*args)
+        this = apply(_quickfix.new_CouponPaymentDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CouponPaymentDate
@@ -4047,7 +4023,7 @@ class IssueDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IssueDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IssueDate(*args)
+        this = apply(_quickfix.new_IssueDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IssueDate
@@ -4064,7 +4040,7 @@ class RepurchaseTerm(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RepurchaseTerm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RepurchaseTerm(*args)
+        this = apply(_quickfix.new_RepurchaseTerm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RepurchaseTerm
@@ -4081,7 +4057,7 @@ class RepurchaseRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RepurchaseRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RepurchaseRate(*args)
+        this = apply(_quickfix.new_RepurchaseRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RepurchaseRate
@@ -4098,7 +4074,7 @@ class Factor(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Factor, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Factor(*args)
+        this = apply(_quickfix.new_Factor, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Factor
@@ -4115,7 +4091,7 @@ class TradeOriginationDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeOriginationDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeOriginationDate(*args)
+        this = apply(_quickfix.new_TradeOriginationDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeOriginationDate
@@ -4132,7 +4108,7 @@ class ExDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExDate(*args)
+        this = apply(_quickfix.new_ExDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExDate
@@ -4149,7 +4125,7 @@ class ContractMultiplier(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContractMultiplier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContractMultiplier(*args)
+        this = apply(_quickfix.new_ContractMultiplier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContractMultiplier
@@ -4166,7 +4142,7 @@ class NoStipulations(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoStipulations, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoStipulations(*args)
+        this = apply(_quickfix.new_NoStipulations, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoStipulations
@@ -4183,7 +4159,7 @@ class StipulationType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StipulationType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StipulationType(*args)
+        this = apply(_quickfix.new_StipulationType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StipulationType
@@ -4200,7 +4176,7 @@ class StipulationValue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StipulationValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StipulationValue(*args)
+        this = apply(_quickfix.new_StipulationValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StipulationValue
@@ -4217,7 +4193,7 @@ class YieldType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, YieldType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_YieldType(*args)
+        this = apply(_quickfix.new_YieldType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_YieldType
@@ -4234,7 +4210,7 @@ class Yield(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Yield, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Yield(*args)
+        this = apply(_quickfix.new_Yield, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Yield
@@ -4251,7 +4227,7 @@ class TotalTakedown(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalTakedown, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalTakedown(*args)
+        this = apply(_quickfix.new_TotalTakedown, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalTakedown
@@ -4268,7 +4244,7 @@ class Concession(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Concession, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Concession(*args)
+        this = apply(_quickfix.new_Concession, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Concession
@@ -4285,7 +4261,7 @@ class RepoCollateralSecurityType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RepoCollateralSecurityType(*args)
+        this = apply(_quickfix.new_RepoCollateralSecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RepoCollateralSecurityType
@@ -4302,7 +4278,7 @@ class RedemptionDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RedemptionDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RedemptionDate(*args)
+        this = apply(_quickfix.new_RedemptionDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RedemptionDate
@@ -4319,7 +4295,7 @@ class UnderlyingCouponPaymentDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCouponPaymentDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCouponPaymentDate(*args)
+        this = apply(_quickfix.new_UnderlyingCouponPaymentDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCouponPaymentDate
@@ -4336,7 +4312,7 @@ class UnderlyingIssueDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIssueDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingIssueDate(*args)
+        this = apply(_quickfix.new_UnderlyingIssueDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIssueDate
@@ -4353,7 +4329,7 @@ class UnderlyingRepoCollateralSecurityType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingRepoCollateralSecurityType(*args)
+        this = apply(_quickfix.new_UnderlyingRepoCollateralSecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepoCollateralSecurityType
@@ -4370,7 +4346,7 @@ class UnderlyingRepurchaseTerm(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepurchaseTerm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingRepurchaseTerm(*args)
+        this = apply(_quickfix.new_UnderlyingRepurchaseTerm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepurchaseTerm
@@ -4387,7 +4363,7 @@ class UnderlyingRepurchaseRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepurchaseRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingRepurchaseRate(*args)
+        this = apply(_quickfix.new_UnderlyingRepurchaseRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepurchaseRate
@@ -4404,7 +4380,7 @@ class UnderlyingFactor(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingFactor, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingFactor(*args)
+        this = apply(_quickfix.new_UnderlyingFactor, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFactor
@@ -4421,7 +4397,7 @@ class UnderlyingRedemptionDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRedemptionDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingRedemptionDate(*args)
+        this = apply(_quickfix.new_UnderlyingRedemptionDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRedemptionDate
@@ -4438,7 +4414,7 @@ class LegCouponPaymentDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCouponPaymentDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCouponPaymentDate(*args)
+        this = apply(_quickfix.new_LegCouponPaymentDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCouponPaymentDate
@@ -4455,7 +4431,7 @@ class LegIssueDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegIssueDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegIssueDate(*args)
+        this = apply(_quickfix.new_LegIssueDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegIssueDate
@@ -4472,7 +4448,7 @@ class LegRepoCollateralSecurityType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRepoCollateralSecurityType(*args)
+        this = apply(_quickfix.new_LegRepoCollateralSecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepoCollateralSecurityType
@@ -4489,7 +4465,7 @@ class LegRepurchaseTerm(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepurchaseTerm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRepurchaseTerm(*args)
+        this = apply(_quickfix.new_LegRepurchaseTerm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepurchaseTerm
@@ -4506,7 +4482,7 @@ class LegRepurchaseRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepurchaseRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRepurchaseRate(*args)
+        this = apply(_quickfix.new_LegRepurchaseRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepurchaseRate
@@ -4523,7 +4499,7 @@ class LegFactor(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegFactor, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegFactor(*args)
+        this = apply(_quickfix.new_LegFactor, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegFactor
@@ -4540,7 +4516,7 @@ class LegRedemptionDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRedemptionDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRedemptionDate(*args)
+        this = apply(_quickfix.new_LegRedemptionDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRedemptionDate
@@ -4557,7 +4533,7 @@ class CreditRating(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CreditRating, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CreditRating(*args)
+        this = apply(_quickfix.new_CreditRating, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CreditRating
@@ -4574,7 +4550,7 @@ class UnderlyingCreditRating(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCreditRating, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCreditRating(*args)
+        this = apply(_quickfix.new_UnderlyingCreditRating, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCreditRating
@@ -4591,7 +4567,7 @@ class LegCreditRating(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCreditRating, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCreditRating(*args)
+        this = apply(_quickfix.new_LegCreditRating, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCreditRating
@@ -4608,7 +4584,7 @@ class TradedFlatSwitch(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradedFlatSwitch, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradedFlatSwitch(*args)
+        this = apply(_quickfix.new_TradedFlatSwitch, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradedFlatSwitch
@@ -4625,7 +4601,7 @@ class BasisFeatureDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BasisFeatureDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BasisFeatureDate(*args)
+        this = apply(_quickfix.new_BasisFeatureDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BasisFeatureDate
@@ -4642,7 +4618,7 @@ class BasisFeaturePrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BasisFeaturePrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BasisFeaturePrice(*args)
+        this = apply(_quickfix.new_BasisFeaturePrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BasisFeaturePrice
@@ -4659,7 +4635,7 @@ class MDReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDReqID(*args)
+        this = apply(_quickfix.new_MDReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDReqID
@@ -4676,7 +4652,7 @@ class SubscriptionRequestType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SubscriptionRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SubscriptionRequestType(*args)
+        this = apply(_quickfix.new_SubscriptionRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SubscriptionRequestType
@@ -4693,7 +4669,7 @@ class MarketDepth(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MarketDepth, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MarketDepth(*args)
+        this = apply(_quickfix.new_MarketDepth, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MarketDepth
@@ -4710,7 +4686,7 @@ class MDUpdateType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDUpdateType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDUpdateType(*args)
+        this = apply(_quickfix.new_MDUpdateType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDUpdateType
@@ -4727,7 +4703,7 @@ class AggregatedBook(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, AggregatedBook, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AggregatedBook(*args)
+        this = apply(_quickfix.new_AggregatedBook, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AggregatedBook
@@ -4744,7 +4720,7 @@ class NoMDEntryTypes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoMDEntryTypes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoMDEntryTypes(*args)
+        this = apply(_quickfix.new_NoMDEntryTypes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoMDEntryTypes
@@ -4761,7 +4737,7 @@ class NoMDEntries(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoMDEntries, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoMDEntries(*args)
+        this = apply(_quickfix.new_NoMDEntries, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoMDEntries
@@ -4778,7 +4754,7 @@ class MDEntryType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryType(*args)
+        this = apply(_quickfix.new_MDEntryType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryType
@@ -4795,7 +4771,7 @@ class MDEntryPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryPx(*args)
+        this = apply(_quickfix.new_MDEntryPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryPx
@@ -4812,7 +4788,7 @@ class MDEntrySize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntrySize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntrySize(*args)
+        this = apply(_quickfix.new_MDEntrySize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySize
@@ -4829,7 +4805,7 @@ class MDEntryDate(UtcDateField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryDate(*args)
+        this = apply(_quickfix.new_MDEntryDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryDate
@@ -4846,7 +4822,7 @@ class MDEntryTime(UtcTimeOnlyField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryTime(*args)
+        this = apply(_quickfix.new_MDEntryTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryTime
@@ -4863,7 +4839,7 @@ class TickDirection(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TickDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TickDirection(*args)
+        this = apply(_quickfix.new_TickDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TickDirection
@@ -4880,7 +4856,7 @@ class MDMkt(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDMkt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDMkt(*args)
+        this = apply(_quickfix.new_MDMkt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDMkt
@@ -4897,7 +4873,7 @@ class QuoteCondition(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteCondition, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteCondition(*args)
+        this = apply(_quickfix.new_QuoteCondition, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteCondition
@@ -4914,7 +4890,7 @@ class TradeCondition(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeCondition, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeCondition(*args)
+        this = apply(_quickfix.new_TradeCondition, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeCondition
@@ -4931,7 +4907,7 @@ class MDEntryID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryID(*args)
+        this = apply(_quickfix.new_MDEntryID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryID
@@ -4948,7 +4924,7 @@ class MDUpdateAction(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDUpdateAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDUpdateAction(*args)
+        this = apply(_quickfix.new_MDUpdateAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDUpdateAction
@@ -4965,7 +4941,7 @@ class MDEntryRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryRefID(*args)
+        this = apply(_quickfix.new_MDEntryRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryRefID
@@ -4982,7 +4958,7 @@ class MDReqRejReason(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDReqRejReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDReqRejReason(*args)
+        this = apply(_quickfix.new_MDReqRejReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDReqRejReason
@@ -4999,7 +4975,7 @@ class MDEntryOriginator(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryOriginator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryOriginator(*args)
+        this = apply(_quickfix.new_MDEntryOriginator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryOriginator
@@ -5016,7 +4992,7 @@ class LocationID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LocationID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LocationID(*args)
+        this = apply(_quickfix.new_LocationID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LocationID
@@ -5033,7 +5009,7 @@ class DeskID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeskID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeskID(*args)
+        this = apply(_quickfix.new_DeskID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeskID
@@ -5050,7 +5026,7 @@ class DeleteReason(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeleteReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeleteReason(*args)
+        this = apply(_quickfix.new_DeleteReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeleteReason
@@ -5067,7 +5043,7 @@ class OpenCloseSettlFlag(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OpenCloseSettlFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OpenCloseSettlFlag(*args)
+        this = apply(_quickfix.new_OpenCloseSettlFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OpenCloseSettlFlag
@@ -5084,7 +5060,7 @@ class SellerDays(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SellerDays, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SellerDays(*args)
+        this = apply(_quickfix.new_SellerDays, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SellerDays
@@ -5101,7 +5077,7 @@ class MDEntryBuyer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryBuyer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryBuyer(*args)
+        this = apply(_quickfix.new_MDEntryBuyer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryBuyer
@@ -5118,7 +5094,7 @@ class MDEntrySeller(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntrySeller, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntrySeller(*args)
+        this = apply(_quickfix.new_MDEntrySeller, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySeller
@@ -5135,7 +5111,7 @@ class MDEntryPositionNo(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryPositionNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryPositionNo(*args)
+        this = apply(_quickfix.new_MDEntryPositionNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryPositionNo
@@ -5152,7 +5128,7 @@ class FinancialStatus(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, FinancialStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FinancialStatus(*args)
+        this = apply(_quickfix.new_FinancialStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FinancialStatus
@@ -5169,7 +5145,7 @@ class CorporateAction(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CorporateAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CorporateAction(*args)
+        this = apply(_quickfix.new_CorporateAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CorporateAction
@@ -5186,7 +5162,7 @@ class DefBidSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DefBidSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DefBidSize(*args)
+        this = apply(_quickfix.new_DefBidSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DefBidSize
@@ -5203,7 +5179,7 @@ class DefOfferSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DefOfferSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DefOfferSize(*args)
+        this = apply(_quickfix.new_DefOfferSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DefOfferSize
@@ -5220,7 +5196,7 @@ class NoQuoteEntries(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteEntries, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoQuoteEntries(*args)
+        this = apply(_quickfix.new_NoQuoteEntries, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteEntries
@@ -5237,7 +5213,7 @@ class NoQuoteSets(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteSets, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoQuoteSets(*args)
+        this = apply(_quickfix.new_NoQuoteSets, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteSets
@@ -5254,7 +5230,7 @@ class QuoteStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteStatus(*args)
+        this = apply(_quickfix.new_QuoteStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteStatus
@@ -5271,7 +5247,7 @@ class QuoteCancelType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteCancelType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteCancelType(*args)
+        this = apply(_quickfix.new_QuoteCancelType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteCancelType
@@ -5288,7 +5264,7 @@ class QuoteEntryID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteEntryID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteEntryID(*args)
+        this = apply(_quickfix.new_QuoteEntryID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteEntryID
@@ -5305,7 +5281,7 @@ class QuoteRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteRejectReason(*args)
+        this = apply(_quickfix.new_QuoteRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRejectReason
@@ -5322,7 +5298,7 @@ class QuoteResponseLevel(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteResponseLevel, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteResponseLevel(*args)
+        this = apply(_quickfix.new_QuoteResponseLevel, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteResponseLevel
@@ -5339,7 +5315,7 @@ class QuoteSetID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteSetID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteSetID(*args)
+        this = apply(_quickfix.new_QuoteSetID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteSetID
@@ -5356,7 +5332,7 @@ class QuoteRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteRequestType(*args)
+        this = apply(_quickfix.new_QuoteRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRequestType
@@ -5373,7 +5349,7 @@ class TotNoQuoteEntries(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoQuoteEntries, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoQuoteEntries(*args)
+        this = apply(_quickfix.new_TotNoQuoteEntries, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoQuoteEntries
@@ -5390,7 +5366,7 @@ class UnderlyingSecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityIDSource(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityIDSource
@@ -5407,7 +5383,7 @@ class UnderlyingIssuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIssuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingIssuer(*args)
+        this = apply(_quickfix.new_UnderlyingIssuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIssuer
@@ -5424,7 +5400,7 @@ class UnderlyingSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityDesc(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityDesc
@@ -5441,7 +5417,7 @@ class UnderlyingSecurityExchange(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityExchange, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityExchange(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityExchange, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityExchange
@@ -5458,7 +5434,7 @@ class UnderlyingSecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityID(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityID
@@ -5475,7 +5451,7 @@ class UnderlyingSecurityType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityType(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityType
@@ -5492,7 +5468,7 @@ class UnderlyingSymbol(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSymbol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSymbol(*args)
+        this = apply(_quickfix.new_UnderlyingSymbol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSymbol
@@ -5509,7 +5485,7 @@ class UnderlyingSymbolSfx(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSymbolSfx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSymbolSfx(*args)
+        this = apply(_quickfix.new_UnderlyingSymbolSfx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSymbolSfx
@@ -5526,7 +5502,7 @@ class UnderlyingMaturityMonthYear(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityMonthYear, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingMaturityMonthYear(*args)
+        this = apply(_quickfix.new_UnderlyingMaturityMonthYear, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityMonthYear
@@ -5543,7 +5519,7 @@ class UnderlyingMaturityDay(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityDay, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingMaturityDay(*args)
+        this = apply(_quickfix.new_UnderlyingMaturityDay, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityDay
@@ -5560,7 +5536,7 @@ class UnderlyingPutOrCall(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingPutOrCall, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingPutOrCall(*args)
+        this = apply(_quickfix.new_UnderlyingPutOrCall, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPutOrCall
@@ -5577,7 +5553,7 @@ class UnderlyingStrikePrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStrikePrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStrikePrice(*args)
+        this = apply(_quickfix.new_UnderlyingStrikePrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStrikePrice
@@ -5594,7 +5570,7 @@ class UnderlyingOptAttribute(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingOptAttribute, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingOptAttribute(*args)
+        this = apply(_quickfix.new_UnderlyingOptAttribute, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingOptAttribute
@@ -5611,7 +5587,7 @@ class UnderlyingCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCurrency(*args)
+        this = apply(_quickfix.new_UnderlyingCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCurrency
@@ -5628,7 +5604,7 @@ class RatioQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RatioQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RatioQty(*args)
+        this = apply(_quickfix.new_RatioQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RatioQty
@@ -5645,7 +5621,7 @@ class SecurityReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityReqID(*args)
+        this = apply(_quickfix.new_SecurityReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityReqID
@@ -5662,7 +5638,7 @@ class SecurityRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityRequestType(*args)
+        this = apply(_quickfix.new_SecurityRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityRequestType
@@ -5679,7 +5655,7 @@ class SecurityResponseID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityResponseID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityResponseID(*args)
+        this = apply(_quickfix.new_SecurityResponseID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityResponseID
@@ -5696,7 +5672,7 @@ class SecurityResponseType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityResponseType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityResponseType(*args)
+        this = apply(_quickfix.new_SecurityResponseType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityResponseType
@@ -5713,7 +5689,7 @@ class SecurityStatusReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityStatusReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityStatusReqID(*args)
+        this = apply(_quickfix.new_SecurityStatusReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityStatusReqID
@@ -5730,7 +5706,7 @@ class UnsolicitedIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnsolicitedIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnsolicitedIndicator(*args)
+        this = apply(_quickfix.new_UnsolicitedIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnsolicitedIndicator
@@ -5747,7 +5723,7 @@ class SecurityTradingStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityTradingStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityTradingStatus(*args)
+        this = apply(_quickfix.new_SecurityTradingStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityTradingStatus
@@ -5764,7 +5740,7 @@ class HaltReason(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, HaltReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HaltReason(*args)
+        this = apply(_quickfix.new_HaltReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HaltReason
@@ -5781,7 +5757,7 @@ class InViewOfCommon(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, InViewOfCommon, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InViewOfCommon(*args)
+        this = apply(_quickfix.new_InViewOfCommon, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InViewOfCommon
@@ -5798,7 +5774,7 @@ class DueToRelated(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, DueToRelated, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DueToRelated(*args)
+        this = apply(_quickfix.new_DueToRelated, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DueToRelated
@@ -5815,7 +5791,7 @@ class BuyVolume(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BuyVolume, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BuyVolume(*args)
+        this = apply(_quickfix.new_BuyVolume, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BuyVolume
@@ -5832,7 +5808,7 @@ class SellVolume(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SellVolume, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SellVolume(*args)
+        this = apply(_quickfix.new_SellVolume, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SellVolume
@@ -5849,7 +5825,7 @@ class HighPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, HighPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HighPx(*args)
+        this = apply(_quickfix.new_HighPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HighPx
@@ -5866,7 +5842,7 @@ class LowPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LowPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LowPx(*args)
+        this = apply(_quickfix.new_LowPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LowPx
@@ -5883,7 +5859,7 @@ class Adjustment(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Adjustment, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Adjustment(*args)
+        this = apply(_quickfix.new_Adjustment, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Adjustment
@@ -5900,7 +5876,7 @@ class TradSesReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesReqID(*args)
+        this = apply(_quickfix.new_TradSesReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesReqID
@@ -5917,7 +5893,7 @@ class TradingSessionID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradingSessionID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradingSessionID(*args)
+        this = apply(_quickfix.new_TradingSessionID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradingSessionID
@@ -5934,7 +5910,7 @@ class ContraTrader(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTrader, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraTrader(*args)
+        this = apply(_quickfix.new_ContraTrader, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTrader
@@ -5951,7 +5927,7 @@ class TradSesMethod(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesMethod(*args)
+        this = apply(_quickfix.new_TradSesMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesMethod
@@ -5968,7 +5944,7 @@ class TradSesMode(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesMode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesMode(*args)
+        this = apply(_quickfix.new_TradSesMode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesMode
@@ -5985,7 +5961,7 @@ class TradSesStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesStatus(*args)
+        this = apply(_quickfix.new_TradSesStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStatus
@@ -6002,7 +5978,7 @@ class TradSesStartTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStartTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesStartTime(*args)
+        this = apply(_quickfix.new_TradSesStartTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStartTime
@@ -6019,7 +5995,7 @@ class TradSesOpenTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesOpenTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesOpenTime(*args)
+        this = apply(_quickfix.new_TradSesOpenTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesOpenTime
@@ -6036,7 +6012,7 @@ class TradSesPreCloseTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesPreCloseTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesPreCloseTime(*args)
+        this = apply(_quickfix.new_TradSesPreCloseTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesPreCloseTime
@@ -6053,7 +6029,7 @@ class TradSesCloseTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesCloseTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesCloseTime(*args)
+        this = apply(_quickfix.new_TradSesCloseTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesCloseTime
@@ -6070,7 +6046,7 @@ class TradSesEndTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesEndTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesEndTime(*args)
+        this = apply(_quickfix.new_TradSesEndTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesEndTime
@@ -6087,7 +6063,7 @@ class NumberOfOrders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NumberOfOrders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NumberOfOrders(*args)
+        this = apply(_quickfix.new_NumberOfOrders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NumberOfOrders
@@ -6104,7 +6080,7 @@ class EncodedIssuerLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedIssuerLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedIssuerLen(*args)
+        this = apply(_quickfix.new_EncodedIssuerLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedIssuerLen
@@ -6121,7 +6097,7 @@ class EncodedIssuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedIssuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedIssuer(*args)
+        this = apply(_quickfix.new_EncodedIssuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedIssuer
@@ -6138,7 +6114,7 @@ class EncodedSecurityDescLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSecurityDescLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedSecurityDescLen(*args)
+        this = apply(_quickfix.new_EncodedSecurityDescLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityDescLen
@@ -6155,7 +6131,7 @@ class EncodedSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedSecurityDesc(*args)
+        this = apply(_quickfix.new_EncodedSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityDesc
@@ -6172,7 +6148,7 @@ class EncodedListExecInstLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListExecInstLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedListExecInstLen(*args)
+        this = apply(_quickfix.new_EncodedListExecInstLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListExecInstLen
@@ -6189,7 +6165,7 @@ class EncodedListExecInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListExecInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedListExecInst(*args)
+        this = apply(_quickfix.new_EncodedListExecInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListExecInst
@@ -6206,7 +6182,7 @@ class EncodedSubjectLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSubjectLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedSubjectLen(*args)
+        this = apply(_quickfix.new_EncodedSubjectLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSubjectLen
@@ -6223,7 +6199,7 @@ class EncodedSubject(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSubject, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedSubject(*args)
+        this = apply(_quickfix.new_EncodedSubject, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSubject
@@ -6240,7 +6216,7 @@ class EncodedHeadlineLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedHeadlineLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedHeadlineLen(*args)
+        this = apply(_quickfix.new_EncodedHeadlineLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedHeadlineLen
@@ -6257,7 +6233,7 @@ class EncodedHeadline(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedHeadline, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedHeadline(*args)
+        this = apply(_quickfix.new_EncodedHeadline, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedHeadline
@@ -6274,7 +6250,7 @@ class EncodedAllocTextLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedAllocTextLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedAllocTextLen(*args)
+        this = apply(_quickfix.new_EncodedAllocTextLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedAllocTextLen
@@ -6291,7 +6267,7 @@ class EncodedAllocText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedAllocText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedAllocText(*args)
+        this = apply(_quickfix.new_EncodedAllocText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedAllocText
@@ -6308,7 +6284,7 @@ class EncodedUnderlyingIssuerLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingIssuerLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedUnderlyingIssuerLen(*args)
+        this = apply(_quickfix.new_EncodedUnderlyingIssuerLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingIssuerLen
@@ -6325,7 +6301,7 @@ class EncodedUnderlyingIssuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingIssuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedUnderlyingIssuer(*args)
+        this = apply(_quickfix.new_EncodedUnderlyingIssuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingIssuer
@@ -6342,7 +6318,7 @@ class EncodedUnderlyingSecurityDescLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingSecurityDescLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedUnderlyingSecurityDescLen(*args)
+        this = apply(_quickfix.new_EncodedUnderlyingSecurityDescLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingSecurityDescLen
@@ -6359,7 +6335,7 @@ class EncodedUnderlyingSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedUnderlyingSecurityDesc(*args)
+        this = apply(_quickfix.new_EncodedUnderlyingSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingSecurityDesc
@@ -6376,7 +6352,7 @@ class AllocPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocPrice(*args)
+        this = apply(_quickfix.new_AllocPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocPrice
@@ -6393,7 +6369,7 @@ class QuoteSetValidUntilTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteSetValidUntilTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteSetValidUntilTime(*args)
+        this = apply(_quickfix.new_QuoteSetValidUntilTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteSetValidUntilTime
@@ -6410,7 +6386,7 @@ class QuoteEntryRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteEntryRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteEntryRejectReason(*args)
+        this = apply(_quickfix.new_QuoteEntryRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteEntryRejectReason
@@ -6427,7 +6403,7 @@ class OnBehalfOfSendingTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSendingTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfSendingTime(*args)
+        this = apply(_quickfix.new_OnBehalfOfSendingTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfSendingTime
@@ -6444,7 +6420,7 @@ class BidRequestTransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidRequestTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidRequestTransType(*args)
+        this = apply(_quickfix.new_BidRequestTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidRequestTransType
@@ -6461,7 +6437,7 @@ class ContraBroker(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraBroker, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraBroker(*args)
+        this = apply(_quickfix.new_ContraBroker, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraBroker
@@ -6478,7 +6454,7 @@ class ComplianceID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ComplianceID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ComplianceID(*args)
+        this = apply(_quickfix.new_ComplianceID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ComplianceID
@@ -6495,7 +6471,7 @@ class SolicitedFlag(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, SolicitedFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SolicitedFlag(*args)
+        this = apply(_quickfix.new_SolicitedFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SolicitedFlag
@@ -6512,7 +6488,7 @@ class ExecRestatementReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecRestatementReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecRestatementReason(*args)
+        this = apply(_quickfix.new_ExecRestatementReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecRestatementReason
@@ -6529,7 +6505,7 @@ class BusinessRejectRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BusinessRejectRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BusinessRejectRefID(*args)
+        this = apply(_quickfix.new_BusinessRejectRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BusinessRejectRefID
@@ -6546,7 +6522,7 @@ class BusinessRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BusinessRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BusinessRejectReason(*args)
+        this = apply(_quickfix.new_BusinessRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BusinessRejectReason
@@ -6563,7 +6539,7 @@ class GrossTradeAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, GrossTradeAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_GrossTradeAmt(*args)
+        this = apply(_quickfix.new_GrossTradeAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_GrossTradeAmt
@@ -6580,7 +6556,7 @@ class NoContraBrokers(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoContraBrokers, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoContraBrokers(*args)
+        this = apply(_quickfix.new_NoContraBrokers, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoContraBrokers
@@ -6597,7 +6573,7 @@ class NoTradingSessions(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoTradingSessions, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoTradingSessions(*args)
+        this = apply(_quickfix.new_NoTradingSessions, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoTradingSessions
@@ -6614,7 +6590,7 @@ class TotalVolumeTraded(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTraded, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalVolumeTraded(*args)
+        this = apply(_quickfix.new_TotalVolumeTraded, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTraded
@@ -6631,7 +6607,7 @@ class DiscretionInst(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionInst(*args)
+        this = apply(_quickfix.new_DiscretionInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionInst
@@ -6648,7 +6624,7 @@ class DiscretionOffsetValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffsetValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionOffsetValue(*args)
+        this = apply(_quickfix.new_DiscretionOffsetValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffsetValue
@@ -6665,7 +6641,7 @@ class BidID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidID(*args)
+        this = apply(_quickfix.new_BidID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidID
@@ -6682,7 +6658,7 @@ class ClientBidID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClientBidID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClientBidID(*args)
+        this = apply(_quickfix.new_ClientBidID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClientBidID
@@ -6699,7 +6675,7 @@ class ListName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListName(*args)
+        this = apply(_quickfix.new_ListName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListName
@@ -6716,7 +6692,7 @@ class TotNoRelatedSym(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoRelatedSym, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoRelatedSym(*args)
+        this = apply(_quickfix.new_TotNoRelatedSym, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoRelatedSym
@@ -6733,7 +6709,7 @@ class BidType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidType(*args)
+        this = apply(_quickfix.new_BidType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidType
@@ -6750,7 +6726,7 @@ class NumTickets(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NumTickets, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NumTickets(*args)
+        this = apply(_quickfix.new_NumTickets, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NumTickets
@@ -6767,7 +6743,7 @@ class SideValue1(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideValue1, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideValue1(*args)
+        this = apply(_quickfix.new_SideValue1, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideValue1
@@ -6784,7 +6760,7 @@ class SideValue2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideValue2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideValue2(*args)
+        this = apply(_quickfix.new_SideValue2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideValue2
@@ -6801,7 +6777,7 @@ class NoBidDescriptors(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoBidDescriptors, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoBidDescriptors(*args)
+        this = apply(_quickfix.new_NoBidDescriptors, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoBidDescriptors
@@ -6818,7 +6794,7 @@ class BidDescriptorType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidDescriptorType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidDescriptorType(*args)
+        this = apply(_quickfix.new_BidDescriptorType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidDescriptorType
@@ -6835,7 +6811,7 @@ class BidDescriptor(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidDescriptor, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidDescriptor(*args)
+        this = apply(_quickfix.new_BidDescriptor, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidDescriptor
@@ -6852,7 +6828,7 @@ class SideValueInd(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideValueInd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideValueInd(*args)
+        this = apply(_quickfix.new_SideValueInd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideValueInd
@@ -6869,7 +6845,7 @@ class LiquidityPctLow(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityPctLow, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LiquidityPctLow(*args)
+        this = apply(_quickfix.new_LiquidityPctLow, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityPctLow
@@ -6886,7 +6862,7 @@ class LiquidityPctHigh(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityPctHigh, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LiquidityPctHigh(*args)
+        this = apply(_quickfix.new_LiquidityPctHigh, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityPctHigh
@@ -6903,7 +6879,7 @@ class LiquidityValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LiquidityValue(*args)
+        this = apply(_quickfix.new_LiquidityValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityValue
@@ -6920,7 +6896,7 @@ class EFPTrackingError(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, EFPTrackingError, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EFPTrackingError(*args)
+        this = apply(_quickfix.new_EFPTrackingError, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EFPTrackingError
@@ -6937,7 +6913,7 @@ class FairValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, FairValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FairValue(*args)
+        this = apply(_quickfix.new_FairValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FairValue
@@ -6954,7 +6930,7 @@ class OutsideIndexPct(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OutsideIndexPct, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OutsideIndexPct(*args)
+        this = apply(_quickfix.new_OutsideIndexPct, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OutsideIndexPct
@@ -6971,7 +6947,7 @@ class ValueOfFutures(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ValueOfFutures, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ValueOfFutures(*args)
+        this = apply(_quickfix.new_ValueOfFutures, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ValueOfFutures
@@ -6988,7 +6964,7 @@ class LiquidityIndType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityIndType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LiquidityIndType(*args)
+        this = apply(_quickfix.new_LiquidityIndType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityIndType
@@ -7005,7 +6981,7 @@ class WtAverageLiquidity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, WtAverageLiquidity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_WtAverageLiquidity(*args)
+        this = apply(_quickfix.new_WtAverageLiquidity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_WtAverageLiquidity
@@ -7022,7 +6998,7 @@ class ExchangeForPhysical(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExchangeForPhysical, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExchangeForPhysical(*args)
+        this = apply(_quickfix.new_ExchangeForPhysical, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeForPhysical
@@ -7039,7 +7015,7 @@ class OutMainCntryUIndex(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OutMainCntryUIndex, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OutMainCntryUIndex(*args)
+        this = apply(_quickfix.new_OutMainCntryUIndex, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OutMainCntryUIndex
@@ -7056,7 +7032,7 @@ class CrossPercent(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CrossPercent, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CrossPercent(*args)
+        this = apply(_quickfix.new_CrossPercent, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CrossPercent
@@ -7073,7 +7049,7 @@ class ProgRptReqs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ProgRptReqs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ProgRptReqs(*args)
+        this = apply(_quickfix.new_ProgRptReqs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ProgRptReqs
@@ -7090,7 +7066,7 @@ class ProgPeriodInterval(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ProgPeriodInterval, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ProgPeriodInterval(*args)
+        this = apply(_quickfix.new_ProgPeriodInterval, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ProgPeriodInterval
@@ -7107,7 +7083,7 @@ class IncTaxInd(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, IncTaxInd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IncTaxInd(*args)
+        this = apply(_quickfix.new_IncTaxInd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IncTaxInd
@@ -7124,7 +7100,7 @@ class NumBidders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NumBidders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NumBidders(*args)
+        this = apply(_quickfix.new_NumBidders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NumBidders
@@ -7141,7 +7117,7 @@ class BidTradeType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidTradeType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidTradeType(*args)
+        this = apply(_quickfix.new_BidTradeType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidTradeType
@@ -7158,7 +7134,7 @@ class BasisPxType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, BasisPxType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BasisPxType(*args)
+        this = apply(_quickfix.new_BasisPxType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BasisPxType
@@ -7175,7 +7151,7 @@ class NoBidComponents(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoBidComponents, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoBidComponents(*args)
+        this = apply(_quickfix.new_NoBidComponents, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoBidComponents
@@ -7192,7 +7168,7 @@ class Country(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Country, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Country(*args)
+        this = apply(_quickfix.new_Country, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Country
@@ -7209,7 +7185,7 @@ class TotNoStrikes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoStrikes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoStrikes(*args)
+        this = apply(_quickfix.new_TotNoStrikes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoStrikes
@@ -7226,7 +7202,7 @@ class PriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriceType(*args)
+        this = apply(_quickfix.new_PriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriceType
@@ -7243,7 +7219,7 @@ class DayOrderQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DayOrderQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DayOrderQty(*args)
+        this = apply(_quickfix.new_DayOrderQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DayOrderQty
@@ -7260,7 +7236,7 @@ class DayCumQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DayCumQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DayCumQty(*args)
+        this = apply(_quickfix.new_DayCumQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DayCumQty
@@ -7277,7 +7253,7 @@ class DayAvgPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DayAvgPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DayAvgPx(*args)
+        this = apply(_quickfix.new_DayAvgPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DayAvgPx
@@ -7294,7 +7270,7 @@ class GTBookingInst(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, GTBookingInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_GTBookingInst(*args)
+        this = apply(_quickfix.new_GTBookingInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_GTBookingInst
@@ -7311,7 +7287,7 @@ class NoStrikes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoStrikes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoStrikes(*args)
+        this = apply(_quickfix.new_NoStrikes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoStrikes
@@ -7328,7 +7304,7 @@ class ListStatusType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListStatusType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListStatusType(*args)
+        this = apply(_quickfix.new_ListStatusType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListStatusType
@@ -7345,7 +7321,7 @@ class NetGrossInd(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetGrossInd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetGrossInd(*args)
+        this = apply(_quickfix.new_NetGrossInd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetGrossInd
@@ -7362,7 +7338,7 @@ class ListOrderStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListOrderStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListOrderStatus(*args)
+        this = apply(_quickfix.new_ListOrderStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListOrderStatus
@@ -7379,7 +7355,7 @@ class ExpireDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExpireDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExpireDate(*args)
+        this = apply(_quickfix.new_ExpireDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExpireDate
@@ -7396,7 +7372,7 @@ class ListExecInstType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListExecInstType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListExecInstType(*args)
+        this = apply(_quickfix.new_ListExecInstType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListExecInstType
@@ -7413,7 +7389,7 @@ class CxlRejResponseTo(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, CxlRejResponseTo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CxlRejResponseTo(*args)
+        this = apply(_quickfix.new_CxlRejResponseTo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CxlRejResponseTo
@@ -7430,7 +7406,7 @@ class UnderlyingCouponRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCouponRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCouponRate(*args)
+        this = apply(_quickfix.new_UnderlyingCouponRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCouponRate
@@ -7447,7 +7423,7 @@ class UnderlyingContractMultiplier(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingContractMultiplier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingContractMultiplier(*args)
+        this = apply(_quickfix.new_UnderlyingContractMultiplier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingContractMultiplier
@@ -7464,7 +7440,7 @@ class ContraTradeQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTradeQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraTradeQty(*args)
+        this = apply(_quickfix.new_ContraTradeQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTradeQty
@@ -7481,7 +7457,7 @@ class ContraTradeTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTradeTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraTradeTime(*args)
+        this = apply(_quickfix.new_ContraTradeTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTradeTime
@@ -7498,7 +7474,7 @@ class ClearingFirm(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingFirm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClearingFirm(*args)
+        this = apply(_quickfix.new_ClearingFirm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingFirm
@@ -7515,7 +7491,7 @@ class ClearingAccount(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingAccount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClearingAccount(*args)
+        this = apply(_quickfix.new_ClearingAccount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingAccount
@@ -7532,7 +7508,7 @@ class LiquidityNumSecurities(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityNumSecurities, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LiquidityNumSecurities(*args)
+        this = apply(_quickfix.new_LiquidityNumSecurities, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityNumSecurities
@@ -7549,7 +7525,7 @@ class MultiLegReportingType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MultiLegReportingType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MultiLegReportingType(*args)
+        this = apply(_quickfix.new_MultiLegReportingType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MultiLegReportingType
@@ -7566,7 +7542,7 @@ class StrikeTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrikeTime(*args)
+        this = apply(_quickfix.new_StrikeTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeTime
@@ -7583,7 +7559,7 @@ class ListStatusText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ListStatusText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ListStatusText(*args)
+        this = apply(_quickfix.new_ListStatusText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ListStatusText
@@ -7600,7 +7576,7 @@ class EncodedListStatusTextLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListStatusTextLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedListStatusTextLen(*args)
+        this = apply(_quickfix.new_EncodedListStatusTextLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListStatusTextLen
@@ -7617,7 +7593,7 @@ class EncodedListStatusText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListStatusText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedListStatusText(*args)
+        this = apply(_quickfix.new_EncodedListStatusText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListStatusText
@@ -7634,7 +7610,7 @@ class PartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, PartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PartyIDSource(*args)
+        this = apply(_quickfix.new_PartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PartyIDSource
@@ -7651,7 +7627,7 @@ class PartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PartyID(*args)
+        this = apply(_quickfix.new_PartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PartyID
@@ -7668,7 +7644,7 @@ class TotalVolumeTradedDate(UtcDateField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTradedDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalVolumeTradedDate(*args)
+        this = apply(_quickfix.new_TotalVolumeTradedDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTradedDate
@@ -7685,7 +7661,7 @@ class TotalVolumeTradedTime(UtcTimeOnlyField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTradedTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalVolumeTradedTime(*args)
+        this = apply(_quickfix.new_TotalVolumeTradedTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTradedTime
@@ -7702,7 +7678,7 @@ class NetChgPrevDay(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetChgPrevDay, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetChgPrevDay(*args)
+        this = apply(_quickfix.new_NetChgPrevDay, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetChgPrevDay
@@ -7719,7 +7695,7 @@ class PartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PartyRole(*args)
+        this = apply(_quickfix.new_PartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PartyRole
@@ -7736,7 +7712,7 @@ class NoPartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoPartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoPartyIDs(*args)
+        this = apply(_quickfix.new_NoPartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoPartyIDs
@@ -7753,7 +7729,7 @@ class NoSecurityAltID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSecurityAltID(*args)
+        this = apply(_quickfix.new_NoSecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSecurityAltID
@@ -7770,7 +7746,7 @@ class SecurityAltID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityAltID(*args)
+        this = apply(_quickfix.new_SecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityAltID
@@ -7787,7 +7763,7 @@ class SecurityAltIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityAltIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityAltIDSource(*args)
+        this = apply(_quickfix.new_SecurityAltIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityAltIDSource
@@ -7804,7 +7780,7 @@ class NoUnderlyingSecurityAltID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyingSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUnderlyingSecurityAltID(*args)
+        this = apply(_quickfix.new_NoUnderlyingSecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingSecurityAltID
@@ -7821,7 +7797,7 @@ class UnderlyingSecurityAltID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityAltID(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityAltID
@@ -7838,7 +7814,7 @@ class UnderlyingSecurityAltIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityAltIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecurityAltIDSource(*args)
+        this = apply(_quickfix.new_UnderlyingSecurityAltIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityAltIDSource
@@ -7855,7 +7831,7 @@ class Product(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Product, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Product(*args)
+        this = apply(_quickfix.new_Product, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Product
@@ -7872,7 +7848,7 @@ class CFICode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CFICode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CFICode(*args)
+        this = apply(_quickfix.new_CFICode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CFICode
@@ -7889,7 +7865,7 @@ class UnderlyingProduct(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingProduct, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingProduct(*args)
+        this = apply(_quickfix.new_UnderlyingProduct, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingProduct
@@ -7906,7 +7882,7 @@ class UnderlyingCFICode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCFICode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCFICode(*args)
+        this = apply(_quickfix.new_UnderlyingCFICode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCFICode
@@ -7923,7 +7899,7 @@ class QuantityType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuantityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuantityType(*args)
+        this = apply(_quickfix.new_QuantityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuantityType
@@ -7940,7 +7916,7 @@ class BookingRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BookingRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BookingRefID(*args)
+        this = apply(_quickfix.new_BookingRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BookingRefID
@@ -7957,7 +7933,7 @@ class IndividualAllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IndividualAllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IndividualAllocID(*args)
+        this = apply(_quickfix.new_IndividualAllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocID
@@ -7974,7 +7950,7 @@ class RoundingDirection(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, RoundingDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RoundingDirection(*args)
+        this = apply(_quickfix.new_RoundingDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RoundingDirection
@@ -7991,7 +7967,7 @@ class RoundingModulus(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RoundingModulus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RoundingModulus(*args)
+        this = apply(_quickfix.new_RoundingModulus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RoundingModulus
@@ -8008,7 +7984,7 @@ class CountryOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CountryOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CountryOfIssue(*args)
+        this = apply(_quickfix.new_CountryOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CountryOfIssue
@@ -8025,7 +8001,7 @@ class StateOrProvinceOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StateOrProvinceOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StateOrProvinceOfIssue(*args)
+        this = apply(_quickfix.new_StateOrProvinceOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StateOrProvinceOfIssue
@@ -8042,7 +8018,7 @@ class LocaleOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LocaleOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LocaleOfIssue(*args)
+        this = apply(_quickfix.new_LocaleOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LocaleOfIssue
@@ -8059,7 +8035,7 @@ class NoRegistDtls(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRegistDtls, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRegistDtls(*args)
+        this = apply(_quickfix.new_NoRegistDtls, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRegistDtls
@@ -8076,7 +8052,7 @@ class MailingDtls(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MailingDtls, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MailingDtls(*args)
+        this = apply(_quickfix.new_MailingDtls, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MailingDtls
@@ -8093,7 +8069,7 @@ class InvestorCountryOfResidence(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InvestorCountryOfResidence, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InvestorCountryOfResidence(*args)
+        this = apply(_quickfix.new_InvestorCountryOfResidence, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InvestorCountryOfResidence
@@ -8110,7 +8086,7 @@ class PaymentRef(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentRef, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PaymentRef(*args)
+        this = apply(_quickfix.new_PaymentRef, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentRef
@@ -8127,7 +8103,7 @@ class DistribPaymentMethod(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DistribPaymentMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DistribPaymentMethod(*args)
+        this = apply(_quickfix.new_DistribPaymentMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DistribPaymentMethod
@@ -8144,7 +8120,7 @@ class CashDistribCurr(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribCurr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribCurr(*args)
+        this = apply(_quickfix.new_CashDistribCurr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribCurr
@@ -8161,7 +8137,7 @@ class CommCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CommCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CommCurrency(*args)
+        this = apply(_quickfix.new_CommCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CommCurrency
@@ -8178,7 +8154,7 @@ class CancellationRights(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, CancellationRights, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CancellationRights(*args)
+        this = apply(_quickfix.new_CancellationRights, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CancellationRights
@@ -8195,7 +8171,7 @@ class MoneyLaunderingStatus(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MoneyLaunderingStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MoneyLaunderingStatus(*args)
+        this = apply(_quickfix.new_MoneyLaunderingStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MoneyLaunderingStatus
@@ -8212,7 +8188,7 @@ class MailingInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MailingInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MailingInst(*args)
+        this = apply(_quickfix.new_MailingInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MailingInst
@@ -8229,7 +8205,7 @@ class TransBkdTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TransBkdTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TransBkdTime(*args)
+        this = apply(_quickfix.new_TransBkdTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TransBkdTime
@@ -8246,7 +8222,7 @@ class ExecPriceType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecPriceType(*args)
+        this = apply(_quickfix.new_ExecPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecPriceType
@@ -8263,7 +8239,7 @@ class ExecPriceAdjustment(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecPriceAdjustment, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecPriceAdjustment(*args)
+        this = apply(_quickfix.new_ExecPriceAdjustment, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecPriceAdjustment
@@ -8280,7 +8256,7 @@ class DateOfBirth(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DateOfBirth, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DateOfBirth(*args)
+        this = apply(_quickfix.new_DateOfBirth, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DateOfBirth
@@ -8297,7 +8273,7 @@ class TradeReportTransType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeReportTransType(*args)
+        this = apply(_quickfix.new_TradeReportTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportTransType
@@ -8314,7 +8290,7 @@ class CardHolderName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardHolderName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardHolderName(*args)
+        this = apply(_quickfix.new_CardHolderName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardHolderName
@@ -8331,7 +8307,7 @@ class CardNumber(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardNumber, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardNumber(*args)
+        this = apply(_quickfix.new_CardNumber, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardNumber
@@ -8348,7 +8324,7 @@ class CardExpDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardExpDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardExpDate(*args)
+        this = apply(_quickfix.new_CardExpDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardExpDate
@@ -8365,7 +8341,7 @@ class CardIssNum(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardIssNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardIssNum(*args)
+        this = apply(_quickfix.new_CardIssNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardIssNum
@@ -8382,7 +8358,7 @@ class PaymentMethod(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PaymentMethod(*args)
+        this = apply(_quickfix.new_PaymentMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentMethod
@@ -8399,7 +8375,7 @@ class RegistAcctType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistAcctType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistAcctType(*args)
+        this = apply(_quickfix.new_RegistAcctType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistAcctType
@@ -8416,7 +8392,7 @@ class Designation(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Designation, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Designation(*args)
+        this = apply(_quickfix.new_Designation, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Designation
@@ -8433,7 +8409,7 @@ class TaxAdvantageType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TaxAdvantageType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TaxAdvantageType(*args)
+        this = apply(_quickfix.new_TaxAdvantageType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TaxAdvantageType
@@ -8450,7 +8426,7 @@ class RegistRejReasonText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRejReasonText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistRejReasonText(*args)
+        this = apply(_quickfix.new_RegistRejReasonText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRejReasonText
@@ -8467,7 +8443,7 @@ class FundRenewWaiv(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, FundRenewWaiv, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FundRenewWaiv(*args)
+        this = apply(_quickfix.new_FundRenewWaiv, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FundRenewWaiv
@@ -8484,7 +8460,7 @@ class CashDistribAgentName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribAgentName(*args)
+        this = apply(_quickfix.new_CashDistribAgentName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentName
@@ -8501,7 +8477,7 @@ class CashDistribAgentCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribAgentCode(*args)
+        this = apply(_quickfix.new_CashDistribAgentCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentCode
@@ -8518,7 +8494,7 @@ class CashDistribAgentAcctNumber(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentAcctNumber, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribAgentAcctNumber(*args)
+        this = apply(_quickfix.new_CashDistribAgentAcctNumber, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentAcctNumber
@@ -8535,7 +8511,7 @@ class CashDistribPayRef(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribPayRef, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribPayRef(*args)
+        this = apply(_quickfix.new_CashDistribPayRef, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribPayRef
@@ -8552,7 +8528,7 @@ class CashDistribAgentAcctName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentAcctName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashDistribAgentAcctName(*args)
+        this = apply(_quickfix.new_CashDistribAgentAcctName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentAcctName
@@ -8569,7 +8545,7 @@ class CardStartDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardStartDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardStartDate(*args)
+        this = apply(_quickfix.new_CardStartDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardStartDate
@@ -8586,7 +8562,7 @@ class PaymentDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PaymentDate(*args)
+        this = apply(_quickfix.new_PaymentDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentDate
@@ -8603,7 +8579,7 @@ class PaymentRemitterID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentRemitterID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PaymentRemitterID(*args)
+        this = apply(_quickfix.new_PaymentRemitterID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentRemitterID
@@ -8620,7 +8596,7 @@ class RegistStatus(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistStatus(*args)
+        this = apply(_quickfix.new_RegistStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistStatus
@@ -8637,7 +8613,7 @@ class RegistRejReasonCode(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRejReasonCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistRejReasonCode(*args)
+        this = apply(_quickfix.new_RegistRejReasonCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRejReasonCode
@@ -8654,7 +8630,7 @@ class RegistRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistRefID(*args)
+        this = apply(_quickfix.new_RegistRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRefID
@@ -8671,7 +8647,7 @@ class RegistDtls(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistDtls, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistDtls(*args)
+        this = apply(_quickfix.new_RegistDtls, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistDtls
@@ -8688,7 +8664,7 @@ class NoDistribInsts(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoDistribInsts, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoDistribInsts(*args)
+        this = apply(_quickfix.new_NoDistribInsts, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoDistribInsts
@@ -8705,7 +8681,7 @@ class RegistEmail(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistEmail, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistEmail(*args)
+        this = apply(_quickfix.new_RegistEmail, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistEmail
@@ -8722,7 +8698,7 @@ class DistribPercentage(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DistribPercentage, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DistribPercentage(*args)
+        this = apply(_quickfix.new_DistribPercentage, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DistribPercentage
@@ -8739,7 +8715,7 @@ class RegistID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistID(*args)
+        this = apply(_quickfix.new_RegistID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistID
@@ -8756,7 +8732,7 @@ class RegistTransType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistTransType(*args)
+        this = apply(_quickfix.new_RegistTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistTransType
@@ -8773,7 +8749,7 @@ class ExecValuationPoint(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecValuationPoint, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecValuationPoint(*args)
+        this = apply(_quickfix.new_ExecValuationPoint, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecValuationPoint
@@ -8790,7 +8766,7 @@ class OrderPercent(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderPercent, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderPercent(*args)
+        this = apply(_quickfix.new_OrderPercent, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderPercent
@@ -8807,7 +8783,7 @@ class OwnershipType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OwnershipType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OwnershipType(*args)
+        this = apply(_quickfix.new_OwnershipType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OwnershipType
@@ -8824,7 +8800,7 @@ class NoContAmts(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoContAmts, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoContAmts(*args)
+        this = apply(_quickfix.new_NoContAmts, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoContAmts
@@ -8841,7 +8817,7 @@ class ContAmtType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContAmtType(*args)
+        this = apply(_quickfix.new_ContAmtType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtType
@@ -8858,7 +8834,7 @@ class ContAmtValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContAmtValue(*args)
+        this = apply(_quickfix.new_ContAmtValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtValue
@@ -8875,7 +8851,7 @@ class ContAmtCurr(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtCurr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContAmtCurr(*args)
+        this = apply(_quickfix.new_ContAmtCurr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtCurr
@@ -8892,7 +8868,7 @@ class OwnerType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, OwnerType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OwnerType(*args)
+        this = apply(_quickfix.new_OwnerType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OwnerType
@@ -8909,7 +8885,7 @@ class PartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PartySubID(*args)
+        this = apply(_quickfix.new_PartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PartySubID
@@ -8926,7 +8902,7 @@ class NestedPartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NestedPartyID(*args)
+        this = apply(_quickfix.new_NestedPartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyID
@@ -8943,7 +8919,7 @@ class NestedPartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NestedPartyIDSource(*args)
+        this = apply(_quickfix.new_NestedPartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyIDSource
@@ -8960,7 +8936,7 @@ class SecondaryClOrdID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryClOrdID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryClOrdID(*args)
+        this = apply(_quickfix.new_SecondaryClOrdID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryClOrdID
@@ -8977,7 +8953,7 @@ class SecondaryExecID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryExecID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryExecID(*args)
+        this = apply(_quickfix.new_SecondaryExecID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryExecID
@@ -8994,7 +8970,7 @@ class OrderCapacity(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderCapacity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderCapacity(*args)
+        this = apply(_quickfix.new_OrderCapacity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCapacity
@@ -9011,7 +8987,7 @@ class OrderRestrictions(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderRestrictions, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderRestrictions(*args)
+        this = apply(_quickfix.new_OrderRestrictions, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderRestrictions
@@ -9028,7 +9004,7 @@ class MassCancelRequestType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MassCancelRequestType(*args)
+        this = apply(_quickfix.new_MassCancelRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelRequestType
@@ -9045,7 +9021,7 @@ class MassCancelResponse(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelResponse, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MassCancelResponse(*args)
+        this = apply(_quickfix.new_MassCancelResponse, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelResponse
@@ -9062,7 +9038,7 @@ class MassCancelRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MassCancelRejectReason(*args)
+        this = apply(_quickfix.new_MassCancelRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelRejectReason
@@ -9079,7 +9055,7 @@ class TotalAffectedOrders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalAffectedOrders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalAffectedOrders(*args)
+        this = apply(_quickfix.new_TotalAffectedOrders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalAffectedOrders
@@ -9096,7 +9072,7 @@ class NoAffectedOrders(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoAffectedOrders, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoAffectedOrders(*args)
+        this = apply(_quickfix.new_NoAffectedOrders, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoAffectedOrders
@@ -9113,7 +9089,7 @@ class AffectedOrderID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AffectedOrderID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AffectedOrderID(*args)
+        this = apply(_quickfix.new_AffectedOrderID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AffectedOrderID
@@ -9130,7 +9106,7 @@ class AffectedSecondaryOrderID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AffectedSecondaryOrderID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AffectedSecondaryOrderID(*args)
+        this = apply(_quickfix.new_AffectedSecondaryOrderID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AffectedSecondaryOrderID
@@ -9147,7 +9123,7 @@ class QuoteType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteType(*args)
+        this = apply(_quickfix.new_QuoteType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteType
@@ -9164,7 +9140,7 @@ class NestedPartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NestedPartyRole(*args)
+        this = apply(_quickfix.new_NestedPartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyRole
@@ -9181,7 +9157,7 @@ class NoNestedPartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNestedPartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNestedPartyIDs(*args)
+        this = apply(_quickfix.new_NoNestedPartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNestedPartyIDs
@@ -9198,7 +9174,7 @@ class TotalAccruedInterestAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalAccruedInterestAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalAccruedInterestAmt(*args)
+        this = apply(_quickfix.new_TotalAccruedInterestAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalAccruedInterestAmt
@@ -9215,7 +9191,7 @@ class MaturityDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaturityDate(*args)
+        this = apply(_quickfix.new_MaturityDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityDate
@@ -9232,7 +9208,7 @@ class UnderlyingMaturityDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingMaturityDate(*args)
+        this = apply(_quickfix.new_UnderlyingMaturityDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityDate
@@ -9249,7 +9225,7 @@ class InstrRegistry(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrRegistry, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrRegistry(*args)
+        this = apply(_quickfix.new_InstrRegistry, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrRegistry
@@ -9266,7 +9242,7 @@ class CashMargin(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashMargin, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashMargin(*args)
+        this = apply(_quickfix.new_CashMargin, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashMargin
@@ -9283,7 +9259,7 @@ class NestedPartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NestedPartySubID(*args)
+        this = apply(_quickfix.new_NestedPartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartySubID
@@ -9300,7 +9276,7 @@ class Scope(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Scope, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Scope(*args)
+        this = apply(_quickfix.new_Scope, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Scope
@@ -9317,7 +9293,7 @@ class MDImplicitDelete(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDImplicitDelete, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDImplicitDelete(*args)
+        this = apply(_quickfix.new_MDImplicitDelete, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDImplicitDelete
@@ -9334,7 +9310,7 @@ class CrossID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CrossID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CrossID(*args)
+        this = apply(_quickfix.new_CrossID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CrossID
@@ -9351,7 +9327,7 @@ class CrossType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CrossType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CrossType(*args)
+        this = apply(_quickfix.new_CrossType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CrossType
@@ -9368,7 +9344,7 @@ class CrossPrioritization(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CrossPrioritization, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CrossPrioritization(*args)
+        this = apply(_quickfix.new_CrossPrioritization, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CrossPrioritization
@@ -9385,7 +9361,7 @@ class OrigCrossID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigCrossID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigCrossID(*args)
+        this = apply(_quickfix.new_OrigCrossID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigCrossID
@@ -9402,7 +9378,7 @@ class NoSides(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSides, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSides(*args)
+        this = apply(_quickfix.new_NoSides, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSides
@@ -9419,7 +9395,7 @@ class NoLegs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoLegs(*args)
+        this = apply(_quickfix.new_NoLegs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegs
@@ -9436,7 +9412,7 @@ class LegCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCurrency(*args)
+        this = apply(_quickfix.new_LegCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCurrency
@@ -9453,7 +9429,7 @@ class TotNoSecurityTypes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoSecurityTypes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoSecurityTypes(*args)
+        this = apply(_quickfix.new_TotNoSecurityTypes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoSecurityTypes
@@ -9470,7 +9446,7 @@ class NoSecurityTypes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSecurityTypes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSecurityTypes(*args)
+        this = apply(_quickfix.new_NoSecurityTypes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSecurityTypes
@@ -9487,7 +9463,7 @@ class SecurityListRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityListRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityListRequestType(*args)
+        this = apply(_quickfix.new_SecurityListRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListRequestType
@@ -9504,7 +9480,7 @@ class SecurityRequestResult(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityRequestResult, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityRequestResult(*args)
+        this = apply(_quickfix.new_SecurityRequestResult, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityRequestResult
@@ -9521,7 +9497,7 @@ class RoundLot(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RoundLot, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RoundLot(*args)
+        this = apply(_quickfix.new_RoundLot, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RoundLot
@@ -9538,7 +9514,7 @@ class MinTradeVol(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MinTradeVol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MinTradeVol(*args)
+        this = apply(_quickfix.new_MinTradeVol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MinTradeVol
@@ -9555,7 +9531,7 @@ class MultiLegRptTypeReq(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MultiLegRptTypeReq, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MultiLegRptTypeReq(*args)
+        this = apply(_quickfix.new_MultiLegRptTypeReq, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MultiLegRptTypeReq
@@ -9572,7 +9548,7 @@ class LegPositionEffect(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegPositionEffect, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegPositionEffect(*args)
+        this = apply(_quickfix.new_LegPositionEffect, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegPositionEffect
@@ -9589,7 +9565,7 @@ class LegCoveredOrUncovered(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCoveredOrUncovered, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCoveredOrUncovered(*args)
+        this = apply(_quickfix.new_LegCoveredOrUncovered, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCoveredOrUncovered
@@ -9606,7 +9582,7 @@ class LegPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegPrice(*args)
+        this = apply(_quickfix.new_LegPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegPrice
@@ -9623,7 +9599,7 @@ class TradSesStatusRejReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStatusRejReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradSesStatusRejReason(*args)
+        this = apply(_quickfix.new_TradSesStatusRejReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStatusRejReason
@@ -9640,7 +9616,7 @@ class TradeRequestID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeRequestID(*args)
+        this = apply(_quickfix.new_TradeRequestID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestID
@@ -9657,7 +9633,7 @@ class TradeRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeRequestType(*args)
+        this = apply(_quickfix.new_TradeRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestType
@@ -9674,7 +9650,7 @@ class PreviouslyReported(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PreviouslyReported, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PreviouslyReported(*args)
+        this = apply(_quickfix.new_PreviouslyReported, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PreviouslyReported
@@ -9691,7 +9667,7 @@ class TradeReportID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeReportID(*args)
+        this = apply(_quickfix.new_TradeReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportID
@@ -9708,7 +9684,7 @@ class TradeReportRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeReportRefID(*args)
+        this = apply(_quickfix.new_TradeReportRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportRefID
@@ -9725,7 +9701,7 @@ class MatchStatus(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MatchStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MatchStatus(*args)
+        this = apply(_quickfix.new_MatchStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MatchStatus
@@ -9742,7 +9718,7 @@ class MatchType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MatchType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MatchType(*args)
+        this = apply(_quickfix.new_MatchType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MatchType
@@ -9759,7 +9735,7 @@ class OddLot(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, OddLot, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OddLot(*args)
+        this = apply(_quickfix.new_OddLot, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OddLot
@@ -9776,7 +9752,7 @@ class NoClearingInstructions(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoClearingInstructions, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoClearingInstructions(*args)
+        this = apply(_quickfix.new_NoClearingInstructions, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoClearingInstructions
@@ -9793,7 +9769,7 @@ class ClearingInstruction(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingInstruction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClearingInstruction(*args)
+        this = apply(_quickfix.new_ClearingInstruction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingInstruction
@@ -9810,7 +9786,7 @@ class TradeInputSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeInputSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeInputSource(*args)
+        this = apply(_quickfix.new_TradeInputSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeInputSource
@@ -9827,7 +9803,7 @@ class TradeInputDevice(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeInputDevice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeInputDevice(*args)
+        this = apply(_quickfix.new_TradeInputDevice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeInputDevice
@@ -9844,7 +9820,7 @@ class NoDates(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoDates, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoDates(*args)
+        this = apply(_quickfix.new_NoDates, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoDates
@@ -9861,7 +9837,7 @@ class AccountType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AccountType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AccountType(*args)
+        this = apply(_quickfix.new_AccountType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AccountType
@@ -9878,7 +9854,7 @@ class CustOrderCapacity(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CustOrderCapacity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CustOrderCapacity(*args)
+        this = apply(_quickfix.new_CustOrderCapacity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CustOrderCapacity
@@ -9895,7 +9871,7 @@ class ClOrdLinkID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClOrdLinkID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClOrdLinkID(*args)
+        this = apply(_quickfix.new_ClOrdLinkID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClOrdLinkID
@@ -9912,7 +9888,7 @@ class MassStatusReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MassStatusReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MassStatusReqID(*args)
+        this = apply(_quickfix.new_MassStatusReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MassStatusReqID
@@ -9929,7 +9905,7 @@ class MassStatusReqType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MassStatusReqType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MassStatusReqType(*args)
+        this = apply(_quickfix.new_MassStatusReqType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MassStatusReqType
@@ -9946,7 +9922,7 @@ class OrigOrdModTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigOrdModTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigOrdModTime(*args)
+        this = apply(_quickfix.new_OrigOrdModTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigOrdModTime
@@ -9963,7 +9939,7 @@ class LegSettlType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSettlType(*args)
+        this = apply(_quickfix.new_LegSettlType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlType
@@ -9980,7 +9956,7 @@ class LegSettlDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSettlDate(*args)
+        this = apply(_quickfix.new_LegSettlDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlDate
@@ -9997,7 +9973,7 @@ class DayBookingInst(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DayBookingInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DayBookingInst(*args)
+        this = apply(_quickfix.new_DayBookingInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DayBookingInst
@@ -10014,7 +9990,7 @@ class BookingUnit(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, BookingUnit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BookingUnit(*args)
+        this = apply(_quickfix.new_BookingUnit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BookingUnit
@@ -10031,7 +10007,7 @@ class PreallocMethod(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, PreallocMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PreallocMethod(*args)
+        this = apply(_quickfix.new_PreallocMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PreallocMethod
@@ -10048,7 +10024,7 @@ class UnderlyingCountryOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCountryOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCountryOfIssue(*args)
+        this = apply(_quickfix.new_UnderlyingCountryOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCountryOfIssue
@@ -10065,7 +10041,7 @@ class UnderlyingStateOrProvinceOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStateOrProvinceOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStateOrProvinceOfIssue(*args)
+        this = apply(_quickfix.new_UnderlyingStateOrProvinceOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStateOrProvinceOfIssue
@@ -10082,7 +10058,7 @@ class UnderlyingLocaleOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLocaleOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingLocaleOfIssue(*args)
+        this = apply(_quickfix.new_UnderlyingLocaleOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLocaleOfIssue
@@ -10099,7 +10075,7 @@ class UnderlyingInstrRegistry(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingInstrRegistry, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingInstrRegistry(*args)
+        this = apply(_quickfix.new_UnderlyingInstrRegistry, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrRegistry
@@ -10116,7 +10092,7 @@ class LegCountryOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCountryOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCountryOfIssue(*args)
+        this = apply(_quickfix.new_LegCountryOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCountryOfIssue
@@ -10133,7 +10109,7 @@ class LegStateOrProvinceOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegStateOrProvinceOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegStateOrProvinceOfIssue(*args)
+        this = apply(_quickfix.new_LegStateOrProvinceOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegStateOrProvinceOfIssue
@@ -10150,7 +10126,7 @@ class LegLocaleOfIssue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegLocaleOfIssue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegLocaleOfIssue(*args)
+        this = apply(_quickfix.new_LegLocaleOfIssue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegLocaleOfIssue
@@ -10167,7 +10143,7 @@ class LegInstrRegistry(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegInstrRegistry, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegInstrRegistry(*args)
+        this = apply(_quickfix.new_LegInstrRegistry, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegInstrRegistry
@@ -10184,7 +10160,7 @@ class LegSymbol(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSymbol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSymbol(*args)
+        this = apply(_quickfix.new_LegSymbol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSymbol
@@ -10201,7 +10177,7 @@ class LegSymbolSfx(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSymbolSfx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSymbolSfx(*args)
+        this = apply(_quickfix.new_LegSymbolSfx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSymbolSfx
@@ -10218,7 +10194,7 @@ class LegSecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityID(*args)
+        this = apply(_quickfix.new_LegSecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityID
@@ -10235,7 +10211,7 @@ class LegSecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityIDSource(*args)
+        this = apply(_quickfix.new_LegSecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityIDSource
@@ -10252,7 +10228,7 @@ class NoLegSecurityAltID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoLegSecurityAltID(*args)
+        this = apply(_quickfix.new_NoLegSecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegSecurityAltID
@@ -10269,7 +10245,7 @@ class LegSecurityAltID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityAltID(*args)
+        this = apply(_quickfix.new_LegSecurityAltID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityAltID
@@ -10286,7 +10262,7 @@ class LegSecurityAltIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityAltIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityAltIDSource(*args)
+        this = apply(_quickfix.new_LegSecurityAltIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityAltIDSource
@@ -10303,7 +10279,7 @@ class LegProduct(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegProduct, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegProduct(*args)
+        this = apply(_quickfix.new_LegProduct, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegProduct
@@ -10320,7 +10296,7 @@ class LegCFICode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCFICode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCFICode(*args)
+        this = apply(_quickfix.new_LegCFICode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCFICode
@@ -10337,7 +10313,7 @@ class LegSecurityType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityType(*args)
+        this = apply(_quickfix.new_LegSecurityType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityType
@@ -10354,7 +10330,7 @@ class LegMaturityMonthYear(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegMaturityMonthYear, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegMaturityMonthYear(*args)
+        this = apply(_quickfix.new_LegMaturityMonthYear, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegMaturityMonthYear
@@ -10371,7 +10347,7 @@ class LegMaturityDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegMaturityDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegMaturityDate(*args)
+        this = apply(_quickfix.new_LegMaturityDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegMaturityDate
@@ -10388,7 +10364,7 @@ class LegStrikePrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegStrikePrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegStrikePrice(*args)
+        this = apply(_quickfix.new_LegStrikePrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegStrikePrice
@@ -10405,7 +10381,7 @@ class LegOptAttribute(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegOptAttribute, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOptAttribute(*args)
+        this = apply(_quickfix.new_LegOptAttribute, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegOptAttribute
@@ -10422,7 +10398,7 @@ class LegContractMultiplier(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegContractMultiplier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegContractMultiplier(*args)
+        this = apply(_quickfix.new_LegContractMultiplier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegContractMultiplier
@@ -10439,7 +10415,7 @@ class LegCouponRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCouponRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCouponRate(*args)
+        this = apply(_quickfix.new_LegCouponRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCouponRate
@@ -10456,7 +10432,7 @@ class LegSecurityExchange(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityExchange, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityExchange(*args)
+        this = apply(_quickfix.new_LegSecurityExchange, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityExchange
@@ -10473,7 +10449,7 @@ class LegIssuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegIssuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegIssuer(*args)
+        this = apply(_quickfix.new_LegIssuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegIssuer
@@ -10490,7 +10466,7 @@ class EncodedLegIssuerLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegIssuerLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedLegIssuerLen(*args)
+        this = apply(_quickfix.new_EncodedLegIssuerLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegIssuerLen
@@ -10507,7 +10483,7 @@ class EncodedLegIssuer(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegIssuer, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedLegIssuer(*args)
+        this = apply(_quickfix.new_EncodedLegIssuer, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegIssuer
@@ -10524,7 +10500,7 @@ class LegSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecurityDesc(*args)
+        this = apply(_quickfix.new_LegSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityDesc
@@ -10541,7 +10517,7 @@ class EncodedLegSecurityDescLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegSecurityDescLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedLegSecurityDescLen(*args)
+        this = apply(_quickfix.new_EncodedLegSecurityDescLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegSecurityDescLen
@@ -10558,7 +10534,7 @@ class EncodedLegSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedLegSecurityDesc(*args)
+        this = apply(_quickfix.new_EncodedLegSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegSecurityDesc
@@ -10575,7 +10551,7 @@ class LegRatioQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRatioQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRatioQty(*args)
+        this = apply(_quickfix.new_LegRatioQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRatioQty
@@ -10592,7 +10568,7 @@ class LegSide(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSide, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSide(*args)
+        this = apply(_quickfix.new_LegSide, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSide
@@ -10609,7 +10585,7 @@ class TradingSessionSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradingSessionSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradingSessionSubID(*args)
+        this = apply(_quickfix.new_TradingSessionSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradingSessionSubID
@@ -10626,7 +10602,7 @@ class AllocType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocType(*args)
+        this = apply(_quickfix.new_AllocType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocType
@@ -10643,7 +10619,7 @@ class MidPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MidPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MidPx(*args)
+        this = apply(_quickfix.new_MidPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MidPx
@@ -10660,7 +10636,7 @@ class BidYield(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidYield, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidYield(*args)
+        this = apply(_quickfix.new_BidYield, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidYield
@@ -10677,7 +10653,7 @@ class MidYield(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MidYield, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MidYield(*args)
+        this = apply(_quickfix.new_MidYield, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MidYield
@@ -10694,7 +10670,7 @@ class OfferYield(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferYield, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferYield(*args)
+        this = apply(_quickfix.new_OfferYield, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferYield
@@ -10711,7 +10687,7 @@ class ClearingFeeIndicator(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingFeeIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClearingFeeIndicator(*args)
+        this = apply(_quickfix.new_ClearingFeeIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingFeeIndicator
@@ -10728,7 +10704,7 @@ class WorkingIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, WorkingIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_WorkingIndicator(*args)
+        this = apply(_quickfix.new_WorkingIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_WorkingIndicator
@@ -10745,7 +10721,7 @@ class LegLastPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegLastPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegLastPx(*args)
+        this = apply(_quickfix.new_LegLastPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegLastPx
@@ -10762,7 +10738,7 @@ class PriorityIndicator(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriorityIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriorityIndicator(*args)
+        this = apply(_quickfix.new_PriorityIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriorityIndicator
@@ -10779,7 +10755,7 @@ class PriceImprovement(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriceImprovement, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriceImprovement(*args)
+        this = apply(_quickfix.new_PriceImprovement, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriceImprovement
@@ -10796,7 +10772,7 @@ class Price2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Price2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Price2(*args)
+        this = apply(_quickfix.new_Price2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Price2
@@ -10813,7 +10789,7 @@ class LastForwardPoints2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastForwardPoints2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastForwardPoints2(*args)
+        this = apply(_quickfix.new_LastForwardPoints2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastForwardPoints2
@@ -10830,7 +10806,7 @@ class BidForwardPoints2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidForwardPoints2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidForwardPoints2(*args)
+        this = apply(_quickfix.new_BidForwardPoints2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidForwardPoints2
@@ -10847,7 +10823,7 @@ class OfferForwardPoints2(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferForwardPoints2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferForwardPoints2(*args)
+        this = apply(_quickfix.new_OfferForwardPoints2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferForwardPoints2
@@ -10864,7 +10840,7 @@ class RFQReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RFQReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RFQReqID(*args)
+        this = apply(_quickfix.new_RFQReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RFQReqID
@@ -10881,7 +10857,7 @@ class MktBidPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MktBidPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MktBidPx(*args)
+        this = apply(_quickfix.new_MktBidPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MktBidPx
@@ -10898,7 +10874,7 @@ class MktOfferPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MktOfferPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MktOfferPx(*args)
+        this = apply(_quickfix.new_MktOfferPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MktOfferPx
@@ -10915,7 +10891,7 @@ class MinBidSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MinBidSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MinBidSize(*args)
+        this = apply(_quickfix.new_MinBidSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MinBidSize
@@ -10932,7 +10908,7 @@ class MinOfferSize(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MinOfferSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MinOfferSize(*args)
+        this = apply(_quickfix.new_MinOfferSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MinOfferSize
@@ -10949,7 +10925,7 @@ class QuoteStatusReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteStatusReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteStatusReqID(*args)
+        this = apply(_quickfix.new_QuoteStatusReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteStatusReqID
@@ -10966,7 +10942,7 @@ class LegalConfirm(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegalConfirm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegalConfirm(*args)
+        this = apply(_quickfix.new_LegalConfirm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegalConfirm
@@ -10983,7 +10959,7 @@ class UnderlyingLastPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLastPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingLastPx(*args)
+        this = apply(_quickfix.new_UnderlyingLastPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLastPx
@@ -11000,7 +10976,7 @@ class UnderlyingLastQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLastQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingLastQty(*args)
+        this = apply(_quickfix.new_UnderlyingLastQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLastQty
@@ -11017,7 +10993,7 @@ class SecDefStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecDefStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecDefStatus(*args)
+        this = apply(_quickfix.new_SecDefStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecDefStatus
@@ -11034,7 +11010,7 @@ class LegRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegRefID(*args)
+        this = apply(_quickfix.new_LegRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegRefID
@@ -11051,7 +11027,7 @@ class ContraLegRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraLegRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraLegRefID(*args)
+        this = apply(_quickfix.new_ContraLegRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraLegRefID
@@ -11068,7 +11044,7 @@ class SettlCurrBidFxRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrBidFxRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrBidFxRate(*args)
+        this = apply(_quickfix.new_SettlCurrBidFxRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrBidFxRate
@@ -11085,7 +11061,7 @@ class SettlCurrOfferFxRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrOfferFxRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlCurrOfferFxRate(*args)
+        this = apply(_quickfix.new_SettlCurrOfferFxRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrOfferFxRate
@@ -11102,7 +11078,7 @@ class QuoteRequestRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRequestRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteRequestRejectReason(*args)
+        this = apply(_quickfix.new_QuoteRequestRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRequestRejectReason
@@ -11119,7 +11095,7 @@ class SideComplianceID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideComplianceID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideComplianceID(*args)
+        this = apply(_quickfix.new_SideComplianceID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideComplianceID
@@ -11136,7 +11112,7 @@ class AcctIDSource(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AcctIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AcctIDSource(*args)
+        this = apply(_quickfix.new_AcctIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AcctIDSource
@@ -11153,7 +11129,7 @@ class AllocAcctIDSource(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAcctIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocAcctIDSource(*args)
+        this = apply(_quickfix.new_AllocAcctIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAcctIDSource
@@ -11170,7 +11146,7 @@ class BenchmarkPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkPrice(*args)
+        this = apply(_quickfix.new_BenchmarkPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkPrice
@@ -11187,7 +11163,7 @@ class BenchmarkPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkPriceType(*args)
+        this = apply(_quickfix.new_BenchmarkPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkPriceType
@@ -11204,7 +11180,7 @@ class ConfirmID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmID(*args)
+        this = apply(_quickfix.new_ConfirmID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmID
@@ -11221,7 +11197,7 @@ class ConfirmStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmStatus(*args)
+        this = apply(_quickfix.new_ConfirmStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmStatus
@@ -11238,7 +11214,7 @@ class ConfirmTransType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmTransType(*args)
+        this = apply(_quickfix.new_ConfirmTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmTransType
@@ -11255,7 +11231,7 @@ class ContractSettlMonth(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContractSettlMonth, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContractSettlMonth(*args)
+        this = apply(_quickfix.new_ContractSettlMonth, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContractSettlMonth
@@ -11272,7 +11248,7 @@ class DeliveryForm(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryForm, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliveryForm(*args)
+        this = apply(_quickfix.new_DeliveryForm, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryForm
@@ -11289,7 +11265,7 @@ class LastParPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastParPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastParPx(*args)
+        this = apply(_quickfix.new_LastParPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastParPx
@@ -11306,7 +11282,7 @@ class NoLegAllocs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegAllocs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoLegAllocs(*args)
+        this = apply(_quickfix.new_NoLegAllocs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegAllocs
@@ -11323,7 +11299,7 @@ class LegAllocAccount(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocAccount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegAllocAccount(*args)
+        this = apply(_quickfix.new_LegAllocAccount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocAccount
@@ -11340,7 +11316,7 @@ class LegIndividualAllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegIndividualAllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegIndividualAllocID(*args)
+        this = apply(_quickfix.new_LegIndividualAllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegIndividualAllocID
@@ -11357,7 +11333,7 @@ class LegAllocQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegAllocQty(*args)
+        this = apply(_quickfix.new_LegAllocQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocQty
@@ -11374,7 +11350,7 @@ class LegAllocAcctIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocAcctIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegAllocAcctIDSource(*args)
+        this = apply(_quickfix.new_LegAllocAcctIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocAcctIDSource
@@ -11391,7 +11367,7 @@ class LegSettlCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSettlCurrency(*args)
+        this = apply(_quickfix.new_LegSettlCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlCurrency
@@ -11408,7 +11384,7 @@ class LegBenchmarkCurveCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurveCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBenchmarkCurveCurrency(*args)
+        this = apply(_quickfix.new_LegBenchmarkCurveCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurveCurrency
@@ -11425,7 +11401,7 @@ class LegBenchmarkCurveName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurveName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBenchmarkCurveName(*args)
+        this = apply(_quickfix.new_LegBenchmarkCurveName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurveName
@@ -11442,7 +11418,7 @@ class LegBenchmarkCurvePoint(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurvePoint, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBenchmarkCurvePoint(*args)
+        this = apply(_quickfix.new_LegBenchmarkCurvePoint, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurvePoint
@@ -11459,7 +11435,7 @@ class LegBenchmarkPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBenchmarkPrice(*args)
+        this = apply(_quickfix.new_LegBenchmarkPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkPrice
@@ -11476,7 +11452,7 @@ class LegBenchmarkPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBenchmarkPriceType(*args)
+        this = apply(_quickfix.new_LegBenchmarkPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkPriceType
@@ -11493,7 +11469,7 @@ class LegBidPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBidPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBidPx(*args)
+        this = apply(_quickfix.new_LegBidPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBidPx
@@ -11510,7 +11486,7 @@ class LegIOIQty(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegIOIQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegIOIQty(*args)
+        this = apply(_quickfix.new_LegIOIQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegIOIQty
@@ -11527,7 +11503,7 @@ class NoLegStipulations(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegStipulations, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoLegStipulations(*args)
+        this = apply(_quickfix.new_NoLegStipulations, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegStipulations
@@ -11544,7 +11520,7 @@ class LegOfferPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegOfferPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOfferPx(*args)
+        this = apply(_quickfix.new_LegOfferPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegOfferPx
@@ -11561,7 +11537,7 @@ class LegOrderQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegOrderQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOrderQty(*args)
+        this = apply(_quickfix.new_LegOrderQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegOrderQty
@@ -11578,7 +11554,7 @@ class LegPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegPriceType(*args)
+        this = apply(_quickfix.new_LegPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegPriceType
@@ -11595,7 +11571,7 @@ class LegQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegQty(*args)
+        this = apply(_quickfix.new_LegQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegQty
@@ -11612,7 +11588,7 @@ class LegStipulationType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegStipulationType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegStipulationType(*args)
+        this = apply(_quickfix.new_LegStipulationType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegStipulationType
@@ -11629,7 +11605,7 @@ class LegStipulationValue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegStipulationValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegStipulationValue(*args)
+        this = apply(_quickfix.new_LegStipulationValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegStipulationValue
@@ -11646,7 +11622,7 @@ class LegSwapType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSwapType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSwapType(*args)
+        this = apply(_quickfix.new_LegSwapType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSwapType
@@ -11663,7 +11639,7 @@ class Pool(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Pool, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Pool(*args)
+        this = apply(_quickfix.new_Pool, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Pool
@@ -11680,7 +11656,7 @@ class QuotePriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuotePriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuotePriceType(*args)
+        this = apply(_quickfix.new_QuotePriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuotePriceType
@@ -11697,7 +11673,7 @@ class QuoteRespID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRespID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteRespID(*args)
+        this = apply(_quickfix.new_QuoteRespID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRespID
@@ -11714,7 +11690,7 @@ class QuoteRespType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRespType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteRespType(*args)
+        this = apply(_quickfix.new_QuoteRespType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRespType
@@ -11731,7 +11707,7 @@ class QuoteQualifier(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteQualifier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteQualifier(*args)
+        this = apply(_quickfix.new_QuoteQualifier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteQualifier
@@ -11748,7 +11724,7 @@ class YieldRedemptionDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_YieldRedemptionDate(*args)
+        this = apply(_quickfix.new_YieldRedemptionDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionDate
@@ -11765,7 +11741,7 @@ class YieldRedemptionPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_YieldRedemptionPrice(*args)
+        this = apply(_quickfix.new_YieldRedemptionPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionPrice
@@ -11782,7 +11758,7 @@ class YieldRedemptionPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_YieldRedemptionPriceType(*args)
+        this = apply(_quickfix.new_YieldRedemptionPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionPriceType
@@ -11799,7 +11775,7 @@ class BenchmarkSecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkSecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkSecurityID(*args)
+        this = apply(_quickfix.new_BenchmarkSecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkSecurityID
@@ -11816,7 +11792,7 @@ class ReversalIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ReversalIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ReversalIndicator(*args)
+        this = apply(_quickfix.new_ReversalIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ReversalIndicator
@@ -11833,7 +11809,7 @@ class YieldCalcDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, YieldCalcDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_YieldCalcDate(*args)
+        this = apply(_quickfix.new_YieldCalcDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_YieldCalcDate
@@ -11850,7 +11826,7 @@ class NoPositions(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoPositions, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoPositions(*args)
+        this = apply(_quickfix.new_NoPositions, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoPositions
@@ -11867,7 +11843,7 @@ class PosType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosType(*args)
+        this = apply(_quickfix.new_PosType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosType
@@ -11884,7 +11860,7 @@ class LongQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LongQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LongQty(*args)
+        this = apply(_quickfix.new_LongQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LongQty
@@ -11901,7 +11877,7 @@ class ShortQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ShortQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ShortQty(*args)
+        this = apply(_quickfix.new_ShortQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ShortQty
@@ -11918,7 +11894,7 @@ class PosQtyStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosQtyStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosQtyStatus(*args)
+        this = apply(_quickfix.new_PosQtyStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosQtyStatus
@@ -11935,7 +11911,7 @@ class PosAmtType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosAmtType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosAmtType(*args)
+        this = apply(_quickfix.new_PosAmtType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosAmtType
@@ -11952,7 +11928,7 @@ class PosAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosAmt(*args)
+        this = apply(_quickfix.new_PosAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosAmt
@@ -11969,7 +11945,7 @@ class PosTransType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosTransType(*args)
+        this = apply(_quickfix.new_PosTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosTransType
@@ -11986,7 +11962,7 @@ class PosReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosReqID(*args)
+        this = apply(_quickfix.new_PosReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqID
@@ -12003,7 +11979,7 @@ class NoUnderlyings(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyings, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUnderlyings(*args)
+        this = apply(_quickfix.new_NoUnderlyings, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyings
@@ -12020,7 +11996,7 @@ class PosMaintAction(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosMaintAction(*args)
+        this = apply(_quickfix.new_PosMaintAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintAction
@@ -12037,7 +12013,7 @@ class OrigPosReqRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigPosReqRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigPosReqRefID(*args)
+        this = apply(_quickfix.new_OrigPosReqRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigPosReqRefID
@@ -12054,7 +12030,7 @@ class PosMaintRptRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintRptRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosMaintRptRefID(*args)
+        this = apply(_quickfix.new_PosMaintRptRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintRptRefID
@@ -12071,7 +12047,7 @@ class ClearingBusinessDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingBusinessDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ClearingBusinessDate(*args)
+        this = apply(_quickfix.new_ClearingBusinessDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingBusinessDate
@@ -12088,7 +12064,7 @@ class SettlSessID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlSessID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlSessID(*args)
+        this = apply(_quickfix.new_SettlSessID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlSessID
@@ -12105,7 +12081,7 @@ class SettlSessSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlSessSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlSessSubID(*args)
+        this = apply(_quickfix.new_SettlSessSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlSessSubID
@@ -12122,7 +12098,7 @@ class AdjustmentType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AdjustmentType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AdjustmentType(*args)
+        this = apply(_quickfix.new_AdjustmentType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AdjustmentType
@@ -12139,7 +12115,7 @@ class ContraryInstructionIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContraryInstructionIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContraryInstructionIndicator(*args)
+        this = apply(_quickfix.new_ContraryInstructionIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContraryInstructionIndicator
@@ -12156,7 +12132,7 @@ class PriorSpreadIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriorSpreadIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriorSpreadIndicator(*args)
+        this = apply(_quickfix.new_PriorSpreadIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriorSpreadIndicator
@@ -12173,7 +12149,7 @@ class PosMaintRptID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintRptID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosMaintRptID(*args)
+        this = apply(_quickfix.new_PosMaintRptID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintRptID
@@ -12190,7 +12166,7 @@ class PosMaintStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosMaintStatus(*args)
+        this = apply(_quickfix.new_PosMaintStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintStatus
@@ -12207,7 +12183,7 @@ class PosMaintResult(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintResult, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosMaintResult(*args)
+        this = apply(_quickfix.new_PosMaintResult, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintResult
@@ -12224,7 +12200,7 @@ class PosReqType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosReqType(*args)
+        this = apply(_quickfix.new_PosReqType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqType
@@ -12241,7 +12217,7 @@ class ResponseTransportType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ResponseTransportType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ResponseTransportType(*args)
+        this = apply(_quickfix.new_ResponseTransportType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ResponseTransportType
@@ -12258,7 +12234,7 @@ class ResponseDestination(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ResponseDestination, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ResponseDestination(*args)
+        this = apply(_quickfix.new_ResponseDestination, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ResponseDestination
@@ -12275,7 +12251,7 @@ class TotalNumPosReports(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumPosReports, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalNumPosReports(*args)
+        this = apply(_quickfix.new_TotalNumPosReports, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumPosReports
@@ -12292,7 +12268,7 @@ class PosReqResult(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqResult, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosReqResult(*args)
+        this = apply(_quickfix.new_PosReqResult, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqResult
@@ -12309,7 +12285,7 @@ class PosReqStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PosReqStatus(*args)
+        this = apply(_quickfix.new_PosReqStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqStatus
@@ -12326,7 +12302,7 @@ class SettlPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPrice(*args)
+        this = apply(_quickfix.new_SettlPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPrice
@@ -12343,7 +12319,7 @@ class SettlPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPriceType(*args)
+        this = apply(_quickfix.new_SettlPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPriceType
@@ -12360,7 +12336,7 @@ class UnderlyingSettlPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlPrice(*args)
+        this = apply(_quickfix.new_UnderlyingSettlPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlPrice
@@ -12377,7 +12353,7 @@ class UnderlyingSettlPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlPriceType(*args)
+        this = apply(_quickfix.new_UnderlyingSettlPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlPriceType
@@ -12394,7 +12370,7 @@ class PriorSettlPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriorSettlPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriorSettlPrice(*args)
+        this = apply(_quickfix.new_PriorSettlPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriorSettlPrice
@@ -12411,7 +12387,7 @@ class NoQuoteQualifiers(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteQualifiers, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoQuoteQualifiers(*args)
+        this = apply(_quickfix.new_NoQuoteQualifiers, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteQualifiers
@@ -12428,7 +12404,7 @@ class AllocSettlCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocSettlCurrency(*args)
+        this = apply(_quickfix.new_AllocSettlCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlCurrency
@@ -12445,7 +12421,7 @@ class AllocSettlCurrAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlCurrAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocSettlCurrAmt(*args)
+        this = apply(_quickfix.new_AllocSettlCurrAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlCurrAmt
@@ -12462,7 +12438,7 @@ class InterestAtMaturity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, InterestAtMaturity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InterestAtMaturity(*args)
+        this = apply(_quickfix.new_InterestAtMaturity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InterestAtMaturity
@@ -12479,7 +12455,7 @@ class LegDatedDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegDatedDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegDatedDate(*args)
+        this = apply(_quickfix.new_LegDatedDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegDatedDate
@@ -12496,7 +12472,7 @@ class LegPool(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegPool, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegPool(*args)
+        this = apply(_quickfix.new_LegPool, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegPool
@@ -12513,7 +12489,7 @@ class AllocInterestAtMaturity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocInterestAtMaturity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocInterestAtMaturity(*args)
+        this = apply(_quickfix.new_AllocInterestAtMaturity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocInterestAtMaturity
@@ -12530,7 +12506,7 @@ class AllocAccruedInterestAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccruedInterestAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocAccruedInterestAmt(*args)
+        this = apply(_quickfix.new_AllocAccruedInterestAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccruedInterestAmt
@@ -12547,7 +12523,7 @@ class DeliveryDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliveryDate(*args)
+        this = apply(_quickfix.new_DeliveryDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryDate
@@ -12564,7 +12540,7 @@ class AssignmentMethod(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, AssignmentMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AssignmentMethod(*args)
+        this = apply(_quickfix.new_AssignmentMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AssignmentMethod
@@ -12581,7 +12557,7 @@ class AssignmentUnit(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AssignmentUnit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AssignmentUnit(*args)
+        this = apply(_quickfix.new_AssignmentUnit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AssignmentUnit
@@ -12598,7 +12574,7 @@ class OpenInterest(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OpenInterest, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OpenInterest(*args)
+        this = apply(_quickfix.new_OpenInterest, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OpenInterest
@@ -12615,7 +12591,7 @@ class ExerciseMethod(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExerciseMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExerciseMethod(*args)
+        this = apply(_quickfix.new_ExerciseMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExerciseMethod
@@ -12632,7 +12608,7 @@ class TotNumTradeReports(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumTradeReports, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNumTradeReports(*args)
+        this = apply(_quickfix.new_TotNumTradeReports, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumTradeReports
@@ -12649,7 +12625,7 @@ class TradeRequestResult(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestResult, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeRequestResult(*args)
+        this = apply(_quickfix.new_TradeRequestResult, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestResult
@@ -12666,7 +12642,7 @@ class TradeRequestStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeRequestStatus(*args)
+        this = apply(_quickfix.new_TradeRequestStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestStatus
@@ -12683,7 +12659,7 @@ class TradeReportRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeReportRejectReason(*args)
+        this = apply(_quickfix.new_TradeReportRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportRejectReason
@@ -12700,7 +12676,7 @@ class SideMultiLegReportingType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideMultiLegReportingType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideMultiLegReportingType(*args)
+        this = apply(_quickfix.new_SideMultiLegReportingType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideMultiLegReportingType
@@ -12717,7 +12693,7 @@ class NoPosAmt(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoPosAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoPosAmt(*args)
+        this = apply(_quickfix.new_NoPosAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoPosAmt
@@ -12734,7 +12710,7 @@ class AutoAcceptIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, AutoAcceptIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AutoAcceptIndicator(*args)
+        this = apply(_quickfix.new_AutoAcceptIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AutoAcceptIndicator
@@ -12751,7 +12727,7 @@ class AllocReportID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocReportID(*args)
+        this = apply(_quickfix.new_AllocReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportID
@@ -12768,7 +12744,7 @@ class NoNested2PartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNested2PartyIDs(*args)
+        this = apply(_quickfix.new_NoNested2PartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested2PartyIDs
@@ -12785,7 +12761,7 @@ class Nested2PartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested2PartyID(*args)
+        this = apply(_quickfix.new_Nested2PartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyID
@@ -12802,7 +12778,7 @@ class Nested2PartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested2PartyIDSource(*args)
+        this = apply(_quickfix.new_Nested2PartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyIDSource
@@ -12819,7 +12795,7 @@ class Nested2PartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested2PartyRole(*args)
+        this = apply(_quickfix.new_Nested2PartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyRole
@@ -12836,7 +12812,7 @@ class Nested2PartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested2PartySubID(*args)
+        this = apply(_quickfix.new_Nested2PartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartySubID
@@ -12853,7 +12829,7 @@ class BenchmarkSecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkSecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BenchmarkSecurityIDSource(*args)
+        this = apply(_quickfix.new_BenchmarkSecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkSecurityIDSource
@@ -12870,7 +12846,7 @@ class SecuritySubType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySubType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecuritySubType(*args)
+        this = apply(_quickfix.new_SecuritySubType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySubType
@@ -12887,7 +12863,7 @@ class UnderlyingSecuritySubType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecuritySubType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSecuritySubType(*args)
+        this = apply(_quickfix.new_UnderlyingSecuritySubType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecuritySubType
@@ -12904,7 +12880,7 @@ class LegSecuritySubType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecuritySubType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSecuritySubType(*args)
+        this = apply(_quickfix.new_LegSecuritySubType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecuritySubType
@@ -12921,7 +12897,7 @@ class AllowableOneSidednessPct(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessPct, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllowableOneSidednessPct(*args)
+        this = apply(_quickfix.new_AllowableOneSidednessPct, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessPct
@@ -12938,7 +12914,7 @@ class AllowableOneSidednessValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllowableOneSidednessValue(*args)
+        this = apply(_quickfix.new_AllowableOneSidednessValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessValue
@@ -12955,7 +12931,7 @@ class AllowableOneSidednessCurr(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessCurr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllowableOneSidednessCurr(*args)
+        this = apply(_quickfix.new_AllowableOneSidednessCurr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessCurr
@@ -12972,7 +12948,7 @@ class NoTrdRegTimestamps(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoTrdRegTimestamps, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoTrdRegTimestamps(*args)
+        this = apply(_quickfix.new_NoTrdRegTimestamps, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoTrdRegTimestamps
@@ -12989,7 +12965,7 @@ class TrdRegTimestamp(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestamp, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdRegTimestamp(*args)
+        this = apply(_quickfix.new_TrdRegTimestamp, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestamp
@@ -13006,7 +12982,7 @@ class TrdRegTimestampType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestampType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdRegTimestampType(*args)
+        this = apply(_quickfix.new_TrdRegTimestampType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestampType
@@ -13023,7 +12999,7 @@ class TrdRegTimestampOrigin(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestampOrigin, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdRegTimestampOrigin(*args)
+        this = apply(_quickfix.new_TrdRegTimestampOrigin, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestampOrigin
@@ -13040,7 +13016,7 @@ class ConfirmRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmRefID(*args)
+        this = apply(_quickfix.new_ConfirmRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmRefID
@@ -13057,7 +13033,7 @@ class ConfirmType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmType(*args)
+        this = apply(_quickfix.new_ConfirmType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmType
@@ -13074,7 +13050,7 @@ class ConfirmRejReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmRejReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmRejReason(*args)
+        this = apply(_quickfix.new_ConfirmRejReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmRejReason
@@ -13091,7 +13067,7 @@ class BookingType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BookingType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BookingType(*args)
+        this = apply(_quickfix.new_BookingType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BookingType
@@ -13108,7 +13084,7 @@ class IndividualAllocRejCode(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, IndividualAllocRejCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IndividualAllocRejCode(*args)
+        this = apply(_quickfix.new_IndividualAllocRejCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocRejCode
@@ -13125,7 +13101,7 @@ class SettlInstMsgID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstMsgID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstMsgID(*args)
+        this = apply(_quickfix.new_SettlInstMsgID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstMsgID
@@ -13142,7 +13118,7 @@ class NoSettlInst(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSettlInst(*args)
+        this = apply(_quickfix.new_NoSettlInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlInst
@@ -13159,7 +13135,7 @@ class LastUpdateTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastUpdateTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastUpdateTime(*args)
+        this = apply(_quickfix.new_LastUpdateTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastUpdateTime
@@ -13176,7 +13152,7 @@ class AllocSettlInstType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlInstType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocSettlInstType(*args)
+        this = apply(_quickfix.new_AllocSettlInstType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlInstType
@@ -13193,7 +13169,7 @@ class NoSettlPartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlPartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSettlPartyIDs(*args)
+        this = apply(_quickfix.new_NoSettlPartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlPartyIDs
@@ -13210,7 +13186,7 @@ class SettlPartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPartyID(*args)
+        this = apply(_quickfix.new_SettlPartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyID
@@ -13227,7 +13203,7 @@ class SettlPartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPartyIDSource(*args)
+        this = apply(_quickfix.new_SettlPartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyIDSource
@@ -13244,7 +13220,7 @@ class SettlPartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPartyRole(*args)
+        this = apply(_quickfix.new_SettlPartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyRole
@@ -13261,7 +13237,7 @@ class SettlPartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPartySubID(*args)
+        this = apply(_quickfix.new_SettlPartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartySubID
@@ -13278,7 +13254,7 @@ class SettlPartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlPartySubIDType(*args)
+        this = apply(_quickfix.new_SettlPartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartySubIDType
@@ -13295,7 +13271,7 @@ class DlvyInstType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DlvyInstType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DlvyInstType(*args)
+        this = apply(_quickfix.new_DlvyInstType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DlvyInstType
@@ -13312,7 +13288,7 @@ class TerminationType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TerminationType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TerminationType(*args)
+        this = apply(_quickfix.new_TerminationType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TerminationType
@@ -13329,7 +13305,7 @@ class OrdStatusReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrdStatusReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrdStatusReqID(*args)
+        this = apply(_quickfix.new_OrdStatusReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrdStatusReqID
@@ -13346,7 +13322,7 @@ class SettlInstReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstReqID(*args)
+        this = apply(_quickfix.new_SettlInstReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstReqID
@@ -13363,7 +13339,7 @@ class SettlInstReqRejCode(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstReqRejCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlInstReqRejCode(*args)
+        this = apply(_quickfix.new_SettlInstReqRejCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstReqRejCode
@@ -13380,7 +13356,7 @@ class SecondaryAllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryAllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryAllocID(*args)
+        this = apply(_quickfix.new_SecondaryAllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryAllocID
@@ -13397,7 +13373,7 @@ class AllocReportType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocReportType(*args)
+        this = apply(_quickfix.new_AllocReportType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportType
@@ -13414,7 +13390,7 @@ class AllocReportRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocReportRefID(*args)
+        this = apply(_quickfix.new_AllocReportRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportRefID
@@ -13431,7 +13407,7 @@ class AllocCancReplaceReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocCancReplaceReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocCancReplaceReason(*args)
+        this = apply(_quickfix.new_AllocCancReplaceReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocCancReplaceReason
@@ -13448,7 +13424,7 @@ class CopyMsgIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, CopyMsgIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CopyMsgIndicator(*args)
+        this = apply(_quickfix.new_CopyMsgIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CopyMsgIndicator
@@ -13465,7 +13441,7 @@ class AllocAccountType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccountType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocAccountType(*args)
+        this = apply(_quickfix.new_AllocAccountType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccountType
@@ -13482,7 +13458,7 @@ class OrderAvgPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderAvgPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderAvgPx(*args)
+        this = apply(_quickfix.new_OrderAvgPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderAvgPx
@@ -13499,7 +13475,7 @@ class OrderBookingQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderBookingQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderBookingQty(*args)
+        this = apply(_quickfix.new_OrderBookingQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderBookingQty
@@ -13516,7 +13492,7 @@ class NoSettlPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSettlPartySubIDs(*args)
+        this = apply(_quickfix.new_NoSettlPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlPartySubIDs
@@ -13533,7 +13509,7 @@ class NoPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoPartySubIDs(*args)
+        this = apply(_quickfix.new_NoPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoPartySubIDs
@@ -13550,7 +13526,7 @@ class PartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PartySubIDType(*args)
+        this = apply(_quickfix.new_PartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PartySubIDType
@@ -13567,7 +13543,7 @@ class NoNestedPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNestedPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNestedPartySubIDs(*args)
+        this = apply(_quickfix.new_NoNestedPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNestedPartySubIDs
@@ -13584,7 +13560,7 @@ class NestedPartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NestedPartySubIDType(*args)
+        this = apply(_quickfix.new_NestedPartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartySubIDType
@@ -13601,7 +13577,7 @@ class NoNested2PartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNested2PartySubIDs(*args)
+        this = apply(_quickfix.new_NoNested2PartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested2PartySubIDs
@@ -13618,7 +13594,7 @@ class Nested2PartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested2PartySubIDType(*args)
+        this = apply(_quickfix.new_Nested2PartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartySubIDType
@@ -13635,7 +13611,7 @@ class AllocIntermedReqType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocIntermedReqType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocIntermedReqType(*args)
+        this = apply(_quickfix.new_AllocIntermedReqType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocIntermedReqType
@@ -13652,7 +13628,7 @@ class UnderlyingPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingPx(*args)
+        this = apply(_quickfix.new_UnderlyingPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPx
@@ -13669,7 +13645,7 @@ class PriceDelta(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriceDelta, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriceDelta(*args)
+        this = apply(_quickfix.new_PriceDelta, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriceDelta
@@ -13686,7 +13662,7 @@ class ApplQueueMax(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueMax, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ApplQueueMax(*args)
+        this = apply(_quickfix.new_ApplQueueMax, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueMax
@@ -13703,7 +13679,7 @@ class ApplQueueDepth(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueDepth, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ApplQueueDepth(*args)
+        this = apply(_quickfix.new_ApplQueueDepth, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueDepth
@@ -13720,7 +13696,7 @@ class ApplQueueResolution(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueResolution, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ApplQueueResolution(*args)
+        this = apply(_quickfix.new_ApplQueueResolution, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueResolution
@@ -13737,7 +13713,7 @@ class ApplQueueAction(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ApplQueueAction(*args)
+        this = apply(_quickfix.new_ApplQueueAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueAction
@@ -13754,7 +13730,7 @@ class NoAltMDSource(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoAltMDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoAltMDSource(*args)
+        this = apply(_quickfix.new_NoAltMDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoAltMDSource
@@ -13771,7 +13747,7 @@ class AltMDSourceID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AltMDSourceID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AltMDSourceID(*args)
+        this = apply(_quickfix.new_AltMDSourceID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AltMDSourceID
@@ -13788,7 +13764,7 @@ class SecondaryTradeReportID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTradeReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryTradeReportID(*args)
+        this = apply(_quickfix.new_SecondaryTradeReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeReportID
@@ -13805,7 +13781,7 @@ class AvgPxIndicator(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPxIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AvgPxIndicator(*args)
+        this = apply(_quickfix.new_AvgPxIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPxIndicator
@@ -13822,7 +13798,7 @@ class TradeLinkID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeLinkID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeLinkID(*args)
+        this = apply(_quickfix.new_TradeLinkID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeLinkID
@@ -13839,7 +13815,7 @@ class OrderInputDevice(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderInputDevice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderInputDevice(*args)
+        this = apply(_quickfix.new_OrderInputDevice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderInputDevice
@@ -13856,7 +13832,7 @@ class UnderlyingTradingSessionID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingTradingSessionID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingTradingSessionID(*args)
+        this = apply(_quickfix.new_UnderlyingTradingSessionID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTradingSessionID
@@ -13873,7 +13849,7 @@ class UnderlyingTradingSessionSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingTradingSessionSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingTradingSessionSubID(*args)
+        this = apply(_quickfix.new_UnderlyingTradingSessionSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTradingSessionSubID
@@ -13890,7 +13866,7 @@ class TradeLegRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeLegRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeLegRefID(*args)
+        this = apply(_quickfix.new_TradeLegRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeLegRefID
@@ -13907,7 +13883,7 @@ class ExchangeRule(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExchangeRule, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExchangeRule(*args)
+        this = apply(_quickfix.new_ExchangeRule, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeRule
@@ -13924,7 +13900,7 @@ class TradeAllocIndicator(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeAllocIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeAllocIndicator(*args)
+        this = apply(_quickfix.new_TradeAllocIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeAllocIndicator
@@ -13941,7 +13917,7 @@ class ExpirationCycle(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExpirationCycle, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExpirationCycle(*args)
+        this = apply(_quickfix.new_ExpirationCycle, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExpirationCycle
@@ -13958,7 +13934,7 @@ class TrdType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdType(*args)
+        this = apply(_quickfix.new_TrdType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdType
@@ -13975,7 +13951,7 @@ class TrdSubType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdSubType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdSubType(*args)
+        this = apply(_quickfix.new_TrdSubType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdSubType
@@ -13992,7 +13968,7 @@ class TransferReason(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TransferReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TransferReason(*args)
+        this = apply(_quickfix.new_TransferReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TransferReason
@@ -14009,7 +13985,7 @@ class AsgnReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AsgnReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AsgnReqID(*args)
+        this = apply(_quickfix.new_AsgnReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AsgnReqID
@@ -14026,7 +14002,7 @@ class TotNumAssignmentReports(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumAssignmentReports, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNumAssignmentReports(*args)
+        this = apply(_quickfix.new_TotNumAssignmentReports, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumAssignmentReports
@@ -14043,7 +14019,7 @@ class AsgnRptID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AsgnRptID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AsgnRptID(*args)
+        this = apply(_quickfix.new_AsgnRptID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AsgnRptID
@@ -14060,7 +14036,7 @@ class ThresholdAmount(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ThresholdAmount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ThresholdAmount(*args)
+        this = apply(_quickfix.new_ThresholdAmount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ThresholdAmount
@@ -14077,7 +14053,7 @@ class PegMoveType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegMoveType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegMoveType(*args)
+        this = apply(_quickfix.new_PegMoveType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegMoveType
@@ -14094,7 +14070,7 @@ class PegOffsetType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegOffsetType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegOffsetType(*args)
+        this = apply(_quickfix.new_PegOffsetType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegOffsetType
@@ -14111,7 +14087,7 @@ class PegLimitType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegLimitType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegLimitType(*args)
+        this = apply(_quickfix.new_PegLimitType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegLimitType
@@ -14128,7 +14104,7 @@ class PegRoundDirection(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegRoundDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegRoundDirection(*args)
+        this = apply(_quickfix.new_PegRoundDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegRoundDirection
@@ -14145,7 +14121,7 @@ class PeggedPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PeggedPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PeggedPrice(*args)
+        this = apply(_quickfix.new_PeggedPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PeggedPrice
@@ -14162,7 +14138,7 @@ class PegScope(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegScope, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegScope(*args)
+        this = apply(_quickfix.new_PegScope, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegScope
@@ -14179,7 +14155,7 @@ class DiscretionMoveType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionMoveType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionMoveType(*args)
+        this = apply(_quickfix.new_DiscretionMoveType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionMoveType
@@ -14196,7 +14172,7 @@ class DiscretionOffsetType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffsetType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionOffsetType(*args)
+        this = apply(_quickfix.new_DiscretionOffsetType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffsetType
@@ -14213,7 +14189,7 @@ class DiscretionLimitType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionLimitType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionLimitType(*args)
+        this = apply(_quickfix.new_DiscretionLimitType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionLimitType
@@ -14230,7 +14206,7 @@ class DiscretionRoundDirection(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionRoundDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionRoundDirection(*args)
+        this = apply(_quickfix.new_DiscretionRoundDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionRoundDirection
@@ -14247,7 +14223,7 @@ class DiscretionPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionPrice(*args)
+        this = apply(_quickfix.new_DiscretionPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionPrice
@@ -14264,7 +14240,7 @@ class DiscretionScope(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionScope, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionScope(*args)
+        this = apply(_quickfix.new_DiscretionScope, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionScope
@@ -14281,7 +14257,7 @@ class TargetStrategy(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategy, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetStrategy(*args)
+        this = apply(_quickfix.new_TargetStrategy, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategy
@@ -14298,7 +14274,7 @@ class TargetStrategyParameters(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategyParameters, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetStrategyParameters(*args)
+        this = apply(_quickfix.new_TargetStrategyParameters, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategyParameters
@@ -14315,7 +14291,7 @@ class ParticipationRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ParticipationRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ParticipationRate(*args)
+        this = apply(_quickfix.new_ParticipationRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ParticipationRate
@@ -14332,7 +14308,7 @@ class TargetStrategyPerformance(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategyPerformance, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetStrategyPerformance(*args)
+        this = apply(_quickfix.new_TargetStrategyPerformance, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategyPerformance
@@ -14349,7 +14325,7 @@ class LastLiquidityInd(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastLiquidityInd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastLiquidityInd(*args)
+        this = apply(_quickfix.new_LastLiquidityInd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastLiquidityInd
@@ -14366,7 +14342,7 @@ class PublishTrdIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PublishTrdIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PublishTrdIndicator(*args)
+        this = apply(_quickfix.new_PublishTrdIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PublishTrdIndicator
@@ -14383,7 +14359,7 @@ class ShortSaleReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ShortSaleReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ShortSaleReason(*args)
+        this = apply(_quickfix.new_ShortSaleReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ShortSaleReason
@@ -14400,7 +14376,7 @@ class QtyType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QtyType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QtyType(*args)
+        this = apply(_quickfix.new_QtyType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QtyType
@@ -14417,7 +14393,7 @@ class SecondaryTrdType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTrdType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryTrdType(*args)
+        this = apply(_quickfix.new_SecondaryTrdType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTrdType
@@ -14434,7 +14410,7 @@ class TradeReportType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeReportType(*args)
+        this = apply(_quickfix.new_TradeReportType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportType
@@ -14451,7 +14427,7 @@ class AllocNoOrdersType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocNoOrdersType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocNoOrdersType(*args)
+        this = apply(_quickfix.new_AllocNoOrdersType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocNoOrdersType
@@ -14468,7 +14444,7 @@ class SharedCommission(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SharedCommission, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SharedCommission(*args)
+        this = apply(_quickfix.new_SharedCommission, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SharedCommission
@@ -14485,7 +14461,7 @@ class ConfirmReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ConfirmReqID(*args)
+        this = apply(_quickfix.new_ConfirmReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmReqID
@@ -14502,7 +14478,7 @@ class AvgParPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AvgParPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AvgParPx(*args)
+        this = apply(_quickfix.new_AvgParPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AvgParPx
@@ -14519,7 +14495,7 @@ class ReportedPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ReportedPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ReportedPx(*args)
+        this = apply(_quickfix.new_ReportedPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ReportedPx
@@ -14536,7 +14512,7 @@ class NoCapacities(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoCapacities, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoCapacities(*args)
+        this = apply(_quickfix.new_NoCapacities, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoCapacities
@@ -14553,7 +14529,7 @@ class OrderCapacityQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderCapacityQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderCapacityQty(*args)
+        this = apply(_quickfix.new_OrderCapacityQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCapacityQty
@@ -14570,7 +14546,7 @@ class NoEvents(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoEvents, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoEvents(*args)
+        this = apply(_quickfix.new_NoEvents, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoEvents
@@ -14587,7 +14563,7 @@ class EventType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EventType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EventType(*args)
+        this = apply(_quickfix.new_EventType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EventType
@@ -14604,7 +14580,7 @@ class EventDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EventDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EventDate(*args)
+        this = apply(_quickfix.new_EventDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EventDate
@@ -14621,7 +14597,7 @@ class EventPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, EventPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EventPx(*args)
+        this = apply(_quickfix.new_EventPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EventPx
@@ -14638,7 +14614,7 @@ class EventText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EventText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EventText(*args)
+        this = apply(_quickfix.new_EventText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EventText
@@ -14655,7 +14631,7 @@ class PctAtRisk(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PctAtRisk, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PctAtRisk(*args)
+        this = apply(_quickfix.new_PctAtRisk, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PctAtRisk
@@ -14672,7 +14648,7 @@ class NoInstrAttrib(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoInstrAttrib, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoInstrAttrib(*args)
+        this = apply(_quickfix.new_NoInstrAttrib, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrAttrib
@@ -14689,7 +14665,7 @@ class InstrAttribType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrAttribType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrAttribType(*args)
+        this = apply(_quickfix.new_InstrAttribType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrAttribType
@@ -14706,7 +14682,7 @@ class InstrAttribValue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrAttribValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrAttribValue(*args)
+        this = apply(_quickfix.new_InstrAttribValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrAttribValue
@@ -14723,7 +14699,7 @@ class DatedDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DatedDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DatedDate(*args)
+        this = apply(_quickfix.new_DatedDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DatedDate
@@ -14740,7 +14716,7 @@ class InterestAccrualDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InterestAccrualDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InterestAccrualDate(*args)
+        this = apply(_quickfix.new_InterestAccrualDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InterestAccrualDate
@@ -14757,7 +14733,7 @@ class CPProgram(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CPProgram, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CPProgram(*args)
+        this = apply(_quickfix.new_CPProgram, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CPProgram
@@ -14774,7 +14750,7 @@ class CPRegType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CPRegType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CPRegType(*args)
+        this = apply(_quickfix.new_CPRegType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CPRegType
@@ -14791,7 +14767,7 @@ class UnderlyingCPProgram(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCPProgram, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCPProgram(*args)
+        this = apply(_quickfix.new_UnderlyingCPProgram, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCPProgram
@@ -14808,7 +14784,7 @@ class UnderlyingCPRegType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCPRegType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCPRegType(*args)
+        this = apply(_quickfix.new_UnderlyingCPRegType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCPRegType
@@ -14825,7 +14801,7 @@ class UnderlyingQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingQty(*args)
+        this = apply(_quickfix.new_UnderlyingQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingQty
@@ -14842,7 +14818,7 @@ class TrdMatchID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdMatchID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdMatchID(*args)
+        this = apply(_quickfix.new_TrdMatchID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdMatchID
@@ -14859,7 +14835,7 @@ class SecondaryTradeReportRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTradeReportRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryTradeReportRefID(*args)
+        this = apply(_quickfix.new_SecondaryTradeReportRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeReportRefID
@@ -14876,7 +14852,7 @@ class UnderlyingDirtyPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingDirtyPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingDirtyPrice(*args)
+        this = apply(_quickfix.new_UnderlyingDirtyPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingDirtyPrice
@@ -14893,7 +14869,7 @@ class UnderlyingEndPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingEndPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingEndPrice(*args)
+        this = apply(_quickfix.new_UnderlyingEndPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingEndPrice
@@ -14910,7 +14886,7 @@ class UnderlyingStartValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStartValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStartValue(*args)
+        this = apply(_quickfix.new_UnderlyingStartValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStartValue
@@ -14927,7 +14903,7 @@ class UnderlyingCurrentValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCurrentValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCurrentValue(*args)
+        this = apply(_quickfix.new_UnderlyingCurrentValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCurrentValue
@@ -14944,7 +14920,7 @@ class UnderlyingEndValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingEndValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingEndValue(*args)
+        this = apply(_quickfix.new_UnderlyingEndValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingEndValue
@@ -14961,7 +14937,7 @@ class NoUnderlyingStips(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyingStips, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUnderlyingStips(*args)
+        this = apply(_quickfix.new_NoUnderlyingStips, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingStips
@@ -14978,7 +14954,7 @@ class UnderlyingStipType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStipType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStipType(*args)
+        this = apply(_quickfix.new_UnderlyingStipType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStipType
@@ -14995,7 +14971,7 @@ class UnderlyingStipValue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStipValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStipValue(*args)
+        this = apply(_quickfix.new_UnderlyingStipValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStipValue
@@ -15012,7 +14988,7 @@ class MaturityNetMoney(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityNetMoney, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaturityNetMoney(*args)
+        this = apply(_quickfix.new_MaturityNetMoney, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityNetMoney
@@ -15029,7 +15005,7 @@ class MiscFeeBasis(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeBasis, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MiscFeeBasis(*args)
+        this = apply(_quickfix.new_MiscFeeBasis, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeBasis
@@ -15046,7 +15022,7 @@ class TotNoAllocs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoAllocs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNoAllocs(*args)
+        this = apply(_quickfix.new_TotNoAllocs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoAllocs
@@ -15063,7 +15039,7 @@ class LastFragment(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastFragment, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastFragment(*args)
+        this = apply(_quickfix.new_LastFragment, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastFragment
@@ -15080,7 +15056,7 @@ class CollReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollReqID(*args)
+        this = apply(_quickfix.new_CollReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollReqID
@@ -15097,7 +15073,7 @@ class CollAsgnReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnReason(*args)
+        this = apply(_quickfix.new_CollAsgnReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnReason
@@ -15114,7 +15090,7 @@ class CollInquiryQualifier(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryQualifier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollInquiryQualifier(*args)
+        this = apply(_quickfix.new_CollInquiryQualifier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryQualifier
@@ -15131,7 +15107,7 @@ class NoTrades(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoTrades, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoTrades(*args)
+        this = apply(_quickfix.new_NoTrades, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoTrades
@@ -15148,7 +15124,7 @@ class MarginRatio(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MarginRatio, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MarginRatio(*args)
+        this = apply(_quickfix.new_MarginRatio, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MarginRatio
@@ -15165,7 +15141,7 @@ class MarginExcess(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MarginExcess, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MarginExcess(*args)
+        this = apply(_quickfix.new_MarginExcess, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MarginExcess
@@ -15182,7 +15158,7 @@ class TotalNetValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNetValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalNetValue(*args)
+        this = apply(_quickfix.new_TotalNetValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNetValue
@@ -15199,7 +15175,7 @@ class CashOutstanding(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CashOutstanding, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CashOutstanding(*args)
+        this = apply(_quickfix.new_CashOutstanding, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CashOutstanding
@@ -15216,7 +15192,7 @@ class CollAsgnID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnID(*args)
+        this = apply(_quickfix.new_CollAsgnID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnID
@@ -15233,7 +15209,7 @@ class CollAsgnTransType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnTransType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnTransType(*args)
+        this = apply(_quickfix.new_CollAsgnTransType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnTransType
@@ -15250,7 +15226,7 @@ class CollRespID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollRespID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollRespID(*args)
+        this = apply(_quickfix.new_CollRespID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollRespID
@@ -15267,7 +15243,7 @@ class CollAsgnRespType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRespType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnRespType(*args)
+        this = apply(_quickfix.new_CollAsgnRespType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRespType
@@ -15284,7 +15260,7 @@ class CollAsgnRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnRejectReason(*args)
+        this = apply(_quickfix.new_CollAsgnRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRejectReason
@@ -15301,7 +15277,7 @@ class CollAsgnRefID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAsgnRefID(*args)
+        this = apply(_quickfix.new_CollAsgnRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRefID
@@ -15318,7 +15294,7 @@ class CollRptID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollRptID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollRptID(*args)
+        this = apply(_quickfix.new_CollRptID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollRptID
@@ -15335,7 +15311,7 @@ class CollInquiryID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollInquiryID(*args)
+        this = apply(_quickfix.new_CollInquiryID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryID
@@ -15352,7 +15328,7 @@ class CollStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollStatus(*args)
+        this = apply(_quickfix.new_CollStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollStatus
@@ -15369,7 +15345,7 @@ class TotNumReports(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumReports, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotNumReports(*args)
+        this = apply(_quickfix.new_TotNumReports, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumReports
@@ -15386,7 +15362,7 @@ class LastRptRequested(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastRptRequested, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastRptRequested(*args)
+        this = apply(_quickfix.new_LastRptRequested, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastRptRequested
@@ -15403,7 +15379,7 @@ class AgreementDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AgreementDesc(*args)
+        this = apply(_quickfix.new_AgreementDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementDesc
@@ -15420,7 +15396,7 @@ class AgreementID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AgreementID(*args)
+        this = apply(_quickfix.new_AgreementID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementID
@@ -15437,7 +15413,7 @@ class AgreementDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AgreementDate(*args)
+        this = apply(_quickfix.new_AgreementDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementDate
@@ -15454,7 +15430,7 @@ class StartDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StartDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StartDate(*args)
+        this = apply(_quickfix.new_StartDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StartDate
@@ -15471,7 +15447,7 @@ class EndDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EndDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EndDate(*args)
+        this = apply(_quickfix.new_EndDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EndDate
@@ -15488,7 +15464,7 @@ class AgreementCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AgreementCurrency(*args)
+        this = apply(_quickfix.new_AgreementCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementCurrency
@@ -15505,7 +15481,7 @@ class DeliveryType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliveryType(*args)
+        this = apply(_quickfix.new_DeliveryType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryType
@@ -15522,7 +15498,7 @@ class EndAccruedInterestAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, EndAccruedInterestAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EndAccruedInterestAmt(*args)
+        this = apply(_quickfix.new_EndAccruedInterestAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EndAccruedInterestAmt
@@ -15539,7 +15515,7 @@ class StartCash(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, StartCash, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StartCash(*args)
+        this = apply(_quickfix.new_StartCash, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StartCash
@@ -15556,7 +15532,7 @@ class EndCash(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, EndCash, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EndCash(*args)
+        this = apply(_quickfix.new_EndCash, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EndCash
@@ -15573,7 +15549,7 @@ class UserRequestID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UserRequestID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UserRequestID(*args)
+        this = apply(_quickfix.new_UserRequestID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UserRequestID
@@ -15590,7 +15566,7 @@ class UserRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UserRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UserRequestType(*args)
+        this = apply(_quickfix.new_UserRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UserRequestType
@@ -15607,7 +15583,7 @@ class NewPassword(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NewPassword, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NewPassword(*args)
+        this = apply(_quickfix.new_NewPassword, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NewPassword
@@ -15624,7 +15600,7 @@ class UserStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UserStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UserStatus(*args)
+        this = apply(_quickfix.new_UserStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UserStatus
@@ -15641,7 +15617,7 @@ class UserStatusText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UserStatusText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UserStatusText(*args)
+        this = apply(_quickfix.new_UserStatusText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UserStatusText
@@ -15658,7 +15634,7 @@ class StatusValue(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, StatusValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StatusValue(*args)
+        this = apply(_quickfix.new_StatusValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StatusValue
@@ -15675,7 +15651,7 @@ class StatusText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StatusText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StatusText(*args)
+        this = apply(_quickfix.new_StatusText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StatusText
@@ -15692,7 +15668,7 @@ class RefCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefCompID(*args)
+        this = apply(_quickfix.new_RefCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefCompID
@@ -15709,7 +15685,7 @@ class RefSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefSubID(*args)
+        this = apply(_quickfix.new_RefSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefSubID
@@ -15726,7 +15702,7 @@ class NetworkResponseID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkResponseID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetworkResponseID(*args)
+        this = apply(_quickfix.new_NetworkResponseID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkResponseID
@@ -15743,7 +15719,7 @@ class NetworkRequestID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkRequestID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetworkRequestID(*args)
+        this = apply(_quickfix.new_NetworkRequestID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkRequestID
@@ -15760,7 +15736,7 @@ class LastNetworkResponseID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastNetworkResponseID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastNetworkResponseID(*args)
+        this = apply(_quickfix.new_LastNetworkResponseID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastNetworkResponseID
@@ -15777,7 +15753,7 @@ class NetworkRequestType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkRequestType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetworkRequestType(*args)
+        this = apply(_quickfix.new_NetworkRequestType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkRequestType
@@ -15794,7 +15770,7 @@ class NoCompIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoCompIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoCompIDs(*args)
+        this = apply(_quickfix.new_NoCompIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoCompIDs
@@ -15811,7 +15787,7 @@ class NetworkStatusResponseType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkStatusResponseType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NetworkStatusResponseType(*args)
+        this = apply(_quickfix.new_NetworkStatusResponseType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkStatusResponseType
@@ -15828,7 +15804,7 @@ class NoCollInquiryQualifier(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoCollInquiryQualifier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoCollInquiryQualifier(*args)
+        this = apply(_quickfix.new_NoCollInquiryQualifier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoCollInquiryQualifier
@@ -15845,7 +15821,7 @@ class TrdRptStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRptStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TrdRptStatus(*args)
+        this = apply(_quickfix.new_TrdRptStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRptStatus
@@ -15862,7 +15838,7 @@ class AffirmStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AffirmStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AffirmStatus(*args)
+        this = apply(_quickfix.new_AffirmStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AffirmStatus
@@ -15879,7 +15855,7 @@ class UnderlyingStrikeCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStrikeCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingStrikeCurrency(*args)
+        this = apply(_quickfix.new_UnderlyingStrikeCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStrikeCurrency
@@ -15896,7 +15872,7 @@ class LegStrikeCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegStrikeCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegStrikeCurrency(*args)
+        this = apply(_quickfix.new_LegStrikeCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegStrikeCurrency
@@ -15913,7 +15889,7 @@ class TimeBracket(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TimeBracket, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TimeBracket(*args)
+        this = apply(_quickfix.new_TimeBracket, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TimeBracket
@@ -15930,7 +15906,7 @@ class CollAction(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollAction(*args)
+        this = apply(_quickfix.new_CollAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollAction
@@ -15947,7 +15923,7 @@ class CollInquiryStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollInquiryStatus(*args)
+        this = apply(_quickfix.new_CollInquiryStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryStatus
@@ -15964,7 +15940,7 @@ class CollInquiryResult(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryResult, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollInquiryResult(*args)
+        this = apply(_quickfix.new_CollInquiryResult, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryResult
@@ -15981,7 +15957,7 @@ class StrikeCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrikeCurrency(*args)
+        this = apply(_quickfix.new_StrikeCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeCurrency
@@ -15998,7 +15974,7 @@ class NoNested3PartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested3PartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNested3PartyIDs(*args)
+        this = apply(_quickfix.new_NoNested3PartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested3PartyIDs
@@ -16015,7 +15991,7 @@ class Nested3PartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested3PartyID(*args)
+        this = apply(_quickfix.new_Nested3PartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyID
@@ -16032,7 +16008,7 @@ class Nested3PartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested3PartyIDSource(*args)
+        this = apply(_quickfix.new_Nested3PartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyIDSource
@@ -16049,7 +16025,7 @@ class Nested3PartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested3PartyRole(*args)
+        this = apply(_quickfix.new_Nested3PartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyRole
@@ -16066,7 +16042,7 @@ class NoNested3PartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested3PartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoNested3PartySubIDs(*args)
+        this = apply(_quickfix.new_NoNested3PartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested3PartySubIDs
@@ -16083,7 +16059,7 @@ class Nested3PartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested3PartySubID(*args)
+        this = apply(_quickfix.new_Nested3PartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartySubID
@@ -16100,7 +16076,7 @@ class Nested3PartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Nested3PartySubIDType(*args)
+        this = apply(_quickfix.new_Nested3PartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartySubIDType
@@ -16117,7 +16093,7 @@ class LegContractSettlMonth(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegContractSettlMonth, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegContractSettlMonth(*args)
+        this = apply(_quickfix.new_LegContractSettlMonth, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegContractSettlMonth
@@ -16134,7 +16110,7 @@ class LegInterestAccrualDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegInterestAccrualDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegInterestAccrualDate(*args)
+        this = apply(_quickfix.new_LegInterestAccrualDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegInterestAccrualDate
@@ -16151,7 +16127,7 @@ class NoStrategyParameters(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoStrategyParameters, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoStrategyParameters(*args)
+        this = apply(_quickfix.new_NoStrategyParameters, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoStrategyParameters
@@ -16168,7 +16144,7 @@ class StrategyParameterName(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrategyParameterName, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrategyParameterName(*args)
+        this = apply(_quickfix.new_StrategyParameterName, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterName
@@ -16185,7 +16161,7 @@ class StrategyParameterType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrategyParameterType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrategyParameterType(*args)
+        this = apply(_quickfix.new_StrategyParameterType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterType
@@ -16202,7 +16178,7 @@ class StrategyParameterValue(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrategyParameterValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrategyParameterValue(*args)
+        this = apply(_quickfix.new_StrategyParameterValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterValue
@@ -16219,7 +16195,7 @@ class HostCrossID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, HostCrossID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HostCrossID(*args)
+        this = apply(_quickfix.new_HostCrossID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HostCrossID
@@ -16236,7 +16212,7 @@ class SideTimeInForce(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTimeInForce, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTimeInForce(*args)
+        this = apply(_quickfix.new_SideTimeInForce, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTimeInForce
@@ -16253,7 +16229,7 @@ class MDReportID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDReportID(*args)
+        this = apply(_quickfix.new_MDReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDReportID
@@ -16270,7 +16246,7 @@ class SecurityReportID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityReportID(*args)
+        this = apply(_quickfix.new_SecurityReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityReportID
@@ -16287,7 +16263,7 @@ class SecurityStatus(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityStatus(*args)
+        this = apply(_quickfix.new_SecurityStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityStatus
@@ -16304,7 +16280,7 @@ class SettleOnOpenFlag(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettleOnOpenFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettleOnOpenFlag(*args)
+        this = apply(_quickfix.new_SettleOnOpenFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettleOnOpenFlag
@@ -16321,7 +16297,7 @@ class StrikeMultiplier(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeMultiplier, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrikeMultiplier(*args)
+        this = apply(_quickfix.new_StrikeMultiplier, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeMultiplier
@@ -16338,7 +16314,7 @@ class StrikeValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_StrikeValue(*args)
+        this = apply(_quickfix.new_StrikeValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeValue
@@ -16355,7 +16331,7 @@ class MinPriceIncrement(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MinPriceIncrement, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MinPriceIncrement(*args)
+        this = apply(_quickfix.new_MinPriceIncrement, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MinPriceIncrement
@@ -16372,7 +16348,7 @@ class PositionLimit(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PositionLimit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PositionLimit(*args)
+        this = apply(_quickfix.new_PositionLimit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PositionLimit
@@ -16389,7 +16365,7 @@ class NTPositionLimit(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NTPositionLimit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NTPositionLimit(*args)
+        this = apply(_quickfix.new_NTPositionLimit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NTPositionLimit
@@ -16406,7 +16382,7 @@ class UnderlyingAllocationPercent(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingAllocationPercent, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingAllocationPercent(*args)
+        this = apply(_quickfix.new_UnderlyingAllocationPercent, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingAllocationPercent
@@ -16423,7 +16399,7 @@ class UnderlyingCashAmount(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCashAmount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCashAmount(*args)
+        this = apply(_quickfix.new_UnderlyingCashAmount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCashAmount
@@ -16440,7 +16416,7 @@ class UnderlyingCashType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCashType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCashType(*args)
+        this = apply(_quickfix.new_UnderlyingCashType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCashType
@@ -16457,7 +16433,7 @@ class UnderlyingSettlementType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlementType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlementType(*args)
+        this = apply(_quickfix.new_UnderlyingSettlementType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementType
@@ -16474,7 +16450,7 @@ class QuantityDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuantityDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuantityDate(*args)
+        this = apply(_quickfix.new_QuantityDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuantityDate
@@ -16491,7 +16467,7 @@ class ContIntRptID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ContIntRptID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ContIntRptID(*args)
+        this = apply(_quickfix.new_ContIntRptID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ContIntRptID
@@ -16508,7 +16484,7 @@ class LateIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, LateIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LateIndicator(*args)
+        this = apply(_quickfix.new_LateIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LateIndicator
@@ -16525,7 +16501,7 @@ class InputSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InputSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InputSource(*args)
+        this = apply(_quickfix.new_InputSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InputSource
@@ -16542,7 +16518,7 @@ class SecurityUpdateAction(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityUpdateAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecurityUpdateAction(*args)
+        this = apply(_quickfix.new_SecurityUpdateAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityUpdateAction
@@ -16559,7 +16535,7 @@ class NoExpiration(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoExpiration, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoExpiration(*args)
+        this = apply(_quickfix.new_NoExpiration, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoExpiration
@@ -16576,7 +16552,7 @@ class ExpType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExpType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExpType(*args)
+        this = apply(_quickfix.new_ExpType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExpType
@@ -16593,7 +16569,7 @@ class ExpQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExpQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExpQty(*args)
+        this = apply(_quickfix.new_ExpQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExpQty
@@ -16610,7 +16586,7 @@ class NoUnderlyingAmounts(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyingAmounts, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUnderlyingAmounts(*args)
+        this = apply(_quickfix.new_NoUnderlyingAmounts, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingAmounts
@@ -16627,7 +16603,7 @@ class UnderlyingPayAmount(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingPayAmount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingPayAmount(*args)
+        this = apply(_quickfix.new_UnderlyingPayAmount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPayAmount
@@ -16644,7 +16620,7 @@ class UnderlyingCollectAmount(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCollectAmount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCollectAmount(*args)
+        this = apply(_quickfix.new_UnderlyingCollectAmount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCollectAmount
@@ -16661,7 +16637,7 @@ class UnderlyingSettlementDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlementDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlementDate(*args)
+        this = apply(_quickfix.new_UnderlyingSettlementDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementDate
@@ -16678,7 +16654,7 @@ class UnderlyingSettlementStatus(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlementStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlementStatus(*args)
+        this = apply(_quickfix.new_UnderlyingSettlementStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementStatus
@@ -16695,7 +16671,7 @@ class SecondaryIndividualAllocID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryIndividualAllocID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryIndividualAllocID(*args)
+        this = apply(_quickfix.new_SecondaryIndividualAllocID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryIndividualAllocID
@@ -16712,7 +16688,7 @@ class LegReportID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegReportID(*args)
+        this = apply(_quickfix.new_LegReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegReportID
@@ -16729,7 +16705,7 @@ class RndPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RndPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RndPx(*args)
+        this = apply(_quickfix.new_RndPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RndPx
@@ -16746,7 +16722,7 @@ class IndividualAllocType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, IndividualAllocType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IndividualAllocType(*args)
+        this = apply(_quickfix.new_IndividualAllocType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocType
@@ -16763,7 +16739,7 @@ class AllocCustomerCapacity(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocCustomerCapacity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocCustomerCapacity(*args)
+        this = apply(_quickfix.new_AllocCustomerCapacity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocCustomerCapacity
@@ -16780,7 +16756,7 @@ class TierCode(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TierCode, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TierCode(*args)
+        this = apply(_quickfix.new_TierCode, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TierCode
@@ -16797,7 +16773,7 @@ class UnitofMeasure(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnitofMeasure, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnitofMeasure(*args)
+        this = apply(_quickfix.new_UnitofMeasure, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnitofMeasure
@@ -16814,7 +16790,7 @@ class TimeUnit(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TimeUnit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TimeUnit(*args)
+        this = apply(_quickfix.new_TimeUnit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TimeUnit
@@ -16831,7 +16807,7 @@ class UnderlyingUnitofMeasure(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingUnitofMeasure, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingUnitofMeasure(*args)
+        this = apply(_quickfix.new_UnderlyingUnitofMeasure, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingUnitofMeasure
@@ -16848,7 +16824,7 @@ class LegUnitofMeasure(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegUnitofMeasure, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegUnitofMeasure(*args)
+        this = apply(_quickfix.new_LegUnitofMeasure, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegUnitofMeasure
@@ -16865,7 +16841,7 @@ class UnderlyingTimeUnit(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingTimeUnit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingTimeUnit(*args)
+        this = apply(_quickfix.new_UnderlyingTimeUnit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTimeUnit
@@ -16882,7 +16858,7 @@ class LegTimeUnit(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegTimeUnit, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegTimeUnit(*args)
+        this = apply(_quickfix.new_LegTimeUnit, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegTimeUnit
@@ -16899,7 +16875,7 @@ class AllocMethod(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocMethod(*args)
+        this = apply(_quickfix.new_AllocMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocMethod
@@ -16916,7 +16892,7 @@ class TradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeID(*args)
+        this = apply(_quickfix.new_TradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeID
@@ -16933,7 +16909,7 @@ class SideTradeReportID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTradeReportID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTradeReportID(*args)
+        this = apply(_quickfix.new_SideTradeReportID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTradeReportID
@@ -16950,7 +16926,7 @@ class SideFillStationCd(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideFillStationCd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideFillStationCd(*args)
+        this = apply(_quickfix.new_SideFillStationCd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideFillStationCd
@@ -16967,7 +16943,7 @@ class SideReasonCd(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideReasonCd, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideReasonCd(*args)
+        this = apply(_quickfix.new_SideReasonCd, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideReasonCd
@@ -16984,7 +16960,7 @@ class SideTrdSubTyp(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTrdSubTyp, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTrdSubTyp(*args)
+        this = apply(_quickfix.new_SideTrdSubTyp, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdSubTyp
@@ -17001,7 +16977,7 @@ class SideQty(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideQty(*args)
+        this = apply(_quickfix.new_SideQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideQty
@@ -17018,7 +16994,7 @@ class MessageEventSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageEventSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MessageEventSource(*args)
+        this = apply(_quickfix.new_MessageEventSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MessageEventSource
@@ -17035,7 +17011,7 @@ class SideTrdRegTimestamp(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTrdRegTimestamp, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTrdRegTimestamp(*args)
+        this = apply(_quickfix.new_SideTrdRegTimestamp, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestamp
@@ -17052,7 +17028,7 @@ class SideTrdRegTimestampType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTrdRegTimestampType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTrdRegTimestampType(*args)
+        this = apply(_quickfix.new_SideTrdRegTimestampType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestampType
@@ -17069,7 +17045,7 @@ class SideTrdRegTimestampSrc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideTrdRegTimestampSrc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideTrdRegTimestampSrc(*args)
+        this = apply(_quickfix.new_SideTrdRegTimestampSrc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestampSrc
@@ -17086,7 +17062,7 @@ class AsOfIndicator(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, AsOfIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AsOfIndicator(*args)
+        this = apply(_quickfix.new_AsOfIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AsOfIndicator
@@ -17103,7 +17079,7 @@ class NoSideTrdRegTS(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoSideTrdRegTS, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoSideTrdRegTS(*args)
+        this = apply(_quickfix.new_NoSideTrdRegTS, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoSideTrdRegTS
@@ -17120,7 +17096,7 @@ class LegOptionRatio(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegOptionRatio, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOptionRatio(*args)
+        this = apply(_quickfix.new_LegOptionRatio, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegOptionRatio
@@ -17137,7 +17113,7 @@ class NoInstrumentParties(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoInstrumentParties, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoInstrumentParties(*args)
+        this = apply(_quickfix.new_NoInstrumentParties, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrumentParties
@@ -17154,7 +17130,7 @@ class InstrumentPartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrumentPartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrumentPartyID(*args)
+        this = apply(_quickfix.new_InstrumentPartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyID
@@ -17171,7 +17147,7 @@ class TradeVolume(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeVolume, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeVolume(*args)
+        this = apply(_quickfix.new_TradeVolume, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeVolume
@@ -17188,7 +17164,7 @@ class MDBookType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDBookType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDBookType(*args)
+        this = apply(_quickfix.new_MDBookType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDBookType
@@ -17205,7 +17181,7 @@ class MDFeedType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDFeedType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDFeedType(*args)
+        this = apply(_quickfix.new_MDFeedType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDFeedType
@@ -17222,7 +17198,7 @@ class MDPriceLevel(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDPriceLevel, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDPriceLevel(*args)
+        this = apply(_quickfix.new_MDPriceLevel, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDPriceLevel
@@ -17239,7 +17215,7 @@ class MDOriginType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDOriginType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDOriginType(*args)
+        this = apply(_quickfix.new_MDOriginType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDOriginType
@@ -17256,7 +17232,7 @@ class FirstPx(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, FirstPx, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FirstPx(*args)
+        this = apply(_quickfix.new_FirstPx, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FirstPx
@@ -17273,7 +17249,7 @@ class MDEntrySpotRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntrySpotRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntrySpotRate(*args)
+        this = apply(_quickfix.new_MDEntrySpotRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySpotRate
@@ -17290,7 +17266,7 @@ class MDEntryForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDEntryForwardPoints(*args)
+        this = apply(_quickfix.new_MDEntryForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryForwardPoints
@@ -17307,7 +17283,7 @@ class ManualOrderIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ManualOrderIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ManualOrderIndicator(*args)
+        this = apply(_quickfix.new_ManualOrderIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ManualOrderIndicator
@@ -17324,7 +17300,7 @@ class CustDirectedOrder(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, CustDirectedOrder, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CustDirectedOrder(*args)
+        this = apply(_quickfix.new_CustDirectedOrder, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CustDirectedOrder
@@ -17341,7 +17317,7 @@ class ReceivedDeptID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ReceivedDeptID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ReceivedDeptID(*args)
+        this = apply(_quickfix.new_ReceivedDeptID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ReceivedDeptID
@@ -17358,7 +17334,7 @@ class CustOrderHandlingInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CustOrderHandlingInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CustOrderHandlingInst(*args)
+        this = apply(_quickfix.new_CustOrderHandlingInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CustOrderHandlingInst
@@ -17375,7 +17351,7 @@ class OrderHandlingInstSource(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderHandlingInstSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderHandlingInstSource(*args)
+        this = apply(_quickfix.new_OrderHandlingInstSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderHandlingInstSource
@@ -17392,7 +17368,7 @@ class DeskType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeskType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeskType(*args)
+        this = apply(_quickfix.new_DeskType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeskType
@@ -17409,7 +17385,7 @@ class DeskTypeSource(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeskTypeSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeskTypeSource(*args)
+        this = apply(_quickfix.new_DeskTypeSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeskTypeSource
@@ -17426,7 +17402,7 @@ class DeskOrderHandlingInst(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeskOrderHandlingInst, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeskOrderHandlingInst(*args)
+        this = apply(_quickfix.new_DeskOrderHandlingInst, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeskOrderHandlingInst
@@ -17443,7 +17419,7 @@ class ExecAckStatus(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExecAckStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExecAckStatus(*args)
+        this = apply(_quickfix.new_ExecAckStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExecAckStatus
@@ -17460,7 +17436,7 @@ class UnderlyingDeliveryAmount(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingDeliveryAmount, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingDeliveryAmount(*args)
+        this = apply(_quickfix.new_UnderlyingDeliveryAmount, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingDeliveryAmount
@@ -17477,7 +17453,7 @@ class UnderlyingCapValue(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCapValue, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingCapValue(*args)
+        this = apply(_quickfix.new_UnderlyingCapValue, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCapValue
@@ -17494,7 +17470,7 @@ class UnderlyingSettlMethod(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingSettlMethod(*args)
+        this = apply(_quickfix.new_UnderlyingSettlMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlMethod
@@ -17511,7 +17487,7 @@ class SecondaryTradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryTradeID(*args)
+        this = apply(_quickfix.new_SecondaryTradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeID
@@ -17528,7 +17504,7 @@ class FirmTradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, FirmTradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FirmTradeID(*args)
+        this = apply(_quickfix.new_FirmTradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FirmTradeID
@@ -17545,7 +17521,7 @@ class SecondaryFirmTradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryFirmTradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryFirmTradeID(*args)
+        this = apply(_quickfix.new_SecondaryFirmTradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryFirmTradeID
@@ -17562,7 +17538,7 @@ class CollApplType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, CollApplType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CollApplType(*args)
+        this = apply(_quickfix.new_CollApplType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CollApplType
@@ -17579,7 +17555,7 @@ class UnderlyingAdjustedQuantity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingAdjustedQuantity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingAdjustedQuantity(*args)
+        this = apply(_quickfix.new_UnderlyingAdjustedQuantity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingAdjustedQuantity
@@ -17596,7 +17572,7 @@ class UnderlyingFXRate(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingFXRate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingFXRate(*args)
+        this = apply(_quickfix.new_UnderlyingFXRate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFXRate
@@ -17613,7 +17589,7 @@ class UnderlyingFXRateCalc(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingFXRateCalc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingFXRateCalc(*args)
+        this = apply(_quickfix.new_UnderlyingFXRateCalc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFXRateCalc
@@ -17630,7 +17606,7 @@ class AllocPositionEffect(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocPositionEffect, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocPositionEffect(*args)
+        this = apply(_quickfix.new_AllocPositionEffect, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocPositionEffect
@@ -17647,7 +17623,7 @@ class DealingCapacity(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DealingCapacity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DealingCapacity(*args)
+        this = apply(_quickfix.new_DealingCapacity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DealingCapacity
@@ -17664,7 +17640,7 @@ class InstrmtAssignmentMethod(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrmtAssignmentMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrmtAssignmentMethod(*args)
+        this = apply(_quickfix.new_InstrmtAssignmentMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrmtAssignmentMethod
@@ -17681,7 +17657,7 @@ class InstrumentPartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrumentPartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrumentPartyIDSource(*args)
+        this = apply(_quickfix.new_InstrumentPartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyIDSource
@@ -17698,7 +17674,7 @@ class InstrumentPartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrumentPartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrumentPartyRole(*args)
+        this = apply(_quickfix.new_InstrumentPartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyRole
@@ -17715,7 +17691,7 @@ class NoInstrumentPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoInstrumentPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoInstrumentPartySubIDs(*args)
+        this = apply(_quickfix.new_NoInstrumentPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrumentPartySubIDs
@@ -17732,7 +17708,7 @@ class InstrumentPartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrumentPartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrumentPartySubID(*args)
+        this = apply(_quickfix.new_InstrumentPartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartySubID
@@ -17749,7 +17725,7 @@ class InstrumentPartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, InstrumentPartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_InstrumentPartySubIDType(*args)
+        this = apply(_quickfix.new_InstrumentPartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartySubIDType
@@ -17766,7 +17742,7 @@ class PositionCurrency(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PositionCurrency, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PositionCurrency(*args)
+        this = apply(_quickfix.new_PositionCurrency, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PositionCurrency
@@ -17783,7 +17759,7 @@ class CalculatedCcyLastQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, CalculatedCcyLastQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CalculatedCcyLastQty(*args)
+        this = apply(_quickfix.new_CalculatedCcyLastQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CalculatedCcyLastQty
@@ -17800,7 +17776,7 @@ class AggressorIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, AggressorIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AggressorIndicator(*args)
+        this = apply(_quickfix.new_AggressorIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AggressorIndicator
@@ -17817,7 +17793,7 @@ class NoUndlyInstrumentParties(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUndlyInstrumentParties, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUndlyInstrumentParties(*args)
+        this = apply(_quickfix.new_NoUndlyInstrumentParties, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUndlyInstrumentParties
@@ -17834,7 +17810,7 @@ class UndlyInstrumentPartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UndlyInstrumentPartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UndlyInstrumentPartyID(*args)
+        this = apply(_quickfix.new_UndlyInstrumentPartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyID
@@ -17851,7 +17827,7 @@ class UndlyInstrumentPartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, UndlyInstrumentPartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UndlyInstrumentPartyIDSource(*args)
+        this = apply(_quickfix.new_UndlyInstrumentPartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyIDSource
@@ -17868,7 +17844,7 @@ class UndlyInstrumentPartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UndlyInstrumentPartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UndlyInstrumentPartyRole(*args)
+        this = apply(_quickfix.new_UndlyInstrumentPartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyRole
@@ -17885,7 +17861,7 @@ class NoUndlyInstrumentPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoUndlyInstrumentPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoUndlyInstrumentPartySubIDs(*args)
+        this = apply(_quickfix.new_NoUndlyInstrumentPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoUndlyInstrumentPartySubIDs
@@ -17902,7 +17878,7 @@ class UndlyInstrumentPartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UndlyInstrumentPartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UndlyInstrumentPartySubID(*args)
+        this = apply(_quickfix.new_UndlyInstrumentPartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartySubID
@@ -17919,7 +17895,7 @@ class UndlyInstrumentPartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, UndlyInstrumentPartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UndlyInstrumentPartySubIDType(*args)
+        this = apply(_quickfix.new_UndlyInstrumentPartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartySubIDType
@@ -17936,7 +17912,7 @@ class BidSwapPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, BidSwapPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BidSwapPoints(*args)
+        this = apply(_quickfix.new_BidSwapPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BidSwapPoints
@@ -17953,7 +17929,7 @@ class OfferSwapPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, OfferSwapPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OfferSwapPoints(*args)
+        this = apply(_quickfix.new_OfferSwapPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSwapPoints
@@ -17970,7 +17946,7 @@ class LegBidForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegBidForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegBidForwardPoints(*args)
+        this = apply(_quickfix.new_LegBidForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegBidForwardPoints
@@ -17987,7 +17963,7 @@ class LegOfferForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegOfferForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOfferForwardPoints(*args)
+        this = apply(_quickfix.new_LegOfferForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegOfferForwardPoints
@@ -18004,7 +17980,7 @@ class SwapPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SwapPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SwapPoints(*args)
+        this = apply(_quickfix.new_SwapPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SwapPoints
@@ -18021,7 +17997,7 @@ class MDQuoteType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MDQuoteType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MDQuoteType(*args)
+        this = apply(_quickfix.new_MDQuoteType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MDQuoteType
@@ -18038,7 +18014,7 @@ class LastSwapPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastSwapPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastSwapPoints(*args)
+        this = apply(_quickfix.new_LastSwapPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastSwapPoints
@@ -18055,7 +18031,7 @@ class SideGrossTradeAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SideGrossTradeAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SideGrossTradeAmt(*args)
+        this = apply(_quickfix.new_SideGrossTradeAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SideGrossTradeAmt
@@ -18072,7 +18048,7 @@ class LegLastForwardPoints(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegLastForwardPoints, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegLastForwardPoints(*args)
+        this = apply(_quickfix.new_LegLastForwardPoints, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegLastForwardPoints
@@ -18089,7 +18065,7 @@ class LegCalculatedCcyLastQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegCalculatedCcyLastQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegCalculatedCcyLastQty(*args)
+        this = apply(_quickfix.new_LegCalculatedCcyLastQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegCalculatedCcyLastQty
@@ -18106,7 +18082,7 @@ class LegGrossTradeAmt(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegGrossTradeAmt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegGrossTradeAmt(*args)
+        this = apply(_quickfix.new_LegGrossTradeAmt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegGrossTradeAmt
@@ -18123,7 +18099,7 @@ class MaturityTime(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaturityTime(*args)
+        this = apply(_quickfix.new_MaturityTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityTime
@@ -18140,7 +18116,7 @@ class RefOrderID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefOrderID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefOrderID(*args)
+        this = apply(_quickfix.new_RefOrderID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefOrderID
@@ -18157,7 +18133,7 @@ class RefOrderIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefOrderIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefOrderIDSource(*args)
+        this = apply(_quickfix.new_RefOrderIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefOrderIDSource
@@ -18174,7 +18150,7 @@ class SecondaryDisplayQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryDisplayQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecondaryDisplayQty(*args)
+        this = apply(_quickfix.new_SecondaryDisplayQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryDisplayQty
@@ -18191,7 +18167,7 @@ class DisplayWhen(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayWhen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayWhen(*args)
+        this = apply(_quickfix.new_DisplayWhen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayWhen
@@ -18208,7 +18184,7 @@ class DisplayMethod(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayMethod(*args)
+        this = apply(_quickfix.new_DisplayMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayMethod
@@ -18225,7 +18201,7 @@ class DisplayLowQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayLowQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayLowQty(*args)
+        this = apply(_quickfix.new_DisplayLowQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayLowQty
@@ -18242,7 +18218,7 @@ class DisplayHighQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayHighQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayHighQty(*args)
+        this = apply(_quickfix.new_DisplayHighQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayHighQty
@@ -18259,7 +18235,7 @@ class DisplayMinIncr(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayMinIncr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayMinIncr(*args)
+        this = apply(_quickfix.new_DisplayMinIncr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayMinIncr
@@ -18276,7 +18252,7 @@ class RefreshQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefreshQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefreshQty(*args)
+        this = apply(_quickfix.new_RefreshQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefreshQty
@@ -18293,7 +18269,7 @@ class MatchIncrement(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, MatchIncrement, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MatchIncrement(*args)
+        this = apply(_quickfix.new_MatchIncrement, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MatchIncrement
@@ -18310,7 +18286,7 @@ class MaxPriceLevels(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaxPriceLevels, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaxPriceLevels(*args)
+        this = apply(_quickfix.new_MaxPriceLevels, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaxPriceLevels
@@ -18327,7 +18303,7 @@ class PreTradeAnonymity(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PreTradeAnonymity, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PreTradeAnonymity(*args)
+        this = apply(_quickfix.new_PreTradeAnonymity, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PreTradeAnonymity
@@ -18344,7 +18320,7 @@ class PriceProtectionScope(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, PriceProtectionScope, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PriceProtectionScope(*args)
+        this = apply(_quickfix.new_PriceProtectionScope, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PriceProtectionScope
@@ -18361,7 +18337,7 @@ class LotType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LotType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LotType(*args)
+        this = apply(_quickfix.new_LotType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LotType
@@ -18378,7 +18354,7 @@ class PegPriceType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegPriceType(*args)
+        this = apply(_quickfix.new_PegPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegPriceType
@@ -18395,7 +18371,7 @@ class PeggedRefPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PeggedRefPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PeggedRefPrice(*args)
+        this = apply(_quickfix.new_PeggedRefPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PeggedRefPrice
@@ -18412,7 +18388,7 @@ class PegSecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegSecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegSecurityIDSource(*args)
+        this = apply(_quickfix.new_PegSecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityIDSource
@@ -18429,7 +18405,7 @@ class PegSecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegSecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegSecurityID(*args)
+        this = apply(_quickfix.new_PegSecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityID
@@ -18446,7 +18422,7 @@ class PegSymbol(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegSymbol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegSymbol(*args)
+        this = apply(_quickfix.new_PegSymbol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegSymbol
@@ -18463,7 +18439,7 @@ class PegSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegSecurityDesc(*args)
+        this = apply(_quickfix.new_PegSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityDesc
@@ -18480,7 +18456,7 @@ class TriggerType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerType(*args)
+        this = apply(_quickfix.new_TriggerType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerType
@@ -18497,7 +18473,7 @@ class TriggerAction(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerAction, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerAction(*args)
+        this = apply(_quickfix.new_TriggerAction, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerAction
@@ -18514,7 +18490,7 @@ class TriggerPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerPrice(*args)
+        this = apply(_quickfix.new_TriggerPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPrice
@@ -18531,7 +18507,7 @@ class TriggerSymbol(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerSymbol, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerSymbol(*args)
+        this = apply(_quickfix.new_TriggerSymbol, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSymbol
@@ -18548,7 +18524,7 @@ class TriggerSecurityID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerSecurityID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerSecurityID(*args)
+        this = apply(_quickfix.new_TriggerSecurityID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityID
@@ -18565,7 +18541,7 @@ class TriggerSecurityIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerSecurityIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerSecurityIDSource(*args)
+        this = apply(_quickfix.new_TriggerSecurityIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityIDSource
@@ -18582,7 +18558,7 @@ class TriggerSecurityDesc(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerSecurityDesc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerSecurityDesc(*args)
+        this = apply(_quickfix.new_TriggerSecurityDesc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityDesc
@@ -18599,7 +18575,7 @@ class TriggerPriceType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerPriceType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerPriceType(*args)
+        this = apply(_quickfix.new_TriggerPriceType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceType
@@ -18616,7 +18592,7 @@ class TriggerPriceTypeScope(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerPriceTypeScope, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerPriceTypeScope(*args)
+        this = apply(_quickfix.new_TriggerPriceTypeScope, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceTypeScope
@@ -18633,7 +18609,7 @@ class TriggerPriceDirection(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerPriceDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerPriceDirection(*args)
+        this = apply(_quickfix.new_TriggerPriceDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceDirection
@@ -18650,7 +18626,7 @@ class TriggerNewPrice(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerNewPrice, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerNewPrice(*args)
+        this = apply(_quickfix.new_TriggerNewPrice, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerNewPrice
@@ -18667,7 +18643,7 @@ class TriggerOrderType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerOrderType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerOrderType(*args)
+        this = apply(_quickfix.new_TriggerOrderType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerOrderType
@@ -18684,7 +18660,7 @@ class TriggerNewQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerNewQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerNewQty(*args)
+        this = apply(_quickfix.new_TriggerNewQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerNewQty
@@ -18701,7 +18677,7 @@ class TriggerTradingSessionID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerTradingSessionID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerTradingSessionID(*args)
+        this = apply(_quickfix.new_TriggerTradingSessionID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerTradingSessionID
@@ -18718,7 +18694,7 @@ class TriggerTradingSessionSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TriggerTradingSessionSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TriggerTradingSessionSubID(*args)
+        this = apply(_quickfix.new_TriggerTradingSessionSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerTradingSessionSubID
@@ -18735,7 +18711,7 @@ class OrderCategory(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrderCategory, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrderCategory(*args)
+        this = apply(_quickfix.new_OrderCategory, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCategory
@@ -18752,7 +18728,7 @@ class NoRootPartyIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRootPartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRootPartyIDs(*args)
+        this = apply(_quickfix.new_NoRootPartyIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRootPartyIDs
@@ -18769,7 +18745,7 @@ class RootPartyID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RootPartyID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RootPartyID(*args)
+        this = apply(_quickfix.new_RootPartyID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyID
@@ -18786,7 +18762,7 @@ class RootPartyIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, RootPartyIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RootPartyIDSource(*args)
+        this = apply(_quickfix.new_RootPartyIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyIDSource
@@ -18803,7 +18779,7 @@ class RootPartyRole(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RootPartyRole, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RootPartyRole(*args)
+        this = apply(_quickfix.new_RootPartyRole, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyRole
@@ -18820,7 +18796,7 @@ class NoRootPartySubIDs(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoRootPartySubIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoRootPartySubIDs(*args)
+        this = apply(_quickfix.new_NoRootPartySubIDs, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoRootPartySubIDs
@@ -18837,7 +18813,7 @@ class RootPartySubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RootPartySubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RootPartySubID(*args)
+        this = apply(_quickfix.new_RootPartySubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartySubID
@@ -18854,7 +18830,7 @@ class RootPartySubIDType(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RootPartySubIDType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RootPartySubIDType(*args)
+        this = apply(_quickfix.new_RootPartySubIDType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartySubIDType
@@ -18871,7 +18847,7 @@ class TradeHandlingInstr(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeHandlingInstr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeHandlingInstr(*args)
+        this = apply(_quickfix.new_TradeHandlingInstr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeHandlingInstr
@@ -18888,7 +18864,7 @@ class OrigTradeHandlingInstr(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigTradeHandlingInstr, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigTradeHandlingInstr(*args)
+        this = apply(_quickfix.new_OrigTradeHandlingInstr, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeHandlingInstr
@@ -18905,7 +18881,7 @@ class OrigTradeDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigTradeDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigTradeDate(*args)
+        this = apply(_quickfix.new_OrigTradeDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeDate
@@ -18922,7 +18898,7 @@ class OrigTradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigTradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigTradeID(*args)
+        this = apply(_quickfix.new_OrigTradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeID
@@ -18939,7 +18915,7 @@ class OrigSecondaryTradeID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigSecondaryTradeID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigSecondaryTradeID(*args)
+        this = apply(_quickfix.new_OrigSecondaryTradeID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigSecondaryTradeID
@@ -18956,7 +18932,7 @@ class TZTransactTime(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TZTransactTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TZTransactTime(*args)
+        this = apply(_quickfix.new_TZTransactTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TZTransactTime
@@ -18973,7 +18949,7 @@ class ExDestinationIDSource(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExDestinationIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExDestinationIDSource(*args)
+        this = apply(_quickfix.new_ExDestinationIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExDestinationIDSource
@@ -18990,7 +18966,7 @@ class ReportedPxDiff(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ReportedPxDiff, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ReportedPxDiff(*args)
+        this = apply(_quickfix.new_ReportedPxDiff, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ReportedPxDiff
@@ -19007,7 +18983,7 @@ class RptSys(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RptSys, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RptSys(*args)
+        this = apply(_quickfix.new_RptSys, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RptSys
@@ -19024,7 +19000,7 @@ class AllocClearingFeeIndicator(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocClearingFeeIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocClearingFeeIndicator(*args)
+        this = apply(_quickfix.new_AllocClearingFeeIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocClearingFeeIndicator
@@ -19041,7 +19017,7 @@ class DisplayQty(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DisplayQty, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DisplayQty(*args)
+        this = apply(_quickfix.new_DisplayQty, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayQty
@@ -19058,7 +19034,7 @@ class ExchangeSpecialInstructions(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ExchangeSpecialInstructions, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ExchangeSpecialInstructions(*args)
+        this = apply(_quickfix.new_ExchangeSpecialInstructions, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeSpecialInstructions
@@ -19075,7 +19051,7 @@ class BeginSeqNo(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BeginSeqNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BeginSeqNo(*args)
+        this = apply(_quickfix.new_BeginSeqNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BeginSeqNo
@@ -19092,7 +19068,7 @@ class BeginString(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, BeginString, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BeginString(*args)
+        this = apply(_quickfix.new_BeginString, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BeginString
@@ -19109,7 +19085,7 @@ class BodyLength(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, BodyLength, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_BodyLength(*args)
+        this = apply(_quickfix.new_BodyLength, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_BodyLength
@@ -19126,7 +19102,7 @@ class CheckSum(CheckSumField):
     __getattr__ = lambda self, name: _swig_getattr(self, CheckSum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CheckSum(*args)
+        this = apply(_quickfix.new_CheckSum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CheckSum
@@ -19143,7 +19119,7 @@ class EndSeqNo(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EndSeqNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EndSeqNo(*args)
+        this = apply(_quickfix.new_EndSeqNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EndSeqNo
@@ -19160,7 +19136,7 @@ class MsgSeqNum(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MsgSeqNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MsgSeqNum(*args)
+        this = apply(_quickfix.new_MsgSeqNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MsgSeqNum
@@ -19177,7 +19153,7 @@ class MsgType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MsgType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MsgType(*args)
+        this = apply(_quickfix.new_MsgType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MsgType
@@ -19194,7 +19170,7 @@ class NewSeqNo(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NewSeqNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NewSeqNo(*args)
+        this = apply(_quickfix.new_NewSeqNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NewSeqNo
@@ -19211,7 +19187,7 @@ class PossDupFlag(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PossDupFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PossDupFlag(*args)
+        this = apply(_quickfix.new_PossDupFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PossDupFlag
@@ -19228,7 +19204,7 @@ class RefSeqNum(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefSeqNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefSeqNum(*args)
+        this = apply(_quickfix.new_RefSeqNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefSeqNum
@@ -19245,7 +19221,7 @@ class SenderCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SenderCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SenderCompID(*args)
+        this = apply(_quickfix.new_SenderCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SenderCompID
@@ -19262,7 +19238,7 @@ class SenderSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SenderSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SenderSubID(*args)
+        this = apply(_quickfix.new_SenderSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SenderSubID
@@ -19279,7 +19255,7 @@ class SendingTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, SendingTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SendingTime(*args)
+        this = apply(_quickfix.new_SendingTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SendingTime
@@ -19296,7 +19272,7 @@ class TargetCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetCompID(*args)
+        this = apply(_quickfix.new_TargetCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetCompID
@@ -19313,7 +19289,7 @@ class TargetSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetSubID(*args)
+        this = apply(_quickfix.new_TargetSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetSubID
@@ -19330,7 +19306,7 @@ class Text(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Text, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Text(*args)
+        this = apply(_quickfix.new_Text, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Text
@@ -19347,7 +19323,7 @@ class Signature(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Signature, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Signature(*args)
+        this = apply(_quickfix.new_Signature, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Signature
@@ -19364,7 +19340,7 @@ class SecureDataLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecureDataLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecureDataLen(*args)
+        this = apply(_quickfix.new_SecureDataLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecureDataLen
@@ -19381,7 +19357,7 @@ class SecureData(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SecureData, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SecureData(*args)
+        this = apply(_quickfix.new_SecureData, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SecureData
@@ -19398,7 +19374,7 @@ class SignatureLength(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SignatureLength, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SignatureLength(*args)
+        this = apply(_quickfix.new_SignatureLength, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SignatureLength
@@ -19415,7 +19391,7 @@ class RawDataLength(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RawDataLength, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RawDataLength(*args)
+        this = apply(_quickfix.new_RawDataLength, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RawDataLength
@@ -19432,7 +19408,7 @@ class RawData(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RawData, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RawData(*args)
+        this = apply(_quickfix.new_RawData, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RawData
@@ -19449,7 +19425,7 @@ class PossResend(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, PossResend, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PossResend(*args)
+        this = apply(_quickfix.new_PossResend, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PossResend
@@ -19466,7 +19442,7 @@ class EncryptMethod(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncryptMethod, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncryptMethod(*args)
+        this = apply(_quickfix.new_EncryptMethod, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptMethod
@@ -19483,7 +19459,7 @@ class HeartBtInt(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, HeartBtInt, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HeartBtInt(*args)
+        this = apply(_quickfix.new_HeartBtInt, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HeartBtInt
@@ -19500,7 +19476,7 @@ class TestReqID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TestReqID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TestReqID(*args)
+        this = apply(_quickfix.new_TestReqID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TestReqID
@@ -19517,7 +19493,7 @@ class OnBehalfOfCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfCompID(*args)
+        this = apply(_quickfix.new_OnBehalfOfCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfCompID
@@ -19534,7 +19510,7 @@ class OnBehalfOfSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfSubID(*args)
+        this = apply(_quickfix.new_OnBehalfOfSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfSubID
@@ -19551,7 +19527,7 @@ class OrigSendingTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, OrigSendingTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OrigSendingTime(*args)
+        this = apply(_quickfix.new_OrigSendingTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OrigSendingTime
@@ -19568,7 +19544,7 @@ class GapFillFlag(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, GapFillFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_GapFillFlag(*args)
+        this = apply(_quickfix.new_GapFillFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_GapFillFlag
@@ -19585,7 +19561,7 @@ class DeliverToCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliverToCompID(*args)
+        this = apply(_quickfix.new_DeliverToCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToCompID
@@ -19602,7 +19578,7 @@ class DeliverToSubID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToSubID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliverToSubID(*args)
+        this = apply(_quickfix.new_DeliverToSubID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToSubID
@@ -19619,7 +19595,7 @@ class ResetSeqNumFlag(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, ResetSeqNumFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ResetSeqNumFlag(*args)
+        this = apply(_quickfix.new_ResetSeqNumFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ResetSeqNumFlag
@@ -19636,7 +19612,7 @@ class SenderLocationID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, SenderLocationID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SenderLocationID(*args)
+        this = apply(_quickfix.new_SenderLocationID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SenderLocationID
@@ -19653,7 +19629,7 @@ class TargetLocationID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, TargetLocationID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TargetLocationID(*args)
+        this = apply(_quickfix.new_TargetLocationID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TargetLocationID
@@ -19670,7 +19646,7 @@ class OnBehalfOfLocationID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfLocationID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfLocationID(*args)
+        this = apply(_quickfix.new_OnBehalfOfLocationID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfLocationID
@@ -19687,7 +19663,7 @@ class DeliverToLocationID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToLocationID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DeliverToLocationID(*args)
+        this = apply(_quickfix.new_DeliverToLocationID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToLocationID
@@ -19704,7 +19680,7 @@ class XmlDataLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, XmlDataLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_XmlDataLen(*args)
+        this = apply(_quickfix.new_XmlDataLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_XmlDataLen
@@ -19721,7 +19697,7 @@ class XmlData(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_XmlData(*args)
+        this = apply(_quickfix.new_XmlData, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_XmlData
@@ -19738,7 +19714,7 @@ class MessageEncoding(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageEncoding, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MessageEncoding(*args)
+        this = apply(_quickfix.new_MessageEncoding, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MessageEncoding
@@ -19755,7 +19731,7 @@ class EncodedTextLen(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedTextLen, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedTextLen(*args)
+        this = apply(_quickfix.new_EncodedTextLen, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedTextLen
@@ -19772,7 +19748,7 @@ class EncodedText(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_EncodedText(*args)
+        this = apply(_quickfix.new_EncodedText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedText
@@ -19789,7 +19765,7 @@ class LastMsgSeqNumProcessed(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastMsgSeqNumProcessed, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastMsgSeqNumProcessed(*args)
+        this = apply(_quickfix.new_LastMsgSeqNumProcessed, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastMsgSeqNumProcessed
@@ -19806,7 +19782,7 @@ class RefTagID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefTagID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefTagID(*args)
+        this = apply(_quickfix.new_RefTagID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefTagID
@@ -19823,7 +19799,7 @@ class RefMsgType(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefMsgType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefMsgType(*args)
+        this = apply(_quickfix.new_RefMsgType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefMsgType
@@ -19840,7 +19816,7 @@ class SessionRejectReason(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, SessionRejectReason, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SessionRejectReason(*args)
+        this = apply(_quickfix.new_SessionRejectReason, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SessionRejectReason
@@ -19857,7 +19833,7 @@ class MaxMessageSize(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, MaxMessageSize, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MaxMessageSize(*args)
+        this = apply(_quickfix.new_MaxMessageSize, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MaxMessageSize
@@ -19874,7 +19850,7 @@ class NoMsgTypes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoMsgTypes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoMsgTypes(*args)
+        this = apply(_quickfix.new_NoMsgTypes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoMsgTypes
@@ -19891,7 +19867,7 @@ class MsgDirection(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, MsgDirection, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MsgDirection(*args)
+        this = apply(_quickfix.new_MsgDirection, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MsgDirection
@@ -19908,7 +19884,7 @@ class TestMessageIndicator(BoolField):
     __getattr__ = lambda self, name: _swig_getattr(self, TestMessageIndicator, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TestMessageIndicator(*args)
+        this = apply(_quickfix.new_TestMessageIndicator, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TestMessageIndicator
@@ -19925,7 +19901,7 @@ class Username(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Username, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Username(*args)
+        this = apply(_quickfix.new_Username, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Username
@@ -19942,7 +19918,7 @@ class Password(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, Password, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Password(*args)
+        this = apply(_quickfix.new_Password, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Password
@@ -19959,7 +19935,7 @@ class NoHops(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NoHops, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NoHops(*args)
+        this = apply(_quickfix.new_NoHops, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NoHops
@@ -19976,7 +19952,7 @@ class HopCompID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, HopCompID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HopCompID(*args)
+        this = apply(_quickfix.new_HopCompID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HopCompID
@@ -19993,7 +19969,7 @@ class HopSendingTime(UtcTimeStampField):
     __getattr__ = lambda self, name: _swig_getattr(self, HopSendingTime, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HopSendingTime(*args)
+        this = apply(_quickfix.new_HopSendingTime, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HopSendingTime
@@ -20010,7 +19986,7 @@ class HopRefID(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, HopRefID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_HopRefID(*args)
+        this = apply(_quickfix.new_HopRefID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_HopRefID
@@ -20027,7 +20003,7 @@ class NextExpectedMsgSeqNum(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, NextExpectedMsgSeqNum, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NextExpectedMsgSeqNum(*args)
+        this = apply(_quickfix.new_NextExpectedMsgSeqNum, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NextExpectedMsgSeqNum
@@ -20044,7 +20020,7 @@ class ApplVerID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, ApplVerID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ApplVerID(*args)
+        this = apply(_quickfix.new_ApplVerID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_ApplVerID
@@ -20061,7 +20037,7 @@ class CstmApplVerID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CstmApplVerID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CstmApplVerID(*args)
+        this = apply(_quickfix.new_CstmApplVerID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CstmApplVerID
@@ -20078,7 +20054,7 @@ class RefApplVerID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefApplVerID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefApplVerID(*args)
+        this = apply(_quickfix.new_RefApplVerID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplVerID
@@ -20095,7 +20071,7 @@ class RefCstmApplVerID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RefCstmApplVerID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RefCstmApplVerID(*args)
+        this = apply(_quickfix.new_RefCstmApplVerID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RefCstmApplVerID
@@ -20112,7 +20088,7 @@ class DefaultApplVerID(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, DefaultApplVerID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DefaultApplVerID(*args)
+        this = apply(_quickfix.new_DefaultApplVerID, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DefaultApplVerID
@@ -20129,7 +20105,7 @@ class IDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IDSource(*args)
+        this = apply(_quickfix.new_IDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IDSource
@@ -20146,7 +20122,7 @@ class IOIOthSvc(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIOthSvc, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIOthSvc(*args)
+        this = apply(_quickfix.new_IOIOthSvc, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIOthSvc
@@ -20163,7 +20139,7 @@ class IOIShares(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, IOIShares, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIShares(*args)
+        this = apply(_quickfix.new_IOIShares, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_IOIShares
@@ -20180,7 +20156,7 @@ class LastShares(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, LastShares, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LastShares(*args)
+        this = apply(_quickfix.new_LastShares, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LastShares
@@ -20197,7 +20173,7 @@ class RelatdSym(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RelatdSym, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RelatdSym(*args)
+        this = apply(_quickfix.new_RelatdSym, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RelatdSym
@@ -20214,7 +20190,7 @@ class Rule80A(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, Rule80A, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Rule80A(*args)
+        this = apply(_quickfix.new_Rule80A, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Rule80A
@@ -20231,7 +20207,7 @@ class Shares(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, Shares, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Shares(*args)
+        this = apply(_quickfix.new_Shares, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Shares
@@ -20248,7 +20224,7 @@ class SettlmntTyp(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, SettlmntTyp, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SettlmntTyp(*args)
+        this = apply(_quickfix.new_SettlmntTyp, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SettlmntTyp
@@ -20265,7 +20241,7 @@ class FutSettDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, FutSettDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FutSettDate(*args)
+        this = apply(_quickfix.new_FutSettDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FutSettDate
@@ -20282,7 +20258,7 @@ class AvgPrxPrecision(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPrxPrecision, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AvgPrxPrecision(*args)
+        this = apply(_quickfix.new_AvgPrxPrecision, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPrxPrecision
@@ -20299,7 +20275,7 @@ class OpenClose(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, OpenClose, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OpenClose(*args)
+        this = apply(_quickfix.new_OpenClose, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OpenClose
@@ -20316,7 +20292,7 @@ class AllocShares(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, AllocShares, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_AllocShares(*args)
+        this = apply(_quickfix.new_AllocShares, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_AllocShares
@@ -20333,7 +20309,7 @@ class FutSettDate2(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, FutSettDate2, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FutSettDate2(*args)
+        this = apply(_quickfix.new_FutSettDate2, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FutSettDate2
@@ -20350,7 +20326,7 @@ class PegDifference(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, PegDifference, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_PegDifference(*args)
+        this = apply(_quickfix.new_PegDifference, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_PegDifference
@@ -20367,7 +20343,7 @@ class SpreadToBenchmark(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, SpreadToBenchmark, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SpreadToBenchmark(*args)
+        this = apply(_quickfix.new_SpreadToBenchmark, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SpreadToBenchmark
@@ -20384,7 +20360,7 @@ class OpenCloseSettleFlag(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, OpenCloseSettleFlag, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_OpenCloseSettleFlag(*args)
+        this = apply(_quickfix.new_OpenCloseSettleFlag, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_OpenCloseSettleFlag
@@ -20401,7 +20377,7 @@ class UnderlyingIDSource(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIDSource, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_UnderlyingIDSource(*args)
+        this = apply(_quickfix.new_UnderlyingIDSource, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIDSource
@@ -20418,7 +20394,7 @@ class QuoteAckStatus(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteAckStatus, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_QuoteAckStatus(*args)
+        this = apply(_quickfix.new_QuoteAckStatus, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteAckStatus
@@ -20435,7 +20411,7 @@ class TotQuoteEntries(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotQuoteEntries, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotQuoteEntries(*args)
+        this = apply(_quickfix.new_TotQuoteEntries, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotQuoteEntries
@@ -20452,7 +20428,7 @@ class DiscretionOffset(DoubleField):
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffset, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DiscretionOffset(*args)
+        this = apply(_quickfix.new_DiscretionOffset, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffset
@@ -20469,7 +20445,7 @@ class TotalNumSecurities(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumSecurities, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalNumSecurities(*args)
+        this = apply(_quickfix.new_TotalNumSecurities, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumSecurities
@@ -20486,7 +20462,7 @@ class TradeType(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, TradeType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TradeType(*args)
+        this = apply(_quickfix.new_TradeType, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TradeType
@@ -20503,7 +20479,7 @@ class CardIssNo(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, CardIssNo, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_CardIssNo(*args)
+        this = apply(_quickfix.new_CardIssNo, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_CardIssNo
@@ -20520,7 +20496,7 @@ class RegistDetls(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, RegistDetls, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RegistDetls(*args)
+        this = apply(_quickfix.new_RegistDetls, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_RegistDetls
@@ -20537,7 +20513,7 @@ class TotalNumSecurityTypes(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumSecurityTypes, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_TotalNumSecurityTypes(*args)
+        this = apply(_quickfix.new_TotalNumSecurityTypes, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumSecurityTypes
@@ -20554,7 +20530,7 @@ class LegSettlmntTyp(CharField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlmntTyp, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegSettlmntTyp(*args)
+        this = apply(_quickfix.new_LegSettlmntTyp, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlmntTyp
@@ -20571,7 +20547,7 @@ class LegFutSettDate(StringField):
     __getattr__ = lambda self, name: _swig_getattr(self, LegFutSettDate, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegFutSettDate(*args)
+        this = apply(_quickfix.new_LegFutSettDate, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LegFutSettDate
@@ -20588,7 +20564,7 @@ class LinesOfText(IntField):
     __getattr__ = lambda self, name: _swig_getattr(self, LinesOfText, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LinesOfText(*args)
+        this = apply(_quickfix.new_LinesOfText, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_LinesOfText
@@ -20596,26 +20572,26 @@ class LinesOfText(IntField):
 LinesOfText_swigregister = _quickfix.LinesOfText_swigregister
 LinesOfText_swigregister(LinesOfText)
 
-class SessionID(_object):
+class SessionID:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, SessionID, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, SessionID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SessionID(*args)
+        this = apply(_quickfix.new_SessionID, args)
         try: self.this.append(this)
         except: self.this = this
-    def getBeginString(*args): return _quickfix.SessionID_getBeginString(*args)
-    def getSenderCompID(*args): return _quickfix.SessionID_getSenderCompID(*args)
-    def getTargetCompID(*args): return _quickfix.SessionID_getTargetCompID(*args)
-    def getSessionQualifier(*args): return _quickfix.SessionID_getSessionQualifier(*args)
-    def isFIXT(*args): return _quickfix.SessionID_isFIXT(*args)
-    def toStringFrozen(*args): return _quickfix.SessionID_toStringFrozen(*args)
-    def fromString(*args): return _quickfix.SessionID_fromString(*args)
-    def toString(*args): return _quickfix.SessionID_toString(*args)
-    def __invert__(*args): return _quickfix.SessionID___invert__(*args)
-    def __str__(*args): return _quickfix.SessionID___str__(*args)
+    def getBeginString(*args): return apply(_quickfix.SessionID_getBeginString, args)
+    def getSenderCompID(*args): return apply(_quickfix.SessionID_getSenderCompID, args)
+    def getTargetCompID(*args): return apply(_quickfix.SessionID_getTargetCompID, args)
+    def getSessionQualifier(*args): return apply(_quickfix.SessionID_getSessionQualifier, args)
+    def isFIXT(*args): return apply(_quickfix.SessionID_isFIXT, args)
+    def toStringFrozen(*args): return apply(_quickfix.SessionID_toStringFrozen, args)
+    def fromString(*args): return apply(_quickfix.SessionID_fromString, args)
+    def toString(*args): return apply(_quickfix.SessionID_toString, args)
+    def __invert__(*args): return apply(_quickfix.SessionID___invert__, args)
+    def __str__(*args): return apply(_quickfix.SessionID___str__, args)
     __swig_destroy__ = _quickfix.delete_SessionID
     __del__ = lambda self : None;
 SessionID_swigregister = _quickfix.SessionID_swigregister
@@ -23164,55 +23140,55 @@ OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE = cvar.OpenCloseSettleFlag_DELIVER
 OpenCloseSettleFlag_EXPECTED_PRICE = cvar.OpenCloseSettleFlag_EXPECTED_PRICE
 OpenCloseSettleFlag_PRICE_FROM_PREVIOUS_BUSINESS_DAY = cvar.OpenCloseSettleFlag_PRICE_FROM_PREVIOUS_BUSINESS_DAY
 
-class Dictionary(_object):
+class Dictionary:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Dictionary, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Dictionary, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Dictionary(*args)
+        this = apply(_quickfix.new_Dictionary, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Dictionary
     __del__ = lambda self : None;
-    def getName(*args): return _quickfix.Dictionary_getName(*args)
-    def size(*args): return _quickfix.Dictionary_size(*args)
-    def getString(*args): return _quickfix.Dictionary_getString(*args)
-    def getLong(*args): return _quickfix.Dictionary_getLong(*args)
-    def getDouble(*args): return _quickfix.Dictionary_getDouble(*args)
-    def getBool(*args): return _quickfix.Dictionary_getBool(*args)
-    def getDay(*args): return _quickfix.Dictionary_getDay(*args)
-    def setString(*args): return _quickfix.Dictionary_setString(*args)
-    def setLong(*args): return _quickfix.Dictionary_setLong(*args)
-    def setDouble(*args): return _quickfix.Dictionary_setDouble(*args)
-    def setBool(*args): return _quickfix.Dictionary_setBool(*args)
-    def setDay(*args): return _quickfix.Dictionary_setDay(*args)
-    def has(*args): return _quickfix.Dictionary_has(*args)
-    def merge(*args): return _quickfix.Dictionary_merge(*args)
-    def begin(*args): return _quickfix.Dictionary_begin(*args)
-    def end(*args): return _quickfix.Dictionary_end(*args)
+    def getName(*args): return apply(_quickfix.Dictionary_getName, args)
+    def size(*args): return apply(_quickfix.Dictionary_size, args)
+    def getString(*args): return apply(_quickfix.Dictionary_getString, args)
+    def getLong(*args): return apply(_quickfix.Dictionary_getLong, args)
+    def getDouble(*args): return apply(_quickfix.Dictionary_getDouble, args)
+    def getBool(*args): return apply(_quickfix.Dictionary_getBool, args)
+    def getDay(*args): return apply(_quickfix.Dictionary_getDay, args)
+    def setString(*args): return apply(_quickfix.Dictionary_setString, args)
+    def setLong(*args): return apply(_quickfix.Dictionary_setLong, args)
+    def setDouble(*args): return apply(_quickfix.Dictionary_setDouble, args)
+    def setBool(*args): return apply(_quickfix.Dictionary_setBool, args)
+    def setDay(*args): return apply(_quickfix.Dictionary_setDay, args)
+    def has(*args): return apply(_quickfix.Dictionary_has, args)
+    def merge(*args): return apply(_quickfix.Dictionary_merge, args)
+    def begin(*args): return apply(_quickfix.Dictionary_begin, args)
+    def end(*args): return apply(_quickfix.Dictionary_end, args)
 Dictionary_swigregister = _quickfix.Dictionary_swigregister
 Dictionary_swigregister(Dictionary)
 __lt__ = _quickfix.__lt__
 __eq__ = _quickfix.__eq__
 __ne__ = _quickfix.__ne__
 
-class SessionSettings(_object):
+class SessionSettings:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, SessionSettings, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, SessionSettings, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SessionSettings(*args)
+        this = apply(_quickfix.new_SessionSettings, args)
         try: self.this.append(this)
         except: self.this = this
-    def has(*args): return _quickfix.SessionSettings_has(*args)
-    def get(*args): return _quickfix.SessionSettings_get(*args)
-    def set(*args): return _quickfix.SessionSettings_set(*args)
-    def size(*args): return _quickfix.SessionSettings_size(*args)
-    def getSessions(*args): return _quickfix.SessionSettings_getSessions(*args)
+    def has(*args): return apply(_quickfix.SessionSettings_has, args)
+    def get(*args): return apply(_quickfix.SessionSettings_get, args)
+    def set(*args): return apply(_quickfix.SessionSettings_set, args)
+    def size(*args): return apply(_quickfix.SessionSettings_size, args)
+    def getSessions(*args): return apply(_quickfix.SessionSettings_getSessions, args)
     __swig_destroy__ = _quickfix.delete_SessionSettings
     __del__ = lambda self : None;
 SessionSettings_swigregister = _quickfix.SessionSettings_swigregister
@@ -23308,90 +23284,82 @@ MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
 HTTP_ACCEPT_PORT = cvar.HTTP_ACCEPT_PORT
 PERSIST_MESSAGES = cvar.PERSIST_MESSAGES
 
-class Session(_object):
+class Session:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Session, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Session, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_Session(*args)
+        this = apply(_quickfix.new_Session, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_Session
     __del__ = lambda self : None;
-    def logon(*args): return _quickfix.Session_logon(*args)
-    def logout(*args): return _quickfix.Session_logout(*args)
-    def isEnabled(*args): return _quickfix.Session_isEnabled(*args)
-    def sentLogon(*args): return _quickfix.Session_sentLogon(*args)
-    def sentLogout(*args): return _quickfix.Session_sentLogout(*args)
-    def receivedLogon(*args): return _quickfix.Session_receivedLogon(*args)
-    def isLoggedOn(*args): return _quickfix.Session_isLoggedOn(*args)
-    def reset(*args): return _quickfix.Session_reset(*args)
-    def refresh(*args): return _quickfix.Session_refresh(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.Session_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.Session_setNextTargetMsgSeqNum(*args)
-    def getSessionID(*args): return _quickfix.Session_getSessionID(*args)
-    def setDataDictionaryProvider(*args): return _quickfix.Session_setDataDictionaryProvider(*args)
-    def getDataDictionaryProvider(*args): return _quickfix.Session_getDataDictionaryProvider(*args)
+    def logon(*args): return apply(_quickfix.Session_logon, args)
+    def logout(*args): return apply(_quickfix.Session_logout, args)
+    def isEnabled(*args): return apply(_quickfix.Session_isEnabled, args)
+    def sentLogon(*args): return apply(_quickfix.Session_sentLogon, args)
+    def sentLogout(*args): return apply(_quickfix.Session_sentLogout, args)
+    def receivedLogon(*args): return apply(_quickfix.Session_receivedLogon, args)
+    def isLoggedOn(*args): return apply(_quickfix.Session_isLoggedOn, args)
+    def reset(*args): return apply(_quickfix.Session_reset, args)
+    def refresh(*args): return apply(_quickfix.Session_refresh, args)
+    def setNextSenderMsgSeqNum(*args): return apply(_quickfix.Session_setNextSenderMsgSeqNum, args)
+    def setNextTargetMsgSeqNum(*args): return apply(_quickfix.Session_setNextTargetMsgSeqNum, args)
+    def getSessionID(*args): return apply(_quickfix.Session_getSessionID, args)
+    def setDataDictionaryProvider(*args): return apply(_quickfix.Session_setDataDictionaryProvider, args)
+    def getDataDictionaryProvider(*args): return apply(_quickfix.Session_getDataDictionaryProvider, args)
     __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
-    if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
     __swig_getmethods__["getSessions"] = lambda x: _quickfix.Session_getSessions
-    if _newclass:getSessions = staticmethod(_quickfix.Session_getSessions)
     __swig_getmethods__["doesSessionExist"] = lambda x: _quickfix.Session_doesSessionExist
-    if _newclass:doesSessionExist = staticmethod(_quickfix.Session_doesSessionExist)
     __swig_getmethods__["lookupSession"] = lambda x: _quickfix.Session_lookupSession
-    if _newclass:lookupSession = staticmethod(_quickfix.Session_lookupSession)
     __swig_getmethods__["isSessionRegistered"] = lambda x: _quickfix.Session_isSessionRegistered
-    if _newclass:isSessionRegistered = staticmethod(_quickfix.Session_isSessionRegistered)
     __swig_getmethods__["registerSession"] = lambda x: _quickfix.Session_registerSession
-    if _newclass:registerSession = staticmethod(_quickfix.Session_registerSession)
     __swig_getmethods__["unregisterSession"] = lambda x: _quickfix.Session_unregisterSession
-    if _newclass:unregisterSession = staticmethod(_quickfix.Session_unregisterSession)
     __swig_getmethods__["numSessions"] = lambda x: _quickfix.Session_numSessions
-    if _newclass:numSessions = staticmethod(_quickfix.Session_numSessions)
-    def isSessionTime(*args): return _quickfix.Session_isSessionTime(*args)
-    def isLogonTime(*args): return _quickfix.Session_isLogonTime(*args)
-    def isInitiator(*args): return _quickfix.Session_isInitiator(*args)
-    def isAcceptor(*args): return _quickfix.Session_isAcceptor(*args)
-    def getLogonTime(*args): return _quickfix.Session_getLogonTime(*args)
-    def setLogonTime(*args): return _quickfix.Session_setLogonTime(*args)
-    def getSenderDefaultApplVerID(*args): return _quickfix.Session_getSenderDefaultApplVerID(*args)
-    def setSenderDefaultApplVerID(*args): return _quickfix.Session_setSenderDefaultApplVerID(*args)
-    def getTargetDefaultApplVerID(*args): return _quickfix.Session_getTargetDefaultApplVerID(*args)
-    def setTargetDefaultApplVerID(*args): return _quickfix.Session_setTargetDefaultApplVerID(*args)
-    def getSendRedundantResendRequests(*args): return _quickfix.Session_getSendRedundantResendRequests(*args)
-    def setSendRedundantResendRequests(*args): return _quickfix.Session_setSendRedundantResendRequests(*args)
-    def getCheckCompId(*args): return _quickfix.Session_getCheckCompId(*args)
-    def setCheckCompId(*args): return _quickfix.Session_setCheckCompId(*args)
-    def getCheckLatency(*args): return _quickfix.Session_getCheckLatency(*args)
-    def setCheckLatency(*args): return _quickfix.Session_setCheckLatency(*args)
-    def getMaxLatency(*args): return _quickfix.Session_getMaxLatency(*args)
-    def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
-    def getLogonTimeout(*args): return _quickfix.Session_getLogonTimeout(*args)
-    def setLogonTimeout(*args): return _quickfix.Session_setLogonTimeout(*args)
-    def getLogoutTimeout(*args): return _quickfix.Session_getLogoutTimeout(*args)
-    def setLogoutTimeout(*args): return _quickfix.Session_setLogoutTimeout(*args)
-    def getResetOnLogon(*args): return _quickfix.Session_getResetOnLogon(*args)
-    def setResetOnLogon(*args): return _quickfix.Session_setResetOnLogon(*args)
-    def getResetOnLogout(*args): return _quickfix.Session_getResetOnLogout(*args)
-    def setResetOnLogout(*args): return _quickfix.Session_setResetOnLogout(*args)
-    def getResetOnDisconnect(*args): return _quickfix.Session_getResetOnDisconnect(*args)
-    def setResetOnDisconnect(*args): return _quickfix.Session_setResetOnDisconnect(*args)
-    def getRefreshOnLogon(*args): return _quickfix.Session_getRefreshOnLogon(*args)
-    def setRefreshOnLogon(*args): return _quickfix.Session_setRefreshOnLogon(*args)
-    def getMillisecondsInTimeStamp(*args): return _quickfix.Session_getMillisecondsInTimeStamp(*args)
-    def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
-    def getPersistMessages(*args): return _quickfix.Session_getPersistMessages(*args)
-    def setPersistMessages(*args): return _quickfix.Session_setPersistMessages(*args)
-    def setResponder(*args): return _quickfix.Session_setResponder(*args)
-    def send(*args): return _quickfix.Session_send(*args)
-    def next(*args): return _quickfix.Session_next(*args)
-    def disconnect(*args): return _quickfix.Session_disconnect(*args)
-    def getExpectedSenderNum(*args): return _quickfix.Session_getExpectedSenderNum(*args)
-    def getExpectedTargetNum(*args): return _quickfix.Session_getExpectedTargetNum(*args)
-    def getLog(*args): return _quickfix.Session_getLog(*args)
-    def getStore(*args): return _quickfix.Session_getStore(*args)
+    def isSessionTime(*args): return apply(_quickfix.Session_isSessionTime, args)
+    def isLogonTime(*args): return apply(_quickfix.Session_isLogonTime, args)
+    def isInitiator(*args): return apply(_quickfix.Session_isInitiator, args)
+    def isAcceptor(*args): return apply(_quickfix.Session_isAcceptor, args)
+    def getLogonTime(*args): return apply(_quickfix.Session_getLogonTime, args)
+    def setLogonTime(*args): return apply(_quickfix.Session_setLogonTime, args)
+    def getSenderDefaultApplVerID(*args): return apply(_quickfix.Session_getSenderDefaultApplVerID, args)
+    def setSenderDefaultApplVerID(*args): return apply(_quickfix.Session_setSenderDefaultApplVerID, args)
+    def getTargetDefaultApplVerID(*args): return apply(_quickfix.Session_getTargetDefaultApplVerID, args)
+    def setTargetDefaultApplVerID(*args): return apply(_quickfix.Session_setTargetDefaultApplVerID, args)
+    def getSendRedundantResendRequests(*args): return apply(_quickfix.Session_getSendRedundantResendRequests, args)
+    def setSendRedundantResendRequests(*args): return apply(_quickfix.Session_setSendRedundantResendRequests, args)
+    def getCheckCompId(*args): return apply(_quickfix.Session_getCheckCompId, args)
+    def setCheckCompId(*args): return apply(_quickfix.Session_setCheckCompId, args)
+    def getCheckLatency(*args): return apply(_quickfix.Session_getCheckLatency, args)
+    def setCheckLatency(*args): return apply(_quickfix.Session_setCheckLatency, args)
+    def getMaxLatency(*args): return apply(_quickfix.Session_getMaxLatency, args)
+    def setMaxLatency(*args): return apply(_quickfix.Session_setMaxLatency, args)
+    def getLogonTimeout(*args): return apply(_quickfix.Session_getLogonTimeout, args)
+    def setLogonTimeout(*args): return apply(_quickfix.Session_setLogonTimeout, args)
+    def getLogoutTimeout(*args): return apply(_quickfix.Session_getLogoutTimeout, args)
+    def setLogoutTimeout(*args): return apply(_quickfix.Session_setLogoutTimeout, args)
+    def getResetOnLogon(*args): return apply(_quickfix.Session_getResetOnLogon, args)
+    def setResetOnLogon(*args): return apply(_quickfix.Session_setResetOnLogon, args)
+    def getResetOnLogout(*args): return apply(_quickfix.Session_getResetOnLogout, args)
+    def setResetOnLogout(*args): return apply(_quickfix.Session_setResetOnLogout, args)
+    def getResetOnDisconnect(*args): return apply(_quickfix.Session_getResetOnDisconnect, args)
+    def setResetOnDisconnect(*args): return apply(_quickfix.Session_setResetOnDisconnect, args)
+    def getRefreshOnLogon(*args): return apply(_quickfix.Session_getRefreshOnLogon, args)
+    def setRefreshOnLogon(*args): return apply(_quickfix.Session_setRefreshOnLogon, args)
+    def getMillisecondsInTimeStamp(*args): return apply(_quickfix.Session_getMillisecondsInTimeStamp, args)
+    def setMillisecondsInTimeStamp(*args): return apply(_quickfix.Session_setMillisecondsInTimeStamp, args)
+    def getPersistMessages(*args): return apply(_quickfix.Session_getPersistMessages, args)
+    def setPersistMessages(*args): return apply(_quickfix.Session_setPersistMessages, args)
+    def setResponder(*args): return apply(_quickfix.Session_setResponder, args)
+    def send(*args): return apply(_quickfix.Session_send, args)
+    def next(*args): return apply(_quickfix.Session_next, args)
+    def disconnect(*args): return apply(_quickfix.Session_disconnect, args)
+    def getExpectedSenderNum(*args): return apply(_quickfix.Session_getExpectedSenderNum, args)
+    def getExpectedTargetNum(*args): return apply(_quickfix.Session_getExpectedTargetNum, args)
+    def getLog(*args): return apply(_quickfix.Session_getLog, args)
+    def getStore(*args): return apply(_quickfix.Session_getStore, args)
 Session_swigregister = _quickfix.Session_swigregister
 Session_swigregister(Session)
 __rshift__ = _quickfix.__rshift__
@@ -23405,7 +23373,7 @@ Session_registerSession = _quickfix.Session_registerSession
 Session_unregisterSession = _quickfix.Session_unregisterSession
 Session_numSessions = _quickfix.Session_numSessions
 
-class LogFactory(_object):
+class LogFactory:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, LogFactory, name, value)
     __swig_getmethods__ = {}
@@ -23414,8 +23382,8 @@ class LogFactory(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_LogFactory
     __del__ = lambda self : None;
-    def create(*args): return _quickfix.LogFactory_create(*args)
-    def destroy(*args): return _quickfix.LogFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.LogFactory_create, args)
+    def destroy(*args): return apply(_quickfix.LogFactory_destroy, args)
 LogFactory_swigregister = _quickfix.LogFactory_swigregister
 LogFactory_swigregister(LogFactory)
 
@@ -23428,17 +23396,17 @@ class ScreenLogFactory(LogFactory):
     __getattr__ = lambda self, name: _swig_getattr(self, ScreenLogFactory, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ScreenLogFactory(*args)
+        this = apply(_quickfix.new_ScreenLogFactory, args)
         try: self.this.append(this)
         except: self.this = this
-    def create(*args): return _quickfix.ScreenLogFactory_create(*args)
-    def destroy(*args): return _quickfix.ScreenLogFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.ScreenLogFactory_create, args)
+    def destroy(*args): return apply(_quickfix.ScreenLogFactory_destroy, args)
     __swig_destroy__ = _quickfix.delete_ScreenLogFactory
     __del__ = lambda self : None;
 ScreenLogFactory_swigregister = _quickfix.ScreenLogFactory_swigregister
 ScreenLogFactory_swigregister(ScreenLogFactory)
 
-class Log(_object):
+class Log:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Log, name, value)
     __swig_getmethods__ = {}
@@ -23447,11 +23415,11 @@ class Log(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Log
     __del__ = lambda self : None;
-    def clear(*args): return _quickfix.Log_clear(*args)
-    def backup(*args): return _quickfix.Log_backup(*args)
-    def onIncoming(*args): return _quickfix.Log_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.Log_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.Log_onEvent(*args)
+    def clear(*args): return apply(_quickfix.Log_clear, args)
+    def backup(*args): return apply(_quickfix.Log_backup, args)
+    def onIncoming(*args): return apply(_quickfix.Log_onIncoming, args)
+    def onOutgoing(*args): return apply(_quickfix.Log_onOutgoing, args)
+    def onEvent(*args): return apply(_quickfix.Log_onEvent, args)
 Log_swigregister = _quickfix.Log_swigregister
 Log_swigregister(Log)
 
@@ -23463,13 +23431,13 @@ class NullLog(Log):
     for _s in [Log]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, NullLog, name)
     __repr__ = _swig_repr
-    def clear(*args): return _quickfix.NullLog_clear(*args)
-    def backup(*args): return _quickfix.NullLog_backup(*args)
-    def onIncoming(*args): return _quickfix.NullLog_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.NullLog_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.NullLog_onEvent(*args)
+    def clear(*args): return apply(_quickfix.NullLog_clear, args)
+    def backup(*args): return apply(_quickfix.NullLog_backup, args)
+    def onIncoming(*args): return apply(_quickfix.NullLog_onIncoming, args)
+    def onOutgoing(*args): return apply(_quickfix.NullLog_onOutgoing, args)
+    def onEvent(*args): return apply(_quickfix.NullLog_onEvent, args)
     def __init__(self, *args): 
-        this = _quickfix.new_NullLog(*args)
+        this = apply(_quickfix.new_NullLog, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NullLog
@@ -23486,16 +23454,16 @@ class ScreenLog(Log):
     __getattr__ = lambda self, name: _swig_getattr(self, ScreenLog, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_ScreenLog(*args)
+        this = apply(_quickfix.new_ScreenLog, args)
         try: self.this.append(this)
         except: self.this = this
-    def clear(*args): return _quickfix.ScreenLog_clear(*args)
-    def backup(*args): return _quickfix.ScreenLog_backup(*args)
-    def onIncoming(*args): return _quickfix.ScreenLog_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.ScreenLog_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.ScreenLog_onEvent(*args)
-    def getMillisecondsInTimeStamp(*args): return _quickfix.ScreenLog_getMillisecondsInTimeStamp(*args)
-    def setMillisecondsInTimeStamp(*args): return _quickfix.ScreenLog_setMillisecondsInTimeStamp(*args)
+    def clear(*args): return apply(_quickfix.ScreenLog_clear, args)
+    def backup(*args): return apply(_quickfix.ScreenLog_backup, args)
+    def onIncoming(*args): return apply(_quickfix.ScreenLog_onIncoming, args)
+    def onOutgoing(*args): return apply(_quickfix.ScreenLog_onOutgoing, args)
+    def onEvent(*args): return apply(_quickfix.ScreenLog_onEvent, args)
+    def getMillisecondsInTimeStamp(*args): return apply(_quickfix.ScreenLog_getMillisecondsInTimeStamp, args)
+    def setMillisecondsInTimeStamp(*args): return apply(_quickfix.ScreenLog_setMillisecondsInTimeStamp, args)
     __swig_destroy__ = _quickfix.delete_ScreenLog
     __del__ = lambda self : None;
 ScreenLog_swigregister = _quickfix.ScreenLog_swigregister
@@ -23510,11 +23478,11 @@ class FileLogFactory(LogFactory):
     __getattr__ = lambda self, name: _swig_getattr(self, FileLogFactory, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FileLogFactory(*args)
+        this = apply(_quickfix.new_FileLogFactory, args)
         try: self.this.append(this)
         except: self.this = this
-    def create(*args): return _quickfix.FileLogFactory_create(*args)
-    def destroy(*args): return _quickfix.FileLogFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.FileLogFactory_create, args)
+    def destroy(*args): return apply(_quickfix.FileLogFactory_destroy, args)
     __swig_destroy__ = _quickfix.delete_FileLogFactory
     __del__ = lambda self : None;
 FileLogFactory_swigregister = _quickfix.FileLogFactory_swigregister
@@ -23529,22 +23497,22 @@ class FileLog(Log):
     __getattr__ = lambda self, name: _swig_getattr(self, FileLog, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FileLog(*args)
+        this = apply(_quickfix.new_FileLog, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FileLog
     __del__ = lambda self : None;
-    def clear(*args): return _quickfix.FileLog_clear(*args)
-    def backup(*args): return _quickfix.FileLog_backup(*args)
-    def onIncoming(*args): return _quickfix.FileLog_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.FileLog_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.FileLog_onEvent(*args)
-    def getMillisecondsInTimeStamp(*args): return _quickfix.FileLog_getMillisecondsInTimeStamp(*args)
-    def setMillisecondsInTimeStamp(*args): return _quickfix.FileLog_setMillisecondsInTimeStamp(*args)
+    def clear(*args): return apply(_quickfix.FileLog_clear, args)
+    def backup(*args): return apply(_quickfix.FileLog_backup, args)
+    def onIncoming(*args): return apply(_quickfix.FileLog_onIncoming, args)
+    def onOutgoing(*args): return apply(_quickfix.FileLog_onOutgoing, args)
+    def onEvent(*args): return apply(_quickfix.FileLog_onEvent, args)
+    def getMillisecondsInTimeStamp(*args): return apply(_quickfix.FileLog_getMillisecondsInTimeStamp, args)
+    def setMillisecondsInTimeStamp(*args): return apply(_quickfix.FileLog_setMillisecondsInTimeStamp, args)
 FileLog_swigregister = _quickfix.FileLog_swigregister
 FileLog_swigregister(FileLog)
 
-class MessageStoreFactory(_object):
+class MessageStoreFactory:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageStoreFactory, name, value)
     __swig_getmethods__ = {}
@@ -23553,8 +23521,8 @@ class MessageStoreFactory(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_MessageStoreFactory
     __del__ = lambda self : None;
-    def create(*args): return _quickfix.MessageStoreFactory_create(*args)
-    def destroy(*args): return _quickfix.MessageStoreFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.MessageStoreFactory_create, args)
+    def destroy(*args): return apply(_quickfix.MessageStoreFactory_destroy, args)
 MessageStoreFactory_swigregister = _quickfix.MessageStoreFactory_swigregister
 MessageStoreFactory_swigregister(MessageStoreFactory)
 
@@ -23566,10 +23534,10 @@ class MemoryStoreFactory(MessageStoreFactory):
     for _s in [MessageStoreFactory]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, MemoryStoreFactory, name)
     __repr__ = _swig_repr
-    def create(*args): return _quickfix.MemoryStoreFactory_create(*args)
-    def destroy(*args): return _quickfix.MemoryStoreFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.MemoryStoreFactory_create, args)
+    def destroy(*args): return apply(_quickfix.MemoryStoreFactory_destroy, args)
     def __init__(self, *args): 
-        this = _quickfix.new_MemoryStoreFactory(*args)
+        this = apply(_quickfix.new_MemoryStoreFactory, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MemoryStoreFactory
@@ -23577,7 +23545,7 @@ class MemoryStoreFactory(MessageStoreFactory):
 MemoryStoreFactory_swigregister = _quickfix.MemoryStoreFactory_swigregister
 MemoryStoreFactory_swigregister(MemoryStoreFactory)
 
-class MessageStore(_object):
+class MessageStore:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageStore, name, value)
     __swig_getmethods__ = {}
@@ -23586,17 +23554,17 @@ class MessageStore(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_MessageStore
     __del__ = lambda self : None;
-    def set(*args): return _quickfix.MessageStore_set(*args)
-    def get(*args): return _quickfix.MessageStore_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.MessageStore_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.MessageStore_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.MessageStore_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.MessageStore_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.MessageStore_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.MessageStore_incrNextTargetMsgSeqNum(*args)
-    def getCreationTime(*args): return _quickfix.MessageStore_getCreationTime(*args)
-    def reset(*args): return _quickfix.MessageStore_reset(*args)
-    def refresh(*args): return _quickfix.MessageStore_refresh(*args)
+    def set(*args): return apply(_quickfix.MessageStore_set, args)
+    def get(*args): return apply(_quickfix.MessageStore_get, args)
+    def getNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStore_getNextSenderMsgSeqNum, args)
+    def getNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStore_getNextTargetMsgSeqNum, args)
+    def setNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStore_setNextSenderMsgSeqNum, args)
+    def setNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStore_setNextTargetMsgSeqNum, args)
+    def incrNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStore_incrNextSenderMsgSeqNum, args)
+    def incrNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStore_incrNextTargetMsgSeqNum, args)
+    def getCreationTime(*args): return apply(_quickfix.MessageStore_getCreationTime, args)
+    def reset(*args): return apply(_quickfix.MessageStore_reset, args)
+    def refresh(*args): return apply(_quickfix.MessageStore_refresh, args)
 MessageStore_swigregister = _quickfix.MessageStore_swigregister
 MessageStore_swigregister(MessageStore)
 
@@ -23609,66 +23577,66 @@ class MemoryStore(MessageStore):
     __getattr__ = lambda self, name: _swig_getattr(self, MemoryStore, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MemoryStore(*args)
+        this = apply(_quickfix.new_MemoryStore, args)
         try: self.this.append(this)
         except: self.this = this
-    def set(*args): return _quickfix.MemoryStore_set(*args)
-    def get(*args): return _quickfix.MemoryStore_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.MemoryStore_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.MemoryStore_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.MemoryStore_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.MemoryStore_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.MemoryStore_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.MemoryStore_incrNextTargetMsgSeqNum(*args)
-    def setCreationTime(*args): return _quickfix.MemoryStore_setCreationTime(*args)
-    def getCreationTime(*args): return _quickfix.MemoryStore_getCreationTime(*args)
-    def reset(*args): return _quickfix.MemoryStore_reset(*args)
-    def refresh(*args): return _quickfix.MemoryStore_refresh(*args)
+    def set(*args): return apply(_quickfix.MemoryStore_set, args)
+    def get(*args): return apply(_quickfix.MemoryStore_get, args)
+    def getNextSenderMsgSeqNum(*args): return apply(_quickfix.MemoryStore_getNextSenderMsgSeqNum, args)
+    def getNextTargetMsgSeqNum(*args): return apply(_quickfix.MemoryStore_getNextTargetMsgSeqNum, args)
+    def setNextSenderMsgSeqNum(*args): return apply(_quickfix.MemoryStore_setNextSenderMsgSeqNum, args)
+    def setNextTargetMsgSeqNum(*args): return apply(_quickfix.MemoryStore_setNextTargetMsgSeqNum, args)
+    def incrNextSenderMsgSeqNum(*args): return apply(_quickfix.MemoryStore_incrNextSenderMsgSeqNum, args)
+    def incrNextTargetMsgSeqNum(*args): return apply(_quickfix.MemoryStore_incrNextTargetMsgSeqNum, args)
+    def setCreationTime(*args): return apply(_quickfix.MemoryStore_setCreationTime, args)
+    def getCreationTime(*args): return apply(_quickfix.MemoryStore_getCreationTime, args)
+    def reset(*args): return apply(_quickfix.MemoryStore_reset, args)
+    def refresh(*args): return apply(_quickfix.MemoryStore_refresh, args)
     __swig_destroy__ = _quickfix.delete_MemoryStore
     __del__ = lambda self : None;
 MemoryStore_swigregister = _quickfix.MemoryStore_swigregister
 MemoryStore_swigregister(MemoryStore)
 
-class MessageStoreFactoryExceptionWrapper(_object):
+class MessageStoreFactoryExceptionWrapper:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageStoreFactoryExceptionWrapper, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreFactoryExceptionWrapper, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MessageStoreFactoryExceptionWrapper(*args)
+        this = apply(_quickfix.new_MessageStoreFactoryExceptionWrapper, args)
         try: self.this.append(this)
         except: self.this = this
-    def create(*args): return _quickfix.MessageStoreFactoryExceptionWrapper_create(*args)
-    def destroy(*args): return _quickfix.MessageStoreFactoryExceptionWrapper_destroy(*args)
+    def create(*args): return apply(_quickfix.MessageStoreFactoryExceptionWrapper_create, args)
+    def destroy(*args): return apply(_quickfix.MessageStoreFactoryExceptionWrapper_destroy, args)
     __swig_destroy__ = _quickfix.delete_MessageStoreFactoryExceptionWrapper
     __del__ = lambda self : None;
 MessageStoreFactoryExceptionWrapper_swigregister = _quickfix.MessageStoreFactoryExceptionWrapper_swigregister
 MessageStoreFactoryExceptionWrapper_swigregister(MessageStoreFactoryExceptionWrapper)
 
-class MessageStoreExceptionWrapper(_object):
+class MessageStoreExceptionWrapper:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageStoreExceptionWrapper, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreExceptionWrapper, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_MessageStoreExceptionWrapper(*args)
+        this = apply(_quickfix.new_MessageStoreExceptionWrapper, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_MessageStoreExceptionWrapper
     __del__ = lambda self : None;
-    def set(*args): return _quickfix.MessageStoreExceptionWrapper_set(*args)
-    def get(*args): return _quickfix.MessageStoreExceptionWrapper_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_incrNextTargetMsgSeqNum(*args)
-    def getCreationTime(*args): return _quickfix.MessageStoreExceptionWrapper_getCreationTime(*args)
-    def reset(*args): return _quickfix.MessageStoreExceptionWrapper_reset(*args)
-    def refresh(*args): return _quickfix.MessageStoreExceptionWrapper_refresh(*args)
+    def set(*args): return apply(_quickfix.MessageStoreExceptionWrapper_set, args)
+    def get(*args): return apply(_quickfix.MessageStoreExceptionWrapper_get, args)
+    def getNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_getNextSenderMsgSeqNum, args)
+    def getNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_getNextTargetMsgSeqNum, args)
+    def setNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_setNextSenderMsgSeqNum, args)
+    def setNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_setNextTargetMsgSeqNum, args)
+    def incrNextSenderMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_incrNextSenderMsgSeqNum, args)
+    def incrNextTargetMsgSeqNum(*args): return apply(_quickfix.MessageStoreExceptionWrapper_incrNextTargetMsgSeqNum, args)
+    def getCreationTime(*args): return apply(_quickfix.MessageStoreExceptionWrapper_getCreationTime, args)
+    def reset(*args): return apply(_quickfix.MessageStoreExceptionWrapper_reset, args)
+    def refresh(*args): return apply(_quickfix.MessageStoreExceptionWrapper_refresh, args)
 MessageStoreExceptionWrapper_swigregister = _quickfix.MessageStoreExceptionWrapper_swigregister
 MessageStoreExceptionWrapper_swigregister(MessageStoreExceptionWrapper)
 
@@ -23681,11 +23649,11 @@ class FileStoreFactory(MessageStoreFactory):
     __getattr__ = lambda self, name: _swig_getattr(self, FileStoreFactory, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FileStoreFactory(*args)
+        this = apply(_quickfix.new_FileStoreFactory, args)
         try: self.this.append(this)
         except: self.this = this
-    def create(*args): return _quickfix.FileStoreFactory_create(*args)
-    def destroy(*args): return _quickfix.FileStoreFactory_destroy(*args)
+    def create(*args): return apply(_quickfix.FileStoreFactory_create, args)
+    def destroy(*args): return apply(_quickfix.FileStoreFactory_destroy, args)
     __swig_destroy__ = _quickfix.delete_FileStoreFactory
     __del__ = lambda self : None;
 FileStoreFactory_swigregister = _quickfix.FileStoreFactory_swigregister
@@ -23700,26 +23668,26 @@ class FileStore(MessageStore):
     __getattr__ = lambda self, name: _swig_getattr(self, FileStore, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_FileStore(*args)
+        this = apply(_quickfix.new_FileStore, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_FileStore
     __del__ = lambda self : None;
-    def set(*args): return _quickfix.FileStore_set(*args)
-    def get(*args): return _quickfix.FileStore_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.FileStore_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.FileStore_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.FileStore_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.FileStore_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.FileStore_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.FileStore_incrNextTargetMsgSeqNum(*args)
-    def getCreationTime(*args): return _quickfix.FileStore_getCreationTime(*args)
-    def reset(*args): return _quickfix.FileStore_reset(*args)
-    def refresh(*args): return _quickfix.FileStore_refresh(*args)
+    def set(*args): return apply(_quickfix.FileStore_set, args)
+    def get(*args): return apply(_quickfix.FileStore_get, args)
+    def getNextSenderMsgSeqNum(*args): return apply(_quickfix.FileStore_getNextSenderMsgSeqNum, args)
+    def getNextTargetMsgSeqNum(*args): return apply(_quickfix.FileStore_getNextTargetMsgSeqNum, args)
+    def setNextSenderMsgSeqNum(*args): return apply(_quickfix.FileStore_setNextSenderMsgSeqNum, args)
+    def setNextTargetMsgSeqNum(*args): return apply(_quickfix.FileStore_setNextTargetMsgSeqNum, args)
+    def incrNextSenderMsgSeqNum(*args): return apply(_quickfix.FileStore_incrNextSenderMsgSeqNum, args)
+    def incrNextTargetMsgSeqNum(*args): return apply(_quickfix.FileStore_incrNextTargetMsgSeqNum, args)
+    def getCreationTime(*args): return apply(_quickfix.FileStore_getCreationTime, args)
+    def reset(*args): return apply(_quickfix.FileStore_reset, args)
+    def refresh(*args): return apply(_quickfix.FileStore_refresh, args)
 FileStore_swigregister = _quickfix.FileStore_swigregister
 FileStore_swigregister(FileStore)
 
-class Application(_object):
+class Application:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Application, name, value)
     __swig_getmethods__ = {}
@@ -23727,19 +23695,19 @@ class Application(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Application
     __del__ = lambda self : None;
-    def onCreate(*args): return _quickfix.Application_onCreate(*args)
-    def onLogon(*args): return _quickfix.Application_onLogon(*args)
-    def onLogout(*args): return _quickfix.Application_onLogout(*args)
-    def toAdmin(*args): return _quickfix.Application_toAdmin(*args)
-    def toApp(*args): return _quickfix.Application_toApp(*args)
-    def fromAdmin(*args): return _quickfix.Application_fromAdmin(*args)
-    def fromApp(*args): return _quickfix.Application_fromApp(*args)
+    def onCreate(*args): return apply(_quickfix.Application_onCreate, args)
+    def onLogon(*args): return apply(_quickfix.Application_onLogon, args)
+    def onLogout(*args): return apply(_quickfix.Application_onLogout, args)
+    def toAdmin(*args): return apply(_quickfix.Application_toAdmin, args)
+    def toApp(*args): return apply(_quickfix.Application_toApp, args)
+    def fromAdmin(*args): return apply(_quickfix.Application_fromAdmin, args)
+    def fromApp(*args): return apply(_quickfix.Application_fromApp, args)
     def __init__(self, *args): 
         if self.__class__ == Application:
             args = (None,) + args
         else:
             args = (self,) + args
-        this = _quickfix.new_Application(*args)
+        this = apply(_quickfix.new_Application, args)
         try: self.this.append(this)
         except: self.this = this
     def __disown__(self):
@@ -23758,23 +23726,21 @@ class SynchronizedApplication(Application):
     __getattr__ = lambda self, name: _swig_getattr(self, SynchronizedApplication, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SynchronizedApplication(*args)
+        this = apply(_quickfix.new_SynchronizedApplication, args)
         try: self.this.append(this)
         except: self.this = this
-    def onCreate(*args): return _quickfix.SynchronizedApplication_onCreate(*args)
-    def onLogon(*args): return _quickfix.SynchronizedApplication_onLogon(*args)
-    def onLogout(*args): return _quickfix.SynchronizedApplication_onLogout(*args)
-    def toAdmin(*args): return _quickfix.SynchronizedApplication_toAdmin(*args)
-    def toApp(*args): return _quickfix.SynchronizedApplication_toApp(*args)
-    def fromAdmin(*args): return _quickfix.SynchronizedApplication_fromAdmin(*args)
-    def fromApp(*args): return _quickfix.SynchronizedApplication_fromApp(*args)
+    def onCreate(*args): return apply(_quickfix.SynchronizedApplication_onCreate, args)
+    def onLogon(*args): return apply(_quickfix.SynchronizedApplication_onLogon, args)
+    def onLogout(*args): return apply(_quickfix.SynchronizedApplication_onLogout, args)
+    def toAdmin(*args): return apply(_quickfix.SynchronizedApplication_toAdmin, args)
+    def toApp(*args): return apply(_quickfix.SynchronizedApplication_toApp, args)
+    def fromAdmin(*args): return apply(_quickfix.SynchronizedApplication_fromAdmin, args)
+    def fromApp(*args): return apply(_quickfix.SynchronizedApplication_fromApp, args)
     __swig_setmethods__["m_mutex"] = _quickfix.SynchronizedApplication_m_mutex_set
     __swig_getmethods__["m_mutex"] = _quickfix.SynchronizedApplication_m_mutex_get
-    if _newclass:m_mutex = _swig_property(_quickfix.SynchronizedApplication_m_mutex_get, _quickfix.SynchronizedApplication_m_mutex_set)
-    def app(*args): return _quickfix.SynchronizedApplication_app(*args)
+    def app(*args): return apply(_quickfix.SynchronizedApplication_app, args)
     __swig_setmethods__["m_app"] = _quickfix.SynchronizedApplication_m_app_set
     __swig_getmethods__["m_app"] = _quickfix.SynchronizedApplication_m_app_get
-    if _newclass:m_app = _swig_property(_quickfix.SynchronizedApplication_m_app_get, _quickfix.SynchronizedApplication_m_app_set)
     __swig_destroy__ = _quickfix.delete_SynchronizedApplication
     __del__ = lambda self : None;
 SynchronizedApplication_swigregister = _quickfix.SynchronizedApplication_swigregister
@@ -23789,7 +23755,7 @@ class NullApplication(Application):
     __getattr__ = lambda self, name: _swig_getattr(self, NullApplication, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_NullApplication(*args)
+        this = apply(_quickfix.new_NullApplication, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_NullApplication
@@ -23797,7 +23763,7 @@ class NullApplication(Application):
 NullApplication_swigregister = _quickfix.NullApplication_swigregister
 NullApplication_swigregister(NullApplication)
 
-class Initiator(_object):
+class Initiator:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Initiator, name, value)
     __swig_getmethods__ = {}
@@ -23810,18 +23776,18 @@ class Initiator(_object):
     	thread.start_new_thread(_quickfix_start_thread, (self,))
 
 
-    def block(*args): return _quickfix.Initiator_block(*args)
-    def poll(*args): return _quickfix.Initiator_poll(*args)
-    def stop(*args): return _quickfix.Initiator_stop(*args)
-    def isLoggedOn(*args): return _quickfix.Initiator_isLoggedOn(*args)
-    def getSessions(*args): return _quickfix.Initiator_getSessions(*args)
-    def getSession(*args): return _quickfix.Initiator_getSession(*args)
-    def getSessionSettings(*args): return _quickfix.Initiator_getSessionSettings(*args)
-    def has(*args): return _quickfix.Initiator_has(*args)
-    def isStopped(*args): return _quickfix.Initiator_isStopped(*args)
-    def getApplication(*args): return _quickfix.Initiator_getApplication(*args)
-    def getMessageStoreFactory(*args): return _quickfix.Initiator_getMessageStoreFactory(*args)
-    def getLog(*args): return _quickfix.Initiator_getLog(*args)
+    def block(*args): return apply(_quickfix.Initiator_block, args)
+    def poll(*args): return apply(_quickfix.Initiator_poll, args)
+    def stop(*args): return apply(_quickfix.Initiator_stop, args)
+    def isLoggedOn(*args): return apply(_quickfix.Initiator_isLoggedOn, args)
+    def getSessions(*args): return apply(_quickfix.Initiator_getSessions, args)
+    def getSession(*args): return apply(_quickfix.Initiator_getSession, args)
+    def getSessionSettings(*args): return apply(_quickfix.Initiator_getSessionSettings, args)
+    def has(*args): return apply(_quickfix.Initiator_has, args)
+    def isStopped(*args): return apply(_quickfix.Initiator_isStopped, args)
+    def getApplication(*args): return apply(_quickfix.Initiator_getApplication, args)
+    def getMessageStoreFactory(*args): return apply(_quickfix.Initiator_getMessageStoreFactory, args)
+    def getLog(*args): return apply(_quickfix.Initiator_getLog, args)
 Initiator_swigregister = _quickfix.Initiator_swigregister
 Initiator_swigregister(Initiator)
 
@@ -23834,7 +23800,7 @@ class SocketInitiatorBase(Initiator):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketInitiatorBase, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketInitiatorBase(*args)
+        this = apply(_quickfix.new_SocketInitiatorBase, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SocketInitiatorBase
@@ -23842,7 +23808,7 @@ class SocketInitiatorBase(Initiator):
 SocketInitiatorBase_swigregister = _quickfix.SocketInitiatorBase_swigregister
 SocketInitiatorBase_swigregister(SocketInitiatorBase)
 
-class Acceptor(_object):
+class Acceptor:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Acceptor, name, value)
     __swig_getmethods__ = {}
@@ -23851,22 +23817,22 @@ class Acceptor(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self : None;
-    def getLog(*args): return _quickfix.Acceptor_getLog(*args)
+    def getLog(*args): return apply(_quickfix.Acceptor_getLog, args)
     def start(self):
     	thread.start_new_thread(_quickfix_start_thread, (self,))
 
 
-    def block(*args): return _quickfix.Acceptor_block(*args)
-    def poll(*args): return _quickfix.Acceptor_poll(*args)
-    def stop(*args): return _quickfix.Acceptor_stop(*args)
-    def isLoggedOn(*args): return _quickfix.Acceptor_isLoggedOn(*args)
-    def getSessions(*args): return _quickfix.Acceptor_getSessions(*args)
-    def getSession(*args): return _quickfix.Acceptor_getSession(*args)
-    def getSessionSettings(*args): return _quickfix.Acceptor_getSessionSettings(*args)
-    def has(*args): return _quickfix.Acceptor_has(*args)
-    def isStopped(*args): return _quickfix.Acceptor_isStopped(*args)
-    def getApplication(*args): return _quickfix.Acceptor_getApplication(*args)
-    def getMessageStoreFactory(*args): return _quickfix.Acceptor_getMessageStoreFactory(*args)
+    def block(*args): return apply(_quickfix.Acceptor_block, args)
+    def poll(*args): return apply(_quickfix.Acceptor_poll, args)
+    def stop(*args): return apply(_quickfix.Acceptor_stop, args)
+    def isLoggedOn(*args): return apply(_quickfix.Acceptor_isLoggedOn, args)
+    def getSessions(*args): return apply(_quickfix.Acceptor_getSessions, args)
+    def getSession(*args): return apply(_quickfix.Acceptor_getSession, args)
+    def getSessionSettings(*args): return apply(_quickfix.Acceptor_getSessionSettings, args)
+    def has(*args): return apply(_quickfix.Acceptor_has, args)
+    def isStopped(*args): return apply(_quickfix.Acceptor_isStopped, args)
+    def getApplication(*args): return apply(_quickfix.Acceptor_getApplication, args)
+    def getMessageStoreFactory(*args): return apply(_quickfix.Acceptor_getMessageStoreFactory, args)
 Acceptor_swigregister = _quickfix.Acceptor_swigregister
 Acceptor_swigregister(Acceptor)
 
@@ -23879,7 +23845,7 @@ class SocketAcceptorBase(Acceptor):
     __getattr__ = lambda self, name: _swig_getattr(self, SocketAcceptorBase, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketAcceptorBase(*args)
+        this = apply(_quickfix.new_SocketAcceptorBase, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_SocketAcceptorBase
@@ -23887,55 +23853,55 @@ class SocketAcceptorBase(Acceptor):
 SocketAcceptorBase_swigregister = _quickfix.SocketAcceptorBase_swigregister
 SocketAcceptorBase_swigregister(SocketAcceptorBase)
 
-class DataDictionary(_object):
+class DataDictionary:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, DataDictionary, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, DataDictionary, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_DataDictionary(*args)
+        this = apply(_quickfix.new_DataDictionary, args)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _quickfix.delete_DataDictionary
     __del__ = lambda self : None;
-    def readFromURL(*args): return _quickfix.DataDictionary_readFromURL(*args)
-    def readFromDocument(*args): return _quickfix.DataDictionary_readFromDocument(*args)
-    def readFromStream(*args): return _quickfix.DataDictionary_readFromStream(*args)
-    def getOrderedFields(*args): return _quickfix.DataDictionary_getOrderedFields(*args)
-    def setVersion(*args): return _quickfix.DataDictionary_setVersion(*args)
-    def getVersion(*args): return _quickfix.DataDictionary_getVersion(*args)
-    def addField(*args): return _quickfix.DataDictionary_addField(*args)
-    def addFieldName(*args): return _quickfix.DataDictionary_addFieldName(*args)
-    def getFieldName(*args): return _quickfix.DataDictionary_getFieldName(*args)
-    def getFieldTag(*args): return _quickfix.DataDictionary_getFieldTag(*args)
-    def addValueName(*args): return _quickfix.DataDictionary_addValueName(*args)
-    def getValueName(*args): return _quickfix.DataDictionary_getValueName(*args)
-    def isField(*args): return _quickfix.DataDictionary_isField(*args)
-    def addMsgType(*args): return _quickfix.DataDictionary_addMsgType(*args)
-    def isMsgType(*args): return _quickfix.DataDictionary_isMsgType(*args)
-    def addMsgField(*args): return _quickfix.DataDictionary_addMsgField(*args)
-    def isMsgField(*args): return _quickfix.DataDictionary_isMsgField(*args)
-    def addHeaderField(*args): return _quickfix.DataDictionary_addHeaderField(*args)
-    def isHeaderField(*args): return _quickfix.DataDictionary_isHeaderField(*args)
-    def addTrailerField(*args): return _quickfix.DataDictionary_addTrailerField(*args)
-    def isTrailerField(*args): return _quickfix.DataDictionary_isTrailerField(*args)
-    def addFieldType(*args): return _quickfix.DataDictionary_addFieldType(*args)
-    def getFieldType(*args): return _quickfix.DataDictionary_getFieldType(*args)
-    def addRequiredField(*args): return _quickfix.DataDictionary_addRequiredField(*args)
-    def isRequiredField(*args): return _quickfix.DataDictionary_isRequiredField(*args)
-    def addFieldValue(*args): return _quickfix.DataDictionary_addFieldValue(*args)
-    def hasFieldValue(*args): return _quickfix.DataDictionary_hasFieldValue(*args)
-    def isFieldValue(*args): return _quickfix.DataDictionary_isFieldValue(*args)
-    def addGroup(*args): return _quickfix.DataDictionary_addGroup(*args)
-    def isGroup(*args): return _quickfix.DataDictionary_isGroup(*args)
-    def getGroup(*args): return _quickfix.DataDictionary_getGroup(*args)
-    def isDataField(*args): return _quickfix.DataDictionary_isDataField(*args)
-    def isMultipleValueField(*args): return _quickfix.DataDictionary_isMultipleValueField(*args)
-    def checkFieldsOutOfOrder(*args): return _quickfix.DataDictionary_checkFieldsOutOfOrder(*args)
-    def checkFieldsHaveValues(*args): return _quickfix.DataDictionary_checkFieldsHaveValues(*args)
-    def checkUserDefinedFields(*args): return _quickfix.DataDictionary_checkUserDefinedFields(*args)
-    def validate(*args): return _quickfix.DataDictionary_validate(*args)
+    def readFromURL(*args): return apply(_quickfix.DataDictionary_readFromURL, args)
+    def readFromDocument(*args): return apply(_quickfix.DataDictionary_readFromDocument, args)
+    def readFromStream(*args): return apply(_quickfix.DataDictionary_readFromStream, args)
+    def getOrderedFields(*args): return apply(_quickfix.DataDictionary_getOrderedFields, args)
+    def setVersion(*args): return apply(_quickfix.DataDictionary_setVersion, args)
+    def getVersion(*args): return apply(_quickfix.DataDictionary_getVersion, args)
+    def addField(*args): return apply(_quickfix.DataDictionary_addField, args)
+    def addFieldName(*args): return apply(_quickfix.DataDictionary_addFieldName, args)
+    def getFieldName(*args): return apply(_quickfix.DataDictionary_getFieldName, args)
+    def getFieldTag(*args): return apply(_quickfix.DataDictionary_getFieldTag, args)
+    def addValueName(*args): return apply(_quickfix.DataDictionary_addValueName, args)
+    def getValueName(*args): return apply(_quickfix.DataDictionary_getValueName, args)
+    def isField(*args): return apply(_quickfix.DataDictionary_isField, args)
+    def addMsgType(*args): return apply(_quickfix.DataDictionary_addMsgType, args)
+    def isMsgType(*args): return apply(_quickfix.DataDictionary_isMsgType, args)
+    def addMsgField(*args): return apply(_quickfix.DataDictionary_addMsgField, args)
+    def isMsgField(*args): return apply(_quickfix.DataDictionary_isMsgField, args)
+    def addHeaderField(*args): return apply(_quickfix.DataDictionary_addHeaderField, args)
+    def isHeaderField(*args): return apply(_quickfix.DataDictionary_isHeaderField, args)
+    def addTrailerField(*args): return apply(_quickfix.DataDictionary_addTrailerField, args)
+    def isTrailerField(*args): return apply(_quickfix.DataDictionary_isTrailerField, args)
+    def addFieldType(*args): return apply(_quickfix.DataDictionary_addFieldType, args)
+    def getFieldType(*args): return apply(_quickfix.DataDictionary_getFieldType, args)
+    def addRequiredField(*args): return apply(_quickfix.DataDictionary_addRequiredField, args)
+    def isRequiredField(*args): return apply(_quickfix.DataDictionary_isRequiredField, args)
+    def addFieldValue(*args): return apply(_quickfix.DataDictionary_addFieldValue, args)
+    def hasFieldValue(*args): return apply(_quickfix.DataDictionary_hasFieldValue, args)
+    def isFieldValue(*args): return apply(_quickfix.DataDictionary_isFieldValue, args)
+    def addGroup(*args): return apply(_quickfix.DataDictionary_addGroup, args)
+    def isGroup(*args): return apply(_quickfix.DataDictionary_isGroup, args)
+    def getGroup(*args): return apply(_quickfix.DataDictionary_getGroup, args)
+    def isDataField(*args): return apply(_quickfix.DataDictionary_isDataField, args)
+    def isMultipleValueField(*args): return apply(_quickfix.DataDictionary_isMultipleValueField, args)
+    def checkFieldsOutOfOrder(*args): return apply(_quickfix.DataDictionary_checkFieldsOutOfOrder, args)
+    def checkFieldsHaveValues(*args): return apply(_quickfix.DataDictionary_checkFieldsHaveValues, args)
+    def checkUserDefinedFields(*args): return apply(_quickfix.DataDictionary_checkUserDefinedFields, args)
+    def validate(*args): return apply(_quickfix.DataDictionary_validate, args)
 DataDictionary_swigregister = _quickfix.DataDictionary_swigregister
 DataDictionary_swigregister(DataDictionary)
 
