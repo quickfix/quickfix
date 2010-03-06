@@ -31,11 +31,5 @@ all-local:
 	rm -rf ../test/debug
 	mkdir ../test/debug
 	ln -s ../../src/.libs/ut ../test/debug/ut
-if HAVE_JAVA
-	bash ./build.sh
-endif
 
 clean-local:
-if HAVE_JAVA
-	bash ./build.sh clean
-endif
