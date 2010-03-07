@@ -169,6 +169,6 @@ uninstall-local:
 
 EXTRA_DIST = strptime.c strptime.h
 
-libquickfix_la_LDFLAGS = -version-info 12:0:2
+libquickfix_la_LDFLAGS = -version-info 13:0:0
 
 INCLUDES =-I. -I.. -I../..
