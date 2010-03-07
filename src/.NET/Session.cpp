@@ -217,13 +217,13 @@ int Session::numSessions()
 
 bool Session::isSessionTime()
 { QF_STACK_TRY
-  return unmanaged().isSessionTime();
+  return unmanaged().isSessionTime(FIX::UtcTimeStamp());
   QF_STACK_CATCH
 }
 
 bool Session::isLogonTime()
 { QF_STACK_TRY
-  return unmanaged().isLogonTime();
+  return unmanaged().isLogonTime(FIX::UtcTimeStamp());
   QF_STACK_CATCH
 }
 

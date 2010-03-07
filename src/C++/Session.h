@@ -259,16 +259,16 @@ private:
   bool doPossDup( const Message& msg );
   bool doTargetTooLow( const Message& msg );
   void doTargetTooHigh( const Message& msg );
-  void nextQueued();
-  bool nextQueued( int num );
+  void nextQueued( const UtcTimeStamp& timeStamp );
+  bool nextQueued( int num, const UtcTimeStamp& timeStamp );
 
   void nextLogon( const Message&, const UtcTimeStamp& timeStamp );
-  void nextHeartbeat( const Message& );
-  void nextTestRequest( const Message& );
-  void nextLogout( const Message& );
-  void nextReject( const Message& );
-  void nextSequenceReset( const Message& );
-  void nextResendRequest( const Message& );
+  void nextHeartbeat( const Message&, const UtcTimeStamp& timeStamp );
+  void nextTestRequest( const Message&, const UtcTimeStamp& timeStamp );
+  void nextLogout( const Message&, const UtcTimeStamp& timeStamp );
+  void nextReject( const Message&, const UtcTimeStamp& timeStamp );
+  void nextSequenceReset( const Message&, const UtcTimeStamp& timeStamp );
+  void nextResendRequest( const Message&, const UtcTimeStamp& timeStamp );
 
   void generateLogon();
   void generateLogon( const Message& );

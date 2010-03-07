@@ -279,7 +279,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   else
   {
     m_state.incrNextTargetMsgSeqNum();
-    nextQueued();
+    nextQueued( timeStamp );
   }
 
   if ( isLoggedOn() )
@@ -288,28 +288,28 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   QF_STACK_POP
 }
 
-void Session::nextHeartbeat( const Message& heartbeat )
+void Session::nextHeartbeat( const Message& heartbeat, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextHeartbeat)
 
   if ( !verify( heartbeat ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued();
+  nextQueued( timeStamp );
 
   QF_STACK_POP
 }
 
-void Session::nextTestRequest( const Message& testRequest )
+void Session::nextTestRequest( const Message& testRequest, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextTestRequest)
 
   if ( !verify( testRequest ) ) return ;
   generateHeartbeat( testRequest );
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued();
+  nextQueued( timeStamp );
 
   QF_STACK_POP
 }
 
-void Session::nextLogout( const Message& logout )
+void Session::nextLogout( const Message& logout, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextLogout)
 
   if ( !verify( logout, false, false ) ) return ;
@@ -329,17 +329,17 @@ void Session::nextLogout( const Message& logout )
   QF_STACK_POP
 }
 
-void Session::nextReject( const Message& reject )
+void Session::nextReject( const Message& reject, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextReject)
 
   if ( !verify( reject, false, true ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued();
+  nextQueued( timeStamp );
 
   QF_STACK_POP
 }
 
-void Session::nextSequenceReset( const Message& sequenceReset )
+void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextSequenceReset)
 
   bool isGapFill = false;
@@ -370,7 +370,7 @@ void Session::nextSequenceReset( const Message& sequenceReset )
   QF_STACK_POP
 }
 
-void Session::nextResendRequest( const Message& resendRequest )
+void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextResendRequest)
 
   if ( !verify( resendRequest, false, false ) ) return ;
@@ -1257,13 +1257,13 @@ void Session::doTargetTooHigh( const Message& msg )
   QF_STACK_POP
 }
 
-void Session::nextQueued()
+void Session::nextQueued( const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextQueued)
-  while ( nextQueued( getExpectedTargetNum() ) ) {}
+  while ( nextQueued( getExpectedTargetNum(), timeStamp ) ) {}
   QF_STACK_POP
 }
 
-bool Session::nextQueued( int num )
+bool Session::nextQueued( int num, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextQueued)
 
   Message msg;
@@ -1281,7 +1281,7 @@ bool Session::nextQueued( int num )
     }
     else
     {
-      next( msg, true );
+      next( msg, timeStamp, true );
     }
     return true;
   }
@@ -1378,17 +1378,17 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
     if ( msgType == MsgType_Logon )
       nextLogon( message, timeStamp );
     else if ( msgType == MsgType_Heartbeat )
-      nextHeartbeat( message );
+      nextHeartbeat( message, timeStamp );
     else if ( msgType == MsgType_TestRequest )
-      nextTestRequest( message );
+      nextTestRequest( message, timeStamp );
     else if ( msgType == MsgType_SequenceReset )
-      nextSequenceReset( message );
+      nextSequenceReset( message, timeStamp );
     else if ( msgType == MsgType_Logout )
-      nextLogout( message );
+      nextLogout( message, timeStamp );
     else if ( msgType == MsgType_ResendRequest )
-      nextResendRequest( message );
+      nextResendRequest( message,timeStamp );
     else if ( msgType == MsgType_Reject )
-      nextReject( message );
+      nextReject( message, timeStamp );
     else
     {
       if ( !verify( message ) ) return ;
@@ -1451,7 +1451,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   catch ( UnsupportedVersion& )
   {
     if ( header.getField(FIELD::MsgType) == MsgType_Logout )
-      nextLogout( message );
+      nextLogout( message, timeStamp );
     else
     {
       generateLogout( "Incorrect BeginString" );
@@ -1465,7 +1465,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   }
 
   if( !queued )
-    nextQueued();
+    nextQueued( timeStamp );
 
   if( isLoggedOn() )
     next();
