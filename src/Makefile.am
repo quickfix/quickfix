@@ -24,12 +24,10 @@ INCLUDES =-IC++ -IC++/test -I../UnitTest++/src
 LDFLAGS =-L../UnitTest++ -lUnitTest++
 
 all-local:
-	rm -f ../test/ut ../test/pt ../test/at
+	rm -f ../test/ut ../test/pt ../test/at ../test/ut_debug
 	ln -s ../src/ut ../test/ut
 	ln -s ../src/pt ../test/pt
 	ln -s ../src/at ../test/at
-	rm -rf ../test/debug
-	mkdir ../test/debug
-	ln -s ../../src/.libs/ut ../test/debug/ut
+	ln -s ../src/.libs/ut ../test/ut_debug
 
 clean-local:
