@@ -56,6 +56,8 @@ class TestCallback : public Responder, public NullApplication
 protected:
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
+  UtcTimeStamp startTimeStamp;
+  UtcTimeStamp endTimeStamp;
   FIX::Message lastResent;
 
 public:
@@ -1136,12 +1138,13 @@ struct resetOnEndTimeFixture : public acceptorFixture
 {
   void createSession()
   {
-    startTime.setCurrent();
-    startTime.setMillisecond(0);
+    startTimeStamp.setCurrent();
+    startTimeStamp.setMillisecond(0);
 
-    endTime.setCurrent();
-    endTime.setMillisecond(0);
+    endTimeStamp = startTimeStamp;
 
+    startTime = UtcTimeOnly( startTimeStamp );
+    endTime = UtcTimeOnly( endTimeStamp );
     endTime += 2;
 
     acceptorFixture::createSession( 0 );
@@ -1150,17 +1153,19 @@ struct resetOnEndTimeFixture : public acceptorFixture
 
 TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
 {
+  UtcTimeStamp timeStamp = startTimeStamp;
+
   createSession();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), timeStamp );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), timeStamp );
 
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 0, disconnected );
-  process_sleep( 1 );
-  object->next();
+  timeStamp += 1;
+  object->next( timeStamp );
   CHECK_EQUAL( 0, disconnected );
-  process_sleep( 2 );
-  object->next();
+  timeStamp += 1;
+  object->next( timeStamp );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, object->getExpectedSenderNum() );
