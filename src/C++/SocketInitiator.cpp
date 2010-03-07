@@ -144,7 +144,7 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     std::string address;
     short port = 0;
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime() ) return;
+    if( !session->isSessionTime(UtcTimeStamp()) ) return;
 
     Log* log = session->getLog();
 

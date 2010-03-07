@@ -41,8 +41,8 @@ public:
                int startDay = -1, int endDay = -1 );
 
   static bool isInRange( const UtcTimeOnly& start,
-                             const UtcTimeOnly& end,
-                             const DateTime& time )
+                         const UtcTimeOnly& end,
+                         const DateTime& time )
   {
     return isInRange
       ( (DateTime)start, (DateTime)end, (DateTime)time );
@@ -84,8 +84,8 @@ public:
   }
 
   static bool isInRange( const LocalTimeOnly& start,
-                             const LocalTimeOnly& end,
-                             const DateTime& time )
+                         const LocalTimeOnly& end,
+                         const DateTime& time )
   {
     return isInRange
       ( (DateTime)start, (DateTime)end, (DateTime)time );
@@ -149,10 +149,7 @@ private:
                              const DateTime& time1,
                              const DateTime& time2 );
 public:
-  bool useLocalTime()
-  { return m_useLocalTime; }
-
-  bool isInRange( DateTime& dateTime )
+  bool isInRange( const DateTime& dateTime )
   {
     if( m_startDay < 0 && m_endDay < 0 )
       return isInRange( m_startTime, m_endTime, dateTime );
@@ -161,23 +158,13 @@ public:
         ( m_startTime, m_endTime, m_startDay, m_endDay, dateTime );
   }
 
-  bool isInRange()
-  {
-    DateTime now = m_useLocalTime ? DateTime::nowLocal() : DateTime::nowUtc();
-    return isInRange( now );
-  }
-
   bool isInSameRange( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
   {
-    if( m_useLocalTime ) return false;
-
     return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
   bool isInSameRange( const LocalTimeStamp& time1, const LocalTimeStamp& time2 )
   {
-    if( !m_useLocalTime ) return false;
-
     return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
@@ -195,7 +182,6 @@ private:
   UtcTimeOnly m_endTime;
   int m_startDay;
   int m_endDay;
-  bool m_useLocalTime;
 };
 }
 

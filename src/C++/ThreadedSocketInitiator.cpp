@@ -148,7 +148,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
   try
   {
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime() ) return;
+    if( !session->isSessionTime(UtcTimeStamp()) ) return;
 
     Log* log = session->getLog();
 

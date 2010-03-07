@@ -157,7 +157,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       if( m_pSession )
         m_pSession = a.getSession( msg, *this );
       if( m_pSession )
-        m_pSession->next( msg );
+        m_pSession->next( msg, UtcTimeStamp() );
       if( !m_pSession )
       {
         s.getMonitor().drop( m_socket );
@@ -231,7 +231,7 @@ void SocketConnection::readMessages( SocketMonitor& s )
   {
     try
     {
-      m_pSession->next( msg );
+      m_pSession->next( msg, UtcTimeStamp() );
     }
     catch ( InvalidMessage& )
     {

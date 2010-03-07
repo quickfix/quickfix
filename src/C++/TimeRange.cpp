@@ -30,12 +30,11 @@
 namespace FIX
 {
   TimeRange::TimeRange( const UtcTimeOnly& startTime,
-                            const UtcTimeOnly& endTime,
-                            int startDay,
-                            int endDay )
+                        const UtcTimeOnly& endTime,
+                        int startDay,
+                        int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay ),
-    m_useLocalTime( false )
+    m_startDay( startDay ), m_endDay( endDay )
   {
     if( startDay > 0
         && endDay > 0
@@ -45,12 +44,11 @@ namespace FIX
   }
 
   TimeRange::TimeRange( const LocalTimeOnly& startTime,
-                            const LocalTimeOnly& endTime,
-                            int startDay,
-                            int endDay )
+                        const LocalTimeOnly& endTime,
+                        int startDay,
+                        int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay ),
-    m_useLocalTime( true )
+    m_startDay( startDay ), m_endDay( endDay )
   {
     if( startDay > 0
         && endDay > 0
@@ -154,11 +152,11 @@ namespace FIX
   }
 
   bool TimeRange::isInSameRange( const DateTime& startTime,
-                                   const DateTime& endTime,
-                                   int startDay,
-                                   int endDay,
-                                   const DateTime& time1,
-                                   const DateTime& time2 )
+                                 const DateTime& endTime,
+                                 int startDay,
+                                 int endDay,
+                                 const DateTime& time1,
+                                 const DateTime& time2 )
   { QF_STACK_PUSH(TimeRange::isInSameRange)
 
     if( !isInRange( startTime, endTime, startDay, endDay, time1 ) )

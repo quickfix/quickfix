@@ -105,10 +105,10 @@ public:
 
   static int numSessions();
 
-  bool isSessionTime()
-    { return m_sessionTime.isInRange(); }
-  bool isLogonTime()
-    { return m_logonTime.isInRange(); }
+  bool isSessionTime(const DateTime& time)
+    { return m_sessionTime.isInRange(time); }
+  bool isLogonTime(const DateTime& time)
+    { return m_logonTime.isInRange(time); }
   bool isInitiator()
     { return m_state.initiate(); }
   bool isAcceptor()
@@ -191,15 +191,14 @@ public:
 
   void setResponder( Responder* pR )
   {
-    if ( !checkSessionTime() )
-      reset();
     m_pResponder = pR;
   }
 
   bool send( Message& );
   void next();
-  void next( const std::string&, bool queued = false );
-  void next( const Message&, bool queued = false );
+  void next( const UtcTimeStamp& timeStamp );
+  void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false );
+  void next( const Message&, const UtcTimeStamp& timeStamp, bool queued = false );
   void disconnect();
 
   long getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
@@ -231,18 +230,10 @@ private:
     UtcTimeStamp now;
     return labs( now - sendingTime ) <= m_maxLatency;
   }
-  bool checkSessionTime()
+  bool checkSessionTime( const UtcTimeStamp& timeStamp )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    if( m_sessionTime.useLocalTime() )
-    {
-      return m_sessionTime.isInSameRange
-        ( LocalTimeStamp(), LocalTimeStamp(creationTime.getTimeT()) );
-    }
-    else
-    {
-      return m_sessionTime.isInSameRange( UtcTimeStamp(), creationTime );
-    }
+    return m_sessionTime.isInSameRange( timeStamp, creationTime );
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
@@ -271,7 +262,7 @@ private:
   void nextQueued();
   bool nextQueued( int num );
 
-  void nextLogon( const Message& );
+  void nextLogon( const Message&, const UtcTimeStamp& timeStamp );
   void nextHeartbeat( const Message& );
   void nextTestRequest( const Message& );
   void nextLogout( const Message& );

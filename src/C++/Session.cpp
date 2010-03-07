@@ -72,7 +72,7 @@ Session::Session( Application& application,
   if ( m_pLogFactory )
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
-  if( !checkSessionTime() )
+  if( !checkSessionTime(UtcTimeStamp()) )
     reset();
 
   addSession( *this );
@@ -133,14 +133,19 @@ void Session::fill( Header& header )
 }
 
 void Session::next()
+{
+  next( UtcTimeStamp() );
+}
+
+void Session::next( const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::next)
 
   try
   {
-    if ( !checkSessionTime() )
+    if ( !checkSessionTime(timeStamp) )
       { reset(); return; }
 
-    if( !isEnabled() || !isLogonTime() )
+    if( !isEnabled() || !isLogonTime(timeStamp) )
     {
       if( isLoggedOn() )
       {
@@ -156,7 +161,7 @@ void Session::next()
 
     if ( !m_state.receivedLogon() )
     {
-      if ( m_state.shouldSendLogon() && isLogonTime() )
+      if ( m_state.shouldSendLogon() && isLogonTime(timeStamp) )
       {
         generateLogon();
         m_state.onEvent( "Initiated logon request" );
@@ -207,7 +212,7 @@ void Session::next()
   QF_STACK_POP
 }
 
-void Session::nextLogon( const Message& logon )
+void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
 { QF_STACK_PUSH(Session::nextLogon)
 
   SenderCompID senderCompID;
@@ -218,7 +223,7 @@ void Session::nextLogon( const Message& logon )
   if( m_refreshOnLogon )
     refresh();
 
-  if( !isLogonTime() )
+  if( !isLogonTime(timeStamp) )
   {
     m_state.onEvent( "Received logon outside of valid logon time" );
     disconnect();
@@ -1285,7 +1290,7 @@ bool Session::nextQueued( int num )
   QF_STACK_POP
 }
 
-void Session::next( const std::string& msg, bool queued )
+void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool queued )
 { QF_STACK_PUSH(Session::next)
 
   try
@@ -1301,7 +1306,7 @@ void Session::next( const std::string& msg, bool queued )
     }
     else
     {
-      next( Message( msg, sessionDD ), queued );
+      next( Message( msg, sessionDD ), timeStamp, queued );
     }
   }
   catch( InvalidMessage& e )
@@ -1322,14 +1327,14 @@ void Session::next( const std::string& msg, bool queued )
   QF_STACK_POP
 }
 
-void Session::next( const Message& message, bool queued )
+void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool queued )
 { QF_STACK_PUSH(Session::next)
 
   const Header& header = message.getHeader();
 
   try
   {
-    if ( !checkSessionTime() )
+    if ( !checkSessionTime(timeStamp) )
       { reset(); return; }
 
     const MsgType& msgType = FIELD_GET_REF( header, MsgType );
@@ -1371,7 +1376,7 @@ void Session::next( const Message& message, bool queued )
     }
 
     if ( msgType == MsgType_Logon )
-      nextLogon( message );
+      nextLogon( message, timeStamp );
     else if ( msgType == MsgType_Heartbeat )
       nextHeartbeat( message );
     else if ( msgType == MsgType_TestRequest )
