@@ -39,6 +39,8 @@ FieldMap::~FieldMap()
 FieldMap& FieldMap::operator=( const FieldMap& rhs )
 { QF_STACK_PUSH(FieldMap::operator=)
 
+  m_fields = rhs.m_fields;
+
   clear();
 
   std::copy( rhs.m_fields.begin (), rhs.m_fields.end(),

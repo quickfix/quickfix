@@ -136,6 +136,7 @@
     <ClCompile Include="C++\test\FileStoreFactoryTestCase.cpp" />
     <ClCompile Include="C++\test\FileStoreTestCase.cpp" />
     <ClCompile Include="C++\test\FileUtilitiesTestCase.cpp" />
+    <ClCompile Include="C++\test\GroupTestCase.cpp" />
     <ClCompile Include="getopt.c" />
     <ClCompile Include="C++\test\HttpMessageTestCase.cpp" />
     <ClCompile Include="C++\test\HttpParserTestCase.cpp" />
@@ -162,7 +163,7 @@
     <ClCompile Include="C++\test\UtcTimeStampTestCase.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C++\test\MessagesTestCase.h" />
+    <ClInclude Include="C++\test\MessageStoreTestCase.h" />
     <ClInclude Include="C++\test\TestHelper.h" />
   </ItemGroup>
   <ItemGroup>

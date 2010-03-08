@@ -3,6 +3,9 @@
 Fixed bug where messages containing repeating groups would 
 not be properly resent under a FIXT.1.1 session
 
+Fixed bug where group fields would not be in the correct order
+after copying a group object.
+
 Fixed compilation error with OdbcStore
 
 Updated m_stop variable in initator and acceptor to true

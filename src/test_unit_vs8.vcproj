@@ -247,6 +247,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\GroupTestCase.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\HttpMessageTestCase.cpp"
 				>
 			</File>

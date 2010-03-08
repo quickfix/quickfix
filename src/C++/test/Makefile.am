@@ -17,6 +17,7 @@ libquickfixcpptest_la_SOURCES = \
 	MemoryStoreTestCase.h \
 	MessageSortersTestCase.cpp \
 	MessagesTestCase.cpp \
+	GroupTestCase.cpp \
 	MySQLStoreTestCase.cpp \
 	MySQLStoreTestCase.h \
 	NullStoreTestCase.cpp \
