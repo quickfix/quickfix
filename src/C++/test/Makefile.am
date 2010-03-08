@@ -20,9 +20,7 @@ libquickfixcpptest_la_SOURCES = \
 	MySQLStoreTestCase.cpp \
 	MySQLStoreTestCase.h \
 	NullStoreTestCase.cpp \
-	NullStoreTestCase.h \
 	OdbcStoreTestCase.cpp \
-	OdbcStoreTestCase.h \
 	ParserTestCase.cpp \
 	PostgreSQLStoreTestCase.cpp \
 	SessionIDTestCase.cpp \
