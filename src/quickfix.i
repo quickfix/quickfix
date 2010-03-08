@@ -37,7 +37,28 @@
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
 #include "../C++/DataDictionary.h"
-using namespace FIX;
+typedef FIX::UtcTimeStamp UtcTimeStamp;
+typedef FIX::UtcDate UtcDate;
+typedef FIX::UtcTimeOnly UtcTimeOnly;
+typedef FIX::message_order message_order;
+typedef FIX::Group Group;
+typedef FIX::DataDictionary DataDictionary;
+typedef FIX::DataDictionaryProvider DataDictionaryProvider;
+typedef FIX::MsgType MsgType;
+typedef FIX::BeginString BeginString;
+typedef FIX::ApplVerID ApplVerID;
+typedef FIX::SessionID SessionID;
+typedef FIX::Session Session;
+typedef FIX::Application Application;
+typedef FIX::DateTime DateTime;
+typedef FIX::TimeRange TimeRange;
+typedef FIX::Responder Responder;
+typedef FIX::Log Log;
+typedef FIX::LogFactory LogFactory;
+typedef FIX::MessageStore MessageStore;
+typedef FIX::MessageStoreFactory MessageStoreFactory;
+typedef FIX::Mutex Mutex;
+typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %}
 
 %typedef DoubleField PriceField;
@@ -233,7 +254,7 @@ def start(self):
     Application_toApp_call_depth--;
 
     if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
-      throw *((DoNotSend*)result);
+      throw *((FIX::DoNotSend*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
       printf( "%s\n", RSTRING(message)->ptr );
@@ -249,7 +270,7 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
-	throw *((DoNotSend*)result);
+	throw *((FIX::DoNotSend*)result);
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();
@@ -280,13 +301,13 @@ def start(self):
     Application_fromAdmin_call_depth--;
 
     if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-      throw *((FieldNotFound*)result);
+      throw *((FIX::FieldNotFound*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-      throw *((IncorrectDataFormat*)result);
+      throw *((FIX::IncorrectDataFormat*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-      throw *((IncorrectTagValue*)result);
+      throw *((FIX::IncorrectTagValue*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
-      throw *((RejectLogon*)result);
+      throw *((FIX::RejectLogon*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
       printf( "%s\n", RSTRING(message)->ptr );
@@ -302,13 +323,13 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-	throw *((FieldNotFound*)result);
+	throw *((FIX::FieldNotFound*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-        throw *((IncorrectDataFormat*)result);
+        throw *((FIX::IncorrectDataFormat*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-        throw *((IncorrectTagValue*)result);
+        throw *((FIX::IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
-        throw *((RejectLogon*)result);
+        throw *((FIX::RejectLogon*)result);
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();
@@ -339,13 +360,13 @@ def start(self):
     Application_fromApp_call_depth--;
 
     if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-      throw *((FieldNotFound*)result);
+      throw *((FIX::FieldNotFound*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-      throw *((IncorrectDataFormat*)result);
+      throw *((FIX::IncorrectDataFormat*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-      throw *((IncorrectTagValue*)result);
+      throw *((FIX::IncorrectTagValue*)result);
     } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
-      throw *((UnsupportedMessageType*)result);
+      throw *((FIX::UnsupportedMessageType*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
       printf( "%s\n", RSTRING(message)->ptr );
@@ -361,13 +382,13 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-	throw *((FieldNotFound*)result);
+	throw *((FIX::FieldNotFound*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-        throw *((IncorrectDataFormat*)result);
+        throw *((FIX::IncorrectDataFormat*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-        throw *((IncorrectTagValue*)result);
+        throw *((FIX::IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
-        throw *((UnsupportedMessageType*)result);
+        throw *((FIX::UnsupportedMessageType*)result);
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();

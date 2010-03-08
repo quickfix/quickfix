@@ -178,12 +178,12 @@ public:
     return m_trailerFields.find( field ) != m_trailerFields.end();
   }
 
-  void addFieldType( int field, TYPE::Type type )
+  void addFieldType( int field, FIX::TYPE::Type type )
   {
     m_fieldTypes[ field ] = type;
   }
 
-  bool getFieldType( int field, TYPE::Type& type ) const
+  bool getFieldType( int field, FIX::TYPE::Type& type ) const
   {
     FieldTypes::const_iterator i = m_fieldTypes.find( field );
     if ( i == m_fieldTypes.end() ) return false;
