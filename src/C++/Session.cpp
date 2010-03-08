@@ -1302,7 +1302,7 @@ void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool 
     {
       const DataDictionary& applicationDD =
         m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
-      next( Message( msg, sessionDD, applicationDD ), queued );
+      next( Message( msg, sessionDD, applicationDD ), timeStamp, queued );
     }
     else
     {

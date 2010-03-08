@@ -418,7 +418,7 @@ public:
                 int date, int month, int year )
   : DateTime( year, month, date, hour, minute, second, millisecond ) {}
 
-  UtcTimeStamp( time_t time, int millisecond = 0 )
+  explicit UtcTimeStamp( time_t time, int millisecond = 0 )
   : DateTime( fromUtcTimeT (time, millisecond) ) {}
 
   UtcTimeStamp( const tm* time, int millisecond = 0 )
@@ -453,7 +453,7 @@ public:
                 int date, int month, int year )
   : DateTime( year, month, date, hour, minute, second, millisecond ) {}
 
-  LocalTimeStamp( time_t time, int millisecond = 0 )
+  explicit LocalTimeStamp( time_t time, int millisecond = 0 )
   : DateTime( fromLocalTimeT (time, millisecond) ) {}
 
   LocalTimeStamp( const tm* time, int millisecond = 0 )
@@ -486,7 +486,7 @@ public:
     setHMS( hour, minute, second, millisecond );
   }
 
-  UtcTimeOnly( time_t time, int millisecond = 0 )
+  explicit UtcTimeOnly( time_t time, int millisecond = 0 )
   : DateTime( fromUtcTimeT (time, millisecond) )
   {
     clearDate();
@@ -527,7 +527,7 @@ public:
     setHMS( hour, minute, second, millisecond );
   }
 
-  LocalTimeOnly( time_t time, int millisecond = 0 )
+  explicit LocalTimeOnly( time_t time, int millisecond = 0 )
   : DateTime( fromLocalTimeT (time, millisecond) )
   {
     clearDate();
