@@ -11,6 +11,12 @@ to better reflect initial state.
 Fixed issue with reconnect when acceptor not available and timeout
 interval is reached.
 
+Objects take in timestamps instead of generating them themselves
+to make them more testable.
+
+Generated python and ruby APIs no longer rely on pulling in
+FIX namespace so there are no clashes.
+
 1.13.1
 ------
 Fixed install script under unix systems. The new FIX 5.0 and 
