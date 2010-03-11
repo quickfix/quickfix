@@ -55,10 +55,11 @@ SocketMonitor::SocketMonitor( int timeout )
 SocketMonitor::~SocketMonitor()
 {
   Sockets::iterator i;
-  for ( i = m_readSockets.begin(); i != m_readSockets.end(); ++i )
+  for ( i = m_readSockets.begin(); i != m_readSockets.end(); ++i ) {
     socket_close( *i );
+  }
+
   socket_close( m_signal );
-  socket_close( m_interrupt );
   socket_term();
 }
 
