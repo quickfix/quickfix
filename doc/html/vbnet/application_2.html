@@ -15,7 +15,7 @@ Module MyModule
       Dim storeFactory As New FileStoreFactory(settings)
       Dim logFactory As New FileLogFactory(settings)
       Dim messageFactory As New DefaultMessageFactory()
-      Dim acceptor As New SocketAcceptor(application, factory, settings, logFactory, messageFactory)
+      Dim acceptor As New SocketAcceptor(application, storeFactory, settings, logFactory, messageFactory)
       acceptor.start()
       'While( condition = True )
       '  do something

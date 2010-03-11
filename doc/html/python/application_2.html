@@ -9,7 +9,7 @@ try:
 	application = quickfix.MyApplication()
 	storeFactory = quickfix.FileStoreFactory(settings)
 	logFactory = quickfix.FileLogFactory(settings)
-	acceptor = quickfix.SocketAcceptor(application, factory, settings, logFactory)
+	acceptor = quickfix.SocketAcceptor(application, storeFactory, settings, logFactory)
 	acceptor.start()
 	# while condition == true: do something
 	acceptor.stop()

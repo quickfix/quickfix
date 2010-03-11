@@ -16,7 +16,7 @@ class MyClass
       FileLogFactory logFactory = new FileLogFactory(settings);
       MessageFactory messageFactory = new DefaultMessageFactory();
       SocketAcceptor acceptor = new SocketAcceptor
-        (application, factory, settings, logFactory /*optional*/, messageFactory);
+        (application, storeFactory, settings, logFactory /*optional*/, messageFactory);
       acceptor.start();
       // while( condition == true ) { do something; }
       acceptor.stop();
