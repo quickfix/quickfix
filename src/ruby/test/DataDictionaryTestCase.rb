@@ -115,7 +115,9 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		@object.addFieldName( 11, "ClOrdID" )
 		@object.addFieldName( 8, "BeginString" )
 
-		assert_equal( "Account", @object.getFieldName(1) )
+		s = String.new
+		@object.getFieldName(1)
+                assert_equal( "Account", @object.getFieldName(1) )
 		assert_equal( 1, @object.getFieldTag("Account") )
 		assert_equal( "ClOrdID", @object.getFieldName(11) )
 		assert_equal( 11, @object.getFieldTag("ClOrdID") )
