@@ -1269,7 +1269,7 @@ bool Session::nextQueued( int num, const UtcTimeStamp& timeStamp )
   Message msg;
   MsgType msgType;
 
-  if( m_state.retreive( num, msg ) )
+  if( m_state.retrieve( num, msg ) )
   {
     m_state.onEvent( "Processing QUEUED message: "
                      + IntConvertor::convert( num ) );

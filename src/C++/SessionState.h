@@ -154,7 +154,7 @@ public:
 
   void queue( int msgSeqNum, const Message& message )
   { Locker l( m_mutex ); m_queue[ msgSeqNum ] = message; }
-  bool retreive( int msgSeqNum, Message& message )
+  bool retrieve( int msgSeqNum, Message& message )
   {
     Locker l( m_mutex );
     Messages::iterator i = m_queue.find( msgSeqNum );

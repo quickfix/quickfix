@@ -49,7 +49,7 @@ public:
 /**
  * Creates a memory based implementation of MessageStore.
  *
- * This will lose all data on process terminition. This class should only
+ * This will lose all data on process termination. This class should only
  * be used for test applications, never in production.
  */
 class MemoryStoreFactory : public MessageStoreFactory
