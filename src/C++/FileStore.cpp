@@ -71,10 +71,10 @@ FileStore::FileStore( std::string path, const SessionID& s )
 
 FileStore::~FileStore()
 {
-  fclose( m_msgFile );
-  fclose( m_headerFile );
-  fclose( m_seqNumsFile );
-  fclose( m_sessionFile );
+  if( m_msgFile ) fclose( m_msgFile );
+  if( m_headerFile ) fclose( m_headerFile );
+  if( m_seqNumsFile ) fclose( m_seqNumsFile );
+  if( m_sessionFile ) fclose( m_sessionFile );
 }
 
 void FileStore::open( bool deleteFile )
@@ -84,6 +84,11 @@ void FileStore::open( bool deleteFile )
   if ( m_headerFile ) fclose( m_headerFile );
   if ( m_seqNumsFile ) fclose( m_seqNumsFile );
   if ( m_sessionFile ) fclose( m_sessionFile );
+
+  m_msgFile = 0;
+  m_headerFile = 0;
+  m_seqNumsFile = 0;
+  m_sessionFile = 0;
 
   if ( deleteFile )
   {
