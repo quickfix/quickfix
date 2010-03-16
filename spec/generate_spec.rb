@@ -31,6 +31,73 @@ class DataDictionary
 		return true if tag == 809
 	end
 
+	def tagShouldNotPrint( tag )
+		if( @major >= 5 )
+		    return true if tag == 7
+		    return true if tag == 8
+		    return true if tag == 9
+		    return true if tag == 10
+		    return true if tag == 16
+		    return true if tag == 34
+		    return true if tag == 35
+		    return true if tag == 36
+		    return true if tag == 43
+		    return true if tag == 45
+		    return true if tag == 49
+		    return true if tag == 50
+		    return true if tag == 52
+		    return true if tag == 56
+		    return true if tag == 57
+		    return true if tag == 58
+		    return true if tag == 89
+		    return true if tag == 90
+		    return true if tag == 91
+		    return true if tag == 93
+		    return true if tag == 95
+		    return true if tag == 96
+		    return true if tag == 97
+		    return true if tag == 98
+		    return true if tag == 108
+		    return true if tag == 112
+		    return true if tag == 115
+		    return true if tag == 116
+		    return true if tag == 122
+		    return true if tag == 123
+		    return true if tag == 128
+		    return true if tag == 129
+		    return true if tag == 141
+		    return true if tag == 142
+		    return true if tag == 143
+		    return true if tag == 144
+		    return true if tag == 145
+		    return true if tag == 212
+		    return true if tag == 213
+		    return true if tag == 347
+		    return true if tag == 354
+		    return true if tag == 355
+		    return true if tag == 369
+		    return true if tag == 371
+		    return true if tag == 372
+		    return true if tag == 373
+		    return true if tag == 383
+		    return true if tag == 384
+		    return true if tag == 385
+		    return true if tag == 464
+		    return true if tag == 553
+		    return true if tag == 554
+		    return true if tag == 627
+		    return true if tag == 628
+		    return true if tag == 629
+		    return true if tag == 630
+		    return true if tag == 789
+		    return true if tag == 1128
+		    return true if tag == 1129
+		    return true if tag == 1130
+		    return true if tag == 1131
+		    return true if tag == 1137
+		end
+	end
+
 	def enumsShouldBeSkipped( tag )
 		return true if tagShouldBeSkipped( tag )
 		return true if tag == 264
@@ -50,7 +117,7 @@ class DataDictionary
 	end
 
 	def toFieldName( fieldName )
-		fieldName.split(" (")[0].split("(")[0].strip
+		fieldName.split(" (")[0].split("(")[0].strip.gsub(' ', '')
 	end
 
 	def toMessageName( messageName )
@@ -67,6 +134,7 @@ class DataDictionary
 		description = description.split("(")[0]
 		return "" if description == nil
 		description.strip!
+		description.gsub!('&quot;', '')
 		description.gsub!('+ ', '+')
 		description.gsub!(',', '_')
 		description.gsub!(' ', '_')
@@ -75,6 +143,15 @@ class DataDictionary
 		description.gsub!('+', 'PLUS')
 		description.gsub!("'", '')
 		description.gsub!("&", '')
+		description.gsub!('<', '')
+		description.gsub!('>', '')
+		description.gsub!('[', '')
+		description.gsub!(']', '')
+		description.gsub!('=', '')
+		description.gsub!('"', '')
+		description.gsub!('.', '')
+		description.gsub!(':', '')
+		description.gsub!('%', '')
 		description = description.split("___")[0]
 		description.squeeze!("_") if description != nil
 		return description
@@ -85,7 +162,7 @@ class DataDictionary
 			when "CHAR"
 				return "STRING"
 			else
-				return type
+				return type.gsub('-', '')
 		end
 	end
 
@@ -149,23 +226,32 @@ class DataDictionary
 	end
 
 	def parseMsgContents
-		msgContentsArray = Array.new
-		lastMsgId = 0
-
 		@msgContentsDoc.elements["dataroot"].elements.each("MsgContents") { |msgContentsElement|
-			tag = msgContentsElement.elements["TagText"].text.to_i
-			next if tag == 0
 			msgId = msgContentsElement.elements["MsgID"].text.to_i
+			tagText = msgContentsElement.elements["TagText"].text
+			next if tagText == "StandardHeader"
+			next if tagText == "StandardTrailer"
+			tag = tagText.to_i
 			indent = msgContentsElement.elements["Indent"].text.to_i
-			position = msgContentsElement.elements["Position"].text.to_i
-			name = @tagToField[ tag ]["fieldName"]
 			required = msgContentsElement.elements["Reqd"].text.to_i == 1 ? "Y" : "N"
-			msgContentsArray = Array.new if lastMsgId != msgId
+			position = msgContentsElement.elements["Position"].text.to_i
+
+			if( !@msgIdToMsgContents.has_key?(msgId) )
+			    @msgIdToMsgContents[msgId] = Array.new
+			end
+
+			msgContentsArray = @msgIdToMsgContents[msgId]
+
+			if( tag == 0 )
+			    msgContentsArray.push( [tagText, tagText, indent, required] )
+			    @msgIdToMsgContents[ msgId ] = msgContentsArray
+			    next
+			end
+
+			name = @tagToField[ tag ]["fieldName"]
 
 			msgContentsArray.push( [tag,name,indent,required] )
 			@msgIdToMsgContents[ msgId ] = msgContentsArray
-
-			lastMsgId = msgId
 		}
 	end
 
@@ -193,9 +279,10 @@ class DataDictionary
 		@fieldsElement = @fixElement.add_element( "fields" )
 		@tagToField.sort.each { |tag, fieldHash|
 			next if fieldHash == nil
+			next if tagShouldNotPrint( tag )
 			type = fieldHash[ "type" ]
 			fieldName = fieldHash[ "fieldName" ]
-			fieldElement = @fieldsElement.add_element( "field", { "field" => tag.to_s, "name" => fieldName, "type" => type } )
+			fieldElement = @fieldsElement.add_element( "field", { "number" => tag.to_s, "name" => fieldName, "type" => type } )
 			printEnums( fieldElement, tag )
 		}
 	end
@@ -211,13 +298,38 @@ class DataDictionary
 			isBool = enumArray[1][0] == "Y" || enumArray[1][0] == "N"
 		end
 
+		descriptions = Hash.new
+		enumArray.each_index { |index|
+			description = enumArray[index][1]
+			if( !descriptions.has_key?(description) )
+			    descriptions[description] = 1
+			else
+			    descriptions[description] = descriptions[description] + 1
+			end
+		}
+
  		enumArray.each_index { |index|
 			enum = enumArray[index][0]
 			description = enumArray[index][1]
+
+			if( descriptions[description] > 1 )
+			    description = description + "_" + enum
+			end
 			next if description == nil
 			description = "YES" if isBool && enum == "Y"
 			description = "NO" if isBool && enum == "N"
 			fieldElement.add_element( "value", { "enum" => enum, "description" => description } )
+		}
+	end
+
+	def printComponents
+		componentsElement = @fixElement.add_element( "components" )
+		@componentNameToMsgId.each { |name, msgId|
+			next if name == "StandardHeader"
+			next if name == "StandardTrailer"
+			msgContentsArray = @msgIdToMsgContents[msgId]
+			componentElement = componentsElement.add_element( "component", { "name" => name } )
+			printMsgContents( msgContentsArray, componentElement ) 
 		}
 	end
 
@@ -262,19 +374,25 @@ class DataDictionary
 				next
 			end
 
-			fieldElement = queue.last.add_element( "field", "name" => name, "required" => required )
+			if(tag.class == String)				
+				componentElement = queue.last.add_element( "component", "name" => name, "required" => required )
+			else
+				fieldElement = queue.last.add_element( "field", "name" => name, "required" => required )
+			end
 			lastIndent = indent
 		}
 	end
 
 	def printHeader
 		headerElement = @fixElement.add_element( "header" )
+		return if @major >= 5
 		msgContentsArray = @msgIdToMsgContents[@componentNameToMsgId["StandardHeader"]]
 		printMsgContents( msgContentsArray, headerElement ) 
 	end
 
 	def printTrailer
 		trailerElement = @fixElement.add_element( "trailer" )
+		return if @major >= 5
 		msgContentsArray = @msgIdToMsgContents[@componentNameToMsgId["StandardTrailer"]]
 		printMsgContents( msgContentsArray, trailerElement ) 
 	end
@@ -284,9 +402,15 @@ class DataDictionary
 		printHeader
 		printMessages
 		printTrailer
+		printComponents
 		printFields
 		@specDoc.write( @f, 1, false, true )
 	end
 end
 
-DataDictionary.new( 4, 0 )
+#DataDictionary.new( 4, 0 )
+#DataDictionary.new( 4, 1 )
+#DataDictionary.new( 4, 2 )
+#DataDictionary.new( 4, 3 )
+DataDictionary.new( 4, 4 )
+#DataDictionary.new( 5, 0 )

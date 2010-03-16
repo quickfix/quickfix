@@ -50,7 +50,4 @@ namespace FIX
 </xsl:choose>
 </xsl:template>
  
-<xsl:template match="fix/messages/message">
- const char MsgType_<xsl:value-of select="@name"/>[] = "<xsl:value-of select="@msgtype"/>";</xsl:template>
-
 </xsl:stylesheet>
