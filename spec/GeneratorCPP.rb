@@ -1,5 +1,7 @@
+require 'PrintFile'
+
 class GeneratorCPP
-  def initialize(type, major, minor, dir)
+  def initialize(type, major, minor, basedir)
     @type = type
     @major = major
     @minor = minor
@@ -8,25 +10,18 @@ class GeneratorCPP
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
-    @depth = 0;
-    @dir = dir + "/" + @namespace.downcase + "/"
-    @basefile = createFile("Message.h")
+    @basedir = basedir
+    @dir = basedir + "/" + @namespace.downcase
+    @basefile = createVersionFile("Message.h")
     @f = @basefile
   end
 
-  def createFile(name)
-    attr = File::CREAT|File::TRUNC|File::RDWR
-    File.new(@dir + name, attr, 0644)
+  def createBaseFile(name)
+    PrintFile.new(@basedir + "/" + name)
   end
 
-  def tabs
-    count = 0
-    result = ""
-    while (count != @depth)
-      result += "  " 
-      count += 1
-    end
-    return result
+  def createVersionFile(name)
+    PrintFile.new(@dir + "/" + name)
   end
 
   def front
@@ -41,79 +36,79 @@ class GeneratorCPP
   end
 
   def field(name, number)
-    @depth += 1
-    @f.puts tabs + "FIELD_SET(*this, FIX::" + name + ");"
-    @depth -= 1
+    @f.indent
+    @f.puts "FIELD_SET(*this, FIX::" + name + ");"
+    @f.dedent
   end
 
   def headerStart
-    @depth += 1
-    @f.puts tabs + "class Header : public FIX::Header"
-    @f.puts tabs + "{"
-    @f.puts tabs + "public:"
+    @f.indent
+    @f.puts "class Header : public FIX::Header"
+    @f.puts "{"
+    @f.puts "public:"
   end
 
   def headerEnd
-    @f.puts tabs + "};"
+    @f.puts "};"
     @f.puts
-    @depth -= 1
+    @f.dedent
   end
 
   def trailerStart
-    @depth += 1
-    @f.puts tabs + "class Trailer : public FIX::Trailer"
-    @f.puts tabs + "{"
-    @f.puts tabs + "public:"
+    @f.indent
+    @f.puts "class Trailer : public FIX::Trailer"
+    @f.puts "{"
+    @f.puts "public:"
   end
 
   def trailerEnd
-    @f.puts tabs + "};"
+    @f.puts "};"
     @f.puts
-    @depth -= 1
+    @f.dedent
   end
 
   def baseMessageStart
-    @depth += 1
-    @f.puts tabs + "class Message : public FIX::Message"
-    @f.puts tabs + "{"
-    @f.puts tabs + "public:"
-    @depth += 1
-    @f.puts tabs + "Message( const FIX::MsgType& msgtype )"
-    @f.puts tabs + ": FIX::Message("
-    @f.puts tabs + "  FIX::BeginString(\"" + @beginstring + "\"), msgtype ) {}"
+    @f.indent
+    @f.puts "class Message : public FIX::Message"
+    @f.puts "{"
+    @f.puts "public:"
+    @f.indent
+    @f.puts "Message( const FIX::MsgType& msgtype )"
+    @f.puts ": FIX::Message("
+    @f.puts "  FIX::BeginString(\"" + @beginstring + "\"), msgtype ) {}"
     @f.puts
-    @f.puts tabs + "Message(const FIX::Message& m) : FIX::Message(m) {}"
-    @f.puts tabs + "Message(const Message& m) : FIX::Message(m) {}"
-    @f.puts tabs + "Header& getHeader() { return (Header&)m_header; }"
-    @f.puts tabs + "const Header& getHeader() const { return (Header&)m_header; }"
-    @f.puts tabs + "Trailer& getTrailer() { return (Trailer&)m_trailer; }"
-    @f.puts tabs + "const Trailer& getTrailer() const { return (Trailer&)m_trailer; }"
-    @depth -= 1
-    @f.puts tabs + "};"
+    @f.puts "Message(const FIX::Message& m) : FIX::Message(m) {}"
+    @f.puts "Message(const Message& m) : FIX::Message(m) {}"
+    @f.puts "Header& getHeader() { return (Header&)m_header; }"
+    @f.puts "const Header& getHeader() const { return (Header&)m_header; }"
+    @f.puts "Trailer& getTrailer() { return (Trailer&)m_trailer; }"
+    @f.puts "const Trailer& getTrailer() const { return (Trailer&)m_trailer; }"
+    @f.dedent
+    @f.puts "};"
     @f.puts
   end
 
   def baseMessageEnd
-    @depth -= 1
+    @f.dedent
   end
 
   def groupStart(name, number, delim, order)
-    @depth += 1    
-    @f.puts tabs + "class " + name + ": public FIX::Group"
-    @f.puts tabs + "{"
-    @f.puts tabs + "public:"
-    @f.print tabs + name + "() : FIX::Group(" + number + "," + delim + "," + "FIX::message_order("
+    @f.indent    
+    @f.puts "class " + name + ": public FIX::Group"
+    @f.puts "{"
+    @f.puts "public:"
+    @f.print name + "() : FIX::Group(" + number + "," + delim + "," + "FIX::message_order("
     order.each { |field| @f.print field + "," }
     @f.puts "0)) {}"
   end
 
   def groupEnd
-    @f.puts tabs + "};"
-    @depth -= 1
+    @f.puts "};"
+    @f.dedent
   end
 
   def messageStart(name, msgtype, required)
-    @f = createFile(name + ".h")
+    @f = createVersionFile(name + ".h")
     @f.puts "#ifndef " + @namespace + "_" + name.upcase + "_H"
     @f.puts "#define " + @namespace + "_" + name.upcase + "_H"
     @f.puts
@@ -123,50 +118,50 @@ class GeneratorCPP
     @f.puts "{"
     @f.puts
 
-    @depth += 1
-    @f.puts tabs + "class " + name + " : public Message"
-    @f.puts tabs + "{"
-    @f.puts tabs + "public:"
-    @depth += 1
-    @f.puts tabs + name + "() : Message(MsgType()) {}"
-    @f.puts tabs + name + "(const FIX::Message& m) : Message(m) {}"
-    @f.puts tabs + name + "(const Message& m) : Message(m) {}"
-    @f.puts tabs + name + "(const #{name}& m) : Message(m) {}"
-    @f.puts tabs + "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
+    @f.indent
+    @f.puts "class " + name + " : public Message"
+    @f.puts "{"
+    @f.puts "public:"
+    @f.indent
+    @f.puts name + "() : Message(MsgType()) {}"
+    @f.puts name + "(const FIX::Message& m) : Message(m) {}"
+    @f.puts name + "(const Message& m) : Message(m) {}"
+    @f.puts name + "(const #{name}& m) : Message(m) {}"
+    @f.puts "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
 
     if( required.size > 0 )
       @f.puts
-      @f.puts tabs + name + "("
-      @depth += 1
+      @f.puts name + "("
+      @f.indent
       required.each_index { |i|
   field = required[i]
-  @f.print tabs + "const FIX::" + field + "& a" + field 
+  @f.print "const FIX::" + field + "& a" + field 
   if(i != required.size-1)
     @f.puts ","
   else
     @f.puts " )"
   end
       }
-      @depth -= 1
-      @f.puts tabs + ": Message(MsgType())"
-      @f.puts tabs + "{"
-      @depth += 1
+      @f.dedent
+      @f.puts ": Message(MsgType())"
+      @f.puts "{"
+      @f.indent
       required.each { |field|
-  @f.puts tabs + "set(a" + field + ");" }
-      @depth -= 1
-      @f.puts tabs + "}"
+  @f.puts "set(a" + field + ");" }
+      @f.dedent
+      @f.puts "}"
     end
     @f.puts
-    @depth -= 1
+    @f.dedent
   end
 
   def messageEnd
-    @f.puts tabs + "};"
+    @f.puts "};"
     @f.puts
-    @depth -= 1
-    @f.puts tabs + "}"
+    @f.dedent
+    @f.puts "}"
     @f.puts
-    @f.puts tabs + "#endif"
+    @f.puts "#endif"
     @f.close
   end
 
@@ -178,12 +173,74 @@ class GeneratorCPP
   end
 
   def fieldsStart
+    @ff = createBaseFile("FixFields.h")
+    @fn = createBaseFile("FixFieldNumbers.h")
+    fixFieldsStart(@ff)
+    fixFieldNumbersStart(@fn)
   end
-    
+
   def fields(name, number, type)
+    fixFields(@ff, name, number, type)
+    fixFieldNumbers(@fn, name, number, type)
   end
 
   def fieldsEnd
+    fixFieldsEnd(@ff)
+    fixFieldNumbersEnd(@fn)
+  end
+
+  def fixFieldsStart(f)
+    f.puts "#ifndef FIX_FIELDS_H"
+    f.puts "#define FIX_FIELDS_H"
+    f.puts
+    f.puts '#include "Field.h"'
+    f.puts
+    f.puts "#undef Yield"
+    f.puts
+    f.puts "namespace FIX"
+    f.puts "{"
+    f.indent
+  end
+    
+  def fixFields(f, name, number, type)
+    f.puts "DEFINE_#{type.upcase}(#{name})"
+    if( name == "TotNoOrders" )
+      f.puts "DEFINE_#{type.upcase}(ListNoOrds);"
+    end
+  end
+
+  def fixFieldsEnd(f)
+    f.dedent
+    f.puts "}"
+    f.puts "#endif //FIX_FIELDS_H"
+  end
+
+  def fixFieldNumbersStart(f)
+    f.puts "#ifndef FIX_FIELD_NUMBERS_H"
+    f.puts "#define FIX_FIELD_NUMBERS_H"
+    f.puts
+    f.puts "namespace FIX"
+    f.puts "{"
+    f.indent
+    f.puts "namespace FIELD"
+    f.puts "{"
+    f.indent
+  end
+    
+  def fixFieldNumbers(f, name, number, type)
+    f.puts "const int #{name} = #{number};"
+    if( name == "TotNoOrders" )
+      f.puts "const int ListNoOrds = #{number};"
+    end
+  end
+
+  def fixFieldNumbersEnd(f)
+    f.dedent
+    f.puts "}"
+    f.dedent
+    f.puts "}"
+    f.puts "#endif //FIX_FIELDNUMBERS_H"
+    f.close
   end
 
 end

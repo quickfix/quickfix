@@ -163,20 +163,26 @@ class Processor
 
   def fields
     @generator.fieldsStart
+    fixTTFields = Hash.new
+
     if( @major == "5" )
       @fieldsT.elements.each("field") { |field|
         name = field.attributes["name"]
         number = field.attributes["number"]
         type = field.attributes["type"]
         @generator.fields(name, number, type)
+	fixTTFields[name] = name
       }
     end
     @fields.elements.each("field") { |field|
       name = field.attributes["name"]
       number = field.attributes["number"]
       type = field.attributes["type"]
-      @generator.fields(name, number, type)
+      if( !fixTTFields.has_key?(name) )
+        @generator.fields(name, number, type)
+      end
     }
+
     @generator.fieldsEnd
   end
 

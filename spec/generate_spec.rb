@@ -412,11 +412,11 @@ class DataDictionary
 	end
 end
 
-#DataDictionary.new( 4, 0, nil )
-#DataDictionary.new( 4, 1, nil )
-#DataDictionary.new( 4, 2, nil )
-#DataDictionary.new( 4, 3, nil )
-#DataDictionary.new( 4, 4, nil )
+DataDictionary.new( 4, 0, nil )
+DataDictionary.new( 4, 1, nil )
+DataDictionary.new( 4, 2, nil )
+DataDictionary.new( 4, 3, nil )
+DataDictionary.new( 4, 4, nil )
 DataDictionary.new( 5, 0, nil )
 #DataDictionary.new( 5, 0, "SP1" )
 #DataDictionary.new( 5, 0, "SP2" )
