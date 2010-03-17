@@ -64,7 +64,9 @@ namespace FIX
 
      const int SecurityIDSource = 22;
 
-     const int IOIid = 23;
+     const int IOIID = 23;
+
+     const int IOIOthSvc = 24;
 
      const int IOIQltyInd = 25;
 
@@ -98,7 +100,13 @@ namespace FIX
 
      const int Price = 44;
 
+     const int RelatdSym = 46;
+
+     const int Rule80A = 47;
+
      const int SecurityID = 48;
+
+     const int SendingDate = 51;
 
      const int Quantity = 53;
 

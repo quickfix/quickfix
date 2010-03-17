@@ -44,6 +44,7 @@ namespace FIX43
     FIELD_SET(*this, FIX::RegistAcctType);
     FIELD_SET(*this, FIX::TaxAdvantageType);
     FIELD_SET(*this, FIX::OwnershipType);
+    FIELD_SET(*this, FIX::OwnershipType);
     FIELD_SET(*this, FIX::NoRegistDtls);
     class NoRegistDtls: public FIX::Group
     {
@@ -71,7 +72,7 @@ namespace FIX43
     class NoDistribInsts: public FIX::Group
     {
     public:
-    NoDistribInsts() : FIX::Group(510,477,FIX::message_order(477,512,478,498,499,500,501,502,0)) {}
+    NoDistribInsts() : FIX::Group(510,477,FIX::message_order(477,512,478,498,499,500,501,0)) {}
       FIELD_SET(*this, FIX::DistribPaymentMethod);
       FIELD_SET(*this, FIX::DistribPercentage);
       FIELD_SET(*this, FIX::CashDistribCurr);
@@ -79,7 +80,6 @@ namespace FIX43
       FIELD_SET(*this, FIX::CashDistribAgentCode);
       FIELD_SET(*this, FIX::CashDistribAgentAcctNumber);
       FIELD_SET(*this, FIX::CashDistribPayRef);
-      FIELD_SET(*this, FIX::CashDistribAgentAcctName);
     };
   };
 

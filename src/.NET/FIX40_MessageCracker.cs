@@ -31,8 +31,6 @@ namespace QuickFix40
     { throw new QuickFix.UnsupportedMessageType(); }
  public virtual void onMessage( Heartbeat message, QuickFix.SessionID session ) 
     {}
-  public virtual void onMessage( Logon message, QuickFix.SessionID session ) 
-    {}
   public virtual void onMessage( TestRequest message, QuickFix.SessionID session ) 
     {}
   public virtual void onMessage( ResendRequest message, QuickFix.SessionID session ) 
@@ -43,45 +41,47 @@ namespace QuickFix40
     {}
   public virtual void onMessage( Logout message, QuickFix.SessionID session ) 
     {}
-  public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( IndicationofInterest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( ExecutionReport message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( OrderCancelReject message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( Logon message, QuickFix.SessionID session ) 
+    {}
   public virtual void onMessage( News message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Email message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( QuoteRequest message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( Quote message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( NewOrderSingle message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( ExecutionReport message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( DontKnowTrade message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( OrderCancelReplaceRequest message, QuickFix.SessionID session ) 
+  public virtual void onMessage( NewOrderList message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( OrderCancelRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( OrderCancelReject message, QuickFix.SessionID session ) 
+  public virtual void onMessage( OrderCancelReplaceRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( OrderStatusRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Allocation message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( AllocationACK message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( NewOrderList message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( ListStatus message, QuickFix.SessionID session ) 
+  public virtual void onMessage( ListCancelRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListExecute message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( ListCancelRequest message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListStatusRequest message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( ListStatus message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( AllocationACK message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( DontKnowTrade message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( QuoteRequest message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( Quote message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
  
     public void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
@@ -89,9 +89,6 @@ namespace QuickFix40
   {
     if( message is Heartbeat )
       onMessage( (Heartbeat)(message), sessionID );
-    else
-    if( message is Logon )
-      onMessage( (Logon)(message), sessionID );
     else
     if( message is TestRequest )
       onMessage( (TestRequest)(message), sessionID );
@@ -108,11 +105,20 @@ namespace QuickFix40
     if( message is Logout )
       onMessage( (Logout)(message), sessionID );
     else
+    if( message is IndicationofInterest )
+      onMessage( (IndicationofInterest)(message), sessionID );
+    else
     if( message is Advertisement )
       onMessage( (Advertisement)(message), sessionID );
     else
-    if( message is IndicationofInterest )
-      onMessage( (IndicationofInterest)(message), sessionID );
+    if( message is ExecutionReport )
+      onMessage( (ExecutionReport)(message), sessionID );
+    else
+    if( message is OrderCancelReject )
+      onMessage( (OrderCancelReject)(message), sessionID );
+    else
+    if( message is Logon )
+      onMessage( (Logon)(message), sessionID );
     else
     if( message is News )
       onMessage( (News)(message), sessionID );
@@ -120,29 +126,17 @@ namespace QuickFix40
     if( message is Email )
       onMessage( (Email)(message), sessionID );
     else
-    if( message is QuoteRequest )
-      onMessage( (QuoteRequest)(message), sessionID );
-    else
-    if( message is Quote )
-      onMessage( (Quote)(message), sessionID );
-    else
     if( message is NewOrderSingle )
       onMessage( (NewOrderSingle)(message), sessionID );
     else
-    if( message is ExecutionReport )
-      onMessage( (ExecutionReport)(message), sessionID );
-    else
-    if( message is DontKnowTrade )
-      onMessage( (DontKnowTrade)(message), sessionID );
-    else
-    if( message is OrderCancelReplaceRequest )
-      onMessage( (OrderCancelReplaceRequest)(message), sessionID );
+    if( message is NewOrderList )
+      onMessage( (NewOrderList)(message), sessionID );
     else
     if( message is OrderCancelRequest )
       onMessage( (OrderCancelRequest)(message), sessionID );
     else
-    if( message is OrderCancelReject )
-      onMessage( (OrderCancelReject)(message), sessionID );
+    if( message is OrderCancelReplaceRequest )
+      onMessage( (OrderCancelReplaceRequest)(message), sessionID );
     else
     if( message is OrderStatusRequest )
       onMessage( (OrderStatusRequest)(message), sessionID );
@@ -150,23 +144,29 @@ namespace QuickFix40
     if( message is Allocation )
       onMessage( (Allocation)(message), sessionID );
     else
-    if( message is AllocationACK )
-      onMessage( (AllocationACK)(message), sessionID );
-    else
-    if( message is NewOrderList )
-      onMessage( (NewOrderList)(message), sessionID );
-    else
-    if( message is ListStatus )
-      onMessage( (ListStatus)(message), sessionID );
+    if( message is ListCancelRequest )
+      onMessage( (ListCancelRequest)(message), sessionID );
     else
     if( message is ListExecute )
       onMessage( (ListExecute)(message), sessionID );
     else
-    if( message is ListCancelRequest )
-      onMessage( (ListCancelRequest)(message), sessionID );
-    else
     if( message is ListStatusRequest )
       onMessage( (ListStatusRequest)(message), sessionID );
+    else
+    if( message is ListStatus )
+      onMessage( (ListStatus)(message), sessionID );
+    else
+    if( message is AllocationACK )
+      onMessage( (AllocationACK)(message), sessionID );
+    else
+    if( message is DontKnowTrade )
+      onMessage( (DontKnowTrade)(message), sessionID );
+    else
+    if( message is QuoteRequest )
+      onMessage( (QuoteRequest)(message), sessionID );
+    else
+    if( message is Quote )
+      onMessage( (Quote)(message), sessionID );
     else onMessage( message, sessionID );    
   }
 

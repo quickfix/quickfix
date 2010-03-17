@@ -33,7 +33,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::SettlInstSource);
     FIELD_SET(*this, FIX::ClOrdID);
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::NoSettlInst);

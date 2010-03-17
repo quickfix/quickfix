@@ -221,11 +221,11 @@ namespace FIX44
         FIELD_SET(*this, FIX::LegSecurityAltIDSource);
       };
     };
-    FIELD_SET(*this, FIX::LinesOfText);
-    class LinesOfText: public FIX::Group
+    FIELD_SET(*this, FIX::NoLinesOfText);
+    class NoLinesOfText: public FIX::Group
     {
     public:
-    LinesOfText() : FIX::Group(33,58,FIX::message_order(58,354,355,0)) {}
+    NoLinesOfText() : FIX::Group(33,58,FIX::message_order(58,354,355,0)) {}
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);

@@ -28,11 +28,9 @@
 namespace FIX
 {
   DEFINE_STRING(IDSource);
-  DEFINE_CHAR(IOIOthSvc);
+  DEFINE_STRING(IOIid);
   DEFINE_STRING(IOIShares);
   DEFINE_QTY(LastShares);
-  DEFINE_STRING(RelatdSym);
-  DEFINE_CHAR(Rule80A);
   DEFINE_QTY(Shares);
   DEFINE_CHAR(SettlmntTyp);
   DEFINE_LOCALMKTDATE(FutSettDate);

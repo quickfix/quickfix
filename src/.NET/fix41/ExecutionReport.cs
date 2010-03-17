@@ -708,6 +708,30 @@ namespace QuickFix41
     public bool isSetSettlCurrency()
     { return isSetField(120); }
 
+    public void set(QuickFix.SettlCurrFxRate value)
+    { setField(value); }
+    public QuickFix.SettlCurrFxRate get(QuickFix.SettlCurrFxRate  value)
+    { getField(value); return value; }
+    public QuickFix.SettlCurrFxRate getSettlCurrFxRate()
+    { QuickFix.SettlCurrFxRate value = new QuickFix.SettlCurrFxRate();
+      getField(value); return value; }
+    public bool isSet(QuickFix.SettlCurrFxRate field)
+    { return isSetField(field); }
+    public bool isSetSettlCurrFxRate()
+    { return isSetField(155); }
+
+    public void set(QuickFix.SettlCurrFxRateCalc value)
+    { setField(value); }
+    public QuickFix.SettlCurrFxRateCalc get(QuickFix.SettlCurrFxRateCalc  value)
+    { getField(value); return value; }
+    public QuickFix.SettlCurrFxRateCalc getSettlCurrFxRateCalc()
+    { QuickFix.SettlCurrFxRateCalc value = new QuickFix.SettlCurrFxRateCalc();
+      getField(value); return value; }
+    public bool isSet(QuickFix.SettlCurrFxRateCalc field)
+    { return isSetField(field); }
+    public bool isSetSettlCurrFxRateCalc()
+    { return isSetField(156); }
+
     public void set(QuickFix.Text value)
     { setField(value); }
     public QuickFix.Text get(QuickFix.Text  value)

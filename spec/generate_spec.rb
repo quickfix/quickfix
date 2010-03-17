@@ -1,12 +1,19 @@
 require "rexml/document"
 
 class DataDictionary
-	def initialize( major, minor )
-		@f = File.new( "FIX#{major}#{minor}.xml", File::CREAT|File::TRUNC|File::RDWR )
+	def initialize( major, minor, sp )
+	    	filesp = ""
+	    	if( sp == nil )
+		    sp = ""
+		else
+		    filesp = "_" + sp
+		end
+
+		@f = File.new( "FIX#{major}#{minor}#{filesp}.xml", File::CREAT|File::TRUNC|File::RDWR )
 		@major = major
 		@minor = minor
 
-		directory = "FIX.#{major}.#{minor}"
+		directory = "FIX.#{major}.#{minor}#{sp}"
 		@fieldsDoc = REXML::Document.new( File.new( "#{directory}/Fields.xml" ) )
 		@enumsDoc = REXML::Document.new( File.new( "#{directory}/Enums.xml" ) )
 		@msgContentsDoc = REXML::Document.new( File.new("#{directory}/MsgContents.xml") )
@@ -42,19 +49,15 @@ class DataDictionary
 		    return true if tag == 35
 		    return true if tag == 36
 		    return true if tag == 43
-		    return true if tag == 45
 		    return true if tag == 49
 		    return true if tag == 50
 		    return true if tag == 52
 		    return true if tag == 56
 		    return true if tag == 57
-		    return true if tag == 58
 		    return true if tag == 89
 		    return true if tag == 90
 		    return true if tag == 91
 		    return true if tag == 93
-		    return true if tag == 95
-		    return true if tag == 96
 		    return true if tag == 97
 		    return true if tag == 98
 		    return true if tag == 108
@@ -73,18 +76,13 @@ class DataDictionary
 		    return true if tag == 212
 		    return true if tag == 213
 		    return true if tag == 347
-		    return true if tag == 354
-		    return true if tag == 355
 		    return true if tag == 369
 		    return true if tag == 371
-		    return true if tag == 372
 		    return true if tag == 373
 		    return true if tag == 383
 		    return true if tag == 384
 		    return true if tag == 385
 		    return true if tag == 464
-		    return true if tag == 553
-		    return true if tag == 554
 		    return true if tag == 627
 		    return true if tag == 628
 		    return true if tag == 629
@@ -181,6 +179,7 @@ class DataDictionary
 			fieldHash = Hash.new
 			fieldHash[ "type" ] = toType( type )
 			fieldHash[ "fieldName" ] = fieldName
+
 			@tagToField[ tag ] = fieldHash
 		}
 	end
@@ -248,6 +247,7 @@ class DataDictionary
 			    next
 			end
 
+			next if !@tagToField.has_key?(tag)
 			name = @tagToField[ tag ]["fieldName"]
 
 			msgContentsArray.push( [tag,name,indent,required] )
@@ -372,7 +372,7 @@ class DataDictionary
 			end
 
 			if( nextIndent > indent )
-				groupElement = queue.last.add_element( "group", "name" => name )
+				groupElement = queue.last.add_element( "group", "name" => name, "required" => required )
 				queue.push( groupElement )
 				lastIndent = indent
 				next
@@ -412,9 +412,11 @@ class DataDictionary
 	end
 end
 
-DataDictionary.new( 4, 0 )
-DataDictionary.new( 4, 1 )
-DataDictionary.new( 4, 2 )
-DataDictionary.new( 4, 3 )
-DataDictionary.new( 4, 4 )
-DataDictionary.new( 5, 0 )
+#DataDictionary.new( 4, 0, nil )
+#DataDictionary.new( 4, 1, nil )
+#DataDictionary.new( 4, 2, nil )
+#DataDictionary.new( 4, 3, nil )
+#DataDictionary.new( 4, 4, nil )
+DataDictionary.new( 5, 0, nil )
+#DataDictionary.new( 5, 0, "SP1" )
+#DataDictionary.new( 5, 0, "SP2" )

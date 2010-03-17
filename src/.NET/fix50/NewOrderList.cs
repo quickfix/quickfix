@@ -2556,16 +2556,16 @@ namespace QuickFix50
       public bool isSetSolicitedFlag()
       { return isSetField(377); }
 
-      public void set(QuickFix.IOIid value)
+      public void set(QuickFix.IOIID value)
       { setField(value); }
-      public QuickFix.IOIid get(QuickFix.IOIid  value)
+      public QuickFix.IOIID get(QuickFix.IOIID  value)
       { getField(value); return value; }
-      public QuickFix.IOIid getIOIid()
-      { QuickFix.IOIid value = new QuickFix.IOIid();
+      public QuickFix.IOIID getIOIID()
+      { QuickFix.IOIID value = new QuickFix.IOIID();
         getField(value); return value; }
-      public bool isSet(QuickFix.IOIid field)
+      public bool isSet(QuickFix.IOIID field)
       { return isSetField(field); }
-      public bool isSetIOIid()
+      public bool isSetIOIID()
       { return isSetField(23); }
 
       public void set(QuickFix.QuoteID value)

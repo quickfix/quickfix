@@ -3147,7 +3147,7 @@ namespace QuickFix44
     public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
-    static int[] message_order = new int[] {79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,159,742,741,160,136,576,577,635,780,172,169,170,171,85,0};
+    static int[] message_order = new int[] {79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,742,741,136,576,635,780,172,169,170,171,85,0};
       public void set(QuickFix.AllocAccount value)
       { setField(value); }
       public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)
@@ -3530,18 +3530,6 @@ namespace QuickFix44
       public bool isSetSettlCurrFxRateCalc()
       { return isSetField(156); }
 
-      public void set(QuickFix.AccruedInterestAmt value)
-      { setField(value); }
-      public QuickFix.AccruedInterestAmt get(QuickFix.AccruedInterestAmt  value)
-      { getField(value); return value; }
-      public QuickFix.AccruedInterestAmt getAccruedInterestAmt()
-      { QuickFix.AccruedInterestAmt value = new QuickFix.AccruedInterestAmt();
-        getField(value); return value; }
-      public bool isSet(QuickFix.AccruedInterestAmt field)
-      { return isSetField(field); }
-      public bool isSetAccruedInterestAmt()
-      { return isSetField(159); }
-
       public void set(QuickFix.AllocAccruedInterestAmt value)
       { setField(value); }
       public QuickFix.AllocAccruedInterestAmt get(QuickFix.AllocAccruedInterestAmt  value)
@@ -3565,42 +3553,6 @@ namespace QuickFix44
       { return isSetField(field); }
       public bool isSetAllocInterestAtMaturity()
       { return isSetField(741); }
-
-      public void set(QuickFix.SettlInstMode value)
-      { setField(value); }
-      public QuickFix.SettlInstMode get(QuickFix.SettlInstMode  value)
-      { getField(value); return value; }
-      public QuickFix.SettlInstMode getSettlInstMode()
-      { QuickFix.SettlInstMode value = new QuickFix.SettlInstMode();
-        getField(value); return value; }
-      public bool isSet(QuickFix.SettlInstMode field)
-      { return isSetField(field); }
-      public bool isSetSettlInstMode()
-      { return isSetField(160); }
-
-      public void set(QuickFix.NoClearingInstructions value)
-      { setField(value); }
-      public QuickFix.NoClearingInstructions get(QuickFix.NoClearingInstructions  value)
-      { getField(value); return value; }
-      public QuickFix.NoClearingInstructions getNoClearingInstructions()
-      { QuickFix.NoClearingInstructions value = new QuickFix.NoClearingInstructions();
-        getField(value); return value; }
-      public bool isSet(QuickFix.NoClearingInstructions field)
-      { return isSetField(field); }
-      public bool isSetNoClearingInstructions()
-      { return isSetField(576); }
-
-      public void set(QuickFix.ClearingInstruction value)
-      { setField(value); }
-      public QuickFix.ClearingInstruction get(QuickFix.ClearingInstruction  value)
-      { getField(value); return value; }
-      public QuickFix.ClearingInstruction getClearingInstruction()
-      { QuickFix.ClearingInstruction value = new QuickFix.ClearingInstruction();
-        getField(value); return value; }
-      public bool isSet(QuickFix.ClearingInstruction field)
-      { return isSetField(field); }
-      public bool isSetClearingInstruction()
-      { return isSetField(577); }
 
       public void set(QuickFix.ClearingFeeIndicator value)
       { setField(value); }
@@ -3872,6 +3824,35 @@ namespace QuickFix44
         { return isSetField(field); }
         public bool isSetMiscFeeBasis()
         { return isSetField(891); }
+
+      };
+      public void set(QuickFix.NoClearingInstructions value)
+      { setField(value); }
+      public QuickFix.NoClearingInstructions get(QuickFix.NoClearingInstructions  value)
+      { getField(value); return value; }
+      public QuickFix.NoClearingInstructions getNoClearingInstructions()
+      { QuickFix.NoClearingInstructions value = new QuickFix.NoClearingInstructions();
+        getField(value); return value; }
+      public bool isSet(QuickFix.NoClearingInstructions field)
+      { return isSetField(field); }
+      public bool isSetNoClearingInstructions()
+      { return isSetField(576); }
+
+      public class NoClearingInstructions: QuickFix.Group
+      {
+      public NoClearingInstructions() : base(576,577,message_order ) {}
+      static int[] message_order = new int[] {577,0};
+        public void set(QuickFix.ClearingInstruction value)
+        { setField(value); }
+        public QuickFix.ClearingInstruction get(QuickFix.ClearingInstruction  value)
+        { getField(value); return value; }
+        public QuickFix.ClearingInstruction getClearingInstruction()
+        { QuickFix.ClearingInstruction value = new QuickFix.ClearingInstruction();
+          getField(value); return value; }
+        public bool isSet(QuickFix.ClearingInstruction field)
+        { return isSetField(field); }
+        public bool isSetClearingInstruction()
+        { return isSetField(577); }
 
       };
     };

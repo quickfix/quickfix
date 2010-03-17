@@ -100,18 +100,6 @@ namespace QuickFix44
     public bool isSetEncodedText()
     { return isSetField(355); }
 
-    public void set(QuickFix.SettlInstSource value)
-    { setField(value); }
-    public QuickFix.SettlInstSource get(QuickFix.SettlInstSource  value)
-    { getField(value); return value; }
-    public QuickFix.SettlInstSource getSettlInstSource()
-    { QuickFix.SettlInstSource value = new QuickFix.SettlInstSource();
-      getField(value); return value; }
-    public bool isSet(QuickFix.SettlInstSource field)
-    { return isSetField(field); }
-    public bool isSetSettlInstSource()
-    { return isSetField(165); }
-
     public void set(QuickFix.ClOrdID value)
     { setField(value); }
     public QuickFix.ClOrdID get(QuickFix.ClOrdID  value)

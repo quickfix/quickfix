@@ -6,6 +6,14 @@ namespace QuickFix40
     public News() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("B"); }
 
+    public News(
+      QuickFix.LinesOfText aLinesOfText,
+      QuickFix.Text aText )
+    : base(MsgType()) {
+      set(aLinesOfText);
+      set(aText);
+    }
+
     public void set(QuickFix.OrigTime value)
     { setField(value); }
     public QuickFix.OrigTime get(QuickFix.OrigTime  value)
@@ -42,6 +50,30 @@ namespace QuickFix40
     public bool isSetRelatdSym()
     { return isSetField(46); }
 
+    public void set(QuickFix.LinesOfText value)
+    { setField(value); }
+    public QuickFix.LinesOfText get(QuickFix.LinesOfText  value)
+    { getField(value); return value; }
+    public QuickFix.LinesOfText getLinesOfText()
+    { QuickFix.LinesOfText value = new QuickFix.LinesOfText();
+      getField(value); return value; }
+    public bool isSet(QuickFix.LinesOfText field)
+    { return isSetField(field); }
+    public bool isSetLinesOfText()
+    { return isSetField(33); }
+
+    public void set(QuickFix.Text value)
+    { setField(value); }
+    public QuickFix.Text get(QuickFix.Text  value)
+    { getField(value); return value; }
+    public QuickFix.Text getText()
+    { QuickFix.Text value = new QuickFix.Text();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Text field)
+    { return isSetField(field); }
+    public bool isSetText()
+    { return isSetField(58); }
+
     public void set(QuickFix.RawDataLength value)
     { setField(value); }
     public QuickFix.RawDataLength get(QuickFix.RawDataLength  value)
@@ -66,35 +98,6 @@ namespace QuickFix40
     public bool isSetRawData()
     { return isSetField(96); }
 
-    public void set(QuickFix.LinesOfText value)
-    { setField(value); }
-    public QuickFix.LinesOfText get(QuickFix.LinesOfText  value)
-    { getField(value); return value; }
-    public QuickFix.LinesOfText getLinesOfText()
-    { QuickFix.LinesOfText value = new QuickFix.LinesOfText();
-      getField(value); return value; }
-    public bool isSet(QuickFix.LinesOfText field)
-    { return isSetField(field); }
-    public bool isSetLinesOfText()
-    { return isSetField(33); }
-
-    public class LinesOfText: QuickFix.Group
-    {
-    public LinesOfText() : base(33,58,message_order ) {}
-    static int[] message_order = new int[] {58,0};
-      public void set(QuickFix.Text value)
-      { setField(value); }
-      public QuickFix.Text get(QuickFix.Text  value)
-      { getField(value); return value; }
-      public QuickFix.Text getText()
-      { QuickFix.Text value = new QuickFix.Text();
-        getField(value); return value; }
-      public bool isSet(QuickFix.Text field)
-      { return isSetField(field); }
-      public bool isSetText()
-      { return isSetField(58); }
-
-    };
   };
 
 }

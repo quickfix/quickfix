@@ -1916,21 +1916,21 @@ namespace QuickFix44
 
       };
     };
-    public void set(QuickFix.LinesOfText value)
+    public void set(QuickFix.NoLinesOfText value)
     { setField(value); }
-    public QuickFix.LinesOfText get(QuickFix.LinesOfText  value)
+    public QuickFix.NoLinesOfText get(QuickFix.NoLinesOfText  value)
     { getField(value); return value; }
-    public QuickFix.LinesOfText getLinesOfText()
-    { QuickFix.LinesOfText value = new QuickFix.LinesOfText();
+    public QuickFix.NoLinesOfText getNoLinesOfText()
+    { QuickFix.NoLinesOfText value = new QuickFix.NoLinesOfText();
       getField(value); return value; }
-    public bool isSet(QuickFix.LinesOfText field)
+    public bool isSet(QuickFix.NoLinesOfText field)
     { return isSetField(field); }
-    public bool isSetLinesOfText()
+    public bool isSetNoLinesOfText()
     { return isSetField(33); }
 
-    public class LinesOfText: QuickFix.Group
+    public class NoLinesOfText: QuickFix.Group
     {
-    public LinesOfText() : base(33,58,message_order ) {}
+    public NoLinesOfText() : base(33,58,message_order ) {}
     static int[] message_order = new int[] {58,354,355,0};
       public void set(QuickFix.Text value)
       { setField(value); }

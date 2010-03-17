@@ -177,6 +177,18 @@ namespace QuickFix43
     public bool isSetOwnershipType()
     { return isSetField(517); }
 
+    public void set(QuickFix.OwnershipType value)
+    { setField(value); }
+    public QuickFix.OwnershipType get(QuickFix.OwnershipType  value)
+    { getField(value); return value; }
+    public QuickFix.OwnershipType getOwnershipType()
+    { QuickFix.OwnershipType value = new QuickFix.OwnershipType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.OwnershipType field)
+    { return isSetField(field); }
+    public bool isSetOwnershipType()
+    { return isSetField(517); }
+
     public void set(QuickFix.NoRegistDtls value)
     { setField(value); }
     public QuickFix.NoRegistDtls get(QuickFix.NoRegistDtls  value)
@@ -358,7 +370,7 @@ namespace QuickFix43
     public class NoDistribInsts: QuickFix.Group
     {
     public NoDistribInsts() : base(510,477,message_order ) {}
-    static int[] message_order = new int[] {477,512,478,498,499,500,501,502,0};
+    static int[] message_order = new int[] {477,512,478,498,499,500,501,0};
       public void set(QuickFix.DistribPaymentMethod value)
       { setField(value); }
       public QuickFix.DistribPaymentMethod get(QuickFix.DistribPaymentMethod  value)
@@ -442,18 +454,6 @@ namespace QuickFix43
       { return isSetField(field); }
       public bool isSetCashDistribPayRef()
       { return isSetField(501); }
-
-      public void set(QuickFix.CashDistribAgentAcctName value)
-      { setField(value); }
-      public QuickFix.CashDistribAgentAcctName get(QuickFix.CashDistribAgentAcctName  value)
-      { getField(value); return value; }
-      public QuickFix.CashDistribAgentAcctName getCashDistribAgentAcctName()
-      { QuickFix.CashDistribAgentAcctName value = new QuickFix.CashDistribAgentAcctName();
-        getField(value); return value; }
-      public bool isSet(QuickFix.CashDistribAgentAcctName field)
-      { return isSetField(field); }
-      public bool isSetCashDistribAgentAcctName()
-      { return isSetField(502); }
 
     };
   };

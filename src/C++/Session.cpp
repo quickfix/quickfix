@@ -938,13 +938,13 @@ void Session::generateBusinessReject( const Message& message, int err, int field
     case BusinessRejectReason_OTHER:
     reason = BusinessRejectReason_OTHER_TEXT;
     break;
-    case BusinessRejectReason_UNKOWN_ID:
+    case BusinessRejectReason_UNKNOWN_ID:
     reason = BusinessRejectReason_UNKNOWN_ID_TEXT;
     break;
     case BusinessRejectReason_UNKNOWN_SECURITY:
     reason = BusinessRejectReason_UNKNOWN_SECURITY_TEXT;
     break;
-    case BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE:
+    case BusinessRejectReason_UNKNOWN_MESSAGE_TYPE:
     reason = BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT;
     break;
     case BusinessRejectReason_APPLICATION_NOT_AVAILABLE:
@@ -1426,7 +1426,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   catch ( UnsupportedMessageType& )
   {
     if ( header.getField(FIELD::BeginString) >= FIX::BeginString_FIX42 )
-      { LOGEX( generateBusinessReject( message, BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE ) ); }
+      { LOGEX( generateBusinessReject( message, BusinessRejectReason_UNKNOWN_MESSAGE_TYPE ) ); }
     else
       { LOGEX( generateReject( message, "Unsupported message type" ) ); }
   }

@@ -179,9 +179,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::SettlDate);
     FIELD_SET(*this, FIX::MatchStatus);
     FIELD_SET(*this, FIX::MatchType);
-    FIELD_SET(*this, FIX::CopyMsgIndicator);
-    FIELD_SET(*this, FIX::PublishTrdIndicator);
-    FIELD_SET(*this, FIX::ShortSaleReason);
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group
     {
@@ -333,7 +330,7 @@ namespace FIX44
     class NoSides: public FIX::Group
     {
     public:
-    NoSides() : FIX::Group(552,54,FIX::message_order(54,37,198,11,526,66,453,1,660,581,81,575,576,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,12,13,479,497,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,518,232,136,825,826,591,70,78,0)) {}
+    NoSides() : FIX::Group(552,54,FIX::message_order(54,37,198,11,526,66,453,1,660,581,81,575,576,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,12,13,479,497,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,518,232,136,825,826,591,70,78,797,852,853,0)) {}
       FIELD_SET(*this, FIX::Side);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -415,6 +412,9 @@ namespace FIX44
       FIELD_SET(*this, FIX::TradeAllocIndicator);
       FIELD_SET(*this, FIX::PreallocMethod);
       FIELD_SET(*this, FIX::AllocID);
+      FIELD_SET(*this, FIX::CopyMsgIndicator);
+      FIELD_SET(*this, FIX::PublishTrdIndicator);
+      FIELD_SET(*this, FIX::ShortSaleReason);
       FIELD_SET(*this, FIX::NoClearingInstructions);
       class NoClearingInstructions: public FIX::Group
       {

@@ -112,30 +112,6 @@ namespace QuickFix44
     public bool isSetMDImplicitDelete()
     { return isSetField(547); }
 
-    public void set(QuickFix.ApplQueueAction value)
-    { setField(value); }
-    public QuickFix.ApplQueueAction get(QuickFix.ApplQueueAction  value)
-    { getField(value); return value; }
-    public QuickFix.ApplQueueAction getApplQueueAction()
-    { QuickFix.ApplQueueAction value = new QuickFix.ApplQueueAction();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplQueueAction field)
-    { return isSetField(field); }
-    public bool isSetApplQueueAction()
-    { return isSetField(815); }
-
-    public void set(QuickFix.ApplQueueMax value)
-    { setField(value); }
-    public QuickFix.ApplQueueMax get(QuickFix.ApplQueueMax  value)
-    { getField(value); return value; }
-    public QuickFix.ApplQueueMax getApplQueueMax()
-    { QuickFix.ApplQueueMax value = new QuickFix.ApplQueueMax();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplQueueMax field)
-    { return isSetField(field); }
-    public bool isSetApplQueueMax()
-    { return isSetField(812); }
-
     public void set(QuickFix.NoMDEntryTypes value)
     { setField(value); }
     public QuickFix.NoMDEntryTypes get(QuickFix.NoMDEntryTypes  value)
@@ -180,7 +156,7 @@ namespace QuickFix44
     public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,55,message_order ) {}
-    static int[] message_order = new int[] {55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,555,0};
+    static int[] message_order = new int[] {55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,555,386,815,812,0};
       public void set(QuickFix.Symbol value)
       { setField(value); }
       public QuickFix.Symbol get(QuickFix.Symbol  value)
@@ -767,6 +743,30 @@ namespace QuickFix44
         { return isSetField(868); }
 
       };
+      public void set(QuickFix.ApplQueueAction value)
+      { setField(value); }
+      public QuickFix.ApplQueueAction get(QuickFix.ApplQueueAction  value)
+      { getField(value); return value; }
+      public QuickFix.ApplQueueAction getApplQueueAction()
+      { QuickFix.ApplQueueAction value = new QuickFix.ApplQueueAction();
+        getField(value); return value; }
+      public bool isSet(QuickFix.ApplQueueAction field)
+      { return isSetField(field); }
+      public bool isSetApplQueueAction()
+      { return isSetField(815); }
+
+      public void set(QuickFix.ApplQueueMax value)
+      { setField(value); }
+      public QuickFix.ApplQueueMax get(QuickFix.ApplQueueMax  value)
+      { getField(value); return value; }
+      public QuickFix.ApplQueueMax getApplQueueMax()
+      { QuickFix.ApplQueueMax value = new QuickFix.ApplQueueMax();
+        getField(value); return value; }
+      public bool isSet(QuickFix.ApplQueueMax field)
+      { return isSetField(field); }
+      public bool isSetApplQueueMax()
+      { return isSetField(812); }
+
       public void set(QuickFix.NoUnderlyings value)
       { setField(value); }
       public QuickFix.NoUnderlyings get(QuickFix.NoUnderlyings  value)
@@ -1903,47 +1903,47 @@ namespace QuickFix44
 
         };
       };
-    };
-    public void set(QuickFix.NoTradingSessions value)
-    { setField(value); }
-    public QuickFix.NoTradingSessions get(QuickFix.NoTradingSessions  value)
-    { getField(value); return value; }
-    public QuickFix.NoTradingSessions getNoTradingSessions()
-    { QuickFix.NoTradingSessions value = new QuickFix.NoTradingSessions();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoTradingSessions field)
-    { return isSetField(field); }
-    public bool isSetNoTradingSessions()
-    { return isSetField(386); }
-
-    public class NoTradingSessions: QuickFix.Group
-    {
-    public NoTradingSessions() : base(386,336,message_order ) {}
-    static int[] message_order = new int[] {336,625,0};
-      public void set(QuickFix.TradingSessionID value)
+      public void set(QuickFix.NoTradingSessions value)
       { setField(value); }
-      public QuickFix.TradingSessionID get(QuickFix.TradingSessionID  value)
+      public QuickFix.NoTradingSessions get(QuickFix.NoTradingSessions  value)
       { getField(value); return value; }
-      public QuickFix.TradingSessionID getTradingSessionID()
-      { QuickFix.TradingSessionID value = new QuickFix.TradingSessionID();
+      public QuickFix.NoTradingSessions getNoTradingSessions()
+      { QuickFix.NoTradingSessions value = new QuickFix.NoTradingSessions();
         getField(value); return value; }
-      public bool isSet(QuickFix.TradingSessionID field)
+      public bool isSet(QuickFix.NoTradingSessions field)
       { return isSetField(field); }
-      public bool isSetTradingSessionID()
-      { return isSetField(336); }
+      public bool isSetNoTradingSessions()
+      { return isSetField(386); }
 
-      public void set(QuickFix.TradingSessionSubID value)
-      { setField(value); }
-      public QuickFix.TradingSessionSubID get(QuickFix.TradingSessionSubID  value)
-      { getField(value); return value; }
-      public QuickFix.TradingSessionSubID getTradingSessionSubID()
-      { QuickFix.TradingSessionSubID value = new QuickFix.TradingSessionSubID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.TradingSessionSubID field)
-      { return isSetField(field); }
-      public bool isSetTradingSessionSubID()
-      { return isSetField(625); }
+      public class NoTradingSessions: QuickFix.Group
+      {
+      public NoTradingSessions() : base(386,336,message_order ) {}
+      static int[] message_order = new int[] {336,625,0};
+        public void set(QuickFix.TradingSessionID value)
+        { setField(value); }
+        public QuickFix.TradingSessionID get(QuickFix.TradingSessionID  value)
+        { getField(value); return value; }
+        public QuickFix.TradingSessionID getTradingSessionID()
+        { QuickFix.TradingSessionID value = new QuickFix.TradingSessionID();
+          getField(value); return value; }
+        public bool isSet(QuickFix.TradingSessionID field)
+        { return isSetField(field); }
+        public bool isSetTradingSessionID()
+        { return isSetField(336); }
 
+        public void set(QuickFix.TradingSessionSubID value)
+        { setField(value); }
+        public QuickFix.TradingSessionSubID get(QuickFix.TradingSessionSubID  value)
+        { getField(value); return value; }
+        public QuickFix.TradingSessionSubID getTradingSessionSubID()
+        { QuickFix.TradingSessionSubID value = new QuickFix.TradingSessionSubID();
+          getField(value); return value; }
+        public bool isSet(QuickFix.TradingSessionSubID field)
+        { return isSetField(field); }
+        public bool isSetTradingSessionSubID()
+        { return isSetField(625); }
+
+      };
     };
   };
 

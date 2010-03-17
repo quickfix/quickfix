@@ -45,7 +45,7 @@ namespace FIX43
     class NoQuoteSets: public FIX::Group
     {
     public:
-    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,457,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,315,316,317,436,435,308,306,362,363,307,364,365,304,295,0)) {}
+    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,457,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,317,436,435,308,306,362,363,307,364,365,304,295,0)) {}
       FIELD_SET(*this, FIX::QuoteSetID);
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
@@ -68,7 +68,6 @@ namespace FIX43
       FIELD_SET(*this, FIX::UnderlyingStateOrProvinceOfIssue);
       FIELD_SET(*this, FIX::UnderlyingLocaleOfIssue);
       FIELD_SET(*this, FIX::UnderlyingRedemptionDate);
-      FIELD_SET(*this, FIX::UnderlyingPutOrCall);
       FIELD_SET(*this, FIX::UnderlyingStrikePrice);
       FIELD_SET(*this, FIX::UnderlyingOptAttribute);
       FIELD_SET(*this, FIX::UnderlyingContractMultiplier);

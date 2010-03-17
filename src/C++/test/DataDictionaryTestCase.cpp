@@ -512,7 +512,7 @@ TEST( readFromFile )
 
   CHECK( object.isRequiredField( "A", 108 ) );
   CHECK( !object.isRequiredField( "A", 383 ) );
-  CHECK( object.isRequiredField( "D", 55 ) );
+  CHECK( object.isRequiredField( "6", 28 ) );
   CHECK( !object.isRequiredField( "B", 55 ) );
 
   CHECK( object.isFieldValue( 40, "A" ) );
@@ -527,11 +527,11 @@ TEST( readFromFile )
   CHECK_EQUAL( "BeginString", name );
 
   CHECK( object.getValueName( 18, "1", name ) );
-  CHECK_EQUAL( "NOT_HELD", name );
+  CHECK_EQUAL( "NOTHELD", name );
   CHECK( object.getValueName( 18, "2", name ) );
   CHECK_EQUAL( "WORK", name );
   CHECK( object.getValueName( 18, "W", name ) );
-  CHECK_EQUAL( "PEG_TO_VWAP", name );
+  CHECK_EQUAL( "PEGVWAP", name );
 
   const DataDictionary* pDD = 0;
   int delim = 0;

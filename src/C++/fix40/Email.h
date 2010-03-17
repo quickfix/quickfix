@@ -16,10 +16,14 @@ namespace FIX40
     static FIX::MsgType MsgType() { return FIX::MsgType("C"); }
 
     Email(
-      const FIX::EmailType& aEmailType )
+      const FIX::EmailType& aEmailType,
+      const FIX::LinesOfText& aLinesOfText,
+      const FIX::Text& aText )
     : Message(MsgType())
     {
       set(aEmailType);
+      set(aLinesOfText);
+      set(aText);
     }
 
     FIELD_SET(*this, FIX::EmailType);
@@ -27,15 +31,10 @@ namespace FIX40
     FIELD_SET(*this, FIX::RelatdSym);
     FIELD_SET(*this, FIX::OrderID);
     FIELD_SET(*this, FIX::ClOrdID);
+    FIELD_SET(*this, FIX::LinesOfText);
+    FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::RawDataLength);
     FIELD_SET(*this, FIX::RawData);
-    FIELD_SET(*this, FIX::LinesOfText);
-    class LinesOfText: public FIX::Group
-    {
-    public:
-    LinesOfText() : FIX::Group(33,58,FIX::message_order(58,0)) {}
-      FIELD_SET(*this, FIX::Text);
-    };
   };
 
 }

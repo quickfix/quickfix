@@ -29,7 +29,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::QuoteRespType);
     FIELD_SET(*this, FIX::ClOrdID);
     FIELD_SET(*this, FIX::OrderCapacity);
-    FIELD_SET(*this, FIX::IOIid);
+    FIELD_SET(*this, FIX::IOIID);
     FIELD_SET(*this, FIX::QuoteType);
     FIELD_SET(*this, FIX::NoQuoteQualifiers);
     class NoQuoteQualifiers: public FIX::Group

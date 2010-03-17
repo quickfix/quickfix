@@ -142,7 +142,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::Currency);
     FIELD_SET(*this, FIX::ComplianceID);
     FIELD_SET(*this, FIX::SolicitedFlag);
-    FIELD_SET(*this, FIX::IOIid);
+    FIELD_SET(*this, FIX::IOIID);
     FIELD_SET(*this, FIX::QuoteID);
     FIELD_SET(*this, FIX::TimeInForce);
     FIELD_SET(*this, FIX::EffectiveTime);

@@ -27,12 +27,10 @@ namespace FIX
   namespace FIELD
   {
     const int IDSource = 22;
-    const int IOIOthSvc = 24;
+    const int IOIid = 23;
     const int IOIShares = 27;
     const int LastShares = 32;
     const int LinesOfText = 33;
-    const int RelatdSym = 46;
-    const int Rule80A = 47;
     const int Shares = 53;
     const int SettlmntTyp = 63;
     const int FutSettDate = 64;

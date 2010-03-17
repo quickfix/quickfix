@@ -1566,42 +1566,6 @@ namespace QuickFix44
     public bool isSetMatchType()
     { return isSetField(574); }
 
-    public void set(QuickFix.CopyMsgIndicator value)
-    { setField(value); }
-    public QuickFix.CopyMsgIndicator get(QuickFix.CopyMsgIndicator  value)
-    { getField(value); return value; }
-    public QuickFix.CopyMsgIndicator getCopyMsgIndicator()
-    { QuickFix.CopyMsgIndicator value = new QuickFix.CopyMsgIndicator();
-      getField(value); return value; }
-    public bool isSet(QuickFix.CopyMsgIndicator field)
-    { return isSetField(field); }
-    public bool isSetCopyMsgIndicator()
-    { return isSetField(797); }
-
-    public void set(QuickFix.PublishTrdIndicator value)
-    { setField(value); }
-    public QuickFix.PublishTrdIndicator get(QuickFix.PublishTrdIndicator  value)
-    { getField(value); return value; }
-    public QuickFix.PublishTrdIndicator getPublishTrdIndicator()
-    { QuickFix.PublishTrdIndicator value = new QuickFix.PublishTrdIndicator();
-      getField(value); return value; }
-    public bool isSet(QuickFix.PublishTrdIndicator field)
-    { return isSetField(field); }
-    public bool isSetPublishTrdIndicator()
-    { return isSetField(852); }
-
-    public void set(QuickFix.ShortSaleReason value)
-    { setField(value); }
-    public QuickFix.ShortSaleReason get(QuickFix.ShortSaleReason  value)
-    { getField(value); return value; }
-    public QuickFix.ShortSaleReason getShortSaleReason()
-    { QuickFix.ShortSaleReason value = new QuickFix.ShortSaleReason();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ShortSaleReason field)
-    { return isSetField(field); }
-    public bool isSetShortSaleReason()
-    { return isSetField(853); }
-
     public void set(QuickFix.NoUnderlyings value)
     { setField(value); }
     public QuickFix.NoUnderlyings get(QuickFix.NoUnderlyings  value)
@@ -2996,7 +2960,7 @@ namespace QuickFix44
     public class NoSides: QuickFix.Group
     {
     public NoSides() : base(552,54,message_order ) {}
-    static int[] message_order = new int[] {54,37,198,11,526,66,453,1,660,581,81,575,576,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,12,13,479,497,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,518,232,136,825,826,591,70,78,0};
+    static int[] message_order = new int[] {54,37,198,11,526,66,453,1,660,581,81,575,576,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,12,13,479,497,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,518,232,136,825,826,591,70,78,797,852,853,0};
       public void set(QuickFix.Side value)
       { setField(value); }
       public QuickFix.Side get(QuickFix.Side  value)
@@ -3803,6 +3767,42 @@ namespace QuickFix44
       { return isSetField(field); }
       public bool isSetAllocID()
       { return isSetField(70); }
+
+      public void set(QuickFix.CopyMsgIndicator value)
+      { setField(value); }
+      public QuickFix.CopyMsgIndicator get(QuickFix.CopyMsgIndicator  value)
+      { getField(value); return value; }
+      public QuickFix.CopyMsgIndicator getCopyMsgIndicator()
+      { QuickFix.CopyMsgIndicator value = new QuickFix.CopyMsgIndicator();
+        getField(value); return value; }
+      public bool isSet(QuickFix.CopyMsgIndicator field)
+      { return isSetField(field); }
+      public bool isSetCopyMsgIndicator()
+      { return isSetField(797); }
+
+      public void set(QuickFix.PublishTrdIndicator value)
+      { setField(value); }
+      public QuickFix.PublishTrdIndicator get(QuickFix.PublishTrdIndicator  value)
+      { getField(value); return value; }
+      public QuickFix.PublishTrdIndicator getPublishTrdIndicator()
+      { QuickFix.PublishTrdIndicator value = new QuickFix.PublishTrdIndicator();
+        getField(value); return value; }
+      public bool isSet(QuickFix.PublishTrdIndicator field)
+      { return isSetField(field); }
+      public bool isSetPublishTrdIndicator()
+      { return isSetField(852); }
+
+      public void set(QuickFix.ShortSaleReason value)
+      { setField(value); }
+      public QuickFix.ShortSaleReason get(QuickFix.ShortSaleReason  value)
+      { getField(value); return value; }
+      public QuickFix.ShortSaleReason getShortSaleReason()
+      { QuickFix.ShortSaleReason value = new QuickFix.ShortSaleReason();
+        getField(value); return value; }
+      public bool isSet(QuickFix.ShortSaleReason field)
+      { return isSetField(field); }
+      public bool isSetShortSaleReason()
+      { return isSetField(853); }
 
       public void set(QuickFix.NoClearingInstructions value)
       { setField(value); }

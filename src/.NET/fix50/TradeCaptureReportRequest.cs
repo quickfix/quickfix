@@ -2266,6 +2266,47 @@ namespace QuickFix50
     public bool isSetNoDates()
     { return isSetField(580); }
 
+    public class NoDates: QuickFix.Group
+    {
+    public NoDates() : base(580,75,message_order ) {}
+    static int[] message_order = new int[] {75,60,779,0};
+      public void set(QuickFix.TradeDate value)
+      { setField(value); }
+      public QuickFix.TradeDate get(QuickFix.TradeDate  value)
+      { getField(value); return value; }
+      public QuickFix.TradeDate getTradeDate()
+      { QuickFix.TradeDate value = new QuickFix.TradeDate();
+        getField(value); return value; }
+      public bool isSet(QuickFix.TradeDate field)
+      { return isSetField(field); }
+      public bool isSetTradeDate()
+      { return isSetField(75); }
+
+      public void set(QuickFix.TransactTime value)
+      { setField(value); }
+      public QuickFix.TransactTime get(QuickFix.TransactTime  value)
+      { getField(value); return value; }
+      public QuickFix.TransactTime getTransactTime()
+      { QuickFix.TransactTime value = new QuickFix.TransactTime();
+        getField(value); return value; }
+      public bool isSet(QuickFix.TransactTime field)
+      { return isSetField(field); }
+      public bool isSetTransactTime()
+      { return isSetField(60); }
+
+      public void set(QuickFix.LastUpdateTime value)
+      { setField(value); }
+      public QuickFix.LastUpdateTime get(QuickFix.LastUpdateTime  value)
+      { getField(value); return value; }
+      public QuickFix.LastUpdateTime getLastUpdateTime()
+      { QuickFix.LastUpdateTime value = new QuickFix.LastUpdateTime();
+        getField(value); return value; }
+      public bool isSet(QuickFix.LastUpdateTime field)
+      { return isSetField(field); }
+      public bool isSetLastUpdateTime()
+      { return isSetField(779); }
+
+    };
     public void set(QuickFix.ClearingBusinessDate value)
     { setField(value); }
     public QuickFix.ClearingBusinessDate get(QuickFix.ClearingBusinessDate  value)

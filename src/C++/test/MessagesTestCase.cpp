@@ -1116,13 +1116,13 @@ TEST(newOrderCrossGetString)
 
   FIX44::NewOrderCross::NoSides::NoPartyIDs noPartyIDs;
   noPartyIDs.set( FIX::PartyID("PARTY1") );
-  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE) );
+  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY) );
   noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
 
   noSides.addGroup( noPartyIDs );
 
   noPartyIDs.set( FIX::PartyID("PARTY2") );
-  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE) );
+  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY) );
   noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
   
   noSides.addGroup( noPartyIDs );
@@ -1164,7 +1164,7 @@ TEST(newOrderCrossSetString)
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
   CHECK_EQUAL( "PARTY1", partyID );
-  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE, partyIDSource );
+  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
   CHECK_EQUAL( FIX::PartyRole_CLIENT_ID, partyRole );
 
   noSides.getGroup( 2, noPartyIDs );
@@ -1172,7 +1172,7 @@ TEST(newOrderCrossSetString)
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
   CHECK_EQUAL( "PARTY2", partyID );
-  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE, partyIDSource );
+  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
   CHECK_EQUAL( FIX::PartyRole_CLIENT_ID,  partyRole );
 
   FIX::OrderQty orderQty;

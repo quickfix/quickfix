@@ -90,7 +90,7 @@ namespace FIX40
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,80,81,76,109,12,13,85,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,80,81,76,109,12,13,85,92,86,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
       FIELD_SET(*this, FIX::ProcessCode);
@@ -99,13 +99,8 @@ namespace FIX40
       FIELD_SET(*this, FIX::Commission);
       FIELD_SET(*this, FIX::CommType);
       FIELD_SET(*this, FIX::NoDlvyInst);
-      class NoDlvyInst: public FIX::Group
-      {
-      public:
-      NoDlvyInst() : FIX::Group(85,92,FIX::message_order(92,86,0)) {}
-        FIELD_SET(*this, FIX::BrokerOfCredit);
-        FIELD_SET(*this, FIX::DlvyInst);
-      };
+      FIELD_SET(*this, FIX::BrokerOfCredit);
+      FIELD_SET(*this, FIX::DlvyInst);
     };
   };
 

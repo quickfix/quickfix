@@ -946,18 +946,6 @@ namespace QuickFix43
     public bool isSetSettlCurrFxRateCalc()
     { return isSetField(156); }
 
-    public void set(QuickFix.CommType value)
-    { setField(value); }
-    public QuickFix.CommType get(QuickFix.CommType  value)
-    { getField(value); return value; }
-    public QuickFix.CommType getCommType()
-    { QuickFix.CommType value = new QuickFix.CommType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.CommType field)
-    { return isSetField(field); }
-    public bool isSetCommType()
-    { return isSetField(13); }
-
     public void set(QuickFix.Commission value)
     { setField(value); }
     public QuickFix.Commission get(QuickFix.Commission  value)
@@ -969,6 +957,18 @@ namespace QuickFix43
     { return isSetField(field); }
     public bool isSetCommission()
     { return isSetField(12); }
+
+    public void set(QuickFix.CommType value)
+    { setField(value); }
+    public QuickFix.CommType get(QuickFix.CommType  value)
+    { getField(value); return value; }
+    public QuickFix.CommType getCommType()
+    { QuickFix.CommType value = new QuickFix.CommType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.CommType field)
+    { return isSetField(field); }
+    public bool isSetCommType()
+    { return isSetField(13); }
 
     public void set(QuickFix.CustOrderCapacity value)
     { setField(value); }

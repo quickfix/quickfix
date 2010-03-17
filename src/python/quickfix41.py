@@ -10,11 +10,6 @@ class Heartbeat(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("0") )
 
-class Logon(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("A") )
-
 class TestRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -40,11 +35,6 @@ class Logout(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("5") )
 
-class Advertisement(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("7") )
-
 class IndicationofInterest(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -56,6 +46,26 @@ class IndicationofInterest(Message):
 			order[0] = 104
 			order[1] = 0
 			fix.Group.__init__(self, 199, 104, order)
+
+class Advertisement(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("7") )
+
+class ExecutionReport(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("8") )
+
+class OrderCancelReject(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("9") )
+
+class Logon(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("A") )
 
 class News(Message):
 	def __init__(self):
@@ -119,45 +129,25 @@ class Email(Message):
 			order[1] = 0
 			fix.Group.__init__(self, 33, 58, order)
 
-class QuoteRequest(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("R") )
-
-class Quote(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("S") )
-
 class NewOrderSingle(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("D") )
 
-class ExecutionReport(Message):
+class NewOrderList(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("8") )
-
-class DontKnowTrade(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("Q") )
-
-class OrderCancelReplaceRequest(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("G") )
+		self.getHeader().setField( fix.MsgType("E") )
 
 class OrderCancelRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("F") )
 
-class OrderCancelReject(Message):
+class OrderCancelReplaceRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("9") )
+		self.getHeader().setField( fix.MsgType("G") )
 
 class OrderStatusRequest(Message):
 	def __init__(self):
@@ -225,20 +215,20 @@ class Allocation(Message):
 				order[3] = 0
 				fix.Group.__init__(self, 136, 137, order)
 
-class AllocationACK(Message):
+class ListCancelRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("P") )
+		self.getHeader().setField( fix.MsgType("K") )
 
-class SettlementInstructions(Message):
+class ListExecute(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("T") )
+		self.getHeader().setField( fix.MsgType("L") )
 
-class NewOrderList(Message):
+class ListStatusRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("E") )
+		self.getHeader().setField( fix.MsgType("M") )
 
 class ListStatus(Message):
 	def __init__(self):
@@ -256,17 +246,27 @@ class ListStatus(Message):
 			order[5] = 0
 			fix.Group.__init__(self, 73, 11, order)
 
-class ListExecute(Message):
+class AllocationACK(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("L") )
+		self.getHeader().setField( fix.MsgType("P") )
 
-class ListCancelRequest(Message):
+class DontKnowTrade(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("K") )
+		self.getHeader().setField( fix.MsgType("Q") )
 
-class ListStatusRequest(Message):
+class QuoteRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("M") )
+		self.getHeader().setField( fix.MsgType("R") )
+
+class Quote(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("S") )
+
+class SettlementInstructions(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("T") )

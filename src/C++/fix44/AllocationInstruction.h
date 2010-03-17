@@ -363,7 +363,7 @@ namespace FIX44
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,159,742,741,160,136,576,577,635,780,172,169,170,171,85,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,742,741,136,576,635,780,172,169,170,171,85,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocAcctIDSource);
       FIELD_SET(*this, FIX::MatchStatus);
@@ -405,12 +405,8 @@ namespace FIX44
       FIELD_SET(*this, FIX::AllocSettlCurrency);
       FIELD_SET(*this, FIX::SettlCurrFxRate);
       FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
-      FIELD_SET(*this, FIX::AccruedInterestAmt);
       FIELD_SET(*this, FIX::AllocAccruedInterestAmt);
       FIELD_SET(*this, FIX::AllocInterestAtMaturity);
-      FIELD_SET(*this, FIX::SettlInstMode);
-      FIELD_SET(*this, FIX::NoClearingInstructions);
-      FIELD_SET(*this, FIX::ClearingInstruction);
       FIELD_SET(*this, FIX::ClearingFeeIndicator);
       FIELD_SET(*this, FIX::AllocSettlInstType);
       FIELD_SET(*this, FIX::SettlDeliveryType);
@@ -451,6 +447,13 @@ namespace FIX44
         FIELD_SET(*this, FIX::MiscFeeCurr);
         FIELD_SET(*this, FIX::MiscFeeType);
         FIELD_SET(*this, FIX::MiscFeeBasis);
+      };
+      FIELD_SET(*this, FIX::NoClearingInstructions);
+      class NoClearingInstructions: public FIX::Group
+      {
+      public:
+      NoClearingInstructions() : FIX::Group(576,577,FIX::message_order(577,0)) {}
+        FIELD_SET(*this, FIX::ClearingInstruction);
       };
     };
   };

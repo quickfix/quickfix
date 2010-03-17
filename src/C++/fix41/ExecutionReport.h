@@ -102,6 +102,8 @@ namespace FIX41
     FIELD_SET(*this, FIX::CommType);
     FIELD_SET(*this, FIX::SettlCurrAmt);
     FIELD_SET(*this, FIX::SettlCurrency);
+    FIELD_SET(*this, FIX::SettlCurrFxRate);
+    FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
     FIELD_SET(*this, FIX::Text);
   };
 

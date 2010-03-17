@@ -304,18 +304,6 @@ namespace QuickFix43
     public bool isSetUnderlyingRedemptionDate()
     { return isSetField(247); }
 
-    public void set(QuickFix.UnderlyingPutOrCall value)
-    { setField(value); }
-    public QuickFix.UnderlyingPutOrCall get(QuickFix.UnderlyingPutOrCall  value)
-    { getField(value); return value; }
-    public QuickFix.UnderlyingPutOrCall getUnderlyingPutOrCall()
-    { QuickFix.UnderlyingPutOrCall value = new QuickFix.UnderlyingPutOrCall();
-      getField(value); return value; }
-    public bool isSet(QuickFix.UnderlyingPutOrCall field)
-    { return isSetField(field); }
-    public bool isSetUnderlyingPutOrCall()
-    { return isSetField(315); }
-
     public void set(QuickFix.UnderlyingStrikePrice value)
     { setField(value); }
     public QuickFix.UnderlyingStrikePrice get(QuickFix.UnderlyingStrikePrice  value)

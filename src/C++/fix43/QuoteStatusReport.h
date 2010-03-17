@@ -108,8 +108,8 @@ namespace FIX43
     FIELD_SET(*this, FIX::SettlCurrBidFxRate);
     FIELD_SET(*this, FIX::SettlCurrOfferFxRate);
     FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
-    FIELD_SET(*this, FIX::CommType);
     FIELD_SET(*this, FIX::Commission);
+    FIELD_SET(*this, FIX::CommType);
     FIELD_SET(*this, FIX::CustOrderCapacity);
     FIELD_SET(*this, FIX::ExDestination);
     FIELD_SET(*this, FIX::QuoteStatus);

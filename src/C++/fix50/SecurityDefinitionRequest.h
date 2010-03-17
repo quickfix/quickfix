@@ -197,6 +197,13 @@ namespace FIX50
     };
     FIELD_SET(*this, FIX::ExpirationCycle);
     FIELD_SET(*this, FIX::SubscriptionRequestType);
+    class SubscriptionRequestType: public FIX::Group
+    {
+    public:
+    SubscriptionRequestType() : FIX::Group(263,1017,FIX::message_order(1017,566,0)) {}
+      FIELD_SET(*this, FIX::LegOptionRatio);
+      FIELD_SET(*this, FIX::LegPrice);
+    };
   };
 
 }

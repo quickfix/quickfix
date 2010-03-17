@@ -29,32 +29,32 @@
 namespace FIX40
 {  
   class Heartbeat; 
-  class Logon; 
   class TestRequest; 
   class ResendRequest; 
   class Reject; 
   class SequenceReset; 
   class Logout; 
-  class Advertisement; 
   class IndicationofInterest; 
+  class Advertisement; 
+  class ExecutionReport; 
+  class OrderCancelReject; 
+  class Logon; 
   class News; 
   class Email; 
-  class QuoteRequest; 
-  class Quote; 
   class NewOrderSingle; 
-  class ExecutionReport; 
-  class DontKnowTrade; 
-  class OrderCancelReplaceRequest; 
+  class NewOrderList; 
   class OrderCancelRequest; 
-  class OrderCancelReject; 
+  class OrderCancelReplaceRequest; 
   class OrderStatusRequest; 
   class Allocation; 
-  class AllocationACK; 
-  class NewOrderList; 
-  class ListStatus; 
-  class ListExecute; 
   class ListCancelRequest; 
-  class ListStatusRequest;
+  class ListExecute; 
+  class ListStatusRequest; 
+  class ListStatus; 
+  class AllocationACK; 
+  class DontKnowTrade; 
+  class QuoteRequest; 
+  class Quote;
 
   class MessageCracker
   {
@@ -66,8 +66,6 @@ namespace FIX40
     { throw FIX::UnsupportedMessageType(); }
  virtual void onMessage( const Heartbeat&, const FIX::SessionID& ) 
     {}
-  virtual void onMessage( const Logon&, const FIX::SessionID& ) 
-    {}
   virtual void onMessage( const TestRequest&, const FIX::SessionID& ) 
     {}
   virtual void onMessage( const ResendRequest&, const FIX::SessionID& ) 
@@ -78,73 +76,75 @@ namespace FIX40
     {}
   virtual void onMessage( const Logout&, const FIX::SessionID& ) 
     {}
-  virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const IndicationofInterest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const ExecutionReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const OrderCancelReject&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const Logon&, const FIX::SessionID& ) 
+    {}
   virtual void onMessage( const News&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Email&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Quote&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const NewOrderSingle&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ExecutionReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderCancelReplaceRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const NewOrderList&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const OrderCancelRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderCancelReject&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderCancelReplaceRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const OrderStatusRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Allocation&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationACK&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const NewOrderList&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListStatus&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListCancelRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ListExecute&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListCancelRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ListStatusRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const ListStatus&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const AllocationACK&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const Quote&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( Heartbeat&, const FIX::SessionID& ) {} 
- virtual void onMessage( Logon&, const FIX::SessionID& ) {} 
  virtual void onMessage( TestRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ResendRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( Reject&, const FIX::SessionID& ) {} 
  virtual void onMessage( SequenceReset&, const FIX::SessionID& ) {} 
  virtual void onMessage( Logout&, const FIX::SessionID& ) {} 
- virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
  virtual void onMessage( IndicationofInterest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
+ virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) {} 
+ virtual void onMessage( Logon&, const FIX::SessionID& ) {} 
  virtual void onMessage( News&, const FIX::SessionID& ) {} 
  virtual void onMessage( Email&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
  virtual void onMessage( NewOrderSingle&, const FIX::SessionID& ) {} 
- virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( NewOrderList&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderCancelRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) {} 
+ virtual void onMessage( OrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderStatusRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( Allocation&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationACK&, const FIX::SessionID& ) {} 
- virtual void onMessage( NewOrderList&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListExecute&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListCancelRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( ListExecute&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
+ virtual void onMessage( AllocationACK&, const FIX::SessionID& ) {} 
+ virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
+ virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
 
 public:
   void crack( const Message& message, 
@@ -155,9 +155,6 @@ public:
     
     if( msgTypeValue == "0" )
       onMessage( (const Heartbeat&)message, sessionID );
-    else
-    if( msgTypeValue == "A" )
-      onMessage( (const Logon&)message, sessionID );
     else
     if( msgTypeValue == "1" )
       onMessage( (const TestRequest&)message, sessionID );
@@ -174,11 +171,20 @@ public:
     if( msgTypeValue == "5" )
       onMessage( (const Logout&)message, sessionID );
     else
+    if( msgTypeValue == "6" )
+      onMessage( (const IndicationofInterest&)message, sessionID );
+    else
     if( msgTypeValue == "7" )
       onMessage( (const Advertisement&)message, sessionID );
     else
-    if( msgTypeValue == "6" )
-      onMessage( (const IndicationofInterest&)message, sessionID );
+    if( msgTypeValue == "8" )
+      onMessage( (const ExecutionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "9" )
+      onMessage( (const OrderCancelReject&)message, sessionID );
+    else
+    if( msgTypeValue == "A" )
+      onMessage( (const Logon&)message, sessionID );
     else
     if( msgTypeValue == "B" )
       onMessage( (const News&)message, sessionID );
@@ -186,29 +192,17 @@ public:
     if( msgTypeValue == "C" )
       onMessage( (const Email&)message, sessionID );
     else
-    if( msgTypeValue == "R" )
-      onMessage( (const QuoteRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "S" )
-      onMessage( (const Quote&)message, sessionID );
-    else
     if( msgTypeValue == "D" )
       onMessage( (const NewOrderSingle&)message, sessionID );
     else
-    if( msgTypeValue == "8" )
-      onMessage( (const ExecutionReport&)message, sessionID );
-    else
-    if( msgTypeValue == "Q" )
-      onMessage( (const DontKnowTrade&)message, sessionID );
-    else
-    if( msgTypeValue == "G" )
-      onMessage( (const OrderCancelReplaceRequest&)message, sessionID );
+    if( msgTypeValue == "E" )
+      onMessage( (const NewOrderList&)message, sessionID );
     else
     if( msgTypeValue == "F" )
       onMessage( (const OrderCancelRequest&)message, sessionID );
     else
-    if( msgTypeValue == "9" )
-      onMessage( (const OrderCancelReject&)message, sessionID );
+    if( msgTypeValue == "G" )
+      onMessage( (const OrderCancelReplaceRequest&)message, sessionID );
     else
     if( msgTypeValue == "H" )
       onMessage( (const OrderStatusRequest&)message, sessionID );
@@ -216,23 +210,29 @@ public:
     if( msgTypeValue == "J" )
       onMessage( (const Allocation&)message, sessionID );
     else
-    if( msgTypeValue == "P" )
-      onMessage( (const AllocationACK&)message, sessionID );
-    else
-    if( msgTypeValue == "E" )
-      onMessage( (const NewOrderList&)message, sessionID );
-    else
-    if( msgTypeValue == "N" )
-      onMessage( (const ListStatus&)message, sessionID );
+    if( msgTypeValue == "K" )
+      onMessage( (const ListCancelRequest&)message, sessionID );
     else
     if( msgTypeValue == "L" )
       onMessage( (const ListExecute&)message, sessionID );
     else
-    if( msgTypeValue == "K" )
-      onMessage( (const ListCancelRequest&)message, sessionID );
-    else
     if( msgTypeValue == "M" )
       onMessage( (const ListStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "N" )
+      onMessage( (const ListStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "P" )
+      onMessage( (const AllocationACK&)message, sessionID );
+    else
+    if( msgTypeValue == "Q" )
+      onMessage( (const DontKnowTrade&)message, sessionID );
+    else
+    if( msgTypeValue == "R" )
+      onMessage( (const QuoteRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "S" )
+      onMessage( (const Quote&)message, sessionID );
     else onMessage( message, sessionID );
   }
   
@@ -245,9 +245,6 @@ void crack( Message& message,
     
     if( msgTypeValue == "0" )
       onMessage( (Heartbeat&)message, sessionID );
-    else
-    if( msgTypeValue == "A" )
-      onMessage( (Logon&)message, sessionID );
     else
     if( msgTypeValue == "1" )
       onMessage( (TestRequest&)message, sessionID );
@@ -264,11 +261,20 @@ void crack( Message& message,
     if( msgTypeValue == "5" )
       onMessage( (Logout&)message, sessionID );
     else
+    if( msgTypeValue == "6" )
+      onMessage( (IndicationofInterest&)message, sessionID );
+    else
     if( msgTypeValue == "7" )
       onMessage( (Advertisement&)message, sessionID );
     else
-    if( msgTypeValue == "6" )
-      onMessage( (IndicationofInterest&)message, sessionID );
+    if( msgTypeValue == "8" )
+      onMessage( (ExecutionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "9" )
+      onMessage( (OrderCancelReject&)message, sessionID );
+    else
+    if( msgTypeValue == "A" )
+      onMessage( (Logon&)message, sessionID );
     else
     if( msgTypeValue == "B" )
       onMessage( (News&)message, sessionID );
@@ -276,29 +282,17 @@ void crack( Message& message,
     if( msgTypeValue == "C" )
       onMessage( (Email&)message, sessionID );
     else
-    if( msgTypeValue == "R" )
-      onMessage( (QuoteRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "S" )
-      onMessage( (Quote&)message, sessionID );
-    else
     if( msgTypeValue == "D" )
       onMessage( (NewOrderSingle&)message, sessionID );
     else
-    if( msgTypeValue == "8" )
-      onMessage( (ExecutionReport&)message, sessionID );
-    else
-    if( msgTypeValue == "Q" )
-      onMessage( (DontKnowTrade&)message, sessionID );
-    else
-    if( msgTypeValue == "G" )
-      onMessage( (OrderCancelReplaceRequest&)message, sessionID );
+    if( msgTypeValue == "E" )
+      onMessage( (NewOrderList&)message, sessionID );
     else
     if( msgTypeValue == "F" )
       onMessage( (OrderCancelRequest&)message, sessionID );
     else
-    if( msgTypeValue == "9" )
-      onMessage( (OrderCancelReject&)message, sessionID );
+    if( msgTypeValue == "G" )
+      onMessage( (OrderCancelReplaceRequest&)message, sessionID );
     else
     if( msgTypeValue == "H" )
       onMessage( (OrderStatusRequest&)message, sessionID );
@@ -306,23 +300,29 @@ void crack( Message& message,
     if( msgTypeValue == "J" )
       onMessage( (Allocation&)message, sessionID );
     else
-    if( msgTypeValue == "P" )
-      onMessage( (AllocationACK&)message, sessionID );
-    else
-    if( msgTypeValue == "E" )
-      onMessage( (NewOrderList&)message, sessionID );
-    else
-    if( msgTypeValue == "N" )
-      onMessage( (ListStatus&)message, sessionID );
+    if( msgTypeValue == "K" )
+      onMessage( (ListCancelRequest&)message, sessionID );
     else
     if( msgTypeValue == "L" )
       onMessage( (ListExecute&)message, sessionID );
     else
-    if( msgTypeValue == "K" )
-      onMessage( (ListCancelRequest&)message, sessionID );
-    else
     if( msgTypeValue == "M" )
       onMessage( (ListStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "N" )
+      onMessage( (ListStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "P" )
+      onMessage( (AllocationACK&)message, sessionID );
+    else
+    if( msgTypeValue == "Q" )
+      onMessage( (DontKnowTrade&)message, sessionID );
+    else
+    if( msgTypeValue == "R" )
+      onMessage( (QuoteRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "S" )
+      onMessage( (Quote&)message, sessionID );
     else onMessage( message, sessionID );
   }
 

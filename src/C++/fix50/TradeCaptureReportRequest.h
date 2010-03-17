@@ -230,6 +230,14 @@ namespace FIX50
       FIELD_SET(*this, FIX::LegTimeUnit);
     };
     FIELD_SET(*this, FIX::NoDates);
+    class NoDates: public FIX::Group
+    {
+    public:
+    NoDates() : FIX::Group(580,75,FIX::message_order(75,60,779,0)) {}
+      FIELD_SET(*this, FIX::TradeDate);
+      FIELD_SET(*this, FIX::TransactTime);
+      FIELD_SET(*this, FIX::LastUpdateTime);
+    };
     FIELD_SET(*this, FIX::ClearingBusinessDate);
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);

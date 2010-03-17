@@ -1026,8 +1026,8 @@ module Quickfix
 		end
 	end
 
-	class IOIid < Quickfix::StringField
-		def IOIid.field
+	class IOIID < Quickfix::StringField
+		def IOIID.field
 			return 23
 		end
 		def initialize(data = nil)
@@ -1035,6 +1035,19 @@ module Quickfix
 				super(23)
 			else
 				super(23, data)
+			end
+		end
+	end
+
+	class IOIOthSvc < Quickfix::CharField
+		def IOIOthSvc.field
+			return 24
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(24)
+			else
+				super(24, data)
 			end
 		end
 	end
@@ -1156,19 +1169,6 @@ module Quickfix
 		end
 	end
 
-	class MsgType < Quickfix::StringField
-		def MsgType.field
-			return 35
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(35)
-			else
-				super(35, data)
-			end
-		end
-	end
-
 	class OrderID < Quickfix::StringField
 		def OrderID.field
 			return 37
@@ -1260,15 +1260,28 @@ module Quickfix
 		end
 	end
 
-	class RefSeqNum < Quickfix::IntField
-		def RefSeqNum.field
-			return 45
+	class RelatdSym < Quickfix::StringField
+		def RelatdSym.field
+			return 46
 		end
 		def initialize(data = nil)
 			if( data == nil )
-				super(45)
+				super(46)
 			else
-				super(45, data)
+				super(46, data)
+			end
+		end
+	end
+
+	class Rule80A < Quickfix::CharField
+		def Rule80A.field
+			return 47
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(47)
+			else
+				super(47, data)
 			end
 		end
 	end
@@ -1282,6 +1295,19 @@ module Quickfix
 				super(48)
 			else
 				super(48, data)
+			end
+		end
+	end
+
+	class SendingDate < Quickfix::StringField
+		def SendingDate.field
+			return 51
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(51)
+			else
+				super(51, data)
 			end
 		end
 	end
@@ -1321,19 +1347,6 @@ module Quickfix
 				super(55)
 			else
 				super(55, data)
-			end
-		end
-	end
-
-	class Text < Quickfix::StringField
-		def Text.field
-			return 58
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(58)
-			else
-				super(58, data)
 			end
 		end
 	end
@@ -1750,32 +1763,6 @@ module Quickfix
 				super(94)
 			else
 				super(94, data)
-			end
-		end
-	end
-
-	class RawDataLength < Quickfix::IntField
-		def RawDataLength.field
-			return 95
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(95)
-			else
-				super(95, data)
-			end
-		end
-	end
-
-	class RawData < Quickfix::StringField
-		def RawData.field
-			return 96
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(96)
-			else
-				super(96, data)
 			end
 		end
 	end
@@ -4861,32 +4848,6 @@ module Quickfix
 		end
 	end
 
-	class EncodedTextLen < Quickfix::IntField
-		def EncodedTextLen.field
-			return 354
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(354)
-			else
-				super(354, data)
-			end
-		end
-	end
-
-	class EncodedText < Quickfix::StringField
-		def EncodedText.field
-			return 355
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(355)
-			else
-				super(355, data)
-			end
-		end
-	end
-
 	class EncodedSubjectLen < Quickfix::IntField
 		def EncodedSubjectLen.field
 			return 356
@@ -5065,45 +5026,6 @@ module Quickfix
 				super(370)
 			else
 				super(370, data)
-			end
-		end
-	end
-
-	class RefTagID < Quickfix::IntField
-		def RefTagID.field
-			return 371
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(371)
-			else
-				super(371, data)
-			end
-		end
-	end
-
-	class RefMsgType < Quickfix::StringField
-		def RefMsgType.field
-			return 372
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(372)
-			else
-				super(372, data)
-			end
-		end
-	end
-
-	class SessionRejectReason < Quickfix::IntField
-		def SessionRejectReason.field
-			return 373
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(373)
-			else
-				super(373, data)
 			end
 		end
 	end
@@ -7379,32 +7301,6 @@ module Quickfix
 				super(552)
 			else
 				super(552, data)
-			end
-		end
-	end
-
-	class Username < Quickfix::StringField
-		def Username.field
-			return 553
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(553)
-			else
-				super(553, data)
-			end
-		end
-	end
-
-	class Password < Quickfix::StringField
-		def Password.field
-			return 554
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(554)
-			else
-				super(554, data)
 			end
 		end
 	end

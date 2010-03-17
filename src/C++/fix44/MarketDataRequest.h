@@ -34,8 +34,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::OpenCloseSettlFlag);
     FIELD_SET(*this, FIX::Scope);
     FIELD_SET(*this, FIX::MDImplicitDelete);
-    FIELD_SET(*this, FIX::ApplQueueAction);
-    FIELD_SET(*this, FIX::ApplQueueMax);
     FIELD_SET(*this, FIX::NoMDEntryTypes);
     class NoMDEntryTypes: public FIX::Group
     {
@@ -47,7 +45,7 @@ namespace FIX44
     class NoRelatedSym: public FIX::Group
     {
     public:
-    NoRelatedSym() : FIX::Group(146,55,FIX::message_order(55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,555,0)) {}
+    NoRelatedSym() : FIX::Group(146,55,FIX::message_order(55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,555,386,815,812,0)) {}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -106,6 +104,8 @@ namespace FIX44
         FIELD_SET(*this, FIX::EventPx);
         FIELD_SET(*this, FIX::EventText);
       };
+      FIELD_SET(*this, FIX::ApplQueueAction);
+      FIELD_SET(*this, FIX::ApplQueueMax);
       FIELD_SET(*this, FIX::NoUnderlyings);
       class NoUnderlyings: public FIX::Group
       {
@@ -219,14 +219,14 @@ namespace FIX44
           FIELD_SET(*this, FIX::LegSecurityAltIDSource);
         };
       };
-    };
-    FIELD_SET(*this, FIX::NoTradingSessions);
-    class NoTradingSessions: public FIX::Group
-    {
-    public:
-    NoTradingSessions() : FIX::Group(386,336,FIX::message_order(336,625,0)) {}
-      FIELD_SET(*this, FIX::TradingSessionID);
-      FIELD_SET(*this, FIX::TradingSessionSubID);
+      FIELD_SET(*this, FIX::NoTradingSessions);
+      class NoTradingSessions: public FIX::Group
+      {
+      public:
+      NoTradingSessions() : FIX::Group(386,336,FIX::message_order(336,625,0)) {}
+        FIELD_SET(*this, FIX::TradingSessionID);
+        FIELD_SET(*this, FIX::TradingSessionSubID);
+      };
     };
   };
 

@@ -14,13 +14,6 @@ class Heartbeat < Message
 	end
 end
 
-class Logon < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("A") )
-	end
-end
-
 class TestRequest < Message
 	def initialize
 		super
@@ -56,13 +49,6 @@ class Logout < Message
 	end
 end
 
-class Advertisement < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("7") )
-	end
-end
-
 class IndicationofInterest < Message
 	def initialize
 		super
@@ -76,6 +62,34 @@ class IndicationofInterest < Message
 			order[1] = 0
 			super(199, 104, order)
 		end
+	end
+end
+
+class Advertisement < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("7") )
+	end
+end
+
+class ExecutionReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("8") )
+	end
+end
+
+class OrderCancelReject < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("9") )
+	end
+end
+
+class Logon < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("A") )
 	end
 end
 
@@ -153,20 +167,6 @@ class Email < Message
 	end
 end
 
-class QuoteRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("R") )
-	end
-end
-
-class Quote < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("S") )
-	end
-end
-
 class NewOrderSingle < Message
 	def initialize
 		super
@@ -174,24 +174,10 @@ class NewOrderSingle < Message
 	end
 end
 
-class ExecutionReport < Message
+class NewOrderList < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("8") )
-	end
-end
-
-class DontKnowTrade < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("Q") )
-	end
-end
-
-class OrderCancelReplaceRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("G") )
+		getHeader().setField( Quickfix::MsgType.new("E") )
 	end
 end
 
@@ -202,10 +188,10 @@ class OrderCancelRequest < Message
 	end
 end
 
-class OrderCancelReject < Message
+class OrderCancelReplaceRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("9") )
+		getHeader().setField( Quickfix::MsgType.new("G") )
 	end
 end
 
@@ -287,24 +273,24 @@ class Allocation < Message
 	end
 end
 
-class AllocationACK < Message
+class ListCancelRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("P") )
+		getHeader().setField( Quickfix::MsgType.new("K") )
 	end
 end
 
-class SettlementInstructions < Message
+class ListExecute < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("T") )
+		getHeader().setField( Quickfix::MsgType.new("L") )
 	end
 end
 
-class NewOrderList < Message
+class ListStatusRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("E") )
+		getHeader().setField( Quickfix::MsgType.new("M") )
 	end
 end
 
@@ -328,24 +314,38 @@ class ListStatus < Message
 	end
 end
 
-class ListExecute < Message
+class AllocationACK < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("L") )
+		getHeader().setField( Quickfix::MsgType.new("P") )
 	end
 end
 
-class ListCancelRequest < Message
+class DontKnowTrade < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("K") )
+		getHeader().setField( Quickfix::MsgType.new("Q") )
 	end
 end
 
-class ListStatusRequest < Message
+class QuoteRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("M") )
+		getHeader().setField( Quickfix::MsgType.new("R") )
+	end
+end
+
+class Quote < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("S") )
+	end
+end
+
+class SettlementInstructions < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("T") )
 	end
 end
 end

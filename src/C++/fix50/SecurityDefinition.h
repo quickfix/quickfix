@@ -192,6 +192,13 @@ namespace FIX50
     FIELD_SET(*this, FIX::MinTradeVol);
     FIELD_SET(*this, FIX::SecurityReportID);
     FIELD_SET(*this, FIX::ClearingBusinessDate);
+    class ClearingBusinessDate: public FIX::Group
+    {
+    public:
+    ClearingBusinessDate() : FIX::Group(715,1017,FIX::message_order(1017,566,0)) {}
+      FIELD_SET(*this, FIX::LegOptionRatio);
+      FIELD_SET(*this, FIX::LegPrice);
+    };
   };
 
 }

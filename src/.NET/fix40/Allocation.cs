@@ -498,7 +498,7 @@ namespace QuickFix40
     public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
-    static int[] message_order = new int[] {79,80,81,76,109,12,13,85,0};
+    static int[] message_order = new int[] {79,80,81,76,109,12,13,85,92,86,0};
       public void set(QuickFix.AllocAccount value)
       { setField(value); }
       public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)
@@ -595,35 +595,30 @@ namespace QuickFix40
       public bool isSetNoDlvyInst()
       { return isSetField(85); }
 
-      public class NoDlvyInst: QuickFix.Group
-      {
-      public NoDlvyInst() : base(85,92,message_order ) {}
-      static int[] message_order = new int[] {92,86,0};
-        public void set(QuickFix.BrokerOfCredit value)
-        { setField(value); }
-        public QuickFix.BrokerOfCredit get(QuickFix.BrokerOfCredit  value)
-        { getField(value); return value; }
-        public QuickFix.BrokerOfCredit getBrokerOfCredit()
-        { QuickFix.BrokerOfCredit value = new QuickFix.BrokerOfCredit();
-          getField(value); return value; }
-        public bool isSet(QuickFix.BrokerOfCredit field)
-        { return isSetField(field); }
-        public bool isSetBrokerOfCredit()
-        { return isSetField(92); }
+      public void set(QuickFix.BrokerOfCredit value)
+      { setField(value); }
+      public QuickFix.BrokerOfCredit get(QuickFix.BrokerOfCredit  value)
+      { getField(value); return value; }
+      public QuickFix.BrokerOfCredit getBrokerOfCredit()
+      { QuickFix.BrokerOfCredit value = new QuickFix.BrokerOfCredit();
+        getField(value); return value; }
+      public bool isSet(QuickFix.BrokerOfCredit field)
+      { return isSetField(field); }
+      public bool isSetBrokerOfCredit()
+      { return isSetField(92); }
 
-        public void set(QuickFix.DlvyInst value)
-        { setField(value); }
-        public QuickFix.DlvyInst get(QuickFix.DlvyInst  value)
-        { getField(value); return value; }
-        public QuickFix.DlvyInst getDlvyInst()
-        { QuickFix.DlvyInst value = new QuickFix.DlvyInst();
-          getField(value); return value; }
-        public bool isSet(QuickFix.DlvyInst field)
-        { return isSetField(field); }
-        public bool isSetDlvyInst()
-        { return isSetField(86); }
+      public void set(QuickFix.DlvyInst value)
+      { setField(value); }
+      public QuickFix.DlvyInst get(QuickFix.DlvyInst  value)
+      { getField(value); return value; }
+      public QuickFix.DlvyInst getDlvyInst()
+      { QuickFix.DlvyInst value = new QuickFix.DlvyInst();
+        getField(value); return value; }
+      public bool isSet(QuickFix.DlvyInst field)
+      { return isSetField(field); }
+      public bool isSetDlvyInst()
+      { return isSetField(86); }
 
-      };
     };
   };
 

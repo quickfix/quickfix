@@ -32,10 +32,6 @@ namespace QuickFix44
        return new QuickFix44.Heartbeat();
      }
    
-     if(msgType.Equals("A")) {
-       return new QuickFix44.Logon();
-     }
-   
      if(msgType.Equals("1")) {
        return new QuickFix44.TestRequest();
      }
@@ -56,24 +52,24 @@ namespace QuickFix44
        return new QuickFix44.Logout();
      }
    
-     if(msgType.Equals("j")) {
-       return new QuickFix44.BusinessMessageReject();
-     }
-   
-     if(msgType.Equals("BE")) {
-       return new QuickFix44.UserRequest();
-     }
-   
-     if(msgType.Equals("BF")) {
-       return new QuickFix44.UserResponse();
+     if(msgType.Equals("6")) {
+       return new QuickFix44.IOI();
      }
    
      if(msgType.Equals("7")) {
        return new QuickFix44.Advertisement();
      }
    
-     if(msgType.Equals("6")) {
-       return new QuickFix44.IndicationOfInterest();
+     if(msgType.Equals("8")) {
+       return new QuickFix44.ExecutionReport();
+     }
+   
+     if(msgType.Equals("9")) {
+       return new QuickFix44.OrderCancelReject();
+     }
+   
+     if(msgType.Equals("A")) {
+       return new QuickFix44.Logon();
      }
    
      if(msgType.Equals("B")) {
@@ -84,44 +80,64 @@ namespace QuickFix44
        return new QuickFix44.Email();
      }
    
+     if(msgType.Equals("D")) {
+       return new QuickFix44.NewOrderSingle();
+     }
+   
+     if(msgType.Equals("E")) {
+       return new QuickFix44.NewOrderList();
+     }
+   
+     if(msgType.Equals("F")) {
+       return new QuickFix44.OrderCancelRequest();
+     }
+   
+     if(msgType.Equals("G")) {
+       return new QuickFix44.OrderCancelReplaceRequest();
+     }
+   
+     if(msgType.Equals("H")) {
+       return new QuickFix44.OrderStatusRequest();
+     }
+   
+     if(msgType.Equals("J")) {
+       return new QuickFix44.AllocationInstruction();
+     }
+   
+     if(msgType.Equals("K")) {
+       return new QuickFix44.ListCancelRequest();
+     }
+   
+     if(msgType.Equals("L")) {
+       return new QuickFix44.ListExecute();
+     }
+   
+     if(msgType.Equals("M")) {
+       return new QuickFix44.ListStatusRequest();
+     }
+   
+     if(msgType.Equals("N")) {
+       return new QuickFix44.ListStatus();
+     }
+   
+     if(msgType.Equals("P")) {
+       return new QuickFix44.AllocationInstructionAck();
+     }
+   
+     if(msgType.Equals("Q")) {
+       return new QuickFix44.DontKnowTradeDK();
+     }
+   
      if(msgType.Equals("R")) {
        return new QuickFix44.QuoteRequest();
-     }
-   
-     if(msgType.Equals("AJ")) {
-       return new QuickFix44.QuoteResponse();
-     }
-   
-     if(msgType.Equals("AG")) {
-       return new QuickFix44.QuoteRequestReject();
-     }
-   
-     if(msgType.Equals("AH")) {
-       return new QuickFix44.RFQRequest();
      }
    
      if(msgType.Equals("S")) {
        return new QuickFix44.Quote();
      }
    
-     if(msgType.Equals("Z")) {
-       return new QuickFix44.QuoteCancel();
-     }
-   
-     if(msgType.Equals("a")) {
-       return new QuickFix44.QuoteStatusRequest();
-     }
-   
-     if(msgType.Equals("AI")) {
-       return new QuickFix44.QuoteStatusReport();
-     }
-   
-     if(msgType.Equals("i")) {
-       return new QuickFix44.MassQuote();
-     }
-   
-     if(msgType.Equals("b")) {
-       return new QuickFix44.MassQuoteAcknowledgement();
+     if(msgType.Equals("T")) {
+       return new QuickFix44.SettlementInstructions();
      }
    
      if(msgType.Equals("V")) {
@@ -140,12 +156,88 @@ namespace QuickFix44
        return new QuickFix44.MarketDataRequestReject();
      }
    
+     if(msgType.Equals("Z")) {
+       return new QuickFix44.QuoteCancel();
+     }
+   
+     if(msgType.Equals("a")) {
+       return new QuickFix44.QuoteStatusRequest();
+     }
+   
+     if(msgType.Equals("b")) {
+       return new QuickFix44.MassQuoteAcknowledgement();
+     }
+   
      if(msgType.Equals("c")) {
        return new QuickFix44.SecurityDefinitionRequest();
      }
    
      if(msgType.Equals("d")) {
        return new QuickFix44.SecurityDefinition();
+     }
+   
+     if(msgType.Equals("e")) {
+       return new QuickFix44.SecurityStatusRequest();
+     }
+   
+     if(msgType.Equals("f")) {
+       return new QuickFix44.SecurityStatus();
+     }
+   
+     if(msgType.Equals("g")) {
+       return new QuickFix44.TradingSessionStatusRequest();
+     }
+   
+     if(msgType.Equals("h")) {
+       return new QuickFix44.TradingSessionStatus();
+     }
+   
+     if(msgType.Equals("i")) {
+       return new QuickFix44.MassQuote();
+     }
+   
+     if(msgType.Equals("j")) {
+       return new QuickFix44.BusinessMessageReject();
+     }
+   
+     if(msgType.Equals("k")) {
+       return new QuickFix44.BidRequest();
+     }
+   
+     if(msgType.Equals("l")) {
+       return new QuickFix44.BidResponse();
+     }
+   
+     if(msgType.Equals("m")) {
+       return new QuickFix44.ListStrikePrice();
+     }
+   
+     if(msgType.Equals("o")) {
+       return new QuickFix44.RegistrationInstructions();
+     }
+   
+     if(msgType.Equals("p")) {
+       return new QuickFix44.RegistrationInstructionsResponse();
+     }
+   
+     if(msgType.Equals("q")) {
+       return new QuickFix44.OrderMassCancelRequest();
+     }
+   
+     if(msgType.Equals("r")) {
+       return new QuickFix44.OrderMassCancelReport();
+     }
+   
+     if(msgType.Equals("s")) {
+       return new QuickFix44.NewOrderCross();
+     }
+   
+     if(msgType.Equals("t")) {
+       return new QuickFix44.CrossOrderCancelReplaceRequest();
+     }
+   
+     if(msgType.Equals("u")) {
+       return new QuickFix44.CrossOrderCancelRequest();
      }
    
      if(msgType.Equals("v")) {
@@ -172,172 +264,44 @@ namespace QuickFix44
        return new QuickFix44.DerivativeSecurityList();
      }
    
-     if(msgType.Equals("e")) {
-       return new QuickFix44.SecurityStatusRequest();
-     }
-   
-     if(msgType.Equals("f")) {
-       return new QuickFix44.SecurityStatus();
-     }
-   
-     if(msgType.Equals("g")) {
-       return new QuickFix44.TradingSessionStatusRequest();
-     }
-   
-     if(msgType.Equals("h")) {
-       return new QuickFix44.TradingSessionStatus();
-     }
-   
-     if(msgType.Equals("D")) {
-       return new QuickFix44.NewOrderSingle();
-     }
-   
-     if(msgType.Equals("8")) {
-       return new QuickFix44.ExecutionReport();
-     }
-   
-     if(msgType.Equals("Q")) {
-       return new QuickFix44.DontKnowTrade();
-     }
-   
-     if(msgType.Equals("G")) {
-       return new QuickFix44.OrderCancelReplaceRequest();
-     }
-   
-     if(msgType.Equals("F")) {
-       return new QuickFix44.OrderCancelRequest();
-     }
-   
-     if(msgType.Equals("9")) {
-       return new QuickFix44.OrderCancelReject();
-     }
-   
-     if(msgType.Equals("H")) {
-       return new QuickFix44.OrderStatusRequest();
-     }
-   
-     if(msgType.Equals("q")) {
-       return new QuickFix44.OrderMassCancelRequest();
-     }
-   
-     if(msgType.Equals("r")) {
-       return new QuickFix44.OrderMassCancelReport();
-     }
-   
-     if(msgType.Equals("AF")) {
-       return new QuickFix44.OrderMassStatusRequest();
-     }
-   
-     if(msgType.Equals("s")) {
-       return new QuickFix44.NewOrderCross();
-     }
-   
-     if(msgType.Equals("t")) {
-       return new QuickFix44.CrossOrderCancelReplaceRequest();
-     }
-   
-     if(msgType.Equals("u")) {
-       return new QuickFix44.CrossOrderCancelRequest();
-     }
-   
      if(msgType.Equals("AB")) {
        return new QuickFix44.NewOrderMultileg();
      }
    
      if(msgType.Equals("AC")) {
-       return new QuickFix44.MultilegOrderCancelReplaceRequest();
-     }
-   
-     if(msgType.Equals("k")) {
-       return new QuickFix44.BidRequest();
-     }
-   
-     if(msgType.Equals("l")) {
-       return new QuickFix44.BidResponse();
-     }
-   
-     if(msgType.Equals("E")) {
-       return new QuickFix44.NewOrderList();
-     }
-   
-     if(msgType.Equals("m")) {
-       return new QuickFix44.ListStrikePrice();
-     }
-   
-     if(msgType.Equals("N")) {
-       return new QuickFix44.ListStatus();
-     }
-   
-     if(msgType.Equals("L")) {
-       return new QuickFix44.ListExecute();
-     }
-   
-     if(msgType.Equals("K")) {
-       return new QuickFix44.ListCancelRequest();
-     }
-   
-     if(msgType.Equals("M")) {
-       return new QuickFix44.ListStatusRequest();
-     }
-   
-     if(msgType.Equals("J")) {
-       return new QuickFix44.AllocationInstruction();
-     }
-   
-     if(msgType.Equals("P")) {
-       return new QuickFix44.AllocationInstructionAck();
-     }
-   
-     if(msgType.Equals("AS")) {
-       return new QuickFix44.AllocationReport();
-     }
-   
-     if(msgType.Equals("AT")) {
-       return new QuickFix44.AllocationReportAck();
-     }
-   
-     if(msgType.Equals("AK")) {
-       return new QuickFix44.Confirmation();
-     }
-   
-     if(msgType.Equals("AU")) {
-       return new QuickFix44.ConfirmationAck();
-     }
-   
-     if(msgType.Equals("BH")) {
-       return new QuickFix44.ConfirmationRequest();
-     }
-   
-     if(msgType.Equals("T")) {
-       return new QuickFix44.SettlementInstructions();
-     }
-   
-     if(msgType.Equals("AV")) {
-       return new QuickFix44.SettlementInstructionRequest();
+       return new QuickFix44.MultilegOrderCancelReplace();
      }
    
      if(msgType.Equals("AD")) {
        return new QuickFix44.TradeCaptureReportRequest();
      }
    
-     if(msgType.Equals("AQ")) {
-       return new QuickFix44.TradeCaptureReportRequestAck();
-     }
-   
      if(msgType.Equals("AE")) {
        return new QuickFix44.TradeCaptureReport();
      }
    
-     if(msgType.Equals("AR")) {
-       return new QuickFix44.TradeCaptureReportAck();
+     if(msgType.Equals("AF")) {
+       return new QuickFix44.OrderMassStatusRequest();
      }
    
-     if(msgType.Equals("o")) {
-       return new QuickFix44.RegistrationInstructions();
+     if(msgType.Equals("AG")) {
+       return new QuickFix44.QuoteRequestReject();
      }
    
-     if(msgType.Equals("p")) {
-       return new QuickFix44.RegistrationInstructionsResponse();
+     if(msgType.Equals("AH")) {
+       return new QuickFix44.RFQRequest();
+     }
+   
+     if(msgType.Equals("AI")) {
+       return new QuickFix44.QuoteStatusReport();
+     }
+   
+     if(msgType.Equals("AJ")) {
+       return new QuickFix44.QuoteResponse();
+     }
+   
+     if(msgType.Equals("AK")) {
+       return new QuickFix44.Confirmation();
      }
    
      if(msgType.Equals("AL")) {
@@ -358,6 +322,30 @@ namespace QuickFix44
    
      if(msgType.Equals("AP")) {
        return new QuickFix44.PositionReport();
+     }
+   
+     if(msgType.Equals("AQ")) {
+       return new QuickFix44.TradeCaptureReportRequestAck();
+     }
+   
+     if(msgType.Equals("AR")) {
+       return new QuickFix44.TradeCaptureReportAck();
+     }
+   
+     if(msgType.Equals("AS")) {
+       return new QuickFix44.AllocationReport();
+     }
+   
+     if(msgType.Equals("AT")) {
+       return new QuickFix44.AllocationReportAck();
+     }
+   
+     if(msgType.Equals("AU")) {
+       return new QuickFix44.Confirmation_Ack();
+     }
+   
+     if(msgType.Equals("AV")) {
+       return new QuickFix44.SettlementInstructionRequest();
      }
    
      if(msgType.Equals("AW")) {
@@ -385,15 +373,27 @@ namespace QuickFix44
      }
    
      if(msgType.Equals("BC")) {
-       return new QuickFix44.NetworkStatusRequest();
+       return new QuickFix44.NetworkCounterpartySystemStatusRequest();
      }
    
      if(msgType.Equals("BD")) {
-       return new QuickFix44.NetworkStatusResponse();
+       return new QuickFix44.NetworkCounterpartySystemStatusResponse();
+     }
+   
+     if(msgType.Equals("BE")) {
+       return new QuickFix44.UserRequest();
+     }
+   
+     if(msgType.Equals("BF")) {
+       return new QuickFix44.UserResponse();
      }
    
      if(msgType.Equals("BG")) {
        return new QuickFix44.CollateralInquiryAck();
+     }
+   
+     if(msgType.Equals("BH")) {
+       return new QuickFix44.ConfirmationRequest();
      }
    
     return new QuickFix44.Message();

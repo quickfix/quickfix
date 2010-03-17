@@ -1980,6 +1980,35 @@ namespace QuickFix50
     public bool isSetSubscriptionRequestType()
     { return isSetField(263); }
 
+    public class SubscriptionRequestType: QuickFix.Group
+    {
+    public SubscriptionRequestType() : base(263,1017,message_order ) {}
+    static int[] message_order = new int[] {1017,566,0};
+      public void set(QuickFix.LegOptionRatio value)
+      { setField(value); }
+      public QuickFix.LegOptionRatio get(QuickFix.LegOptionRatio  value)
+      { getField(value); return value; }
+      public QuickFix.LegOptionRatio getLegOptionRatio()
+      { QuickFix.LegOptionRatio value = new QuickFix.LegOptionRatio();
+        getField(value); return value; }
+      public bool isSet(QuickFix.LegOptionRatio field)
+      { return isSetField(field); }
+      public bool isSetLegOptionRatio()
+      { return isSetField(1017); }
+
+      public void set(QuickFix.LegPrice value)
+      { setField(value); }
+      public QuickFix.LegPrice get(QuickFix.LegPrice  value)
+      { getField(value); return value; }
+      public QuickFix.LegPrice getLegPrice()
+      { QuickFix.LegPrice value = new QuickFix.LegPrice();
+        getField(value); return value; }
+      public bool isSet(QuickFix.LegPrice field)
+      { return isSetField(field); }
+      public bool isSetLegPrice()
+      { return isSetField(566); }
+
+    };
   };
 
 }

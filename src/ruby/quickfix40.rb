@@ -14,13 +14,6 @@ class Heartbeat < Message
 	end
 end
 
-class Logon < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("A") )
-	end
-end
-
 class TestRequest < Message
 	def initialize
 		super
@@ -56,13 +49,6 @@ class Logout < Message
 	end
 end
 
-class Advertisement < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("7") )
-	end
-end
-
 class IndicationofInterest < Message
 	def initialize
 		super
@@ -70,56 +56,10 @@ class IndicationofInterest < Message
 	end
 end
 
-class News < Message
+class Advertisement < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("B") )
-	end
-
-	class LinesOfText < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(2)
-			order[0] = 58
-			order[1] = 0
-			super(33, 58, order)
-		end
-	end
-end
-
-class Email < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("C") )
-	end
-
-	class LinesOfText < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(2)
-			order[0] = 58
-			order[1] = 0
-			super(33, 58, order)
-		end
-	end
-end
-
-class QuoteRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("R") )
-	end
-end
-
-class Quote < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("S") )
-	end
-end
-
-class NewOrderSingle < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("D") )
+		getHeader().setField( Quickfix::MsgType.new("7") )
 	end
 end
 
@@ -141,17 +81,45 @@ class ExecutionReport < Message
 	end
 end
 
-class DontKnowTrade < Message
+class OrderCancelReject < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("Q") )
+		getHeader().setField( Quickfix::MsgType.new("9") )
 	end
 end
 
-class OrderCancelReplaceRequest < Message
+class Logon < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("G") )
+		getHeader().setField( Quickfix::MsgType.new("A") )
+	end
+end
+
+class News < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("B") )
+	end
+end
+
+class Email < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("C") )
+	end
+end
+
+class NewOrderSingle < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("D") )
+	end
+end
+
+class NewOrderList < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("E") )
 	end
 end
 
@@ -162,10 +130,10 @@ class OrderCancelRequest < Message
 	end
 end
 
-class OrderCancelReject < Message
+class OrderCancelReplaceRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("9") )
+		getHeader().setField( Quickfix::MsgType.new("G") )
 	end
 end
 
@@ -219,7 +187,7 @@ class Allocation < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix::IntArray.new(9)
+			order = Quickfix::IntArray.new(11)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 81
@@ -228,33 +196,32 @@ class Allocation < Message
 			order[5] = 12
 			order[6] = 13
 			order[7] = 85
-			order[8] = 0
+			order[8] = 92
+			order[9] = 86
+			order[10] = 0
 			super(78, 79, order)
 		end
-
-		class NoDlvyInst < Quickfix::Group
-			def initialize
-				order = Quickfix::IntArray.new(3)
-				order[0] = 92
-				order[1] = 86
-				order[2] = 0
-				super(85, 92, order)
-			end
-		end
 	end
 end
 
-class AllocationACK < Message
+class ListCancelRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("P") )
+		getHeader().setField( Quickfix::MsgType.new("K") )
 	end
 end
 
-class NewOrderList < Message
+class ListExecute < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("E") )
+		getHeader().setField( Quickfix::MsgType.new("L") )
+	end
+end
+
+class ListStatusRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("M") )
 	end
 end
 
@@ -277,24 +244,31 @@ class ListStatus < Message
 	end
 end
 
-class ListExecute < Message
+class AllocationACK < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("L") )
+		getHeader().setField( Quickfix::MsgType.new("P") )
 	end
 end
 
-class ListCancelRequest < Message
+class DontKnowTrade < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("K") )
+		getHeader().setField( Quickfix::MsgType.new("Q") )
 	end
 end
 
-class ListStatusRequest < Message
+class QuoteRequest < Message
 	def initialize
 		super
-		getHeader().setField( Quickfix::MsgType.new("M") )
+		getHeader().setField( Quickfix::MsgType.new("R") )
+	end
+end
+
+class Quote < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("S") )
 	end
 end
 end

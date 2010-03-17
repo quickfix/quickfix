@@ -124,6 +124,47 @@ namespace QuickFix50
     public bool isSetNoAffectedOrders()
     { return isSetField(534); }
 
+    public class NoAffectedOrders: QuickFix.Group
+    {
+    public NoAffectedOrders() : base(534,41,message_order ) {}
+    static int[] message_order = new int[] {41,535,536,0};
+      public void set(QuickFix.OrigClOrdID value)
+      { setField(value); }
+      public QuickFix.OrigClOrdID get(QuickFix.OrigClOrdID  value)
+      { getField(value); return value; }
+      public QuickFix.OrigClOrdID getOrigClOrdID()
+      { QuickFix.OrigClOrdID value = new QuickFix.OrigClOrdID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.OrigClOrdID field)
+      { return isSetField(field); }
+      public bool isSetOrigClOrdID()
+      { return isSetField(41); }
+
+      public void set(QuickFix.AffectedOrderID value)
+      { setField(value); }
+      public QuickFix.AffectedOrderID get(QuickFix.AffectedOrderID  value)
+      { getField(value); return value; }
+      public QuickFix.AffectedOrderID getAffectedOrderID()
+      { QuickFix.AffectedOrderID value = new QuickFix.AffectedOrderID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.AffectedOrderID field)
+      { return isSetField(field); }
+      public bool isSetAffectedOrderID()
+      { return isSetField(535); }
+
+      public void set(QuickFix.AffectedSecondaryOrderID value)
+      { setField(value); }
+      public QuickFix.AffectedSecondaryOrderID get(QuickFix.AffectedSecondaryOrderID  value)
+      { getField(value); return value; }
+      public QuickFix.AffectedSecondaryOrderID getAffectedSecondaryOrderID()
+      { QuickFix.AffectedSecondaryOrderID value = new QuickFix.AffectedSecondaryOrderID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.AffectedSecondaryOrderID field)
+      { return isSetField(field); }
+      public bool isSetAffectedSecondaryOrderID()
+      { return isSetField(536); }
+
+    };
     public void set(QuickFix.TradingSessionID value)
     { setField(value); }
     public QuickFix.TradingSessionID get(QuickFix.TradingSessionID  value)

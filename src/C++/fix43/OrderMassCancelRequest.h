@@ -92,7 +92,6 @@ namespace FIX43
     FIELD_SET(*this, FIX::UnderlyingStateOrProvinceOfIssue);
     FIELD_SET(*this, FIX::UnderlyingLocaleOfIssue);
     FIELD_SET(*this, FIX::UnderlyingRedemptionDate);
-    FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingStrikePrice);
     FIELD_SET(*this, FIX::UnderlyingOptAttribute);
     FIELD_SET(*this, FIX::UnderlyingContractMultiplier);

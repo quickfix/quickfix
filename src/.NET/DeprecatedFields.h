@@ -42,14 +42,6 @@ namespace QuickFix
     IDSource(String* data) : StringField(22, data) {}
   };
 
-  public __gc class IOIOthSvc : public CharField
-  {
-  public:
-  static const int FIELD = 24;
-  IOIOthSvc() : CharField(24) {}
-    IOIOthSvc(char data) : CharField(24, data) {}
-  };
-
   public __gc class IOIShares : public StringField
   {
   public:
@@ -67,45 +59,6 @@ namespace QuickFix
   static const int FIELD = 32;
   LastShares() : DoubleField(32) {}
     LastShares(double data) : DoubleField(32, data) {}
-  };
-
-  public __gc class RelatdSym : public StringField
-  {
-  public:
-  static const int FIELD = 46;
-  RelatdSym() : StringField(46) {}
-    RelatdSym(String* data) : StringField(46, data) {}
-  };
-
-  public __gc class Rule80A : public CharField
-  {
-  public:
-  static const int FIELD = 47;
-  static const __wchar_t AGENCY_SINGLE_ORDER = 'A';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B';
-  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C';
-  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM = 'D';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = 'E';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_W_TYPE = 'F';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_I_TYPE = 'H';
-  static const __wchar_t INDIVIDUAL_INVESTOR = 'I';
-  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'J';
-  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'K';
-  static const __wchar_t SHORT_EXEMPT_AFFILIATED = 'L';
-  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = 'M';
-  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = 'N';
-  static const __wchar_t PROPRIETARY_AFFILIATED = 'O';
-  static const __wchar_t PRINCIPAL = 'P';
-  static const __wchar_t TRANSACTIONS_NON_MEMBER = 'R';
-  static const __wchar_t SPECIALIST_TRADES = 'S';
-  static const __wchar_t TRANSACTIONS_UNAFFILIATED_MEMBER = 'T';
-  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = 'U';
-  static const __wchar_t ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = 'W';
-  static const __wchar_t SHORT_EXEMPT_NOT_AFFILIATED = 'X';
-  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = 'Y';
-  static const __wchar_t SHORT_EXEMPT_NONMEMBER = 'Z';
-  Rule80A() : CharField(47) {}
-    Rule80A(__wchar_t data) : CharField(47, data) {}
   };
 
   public __gc class Shares : public DoubleField

@@ -35,6 +35,14 @@ namespace FIX50
     FIELD_SET(*this, FIX::MassCancelRejectReason);
     FIELD_SET(*this, FIX::TotalAffectedOrders);
     FIELD_SET(*this, FIX::NoAffectedOrders);
+    class NoAffectedOrders: public FIX::Group
+    {
+    public:
+    NoAffectedOrders() : FIX::Group(534,41,FIX::message_order(41,535,536,0)) {}
+      FIELD_SET(*this, FIX::OrigClOrdID);
+      FIELD_SET(*this, FIX::AffectedOrderID);
+      FIELD_SET(*this, FIX::AffectedSecondaryOrderID);
+    };
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);
     FIELD_SET(*this, FIX::Symbol);
