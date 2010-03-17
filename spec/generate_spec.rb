@@ -2,7 +2,7 @@ require "rexml/document"
 
 class DataDictionary
 	def initialize( major, minor )
-		@f = File.new( "FIX#{major}#{minor}.out.xml", File::CREAT|File::TRUNC|File::RDWR )
+		@f = File.new( "FIX#{major}#{minor}.xml", File::CREAT|File::TRUNC|File::RDWR )
 		@major = major
 		@minor = minor
 
@@ -140,7 +140,7 @@ class DataDictionary
 		description.gsub!(' ', '_')
 		description.gsub!('-', '_')
 		description.gsub!('/', '_')
-		description.gsub!('+', 'PLUS')
+		description.gsub!('+', ' PLUS ')
 		description.gsub!("'", '')
 		description.gsub!("&", '')
 		description.gsub!('<', '')
@@ -152,18 +152,19 @@ class DataDictionary
 		description.gsub!('.', '')
 		description.gsub!(':', '')
 		description.gsub!('%', '')
+		description.gsub!('*', '')
+		description.gsub!('_', ' ')
+		description.strip!
+		description.gsub!(' ', '_')
 		description = description.split("___")[0]
 		description.squeeze!("_") if description != nil
+		return "FULL_REFRESH" if description == "FULL_REFERSH"
+		return "INCREMENTAL_REFRESH" if description == "INCREMENTAL_REFRES"
 		return description
 	end
 
 	def toType( type )
-		case type
-			when "CHAR"
-				return "STRING"
-			else
-				return type.gsub('-', '')
-		end
+		return type.gsub('-', '')
 	end
 
 	def parseFields
@@ -185,9 +186,7 @@ class DataDictionary
 	end
 
 	def parseEnums
-		enumArray = Array.new
-		lastTag = 0
-
+		enums = Hash.new
 		@enumsDoc.elements["dataroot"].elements.each("Enums") { |enumsElement|
 			tag = enumsElement.elements["Tag"].text.to_i
 			next if enumsShouldBeSkipped( tag )
@@ -196,12 +195,15 @@ class DataDictionary
 			next if enum.upcase == "(NOT SPECIFIED)"
 			description = toDescription(enumsElement.elements["Description"].text)
 			description = "NOT_ASSIGNED" if description == nil
-			enumArray = Array.new if lastTag != tag
+
+			if( !enums.has_key?(tag) )
+			    enums[tag] = Array.new
+			end
+
+			enumArray = enums[tag]
 
 			enumArray.push( [enum,description] )
 			@tagToEnum[ tag ] = enumArray
-
-			lastTag = tag
 		}
 	end
 
@@ -212,8 +214,6 @@ class DataDictionary
 			messageName = toMessageName(msgTypeElement.elements["MessageName"].text)
 			componentType = msgTypeElement.elements["ComponentType"].text
 			category = msgTypeElement.elements["Category"].text
-
-#			next if messageName != "NewOrderList"
 
 			category = category == "Session" ? "admin" : "app"
 
@@ -272,7 +272,7 @@ class DataDictionary
 	end
 
 	def printVersion
-		return @specDoc.add_element( "fix", { "major" => @major.to_s, "minor" => @minor.to_s } )
+		return @specDoc.add_element( "fix", { "type" => "FIX", "major" => @major.to_s, "minor" => @minor.to_s } )
 	end
 
 	def printFields
@@ -341,6 +341,10 @@ class DataDictionary
 			msgtype = msgTypeHash[ "msgtype" ]
 			msgcat = msgTypeHash[ "msgcat" ]
 
+			if( @major >= 5 && msgcat == "admin" )
+			    next
+			end
+
 			msgContentsArray = @msgIdToMsgContents[msgId]
 			next if msgContentsArray == nil
 
@@ -408,9 +412,9 @@ class DataDictionary
 	end
 end
 
-#DataDictionary.new( 4, 0 )
-#DataDictionary.new( 4, 1 )
-#DataDictionary.new( 4, 2 )
-#DataDictionary.new( 4, 3 )
+DataDictionary.new( 4, 0 )
+DataDictionary.new( 4, 1 )
+DataDictionary.new( 4, 2 )
+DataDictionary.new( 4, 3 )
 DataDictionary.new( 4, 4 )
-#DataDictionary.new( 5, 0 )
+DataDictionary.new( 5, 0 )
