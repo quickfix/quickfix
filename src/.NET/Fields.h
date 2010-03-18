@@ -496,6 +496,15 @@ namespace QuickFix
     
   };
   
+  public __gc class RefSeqNum : public IntField
+  {
+  public:
+  static const int FIELD = 45;
+  RefSeqNum() : IntField(45) {}
+    RefSeqNum(int data) : IntField(45, data) {}
+    
+  };
+  
   public __gc class RelatdSym : public StringField
   {
   public:
@@ -596,6 +605,15 @@ namespace QuickFix
   static const int FIELD = 55;
   Symbol() : StringField(55) {}
     Symbol(String* data) : StringField(55, data) {}
+    
+  };
+  
+  public __gc class Text : public StringField
+  {
+  public:
+  static const int FIELD = 58;
+  Text() : StringField(58) {}
+    Text(String* data) : StringField(58, data) {}
     
   };
   
@@ -964,6 +982,24 @@ namespace QuickFix
   static const __wchar_t ADMIN_REPLY = '2';
   EmailType() : CharField(94) {}
     EmailType(__wchar_t data) : CharField(94, data) {}
+    
+  };
+  
+  public __gc class RawDataLength : public IntField
+  {
+  public:
+  static const int FIELD = 95;
+  RawDataLength() : IntField(95) {}
+    RawDataLength(int data) : IntField(95, data) {}
+    
+  };
+  
+  public __gc class RawData : public StringField
+  {
+  public:
+  static const int FIELD = 96;
+  RawData() : StringField(96) {}
+    RawData(String* data) : StringField(96, data) {}
     
   };
   
@@ -3830,6 +3866,24 @@ namespace QuickFix
     
   };
   
+  public __gc class EncodedTextLen : public IntField
+  {
+  public:
+  static const int FIELD = 354;
+  EncodedTextLen() : IntField(354) {}
+    EncodedTextLen(int data) : IntField(354, data) {}
+    
+  };
+  
+  public __gc class EncodedText : public StringField
+  {
+  public:
+  static const int FIELD = 355;
+  EncodedText() : StringField(355) {}
+    EncodedText(String* data) : StringField(355, data) {}
+    
+  };
+  
   public __gc class EncodedSubjectLen : public IntField
   {
   public:
@@ -3966,6 +4020,15 @@ namespace QuickFix
   OnBehalfOfSendingTime() : UtcTimeStampField(370) {}
     OnBehalfOfSendingTime(DateTime data) : UtcTimeStampField(370, data) {}
     OnBehalfOfSendingTime(DateTime data, bool showMilliseconds) : UtcTimeStampField(370, data, showMilliseconds) {}
+    
+  };
+  
+  public __gc class RefMsgType : public StringField
+  {
+  public:
+  static const int FIELD = 372;
+  RefMsgType() : StringField(372) {}
+    RefMsgType(String* data) : StringField(372, data) {}
     
   };
   
@@ -6009,6 +6072,24 @@ namespace QuickFix
   static const __wchar_t BOTH_SIDES = '2';
   NoSides() : IntField(552) {}
     NoSides(int data) : IntField(552, data) {}
+    
+  };
+  
+  public __gc class Username : public StringField
+  {
+  public:
+  static const int FIELD = 553;
+  Username() : StringField(553) {}
+    Username(String* data) : StringField(553, data) {}
+    
+  };
+  
+  public __gc class Password : public StringField
+  {
+  public:
+  static const int FIELD = 554;
+  Password() : StringField(554) {}
+    Password(String* data) : StringField(554, data) {}
     
   };
   
