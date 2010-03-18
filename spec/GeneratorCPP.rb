@@ -98,8 +98,8 @@ class GeneratorCPP
     @f.puts "{"
     @f.puts "public:"
     @f.print name + "() : FIX::Group(" + number + "," + delim + "," + "FIX::message_order("
-    order.each { |field| @f.print field + "," }
-    @f.puts "0)) {}"
+    order.each { |field| @f.printInline field + "," }
+    @f.putsInline "0)) {}"
   end
 
   def groupEnd
@@ -134,13 +134,13 @@ class GeneratorCPP
       @f.puts name + "("
       @f.indent
       required.each_index { |i|
-  field = required[i]
-  @f.print "const FIX::" + field + "& a" + field 
-  if(i != required.size-1)
-    @f.puts ","
-  else
-    @f.puts " )"
-  end
+        field = required[i]
+        @f.print "const FIX::" + field + "& a" + field 
+        if(i != required.size-1)
+          @f.putsInline ","
+        else
+          @f.putsInline " )"
+        end
       }
       @f.dedent
       @f.puts ": Message(MsgType())"
@@ -187,6 +187,8 @@ class GeneratorCPP
   def fieldsEnd
     fixFieldsEnd(@ff)
     fixFieldNumbersEnd(@fn)
+    @ff.close
+    #@fn.close
   end
 
   def fixFieldsStart(f)
@@ -203,9 +205,13 @@ class GeneratorCPP
   end
     
   def fixFields(f, name, number, type)
-    f.puts "DEFINE_#{type.upcase}(#{name})"
-    if( name == "TotNoOrders" )
-      f.puts "DEFINE_#{type.upcase}(ListNoOrds);"
+    if( name == "CheckSum" )
+      f.puts "DEFINE_CHECKSUM(#{name});"
+    else
+      f.puts "DEFINE_#{type.upcase}(#{name});"
+      if( name == "TotNoOrders" )
+        f.puts "DEFINE_#{type.upcase}(ListNoOrds);"
+      end
     end
   end
 
