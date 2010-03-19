@@ -961,6 +961,1060 @@ class Group(FieldMap):
 Group_swigregister = _quickfix.Group_swigregister
 Group_swigregister(Group)
 
+class BeginSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BeginSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BeginSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BeginSeqNo
+    __del__ = lambda self : None;
+BeginSeqNo_swigregister = _quickfix.BeginSeqNo_swigregister
+BeginSeqNo_swigregister(BeginSeqNo)
+
+class BeginString(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginString, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BeginString, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BeginString(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BeginString
+    __del__ = lambda self : None;
+BeginString_swigregister = _quickfix.BeginString_swigregister
+BeginString_swigregister(BeginString)
+
+class BodyLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BodyLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BodyLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_BodyLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_BodyLength
+    __del__ = lambda self : None;
+BodyLength_swigregister = _quickfix.BodyLength_swigregister
+BodyLength_swigregister(BodyLength)
+
+class CheckSum(CheckSumField):
+    __swig_setmethods__ = {}
+    for _s in [CheckSumField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CheckSum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CheckSumField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, CheckSum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_CheckSum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_CheckSum
+    __del__ = lambda self : None;
+CheckSum_swigregister = _quickfix.CheckSum_swigregister
+CheckSum_swigregister(CheckSum)
+
+class EndSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EndSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EndSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EndSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EndSeqNo
+    __del__ = lambda self : None;
+EndSeqNo_swigregister = _quickfix.EndSeqNo_swigregister
+EndSeqNo_swigregister(EndSeqNo)
+
+class MsgSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgSeqNum
+    __del__ = lambda self : None;
+MsgSeqNum_swigregister = _quickfix.MsgSeqNum_swigregister
+MsgSeqNum_swigregister(MsgSeqNum)
+
+class MsgType(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgType, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgType, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgType(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgType
+    __del__ = lambda self : None;
+MsgType_swigregister = _quickfix.MsgType_swigregister
+MsgType_swigregister(MsgType)
+
+class NewSeqNo(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NewSeqNo, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NewSeqNo, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NewSeqNo(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NewSeqNo
+    __del__ = lambda self : None;
+NewSeqNo_swigregister = _quickfix.NewSeqNo_swigregister
+NewSeqNo_swigregister(NewSeqNo)
+
+class PossDupFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PossDupFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PossDupFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_PossDupFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_PossDupFlag
+    __del__ = lambda self : None;
+PossDupFlag_swigregister = _quickfix.PossDupFlag_swigregister
+PossDupFlag_swigregister(PossDupFlag)
+
+class RefSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefSeqNum
+    __del__ = lambda self : None;
+RefSeqNum_swigregister = _quickfix.RefSeqNum_swigregister
+RefSeqNum_swigregister(RefSeqNum)
+
+class SenderCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderCompID
+    __del__ = lambda self : None;
+SenderCompID_swigregister = _quickfix.SenderCompID_swigregister
+SenderCompID_swigregister(SenderCompID)
+
+class SenderSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderSubID
+    __del__ = lambda self : None;
+SenderSubID_swigregister = _quickfix.SenderSubID_swigregister
+SenderSubID_swigregister(SenderSubID)
+
+class SendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SendingTime
+    __del__ = lambda self : None;
+SendingTime_swigregister = _quickfix.SendingTime_swigregister
+SendingTime_swigregister(SendingTime)
+
+class TargetCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetCompID
+    __del__ = lambda self : None;
+TargetCompID_swigregister = _quickfix.TargetCompID_swigregister
+TargetCompID_swigregister(TargetCompID)
+
+class TargetSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetSubID
+    __del__ = lambda self : None;
+TargetSubID_swigregister = _quickfix.TargetSubID_swigregister
+TargetSubID_swigregister(TargetSubID)
+
+class Text(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Text, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Text, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Text(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Text
+    __del__ = lambda self : None;
+Text_swigregister = _quickfix.Text_swigregister
+Text_swigregister(Text)
+
+class Signature(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Signature, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Signature, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Signature(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Signature
+    __del__ = lambda self : None;
+Signature_swigregister = _quickfix.Signature_swigregister
+Signature_swigregister(Signature)
+
+class SecureDataLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureDataLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SecureDataLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SecureDataLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SecureDataLen
+    __del__ = lambda self : None;
+SecureDataLen_swigregister = _quickfix.SecureDataLen_swigregister
+SecureDataLen_swigregister(SecureDataLen)
+
+class SecureData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SecureData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SecureData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SecureData
+    __del__ = lambda self : None;
+SecureData_swigregister = _quickfix.SecureData_swigregister
+SecureData_swigregister(SecureData)
+
+class SignatureLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SignatureLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SignatureLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SignatureLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SignatureLength
+    __del__ = lambda self : None;
+SignatureLength_swigregister = _quickfix.SignatureLength_swigregister
+SignatureLength_swigregister(SignatureLength)
+
+class RawDataLength(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RawDataLength, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RawDataLength, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RawDataLength(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RawDataLength
+    __del__ = lambda self : None;
+RawDataLength_swigregister = _quickfix.RawDataLength_swigregister
+RawDataLength_swigregister(RawDataLength)
+
+class RawData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RawData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RawData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RawData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RawData
+    __del__ = lambda self : None;
+RawData_swigregister = _quickfix.RawData_swigregister
+RawData_swigregister(RawData)
+
+class PossResend(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PossResend, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PossResend, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_PossResend(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_PossResend
+    __del__ = lambda self : None;
+PossResend_swigregister = _quickfix.PossResend_swigregister
+PossResend_swigregister(PossResend)
+
+class EncryptMethod(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncryptMethod, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncryptMethod, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncryptMethod(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncryptMethod
+    __del__ = lambda self : None;
+EncryptMethod_swigregister = _quickfix.EncryptMethod_swigregister
+EncryptMethod_swigregister(EncryptMethod)
+
+class HeartBtInt(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HeartBtInt, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HeartBtInt, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HeartBtInt(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HeartBtInt
+    __del__ = lambda self : None;
+HeartBtInt_swigregister = _quickfix.HeartBtInt_swigregister
+HeartBtInt_swigregister(HeartBtInt)
+
+class TestReqID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TestReqID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TestReqID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TestReqID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TestReqID
+    __del__ = lambda self : None;
+TestReqID_swigregister = _quickfix.TestReqID_swigregister
+TestReqID_swigregister(TestReqID)
+
+class OnBehalfOfCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfCompID
+    __del__ = lambda self : None;
+OnBehalfOfCompID_swigregister = _quickfix.OnBehalfOfCompID_swigregister
+OnBehalfOfCompID_swigregister(OnBehalfOfCompID)
+
+class OnBehalfOfSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfSubID
+    __del__ = lambda self : None;
+OnBehalfOfSubID_swigregister = _quickfix.OnBehalfOfSubID_swigregister
+OnBehalfOfSubID_swigregister(OnBehalfOfSubID)
+
+class OrigSendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OrigSendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OrigSendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OrigSendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OrigSendingTime
+    __del__ = lambda self : None;
+OrigSendingTime_swigregister = _quickfix.OrigSendingTime_swigregister
+OrigSendingTime_swigregister(OrigSendingTime)
+
+class GapFillFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, GapFillFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, GapFillFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_GapFillFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_GapFillFlag
+    __del__ = lambda self : None;
+GapFillFlag_swigregister = _quickfix.GapFillFlag_swigregister
+GapFillFlag_swigregister(GapFillFlag)
+
+class DeliverToCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToCompID
+    __del__ = lambda self : None;
+DeliverToCompID_swigregister = _quickfix.DeliverToCompID_swigregister
+DeliverToCompID_swigregister(DeliverToCompID)
+
+class DeliverToSubID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToSubID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToSubID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToSubID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToSubID
+    __del__ = lambda self : None;
+DeliverToSubID_swigregister = _quickfix.DeliverToSubID_swigregister
+DeliverToSubID_swigregister(DeliverToSubID)
+
+class ResetSeqNumFlag(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ResetSeqNumFlag, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, ResetSeqNumFlag, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_ResetSeqNumFlag(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_ResetSeqNumFlag
+    __del__ = lambda self : None;
+ResetSeqNumFlag_swigregister = _quickfix.ResetSeqNumFlag_swigregister
+ResetSeqNumFlag_swigregister(ResetSeqNumFlag)
+
+class SenderLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SenderLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SenderLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SenderLocationID
+    __del__ = lambda self : None;
+SenderLocationID_swigregister = _quickfix.SenderLocationID_swigregister
+SenderLocationID_swigregister(SenderLocationID)
+
+class TargetLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TargetLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TargetLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TargetLocationID
+    __del__ = lambda self : None;
+TargetLocationID_swigregister = _quickfix.TargetLocationID_swigregister
+TargetLocationID_swigregister(TargetLocationID)
+
+class OnBehalfOfLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_OnBehalfOfLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_OnBehalfOfLocationID
+    __del__ = lambda self : None;
+OnBehalfOfLocationID_swigregister = _quickfix.OnBehalfOfLocationID_swigregister
+OnBehalfOfLocationID_swigregister(OnBehalfOfLocationID)
+
+class DeliverToLocationID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToLocationID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToLocationID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DeliverToLocationID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DeliverToLocationID
+    __del__ = lambda self : None;
+DeliverToLocationID_swigregister = _quickfix.DeliverToLocationID_swigregister
+DeliverToLocationID_swigregister(DeliverToLocationID)
+
+class XmlDataLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlDataLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, XmlDataLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_XmlDataLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_XmlDataLen
+    __del__ = lambda self : None;
+XmlDataLen_swigregister = _quickfix.XmlDataLen_swigregister
+XmlDataLen_swigregister(XmlDataLen)
+
+class XmlData(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlData, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_XmlData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_XmlData
+    __del__ = lambda self : None;
+XmlData_swigregister = _quickfix.XmlData_swigregister
+XmlData_swigregister(XmlData)
+
+class MessageEncoding(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MessageEncoding, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MessageEncoding, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MessageEncoding(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MessageEncoding
+    __del__ = lambda self : None;
+MessageEncoding_swigregister = _quickfix.MessageEncoding_swigregister
+MessageEncoding_swigregister(MessageEncoding)
+
+class EncodedTextLen(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedTextLen, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncodedTextLen, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncodedTextLen(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncodedTextLen
+    __del__ = lambda self : None;
+EncodedTextLen_swigregister = _quickfix.EncodedTextLen_swigregister
+EncodedTextLen_swigregister(EncodedTextLen)
+
+class EncodedText(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedText, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EncodedText, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_EncodedText(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_EncodedText
+    __del__ = lambda self : None;
+EncodedText_swigregister = _quickfix.EncodedText_swigregister
+EncodedText_swigregister(EncodedText)
+
+class LastMsgSeqNumProcessed(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LastMsgSeqNumProcessed, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LastMsgSeqNumProcessed, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LastMsgSeqNumProcessed(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_LastMsgSeqNumProcessed
+    __del__ = lambda self : None;
+LastMsgSeqNumProcessed_swigregister = _quickfix.LastMsgSeqNumProcessed_swigregister
+LastMsgSeqNumProcessed_swigregister(LastMsgSeqNumProcessed)
+
+class RefTagID(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefTagID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefTagID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefTagID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefTagID
+    __del__ = lambda self : None;
+RefTagID_swigregister = _quickfix.RefTagID_swigregister
+RefTagID_swigregister(RefTagID)
+
+class RefMsgType(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefMsgType, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefMsgType, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefMsgType(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefMsgType
+    __del__ = lambda self : None;
+RefMsgType_swigregister = _quickfix.RefMsgType_swigregister
+RefMsgType_swigregister(RefMsgType)
+
+class SessionRejectReason(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SessionRejectReason, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SessionRejectReason, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SessionRejectReason(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SessionRejectReason
+    __del__ = lambda self : None;
+SessionRejectReason_swigregister = _quickfix.SessionRejectReason_swigregister
+SessionRejectReason_swigregister(SessionRejectReason)
+
+class MaxMessageSize(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MaxMessageSize, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MaxMessageSize, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MaxMessageSize(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MaxMessageSize
+    __del__ = lambda self : None;
+MaxMessageSize_swigregister = _quickfix.MaxMessageSize_swigregister
+MaxMessageSize_swigregister(MaxMessageSize)
+
+class NoMsgTypes(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoMsgTypes, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NoMsgTypes, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NoMsgTypes(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NoMsgTypes
+    __del__ = lambda self : None;
+NoMsgTypes_swigregister = _quickfix.NoMsgTypes_swigregister
+NoMsgTypes_swigregister(NoMsgTypes)
+
+class MsgDirection(CharField):
+    __swig_setmethods__ = {}
+    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgDirection, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MsgDirection, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_MsgDirection(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_MsgDirection
+    __del__ = lambda self : None;
+MsgDirection_swigregister = _quickfix.MsgDirection_swigregister
+MsgDirection_swigregister(MsgDirection)
+
+class TestMessageIndicator(BoolField):
+    __swig_setmethods__ = {}
+    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TestMessageIndicator, name, value)
+    __swig_getmethods__ = {}
+    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TestMessageIndicator, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_TestMessageIndicator(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_TestMessageIndicator
+    __del__ = lambda self : None;
+TestMessageIndicator_swigregister = _quickfix.TestMessageIndicator_swigregister
+TestMessageIndicator_swigregister(TestMessageIndicator)
+
+class Username(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Username, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Username, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Username(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Username
+    __del__ = lambda self : None;
+Username_swigregister = _quickfix.Username_swigregister
+Username_swigregister(Username)
+
+class Password(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Password, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Password, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Password(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Password
+    __del__ = lambda self : None;
+Password_swigregister = _quickfix.Password_swigregister
+Password_swigregister(Password)
+
+class NoHops(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoHops, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NoHops, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NoHops(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NoHops
+    __del__ = lambda self : None;
+NoHops_swigregister = _quickfix.NoHops_swigregister
+NoHops_swigregister(NoHops)
+
+class HopCompID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopCompID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopCompID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopCompID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopCompID
+    __del__ = lambda self : None;
+HopCompID_swigregister = _quickfix.HopCompID_swigregister
+HopCompID_swigregister(HopCompID)
+
+class HopSendingTime(UtcTimeStampField):
+    __swig_setmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopSendingTime, name, value)
+    __swig_getmethods__ = {}
+    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopSendingTime, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopSendingTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopSendingTime
+    __del__ = lambda self : None;
+HopSendingTime_swigregister = _quickfix.HopSendingTime_swigregister
+HopSendingTime_swigregister(HopSendingTime)
+
+class HopRefID(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HopRefID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HopRefID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HopRefID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HopRefID
+    __del__ = lambda self : None;
+HopRefID_swigregister = _quickfix.HopRefID_swigregister
+HopRefID_swigregister(HopRefID)
+
+class NextExpectedMsgSeqNum(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NextExpectedMsgSeqNum, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NextExpectedMsgSeqNum, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_NextExpectedMsgSeqNum(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_NextExpectedMsgSeqNum
+    __del__ = lambda self : None;
+NextExpectedMsgSeqNum_swigregister = _quickfix.NextExpectedMsgSeqNum_swigregister
+NextExpectedMsgSeqNum_swigregister(NextExpectedMsgSeqNum)
+
+class ApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, ApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_ApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_ApplVerID
+    __del__ = lambda self : None;
+ApplVerID_swigregister = _quickfix.ApplVerID_swigregister
+ApplVerID_swigregister(ApplVerID)
+
+class CstmApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CstmApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, CstmApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_CstmApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_CstmApplVerID
+    __del__ = lambda self : None;
+CstmApplVerID_swigregister = _quickfix.CstmApplVerID_swigregister
+CstmApplVerID_swigregister(CstmApplVerID)
+
+class RefApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefApplVerID
+    __del__ = lambda self : None;
+RefApplVerID_swigregister = _quickfix.RefApplVerID_swigregister
+RefApplVerID_swigregister(RefApplVerID)
+
+class RefCstmApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RefCstmApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RefCstmApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RefCstmApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RefCstmApplVerID
+    __del__ = lambda self : None;
+RefCstmApplVerID_swigregister = _quickfix.RefCstmApplVerID_swigregister
+RefCstmApplVerID_swigregister(RefCstmApplVerID)
+
+class DefaultApplVerID(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DefaultApplVerID, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DefaultApplVerID, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DefaultApplVerID(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DefaultApplVerID
+    __del__ = lambda self : None;
+DefaultApplVerID_swigregister = _quickfix.DefaultApplVerID_swigregister
+DefaultApplVerID_swigregister(DefaultApplVerID)
+
 class Account(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1250,22 +2304,39 @@ class SecurityIDSource(StringField):
 SecurityIDSource_swigregister = _quickfix.SecurityIDSource_swigregister
 SecurityIDSource_swigregister(SecurityIDSource)
 
-class IOIid(StringField):
+class IOIID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, IOIid, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IOIID, name, value)
     __swig_getmethods__ = {}
     for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, IOIid, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, IOIID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIid(*args)
+        this = _quickfix.new_IOIID(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_IOIid
+    __swig_destroy__ = _quickfix.delete_IOIID
     __del__ = lambda self : None;
-IOIid_swigregister = _quickfix.IOIid_swigregister
-IOIid_swigregister(IOIid)
+IOIID_swigregister = _quickfix.IOIID_swigregister
+IOIID_swigregister(IOIID)
+
+class IOIOthSvc(CharField):
+    __swig_setmethods__ = {}
+    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IOIOthSvc, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, IOIOthSvc, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_IOIOthSvc(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_IOIOthSvc
+    __del__ = lambda self : None;
+IOIOthSvc_swigregister = _quickfix.IOIOthSvc_swigregister
+IOIOthSvc_swigregister(IOIOthSvc)
 
 class IOIQltyInd(CharField):
     __swig_setmethods__ = {}
@@ -1539,6 +2610,40 @@ class Price(DoubleField):
 Price_swigregister = _quickfix.Price_swigregister
 Price_swigregister(Price)
 
+class RelatdSym(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatdSym, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RelatdSym, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_RelatdSym(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_RelatdSym
+    __del__ = lambda self : None;
+RelatdSym_swigregister = _quickfix.RelatdSym_swigregister
+RelatdSym_swigregister(RelatdSym)
+
+class Rule80A(CharField):
+    __swig_setmethods__ = {}
+    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Rule80A, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Rule80A, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Rule80A(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Rule80A
+    __del__ = lambda self : None;
+Rule80A_swigregister = _quickfix.Rule80A_swigregister
+Rule80A_swigregister(Rule80A)
+
 class SecurityID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1555,6 +2660,23 @@ class SecurityID(StringField):
     __del__ = lambda self : None;
 SecurityID_swigregister = _quickfix.SecurityID_swigregister
 SecurityID_swigregister(SecurityID)
+
+class SendingDate(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SendingDate, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, SendingDate, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_SendingDate(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_SendingDate
+    __del__ = lambda self : None;
+SendingDate_swigregister = _quickfix.SendingDate_swigregister
+SendingDate_swigregister(SendingDate)
 
 class Quantity(DoubleField):
     __swig_setmethods__ = {}
@@ -19066,1060 +20188,6 @@ class ExchangeSpecialInstructions(StringField):
 ExchangeSpecialInstructions_swigregister = _quickfix.ExchangeSpecialInstructions_swigregister
 ExchangeSpecialInstructions_swigregister(ExchangeSpecialInstructions)
 
-class BeginSeqNo(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginSeqNo, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, BeginSeqNo, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_BeginSeqNo(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_BeginSeqNo
-    __del__ = lambda self : None;
-BeginSeqNo_swigregister = _quickfix.BeginSeqNo_swigregister
-BeginSeqNo_swigregister(BeginSeqNo)
-
-class BeginString(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BeginString, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, BeginString, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_BeginString(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_BeginString
-    __del__ = lambda self : None;
-BeginString_swigregister = _quickfix.BeginString_swigregister
-BeginString_swigregister(BeginString)
-
-class BodyLength(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BodyLength, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, BodyLength, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_BodyLength(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_BodyLength
-    __del__ = lambda self : None;
-BodyLength_swigregister = _quickfix.BodyLength_swigregister
-BodyLength_swigregister(BodyLength)
-
-class CheckSum(CheckSumField):
-    __swig_setmethods__ = {}
-    for _s in [CheckSumField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, CheckSum, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CheckSumField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, CheckSum, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_CheckSum(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_CheckSum
-    __del__ = lambda self : None;
-CheckSum_swigregister = _quickfix.CheckSum_swigregister
-CheckSum_swigregister(CheckSum)
-
-class EndSeqNo(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EndSeqNo, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EndSeqNo, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EndSeqNo(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EndSeqNo
-    __del__ = lambda self : None;
-EndSeqNo_swigregister = _quickfix.EndSeqNo_swigregister
-EndSeqNo_swigregister(EndSeqNo)
-
-class MsgSeqNum(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgSeqNum, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, MsgSeqNum, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_MsgSeqNum(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_MsgSeqNum
-    __del__ = lambda self : None;
-MsgSeqNum_swigregister = _quickfix.MsgSeqNum_swigregister
-MsgSeqNum_swigregister(MsgSeqNum)
-
-class MsgType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, MsgType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_MsgType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_MsgType
-    __del__ = lambda self : None;
-MsgType_swigregister = _quickfix.MsgType_swigregister
-MsgType_swigregister(MsgType)
-
-class NewSeqNo(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NewSeqNo, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NewSeqNo, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NewSeqNo(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NewSeqNo
-    __del__ = lambda self : None;
-NewSeqNo_swigregister = _quickfix.NewSeqNo_swigregister
-NewSeqNo_swigregister(NewSeqNo)
-
-class PossDupFlag(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PossDupFlag, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PossDupFlag, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PossDupFlag(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PossDupFlag
-    __del__ = lambda self : None;
-PossDupFlag_swigregister = _quickfix.PossDupFlag_swigregister
-PossDupFlag_swigregister(PossDupFlag)
-
-class RefSeqNum(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RefSeqNum, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RefSeqNum, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RefSeqNum(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RefSeqNum
-    __del__ = lambda self : None;
-RefSeqNum_swigregister = _quickfix.RefSeqNum_swigregister
-RefSeqNum_swigregister(RefSeqNum)
-
-class SenderCompID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderCompID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SenderCompID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SenderCompID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SenderCompID
-    __del__ = lambda self : None;
-SenderCompID_swigregister = _quickfix.SenderCompID_swigregister
-SenderCompID_swigregister(SenderCompID)
-
-class SenderSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SenderSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SenderSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SenderSubID
-    __del__ = lambda self : None;
-SenderSubID_swigregister = _quickfix.SenderSubID_swigregister
-SenderSubID_swigregister(SenderSubID)
-
-class SendingTime(UtcTimeStampField):
-    __swig_setmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SendingTime, name, value)
-    __swig_getmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SendingTime, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SendingTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SendingTime
-    __del__ = lambda self : None;
-SendingTime_swigregister = _quickfix.SendingTime_swigregister
-SendingTime_swigregister(SendingTime)
-
-class TargetCompID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetCompID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TargetCompID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TargetCompID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TargetCompID
-    __del__ = lambda self : None;
-TargetCompID_swigregister = _quickfix.TargetCompID_swigregister
-TargetCompID_swigregister(TargetCompID)
-
-class TargetSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TargetSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TargetSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TargetSubID
-    __del__ = lambda self : None;
-TargetSubID_swigregister = _quickfix.TargetSubID_swigregister
-TargetSubID_swigregister(TargetSubID)
-
-class Text(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Text, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Text, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Text(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Text
-    __del__ = lambda self : None;
-Text_swigregister = _quickfix.Text_swigregister
-Text_swigregister(Text)
-
-class Signature(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Signature, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Signature, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Signature(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Signature
-    __del__ = lambda self : None;
-Signature_swigregister = _quickfix.Signature_swigregister
-Signature_swigregister(Signature)
-
-class SecureDataLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureDataLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SecureDataLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SecureDataLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SecureDataLen
-    __del__ = lambda self : None;
-SecureDataLen_swigregister = _quickfix.SecureDataLen_swigregister
-SecureDataLen_swigregister(SecureDataLen)
-
-class SecureData(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SecureData, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SecureData, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SecureData(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SecureData
-    __del__ = lambda self : None;
-SecureData_swigregister = _quickfix.SecureData_swigregister
-SecureData_swigregister(SecureData)
-
-class SignatureLength(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SignatureLength, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SignatureLength, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SignatureLength(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SignatureLength
-    __del__ = lambda self : None;
-SignatureLength_swigregister = _quickfix.SignatureLength_swigregister
-SignatureLength_swigregister(SignatureLength)
-
-class RawDataLength(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RawDataLength, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RawDataLength, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RawDataLength(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RawDataLength
-    __del__ = lambda self : None;
-RawDataLength_swigregister = _quickfix.RawDataLength_swigregister
-RawDataLength_swigregister(RawDataLength)
-
-class RawData(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RawData, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RawData, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RawData(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RawData
-    __del__ = lambda self : None;
-RawData_swigregister = _quickfix.RawData_swigregister
-RawData_swigregister(RawData)
-
-class PossResend(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PossResend, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PossResend, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PossResend(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PossResend
-    __del__ = lambda self : None;
-PossResend_swigregister = _quickfix.PossResend_swigregister
-PossResend_swigregister(PossResend)
-
-class EncryptMethod(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EncryptMethod, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EncryptMethod, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EncryptMethod(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EncryptMethod
-    __del__ = lambda self : None;
-EncryptMethod_swigregister = _quickfix.EncryptMethod_swigregister
-EncryptMethod_swigregister(EncryptMethod)
-
-class HeartBtInt(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, HeartBtInt, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, HeartBtInt, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_HeartBtInt(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_HeartBtInt
-    __del__ = lambda self : None;
-HeartBtInt_swigregister = _quickfix.HeartBtInt_swigregister
-HeartBtInt_swigregister(HeartBtInt)
-
-class TestReqID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TestReqID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TestReqID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TestReqID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TestReqID
-    __del__ = lambda self : None;
-TestReqID_swigregister = _quickfix.TestReqID_swigregister
-TestReqID_swigregister(TestReqID)
-
-class OnBehalfOfCompID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfCompID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfCompID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfCompID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_OnBehalfOfCompID
-    __del__ = lambda self : None;
-OnBehalfOfCompID_swigregister = _quickfix.OnBehalfOfCompID_swigregister
-OnBehalfOfCompID_swigregister(OnBehalfOfCompID)
-
-class OnBehalfOfSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_OnBehalfOfSubID
-    __del__ = lambda self : None;
-OnBehalfOfSubID_swigregister = _quickfix.OnBehalfOfSubID_swigregister
-OnBehalfOfSubID_swigregister(OnBehalfOfSubID)
-
-class OrigSendingTime(UtcTimeStampField):
-    __swig_setmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, OrigSendingTime, name, value)
-    __swig_getmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, OrigSendingTime, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_OrigSendingTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_OrigSendingTime
-    __del__ = lambda self : None;
-OrigSendingTime_swigregister = _quickfix.OrigSendingTime_swigregister
-OrigSendingTime_swigregister(OrigSendingTime)
-
-class GapFillFlag(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, GapFillFlag, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, GapFillFlag, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_GapFillFlag(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_GapFillFlag
-    __del__ = lambda self : None;
-GapFillFlag_swigregister = _quickfix.GapFillFlag_swigregister
-GapFillFlag_swigregister(GapFillFlag)
-
-class DeliverToCompID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToCompID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToCompID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_DeliverToCompID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DeliverToCompID
-    __del__ = lambda self : None;
-DeliverToCompID_swigregister = _quickfix.DeliverToCompID_swigregister
-DeliverToCompID_swigregister(DeliverToCompID)
-
-class DeliverToSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_DeliverToSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DeliverToSubID
-    __del__ = lambda self : None;
-DeliverToSubID_swigregister = _quickfix.DeliverToSubID_swigregister
-DeliverToSubID_swigregister(DeliverToSubID)
-
-class ResetSeqNumFlag(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ResetSeqNumFlag, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ResetSeqNumFlag, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ResetSeqNumFlag(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ResetSeqNumFlag
-    __del__ = lambda self : None;
-ResetSeqNumFlag_swigregister = _quickfix.ResetSeqNumFlag_swigregister
-ResetSeqNumFlag_swigregister(ResetSeqNumFlag)
-
-class SenderLocationID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SenderLocationID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SenderLocationID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SenderLocationID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SenderLocationID
-    __del__ = lambda self : None;
-SenderLocationID_swigregister = _quickfix.SenderLocationID_swigregister
-SenderLocationID_swigregister(SenderLocationID)
-
-class TargetLocationID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TargetLocationID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TargetLocationID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TargetLocationID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TargetLocationID
-    __del__ = lambda self : None;
-TargetLocationID_swigregister = _quickfix.TargetLocationID_swigregister
-TargetLocationID_swigregister(TargetLocationID)
-
-class OnBehalfOfLocationID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, OnBehalfOfLocationID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfLocationID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_OnBehalfOfLocationID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_OnBehalfOfLocationID
-    __del__ = lambda self : None;
-OnBehalfOfLocationID_swigregister = _quickfix.OnBehalfOfLocationID_swigregister
-OnBehalfOfLocationID_swigregister(OnBehalfOfLocationID)
-
-class DeliverToLocationID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DeliverToLocationID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, DeliverToLocationID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_DeliverToLocationID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DeliverToLocationID
-    __del__ = lambda self : None;
-DeliverToLocationID_swigregister = _quickfix.DeliverToLocationID_swigregister
-DeliverToLocationID_swigregister(DeliverToLocationID)
-
-class XmlDataLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlDataLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, XmlDataLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_XmlDataLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_XmlDataLen
-    __del__ = lambda self : None;
-XmlDataLen_swigregister = _quickfix.XmlDataLen_swigregister
-XmlDataLen_swigregister(XmlDataLen)
-
-class XmlData(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlData, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_XmlData(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_XmlData
-    __del__ = lambda self : None;
-XmlData_swigregister = _quickfix.XmlData_swigregister
-XmlData_swigregister(XmlData)
-
-class MessageEncoding(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MessageEncoding, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, MessageEncoding, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_MessageEncoding(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_MessageEncoding
-    __del__ = lambda self : None;
-MessageEncoding_swigregister = _quickfix.MessageEncoding_swigregister
-MessageEncoding_swigregister(MessageEncoding)
-
-class EncodedTextLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedTextLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EncodedTextLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EncodedTextLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EncodedTextLen
-    __del__ = lambda self : None;
-EncodedTextLen_swigregister = _quickfix.EncodedTextLen_swigregister
-EncodedTextLen_swigregister(EncodedTextLen)
-
-class EncodedText(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedText, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EncodedText, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EncodedText(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EncodedText
-    __del__ = lambda self : None;
-EncodedText_swigregister = _quickfix.EncodedText_swigregister
-EncodedText_swigregister(EncodedText)
-
-class LastMsgSeqNumProcessed(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, LastMsgSeqNumProcessed, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, LastMsgSeqNumProcessed, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_LastMsgSeqNumProcessed(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_LastMsgSeqNumProcessed
-    __del__ = lambda self : None;
-LastMsgSeqNumProcessed_swigregister = _quickfix.LastMsgSeqNumProcessed_swigregister
-LastMsgSeqNumProcessed_swigregister(LastMsgSeqNumProcessed)
-
-class RefTagID(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RefTagID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RefTagID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RefTagID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RefTagID
-    __del__ = lambda self : None;
-RefTagID_swigregister = _quickfix.RefTagID_swigregister
-RefTagID_swigregister(RefTagID)
-
-class RefMsgType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RefMsgType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RefMsgType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RefMsgType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RefMsgType
-    __del__ = lambda self : None;
-RefMsgType_swigregister = _quickfix.RefMsgType_swigregister
-RefMsgType_swigregister(RefMsgType)
-
-class SessionRejectReason(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SessionRejectReason, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SessionRejectReason, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SessionRejectReason(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SessionRejectReason
-    __del__ = lambda self : None;
-SessionRejectReason_swigregister = _quickfix.SessionRejectReason_swigregister
-SessionRejectReason_swigregister(SessionRejectReason)
-
-class MaxMessageSize(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MaxMessageSize, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, MaxMessageSize, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_MaxMessageSize(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_MaxMessageSize
-    __del__ = lambda self : None;
-MaxMessageSize_swigregister = _quickfix.MaxMessageSize_swigregister
-MaxMessageSize_swigregister(MaxMessageSize)
-
-class NoMsgTypes(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoMsgTypes, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoMsgTypes, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoMsgTypes(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoMsgTypes
-    __del__ = lambda self : None;
-NoMsgTypes_swigregister = _quickfix.NoMsgTypes_swigregister
-NoMsgTypes_swigregister(NoMsgTypes)
-
-class MsgDirection(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MsgDirection, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, MsgDirection, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_MsgDirection(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_MsgDirection
-    __del__ = lambda self : None;
-MsgDirection_swigregister = _quickfix.MsgDirection_swigregister
-MsgDirection_swigregister(MsgDirection)
-
-class TestMessageIndicator(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TestMessageIndicator, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TestMessageIndicator, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TestMessageIndicator(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TestMessageIndicator
-    __del__ = lambda self : None;
-TestMessageIndicator_swigregister = _quickfix.TestMessageIndicator_swigregister
-TestMessageIndicator_swigregister(TestMessageIndicator)
-
-class Username(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Username, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Username, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Username(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Username
-    __del__ = lambda self : None;
-Username_swigregister = _quickfix.Username_swigregister
-Username_swigregister(Username)
-
-class Password(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Password, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Password, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Password(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Password
-    __del__ = lambda self : None;
-Password_swigregister = _quickfix.Password_swigregister
-Password_swigregister(Password)
-
-class NoHops(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoHops, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoHops, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoHops(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoHops
-    __del__ = lambda self : None;
-NoHops_swigregister = _quickfix.NoHops_swigregister
-NoHops_swigregister(NoHops)
-
-class HopCompID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, HopCompID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, HopCompID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_HopCompID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_HopCompID
-    __del__ = lambda self : None;
-HopCompID_swigregister = _quickfix.HopCompID_swigregister
-HopCompID_swigregister(HopCompID)
-
-class HopSendingTime(UtcTimeStampField):
-    __swig_setmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, HopSendingTime, name, value)
-    __swig_getmethods__ = {}
-    for _s in [UtcTimeStampField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, HopSendingTime, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_HopSendingTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_HopSendingTime
-    __del__ = lambda self : None;
-HopSendingTime_swigregister = _quickfix.HopSendingTime_swigregister
-HopSendingTime_swigregister(HopSendingTime)
-
-class HopRefID(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, HopRefID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, HopRefID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_HopRefID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_HopRefID
-    __del__ = lambda self : None;
-HopRefID_swigregister = _quickfix.HopRefID_swigregister
-HopRefID_swigregister(HopRefID)
-
-class NextExpectedMsgSeqNum(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NextExpectedMsgSeqNum, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NextExpectedMsgSeqNum, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NextExpectedMsgSeqNum(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NextExpectedMsgSeqNum
-    __del__ = lambda self : None;
-NextExpectedMsgSeqNum_swigregister = _quickfix.NextExpectedMsgSeqNum_swigregister
-NextExpectedMsgSeqNum_swigregister(NextExpectedMsgSeqNum)
-
-class ApplVerID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ApplVerID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ApplVerID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ApplVerID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ApplVerID
-    __del__ = lambda self : None;
-ApplVerID_swigregister = _quickfix.ApplVerID_swigregister
-ApplVerID_swigregister(ApplVerID)
-
-class CstmApplVerID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, CstmApplVerID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, CstmApplVerID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_CstmApplVerID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_CstmApplVerID
-    __del__ = lambda self : None;
-CstmApplVerID_swigregister = _quickfix.CstmApplVerID_swigregister
-CstmApplVerID_swigregister(CstmApplVerID)
-
-class RefApplVerID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RefApplVerID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RefApplVerID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RefApplVerID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RefApplVerID
-    __del__ = lambda self : None;
-RefApplVerID_swigregister = _quickfix.RefApplVerID_swigregister
-RefApplVerID_swigregister(RefApplVerID)
-
-class RefCstmApplVerID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RefCstmApplVerID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RefCstmApplVerID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RefCstmApplVerID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RefCstmApplVerID
-    __del__ = lambda self : None;
-RefCstmApplVerID_swigregister = _quickfix.RefCstmApplVerID_swigregister
-RefCstmApplVerID_swigregister(RefCstmApplVerID)
-
-class DefaultApplVerID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DefaultApplVerID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, DefaultApplVerID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_DefaultApplVerID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DefaultApplVerID
-    __del__ = lambda self : None;
-DefaultApplVerID_swigregister = _quickfix.DefaultApplVerID_swigregister
-DefaultApplVerID_swigregister(DefaultApplVerID)
-
 class IDSource(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -20137,22 +20205,22 @@ class IDSource(StringField):
 IDSource_swigregister = _quickfix.IDSource_swigregister
 IDSource_swigregister(IDSource)
 
-class IOIOthSvc(CharField):
+class IOIid(StringField):
     __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, IOIOthSvc, name, value)
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IOIid, name, value)
     __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, IOIOthSvc, name)
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, IOIid, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_IOIOthSvc(*args)
+        this = _quickfix.new_IOIid(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_IOIOthSvc
+    __swig_destroy__ = _quickfix.delete_IOIid
     __del__ = lambda self : None;
-IOIOthSvc_swigregister = _quickfix.IOIOthSvc_swigregister
-IOIOthSvc_swigregister(IOIOthSvc)
+IOIid_swigregister = _quickfix.IOIid_swigregister
+IOIid_swigregister(IOIid)
 
 class IOIShares(StringField):
     __swig_setmethods__ = {}
@@ -20187,40 +20255,6 @@ class LastShares(DoubleField):
     __del__ = lambda self : None;
 LastShares_swigregister = _quickfix.LastShares_swigregister
 LastShares_swigregister(LastShares)
-
-class RelatdSym(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatdSym, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatdSym, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatdSym(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatdSym
-    __del__ = lambda self : None;
-RelatdSym_swigregister = _quickfix.RelatdSym_swigregister
-RelatdSym_swigregister(RelatdSym)
-
-class Rule80A(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Rule80A, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Rule80A, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Rule80A(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Rule80A
-    __del__ = lambda self : None;
-Rule80A_swigregister = _quickfix.Rule80A_swigregister
-Rule80A_swigregister(Rule80A)
 
 class Shares(DoubleField):
     __swig_setmethods__ = {}
@@ -20650,81 +20684,79 @@ BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT = cvar.BusinessRejectReason_
 BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT = cvar.BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT
 BusinessRejectReason_NOT_AUTHORIZED_TEXT = cvar.BusinessRejectReason_NOT_AUTHORIZED_TEXT
 BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT = cvar.BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT
-MsgType_BusinessMessageReject = cvar.MsgType_BusinessMessageReject
-MsgType_UserRequest = cvar.MsgType_UserRequest
-MsgType_UserResponse = cvar.MsgType_UserResponse
+MsgType_IOI = cvar.MsgType_IOI
 MsgType_Advertisement = cvar.MsgType_Advertisement
+MsgType_ExecutionReport = cvar.MsgType_ExecutionReport
+MsgType_OrderCancelReject = cvar.MsgType_OrderCancelReject
 MsgType_News = cvar.MsgType_News
 MsgType_Email = cvar.MsgType_Email
+MsgType_NewOrderSingle = cvar.MsgType_NewOrderSingle
+MsgType_NewOrderList = cvar.MsgType_NewOrderList
+MsgType_OrderCancelRequest = cvar.MsgType_OrderCancelRequest
+MsgType_OrderCancelReplaceRequest = cvar.MsgType_OrderCancelReplaceRequest
+MsgType_OrderStatusRequest = cvar.MsgType_OrderStatusRequest
+MsgType_AllocationInstruction = cvar.MsgType_AllocationInstruction
+MsgType_ListCancelRequest = cvar.MsgType_ListCancelRequest
+MsgType_ListExecute = cvar.MsgType_ListExecute
+MsgType_ListStatusRequest = cvar.MsgType_ListStatusRequest
+MsgType_ListStatus = cvar.MsgType_ListStatus
+MsgType_AllocationInstructionAck = cvar.MsgType_AllocationInstructionAck
+MsgType_DontKnowTradeDK = cvar.MsgType_DontKnowTradeDK
 MsgType_QuoteRequest = cvar.MsgType_QuoteRequest
-MsgType_QuoteResponse = cvar.MsgType_QuoteResponse
-MsgType_QuoteRequestReject = cvar.MsgType_QuoteRequestReject
-MsgType_RFQRequest = cvar.MsgType_RFQRequest
 MsgType_Quote = cvar.MsgType_Quote
-MsgType_QuoteCancel = cvar.MsgType_QuoteCancel
-MsgType_QuoteStatusRequest = cvar.MsgType_QuoteStatusRequest
-MsgType_QuoteStatusReport = cvar.MsgType_QuoteStatusReport
-MsgType_MassQuote = cvar.MsgType_MassQuote
-MsgType_MassQuoteAcknowledgement = cvar.MsgType_MassQuoteAcknowledgement
+MsgType_SettlementInstructions = cvar.MsgType_SettlementInstructions
 MsgType_MarketDataRequest = cvar.MsgType_MarketDataRequest
 MsgType_MarketDataSnapshotFullRefresh = cvar.MsgType_MarketDataSnapshotFullRefresh
 MsgType_MarketDataIncrementalRefresh = cvar.MsgType_MarketDataIncrementalRefresh
 MsgType_MarketDataRequestReject = cvar.MsgType_MarketDataRequestReject
+MsgType_QuoteCancel = cvar.MsgType_QuoteCancel
+MsgType_QuoteStatusRequest = cvar.MsgType_QuoteStatusRequest
+MsgType_MassQuoteAcknowledgement = cvar.MsgType_MassQuoteAcknowledgement
 MsgType_SecurityDefinitionRequest = cvar.MsgType_SecurityDefinitionRequest
 MsgType_SecurityDefinition = cvar.MsgType_SecurityDefinition
+MsgType_SecurityStatusRequest = cvar.MsgType_SecurityStatusRequest
+MsgType_SecurityStatus = cvar.MsgType_SecurityStatus
+MsgType_TradingSessionStatusRequest = cvar.MsgType_TradingSessionStatusRequest
+MsgType_TradingSessionStatus = cvar.MsgType_TradingSessionStatus
+MsgType_MassQuote = cvar.MsgType_MassQuote
+MsgType_BusinessMessageReject = cvar.MsgType_BusinessMessageReject
+MsgType_BidRequest = cvar.MsgType_BidRequest
+MsgType_BidResponse = cvar.MsgType_BidResponse
+MsgType_ListStrikePrice = cvar.MsgType_ListStrikePrice
+MsgType_RegistrationInstructions = cvar.MsgType_RegistrationInstructions
+MsgType_RegistrationInstructionsResponse = cvar.MsgType_RegistrationInstructionsResponse
+MsgType_OrderMassCancelRequest = cvar.MsgType_OrderMassCancelRequest
+MsgType_OrderMassCancelReport = cvar.MsgType_OrderMassCancelReport
+MsgType_NewOrderCross = cvar.MsgType_NewOrderCross
+MsgType_CrossOrderCancelReplaceRequest = cvar.MsgType_CrossOrderCancelReplaceRequest
+MsgType_CrossOrderCancelRequest = cvar.MsgType_CrossOrderCancelRequest
 MsgType_SecurityTypeRequest = cvar.MsgType_SecurityTypeRequest
 MsgType_SecurityTypes = cvar.MsgType_SecurityTypes
 MsgType_SecurityListRequest = cvar.MsgType_SecurityListRequest
 MsgType_SecurityList = cvar.MsgType_SecurityList
 MsgType_DerivativeSecurityListRequest = cvar.MsgType_DerivativeSecurityListRequest
 MsgType_DerivativeSecurityList = cvar.MsgType_DerivativeSecurityList
-MsgType_SecurityStatusRequest = cvar.MsgType_SecurityStatusRequest
-MsgType_SecurityStatus = cvar.MsgType_SecurityStatus
-MsgType_TradingSessionStatusRequest = cvar.MsgType_TradingSessionStatusRequest
-MsgType_TradingSessionStatus = cvar.MsgType_TradingSessionStatus
-MsgType_NewOrderSingle = cvar.MsgType_NewOrderSingle
-MsgType_ExecutionReport = cvar.MsgType_ExecutionReport
-MsgType_DontKnowTradeDK = cvar.MsgType_DontKnowTradeDK
-MsgType_OrderCancelReplaceRequest = cvar.MsgType_OrderCancelReplaceRequest
-MsgType_OrderCancelRequest = cvar.MsgType_OrderCancelRequest
-MsgType_OrderCancelReject = cvar.MsgType_OrderCancelReject
-MsgType_OrderStatusRequest = cvar.MsgType_OrderStatusRequest
-MsgType_OrderMassCancelRequest = cvar.MsgType_OrderMassCancelRequest
-MsgType_OrderMassCancelReport = cvar.MsgType_OrderMassCancelReport
-MsgType_OrderMassStatusRequest = cvar.MsgType_OrderMassStatusRequest
-MsgType_NewOrderCross = cvar.MsgType_NewOrderCross
-MsgType_CrossOrderCancelReplaceRequest = cvar.MsgType_CrossOrderCancelReplaceRequest
-MsgType_CrossOrderCancelRequest = cvar.MsgType_CrossOrderCancelRequest
 MsgType_NewOrderMultileg = cvar.MsgType_NewOrderMultileg
 MsgType_MultilegOrderCancelReplace = cvar.MsgType_MultilegOrderCancelReplace
-MsgType_BidRequest = cvar.MsgType_BidRequest
-MsgType_BidResponse = cvar.MsgType_BidResponse
-MsgType_NewOrderList = cvar.MsgType_NewOrderList
-MsgType_ListStrikePrice = cvar.MsgType_ListStrikePrice
-MsgType_ListStatus = cvar.MsgType_ListStatus
-MsgType_ListExecute = cvar.MsgType_ListExecute
-MsgType_ListCancelRequest = cvar.MsgType_ListCancelRequest
-MsgType_ListStatusRequest = cvar.MsgType_ListStatusRequest
-MsgType_AllocationInstruction = cvar.MsgType_AllocationInstruction
-MsgType_AllocationInstructionAck = cvar.MsgType_AllocationInstructionAck
-MsgType_AllocationReport = cvar.MsgType_AllocationReport
-MsgType_AllocationReportAck = cvar.MsgType_AllocationReportAck
-MsgType_Confirmation = cvar.MsgType_Confirmation
-MsgType_Confirmation_Ack = cvar.MsgType_Confirmation_Ack
-MsgType_ConfirmationRequest = cvar.MsgType_ConfirmationRequest
-MsgType_SettlementInstructions = cvar.MsgType_SettlementInstructions
-MsgType_SettlementInstructionRequest = cvar.MsgType_SettlementInstructionRequest
 MsgType_TradeCaptureReportRequest = cvar.MsgType_TradeCaptureReportRequest
-MsgType_TradeCaptureReportRequestAck = cvar.MsgType_TradeCaptureReportRequestAck
 MsgType_TradeCaptureReport = cvar.MsgType_TradeCaptureReport
-MsgType_TradeCaptureReportAck = cvar.MsgType_TradeCaptureReportAck
-MsgType_RegistrationInstructions = cvar.MsgType_RegistrationInstructions
-MsgType_RegistrationInstructionsResponse = cvar.MsgType_RegistrationInstructionsResponse
+MsgType_OrderMassStatusRequest = cvar.MsgType_OrderMassStatusRequest
+MsgType_QuoteRequestReject = cvar.MsgType_QuoteRequestReject
+MsgType_RFQRequest = cvar.MsgType_RFQRequest
+MsgType_QuoteStatusReport = cvar.MsgType_QuoteStatusReport
+MsgType_QuoteResponse = cvar.MsgType_QuoteResponse
+MsgType_Confirmation = cvar.MsgType_Confirmation
 MsgType_PositionMaintenanceRequest = cvar.MsgType_PositionMaintenanceRequest
 MsgType_PositionMaintenanceReport = cvar.MsgType_PositionMaintenanceReport
 MsgType_RequestForPositions = cvar.MsgType_RequestForPositions
 MsgType_RequestForPositionsAck = cvar.MsgType_RequestForPositionsAck
 MsgType_PositionReport = cvar.MsgType_PositionReport
+MsgType_TradeCaptureReportRequestAck = cvar.MsgType_TradeCaptureReportRequestAck
+MsgType_TradeCaptureReportAck = cvar.MsgType_TradeCaptureReportAck
+MsgType_AllocationReport = cvar.MsgType_AllocationReport
+MsgType_AllocationReportAck = cvar.MsgType_AllocationReportAck
+MsgType_Confirmation_Ack = cvar.MsgType_Confirmation_Ack
+MsgType_SettlementInstructionRequest = cvar.MsgType_SettlementInstructionRequest
 MsgType_AssignmentReport = cvar.MsgType_AssignmentReport
 MsgType_CollateralRequest = cvar.MsgType_CollateralRequest
 MsgType_CollateralAssignment = cvar.MsgType_CollateralAssignment
@@ -20733,7 +20765,10 @@ MsgType_CollateralReport = cvar.MsgType_CollateralReport
 MsgType_CollateralInquiry = cvar.MsgType_CollateralInquiry
 MsgType_NetworkCounterpartySystemStatusRequest = cvar.MsgType_NetworkCounterpartySystemStatusRequest
 MsgType_NetworkCounterpartySystemStatusResponse = cvar.MsgType_NetworkCounterpartySystemStatusResponse
+MsgType_UserRequest = cvar.MsgType_UserRequest
+MsgType_UserResponse = cvar.MsgType_UserResponse
 MsgType_CollateralInquiryAck = cvar.MsgType_CollateralInquiryAck
+MsgType_ConfirmationRequest = cvar.MsgType_ConfirmationRequest
 MsgType_ContraryIntentionReport = cvar.MsgType_ContraryIntentionReport
 MsgType_SecurityDefinitionUpdateReport = cvar.MsgType_SecurityDefinitionUpdateReport
 MsgType_SecurityListUpdateReport = cvar.MsgType_SecurityListUpdateReport
@@ -20742,74 +20777,73 @@ MsgType_AllocationInstructionAlert = cvar.MsgType_AllocationInstructionAlert
 MsgType_ExecutionAcknowledgement = cvar.MsgType_ExecutionAcknowledgement
 MsgType_TradingSessionList = cvar.MsgType_TradingSessionList
 MsgType_TradingSessionListRequest = cvar.MsgType_TradingSessionListRequest
-MsgType_IndicationOfInterest = cvar.MsgType_IndicationOfInterest
 AdvSide_BUY = cvar.AdvSide_BUY
 AdvSide_SELL = cvar.AdvSide_SELL
-AdvSide_CROSS = cvar.AdvSide_CROSS
 AdvSide_TRADE = cvar.AdvSide_TRADE
-AdvTransType_NEW = cvar.AdvTransType_NEW
+AdvSide_CROSS = cvar.AdvSide_CROSS
 AdvTransType_CANCEL = cvar.AdvTransType_CANCEL
+AdvTransType_NEW = cvar.AdvTransType_NEW
 AdvTransType_REPLACE = cvar.AdvTransType_REPLACE
 CommType_PER_UNIT = cvar.CommType_PER_UNIT
-CommType_PERCENTAGE = cvar.CommType_PERCENTAGE
+CommType_PERCENT = cvar.CommType_PERCENT
 CommType_ABSOLUTE = cvar.CommType_ABSOLUTE
-CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT = cvar.CommType_PERCENTAGE_WAIVED_CASH_DISCOUNT
-CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS = cvar.CommType_PERCENTAGE_WAIVED_ENHANCED_UNITS
-CommType_POINTS_PER_BOND_OR_OR_CONTRACT = cvar.CommType_POINTS_PER_BOND_OR_OR_CONTRACT
-ExecInst_STAY_ON_OFFERSIDE = cvar.ExecInst_STAY_ON_OFFERSIDE
+CommType_PERCENTAGE_WAIVED_4 = cvar.CommType_PERCENTAGE_WAIVED_4
+CommType_PERCENTAGE_WAIVED_5 = cvar.CommType_PERCENTAGE_WAIVED_5
+CommType_POINTS_PER_BOND_OR_CONTRACT = cvar.CommType_POINTS_PER_BOND_OR_CONTRACT
+ExecInst_STAY_ON_OFFER_SIDE = cvar.ExecInst_STAY_ON_OFFER_SIDE
 ExecInst_NOT_HELD = cvar.ExecInst_NOT_HELD
 ExecInst_WORK = cvar.ExecInst_WORK
 ExecInst_GO_ALONG = cvar.ExecInst_GO_ALONG
 ExecInst_OVER_THE_DAY = cvar.ExecInst_OVER_THE_DAY
 ExecInst_HELD = cvar.ExecInst_HELD
-ExecInst_PARTICIPATE_DONT_INITIATE = cvar.ExecInst_PARTICIPATE_DONT_INITIATE
+ExecInst_PARTICIPANT_DONT_INITIATE = cvar.ExecInst_PARTICIPANT_DONT_INITIATE
 ExecInst_STRICT_SCALE = cvar.ExecInst_STRICT_SCALE
 ExecInst_TRY_TO_SCALE = cvar.ExecInst_TRY_TO_SCALE
-ExecInst_STAY_ON_BIDSIDE = cvar.ExecInst_STAY_ON_BIDSIDE
+ExecInst_STAY_ON_BID_SIDE = cvar.ExecInst_STAY_ON_BID_SIDE
 ExecInst_NO_CROSS = cvar.ExecInst_NO_CROSS
+ExecInst_TRAILING_STOP_PEG = cvar.ExecInst_TRAILING_STOP_PEG
 ExecInst_OK_TO_CROSS = cvar.ExecInst_OK_TO_CROSS
+ExecInst_STRICT_LIMIT = cvar.ExecInst_STRICT_LIMIT
+ExecInst_IGNORE_PRICE_VALIDITY_CHECKS = cvar.ExecInst_IGNORE_PRICE_VALIDITY_CHECKS
 ExecInst_CALL_FIRST = cvar.ExecInst_CALL_FIRST
+ExecInst_PEG_TO_LIMIT_PRICE = cvar.ExecInst_PEG_TO_LIMIT_PRICE
 ExecInst_PERCENT_OF_VOLUME = cvar.ExecInst_PERCENT_OF_VOLUME
 ExecInst_DO_NOT_INCREASE = cvar.ExecInst_DO_NOT_INCREASE
+ExecInst_WORK_TO_TARGET_STRATEGY = cvar.ExecInst_WORK_TO_TARGET_STRATEGY
 ExecInst_DO_NOT_REDUCE = cvar.ExecInst_DO_NOT_REDUCE
 ExecInst_ALL_OR_NONE = cvar.ExecInst_ALL_OR_NONE
-ExecInst_REINSTATE_ON_SYSTEM_FAILURE = cvar.ExecInst_REINSTATE_ON_SYSTEM_FAILURE
+ExecInst_REINSTATE_ON_SYSTEM_FAILUE = cvar.ExecInst_REINSTATE_ON_SYSTEM_FAILUE
 ExecInst_INSTITUTIONS_ONLY = cvar.ExecInst_INSTITUTIONS_ONLY
 ExecInst_REINSTATE_ON_TRADING_HALT = cvar.ExecInst_REINSTATE_ON_TRADING_HALT
 ExecInst_CANCEL_ON_TRADING_HALT = cvar.ExecInst_CANCEL_ON_TRADING_HALT
 ExecInst_LAST_PEG = cvar.ExecInst_LAST_PEG
-ExecInst_MID_PRICE = cvar.ExecInst_MID_PRICE
+ExecInst_MID_PRICE_PEG = cvar.ExecInst_MID_PRICE_PEG
 ExecInst_NON_NEGOTIABLE = cvar.ExecInst_NON_NEGOTIABLE
 ExecInst_OPENING_PEG = cvar.ExecInst_OPENING_PEG
 ExecInst_MARKET_PEG = cvar.ExecInst_MARKET_PEG
 ExecInst_CANCEL_ON_SYSTEM_FAILURE = cvar.ExecInst_CANCEL_ON_SYSTEM_FAILURE
 ExecInst_PRIMARY_PEG = cvar.ExecInst_PRIMARY_PEG
 ExecInst_SUSPEND = cvar.ExecInst_SUSPEND
-ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER = cvar.ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER
 ExecInst_CUSTOMER_DISPLAY_INSTRUCTION = cvar.ExecInst_CUSTOMER_DISPLAY_INSTRUCTION
 ExecInst_NETTING = cvar.ExecInst_NETTING
 ExecInst_PEG_TO_VWAP = cvar.ExecInst_PEG_TO_VWAP
 ExecInst_TRADE_ALONG = cvar.ExecInst_TRADE_ALONG
 ExecInst_TRY_TO_STOP = cvar.ExecInst_TRY_TO_STOP
 ExecInst_CANCEL_IF_NOT_BEST = cvar.ExecInst_CANCEL_IF_NOT_BEST
-ExecInst_TRAILING_STOP_PEG = cvar.ExecInst_TRAILING_STOP_PEG
-ExecInst_STRICT_LIMIT = cvar.ExecInst_STRICT_LIMIT
-ExecInst_IGNORE_PRICE_VALIDITY_CHECKS = cvar.ExecInst_IGNORE_PRICE_VALIDITY_CHECKS
-ExecInst_PEG_TO_LIMIT_PRICE = cvar.ExecInst_PEG_TO_LIMIT_PRICE
-ExecInst_WORK_TO_TARGET_STRATEGY = cvar.ExecInst_WORK_TO_TARGET_STRATEGY
 ExecInst_INTERMARKET_SWEEP = cvar.ExecInst_INTERMARKET_SWEEP
+ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE = cvar.ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE
 ExecInst_EXTERNAL_ROUTING_ALLOWED = cvar.ExecInst_EXTERNAL_ROUTING_ALLOWED
 ExecInst_EXTERNAL_ROUTING_NOT_ALLOWED = cvar.ExecInst_EXTERNAL_ROUTING_NOT_ALLOWED
 ExecInst_IMBALANCE_ONLY = cvar.ExecInst_IMBALANCE_ONLY
-ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE = cvar.ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE
+ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER = cvar.ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER
 ExecInst_BEST_EXECUTION = cvar.ExecInst_BEST_EXECUTION
 ExecTransType_NEW = cvar.ExecTransType_NEW
 ExecTransType_CANCEL = cvar.ExecTransType_CANCEL
 ExecTransType_CORRECT = cvar.ExecTransType_CORRECT
 ExecTransType_STATUS = cvar.ExecTransType_STATUS
-HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE
-HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC
-HandlInst_MANUAL_ORDER = cvar.HandlInst_MANUAL_ORDER
+HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION
+HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK
+HandlInst_MANUAL_ORDER_BEST_EXECUTION = cvar.HandlInst_MANUAL_ORDER_BEST_EXECUTION
 SecurityIDSource_CUSIP = cvar.SecurityIDSource_CUSIP
 SecurityIDSource_SEDOL = cvar.SecurityIDSource_SEDOL
 SecurityIDSource_QUIK = cvar.SecurityIDSource_QUIK
@@ -20826,21 +20860,21 @@ SecurityIDSource_VALOREN = cvar.SecurityIDSource_VALOREN
 SecurityIDSource_SICOVAM = cvar.SecurityIDSource_SICOVAM
 SecurityIDSource_BELGIAN = cvar.SecurityIDSource_BELGIAN
 SecurityIDSource_COMMON = cvar.SecurityIDSource_COMMON
-SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION = cvar.SecurityIDSource_CLEARING_HOUSE_CLEARING_ORGANIZATION
+SecurityIDSource_CLEARING_HOUSE = cvar.SecurityIDSource_CLEARING_HOUSE
 SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION
-SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY = cvar.SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY
-SecurityIDSource_ISDA_FPML_PRODUCT_URL = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_URL
+SecurityIDSource_OPTION_PRICE_REPORTING_AUTHORITY = cvar.SecurityIDSource_OPTION_PRICE_REPORTING_AUTHORITY
 SecurityIDSource_LETTER_OF_CREDIT = cvar.SecurityIDSource_LETTER_OF_CREDIT
+SecurityIDSource_ISDA_FPML_PRODUCT_URL = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_URL
+IOIQltyInd_HIGH = cvar.IOIQltyInd_HIGH
 IOIQltyInd_LOW = cvar.IOIQltyInd_LOW
 IOIQltyInd_MEDIUM = cvar.IOIQltyInd_MEDIUM
-IOIQltyInd_HIGH = cvar.IOIQltyInd_HIGH
-IOIQty__1000000000 = cvar.IOIQty__1000000000
+IOIQty_1000000000 = cvar.IOIQty_1000000000
 IOIQty_SMALL = cvar.IOIQty_SMALL
 IOIQty_MEDIUM = cvar.IOIQty_MEDIUM
 IOIQty_LARGE = cvar.IOIQty_LARGE
 IOIQty_UNDISCLOSED_QUANTITY = cvar.IOIQty_UNDISCLOSED_QUANTITY
-IOITransType_NEW = cvar.IOITransType_NEW
 IOITransType_CANCEL = cvar.IOITransType_CANCEL
+IOITransType_NEW = cvar.IOITransType_NEW
 IOITransType_REPLACE = cvar.IOITransType_REPLACE
 LastCapacity_AGENT = cvar.LastCapacity_AGENT
 LastCapacity_CROSS_AS_AGENT = cvar.LastCapacity_CROSS_AS_AGENT
@@ -20851,7 +20885,6 @@ OrdStatus_PARTIALLY_FILLED = cvar.OrdStatus_PARTIALLY_FILLED
 OrdStatus_FILLED = cvar.OrdStatus_FILLED
 OrdStatus_DONE_FOR_DAY = cvar.OrdStatus_DONE_FOR_DAY
 OrdStatus_CANCELED = cvar.OrdStatus_CANCELED
-OrdStatus_REPLACED = cvar.OrdStatus_REPLACED
 OrdStatus_PENDING_CANCEL = cvar.OrdStatus_PENDING_CANCEL
 OrdStatus_STOPPED = cvar.OrdStatus_STOPPED
 OrdStatus_REJECTED = cvar.OrdStatus_REJECTED
@@ -20861,6 +20894,7 @@ OrdStatus_CALCULATED = cvar.OrdStatus_CALCULATED
 OrdStatus_EXPIRED = cvar.OrdStatus_EXPIRED
 OrdStatus_ACCEPTED_FOR_BIDDING = cvar.OrdStatus_ACCEPTED_FOR_BIDDING
 OrdStatus_PENDING_REPLACE = cvar.OrdStatus_PENDING_REPLACE
+OrdStatus_REPLACED = cvar.OrdStatus_REPLACED
 OrdType_MARKET = cvar.OrdType_MARKET
 OrdType_LIMIT = cvar.OrdType_LIMIT
 OrdType_STOP = cvar.OrdType_STOP
@@ -20880,11 +20914,34 @@ OrdType_FOREX_SWAP = cvar.OrdType_FOREX_SWAP
 OrdType_FOREX_PREVIOUSLY_QUOTED = cvar.OrdType_FOREX_PREVIOUSLY_QUOTED
 OrdType_FUNARI = cvar.OrdType_FUNARI
 OrdType_MARKET_IF_TOUCHED = cvar.OrdType_MARKET_IF_TOUCHED
-OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT = cvar.OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT
+OrdType_MARKET_WITH_LEFT_OVER_AS_LIMIT = cvar.OrdType_MARKET_WITH_LEFT_OVER_AS_LIMIT
 OrdType_PREVIOUS_FUND_VALUATION_POINT = cvar.OrdType_PREVIOUS_FUND_VALUATION_POINT
 OrdType_NEXT_FUND_VALUATION_POINT = cvar.OrdType_NEXT_FUND_VALUATION_POINT
 OrdType_PEGGED = cvar.OrdType_PEGGED
 OrdType_COUNTER_ORDER_SELECTION = cvar.OrdType_COUNTER_ORDER_SELECTION
+Rule80A_AGENCY_SINGLE_ORDER = cvar.Rule80A_AGENCY_SINGLE_ORDER
+Rule80A_SHORT_EXEMPT_TRANSACTION_B = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_B
+Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM_ORG = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM_ORG
+Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM_ORG = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM_ORG
+Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL
+Rule80A_SHORT_EXEMPT_TRANSACTION_F = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_F
+Rule80A_SHORT_EXEMPT_TRANSACTION_H = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_H
+Rule80A_INDIVIDUAL_INVESTOR_SINGLE_ORDER = cvar.Rule80A_INDIVIDUAL_INVESTOR_SINGLE_ORDER
+Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
+Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
+Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFLIATED_WITH_THE_FIRM_CLEARING_THE_TRADE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFLIATED_WITH_THE_FIRM_CLEARING_THE_TRADE
+Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER
+Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER
+Rule80A_PROPRIETARY_TRANSACTIONS_FOR_COMPETING_MARKET_MAKER_THAT_IS_AFFILIATED_WITH_THE_CLEARING_MEMBER = cvar.Rule80A_PROPRIETARY_TRANSACTIONS_FOR_COMPETING_MARKET_MAKER_THAT_IS_AFFILIATED_WITH_THE_CLEARING_MEMBER
+Rule80A_PRINCIPAL = cvar.Rule80A_PRINCIPAL
+Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPTING_MARKET_MAKER = cvar.Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPTING_MARKET_MAKER
+Rule80A_SPECIALIST_TRADES = cvar.Rule80A_SPECIALIST_TRADES
+Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_AN_UNAFFILIATED_MEMBERS_COMPETING_MARKET_MAKER = cvar.Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_AN_UNAFFILIATED_MEMBERS_COMPETING_MARKET_MAKER
+Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY
+Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = cvar.Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER
+Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_NOT_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_NOT_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE
+Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY
+Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_NON_MEMBER_COMPETING_MARKET_MAKER = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_NON_MEMBER_COMPETING_MARKET_MAKER
 Side_BUY = cvar.Side_BUY
 Side_SELL = cvar.Side_SELL
 Side_BUY_MINUS = cvar.Side_BUY_MINUS
@@ -20894,7 +20951,7 @@ Side_SELL_SHORT_EXEMPT = cvar.Side_SELL_SHORT_EXEMPT
 Side_UNDISCLOSED = cvar.Side_UNDISCLOSED
 Side_CROSS = cvar.Side_CROSS
 Side_CROSS_SHORT = cvar.Side_CROSS_SHORT
-Side_CROSS_SHORT_EXEMPT = cvar.Side_CROSS_SHORT_EXEMPT
+Side_CROSS_SHORT_EXXMPT = cvar.Side_CROSS_SHORT_EXXMPT
 Side_AS_DEFINED = cvar.Side_AS_DEFINED
 Side_OPPOSITE = cvar.Side_OPPOSITE
 Side_SUBSCRIBE = cvar.Side_SUBSCRIBE
@@ -20924,8 +20981,8 @@ SettlType_SELLERS_OPTION = cvar.SettlType_SELLERS_OPTION
 SettlType_T_PLUS_5 = cvar.SettlType_T_PLUS_5
 SettlType_FX_SPOT_NEXT_SETTLEMENT = cvar.SettlType_FX_SPOT_NEXT_SETTLEMENT
 SettlType_BROKEN_DATE = cvar.SettlType_BROKEN_DATE
-SymbolSfx_WHEN_ISSUED = cvar.SymbolSfx_WHEN_ISSUED
-SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST = cvar.SymbolSfx_A_EUCP_WITH_LUMP_SUM_INTEREST
+SymbolSfx_EUCP_WITH_LUMP_SUM_INTEREST_RATHER_THAN_DISCOUNT_PRICE = cvar.SymbolSfx_EUCP_WITH_LUMP_SUM_INTEREST_RATHER_THAN_DISCOUNT_PRICE
+SymbolSfx_WHEN_ISSUED_FOR_A_SECURITY_TO_BE_REISSUED_UNDER_AN_OLD_CUSIP_OR_ISIN = cvar.SymbolSfx_WHEN_ISSUED_FOR_A_SECURITY_TO_BE_REISSUED_UNDER_AN_OLD_CUSIP_OR_ISIN
 AllocTransType_NEW = cvar.AllocTransType_NEW
 AllocTransType_REPLACE = cvar.AllocTransType_REPLACE
 AllocTransType_CANCEL = cvar.AllocTransType_CANCEL
@@ -20933,10 +20990,10 @@ AllocTransType_PRELIMINARY = cvar.AllocTransType_PRELIMINARY
 AllocTransType_CALCULATED = cvar.AllocTransType_CALCULATED
 AllocTransType_CALCULATED_WITHOUT_PRELIMINARY = cvar.AllocTransType_CALCULATED_WITHOUT_PRELIMINARY
 AllocTransType_REVERSAL = cvar.AllocTransType_REVERSAL
-PositionEffect_OPEN = cvar.PositionEffect_OPEN
 PositionEffect_CLOSE = cvar.PositionEffect_CLOSE
-PositionEffect_ROLLED = cvar.PositionEffect_ROLLED
 PositionEffect_FIFO = cvar.PositionEffect_FIFO
+PositionEffect_OPEN = cvar.PositionEffect_OPEN
+PositionEffect_ROLLED = cvar.PositionEffect_ROLLED
 ProcessCode_REGULAR = cvar.ProcessCode_REGULAR
 ProcessCode_SOFT_DOLLAR = cvar.ProcessCode_SOFT_DOLLAR
 ProcessCode_STEP_IN = cvar.ProcessCode_STEP_IN
@@ -20954,7 +21011,11 @@ AllocStatus_ALLOCATION_PENDING = cvar.AllocStatus_ALLOCATION_PENDING
 AllocStatus_REVERSED = cvar.AllocStatus_REVERSED
 AllocRejCode_UNKNOWN_ACCOUNT = cvar.AllocRejCode_UNKNOWN_ACCOUNT
 AllocRejCode_INCORRECT_QUANTITY = cvar.AllocRejCode_INCORRECT_QUANTITY
-AllocRejCode_INCORRECT_AVERAGE_PRICE = cvar.AllocRejCode_INCORRECT_AVERAGE_PRICE
+AllocRejCode_UNKNOWN_OR_STALE_EXECID = cvar.AllocRejCode_UNKNOWN_OR_STALE_EXECID
+AllocRejCode_MISMATCHED_DATA = cvar.AllocRejCode_MISMATCHED_DATA
+AllocRejCode_UNKNOWN_CLORDID = cvar.AllocRejCode_UNKNOWN_CLORDID
+AllocRejCode_WAREHOUSE_REQUEST_REJECTED = cvar.AllocRejCode_WAREHOUSE_REQUEST_REJECTED
+AllocRejCode_INCORRECT_AVERAGEG_PRICE = cvar.AllocRejCode_INCORRECT_AVERAGEG_PRICE
 AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC = cvar.AllocRejCode_UNKNOWN_EXECUTING_BROKER_MNEMONIC
 AllocRejCode_COMMISSION_DIFFERENCE = cvar.AllocRejCode_COMMISSION_DIFFERENCE
 AllocRejCode_UNKNOWN_ORDERID = cvar.AllocRejCode_UNKNOWN_ORDERID
@@ -20962,24 +21023,26 @@ AllocRejCode_UNKNOWN_LISTID = cvar.AllocRejCode_UNKNOWN_LISTID
 AllocRejCode_OTHER = cvar.AllocRejCode_OTHER
 AllocRejCode_INCORRECT_ALLOCATED_QUANTITY = cvar.AllocRejCode_INCORRECT_ALLOCATED_QUANTITY
 AllocRejCode_CALCULATION_DIFFERENCE = cvar.AllocRejCode_CALCULATION_DIFFERENCE
-AllocRejCode_UNKNOWN_OR_STALE_EXEC_ID = cvar.AllocRejCode_UNKNOWN_OR_STALE_EXEC_ID
-AllocRejCode_MISMATCHED_DATA_VALUE = cvar.AllocRejCode_MISMATCHED_DATA_VALUE
-AllocRejCode_UNKNOWN_CLORDID = cvar.AllocRejCode_UNKNOWN_CLORDID
-AllocRejCode_WAREHOUSE_REQUEST_REJECTED = cvar.AllocRejCode_WAREHOUSE_REQUEST_REJECTED
 EmailType_NEW = cvar.EmailType_NEW
 EmailType_REPLY = cvar.EmailType_REPLY
 EmailType_ADMIN_REPLY = cvar.EmailType_ADMIN_REPLY
 CxlRejReason_TOO_LATE_TO_CANCEL = cvar.CxlRejReason_TOO_LATE_TO_CANCEL
 CxlRejReason_UNKNOWN_ORDER = cvar.CxlRejReason_UNKNOWN_ORDER
-CxlRejReason_BROKER_EXCHANGE_OPTION = cvar.CxlRejReason_BROKER_EXCHANGE_OPTION
+CxlRejReason_BROKER = cvar.CxlRejReason_BROKER
 CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS = cvar.CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS
 CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = cvar.CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST
-CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = cvar.CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER
-CxlRejReason_DUPLICATE_CLORDID_RECEIVED = cvar.CxlRejReason_DUPLICATE_CLORDID_RECEIVED
-CxlRejReason_INVALID_PRICE_INCREMENT = cvar.CxlRejReason_INVALID_PRICE_INCREMENT
+CxlRejReason_ORIGORDMODTIME = cvar.CxlRejReason_ORIGORDMODTIME
+CxlRejReason_DUPLICATE_CLORDID = cvar.CxlRejReason_DUPLICATE_CLORDID
 CxlRejReason_OTHER = cvar.CxlRejReason_OTHER
-OrdRejReason_BROKER_EXCHANGE_OPTION = cvar.OrdRejReason_BROKER_EXCHANGE_OPTION
+CxlRejReason_INVALID_PRICE_INCREMENT = cvar.CxlRejReason_INVALID_PRICE_INCREMENT
+OrdRejReason_BROKER = cvar.OrdRejReason_BROKER
 OrdRejReason_UNKNOWN_SYMBOL = cvar.OrdRejReason_UNKNOWN_SYMBOL
+OrdRejReason_INVALID_INVESTOR_ID = cvar.OrdRejReason_INVALID_INVESTOR_ID
+OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC = cvar.OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC
+OrdRejReason_SURVEILLENCE_OPTION = cvar.OrdRejReason_SURVEILLENCE_OPTION
+OrdRejReason_INCORRECT_QUANTITY = cvar.OrdRejReason_INCORRECT_QUANTITY
+OrdRejReason_INCORRECT_ALLOCATED_QUANTITY = cvar.OrdRejReason_INCORRECT_ALLOCATED_QUANTITY
+OrdRejReason_UNKNOWN_ACCOUNT = cvar.OrdRejReason_UNKNOWN_ACCOUNT
 OrdRejReason_EXCHANGE_CLOSED = cvar.OrdRejReason_EXCHANGE_CLOSED
 OrdRejReason_ORDER_EXCEEDS_LIMIT = cvar.OrdRejReason_ORDER_EXCEEDS_LIMIT
 OrdRejReason_TOO_LATE_TO_ENTER = cvar.OrdRejReason_TOO_LATE_TO_ENTER
@@ -20988,14 +21051,8 @@ OrdRejReason_DUPLICATE_ORDER = cvar.OrdRejReason_DUPLICATE_ORDER
 OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER = cvar.OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER
 OrdRejReason_STALE_ORDER = cvar.OrdRejReason_STALE_ORDER
 OrdRejReason_TRADE_ALONG_REQUIRED = cvar.OrdRejReason_TRADE_ALONG_REQUIRED
-OrdRejReason_INVALID_INVESTOR_ID = cvar.OrdRejReason_INVALID_INVESTOR_ID
-OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC = cvar.OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC
-OrdRejReason_SURVEILLENCE_OPTION = cvar.OrdRejReason_SURVEILLENCE_OPTION
-OrdRejReason_INCORRECT_QUANTITY = cvar.OrdRejReason_INCORRECT_QUANTITY
-OrdRejReason_INCORRECT_ALLOCATED_QUANTITY = cvar.OrdRejReason_INCORRECT_ALLOCATED_QUANTITY
-OrdRejReason_UNKNOWN_ACCOUNT = cvar.OrdRejReason_UNKNOWN_ACCOUNT
-OrdRejReason_INVALID_PRICE_INCREMENT = cvar.OrdRejReason_INVALID_PRICE_INCREMENT
 OrdRejReason_OTHER = cvar.OrdRejReason_OTHER
+OrdRejReason_INVALID_PRICE_INCREMENT = cvar.OrdRejReason_INVALID_PRICE_INCREMENT
 IOIQualifier_ALL_OR_NONE = cvar.IOIQualifier_ALL_OR_NONE
 IOIQualifier_MARKET_ON_CLOSE = cvar.IOIQualifier_MARKET_ON_CLOSE
 IOIQualifier_AT_THE_CLOSE = cvar.IOIQualifier_AT_THE_CLOSE
@@ -21010,12 +21067,16 @@ IOIQualifier_READY_TO_TRADE = cvar.IOIQualifier_READY_TO_TRADE
 IOIQualifier_PORTFOLIO_SHOWN = cvar.IOIQualifier_PORTFOLIO_SHOWN
 IOIQualifier_THROUGH_THE_DAY = cvar.IOIQualifier_THROUGH_THE_DAY
 IOIQualifier_VERSUS = cvar.IOIQualifier_VERSUS
-IOIQualifier_INDICATION_WORKING_AWAY = cvar.IOIQualifier_INDICATION_WORKING_AWAY
+IOIQualifier_INDIDCATION = cvar.IOIQualifier_INDIDCATION
 IOIQualifier_CROSSING_OPPORTUNITY = cvar.IOIQualifier_CROSSING_OPPORTUNITY
 IOIQualifier_AT_THE_MIDPOINT = cvar.IOIQualifier_AT_THE_MIDPOINT
 IOIQualifier_PRE_OPEN = cvar.IOIQualifier_PRE_OPEN
-CxlType_PARTIAL_CANCEL = cvar.CxlType_PARTIAL_CANCEL
-CxlType_FULL_REMAINING_QUANTITY = cvar.CxlType_FULL_REMAINING_QUANTITY
+ReportToExch_NO = cvar.ReportToExch_NO
+ReportToExch_YES = cvar.ReportToExch_YES
+LocateReqd_NO = cvar.LocateReqd_NO
+LocateReqd_YES = cvar.LocateReqd_YES
+ForexReq_NO = cvar.ForexReq_NO
+ForexReq_YES = cvar.ForexReq_YES
 DKReason_UNKNOWN_SYMBOL = cvar.DKReason_UNKNOWN_SYMBOL
 DKReason_WRONG_SIDE = cvar.DKReason_WRONG_SIDE
 DKReason_QUANTITY_EXCEEDS_ORDER = cvar.DKReason_QUANTITY_EXCEEDS_ORDER
@@ -21023,7 +21084,12 @@ DKReason_NO_MATCHING_ORDER = cvar.DKReason_NO_MATCHING_ORDER
 DKReason_PRICE_EXCEEDS_LIMIT = cvar.DKReason_PRICE_EXCEEDS_LIMIT
 DKReason_CALCULATION_DIFFERENCE = cvar.DKReason_CALCULATION_DIFFERENCE
 DKReason_OTHER = cvar.DKReason_OTHER
+IOINaturalFlag_NO = cvar.IOINaturalFlag_NO
+IOINaturalFlag_YES = cvar.IOINaturalFlag_YES
 MiscFeeType_REGULATORY = cvar.MiscFeeType_REGULATORY
+MiscFeeType_PER_TRANSACTION = cvar.MiscFeeType_PER_TRANSACTION
+MiscFeeType_CONVERSION = cvar.MiscFeeType_CONVERSION
+MiscFeeType_AGENT = cvar.MiscFeeType_AGENT
 MiscFeeType_TAX = cvar.MiscFeeType_TAX
 MiscFeeType_LOCAL_COMMISSION = cvar.MiscFeeType_LOCAL_COMMISSION
 MiscFeeType_EXCHANGE_FEES = cvar.MiscFeeType_EXCHANGE_FEES
@@ -21032,17 +21098,12 @@ MiscFeeType_LEVY = cvar.MiscFeeType_LEVY
 MiscFeeType_OTHER = cvar.MiscFeeType_OTHER
 MiscFeeType_MARKUP = cvar.MiscFeeType_MARKUP
 MiscFeeType_CONSUMPTION_TAX = cvar.MiscFeeType_CONSUMPTION_TAX
-MiscFeeType_PER_TRANSACTION = cvar.MiscFeeType_PER_TRANSACTION
-MiscFeeType_CONVERSION = cvar.MiscFeeType_CONVERSION
-MiscFeeType_AGENT = cvar.MiscFeeType_AGENT
 MiscFeeType_TRANSFER_FEE = cvar.MiscFeeType_TRANSFER_FEE
 MiscFeeType_SECURITY_LENDING = cvar.MiscFeeType_SECURITY_LENDING
 ExecType_NEW = cvar.ExecType_NEW
-ExecType_PARTIAL_FILL = cvar.ExecType_PARTIAL_FILL
-ExecType_FILL = cvar.ExecType_FILL
 ExecType_DONE_FOR_DAY = cvar.ExecType_DONE_FOR_DAY
 ExecType_CANCELED = cvar.ExecType_CANCELED
-ExecType_REPLACE = cvar.ExecType_REPLACE
+ExecType_REPLACED = cvar.ExecType_REPLACED
 ExecType_PENDING_CANCEL = cvar.ExecType_PENDING_CANCEL
 ExecType_STOPPED = cvar.ExecType_STOPPED
 ExecType_REJECTED = cvar.ExecType_REJECTED
@@ -21067,8 +21128,8 @@ SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING = cvar.SettlInstMode_SPECIF
 SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_STANDING = cvar.SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_STANDING
 SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT = cvar.SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT
 SettlInstMode_REQUEST_REJECT = cvar.SettlInstMode_REQUEST_REJECT
-SettlInstTransType_NEW = cvar.SettlInstTransType_NEW
 SettlInstTransType_CANCEL = cvar.SettlInstTransType_CANCEL
+SettlInstTransType_NEW = cvar.SettlInstTransType_NEW
 SettlInstTransType_REPLACE = cvar.SettlInstTransType_REPLACE
 SettlInstTransType_RESTATE = cvar.SettlInstTransType_RESTATE
 SettlInstSource_BROKERS_INSTRUCTIONS = cvar.SettlInstSource_BROKERS_INSTRUCTIONS
@@ -21076,14 +21137,13 @@ SettlInstSource_INSTITUTIONS_INSTRUCTIONS = cvar.SettlInstSource_INSTITUTIONS_IN
 SettlInstSource_INVESTOR = cvar.SettlInstSource_INVESTOR
 SettlLocation_CEDEL = cvar.SettlLocation_CEDEL
 SettlLocation_DEPOSITORY_TRUST_COMPANY = cvar.SettlLocation_DEPOSITORY_TRUST_COMPANY
-SettlLocation_EUROCLEAR = cvar.SettlLocation_EUROCLEAR
+SettlLocation_EURO_CLEAR = cvar.SettlLocation_EURO_CLEAR
 SettlLocation_FEDERAL_BOOK_ENTRY = cvar.SettlLocation_FEDERAL_BOOK_ENTRY
 SettlLocation_LOCAL_MARKET_SETTLE_LOCATION = cvar.SettlLocation_LOCAL_MARKET_SETTLE_LOCATION
 SettlLocation_PHYSICAL = cvar.SettlLocation_PHYSICAL
 SettlLocation_PARTICIPANT_TRUST_COMPANY = cvar.SettlLocation_PARTICIPANT_TRUST_COMPANY
-SecurityType_WILDCARD = cvar.SecurityType_WILDCARD
 SecurityType_ASSET_BACKED_SECURITIES = cvar.SecurityType_ASSET_BACKED_SECURITIES
-SecurityType_AMENDED_AND_RESTATED = cvar.SecurityType_AMENDED_AND_RESTATED
+SecurityType_AMENDED_RESTATED = cvar.SecurityType_AMENDED_RESTATED
 SecurityType_OTHER_ANTICIPATION_NOTES = cvar.SecurityType_OTHER_ANTICIPATION_NOTES
 SecurityType_BANKERS_ACCEPTANCE = cvar.SecurityType_BANKERS_ACCEPTANCE
 SecurityType_BANK_NOTES = cvar.SecurityType_BANK_NOTES
@@ -21124,7 +21184,7 @@ SecurityType_MATURED = cvar.SecurityType_MATURED
 SecurityType_MORTGAGE_BACKED_SECURITIES = cvar.SecurityType_MORTGAGE_BACKED_SECURITIES
 SecurityType_MUTUAL_FUND = cvar.SecurityType_MUTUAL_FUND
 SecurityType_MORTGAGE_INTEREST_ONLY = cvar.SecurityType_MORTGAGE_INTEREST_ONLY
-SecurityType_MULTI_LEG_INSTRUMENT = cvar.SecurityType_MULTI_LEG_INSTRUMENT
+SecurityType_MULTILEG_INSTRUMENT = cvar.SecurityType_MULTILEG_INSTRUMENT
 SecurityType_MORTGAGE_PRINCIPAL_ONLY = cvar.SecurityType_MORTGAGE_PRINCIPAL_ONLY
 SecurityType_MORTGAGE_PRIVATE_PLACEMENT = cvar.SecurityType_MORTGAGE_PRIVATE_PLACEMENT
 SecurityType_MISCELLANEOUS_PASS_THROUGH = cvar.SecurityType_MISCELLANEOUS_PASS_THROUGH
@@ -21157,7 +21217,7 @@ SecurityType_SWING_LINE_FACILITY = cvar.SecurityType_SWING_LINE_FACILITY
 SecurityType_TAX_ANTICIPATION_NOTE = cvar.SecurityType_TAX_ANTICIPATION_NOTE
 SecurityType_TAX_ALLOCATION = cvar.SecurityType_TAX_ALLOCATION
 SecurityType_TO_BE_ANNOUNCED = cvar.SecurityType_TO_BE_ANNOUNCED
-SecurityType_US_TREASURY_BILL = cvar.SecurityType_US_TREASURY_BILL
+SecurityType_US_TREASURY_BILL_TBILL = cvar.SecurityType_US_TREASURY_BILL_TBILL
 SecurityType_US_TREASURY_BOND = cvar.SecurityType_US_TREASURY_BOND
 SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE
 SecurityType_TIME_DEPOSIT = cvar.SecurityType_TIME_DEPOSIT
@@ -21165,15 +21225,15 @@ SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER = cvar.SecurityType_TAX_EXEMPT_COMMERCI
 SecurityType_TERM_LOAN = cvar.SecurityType_TERM_LOAN
 SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE = cvar.SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE
 SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES = cvar.SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES
-SecurityType_US_TREASURY_NOTE = cvar.SecurityType_US_TREASURY_NOTE
+SecurityType_US_TREASURY_NOTE_TNOTE = cvar.SecurityType_US_TREASURY_NOTE_TNOTE
 SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE
-SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_TAX_AND_REVENUE_ANTICIPATION_NOTE
-SecurityType_US_TREASURY_NOTE2 = cvar.SecurityType_US_TREASURY_NOTE2
-SecurityType_US_TREASURY_BILL2 = cvar.SecurityType_US_TREASURY_BILL2
+SecurityType_TAX_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_TAX_REVENUE_ANTICIPATION_NOTE
+SecurityType_US_TREASURY_NOTE_UST = cvar.SecurityType_US_TREASURY_NOTE_UST
+SecurityType_US_TREASURY_BILL_USTB = cvar.SecurityType_US_TREASURY_BILL_USTB
 SecurityType_VARIABLE_RATE_DEMAND_NOTE = cvar.SecurityType_VARIABLE_RATE_DEMAND_NOTE
 SecurityType_WARRANT = cvar.SecurityType_WARRANT
 SecurityType_WITHDRAWN = cvar.SecurityType_WITHDRAWN
-SecurityType__UNKNOWN = cvar.SecurityType__UNKNOWN
+SecurityType_WILDCARD_ENTRY = cvar.SecurityType_WILDCARD_ENTRY
 SecurityType_EXTENDED_COMM_NOTE = cvar.SecurityType_EXTENDED_COMM_NOTE
 SecurityType_INDEXED_LINKED = cvar.SecurityType_INDEXED_LINKED
 SecurityType_YANKEE_CORPORATE_BOND = cvar.SecurityType_YANKEE_CORPORATE_BOND
@@ -21186,18 +21246,20 @@ StandInstDbType_DTC_SID = cvar.StandInstDbType_DTC_SID
 StandInstDbType_THOMSON_ALERT = cvar.StandInstDbType_THOMSON_ALERT
 StandInstDbType_A_GLOBAL_CUSTODIAN = cvar.StandInstDbType_A_GLOBAL_CUSTODIAN
 StandInstDbType_ACCOUNTNET = cvar.StandInstDbType_ACCOUNTNET
-SettlDeliveryType_VERSUS_PAYMENT = cvar.SettlDeliveryType_VERSUS_PAYMENT
-SettlDeliveryType_FREE = cvar.SettlDeliveryType_FREE
+SettlDeliveryType_VERSUS_PAYMENT_DELIVER = cvar.SettlDeliveryType_VERSUS_PAYMENT_DELIVER
+SettlDeliveryType_FREE_DELIVER = cvar.SettlDeliveryType_FREE_DELIVER
 SettlDeliveryType_TRI_PARTY = cvar.SettlDeliveryType_TRI_PARTY
 SettlDeliveryType_HOLD_IN_CUSTODY = cvar.SettlDeliveryType_HOLD_IN_CUSTODY
-AllocLinkType_F_X_NETTING = cvar.AllocLinkType_F_X_NETTING
-AllocLinkType_F_X_SWAP = cvar.AllocLinkType_F_X_SWAP
+AllocLinkType_FX_NETTING = cvar.AllocLinkType_FX_NETTING
+AllocLinkType_FX_SWAP = cvar.AllocLinkType_FX_SWAP
 PutOrCall_PUT = cvar.PutOrCall_PUT
 PutOrCall_CALL = cvar.PutOrCall_CALL
 CoveredOrUncovered_COVERED = cvar.CoveredOrUncovered_COVERED
 CoveredOrUncovered_UNCOVERED = cvar.CoveredOrUncovered_UNCOVERED
 CustomerOrFirm_CUSTOMER = cvar.CustomerOrFirm_CUSTOMER
 CustomerOrFirm_FIRM = cvar.CustomerOrFirm_FIRM
+NotifyBrokerOfCredit_NO = cvar.NotifyBrokerOfCredit_NO
+NotifyBrokerOfCredit_YES = cvar.NotifyBrokerOfCredit_YES
 AllocHandlInst_MATCH = cvar.AllocHandlInst_MATCH
 AllocHandlInst_FORWARD = cvar.AllocHandlInst_FORWARD
 AllocHandlInst_FORWARD_AND_MATCH = cvar.AllocHandlInst_FORWARD_AND_MATCH
@@ -21206,14 +21268,14 @@ RoutingType_TARGET_LIST = cvar.RoutingType_TARGET_LIST
 RoutingType_BLOCK_FIRM = cvar.RoutingType_BLOCK_FIRM
 RoutingType_BLOCK_LIST = cvar.RoutingType_BLOCK_LIST
 Benchmark_CURVE = cvar.Benchmark_CURVE
-Benchmark_FIVEYR = cvar.Benchmark_FIVEYR
+Benchmark_5YR = cvar.Benchmark_5YR
 Benchmark_OLD5 = cvar.Benchmark_OLD5
-Benchmark_TENYR = cvar.Benchmark_TENYR
+Benchmark_10YR = cvar.Benchmark_10YR
 Benchmark_OLD10 = cvar.Benchmark_OLD10
-Benchmark_THIRTYYR = cvar.Benchmark_THIRTYYR
+Benchmark_30YR = cvar.Benchmark_30YR
 Benchmark_OLD30 = cvar.Benchmark_OLD30
-Benchmark_THREEMOLIBOR = cvar.Benchmark_THREEMOLIBOR
-Benchmark_SIXMOLIBOR = cvar.Benchmark_SIXMOLIBOR
+Benchmark_3MOLIBOR = cvar.Benchmark_3MOLIBOR
+Benchmark_6MOLIBOR = cvar.Benchmark_6MOLIBOR
 BenchmarkCurveName_EONIA = cvar.BenchmarkCurveName_EONIA
 BenchmarkCurveName_EUREPO = cvar.BenchmarkCurveName_EUREPO
 BenchmarkCurveName_EURIBOR = cvar.BenchmarkCurveName_EURIBOR
@@ -21227,8 +21289,8 @@ BenchmarkCurveName_SONIA = cvar.BenchmarkCurveName_SONIA
 BenchmarkCurveName_SWAP = cvar.BenchmarkCurveName_SWAP
 BenchmarkCurveName_TREASURY = cvar.BenchmarkCurveName_TREASURY
 StipulationType_ABSOLUTE_PREPAYMENT_SPEED = cvar.StipulationType_ABSOLUTE_PREPAYMENT_SPEED
-StipulationType_AMT = cvar.StipulationType_AMT
-StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER = cvar.StipulationType_AUTO_REINVESTMENT_AT_OR_BETTER
+StipulationType_ALTERNATIVE_MINIMUM_TAX = cvar.StipulationType_ALTERNATIVE_MINIMUM_TAX
+StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER = cvar.StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER
 StipulationType_BANK_QUALIFIED = cvar.StipulationType_BANK_QUALIFIED
 StipulationType_BARGAIN_CONDITIONS = cvar.StipulationType_BARGAIN_CONDITIONS
 StipulationType_COUPON_RANGE = cvar.StipulationType_COUPON_RANGE
@@ -21237,7 +21299,7 @@ StipulationType_CONSTANT_PREPAYMENT_RATE = cvar.StipulationType_CONSTANT_PREPAYM
 StipulationType_CONSTANT_PREPAYMENT_YIELD = cvar.StipulationType_CONSTANT_PREPAYMENT_YIELD
 StipulationType_ISO_CURRENCY_CODE = cvar.StipulationType_ISO_CURRENCY_CODE
 StipulationType_CUSTOM_START_END_DATE = cvar.StipulationType_CUSTOM_START_END_DATE
-StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE = cvar.StipulationType_GEOGRAPHICS_AND_PERCENT_RANGE
+StipulationType_GEOGRAPHICS_AND_RANGE = cvar.StipulationType_GEOGRAPHICS_AND_RANGE
 StipulationType_VALUATION_DISCOUNT = cvar.StipulationType_VALUATION_DISCOUNT
 StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE = cvar.StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE
 StipulationType_INSURED = cvar.StipulationType_INSURED
@@ -21273,7 +21335,7 @@ StipulationType_RATING_SOURCE_AND_RANGE = cvar.StipulationType_RATING_SOURCE_AND
 StipulationType_TYPE_OF_REDEMPTION = cvar.StipulationType_TYPE_OF_REDEMPTION
 StipulationType_RESTRICTED = cvar.StipulationType_RESTRICTED
 StipulationType_MARKET_SECTOR = cvar.StipulationType_MARKET_SECTOR
-StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED = cvar.StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED
+StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED = cvar.StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED
 StipulationType_SINGLE_MONTHLY_MORTALITY = cvar.StipulationType_SINGLE_MONTHLY_MORTALITY
 StipulationType_STRUCTURE = cvar.StipulationType_STRUCTURE
 StipulationType_SUBSTITUTIONS_FREQUENCY = cvar.StipulationType_SUBSTITUTIONS_FREQUENCY
@@ -21286,31 +21348,17 @@ StipulationType_WEIGHTED_AVERAGE_LOAN_AGE = cvar.StipulationType_WEIGHTED_AVERAG
 StipulationType_WEIGHTED_AVERAGE_MATURITY = cvar.StipulationType_WEIGHTED_AVERAGE_MATURITY
 StipulationType_WHOLE_POOL = cvar.StipulationType_WHOLE_POOL
 StipulationType_YIELD_RANGE = cvar.StipulationType_YIELD_RANGE
-StipulationValue_SPECIAL_CUM_DIVIDEND = cvar.StipulationValue_SPECIAL_CUM_DIVIDEND
-StipulationValue_SPECIAL_EX_DIVIDEND = cvar.StipulationValue_SPECIAL_EX_DIVIDEND
-StipulationValue_SPECIAL_CUM_COUPON = cvar.StipulationValue_SPECIAL_CUM_COUPON
-StipulationValue_SPECIAL_EX_COUPON = cvar.StipulationValue_SPECIAL_EX_COUPON
-StipulationValue_SPECIAL_CUM_BONUS = cvar.StipulationValue_SPECIAL_CUM_BONUS
-StipulationValue_SPECIAL_EX_BONUS = cvar.StipulationValue_SPECIAL_EX_BONUS
-StipulationValue_SPECIAL_CUM_RIGHTS = cvar.StipulationValue_SPECIAL_CUM_RIGHTS
-StipulationValue_SPECIAL_EX_RIGHTS = cvar.StipulationValue_SPECIAL_EX_RIGHTS
-StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS = cvar.StipulationValue_SPECIAL_CUM_CAPITAL_REPAYMENTS
-StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS = cvar.StipulationValue_SPECIAL_EX_CAPITAL_REPAYMENTS
-StipulationValue_CASH_SETTLEMENT = cvar.StipulationValue_CASH_SETTLEMENT
-StipulationValue_SPECIAL_PRICE = cvar.StipulationValue_SPECIAL_PRICE
-StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES = cvar.StipulationValue_REPORT_FOR_EUROPEAN_EQUITY_MARKET_SECURITIES
-StipulationValue_GUARANTEED_DELIVERY = cvar.StipulationValue_GUARANTEED_DELIVERY
 YieldType_AFTER_TAX_YIELD = cvar.YieldType_AFTER_TAX_YIELD
 YieldType_ANNUAL_YIELD = cvar.YieldType_ANNUAL_YIELD
 YieldType_YIELD_AT_ISSUE = cvar.YieldType_YIELD_AT_ISSUE
-YieldType_YIELD_TO_AVERAGE_MATURITY = cvar.YieldType_YIELD_TO_AVERAGE_MATURITY
+YieldType_YIELD_TO_AVG_MATURITY = cvar.YieldType_YIELD_TO_AVG_MATURITY
 YieldType_BOOK_YIELD = cvar.YieldType_BOOK_YIELD
 YieldType_YIELD_TO_NEXT_CALL = cvar.YieldType_YIELD_TO_NEXT_CALL
 YieldType_YIELD_CHANGE_SINCE_CLOSE = cvar.YieldType_YIELD_CHANGE_SINCE_CLOSE
 YieldType_CLOSING_YIELD = cvar.YieldType_CLOSING_YIELD
 YieldType_COMPOUND_YIELD = cvar.YieldType_COMPOUND_YIELD
 YieldType_CURRENT_YIELD = cvar.YieldType_CURRENT_YIELD
-YieldType_GOVERNMENT_EQUIVALENT_YIELD = cvar.YieldType_GOVERNMENT_EQUIVALENT_YIELD
+YieldType_GVNT_EQUIVALENT_YIELD = cvar.YieldType_GVNT_EQUIVALENT_YIELD
 YieldType_TRUE_GROSS_YIELD = cvar.YieldType_TRUE_GROSS_YIELD
 YieldType_YIELD_WITH_INFLATION_ASSUMPTION = cvar.YieldType_YIELD_WITH_INFLATION_ASSUMPTION
 YieldType_INVERSE_FLOATER_BOND_YIELD = cvar.YieldType_INVERSE_FLOATER_BOND_YIELD
@@ -21334,11 +21382,15 @@ YieldType_YIELD_TO_TENDER_DATE = cvar.YieldType_YIELD_TO_TENDER_DATE
 YieldType_TRUE_YIELD = cvar.YieldType_TRUE_YIELD
 YieldType_YIELD_VALUE_OF_1_32 = cvar.YieldType_YIELD_VALUE_OF_1_32
 YieldType_YIELD_TO_WORST = cvar.YieldType_YIELD_TO_WORST
+TradedFlatSwitch_NO = cvar.TradedFlatSwitch_NO
+TradedFlatSwitch_YES = cvar.TradedFlatSwitch_YES
 SubscriptionRequestType_SNAPSHOT = cvar.SubscriptionRequestType_SNAPSHOT
 SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES = cvar.SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES
 SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST = cvar.SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST
 MDUpdateType_FULL_REFRESH = cvar.MDUpdateType_FULL_REFRESH
 MDUpdateType_INCREMENTAL_REFRESH = cvar.MDUpdateType_INCREMENTAL_REFRESH
+AggregatedBook_YES = cvar.AggregatedBook_YES
+AggregatedBook_NO = cvar.AggregatedBook_NO
 MDEntryType_BID = cvar.MDEntryType_BID
 MDEntryType_OFFER = cvar.MDEntryType_OFFER
 MDEntryType_TRADE = cvar.MDEntryType_TRADE
@@ -21424,18 +21476,14 @@ QuoteCondition_SUSPENDED_SAM = cvar.QuoteCondition_SUSPENDED_SAM
 QuoteCondition_RESERVED_SAM = cvar.QuoteCondition_RESERVED_SAM
 QuoteCondition_NO_ACTIVE_SAM = cvar.QuoteCondition_NO_ACTIVE_SAM
 QuoteCondition_RESTRICTED = cvar.QuoteCondition_RESTRICTED
-QuoteCondition_NO_MARKET_ACTIVITY = cvar.QuoteCondition_NO_MARKET_ACTIVITY
-QuoteCondition_NO_DATA_AVAILABLE = cvar.QuoteCondition_NO_DATA_AVAILABLE
-QuoteCondition_NOT_APPLICABLE = cvar.QuoteCondition_NOT_APPLICABLE
-QuoteCondition_AMOUNT_THRESHOLD_EXCEEDED = cvar.QuoteCondition_AMOUNT_THRESHOLD_EXCEEDED
-TradeCondition_CASH_MARKET = cvar.TradeCondition_CASH_MARKET
+TradeCondition_CASH = cvar.TradeCondition_CASH
 TradeCondition_AVERAGE_PRICE_TRADE = cvar.TradeCondition_AVERAGE_PRICE_TRADE
 TradeCondition_CASH_TRADE = cvar.TradeCondition_CASH_TRADE
-TradeCondition_NEXT_DAY_MARKET = cvar.TradeCondition_NEXT_DAY_MARKET
+TradeCondition_NEXT_DAY = cvar.TradeCondition_NEXT_DAY
 TradeCondition_OPENING_REOPENING_TRADE_DETAIL = cvar.TradeCondition_OPENING_REOPENING_TRADE_DETAIL
 TradeCondition_INTRADAY_TRADE_DETAIL = cvar.TradeCondition_INTRADAY_TRADE_DETAIL
-TradeCondition_RULE127 = cvar.TradeCondition_RULE127
-TradeCondition_RULE155 = cvar.TradeCondition_RULE155
+TradeCondition_RULE_127_TRADE = cvar.TradeCondition_RULE_127_TRADE
+TradeCondition_RULE_155_TRADE = cvar.TradeCondition_RULE_155_TRADE
 TradeCondition_SOLD_LAST = cvar.TradeCondition_SOLD_LAST
 TradeCondition_NEXT_DAY_TRADE = cvar.TradeCondition_NEXT_DAY_TRADE
 TradeCondition_OPENED = cvar.TradeCondition_OPENED
@@ -21452,7 +21500,7 @@ TradeCondition_CONVERTED_PRICE_INDICATOR = cvar.TradeCondition_CONVERTED_PRICE_I
 TradeCondition_EXCHANGE_LAST = cvar.TradeCondition_EXCHANGE_LAST
 TradeCondition_FINAL_PRICE_OF_SESSION = cvar.TradeCondition_FINAL_PRICE_OF_SESSION
 TradeCondition_EX_PIT = cvar.TradeCondition_EX_PIT
-TradeCondition_CROSSED = cvar.TradeCondition_CROSSED
+TradeCondition_CROSSED_X = cvar.TradeCondition_CROSSED_X
 TradeCondition_CANCEL = cvar.TradeCondition_CANCEL
 TradeCondition_VOLUME_ONLY = cvar.TradeCondition_VOLUME_ONLY
 TradeCondition_DIRECT_PLUS = cvar.TradeCondition_DIRECT_PLUS
@@ -21494,15 +21542,12 @@ TradeCondition_PRIOR_REFERENCE_PRICE = cvar.TradeCondition_PRIOR_REFERENCE_PRICE
 TradeCondition_STOPPED_SOLD_LAST = cvar.TradeCondition_STOPPED_SOLD_LAST
 TradeCondition_STOPPED_OUT_OF_SEQUENCE = cvar.TradeCondition_STOPPED_OUT_OF_SEQUENCE
 TradeCondition_OFFICAL_CLOSING_PRICE = cvar.TradeCondition_OFFICAL_CLOSING_PRICE
-TradeCondition_CROSSED2 = cvar.TradeCondition_CROSSED2
+TradeCondition_CROSSED_AO = cvar.TradeCondition_CROSSED_AO
 TradeCondition_FAST_MARKET = cvar.TradeCondition_FAST_MARKET
 TradeCondition_AUTOMATIC_EXECUTION = cvar.TradeCondition_AUTOMATIC_EXECUTION
 TradeCondition_FORM_T = cvar.TradeCondition_FORM_T
 TradeCondition_BASKET_INDEX = cvar.TradeCondition_BASKET_INDEX
 TradeCondition_BURST_BASKET = cvar.TradeCondition_BURST_BASKET
-TradeCondition_NO_MARKET_ACTIVITY = cvar.TradeCondition_NO_MARKET_ACTIVITY
-TradeCondition_NO_DATA_AVAILABLE = cvar.TradeCondition_NO_DATA_AVAILABLE
-TradeCondition_NOT_APPLICABLE = cvar.TradeCondition_NOT_APPLICABLE
 MDUpdateAction_NEW = cvar.MDUpdateAction_NEW
 MDUpdateAction_CHANGE = cvar.MDUpdateAction_CHANGE
 MDUpdateAction_DELETE = cvar.MDUpdateAction_DELETE
@@ -21522,10 +21567,10 @@ MDReqRejReason_UNSUPPORTED_SCOPE = cvar.MDReqRejReason_UNSUPPORTED_SCOPE
 MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG = cvar.MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG
 MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE = cvar.MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE
 MDReqRejReason_INSUFFICIENT_CREDIT = cvar.MDReqRejReason_INSUFFICIENT_CREDIT
-DeleteReason_CANCELATION_TRADE_BUST = cvar.DeleteReason_CANCELATION_TRADE_BUST
+DeleteReason_CANCELLATION = cvar.DeleteReason_CANCELLATION
 DeleteReason_ERROR = cvar.DeleteReason_ERROR
-OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY = cvar.OpenCloseSettlFlag_DAILY_OPEN_CLOSE_SETTLEMENT_ENTRY
-OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY = cvar.OpenCloseSettlFlag_SESSION_OPEN_CLOSE_SETTLEMENT_ENTRY
+OpenCloseSettlFlag_DAILY_OPEN = cvar.OpenCloseSettlFlag_DAILY_OPEN
+OpenCloseSettlFlag_SESSION_OPEN = cvar.OpenCloseSettlFlag_SESSION_OPEN
 OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY = cvar.OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY
 OpenCloseSettlFlag_EXPECTED_ENTRY = cvar.OpenCloseSettlFlag_EXPECTED_ENTRY
 OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY = cvar.OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY
@@ -21556,7 +21601,7 @@ CorporateAction_SYMBOL_CONVERSION = cvar.CorporateAction_SYMBOL_CONVERSION
 CorporateAction_CUSIP = cvar.CorporateAction_CUSIP
 CorporateAction_LEAP_ROLLOVER = cvar.CorporateAction_LEAP_ROLLOVER
 QuoteStatus_ACCEPTED = cvar.QuoteStatus_ACCEPTED
-QuoteStatus_CANCELED_FOR_SYMBOL = cvar.QuoteStatus_CANCELED_FOR_SYMBOL
+QuoteStatus_CANCEL_FOR_SYMBOL = cvar.QuoteStatus_CANCEL_FOR_SYMBOL
 QuoteStatus_PENDING = cvar.QuoteStatus_PENDING
 QuoteStatus_PASS = cvar.QuoteStatus_PASS
 QuoteStatus_LOCKED_MARKET_WARNING = cvar.QuoteStatus_LOCKED_MARKET_WARNING
@@ -21577,7 +21622,7 @@ QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL = cvar.QuoteCancelType_CANCEL_FOR_U
 QuoteCancelType_CANCEL_ALL_QUOTES = cvar.QuoteCancelType_CANCEL_ALL_QUOTES
 QuoteCancelType_CANCEL_QUOTE_SPECIFIED_IN_QUOTEID = cvar.QuoteCancelType_CANCEL_QUOTE_SPECIFIED_IN_QUOTEID
 QuoteRejectReason_UNKNOWN_SYMBOL = cvar.QuoteRejectReason_UNKNOWN_SYMBOL
-QuoteRejectReason_EXCHANGE_CLOSED = cvar.QuoteRejectReason_EXCHANGE_CLOSED
+QuoteRejectReason_EXCHANGE = cvar.QuoteRejectReason_EXCHANGE
 QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT = cvar.QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT
 QuoteRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteRejectReason_TOO_LATE_TO_ENTER
 QuoteRejectReason_UNKNOWN_QUOTE = cvar.QuoteRejectReason_UNKNOWN_QUOTE
@@ -21600,7 +21645,9 @@ SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE
 SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST = cvar.SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST
 SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST = cvar.SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST
 SecurityResponseType_REJECT_SECURITY_PROPOSAL = cvar.SecurityResponseType_REJECT_SECURITY_PROPOSAL
-SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA = cvar.SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA
+SecurityResponseType_CANNOT_MATCH_SELECTION_CRITERIA = cvar.SecurityResponseType_CANNOT_MATCH_SELECTION_CRITERIA
+UnsolicitedIndicator_NO = cvar.UnsolicitedIndicator_NO
+UnsolicitedIndicator_YES = cvar.UnsolicitedIndicator_YES
 SecurityTradingStatus_OPENING_DELAY = cvar.SecurityTradingStatus_OPENING_DELAY
 SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL = cvar.SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL
 SecurityTradingStatus_NOT_ASSIGNED = cvar.SecurityTradingStatus_NOT_ASSIGNED
@@ -21609,8 +21656,8 @@ SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE = cvar.SecurityTradingStatus_
 SecurityTradingStatus_ITS_PRE_OPENING = cvar.SecurityTradingStatus_ITS_PRE_OPENING
 SecurityTradingStatus_NEW_PRICE_INDICATION = cvar.SecurityTradingStatus_NEW_PRICE_INDICATION
 SecurityTradingStatus_TRADE_DISSEMINATION_TIME = cvar.SecurityTradingStatus_TRADE_DISSEMINATION_TIME
-SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION = cvar.SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION
-SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION = cvar.SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION
+SecurityTradingStatus_READY_TO_TRADE = cvar.SecurityTradingStatus_READY_TO_TRADE
+SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING = cvar.SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING
 SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET = cvar.SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET
 SecurityTradingStatus_TRADING_HALT = cvar.SecurityTradingStatus_TRADING_HALT
 SecurityTradingStatus_UNKNOWN_OR_INVALID = cvar.SecurityTradingStatus_UNKNOWN_OR_INVALID
@@ -21618,7 +21665,7 @@ SecurityTradingStatus_PRE_OPEN = cvar.SecurityTradingStatus_PRE_OPEN
 SecurityTradingStatus_OPENING_ROTATION = cvar.SecurityTradingStatus_OPENING_ROTATION
 SecurityTradingStatus_FAST_MARKET = cvar.SecurityTradingStatus_FAST_MARKET
 SecurityTradingStatus_RESUME = cvar.SecurityTradingStatus_RESUME
-SecurityTradingStatus_NO_OPEN_NO_RESUME = cvar.SecurityTradingStatus_NO_OPEN_NO_RESUME
+SecurityTradingStatus_NO_OPEN = cvar.SecurityTradingStatus_NO_OPEN
 SecurityTradingStatus_PRICE_INDICATION = cvar.SecurityTradingStatus_PRICE_INDICATION
 SecurityTradingStatus_TRADING_RANGE_INDICATION = cvar.SecurityTradingStatus_TRADING_RANGE_INDICATION
 SecurityTradingStatus_MARKET_IMBALANCE_BUY = cvar.SecurityTradingStatus_MARKET_IMBALANCE_BUY
@@ -21628,8 +21675,12 @@ HaltReason_NEWS_DISSEMINATION = cvar.HaltReason_NEWS_DISSEMINATION
 HaltReason_ORDER_INFLUX = cvar.HaltReason_ORDER_INFLUX
 HaltReason_ORDER_IMBALANCE = cvar.HaltReason_ORDER_IMBALANCE
 HaltReason_ADDITIONAL_INFORMATION = cvar.HaltReason_ADDITIONAL_INFORMATION
-HaltReason_NEWS_PENDING = cvar.HaltReason_NEWS_PENDING
+HaltReason_NEW_PENDING = cvar.HaltReason_NEW_PENDING
 HaltReason_EQUIPMENT_CHANGEOVER = cvar.HaltReason_EQUIPMENT_CHANGEOVER
+InViewOfCommon_NO = cvar.InViewOfCommon_NO
+InViewOfCommon_YES = cvar.InViewOfCommon_YES
+DueToRelated_NO = cvar.DueToRelated_NO
+DueToRelated_YES = cvar.DueToRelated_YES
 Adjustment_CANCEL = cvar.Adjustment_CANCEL
 Adjustment_ERROR = cvar.Adjustment_ERROR
 Adjustment_CORRECTION = cvar.Adjustment_CORRECTION
@@ -21647,7 +21698,7 @@ TradSesStatus_PRE_OPEN = cvar.TradSesStatus_PRE_OPEN
 TradSesStatus_PRE_CLOSE = cvar.TradSesStatus_PRE_CLOSE
 TradSesStatus_REQUEST_REJECTED = cvar.TradSesStatus_REQUEST_REJECTED
 QuoteEntryRejectReason_UNKNOWN_SYMBOL = cvar.QuoteEntryRejectReason_UNKNOWN_SYMBOL
-QuoteEntryRejectReason_EXCHANGE_CLOSED = cvar.QuoteEntryRejectReason_EXCHANGE_CLOSED
+QuoteEntryRejectReason_EXHCNAGE = cvar.QuoteEntryRejectReason_EXHCNAGE
 QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT = cvar.QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT
 QuoteEntryRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteEntryRejectReason_TOO_LATE_TO_ENTER
 QuoteEntryRejectReason_UNKNOWN_QUOTE = cvar.QuoteEntryRejectReason_UNKNOWN_QUOTE
@@ -21657,9 +21708,11 @@ QuoteEntryRejectReason_INVALID_PRICE = cvar.QuoteEntryRejectReason_INVALID_PRICE
 QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY = cvar.QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY
 QuoteEntryRejectReason_OTHER = cvar.QuoteEntryRejectReason_OTHER
 BidRequestTransType_CANCEL = cvar.BidRequestTransType_CANCEL
-BidRequestTransType_NEW = cvar.BidRequestTransType_NEW
+BidRequestTransType_NO = cvar.BidRequestTransType_NO
+SolicitedFlag_NO = cvar.SolicitedFlag_NO
+SolicitedFlag_YES = cvar.SolicitedFlag_YES
 ExecRestatementReason_GT_CORPORATE_ACTION = cvar.ExecRestatementReason_GT_CORPORATE_ACTION
-ExecRestatementReason_GT_RENEWAL_RESTATEMENT = cvar.ExecRestatementReason_GT_RENEWAL_RESTATEMENT
+ExecRestatementReason_GT_RENEWAL = cvar.ExecRestatementReason_GT_RENEWAL
 ExecRestatementReason_WAREHOUSE_RECAP = cvar.ExecRestatementReason_WAREHOUSE_RECAP
 ExecRestatementReason_VERBAL_CHANGE = cvar.ExecRestatementReason_VERBAL_CHANGE
 ExecRestatementReason_REPRICING_OF_ORDER = cvar.ExecRestatementReason_REPRICING_OF_ORDER
@@ -21667,14 +21720,14 @@ ExecRestatementReason_BROKER_OPTION = cvar.ExecRestatementReason_BROKER_OPTION
 ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY = cvar.ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY
 ExecRestatementReason_CANCEL_ON_TRADING_HALT = cvar.ExecRestatementReason_CANCEL_ON_TRADING_HALT
 ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE = cvar.ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE
-ExecRestatementReason_MARKET_OPTION = cvar.ExecRestatementReason_MARKET_OPTION
+ExecRestatementReason_MARKET = cvar.ExecRestatementReason_MARKET
 ExecRestatementReason_CANCELED_NOT_BEST = cvar.ExecRestatementReason_CANCELED_NOT_BEST
 ExecRestatementReason_OTHER = cvar.ExecRestatementReason_OTHER
 ExecRestatementReason_PEG_REFRESH = cvar.ExecRestatementReason_PEG_REFRESH
 BusinessRejectReason_OTHER = cvar.BusinessRejectReason_OTHER
-BusinessRejectReason_UNKOWN_ID = cvar.BusinessRejectReason_UNKOWN_ID
+BusinessRejectReason_UNKNOWN_ID = cvar.BusinessRejectReason_UNKNOWN_ID
 BusinessRejectReason_UNKNOWN_SECURITY = cvar.BusinessRejectReason_UNKNOWN_SECURITY
-BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE = cvar.BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE
+BusinessRejectReason_UNKNOWN_MESSAGE_TYPE = cvar.BusinessRejectReason_UNKNOWN_MESSAGE_TYPE
 BusinessRejectReason_APPLICATION_NOT_AVAILABLE = cvar.BusinessRejectReason_APPLICATION_NOT_AVAILABLE
 BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING = cvar.BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING
 BusinessRejectReason_NOT_AUTHORIZED = cvar.BusinessRejectReason_NOT_AUTHORIZED
@@ -21688,20 +21741,22 @@ DiscretionInst_RELATED_TO_MIDPOINT_PRICE = cvar.DiscretionInst_RELATED_TO_MIDPOI
 DiscretionInst_RELATED_TO_LAST_TRADE_PRICE = cvar.DiscretionInst_RELATED_TO_LAST_TRADE_PRICE
 DiscretionInst_RELATED_TO_VWAP = cvar.DiscretionInst_RELATED_TO_VWAP
 DiscretionInst_AVERAGE_PRICE_GUARANTEE = cvar.DiscretionInst_AVERAGE_PRICE_GUARANTEE
-BidType_NON_DISCLOSED = cvar.BidType_NON_DISCLOSED
-BidType_DISCLOSED_STYLE = cvar.BidType_DISCLOSED_STYLE
+BidType_NON_DISCLOSED_STYLE = cvar.BidType_NON_DISCLOSED_STYLE
+BidType_DISCLOSED_SYTLE = cvar.BidType_DISCLOSED_SYTLE
 BidType_NO_BIDDING_PROCESS = cvar.BidType_NO_BIDDING_PROCESS
 BidDescriptorType_SECTOR = cvar.BidDescriptorType_SECTOR
 BidDescriptorType_COUNTRY = cvar.BidDescriptorType_COUNTRY
 BidDescriptorType_INDEX = cvar.BidDescriptorType_INDEX
-SideValueInd_SIDEVALUE1 = cvar.SideValueInd_SIDEVALUE1
-SideValueInd_SIDEVALUE2 = cvar.SideValueInd_SIDEVALUE2
-LiquidityIndType_FIVEDAY_MOVING_AVERAGE = cvar.LiquidityIndType_FIVEDAY_MOVING_AVERAGE
-LiquidityIndType_TWENTYDAY_MOVING_AVERAGE = cvar.LiquidityIndType_TWENTYDAY_MOVING_AVERAGE
+SideValueInd_SIDE_VALUE_1 = cvar.SideValueInd_SIDE_VALUE_1
+SideValueInd_SIDE_VALUE_2 = cvar.SideValueInd_SIDE_VALUE_2
+LiquidityIndType_5_DAY_MOVING_AVERAGE = cvar.LiquidityIndType_5_DAY_MOVING_AVERAGE
+LiquidityIndType_20_DAY_MOVING_AVERAGE = cvar.LiquidityIndType_20_DAY_MOVING_AVERAGE
 LiquidityIndType_NORMAL_MARKET_SIZE = cvar.LiquidityIndType_NORMAL_MARKET_SIZE
 LiquidityIndType_OTHER = cvar.LiquidityIndType_OTHER
-ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = cvar.ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST
-ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS = cvar.ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS
+ExchangeForPhysical_NO = cvar.ExchangeForPhysical_NO
+ExchangeForPhysical_YES = cvar.ExchangeForPhysical_YES
+ProgRptReqs_BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST = cvar.ProgRptReqs_BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST
+ProgRptReqs_SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = cvar.ProgRptReqs_SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD
 ProgRptReqs_REAL_TIME_EXECUTION_REPORTS = cvar.ProgRptReqs_REAL_TIME_EXECUTION_REPORTS
 IncTaxInd_NET = cvar.IncTaxInd_NET
 IncTaxInd_GROSS = cvar.IncTaxInd_GROSS
@@ -21709,7 +21764,7 @@ BidTradeType_AGENCY = cvar.BidTradeType_AGENCY
 BidTradeType_VWAP_GUARANTEE = cvar.BidTradeType_VWAP_GUARANTEE
 BidTradeType_GUARANTEED_CLOSE = cvar.BidTradeType_GUARANTEED_CLOSE
 BidTradeType_RISK_TRADE = cvar.BidTradeType_RISK_TRADE
-BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION = cvar.BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION
+BasisPxType_CLOSING_PRICE_AT_MORNINGN_SESSION = cvar.BasisPxType_CLOSING_PRICE_AT_MORNINGN_SESSION
 BasisPxType_CLOSING_PRICE = cvar.BasisPxType_CLOSING_PRICE
 BasisPxType_CURRENT_PRICE = cvar.BasisPxType_CURRENT_PRICE
 BasisPxType_SQ = cvar.BasisPxType_SQ
@@ -21741,60 +21796,52 @@ PriceType_PRODUCT_TICKS_IN_THIRTY_SECONDS = cvar.PriceType_PRODUCT_TICKS_IN_THIR
 PriceType_PRODUCT_TICKS_IN_SIXTY_FORTHS = cvar.PriceType_PRODUCT_TICKS_IN_SIXTY_FORTHS
 PriceType_PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS = cvar.PriceType_PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS
 GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION = cvar.GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION
-GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES = cvar.GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES
-GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE = cvar.GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE
+GTBookingInst_ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES = cvar.GTBookingInst_ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES
+GTBookingInst_ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE = cvar.GTBookingInst_ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE
 ListStatusType_ACK = cvar.ListStatusType_ACK
 ListStatusType_RESPONSE = cvar.ListStatusType_RESPONSE
 ListStatusType_TIMED = cvar.ListStatusType_TIMED
-ListStatusType_EXECSTARTED = cvar.ListStatusType_EXECSTARTED
-ListStatusType_ALLDONE = cvar.ListStatusType_ALLDONE
+ListStatusType_EXEC_STARTED = cvar.ListStatusType_EXEC_STARTED
+ListStatusType_ALL_DONE = cvar.ListStatusType_ALL_DONE
 ListStatusType_ALERT = cvar.ListStatusType_ALERT
 NetGrossInd_NET = cvar.NetGrossInd_NET
 NetGrossInd_GROSS = cvar.NetGrossInd_GROSS
-ListOrderStatus_INBIDDINGPROCESS = cvar.ListOrderStatus_INBIDDINGPROCESS
-ListOrderStatus_RECEIVEDFOREXECUTION = cvar.ListOrderStatus_RECEIVEDFOREXECUTION
+ListOrderStatus_IN_BIDDING_PROCESS = cvar.ListOrderStatus_IN_BIDDING_PROCESS
+ListOrderStatus_RECEIVED_FOR_EXECUTION = cvar.ListOrderStatus_RECEIVED_FOR_EXECUTION
 ListOrderStatus_EXECUTING = cvar.ListOrderStatus_EXECUTING
-ListOrderStatus_CANCELING = cvar.ListOrderStatus_CANCELING
+ListOrderStatus_CANCELLING = cvar.ListOrderStatus_CANCELLING
 ListOrderStatus_ALERT = cvar.ListOrderStatus_ALERT
 ListOrderStatus_ALL_DONE = cvar.ListOrderStatus_ALL_DONE
 ListOrderStatus_REJECT = cvar.ListOrderStatus_REJECT
 ListExecInstType_IMMEDIATE = cvar.ListExecInstType_IMMEDIATE
-ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION = cvar.ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP
-ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW
+ListExecInstType_WAIT_FOR_EXECUT_INSTRUCTION = cvar.ListExecInstType_WAIT_FOR_EXECUT_INSTRUCTION
+ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_3 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_3
+ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_4 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_4
+ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_5 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_5
 CxlRejResponseTo_ORDER_CANCEL_REQUEST = cvar.CxlRejResponseTo_ORDER_CANCEL_REQUEST
 CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST = cvar.CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST
 MultiLegReportingType_SINGLE_SECURITY = cvar.MultiLegReportingType_SINGLE_SECURITY
-MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = cvar.MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY
+MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = cvar.MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY
 MultiLegReportingType_MULTI_LEG_SECURITY = cvar.MultiLegReportingType_MULTI_LEG_SECURITY
 PartyIDSource_KOREAN_INVESTOR_ID = cvar.PartyIDSource_KOREAN_INVESTOR_ID
 PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID = cvar.PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID
-PartyIDSource_TAIWANESE_TRADING_ACCOUNT = cvar.PartyIDSource_TAIWANESE_TRADING_ACCOUNT
-PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER = cvar.PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY_NUMBER
-PartyIDSource_CHINESE_B_SHARE = cvar.PartyIDSource_CHINESE_B_SHARE
+PartyIDSource_TAIWANESE_TRADING_ACCT = cvar.PartyIDSource_TAIWANESE_TRADING_ACCT
+PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY = cvar.PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY
+PartyIDSource_CHINESE_INVESTOR_ID = cvar.PartyIDSource_CHINESE_INVESTOR_ID
 PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER = cvar.PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER
 PartyIDSource_US_SOCIAL_SECURITY_NUMBER = cvar.PartyIDSource_US_SOCIAL_SECURITY_NUMBER
-PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER = cvar.PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER
+PartyIDSource_US_EMPLOYER_OR_TAX_ID_NUMBER = cvar.PartyIDSource_US_EMPLOYER_OR_TAX_ID_NUMBER
 PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER = cvar.PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER
 PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER = cvar.PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER
 PartyIDSource_BIC = cvar.PartyIDSource_BIC
 PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = cvar.PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER
-PartyIDSource_PROPRIETARY_CUSTOM_CODE = cvar.PartyIDSource_PROPRIETARY_CUSTOM_CODE
+PartyIDSource_PROPRIETARY = cvar.PartyIDSource_PROPRIETARY
 PartyIDSource_ISO_COUNTRY_CODE = cvar.PartyIDSource_ISO_COUNTRY_CODE
 PartyIDSource_SETTLEMENT_ENTITY_LOCATION = cvar.PartyIDSource_SETTLEMENT_ENTITY_LOCATION
 PartyIDSource_MIC = cvar.PartyIDSource_MIC
 PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE = cvar.PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE
-PartyIDSource_DIRECTED_BROKER = cvar.PartyIDSource_DIRECTED_BROKER
+PartyIDSource_DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT = cvar.PartyIDSource_DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT
 PartyRole_EXECUTING_FIRM = cvar.PartyRole_EXECUTING_FIRM
-PartyRole_BROKER_OF_CREDIT = cvar.PartyRole_BROKER_OF_CREDIT
-PartyRole_CLIENT_ID = cvar.PartyRole_CLIENT_ID
-PartyRole_CLEARING_FIRM = cvar.PartyRole_CLEARING_FIRM
-PartyRole_INVESTOR_ID = cvar.PartyRole_INVESTOR_ID
-PartyRole_INTRODUCING_FIRM = cvar.PartyRole_INTRODUCING_FIRM
-PartyRole_ENTERING_FIRM = cvar.PartyRole_ENTERING_FIRM
-PartyRole_LOCATE_LENDING_FIRM = cvar.PartyRole_LOCATE_LENDING_FIRM
-PartyRole_FUND_MANAGER_CLIENT_ID = cvar.PartyRole_FUND_MANAGER_CLIENT_ID
 PartyRole_SETTLEMENT_LOCATION = cvar.PartyRole_SETTLEMENT_LOCATION
 PartyRole_ORDER_ORIGINATION_TRADER = cvar.PartyRole_ORDER_ORIGINATION_TRADER
 PartyRole_EXECUTING_TRADER = cvar.PartyRole_EXECUTING_TRADER
@@ -21805,6 +21852,7 @@ PartyRole_EXECUTING_SYSTEM = cvar.PartyRole_EXECUTING_SYSTEM
 PartyRole_CONTRA_FIRM = cvar.PartyRole_CONTRA_FIRM
 PartyRole_CONTRA_CLEARING_FIRM = cvar.PartyRole_CONTRA_CLEARING_FIRM
 PartyRole_SPONSORING_FIRM = cvar.PartyRole_SPONSORING_FIRM
+PartyRole_BROKER_OF_CREDIT = cvar.PartyRole_BROKER_OF_CREDIT
 PartyRole_UNDERLYING_CONTRA_FIRM = cvar.PartyRole_UNDERLYING_CONTRA_FIRM
 PartyRole_CLEARING_ORGANIZATION = cvar.PartyRole_CLEARING_ORGANIZATION
 PartyRole_EXCHANGE = cvar.PartyRole_EXCHANGE
@@ -21814,6 +21862,7 @@ PartyRole_CORRESPONDENT_BROKER = cvar.PartyRole_CORRESPONDENT_BROKER
 PartyRole_BUYER_SELLER = cvar.PartyRole_BUYER_SELLER
 PartyRole_CUSTODIAN = cvar.PartyRole_CUSTODIAN
 PartyRole_INTERMEDIARY = cvar.PartyRole_INTERMEDIARY
+PartyRole_CLIENT_ID = cvar.PartyRole_CLIENT_ID
 PartyRole_AGENT = cvar.PartyRole_AGENT
 PartyRole_SUB_CUSTODIAN = cvar.PartyRole_SUB_CUSTODIAN
 PartyRole_BENEFICIARY = cvar.PartyRole_BENEFICIARY
@@ -21823,8 +21872,13 @@ PartyRole_LIQUIDITY_PROVIDER = cvar.PartyRole_LIQUIDITY_PROVIDER
 PartyRole_ENTERING_TRADER = cvar.PartyRole_ENTERING_TRADER
 PartyRole_CONTRA_TRADER = cvar.PartyRole_CONTRA_TRADER
 PartyRole_POSITION_ACCOUNT = cvar.PartyRole_POSITION_ACCOUNT
-PartyRole_CONTRA_INVESTOR_ID = cvar.PartyRole_CONTRA_INVESTOR_ID
-PartyRole_TRANSFER_TO_FIRM = cvar.PartyRole_TRANSFER_TO_FIRM
+PartyRole_CLEARING_FIRM = cvar.PartyRole_CLEARING_FIRM
+PartyRole_INVESTOR_ID = cvar.PartyRole_INVESTOR_ID
+PartyRole_INTRODUCING_FIRM = cvar.PartyRole_INTRODUCING_FIRM
+PartyRole_ENTERING_FIRM = cvar.PartyRole_ENTERING_FIRM
+PartyRole_LOCATE = cvar.PartyRole_LOCATE
+PartyRole_FUND_MANAGER_CLIENT_ID = cvar.PartyRole_FUND_MANAGER_CLIENT_ID
+PartyRole_INTRODUCING_BROKER = cvar.PartyRole_INTRODUCING_BROKER
 PartyRole_CONTRA_POSITION_ACCOUNT = cvar.PartyRole_CONTRA_POSITION_ACCOUNT
 PartyRole_CONTRA_EXCHANGE = cvar.PartyRole_CONTRA_EXCHANGE
 PartyRole_INTERNAL_CARRY_ACCOUNT = cvar.PartyRole_INTERNAL_CARRY_ACCOUNT
@@ -21844,7 +21898,8 @@ PartyRole_ACCEPTABLE_COUNTERPARTY = cvar.PartyRole_ACCEPTABLE_COUNTERPARTY
 PartyRole_UNACCEPTABLE_COUNTERPARTY = cvar.PartyRole_UNACCEPTABLE_COUNTERPARTY
 PartyRole_ENTERING_UNIT = cvar.PartyRole_ENTERING_UNIT
 PartyRole_EXECUTING_UNIT = cvar.PartyRole_EXECUTING_UNIT
-PartyRole_INTRODUCING_BROKER = cvar.PartyRole_INTRODUCING_BROKER
+PartyRole_CONTRA_INVESTOR_ID = cvar.PartyRole_CONTRA_INVESTOR_ID
+PartyRole_TRANSFER_TO_FIRM = cvar.PartyRole_TRANSFER_TO_FIRM
 PartyRole_QUOTE_ORIGINATOR = cvar.PartyRole_QUOTE_ORIGINATOR
 PartyRole_REPORT_ORIGINATOR = cvar.PartyRole_REPORT_ORIGINATOR
 PartyRole_SYSTEMATIC_INTERNALISER = cvar.PartyRole_SYSTEMATIC_INTERNALISER
@@ -21864,6 +21919,10 @@ PartyRole_DESK_ID = cvar.PartyRole_DESK_ID
 PartyRole_MARKET_DATA_MARKET = cvar.PartyRole_MARKET_DATA_MARKET
 PartyRole_ALLOCATION_ENTITY = cvar.PartyRole_ALLOCATION_ENTITY
 Product_AGENCY = cvar.Product_AGENCY
+Product_MORTGAGE = cvar.Product_MORTGAGE
+Product_MUNICIPAL = cvar.Product_MUNICIPAL
+Product_OTHER = cvar.Product_OTHER
+Product_FINANCING = cvar.Product_FINANCING
 Product_COMMODITY = cvar.Product_COMMODITY
 Product_CORPORATE = cvar.Product_CORPORATE
 Product_CURRENCY = cvar.Product_CURRENCY
@@ -21872,10 +21931,6 @@ Product_GOVERNMENT = cvar.Product_GOVERNMENT
 Product_INDEX = cvar.Product_INDEX
 Product_LOAN = cvar.Product_LOAN
 Product_MONEYMARKET = cvar.Product_MONEYMARKET
-Product_MORTGAGE = cvar.Product_MORTGAGE
-Product_MUNICIPAL = cvar.Product_MUNICIPAL
-Product_OTHER = cvar.Product_OTHER
-Product_FINANCING = cvar.Product_FINANCING
 QuantityType_SHARES = cvar.QuantityType_SHARES
 QuantityType_BONDS = cvar.QuantityType_BONDS
 QuantityType_CURRENTFACE = cvar.QuantityType_CURRENTFACE
@@ -21888,26 +21943,26 @@ RoundingDirection_ROUND_TO_NEAREST = cvar.RoundingDirection_ROUND_TO_NEAREST
 RoundingDirection_ROUND_DOWN = cvar.RoundingDirection_ROUND_DOWN
 RoundingDirection_ROUND_UP = cvar.RoundingDirection_ROUND_UP
 DistribPaymentMethod_CREST = cvar.DistribPaymentMethod_CREST
+DistribPaymentMethod_BPAY = cvar.DistribPaymentMethod_BPAY
+DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS = cvar.DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS
+DistribPaymentMethod_REINVEST_IN_FUND = cvar.DistribPaymentMethod_REINVEST_IN_FUND
 DistribPaymentMethod_NSCC = cvar.DistribPaymentMethod_NSCC
 DistribPaymentMethod_EUROCLEAR = cvar.DistribPaymentMethod_EUROCLEAR
 DistribPaymentMethod_CLEARSTREAM = cvar.DistribPaymentMethod_CLEARSTREAM
 DistribPaymentMethod_CHEQUE = cvar.DistribPaymentMethod_CHEQUE
 DistribPaymentMethod_TELEGRAPHIC_TRANSFER = cvar.DistribPaymentMethod_TELEGRAPHIC_TRANSFER
-DistribPaymentMethod_FEDWIRE = cvar.DistribPaymentMethod_FEDWIRE
+DistribPaymentMethod_FED_WIRE = cvar.DistribPaymentMethod_FED_WIRE
 DistribPaymentMethod_DIRECT_CREDIT = cvar.DistribPaymentMethod_DIRECT_CREDIT
 DistribPaymentMethod_ACH_CREDIT = cvar.DistribPaymentMethod_ACH_CREDIT
-DistribPaymentMethod_BPAY = cvar.DistribPaymentMethod_BPAY
-DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS = cvar.DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS
-DistribPaymentMethod_REINVEST_IN_FUND = cvar.DistribPaymentMethod_REINVEST_IN_FUND
-CancellationRights_NO_EXECUTION_ONLY = cvar.CancellationRights_NO_EXECUTION_ONLY
-CancellationRights_NO_WAIVER_AGREEMENT = cvar.CancellationRights_NO_WAIVER_AGREEMENT
-CancellationRights_NO_INSTITUTIONAL = cvar.CancellationRights_NO_INSTITUTIONAL
+CancellationRights_NO_M = cvar.CancellationRights_NO_M
+CancellationRights_NO_N = cvar.CancellationRights_NO_N
+CancellationRights_NO_O = cvar.CancellationRights_NO_O
 CancellationRights_YES = cvar.CancellationRights_YES
-MoneyLaunderingStatus_PASSED = cvar.MoneyLaunderingStatus_PASSED
+MoneyLaunderingStatus_EXEMPT_1 = cvar.MoneyLaunderingStatus_EXEMPT_1
+MoneyLaunderingStatus_EXEMPT_2 = cvar.MoneyLaunderingStatus_EXEMPT_2
+MoneyLaunderingStatus_EXEMPT_3 = cvar.MoneyLaunderingStatus_EXEMPT_3
 MoneyLaunderingStatus_NOT_CHECKED = cvar.MoneyLaunderingStatus_NOT_CHECKED
-MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT = cvar.MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT
-MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION = cvar.MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION
-MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION = cvar.MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION
+MoneyLaunderingStatus_PASSED = cvar.MoneyLaunderingStatus_PASSED
 ExecPriceType_BID_PRICE = cvar.ExecPriceType_BID_PRICE
 ExecPriceType_CREATION_PRICE = cvar.ExecPriceType_CREATION_PRICE
 ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT = cvar.ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT
@@ -21923,83 +21978,89 @@ TradeReportTransType_RELEASE = cvar.TradeReportTransType_RELEASE
 TradeReportTransType_REVERSE = cvar.TradeReportTransType_REVERSE
 TradeReportTransType_CANCEL_DUE_TO_BACK_OUT_OF_TRADE = cvar.TradeReportTransType_CANCEL_DUE_TO_BACK_OUT_OF_TRADE
 PaymentMethod_CREST = cvar.PaymentMethod_CREST
-PaymentMethod_NSCC = cvar.PaymentMethod_NSCC
-PaymentMethod_EUROCLEAR = cvar.PaymentMethod_EUROCLEAR
-PaymentMethod_CLEARSTREAM = cvar.PaymentMethod_CLEARSTREAM
-PaymentMethod_CHEQUE = cvar.PaymentMethod_CHEQUE
-PaymentMethod_TELEGRAPHIC_TRANSFER = cvar.PaymentMethod_TELEGRAPHIC_TRANSFER
-PaymentMethod_FEDWIRE = cvar.PaymentMethod_FEDWIRE
-PaymentMethod_DEBIT_CARD = cvar.PaymentMethod_DEBIT_CARD
-PaymentMethod_DIRECT_DEBIT = cvar.PaymentMethod_DIRECT_DEBIT
 PaymentMethod_DIRECT_CREDIT = cvar.PaymentMethod_DIRECT_CREDIT
 PaymentMethod_CREDIT_CARD = cvar.PaymentMethod_CREDIT_CARD
 PaymentMethod_ACH_DEBIT = cvar.PaymentMethod_ACH_DEBIT
 PaymentMethod_ACH_CREDIT = cvar.PaymentMethod_ACH_CREDIT
 PaymentMethod_BPAY = cvar.PaymentMethod_BPAY
 PaymentMethod_HIGH_VALUE_CLEARING_SYSTEM = cvar.PaymentMethod_HIGH_VALUE_CLEARING_SYSTEM
-TaxAdvantageType_NONE = cvar.TaxAdvantageType_NONE
+PaymentMethod_NSCC = cvar.PaymentMethod_NSCC
+PaymentMethod_EUROCLEAR = cvar.PaymentMethod_EUROCLEAR
+PaymentMethod_CLEARSTREAM = cvar.PaymentMethod_CLEARSTREAM
+PaymentMethod_CHEQUE = cvar.PaymentMethod_CHEQUE
+PaymentMethod_TELEGRAPHIC_TRANSFER = cvar.PaymentMethod_TELEGRAPHIC_TRANSFER
+PaymentMethod_FED_WIRE = cvar.PaymentMethod_FED_WIRE
+PaymentMethod_DEBIT_CARD = cvar.PaymentMethod_DEBIT_CARD
+PaymentMethod_DIRECT_DEBIT = cvar.PaymentMethod_DIRECT_DEBIT
+TaxAdvantageType_NONE_NOT_APPLICABLE = cvar.TaxAdvantageType_NONE_NOT_APPLICABLE
 TaxAdvantageType_MAXI_ISA = cvar.TaxAdvantageType_MAXI_ISA
+TaxAdvantageType_EMPLOYEE_10 = cvar.TaxAdvantageType_EMPLOYEE_10
+TaxAdvantageType_EMPLOYER_11 = cvar.TaxAdvantageType_EMPLOYER_11
+TaxAdvantageType_EMPLOYER_12 = cvar.TaxAdvantageType_EMPLOYER_12
+TaxAdvantageType_NON_FUND_PROTOTYPE_IRA = cvar.TaxAdvantageType_NON_FUND_PROTOTYPE_IRA
+TaxAdvantageType_NON_FUND_QUALIFIED_PLAN = cvar.TaxAdvantageType_NON_FUND_QUALIFIED_PLAN
+TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN = cvar.TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN
+TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_16 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_16
+TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17
+TaxAdvantageType_KEOGH = cvar.TaxAdvantageType_KEOGH
+TaxAdvantageType_PROFIT_SHARING_PLAN = cvar.TaxAdvantageType_PROFIT_SHARING_PLAN
 TaxAdvantageType_TESSA = cvar.TaxAdvantageType_TESSA
+TaxAdvantageType_401 = cvar.TaxAdvantageType_401
+TaxAdvantageType_SELF_DIRECTED_IRA = cvar.TaxAdvantageType_SELF_DIRECTED_IRA
+TaxAdvantageType_403 = cvar.TaxAdvantageType_403
+TaxAdvantageType_457 = cvar.TaxAdvantageType_457
+TaxAdvantageType_ROTH_IRA_24 = cvar.TaxAdvantageType_ROTH_IRA_24
+TaxAdvantageType_ROTH_IRA_25 = cvar.TaxAdvantageType_ROTH_IRA_25
+TaxAdvantageType_ROTH_CONVERSION_IRA_26 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_26
+TaxAdvantageType_ROTH_CONVERSION_IRA_27 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_27
+TaxAdvantageType_EDUCATION_IRA_28 = cvar.TaxAdvantageType_EDUCATION_IRA_28
+TaxAdvantageType_EDUCATION_IRA_29 = cvar.TaxAdvantageType_EDUCATION_IRA_29
 TaxAdvantageType_MINI_CASH_ISA = cvar.TaxAdvantageType_MINI_CASH_ISA
 TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA = cvar.TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA
 TaxAdvantageType_MINI_INSURANCE_ISA = cvar.TaxAdvantageType_MINI_INSURANCE_ISA
 TaxAdvantageType_CURRENT_YEAR_PAYMENT = cvar.TaxAdvantageType_CURRENT_YEAR_PAYMENT
 TaxAdvantageType_PRIOR_YEAR_PAYMENT = cvar.TaxAdvantageType_PRIOR_YEAR_PAYMENT
 TaxAdvantageType_ASSET_TRANSFER = cvar.TaxAdvantageType_ASSET_TRANSFER
-TaxAdvantageType_EMPLOYEE_PRIOR_YEAR = cvar.TaxAdvantageType_EMPLOYEE_PRIOR_YEAR
-TaxAdvantageType_EMPLOYEE = cvar.TaxAdvantageType_EMPLOYEE
-TaxAdvantageType_EMPLOYER = cvar.TaxAdvantageType_EMPLOYER
-TaxAdvantageType_EMPLOYER2 = cvar.TaxAdvantageType_EMPLOYER2
-TaxAdvantageType_NON_FUND_PROTOTYPE_IRA = cvar.TaxAdvantageType_NON_FUND_PROTOTYPE_IRA
-TaxAdvantageType_NON_FUND_QUALIFIED_PLAN = cvar.TaxAdvantageType_NON_FUND_QUALIFIED_PLAN
-TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN = cvar.TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN
-TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT
-TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT2 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT2
-TaxAdvantageType_KEOGH = cvar.TaxAdvantageType_KEOGH
-TaxAdvantageType_PROFIT_SHARING_PLAN = cvar.TaxAdvantageType_PROFIT_SHARING_PLAN
-TaxAdvantageType__401_K = cvar.TaxAdvantageType__401_K
-TaxAdvantageType_SELF_DIRECTED_IRA = cvar.TaxAdvantageType_SELF_DIRECTED_IRA
-TaxAdvantageType__403_B = cvar.TaxAdvantageType__403_B
-TaxAdvantageType__457 = cvar.TaxAdvantageType__457
-TaxAdvantageType_ROTH_IRA = cvar.TaxAdvantageType_ROTH_IRA
-TaxAdvantageType_ROTH_IRA2 = cvar.TaxAdvantageType_ROTH_IRA2
-TaxAdvantageType_ROTH_CONVERSION_IRA = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA
-TaxAdvantageType_ROTH_CONVERSION_IRA2 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA2
-TaxAdvantageType_EDUCATION_IRA = cvar.TaxAdvantageType_EDUCATION_IRA
-TaxAdvantageType_EDUCATION_IRA2 = cvar.TaxAdvantageType_EDUCATION_IRA2
+TaxAdvantageType_EMPLOYEE_9 = cvar.TaxAdvantageType_EMPLOYEE_9
 TaxAdvantageType_OTHER = cvar.TaxAdvantageType_OTHER
 FundRenewWaiv_NO = cvar.FundRenewWaiv_NO
 FundRenewWaiv_YES = cvar.FundRenewWaiv_YES
 RegistStatus_ACCEPTED = cvar.RegistStatus_ACCEPTED
-RegistStatus_REJECTED = cvar.RegistStatus_REJECTED
 RegistStatus_HELD = cvar.RegistStatus_HELD
 RegistStatus_REMINDER = cvar.RegistStatus_REMINDER
+RegistStatus_REJECTED = cvar.RegistStatus_REJECTED
 RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS
-RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO
-RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS
-RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS
-RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST
-RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID
-RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE
+RegistRejReasonCode_INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE = cvar.RegistRejReasonCode_INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH
 RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE
-RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS
+RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_DISTRIB_INSTNS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_DISTRIB_INSTNS
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM
+RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE
+RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE
+RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETAILS
+RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO
+RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DETAILS
+RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DETAILS
+RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS
+RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID
 RegistRejReasonCode_OTHER = cvar.RegistRejReasonCode_OTHER
 RegistTransType_NEW = cvar.RegistTransType_NEW
 RegistTransType_REPLACE = cvar.RegistTransType_REPLACE
 RegistTransType_CANCEL = cvar.RegistTransType_CANCEL
+OwnershipType_JOINT_TRUSTEES = cvar.OwnershipType_JOINT_TRUSTEES
 OwnershipType_JOINT_INVESTORS = cvar.OwnershipType_JOINT_INVESTORS
 OwnershipType_TENANTS_IN_COMMON = cvar.OwnershipType_TENANTS_IN_COMMON
-OwnershipType_JOINT_TRUSTEES = cvar.OwnershipType_JOINT_TRUSTEES
 ContAmtType_COMMISSION_AMOUNT = cvar.ContAmtType_COMMISSION_AMOUNT
+ContAmtType_EXIT_CHARGE_PERCENT = cvar.ContAmtType_EXIT_CHARGE_PERCENT
+ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT
+ContAmtType_PROJECTED_FUND_VALUE = cvar.ContAmtType_PROJECTED_FUND_VALUE
+ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_13 = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_13
+ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_14 = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_14
+ContAmtType_NET_SETTLEMENT_AMOUNT = cvar.ContAmtType_NET_SETTLEMENT_AMOUNT
 ContAmtType_COMMISSION_PERCENT = cvar.ContAmtType_COMMISSION_PERCENT
 ContAmtType_INITIAL_CHARGE_AMOUNT = cvar.ContAmtType_INITIAL_CHARGE_AMOUNT
 ContAmtType_INITIAL_CHARGE_PERCENT = cvar.ContAmtType_INITIAL_CHARGE_PERCENT
@@ -22008,13 +22069,11 @@ ContAmtType_DISCOUNT_PERCENT = cvar.ContAmtType_DISCOUNT_PERCENT
 ContAmtType_DILUTION_LEVY_AMOUNT = cvar.ContAmtType_DILUTION_LEVY_AMOUNT
 ContAmtType_DILUTION_LEVY_PERCENT = cvar.ContAmtType_DILUTION_LEVY_PERCENT
 ContAmtType_EXIT_CHARGE_AMOUNT = cvar.ContAmtType_EXIT_CHARGE_AMOUNT
-ContAmtType_EXIT_CHARGE_PERCENT = cvar.ContAmtType_EXIT_CHARGE_PERCENT
-ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT
-ContAmtType_PROJECTED_FUND_VALUE = cvar.ContAmtType_PROJECTED_FUND_VALUE
-ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT
-ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT2 = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT2
-ContAmtType_NET_SETTLEMENT_AMOUNT = cvar.ContAmtType_NET_SETTLEMENT_AMOUNT
 OwnerType_INDIVIDUAL_INVESTOR = cvar.OwnerType_INDIVIDUAL_INVESTOR
+OwnerType_NETWORKING_SUB_ACCOUNT = cvar.OwnerType_NETWORKING_SUB_ACCOUNT
+OwnerType_NON_PROFIT_ORGANIZATION = cvar.OwnerType_NON_PROFIT_ORGANIZATION
+OwnerType_CORPORATE_BODY = cvar.OwnerType_CORPORATE_BODY
+OwnerType_NOMINEE = cvar.OwnerType_NOMINEE
 OwnerType_PUBLIC_COMPANY = cvar.OwnerType_PUBLIC_COMPANY
 OwnerType_PRIVATE_COMPANY = cvar.OwnerType_PRIVATE_COMPANY
 OwnerType_INDIVIDUAL_TRUSTEE = cvar.OwnerType_INDIVIDUAL_TRUSTEE
@@ -22023,10 +22082,6 @@ OwnerType_PENSION_PLAN = cvar.OwnerType_PENSION_PLAN
 OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT = cvar.OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT
 OwnerType_TRUSTS = cvar.OwnerType_TRUSTS
 OwnerType_FIDUCIARIES = cvar.OwnerType_FIDUCIARIES
-OwnerType_NETWORKING_SUB_ACCOUNT = cvar.OwnerType_NETWORKING_SUB_ACCOUNT
-OwnerType_NON_PROFIT_ORGANIZATION = cvar.OwnerType_NON_PROFIT_ORGANIZATION
-OwnerType_CORPORATE_BODY = cvar.OwnerType_CORPORATE_BODY
-OwnerType_NOMINEE = cvar.OwnerType_NOMINEE
 OrderCapacity_AGENCY = cvar.OrderCapacity_AGENCY
 OrderCapacity_PROPRIETARY = cvar.OrderCapacity_PROPRIETARY
 OrderCapacity_INDIVIDUAL = cvar.OrderCapacity_INDIVIDUAL
@@ -22038,10 +22093,10 @@ OrderRestrictions_INDEX_ARBITRAGE = cvar.OrderRestrictions_INDEX_ARBITRAGE
 OrderRestrictions_NON_INDEX_ARBITRAGE = cvar.OrderRestrictions_NON_INDEX_ARBITRAGE
 OrderRestrictions_COMPETING_MARKET_MAKER = cvar.OrderRestrictions_COMPETING_MARKET_MAKER
 OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY
-OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY
+OrderRestrictions_ACTING_AS_MARKET_MAKER_OF_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SEUCIRTY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OF_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SEUCIRTY
 OrderRestrictions_FOREIGN_ENTITY = cvar.OrderRestrictions_FOREIGN_ENTITY
 OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT = cvar.OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT
-OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE = cvar.OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE
+OrderRestrictions_EXTNERAL_INTER_CONNECTED_MARKET_LINKAGE = cvar.OrderRestrictions_EXTNERAL_INTER_CONNECTED_MARKET_LINKAGE
 OrderRestrictions_RISKLESS_ARBITRAGE = cvar.OrderRestrictions_RISKLESS_ARBITRAGE
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY
 MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY
@@ -22060,10 +22115,10 @@ MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION = cvar.MassCancelResponse
 MassCancelResponse_CANCEL_ALL_ORDERS = cvar.MassCancelResponse_CANCEL_ALL_ORDERS
 MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED = cvar.MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY
-MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING
+MassCancelRejectReason_INVALID_OR_UNKOWN_UNDERLYING_SECURITY = cvar.MassCancelRejectReason_INVALID_OR_UNKOWN_UNDERLYING_SECURITY
 MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT
 MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE
-MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE
+MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITYTYPE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITYTYPE
 MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION
 MassCancelRejectReason_OTHER = cvar.MassCancelRejectReason_OTHER
 QuoteType_INDICATIVE = cvar.QuoteType_INDICATIVE
@@ -22073,13 +22128,15 @@ QuoteType_COUNTER = cvar.QuoteType_COUNTER
 CashMargin_CASH = cvar.CashMargin_CASH
 CashMargin_MARGIN_OPEN = cvar.CashMargin_MARGIN_OPEN
 CashMargin_MARGIN_CLOSE = cvar.CashMargin_MARGIN_CLOSE
-Scope_LOCAL = cvar.Scope_LOCAL
+Scope_LOCAL_MARKET = cvar.Scope_LOCAL_MARKET
 Scope_NATIONAL = cvar.Scope_NATIONAL
 Scope_GLOBAL = cvar.Scope_GLOBAL
-CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT = cvar.CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT
-CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED = cvar.CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED
-CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE = cvar.CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE
-CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE = cvar.CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE
+MDImplicitDelete_NO = cvar.MDImplicitDelete_NO
+MDImplicitDelete_YES = cvar.MDImplicitDelete_YES
+CrossType_CROSS_AON = cvar.CrossType_CROSS_AON
+CrossType_CROSS_IOC = cvar.CrossType_CROSS_IOC
+CrossType_CROSS_ONE_SIDE = cvar.CrossType_CROSS_ONE_SIDE
+CrossType_CROSS_SAME_PRICE = cvar.CrossType_CROSS_SAME_PRICE
 CrossPrioritization_NONE = cvar.CrossPrioritization_NONE
 CrossPrioritization_BUY_SIDE_IS_PRIORITIZED = cvar.CrossPrioritization_BUY_SIDE_IS_PRIORITIZED
 CrossPrioritization_SELL_SIDE_IS_PRIORITIZED = cvar.CrossPrioritization_SELL_SIDE_IS_PRIORITIZED
@@ -22106,21 +22163,16 @@ TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST = cvar.Tra
 TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA
 TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA
 TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA
+PreviouslyReported_NO = cvar.PreviouslyReported_NO
+PreviouslyReported_YES = cvar.PreviouslyReported_YES
 MatchStatus_COMPARED_MATCHED_OR_AFFIRMED = cvar.MatchStatus_COMPARED_MATCHED_OR_AFFIRMED
-MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED = cvar.MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED
+MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRED = cvar.MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRED
 MatchStatus_ADVISORY_OR_ALERT = cvar.MatchStatus_ADVISORY_OR_ALERT
-MatchType_ONE_PARTY_TRADE_REPORT = cvar.MatchType_ONE_PARTY_TRADE_REPORT
-MatchType_TWO_PARTY_TRADE_REPORT = cvar.MatchType_TWO_PARTY_TRADE_REPORT
-MatchType_CONFIRMED_TRADE_REPORT = cvar.MatchType_CONFIRMED_TRADE_REPORT
-MatchType_AUTO_MATCH = cvar.MatchType_AUTO_MATCH
-MatchType_CROSS_AUCTION = cvar.MatchType_CROSS_AUCTION
-MatchType_COUNTER_ORDER_SELECTION = cvar.MatchType_COUNTER_ORDER_SELECTION
-MatchType_CALL_AUCTION = cvar.MatchType_CALL_AUCTION
-MatchType_EXACT_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_PLUS_FOUR_BADGES_AND_EXECUTION_TIME
-MatchType_EXACT_PLUS_FOUR_BADGES = cvar.MatchType_EXACT_PLUS_FOUR_BADGES
-MatchType_EXACT_PLUS_TWO_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_PLUS_TWO_BADGES_AND_EXECUTION_TIME
-MatchType_EXACT_PLUS_TWO_BADGES = cvar.MatchType_EXACT_PLUS_TWO_BADGES
-MatchType_EXACT_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_PLUS_EXECUTION_TIME
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME
 MatchType_ACT_ACCEPTED_TRADE = cvar.MatchType_ACT_ACCEPTED_TRADE
 MatchType_ACT_DEFAULT_TRADE = cvar.MatchType_ACT_DEFAULT_TRADE
 MatchType_ACT_DEFAULT_AFTER_M2 = cvar.MatchType_ACT_DEFAULT_AFTER_M2
@@ -22137,11 +22189,24 @@ MatchType_SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMM
 MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
 MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
 MatchType_CONTINUOUS_AUTO_MATCH = cvar.MatchType_CONTINUOUS_AUTO_MATCH
-MatchType_CROSS_AUCTION2 = cvar.MatchType_CROSS_AUCTION2
-MatchType_COUNTER_ORDER_SELECTION2 = cvar.MatchType_COUNTER_ORDER_SELECTION2
-MatchType_CALL_AUCTION2 = cvar.MatchType_CALL_AUCTION2
+MatchType_CROSS_AUCTION_63 = cvar.MatchType_CROSS_AUCTION_63
+MatchType_COUNTER_ORDER_SELECTION_64 = cvar.MatchType_COUNTER_ORDER_SELECTION_64
+MatchType_CALL_AUCTION_65 = cvar.MatchType_CALL_AUCTION_65
+MatchType_ONE_PARTY_TRADE_REPORT = cvar.MatchType_ONE_PARTY_TRADE_REPORT
+MatchType_TWO_PARTY_TRADE_REPORT = cvar.MatchType_TWO_PARTY_TRADE_REPORT
+MatchType_CONFIRMED_TRADE_REPORT = cvar.MatchType_CONFIRMED_TRADE_REPORT
+MatchType_AUTO_MATCH = cvar.MatchType_AUTO_MATCH
+MatchType_CROSS_AUCTION_5 = cvar.MatchType_CROSS_AUCTION_5
+MatchType_COUNTER_ORDER_SELECTION_6 = cvar.MatchType_COUNTER_ORDER_SELECTION_6
+MatchType_CALL_AUCTION_7 = cvar.MatchType_CALL_AUCTION_7
+OddLot_NO = cvar.OddLot_NO
+OddLot_YES = cvar.OddLot_YES
 ClearingInstruction_PROCESS_NORMALLY = cvar.ClearingInstruction_PROCESS_NORMALLY
 ClearingInstruction_EXCLUDE_FROM_ALL_NETTING = cvar.ClearingInstruction_EXCLUDE_FROM_ALL_NETTING
+ClearingInstruction_AUTOMATIC_GIVE_UP_MODE = cvar.ClearingInstruction_AUTOMATIC_GIVE_UP_MODE
+ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR = cvar.ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR
+ClearingInstruction_CUSTOMER_TRADE = cvar.ClearingInstruction_CUSTOMER_TRADE
+ClearingInstruction_SELF_CLEARING = cvar.ClearingInstruction_SELF_CLEARING
 ClearingInstruction_BILATERAL_NETTING_ONLY = cvar.ClearingInstruction_BILATERAL_NETTING_ONLY
 ClearingInstruction_EX_CLEARING = cvar.ClearingInstruction_EX_CLEARING
 ClearingInstruction_SPECIAL_TRADE = cvar.ClearingInstruction_SPECIAL_TRADE
@@ -22150,17 +22215,13 @@ ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY = cvar.ClearingInstructio
 ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY = cvar.ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY
 ClearingInstruction_MANUAL_MODE = cvar.ClearingInstruction_MANUAL_MODE
 ClearingInstruction_AUTOMATIC_POSTING_MODE = cvar.ClearingInstruction_AUTOMATIC_POSTING_MODE
-ClearingInstruction_AUTOMATIC_GIVE_UP_MODE = cvar.ClearingInstruction_AUTOMATIC_GIVE_UP_MODE
-ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR = cvar.ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR
-ClearingInstruction_CUSTOMER_TRADE = cvar.ClearingInstruction_CUSTOMER_TRADE
-ClearingInstruction_SELF_CLEARING = cvar.ClearingInstruction_SELF_CLEARING
-AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS
+AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS
 AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS
 AccountType_HOUSE_TRADER = cvar.AccountType_HOUSE_TRADER
 AccountType_FLOOR_TRADER = cvar.AccountType_FLOOR_TRADER
 AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED
 AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = cvar.AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED
-AccountType_JOINT_BACKOFFICE_ACCOUNT = cvar.AccountType_JOINT_BACKOFFICE_ACCOUNT
+AccountType_JOINT_BACK_OFFICE_ACCOUNT = cvar.AccountType_JOINT_BACK_OFFICE_ACCOUNT
 CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT = cvar.CustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT
 CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT = cvar.CustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT
 CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER = cvar.CustOrderCapacity_MEMBER_TRADING_FOR_ANOTHER_MEMBER
@@ -22185,7 +22246,7 @@ AllocType_CALCULATED = cvar.AllocType_CALCULATED
 AllocType_PRELIMINARY = cvar.AllocType_PRELIMINARY
 AllocType_SELLSIDE_CALCULATED_USING_PRELIMINARY = cvar.AllocType_SELLSIDE_CALCULATED_USING_PRELIMINARY
 AllocType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = cvar.AllocType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY
-AllocType_READY_TO_BOOK_SINGLE_ORDER = cvar.AllocType_READY_TO_BOOK_SINGLE_ORDER
+AllocType_READY_TO_BOOK = cvar.AllocType_READY_TO_BOOK
 AllocType_BUYSIDE_READY_TO_BOOK = cvar.AllocType_BUYSIDE_READY_TO_BOOK
 AllocType_WAREHOUSE_INSTRUCTION = cvar.AllocType_WAREHOUSE_INSTRUCTION
 AllocType_REQUEST_TO_INTERMEDIARY = cvar.AllocType_REQUEST_TO_INTERMEDIARY
@@ -22195,29 +22256,34 @@ AllocType_ACCEPT_PENDING = cvar.AllocType_ACCEPT_PENDING
 AllocType_INCOMPLETE_GROUP = cvar.AllocType_INCOMPLETE_GROUP
 AllocType_COMPLETE_GROUP = cvar.AllocType_COMPLETE_GROUP
 AllocType_REVERSAL_PENDING = cvar.AllocType_REVERSAL_PENDING
+ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+ClearingFeeIndicator_6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
 ClearingFeeIndicator_CBOE_MEMBER = cvar.ClearingFeeIndicator_CBOE_MEMBER
 ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER = cvar.ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER
 ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER = cvar.ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER
 ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS = cvar.ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS
-ClearingFeeIndicator_FIRMS_106H_AND_106J = cvar.ClearingFeeIndicator_FIRMS_106H_AND_106J
+ClearingFeeIndicator_106H_AND_106J_FIRMS = cvar.ClearingFeeIndicator_106H_AND_106J_FIRMS
 ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS = cvar.ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS
-ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES = cvar.ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES
+ClearingFeeIndicator_LESSEE_106F_EMPLOYEES = cvar.ClearingFeeIndicator_LESSEE_106F_EMPLOYEES
 ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES = cvar.ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES
-ClearingFeeIndicator__1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator__2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator__3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator__4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator__5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator__6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator__6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
+WorkingIndicator_NO = cvar.WorkingIndicator_NO
+WorkingIndicator_YES = cvar.WorkingIndicator_YES
 PriorityIndicator_PRIORITY_UNCHANGED = cvar.PriorityIndicator_PRIORITY_UNCHANGED
 PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE = cvar.PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE
+LegalConfirm_NO = cvar.LegalConfirm_NO
+LegalConfirm_YES = cvar.LegalConfirm_YES
 SecDefStatus_PENDING_APPROVAL = cvar.SecDefStatus_PENDING_APPROVAL
 SecDefStatus_APPROVED = cvar.SecDefStatus_APPROVED
 SecDefStatus_REJECTED = cvar.SecDefStatus_REJECTED
 SecDefStatus_UNAUTHORIZED_REQUEST = cvar.SecDefStatus_UNAUTHORIZED_REQUEST
 SecDefStatus_INVALID_DEFINITION_REQUEST = cvar.SecDefStatus_INVALID_DEFINITION_REQUEST
 QuoteRequestRejectReason_UNKNOWN_SYMBOL = cvar.QuoteRequestRejectReason_UNKNOWN_SYMBOL
-QuoteRequestRejectReason_EXCHANGE_CLOSED = cvar.QuoteRequestRejectReason_EXCHANGE_CLOSED
+QuoteRequestRejectReason_PASS = cvar.QuoteRequestRejectReason_PASS
+QuoteRequestRejectReason_EXCHANGE = cvar.QuoteRequestRejectReason_EXCHANGE
 QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT = cvar.QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT
 QuoteRequestRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteRequestRejectReason_TOO_LATE_TO_ENTER
 QuoteRequestRejectReason_INVALID_PRICE = cvar.QuoteRequestRejectReason_INVALID_PRICE
@@ -22225,9 +22291,8 @@ QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE = cvar.QuoteRequestReje
 QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY = cvar.QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY
 QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT = cvar.QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT
 QuoteRequestRejectReason_NO_INVENTORY = cvar.QuoteRequestRejectReason_NO_INVENTORY
-QuoteRequestRejectReason_PASS = cvar.QuoteRequestRejectReason_PASS
-QuoteRequestRejectReason_INSUFFICIENT_CREDIT = cvar.QuoteRequestRejectReason_INSUFFICIENT_CREDIT
 QuoteRequestRejectReason_OTHER = cvar.QuoteRequestRejectReason_OTHER
+QuoteRequestRejectReason_INSUFFICIENT_CREDIT = cvar.QuoteRequestRejectReason_INSUFFICIENT_CREDIT
 AcctIDSource_BIC = cvar.AcctIDSource_BIC
 AcctIDSource_SID_CODE = cvar.AcctIDSource_SID_CODE
 AcctIDSource_TFM = cvar.AcctIDSource_TFM
@@ -22242,47 +22307,47 @@ ConfirmStatus_REQUEST_REJECTED = cvar.ConfirmStatus_REQUEST_REJECTED
 ConfirmTransType_NEW = cvar.ConfirmTransType_NEW
 ConfirmTransType_REPLACE = cvar.ConfirmTransType_REPLACE
 ConfirmTransType_CANCEL = cvar.ConfirmTransType_CANCEL
-DeliveryForm_BOOKENTRY = cvar.DeliveryForm_BOOKENTRY
+DeliveryForm_BOOK_ENTRY = cvar.DeliveryForm_BOOK_ENTRY
 DeliveryForm_BEARER = cvar.DeliveryForm_BEARER
 LegSwapType_PAR_FOR_PAR = cvar.LegSwapType_PAR_FOR_PAR
 LegSwapType_MODIFIED_DURATION = cvar.LegSwapType_MODIFIED_DURATION
 LegSwapType_RISK = cvar.LegSwapType_RISK
 LegSwapType_PROCEEDS = cvar.LegSwapType_PROCEEDS
 QuotePriceType_PERCENT = cvar.QuotePriceType_PERCENT
+QuotePriceType_YIELD = cvar.QuotePriceType_YIELD
 QuotePriceType_PER_SHARE = cvar.QuotePriceType_PER_SHARE
 QuotePriceType_FIXED_AMOUNT = cvar.QuotePriceType_FIXED_AMOUNT
 QuotePriceType_DISCOUNT = cvar.QuotePriceType_DISCOUNT
 QuotePriceType_PREMIUM = cvar.QuotePriceType_PREMIUM
-QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK = cvar.QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK
+QuotePriceType_SPREAD = cvar.QuotePriceType_SPREAD
 QuotePriceType_TED_PRICE = cvar.QuotePriceType_TED_PRICE
 QuotePriceType_TED_YIELD = cvar.QuotePriceType_TED_YIELD
 QuotePriceType_YIELD_SPREAD = cvar.QuotePriceType_YIELD_SPREAD
-QuotePriceType_YIELD = cvar.QuotePriceType_YIELD
 QuoteRespType_HIT_LIFT = cvar.QuoteRespType_HIT_LIFT
 QuoteRespType_COUNTER = cvar.QuoteRespType_COUNTER
 QuoteRespType_EXPIRED = cvar.QuoteRespType_EXPIRED
 QuoteRespType_COVER = cvar.QuoteRespType_COVER
 QuoteRespType_DONE_AWAY = cvar.QuoteRespType_DONE_AWAY
 QuoteRespType_PASS = cvar.QuoteRespType_PASS
-PosType_TRANSACTION_QUANTITY = cvar.PosType_TRANSACTION_QUANTITY
-PosType_INTRA_SPREAD_QTY = cvar.PosType_INTRA_SPREAD_QTY
-PosType_INTER_SPREAD_QTY = cvar.PosType_INTER_SPREAD_QTY
-PosType_END_OF_DAY_QTY = cvar.PosType_END_OF_DAY_QTY
-PosType_START_OF_DAY_QTY = cvar.PosType_START_OF_DAY_QTY
-PosType_OPTION_EXERCISE_QTY = cvar.PosType_OPTION_EXERCISE_QTY
-PosType_OPTION_ASSIGNMENT = cvar.PosType_OPTION_ASSIGNMENT
-PosType_TRANSACTION_FROM_EXERCISE = cvar.PosType_TRANSACTION_FROM_EXERCISE
-PosType_TRANSACTION_FROM_ASSIGNMENT = cvar.PosType_TRANSACTION_FROM_ASSIGNMENT
-PosType_PIT_TRADE_QTY = cvar.PosType_PIT_TRADE_QTY
-PosType_TRANSFER_TRADE_QTY = cvar.PosType_TRANSFER_TRADE_QTY
-PosType_ELECTRONIC_TRADE_QTY = cvar.PosType_ELECTRONIC_TRADE_QTY
 PosType_ALLOCATION_TRADE_QTY = cvar.PosType_ALLOCATION_TRADE_QTY
-PosType_ADJUSTMENT_QTY = cvar.PosType_ADJUSTMENT_QTY
+PosType_OPTION_ASSIGNMENT = cvar.PosType_OPTION_ASSIGNMENT
 PosType_AS_OF_TRADE_QTY = cvar.PosType_AS_OF_TRADE_QTY
 PosType_DELIVERY_QTY = cvar.PosType_DELIVERY_QTY
-PosType_TOTAL_TRANSACTION_QTY = cvar.PosType_TOTAL_TRANSACTION_QTY
-PosType_CROSS_MARGIN_QTY = cvar.PosType_CROSS_MARGIN_QTY
+PosType_ELECTRONIC_TRADE_QTY = cvar.PosType_ELECTRONIC_TRADE_QTY
+PosType_OPTION_EXERCISE_QTY = cvar.PosType_OPTION_EXERCISE_QTY
+PosType_END_OF_DAY_QTY = cvar.PosType_END_OF_DAY_QTY
+PosType_INTRA_SPREAD_QTY = cvar.PosType_INTRA_SPREAD_QTY
+PosType_INTER_SPREAD_QTY = cvar.PosType_INTER_SPREAD_QTY
+PosType_ADJUSTMENT_QTY = cvar.PosType_ADJUSTMENT_QTY
+PosType_PIT_TRADE_QTY = cvar.PosType_PIT_TRADE_QTY
+PosType_START_OF_DAY_QTY = cvar.PosType_START_OF_DAY_QTY
 PosType_INTEGRAL_SPLIT = cvar.PosType_INTEGRAL_SPLIT
+PosType_TRANSACTION_FROM_ASSIGNMENT = cvar.PosType_TRANSACTION_FROM_ASSIGNMENT
+PosType_TOTAL_TRANSACTION_QTY = cvar.PosType_TOTAL_TRANSACTION_QTY
+PosType_TRANSACTION_QUANTITY = cvar.PosType_TRANSACTION_QUANTITY
+PosType_TRANSFER_TRADE_QTY = cvar.PosType_TRANSFER_TRADE_QTY
+PosType_TRANSACTION_FROM_EXERCISE = cvar.PosType_TRANSACTION_FROM_EXERCISE
+PosType_CROSS_MARGIN_QTY = cvar.PosType_CROSS_MARGIN_QTY
 PosType_RECEIVE_QUANTITY = cvar.PosType_RECEIVE_QUANTITY
 PosType_CORPORATE_ACTION_ADJUSTMENT = cvar.PosType_CORPORATE_ACTION_ADJUSTMENT
 PosType_DELIVERY_NOTICE_QTY = cvar.PosType_DELIVERY_NOTICE_QTY
@@ -22290,13 +22355,13 @@ PosType_EXCHANGE_FOR_PHYSICAL_QTY = cvar.PosType_EXCHANGE_FOR_PHYSICAL_QTY
 PosQtyStatus_SUBMITTED = cvar.PosQtyStatus_SUBMITTED
 PosQtyStatus_ACCEPTED = cvar.PosQtyStatus_ACCEPTED
 PosQtyStatus_REJECTED = cvar.PosQtyStatus_REJECTED
+PosAmtType_CASH_AMOUNT = cvar.PosAmtType_CASH_AMOUNT
+PosAmtType_CASH_RESIDUAL_AMOUNT = cvar.PosAmtType_CASH_RESIDUAL_AMOUNT
 PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT
 PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT
-PosAmtType_TRADE_VARIATION_AMOUNT = cvar.PosAmtType_TRADE_VARIATION_AMOUNT
-PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT
 PosAmtType_PREMIUM_AMOUNT = cvar.PosAmtType_PREMIUM_AMOUNT
-PosAmtType_CASH_RESIDUAL_AMOUNT = cvar.PosAmtType_CASH_RESIDUAL_AMOUNT
-PosAmtType_CASH_AMOUNT = cvar.PosAmtType_CASH_AMOUNT
+PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT
+PosAmtType_TRADE_VARIATION_AMOUNT = cvar.PosAmtType_TRADE_VARIATION_AMOUNT
 PosAmtType_VALUE_ADJUSTED_AMOUNT = cvar.PosAmtType_VALUE_ADJUSTED_AMOUNT
 PosAmtType_SETTLEMENT_VALUE = cvar.PosAmtType_SETTLEMENT_VALUE
 PosTransType_EXERCISE = cvar.PosTransType_EXERCISE
@@ -22322,7 +22387,7 @@ PosMaintStatus_ACCEPTED_WITH_WARNINGS = cvar.PosMaintStatus_ACCEPTED_WITH_WARNIN
 PosMaintStatus_REJECTED = cvar.PosMaintStatus_REJECTED
 PosMaintStatus_COMPLETED = cvar.PosMaintStatus_COMPLETED
 PosMaintStatus_COMPLETED_WITH_WARNINGS = cvar.PosMaintStatus_COMPLETED_WITH_WARNINGS
-PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS = cvar.PosMaintResult_SUCCESSFUL_COMPLETION_NO_WARNINGS_OR_ERRORS
+PosMaintResult_SUCCESSFUL_COMPLETION = cvar.PosMaintResult_SUCCESSFUL_COMPLETION
 PosMaintResult_REJECTED = cvar.PosMaintResult_REJECTED
 PosMaintResult_OTHER = cvar.PosMaintResult_OTHER
 PosReqType_POSITIONS = cvar.PosReqType_POSITIONS
@@ -22344,8 +22409,8 @@ PosReqStatus_COMPLETED_WITH_WARNINGS = cvar.PosReqStatus_COMPLETED_WITH_WARNINGS
 PosReqStatus_REJECTED = cvar.PosReqStatus_REJECTED
 SettlPriceType_FINAL = cvar.SettlPriceType_FINAL
 SettlPriceType_THEORETICAL = cvar.SettlPriceType_THEORETICAL
+AssignmentMethod_PRO_RATA = cvar.AssignmentMethod_PRO_RATA
 AssignmentMethod_RANDOM = cvar.AssignmentMethod_RANDOM
-AssignmentMethod_PRORATA = cvar.AssignmentMethod_PRORATA
 ExerciseMethod_AUTOMATIC = cvar.ExerciseMethod_AUTOMATIC
 ExerciseMethod_MANUAL = cvar.ExerciseMethod_MANUAL
 TradeRequestResult_SUCCESSFUL = cvar.TradeRequestResult_SUCCESSFUL
@@ -22355,20 +22420,20 @@ TradeRequestResult_INVALID_PARTIES = cvar.TradeRequestResult_INVALID_PARTIES
 TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED = cvar.TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED
 TradeRequestResult_INVALID_DESTINATION_REQUESTED = cvar.TradeRequestResult_INVALID_DESTINATION_REQUESTED
 TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED = cvar.TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED
-TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST = cvar.TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST
+TradeRequestResult_UNAUTHORIZED_ROR_TRADE_CAPTURE_REPORT_REQUEST = cvar.TradeRequestResult_UNAUTHORIZED_ROR_TRADE_CAPTURE_REPORT_REQUEST
 TradeRequestResult_OTHER = cvar.TradeRequestResult_OTHER
 TradeRequestStatus_ACCEPTED = cvar.TradeRequestStatus_ACCEPTED
 TradeRequestStatus_COMPLETED = cvar.TradeRequestStatus_COMPLETED
 TradeRequestStatus_REJECTED = cvar.TradeRequestStatus_REJECTED
 TradeReportRejectReason_SUCCESSFUL = cvar.TradeReportRejectReason_SUCCESSFUL
-TradeReportRejectReason_INVALID_PARTY_INFORMATION = cvar.TradeReportRejectReason_INVALID_PARTY_INFORMATION
+TradeReportRejectReason_INVALID_PARTY_ONFORMATION = cvar.TradeReportRejectReason_INVALID_PARTY_ONFORMATION
 TradeReportRejectReason_UNKNOWN_INSTRUMENT = cvar.TradeReportRejectReason_UNKNOWN_INSTRUMENT
 TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES = cvar.TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES
 TradeReportRejectReason_INVALID_TRADE_TYPE = cvar.TradeReportRejectReason_INVALID_TRADE_TYPE
 TradeReportRejectReason_OTHER = cvar.TradeReportRejectReason_OTHER
 SideMultiLegReportingType_SINGLE_SECURITY = cvar.SideMultiLegReportingType_SINGLE_SECURITY
-SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = cvar.SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY
-SideMultiLegReportingType_MULTI_LEG_SECURITY = cvar.SideMultiLegReportingType_MULTI_LEG_SECURITY
+SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = cvar.SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY
+SideMultiLegReportingType_MULTILEG_SECURITY = cvar.SideMultiLegReportingType_MULTILEG_SECURITY
 TrdRegTimestampType_EXECUTION_TIME = cvar.TrdRegTimestampType_EXECUTION_TIME
 TrdRegTimestampType_TIME_IN = cvar.TrdRegTimestampType_TIME_IN
 TrdRegTimestampType_TIME_OUT = cvar.TrdRegTimestampType_TIME_OUT
@@ -22389,8 +22454,8 @@ AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED = cvar.AllocSettlInstType_DER
 AllocSettlInstType_FULL_DETAILS_PROVIDED = cvar.AllocSettlInstType_FULL_DETAILS_PROVIDED
 AllocSettlInstType_SSI_DB_IDS_PROVIDED = cvar.AllocSettlInstType_SSI_DB_IDS_PROVIDED
 AllocSettlInstType_PHONE_FOR_INSTRUCTIONS = cvar.AllocSettlInstType_PHONE_FOR_INSTRUCTIONS
-DlvyInstType_SECURITIES = cvar.DlvyInstType_SECURITIES
 DlvyInstType_CASH = cvar.DlvyInstType_CASH
+DlvyInstType_SECURITIES = cvar.DlvyInstType_SECURITIES
 TerminationType_OVERNIGHT = cvar.TerminationType_OVERNIGHT
 TerminationType_TERM = cvar.TerminationType_TERM
 TerminationType_FLEXIBLE = cvar.TerminationType_FLEXIBLE
@@ -22412,32 +22477,25 @@ AllocReportType_REVERSE_PENDING = cvar.AllocReportType_REVERSE_PENDING
 AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT = cvar.AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT
 AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS = cvar.AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS
 AllocCancReplaceReason_OTHER = cvar.AllocCancReplaceReason_OTHER
-AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS
+AllocAccountType_ACCOUNT_IS_CARRIED_PN_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_PN_CUSTOMER_SIDE_OF_BOOKS
 AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS
 AllocAccountType_HOUSE_TRADER = cvar.AllocAccountType_HOUSE_TRADER
 AllocAccountType_FLOOR_TRADER = cvar.AllocAccountType_FLOOR_TRADER
 AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED
 AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = cvar.AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED
-AllocAccountType_JOINT_BACKOFFICE_ACCOUNT = cvar.AllocAccountType_JOINT_BACKOFFICE_ACCOUNT
+AllocAccountType_JOINT_BACK_OFFICE_ACCOUNT = cvar.AllocAccountType_JOINT_BACK_OFFICE_ACCOUNT
 PartySubIDType_FIRM = cvar.PartySubIDType_FIRM
-PartySubIDType_PERSON = cvar.PartySubIDType_PERSON
-PartySubIDType_SYSTEM = cvar.PartySubIDType_SYSTEM
-PartySubIDType_APPLICATION = cvar.PartySubIDType_APPLICATION
-PartySubIDType_FULL_LEGAL_NAME_OF_FIRM = cvar.PartySubIDType_FULL_LEGAL_NAME_OF_FIRM
-PartySubIDType_POSTAL_ADDRESS = cvar.PartySubIDType_POSTAL_ADDRESS
-PartySubIDType_PHONE_NUMBER = cvar.PartySubIDType_PHONE_NUMBER
-PartySubIDType_EMAIL_ADDRESS = cvar.PartySubIDType_EMAIL_ADDRESS
-PartySubIDType_CONTACT_NAME = cvar.PartySubIDType_CONTACT_NAME
 PartySubIDType_SECURITIES_ACCOUNT_NUMBER = cvar.PartySubIDType_SECURITIES_ACCOUNT_NUMBER
 PartySubIDType_REGISTRATION_NUMBER = cvar.PartySubIDType_REGISTRATION_NUMBER
-PartySubIDType_REGISTERED_ADDRESS = cvar.PartySubIDType_REGISTERED_ADDRESS
+PartySubIDType_REGISTERED_ADDRESS_12 = cvar.PartySubIDType_REGISTERED_ADDRESS_12
 PartySubIDType_REGULATORY_STATUS = cvar.PartySubIDType_REGULATORY_STATUS
 PartySubIDType_REGISTRATION_NAME = cvar.PartySubIDType_REGISTRATION_NAME
 PartySubIDType_CASH_ACCOUNT_NUMBER = cvar.PartySubIDType_CASH_ACCOUNT_NUMBER
 PartySubIDType_BIC = cvar.PartySubIDType_BIC
 PartySubIDType_CSD_PARTICIPANT_MEMBER_CODE = cvar.PartySubIDType_CSD_PARTICIPANT_MEMBER_CODE
-PartySubIDType_REGISTERED_ADDRESS2 = cvar.PartySubIDType_REGISTERED_ADDRESS2
+PartySubIDType_REGISTERED_ADDRESS_18 = cvar.PartySubIDType_REGISTERED_ADDRESS_18
 PartySubIDType_FUND_ACCOUNT_NAME = cvar.PartySubIDType_FUND_ACCOUNT_NAME
+PartySubIDType_PERSON = cvar.PartySubIDType_PERSON
 PartySubIDType_TELEX_NUMBER = cvar.PartySubIDType_TELEX_NUMBER
 PartySubIDType_FAX_NUMBER = cvar.PartySubIDType_FAX_NUMBER
 PartySubIDType_SECURITIES_ACCOUNT_NAME = cvar.PartySubIDType_SECURITIES_ACCOUNT_NAME
@@ -22445,6 +22503,13 @@ PartySubIDType_CASH_ACCOUNT_NAME = cvar.PartySubIDType_CASH_ACCOUNT_NAME
 PartySubIDType_DEPARTMENT = cvar.PartySubIDType_DEPARTMENT
 PartySubIDType_LOCATION_DESK = cvar.PartySubIDType_LOCATION_DESK
 PartySubIDType_POSITION_ACCOUNT_TYPE = cvar.PartySubIDType_POSITION_ACCOUNT_TYPE
+PartySubIDType_SYSTEM = cvar.PartySubIDType_SYSTEM
+PartySubIDType_APPLICATION = cvar.PartySubIDType_APPLICATION
+PartySubIDType_FULL_LEGAL_NAME_OF_FIRM = cvar.PartySubIDType_FULL_LEGAL_NAME_OF_FIRM
+PartySubIDType_POSTAL_ADDRESS = cvar.PartySubIDType_POSTAL_ADDRESS
+PartySubIDType_PHONE_NUMBER = cvar.PartySubIDType_PHONE_NUMBER
+PartySubIDType_EMAIL_ADDRESS = cvar.PartySubIDType_EMAIL_ADDRESS
+PartySubIDType_CONTACT_NAME = cvar.PartySubIDType_CONTACT_NAME
 PartySubIDType_SECURITY_LOCATE_ID = cvar.PartySubIDType_SECURITY_LOCATE_ID
 PartySubIDType_MARKET_MAKER = cvar.PartySubIDType_MARKET_MAKER
 PartySubIDType_ELIGIBLE_COUNTERPARTY = cvar.PartySubIDType_ELIGIBLE_COUNTERPARTY
@@ -22467,7 +22532,7 @@ ApplQueueAction_OVERLAY_LAST = cvar.ApplQueueAction_OVERLAY_LAST
 ApplQueueAction_END_SESSION = cvar.ApplQueueAction_END_SESSION
 AvgPxIndicator_NO_AVERAGE_PRICING = cvar.AvgPxIndicator_NO_AVERAGE_PRICING
 AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
-AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
+AvgPxIndicator_LAST_TRADE_IS_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_LAST_TRADE_IS_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
 TradeAllocIndicator_ALLOCATION_NOT_REQUIRED = cvar.TradeAllocIndicator_ALLOCATION_NOT_REQUIRED
 TradeAllocIndicator_ALLOCATION_REQUIRED = cvar.TradeAllocIndicator_ALLOCATION_REQUIRED
 TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE = cvar.TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE
@@ -22477,7 +22542,7 @@ TradeAllocIndicator_ALLOCATION_TO_CLAIM_ACCOUNT = cvar.TradeAllocIndicator_ALLOC
 ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE = cvar.ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE
 ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN = cvar.ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN
 TrdType_REGULAR_TRADE = cvar.TrdType_REGULAR_TRADE
-TrdType_BLOCK_TRADE = cvar.TrdType_BLOCK_TRADE
+TrdType_BLOCK_TRADE_1 = cvar.TrdType_BLOCK_TRADE_1
 TrdType_AFTER_HOURS_TRADE = cvar.TrdType_AFTER_HOURS_TRADE
 TrdType_EFP = cvar.TrdType_EFP
 TrdType_TRANSFER = cvar.TrdType_TRANSFER
@@ -22513,7 +22578,7 @@ TrdType_SPECIAL_CUM_CAPITAL_REPAYMENTS = cvar.TrdType_SPECIAL_CUM_CAPITAL_REPAYM
 TrdType_SPECIAL_EX_CAPITAL_REPAYMENTS = cvar.TrdType_SPECIAL_EX_CAPITAL_REPAYMENTS
 TrdType_SPECIAL_CUM_BONUS = cvar.TrdType_SPECIAL_CUM_BONUS
 TrdType_SPECIAL_EX_BONUS = cvar.TrdType_SPECIAL_EX_BONUS
-TrdType_BLOCK_TRADE2 = cvar.TrdType_BLOCK_TRADE2
+TrdType_BLOCK_TRADE_38 = cvar.TrdType_BLOCK_TRADE_38
 TrdType_WORKED_PRINCIPAL_TRADE = cvar.TrdType_WORKED_PRINCIPAL_TRADE
 TrdType_BLOCK_TRADES = cvar.TrdType_BLOCK_TRADES
 TrdType_NAME_CHANGE = cvar.TrdType_NAME_CHANGE
@@ -22559,7 +22624,7 @@ PegMoveType_FIXED = cvar.PegMoveType_FIXED
 PegOffsetType_PRICE = cvar.PegOffsetType_PRICE
 PegOffsetType_BASIS_POINTS = cvar.PegOffsetType_BASIS_POINTS
 PegOffsetType_TICKS = cvar.PegOffsetType_TICKS
-PegOffsetType_PRICE_TIER_LEVEL = cvar.PegOffsetType_PRICE_TIER_LEVEL
+PegOffsetType_PRICE_TIER = cvar.PegOffsetType_PRICE_TIER
 PegLimitType_OR_BETTER = cvar.PegLimitType_OR_BETTER
 PegLimitType_STRICT = cvar.PegLimitType_STRICT
 PegLimitType_OR_WORSE = cvar.PegLimitType_OR_WORSE
@@ -22568,13 +22633,13 @@ PegRoundDirection_MORE_PASSIVE = cvar.PegRoundDirection_MORE_PASSIVE
 PegScope_LOCAL = cvar.PegScope_LOCAL
 PegScope_NATIONAL = cvar.PegScope_NATIONAL
 PegScope_GLOBAL = cvar.PegScope_GLOBAL
-PegScope_NATIONAL_EXCLUDING_LOCAL = cvar.PegScope_NATIONAL_EXCLUDING_LOCAL
+PegScope_NATIONAL_XXCLUDING_LOCAL = cvar.PegScope_NATIONAL_XXCLUDING_LOCAL
 DiscretionMoveType_FLOATING = cvar.DiscretionMoveType_FLOATING
 DiscretionMoveType_FIXED = cvar.DiscretionMoveType_FIXED
 DiscretionOffsetType_PRICE = cvar.DiscretionOffsetType_PRICE
 DiscretionOffsetType_BASIS_POINTS = cvar.DiscretionOffsetType_BASIS_POINTS
 DiscretionOffsetType_TICKS = cvar.DiscretionOffsetType_TICKS
-DiscretionOffsetType_PRICE_TIER_LEVEL = cvar.DiscretionOffsetType_PRICE_TIER_LEVEL
+DiscretionOffsetType_PRICE_TIER = cvar.DiscretionOffsetType_PRICE_TIER
 DiscretionLimitType_OR_BETTER = cvar.DiscretionLimitType_OR_BETTER
 DiscretionLimitType_STRICT = cvar.DiscretionLimitType_STRICT
 DiscretionLimitType_OR_WORSE = cvar.DiscretionLimitType_OR_WORSE
@@ -22590,23 +22655,25 @@ TargetStrategy_MININIZE_MARKET_IMPACT = cvar.TargetStrategy_MININIZE_MARKET_IMPA
 LastLiquidityInd_ADDED_LIQUIDITY = cvar.LastLiquidityInd_ADDED_LIQUIDITY
 LastLiquidityInd_REMOVED_LIQUIDITY = cvar.LastLiquidityInd_REMOVED_LIQUIDITY
 LastLiquidityInd_LIQUIDITY_ROUTED_OUT = cvar.LastLiquidityInd_LIQUIDITY_ROUTED_OUT
+PublishTrdIndicator_NO = cvar.PublishTrdIndicator_NO
+PublishTrdIndicator_YES = cvar.PublishTrdIndicator_YES
 ShortSaleReason_DEALER_SOLD_SHORT = cvar.ShortSaleReason_DEALER_SOLD_SHORT
 ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT
 ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT = cvar.ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT
 ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT
-ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT = cvar.ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE_OR_AUTOMATIC_GIVEUP_CONTRA_SIDE_SOLD_SHORT
+ShortSaleReason_QUALIFIED_SERVICE_REPRESENTATIVE = cvar.ShortSaleReason_QUALIFIED_SERVICE_REPRESENTATIVE
 ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT
 QtyType_UNITS = cvar.QtyType_UNITS
 QtyType_CONTRACTS = cvar.QtyType_CONTRACTS
 QtyType_UNITS_OF_MEASURE_PER_TIME_UNIT = cvar.QtyType_UNITS_OF_MEASURE_PER_TIME_UNIT
 TradeReportType_SUBMIT = cvar.TradeReportType_SUBMIT
-TradeReportType_ALLEGED = cvar.TradeReportType_ALLEGED
+TradeReportType_ALLEGED_1 = cvar.TradeReportType_ALLEGED_1
 TradeReportType_ACCEPT = cvar.TradeReportType_ACCEPT
 TradeReportType_DECLINE = cvar.TradeReportType_DECLINE
 TradeReportType_ADDENDUM = cvar.TradeReportType_ADDENDUM
 TradeReportType_NO_WAS = cvar.TradeReportType_NO_WAS
 TradeReportType_TRADE_REPORT_CANCEL = cvar.TradeReportType_TRADE_REPORT_CANCEL
-TradeReportType_LOCKED_IN_TRADE_BREAK = cvar.TradeReportType_LOCKED_IN_TRADE_BREAK
+TradeReportType_NOT_ASSIGNED = cvar.TradeReportType_NOT_ASSIGNED
 TradeReportType_DEFAULTED = cvar.TradeReportType_DEFAULTED
 TradeReportType_INVALID_CMTA = cvar.TradeReportType_INVALID_CMTA
 TradeReportType_PENDED = cvar.TradeReportType_PENDED
@@ -22614,25 +22681,17 @@ TradeReportType_ALLEGED_NEW = cvar.TradeReportType_ALLEGED_NEW
 TradeReportType_ALLEGED_ADDENDUM = cvar.TradeReportType_ALLEGED_ADDENDUM
 TradeReportType_ALLEGED_NO_WAS = cvar.TradeReportType_ALLEGED_NO_WAS
 TradeReportType_ALLEGED_TRADE_REPORT_CANCEL = cvar.TradeReportType_ALLEGED_TRADE_REPORT_CANCEL
-TradeReportType_ALLEGED2 = cvar.TradeReportType_ALLEGED2
+TradeReportType_ALLEGED_15 = cvar.TradeReportType_ALLEGED_15
 AllocNoOrdersType_NOT_SPECIFIED = cvar.AllocNoOrdersType_NOT_SPECIFIED
 AllocNoOrdersType_EXPLICIT_LIST_PROVIDED = cvar.AllocNoOrdersType_EXPLICIT_LIST_PROVIDED
 EventType_PUT = cvar.EventType_PUT
 EventType_CALL = cvar.EventType_CALL
 EventType_TENDER = cvar.EventType_TENDER
 EventType_SINKING_FUND_CALL = cvar.EventType_SINKING_FUND_CALL
+EventType_OTHER = cvar.EventType_OTHER
 EventType_ACTIVATION = cvar.EventType_ACTIVATION
 EventType_INACTIVIATION = cvar.EventType_INACTIVIATION
-EventType_OTHER = cvar.EventType_OTHER
 InstrAttribType_FLAT = cvar.InstrAttribType_FLAT
-InstrAttribType_ZERO_COUPON = cvar.InstrAttribType_ZERO_COUPON
-InstrAttribType_INTEREST_BEARING = cvar.InstrAttribType_INTEREST_BEARING
-InstrAttribType_NO_PERIODIC_PAYMENTS = cvar.InstrAttribType_NO_PERIODIC_PAYMENTS
-InstrAttribType_VARIABLE_RATE = cvar.InstrAttribType_VARIABLE_RATE
-InstrAttribType_LESS_FEE_FOR_PUT = cvar.InstrAttribType_LESS_FEE_FOR_PUT
-InstrAttribType_STEPPED_COUPON = cvar.InstrAttribType_STEPPED_COUPON
-InstrAttribType_COUPON_PERIOD = cvar.InstrAttribType_COUPON_PERIOD
-InstrAttribType_WHEN_AND_IF_ISSUED = cvar.InstrAttribType_WHEN_AND_IF_ISSUED
 InstrAttribType_ORIGINAL_ISSUE_DISCOUNT = cvar.InstrAttribType_ORIGINAL_ISSUE_DISCOUNT
 InstrAttribType_CALLABLE_PUTTABLE = cvar.InstrAttribType_CALLABLE_PUTTABLE
 InstrAttribType_ESCROWED_TO_MATURITY = cvar.InstrAttribType_ESCROWED_TO_MATURITY
@@ -22643,16 +22702,26 @@ InstrAttribType_UNRATED = cvar.InstrAttribType_UNRATED
 InstrAttribType_TAXABLE = cvar.InstrAttribType_TAXABLE
 InstrAttribType_INDEXED = cvar.InstrAttribType_INDEXED
 InstrAttribType_SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX = cvar.InstrAttribType_SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX
+InstrAttribType_ZERO_COUPON = cvar.InstrAttribType_ZERO_COUPON
 InstrAttribType_ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE
 InstrAttribType_CALLABLE_BELOW_MATURITY_VALUE = cvar.InstrAttribType_CALLABLE_BELOW_MATURITY_VALUE
 InstrAttribType_CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED = cvar.InstrAttribType_CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED
+InstrAttribType_INTEREST_BEARING = cvar.InstrAttribType_INTEREST_BEARING
+InstrAttribType_NO_PERIODIC_PAYMENTS = cvar.InstrAttribType_NO_PERIODIC_PAYMENTS
+InstrAttribType_VARIABLE_RATE = cvar.InstrAttribType_VARIABLE_RATE
+InstrAttribType_LESS_FEE_FOR_PUT = cvar.InstrAttribType_LESS_FEE_FOR_PUT
+InstrAttribType_STEPPED_COUPON = cvar.InstrAttribType_STEPPED_COUPON
+InstrAttribType_COUPON_PERIOD = cvar.InstrAttribType_COUPON_PERIOD
+InstrAttribType_WHEN_AND_IF_ISSUED = cvar.InstrAttribType_WHEN_AND_IF_ISSUED
 InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE
-CPProgram__3_A = cvar.CPProgram__3_A
-CPProgram__4_2 = cvar.CPProgram__4_2
+CPProgram_3 = cvar.CPProgram_3
+CPProgram_4 = cvar.CPProgram_4
 CPProgram_OTHER = cvar.CPProgram_OTHER
 MiscFeeBasis_ABSOLUTE = cvar.MiscFeeBasis_ABSOLUTE
 MiscFeeBasis_PER_UNIT = cvar.MiscFeeBasis_PER_UNIT
 MiscFeeBasis_PERCENTAGE = cvar.MiscFeeBasis_PERCENTAGE
+LastFragment_NO = cvar.LastFragment_NO
+LastFragment_YES = cvar.LastFragment_YES
 CollAsgnReason_INITIAL = cvar.CollAsgnReason_INITIAL
 CollAsgnReason_SCHEDULED = cvar.CollAsgnReason_SCHEDULED
 CollAsgnReason_TIME_WARNING = cvar.CollAsgnReason_TIME_WARNING
@@ -22661,9 +22730,9 @@ CollAsgnReason_MARGIN_EXCESS = cvar.CollAsgnReason_MARGIN_EXCESS
 CollAsgnReason_FORWARD_COLLATERAL_DEMAND = cvar.CollAsgnReason_FORWARD_COLLATERAL_DEMAND
 CollAsgnReason_EVENT_OF_DEFAULT = cvar.CollAsgnReason_EVENT_OF_DEFAULT
 CollAsgnReason_ADVERSE_TAX_EVENT = cvar.CollAsgnReason_ADVERSE_TAX_EVENT
-CollInquiryQualifier_TRADEDATE = cvar.CollInquiryQualifier_TRADEDATE
+CollInquiryQualifier_TRADE_DATE = cvar.CollInquiryQualifier_TRADE_DATE
 CollInquiryQualifier_GC_INSTRUMENT = cvar.CollInquiryQualifier_GC_INSTRUMENT
-CollInquiryQualifier_COLLATERALINSTRUMENT = cvar.CollInquiryQualifier_COLLATERALINSTRUMENT
+CollInquiryQualifier_COLLATERAL_INSTRUMENT = cvar.CollInquiryQualifier_COLLATERAL_INSTRUMENT
 CollInquiryQualifier_SUBSTITUTION_ELIGIBLE = cvar.CollInquiryQualifier_SUBSTITUTION_ELIGIBLE
 CollInquiryQualifier_NOT_ASSIGNED = cvar.CollInquiryQualifier_NOT_ASSIGNED
 CollInquiryQualifier_PARTIALLY_ASSIGNED = cvar.CollInquiryQualifier_PARTIALLY_ASSIGNED
@@ -22690,13 +22759,15 @@ CollStatus_PARTIALLY_ASSIGNED = cvar.CollStatus_PARTIALLY_ASSIGNED
 CollStatus_ASSIGNMENT_PROPOSED = cvar.CollStatus_ASSIGNMENT_PROPOSED
 CollStatus_ASSIGNED = cvar.CollStatus_ASSIGNED
 CollStatus_CHALLENGED = cvar.CollStatus_CHALLENGED
-DeliveryType_VERSUS_PAYMENT = cvar.DeliveryType_VERSUS_PAYMENT
-DeliveryType_FREE = cvar.DeliveryType_FREE
+LastRptRequested_NO = cvar.LastRptRequested_NO
+LastRptRequested_YES = cvar.LastRptRequested_YES
+DeliveryType_VERSUS_PAYMENT_DELIVER = cvar.DeliveryType_VERSUS_PAYMENT_DELIVER
+DeliveryType_FREE_DELIVER = cvar.DeliveryType_FREE_DELIVER
 DeliveryType_TRI_PARTY = cvar.DeliveryType_TRI_PARTY
 DeliveryType_HOLD_IN_CUSTODY = cvar.DeliveryType_HOLD_IN_CUSTODY
-UserRequestType_LOGONUSER = cvar.UserRequestType_LOGONUSER
-UserRequestType_LOGOFFUSER = cvar.UserRequestType_LOGOFFUSER
-UserRequestType_CHANGEPASSWORDFORUSER = cvar.UserRequestType_CHANGEPASSWORDFORUSER
+UserRequestType_LOG_ON_USER = cvar.UserRequestType_LOG_ON_USER
+UserRequestType_LOG_OFF_USER = cvar.UserRequestType_LOG_OFF_USER
+UserRequestType_CHANGE_PASSWORD_FOR_USER = cvar.UserRequestType_CHANGE_PASSWORD_FOR_USER
 UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS = cvar.UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS
 UserStatus_LOGGED_IN = cvar.UserStatus_LOGGED_IN
 UserStatus_NOT_LOGGED_IN = cvar.UserStatus_NOT_LOGGED_IN
@@ -22705,20 +22776,20 @@ UserStatus_PASSWORD_INCORRECT = cvar.UserStatus_PASSWORD_INCORRECT
 UserStatus_PASSWORD_CHANGED = cvar.UserStatus_PASSWORD_CHANGED
 UserStatus_OTHER = cvar.UserStatus_OTHER
 StatusValue_CONNECTED = cvar.StatusValue_CONNECTED
-StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP = cvar.StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP
-StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN = cvar.StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN
+StatusValue_NOT_CONNECTED_2 = cvar.StatusValue_NOT_CONNECTED_2
+StatusValue_NOT_CONNECTED_3 = cvar.StatusValue_NOT_CONNECTED_3
 StatusValue_IN_PROCESS = cvar.StatusValue_IN_PROCESS
 NetworkRequestType_SNAPSHOT = cvar.NetworkRequestType_SNAPSHOT
 NetworkRequestType_SUBSCRIBE = cvar.NetworkRequestType_SUBSCRIBE
 NetworkRequestType_STOP_SUBSCRIBING = cvar.NetworkRequestType_STOP_SUBSCRIBING
-NetworkRequestType_LEVEL_OF_DETAIL = cvar.NetworkRequestType_LEVEL_OF_DETAIL
+NetworkRequestType_LEVEL_OF_DETAIL_THEN_NOCOMPIDS_BECOMES_REQUIRED = cvar.NetworkRequestType_LEVEL_OF_DETAIL_THEN_NOCOMPIDS_BECOMES_REQUIRED
 NetworkStatusResponseType_FULL = cvar.NetworkStatusResponseType_FULL
 NetworkStatusResponseType_INCREMENTAL_UPDATE = cvar.NetworkStatusResponseType_INCREMENTAL_UPDATE
 TrdRptStatus_ACCEPTED = cvar.TrdRptStatus_ACCEPTED
 TrdRptStatus_REJECTED = cvar.TrdRptStatus_REJECTED
 TrdRptStatus_ACCEPTED_WITH_ERRORS = cvar.TrdRptStatus_ACCEPTED_WITH_ERRORS
 AffirmStatus_RECEIVED = cvar.AffirmStatus_RECEIVED
-AffirmStatus_CONFIRM_REJECTED = cvar.AffirmStatus_CONFIRM_REJECTED
+AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED = cvar.AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED
 AffirmStatus_AFFIRMED = cvar.AffirmStatus_AFFIRMED
 CollAction_RETAIN = cvar.CollAction_RETAIN
 CollAction_ADD = cvar.CollAction_ADD
@@ -22767,9 +22838,9 @@ SecurityStatus_ACTIVE = cvar.SecurityStatus_ACTIVE
 SecurityStatus_INACTIVE = cvar.SecurityStatus_INACTIVE
 UnderlyingCashType_FIXED = cvar.UnderlyingCashType_FIXED
 UnderlyingCashType_DIFF = cvar.UnderlyingCashType_DIFF
-UnderlyingSettlementType_Tp1 = cvar.UnderlyingSettlementType_Tp1
-UnderlyingSettlementType_Tp3 = cvar.UnderlyingSettlementType_Tp3
-UnderlyingSettlementType_Tp4 = cvar.UnderlyingSettlementType_Tp4
+UnderlyingSettlementType_T_PLUS_1 = cvar.UnderlyingSettlementType_T_PLUS_1
+UnderlyingSettlementType_T_PLUS_3 = cvar.UnderlyingSettlementType_T_PLUS_3
+UnderlyingSettlementType_T_PLUS_4 = cvar.UnderlyingSettlementType_T_PLUS_4
 SecurityUpdateAction_ADD = cvar.SecurityUpdateAction_ADD
 SecurityUpdateAction_DELETE = cvar.SecurityUpdateAction_DELETE
 SecurityUpdateAction_MODIFY = cvar.SecurityUpdateAction_MODIFY
@@ -22893,6 +22964,8 @@ AllocPositionEffect_OPEN = cvar.AllocPositionEffect_OPEN
 AllocPositionEffect_CLOSE = cvar.AllocPositionEffect_CLOSE
 AllocPositionEffect_ROLLED = cvar.AllocPositionEffect_ROLLED
 AllocPositionEffect_FIFO = cvar.AllocPositionEffect_FIFO
+AggressorIndicator_YES = cvar.AggressorIndicator_YES
+AggressorIndicator_NO = cvar.AggressorIndicator_NO
 MDQuoteType_INDICATIVE = cvar.MDQuoteType_INDICATIVE
 MDQuoteType_TRADEABLE = cvar.MDQuoteType_TRADEABLE
 MDQuoteType_RESTRICTED_TRADEABLE = cvar.MDQuoteType_RESTRICTED_TRADEABLE
@@ -23122,29 +23195,6 @@ IDSource_CONSOLIDATED_TAPE_ASSOCIATION = cvar.IDSource_CONSOLIDATED_TAPE_ASSOCIA
 IOIShares_SMALL = cvar.IOIShares_SMALL
 IOIShares_MEDIUM = cvar.IOIShares_MEDIUM
 IOIShares_LARGE = cvar.IOIShares_LARGE
-Rule80A_AGENCY_SINGLE_ORDER = cvar.Rule80A_AGENCY_SINGLE_ORDER
-Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE
-Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM
-Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM
-Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL
-Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_W_TYPE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_W_TYPE
-Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_I_TYPE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_I_TYPE
-Rule80A_INDIVIDUAL_INVESTOR = cvar.Rule80A_INDIVIDUAL_INVESTOR
-Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
-Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
-Rule80A_SHORT_EXEMPT_AFFILIATED = cvar.Rule80A_SHORT_EXEMPT_AFFILIATED
-Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER
-Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER
-Rule80A_PROPRIETARY_AFFILIATED = cvar.Rule80A_PROPRIETARY_AFFILIATED
-Rule80A_PRINCIPAL = cvar.Rule80A_PRINCIPAL
-Rule80A_TRANSACTIONS_NON_MEMBER = cvar.Rule80A_TRANSACTIONS_NON_MEMBER
-Rule80A_SPECIALIST_TRADES = cvar.Rule80A_SPECIALIST_TRADES
-Rule80A_TRANSACTIONS_UNAFFILIATED_MEMBER = cvar.Rule80A_TRANSACTIONS_UNAFFILIATED_MEMBER
-Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY
-Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = cvar.Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER
-Rule80A_SHORT_EXEMPT_NOT_AFFILIATED = cvar.Rule80A_SHORT_EXEMPT_NOT_AFFILIATED
-Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY
-Rule80A_SHORT_EXEMPT_NONMEMBER = cvar.Rule80A_SHORT_EXEMPT_NONMEMBER
 SettlmntTyp_REGULAR = cvar.SettlmntTyp_REGULAR
 SettlmntTyp_CASH = cvar.SettlmntTyp_CASH
 SettlmntTyp_NEXT_DAY = cvar.SettlmntTyp_NEXT_DAY
@@ -23158,6 +23208,8 @@ SettlmntTyp_T_PLUS_5 = cvar.SettlmntTyp_T_PLUS_5
 SettlmntTyp_T_PLUS_1 = cvar.SettlmntTyp_T_PLUS_1
 OpenClose_OPEN = cvar.OpenClose_OPEN
 OpenClose_CLOSE = cvar.OpenClose_CLOSE
+ExecType_PARTIAL_FILL = cvar.ExecType_PARTIAL_FILL
+ExecType_FILL = cvar.ExecType_FILL
 OpenCloseSettleFlag_DAILY_OPEN = cvar.OpenCloseSettleFlag_DAILY_OPEN
 OpenCloseSettleFlag_SESSION_OPEN = cvar.OpenCloseSettleFlag_SESSION_OPEN
 OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE = cvar.OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE
@@ -24412,4 +24464,7480 @@ class DefaultApplVerID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 1137)
 		else:
 			quickfix.StringField.__init__(self, 1137, data)
+
+class Account(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1)
+		else:
+			quickfix.StringField.__init__(self, 1, data)
+
+class AdvId(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 2)
+		else:
+			quickfix.StringField.__init__(self, 2, data)
+
+class AdvRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 3)
+		else:
+			quickfix.StringField.__init__(self, 3, data)
+
+class AdvSide(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 4)
+		else:
+			quickfix.CharField.__init__(self, 4, data)
+
+class AdvTransType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 5)
+		else:
+			quickfix.StringField.__init__(self, 5, data)
+
+class AvgPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 6)
+		else:
+			quickfix.DoubleField.__init__(self, 6, data)
+
+class ClOrdID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 11)
+		else:
+			quickfix.StringField.__init__(self, 11, data)
+
+class Commission(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 12)
+		else:
+			quickfix.DoubleField.__init__(self, 12, data)
+
+class CommType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 13)
+		else:
+			quickfix.CharField.__init__(self, 13, data)
+
+class CumQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 14)
+		else:
+			quickfix.DoubleField.__init__(self, 14, data)
+
+class Currency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 15)
+		else:
+			quickfix.StringField.__init__(self, 15, data)
+
+class ExecID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 17)
+		else:
+			quickfix.StringField.__init__(self, 17, data)
+
+class ExecInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 18)
+		else:
+			quickfix.StringField.__init__(self, 18, data)
+
+class ExecRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 19)
+		else:
+			quickfix.StringField.__init__(self, 19, data)
+
+class ExecTransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 20)
+		else:
+			quickfix.CharField.__init__(self, 20, data)
+
+class HandlInst(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 21)
+		else:
+			quickfix.CharField.__init__(self, 21, data)
+
+class SecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 22)
+		else:
+			quickfix.StringField.__init__(self, 22, data)
+
+class IOIID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 23)
+		else:
+			quickfix.StringField.__init__(self, 23, data)
+
+class IOIOthSvc(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 24)
+		else:
+			quickfix.CharField.__init__(self, 24, data)
+
+class IOIQltyInd(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 25)
+		else:
+			quickfix.CharField.__init__(self, 25, data)
+
+class IOIRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 26)
+		else:
+			quickfix.StringField.__init__(self, 26, data)
+
+class IOIQty(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 27)
+		else:
+			quickfix.StringField.__init__(self, 27, data)
+
+class IOITransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 28)
+		else:
+			quickfix.CharField.__init__(self, 28, data)
+
+class LastCapacity(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 29)
+		else:
+			quickfix.CharField.__init__(self, 29, data)
+
+class LastMkt(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 30)
+		else:
+			quickfix.StringField.__init__(self, 30, data)
+
+class LastPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 31)
+		else:
+			quickfix.DoubleField.__init__(self, 31, data)
+
+class LastQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 32)
+		else:
+			quickfix.DoubleField.__init__(self, 32, data)
+
+class NoLinesOfText(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 33)
+		else:
+			quickfix.IntField.__init__(self, 33, data)
+
+class OrderID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 37)
+		else:
+			quickfix.StringField.__init__(self, 37, data)
+
+class OrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 38)
+		else:
+			quickfix.DoubleField.__init__(self, 38, data)
+
+class OrdStatus(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 39)
+		else:
+			quickfix.CharField.__init__(self, 39, data)
+
+class OrdType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 40)
+		else:
+			quickfix.CharField.__init__(self, 40, data)
+
+class OrigClOrdID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 41)
+		else:
+			quickfix.StringField.__init__(self, 41, data)
+
+class OrigTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 42)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 42, data)
+
+class Price(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 44)
+		else:
+			quickfix.DoubleField.__init__(self, 44, data)
+
+class RelatdSym(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 46)
+		else:
+			quickfix.StringField.__init__(self, 46, data)
+
+class Rule80A(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 47)
+		else:
+			quickfix.CharField.__init__(self, 47, data)
+
+class SecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 48)
+		else:
+			quickfix.StringField.__init__(self, 48, data)
+
+class SendingDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 51)
+		else:
+			quickfix.StringField.__init__(self, 51, data)
+
+class Quantity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 53)
+		else:
+			quickfix.DoubleField.__init__(self, 53, data)
+
+class Side(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 54)
+		else:
+			quickfix.CharField.__init__(self, 54, data)
+
+class Symbol(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 55)
+		else:
+			quickfix.StringField.__init__(self, 55, data)
+
+class TimeInForce(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 59)
+		else:
+			quickfix.CharField.__init__(self, 59, data)
+
+class TransactTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 60)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 60, data)
+
+class Urgency(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 61)
+		else:
+			quickfix.CharField.__init__(self, 61, data)
+
+class ValidUntilTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 62)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 62, data)
+
+class SettlType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 63)
+		else:
+			quickfix.StringField.__init__(self, 63, data)
+
+class SettlDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 64)
+		else:
+			quickfix.StringField.__init__(self, 64, data)
+
+class SymbolSfx(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 65)
+		else:
+			quickfix.StringField.__init__(self, 65, data)
+
+class ListID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 66)
+		else:
+			quickfix.StringField.__init__(self, 66, data)
+
+class ListSeqNo(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 67)
+		else:
+			quickfix.IntField.__init__(self, 67, data)
+
+class TotNoOrders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 68)
+		else:
+			quickfix.IntField.__init__(self, 68, data)
+
+class ListExecInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 69)
+		else:
+			quickfix.StringField.__init__(self, 69, data)
+
+class AllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 70)
+		else:
+			quickfix.StringField.__init__(self, 70, data)
+
+class AllocTransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 71)
+		else:
+			quickfix.CharField.__init__(self, 71, data)
+
+class RefAllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 72)
+		else:
+			quickfix.StringField.__init__(self, 72, data)
+
+class NoOrders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 73)
+		else:
+			quickfix.IntField.__init__(self, 73, data)
+
+class AvgPxPrecision(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 74)
+		else:
+			quickfix.IntField.__init__(self, 74, data)
+
+class TradeDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 75)
+		else:
+			quickfix.StringField.__init__(self, 75, data)
+
+class ExecBroker(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 76)
+		else:
+			quickfix.StringField.__init__(self, 76, data)
+
+class PositionEffect(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 77)
+		else:
+			quickfix.CharField.__init__(self, 77, data)
+
+class NoAllocs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 78)
+		else:
+			quickfix.IntField.__init__(self, 78, data)
+
+class AllocAccount(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 79)
+		else:
+			quickfix.StringField.__init__(self, 79, data)
+
+class AllocQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 80)
+		else:
+			quickfix.DoubleField.__init__(self, 80, data)
+
+class ProcessCode(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 81)
+		else:
+			quickfix.CharField.__init__(self, 81, data)
+
+class NoRpts(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 82)
+		else:
+			quickfix.IntField.__init__(self, 82, data)
+
+class RptSeq(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 83)
+		else:
+			quickfix.IntField.__init__(self, 83, data)
+
+class CxlQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 84)
+		else:
+			quickfix.DoubleField.__init__(self, 84, data)
+
+class NoDlvyInst(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 85)
+		else:
+			quickfix.IntField.__init__(self, 85, data)
+
+class DlvyInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 86)
+		else:
+			quickfix.StringField.__init__(self, 86, data)
+
+class AllocStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 87)
+		else:
+			quickfix.IntField.__init__(self, 87, data)
+
+class AllocRejCode(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 88)
+		else:
+			quickfix.IntField.__init__(self, 88, data)
+
+class BrokerOfCredit(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 92)
+		else:
+			quickfix.StringField.__init__(self, 92, data)
+
+class EmailType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 94)
+		else:
+			quickfix.CharField.__init__(self, 94, data)
+
+class StopPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 99)
+		else:
+			quickfix.DoubleField.__init__(self, 99, data)
+
+class ExDestination(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 100)
+		else:
+			quickfix.StringField.__init__(self, 100, data)
+
+class CxlRejReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 102)
+		else:
+			quickfix.IntField.__init__(self, 102, data)
+
+class OrdRejReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 103)
+		else:
+			quickfix.IntField.__init__(self, 103, data)
+
+class IOIQualifier(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 104)
+		else:
+			quickfix.CharField.__init__(self, 104, data)
+
+class WaveNo(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 105)
+		else:
+			quickfix.StringField.__init__(self, 105, data)
+
+class Issuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 106)
+		else:
+			quickfix.StringField.__init__(self, 106, data)
+
+class SecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 107)
+		else:
+			quickfix.StringField.__init__(self, 107, data)
+
+class ClientID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 109)
+		else:
+			quickfix.StringField.__init__(self, 109, data)
+
+class MinQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 110)
+		else:
+			quickfix.DoubleField.__init__(self, 110, data)
+
+class MaxFloor(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 111)
+		else:
+			quickfix.DoubleField.__init__(self, 111, data)
+
+class ReportToExch(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 113)
+		else:
+			quickfix.BoolField.__init__(self, 113, data)
+
+class LocateReqd(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 114)
+		else:
+			quickfix.BoolField.__init__(self, 114, data)
+
+class QuoteID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 117)
+		else:
+			quickfix.StringField.__init__(self, 117, data)
+
+class NetMoney(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 118)
+		else:
+			quickfix.DoubleField.__init__(self, 118, data)
+
+class SettlCurrAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 119)
+		else:
+			quickfix.DoubleField.__init__(self, 119, data)
+
+class SettlCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 120)
+		else:
+			quickfix.StringField.__init__(self, 120, data)
+
+class ForexReq(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 121)
+		else:
+			quickfix.BoolField.__init__(self, 121, data)
+
+class NoExecs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 124)
+		else:
+			quickfix.IntField.__init__(self, 124, data)
+
+class CxlType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 125)
+		else:
+			quickfix.CharField.__init__(self, 125, data)
+
+class ExpireTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 126)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 126, data)
+
+class DKReason(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 127)
+		else:
+			quickfix.CharField.__init__(self, 127, data)
+
+class IOINaturalFlag(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 130)
+		else:
+			quickfix.BoolField.__init__(self, 130, data)
+
+class QuoteReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 131)
+		else:
+			quickfix.StringField.__init__(self, 131, data)
+
+class BidPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 132)
+		else:
+			quickfix.DoubleField.__init__(self, 132, data)
+
+class OfferPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 133)
+		else:
+			quickfix.DoubleField.__init__(self, 133, data)
+
+class BidSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 134)
+		else:
+			quickfix.DoubleField.__init__(self, 134, data)
+
+class OfferSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 135)
+		else:
+			quickfix.DoubleField.__init__(self, 135, data)
+
+class NoMiscFees(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 136)
+		else:
+			quickfix.IntField.__init__(self, 136, data)
+
+class MiscFeeAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 137)
+		else:
+			quickfix.DoubleField.__init__(self, 137, data)
+
+class MiscFeeCurr(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 138)
+		else:
+			quickfix.StringField.__init__(self, 138, data)
+
+class MiscFeeType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 139)
+		else:
+			quickfix.StringField.__init__(self, 139, data)
+
+class PrevClosePx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 140)
+		else:
+			quickfix.DoubleField.__init__(self, 140, data)
+
+class NoRelatedSym(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 146)
+		else:
+			quickfix.IntField.__init__(self, 146, data)
+
+class Subject(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 147)
+		else:
+			quickfix.StringField.__init__(self, 147, data)
+
+class Headline(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 148)
+		else:
+			quickfix.StringField.__init__(self, 148, data)
+
+class URLLink(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 149)
+		else:
+			quickfix.StringField.__init__(self, 149, data)
+
+class ExecType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 150)
+		else:
+			quickfix.CharField.__init__(self, 150, data)
+
+class LeavesQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 151)
+		else:
+			quickfix.DoubleField.__init__(self, 151, data)
+
+class CashOrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 152)
+		else:
+			quickfix.DoubleField.__init__(self, 152, data)
+
+class AllocAvgPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 153)
+		else:
+			quickfix.DoubleField.__init__(self, 153, data)
+
+class AllocNetMoney(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 154)
+		else:
+			quickfix.DoubleField.__init__(self, 154, data)
+
+class SettlCurrFxRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 155)
+		else:
+			quickfix.DoubleField.__init__(self, 155, data)
+
+class SettlCurrFxRateCalc(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 156)
+		else:
+			quickfix.CharField.__init__(self, 156, data)
+
+class NumDaysInterest(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 157)
+		else:
+			quickfix.IntField.__init__(self, 157, data)
+
+class AccruedInterestRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 158)
+		else:
+			quickfix.DoubleField.__init__(self, 158, data)
+
+class AccruedInterestAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 159)
+		else:
+			quickfix.DoubleField.__init__(self, 159, data)
+
+class SettlInstMode(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 160)
+		else:
+			quickfix.CharField.__init__(self, 160, data)
+
+class AllocText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 161)
+		else:
+			quickfix.StringField.__init__(self, 161, data)
+
+class SettlInstID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 162)
+		else:
+			quickfix.StringField.__init__(self, 162, data)
+
+class SettlInstTransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 163)
+		else:
+			quickfix.CharField.__init__(self, 163, data)
+
+class EmailThreadID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 164)
+		else:
+			quickfix.StringField.__init__(self, 164, data)
+
+class SettlInstSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 165)
+		else:
+			quickfix.CharField.__init__(self, 165, data)
+
+class SettlLocation(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 166)
+		else:
+			quickfix.StringField.__init__(self, 166, data)
+
+class SecurityType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 167)
+		else:
+			quickfix.StringField.__init__(self, 167, data)
+
+class EffectiveTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 168)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 168, data)
+
+class StandInstDbType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 169)
+		else:
+			quickfix.IntField.__init__(self, 169, data)
+
+class StandInstDbName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 170)
+		else:
+			quickfix.StringField.__init__(self, 170, data)
+
+class StandInstDbID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 171)
+		else:
+			quickfix.StringField.__init__(self, 171, data)
+
+class SettlDeliveryType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 172)
+		else:
+			quickfix.IntField.__init__(self, 172, data)
+
+class SettlDepositoryCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 173)
+		else:
+			quickfix.StringField.__init__(self, 173, data)
+
+class SettlBrkrCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 174)
+		else:
+			quickfix.StringField.__init__(self, 174, data)
+
+class SettlInstCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 175)
+		else:
+			quickfix.StringField.__init__(self, 175, data)
+
+class SecuritySettlAgentName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 176)
+		else:
+			quickfix.StringField.__init__(self, 176, data)
+
+class SecuritySettlAgentCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 177)
+		else:
+			quickfix.StringField.__init__(self, 177, data)
+
+class SecuritySettlAgentAcctNum(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 178)
+		else:
+			quickfix.StringField.__init__(self, 178, data)
+
+class SecuritySettlAgentAcctName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 179)
+		else:
+			quickfix.StringField.__init__(self, 179, data)
+
+class SecuritySettlAgentContactName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 180)
+		else:
+			quickfix.StringField.__init__(self, 180, data)
+
+class SecuritySettlAgentContactPhone(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 181)
+		else:
+			quickfix.StringField.__init__(self, 181, data)
+
+class CashSettlAgentName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 182)
+		else:
+			quickfix.StringField.__init__(self, 182, data)
+
+class CashSettlAgentCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 183)
+		else:
+			quickfix.StringField.__init__(self, 183, data)
+
+class CashSettlAgentAcctNum(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 184)
+		else:
+			quickfix.StringField.__init__(self, 184, data)
+
+class CashSettlAgentAcctName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 185)
+		else:
+			quickfix.StringField.__init__(self, 185, data)
+
+class CashSettlAgentContactName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 186)
+		else:
+			quickfix.StringField.__init__(self, 186, data)
+
+class CashSettlAgentContactPhone(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 187)
+		else:
+			quickfix.StringField.__init__(self, 187, data)
+
+class BidSpotRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 188)
+		else:
+			quickfix.DoubleField.__init__(self, 188, data)
+
+class BidForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 189)
+		else:
+			quickfix.DoubleField.__init__(self, 189, data)
+
+class OfferSpotRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 190)
+		else:
+			quickfix.DoubleField.__init__(self, 190, data)
+
+class OfferForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 191)
+		else:
+			quickfix.DoubleField.__init__(self, 191, data)
+
+class OrderQty2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 192)
+		else:
+			quickfix.DoubleField.__init__(self, 192, data)
+
+class SettlDate2(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 193)
+		else:
+			quickfix.StringField.__init__(self, 193, data)
+
+class LastSpotRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 194)
+		else:
+			quickfix.DoubleField.__init__(self, 194, data)
+
+class LastForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 195)
+		else:
+			quickfix.DoubleField.__init__(self, 195, data)
+
+class AllocLinkID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 196)
+		else:
+			quickfix.StringField.__init__(self, 196, data)
+
+class AllocLinkType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 197)
+		else:
+			quickfix.IntField.__init__(self, 197, data)
+
+class SecondaryOrderID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 198)
+		else:
+			quickfix.StringField.__init__(self, 198, data)
+
+class NoIOIQualifiers(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 199)
+		else:
+			quickfix.IntField.__init__(self, 199, data)
+
+class MaturityMonthYear(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 200)
+		else:
+			quickfix.StringField.__init__(self, 200, data)
+
+class PutOrCall(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 201)
+		else:
+			quickfix.IntField.__init__(self, 201, data)
+
+class StrikePrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 202)
+		else:
+			quickfix.DoubleField.__init__(self, 202, data)
+
+class CoveredOrUncovered(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 203)
+		else:
+			quickfix.IntField.__init__(self, 203, data)
+
+class CustomerOrFirm(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 204)
+		else:
+			quickfix.IntField.__init__(self, 204, data)
+
+class MaturityDay(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 205)
+		else:
+			quickfix.StringField.__init__(self, 205, data)
+
+class OptAttribute(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 206)
+		else:
+			quickfix.CharField.__init__(self, 206, data)
+
+class SecurityExchange(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 207)
+		else:
+			quickfix.StringField.__init__(self, 207, data)
+
+class NotifyBrokerOfCredit(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 208)
+		else:
+			quickfix.BoolField.__init__(self, 208, data)
+
+class AllocHandlInst(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 209)
+		else:
+			quickfix.IntField.__init__(self, 209, data)
+
+class MaxShow(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 210)
+		else:
+			quickfix.DoubleField.__init__(self, 210, data)
+
+class PegOffsetValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 211)
+		else:
+			quickfix.DoubleField.__init__(self, 211, data)
+
+class SettlInstRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 214)
+		else:
+			quickfix.StringField.__init__(self, 214, data)
+
+class NoRoutingIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 215)
+		else:
+			quickfix.IntField.__init__(self, 215, data)
+
+class RoutingType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 216)
+		else:
+			quickfix.IntField.__init__(self, 216, data)
+
+class RoutingID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 217)
+		else:
+			quickfix.StringField.__init__(self, 217, data)
+
+class Spread(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 218)
+		else:
+			quickfix.DoubleField.__init__(self, 218, data)
+
+class Benchmark(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 219)
+		else:
+			quickfix.CharField.__init__(self, 219, data)
+
+class BenchmarkCurveCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 220)
+		else:
+			quickfix.StringField.__init__(self, 220, data)
+
+class BenchmarkCurveName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 221)
+		else:
+			quickfix.StringField.__init__(self, 221, data)
+
+class BenchmarkCurvePoint(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 222)
+		else:
+			quickfix.StringField.__init__(self, 222, data)
+
+class CouponRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 223)
+		else:
+			quickfix.DoubleField.__init__(self, 223, data)
+
+class CouponPaymentDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 224)
+		else:
+			quickfix.StringField.__init__(self, 224, data)
+
+class IssueDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 225)
+		else:
+			quickfix.StringField.__init__(self, 225, data)
+
+class RepurchaseTerm(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 226)
+		else:
+			quickfix.IntField.__init__(self, 226, data)
+
+class RepurchaseRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 227)
+		else:
+			quickfix.DoubleField.__init__(self, 227, data)
+
+class Factor(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 228)
+		else:
+			quickfix.DoubleField.__init__(self, 228, data)
+
+class TradeOriginationDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 229)
+		else:
+			quickfix.StringField.__init__(self, 229, data)
+
+class ExDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 230)
+		else:
+			quickfix.StringField.__init__(self, 230, data)
+
+class ContractMultiplier(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 231)
+		else:
+			quickfix.DoubleField.__init__(self, 231, data)
+
+class NoStipulations(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 232)
+		else:
+			quickfix.IntField.__init__(self, 232, data)
+
+class StipulationType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 233)
+		else:
+			quickfix.StringField.__init__(self, 233, data)
+
+class StipulationValue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 234)
+		else:
+			quickfix.StringField.__init__(self, 234, data)
+
+class YieldType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 235)
+		else:
+			quickfix.StringField.__init__(self, 235, data)
+
+class Yield(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 236)
+		else:
+			quickfix.DoubleField.__init__(self, 236, data)
+
+class TotalTakedown(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 237)
+		else:
+			quickfix.DoubleField.__init__(self, 237, data)
+
+class Concession(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 238)
+		else:
+			quickfix.DoubleField.__init__(self, 238, data)
+
+class RepoCollateralSecurityType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 239)
+		else:
+			quickfix.IntField.__init__(self, 239, data)
+
+class RedemptionDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 240)
+		else:
+			quickfix.StringField.__init__(self, 240, data)
+
+class UnderlyingCouponPaymentDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 241)
+		else:
+			quickfix.StringField.__init__(self, 241, data)
+
+class UnderlyingIssueDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 242)
+		else:
+			quickfix.StringField.__init__(self, 242, data)
+
+class UnderlyingRepoCollateralSecurityType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 243)
+		else:
+			quickfix.IntField.__init__(self, 243, data)
+
+class UnderlyingRepurchaseTerm(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 244)
+		else:
+			quickfix.IntField.__init__(self, 244, data)
+
+class UnderlyingRepurchaseRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 245)
+		else:
+			quickfix.DoubleField.__init__(self, 245, data)
+
+class UnderlyingFactor(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 246)
+		else:
+			quickfix.DoubleField.__init__(self, 246, data)
+
+class UnderlyingRedemptionDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 247)
+		else:
+			quickfix.StringField.__init__(self, 247, data)
+
+class LegCouponPaymentDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 248)
+		else:
+			quickfix.StringField.__init__(self, 248, data)
+
+class LegIssueDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 249)
+		else:
+			quickfix.StringField.__init__(self, 249, data)
+
+class LegRepoCollateralSecurityType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 250)
+		else:
+			quickfix.IntField.__init__(self, 250, data)
+
+class LegRepurchaseTerm(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 251)
+		else:
+			quickfix.IntField.__init__(self, 251, data)
+
+class LegRepurchaseRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 252)
+		else:
+			quickfix.DoubleField.__init__(self, 252, data)
+
+class LegFactor(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 253)
+		else:
+			quickfix.DoubleField.__init__(self, 253, data)
+
+class LegRedemptionDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 254)
+		else:
+			quickfix.StringField.__init__(self, 254, data)
+
+class CreditRating(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 255)
+		else:
+			quickfix.StringField.__init__(self, 255, data)
+
+class UnderlyingCreditRating(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 256)
+		else:
+			quickfix.StringField.__init__(self, 256, data)
+
+class LegCreditRating(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 257)
+		else:
+			quickfix.StringField.__init__(self, 257, data)
+
+class TradedFlatSwitch(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 258)
+		else:
+			quickfix.BoolField.__init__(self, 258, data)
+
+class BasisFeatureDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 259)
+		else:
+			quickfix.StringField.__init__(self, 259, data)
+
+class BasisFeaturePrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 260)
+		else:
+			quickfix.DoubleField.__init__(self, 260, data)
+
+class MDReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 262)
+		else:
+			quickfix.StringField.__init__(self, 262, data)
+
+class SubscriptionRequestType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 263)
+		else:
+			quickfix.CharField.__init__(self, 263, data)
+
+class MarketDepth(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 264)
+		else:
+			quickfix.IntField.__init__(self, 264, data)
+
+class MDUpdateType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 265)
+		else:
+			quickfix.IntField.__init__(self, 265, data)
+
+class AggregatedBook(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 266)
+		else:
+			quickfix.BoolField.__init__(self, 266, data)
+
+class NoMDEntryTypes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 267)
+		else:
+			quickfix.IntField.__init__(self, 267, data)
+
+class NoMDEntries(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 268)
+		else:
+			quickfix.IntField.__init__(self, 268, data)
+
+class MDEntryType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 269)
+		else:
+			quickfix.CharField.__init__(self, 269, data)
+
+class MDEntryPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 270)
+		else:
+			quickfix.DoubleField.__init__(self, 270, data)
+
+class MDEntrySize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 271)
+		else:
+			quickfix.DoubleField.__init__(self, 271, data)
+
+class MDEntryDate(quickfix.UtcDateField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcDateField.__init__(self, 272)
+		else:
+			quickfix.UtcDateField.__init__(self, 272, data)
+
+class MDEntryTime(quickfix.UtcTimeOnlyField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeOnlyField.__init__(self, 273)
+		else:
+			quickfix.UtcTimeOnlyField.__init__(self, 273, data)
+
+class TickDirection(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 274)
+		else:
+			quickfix.CharField.__init__(self, 274, data)
+
+class MDMkt(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 275)
+		else:
+			quickfix.StringField.__init__(self, 275, data)
+
+class QuoteCondition(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 276)
+		else:
+			quickfix.StringField.__init__(self, 276, data)
+
+class TradeCondition(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 277)
+		else:
+			quickfix.StringField.__init__(self, 277, data)
+
+class MDEntryID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 278)
+		else:
+			quickfix.StringField.__init__(self, 278, data)
+
+class MDUpdateAction(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 279)
+		else:
+			quickfix.CharField.__init__(self, 279, data)
+
+class MDEntryRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 280)
+		else:
+			quickfix.StringField.__init__(self, 280, data)
+
+class MDReqRejReason(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 281)
+		else:
+			quickfix.CharField.__init__(self, 281, data)
+
+class MDEntryOriginator(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 282)
+		else:
+			quickfix.StringField.__init__(self, 282, data)
+
+class LocationID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 283)
+		else:
+			quickfix.StringField.__init__(self, 283, data)
+
+class DeskID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 284)
+		else:
+			quickfix.StringField.__init__(self, 284, data)
+
+class DeleteReason(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 285)
+		else:
+			quickfix.CharField.__init__(self, 285, data)
+
+class OpenCloseSettlFlag(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 286)
+		else:
+			quickfix.StringField.__init__(self, 286, data)
+
+class SellerDays(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 287)
+		else:
+			quickfix.IntField.__init__(self, 287, data)
+
+class MDEntryBuyer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 288)
+		else:
+			quickfix.StringField.__init__(self, 288, data)
+
+class MDEntrySeller(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 289)
+		else:
+			quickfix.StringField.__init__(self, 289, data)
+
+class MDEntryPositionNo(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 290)
+		else:
+			quickfix.IntField.__init__(self, 290, data)
+
+class FinancialStatus(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 291)
+		else:
+			quickfix.StringField.__init__(self, 291, data)
+
+class CorporateAction(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 292)
+		else:
+			quickfix.StringField.__init__(self, 292, data)
+
+class DefBidSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 293)
+		else:
+			quickfix.DoubleField.__init__(self, 293, data)
+
+class DefOfferSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 294)
+		else:
+			quickfix.DoubleField.__init__(self, 294, data)
+
+class NoQuoteEntries(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 295)
+		else:
+			quickfix.IntField.__init__(self, 295, data)
+
+class NoQuoteSets(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 296)
+		else:
+			quickfix.IntField.__init__(self, 296, data)
+
+class QuoteStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 297)
+		else:
+			quickfix.IntField.__init__(self, 297, data)
+
+class QuoteCancelType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 298)
+		else:
+			quickfix.IntField.__init__(self, 298, data)
+
+class QuoteEntryID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 299)
+		else:
+			quickfix.StringField.__init__(self, 299, data)
+
+class QuoteRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 300)
+		else:
+			quickfix.IntField.__init__(self, 300, data)
+
+class QuoteResponseLevel(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 301)
+		else:
+			quickfix.IntField.__init__(self, 301, data)
+
+class QuoteSetID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 302)
+		else:
+			quickfix.StringField.__init__(self, 302, data)
+
+class QuoteRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 303)
+		else:
+			quickfix.IntField.__init__(self, 303, data)
+
+class TotNoQuoteEntries(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 304)
+		else:
+			quickfix.IntField.__init__(self, 304, data)
+
+class UnderlyingSecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 305)
+		else:
+			quickfix.StringField.__init__(self, 305, data)
+
+class UnderlyingIssuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 306)
+		else:
+			quickfix.StringField.__init__(self, 306, data)
+
+class UnderlyingSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 307)
+		else:
+			quickfix.StringField.__init__(self, 307, data)
+
+class UnderlyingSecurityExchange(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 308)
+		else:
+			quickfix.StringField.__init__(self, 308, data)
+
+class UnderlyingSecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 309)
+		else:
+			quickfix.StringField.__init__(self, 309, data)
+
+class UnderlyingSecurityType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 310)
+		else:
+			quickfix.StringField.__init__(self, 310, data)
+
+class UnderlyingSymbol(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 311)
+		else:
+			quickfix.StringField.__init__(self, 311, data)
+
+class UnderlyingSymbolSfx(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 312)
+		else:
+			quickfix.StringField.__init__(self, 312, data)
+
+class UnderlyingMaturityMonthYear(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 313)
+		else:
+			quickfix.StringField.__init__(self, 313, data)
+
+class UnderlyingMaturityDay(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 314)
+		else:
+			quickfix.StringField.__init__(self, 314, data)
+
+class UnderlyingPutOrCall(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 315)
+		else:
+			quickfix.IntField.__init__(self, 315, data)
+
+class UnderlyingStrikePrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 316)
+		else:
+			quickfix.DoubleField.__init__(self, 316, data)
+
+class UnderlyingOptAttribute(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 317)
+		else:
+			quickfix.CharField.__init__(self, 317, data)
+
+class UnderlyingCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 318)
+		else:
+			quickfix.StringField.__init__(self, 318, data)
+
+class RatioQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 319)
+		else:
+			quickfix.DoubleField.__init__(self, 319, data)
+
+class SecurityReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 320)
+		else:
+			quickfix.StringField.__init__(self, 320, data)
+
+class SecurityRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 321)
+		else:
+			quickfix.IntField.__init__(self, 321, data)
+
+class SecurityResponseID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 322)
+		else:
+			quickfix.StringField.__init__(self, 322, data)
+
+class SecurityResponseType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 323)
+		else:
+			quickfix.IntField.__init__(self, 323, data)
+
+class SecurityStatusReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 324)
+		else:
+			quickfix.StringField.__init__(self, 324, data)
+
+class UnsolicitedIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 325)
+		else:
+			quickfix.BoolField.__init__(self, 325, data)
+
+class SecurityTradingStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 326)
+		else:
+			quickfix.IntField.__init__(self, 326, data)
+
+class HaltReason(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 327)
+		else:
+			quickfix.CharField.__init__(self, 327, data)
+
+class InViewOfCommon(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 328)
+		else:
+			quickfix.BoolField.__init__(self, 328, data)
+
+class DueToRelated(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 329)
+		else:
+			quickfix.BoolField.__init__(self, 329, data)
+
+class BuyVolume(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 330)
+		else:
+			quickfix.DoubleField.__init__(self, 330, data)
+
+class SellVolume(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 331)
+		else:
+			quickfix.DoubleField.__init__(self, 331, data)
+
+class HighPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 332)
+		else:
+			quickfix.DoubleField.__init__(self, 332, data)
+
+class LowPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 333)
+		else:
+			quickfix.DoubleField.__init__(self, 333, data)
+
+class Adjustment(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 334)
+		else:
+			quickfix.IntField.__init__(self, 334, data)
+
+class TradSesReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 335)
+		else:
+			quickfix.StringField.__init__(self, 335, data)
+
+class TradingSessionID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 336)
+		else:
+			quickfix.StringField.__init__(self, 336, data)
+
+class ContraTrader(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 337)
+		else:
+			quickfix.StringField.__init__(self, 337, data)
+
+class TradSesMethod(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 338)
+		else:
+			quickfix.IntField.__init__(self, 338, data)
+
+class TradSesMode(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 339)
+		else:
+			quickfix.IntField.__init__(self, 339, data)
+
+class TradSesStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 340)
+		else:
+			quickfix.IntField.__init__(self, 340, data)
+
+class TradSesStartTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 341)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 341, data)
+
+class TradSesOpenTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 342)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 342, data)
+
+class TradSesPreCloseTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 343)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 343, data)
+
+class TradSesCloseTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 344)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 344, data)
+
+class TradSesEndTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 345)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 345, data)
+
+class NumberOfOrders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 346)
+		else:
+			quickfix.IntField.__init__(self, 346, data)
+
+class EncodedIssuerLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 348)
+		else:
+			quickfix.IntField.__init__(self, 348, data)
+
+class EncodedIssuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 349)
+		else:
+			quickfix.StringField.__init__(self, 349, data)
+
+class EncodedSecurityDescLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 350)
+		else:
+			quickfix.IntField.__init__(self, 350, data)
+
+class EncodedSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 351)
+		else:
+			quickfix.StringField.__init__(self, 351, data)
+
+class EncodedListExecInstLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 352)
+		else:
+			quickfix.IntField.__init__(self, 352, data)
+
+class EncodedListExecInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 353)
+		else:
+			quickfix.StringField.__init__(self, 353, data)
+
+class EncodedSubjectLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 356)
+		else:
+			quickfix.IntField.__init__(self, 356, data)
+
+class EncodedSubject(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 357)
+		else:
+			quickfix.StringField.__init__(self, 357, data)
+
+class EncodedHeadlineLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 358)
+		else:
+			quickfix.IntField.__init__(self, 358, data)
+
+class EncodedHeadline(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 359)
+		else:
+			quickfix.StringField.__init__(self, 359, data)
+
+class EncodedAllocTextLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 360)
+		else:
+			quickfix.IntField.__init__(self, 360, data)
+
+class EncodedAllocText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 361)
+		else:
+			quickfix.StringField.__init__(self, 361, data)
+
+class EncodedUnderlyingIssuerLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 362)
+		else:
+			quickfix.IntField.__init__(self, 362, data)
+
+class EncodedUnderlyingIssuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 363)
+		else:
+			quickfix.StringField.__init__(self, 363, data)
+
+class EncodedUnderlyingSecurityDescLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 364)
+		else:
+			quickfix.IntField.__init__(self, 364, data)
+
+class EncodedUnderlyingSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 365)
+		else:
+			quickfix.StringField.__init__(self, 365, data)
+
+class AllocPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 366)
+		else:
+			quickfix.DoubleField.__init__(self, 366, data)
+
+class QuoteSetValidUntilTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 367)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 367, data)
+
+class QuoteEntryRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 368)
+		else:
+			quickfix.IntField.__init__(self, 368, data)
+
+class OnBehalfOfSendingTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 370)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 370, data)
+
+class BidRequestTransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 374)
+		else:
+			quickfix.CharField.__init__(self, 374, data)
+
+class ContraBroker(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 375)
+		else:
+			quickfix.StringField.__init__(self, 375, data)
+
+class ComplianceID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 376)
+		else:
+			quickfix.StringField.__init__(self, 376, data)
+
+class SolicitedFlag(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 377)
+		else:
+			quickfix.BoolField.__init__(self, 377, data)
+
+class ExecRestatementReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 378)
+		else:
+			quickfix.IntField.__init__(self, 378, data)
+
+class BusinessRejectRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 379)
+		else:
+			quickfix.StringField.__init__(self, 379, data)
+
+class BusinessRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 380)
+		else:
+			quickfix.IntField.__init__(self, 380, data)
+
+class GrossTradeAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 381)
+		else:
+			quickfix.DoubleField.__init__(self, 381, data)
+
+class NoContraBrokers(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 382)
+		else:
+			quickfix.IntField.__init__(self, 382, data)
+
+class NoTradingSessions(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 386)
+		else:
+			quickfix.IntField.__init__(self, 386, data)
+
+class TotalVolumeTraded(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 387)
+		else:
+			quickfix.DoubleField.__init__(self, 387, data)
+
+class DiscretionInst(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 388)
+		else:
+			quickfix.CharField.__init__(self, 388, data)
+
+class DiscretionOffsetValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 389)
+		else:
+			quickfix.DoubleField.__init__(self, 389, data)
+
+class BidID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 390)
+		else:
+			quickfix.StringField.__init__(self, 390, data)
+
+class ClientBidID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 391)
+		else:
+			quickfix.StringField.__init__(self, 391, data)
+
+class ListName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 392)
+		else:
+			quickfix.StringField.__init__(self, 392, data)
+
+class TotNoRelatedSym(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 393)
+		else:
+			quickfix.IntField.__init__(self, 393, data)
+
+class BidType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 394)
+		else:
+			quickfix.IntField.__init__(self, 394, data)
+
+class NumTickets(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 395)
+		else:
+			quickfix.IntField.__init__(self, 395, data)
+
+class SideValue1(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 396)
+		else:
+			quickfix.DoubleField.__init__(self, 396, data)
+
+class SideValue2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 397)
+		else:
+			quickfix.DoubleField.__init__(self, 397, data)
+
+class NoBidDescriptors(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 398)
+		else:
+			quickfix.IntField.__init__(self, 398, data)
+
+class BidDescriptorType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 399)
+		else:
+			quickfix.IntField.__init__(self, 399, data)
+
+class BidDescriptor(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 400)
+		else:
+			quickfix.StringField.__init__(self, 400, data)
+
+class SideValueInd(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 401)
+		else:
+			quickfix.IntField.__init__(self, 401, data)
+
+class LiquidityPctLow(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 402)
+		else:
+			quickfix.DoubleField.__init__(self, 402, data)
+
+class LiquidityPctHigh(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 403)
+		else:
+			quickfix.DoubleField.__init__(self, 403, data)
+
+class LiquidityValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 404)
+		else:
+			quickfix.DoubleField.__init__(self, 404, data)
+
+class EFPTrackingError(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 405)
+		else:
+			quickfix.DoubleField.__init__(self, 405, data)
+
+class FairValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 406)
+		else:
+			quickfix.DoubleField.__init__(self, 406, data)
+
+class OutsideIndexPct(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 407)
+		else:
+			quickfix.DoubleField.__init__(self, 407, data)
+
+class ValueOfFutures(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 408)
+		else:
+			quickfix.DoubleField.__init__(self, 408, data)
+
+class LiquidityIndType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 409)
+		else:
+			quickfix.IntField.__init__(self, 409, data)
+
+class WtAverageLiquidity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 410)
+		else:
+			quickfix.DoubleField.__init__(self, 410, data)
+
+class ExchangeForPhysical(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 411)
+		else:
+			quickfix.BoolField.__init__(self, 411, data)
+
+class OutMainCntryUIndex(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 412)
+		else:
+			quickfix.DoubleField.__init__(self, 412, data)
+
+class CrossPercent(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 413)
+		else:
+			quickfix.DoubleField.__init__(self, 413, data)
+
+class ProgRptReqs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 414)
+		else:
+			quickfix.IntField.__init__(self, 414, data)
+
+class ProgPeriodInterval(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 415)
+		else:
+			quickfix.IntField.__init__(self, 415, data)
+
+class IncTaxInd(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 416)
+		else:
+			quickfix.IntField.__init__(self, 416, data)
+
+class NumBidders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 417)
+		else:
+			quickfix.IntField.__init__(self, 417, data)
+
+class BidTradeType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 418)
+		else:
+			quickfix.CharField.__init__(self, 418, data)
+
+class BasisPxType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 419)
+		else:
+			quickfix.CharField.__init__(self, 419, data)
+
+class NoBidComponents(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 420)
+		else:
+			quickfix.IntField.__init__(self, 420, data)
+
+class Country(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 421)
+		else:
+			quickfix.StringField.__init__(self, 421, data)
+
+class TotNoStrikes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 422)
+		else:
+			quickfix.IntField.__init__(self, 422, data)
+
+class PriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 423)
+		else:
+			quickfix.IntField.__init__(self, 423, data)
+
+class DayOrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 424)
+		else:
+			quickfix.DoubleField.__init__(self, 424, data)
+
+class DayCumQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 425)
+		else:
+			quickfix.DoubleField.__init__(self, 425, data)
+
+class DayAvgPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 426)
+		else:
+			quickfix.DoubleField.__init__(self, 426, data)
+
+class GTBookingInst(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 427)
+		else:
+			quickfix.IntField.__init__(self, 427, data)
+
+class NoStrikes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 428)
+		else:
+			quickfix.IntField.__init__(self, 428, data)
+
+class ListStatusType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 429)
+		else:
+			quickfix.IntField.__init__(self, 429, data)
+
+class NetGrossInd(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 430)
+		else:
+			quickfix.IntField.__init__(self, 430, data)
+
+class ListOrderStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 431)
+		else:
+			quickfix.IntField.__init__(self, 431, data)
+
+class ExpireDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 432)
+		else:
+			quickfix.StringField.__init__(self, 432, data)
+
+class ListExecInstType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 433)
+		else:
+			quickfix.CharField.__init__(self, 433, data)
+
+class CxlRejResponseTo(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 434)
+		else:
+			quickfix.CharField.__init__(self, 434, data)
+
+class UnderlyingCouponRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 435)
+		else:
+			quickfix.DoubleField.__init__(self, 435, data)
+
+class UnderlyingContractMultiplier(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 436)
+		else:
+			quickfix.DoubleField.__init__(self, 436, data)
+
+class ContraTradeQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 437)
+		else:
+			quickfix.DoubleField.__init__(self, 437, data)
+
+class ContraTradeTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 438)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 438, data)
+
+class ClearingFirm(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 439)
+		else:
+			quickfix.StringField.__init__(self, 439, data)
+
+class ClearingAccount(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 440)
+		else:
+			quickfix.StringField.__init__(self, 440, data)
+
+class LiquidityNumSecurities(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 441)
+		else:
+			quickfix.IntField.__init__(self, 441, data)
+
+class MultiLegReportingType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 442)
+		else:
+			quickfix.CharField.__init__(self, 442, data)
+
+class StrikeTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 443)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 443, data)
+
+class ListStatusText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 444)
+		else:
+			quickfix.StringField.__init__(self, 444, data)
+
+class EncodedListStatusTextLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 445)
+		else:
+			quickfix.IntField.__init__(self, 445, data)
+
+class EncodedListStatusText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 446)
+		else:
+			quickfix.StringField.__init__(self, 446, data)
+
+class PartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 447)
+		else:
+			quickfix.CharField.__init__(self, 447, data)
+
+class PartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 448)
+		else:
+			quickfix.StringField.__init__(self, 448, data)
+
+class TotalVolumeTradedDate(quickfix.UtcDateField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcDateField.__init__(self, 449)
+		else:
+			quickfix.UtcDateField.__init__(self, 449, data)
+
+class TotalVolumeTradedTime(quickfix.UtcTimeOnlyField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeOnlyField.__init__(self, 450)
+		else:
+			quickfix.UtcTimeOnlyField.__init__(self, 450, data)
+
+class NetChgPrevDay(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 451)
+		else:
+			quickfix.DoubleField.__init__(self, 451, data)
+
+class PartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 452)
+		else:
+			quickfix.IntField.__init__(self, 452, data)
+
+class NoPartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 453)
+		else:
+			quickfix.IntField.__init__(self, 453, data)
+
+class NoSecurityAltID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 454)
+		else:
+			quickfix.IntField.__init__(self, 454, data)
+
+class SecurityAltID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 455)
+		else:
+			quickfix.StringField.__init__(self, 455, data)
+
+class SecurityAltIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 456)
+		else:
+			quickfix.StringField.__init__(self, 456, data)
+
+class NoUnderlyingSecurityAltID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 457)
+		else:
+			quickfix.IntField.__init__(self, 457, data)
+
+class UnderlyingSecurityAltID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 458)
+		else:
+			quickfix.StringField.__init__(self, 458, data)
+
+class UnderlyingSecurityAltIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 459)
+		else:
+			quickfix.StringField.__init__(self, 459, data)
+
+class Product(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 460)
+		else:
+			quickfix.IntField.__init__(self, 460, data)
+
+class CFICode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 461)
+		else:
+			quickfix.StringField.__init__(self, 461, data)
+
+class UnderlyingProduct(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 462)
+		else:
+			quickfix.IntField.__init__(self, 462, data)
+
+class UnderlyingCFICode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 463)
+		else:
+			quickfix.StringField.__init__(self, 463, data)
+
+class QuantityType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 465)
+		else:
+			quickfix.IntField.__init__(self, 465, data)
+
+class BookingRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 466)
+		else:
+			quickfix.StringField.__init__(self, 466, data)
+
+class IndividualAllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 467)
+		else:
+			quickfix.StringField.__init__(self, 467, data)
+
+class RoundingDirection(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 468)
+		else:
+			quickfix.CharField.__init__(self, 468, data)
+
+class RoundingModulus(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 469)
+		else:
+			quickfix.DoubleField.__init__(self, 469, data)
+
+class CountryOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 470)
+		else:
+			quickfix.StringField.__init__(self, 470, data)
+
+class StateOrProvinceOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 471)
+		else:
+			quickfix.StringField.__init__(self, 471, data)
+
+class LocaleOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 472)
+		else:
+			quickfix.StringField.__init__(self, 472, data)
+
+class NoRegistDtls(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 473)
+		else:
+			quickfix.IntField.__init__(self, 473, data)
+
+class MailingDtls(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 474)
+		else:
+			quickfix.StringField.__init__(self, 474, data)
+
+class InvestorCountryOfResidence(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 475)
+		else:
+			quickfix.StringField.__init__(self, 475, data)
+
+class PaymentRef(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 476)
+		else:
+			quickfix.StringField.__init__(self, 476, data)
+
+class DistribPaymentMethod(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 477)
+		else:
+			quickfix.IntField.__init__(self, 477, data)
+
+class CashDistribCurr(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 478)
+		else:
+			quickfix.StringField.__init__(self, 478, data)
+
+class CommCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 479)
+		else:
+			quickfix.StringField.__init__(self, 479, data)
+
+class CancellationRights(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 480)
+		else:
+			quickfix.CharField.__init__(self, 480, data)
+
+class MoneyLaunderingStatus(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 481)
+		else:
+			quickfix.CharField.__init__(self, 481, data)
+
+class MailingInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 482)
+		else:
+			quickfix.StringField.__init__(self, 482, data)
+
+class TransBkdTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 483)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 483, data)
+
+class ExecPriceType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 484)
+		else:
+			quickfix.CharField.__init__(self, 484, data)
+
+class ExecPriceAdjustment(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 485)
+		else:
+			quickfix.DoubleField.__init__(self, 485, data)
+
+class DateOfBirth(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 486)
+		else:
+			quickfix.StringField.__init__(self, 486, data)
+
+class TradeReportTransType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 487)
+		else:
+			quickfix.IntField.__init__(self, 487, data)
+
+class CardHolderName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 488)
+		else:
+			quickfix.StringField.__init__(self, 488, data)
+
+class CardNumber(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 489)
+		else:
+			quickfix.StringField.__init__(self, 489, data)
+
+class CardExpDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 490)
+		else:
+			quickfix.StringField.__init__(self, 490, data)
+
+class CardIssNum(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 491)
+		else:
+			quickfix.StringField.__init__(self, 491, data)
+
+class PaymentMethod(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 492)
+		else:
+			quickfix.IntField.__init__(self, 492, data)
+
+class RegistAcctType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 493)
+		else:
+			quickfix.StringField.__init__(self, 493, data)
+
+class Designation(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 494)
+		else:
+			quickfix.StringField.__init__(self, 494, data)
+
+class TaxAdvantageType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 495)
+		else:
+			quickfix.IntField.__init__(self, 495, data)
+
+class RegistRejReasonText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 496)
+		else:
+			quickfix.StringField.__init__(self, 496, data)
+
+class FundRenewWaiv(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 497)
+		else:
+			quickfix.CharField.__init__(self, 497, data)
+
+class CashDistribAgentName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 498)
+		else:
+			quickfix.StringField.__init__(self, 498, data)
+
+class CashDistribAgentCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 499)
+		else:
+			quickfix.StringField.__init__(self, 499, data)
+
+class CashDistribAgentAcctNumber(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 500)
+		else:
+			quickfix.StringField.__init__(self, 500, data)
+
+class CashDistribPayRef(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 501)
+		else:
+			quickfix.StringField.__init__(self, 501, data)
+
+class CashDistribAgentAcctName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 502)
+		else:
+			quickfix.StringField.__init__(self, 502, data)
+
+class CardStartDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 503)
+		else:
+			quickfix.StringField.__init__(self, 503, data)
+
+class PaymentDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 504)
+		else:
+			quickfix.StringField.__init__(self, 504, data)
+
+class PaymentRemitterID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 505)
+		else:
+			quickfix.StringField.__init__(self, 505, data)
+
+class RegistStatus(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 506)
+		else:
+			quickfix.CharField.__init__(self, 506, data)
+
+class RegistRejReasonCode(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 507)
+		else:
+			quickfix.IntField.__init__(self, 507, data)
+
+class RegistRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 508)
+		else:
+			quickfix.StringField.__init__(self, 508, data)
+
+class RegistDtls(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 509)
+		else:
+			quickfix.StringField.__init__(self, 509, data)
+
+class NoDistribInsts(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 510)
+		else:
+			quickfix.IntField.__init__(self, 510, data)
+
+class RegistEmail(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 511)
+		else:
+			quickfix.StringField.__init__(self, 511, data)
+
+class DistribPercentage(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 512)
+		else:
+			quickfix.DoubleField.__init__(self, 512, data)
+
+class RegistID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 513)
+		else:
+			quickfix.StringField.__init__(self, 513, data)
+
+class RegistTransType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 514)
+		else:
+			quickfix.CharField.__init__(self, 514, data)
+
+class ExecValuationPoint(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 515)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 515, data)
+
+class OrderPercent(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 516)
+		else:
+			quickfix.DoubleField.__init__(self, 516, data)
+
+class OwnershipType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 517)
+		else:
+			quickfix.CharField.__init__(self, 517, data)
+
+class NoContAmts(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 518)
+		else:
+			quickfix.IntField.__init__(self, 518, data)
+
+class ContAmtType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 519)
+		else:
+			quickfix.IntField.__init__(self, 519, data)
+
+class ContAmtValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 520)
+		else:
+			quickfix.DoubleField.__init__(self, 520, data)
+
+class ContAmtCurr(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 521)
+		else:
+			quickfix.StringField.__init__(self, 521, data)
+
+class OwnerType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 522)
+		else:
+			quickfix.IntField.__init__(self, 522, data)
+
+class PartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 523)
+		else:
+			quickfix.StringField.__init__(self, 523, data)
+
+class NestedPartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 524)
+		else:
+			quickfix.StringField.__init__(self, 524, data)
+
+class NestedPartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 525)
+		else:
+			quickfix.CharField.__init__(self, 525, data)
+
+class SecondaryClOrdID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 526)
+		else:
+			quickfix.StringField.__init__(self, 526, data)
+
+class SecondaryExecID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 527)
+		else:
+			quickfix.StringField.__init__(self, 527, data)
+
+class OrderCapacity(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 528)
+		else:
+			quickfix.CharField.__init__(self, 528, data)
+
+class OrderRestrictions(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 529)
+		else:
+			quickfix.StringField.__init__(self, 529, data)
+
+class MassCancelRequestType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 530)
+		else:
+			quickfix.CharField.__init__(self, 530, data)
+
+class MassCancelResponse(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 531)
+		else:
+			quickfix.CharField.__init__(self, 531, data)
+
+class MassCancelRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 532)
+		else:
+			quickfix.IntField.__init__(self, 532, data)
+
+class TotalAffectedOrders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 533)
+		else:
+			quickfix.IntField.__init__(self, 533, data)
+
+class NoAffectedOrders(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 534)
+		else:
+			quickfix.IntField.__init__(self, 534, data)
+
+class AffectedOrderID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 535)
+		else:
+			quickfix.StringField.__init__(self, 535, data)
+
+class AffectedSecondaryOrderID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 536)
+		else:
+			quickfix.StringField.__init__(self, 536, data)
+
+class QuoteType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 537)
+		else:
+			quickfix.IntField.__init__(self, 537, data)
+
+class NestedPartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 538)
+		else:
+			quickfix.IntField.__init__(self, 538, data)
+
+class NoNestedPartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 539)
+		else:
+			quickfix.IntField.__init__(self, 539, data)
+
+class TotalAccruedInterestAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 540)
+		else:
+			quickfix.DoubleField.__init__(self, 540, data)
+
+class MaturityDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 541)
+		else:
+			quickfix.StringField.__init__(self, 541, data)
+
+class UnderlyingMaturityDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 542)
+		else:
+			quickfix.StringField.__init__(self, 542, data)
+
+class InstrRegistry(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 543)
+		else:
+			quickfix.StringField.__init__(self, 543, data)
+
+class CashMargin(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 544)
+		else:
+			quickfix.CharField.__init__(self, 544, data)
+
+class NestedPartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 545)
+		else:
+			quickfix.StringField.__init__(self, 545, data)
+
+class Scope(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 546)
+		else:
+			quickfix.StringField.__init__(self, 546, data)
+
+class MDImplicitDelete(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 547)
+		else:
+			quickfix.BoolField.__init__(self, 547, data)
+
+class CrossID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 548)
+		else:
+			quickfix.StringField.__init__(self, 548, data)
+
+class CrossType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 549)
+		else:
+			quickfix.IntField.__init__(self, 549, data)
+
+class CrossPrioritization(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 550)
+		else:
+			quickfix.IntField.__init__(self, 550, data)
+
+class OrigCrossID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 551)
+		else:
+			quickfix.StringField.__init__(self, 551, data)
+
+class NoSides(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 552)
+		else:
+			quickfix.IntField.__init__(self, 552, data)
+
+class NoLegs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 555)
+		else:
+			quickfix.IntField.__init__(self, 555, data)
+
+class LegCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 556)
+		else:
+			quickfix.StringField.__init__(self, 556, data)
+
+class TotNoSecurityTypes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 557)
+		else:
+			quickfix.IntField.__init__(self, 557, data)
+
+class NoSecurityTypes(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 558)
+		else:
+			quickfix.IntField.__init__(self, 558, data)
+
+class SecurityListRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 559)
+		else:
+			quickfix.IntField.__init__(self, 559, data)
+
+class SecurityRequestResult(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 560)
+		else:
+			quickfix.IntField.__init__(self, 560, data)
+
+class RoundLot(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 561)
+		else:
+			quickfix.DoubleField.__init__(self, 561, data)
+
+class MinTradeVol(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 562)
+		else:
+			quickfix.DoubleField.__init__(self, 562, data)
+
+class MultiLegRptTypeReq(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 563)
+		else:
+			quickfix.IntField.__init__(self, 563, data)
+
+class LegPositionEffect(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 564)
+		else:
+			quickfix.CharField.__init__(self, 564, data)
+
+class LegCoveredOrUncovered(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 565)
+		else:
+			quickfix.IntField.__init__(self, 565, data)
+
+class LegPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 566)
+		else:
+			quickfix.DoubleField.__init__(self, 566, data)
+
+class TradSesStatusRejReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 567)
+		else:
+			quickfix.IntField.__init__(self, 567, data)
+
+class TradeRequestID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 568)
+		else:
+			quickfix.StringField.__init__(self, 568, data)
+
+class TradeRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 569)
+		else:
+			quickfix.IntField.__init__(self, 569, data)
+
+class PreviouslyReported(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 570)
+		else:
+			quickfix.BoolField.__init__(self, 570, data)
+
+class TradeReportID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 571)
+		else:
+			quickfix.StringField.__init__(self, 571, data)
+
+class TradeReportRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 572)
+		else:
+			quickfix.StringField.__init__(self, 572, data)
+
+class MatchStatus(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 573)
+		else:
+			quickfix.CharField.__init__(self, 573, data)
+
+class MatchType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 574)
+		else:
+			quickfix.StringField.__init__(self, 574, data)
+
+class OddLot(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 575)
+		else:
+			quickfix.BoolField.__init__(self, 575, data)
+
+class NoClearingInstructions(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 576)
+		else:
+			quickfix.IntField.__init__(self, 576, data)
+
+class ClearingInstruction(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 577)
+		else:
+			quickfix.IntField.__init__(self, 577, data)
+
+class TradeInputSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 578)
+		else:
+			quickfix.StringField.__init__(self, 578, data)
+
+class TradeInputDevice(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 579)
+		else:
+			quickfix.StringField.__init__(self, 579, data)
+
+class NoDates(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 580)
+		else:
+			quickfix.IntField.__init__(self, 580, data)
+
+class AccountType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 581)
+		else:
+			quickfix.IntField.__init__(self, 581, data)
+
+class CustOrderCapacity(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 582)
+		else:
+			quickfix.IntField.__init__(self, 582, data)
+
+class ClOrdLinkID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 583)
+		else:
+			quickfix.StringField.__init__(self, 583, data)
+
+class MassStatusReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 584)
+		else:
+			quickfix.StringField.__init__(self, 584, data)
+
+class MassStatusReqType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 585)
+		else:
+			quickfix.IntField.__init__(self, 585, data)
+
+class OrigOrdModTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 586)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 586, data)
+
+class LegSettlType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 587)
+		else:
+			quickfix.CharField.__init__(self, 587, data)
+
+class LegSettlDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 588)
+		else:
+			quickfix.StringField.__init__(self, 588, data)
+
+class DayBookingInst(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 589)
+		else:
+			quickfix.CharField.__init__(self, 589, data)
+
+class BookingUnit(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 590)
+		else:
+			quickfix.CharField.__init__(self, 590, data)
+
+class PreallocMethod(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 591)
+		else:
+			quickfix.CharField.__init__(self, 591, data)
+
+class UnderlyingCountryOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 592)
+		else:
+			quickfix.StringField.__init__(self, 592, data)
+
+class UnderlyingStateOrProvinceOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 593)
+		else:
+			quickfix.StringField.__init__(self, 593, data)
+
+class UnderlyingLocaleOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 594)
+		else:
+			quickfix.StringField.__init__(self, 594, data)
+
+class UnderlyingInstrRegistry(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 595)
+		else:
+			quickfix.StringField.__init__(self, 595, data)
+
+class LegCountryOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 596)
+		else:
+			quickfix.StringField.__init__(self, 596, data)
+
+class LegStateOrProvinceOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 597)
+		else:
+			quickfix.StringField.__init__(self, 597, data)
+
+class LegLocaleOfIssue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 598)
+		else:
+			quickfix.StringField.__init__(self, 598, data)
+
+class LegInstrRegistry(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 599)
+		else:
+			quickfix.StringField.__init__(self, 599, data)
+
+class LegSymbol(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 600)
+		else:
+			quickfix.StringField.__init__(self, 600, data)
+
+class LegSymbolSfx(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 601)
+		else:
+			quickfix.StringField.__init__(self, 601, data)
+
+class LegSecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 602)
+		else:
+			quickfix.StringField.__init__(self, 602, data)
+
+class LegSecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 603)
+		else:
+			quickfix.StringField.__init__(self, 603, data)
+
+class NoLegSecurityAltID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 604)
+		else:
+			quickfix.StringField.__init__(self, 604, data)
+
+class LegSecurityAltID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 605)
+		else:
+			quickfix.StringField.__init__(self, 605, data)
+
+class LegSecurityAltIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 606)
+		else:
+			quickfix.StringField.__init__(self, 606, data)
+
+class LegProduct(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 607)
+		else:
+			quickfix.IntField.__init__(self, 607, data)
+
+class LegCFICode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 608)
+		else:
+			quickfix.StringField.__init__(self, 608, data)
+
+class LegSecurityType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 609)
+		else:
+			quickfix.StringField.__init__(self, 609, data)
+
+class LegMaturityMonthYear(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 610)
+		else:
+			quickfix.StringField.__init__(self, 610, data)
+
+class LegMaturityDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 611)
+		else:
+			quickfix.StringField.__init__(self, 611, data)
+
+class LegStrikePrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 612)
+		else:
+			quickfix.DoubleField.__init__(self, 612, data)
+
+class LegOptAttribute(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 613)
+		else:
+			quickfix.CharField.__init__(self, 613, data)
+
+class LegContractMultiplier(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 614)
+		else:
+			quickfix.DoubleField.__init__(self, 614, data)
+
+class LegCouponRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 615)
+		else:
+			quickfix.DoubleField.__init__(self, 615, data)
+
+class LegSecurityExchange(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 616)
+		else:
+			quickfix.StringField.__init__(self, 616, data)
+
+class LegIssuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 617)
+		else:
+			quickfix.StringField.__init__(self, 617, data)
+
+class EncodedLegIssuerLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 618)
+		else:
+			quickfix.IntField.__init__(self, 618, data)
+
+class EncodedLegIssuer(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 619)
+		else:
+			quickfix.StringField.__init__(self, 619, data)
+
+class LegSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 620)
+		else:
+			quickfix.StringField.__init__(self, 620, data)
+
+class EncodedLegSecurityDescLen(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 621)
+		else:
+			quickfix.IntField.__init__(self, 621, data)
+
+class EncodedLegSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 622)
+		else:
+			quickfix.StringField.__init__(self, 622, data)
+
+class LegRatioQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 623)
+		else:
+			quickfix.DoubleField.__init__(self, 623, data)
+
+class LegSide(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 624)
+		else:
+			quickfix.CharField.__init__(self, 624, data)
+
+class TradingSessionSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 625)
+		else:
+			quickfix.StringField.__init__(self, 625, data)
+
+class AllocType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 626)
+		else:
+			quickfix.IntField.__init__(self, 626, data)
+
+class MidPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 631)
+		else:
+			quickfix.DoubleField.__init__(self, 631, data)
+
+class BidYield(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 632)
+		else:
+			quickfix.DoubleField.__init__(self, 632, data)
+
+class MidYield(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 633)
+		else:
+			quickfix.DoubleField.__init__(self, 633, data)
+
+class OfferYield(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 634)
+		else:
+			quickfix.DoubleField.__init__(self, 634, data)
+
+class ClearingFeeIndicator(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 635)
+		else:
+			quickfix.StringField.__init__(self, 635, data)
+
+class WorkingIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 636)
+		else:
+			quickfix.BoolField.__init__(self, 636, data)
+
+class LegLastPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 637)
+		else:
+			quickfix.DoubleField.__init__(self, 637, data)
+
+class PriorityIndicator(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 638)
+		else:
+			quickfix.IntField.__init__(self, 638, data)
+
+class PriceImprovement(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 639)
+		else:
+			quickfix.DoubleField.__init__(self, 639, data)
+
+class Price2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 640)
+		else:
+			quickfix.DoubleField.__init__(self, 640, data)
+
+class LastForwardPoints2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 641)
+		else:
+			quickfix.DoubleField.__init__(self, 641, data)
+
+class BidForwardPoints2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 642)
+		else:
+			quickfix.DoubleField.__init__(self, 642, data)
+
+class OfferForwardPoints2(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 643)
+		else:
+			quickfix.DoubleField.__init__(self, 643, data)
+
+class RFQReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 644)
+		else:
+			quickfix.StringField.__init__(self, 644, data)
+
+class MktBidPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 645)
+		else:
+			quickfix.DoubleField.__init__(self, 645, data)
+
+class MktOfferPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 646)
+		else:
+			quickfix.DoubleField.__init__(self, 646, data)
+
+class MinBidSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 647)
+		else:
+			quickfix.DoubleField.__init__(self, 647, data)
+
+class MinOfferSize(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 648)
+		else:
+			quickfix.DoubleField.__init__(self, 648, data)
+
+class QuoteStatusReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 649)
+		else:
+			quickfix.StringField.__init__(self, 649, data)
+
+class LegalConfirm(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 650)
+		else:
+			quickfix.BoolField.__init__(self, 650, data)
+
+class UnderlyingLastPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 651)
+		else:
+			quickfix.DoubleField.__init__(self, 651, data)
+
+class UnderlyingLastQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 652)
+		else:
+			quickfix.DoubleField.__init__(self, 652, data)
+
+class SecDefStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 653)
+		else:
+			quickfix.IntField.__init__(self, 653, data)
+
+class LegRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 654)
+		else:
+			quickfix.StringField.__init__(self, 654, data)
+
+class ContraLegRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 655)
+		else:
+			quickfix.StringField.__init__(self, 655, data)
+
+class SettlCurrBidFxRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 656)
+		else:
+			quickfix.DoubleField.__init__(self, 656, data)
+
+class SettlCurrOfferFxRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 657)
+		else:
+			quickfix.DoubleField.__init__(self, 657, data)
+
+class QuoteRequestRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 658)
+		else:
+			quickfix.IntField.__init__(self, 658, data)
+
+class SideComplianceID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 659)
+		else:
+			quickfix.StringField.__init__(self, 659, data)
+
+class AcctIDSource(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 660)
+		else:
+			quickfix.IntField.__init__(self, 660, data)
+
+class AllocAcctIDSource(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 661)
+		else:
+			quickfix.IntField.__init__(self, 661, data)
+
+class BenchmarkPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 662)
+		else:
+			quickfix.DoubleField.__init__(self, 662, data)
+
+class BenchmarkPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 663)
+		else:
+			quickfix.IntField.__init__(self, 663, data)
+
+class ConfirmID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 664)
+		else:
+			quickfix.StringField.__init__(self, 664, data)
+
+class ConfirmStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 665)
+		else:
+			quickfix.IntField.__init__(self, 665, data)
+
+class ConfirmTransType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 666)
+		else:
+			quickfix.IntField.__init__(self, 666, data)
+
+class ContractSettlMonth(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 667)
+		else:
+			quickfix.StringField.__init__(self, 667, data)
+
+class DeliveryForm(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 668)
+		else:
+			quickfix.IntField.__init__(self, 668, data)
+
+class LastParPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 669)
+		else:
+			quickfix.DoubleField.__init__(self, 669, data)
+
+class NoLegAllocs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 670)
+		else:
+			quickfix.IntField.__init__(self, 670, data)
+
+class LegAllocAccount(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 671)
+		else:
+			quickfix.StringField.__init__(self, 671, data)
+
+class LegIndividualAllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 672)
+		else:
+			quickfix.StringField.__init__(self, 672, data)
+
+class LegAllocQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 673)
+		else:
+			quickfix.DoubleField.__init__(self, 673, data)
+
+class LegAllocAcctIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 674)
+		else:
+			quickfix.StringField.__init__(self, 674, data)
+
+class LegSettlCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 675)
+		else:
+			quickfix.StringField.__init__(self, 675, data)
+
+class LegBenchmarkCurveCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 676)
+		else:
+			quickfix.StringField.__init__(self, 676, data)
+
+class LegBenchmarkCurveName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 677)
+		else:
+			quickfix.StringField.__init__(self, 677, data)
+
+class LegBenchmarkCurvePoint(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 678)
+		else:
+			quickfix.StringField.__init__(self, 678, data)
+
+class LegBenchmarkPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 679)
+		else:
+			quickfix.DoubleField.__init__(self, 679, data)
+
+class LegBenchmarkPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 680)
+		else:
+			quickfix.IntField.__init__(self, 680, data)
+
+class LegBidPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 681)
+		else:
+			quickfix.DoubleField.__init__(self, 681, data)
+
+class LegIOIQty(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 682)
+		else:
+			quickfix.StringField.__init__(self, 682, data)
+
+class NoLegStipulations(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 683)
+		else:
+			quickfix.IntField.__init__(self, 683, data)
+
+class LegOfferPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 684)
+		else:
+			quickfix.DoubleField.__init__(self, 684, data)
+
+class LegOrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 685)
+		else:
+			quickfix.DoubleField.__init__(self, 685, data)
+
+class LegPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 686)
+		else:
+			quickfix.IntField.__init__(self, 686, data)
+
+class LegQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 687)
+		else:
+			quickfix.DoubleField.__init__(self, 687, data)
+
+class LegStipulationType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 688)
+		else:
+			quickfix.StringField.__init__(self, 688, data)
+
+class LegStipulationValue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 689)
+		else:
+			quickfix.StringField.__init__(self, 689, data)
+
+class LegSwapType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 690)
+		else:
+			quickfix.IntField.__init__(self, 690, data)
+
+class Pool(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 691)
+		else:
+			quickfix.StringField.__init__(self, 691, data)
+
+class QuotePriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 692)
+		else:
+			quickfix.IntField.__init__(self, 692, data)
+
+class QuoteRespID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 693)
+		else:
+			quickfix.StringField.__init__(self, 693, data)
+
+class QuoteRespType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 694)
+		else:
+			quickfix.IntField.__init__(self, 694, data)
+
+class QuoteQualifier(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 695)
+		else:
+			quickfix.CharField.__init__(self, 695, data)
+
+class YieldRedemptionDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 696)
+		else:
+			quickfix.StringField.__init__(self, 696, data)
+
+class YieldRedemptionPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 697)
+		else:
+			quickfix.DoubleField.__init__(self, 697, data)
+
+class YieldRedemptionPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 698)
+		else:
+			quickfix.IntField.__init__(self, 698, data)
+
+class BenchmarkSecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 699)
+		else:
+			quickfix.StringField.__init__(self, 699, data)
+
+class ReversalIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 700)
+		else:
+			quickfix.BoolField.__init__(self, 700, data)
+
+class YieldCalcDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 701)
+		else:
+			quickfix.StringField.__init__(self, 701, data)
+
+class NoPositions(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 702)
+		else:
+			quickfix.IntField.__init__(self, 702, data)
+
+class PosType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 703)
+		else:
+			quickfix.StringField.__init__(self, 703, data)
+
+class LongQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 704)
+		else:
+			quickfix.DoubleField.__init__(self, 704, data)
+
+class ShortQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 705)
+		else:
+			quickfix.DoubleField.__init__(self, 705, data)
+
+class PosQtyStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 706)
+		else:
+			quickfix.IntField.__init__(self, 706, data)
+
+class PosAmtType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 707)
+		else:
+			quickfix.StringField.__init__(self, 707, data)
+
+class PosAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 708)
+		else:
+			quickfix.DoubleField.__init__(self, 708, data)
+
+class PosTransType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 709)
+		else:
+			quickfix.IntField.__init__(self, 709, data)
+
+class PosReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 710)
+		else:
+			quickfix.StringField.__init__(self, 710, data)
+
+class NoUnderlyings(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 711)
+		else:
+			quickfix.IntField.__init__(self, 711, data)
+
+class PosMaintAction(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 712)
+		else:
+			quickfix.IntField.__init__(self, 712, data)
+
+class OrigPosReqRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 713)
+		else:
+			quickfix.StringField.__init__(self, 713, data)
+
+class PosMaintRptRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 714)
+		else:
+			quickfix.StringField.__init__(self, 714, data)
+
+class ClearingBusinessDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 715)
+		else:
+			quickfix.StringField.__init__(self, 715, data)
+
+class SettlSessID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 716)
+		else:
+			quickfix.StringField.__init__(self, 716, data)
+
+class SettlSessSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 717)
+		else:
+			quickfix.StringField.__init__(self, 717, data)
+
+class AdjustmentType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 718)
+		else:
+			quickfix.IntField.__init__(self, 718, data)
+
+class ContraryInstructionIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 719)
+		else:
+			quickfix.BoolField.__init__(self, 719, data)
+
+class PriorSpreadIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 720)
+		else:
+			quickfix.BoolField.__init__(self, 720, data)
+
+class PosMaintRptID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 721)
+		else:
+			quickfix.StringField.__init__(self, 721, data)
+
+class PosMaintStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 722)
+		else:
+			quickfix.IntField.__init__(self, 722, data)
+
+class PosMaintResult(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 723)
+		else:
+			quickfix.IntField.__init__(self, 723, data)
+
+class PosReqType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 724)
+		else:
+			quickfix.IntField.__init__(self, 724, data)
+
+class ResponseTransportType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 725)
+		else:
+			quickfix.IntField.__init__(self, 725, data)
+
+class ResponseDestination(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 726)
+		else:
+			quickfix.StringField.__init__(self, 726, data)
+
+class TotalNumPosReports(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 727)
+		else:
+			quickfix.IntField.__init__(self, 727, data)
+
+class PosReqResult(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 728)
+		else:
+			quickfix.IntField.__init__(self, 728, data)
+
+class PosReqStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 729)
+		else:
+			quickfix.IntField.__init__(self, 729, data)
+
+class SettlPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 730)
+		else:
+			quickfix.DoubleField.__init__(self, 730, data)
+
+class SettlPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 731)
+		else:
+			quickfix.IntField.__init__(self, 731, data)
+
+class UnderlyingSettlPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 732)
+		else:
+			quickfix.DoubleField.__init__(self, 732, data)
+
+class UnderlyingSettlPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 733)
+		else:
+			quickfix.IntField.__init__(self, 733, data)
+
+class PriorSettlPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 734)
+		else:
+			quickfix.DoubleField.__init__(self, 734, data)
+
+class NoQuoteQualifiers(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 735)
+		else:
+			quickfix.IntField.__init__(self, 735, data)
+
+class AllocSettlCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 736)
+		else:
+			quickfix.StringField.__init__(self, 736, data)
+
+class AllocSettlCurrAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 737)
+		else:
+			quickfix.DoubleField.__init__(self, 737, data)
+
+class InterestAtMaturity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 738)
+		else:
+			quickfix.DoubleField.__init__(self, 738, data)
+
+class LegDatedDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 739)
+		else:
+			quickfix.StringField.__init__(self, 739, data)
+
+class LegPool(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 740)
+		else:
+			quickfix.StringField.__init__(self, 740, data)
+
+class AllocInterestAtMaturity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 741)
+		else:
+			quickfix.DoubleField.__init__(self, 741, data)
+
+class AllocAccruedInterestAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 742)
+		else:
+			quickfix.DoubleField.__init__(self, 742, data)
+
+class DeliveryDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 743)
+		else:
+			quickfix.StringField.__init__(self, 743, data)
+
+class AssignmentMethod(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 744)
+		else:
+			quickfix.CharField.__init__(self, 744, data)
+
+class AssignmentUnit(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 745)
+		else:
+			quickfix.DoubleField.__init__(self, 745, data)
+
+class OpenInterest(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 746)
+		else:
+			quickfix.DoubleField.__init__(self, 746, data)
+
+class ExerciseMethod(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 747)
+		else:
+			quickfix.CharField.__init__(self, 747, data)
+
+class TotNumTradeReports(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 748)
+		else:
+			quickfix.IntField.__init__(self, 748, data)
+
+class TradeRequestResult(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 749)
+		else:
+			quickfix.IntField.__init__(self, 749, data)
+
+class TradeRequestStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 750)
+		else:
+			quickfix.IntField.__init__(self, 750, data)
+
+class TradeReportRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 751)
+		else:
+			quickfix.IntField.__init__(self, 751, data)
+
+class SideMultiLegReportingType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 752)
+		else:
+			quickfix.IntField.__init__(self, 752, data)
+
+class NoPosAmt(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 753)
+		else:
+			quickfix.IntField.__init__(self, 753, data)
+
+class AutoAcceptIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 754)
+		else:
+			quickfix.BoolField.__init__(self, 754, data)
+
+class AllocReportID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 755)
+		else:
+			quickfix.StringField.__init__(self, 755, data)
+
+class NoNested2PartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 756)
+		else:
+			quickfix.IntField.__init__(self, 756, data)
+
+class Nested2PartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 757)
+		else:
+			quickfix.StringField.__init__(self, 757, data)
+
+class Nested2PartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 758)
+		else:
+			quickfix.CharField.__init__(self, 758, data)
+
+class Nested2PartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 759)
+		else:
+			quickfix.IntField.__init__(self, 759, data)
+
+class Nested2PartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 760)
+		else:
+			quickfix.StringField.__init__(self, 760, data)
+
+class BenchmarkSecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 761)
+		else:
+			quickfix.StringField.__init__(self, 761, data)
+
+class SecuritySubType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 762)
+		else:
+			quickfix.StringField.__init__(self, 762, data)
+
+class UnderlyingSecuritySubType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 763)
+		else:
+			quickfix.StringField.__init__(self, 763, data)
+
+class LegSecuritySubType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 764)
+		else:
+			quickfix.StringField.__init__(self, 764, data)
+
+class AllowableOneSidednessPct(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 765)
+		else:
+			quickfix.DoubleField.__init__(self, 765, data)
+
+class AllowableOneSidednessValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 766)
+		else:
+			quickfix.DoubleField.__init__(self, 766, data)
+
+class AllowableOneSidednessCurr(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 767)
+		else:
+			quickfix.StringField.__init__(self, 767, data)
+
+class NoTrdRegTimestamps(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 768)
+		else:
+			quickfix.IntField.__init__(self, 768, data)
+
+class TrdRegTimestamp(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 769)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 769, data)
+
+class TrdRegTimestampType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 770)
+		else:
+			quickfix.IntField.__init__(self, 770, data)
+
+class TrdRegTimestampOrigin(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 771)
+		else:
+			quickfix.StringField.__init__(self, 771, data)
+
+class ConfirmRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 772)
+		else:
+			quickfix.StringField.__init__(self, 772, data)
+
+class ConfirmType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 773)
+		else:
+			quickfix.IntField.__init__(self, 773, data)
+
+class ConfirmRejReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 774)
+		else:
+			quickfix.IntField.__init__(self, 774, data)
+
+class BookingType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 775)
+		else:
+			quickfix.IntField.__init__(self, 775, data)
+
+class IndividualAllocRejCode(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 776)
+		else:
+			quickfix.IntField.__init__(self, 776, data)
+
+class SettlInstMsgID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 777)
+		else:
+			quickfix.StringField.__init__(self, 777, data)
+
+class NoSettlInst(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 778)
+		else:
+			quickfix.IntField.__init__(self, 778, data)
+
+class LastUpdateTime(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 779)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 779, data)
+
+class AllocSettlInstType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 780)
+		else:
+			quickfix.IntField.__init__(self, 780, data)
+
+class NoSettlPartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 781)
+		else:
+			quickfix.IntField.__init__(self, 781, data)
+
+class SettlPartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 782)
+		else:
+			quickfix.StringField.__init__(self, 782, data)
+
+class SettlPartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 783)
+		else:
+			quickfix.CharField.__init__(self, 783, data)
+
+class SettlPartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 784)
+		else:
+			quickfix.IntField.__init__(self, 784, data)
+
+class SettlPartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 785)
+		else:
+			quickfix.StringField.__init__(self, 785, data)
+
+class SettlPartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 786)
+		else:
+			quickfix.IntField.__init__(self, 786, data)
+
+class DlvyInstType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 787)
+		else:
+			quickfix.CharField.__init__(self, 787, data)
+
+class TerminationType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 788)
+		else:
+			quickfix.IntField.__init__(self, 788, data)
+
+class OrdStatusReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 790)
+		else:
+			quickfix.StringField.__init__(self, 790, data)
+
+class SettlInstReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 791)
+		else:
+			quickfix.StringField.__init__(self, 791, data)
+
+class SettlInstReqRejCode(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 792)
+		else:
+			quickfix.IntField.__init__(self, 792, data)
+
+class SecondaryAllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 793)
+		else:
+			quickfix.StringField.__init__(self, 793, data)
+
+class AllocReportType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 794)
+		else:
+			quickfix.IntField.__init__(self, 794, data)
+
+class AllocReportRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 795)
+		else:
+			quickfix.StringField.__init__(self, 795, data)
+
+class AllocCancReplaceReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 796)
+		else:
+			quickfix.IntField.__init__(self, 796, data)
+
+class CopyMsgIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 797)
+		else:
+			quickfix.BoolField.__init__(self, 797, data)
+
+class AllocAccountType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 798)
+		else:
+			quickfix.IntField.__init__(self, 798, data)
+
+class OrderAvgPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 799)
+		else:
+			quickfix.DoubleField.__init__(self, 799, data)
+
+class OrderBookingQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 800)
+		else:
+			quickfix.DoubleField.__init__(self, 800, data)
+
+class NoSettlPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 801)
+		else:
+			quickfix.IntField.__init__(self, 801, data)
+
+class NoPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 802)
+		else:
+			quickfix.IntField.__init__(self, 802, data)
+
+class PartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 803)
+		else:
+			quickfix.IntField.__init__(self, 803, data)
+
+class NoNestedPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 804)
+		else:
+			quickfix.IntField.__init__(self, 804, data)
+
+class NestedPartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 805)
+		else:
+			quickfix.IntField.__init__(self, 805, data)
+
+class NoNested2PartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 806)
+		else:
+			quickfix.IntField.__init__(self, 806, data)
+
+class Nested2PartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 807)
+		else:
+			quickfix.IntField.__init__(self, 807, data)
+
+class AllocIntermedReqType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 808)
+		else:
+			quickfix.IntField.__init__(self, 808, data)
+
+class UnderlyingPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 810)
+		else:
+			quickfix.DoubleField.__init__(self, 810, data)
+
+class PriceDelta(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 811)
+		else:
+			quickfix.DoubleField.__init__(self, 811, data)
+
+class ApplQueueMax(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 812)
+		else:
+			quickfix.IntField.__init__(self, 812, data)
+
+class ApplQueueDepth(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 813)
+		else:
+			quickfix.IntField.__init__(self, 813, data)
+
+class ApplQueueResolution(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 814)
+		else:
+			quickfix.IntField.__init__(self, 814, data)
+
+class ApplQueueAction(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 815)
+		else:
+			quickfix.IntField.__init__(self, 815, data)
+
+class NoAltMDSource(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 816)
+		else:
+			quickfix.IntField.__init__(self, 816, data)
+
+class AltMDSourceID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 817)
+		else:
+			quickfix.StringField.__init__(self, 817, data)
+
+class SecondaryTradeReportID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 818)
+		else:
+			quickfix.StringField.__init__(self, 818, data)
+
+class AvgPxIndicator(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 819)
+		else:
+			quickfix.IntField.__init__(self, 819, data)
+
+class TradeLinkID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 820)
+		else:
+			quickfix.StringField.__init__(self, 820, data)
+
+class OrderInputDevice(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 821)
+		else:
+			quickfix.StringField.__init__(self, 821, data)
+
+class UnderlyingTradingSessionID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 822)
+		else:
+			quickfix.StringField.__init__(self, 822, data)
+
+class UnderlyingTradingSessionSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 823)
+		else:
+			quickfix.StringField.__init__(self, 823, data)
+
+class TradeLegRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 824)
+		else:
+			quickfix.StringField.__init__(self, 824, data)
+
+class ExchangeRule(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 825)
+		else:
+			quickfix.StringField.__init__(self, 825, data)
+
+class TradeAllocIndicator(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 826)
+		else:
+			quickfix.IntField.__init__(self, 826, data)
+
+class ExpirationCycle(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 827)
+		else:
+			quickfix.IntField.__init__(self, 827, data)
+
+class TrdType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 828)
+		else:
+			quickfix.IntField.__init__(self, 828, data)
+
+class TrdSubType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 829)
+		else:
+			quickfix.IntField.__init__(self, 829, data)
+
+class TransferReason(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 830)
+		else:
+			quickfix.StringField.__init__(self, 830, data)
+
+class AsgnReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 831)
+		else:
+			quickfix.StringField.__init__(self, 831, data)
+
+class TotNumAssignmentReports(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 832)
+		else:
+			quickfix.IntField.__init__(self, 832, data)
+
+class AsgnRptID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 833)
+		else:
+			quickfix.StringField.__init__(self, 833, data)
+
+class ThresholdAmount(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 834)
+		else:
+			quickfix.DoubleField.__init__(self, 834, data)
+
+class PegMoveType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 835)
+		else:
+			quickfix.IntField.__init__(self, 835, data)
+
+class PegOffsetType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 836)
+		else:
+			quickfix.IntField.__init__(self, 836, data)
+
+class PegLimitType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 837)
+		else:
+			quickfix.IntField.__init__(self, 837, data)
+
+class PegRoundDirection(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 838)
+		else:
+			quickfix.IntField.__init__(self, 838, data)
+
+class PeggedPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 839)
+		else:
+			quickfix.DoubleField.__init__(self, 839, data)
+
+class PegScope(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 840)
+		else:
+			quickfix.IntField.__init__(self, 840, data)
+
+class DiscretionMoveType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 841)
+		else:
+			quickfix.IntField.__init__(self, 841, data)
+
+class DiscretionOffsetType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 842)
+		else:
+			quickfix.IntField.__init__(self, 842, data)
+
+class DiscretionLimitType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 843)
+		else:
+			quickfix.IntField.__init__(self, 843, data)
+
+class DiscretionRoundDirection(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 844)
+		else:
+			quickfix.IntField.__init__(self, 844, data)
+
+class DiscretionPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 845)
+		else:
+			quickfix.DoubleField.__init__(self, 845, data)
+
+class DiscretionScope(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 846)
+		else:
+			quickfix.IntField.__init__(self, 846, data)
+
+class TargetStrategy(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 847)
+		else:
+			quickfix.IntField.__init__(self, 847, data)
+
+class TargetStrategyParameters(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 848)
+		else:
+			quickfix.StringField.__init__(self, 848, data)
+
+class ParticipationRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 849)
+		else:
+			quickfix.DoubleField.__init__(self, 849, data)
+
+class TargetStrategyPerformance(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 850)
+		else:
+			quickfix.DoubleField.__init__(self, 850, data)
+
+class LastLiquidityInd(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 851)
+		else:
+			quickfix.IntField.__init__(self, 851, data)
+
+class PublishTrdIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 852)
+		else:
+			quickfix.BoolField.__init__(self, 852, data)
+
+class ShortSaleReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 853)
+		else:
+			quickfix.IntField.__init__(self, 853, data)
+
+class QtyType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 854)
+		else:
+			quickfix.IntField.__init__(self, 854, data)
+
+class SecondaryTrdType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 855)
+		else:
+			quickfix.IntField.__init__(self, 855, data)
+
+class TradeReportType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 856)
+		else:
+			quickfix.IntField.__init__(self, 856, data)
+
+class AllocNoOrdersType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 857)
+		else:
+			quickfix.IntField.__init__(self, 857, data)
+
+class SharedCommission(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 858)
+		else:
+			quickfix.DoubleField.__init__(self, 858, data)
+
+class ConfirmReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 859)
+		else:
+			quickfix.StringField.__init__(self, 859, data)
+
+class AvgParPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 860)
+		else:
+			quickfix.DoubleField.__init__(self, 860, data)
+
+class ReportedPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 861)
+		else:
+			quickfix.DoubleField.__init__(self, 861, data)
+
+class NoCapacities(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 862)
+		else:
+			quickfix.IntField.__init__(self, 862, data)
+
+class OrderCapacityQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 863)
+		else:
+			quickfix.DoubleField.__init__(self, 863, data)
+
+class NoEvents(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 864)
+		else:
+			quickfix.IntField.__init__(self, 864, data)
+
+class EventType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 865)
+		else:
+			quickfix.IntField.__init__(self, 865, data)
+
+class EventDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 866)
+		else:
+			quickfix.StringField.__init__(self, 866, data)
+
+class EventPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 867)
+		else:
+			quickfix.DoubleField.__init__(self, 867, data)
+
+class EventText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 868)
+		else:
+			quickfix.StringField.__init__(self, 868, data)
+
+class PctAtRisk(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 869)
+		else:
+			quickfix.DoubleField.__init__(self, 869, data)
+
+class NoInstrAttrib(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 870)
+		else:
+			quickfix.IntField.__init__(self, 870, data)
+
+class InstrAttribType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 871)
+		else:
+			quickfix.IntField.__init__(self, 871, data)
+
+class InstrAttribValue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 872)
+		else:
+			quickfix.StringField.__init__(self, 872, data)
+
+class DatedDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 873)
+		else:
+			quickfix.StringField.__init__(self, 873, data)
+
+class InterestAccrualDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 874)
+		else:
+			quickfix.StringField.__init__(self, 874, data)
+
+class CPProgram(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 875)
+		else:
+			quickfix.IntField.__init__(self, 875, data)
+
+class CPRegType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 876)
+		else:
+			quickfix.StringField.__init__(self, 876, data)
+
+class UnderlyingCPProgram(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 877)
+		else:
+			quickfix.StringField.__init__(self, 877, data)
+
+class UnderlyingCPRegType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 878)
+		else:
+			quickfix.StringField.__init__(self, 878, data)
+
+class UnderlyingQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 879)
+		else:
+			quickfix.DoubleField.__init__(self, 879, data)
+
+class TrdMatchID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 880)
+		else:
+			quickfix.StringField.__init__(self, 880, data)
+
+class SecondaryTradeReportRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 881)
+		else:
+			quickfix.StringField.__init__(self, 881, data)
+
+class UnderlyingDirtyPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 882)
+		else:
+			quickfix.DoubleField.__init__(self, 882, data)
+
+class UnderlyingEndPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 883)
+		else:
+			quickfix.DoubleField.__init__(self, 883, data)
+
+class UnderlyingStartValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 884)
+		else:
+			quickfix.DoubleField.__init__(self, 884, data)
+
+class UnderlyingCurrentValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 885)
+		else:
+			quickfix.DoubleField.__init__(self, 885, data)
+
+class UnderlyingEndValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 886)
+		else:
+			quickfix.DoubleField.__init__(self, 886, data)
+
+class NoUnderlyingStips(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 887)
+		else:
+			quickfix.IntField.__init__(self, 887, data)
+
+class UnderlyingStipType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 888)
+		else:
+			quickfix.StringField.__init__(self, 888, data)
+
+class UnderlyingStipValue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 889)
+		else:
+			quickfix.StringField.__init__(self, 889, data)
+
+class MaturityNetMoney(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 890)
+		else:
+			quickfix.DoubleField.__init__(self, 890, data)
+
+class MiscFeeBasis(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 891)
+		else:
+			quickfix.IntField.__init__(self, 891, data)
+
+class TotNoAllocs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 892)
+		else:
+			quickfix.IntField.__init__(self, 892, data)
+
+class LastFragment(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 893)
+		else:
+			quickfix.BoolField.__init__(self, 893, data)
+
+class CollReqID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 894)
+		else:
+			quickfix.StringField.__init__(self, 894, data)
+
+class CollAsgnReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 895)
+		else:
+			quickfix.IntField.__init__(self, 895, data)
+
+class CollInquiryQualifier(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 896)
+		else:
+			quickfix.IntField.__init__(self, 896, data)
+
+class NoTrades(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 897)
+		else:
+			quickfix.IntField.__init__(self, 897, data)
+
+class MarginRatio(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 898)
+		else:
+			quickfix.DoubleField.__init__(self, 898, data)
+
+class MarginExcess(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 899)
+		else:
+			quickfix.DoubleField.__init__(self, 899, data)
+
+class TotalNetValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 900)
+		else:
+			quickfix.DoubleField.__init__(self, 900, data)
+
+class CashOutstanding(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 901)
+		else:
+			quickfix.DoubleField.__init__(self, 901, data)
+
+class CollAsgnID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 902)
+		else:
+			quickfix.StringField.__init__(self, 902, data)
+
+class CollAsgnTransType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 903)
+		else:
+			quickfix.IntField.__init__(self, 903, data)
+
+class CollRespID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 904)
+		else:
+			quickfix.StringField.__init__(self, 904, data)
+
+class CollAsgnRespType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 905)
+		else:
+			quickfix.IntField.__init__(self, 905, data)
+
+class CollAsgnRejectReason(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 906)
+		else:
+			quickfix.IntField.__init__(self, 906, data)
+
+class CollAsgnRefID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 907)
+		else:
+			quickfix.StringField.__init__(self, 907, data)
+
+class CollRptID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 908)
+		else:
+			quickfix.StringField.__init__(self, 908, data)
+
+class CollInquiryID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 909)
+		else:
+			quickfix.StringField.__init__(self, 909, data)
+
+class CollStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 910)
+		else:
+			quickfix.IntField.__init__(self, 910, data)
+
+class TotNumReports(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 911)
+		else:
+			quickfix.IntField.__init__(self, 911, data)
+
+class LastRptRequested(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 912)
+		else:
+			quickfix.BoolField.__init__(self, 912, data)
+
+class AgreementDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 913)
+		else:
+			quickfix.StringField.__init__(self, 913, data)
+
+class AgreementID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 914)
+		else:
+			quickfix.StringField.__init__(self, 914, data)
+
+class AgreementDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 915)
+		else:
+			quickfix.StringField.__init__(self, 915, data)
+
+class StartDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 916)
+		else:
+			quickfix.StringField.__init__(self, 916, data)
+
+class EndDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 917)
+		else:
+			quickfix.StringField.__init__(self, 917, data)
+
+class AgreementCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 918)
+		else:
+			quickfix.StringField.__init__(self, 918, data)
+
+class DeliveryType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 919)
+		else:
+			quickfix.IntField.__init__(self, 919, data)
+
+class EndAccruedInterestAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 920)
+		else:
+			quickfix.DoubleField.__init__(self, 920, data)
+
+class StartCash(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 921)
+		else:
+			quickfix.DoubleField.__init__(self, 921, data)
+
+class EndCash(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 922)
+		else:
+			quickfix.DoubleField.__init__(self, 922, data)
+
+class UserRequestID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 923)
+		else:
+			quickfix.StringField.__init__(self, 923, data)
+
+class UserRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 924)
+		else:
+			quickfix.IntField.__init__(self, 924, data)
+
+class NewPassword(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 925)
+		else:
+			quickfix.StringField.__init__(self, 925, data)
+
+class UserStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 926)
+		else:
+			quickfix.IntField.__init__(self, 926, data)
+
+class UserStatusText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 927)
+		else:
+			quickfix.StringField.__init__(self, 927, data)
+
+class StatusValue(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 928)
+		else:
+			quickfix.IntField.__init__(self, 928, data)
+
+class StatusText(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 929)
+		else:
+			quickfix.StringField.__init__(self, 929, data)
+
+class RefCompID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 930)
+		else:
+			quickfix.StringField.__init__(self, 930, data)
+
+class RefSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 931)
+		else:
+			quickfix.StringField.__init__(self, 931, data)
+
+class NetworkResponseID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 932)
+		else:
+			quickfix.StringField.__init__(self, 932, data)
+
+class NetworkRequestID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 933)
+		else:
+			quickfix.StringField.__init__(self, 933, data)
+
+class LastNetworkResponseID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 934)
+		else:
+			quickfix.StringField.__init__(self, 934, data)
+
+class NetworkRequestType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 935)
+		else:
+			quickfix.IntField.__init__(self, 935, data)
+
+class NoCompIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 936)
+		else:
+			quickfix.IntField.__init__(self, 936, data)
+
+class NetworkStatusResponseType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 937)
+		else:
+			quickfix.IntField.__init__(self, 937, data)
+
+class NoCollInquiryQualifier(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 938)
+		else:
+			quickfix.IntField.__init__(self, 938, data)
+
+class TrdRptStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 939)
+		else:
+			quickfix.IntField.__init__(self, 939, data)
+
+class AffirmStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 940)
+		else:
+			quickfix.IntField.__init__(self, 940, data)
+
+class UnderlyingStrikeCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 941)
+		else:
+			quickfix.StringField.__init__(self, 941, data)
+
+class LegStrikeCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 942)
+		else:
+			quickfix.StringField.__init__(self, 942, data)
+
+class TimeBracket(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 943)
+		else:
+			quickfix.StringField.__init__(self, 943, data)
+
+class CollAction(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 944)
+		else:
+			quickfix.IntField.__init__(self, 944, data)
+
+class CollInquiryStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 945)
+		else:
+			quickfix.IntField.__init__(self, 945, data)
+
+class CollInquiryResult(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 946)
+		else:
+			quickfix.IntField.__init__(self, 946, data)
+
+class StrikeCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 947)
+		else:
+			quickfix.StringField.__init__(self, 947, data)
+
+class NoNested3PartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 948)
+		else:
+			quickfix.IntField.__init__(self, 948, data)
+
+class Nested3PartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 949)
+		else:
+			quickfix.StringField.__init__(self, 949, data)
+
+class Nested3PartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 950)
+		else:
+			quickfix.CharField.__init__(self, 950, data)
+
+class Nested3PartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 951)
+		else:
+			quickfix.IntField.__init__(self, 951, data)
+
+class NoNested3PartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 952)
+		else:
+			quickfix.IntField.__init__(self, 952, data)
+
+class Nested3PartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 953)
+		else:
+			quickfix.StringField.__init__(self, 953, data)
+
+class Nested3PartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 954)
+		else:
+			quickfix.IntField.__init__(self, 954, data)
+
+class LegContractSettlMonth(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 955)
+		else:
+			quickfix.StringField.__init__(self, 955, data)
+
+class LegInterestAccrualDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 956)
+		else:
+			quickfix.StringField.__init__(self, 956, data)
+
+class NoStrategyParameters(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 957)
+		else:
+			quickfix.IntField.__init__(self, 957, data)
+
+class StrategyParameterName(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 958)
+		else:
+			quickfix.StringField.__init__(self, 958, data)
+
+class StrategyParameterType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 959)
+		else:
+			quickfix.IntField.__init__(self, 959, data)
+
+class StrategyParameterValue(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 960)
+		else:
+			quickfix.StringField.__init__(self, 960, data)
+
+class HostCrossID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 961)
+		else:
+			quickfix.StringField.__init__(self, 961, data)
+
+class SideTimeInForce(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 962)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 962, data)
+
+class MDReportID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 963)
+		else:
+			quickfix.IntField.__init__(self, 963, data)
+
+class SecurityReportID(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 964)
+		else:
+			quickfix.IntField.__init__(self, 964, data)
+
+class SecurityStatus(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 965)
+		else:
+			quickfix.StringField.__init__(self, 965, data)
+
+class SettleOnOpenFlag(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 966)
+		else:
+			quickfix.StringField.__init__(self, 966, data)
+
+class StrikeMultiplier(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 967)
+		else:
+			quickfix.DoubleField.__init__(self, 967, data)
+
+class StrikeValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 968)
+		else:
+			quickfix.DoubleField.__init__(self, 968, data)
+
+class MinPriceIncrement(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 969)
+		else:
+			quickfix.DoubleField.__init__(self, 969, data)
+
+class PositionLimit(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 970)
+		else:
+			quickfix.IntField.__init__(self, 970, data)
+
+class NTPositionLimit(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 971)
+		else:
+			quickfix.IntField.__init__(self, 971, data)
+
+class UnderlyingAllocationPercent(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 972)
+		else:
+			quickfix.DoubleField.__init__(self, 972, data)
+
+class UnderlyingCashAmount(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 973)
+		else:
+			quickfix.DoubleField.__init__(self, 973, data)
+
+class UnderlyingCashType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 974)
+		else:
+			quickfix.StringField.__init__(self, 974, data)
+
+class UnderlyingSettlementType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 975)
+		else:
+			quickfix.IntField.__init__(self, 975, data)
+
+class QuantityDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 976)
+		else:
+			quickfix.StringField.__init__(self, 976, data)
+
+class ContIntRptID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 977)
+		else:
+			quickfix.StringField.__init__(self, 977, data)
+
+class LateIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 978)
+		else:
+			quickfix.BoolField.__init__(self, 978, data)
+
+class InputSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 979)
+		else:
+			quickfix.StringField.__init__(self, 979, data)
+
+class SecurityUpdateAction(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 980)
+		else:
+			quickfix.CharField.__init__(self, 980, data)
+
+class NoExpiration(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 981)
+		else:
+			quickfix.IntField.__init__(self, 981, data)
+
+class ExpType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 982)
+		else:
+			quickfix.IntField.__init__(self, 982, data)
+
+class ExpQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 983)
+		else:
+			quickfix.DoubleField.__init__(self, 983, data)
+
+class NoUnderlyingAmounts(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 984)
+		else:
+			quickfix.IntField.__init__(self, 984, data)
+
+class UnderlyingPayAmount(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 985)
+		else:
+			quickfix.DoubleField.__init__(self, 985, data)
+
+class UnderlyingCollectAmount(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 986)
+		else:
+			quickfix.DoubleField.__init__(self, 986, data)
+
+class UnderlyingSettlementDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 987)
+		else:
+			quickfix.StringField.__init__(self, 987, data)
+
+class UnderlyingSettlementStatus(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 988)
+		else:
+			quickfix.StringField.__init__(self, 988, data)
+
+class SecondaryIndividualAllocID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 989)
+		else:
+			quickfix.StringField.__init__(self, 989, data)
+
+class LegReportID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 990)
+		else:
+			quickfix.StringField.__init__(self, 990, data)
+
+class RndPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 991)
+		else:
+			quickfix.DoubleField.__init__(self, 991, data)
+
+class IndividualAllocType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 992)
+		else:
+			quickfix.IntField.__init__(self, 992, data)
+
+class AllocCustomerCapacity(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 993)
+		else:
+			quickfix.StringField.__init__(self, 993, data)
+
+class TierCode(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 994)
+		else:
+			quickfix.StringField.__init__(self, 994, data)
+
+class UnitofMeasure(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 996)
+		else:
+			quickfix.StringField.__init__(self, 996, data)
+
+class TimeUnit(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 997)
+		else:
+			quickfix.StringField.__init__(self, 997, data)
+
+class UnderlyingUnitofMeasure(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 998)
+		else:
+			quickfix.StringField.__init__(self, 998, data)
+
+class LegUnitofMeasure(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 999)
+		else:
+			quickfix.StringField.__init__(self, 999, data)
+
+class UnderlyingTimeUnit(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1000)
+		else:
+			quickfix.StringField.__init__(self, 1000, data)
+
+class LegTimeUnit(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1001)
+		else:
+			quickfix.StringField.__init__(self, 1001, data)
+
+class AllocMethod(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1002)
+		else:
+			quickfix.IntField.__init__(self, 1002, data)
+
+class TradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1003)
+		else:
+			quickfix.StringField.__init__(self, 1003, data)
+
+class SideTradeReportID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1005)
+		else:
+			quickfix.StringField.__init__(self, 1005, data)
+
+class SideFillStationCd(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1006)
+		else:
+			quickfix.StringField.__init__(self, 1006, data)
+
+class SideReasonCd(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1007)
+		else:
+			quickfix.StringField.__init__(self, 1007, data)
+
+class SideTrdSubTyp(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1008)
+		else:
+			quickfix.IntField.__init__(self, 1008, data)
+
+class SideQty(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1009)
+		else:
+			quickfix.IntField.__init__(self, 1009, data)
+
+class MessageEventSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1011)
+		else:
+			quickfix.StringField.__init__(self, 1011, data)
+
+class SideTrdRegTimestamp(quickfix.UtcTimeStampField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.UtcTimeStampField.__init__(self, 1012)
+		else:
+			quickfix.UtcTimeStampField.__init__(self, 1012, data)
+
+class SideTrdRegTimestampType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1013)
+		else:
+			quickfix.IntField.__init__(self, 1013, data)
+
+class SideTrdRegTimestampSrc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1014)
+		else:
+			quickfix.StringField.__init__(self, 1014, data)
+
+class AsOfIndicator(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1015)
+		else:
+			quickfix.CharField.__init__(self, 1015, data)
+
+class NoSideTrdRegTS(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1016)
+		else:
+			quickfix.IntField.__init__(self, 1016, data)
+
+class LegOptionRatio(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1017)
+		else:
+			quickfix.DoubleField.__init__(self, 1017, data)
+
+class NoInstrumentParties(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1018)
+		else:
+			quickfix.IntField.__init__(self, 1018, data)
+
+class InstrumentPartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1019)
+		else:
+			quickfix.StringField.__init__(self, 1019, data)
+
+class TradeVolume(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1020)
+		else:
+			quickfix.DoubleField.__init__(self, 1020, data)
+
+class MDBookType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1021)
+		else:
+			quickfix.IntField.__init__(self, 1021, data)
+
+class MDFeedType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1022)
+		else:
+			quickfix.StringField.__init__(self, 1022, data)
+
+class MDPriceLevel(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1023)
+		else:
+			quickfix.IntField.__init__(self, 1023, data)
+
+class MDOriginType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1024)
+		else:
+			quickfix.IntField.__init__(self, 1024, data)
+
+class FirstPx(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1025)
+		else:
+			quickfix.DoubleField.__init__(self, 1025, data)
+
+class MDEntrySpotRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1026)
+		else:
+			quickfix.DoubleField.__init__(self, 1026, data)
+
+class MDEntryForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1027)
+		else:
+			quickfix.DoubleField.__init__(self, 1027, data)
+
+class ManualOrderIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 1028)
+		else:
+			quickfix.BoolField.__init__(self, 1028, data)
+
+class CustDirectedOrder(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 1029)
+		else:
+			quickfix.BoolField.__init__(self, 1029, data)
+
+class ReceivedDeptID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1030)
+		else:
+			quickfix.StringField.__init__(self, 1030, data)
+
+class CustOrderHandlingInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1031)
+		else:
+			quickfix.StringField.__init__(self, 1031, data)
+
+class OrderHandlingInstSource(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1032)
+		else:
+			quickfix.IntField.__init__(self, 1032, data)
+
+class DeskType(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1033)
+		else:
+			quickfix.StringField.__init__(self, 1033, data)
+
+class DeskTypeSource(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1034)
+		else:
+			quickfix.IntField.__init__(self, 1034, data)
+
+class DeskOrderHandlingInst(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1035)
+		else:
+			quickfix.StringField.__init__(self, 1035, data)
+
+class ExecAckStatus(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1036)
+		else:
+			quickfix.CharField.__init__(self, 1036, data)
+
+class UnderlyingDeliveryAmount(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1037)
+		else:
+			quickfix.DoubleField.__init__(self, 1037, data)
+
+class UnderlyingCapValue(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1038)
+		else:
+			quickfix.DoubleField.__init__(self, 1038, data)
+
+class UnderlyingSettlMethod(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1039)
+		else:
+			quickfix.StringField.__init__(self, 1039, data)
+
+class SecondaryTradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1040)
+		else:
+			quickfix.StringField.__init__(self, 1040, data)
+
+class FirmTradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1041)
+		else:
+			quickfix.StringField.__init__(self, 1041, data)
+
+class SecondaryFirmTradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1042)
+		else:
+			quickfix.StringField.__init__(self, 1042, data)
+
+class CollApplType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1043)
+		else:
+			quickfix.IntField.__init__(self, 1043, data)
+
+class UnderlyingAdjustedQuantity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1044)
+		else:
+			quickfix.DoubleField.__init__(self, 1044, data)
+
+class UnderlyingFXRate(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1045)
+		else:
+			quickfix.DoubleField.__init__(self, 1045, data)
+
+class UnderlyingFXRateCalc(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1046)
+		else:
+			quickfix.CharField.__init__(self, 1046, data)
+
+class AllocPositionEffect(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1047)
+		else:
+			quickfix.CharField.__init__(self, 1047, data)
+
+class DealingCapacity(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1048)
+		else:
+			quickfix.DoubleField.__init__(self, 1048, data)
+
+class InstrmtAssignmentMethod(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1049)
+		else:
+			quickfix.CharField.__init__(self, 1049, data)
+
+class InstrumentPartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1050)
+		else:
+			quickfix.CharField.__init__(self, 1050, data)
+
+class InstrumentPartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1051)
+		else:
+			quickfix.IntField.__init__(self, 1051, data)
+
+class NoInstrumentPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1052)
+		else:
+			quickfix.IntField.__init__(self, 1052, data)
+
+class InstrumentPartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1053)
+		else:
+			quickfix.StringField.__init__(self, 1053, data)
+
+class InstrumentPartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1054)
+		else:
+			quickfix.IntField.__init__(self, 1054, data)
+
+class PositionCurrency(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1055)
+		else:
+			quickfix.StringField.__init__(self, 1055, data)
+
+class CalculatedCcyLastQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1056)
+		else:
+			quickfix.DoubleField.__init__(self, 1056, data)
+
+class AggressorIndicator(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 1057)
+		else:
+			quickfix.BoolField.__init__(self, 1057, data)
+
+class NoUndlyInstrumentParties(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1058)
+		else:
+			quickfix.IntField.__init__(self, 1058, data)
+
+class UndlyInstrumentPartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1059)
+		else:
+			quickfix.StringField.__init__(self, 1059, data)
+
+class UndlyInstrumentPartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1060)
+		else:
+			quickfix.CharField.__init__(self, 1060, data)
+
+class UndlyInstrumentPartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1061)
+		else:
+			quickfix.IntField.__init__(self, 1061, data)
+
+class NoUndlyInstrumentPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1062)
+		else:
+			quickfix.IntField.__init__(self, 1062, data)
+
+class UndlyInstrumentPartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1063)
+		else:
+			quickfix.StringField.__init__(self, 1063, data)
+
+class UndlyInstrumentPartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1064)
+		else:
+			quickfix.IntField.__init__(self, 1064, data)
+
+class BidSwapPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1065)
+		else:
+			quickfix.DoubleField.__init__(self, 1065, data)
+
+class OfferSwapPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1066)
+		else:
+			quickfix.DoubleField.__init__(self, 1066, data)
+
+class LegBidForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1067)
+		else:
+			quickfix.DoubleField.__init__(self, 1067, data)
+
+class LegOfferForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1068)
+		else:
+			quickfix.DoubleField.__init__(self, 1068, data)
+
+class SwapPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1069)
+		else:
+			quickfix.DoubleField.__init__(self, 1069, data)
+
+class MDQuoteType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1070)
+		else:
+			quickfix.IntField.__init__(self, 1070, data)
+
+class LastSwapPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1071)
+		else:
+			quickfix.DoubleField.__init__(self, 1071, data)
+
+class SideGrossTradeAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1072)
+		else:
+			quickfix.DoubleField.__init__(self, 1072, data)
+
+class LegLastForwardPoints(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1073)
+		else:
+			quickfix.DoubleField.__init__(self, 1073, data)
+
+class LegCalculatedCcyLastQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1074)
+		else:
+			quickfix.DoubleField.__init__(self, 1074, data)
+
+class LegGrossTradeAmt(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1075)
+		else:
+			quickfix.DoubleField.__init__(self, 1075, data)
+
+class MaturityTime(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1079)
+		else:
+			quickfix.StringField.__init__(self, 1079, data)
+
+class RefOrderID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1080)
+		else:
+			quickfix.StringField.__init__(self, 1080, data)
+
+class RefOrderIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1081)
+		else:
+			quickfix.CharField.__init__(self, 1081, data)
+
+class SecondaryDisplayQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1082)
+		else:
+			quickfix.DoubleField.__init__(self, 1082, data)
+
+class DisplayWhen(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1083)
+		else:
+			quickfix.CharField.__init__(self, 1083, data)
+
+class DisplayMethod(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1084)
+		else:
+			quickfix.CharField.__init__(self, 1084, data)
+
+class DisplayLowQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1085)
+		else:
+			quickfix.DoubleField.__init__(self, 1085, data)
+
+class DisplayHighQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1086)
+		else:
+			quickfix.DoubleField.__init__(self, 1086, data)
+
+class DisplayMinIncr(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1087)
+		else:
+			quickfix.DoubleField.__init__(self, 1087, data)
+
+class RefreshQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1088)
+		else:
+			quickfix.DoubleField.__init__(self, 1088, data)
+
+class MatchIncrement(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1089)
+		else:
+			quickfix.DoubleField.__init__(self, 1089, data)
+
+class MaxPriceLevels(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1090)
+		else:
+			quickfix.IntField.__init__(self, 1090, data)
+
+class PreTradeAnonymity(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 1091)
+		else:
+			quickfix.BoolField.__init__(self, 1091, data)
+
+class PriceProtectionScope(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1092)
+		else:
+			quickfix.CharField.__init__(self, 1092, data)
+
+class LotType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1093)
+		else:
+			quickfix.CharField.__init__(self, 1093, data)
+
+class PegPriceType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1094)
+		else:
+			quickfix.IntField.__init__(self, 1094, data)
+
+class PeggedRefPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1095)
+		else:
+			quickfix.DoubleField.__init__(self, 1095, data)
+
+class PegSecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1096)
+		else:
+			quickfix.StringField.__init__(self, 1096, data)
+
+class PegSecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1097)
+		else:
+			quickfix.StringField.__init__(self, 1097, data)
+
+class PegSymbol(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1098)
+		else:
+			quickfix.StringField.__init__(self, 1098, data)
+
+class PegSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1099)
+		else:
+			quickfix.StringField.__init__(self, 1099, data)
+
+class TriggerType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1100)
+		else:
+			quickfix.CharField.__init__(self, 1100, data)
+
+class TriggerAction(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1101)
+		else:
+			quickfix.CharField.__init__(self, 1101, data)
+
+class TriggerPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1102)
+		else:
+			quickfix.DoubleField.__init__(self, 1102, data)
+
+class TriggerSymbol(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1103)
+		else:
+			quickfix.StringField.__init__(self, 1103, data)
+
+class TriggerSecurityID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1104)
+		else:
+			quickfix.StringField.__init__(self, 1104, data)
+
+class TriggerSecurityIDSource(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1105)
+		else:
+			quickfix.StringField.__init__(self, 1105, data)
+
+class TriggerSecurityDesc(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1106)
+		else:
+			quickfix.StringField.__init__(self, 1106, data)
+
+class TriggerPriceType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1107)
+		else:
+			quickfix.CharField.__init__(self, 1107, data)
+
+class TriggerPriceTypeScope(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1108)
+		else:
+			quickfix.CharField.__init__(self, 1108, data)
+
+class TriggerPriceDirection(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1109)
+		else:
+			quickfix.CharField.__init__(self, 1109, data)
+
+class TriggerNewPrice(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1110)
+		else:
+			quickfix.DoubleField.__init__(self, 1110, data)
+
+class TriggerOrderType(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1111)
+		else:
+			quickfix.CharField.__init__(self, 1111, data)
+
+class TriggerNewQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1112)
+		else:
+			quickfix.DoubleField.__init__(self, 1112, data)
+
+class TriggerTradingSessionID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1113)
+		else:
+			quickfix.StringField.__init__(self, 1113, data)
+
+class TriggerTradingSessionSubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1114)
+		else:
+			quickfix.StringField.__init__(self, 1114, data)
+
+class OrderCategory(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1115)
+		else:
+			quickfix.CharField.__init__(self, 1115, data)
+
+class NoRootPartyIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1116)
+		else:
+			quickfix.IntField.__init__(self, 1116, data)
+
+class RootPartyID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1117)
+		else:
+			quickfix.StringField.__init__(self, 1117, data)
+
+class RootPartyIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1118)
+		else:
+			quickfix.CharField.__init__(self, 1118, data)
+
+class RootPartyRole(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1119)
+		else:
+			quickfix.IntField.__init__(self, 1119, data)
+
+class NoRootPartySubIDs(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1120)
+		else:
+			quickfix.IntField.__init__(self, 1120, data)
+
+class RootPartySubID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1121)
+		else:
+			quickfix.StringField.__init__(self, 1121, data)
+
+class RootPartySubIDType(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1122)
+		else:
+			quickfix.IntField.__init__(self, 1122, data)
+
+class TradeHandlingInstr(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1123)
+		else:
+			quickfix.CharField.__init__(self, 1123, data)
+
+class OrigTradeHandlingInstr(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1124)
+		else:
+			quickfix.CharField.__init__(self, 1124, data)
+
+class OrigTradeDate(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1125)
+		else:
+			quickfix.StringField.__init__(self, 1125, data)
+
+class OrigTradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1126)
+		else:
+			quickfix.StringField.__init__(self, 1126, data)
+
+class OrigSecondaryTradeID(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1127)
+		else:
+			quickfix.StringField.__init__(self, 1127, data)
+
+class TZTransactTime(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1132)
+		else:
+			quickfix.StringField.__init__(self, 1132, data)
+
+class ExDestinationIDSource(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 1133)
+		else:
+			quickfix.CharField.__init__(self, 1133, data)
+
+class ReportedPxDiff(quickfix.BoolField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.BoolField.__init__(self, 1134)
+		else:
+			quickfix.BoolField.__init__(self, 1134, data)
+
+class RptSys(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1135)
+		else:
+			quickfix.StringField.__init__(self, 1135, data)
+
+class AllocClearingFeeIndicator(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1136)
+		else:
+			quickfix.StringField.__init__(self, 1136, data)
+
+class DisplayQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 1138)
+		else:
+			quickfix.DoubleField.__init__(self, 1138, data)
+
+class ExchangeSpecialInstructions(quickfix.StringField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.StringField.__init__(self, 1139)
+		else:
+			quickfix.StringField.__init__(self, 1139, data)
 
