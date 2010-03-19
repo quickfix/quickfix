@@ -28,8 +28,7 @@ using namespace System::Runtime::InteropServices;
 #include "quickfix_net.h"
 
 #include "Exceptions.h"
-#include "FixTFields.h"
-#include "FixFields.h"
+#include "Fields.h"
 #include "quickfix/DataDictionaryProvider.h"
 #include "quickfix/CallStack.h"
 

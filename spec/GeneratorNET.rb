@@ -186,7 +186,7 @@ class GeneratorNET
     @f.puts "#undef STRICT"
     @f.puts "#undef DIFFERENCE"
     @f.puts '#include "Field.h"'
-    @f.puts '#include "DeprecatedFields.h'
+    @f.puts '#include "DeprecatedFields.h"'
     @f.puts
     @f.puts "namespace QuickFix"
     @f.puts "{"
@@ -202,6 +202,9 @@ class GeneratorNET
     values.each { |value|
       enum = value[0]
       description = value[1]
+      if(description[0] >= 48 && description[0] <= 57)
+        description = "_" + description
+      end
 
       case type
         when "STRING"
@@ -221,7 +224,7 @@ class GeneratorNET
       @f.puts "#{name}(#{getType(type)} data, bool showMilliseconds) : #{getFieldType(type)}Field(#{number}, data, showMilliseconds) {}"
     end
     @f.dedent
-    @f.puts "}"
+    @f.puts"};"
 
     if(name == "TotNoOrders")
       @f.puts "public __gc class ListNoOrds : public IntField"

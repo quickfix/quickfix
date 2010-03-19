@@ -1,5 +1,3 @@
-xsltproc -o ..\src\.NET\FixFields.h net_Fields.xsl FIX50.xml
-xsltproc -o ..\src\.NET\FixTFields.h net_Fields.xsl FIXT11.xml
 xsltproc -o ..\src\.NET\FIX40_MessageCracker.cs net_MessageCracker.xsl FIX40.xml
 xsltproc -o ..\src\.NET\FIX41_MessageCracker.cs net_MessageCracker.xsl FIX41.xml
 xsltproc -o ..\src\.NET\FIX42_MessageCracker.cs net_MessageCracker.xsl FIX42.xml
