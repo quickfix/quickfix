@@ -130,7 +130,7 @@ class GeneratorPython
     return "String"
   end
   
-  def fields(name, number, type)
+  def fields(name, number, type, values)
     @f.puts tabs + "class #{name}(quickfix.#{fieldType(name, type)}Field):"
     @depth += 1
     @f.puts tabs + "def __init__(self, data = None):"

@@ -179,7 +179,7 @@ class GeneratorCPP
     fixFieldNumbersStart(@fn)
   end
 
-  def fields(name, number, type)
+  def fields(name, number, type, values)
     fixFields(@ff, name, number, type)
     fixFieldNumbers(@fn, name, number, type)
   end

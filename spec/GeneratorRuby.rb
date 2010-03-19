@@ -135,7 +135,7 @@ class GeneratorRuby
     return "String"
   end
   
-  def fields(name, number, type)
+  def fields(name, number, type, values)
     @f.puts tabs + "class #{name} < Quickfix::#{fieldType(name, type)}Field"
     @depth += 1
     @f.puts tabs + "def #{name}.field"

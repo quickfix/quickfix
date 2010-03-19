@@ -170,7 +170,15 @@ class Processor
         name = field.attributes["name"]
         number = field.attributes["number"]
         type = field.attributes["type"]
-        @generator.fields(name, number, type)
+
+        values = Array.new
+        field.elements.each("value") { |value|
+          enum = value.attributes["enum"]
+	  description = value.attributes["description"]
+          values.push( [enum, description] )
+        }
+
+        @generator.fields(name, number, type, values)
 	fixTTFields[name] = name
       }
     end
@@ -178,8 +186,16 @@ class Processor
       name = field.attributes["name"]
       number = field.attributes["number"]
       type = field.attributes["type"]
+
+      values = Array.new
+      field.elements.each("value") { |value|
+        enum = value.attributes["enum"]
+        description = value.attributes["description"]
+        values.push( [enum, description] )
+      }
+
       if( !fixTTFields.has_key?(name) )
-        @generator.fields(name, number, type)
+        @generator.fields(name, number, type, values)
       end
     }
 
