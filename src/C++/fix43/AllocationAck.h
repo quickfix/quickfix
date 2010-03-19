@@ -6,16 +6,16 @@
 namespace FIX43
 {
 
-  class AllocationACK : public Message
+  class AllocationAck : public Message
   {
   public:
-    AllocationACK() : Message(MsgType()) {}
-    AllocationACK(const FIX::Message& m) : Message(m) {}
-    AllocationACK(const Message& m) : Message(m) {}
-    AllocationACK(const AllocationACK& m) : Message(m) {}
+    AllocationAck() : Message(MsgType()) {}
+    AllocationAck(const FIX::Message& m) : Message(m) {}
+    AllocationAck(const Message& m) : Message(m) {}
+    AllocationAck(const AllocationAck& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("P"); }
 
-    AllocationACK(
+    AllocationAck(
       const FIX::AllocID& aAllocID,
       const FIX::TradeDate& aTradeDate,
       const FIX::AllocStatus& aAllocStatus )

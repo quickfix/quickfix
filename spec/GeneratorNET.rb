@@ -1,7 +1,7 @@
 require 'PrintFile'
 
 class GeneratorNET
-  def initialize(type, major, minor, basedir)
+  def initialize(type, major, minor, sp, basedir)
     @type = type
     @major = major
     @minor = minor
@@ -16,7 +16,7 @@ class GeneratorNET
     end
     @depth = 0;
     @basedir = basedir
-    @dir = basedir + "/" + type.downcase + major + minor + "/"
+    @dir = basedir + "/" + type.downcase + major + minor + sp.downcase + "/"
     @basefile = createVersionFile("Message.cs")
     @f = @basefile
   end

@@ -1,5 +1,5 @@
 class GeneratorPython
-  def initialize(type, major, minor, dir)
+  def initialize(type, major, minor, sp, dir)
     @type = type
     @major = major
     @minor = minor
@@ -9,7 +9,7 @@ class GeneratorPython
     end
     @depth = 0;
     @dir = dir + "/"
-    @f = createFile( "quick" + type.downcase + major + minor + ".py" )
+    @f = createFile( "quick" + type.downcase + major + minor + sp.downcase + ".py" )
     @messageStarted = false
   end
 

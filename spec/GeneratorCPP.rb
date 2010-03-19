@@ -1,7 +1,7 @@
 require 'PrintFile'
 
 class GeneratorCPP
-  def initialize(type, major, minor, basedir)
+  def initialize(type, major, minor, sp, basedir)
     @type = type
     @major = major
     @minor = minor
@@ -11,7 +11,7 @@ class GeneratorCPP
       @beginstring = "FIXT.1.1"
     end
     @basedir = basedir
-    @dir = basedir + "/" + @namespace.downcase
+    @dir = basedir + "/" + @namespace.downcase + sp.downcase
     @basefile = createVersionFile("Message.h")
     @f = @basefile
   end

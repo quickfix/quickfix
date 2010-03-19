@@ -6,7 +6,7 @@ class Processor
 
   def initialize(filename, outputdir, generator)
     file = File.new( filename )
-    puts filename
+    puts filename + " -> " + outputdir
     fileT = File.new( "FIXT11.xml" )
     @doc = Document.new file
     @docT = Document.new fileT
