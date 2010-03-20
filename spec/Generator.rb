@@ -17,8 +17,8 @@ def generateVersion( type, major, minor, sp )
   Processor.new(xml, "#{dir}/ruby", GeneratorRuby.new(type, major.to_s, minor.to_s, sp, "#{dir}/ruby"))
 end
 
-generateVersion( "FIXT", 1, 1, "" )
-(0..4).each { |i| generateVersion( "FIX", 4, i, "" ) }
-generateVersion( "FIX", 5, 0, "" )
-generateVersion( "FIX", 5, 0, "SP1" )
+#generateVersion( "FIXT", 1, 1, "" )
+#(0..4).each { |i| generateVersion( "FIX", 4, i, "" ) }
+#generateVersion( "FIX", 5, 0, "" )
+#generateVersion( "FIX", 5, 0, "SP1" )
 generateVersion( "FIX", 5, 0, "SP2" )

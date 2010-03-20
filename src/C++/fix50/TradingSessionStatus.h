@@ -89,7 +89,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::MinPriceIncrement);
     FIELD_SET(*this, FIX::PositionLimit);
     FIELD_SET(*this, FIX::NTPositionLimit);
-    FIELD_SET(*this, FIX::UnitofMeasure);
+    FIELD_SET(*this, FIX::UnitOfMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::MaturityTime);
   };

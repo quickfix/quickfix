@@ -15,6 +15,8 @@ all-local:
 	ln -sf ../../src/python/quickfix43.py $(top_builddir)/lib/python/quickfix43.py
 	ln -sf ../../src/python/quickfix44.py $(top_builddir)/lib/python/quickfix44.py
 	ln -sf ../../src/python/quickfix50.py $(top_builddir)/lib/python/quickfix50.py
+	ln -sf ../../src/python/quickfix50sp1.py $(top_builddir)/lib/python/quickfix50sp1.py
+	ln -sf ../../src/python/quickfix50sp2.py $(top_builddir)/lib/python/quickfix50sp2.py
 	ln -sf ../../src/python/quickfixt11.py $(top_builddir)/lib/python/quickfixt11.py
 
 	bash ./link.sh $(top_builddir)/lib/python _quickfix.so _quickfix.dylib
@@ -32,6 +34,8 @@ install-exec-local:
 	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfix43.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfix44.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfix50.py
+	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfix50sp1.py
+	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfix50sp2.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/python/quickfixt11.py
 	ln -sf $(prefix)/lib/python/_quickfix.so $(PYTHON_SITE_PACKAGES)/_quickfix.so
 	ln -sf $(prefix)/lib/python/_quickfix.dylib $(PYTHON_SITE_PACKAGES)/_quickfix.dylib
@@ -47,6 +51,8 @@ uninstall-local:
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix43.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix44.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix50.py
+	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix50sp1.py
+	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix50sp2.py
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfixt11.py
 
 libquickfix_python_la_LDFLAGS = -version-info 9:0:0

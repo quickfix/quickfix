@@ -115,7 +115,8 @@ class DataDictionary
 	end
 
 	def toFieldName( fieldName )
-		fieldName.split(" (")[0].split("(")[0].strip.gsub(' ', '')
+		fieldName = fieldName.split(" (")[0].split("(")[0].strip.gsub(' ', '')
+		fieldName.gsub("UnitofMeasure", "UnitOfMeasure")
 	end
 
 	def toMessageName( messageName )
@@ -162,7 +163,9 @@ class DataDictionary
 	end
 
 	def toType( type )
-		return type.gsub('-', '')
+		type = type.gsub('-', '')
+		return "NUMINGROUP" if type == "NUMINGRP"
+		return type
 	end
 
 	def parseFields
@@ -418,5 +421,5 @@ DataDictionary.new( 4, 2, nil )
 DataDictionary.new( 4, 3, nil )
 DataDictionary.new( 4, 4, nil )
 DataDictionary.new( 5, 0, nil )
-#DataDictionary.new( 5, 0, "SP1" )
-#DataDictionary.new( 5, 0, "SP2" )
+DataDictionary.new( 5, 0, "SP1" )
+DataDictionary.new( 5, 0, "SP2" )

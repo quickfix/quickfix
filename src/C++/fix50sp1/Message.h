@@ -31,3 +31,6 @@ namespace FIX50
     const Trailer& getTrailer() const { return (Trailer&)m_trailer; }
   };
 
+}
+
+#endif

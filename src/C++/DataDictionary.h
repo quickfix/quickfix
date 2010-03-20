@@ -390,6 +390,10 @@ private:
         TZTIMEONLY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::TzTimeStamp:
         TZTIMESTAMP_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::XmlData:
+        XMLDATA_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Language:
+        LANGUAGE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Unknown: break;
       }
     }

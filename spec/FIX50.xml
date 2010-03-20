@@ -2742,7 +2742,7 @@
    <field name='LegDatedDate' required='N' />
    <field name='LegContractSettlMonth' required='N' />
    <field name='LegInterestAccrualDate' required='N' />
-   <field name='LegUnitofMeasure' required='N' />
+   <field name='LegUnitOfMeasure' required='N' />
    <field name='LegTimeUnit' required='N' />
   </component>
   <component name='InstrmtLegExecGrp'>
@@ -3193,7 +3193,7 @@
    <field name='PositionLimit' required='N' />
    <field name='NTPositionLimit' required='N' />
    <component name='InstrumentParties' required='N' />
-   <field name='UnitofMeasure' required='N' />
+   <field name='UnitOfMeasure' required='N' />
    <field name='TimeUnit' required='N' />
    <field name='MaturityTime' required='N' />
   </component>
@@ -3383,7 +3383,7 @@
    <field name='UnderlyingSettlementType' required='N' />
    <field name='UnderlyingCashAmount' required='N' />
    <field name='UnderlyingCashType' required='N' />
-   <field name='UnderlyingUnitofMeasure' required='N' />
+   <field name='UnderlyingUnitOfMeasure' required='N' />
    <field name='UnderlyingTimeUnit' required='N' />
    <field name='UnderlyingCapValue' required='N' />
    <component name='UndlyInstrumentParties' required='N' />
@@ -7707,7 +7707,7 @@
   </field>
   <field number='993' name='AllocCustomerCapacity' type='STRING' />
   <field number='994' name='TierCode' type='STRING' />
-  <field number='996' name='UnitofMeasure' type='STRING'>
+  <field number='996' name='UnitOfMeasure' type='STRING'>
    <value enum='MWh' description='MEGAWATT_HOURS' />
    <value enum='MMBtu' description='ONE_MILLION_BTU' />
    <value enum='Bbl' description='BARRELS' />
@@ -7730,8 +7730,8 @@
    <value enum='Mo' description='MONTH' />
    <value enum='Yr' description='YEAR' />
   </field>
-  <field number='998' name='UnderlyingUnitofMeasure' type='STRING' />
-  <field number='999' name='LegUnitofMeasure' type='STRING' />
+  <field number='998' name='UnderlyingUnitOfMeasure' type='STRING' />
+  <field number='999' name='LegUnitOfMeasure' type='STRING' />
   <field number='1000' name='UnderlyingTimeUnit' type='STRING' />
   <field number='1001' name='LegTimeUnit' type='STRING' />
   <field number='1002' name='AllocMethod' type='INT'>

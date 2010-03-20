@@ -74,7 +74,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::UnderlyingSettlementType);
     FIELD_SET(*this, FIX::UnderlyingCashAmount);
     FIELD_SET(*this, FIX::UnderlyingCashType);
-    FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
+    FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
     FIELD_SET(*this, FIX::UnderlyingTimeUnit);
     FIELD_SET(*this, FIX::UnderlyingCapValue);
     FIELD_SET(*this, FIX::UnderlyingSettlMethod);

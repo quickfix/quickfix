@@ -125,7 +125,7 @@ class MessageCracker : public FIX::MessageCracker
   std::set < std::pair < FIX::ClOrdID, FIX::SessionID > > m_orderIDs;
 
 public:
-void reset() { m_orderIDs.clear(); }
+  void reset() { m_orderIDs.clear(); }
 };
 
 class Application : public FIX::Application

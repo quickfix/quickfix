@@ -101,7 +101,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::MinPriceIncrement);
       FIELD_SET(*this, FIX::PositionLimit);
       FIELD_SET(*this, FIX::NTPositionLimit);
-      FIELD_SET(*this, FIX::UnitofMeasure);
+      FIELD_SET(*this, FIX::UnitOfMeasure);
       FIELD_SET(*this, FIX::TimeUnit);
       FIELD_SET(*this, FIX::MaturityTime);
       FIELD_SET(*this, FIX::AgreementDesc);
@@ -166,7 +166,7 @@ namespace FIX50
         FIELD_SET(*this, FIX::UnderlyingSettlementType);
         FIELD_SET(*this, FIX::UnderlyingCashAmount);
         FIELD_SET(*this, FIX::UnderlyingCashType);
-        FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
+        FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
         FIELD_SET(*this, FIX::UnderlyingTimeUnit);
         FIELD_SET(*this, FIX::UnderlyingCapValue);
         FIELD_SET(*this, FIX::UnderlyingSettlMethod);
@@ -220,7 +220,7 @@ namespace FIX50
         FIELD_SET(*this, FIX::LegDatedDate);
         FIELD_SET(*this, FIX::LegContractSettlMonth);
         FIELD_SET(*this, FIX::LegInterestAccrualDate);
-        FIELD_SET(*this, FIX::LegUnitofMeasure);
+        FIELD_SET(*this, FIX::LegUnitOfMeasure);
         FIELD_SET(*this, FIX::LegTimeUnit);
       };
     };

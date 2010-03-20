@@ -794,16 +794,16 @@ namespace QuickFix50
     public bool isSetNTPositionLimit()
     { return isSetField(971); }
 
-    public void set(QuickFix.UnitofMeasure value)
+    public void set(QuickFix.UnitOfMeasure value)
     { setField(value); }
-    public QuickFix.UnitofMeasure get(QuickFix.UnitofMeasure  value)
+    public QuickFix.UnitOfMeasure get(QuickFix.UnitOfMeasure  value)
     { getField(value); return value; }
-    public QuickFix.UnitofMeasure getUnitofMeasure()
-    { QuickFix.UnitofMeasure value = new QuickFix.UnitofMeasure();
+    public QuickFix.UnitOfMeasure getUnitOfMeasure()
+    { QuickFix.UnitOfMeasure value = new QuickFix.UnitOfMeasure();
       getField(value); return value; }
-    public bool isSet(QuickFix.UnitofMeasure field)
+    public bool isSet(QuickFix.UnitOfMeasure field)
     { return isSetField(field); }
-    public bool isSetUnitofMeasure()
+    public bool isSetUnitOfMeasure()
     { return isSetField(996); }
 
     public void set(QuickFix.TimeUnit value)
@@ -1350,16 +1350,16 @@ namespace QuickFix50
       public bool isSetLegInterestAccrualDate()
       { return isSetField(956); }
 
-      public void set(QuickFix.LegUnitofMeasure value)
+      public void set(QuickFix.LegUnitOfMeasure value)
       { setField(value); }
-      public QuickFix.LegUnitofMeasure get(QuickFix.LegUnitofMeasure  value)
+      public QuickFix.LegUnitOfMeasure get(QuickFix.LegUnitOfMeasure  value)
       { getField(value); return value; }
-      public QuickFix.LegUnitofMeasure getLegUnitofMeasure()
-      { QuickFix.LegUnitofMeasure value = new QuickFix.LegUnitofMeasure();
+      public QuickFix.LegUnitOfMeasure getLegUnitOfMeasure()
+      { QuickFix.LegUnitOfMeasure value = new QuickFix.LegUnitOfMeasure();
         getField(value); return value; }
-      public bool isSet(QuickFix.LegUnitofMeasure field)
+      public bool isSet(QuickFix.LegUnitOfMeasure field)
       { return isSetField(field); }
-      public bool isSetLegUnitofMeasure()
+      public bool isSetLegUnitOfMeasure()
       { return isSetField(999); }
 
       public void set(QuickFix.LegTimeUnit value)
@@ -1967,16 +1967,16 @@ namespace QuickFix50
       public bool isSetUnderlyingCashType()
       { return isSetField(974); }
 
-      public void set(QuickFix.UnderlyingUnitofMeasure value)
+      public void set(QuickFix.UnderlyingUnitOfMeasure value)
       { setField(value); }
-      public QuickFix.UnderlyingUnitofMeasure get(QuickFix.UnderlyingUnitofMeasure  value)
+      public QuickFix.UnderlyingUnitOfMeasure get(QuickFix.UnderlyingUnitOfMeasure  value)
       { getField(value); return value; }
-      public QuickFix.UnderlyingUnitofMeasure getUnderlyingUnitofMeasure()
-      { QuickFix.UnderlyingUnitofMeasure value = new QuickFix.UnderlyingUnitofMeasure();
+      public QuickFix.UnderlyingUnitOfMeasure getUnderlyingUnitOfMeasure()
+      { QuickFix.UnderlyingUnitOfMeasure value = new QuickFix.UnderlyingUnitOfMeasure();
         getField(value); return value; }
-      public bool isSet(QuickFix.UnderlyingUnitofMeasure field)
+      public bool isSet(QuickFix.UnderlyingUnitOfMeasure field)
       { return isSetField(field); }
-      public bool isSetUnderlyingUnitofMeasure()
+      public bool isSetUnderlyingUnitOfMeasure()
       { return isSetField(998); }
 
       public void set(QuickFix.UnderlyingTimeUnit value)

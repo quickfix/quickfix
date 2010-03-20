@@ -5360,6 +5360,7 @@
   <field number='41' name='OrigClOrdID' type='STRING' />
   <field number='42' name='OrigTime' type='UTCTIMESTAMP' />
   <field number='44' name='Price' type='PRICE' />
+  <field number='45' name='RefSeqNum' type='SEQNUM' />
   <field number='46' name='RelatdSym' type='STRING' />
   <field number='47' name='Rule80A' type='CHAR'>
    <value enum='A' description='AGENCY_SINGLE_ORDER' />
@@ -5408,6 +5409,7 @@
    <value enum='G' description='BORROW' />
   </field>
   <field number='55' name='Symbol' type='STRING' />
+  <field number='58' name='Text' type='STRING' />
   <field number='59' name='TimeInForce' type='CHAR'>
    <value enum='0' description='DAY' />
    <value enum='1' description='GOOD_TILL_CANCEL' />
@@ -5522,6 +5524,8 @@
    <value enum='1' description='REPLY' />
    <value enum='2' description='ADMIN_REPLY' />
   </field>
+  <field number='95' name='RawDataLength' type='LENGTH' />
+  <field number='96' name='RawData' type='DATA' />
   <field number='99' name='StopPx' type='PRICE' />
   <field number='100' name='ExDestination' type='EXCHANGE' />
   <field number='102' name='CxlRejReason' type='INT'>
@@ -6565,6 +6569,8 @@
   <field number='351' name='EncodedSecurityDesc' type='DATA' />
   <field number='352' name='EncodedListExecInstLen' type='LENGTH' />
   <field number='353' name='EncodedListExecInst' type='DATA' />
+  <field number='354' name='EncodedTextLen' type='LENGTH' />
+  <field number='355' name='EncodedText' type='DATA' />
   <field number='356' name='EncodedSubjectLen' type='LENGTH' />
   <field number='357' name='EncodedSubject' type='DATA' />
   <field number='358' name='EncodedHeadlineLen' type='LENGTH' />
@@ -6579,6 +6585,7 @@
   <field number='367' name='QuoteSetValidUntilTime' type='UTCTIMESTAMP' />
   <field number='368' name='QuoteEntryRejectReason' type='INT' />
   <field number='370' name='OnBehalfOfSendingTime' type='UTCTIMESTAMP' />
+  <field number='372' name='RefMsgType' type='STRING' />
   <field number='374' name='BidRequestTransType' type='CHAR'>
    <value enum='C' description='CANCEL' />
    <value enum='N' description='NO' />
@@ -7258,6 +7265,8 @@
    <value enum='1' description='ONE_SIDE' />
    <value enum='2' description='BOTH_SIDES' />
   </field>
+  <field number='553' name='Username' type='STRING' />
+  <field number='554' name='Password' type='STRING' />
   <field number='555' name='NoLegs' type='NUMINGROUP' />
   <field number='556' name='LegCurrency' type='CURRENCY' />
   <field number='557' name='TotNoSecurityTypes' type='INT' />

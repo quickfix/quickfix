@@ -154,6 +154,8 @@ install-exec-local: *.h
 	mkdir $(DESTDIR)$(pkgincludedir)/fix43
 	mkdir $(DESTDIR)$(pkgincludedir)/fix44
 	mkdir $(DESTDIR)$(pkgincludedir)/fix50
+	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp1
+	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp2
 	mkdir $(DESTDIR)$(pkgincludedir)/fixt11
 	cp *.h $(DESTDIR)$(pkgincludedir)
 	cp fix40/*.h $(DESTDIR)$(pkgincludedir)/fix40
@@ -162,6 +164,8 @@ install-exec-local: *.h
 	cp fix43/*.h $(DESTDIR)$(pkgincludedir)/fix43
 	cp fix44/*.h $(DESTDIR)$(pkgincludedir)/fix44
 	cp fix50/*.h $(DESTDIR)$(pkgincludedir)/fix50
+	cp fix50sp1/*.h $(DESTDIR)$(pkgincludedir)/fix50sp1
+	cp fix50sp2/*.h $(DESTDIR)$(pkgincludedir)/fix50sp2
 	cp fixt11/*.h $(DESTDIR)$(pkgincludedir)/fixt11
 
 uninstall-local:

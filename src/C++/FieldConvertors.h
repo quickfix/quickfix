@@ -656,6 +656,8 @@ typedef IntConvertor LENGTH_CONVERTOR;
 typedef StringConvertor COUNTRY_CONVERTOR;
 typedef StringConvertor TZTIMEONLY_CONVERTOR;
 typedef StringConvertor TZTIMESTAMP_CONVERTOR;
+typedef StringConvertor XMLDATA_CONVERTOR;
+typedef StringConvertor LANGUAGE_CONVERTOR;
 typedef CheckSumConvertor CHECKSUM_CONVERTOR;
 }
 

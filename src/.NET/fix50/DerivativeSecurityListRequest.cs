@@ -614,16 +614,16 @@ namespace QuickFix50
     public bool isSetUnderlyingCashType()
     { return isSetField(974); }
 
-    public void set(QuickFix.UnderlyingUnitofMeasure value)
+    public void set(QuickFix.UnderlyingUnitOfMeasure value)
     { setField(value); }
-    public QuickFix.UnderlyingUnitofMeasure get(QuickFix.UnderlyingUnitofMeasure  value)
+    public QuickFix.UnderlyingUnitOfMeasure get(QuickFix.UnderlyingUnitOfMeasure  value)
     { getField(value); return value; }
-    public QuickFix.UnderlyingUnitofMeasure getUnderlyingUnitofMeasure()
-    { QuickFix.UnderlyingUnitofMeasure value = new QuickFix.UnderlyingUnitofMeasure();
+    public QuickFix.UnderlyingUnitOfMeasure getUnderlyingUnitOfMeasure()
+    { QuickFix.UnderlyingUnitOfMeasure value = new QuickFix.UnderlyingUnitOfMeasure();
       getField(value); return value; }
-    public bool isSet(QuickFix.UnderlyingUnitofMeasure field)
+    public bool isSet(QuickFix.UnderlyingUnitOfMeasure field)
     { return isSetField(field); }
-    public bool isSetUnderlyingUnitofMeasure()
+    public bool isSetUnderlyingUnitOfMeasure()
     { return isSetField(998); }
 
     public void set(QuickFix.UnderlyingTimeUnit value)

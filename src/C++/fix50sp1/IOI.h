@@ -263,3 +263,63 @@ namespace FIX50
     FIELD_SET(*this, FIX::ValidUntilTime);
     FIELD_SET(*this, FIX::IOIQltyInd);
     FIELD_SET(*this, FIX::IOINaturalFlag);
+    FIELD_SET(*this, FIX::NoIOIQualifiers);
+    class NoIOIQualifiers: public FIX::Group
+    {
+    public:
+    NoIOIQualifiers() : FIX::Group(199,104,FIX::message_order(104,0)) {}
+      FIELD_SET(*this, FIX::IOIQualifier);
+    };
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
+    FIELD_SET(*this, FIX::TransactTime);
+    FIELD_SET(*this, FIX::URLLink);
+    FIELD_SET(*this, FIX::NoRoutingIDs);
+    class NoRoutingIDs: public FIX::Group
+    {
+    public:
+    NoRoutingIDs() : FIX::Group(215,216,FIX::message_order(216,217,0)) {}
+      FIELD_SET(*this, FIX::RoutingType);
+      FIELD_SET(*this, FIX::RoutingID);
+    };
+    FIELD_SET(*this, FIX::Spread);
+    FIELD_SET(*this, FIX::BenchmarkCurveCurrency);
+    FIELD_SET(*this, FIX::BenchmarkCurveName);
+    FIELD_SET(*this, FIX::BenchmarkCurvePoint);
+    FIELD_SET(*this, FIX::BenchmarkPrice);
+    FIELD_SET(*this, FIX::BenchmarkPriceType);
+    FIELD_SET(*this, FIX::BenchmarkSecurityID);
+    FIELD_SET(*this, FIX::BenchmarkSecurityIDSource);
+    FIELD_SET(*this, FIX::YieldType);
+    FIELD_SET(*this, FIX::Yield);
+    FIELD_SET(*this, FIX::YieldCalcDate);
+    FIELD_SET(*this, FIX::YieldRedemptionDate);
+    FIELD_SET(*this, FIX::YieldRedemptionPrice);
+    FIELD_SET(*this, FIX::YieldRedemptionPriceType);
+    FIELD_SET(*this, FIX::NoPartyIDs);
+    class NoPartyIDs: public FIX::Group
+    {
+    public:
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
+      FIELD_SET(*this, FIX::PartyID);
+      FIELD_SET(*this, FIX::PartyIDSource);
+      FIELD_SET(*this, FIX::PartyRole);
+      FIELD_SET(*this, FIX::NoPartySubIDs);
+      class NoPartySubIDs: public FIX::Group
+      {
+      public:
+      NoPartySubIDs() : FIX::Group(802,523,FIX::message_order(523,803,0)) {}
+        FIELD_SET(*this, FIX::PartySubID);
+        FIELD_SET(*this, FIX::PartySubIDType);
+      };
+    };
+    FIELD_SET(*this, FIX::ApplID);
+    FIELD_SET(*this, FIX::ApplSeqNum);
+    FIELD_SET(*this, FIX::ApplLastSeqNum);
+    FIELD_SET(*this, FIX::ApplResendFlag);
+  };
+
+}
+
+#endif

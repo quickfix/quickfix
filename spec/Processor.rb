@@ -100,23 +100,28 @@ class Processor
 
       element = group.elements["*"]
       
-      if( element.name == "field" )
-	delim = lookupField(element.attributes["name"])
-      else
-	component = lookupComponent( element.attributes["name"] )
-	delim = lookupField(component.elements["field"].attributes["name"])
-      end
+      #if( element.name == "field" )
+	#delim = lookupField(element.attributes["name"])
+      #else
+	#component = lookupComponent( element.attributes["name"] )
+	#delim = lookupField(component.elements["field"].attributes["name"])
+      #end
 
+      delim = nil
       order = Array.new
       group.elements.each("*") { |element|
 	if(element.name == "field" || element.name == "group")
-	  order.push(lookupField(element.attributes["name"]))
+	  field = lookupField(element.attributes["name"])
+	  delim = field if delim == nil
+	  order.push(field)
 	end
 	if(element.name == "component")
 	  component = lookupComponent( element.attributes["name"] )
 	  component.elements.each("*") { |componentElement|
             if(componentElement.name == "field" || componentElement.name == "group")
-              order.push(lookupField(componentElement.attributes["name"])) 
+	      field = lookupField(componentElement.attributes["name"])
+	      delim = field if delim == nil
+              order.push(field) 
             end }
 	end
       }

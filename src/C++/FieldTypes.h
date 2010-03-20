@@ -652,6 +652,8 @@ typedef int LENGTH;
 typedef std::string COUNTRY;
 typedef std::string TZTIMEONLY;
 typedef std::string TZTIMESTAMP;
+typedef std::string XMLDATA;
+typedef std::string LANGUAGE;
 
 namespace TYPE
 {
@@ -686,7 +688,9 @@ enum Type
   Length,
   Country,
   TzTimeOnly,
-  TzTimeStamp
+  TzTimeStamp,
+  XmlData,
+  Language
 };
 }
 }

@@ -794,16 +794,16 @@ namespace QuickFix50
     public bool isSetNTPositionLimit()
     { return isSetField(971); }
 
-    public void set(QuickFix.UnitofMeasure value)
+    public void set(QuickFix.UnitOfMeasure value)
     { setField(value); }
-    public QuickFix.UnitofMeasure get(QuickFix.UnitofMeasure  value)
+    public QuickFix.UnitOfMeasure get(QuickFix.UnitOfMeasure  value)
     { getField(value); return value; }
-    public QuickFix.UnitofMeasure getUnitofMeasure()
-    { QuickFix.UnitofMeasure value = new QuickFix.UnitofMeasure();
+    public QuickFix.UnitOfMeasure getUnitOfMeasure()
+    { QuickFix.UnitOfMeasure value = new QuickFix.UnitOfMeasure();
       getField(value); return value; }
-    public bool isSet(QuickFix.UnitofMeasure field)
+    public bool isSet(QuickFix.UnitOfMeasure field)
     { return isSetField(field); }
-    public bool isSetUnitofMeasure()
+    public bool isSetUnitOfMeasure()
     { return isSetField(996); }
 
     public void set(QuickFix.TimeUnit value)

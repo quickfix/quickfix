@@ -1,4 +1,810 @@
 module Quickfix
+	class BeginSeqNo < Quickfix::IntField
+		def BeginSeqNo.field
+			return 7
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(7)
+			else
+				super(7, data)
+			end
+		end
+	end
+
+	class BeginString < Quickfix::StringField
+		def BeginString.field
+			return 8
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(8)
+			else
+				super(8, data)
+			end
+		end
+	end
+
+	class BodyLength < Quickfix::IntField
+		def BodyLength.field
+			return 9
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(9)
+			else
+				super(9, data)
+			end
+		end
+	end
+
+	class CheckSum < Quickfix::CheckSumField
+		def CheckSum.field
+			return 10
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(10)
+			else
+				super(10, data)
+			end
+		end
+	end
+
+	class EndSeqNo < Quickfix::IntField
+		def EndSeqNo.field
+			return 16
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(16)
+			else
+				super(16, data)
+			end
+		end
+	end
+
+	class MsgSeqNum < Quickfix::IntField
+		def MsgSeqNum.field
+			return 34
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(34)
+			else
+				super(34, data)
+			end
+		end
+	end
+
+	class MsgType < Quickfix::StringField
+		def MsgType.field
+			return 35
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(35)
+			else
+				super(35, data)
+			end
+		end
+	end
+
+	class NewSeqNo < Quickfix::IntField
+		def NewSeqNo.field
+			return 36
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(36)
+			else
+				super(36, data)
+			end
+		end
+	end
+
+	class PossDupFlag < Quickfix::BoolField
+		def PossDupFlag.field
+			return 43
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(43)
+			else
+				super(43, data)
+			end
+		end
+	end
+
+	class RefSeqNum < Quickfix::IntField
+		def RefSeqNum.field
+			return 45
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(45)
+			else
+				super(45, data)
+			end
+		end
+	end
+
+	class SenderCompID < Quickfix::StringField
+		def SenderCompID.field
+			return 49
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(49)
+			else
+				super(49, data)
+			end
+		end
+	end
+
+	class SenderSubID < Quickfix::StringField
+		def SenderSubID.field
+			return 50
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(50)
+			else
+				super(50, data)
+			end
+		end
+	end
+
+	class SendingTime < Quickfix::UtcTimeStampField
+		def SendingTime.field
+			return 52
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(52)
+			else
+				super(52, data)
+			end
+		end
+	end
+
+	class TargetCompID < Quickfix::StringField
+		def TargetCompID.field
+			return 56
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(56)
+			else
+				super(56, data)
+			end
+		end
+	end
+
+	class TargetSubID < Quickfix::StringField
+		def TargetSubID.field
+			return 57
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(57)
+			else
+				super(57, data)
+			end
+		end
+	end
+
+	class Text < Quickfix::StringField
+		def Text.field
+			return 58
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(58)
+			else
+				super(58, data)
+			end
+		end
+	end
+
+	class Signature < Quickfix::StringField
+		def Signature.field
+			return 89
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(89)
+			else
+				super(89, data)
+			end
+		end
+	end
+
+	class SecureDataLen < Quickfix::IntField
+		def SecureDataLen.field
+			return 90
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(90)
+			else
+				super(90, data)
+			end
+		end
+	end
+
+	class SecureData < Quickfix::StringField
+		def SecureData.field
+			return 91
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(91)
+			else
+				super(91, data)
+			end
+		end
+	end
+
+	class SignatureLength < Quickfix::IntField
+		def SignatureLength.field
+			return 93
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(93)
+			else
+				super(93, data)
+			end
+		end
+	end
+
+	class RawDataLength < Quickfix::IntField
+		def RawDataLength.field
+			return 95
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(95)
+			else
+				super(95, data)
+			end
+		end
+	end
+
+	class RawData < Quickfix::StringField
+		def RawData.field
+			return 96
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(96)
+			else
+				super(96, data)
+			end
+		end
+	end
+
+	class PossResend < Quickfix::BoolField
+		def PossResend.field
+			return 97
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(97)
+			else
+				super(97, data)
+			end
+		end
+	end
+
+	class EncryptMethod < Quickfix::IntField
+		def EncryptMethod.field
+			return 98
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(98)
+			else
+				super(98, data)
+			end
+		end
+	end
+
+	class HeartBtInt < Quickfix::IntField
+		def HeartBtInt.field
+			return 108
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(108)
+			else
+				super(108, data)
+			end
+		end
+	end
+
+	class TestReqID < Quickfix::StringField
+		def TestReqID.field
+			return 112
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(112)
+			else
+				super(112, data)
+			end
+		end
+	end
+
+	class OnBehalfOfCompID < Quickfix::StringField
+		def OnBehalfOfCompID.field
+			return 115
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(115)
+			else
+				super(115, data)
+			end
+		end
+	end
+
+	class OnBehalfOfSubID < Quickfix::StringField
+		def OnBehalfOfSubID.field
+			return 116
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(116)
+			else
+				super(116, data)
+			end
+		end
+	end
+
+	class OrigSendingTime < Quickfix::UtcTimeStampField
+		def OrigSendingTime.field
+			return 122
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(122)
+			else
+				super(122, data)
+			end
+		end
+	end
+
+	class GapFillFlag < Quickfix::BoolField
+		def GapFillFlag.field
+			return 123
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(123)
+			else
+				super(123, data)
+			end
+		end
+	end
+
+	class DeliverToCompID < Quickfix::StringField
+		def DeliverToCompID.field
+			return 128
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(128)
+			else
+				super(128, data)
+			end
+		end
+	end
+
+	class DeliverToSubID < Quickfix::StringField
+		def DeliverToSubID.field
+			return 129
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(129)
+			else
+				super(129, data)
+			end
+		end
+	end
+
+	class ResetSeqNumFlag < Quickfix::BoolField
+		def ResetSeqNumFlag.field
+			return 141
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(141)
+			else
+				super(141, data)
+			end
+		end
+	end
+
+	class SenderLocationID < Quickfix::StringField
+		def SenderLocationID.field
+			return 142
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(142)
+			else
+				super(142, data)
+			end
+		end
+	end
+
+	class TargetLocationID < Quickfix::StringField
+		def TargetLocationID.field
+			return 143
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(143)
+			else
+				super(143, data)
+			end
+		end
+	end
+
+	class OnBehalfOfLocationID < Quickfix::StringField
+		def OnBehalfOfLocationID.field
+			return 144
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(144)
+			else
+				super(144, data)
+			end
+		end
+	end
+
+	class DeliverToLocationID < Quickfix::StringField
+		def DeliverToLocationID.field
+			return 145
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(145)
+			else
+				super(145, data)
+			end
+		end
+	end
+
+	class XmlDataLen < Quickfix::IntField
+		def XmlDataLen.field
+			return 212
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(212)
+			else
+				super(212, data)
+			end
+		end
+	end
+
+	class XmlData < Quickfix::StringField
+		def XmlData.field
+			return 213
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(213)
+			else
+				super(213, data)
+			end
+		end
+	end
+
+	class MessageEncoding < Quickfix::StringField
+		def MessageEncoding.field
+			return 347
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(347)
+			else
+				super(347, data)
+			end
+		end
+	end
+
+	class EncodedTextLen < Quickfix::IntField
+		def EncodedTextLen.field
+			return 354
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(354)
+			else
+				super(354, data)
+			end
+		end
+	end
+
+	class EncodedText < Quickfix::StringField
+		def EncodedText.field
+			return 355
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(355)
+			else
+				super(355, data)
+			end
+		end
+	end
+
+	class LastMsgSeqNumProcessed < Quickfix::IntField
+		def LastMsgSeqNumProcessed.field
+			return 369
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(369)
+			else
+				super(369, data)
+			end
+		end
+	end
+
+	class RefTagID < Quickfix::IntField
+		def RefTagID.field
+			return 371
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(371)
+			else
+				super(371, data)
+			end
+		end
+	end
+
+	class RefMsgType < Quickfix::StringField
+		def RefMsgType.field
+			return 372
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(372)
+			else
+				super(372, data)
+			end
+		end
+	end
+
+	class SessionRejectReason < Quickfix::IntField
+		def SessionRejectReason.field
+			return 373
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(373)
+			else
+				super(373, data)
+			end
+		end
+	end
+
+	class MaxMessageSize < Quickfix::IntField
+		def MaxMessageSize.field
+			return 383
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(383)
+			else
+				super(383, data)
+			end
+		end
+	end
+
+	class NoMsgTypes < Quickfix::IntField
+		def NoMsgTypes.field
+			return 384
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(384)
+			else
+				super(384, data)
+			end
+		end
+	end
+
+	class MsgDirection < Quickfix::CharField
+		def MsgDirection.field
+			return 385
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(385)
+			else
+				super(385, data)
+			end
+		end
+	end
+
+	class TestMessageIndicator < Quickfix::BoolField
+		def TestMessageIndicator.field
+			return 464
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(464)
+			else
+				super(464, data)
+			end
+		end
+	end
+
+	class Username < Quickfix::StringField
+		def Username.field
+			return 553
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(553)
+			else
+				super(553, data)
+			end
+		end
+	end
+
+	class Password < Quickfix::StringField
+		def Password.field
+			return 554
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(554)
+			else
+				super(554, data)
+			end
+		end
+	end
+
+	class NoHops < Quickfix::IntField
+		def NoHops.field
+			return 627
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(627)
+			else
+				super(627, data)
+			end
+		end
+	end
+
+	class HopCompID < Quickfix::StringField
+		def HopCompID.field
+			return 628
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(628)
+			else
+				super(628, data)
+			end
+		end
+	end
+
+	class HopSendingTime < Quickfix::UtcTimeStampField
+		def HopSendingTime.field
+			return 629
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(629)
+			else
+				super(629, data)
+			end
+		end
+	end
+
+	class HopRefID < Quickfix::IntField
+		def HopRefID.field
+			return 630
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(630)
+			else
+				super(630, data)
+			end
+		end
+	end
+
+	class NextExpectedMsgSeqNum < Quickfix::IntField
+		def NextExpectedMsgSeqNum.field
+			return 789
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(789)
+			else
+				super(789, data)
+			end
+		end
+	end
+
+	class ApplVerID < Quickfix::StringField
+		def ApplVerID.field
+			return 1128
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1128)
+			else
+				super(1128, data)
+			end
+		end
+	end
+
+	class CstmApplVerID < Quickfix::StringField
+		def CstmApplVerID.field
+			return 1129
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1129)
+			else
+				super(1129, data)
+			end
+		end
+	end
+
+	class RefApplVerID < Quickfix::StringField
+		def RefApplVerID.field
+			return 1130
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1130)
+			else
+				super(1130, data)
+			end
+		end
+	end
+
+	class RefCstmApplVerID < Quickfix::StringField
+		def RefCstmApplVerID.field
+			return 1131
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1131)
+			else
+				super(1131, data)
+			end
+		end
+	end
+
+	class DefaultApplVerID < Quickfix::StringField
+		def DefaultApplVerID.field
+			return 1137
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1137)
+			else
+				super(1137, data)
+			end
+		end
+	end
+
 	class Account < Quickfix::StringField
 		def Account.field
 			return 1
@@ -77,58 +883,6 @@ module Quickfix
 		end
 	end
 
-	class BeginSeqNo < Quickfix::IntField
-		def BeginSeqNo.field
-			return 7
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(7)
-			else
-				super(7, data)
-			end
-		end
-	end
-
-	class BeginString < Quickfix::StringField
-		def BeginString.field
-			return 8
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(8)
-			else
-				super(8, data)
-			end
-		end
-	end
-
-	class BodyLength < Quickfix::IntField
-		def BodyLength.field
-			return 9
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(9)
-			else
-				super(9, data)
-			end
-		end
-	end
-
-	class CheckSum < Quickfix::CheckSumField
-		def CheckSum.field
-			return 10
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(10)
-			else
-				super(10, data)
-			end
-		end
-	end
-
 	class ClOrdID < Quickfix::StringField
 		def ClOrdID.field
 			return 11
@@ -190,19 +944,6 @@ module Quickfix
 				super(15)
 			else
 				super(15, data)
-			end
-		end
-	end
-
-	class EndSeqNo < Quickfix::IntField
-		def EndSeqNo.field
-			return 16
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(16)
-			else
-				super(16, data)
 			end
 		end
 	end
@@ -428,45 +1169,6 @@ module Quickfix
 		end
 	end
 
-	class MsgSeqNum < Quickfix::IntField
-		def MsgSeqNum.field
-			return 34
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(34)
-			else
-				super(34, data)
-			end
-		end
-	end
-
-	class MsgType < Quickfix::StringField
-		def MsgType.field
-			return 35
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(35)
-			else
-				super(35, data)
-			end
-		end
-	end
-
-	class NewSeqNo < Quickfix::IntField
-		def NewSeqNo.field
-			return 36
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(36)
-			else
-				super(36, data)
-			end
-		end
-	end
-
 	class OrderID < Quickfix::StringField
 		def OrderID.field
 			return 37
@@ -545,19 +1247,6 @@ module Quickfix
 		end
 	end
 
-	class PossDupFlag < Quickfix::BoolField
-		def PossDupFlag.field
-			return 43
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(43)
-			else
-				super(43, data)
-			end
-		end
-	end
-
 	class Price < Quickfix::DoubleField
 		def Price.field
 			return 44
@@ -567,19 +1256,6 @@ module Quickfix
 				super(44)
 			else
 				super(44, data)
-			end
-		end
-	end
-
-	class RefSeqNum < Quickfix::IntField
-		def RefSeqNum.field
-			return 45
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(45)
-			else
-				super(45, data)
 			end
 		end
 	end
@@ -623,32 +1299,6 @@ module Quickfix
 		end
 	end
 
-	class SenderCompID < Quickfix::StringField
-		def SenderCompID.field
-			return 49
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(49)
-			else
-				super(49, data)
-			end
-		end
-	end
-
-	class SenderSubID < Quickfix::StringField
-		def SenderSubID.field
-			return 50
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(50)
-			else
-				super(50, data)
-			end
-		end
-	end
-
 	class SendingDate < Quickfix::StringField
 		def SendingDate.field
 			return 51
@@ -658,19 +1308,6 @@ module Quickfix
 				super(51)
 			else
 				super(51, data)
-			end
-		end
-	end
-
-	class SendingTime < Quickfix::UtcTimeStampField
-		def SendingTime.field
-			return 52
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(52)
-			else
-				super(52, data)
 			end
 		end
 	end
@@ -710,45 +1347,6 @@ module Quickfix
 				super(55)
 			else
 				super(55, data)
-			end
-		end
-	end
-
-	class TargetCompID < Quickfix::StringField
-		def TargetCompID.field
-			return 56
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(56)
-			else
-				super(56, data)
-			end
-		end
-	end
-
-	class TargetSubID < Quickfix::StringField
-		def TargetSubID.field
-			return 57
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(57)
-			else
-				super(57, data)
-			end
-		end
-	end
-
-	class Text < Quickfix::StringField
-		def Text.field
-			return 58
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(58)
-			else
-				super(58, data)
 			end
 		end
 	end
@@ -805,7 +1403,7 @@ module Quickfix
 		end
 	end
 
-	class SettlType < Quickfix::CharField
+	class SettlType < Quickfix::StringField
 		def SettlType.field
 			return 63
 		end
@@ -1143,45 +1741,6 @@ module Quickfix
 		end
 	end
 
-	class Signature < Quickfix::StringField
-		def Signature.field
-			return 89
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(89)
-			else
-				super(89, data)
-			end
-		end
-	end
-
-	class SecureDataLen < Quickfix::IntField
-		def SecureDataLen.field
-			return 90
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(90)
-			else
-				super(90, data)
-			end
-		end
-	end
-
-	class SecureData < Quickfix::StringField
-		def SecureData.field
-			return 91
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(91)
-			else
-				super(91, data)
-			end
-		end
-	end
-
 	class BrokerOfCredit < Quickfix::StringField
 		def BrokerOfCredit.field
 			return 92
@@ -1195,19 +1754,6 @@ module Quickfix
 		end
 	end
 
-	class SignatureLength < Quickfix::IntField
-		def SignatureLength.field
-			return 93
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(93)
-			else
-				super(93, data)
-			end
-		end
-	end
-
 	class EmailType < Quickfix::CharField
 		def EmailType.field
 			return 94
@@ -1217,58 +1763,6 @@ module Quickfix
 				super(94)
 			else
 				super(94, data)
-			end
-		end
-	end
-
-	class RawDataLength < Quickfix::IntField
-		def RawDataLength.field
-			return 95
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(95)
-			else
-				super(95, data)
-			end
-		end
-	end
-
-	class RawData < Quickfix::StringField
-		def RawData.field
-			return 96
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(96)
-			else
-				super(96, data)
-			end
-		end
-	end
-
-	class PossResend < Quickfix::BoolField
-		def PossResend.field
-			return 97
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(97)
-			else
-				super(97, data)
-			end
-		end
-	end
-
-	class EncryptMethod < Quickfix::IntField
-		def EncryptMethod.field
-			return 98
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(98)
-			else
-				super(98, data)
 			end
 		end
 	end
@@ -1377,19 +1871,6 @@ module Quickfix
 		end
 	end
 
-	class HeartBtInt < Quickfix::IntField
-		def HeartBtInt.field
-			return 108
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(108)
-			else
-				super(108, data)
-			end
-		end
-	end
-
 	class ClientID < Quickfix::StringField
 		def ClientID.field
 			return 109
@@ -1429,19 +1910,6 @@ module Quickfix
 		end
 	end
 
-	class TestReqID < Quickfix::StringField
-		def TestReqID.field
-			return 112
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(112)
-			else
-				super(112, data)
-			end
-		end
-	end
-
 	class ReportToExch < Quickfix::BoolField
 		def ReportToExch.field
 			return 113
@@ -1464,32 +1932,6 @@ module Quickfix
 				super(114)
 			else
 				super(114, data)
-			end
-		end
-	end
-
-	class OnBehalfOfCompID < Quickfix::StringField
-		def OnBehalfOfCompID.field
-			return 115
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(115)
-			else
-				super(115, data)
-			end
-		end
-	end
-
-	class OnBehalfOfSubID < Quickfix::StringField
-		def OnBehalfOfSubID.field
-			return 116
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(116)
-			else
-				super(116, data)
 			end
 		end
 	end
@@ -1559,32 +2001,6 @@ module Quickfix
 		end
 	end
 
-	class OrigSendingTime < Quickfix::UtcTimeStampField
-		def OrigSendingTime.field
-			return 122
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(122)
-			else
-				super(122, data)
-			end
-		end
-	end
-
-	class GapFillFlag < Quickfix::BoolField
-		def GapFillFlag.field
-			return 123
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(123)
-			else
-				super(123, data)
-			end
-		end
-	end
-
 	class NoExecs < Quickfix::IntField
 		def NoExecs.field
 			return 124
@@ -1633,32 +2049,6 @@ module Quickfix
 				super(127)
 			else
 				super(127, data)
-			end
-		end
-	end
-
-	class DeliverToCompID < Quickfix::StringField
-		def DeliverToCompID.field
-			return 128
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(128)
-			else
-				super(128, data)
-			end
-		end
-	end
-
-	class DeliverToSubID < Quickfix::StringField
-		def DeliverToSubID.field
-			return 129
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(129)
-			else
-				super(129, data)
 			end
 		end
 	end
@@ -1780,7 +2170,7 @@ module Quickfix
 		end
 	end
 
-	class MiscFeeType < Quickfix::CharField
+	class MiscFeeType < Quickfix::StringField
 		def MiscFeeType.field
 			return 139
 		end
@@ -1802,71 +2192,6 @@ module Quickfix
 				super(140)
 			else
 				super(140, data)
-			end
-		end
-	end
-
-	class ResetSeqNumFlag < Quickfix::BoolField
-		def ResetSeqNumFlag.field
-			return 141
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(141)
-			else
-				super(141, data)
-			end
-		end
-	end
-
-	class SenderLocationID < Quickfix::StringField
-		def SenderLocationID.field
-			return 142
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(142)
-			else
-				super(142, data)
-			end
-		end
-	end
-
-	class TargetLocationID < Quickfix::StringField
-		def TargetLocationID.field
-			return 143
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(143)
-			else
-				super(143, data)
-			end
-		end
-	end
-
-	class OnBehalfOfLocationID < Quickfix::StringField
-		def OnBehalfOfLocationID.field
-			return 144
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(144)
-			else
-				super(144, data)
-			end
-		end
-	end
-
-	class DeliverToLocationID < Quickfix::StringField
-		def DeliverToLocationID.field
-			return 145
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(145)
-			else
-				super(145, data)
 			end
 		end
 	end
@@ -2725,32 +3050,6 @@ module Quickfix
 				super(211)
 			else
 				super(211, data)
-			end
-		end
-	end
-
-	class XmlDataLen < Quickfix::IntField
-		def XmlDataLen.field
-			return 212
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(212)
-			else
-				super(212, data)
-			end
-		end
-	end
-
-	class XmlData < Quickfix::StringField
-		def XmlData.field
-			return 213
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(213)
-			else
-				super(213, data)
 			end
 		end
 	end
@@ -4211,7 +4510,7 @@ module Quickfix
 		end
 	end
 
-	class HaltReason < Quickfix::CharField
+	class HaltReason < Quickfix::IntField
 		def HaltReason.field
 			return 327
 		end
@@ -4471,19 +4770,6 @@ module Quickfix
 		end
 	end
 
-	class MessageEncoding < Quickfix::StringField
-		def MessageEncoding.field
-			return 347
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(347)
-			else
-				super(347, data)
-			end
-		end
-	end
-
 	class EncodedIssuerLen < Quickfix::IntField
 		def EncodedIssuerLen.field
 			return 348
@@ -4558,32 +4844,6 @@ module Quickfix
 				super(353)
 			else
 				super(353, data)
-			end
-		end
-	end
-
-	class EncodedTextLen < Quickfix::IntField
-		def EncodedTextLen.field
-			return 354
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(354)
-			else
-				super(354, data)
-			end
-		end
-	end
-
-	class EncodedText < Quickfix::StringField
-		def EncodedText.field
-			return 355
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(355)
-			else
-				super(355, data)
 			end
 		end
 	end
@@ -4757,19 +5017,6 @@ module Quickfix
 		end
 	end
 
-	class LastMsgSeqNumProcessed < Quickfix::IntField
-		def LastMsgSeqNumProcessed.field
-			return 369
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(369)
-			else
-				super(369, data)
-			end
-		end
-	end
-
 	class OnBehalfOfSendingTime < Quickfix::UtcTimeStampField
 		def OnBehalfOfSendingTime.field
 			return 370
@@ -4779,45 +5026,6 @@ module Quickfix
 				super(370)
 			else
 				super(370, data)
-			end
-		end
-	end
-
-	class RefTagID < Quickfix::IntField
-		def RefTagID.field
-			return 371
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(371)
-			else
-				super(371, data)
-			end
-		end
-	end
-
-	class RefMsgType < Quickfix::StringField
-		def RefMsgType.field
-			return 372
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(372)
-			else
-				super(372, data)
-			end
-		end
-	end
-
-	class SessionRejectReason < Quickfix::IntField
-		def SessionRejectReason.field
-			return 373
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(373)
-			else
-				super(373, data)
 			end
 		end
 	end
@@ -4935,45 +5143,6 @@ module Quickfix
 				super(382)
 			else
 				super(382, data)
-			end
-		end
-	end
-
-	class MaxMessageSize < Quickfix::IntField
-		def MaxMessageSize.field
-			return 383
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(383)
-			else
-				super(383, data)
-			end
-		end
-	end
-
-	class NoMsgTypes < Quickfix::IntField
-		def NoMsgTypes.field
-			return 384
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(384)
-			else
-				super(384, data)
-			end
-		end
-	end
-
-	class MsgDirection < Quickfix::CharField
-		def MsgDirection.field
-			return 385
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(385)
-			else
-				super(385, data)
 			end
 		end
 	end
@@ -5992,19 +6161,6 @@ module Quickfix
 		end
 	end
 
-	class TestMessageIndicator < Quickfix::BoolField
-		def TestMessageIndicator.field
-			return 464
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(464)
-			else
-				super(464, data)
-			end
-		end
-	end
-
 	class QuantityType < Quickfix::IntField
 		def QuantityType.field
 			return 465
@@ -6876,7 +7032,7 @@ module Quickfix
 		end
 	end
 
-	class MassCancelRejectReason < Quickfix::CharField
+	class MassCancelRejectReason < Quickfix::IntField
 		def MassCancelRejectReason.field
 			return 532
 		end
@@ -7145,32 +7301,6 @@ module Quickfix
 				super(552)
 			else
 				super(552, data)
-			end
-		end
-	end
-
-	class Username < Quickfix::StringField
-		def Username.field
-			return 553
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(553)
-			else
-				super(553, data)
-			end
-		end
-	end
-
-	class Password < Quickfix::StringField
-		def Password.field
-			return 554
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(554)
-			else
-				super(554, data)
 			end
 		end
 	end
@@ -8107,58 +8237,6 @@ module Quickfix
 				super(626)
 			else
 				super(626, data)
-			end
-		end
-	end
-
-	class NoHops < Quickfix::IntField
-		def NoHops.field
-			return 627
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(627)
-			else
-				super(627, data)
-			end
-		end
-	end
-
-	class HopCompID < Quickfix::StringField
-		def HopCompID.field
-			return 628
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(628)
-			else
-				super(628, data)
-			end
-		end
-	end
-
-	class HopSendingTime < Quickfix::UtcTimeStampField
-		def HopSendingTime.field
-			return 629
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(629)
-			else
-				super(629, data)
-			end
-		end
-	end
-
-	class HopRefID < Quickfix::IntField
-		def HopRefID.field
-			return 630
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(630)
-			else
-				super(630, data)
 			end
 		end
 	end
@@ -10213,19 +10291,6 @@ module Quickfix
 				super(788)
 			else
 				super(788, data)
-			end
-		end
-	end
-
-	class NextExpectedMsgSeqNum < Quickfix::IntField
-		def NextExpectedMsgSeqNum.field
-			return 789
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(789)
-			else
-				super(789, data)
 			end
 		end
 	end
@@ -12384,6 +12449,8482 @@ module Quickfix
 				super(956)
 			else
 				super(956, data)
+			end
+		end
+	end
+
+	class NoStrategyParameters < Quickfix::IntField
+		def NoStrategyParameters.field
+			return 957
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(957)
+			else
+				super(957, data)
+			end
+		end
+	end
+
+	class StrategyParameterName < Quickfix::StringField
+		def StrategyParameterName.field
+			return 958
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(958)
+			else
+				super(958, data)
+			end
+		end
+	end
+
+	class StrategyParameterType < Quickfix::IntField
+		def StrategyParameterType.field
+			return 959
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(959)
+			else
+				super(959, data)
+			end
+		end
+	end
+
+	class StrategyParameterValue < Quickfix::StringField
+		def StrategyParameterValue.field
+			return 960
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(960)
+			else
+				super(960, data)
+			end
+		end
+	end
+
+	class HostCrossID < Quickfix::StringField
+		def HostCrossID.field
+			return 961
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(961)
+			else
+				super(961, data)
+			end
+		end
+	end
+
+	class SideTimeInForce < Quickfix::UtcTimeStampField
+		def SideTimeInForce.field
+			return 962
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(962)
+			else
+				super(962, data)
+			end
+		end
+	end
+
+	class MDReportID < Quickfix::IntField
+		def MDReportID.field
+			return 963
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(963)
+			else
+				super(963, data)
+			end
+		end
+	end
+
+	class SecurityReportID < Quickfix::IntField
+		def SecurityReportID.field
+			return 964
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(964)
+			else
+				super(964, data)
+			end
+		end
+	end
+
+	class SecurityStatus < Quickfix::StringField
+		def SecurityStatus.field
+			return 965
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(965)
+			else
+				super(965, data)
+			end
+		end
+	end
+
+	class SettleOnOpenFlag < Quickfix::StringField
+		def SettleOnOpenFlag.field
+			return 966
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(966)
+			else
+				super(966, data)
+			end
+		end
+	end
+
+	class StrikeMultiplier < Quickfix::DoubleField
+		def StrikeMultiplier.field
+			return 967
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(967)
+			else
+				super(967, data)
+			end
+		end
+	end
+
+	class StrikeValue < Quickfix::DoubleField
+		def StrikeValue.field
+			return 968
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(968)
+			else
+				super(968, data)
+			end
+		end
+	end
+
+	class MinPriceIncrement < Quickfix::DoubleField
+		def MinPriceIncrement.field
+			return 969
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(969)
+			else
+				super(969, data)
+			end
+		end
+	end
+
+	class PositionLimit < Quickfix::IntField
+		def PositionLimit.field
+			return 970
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(970)
+			else
+				super(970, data)
+			end
+		end
+	end
+
+	class NTPositionLimit < Quickfix::IntField
+		def NTPositionLimit.field
+			return 971
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(971)
+			else
+				super(971, data)
+			end
+		end
+	end
+
+	class UnderlyingAllocationPercent < Quickfix::DoubleField
+		def UnderlyingAllocationPercent.field
+			return 972
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(972)
+			else
+				super(972, data)
+			end
+		end
+	end
+
+	class UnderlyingCashAmount < Quickfix::DoubleField
+		def UnderlyingCashAmount.field
+			return 973
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(973)
+			else
+				super(973, data)
+			end
+		end
+	end
+
+	class UnderlyingCashType < Quickfix::StringField
+		def UnderlyingCashType.field
+			return 974
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(974)
+			else
+				super(974, data)
+			end
+		end
+	end
+
+	class UnderlyingSettlementType < Quickfix::IntField
+		def UnderlyingSettlementType.field
+			return 975
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(975)
+			else
+				super(975, data)
+			end
+		end
+	end
+
+	class QuantityDate < Quickfix::StringField
+		def QuantityDate.field
+			return 976
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(976)
+			else
+				super(976, data)
+			end
+		end
+	end
+
+	class ContIntRptID < Quickfix::StringField
+		def ContIntRptID.field
+			return 977
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(977)
+			else
+				super(977, data)
+			end
+		end
+	end
+
+	class LateIndicator < Quickfix::BoolField
+		def LateIndicator.field
+			return 978
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(978)
+			else
+				super(978, data)
+			end
+		end
+	end
+
+	class InputSource < Quickfix::StringField
+		def InputSource.field
+			return 979
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(979)
+			else
+				super(979, data)
+			end
+		end
+	end
+
+	class SecurityUpdateAction < Quickfix::CharField
+		def SecurityUpdateAction.field
+			return 980
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(980)
+			else
+				super(980, data)
+			end
+		end
+	end
+
+	class NoExpiration < Quickfix::IntField
+		def NoExpiration.field
+			return 981
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(981)
+			else
+				super(981, data)
+			end
+		end
+	end
+
+	class ExpirationQtyType < Quickfix::IntField
+		def ExpirationQtyType.field
+			return 982
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(982)
+			else
+				super(982, data)
+			end
+		end
+	end
+
+	class ExpQty < Quickfix::DoubleField
+		def ExpQty.field
+			return 983
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(983)
+			else
+				super(983, data)
+			end
+		end
+	end
+
+	class NoUnderlyingAmounts < Quickfix::IntField
+		def NoUnderlyingAmounts.field
+			return 984
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(984)
+			else
+				super(984, data)
+			end
+		end
+	end
+
+	class UnderlyingPayAmount < Quickfix::DoubleField
+		def UnderlyingPayAmount.field
+			return 985
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(985)
+			else
+				super(985, data)
+			end
+		end
+	end
+
+	class UnderlyingCollectAmount < Quickfix::DoubleField
+		def UnderlyingCollectAmount.field
+			return 986
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(986)
+			else
+				super(986, data)
+			end
+		end
+	end
+
+	class UnderlyingSettlementDate < Quickfix::StringField
+		def UnderlyingSettlementDate.field
+			return 987
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(987)
+			else
+				super(987, data)
+			end
+		end
+	end
+
+	class UnderlyingSettlementStatus < Quickfix::StringField
+		def UnderlyingSettlementStatus.field
+			return 988
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(988)
+			else
+				super(988, data)
+			end
+		end
+	end
+
+	class SecondaryIndividualAllocID < Quickfix::StringField
+		def SecondaryIndividualAllocID.field
+			return 989
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(989)
+			else
+				super(989, data)
+			end
+		end
+	end
+
+	class LegReportID < Quickfix::StringField
+		def LegReportID.field
+			return 990
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(990)
+			else
+				super(990, data)
+			end
+		end
+	end
+
+	class RndPx < Quickfix::DoubleField
+		def RndPx.field
+			return 991
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(991)
+			else
+				super(991, data)
+			end
+		end
+	end
+
+	class IndividualAllocType < Quickfix::IntField
+		def IndividualAllocType.field
+			return 992
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(992)
+			else
+				super(992, data)
+			end
+		end
+	end
+
+	class AllocCustomerCapacity < Quickfix::StringField
+		def AllocCustomerCapacity.field
+			return 993
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(993)
+			else
+				super(993, data)
+			end
+		end
+	end
+
+	class TierCode < Quickfix::StringField
+		def TierCode.field
+			return 994
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(994)
+			else
+				super(994, data)
+			end
+		end
+	end
+
+	class UnitOfMeasure < Quickfix::StringField
+		def UnitOfMeasure.field
+			return 996
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(996)
+			else
+				super(996, data)
+			end
+		end
+	end
+
+	class TimeUnit < Quickfix::StringField
+		def TimeUnit.field
+			return 997
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(997)
+			else
+				super(997, data)
+			end
+		end
+	end
+
+	class UnderlyingUnitOfMeasure < Quickfix::StringField
+		def UnderlyingUnitOfMeasure.field
+			return 998
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(998)
+			else
+				super(998, data)
+			end
+		end
+	end
+
+	class LegUnitOfMeasure < Quickfix::StringField
+		def LegUnitOfMeasure.field
+			return 999
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(999)
+			else
+				super(999, data)
+			end
+		end
+	end
+
+	class UnderlyingTimeUnit < Quickfix::StringField
+		def UnderlyingTimeUnit.field
+			return 1000
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1000)
+			else
+				super(1000, data)
+			end
+		end
+	end
+
+	class LegTimeUnit < Quickfix::StringField
+		def LegTimeUnit.field
+			return 1001
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1001)
+			else
+				super(1001, data)
+			end
+		end
+	end
+
+	class AllocMethod < Quickfix::IntField
+		def AllocMethod.field
+			return 1002
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1002)
+			else
+				super(1002, data)
+			end
+		end
+	end
+
+	class TradeID < Quickfix::StringField
+		def TradeID.field
+			return 1003
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1003)
+			else
+				super(1003, data)
+			end
+		end
+	end
+
+	class SideTradeReportID < Quickfix::StringField
+		def SideTradeReportID.field
+			return 1005
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1005)
+			else
+				super(1005, data)
+			end
+		end
+	end
+
+	class SideFillStationCd < Quickfix::StringField
+		def SideFillStationCd.field
+			return 1006
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1006)
+			else
+				super(1006, data)
+			end
+		end
+	end
+
+	class SideReasonCd < Quickfix::StringField
+		def SideReasonCd.field
+			return 1007
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1007)
+			else
+				super(1007, data)
+			end
+		end
+	end
+
+	class SideTrdSubTyp < Quickfix::IntField
+		def SideTrdSubTyp.field
+			return 1008
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1008)
+			else
+				super(1008, data)
+			end
+		end
+	end
+
+	class SideLastQty < Quickfix::IntField
+		def SideLastQty.field
+			return 1009
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1009)
+			else
+				super(1009, data)
+			end
+		end
+	end
+
+	class MessageEventSource < Quickfix::StringField
+		def MessageEventSource.field
+			return 1011
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1011)
+			else
+				super(1011, data)
+			end
+		end
+	end
+
+	class SideTrdRegTimestamp < Quickfix::UtcTimeStampField
+		def SideTrdRegTimestamp.field
+			return 1012
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1012)
+			else
+				super(1012, data)
+			end
+		end
+	end
+
+	class SideTrdRegTimestampType < Quickfix::IntField
+		def SideTrdRegTimestampType.field
+			return 1013
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1013)
+			else
+				super(1013, data)
+			end
+		end
+	end
+
+	class SideTrdRegTimestampSrc < Quickfix::StringField
+		def SideTrdRegTimestampSrc.field
+			return 1014
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1014)
+			else
+				super(1014, data)
+			end
+		end
+	end
+
+	class AsOfIndicator < Quickfix::CharField
+		def AsOfIndicator.field
+			return 1015
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1015)
+			else
+				super(1015, data)
+			end
+		end
+	end
+
+	class NoSideTrdRegTS < Quickfix::IntField
+		def NoSideTrdRegTS.field
+			return 1016
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1016)
+			else
+				super(1016, data)
+			end
+		end
+	end
+
+	class LegOptionRatio < Quickfix::DoubleField
+		def LegOptionRatio.field
+			return 1017
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1017)
+			else
+				super(1017, data)
+			end
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::IntField
+		def NoInstrumentParties.field
+			return 1018
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1018)
+			else
+				super(1018, data)
+			end
+		end
+	end
+
+	class InstrumentPartyID < Quickfix::StringField
+		def InstrumentPartyID.field
+			return 1019
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1019)
+			else
+				super(1019, data)
+			end
+		end
+	end
+
+	class TradeVolume < Quickfix::DoubleField
+		def TradeVolume.field
+			return 1020
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1020)
+			else
+				super(1020, data)
+			end
+		end
+	end
+
+	class MDBookType < Quickfix::IntField
+		def MDBookType.field
+			return 1021
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1021)
+			else
+				super(1021, data)
+			end
+		end
+	end
+
+	class MDFeedType < Quickfix::StringField
+		def MDFeedType.field
+			return 1022
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1022)
+			else
+				super(1022, data)
+			end
+		end
+	end
+
+	class MDPriceLevel < Quickfix::IntField
+		def MDPriceLevel.field
+			return 1023
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1023)
+			else
+				super(1023, data)
+			end
+		end
+	end
+
+	class MDOriginType < Quickfix::IntField
+		def MDOriginType.field
+			return 1024
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1024)
+			else
+				super(1024, data)
+			end
+		end
+	end
+
+	class FirstPx < Quickfix::DoubleField
+		def FirstPx.field
+			return 1025
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1025)
+			else
+				super(1025, data)
+			end
+		end
+	end
+
+	class MDEntrySpotRate < Quickfix::DoubleField
+		def MDEntrySpotRate.field
+			return 1026
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1026)
+			else
+				super(1026, data)
+			end
+		end
+	end
+
+	class MDEntryForwardPoints < Quickfix::DoubleField
+		def MDEntryForwardPoints.field
+			return 1027
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1027)
+			else
+				super(1027, data)
+			end
+		end
+	end
+
+	class ManualOrderIndicator < Quickfix::BoolField
+		def ManualOrderIndicator.field
+			return 1028
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1028)
+			else
+				super(1028, data)
+			end
+		end
+	end
+
+	class CustDirectedOrder < Quickfix::BoolField
+		def CustDirectedOrder.field
+			return 1029
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1029)
+			else
+				super(1029, data)
+			end
+		end
+	end
+
+	class ReceivedDeptID < Quickfix::StringField
+		def ReceivedDeptID.field
+			return 1030
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1030)
+			else
+				super(1030, data)
+			end
+		end
+	end
+
+	class CustOrderHandlingInst < Quickfix::StringField
+		def CustOrderHandlingInst.field
+			return 1031
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1031)
+			else
+				super(1031, data)
+			end
+		end
+	end
+
+	class OrderHandlingInstSource < Quickfix::IntField
+		def OrderHandlingInstSource.field
+			return 1032
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1032)
+			else
+				super(1032, data)
+			end
+		end
+	end
+
+	class DeskType < Quickfix::StringField
+		def DeskType.field
+			return 1033
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1033)
+			else
+				super(1033, data)
+			end
+		end
+	end
+
+	class DeskTypeSource < Quickfix::IntField
+		def DeskTypeSource.field
+			return 1034
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1034)
+			else
+				super(1034, data)
+			end
+		end
+	end
+
+	class DeskOrderHandlingInst < Quickfix::StringField
+		def DeskOrderHandlingInst.field
+			return 1035
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1035)
+			else
+				super(1035, data)
+			end
+		end
+	end
+
+	class ExecAckStatus < Quickfix::CharField
+		def ExecAckStatus.field
+			return 1036
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1036)
+			else
+				super(1036, data)
+			end
+		end
+	end
+
+	class UnderlyingDeliveryAmount < Quickfix::DoubleField
+		def UnderlyingDeliveryAmount.field
+			return 1037
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1037)
+			else
+				super(1037, data)
+			end
+		end
+	end
+
+	class UnderlyingCapValue < Quickfix::DoubleField
+		def UnderlyingCapValue.field
+			return 1038
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1038)
+			else
+				super(1038, data)
+			end
+		end
+	end
+
+	class UnderlyingSettlMethod < Quickfix::StringField
+		def UnderlyingSettlMethod.field
+			return 1039
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1039)
+			else
+				super(1039, data)
+			end
+		end
+	end
+
+	class SecondaryTradeID < Quickfix::StringField
+		def SecondaryTradeID.field
+			return 1040
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1040)
+			else
+				super(1040, data)
+			end
+		end
+	end
+
+	class FirmTradeID < Quickfix::StringField
+		def FirmTradeID.field
+			return 1041
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1041)
+			else
+				super(1041, data)
+			end
+		end
+	end
+
+	class SecondaryFirmTradeID < Quickfix::StringField
+		def SecondaryFirmTradeID.field
+			return 1042
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1042)
+			else
+				super(1042, data)
+			end
+		end
+	end
+
+	class CollApplType < Quickfix::IntField
+		def CollApplType.field
+			return 1043
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1043)
+			else
+				super(1043, data)
+			end
+		end
+	end
+
+	class UnderlyingAdjustedQuantity < Quickfix::DoubleField
+		def UnderlyingAdjustedQuantity.field
+			return 1044
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1044)
+			else
+				super(1044, data)
+			end
+		end
+	end
+
+	class UnderlyingFXRate < Quickfix::DoubleField
+		def UnderlyingFXRate.field
+			return 1045
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1045)
+			else
+				super(1045, data)
+			end
+		end
+	end
+
+	class UnderlyingFXRateCalc < Quickfix::CharField
+		def UnderlyingFXRateCalc.field
+			return 1046
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1046)
+			else
+				super(1046, data)
+			end
+		end
+	end
+
+	class AllocPositionEffect < Quickfix::CharField
+		def AllocPositionEffect.field
+			return 1047
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1047)
+			else
+				super(1047, data)
+			end
+		end
+	end
+
+	class DealingCapacity < Quickfix::CharField
+		def DealingCapacity.field
+			return 1048
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1048)
+			else
+				super(1048, data)
+			end
+		end
+	end
+
+	class InstrmtAssignmentMethod < Quickfix::CharField
+		def InstrmtAssignmentMethod.field
+			return 1049
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1049)
+			else
+				super(1049, data)
+			end
+		end
+	end
+
+	class InstrumentPartyIDSource < Quickfix::CharField
+		def InstrumentPartyIDSource.field
+			return 1050
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1050)
+			else
+				super(1050, data)
+			end
+		end
+	end
+
+	class InstrumentPartyRole < Quickfix::IntField
+		def InstrumentPartyRole.field
+			return 1051
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1051)
+			else
+				super(1051, data)
+			end
+		end
+	end
+
+	class NoInstrumentPartySubIDs < Quickfix::IntField
+		def NoInstrumentPartySubIDs.field
+			return 1052
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1052)
+			else
+				super(1052, data)
+			end
+		end
+	end
+
+	class InstrumentPartySubID < Quickfix::StringField
+		def InstrumentPartySubID.field
+			return 1053
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1053)
+			else
+				super(1053, data)
+			end
+		end
+	end
+
+	class InstrumentPartySubIDType < Quickfix::IntField
+		def InstrumentPartySubIDType.field
+			return 1054
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1054)
+			else
+				super(1054, data)
+			end
+		end
+	end
+
+	class PositionCurrency < Quickfix::StringField
+		def PositionCurrency.field
+			return 1055
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1055)
+			else
+				super(1055, data)
+			end
+		end
+	end
+
+	class CalculatedCcyLastQty < Quickfix::DoubleField
+		def CalculatedCcyLastQty.field
+			return 1056
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1056)
+			else
+				super(1056, data)
+			end
+		end
+	end
+
+	class AggressorIndicator < Quickfix::BoolField
+		def AggressorIndicator.field
+			return 1057
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1057)
+			else
+				super(1057, data)
+			end
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::IntField
+		def NoUndlyInstrumentParties.field
+			return 1058
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1058)
+			else
+				super(1058, data)
+			end
+		end
+	end
+
+	class UnderlyingInstrumentPartyID < Quickfix::StringField
+		def UnderlyingInstrumentPartyID.field
+			return 1059
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1059)
+			else
+				super(1059, data)
+			end
+		end
+	end
+
+	class UnderlyingInstrumentPartyIDSource < Quickfix::CharField
+		def UnderlyingInstrumentPartyIDSource.field
+			return 1060
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1060)
+			else
+				super(1060, data)
+			end
+		end
+	end
+
+	class UnderlyingInstrumentPartyRole < Quickfix::IntField
+		def UnderlyingInstrumentPartyRole.field
+			return 1061
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1061)
+			else
+				super(1061, data)
+			end
+		end
+	end
+
+	class NoUndlyInstrumentPartySubIDs < Quickfix::IntField
+		def NoUndlyInstrumentPartySubIDs.field
+			return 1062
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1062)
+			else
+				super(1062, data)
+			end
+		end
+	end
+
+	class UnderlyingInstrumentPartySubID < Quickfix::StringField
+		def UnderlyingInstrumentPartySubID.field
+			return 1063
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1063)
+			else
+				super(1063, data)
+			end
+		end
+	end
+
+	class UnderlyingInstrumentPartySubIDType < Quickfix::IntField
+		def UnderlyingInstrumentPartySubIDType.field
+			return 1064
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1064)
+			else
+				super(1064, data)
+			end
+		end
+	end
+
+	class BidSwapPoints < Quickfix::DoubleField
+		def BidSwapPoints.field
+			return 1065
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1065)
+			else
+				super(1065, data)
+			end
+		end
+	end
+
+	class OfferSwapPoints < Quickfix::DoubleField
+		def OfferSwapPoints.field
+			return 1066
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1066)
+			else
+				super(1066, data)
+			end
+		end
+	end
+
+	class LegBidForwardPoints < Quickfix::DoubleField
+		def LegBidForwardPoints.field
+			return 1067
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1067)
+			else
+				super(1067, data)
+			end
+		end
+	end
+
+	class LegOfferForwardPoints < Quickfix::DoubleField
+		def LegOfferForwardPoints.field
+			return 1068
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1068)
+			else
+				super(1068, data)
+			end
+		end
+	end
+
+	class SwapPoints < Quickfix::DoubleField
+		def SwapPoints.field
+			return 1069
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1069)
+			else
+				super(1069, data)
+			end
+		end
+	end
+
+	class MDQuoteType < Quickfix::IntField
+		def MDQuoteType.field
+			return 1070
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1070)
+			else
+				super(1070, data)
+			end
+		end
+	end
+
+	class LastSwapPoints < Quickfix::DoubleField
+		def LastSwapPoints.field
+			return 1071
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1071)
+			else
+				super(1071, data)
+			end
+		end
+	end
+
+	class SideGrossTradeAmt < Quickfix::DoubleField
+		def SideGrossTradeAmt.field
+			return 1072
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1072)
+			else
+				super(1072, data)
+			end
+		end
+	end
+
+	class LegLastForwardPoints < Quickfix::DoubleField
+		def LegLastForwardPoints.field
+			return 1073
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1073)
+			else
+				super(1073, data)
+			end
+		end
+	end
+
+	class LegCalculatedCcyLastQty < Quickfix::DoubleField
+		def LegCalculatedCcyLastQty.field
+			return 1074
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1074)
+			else
+				super(1074, data)
+			end
+		end
+	end
+
+	class LegGrossTradeAmt < Quickfix::DoubleField
+		def LegGrossTradeAmt.field
+			return 1075
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1075)
+			else
+				super(1075, data)
+			end
+		end
+	end
+
+	class MaturityTime < Quickfix::StringField
+		def MaturityTime.field
+			return 1079
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1079)
+			else
+				super(1079, data)
+			end
+		end
+	end
+
+	class RefOrderID < Quickfix::StringField
+		def RefOrderID.field
+			return 1080
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1080)
+			else
+				super(1080, data)
+			end
+		end
+	end
+
+	class RefOrderIDSource < Quickfix::CharField
+		def RefOrderIDSource.field
+			return 1081
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1081)
+			else
+				super(1081, data)
+			end
+		end
+	end
+
+	class SecondaryDisplayQty < Quickfix::DoubleField
+		def SecondaryDisplayQty.field
+			return 1082
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1082)
+			else
+				super(1082, data)
+			end
+		end
+	end
+
+	class DisplayWhen < Quickfix::CharField
+		def DisplayWhen.field
+			return 1083
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1083)
+			else
+				super(1083, data)
+			end
+		end
+	end
+
+	class DisplayMethod < Quickfix::CharField
+		def DisplayMethod.field
+			return 1084
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1084)
+			else
+				super(1084, data)
+			end
+		end
+	end
+
+	class DisplayLowQty < Quickfix::DoubleField
+		def DisplayLowQty.field
+			return 1085
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1085)
+			else
+				super(1085, data)
+			end
+		end
+	end
+
+	class DisplayHighQty < Quickfix::DoubleField
+		def DisplayHighQty.field
+			return 1086
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1086)
+			else
+				super(1086, data)
+			end
+		end
+	end
+
+	class DisplayMinIncr < Quickfix::DoubleField
+		def DisplayMinIncr.field
+			return 1087
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1087)
+			else
+				super(1087, data)
+			end
+		end
+	end
+
+	class RefreshQty < Quickfix::DoubleField
+		def RefreshQty.field
+			return 1088
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1088)
+			else
+				super(1088, data)
+			end
+		end
+	end
+
+	class MatchIncrement < Quickfix::DoubleField
+		def MatchIncrement.field
+			return 1089
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1089)
+			else
+				super(1089, data)
+			end
+		end
+	end
+
+	class MaxPriceLevels < Quickfix::IntField
+		def MaxPriceLevels.field
+			return 1090
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1090)
+			else
+				super(1090, data)
+			end
+		end
+	end
+
+	class PreTradeAnonymity < Quickfix::BoolField
+		def PreTradeAnonymity.field
+			return 1091
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1091)
+			else
+				super(1091, data)
+			end
+		end
+	end
+
+	class PriceProtectionScope < Quickfix::CharField
+		def PriceProtectionScope.field
+			return 1092
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1092)
+			else
+				super(1092, data)
+			end
+		end
+	end
+
+	class LotType < Quickfix::CharField
+		def LotType.field
+			return 1093
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1093)
+			else
+				super(1093, data)
+			end
+		end
+	end
+
+	class PegPriceType < Quickfix::IntField
+		def PegPriceType.field
+			return 1094
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1094)
+			else
+				super(1094, data)
+			end
+		end
+	end
+
+	class PeggedRefPrice < Quickfix::DoubleField
+		def PeggedRefPrice.field
+			return 1095
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1095)
+			else
+				super(1095, data)
+			end
+		end
+	end
+
+	class PegSecurityIDSource < Quickfix::StringField
+		def PegSecurityIDSource.field
+			return 1096
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1096)
+			else
+				super(1096, data)
+			end
+		end
+	end
+
+	class PegSecurityID < Quickfix::StringField
+		def PegSecurityID.field
+			return 1097
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1097)
+			else
+				super(1097, data)
+			end
+		end
+	end
+
+	class PegSymbol < Quickfix::StringField
+		def PegSymbol.field
+			return 1098
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1098)
+			else
+				super(1098, data)
+			end
+		end
+	end
+
+	class PegSecurityDesc < Quickfix::StringField
+		def PegSecurityDesc.field
+			return 1099
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1099)
+			else
+				super(1099, data)
+			end
+		end
+	end
+
+	class TriggerType < Quickfix::CharField
+		def TriggerType.field
+			return 1100
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1100)
+			else
+				super(1100, data)
+			end
+		end
+	end
+
+	class TriggerAction < Quickfix::CharField
+		def TriggerAction.field
+			return 1101
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1101)
+			else
+				super(1101, data)
+			end
+		end
+	end
+
+	class TriggerPrice < Quickfix::DoubleField
+		def TriggerPrice.field
+			return 1102
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1102)
+			else
+				super(1102, data)
+			end
+		end
+	end
+
+	class TriggerSymbol < Quickfix::StringField
+		def TriggerSymbol.field
+			return 1103
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1103)
+			else
+				super(1103, data)
+			end
+		end
+	end
+
+	class TriggerSecurityID < Quickfix::StringField
+		def TriggerSecurityID.field
+			return 1104
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1104)
+			else
+				super(1104, data)
+			end
+		end
+	end
+
+	class TriggerSecurityIDSource < Quickfix::StringField
+		def TriggerSecurityIDSource.field
+			return 1105
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1105)
+			else
+				super(1105, data)
+			end
+		end
+	end
+
+	class TriggerSecurityDesc < Quickfix::StringField
+		def TriggerSecurityDesc.field
+			return 1106
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1106)
+			else
+				super(1106, data)
+			end
+		end
+	end
+
+	class TriggerPriceType < Quickfix::CharField
+		def TriggerPriceType.field
+			return 1107
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1107)
+			else
+				super(1107, data)
+			end
+		end
+	end
+
+	class TriggerPriceTypeScope < Quickfix::CharField
+		def TriggerPriceTypeScope.field
+			return 1108
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1108)
+			else
+				super(1108, data)
+			end
+		end
+	end
+
+	class TriggerPriceDirection < Quickfix::CharField
+		def TriggerPriceDirection.field
+			return 1109
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1109)
+			else
+				super(1109, data)
+			end
+		end
+	end
+
+	class TriggerNewPrice < Quickfix::DoubleField
+		def TriggerNewPrice.field
+			return 1110
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1110)
+			else
+				super(1110, data)
+			end
+		end
+	end
+
+	class TriggerOrderType < Quickfix::CharField
+		def TriggerOrderType.field
+			return 1111
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1111)
+			else
+				super(1111, data)
+			end
+		end
+	end
+
+	class TriggerNewQty < Quickfix::DoubleField
+		def TriggerNewQty.field
+			return 1112
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1112)
+			else
+				super(1112, data)
+			end
+		end
+	end
+
+	class TriggerTradingSessionID < Quickfix::StringField
+		def TriggerTradingSessionID.field
+			return 1113
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1113)
+			else
+				super(1113, data)
+			end
+		end
+	end
+
+	class TriggerTradingSessionSubID < Quickfix::StringField
+		def TriggerTradingSessionSubID.field
+			return 1114
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1114)
+			else
+				super(1114, data)
+			end
+		end
+	end
+
+	class OrderCategory < Quickfix::CharField
+		def OrderCategory.field
+			return 1115
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1115)
+			else
+				super(1115, data)
+			end
+		end
+	end
+
+	class NoRootPartyIDs < Quickfix::IntField
+		def NoRootPartyIDs.field
+			return 1116
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1116)
+			else
+				super(1116, data)
+			end
+		end
+	end
+
+	class RootPartyID < Quickfix::StringField
+		def RootPartyID.field
+			return 1117
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1117)
+			else
+				super(1117, data)
+			end
+		end
+	end
+
+	class RootPartyIDSource < Quickfix::CharField
+		def RootPartyIDSource.field
+			return 1118
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1118)
+			else
+				super(1118, data)
+			end
+		end
+	end
+
+	class RootPartyRole < Quickfix::IntField
+		def RootPartyRole.field
+			return 1119
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1119)
+			else
+				super(1119, data)
+			end
+		end
+	end
+
+	class NoRootPartySubIDs < Quickfix::IntField
+		def NoRootPartySubIDs.field
+			return 1120
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1120)
+			else
+				super(1120, data)
+			end
+		end
+	end
+
+	class RootPartySubID < Quickfix::StringField
+		def RootPartySubID.field
+			return 1121
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1121)
+			else
+				super(1121, data)
+			end
+		end
+	end
+
+	class RootPartySubIDType < Quickfix::IntField
+		def RootPartySubIDType.field
+			return 1122
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1122)
+			else
+				super(1122, data)
+			end
+		end
+	end
+
+	class TradeHandlingInstr < Quickfix::CharField
+		def TradeHandlingInstr.field
+			return 1123
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1123)
+			else
+				super(1123, data)
+			end
+		end
+	end
+
+	class OrigTradeHandlingInstr < Quickfix::CharField
+		def OrigTradeHandlingInstr.field
+			return 1124
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1124)
+			else
+				super(1124, data)
+			end
+		end
+	end
+
+	class OrigTradeDate < Quickfix::StringField
+		def OrigTradeDate.field
+			return 1125
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1125)
+			else
+				super(1125, data)
+			end
+		end
+	end
+
+	class OrigTradeID < Quickfix::StringField
+		def OrigTradeID.field
+			return 1126
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1126)
+			else
+				super(1126, data)
+			end
+		end
+	end
+
+	class OrigSecondaryTradeID < Quickfix::StringField
+		def OrigSecondaryTradeID.field
+			return 1127
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1127)
+			else
+				super(1127, data)
+			end
+		end
+	end
+
+	class TZTransactTime < Quickfix::StringField
+		def TZTransactTime.field
+			return 1132
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1132)
+			else
+				super(1132, data)
+			end
+		end
+	end
+
+	class ExDestinationIDSource < Quickfix::CharField
+		def ExDestinationIDSource.field
+			return 1133
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1133)
+			else
+				super(1133, data)
+			end
+		end
+	end
+
+	class ReportedPxDiff < Quickfix::BoolField
+		def ReportedPxDiff.field
+			return 1134
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1134)
+			else
+				super(1134, data)
+			end
+		end
+	end
+
+	class RptSys < Quickfix::StringField
+		def RptSys.field
+			return 1135
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1135)
+			else
+				super(1135, data)
+			end
+		end
+	end
+
+	class AllocClearingFeeIndicator < Quickfix::StringField
+		def AllocClearingFeeIndicator.field
+			return 1136
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1136)
+			else
+				super(1136, data)
+			end
+		end
+	end
+
+	class DisplayQty < Quickfix::DoubleField
+		def DisplayQty.field
+			return 1138
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1138)
+			else
+				super(1138, data)
+			end
+		end
+	end
+
+	class ExchangeSpecialInstructions < Quickfix::StringField
+		def ExchangeSpecialInstructions.field
+			return 1139
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1139)
+			else
+				super(1139, data)
+			end
+		end
+	end
+
+	class MaxTradeVol < Quickfix::DoubleField
+		def MaxTradeVol.field
+			return 1140
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1140)
+			else
+				super(1140, data)
+			end
+		end
+	end
+
+	class NoMDFeedTypes < Quickfix::IntField
+		def NoMDFeedTypes.field
+			return 1141
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1141)
+			else
+				super(1141, data)
+			end
+		end
+	end
+
+	class MatchAlgorithm < Quickfix::StringField
+		def MatchAlgorithm.field
+			return 1142
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1142)
+			else
+				super(1142, data)
+			end
+		end
+	end
+
+	class MaxPriceVariation < Quickfix::DoubleField
+		def MaxPriceVariation.field
+			return 1143
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1143)
+			else
+				super(1143, data)
+			end
+		end
+	end
+
+	class ImpliedMarketIndicator < Quickfix::IntField
+		def ImpliedMarketIndicator.field
+			return 1144
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1144)
+			else
+				super(1144, data)
+			end
+		end
+	end
+
+	class EventTime < Quickfix::UtcTimeStampField
+		def EventTime.field
+			return 1145
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1145)
+			else
+				super(1145, data)
+			end
+		end
+	end
+
+	class MinPriceIncrementAmount < Quickfix::DoubleField
+		def MinPriceIncrementAmount.field
+			return 1146
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1146)
+			else
+				super(1146, data)
+			end
+		end
+	end
+
+	class UnitOfMeasureQty < Quickfix::DoubleField
+		def UnitOfMeasureQty.field
+			return 1147
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1147)
+			else
+				super(1147, data)
+			end
+		end
+	end
+
+	class LowLimitPrice < Quickfix::DoubleField
+		def LowLimitPrice.field
+			return 1148
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1148)
+			else
+				super(1148, data)
+			end
+		end
+	end
+
+	class HighLimitPrice < Quickfix::DoubleField
+		def HighLimitPrice.field
+			return 1149
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1149)
+			else
+				super(1149, data)
+			end
+		end
+	end
+
+	class TradingReferencePrice < Quickfix::DoubleField
+		def TradingReferencePrice.field
+			return 1150
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1150)
+			else
+				super(1150, data)
+			end
+		end
+	end
+
+	class SecurityGroup < Quickfix::StringField
+		def SecurityGroup.field
+			return 1151
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1151)
+			else
+				super(1151, data)
+			end
+		end
+	end
+
+	class LegNumber < Quickfix::IntField
+		def LegNumber.field
+			return 1152
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1152)
+			else
+				super(1152, data)
+			end
+		end
+	end
+
+	class SettlementCycleNo < Quickfix::IntField
+		def SettlementCycleNo.field
+			return 1153
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1153)
+			else
+				super(1153, data)
+			end
+		end
+	end
+
+	class SideCurrency < Quickfix::StringField
+		def SideCurrency.field
+			return 1154
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1154)
+			else
+				super(1154, data)
+			end
+		end
+	end
+
+	class SideSettlCurrency < Quickfix::StringField
+		def SideSettlCurrency.field
+			return 1155
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1155)
+			else
+				super(1155, data)
+			end
+		end
+	end
+
+	class ApplExtID < Quickfix::IntField
+		def ApplExtID.field
+			return 1156
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1156)
+			else
+				super(1156, data)
+			end
+		end
+	end
+
+	class CcyAmt < Quickfix::DoubleField
+		def CcyAmt.field
+			return 1157
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1157)
+			else
+				super(1157, data)
+			end
+		end
+	end
+
+	class NoSettlDetails < Quickfix::IntField
+		def NoSettlDetails.field
+			return 1158
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1158)
+			else
+				super(1158, data)
+			end
+		end
+	end
+
+	class SettlObligMode < Quickfix::IntField
+		def SettlObligMode.field
+			return 1159
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1159)
+			else
+				super(1159, data)
+			end
+		end
+	end
+
+	class SettlObligMsgID < Quickfix::StringField
+		def SettlObligMsgID.field
+			return 1160
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1160)
+			else
+				super(1160, data)
+			end
+		end
+	end
+
+	class SettlObligID < Quickfix::StringField
+		def SettlObligID.field
+			return 1161
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1161)
+			else
+				super(1161, data)
+			end
+		end
+	end
+
+	class SettlObligTransType < Quickfix::CharField
+		def SettlObligTransType.field
+			return 1162
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1162)
+			else
+				super(1162, data)
+			end
+		end
+	end
+
+	class SettlObligRefID < Quickfix::StringField
+		def SettlObligRefID.field
+			return 1163
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1163)
+			else
+				super(1163, data)
+			end
+		end
+	end
+
+	class SettlObligSource < Quickfix::CharField
+		def SettlObligSource.field
+			return 1164
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1164)
+			else
+				super(1164, data)
+			end
+		end
+	end
+
+	class NoSettlOblig < Quickfix::IntField
+		def NoSettlOblig.field
+			return 1165
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1165)
+			else
+				super(1165, data)
+			end
+		end
+	end
+
+	class QuoteMsgID < Quickfix::StringField
+		def QuoteMsgID.field
+			return 1166
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1166)
+			else
+				super(1166, data)
+			end
+		end
+	end
+
+	class QuoteEntryStatus < Quickfix::IntField
+		def QuoteEntryStatus.field
+			return 1167
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1167)
+			else
+				super(1167, data)
+			end
+		end
+	end
+
+	class TotNoCxldQuotes < Quickfix::IntField
+		def TotNoCxldQuotes.field
+			return 1168
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1168)
+			else
+				super(1168, data)
+			end
+		end
+	end
+
+	class TotNoAccQuotes < Quickfix::IntField
+		def TotNoAccQuotes.field
+			return 1169
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1169)
+			else
+				super(1169, data)
+			end
+		end
+	end
+
+	class TotNoRejQuotes < Quickfix::IntField
+		def TotNoRejQuotes.field
+			return 1170
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1170)
+			else
+				super(1170, data)
+			end
+		end
+	end
+
+	class PrivateQuote < Quickfix::BoolField
+		def PrivateQuote.field
+			return 1171
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1171)
+			else
+				super(1171, data)
+			end
+		end
+	end
+
+	class RespondentType < Quickfix::IntField
+		def RespondentType.field
+			return 1172
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1172)
+			else
+				super(1172, data)
+			end
+		end
+	end
+
+	class MDSubBookType < Quickfix::IntField
+		def MDSubBookType.field
+			return 1173
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1173)
+			else
+				super(1173, data)
+			end
+		end
+	end
+
+	class SecurityTradingEvent < Quickfix::IntField
+		def SecurityTradingEvent.field
+			return 1174
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1174)
+			else
+				super(1174, data)
+			end
+		end
+	end
+
+	class NoStatsIndicators < Quickfix::IntField
+		def NoStatsIndicators.field
+			return 1175
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1175)
+			else
+				super(1175, data)
+			end
+		end
+	end
+
+	class StatsType < Quickfix::IntField
+		def StatsType.field
+			return 1176
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1176)
+			else
+				super(1176, data)
+			end
+		end
+	end
+
+	class NoOfSecSizes < Quickfix::IntField
+		def NoOfSecSizes.field
+			return 1177
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1177)
+			else
+				super(1177, data)
+			end
+		end
+	end
+
+	class MDSecSizeType < Quickfix::IntField
+		def MDSecSizeType.field
+			return 1178
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1178)
+			else
+				super(1178, data)
+			end
+		end
+	end
+
+	class MDSecSize < Quickfix::DoubleField
+		def MDSecSize.field
+			return 1179
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1179)
+			else
+				super(1179, data)
+			end
+		end
+	end
+
+	class ApplID < Quickfix::StringField
+		def ApplID.field
+			return 1180
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1180)
+			else
+				super(1180, data)
+			end
+		end
+	end
+
+	class ApplSeqNum < Quickfix::IntField
+		def ApplSeqNum.field
+			return 1181
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1181)
+			else
+				super(1181, data)
+			end
+		end
+	end
+
+	class ApplBegSeqNum < Quickfix::IntField
+		def ApplBegSeqNum.field
+			return 1182
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1182)
+			else
+				super(1182, data)
+			end
+		end
+	end
+
+	class ApplEndSeqNum < Quickfix::IntField
+		def ApplEndSeqNum.field
+			return 1183
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1183)
+			else
+				super(1183, data)
+			end
+		end
+	end
+
+	class SecurityXMLLen < Quickfix::IntField
+		def SecurityXMLLen.field
+			return 1184
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1184)
+			else
+				super(1184, data)
+			end
+		end
+	end
+
+	class SecurityXML < Quickfix::StringField
+		def SecurityXML.field
+			return 1185
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1185)
+			else
+				super(1185, data)
+			end
+		end
+	end
+
+	class SecurityXMLSchema < Quickfix::StringField
+		def SecurityXMLSchema.field
+			return 1186
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1186)
+			else
+				super(1186, data)
+			end
+		end
+	end
+
+	class RefreshIndicator < Quickfix::BoolField
+		def RefreshIndicator.field
+			return 1187
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1187)
+			else
+				super(1187, data)
+			end
+		end
+	end
+
+	class Volatility < Quickfix::DoubleField
+		def Volatility.field
+			return 1188
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1188)
+			else
+				super(1188, data)
+			end
+		end
+	end
+
+	class TimeToExpiration < Quickfix::DoubleField
+		def TimeToExpiration.field
+			return 1189
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1189)
+			else
+				super(1189, data)
+			end
+		end
+	end
+
+	class RiskFreeRate < Quickfix::DoubleField
+		def RiskFreeRate.field
+			return 1190
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1190)
+			else
+				super(1190, data)
+			end
+		end
+	end
+
+	class PriceUnitOfMeasure < Quickfix::StringField
+		def PriceUnitOfMeasure.field
+			return 1191
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1191)
+			else
+				super(1191, data)
+			end
+		end
+	end
+
+	class PriceUnitOfMeasureQty < Quickfix::DoubleField
+		def PriceUnitOfMeasureQty.field
+			return 1192
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1192)
+			else
+				super(1192, data)
+			end
+		end
+	end
+
+	class SettlMethod < Quickfix::CharField
+		def SettlMethod.field
+			return 1193
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1193)
+			else
+				super(1193, data)
+			end
+		end
+	end
+
+	class ExerciseStyle < Quickfix::IntField
+		def ExerciseStyle.field
+			return 1194
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1194)
+			else
+				super(1194, data)
+			end
+		end
+	end
+
+	class OptPayoutAmount < Quickfix::DoubleField
+		def OptPayoutAmount.field
+			return 1195
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1195)
+			else
+				super(1195, data)
+			end
+		end
+	end
+
+	class PriceQuoteMethod < Quickfix::StringField
+		def PriceQuoteMethod.field
+			return 1196
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1196)
+			else
+				super(1196, data)
+			end
+		end
+	end
+
+	class ValuationMethod < Quickfix::StringField
+		def ValuationMethod.field
+			return 1197
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1197)
+			else
+				super(1197, data)
+			end
+		end
+	end
+
+	class ListMethod < Quickfix::IntField
+		def ListMethod.field
+			return 1198
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1198)
+			else
+				super(1198, data)
+			end
+		end
+	end
+
+	class CapPrice < Quickfix::DoubleField
+		def CapPrice.field
+			return 1199
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1199)
+			else
+				super(1199, data)
+			end
+		end
+	end
+
+	class FloorPrice < Quickfix::DoubleField
+		def FloorPrice.field
+			return 1200
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1200)
+			else
+				super(1200, data)
+			end
+		end
+	end
+
+	class NoStrikeRules < Quickfix::IntField
+		def NoStrikeRules.field
+			return 1201
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1201)
+			else
+				super(1201, data)
+			end
+		end
+	end
+
+	class StartStrikePxRange < Quickfix::DoubleField
+		def StartStrikePxRange.field
+			return 1202
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1202)
+			else
+				super(1202, data)
+			end
+		end
+	end
+
+	class EndStrikePxRange < Quickfix::DoubleField
+		def EndStrikePxRange.field
+			return 1203
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1203)
+			else
+				super(1203, data)
+			end
+		end
+	end
+
+	class StrikeIncrement < Quickfix::DoubleField
+		def StrikeIncrement.field
+			return 1204
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1204)
+			else
+				super(1204, data)
+			end
+		end
+	end
+
+	class NoTickRules < Quickfix::IntField
+		def NoTickRules.field
+			return 1205
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1205)
+			else
+				super(1205, data)
+			end
+		end
+	end
+
+	class StartTickPriceRange < Quickfix::DoubleField
+		def StartTickPriceRange.field
+			return 1206
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1206)
+			else
+				super(1206, data)
+			end
+		end
+	end
+
+	class EndTickPriceRange < Quickfix::DoubleField
+		def EndTickPriceRange.field
+			return 1207
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1207)
+			else
+				super(1207, data)
+			end
+		end
+	end
+
+	class TickIncrement < Quickfix::DoubleField
+		def TickIncrement.field
+			return 1208
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1208)
+			else
+				super(1208, data)
+			end
+		end
+	end
+
+	class TickRuleType < Quickfix::IntField
+		def TickRuleType.field
+			return 1209
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1209)
+			else
+				super(1209, data)
+			end
+		end
+	end
+
+	class NestedInstrAttribType < Quickfix::IntField
+		def NestedInstrAttribType.field
+			return 1210
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1210)
+			else
+				super(1210, data)
+			end
+		end
+	end
+
+	class NestedInstrAttribValue < Quickfix::StringField
+		def NestedInstrAttribValue.field
+			return 1211
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1211)
+			else
+				super(1211, data)
+			end
+		end
+	end
+
+	class LegMaturityTime < Quickfix::StringField
+		def LegMaturityTime.field
+			return 1212
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1212)
+			else
+				super(1212, data)
+			end
+		end
+	end
+
+	class UnderlyingMaturityTime < Quickfix::StringField
+		def UnderlyingMaturityTime.field
+			return 1213
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1213)
+			else
+				super(1213, data)
+			end
+		end
+	end
+
+	class DerivativeSymbol < Quickfix::StringField
+		def DerivativeSymbol.field
+			return 1214
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1214)
+			else
+				super(1214, data)
+			end
+		end
+	end
+
+	class DerivativeSymbolSfx < Quickfix::StringField
+		def DerivativeSymbolSfx.field
+			return 1215
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1215)
+			else
+				super(1215, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityID < Quickfix::StringField
+		def DerivativeSecurityID.field
+			return 1216
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1216)
+			else
+				super(1216, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityIDSource < Quickfix::StringField
+		def DerivativeSecurityIDSource.field
+			return 1217
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1217)
+			else
+				super(1217, data)
+			end
+		end
+	end
+
+	class NoDerivativeSecurityAltID < Quickfix::IntField
+		def NoDerivativeSecurityAltID.field
+			return 1218
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1218)
+			else
+				super(1218, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityAltID < Quickfix::StringField
+		def DerivativeSecurityAltID.field
+			return 1219
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1219)
+			else
+				super(1219, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityAltIDSource < Quickfix::StringField
+		def DerivativeSecurityAltIDSource.field
+			return 1220
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1220)
+			else
+				super(1220, data)
+			end
+		end
+	end
+
+	class SecondaryLowLimitPrice < Quickfix::DoubleField
+		def SecondaryLowLimitPrice.field
+			return 1221
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1221)
+			else
+				super(1221, data)
+			end
+		end
+	end
+
+	class MaturityRuleID < Quickfix::StringField
+		def MaturityRuleID.field
+			return 1222
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1222)
+			else
+				super(1222, data)
+			end
+		end
+	end
+
+	class StrikeRuleID < Quickfix::StringField
+		def StrikeRuleID.field
+			return 1223
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1223)
+			else
+				super(1223, data)
+			end
+		end
+	end
+
+	class LegUnitOfMeasureQty < Quickfix::DoubleField
+		def LegUnitOfMeasureQty.field
+			return 1224
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1224)
+			else
+				super(1224, data)
+			end
+		end
+	end
+
+	class DerivativeOptPayAmount < Quickfix::DoubleField
+		def DerivativeOptPayAmount.field
+			return 1225
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1225)
+			else
+				super(1225, data)
+			end
+		end
+	end
+
+	class EndMaturityMonthYear < Quickfix::StringField
+		def EndMaturityMonthYear.field
+			return 1226
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1226)
+			else
+				super(1226, data)
+			end
+		end
+	end
+
+	class ProductComplex < Quickfix::StringField
+		def ProductComplex.field
+			return 1227
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1227)
+			else
+				super(1227, data)
+			end
+		end
+	end
+
+	class DerivativeProductComplex < Quickfix::StringField
+		def DerivativeProductComplex.field
+			return 1228
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1228)
+			else
+				super(1228, data)
+			end
+		end
+	end
+
+	class MaturityMonthYearIncrement < Quickfix::IntField
+		def MaturityMonthYearIncrement.field
+			return 1229
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1229)
+			else
+				super(1229, data)
+			end
+		end
+	end
+
+	class SecondaryHighLimitPrice < Quickfix::DoubleField
+		def SecondaryHighLimitPrice.field
+			return 1230
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1230)
+			else
+				super(1230, data)
+			end
+		end
+	end
+
+	class MinLotSize < Quickfix::DoubleField
+		def MinLotSize.field
+			return 1231
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1231)
+			else
+				super(1231, data)
+			end
+		end
+	end
+
+	class NoExecInstRules < Quickfix::IntField
+		def NoExecInstRules.field
+			return 1232
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1232)
+			else
+				super(1232, data)
+			end
+		end
+	end
+
+	class NoLotTypeRules < Quickfix::IntField
+		def NoLotTypeRules.field
+			return 1234
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1234)
+			else
+				super(1234, data)
+			end
+		end
+	end
+
+	class NoMatchRules < Quickfix::IntField
+		def NoMatchRules.field
+			return 1235
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1235)
+			else
+				super(1235, data)
+			end
+		end
+	end
+
+	class NoMaturityRules < Quickfix::IntField
+		def NoMaturityRules.field
+			return 1236
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1236)
+			else
+				super(1236, data)
+			end
+		end
+	end
+
+	class NoOrdTypeRules < Quickfix::IntField
+		def NoOrdTypeRules.field
+			return 1237
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1237)
+			else
+				super(1237, data)
+			end
+		end
+	end
+
+	class NoTimeInForceRules < Quickfix::IntField
+		def NoTimeInForceRules.field
+			return 1239
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1239)
+			else
+				super(1239, data)
+			end
+		end
+	end
+
+	class SecondaryTradingReferencePrice < Quickfix::DoubleField
+		def SecondaryTradingReferencePrice.field
+			return 1240
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1240)
+			else
+				super(1240, data)
+			end
+		end
+	end
+
+	class StartMaturityMonthYear < Quickfix::StringField
+		def StartMaturityMonthYear.field
+			return 1241
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1241)
+			else
+				super(1241, data)
+			end
+		end
+	end
+
+	class FlexProductEligibilityIndicator < Quickfix::BoolField
+		def FlexProductEligibilityIndicator.field
+			return 1242
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1242)
+			else
+				super(1242, data)
+			end
+		end
+	end
+
+	class DerivFlexProductEligibilityIndicator < Quickfix::BoolField
+		def DerivFlexProductEligibilityIndicator.field
+			return 1243
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1243)
+			else
+				super(1243, data)
+			end
+		end
+	end
+
+	class FlexibleIndicator < Quickfix::BoolField
+		def FlexibleIndicator.field
+			return 1244
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1244)
+			else
+				super(1244, data)
+			end
+		end
+	end
+
+	class TradingCurrency < Quickfix::StringField
+		def TradingCurrency.field
+			return 1245
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1245)
+			else
+				super(1245, data)
+			end
+		end
+	end
+
+	class DerivativeProduct < Quickfix::IntField
+		def DerivativeProduct.field
+			return 1246
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1246)
+			else
+				super(1246, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityGroup < Quickfix::StringField
+		def DerivativeSecurityGroup.field
+			return 1247
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1247)
+			else
+				super(1247, data)
+			end
+		end
+	end
+
+	class DerivativeCFICode < Quickfix::StringField
+		def DerivativeCFICode.field
+			return 1248
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1248)
+			else
+				super(1248, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityType < Quickfix::StringField
+		def DerivativeSecurityType.field
+			return 1249
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1249)
+			else
+				super(1249, data)
+			end
+		end
+	end
+
+	class DerivativeSecuritySubType < Quickfix::StringField
+		def DerivativeSecuritySubType.field
+			return 1250
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1250)
+			else
+				super(1250, data)
+			end
+		end
+	end
+
+	class DerivativeMaturityMonthYear < Quickfix::StringField
+		def DerivativeMaturityMonthYear.field
+			return 1251
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1251)
+			else
+				super(1251, data)
+			end
+		end
+	end
+
+	class DerivativeMaturityDate < Quickfix::StringField
+		def DerivativeMaturityDate.field
+			return 1252
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1252)
+			else
+				super(1252, data)
+			end
+		end
+	end
+
+	class DerivativeMaturityTime < Quickfix::StringField
+		def DerivativeMaturityTime.field
+			return 1253
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1253)
+			else
+				super(1253, data)
+			end
+		end
+	end
+
+	class DerivativeSettleOnOpenFlag < Quickfix::StringField
+		def DerivativeSettleOnOpenFlag.field
+			return 1254
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1254)
+			else
+				super(1254, data)
+			end
+		end
+	end
+
+	class DerivativeInstrmtAssignmentMethod < Quickfix::CharField
+		def DerivativeInstrmtAssignmentMethod.field
+			return 1255
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1255)
+			else
+				super(1255, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityStatus < Quickfix::StringField
+		def DerivativeSecurityStatus.field
+			return 1256
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1256)
+			else
+				super(1256, data)
+			end
+		end
+	end
+
+	class DerivativeInstrRegistry < Quickfix::StringField
+		def DerivativeInstrRegistry.field
+			return 1257
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1257)
+			else
+				super(1257, data)
+			end
+		end
+	end
+
+	class DerivativeCountryOfIssue < Quickfix::StringField
+		def DerivativeCountryOfIssue.field
+			return 1258
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1258)
+			else
+				super(1258, data)
+			end
+		end
+	end
+
+	class DerivativeStateOrProvinceOfIssue < Quickfix::StringField
+		def DerivativeStateOrProvinceOfIssue.field
+			return 1259
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1259)
+			else
+				super(1259, data)
+			end
+		end
+	end
+
+	class DerivativeLocaleOfIssue < Quickfix::StringField
+		def DerivativeLocaleOfIssue.field
+			return 1260
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1260)
+			else
+				super(1260, data)
+			end
+		end
+	end
+
+	class DerivativeStrikePrice < Quickfix::DoubleField
+		def DerivativeStrikePrice.field
+			return 1261
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1261)
+			else
+				super(1261, data)
+			end
+		end
+	end
+
+	class DerivativeStrikeCurrency < Quickfix::StringField
+		def DerivativeStrikeCurrency.field
+			return 1262
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1262)
+			else
+				super(1262, data)
+			end
+		end
+	end
+
+	class DerivativeStrikeMultiplier < Quickfix::DoubleField
+		def DerivativeStrikeMultiplier.field
+			return 1263
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1263)
+			else
+				super(1263, data)
+			end
+		end
+	end
+
+	class DerivativeStrikeValue < Quickfix::DoubleField
+		def DerivativeStrikeValue.field
+			return 1264
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1264)
+			else
+				super(1264, data)
+			end
+		end
+	end
+
+	class DerivativeOptAttribute < Quickfix::CharField
+		def DerivativeOptAttribute.field
+			return 1265
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1265)
+			else
+				super(1265, data)
+			end
+		end
+	end
+
+	class DerivativeContractMultiplier < Quickfix::DoubleField
+		def DerivativeContractMultiplier.field
+			return 1266
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1266)
+			else
+				super(1266, data)
+			end
+		end
+	end
+
+	class DerivativeMinPriceIncrement < Quickfix::DoubleField
+		def DerivativeMinPriceIncrement.field
+			return 1267
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1267)
+			else
+				super(1267, data)
+			end
+		end
+	end
+
+	class DerivativeMinPriceIncrementAmount < Quickfix::DoubleField
+		def DerivativeMinPriceIncrementAmount.field
+			return 1268
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1268)
+			else
+				super(1268, data)
+			end
+		end
+	end
+
+	class DerivativeUnitOfMeasure < Quickfix::StringField
+		def DerivativeUnitOfMeasure.field
+			return 1269
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1269)
+			else
+				super(1269, data)
+			end
+		end
+	end
+
+	class DerivativeUnitOfMeasureQty < Quickfix::DoubleField
+		def DerivativeUnitOfMeasureQty.field
+			return 1270
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1270)
+			else
+				super(1270, data)
+			end
+		end
+	end
+
+	class DerivativeTimeUnit < Quickfix::StringField
+		def DerivativeTimeUnit.field
+			return 1271
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1271)
+			else
+				super(1271, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityExchange < Quickfix::StringField
+		def DerivativeSecurityExchange.field
+			return 1272
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1272)
+			else
+				super(1272, data)
+			end
+		end
+	end
+
+	class DerivativePositionLimit < Quickfix::IntField
+		def DerivativePositionLimit.field
+			return 1273
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1273)
+			else
+				super(1273, data)
+			end
+		end
+	end
+
+	class DerivativeNTPositionLimit < Quickfix::IntField
+		def DerivativeNTPositionLimit.field
+			return 1274
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1274)
+			else
+				super(1274, data)
+			end
+		end
+	end
+
+	class DerivativeIssuer < Quickfix::StringField
+		def DerivativeIssuer.field
+			return 1275
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1275)
+			else
+				super(1275, data)
+			end
+		end
+	end
+
+	class DerivativeIssueDate < Quickfix::StringField
+		def DerivativeIssueDate.field
+			return 1276
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1276)
+			else
+				super(1276, data)
+			end
+		end
+	end
+
+	class DerivativeEncodedIssuerLen < Quickfix::IntField
+		def DerivativeEncodedIssuerLen.field
+			return 1277
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1277)
+			else
+				super(1277, data)
+			end
+		end
+	end
+
+	class DerivativeEncodedIssuer < Quickfix::StringField
+		def DerivativeEncodedIssuer.field
+			return 1278
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1278)
+			else
+				super(1278, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityDesc < Quickfix::StringField
+		def DerivativeSecurityDesc.field
+			return 1279
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1279)
+			else
+				super(1279, data)
+			end
+		end
+	end
+
+	class DerivativeEncodedSecurityDescLen < Quickfix::IntField
+		def DerivativeEncodedSecurityDescLen.field
+			return 1280
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1280)
+			else
+				super(1280, data)
+			end
+		end
+	end
+
+	class DerivativeEncodedSecurityDesc < Quickfix::StringField
+		def DerivativeEncodedSecurityDesc.field
+			return 1281
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1281)
+			else
+				super(1281, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityXMLLen < Quickfix::IntField
+		def DerivativeSecurityXMLLen.field
+			return 1282
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1282)
+			else
+				super(1282, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityXML < Quickfix::StringField
+		def DerivativeSecurityXML.field
+			return 1283
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1283)
+			else
+				super(1283, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityXMLSchema < Quickfix::StringField
+		def DerivativeSecurityXMLSchema.field
+			return 1284
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1284)
+			else
+				super(1284, data)
+			end
+		end
+	end
+
+	class DerivativeContractSettlMonth < Quickfix::StringField
+		def DerivativeContractSettlMonth.field
+			return 1285
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1285)
+			else
+				super(1285, data)
+			end
+		end
+	end
+
+	class NoDerivativeEvents < Quickfix::IntField
+		def NoDerivativeEvents.field
+			return 1286
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1286)
+			else
+				super(1286, data)
+			end
+		end
+	end
+
+	class DerivativeEventType < Quickfix::IntField
+		def DerivativeEventType.field
+			return 1287
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1287)
+			else
+				super(1287, data)
+			end
+		end
+	end
+
+	class DerivativeEventDate < Quickfix::StringField
+		def DerivativeEventDate.field
+			return 1288
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1288)
+			else
+				super(1288, data)
+			end
+		end
+	end
+
+	class DerivativeEventTime < Quickfix::UtcTimeStampField
+		def DerivativeEventTime.field
+			return 1289
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1289)
+			else
+				super(1289, data)
+			end
+		end
+	end
+
+	class DerivativeEventPx < Quickfix::DoubleField
+		def DerivativeEventPx.field
+			return 1290
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1290)
+			else
+				super(1290, data)
+			end
+		end
+	end
+
+	class DerivativeEventText < Quickfix::StringField
+		def DerivativeEventText.field
+			return 1291
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1291)
+			else
+				super(1291, data)
+			end
+		end
+	end
+
+	class NoDerivativeInstrumentParties < Quickfix::IntField
+		def NoDerivativeInstrumentParties.field
+			return 1292
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1292)
+			else
+				super(1292, data)
+			end
+		end
+	end
+
+	class DerivativeInstrumentPartyID < Quickfix::StringField
+		def DerivativeInstrumentPartyID.field
+			return 1293
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1293)
+			else
+				super(1293, data)
+			end
+		end
+	end
+
+	class DerivativeInstrumentPartyIDSource < Quickfix::StringField
+		def DerivativeInstrumentPartyIDSource.field
+			return 1294
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1294)
+			else
+				super(1294, data)
+			end
+		end
+	end
+
+	class DerivativeInstrumentPartyRole < Quickfix::IntField
+		def DerivativeInstrumentPartyRole.field
+			return 1295
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1295)
+			else
+				super(1295, data)
+			end
+		end
+	end
+
+	class NoDerivativeInstrumentPartySubIDs < Quickfix::IntField
+		def NoDerivativeInstrumentPartySubIDs.field
+			return 1296
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1296)
+			else
+				super(1296, data)
+			end
+		end
+	end
+
+	class DerivativeInstrumentPartySubID < Quickfix::StringField
+		def DerivativeInstrumentPartySubID.field
+			return 1297
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1297)
+			else
+				super(1297, data)
+			end
+		end
+	end
+
+	class DerivativeInstrumentPartySubIDType < Quickfix::IntField
+		def DerivativeInstrumentPartySubIDType.field
+			return 1298
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1298)
+			else
+				super(1298, data)
+			end
+		end
+	end
+
+	class DerivativeExerciseStyle < Quickfix::CharField
+		def DerivativeExerciseStyle.field
+			return 1299
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1299)
+			else
+				super(1299, data)
+			end
+		end
+	end
+
+	class MarketSegmentID < Quickfix::StringField
+		def MarketSegmentID.field
+			return 1300
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1300)
+			else
+				super(1300, data)
+			end
+		end
+	end
+
+	class MarketID < Quickfix::StringField
+		def MarketID.field
+			return 1301
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1301)
+			else
+				super(1301, data)
+			end
+		end
+	end
+
+	class MaturityMonthYearIncrementUnits < Quickfix::IntField
+		def MaturityMonthYearIncrementUnits.field
+			return 1302
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1302)
+			else
+				super(1302, data)
+			end
+		end
+	end
+
+	class MaturityMonthYearFormat < Quickfix::IntField
+		def MaturityMonthYearFormat.field
+			return 1303
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1303)
+			else
+				super(1303, data)
+			end
+		end
+	end
+
+	class StrikeExerciseStyle < Quickfix::IntField
+		def StrikeExerciseStyle.field
+			return 1304
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1304)
+			else
+				super(1304, data)
+			end
+		end
+	end
+
+	class SecondaryPriceLimitType < Quickfix::IntField
+		def SecondaryPriceLimitType.field
+			return 1305
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1305)
+			else
+				super(1305, data)
+			end
+		end
+	end
+
+	class PriceLimitType < Quickfix::IntField
+		def PriceLimitType.field
+			return 1306
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1306)
+			else
+				super(1306, data)
+			end
+		end
+	end
+
+	class DerivativeSecurityListRequestType < Quickfix::IntField
+		def DerivativeSecurityListRequestType.field
+			return 1307
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1307)
+			else
+				super(1307, data)
+			end
+		end
+	end
+
+	class ExecInstValue < Quickfix::CharField
+		def ExecInstValue.field
+			return 1308
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1308)
+			else
+				super(1308, data)
+			end
+		end
+	end
+
+	class NoTradingSessionRules < Quickfix::IntField
+		def NoTradingSessionRules.field
+			return 1309
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1309)
+			else
+				super(1309, data)
+			end
+		end
+	end
+
+	class NoMarketSegments < Quickfix::IntField
+		def NoMarketSegments.field
+			return 1310
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1310)
+			else
+				super(1310, data)
+			end
+		end
+	end
+
+	class NoDerivativeInstrAttrib < Quickfix::IntField
+		def NoDerivativeInstrAttrib.field
+			return 1311
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1311)
+			else
+				super(1311, data)
+			end
+		end
+	end
+
+	class NoNestedInstrAttrib < Quickfix::IntField
+		def NoNestedInstrAttrib.field
+			return 1312
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1312)
+			else
+				super(1312, data)
+			end
+		end
+	end
+
+	class DerivativeInstrAttribType < Quickfix::IntField
+		def DerivativeInstrAttribType.field
+			return 1313
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1313)
+			else
+				super(1313, data)
+			end
+		end
+	end
+
+	class DerivativeInstrAttribValue < Quickfix::StringField
+		def DerivativeInstrAttribValue.field
+			return 1314
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1314)
+			else
+				super(1314, data)
+			end
+		end
+	end
+
+	class DerivativePriceUnitOfMeasure < Quickfix::StringField
+		def DerivativePriceUnitOfMeasure.field
+			return 1315
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1315)
+			else
+				super(1315, data)
+			end
+		end
+	end
+
+	class DerivativePriceUnitOfMeasureQty < Quickfix::DoubleField
+		def DerivativePriceUnitOfMeasureQty.field
+			return 1316
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1316)
+			else
+				super(1316, data)
+			end
+		end
+	end
+
+	class DerivativeSettlMethod < Quickfix::CharField
+		def DerivativeSettlMethod.field
+			return 1317
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1317)
+			else
+				super(1317, data)
+			end
+		end
+	end
+
+	class DerivativePriceQuoteMethod < Quickfix::StringField
+		def DerivativePriceQuoteMethod.field
+			return 1318
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1318)
+			else
+				super(1318, data)
+			end
+		end
+	end
+
+	class DerivativeValuationMethod < Quickfix::StringField
+		def DerivativeValuationMethod.field
+			return 1319
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1319)
+			else
+				super(1319, data)
+			end
+		end
+	end
+
+	class DerivativeListMethod < Quickfix::IntField
+		def DerivativeListMethod.field
+			return 1320
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1320)
+			else
+				super(1320, data)
+			end
+		end
+	end
+
+	class DerivativeCapPrice < Quickfix::DoubleField
+		def DerivativeCapPrice.field
+			return 1321
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1321)
+			else
+				super(1321, data)
+			end
+		end
+	end
+
+	class DerivativeFloorPrice < Quickfix::DoubleField
+		def DerivativeFloorPrice.field
+			return 1322
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1322)
+			else
+				super(1322, data)
+			end
+		end
+	end
+
+	class DerivativePutOrCall < Quickfix::IntField
+		def DerivativePutOrCall.field
+			return 1323
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1323)
+			else
+				super(1323, data)
+			end
+		end
+	end
+
+	class ListUpdateAction < Quickfix::CharField
+		def ListUpdateAction.field
+			return 1324
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1324)
+			else
+				super(1324, data)
+			end
+		end
+	end
+
+	class ParentMktSegmID < Quickfix::StringField
+		def ParentMktSegmID.field
+			return 1325
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1325)
+			else
+				super(1325, data)
+			end
+		end
+	end
+
+	class TradingSessionDesc < Quickfix::StringField
+		def TradingSessionDesc.field
+			return 1326
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1326)
+			else
+				super(1326, data)
+			end
+		end
+	end
+
+	class TradSesUpdateAction < Quickfix::CharField
+		def TradSesUpdateAction.field
+			return 1327
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1327)
+			else
+				super(1327, data)
+			end
+		end
+	end
+
+	class RejectText < Quickfix::StringField
+		def RejectText.field
+			return 1328
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1328)
+			else
+				super(1328, data)
+			end
+		end
+	end
+
+	class FeeMultiplier < Quickfix::DoubleField
+		def FeeMultiplier.field
+			return 1329
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1329)
+			else
+				super(1329, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSymbol < Quickfix::StringField
+		def UnderlyingLegSymbol.field
+			return 1330
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1330)
+			else
+				super(1330, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSymbolSfx < Quickfix::StringField
+		def UnderlyingLegSymbolSfx.field
+			return 1331
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1331)
+			else
+				super(1331, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityID < Quickfix::StringField
+		def UnderlyingLegSecurityID.field
+			return 1332
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1332)
+			else
+				super(1332, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityIDSource < Quickfix::StringField
+		def UnderlyingLegSecurityIDSource.field
+			return 1333
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1333)
+			else
+				super(1333, data)
+			end
+		end
+	end
+
+	class NoUnderlyingLegSecurityAltID < Quickfix::IntField
+		def NoUnderlyingLegSecurityAltID.field
+			return 1334
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1334)
+			else
+				super(1334, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityAltID < Quickfix::StringField
+		def UnderlyingLegSecurityAltID.field
+			return 1335
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1335)
+			else
+				super(1335, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityAltIDSource < Quickfix::StringField
+		def UnderlyingLegSecurityAltIDSource.field
+			return 1336
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1336)
+			else
+				super(1336, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityType < Quickfix::StringField
+		def UnderlyingLegSecurityType.field
+			return 1337
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1337)
+			else
+				super(1337, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecuritySubType < Quickfix::StringField
+		def UnderlyingLegSecuritySubType.field
+			return 1338
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1338)
+			else
+				super(1338, data)
+			end
+		end
+	end
+
+	class UnderlyingLegMaturityMonthYear < Quickfix::StringField
+		def UnderlyingLegMaturityMonthYear.field
+			return 1339
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1339)
+			else
+				super(1339, data)
+			end
+		end
+	end
+
+	class UnderlyingLegStrikePrice < Quickfix::DoubleField
+		def UnderlyingLegStrikePrice.field
+			return 1340
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1340)
+			else
+				super(1340, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityExchange < Quickfix::StringField
+		def UnderlyingLegSecurityExchange.field
+			return 1341
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1341)
+			else
+				super(1341, data)
+			end
+		end
+	end
+
+	class NoOfLegUnderlyings < Quickfix::IntField
+		def NoOfLegUnderlyings.field
+			return 1342
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1342)
+			else
+				super(1342, data)
+			end
+		end
+	end
+
+	class UnderlyingLegPutOrCall < Quickfix::IntField
+		def UnderlyingLegPutOrCall.field
+			return 1343
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1343)
+			else
+				super(1343, data)
+			end
+		end
+	end
+
+	class UnderlyingLegCFICode < Quickfix::StringField
+		def UnderlyingLegCFICode.field
+			return 1344
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1344)
+			else
+				super(1344, data)
+			end
+		end
+	end
+
+	class UnderlyingLegMaturityDate < Quickfix::StringField
+		def UnderlyingLegMaturityDate.field
+			return 1345
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1345)
+			else
+				super(1345, data)
+			end
+		end
+	end
+
+	class ApplReqID < Quickfix::StringField
+		def ApplReqID.field
+			return 1346
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1346)
+			else
+				super(1346, data)
+			end
+		end
+	end
+
+	class ApplReqType < Quickfix::IntField
+		def ApplReqType.field
+			return 1347
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1347)
+			else
+				super(1347, data)
+			end
+		end
+	end
+
+	class ApplResponseType < Quickfix::IntField
+		def ApplResponseType.field
+			return 1348
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1348)
+			else
+				super(1348, data)
+			end
+		end
+	end
+
+	class ApplTotalMessageCount < Quickfix::IntField
+		def ApplTotalMessageCount.field
+			return 1349
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1349)
+			else
+				super(1349, data)
+			end
+		end
+	end
+
+	class ApplLastSeqNum < Quickfix::IntField
+		def ApplLastSeqNum.field
+			return 1350
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1350)
+			else
+				super(1350, data)
+			end
+		end
+	end
+
+	class NoApplIDs < Quickfix::IntField
+		def NoApplIDs.field
+			return 1351
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1351)
+			else
+				super(1351, data)
+			end
+		end
+	end
+
+	class ApplResendFlag < Quickfix::BoolField
+		def ApplResendFlag.field
+			return 1352
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1352)
+			else
+				super(1352, data)
+			end
+		end
+	end
+
+	class ApplResponseID < Quickfix::StringField
+		def ApplResponseID.field
+			return 1353
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1353)
+			else
+				super(1353, data)
+			end
+		end
+	end
+
+	class ApplResponseError < Quickfix::IntField
+		def ApplResponseError.field
+			return 1354
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1354)
+			else
+				super(1354, data)
+			end
+		end
+	end
+
+	class RefApplID < Quickfix::StringField
+		def RefApplID.field
+			return 1355
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1355)
+			else
+				super(1355, data)
+			end
+		end
+	end
+
+	class ApplReportID < Quickfix::StringField
+		def ApplReportID.field
+			return 1356
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1356)
+			else
+				super(1356, data)
+			end
+		end
+	end
+
+	class RefApplLastSeqNum < Quickfix::IntField
+		def RefApplLastSeqNum.field
+			return 1357
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1357)
+			else
+				super(1357, data)
+			end
+		end
+	end
+
+	class LegPutOrCall < Quickfix::IntField
+		def LegPutOrCall.field
+			return 1358
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1358)
+			else
+				super(1358, data)
+			end
+		end
+	end
+
+	class EncodedSymbolLen < Quickfix::IntField
+		def EncodedSymbolLen.field
+			return 1359
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1359)
+			else
+				super(1359, data)
+			end
+		end
+	end
+
+	class EncodedSymbol < Quickfix::StringField
+		def EncodedSymbol.field
+			return 1360
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1360)
+			else
+				super(1360, data)
+			end
+		end
+	end
+
+	class TotNoFills < Quickfix::IntField
+		def TotNoFills.field
+			return 1361
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1361)
+			else
+				super(1361, data)
+			end
+		end
+	end
+
+	class NoFills < Quickfix::IntField
+		def NoFills.field
+			return 1362
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1362)
+			else
+				super(1362, data)
+			end
+		end
+	end
+
+	class FillExecID < Quickfix::StringField
+		def FillExecID.field
+			return 1363
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1363)
+			else
+				super(1363, data)
+			end
+		end
+	end
+
+	class FillPx < Quickfix::DoubleField
+		def FillPx.field
+			return 1364
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1364)
+			else
+				super(1364, data)
+			end
+		end
+	end
+
+	class FillQty < Quickfix::DoubleField
+		def FillQty.field
+			return 1365
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1365)
+			else
+				super(1365, data)
+			end
+		end
+	end
+
+	class LegAllocID < Quickfix::StringField
+		def LegAllocID.field
+			return 1366
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1366)
+			else
+				super(1366, data)
+			end
+		end
+	end
+
+	class LegAllocSettlCurrency < Quickfix::StringField
+		def LegAllocSettlCurrency.field
+			return 1367
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1367)
+			else
+				super(1367, data)
+			end
+		end
+	end
+
+	class TradSesEvent < Quickfix::IntField
+		def TradSesEvent.field
+			return 1368
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1368)
+			else
+				super(1368, data)
+			end
+		end
+	end
+
+	class MassActionReportID < Quickfix::StringField
+		def MassActionReportID.field
+			return 1369
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1369)
+			else
+				super(1369, data)
+			end
+		end
+	end
+
+	class NoNotAffectedOrders < Quickfix::IntField
+		def NoNotAffectedOrders.field
+			return 1370
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1370)
+			else
+				super(1370, data)
+			end
+		end
+	end
+
+	class NotAffectedOrderID < Quickfix::StringField
+		def NotAffectedOrderID.field
+			return 1371
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1371)
+			else
+				super(1371, data)
+			end
+		end
+	end
+
+	class NotAffOrigClOrdID < Quickfix::StringField
+		def NotAffOrigClOrdID.field
+			return 1372
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1372)
+			else
+				super(1372, data)
+			end
+		end
+	end
+
+	class MassActionType < Quickfix::IntField
+		def MassActionType.field
+			return 1373
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1373)
+			else
+				super(1373, data)
+			end
+		end
+	end
+
+	class MassActionScope < Quickfix::IntField
+		def MassActionScope.field
+			return 1374
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1374)
+			else
+				super(1374, data)
+			end
+		end
+	end
+
+	class MassActionResponse < Quickfix::IntField
+		def MassActionResponse.field
+			return 1375
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1375)
+			else
+				super(1375, data)
+			end
+		end
+	end
+
+	class MassActionRejectReason < Quickfix::IntField
+		def MassActionRejectReason.field
+			return 1376
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1376)
+			else
+				super(1376, data)
+			end
+		end
+	end
+
+	class MultilegModel < Quickfix::IntField
+		def MultilegModel.field
+			return 1377
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1377)
+			else
+				super(1377, data)
+			end
+		end
+	end
+
+	class MultilegPriceMethod < Quickfix::IntField
+		def MultilegPriceMethod.field
+			return 1378
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1378)
+			else
+				super(1378, data)
+			end
+		end
+	end
+
+	class LegVolatility < Quickfix::DoubleField
+		def LegVolatility.field
+			return 1379
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1379)
+			else
+				super(1379, data)
+			end
+		end
+	end
+
+	class DividendYield < Quickfix::DoubleField
+		def DividendYield.field
+			return 1380
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1380)
+			else
+				super(1380, data)
+			end
+		end
+	end
+
+	class LegDividendYield < Quickfix::DoubleField
+		def LegDividendYield.field
+			return 1381
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1381)
+			else
+				super(1381, data)
+			end
+		end
+	end
+
+	class CurrencyRatio < Quickfix::DoubleField
+		def CurrencyRatio.field
+			return 1382
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1382)
+			else
+				super(1382, data)
+			end
+		end
+	end
+
+	class LegCurrencyRatio < Quickfix::DoubleField
+		def LegCurrencyRatio.field
+			return 1383
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1383)
+			else
+				super(1383, data)
+			end
+		end
+	end
+
+	class LegExecInst < Quickfix::StringField
+		def LegExecInst.field
+			return 1384
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1384)
+			else
+				super(1384, data)
+			end
+		end
+	end
+
+	class ContingencyType < Quickfix::IntField
+		def ContingencyType.field
+			return 1385
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1385)
+			else
+				super(1385, data)
+			end
+		end
+	end
+
+	class ListRejectReason < Quickfix::IntField
+		def ListRejectReason.field
+			return 1386
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1386)
+			else
+				super(1386, data)
+			end
+		end
+	end
+
+	class NoTrdRepIndicators < Quickfix::IntField
+		def NoTrdRepIndicators.field
+			return 1387
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1387)
+			else
+				super(1387, data)
+			end
+		end
+	end
+
+	class TrdRepPartyRole < Quickfix::IntField
+		def TrdRepPartyRole.field
+			return 1388
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1388)
+			else
+				super(1388, data)
+			end
+		end
+	end
+
+	class TrdRepIndicator < Quickfix::BoolField
+		def TrdRepIndicator.field
+			return 1389
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1389)
+			else
+				super(1389, data)
+			end
+		end
+	end
+
+	class TradePublishIndicator < Quickfix::IntField
+		def TradePublishIndicator.field
+			return 1390
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1390)
+			else
+				super(1390, data)
+			end
+		end
+	end
+
+	class UnderlyingLegOptAttribute < Quickfix::CharField
+		def UnderlyingLegOptAttribute.field
+			return 1391
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1391)
+			else
+				super(1391, data)
+			end
+		end
+	end
+
+	class UnderlyingLegSecurityDesc < Quickfix::StringField
+		def UnderlyingLegSecurityDesc.field
+			return 1392
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1392)
+			else
+				super(1392, data)
+			end
+		end
+	end
+
+	class MarketReqID < Quickfix::StringField
+		def MarketReqID.field
+			return 1393
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1393)
+			else
+				super(1393, data)
+			end
+		end
+	end
+
+	class MarketReportID < Quickfix::StringField
+		def MarketReportID.field
+			return 1394
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1394)
+			else
+				super(1394, data)
+			end
+		end
+	end
+
+	class MarketUpdateAction < Quickfix::CharField
+		def MarketUpdateAction.field
+			return 1395
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1395)
+			else
+				super(1395, data)
+			end
+		end
+	end
+
+	class MarketSegmentDesc < Quickfix::StringField
+		def MarketSegmentDesc.field
+			return 1396
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1396)
+			else
+				super(1396, data)
+			end
+		end
+	end
+
+	class EncodedMktSegmDescLen < Quickfix::IntField
+		def EncodedMktSegmDescLen.field
+			return 1397
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1397)
+			else
+				super(1397, data)
+			end
+		end
+	end
+
+	class EncodedMktSegmDesc < Quickfix::StringField
+		def EncodedMktSegmDesc.field
+			return 1398
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1398)
+			else
+				super(1398, data)
+			end
+		end
+	end
+
+	class ApplNewSeqNum < Quickfix::IntField
+		def ApplNewSeqNum.field
+			return 1399
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1399)
+			else
+				super(1399, data)
+			end
+		end
+	end
+
+	class EncryptedPasswordMethod < Quickfix::IntField
+		def EncryptedPasswordMethod.field
+			return 1400
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1400)
+			else
+				super(1400, data)
+			end
+		end
+	end
+
+	class EncryptedPasswordLen < Quickfix::IntField
+		def EncryptedPasswordLen.field
+			return 1401
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1401)
+			else
+				super(1401, data)
+			end
+		end
+	end
+
+	class EncryptedPassword < Quickfix::StringField
+		def EncryptedPassword.field
+			return 1402
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1402)
+			else
+				super(1402, data)
+			end
+		end
+	end
+
+	class EncryptedNewPasswordLen < Quickfix::IntField
+		def EncryptedNewPasswordLen.field
+			return 1403
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1403)
+			else
+				super(1403, data)
+			end
+		end
+	end
+
+	class EncryptedNewPassword < Quickfix::StringField
+		def EncryptedNewPassword.field
+			return 1404
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1404)
+			else
+				super(1404, data)
+			end
+		end
+	end
+
+	class UnderlyingLegMaturityTime < Quickfix::StringField
+		def UnderlyingLegMaturityTime.field
+			return 1405
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1405)
+			else
+				super(1405, data)
+			end
+		end
+	end
+
+	class RefApplExtID < Quickfix::IntField
+		def RefApplExtID.field
+			return 1406
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1406)
+			else
+				super(1406, data)
+			end
+		end
+	end
+
+	class DefaultApplExtID < Quickfix::IntField
+		def DefaultApplExtID.field
+			return 1407
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1407)
+			else
+				super(1407, data)
+			end
+		end
+	end
+
+	class DefaultCstmApplVerID < Quickfix::StringField
+		def DefaultCstmApplVerID.field
+			return 1408
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1408)
+			else
+				super(1408, data)
+			end
+		end
+	end
+
+	class SessionStatus < Quickfix::IntField
+		def SessionStatus.field
+			return 1409
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1409)
+			else
+				super(1409, data)
+			end
+		end
+	end
+
+	class DefaultVerIndicator < Quickfix::BoolField
+		def DefaultVerIndicator.field
+			return 1410
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1410)
+			else
+				super(1410, data)
+			end
+		end
+	end
+
+	class Nested4PartySubIDType < Quickfix::IntField
+		def Nested4PartySubIDType.field
+			return 1411
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1411)
+			else
+				super(1411, data)
+			end
+		end
+	end
+
+	class Nested4PartySubID < Quickfix::StringField
+		def Nested4PartySubID.field
+			return 1412
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1412)
+			else
+				super(1412, data)
+			end
+		end
+	end
+
+	class NoNested4PartySubIDs < Quickfix::IntField
+		def NoNested4PartySubIDs.field
+			return 1413
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1413)
+			else
+				super(1413, data)
+			end
+		end
+	end
+
+	class NoNested4PartyIDs < Quickfix::IntField
+		def NoNested4PartyIDs.field
+			return 1414
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1414)
+			else
+				super(1414, data)
+			end
+		end
+	end
+
+	class Nested4PartyID < Quickfix::StringField
+		def Nested4PartyID.field
+			return 1415
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1415)
+			else
+				super(1415, data)
+			end
+		end
+	end
+
+	class Nested4PartyIDSource < Quickfix::CharField
+		def Nested4PartyIDSource.field
+			return 1416
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1416)
+			else
+				super(1416, data)
+			end
+		end
+	end
+
+	class Nested4PartyRole < Quickfix::IntField
+		def Nested4PartyRole.field
+			return 1417
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1417)
+			else
+				super(1417, data)
+			end
+		end
+	end
+
+	class LegLastQty < Quickfix::DoubleField
+		def LegLastQty.field
+			return 1418
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1418)
+			else
+				super(1418, data)
+			end
+		end
+	end
+
+	class UnderlyingExerciseStyle < Quickfix::IntField
+		def UnderlyingExerciseStyle.field
+			return 1419
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1419)
+			else
+				super(1419, data)
+			end
+		end
+	end
+
+	class LegExerciseStyle < Quickfix::IntField
+		def LegExerciseStyle.field
+			return 1420
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1420)
+			else
+				super(1420, data)
+			end
+		end
+	end
+
+	class LegPriceUnitOfMeasure < Quickfix::StringField
+		def LegPriceUnitOfMeasure.field
+			return 1421
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1421)
+			else
+				super(1421, data)
+			end
+		end
+	end
+
+	class LegPriceUnitOfMeasureQty < Quickfix::DoubleField
+		def LegPriceUnitOfMeasureQty.field
+			return 1422
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1422)
+			else
+				super(1422, data)
+			end
+		end
+	end
+
+	class UnderlyingUnitOfMeasureQty < Quickfix::DoubleField
+		def UnderlyingUnitOfMeasureQty.field
+			return 1423
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1423)
+			else
+				super(1423, data)
+			end
+		end
+	end
+
+	class UnderlyingPriceUnitOfMeasure < Quickfix::StringField
+		def UnderlyingPriceUnitOfMeasure.field
+			return 1424
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1424)
+			else
+				super(1424, data)
+			end
+		end
+	end
+
+	class UnderlyingPriceUnitOfMeasureQty < Quickfix::DoubleField
+		def UnderlyingPriceUnitOfMeasureQty.field
+			return 1425
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1425)
+			else
+				super(1425, data)
+			end
+		end
+	end
+
+	class ApplReportType < Quickfix::IntField
+		def ApplReportType.field
+			return 1426
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1426)
+			else
+				super(1426, data)
+			end
+		end
+	end
+
+	class SideExecID < Quickfix::StringField
+		def SideExecID.field
+			return 1427
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1427)
+			else
+				super(1427, data)
+			end
+		end
+	end
+
+	class OrderDelay < Quickfix::IntField
+		def OrderDelay.field
+			return 1428
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1428)
+			else
+				super(1428, data)
+			end
+		end
+	end
+
+	class OrderDelayUnit < Quickfix::IntField
+		def OrderDelayUnit.field
+			return 1429
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1429)
+			else
+				super(1429, data)
+			end
+		end
+	end
+
+	class VenueType < Quickfix::CharField
+		def VenueType.field
+			return 1430
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1430)
+			else
+				super(1430, data)
+			end
+		end
+	end
+
+	class RefOrdIDReason < Quickfix::IntField
+		def RefOrdIDReason.field
+			return 1431
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1431)
+			else
+				super(1431, data)
+			end
+		end
+	end
+
+	class OrigCustOrderCapacity < Quickfix::IntField
+		def OrigCustOrderCapacity.field
+			return 1432
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1432)
+			else
+				super(1432, data)
+			end
+		end
+	end
+
+	class RefApplReqID < Quickfix::StringField
+		def RefApplReqID.field
+			return 1433
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1433)
+			else
+				super(1433, data)
+			end
+		end
+	end
+
+	class ModelType < Quickfix::IntField
+		def ModelType.field
+			return 1434
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1434)
+			else
+				super(1434, data)
+			end
+		end
+	end
+
+	class ContractMultiplierUnit < Quickfix::IntField
+		def ContractMultiplierUnit.field
+			return 1435
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1435)
+			else
+				super(1435, data)
+			end
+		end
+	end
+
+	class LegContractMultiplierUnit < Quickfix::IntField
+		def LegContractMultiplierUnit.field
+			return 1436
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1436)
+			else
+				super(1436, data)
+			end
+		end
+	end
+
+	class UnderlyingContractMultiplierUnit < Quickfix::IntField
+		def UnderlyingContractMultiplierUnit.field
+			return 1437
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1437)
+			else
+				super(1437, data)
+			end
+		end
+	end
+
+	class DerivativeContractMultiplierUnit < Quickfix::IntField
+		def DerivativeContractMultiplierUnit.field
+			return 1438
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1438)
+			else
+				super(1438, data)
+			end
+		end
+	end
+
+	class FlowScheduleType < Quickfix::IntField
+		def FlowScheduleType.field
+			return 1439
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1439)
+			else
+				super(1439, data)
+			end
+		end
+	end
+
+	class LegFlowScheduleType < Quickfix::IntField
+		def LegFlowScheduleType.field
+			return 1440
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1440)
+			else
+				super(1440, data)
+			end
+		end
+	end
+
+	class UnderlyingFlowScheduleType < Quickfix::IntField
+		def UnderlyingFlowScheduleType.field
+			return 1441
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1441)
+			else
+				super(1441, data)
+			end
+		end
+	end
+
+	class DerivativeFlowScheduleType < Quickfix::IntField
+		def DerivativeFlowScheduleType.field
+			return 1442
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1442)
+			else
+				super(1442, data)
+			end
+		end
+	end
+
+	class FillLiquidityInd < Quickfix::IntField
+		def FillLiquidityInd.field
+			return 1443
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1443)
+			else
+				super(1443, data)
+			end
+		end
+	end
+
+	class SideLiquidityInd < Quickfix::IntField
+		def SideLiquidityInd.field
+			return 1444
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1444)
+			else
+				super(1444, data)
+			end
+		end
+	end
+
+	class NoRateSources < Quickfix::IntField
+		def NoRateSources.field
+			return 1445
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1445)
+			else
+				super(1445, data)
+			end
+		end
+	end
+
+	class RateSource < Quickfix::IntField
+		def RateSource.field
+			return 1446
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1446)
+			else
+				super(1446, data)
+			end
+		end
+	end
+
+	class RateSourceType < Quickfix::IntField
+		def RateSourceType.field
+			return 1447
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1447)
+			else
+				super(1447, data)
+			end
+		end
+	end
+
+	class ReferencePage < Quickfix::StringField
+		def ReferencePage.field
+			return 1448
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1448)
+			else
+				super(1448, data)
+			end
+		end
+	end
+
+	class RestructuringType < Quickfix::StringField
+		def RestructuringType.field
+			return 1449
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1449)
+			else
+				super(1449, data)
+			end
+		end
+	end
+
+	class Seniority < Quickfix::StringField
+		def Seniority.field
+			return 1450
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1450)
+			else
+				super(1450, data)
+			end
+		end
+	end
+
+	class NotionalPercentageOutstanding < Quickfix::DoubleField
+		def NotionalPercentageOutstanding.field
+			return 1451
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1451)
+			else
+				super(1451, data)
+			end
+		end
+	end
+
+	class OriginalNotionalPercentageOutstanding < Quickfix::DoubleField
+		def OriginalNotionalPercentageOutstanding.field
+			return 1452
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1452)
+			else
+				super(1452, data)
+			end
+		end
+	end
+
+	class UnderlyingRestructuringType < Quickfix::StringField
+		def UnderlyingRestructuringType.field
+			return 1453
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1453)
+			else
+				super(1453, data)
+			end
+		end
+	end
+
+	class UnderlyingSeniority < Quickfix::StringField
+		def UnderlyingSeniority.field
+			return 1454
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1454)
+			else
+				super(1454, data)
+			end
+		end
+	end
+
+	class UnderlyingNotionalPercentageOutstanding < Quickfix::DoubleField
+		def UnderlyingNotionalPercentageOutstanding.field
+			return 1455
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1455)
+			else
+				super(1455, data)
+			end
+		end
+	end
+
+	class UnderlyingOriginalNotionalPercentageOutstanding < Quickfix::DoubleField
+		def UnderlyingOriginalNotionalPercentageOutstanding.field
+			return 1456
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1456)
+			else
+				super(1456, data)
+			end
+		end
+	end
+
+	class AttachmentPoint < Quickfix::DoubleField
+		def AttachmentPoint.field
+			return 1457
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1457)
+			else
+				super(1457, data)
+			end
+		end
+	end
+
+	class DetachmentPoint < Quickfix::DoubleField
+		def DetachmentPoint.field
+			return 1458
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1458)
+			else
+				super(1458, data)
+			end
+		end
+	end
+
+	class UnderlyingAttachmentPoint < Quickfix::DoubleField
+		def UnderlyingAttachmentPoint.field
+			return 1459
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1459)
+			else
+				super(1459, data)
+			end
+		end
+	end
+
+	class UnderlyingDetachmentPoint < Quickfix::DoubleField
+		def UnderlyingDetachmentPoint.field
+			return 1460
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1460)
+			else
+				super(1460, data)
+			end
+		end
+	end
+
+	class NoTargetPartyIDs < Quickfix::IntField
+		def NoTargetPartyIDs.field
+			return 1461
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1461)
+			else
+				super(1461, data)
+			end
+		end
+	end
+
+	class TargetPartyID < Quickfix::StringField
+		def TargetPartyID.field
+			return 1462
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1462)
+			else
+				super(1462, data)
+			end
+		end
+	end
+
+	class TargetPartyIDSource < Quickfix::CharField
+		def TargetPartyIDSource.field
+			return 1463
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1463)
+			else
+				super(1463, data)
+			end
+		end
+	end
+
+	class TargetPartyRole < Quickfix::IntField
+		def TargetPartyRole.field
+			return 1464
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1464)
+			else
+				super(1464, data)
+			end
+		end
+	end
+
+	class SecurityListID < Quickfix::StringField
+		def SecurityListID.field
+			return 1465
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1465)
+			else
+				super(1465, data)
+			end
+		end
+	end
+
+	class SecurityListRefID < Quickfix::StringField
+		def SecurityListRefID.field
+			return 1466
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1466)
+			else
+				super(1466, data)
+			end
+		end
+	end
+
+	class SecurityListDesc < Quickfix::StringField
+		def SecurityListDesc.field
+			return 1467
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1467)
+			else
+				super(1467, data)
+			end
+		end
+	end
+
+	class EncodedSecurityListDescLen < Quickfix::IntField
+		def EncodedSecurityListDescLen.field
+			return 1468
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1468)
+			else
+				super(1468, data)
+			end
+		end
+	end
+
+	class EncodedSecurityListDesc < Quickfix::StringField
+		def EncodedSecurityListDesc.field
+			return 1469
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1469)
+			else
+				super(1469, data)
+			end
+		end
+	end
+
+	class SecurityListType < Quickfix::IntField
+		def SecurityListType.field
+			return 1470
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1470)
+			else
+				super(1470, data)
+			end
+		end
+	end
+
+	class SecurityListTypeSource < Quickfix::IntField
+		def SecurityListTypeSource.field
+			return 1471
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1471)
+			else
+				super(1471, data)
+			end
+		end
+	end
+
+	class NewsID < Quickfix::StringField
+		def NewsID.field
+			return 1472
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1472)
+			else
+				super(1472, data)
+			end
+		end
+	end
+
+	class NewsCategory < Quickfix::IntField
+		def NewsCategory.field
+			return 1473
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1473)
+			else
+				super(1473, data)
+			end
+		end
+	end
+
+	class LanguageCode < Quickfix::StringField
+		def LanguageCode.field
+			return 1474
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1474)
+			else
+				super(1474, data)
+			end
+		end
+	end
+
+	class NoNewsRefIDs < Quickfix::IntField
+		def NoNewsRefIDs.field
+			return 1475
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1475)
+			else
+				super(1475, data)
+			end
+		end
+	end
+
+	class NewsRefID < Quickfix::StringField
+		def NewsRefID.field
+			return 1476
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1476)
+			else
+				super(1476, data)
+			end
+		end
+	end
+
+	class NewsRefType < Quickfix::IntField
+		def NewsRefType.field
+			return 1477
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1477)
+			else
+				super(1477, data)
+			end
+		end
+	end
+
+	class StrikePriceDeterminationMethod < Quickfix::IntField
+		def StrikePriceDeterminationMethod.field
+			return 1478
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1478)
+			else
+				super(1478, data)
+			end
+		end
+	end
+
+	class StrikePriceBoundaryMethod < Quickfix::IntField
+		def StrikePriceBoundaryMethod.field
+			return 1479
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1479)
+			else
+				super(1479, data)
+			end
+		end
+	end
+
+	class StrikePriceBoundaryPrecision < Quickfix::DoubleField
+		def StrikePriceBoundaryPrecision.field
+			return 1480
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1480)
+			else
+				super(1480, data)
+			end
+		end
+	end
+
+	class UnderlyingPriceDeterminationMethod < Quickfix::IntField
+		def UnderlyingPriceDeterminationMethod.field
+			return 1481
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1481)
+			else
+				super(1481, data)
+			end
+		end
+	end
+
+	class OptPayoutType < Quickfix::IntField
+		def OptPayoutType.field
+			return 1482
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1482)
+			else
+				super(1482, data)
+			end
+		end
+	end
+
+	class NoComplexEvents < Quickfix::IntField
+		def NoComplexEvents.field
+			return 1483
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1483)
+			else
+				super(1483, data)
+			end
+		end
+	end
+
+	class ComplexEventType < Quickfix::IntField
+		def ComplexEventType.field
+			return 1484
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1484)
+			else
+				super(1484, data)
+			end
+		end
+	end
+
+	class ComplexOptPayoutAmount < Quickfix::DoubleField
+		def ComplexOptPayoutAmount.field
+			return 1485
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1485)
+			else
+				super(1485, data)
+			end
+		end
+	end
+
+	class ComplexEventPrice < Quickfix::DoubleField
+		def ComplexEventPrice.field
+			return 1486
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1486)
+			else
+				super(1486, data)
+			end
+		end
+	end
+
+	class ComplexEventPriceBoundaryMethod < Quickfix::IntField
+		def ComplexEventPriceBoundaryMethod.field
+			return 1487
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1487)
+			else
+				super(1487, data)
+			end
+		end
+	end
+
+	class ComplexEventPriceBoundaryPrecision < Quickfix::DoubleField
+		def ComplexEventPriceBoundaryPrecision.field
+			return 1488
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1488)
+			else
+				super(1488, data)
+			end
+		end
+	end
+
+	class ComplexEventPriceTimeType < Quickfix::IntField
+		def ComplexEventPriceTimeType.field
+			return 1489
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1489)
+			else
+				super(1489, data)
+			end
+		end
+	end
+
+	class ComplexEventCondition < Quickfix::IntField
+		def ComplexEventCondition.field
+			return 1490
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1490)
+			else
+				super(1490, data)
+			end
+		end
+	end
+
+	class NoComplexEventDates < Quickfix::IntField
+		def NoComplexEventDates.field
+			return 1491
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1491)
+			else
+				super(1491, data)
+			end
+		end
+	end
+
+	class ComplexEventStartDate < Quickfix::UtcTimeStampField
+		def ComplexEventStartDate.field
+			return 1492
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1492)
+			else
+				super(1492, data)
+			end
+		end
+	end
+
+	class ComplexEventEndDate < Quickfix::UtcTimeStampField
+		def ComplexEventEndDate.field
+			return 1493
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1493)
+			else
+				super(1493, data)
+			end
+		end
+	end
+
+	class NoComplexEventTimes < Quickfix::IntField
+		def NoComplexEventTimes.field
+			return 1494
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1494)
+			else
+				super(1494, data)
+			end
+		end
+	end
+
+	class ComplexEventStartTime < Quickfix::UtcTimeOnlyField
+		def ComplexEventStartTime.field
+			return 1495
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1495)
+			else
+				super(1495, data)
+			end
+		end
+	end
+
+	class ComplexEventEndTime < Quickfix::UtcTimeOnlyField
+		def ComplexEventEndTime.field
+			return 1496
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1496)
+			else
+				super(1496, data)
+			end
+		end
+	end
+
+	class StreamAsgnReqID < Quickfix::StringField
+		def StreamAsgnReqID.field
+			return 1497
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1497)
+			else
+				super(1497, data)
+			end
+		end
+	end
+
+	class StreamAsgnReqType < Quickfix::IntField
+		def StreamAsgnReqType.field
+			return 1498
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1498)
+			else
+				super(1498, data)
+			end
+		end
+	end
+
+	class NoAsgnReqs < Quickfix::IntField
+		def NoAsgnReqs.field
+			return 1499
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1499)
+			else
+				super(1499, data)
+			end
+		end
+	end
+
+	class MDStreamID < Quickfix::StringField
+		def MDStreamID.field
+			return 1500
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1500)
+			else
+				super(1500, data)
+			end
+		end
+	end
+
+	class StreamAsgnRptID < Quickfix::StringField
+		def StreamAsgnRptID.field
+			return 1501
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1501)
+			else
+				super(1501, data)
+			end
+		end
+	end
+
+	class StreamAsgnRejReason < Quickfix::IntField
+		def StreamAsgnRejReason.field
+			return 1502
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1502)
+			else
+				super(1502, data)
+			end
+		end
+	end
+
+	class StreamAsgnAckType < Quickfix::IntField
+		def StreamAsgnAckType.field
+			return 1503
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1503)
+			else
+				super(1503, data)
+			end
+		end
+	end
+
+	class RelSymTransactTime < Quickfix::UtcTimeStampField
+		def RelSymTransactTime.field
+			return 1504
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1504)
+			else
+				super(1504, data)
+			end
+		end
+	end
+
+	class PartyDetailsListRequestID < Quickfix::StringField
+		def PartyDetailsListRequestID.field
+			return 1505
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1505)
+			else
+				super(1505, data)
+			end
+		end
+	end
+
+	class NoPartyListResponseTypes < Quickfix::IntField
+		def NoPartyListResponseTypes.field
+			return 1506
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1506)
+			else
+				super(1506, data)
+			end
+		end
+	end
+
+	class PartyListResponseType < Quickfix::IntField
+		def PartyListResponseType.field
+			return 1507
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1507)
+			else
+				super(1507, data)
+			end
+		end
+	end
+
+	class NoRequestedPartyRoles < Quickfix::IntField
+		def NoRequestedPartyRoles.field
+			return 1508
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1508)
+			else
+				super(1508, data)
+			end
+		end
+	end
+
+	class RequestedPartyRole < Quickfix::IntField
+		def RequestedPartyRole.field
+			return 1509
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1509)
+			else
+				super(1509, data)
+			end
+		end
+	end
+
+	class PartyDetailsListReportID < Quickfix::StringField
+		def PartyDetailsListReportID.field
+			return 1510
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1510)
+			else
+				super(1510, data)
+			end
+		end
+	end
+
+	class PartyDetailsRequestResult < Quickfix::IntField
+		def PartyDetailsRequestResult.field
+			return 1511
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1511)
+			else
+				super(1511, data)
+			end
+		end
+	end
+
+	class TotNoPartyList < Quickfix::IntField
+		def TotNoPartyList.field
+			return 1512
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1512)
+			else
+				super(1512, data)
+			end
+		end
+	end
+
+	class NoPartyList < Quickfix::IntField
+		def NoPartyList.field
+			return 1513
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1513)
+			else
+				super(1513, data)
+			end
+		end
+	end
+
+	class NoPartyRelationships < Quickfix::IntField
+		def NoPartyRelationships.field
+			return 1514
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1514)
+			else
+				super(1514, data)
+			end
+		end
+	end
+
+	class PartyRelationship < Quickfix::IntField
+		def PartyRelationship.field
+			return 1515
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1515)
+			else
+				super(1515, data)
+			end
+		end
+	end
+
+	class NoPartyAltIDs < Quickfix::IntField
+		def NoPartyAltIDs.field
+			return 1516
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1516)
+			else
+				super(1516, data)
+			end
+		end
+	end
+
+	class PartyAltID < Quickfix::StringField
+		def PartyAltID.field
+			return 1517
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1517)
+			else
+				super(1517, data)
+			end
+		end
+	end
+
+	class PartyAltIDSource < Quickfix::CharField
+		def PartyAltIDSource.field
+			return 1518
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1518)
+			else
+				super(1518, data)
+			end
+		end
+	end
+
+	class NoPartyAltSubIDs < Quickfix::IntField
+		def NoPartyAltSubIDs.field
+			return 1519
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1519)
+			else
+				super(1519, data)
+			end
+		end
+	end
+
+	class PartyAltSubID < Quickfix::StringField
+		def PartyAltSubID.field
+			return 1520
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1520)
+			else
+				super(1520, data)
+			end
+		end
+	end
+
+	class PartyAltSubIDType < Quickfix::IntField
+		def PartyAltSubIDType.field
+			return 1521
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1521)
+			else
+				super(1521, data)
+			end
+		end
+	end
+
+	class NoContextPartyIDs < Quickfix::IntField
+		def NoContextPartyIDs.field
+			return 1522
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1522)
+			else
+				super(1522, data)
+			end
+		end
+	end
+
+	class ContextPartyID < Quickfix::StringField
+		def ContextPartyID.field
+			return 1523
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1523)
+			else
+				super(1523, data)
+			end
+		end
+	end
+
+	class ContextPartyIDSource < Quickfix::CharField
+		def ContextPartyIDSource.field
+			return 1524
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1524)
+			else
+				super(1524, data)
+			end
+		end
+	end
+
+	class ContextPartyRole < Quickfix::IntField
+		def ContextPartyRole.field
+			return 1525
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1525)
+			else
+				super(1525, data)
+			end
+		end
+	end
+
+	class NoContextPartySubIDs < Quickfix::IntField
+		def NoContextPartySubIDs.field
+			return 1526
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1526)
+			else
+				super(1526, data)
+			end
+		end
+	end
+
+	class ContextPartySubID < Quickfix::StringField
+		def ContextPartySubID.field
+			return 1527
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1527)
+			else
+				super(1527, data)
+			end
+		end
+	end
+
+	class ContextPartySubIDType < Quickfix::IntField
+		def ContextPartySubIDType.field
+			return 1528
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1528)
+			else
+				super(1528, data)
+			end
+		end
+	end
+
+	class NoRiskLimits < Quickfix::IntField
+		def NoRiskLimits.field
+			return 1529
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1529)
+			else
+				super(1529, data)
+			end
+		end
+	end
+
+	class RiskLimitType < Quickfix::IntField
+		def RiskLimitType.field
+			return 1530
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1530)
+			else
+				super(1530, data)
+			end
+		end
+	end
+
+	class RiskLimitAmount < Quickfix::DoubleField
+		def RiskLimitAmount.field
+			return 1531
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1531)
+			else
+				super(1531, data)
+			end
+		end
+	end
+
+	class RiskLimitCurrency < Quickfix::StringField
+		def RiskLimitCurrency.field
+			return 1532
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1532)
+			else
+				super(1532, data)
+			end
+		end
+	end
+
+	class RiskLimitPlatform < Quickfix::StringField
+		def RiskLimitPlatform.field
+			return 1533
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1533)
+			else
+				super(1533, data)
+			end
+		end
+	end
+
+	class NoRiskInstruments < Quickfix::IntField
+		def NoRiskInstruments.field
+			return 1534
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1534)
+			else
+				super(1534, data)
+			end
+		end
+	end
+
+	class RiskInstrumentOperator < Quickfix::IntField
+		def RiskInstrumentOperator.field
+			return 1535
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1535)
+			else
+				super(1535, data)
+			end
+		end
+	end
+
+	class RiskSymbol < Quickfix::StringField
+		def RiskSymbol.field
+			return 1536
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1536)
+			else
+				super(1536, data)
+			end
+		end
+	end
+
+	class RiskSymbolSfx < Quickfix::StringField
+		def RiskSymbolSfx.field
+			return 1537
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1537)
+			else
+				super(1537, data)
+			end
+		end
+	end
+
+	class RiskSecurityID < Quickfix::StringField
+		def RiskSecurityID.field
+			return 1538
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1538)
+			else
+				super(1538, data)
+			end
+		end
+	end
+
+	class RiskSecurityIDSource < Quickfix::StringField
+		def RiskSecurityIDSource.field
+			return 1539
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1539)
+			else
+				super(1539, data)
+			end
+		end
+	end
+
+	class NoRiskSecurityAltID < Quickfix::IntField
+		def NoRiskSecurityAltID.field
+			return 1540
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1540)
+			else
+				super(1540, data)
+			end
+		end
+	end
+
+	class RiskSecurityAltID < Quickfix::StringField
+		def RiskSecurityAltID.field
+			return 1541
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1541)
+			else
+				super(1541, data)
+			end
+		end
+	end
+
+	class RiskSecurityAltIDSource < Quickfix::StringField
+		def RiskSecurityAltIDSource.field
+			return 1542
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1542)
+			else
+				super(1542, data)
+			end
+		end
+	end
+
+	class RiskProduct < Quickfix::IntField
+		def RiskProduct.field
+			return 1543
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1543)
+			else
+				super(1543, data)
+			end
+		end
+	end
+
+	class RiskProductComplex < Quickfix::StringField
+		def RiskProductComplex.field
+			return 1544
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1544)
+			else
+				super(1544, data)
+			end
+		end
+	end
+
+	class RiskSecurityGroup < Quickfix::StringField
+		def RiskSecurityGroup.field
+			return 1545
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1545)
+			else
+				super(1545, data)
+			end
+		end
+	end
+
+	class RiskCFICode < Quickfix::StringField
+		def RiskCFICode.field
+			return 1546
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1546)
+			else
+				super(1546, data)
+			end
+		end
+	end
+
+	class RiskSecurityType < Quickfix::StringField
+		def RiskSecurityType.field
+			return 1547
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1547)
+			else
+				super(1547, data)
+			end
+		end
+	end
+
+	class RiskSecuritySubType < Quickfix::StringField
+		def RiskSecuritySubType.field
+			return 1548
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1548)
+			else
+				super(1548, data)
+			end
+		end
+	end
+
+	class RiskMaturityMonthYear < Quickfix::StringField
+		def RiskMaturityMonthYear.field
+			return 1549
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1549)
+			else
+				super(1549, data)
+			end
+		end
+	end
+
+	class RiskMaturityTime < Quickfix::StringField
+		def RiskMaturityTime.field
+			return 1550
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1550)
+			else
+				super(1550, data)
+			end
+		end
+	end
+
+	class RiskRestructuringType < Quickfix::StringField
+		def RiskRestructuringType.field
+			return 1551
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1551)
+			else
+				super(1551, data)
+			end
+		end
+	end
+
+	class RiskSeniority < Quickfix::StringField
+		def RiskSeniority.field
+			return 1552
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1552)
+			else
+				super(1552, data)
+			end
+		end
+	end
+
+	class RiskPutOrCall < Quickfix::IntField
+		def RiskPutOrCall.field
+			return 1553
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1553)
+			else
+				super(1553, data)
+			end
+		end
+	end
+
+	class RiskFlexibleIndicator < Quickfix::BoolField
+		def RiskFlexibleIndicator.field
+			return 1554
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1554)
+			else
+				super(1554, data)
+			end
+		end
+	end
+
+	class RiskCouponRate < Quickfix::DoubleField
+		def RiskCouponRate.field
+			return 1555
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1555)
+			else
+				super(1555, data)
+			end
+		end
+	end
+
+	class RiskSecurityDesc < Quickfix::StringField
+		def RiskSecurityDesc.field
+			return 1556
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1556)
+			else
+				super(1556, data)
+			end
+		end
+	end
+
+	class RiskInstrumentSettlType < Quickfix::StringField
+		def RiskInstrumentSettlType.field
+			return 1557
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1557)
+			else
+				super(1557, data)
+			end
+		end
+	end
+
+	class RiskInstrumentMultiplier < Quickfix::DoubleField
+		def RiskInstrumentMultiplier.field
+			return 1558
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1558)
+			else
+				super(1558, data)
+			end
+		end
+	end
+
+	class NoRiskWarningLevels < Quickfix::IntField
+		def NoRiskWarningLevels.field
+			return 1559
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1559)
+			else
+				super(1559, data)
+			end
+		end
+	end
+
+	class RiskWarningLevelPercent < Quickfix::DoubleField
+		def RiskWarningLevelPercent.field
+			return 1560
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1560)
+			else
+				super(1560, data)
+			end
+		end
+	end
+
+	class RiskWarningLevelName < Quickfix::StringField
+		def RiskWarningLevelName.field
+			return 1561
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1561)
+			else
+				super(1561, data)
+			end
+		end
+	end
+
+	class NoRelatedPartyIDs < Quickfix::IntField
+		def NoRelatedPartyIDs.field
+			return 1562
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1562)
+			else
+				super(1562, data)
+			end
+		end
+	end
+
+	class RelatedPartyID < Quickfix::StringField
+		def RelatedPartyID.field
+			return 1563
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1563)
+			else
+				super(1563, data)
+			end
+		end
+	end
+
+	class RelatedPartyIDSource < Quickfix::CharField
+		def RelatedPartyIDSource.field
+			return 1564
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1564)
+			else
+				super(1564, data)
+			end
+		end
+	end
+
+	class RelatedPartyRole < Quickfix::IntField
+		def RelatedPartyRole.field
+			return 1565
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1565)
+			else
+				super(1565, data)
+			end
+		end
+	end
+
+	class NoRelatedPartySubIDs < Quickfix::IntField
+		def NoRelatedPartySubIDs.field
+			return 1566
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1566)
+			else
+				super(1566, data)
+			end
+		end
+	end
+
+	class RelatedPartySubID < Quickfix::StringField
+		def RelatedPartySubID.field
+			return 1567
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1567)
+			else
+				super(1567, data)
+			end
+		end
+	end
+
+	class RelatedPartySubIDType < Quickfix::IntField
+		def RelatedPartySubIDType.field
+			return 1568
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1568)
+			else
+				super(1568, data)
+			end
+		end
+	end
+
+	class NoRelatedPartyAltIDs < Quickfix::IntField
+		def NoRelatedPartyAltIDs.field
+			return 1569
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1569)
+			else
+				super(1569, data)
+			end
+		end
+	end
+
+	class RelatedPartyAltID < Quickfix::StringField
+		def RelatedPartyAltID.field
+			return 1570
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1570)
+			else
+				super(1570, data)
+			end
+		end
+	end
+
+	class RelatedPartyAltIDSource < Quickfix::CharField
+		def RelatedPartyAltIDSource.field
+			return 1571
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1571)
+			else
+				super(1571, data)
+			end
+		end
+	end
+
+	class NoRelatedPartyAltSubIDs < Quickfix::IntField
+		def NoRelatedPartyAltSubIDs.field
+			return 1572
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1572)
+			else
+				super(1572, data)
+			end
+		end
+	end
+
+	class RelatedPartyAltSubID < Quickfix::StringField
+		def RelatedPartyAltSubID.field
+			return 1573
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1573)
+			else
+				super(1573, data)
+			end
+		end
+	end
+
+	class RelatedPartyAltSubIDType < Quickfix::IntField
+		def RelatedPartyAltSubIDType.field
+			return 1574
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1574)
+			else
+				super(1574, data)
+			end
+		end
+	end
+
+	class NoRelatedContextPartyIDs < Quickfix::IntField
+		def NoRelatedContextPartyIDs.field
+			return 1575
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1575)
+			else
+				super(1575, data)
+			end
+		end
+	end
+
+	class RelatedContextPartyID < Quickfix::StringField
+		def RelatedContextPartyID.field
+			return 1576
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1576)
+			else
+				super(1576, data)
+			end
+		end
+	end
+
+	class RelatedContextPartyIDSource < Quickfix::CharField
+		def RelatedContextPartyIDSource.field
+			return 1577
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1577)
+			else
+				super(1577, data)
+			end
+		end
+	end
+
+	class RelatedContextPartyRole < Quickfix::IntField
+		def RelatedContextPartyRole.field
+			return 1578
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1578)
+			else
+				super(1578, data)
+			end
+		end
+	end
+
+	class NoRelatedContextPartySubIDs < Quickfix::IntField
+		def NoRelatedContextPartySubIDs.field
+			return 1579
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1579)
+			else
+				super(1579, data)
+			end
+		end
+	end
+
+	class RelatedContextPartySubID < Quickfix::StringField
+		def RelatedContextPartySubID.field
+			return 1580
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1580)
+			else
+				super(1580, data)
+			end
+		end
+	end
+
+	class RelatedContextPartySubIDType < Quickfix::IntField
+		def RelatedContextPartySubIDType.field
+			return 1581
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1581)
+			else
+				super(1581, data)
+			end
+		end
+	end
+
+	class NoRelationshipRiskLimits < Quickfix::IntField
+		def NoRelationshipRiskLimits.field
+			return 1582
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1582)
+			else
+				super(1582, data)
+			end
+		end
+	end
+
+	class RelationshipRiskLimitType < Quickfix::IntField
+		def RelationshipRiskLimitType.field
+			return 1583
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1583)
+			else
+				super(1583, data)
+			end
+		end
+	end
+
+	class RelationshipRiskLimitAmount < Quickfix::DoubleField
+		def RelationshipRiskLimitAmount.field
+			return 1584
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1584)
+			else
+				super(1584, data)
+			end
+		end
+	end
+
+	class RelationshipRiskLimitCurrency < Quickfix::StringField
+		def RelationshipRiskLimitCurrency.field
+			return 1585
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1585)
+			else
+				super(1585, data)
+			end
+		end
+	end
+
+	class RelationshipRiskLimitPlatform < Quickfix::StringField
+		def RelationshipRiskLimitPlatform.field
+			return 1586
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1586)
+			else
+				super(1586, data)
+			end
+		end
+	end
+
+	class NoRelationshipRiskInstruments < Quickfix::IntField
+		def NoRelationshipRiskInstruments.field
+			return 1587
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1587)
+			else
+				super(1587, data)
+			end
+		end
+	end
+
+	class RelationshipRiskInstrumentOperator < Quickfix::IntField
+		def RelationshipRiskInstrumentOperator.field
+			return 1588
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1588)
+			else
+				super(1588, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSymbol < Quickfix::StringField
+		def RelationshipRiskSymbol.field
+			return 1589
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1589)
+			else
+				super(1589, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSymbolSfx < Quickfix::StringField
+		def RelationshipRiskSymbolSfx.field
+			return 1590
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1590)
+			else
+				super(1590, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityID < Quickfix::StringField
+		def RelationshipRiskSecurityID.field
+			return 1591
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1591)
+			else
+				super(1591, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityIDSource < Quickfix::StringField
+		def RelationshipRiskSecurityIDSource.field
+			return 1592
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1592)
+			else
+				super(1592, data)
+			end
+		end
+	end
+
+	class NoRelationshipRiskSecurityAltID < Quickfix::IntField
+		def NoRelationshipRiskSecurityAltID.field
+			return 1593
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1593)
+			else
+				super(1593, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityAltID < Quickfix::StringField
+		def RelationshipRiskSecurityAltID.field
+			return 1594
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1594)
+			else
+				super(1594, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityAltIDSource < Quickfix::StringField
+		def RelationshipRiskSecurityAltIDSource.field
+			return 1595
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1595)
+			else
+				super(1595, data)
+			end
+		end
+	end
+
+	class RelationshipRiskProduct < Quickfix::IntField
+		def RelationshipRiskProduct.field
+			return 1596
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1596)
+			else
+				super(1596, data)
+			end
+		end
+	end
+
+	class RelationshipRiskProductComplex < Quickfix::StringField
+		def RelationshipRiskProductComplex.field
+			return 1597
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1597)
+			else
+				super(1597, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityGroup < Quickfix::StringField
+		def RelationshipRiskSecurityGroup.field
+			return 1598
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1598)
+			else
+				super(1598, data)
+			end
+		end
+	end
+
+	class RelationshipRiskCFICode < Quickfix::StringField
+		def RelationshipRiskCFICode.field
+			return 1599
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1599)
+			else
+				super(1599, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityType < Quickfix::StringField
+		def RelationshipRiskSecurityType.field
+			return 1600
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1600)
+			else
+				super(1600, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecuritySubType < Quickfix::StringField
+		def RelationshipRiskSecuritySubType.field
+			return 1601
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1601)
+			else
+				super(1601, data)
+			end
+		end
+	end
+
+	class RelationshipRiskMaturityMonthYear < Quickfix::StringField
+		def RelationshipRiskMaturityMonthYear.field
+			return 1602
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1602)
+			else
+				super(1602, data)
+			end
+		end
+	end
+
+	class RelationshipRiskMaturityTime < Quickfix::StringField
+		def RelationshipRiskMaturityTime.field
+			return 1603
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1603)
+			else
+				super(1603, data)
+			end
+		end
+	end
+
+	class RelationshipRiskRestructuringType < Quickfix::StringField
+		def RelationshipRiskRestructuringType.field
+			return 1604
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1604)
+			else
+				super(1604, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSeniority < Quickfix::StringField
+		def RelationshipRiskSeniority.field
+			return 1605
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1605)
+			else
+				super(1605, data)
+			end
+		end
+	end
+
+	class RelationshipRiskPutOrCall < Quickfix::IntField
+		def RelationshipRiskPutOrCall.field
+			return 1606
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1606)
+			else
+				super(1606, data)
+			end
+		end
+	end
+
+	class RelationshipRiskFlexibleIndicator < Quickfix::BoolField
+		def RelationshipRiskFlexibleIndicator.field
+			return 1607
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1607)
+			else
+				super(1607, data)
+			end
+		end
+	end
+
+	class RelationshipRiskCouponRate < Quickfix::DoubleField
+		def RelationshipRiskCouponRate.field
+			return 1608
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1608)
+			else
+				super(1608, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityExchange < Quickfix::StringField
+		def RelationshipRiskSecurityExchange.field
+			return 1609
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1609)
+			else
+				super(1609, data)
+			end
+		end
+	end
+
+	class RelationshipRiskSecurityDesc < Quickfix::StringField
+		def RelationshipRiskSecurityDesc.field
+			return 1610
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1610)
+			else
+				super(1610, data)
+			end
+		end
+	end
+
+	class RelationshipRiskInstrumentSettlType < Quickfix::StringField
+		def RelationshipRiskInstrumentSettlType.field
+			return 1611
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1611)
+			else
+				super(1611, data)
+			end
+		end
+	end
+
+	class RelationshipRiskInstrumentMultiplier < Quickfix::DoubleField
+		def RelationshipRiskInstrumentMultiplier.field
+			return 1612
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1612)
+			else
+				super(1612, data)
+			end
+		end
+	end
+
+	class NoRelationshipRiskWarningLevels < Quickfix::IntField
+		def NoRelationshipRiskWarningLevels.field
+			return 1613
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1613)
+			else
+				super(1613, data)
+			end
+		end
+	end
+
+	class RelationshipRiskWarningLevelPercent < Quickfix::DoubleField
+		def RelationshipRiskWarningLevelPercent.field
+			return 1614
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1614)
+			else
+				super(1614, data)
+			end
+		end
+	end
+
+	class RelationshipRiskWarningLevelName < Quickfix::StringField
+		def RelationshipRiskWarningLevelName.field
+			return 1615
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1615)
+			else
+				super(1615, data)
+			end
+		end
+	end
+
+	class RiskSecurityExchange < Quickfix::StringField
+		def RiskSecurityExchange.field
+			return 1616
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1616)
+			else
+				super(1616, data)
+			end
+		end
+	end
+
+	class StreamAsgnType < Quickfix::IntField
+		def StreamAsgnType.field
+			return 1617
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1617)
+			else
+				super(1617, data)
+			end
+		end
+	end
+
+	class RelationshipRiskEncodedSecurityDescLen < Quickfix::IntField
+		def RelationshipRiskEncodedSecurityDescLen.field
+			return 1618
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1618)
+			else
+				super(1618, data)
+			end
+		end
+	end
+
+	class RelationshipRiskEncodedSecurityDesc < Quickfix::StringField
+		def RelationshipRiskEncodedSecurityDesc.field
+			return 1619
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1619)
+			else
+				super(1619, data)
+			end
+		end
+	end
+
+	class RiskEncodedSecurityDescLen < Quickfix::IntField
+		def RiskEncodedSecurityDescLen.field
+			return 1620
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1620)
+			else
+				super(1620, data)
+			end
+		end
+	end
+
+	class RiskEncodedSecurityDesc < Quickfix::StringField
+		def RiskEncodedSecurityDesc.field
+			return 1621
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1621)
+			else
+				super(1621, data)
 			end
 		end
 	end
