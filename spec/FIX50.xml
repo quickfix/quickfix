@@ -1,4 +1,4 @@
-<fix major='5' type='FIX' minor='0'>
+<fix major='5' type='FIX' servicepack='0' minor='0'>
  <header />
  <messages>
   <message name='IOI' msgcat='app' msgtype='6'>

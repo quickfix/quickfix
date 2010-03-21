@@ -1,9 +1,9 @@
-#ifndef FIX50_STREAMASSIGNMENTREQUEST_H
-#define FIX50_STREAMASSIGNMENTREQUEST_H
+#ifndef FIX50SP2_STREAMASSIGNMENTREQUEST_H
+#define FIX50SP2_STREAMASSIGNMENTREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class StreamAssignmentRequest : public Message

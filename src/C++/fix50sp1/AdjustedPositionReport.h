@@ -1,9 +1,9 @@
-#ifndef FIX50_ADJUSTEDPOSITIONREPORT_H
-#define FIX50_ADJUSTEDPOSITIONREPORT_H
+#ifndef FIX50SP1_ADJUSTEDPOSITIONREPORT_H
+#define FIX50SP1_ADJUSTEDPOSITIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class AdjustedPositionReport : public Message

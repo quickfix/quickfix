@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYLISTUPDATEREPORT_H
-#define FIX50_SECURITYLISTUPDATEREPORT_H
+#ifndef FIX50SP2_SECURITYLISTUPDATEREPORT_H
+#define FIX50SP2_SECURITYLISTUPDATEREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class SecurityListUpdateReport : public Message

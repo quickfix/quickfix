@@ -1,9 +1,9 @@
-#ifndef FIX50_APPLICATIONMESSAGEREQUEST_H
-#define FIX50_APPLICATIONMESSAGEREQUEST_H
+#ifndef FIX50SP2_APPLICATIONMESSAGEREQUEST_H
+#define FIX50SP2_APPLICATIONMESSAGEREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class ApplicationMessageRequest : public Message

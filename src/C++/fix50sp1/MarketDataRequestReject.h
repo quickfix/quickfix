@@ -1,9 +1,9 @@
-#ifndef FIX50_MARKETDATAREQUESTREJECT_H
-#define FIX50_MARKETDATAREQUESTREJECT_H
+#ifndef FIX50SP1_MARKETDATAREQUESTREJECT_H
+#define FIX50SP1_MARKETDATAREQUESTREJECT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class MarketDataRequestReject : public Message

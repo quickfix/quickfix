@@ -1,9 +1,9 @@
-#ifndef FIX50_DONTKNOWTRADEDK_H
-#define FIX50_DONTKNOWTRADEDK_H
+#ifndef FIX50SP1_DONTKNOWTRADEDK_H
+#define FIX50SP1_DONTKNOWTRADEDK_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class DontKnowTradeDK : public Message

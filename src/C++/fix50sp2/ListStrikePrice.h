@@ -1,9 +1,9 @@
-#ifndef FIX50_LISTSTRIKEPRICE_H
-#define FIX50_LISTSTRIKEPRICE_H
+#ifndef FIX50SP2_LISTSTRIKEPRICE_H
+#define FIX50SP2_LISTSTRIKEPRICE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class ListStrikePrice : public Message

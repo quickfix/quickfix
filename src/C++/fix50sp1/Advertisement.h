@@ -1,9 +1,9 @@
-#ifndef FIX50_ADVERTISEMENT_H
-#define FIX50_ADVERTISEMENT_H
+#ifndef FIX50SP1_ADVERTISEMENT_H
+#define FIX50SP1_ADVERTISEMENT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class Advertisement : public Message

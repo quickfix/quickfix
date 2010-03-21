@@ -6,12 +6,15 @@ class GeneratorCPP
     @major = major
     @minor = minor
     @namespace = type + major + minor
+    if( sp != "0" )
+      @namespace += "SP#{sp}"
+    end
     @beginstring = type + "." + major + "." + minor
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
     @basedir = basedir
-    @dir = basedir + "/" + @namespace.downcase + sp.downcase
+    @dir = basedir + "/" + @namespace.downcase
     @basefile = createVersionFile("Message.h")
     @f = @basefile
   end

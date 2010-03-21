@@ -1,9 +1,9 @@
-#ifndef FIX50_MULTILEGORDERCANCELREPLACE_H
-#define FIX50_MULTILEGORDERCANCELREPLACE_H
+#ifndef FIX50SP1_MULTILEGORDERCANCELREPLACE_H
+#define FIX50SP1_MULTILEGORDERCANCELREPLACE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class MultilegOrderCancelReplace : public Message

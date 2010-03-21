@@ -1,9 +1,9 @@
-#ifndef FIX50_QUOTESTATUSREPORT_H
-#define FIX50_QUOTESTATUSREPORT_H
+#ifndef FIX50SP1_QUOTESTATUSREPORT_H
+#define FIX50SP1_QUOTESTATUSREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class QuoteStatusReport : public Message

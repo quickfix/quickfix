@@ -1,9 +1,9 @@
-#ifndef FIX50_LISTSTATUSREQUEST_H
-#define FIX50_LISTSTATUSREQUEST_H
+#ifndef FIX50SP1_LISTSTATUSREQUEST_H
+#define FIX50SP1_LISTSTATUSREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class ListStatusRequest : public Message

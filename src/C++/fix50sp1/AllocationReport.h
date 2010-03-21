@@ -1,9 +1,9 @@
-#ifndef FIX50_ALLOCATIONREPORT_H
-#define FIX50_ALLOCATIONREPORT_H
+#ifndef FIX50SP1_ALLOCATIONREPORT_H
+#define FIX50SP1_ALLOCATIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class AllocationReport : public Message

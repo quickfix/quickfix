@@ -1,9 +1,9 @@
-#ifndef FIX50_ORDERCANCELREQUEST_H
-#define FIX50_ORDERCANCELREQUEST_H
+#ifndef FIX50SP1_ORDERCANCELREQUEST_H
+#define FIX50SP1_ORDERCANCELREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class OrderCancelRequest : public Message

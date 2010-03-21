@@ -1,9 +1,9 @@
-#ifndef FIX50_CROSSORDERCANCELREQUEST_H
-#define FIX50_CROSSORDERCANCELREQUEST_H
+#ifndef FIX50SP1_CROSSORDERCANCELREQUEST_H
+#define FIX50SP1_CROSSORDERCANCELREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class CrossOrderCancelRequest : public Message

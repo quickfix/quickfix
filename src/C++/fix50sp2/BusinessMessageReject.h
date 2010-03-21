@@ -1,9 +1,9 @@
-#ifndef FIX50_BUSINESSMESSAGEREJECT_H
-#define FIX50_BUSINESSMESSAGEREJECT_H
+#ifndef FIX50SP2_BUSINESSMESSAGEREJECT_H
+#define FIX50SP2_BUSINESSMESSAGEREJECT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class BusinessMessageReject : public Message

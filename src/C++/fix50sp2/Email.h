@@ -1,9 +1,9 @@
-#ifndef FIX50_EMAIL_H
-#define FIX50_EMAIL_H
+#ifndef FIX50SP2_EMAIL_H
+#define FIX50SP2_EMAIL_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class Email : public Message

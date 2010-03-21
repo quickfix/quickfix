@@ -9,7 +9,11 @@ class GeneratorPython
     end
     @depth = 0;
     @dir = dir + "/"
-    @f = createFile( "quick" + type.downcase + major + minor + sp.downcase + ".py" )
+    if( sp != "0" )
+      @f = createFile( "quick" + type.downcase + major + minor + sp + ".py" )
+    else
+      @f = createFile( "quick" + type.downcase + major + minor + ".py" )
+    end
     @messageStarted = false
   end
 

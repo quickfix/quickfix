@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYLISTREQUEST_H
-#define FIX50_SECURITYLISTREQUEST_H
+#ifndef FIX50SP1_SECURITYLISTREQUEST_H
+#define FIX50SP1_SECURITYLISTREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class SecurityListRequest : public Message

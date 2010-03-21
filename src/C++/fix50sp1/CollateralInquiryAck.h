@@ -1,9 +1,9 @@
-#ifndef FIX50_COLLATERALINQUIRYACK_H
-#define FIX50_COLLATERALINQUIRYACK_H
+#ifndef FIX50SP1_COLLATERALINQUIRYACK_H
+#define FIX50SP1_COLLATERALINQUIRYACK_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class CollateralInquiryAck : public Message

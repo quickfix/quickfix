@@ -1,9 +1,9 @@
-#ifndef FIX50_MASSQUOTEACKNOWLEDGEMENT_H
-#define FIX50_MASSQUOTEACKNOWLEDGEMENT_H
+#ifndef FIX50SP1_MASSQUOTEACKNOWLEDGEMENT_H
+#define FIX50SP1_MASSQUOTEACKNOWLEDGEMENT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class MassQuoteAcknowledgement : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_LISTEXECUTE_H
-#define FIX50_LISTEXECUTE_H
+#ifndef FIX50SP2_LISTEXECUTE_H
+#define FIX50SP2_LISTEXECUTE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class ListExecute : public Message

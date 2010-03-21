@@ -1,9 +1,9 @@
-#ifndef FIX50_ALLOCATIONINSTRUCTIONACK_H
-#define FIX50_ALLOCATIONINSTRUCTIONACK_H
+#ifndef FIX50SP1_ALLOCATIONINSTRUCTIONACK_H
+#define FIX50SP1_ALLOCATIONINSTRUCTIONACK_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class AllocationInstructionAck : public Message

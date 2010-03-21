@@ -1,9 +1,9 @@
-#ifndef FIX50_EXECUTIONREPORT_H
-#define FIX50_EXECUTIONREPORT_H
+#ifndef FIX50SP1_EXECUTIONREPORT_H
+#define FIX50SP1_EXECUTIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class ExecutionReport : public Message

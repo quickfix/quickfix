@@ -1,9 +1,9 @@
-#ifndef FIX50_CONFIRMATIONREQUEST_H
-#define FIX50_CONFIRMATIONREQUEST_H
+#ifndef FIX50SP1_CONFIRMATIONREQUEST_H
+#define FIX50SP1_CONFIRMATIONREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class ConfirmationRequest : public Message

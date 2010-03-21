@@ -1,9 +1,9 @@
-#ifndef FIX50_PARTYDETAILSLISTREPORT_H
-#define FIX50_PARTYDETAILSLISTREPORT_H
+#ifndef FIX50SP2_PARTYDETAILSLISTREPORT_H
+#define FIX50SP2_PARTYDETAILSLISTREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class PartyDetailsListReport : public Message

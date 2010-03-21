@@ -1,9 +1,9 @@
-#ifndef FIX50_ORDERMASSACTIONREQUEST_H
-#define FIX50_ORDERMASSACTIONREQUEST_H
+#ifndef FIX50SP1_ORDERMASSACTIONREQUEST_H
+#define FIX50SP1_ORDERMASSACTIONREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class OrderMassActionRequest : public Message

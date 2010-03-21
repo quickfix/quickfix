@@ -1,9 +1,9 @@
-#ifndef FIX50_RFQREQUEST_H
-#define FIX50_RFQREQUEST_H
+#ifndef FIX50SP1_RFQREQUEST_H
+#define FIX50SP1_RFQREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class RFQRequest : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYLIST_H
-#define FIX50_SECURITYLIST_H
+#ifndef FIX50SP1_SECURITYLIST_H
+#define FIX50SP1_SECURITYLIST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class SecurityList : public Message

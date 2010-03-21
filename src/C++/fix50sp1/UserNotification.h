@@ -1,9 +1,9 @@
-#ifndef FIX50_USERNOTIFICATION_H
-#define FIX50_USERNOTIFICATION_H
+#ifndef FIX50SP1_USERNOTIFICATION_H
+#define FIX50SP1_USERNOTIFICATION_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class UserNotification : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_POSITIONREPORT_H
-#define FIX50_POSITIONREPORT_H
+#ifndef FIX50SP1_POSITIONREPORT_H
+#define FIX50SP1_POSITIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class PositionReport : public Message

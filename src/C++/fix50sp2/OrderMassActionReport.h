@@ -1,9 +1,9 @@
-#ifndef FIX50_ORDERMASSACTIONREPORT_H
-#define FIX50_ORDERMASSACTIONREPORT_H
+#ifndef FIX50SP2_ORDERMASSACTIONREPORT_H
+#define FIX50SP2_ORDERMASSACTIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class OrderMassActionReport : public Message

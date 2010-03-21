@@ -1,9 +1,9 @@
-#ifndef FIX50_SETTLEMENTOBLIGATIONREPORT_H
-#define FIX50_SETTLEMENTOBLIGATIONREPORT_H
+#ifndef FIX50SP1_SETTLEMENTOBLIGATIONREPORT_H
+#define FIX50SP1_SETTLEMENTOBLIGATIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class SettlementObligationReport : public Message

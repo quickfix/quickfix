@@ -1,9 +1,9 @@
-#ifndef FIX50_QUOTEREQUESTREJECT_H
-#define FIX50_QUOTEREQUESTREJECT_H
+#ifndef FIX50SP1_QUOTEREQUESTREJECT_H
+#define FIX50SP1_QUOTEREQUESTREJECT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class QuoteRequestReject : public Message

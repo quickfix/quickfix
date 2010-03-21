@@ -1,9 +1,9 @@
-#ifndef FIX50_COLLATERALREQUEST_H
-#define FIX50_COLLATERALREQUEST_H
+#ifndef FIX50SP1_COLLATERALREQUEST_H
+#define FIX50SP1_COLLATERALREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class CollateralRequest : public Message

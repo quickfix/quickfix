@@ -1,9 +1,9 @@
-#ifndef FIX50_USERRESPONSE_H
-#define FIX50_USERRESPONSE_H
+#ifndef FIX50SP1_USERRESPONSE_H
+#define FIX50SP1_USERRESPONSE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class UserResponse : public Message

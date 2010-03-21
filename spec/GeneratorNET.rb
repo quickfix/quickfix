@@ -9,6 +9,9 @@ class GeneratorNET
         @namespace = "QuickFixT" + major + minor
     else
         @namespace = "QuickFix" + major + minor
+        if( sp != "0" )
+          @namespace += "Sp#{sp}"
+        end
     end
     @beginstring = type + "." + major + "." + minor
     if @type == "FIX" && major >= "5"
@@ -16,7 +19,11 @@ class GeneratorNET
     end
     @depth = 0;
     @basedir = basedir
-    @dir = basedir + "/" + type.downcase + major + minor + sp.downcase + "/"
+    if( sp != "0" )
+      @dir = basedir + "/" + type.downcase + major + minor + "sp#{sp}" + "/"
+    else
+      @dir = basedir + "/" + type.downcase + major + minor + "/"
+    end
     @basefile = createVersionFile("Message.cs")
     @f = @basefile
   end

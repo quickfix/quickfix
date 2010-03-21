@@ -1,9 +1,9 @@
-#ifndef FIX50_TRADINGSESSIONSTATUSREQUEST_H
-#define FIX50_TRADINGSESSIONSTATUSREQUEST_H
+#ifndef FIX50SP2_TRADINGSESSIONSTATUSREQUEST_H
+#define FIX50SP2_TRADINGSESSIONSTATUSREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class TradingSessionStatusRequest : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_LISTCANCELREQUEST_H
-#define FIX50_LISTCANCELREQUEST_H
+#ifndef FIX50SP2_LISTCANCELREQUEST_H
+#define FIX50SP2_LISTCANCELREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class ListCancelRequest : public Message

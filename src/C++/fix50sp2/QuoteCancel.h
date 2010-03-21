@@ -1,9 +1,9 @@
-#ifndef FIX50_QUOTECANCEL_H
-#define FIX50_QUOTECANCEL_H
+#ifndef FIX50SP2_QUOTECANCEL_H
+#define FIX50SP2_QUOTECANCEL_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class QuoteCancel : public Message

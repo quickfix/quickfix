@@ -1,9 +1,9 @@
-#ifndef FIX50_ALLOCATIONINSTRUCTIONALERT_H
-#define FIX50_ALLOCATIONINSTRUCTIONALERT_H
+#ifndef FIX50SP1_ALLOCATIONINSTRUCTIONALERT_H
+#define FIX50SP1_ALLOCATIONINSTRUCTIONALERT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class AllocationInstructionAlert : public Message

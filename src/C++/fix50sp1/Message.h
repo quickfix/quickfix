@@ -1,10 +1,10 @@
-#ifndef FIX50_MESSAGES_H
-#define FIX50_MESSAGES_H
+#ifndef FIX50SP1_MESSAGES_H
+#define FIX50SP1_MESSAGES_H
 
 #include "../Message.h"
 #include "../Group.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
   class Header : public FIX::Header
   {

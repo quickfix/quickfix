@@ -1,9 +1,9 @@
-#ifndef FIX50_POSITIONMAINTENANCEREQUEST_H
-#define FIX50_POSITIONMAINTENANCEREQUEST_H
+#ifndef FIX50SP2_POSITIONMAINTENANCEREQUEST_H
+#define FIX50SP2_POSITIONMAINTENANCEREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class PositionMaintenanceRequest : public Message

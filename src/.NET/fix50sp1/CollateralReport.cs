@@ -1,4 +1,4 @@
-namespace QuickFix50
+namespace QuickFix50Sp1
 {
 
   public class CollateralReport : Message

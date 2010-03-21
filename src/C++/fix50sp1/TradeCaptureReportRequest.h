@@ -1,9 +1,9 @@
-#ifndef FIX50_TRADECAPTUREREPORTREQUEST_H
-#define FIX50_TRADECAPTUREREPORTREQUEST_H
+#ifndef FIX50SP1_TRADECAPTUREREPORTREQUEST_H
+#define FIX50SP1_TRADECAPTUREREPORTREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class TradeCaptureReportRequest : public Message

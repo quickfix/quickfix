@@ -1,9 +1,9 @@
-#ifndef FIX50_ORDERMASSCANCELREPORT_H
-#define FIX50_ORDERMASSCANCELREPORT_H
+#ifndef FIX50SP1_ORDERMASSCANCELREPORT_H
+#define FIX50SP1_ORDERMASSCANCELREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class OrderMassCancelReport : public Message

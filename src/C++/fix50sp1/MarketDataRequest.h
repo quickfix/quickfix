@@ -1,9 +1,9 @@
-#ifndef FIX50_MARKETDATAREQUEST_H
-#define FIX50_MARKETDATAREQUEST_H
+#ifndef FIX50SP1_MARKETDATAREQUEST_H
+#define FIX50SP1_MARKETDATAREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class MarketDataRequest : public Message

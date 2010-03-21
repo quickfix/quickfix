@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYTYPEREQUEST_H
-#define FIX50_SECURITYTYPEREQUEST_H
+#ifndef FIX50SP1_SECURITYTYPEREQUEST_H
+#define FIX50SP1_SECURITYTYPEREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class SecurityTypeRequest : public Message

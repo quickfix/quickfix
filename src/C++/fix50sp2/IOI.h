@@ -1,9 +1,9 @@
-#ifndef FIX50_IOI_H
-#define FIX50_IOI_H
+#ifndef FIX50SP2_IOI_H
+#define FIX50SP2_IOI_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class IOI : public Message

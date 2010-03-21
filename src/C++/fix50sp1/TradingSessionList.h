@@ -1,9 +1,9 @@
-#ifndef FIX50_TRADINGSESSIONLIST_H
-#define FIX50_TRADINGSESSIONLIST_H
+#ifndef FIX50SP1_TRADINGSESSIONLIST_H
+#define FIX50SP1_TRADINGSESSIONLIST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class TradingSessionList : public Message

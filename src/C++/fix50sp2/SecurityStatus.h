@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYSTATUS_H
-#define FIX50_SECURITYSTATUS_H
+#ifndef FIX50SP2_SECURITYSTATUS_H
+#define FIX50SP2_SECURITYSTATUS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class SecurityStatus : public Message

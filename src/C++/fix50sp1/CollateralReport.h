@@ -1,9 +1,9 @@
-#ifndef FIX50_COLLATERALREPORT_H
-#define FIX50_COLLATERALREPORT_H
+#ifndef FIX50SP1_COLLATERALREPORT_H
+#define FIX50SP1_COLLATERALREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class CollateralReport : public Message

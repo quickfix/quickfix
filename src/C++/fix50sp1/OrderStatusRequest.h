@@ -1,9 +1,9 @@
-#ifndef FIX50_ORDERSTATUSREQUEST_H
-#define FIX50_ORDERSTATUSREQUEST_H
+#ifndef FIX50SP1_ORDERSTATUSREQUEST_H
+#define FIX50SP1_ORDERSTATUSREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class OrderStatusRequest : public Message

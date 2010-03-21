@@ -1,9 +1,9 @@
-#ifndef FIX50_REQUESTFORPOSITIONS_H
-#define FIX50_REQUESTFORPOSITIONS_H
+#ifndef FIX50SP2_REQUESTFORPOSITIONS_H
+#define FIX50SP2_REQUESTFORPOSITIONS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class RequestForPositions : public Message

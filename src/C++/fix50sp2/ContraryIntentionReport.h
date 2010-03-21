@@ -1,9 +1,9 @@
-#ifndef FIX50_CONTRARYINTENTIONREPORT_H
-#define FIX50_CONTRARYINTENTIONREPORT_H
+#ifndef FIX50SP2_CONTRARYINTENTIONREPORT_H
+#define FIX50SP2_CONTRARYINTENTIONREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class ContraryIntentionReport : public Message

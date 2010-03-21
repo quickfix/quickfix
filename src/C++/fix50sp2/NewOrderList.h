@@ -1,9 +1,9 @@
-#ifndef FIX50_NEWORDERLIST_H
-#define FIX50_NEWORDERLIST_H
+#ifndef FIX50SP2_NEWORDERLIST_H
+#define FIX50SP2_NEWORDERLIST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class NewOrderList : public Message

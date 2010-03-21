@@ -1,4 +1,4 @@
-<fix major='4' type='FIX' minor='3'>
+<fix major='4' type='FIX' servicepack='0' minor='3'>
  <header>
   <field name='BeginString' required='Y' />
   <field name='BodyLength' required='Y' />

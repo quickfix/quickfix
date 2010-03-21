@@ -3,13 +3,18 @@ class GeneratorRuby
     @type = type
     @major = major
     @minor = minor
+    @sp = sp
     @beginstring = type + "." + major + "." + minor
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
     @depth = 0;
     @dir = dir + "/"
-    @f = createFile( "quick" + type.downcase + major + minor + sp.downcase + ".rb" )
+    if( sp != "0" )
+      @f = createFile( "quick" + type.downcase + major + minor + sp + ".rb" )
+    else
+      @f = createFile( "quick" + type.downcase + major + minor + ".rb" )
+    end
     @messageStarted = false
   end
 
@@ -30,7 +35,11 @@ class GeneratorRuby
 
   def front
     @f.puts "require 'quickfix'"
-    @f.puts "module Quickfix#{@major}#{@minor}"
+    if( @sp != "0" )
+      @f.puts "module Quickfix#{@major}#{@minor}"
+    else
+      @f.puts "module Quickfix#{@major}#{@minor}Sp#{@sp}"
+    end
   end
 
   def field(name, number)

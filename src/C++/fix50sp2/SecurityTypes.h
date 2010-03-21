@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYTYPES_H
-#define FIX50_SECURITYTYPES_H
+#ifndef FIX50SP2_SECURITYTYPES_H
+#define FIX50SP2_SECURITYTYPES_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class SecurityTypes : public Message

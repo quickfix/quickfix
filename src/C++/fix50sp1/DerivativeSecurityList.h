@@ -1,9 +1,9 @@
-#ifndef FIX50_DERIVATIVESECURITYLIST_H
-#define FIX50_DERIVATIVESECURITYLIST_H
+#ifndef FIX50SP1_DERIVATIVESECURITYLIST_H
+#define FIX50SP1_DERIVATIVESECURITYLIST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class DerivativeSecurityList : public Message

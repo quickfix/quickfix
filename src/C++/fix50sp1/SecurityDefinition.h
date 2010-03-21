@@ -1,9 +1,9 @@
-#ifndef FIX50_SECURITYDEFINITION_H
-#define FIX50_SECURITYDEFINITION_H
+#ifndef FIX50SP1_SECURITYDEFINITION_H
+#define FIX50SP1_SECURITYDEFINITION_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class SecurityDefinition : public Message

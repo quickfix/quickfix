@@ -1,9 +1,9 @@
-#ifndef FIX50_COLLATERALASSIGNMENT_H
-#define FIX50_COLLATERALASSIGNMENT_H
+#ifndef FIX50SP1_COLLATERALASSIGNMENT_H
+#define FIX50SP1_COLLATERALASSIGNMENT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class CollateralAssignment : public Message

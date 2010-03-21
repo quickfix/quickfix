@@ -8918,127 +8918,128 @@ namespace QuickFix
     static const int REJECT_FOR_SUBMITTING_SIDE = 3;
     static const int ADVISORY_FOR_CONTRA_SIDE = 4;
     static const int OFFSET_DUE_TO_AN_ALLOCATION = 5;
-    static const int ONSET_DUE_TO_AN_ALLOCATION = 6;
-    static const int DIFFERENTIAL_SPREAD = 7;
-    static const int IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT = 8;
-    static const int TRANSACTION_FROM_EXERCISE = 9;
-    static const int TRANSACTION_FROM_ASSIGNMENT = 10;
-    static const int ACATS = 11;
-    static const int AI = 14;
-    static const int B = 15;
-    static const int K = 16;
-    static const int LC = 17;
-    static const int M = 18;
-    static const int N = 19;
-    static const int NM = 20;
-    static const int NR = 21;
-    static const int P = 22;
-    static const int PA = 23;
-    static const int PC = 24;
-    static const int PN = 25;
-    static const int R = 26;
-    static const int RO = 27;
-    static const int RT = 28;
-    static const int SW = 29;
-    static const int T = 30;
-    static const int WN = 31;
-    static const int WT = 32;
-    static const int OFF_HOURS_TRADE = 33;
-    static const int ON_HOURS_TRADE = 34;
-    static const int OTC_QUOTE = 35;
-    static const int CONVERTED_SWAP = 36;
-    static const int CROSSED_TRADE = 37;
-    static const int INTERIM_PROTECTED_TRADE = 38;
-    static const int LARGE_IN_SCALE = 39;
-    TrdSubType() : IntField(829) {}
-    TrdSubType(int data) : IntField(829, data) {}
+    static const int ONSET_DUE_TO_IELD = 944;
+    static const int RETAIN = 0;
+    static const int ADD = 1;
+    static const int REMOVE = 2;
+    CollAction() : IntField(944) {}
+    CollAction(int data) : IntField(944, data) {}
   };
 
-  public __gc class TransferReason : public StringField
+  public __gc class CollInquiryStatus : public IntField
   {
   public:
-    static const int FIELD = 830;
-    TransferReason() : StringField(830) {}
-    TransferReason(String* data) : StringField(830, data) {}
+    static const int FIELD = 945;
+    static const int ACCEPTED = 0;
+    static const int ACCEPTEDWITHWARNINGS = 1;
+    static const int COMPLETED = 2;
+    static const int COMPLETEDWITHWARNINGS = 3;
+    static const int REJECTED = 4;
+    CollInquiryStatus() : IntField(945) {}
+    CollInquiryStatus(int data) : IntField(945, data) {}
   };
 
-  public __gc class AsgnReqID : public StringField
+  public __gc class CollInquiryResult : public IntField
   {
   public:
-    static const int FIELD = 831;
-    AsgnReqID() : StringField(831) {}
-    AsgnReqID(String* data) : StringField(831, data) {}
+    static const int FIELD = 946;
+    static const int SUCCESSFUL = 0;
+    static const int INVALIDORUNKNOWNINSTRUMENT = 1;
+    static const int INVALIDORUNKNOWNCOLLATERALTYPE = 2;
+    static const int INVALIDPARTIES = 3;
+    static const int INVALIDTRANSPORTTYPEREQUESTED = 4;
+    static const int INVALIDDESTINATIONREQUESTED = 5;
+    static const int NOCOLLATERALFOUNDFORTHETRADESPECIFIED = 6;
+    static const int NOCOLLATERALFOUNDFORTHEORDERSPECIFIED = 7;
+    static const int COLLATERALINQUIRYTYPENOTSUPPORTED = 8;
+    static const int UNAUTHORIZEDFORCOLLATERALINQUIRY = 9;
+    static const int OTHER = 99;
+    CollInquiryResult() : IntField(946) {}
+    CollInquiryResult(int data) : IntField(946, data) {}
   };
 
-  public __gc class TotNumAssignmentReports : public IntField
+  public __gc class StrikeCurrency : public StringField
   {
   public:
-    static const int FIELD = 832;
-    TotNumAssignmentReports() : IntField(832) {}
-    TotNumAssignmentReports(int data) : IntField(832, data) {}
+    static const int FIELD = 947;
+    StrikeCurrency() : StringField(947) {}
+    StrikeCurrency(String* data) : StringField(947, data) {}
   };
 
-  public __gc class AsgnRptID : public StringField
+  public __gc class NoNested3PartyIDs : public IntField
   {
   public:
-    static const int FIELD = 833;
-    AsgnRptID() : StringField(833) {}
-    AsgnRptID(String* data) : StringField(833, data) {}
+    static const int FIELD = 948;
+    NoNested3PartyIDs() : IntField(948) {}
+    NoNested3PartyIDs(int data) : IntField(948, data) {}
   };
 
-  public __gc class ThresholdAmount : public DoubleField
+  public __gc class Nested3PartyID : public StringField
   {
   public:
-    static const int FIELD = 834;
-    ThresholdAmount() : DoubleField(834) {}
-    ThresholdAmount(double data) : DoubleField(834, data) {}
-    ThresholdAmount(double data, int decimalPadding) : DoubleField(834, data, decimalPadding) {}
+    static const int FIELD = 949;
+    Nested3PartyID() : StringField(949) {}
+    Nested3PartyID(String* data) : StringField(949, data) {}
   };
 
-  public __gc class PegMoveType : public IntField
+  public __gc class Nested3PartyIDSource : public CharField
   {
   public:
-    static const int FIELD = 835;
-    static const int FLOATING = 0;
-    static const int FIXED = 1;
-    PegMoveType() : IntField(835) {}
-    PegMoveType(int data) : IntField(835, data) {}
+    static const int FIELD = 950;
+    Nested3PartyIDSource() : CharField(950) {}
+    Nested3PartyIDSource(__wchar_t data) : CharField(950, data) {}
   };
 
-  public __gc class PegOffsetType : public IntField
+  public __gc class Nested3PartyRole : public IntField
   {
   public:
-    static const int FIELD = 836;
-    static const int PRICE = 0;
-    static const int BASIS_POINTS = 1;
-    static const int TICKS = 2;
-    static const int PRICE_TIER = 3;
-    PegOffsetType() : IntField(836) {}
-    PegOffsetType(int data) : IntField(836, data) {}
+    static const int FIELD = 951;
+    Nested3PartyRole() : IntField(951) {}
+    Nested3PartyRole(int data) : IntField(951, data) {}
   };
 
-  public __gc class PegLimitType : public IntField
+  public __gc class NoNested3PartySubIDs : public IntField
   {
   public:
-    static const int FIELD = 837;
-    static const int OR_BETTER = 0;
-    static const int STRICT = 1;
-    static const int OR_WORSE = 2;
-    PegLimitType() : IntField(837) {}
-    PegLimitType(int data) : IntField(837, data) {}
+    static const int FIELD = 952;
+    NoNested3PartySubIDs() : IntField(952) {}
+    NoNested3PartySubIDs(int data) : IntField(952, data) {}
   };
 
-  public __gc class PegRoundDirection : public IntField
+  public __gc class Nested3PartySubID : public StringField
   {
   public:
-    static const int FIELD = 838;
-    static const int MORE_AGGRESSIVE = 1;
-    static const int MORE_PASSIVE = 2;
-    PegRoundDirection() : IntField(838) {}
-    PegRoundDirection(int data) : IntField(838, data) {}
+    static const int FIELD = 953;
+    Nested3PartySubID() : StringField(953) {}
+    Nested3PartySubID(String* data) : StringField(953, data) {}
   };
 
-  public __gc class PeggedPrice : public DoubleField
+  public __gc class Nested3PartySubIDType : public IntField
+  {
+  public:
+    static const int FIELD = 954;
+    Nested3PartySubIDType() : IntField(954) {}
+    Nested3PartySubIDType(int data) : IntField(954, data) {}
+  };
+
+  public __gc class LegContractSettlMonth : public StringField
+  {
+  public:
+    static const int FIELD = 955;
+    LegContractSettlMonth() : StringField(955) {}
+    LegContractSettlMonth(String* data) : StringField(955, data) {}
+  };
+
+  public __gc class LegInterestAccrualDate : public StringField
+  {
+  public:
+    static const int FIELD = 956;
+    LegInterestAccrualDate() : StringField(956) {}
+    LegInterestAccrualDate(String* data) : StringField(956, data) {}
+  };
+
+}
+c DoubleField
   {
   public:
     static const int FIELD = 839;

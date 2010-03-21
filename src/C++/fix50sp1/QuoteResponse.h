@@ -1,9 +1,9 @@
-#ifndef FIX50_QUOTERESPONSE_H
-#define FIX50_QUOTERESPONSE_H
+#ifndef FIX50SP1_QUOTERESPONSE_H
+#define FIX50SP1_QUOTERESPONSE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class QuoteResponse : public Message

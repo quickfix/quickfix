@@ -1,9 +1,9 @@
-#ifndef FIX50_NEWORDERMULTILEG_H
-#define FIX50_NEWORDERMULTILEG_H
+#ifndef FIX50SP1_NEWORDERMULTILEG_H
+#define FIX50SP1_NEWORDERMULTILEG_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class NewOrderMultileg : public Message

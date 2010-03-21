@@ -1,9 +1,9 @@
-#ifndef FIX50_MASSQUOTE_H
-#define FIX50_MASSQUOTE_H
+#ifndef FIX50SP2_MASSQUOTE_H
+#define FIX50SP2_MASSQUOTE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class MassQuote : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_LISTSTATUS_H
-#define FIX50_LISTSTATUS_H
+#ifndef FIX50SP1_LISTSTATUS_H
+#define FIX50SP1_LISTSTATUS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class ListStatus : public Message

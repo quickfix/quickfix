@@ -3,17 +3,20 @@ require "rexml/document"
 class DataDictionary
 	def initialize( major, minor, sp )
 	    	filesp = ""
-	    	if( sp == nil )
-		    sp = ""
-		else
-		    filesp = "_" + sp
+
+		if( sp != 0 )
+		    filesp = "_SP" + sp.to_s
 		end
 
 		@f = File.new( "FIX#{major}#{minor}#{filesp}.xml", File::CREAT|File::TRUNC|File::RDWR )
 		@major = major
 		@minor = minor
+		@sp = sp
 
-		directory = "FIX.#{major}.#{minor}#{sp}"
+		directory = "FIX.#{major}.#{minor}"
+		if( sp != 0 )
+		    directory = directory + "SP#{sp}"
+		end
 		@fieldsDoc = REXML::Document.new( File.new( "#{directory}/Fields.xml" ) )
 		@enumsDoc = REXML::Document.new( File.new( "#{directory}/Enums.xml" ) )
 		@msgContentsDoc = REXML::Document.new( File.new("#{directory}/MsgContents.xml") )
@@ -275,7 +278,7 @@ class DataDictionary
 	end
 
 	def printVersion
-		return @specDoc.add_element( "fix", { "type" => "FIX", "major" => @major.to_s, "minor" => @minor.to_s } )
+		return @specDoc.add_element( "fix", { "type" => "FIX", "major" => @major.to_s, "minor" => @minor.to_s, "servicepack" => @sp.to_s } )
 	end
 
 	def printFields
@@ -415,11 +418,11 @@ class DataDictionary
 	end
 end
 
-DataDictionary.new( 4, 0, nil )
-DataDictionary.new( 4, 1, nil )
-DataDictionary.new( 4, 2, nil )
-DataDictionary.new( 4, 3, nil )
-DataDictionary.new( 4, 4, nil )
-DataDictionary.new( 5, 0, nil )
-DataDictionary.new( 5, 0, "SP1" )
-DataDictionary.new( 5, 0, "SP2" )
+DataDictionary.new( 4, 0, 0 )
+DataDictionary.new( 4, 1, 0 )
+DataDictionary.new( 4, 2, 0 )
+DataDictionary.new( 4, 3, 0 )
+DataDictionary.new( 4, 4, 0 )
+DataDictionary.new( 5, 0, 0 )
+DataDictionary.new( 5, 0, 1 )
+DataDictionary.new( 5, 0, 1 )

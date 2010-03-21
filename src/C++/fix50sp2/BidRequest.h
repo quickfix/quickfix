@@ -1,9 +1,9 @@
-#ifndef FIX50_BIDREQUEST_H
-#define FIX50_BIDREQUEST_H
+#ifndef FIX50SP2_BIDREQUEST_H
+#define FIX50SP2_BIDREQUEST_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class BidRequest : public Message

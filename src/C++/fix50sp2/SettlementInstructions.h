@@ -1,9 +1,9 @@
-#ifndef FIX50_SETTLEMENTINSTRUCTIONS_H
-#define FIX50_SETTLEMENTINSTRUCTIONS_H
+#ifndef FIX50SP2_SETTLEMENTINSTRUCTIONS_H
+#define FIX50SP2_SETTLEMENTINSTRUCTIONS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class SettlementInstructions : public Message

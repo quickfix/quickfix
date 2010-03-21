@@ -1,9 +1,9 @@
-#ifndef FIX50_NEWS_H
-#define FIX50_NEWS_H
+#ifndef FIX50SP2_NEWS_H
+#define FIX50SP2_NEWS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class News : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_MARKETDEFINITION_H
-#define FIX50_MARKETDEFINITION_H
+#ifndef FIX50SP2_MARKETDEFINITION_H
+#define FIX50SP2_MARKETDEFINITION_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class MarketDefinition : public Message

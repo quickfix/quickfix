@@ -1,9 +1,9 @@
-#ifndef FIX50_CONFIRMATION_ACK_H
-#define FIX50_CONFIRMATION_ACK_H
+#ifndef FIX50SP1_CONFIRMATION_ACK_H
+#define FIX50SP1_CONFIRMATION_ACK_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class Confirmation_Ack : public Message

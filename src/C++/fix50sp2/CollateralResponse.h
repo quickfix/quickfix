@@ -1,9 +1,9 @@
-#ifndef FIX50_COLLATERALRESPONSE_H
-#define FIX50_COLLATERALRESPONSE_H
+#ifndef FIX50SP2_COLLATERALRESPONSE_H
+#define FIX50SP2_COLLATERALRESPONSE_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class CollateralResponse : public Message

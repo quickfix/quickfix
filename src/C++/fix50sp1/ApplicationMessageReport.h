@@ -1,9 +1,9 @@
-#ifndef FIX50_APPLICATIONMESSAGEREPORT_H
-#define FIX50_APPLICATIONMESSAGEREPORT_H
+#ifndef FIX50SP1_APPLICATIONMESSAGEREPORT_H
+#define FIX50SP1_APPLICATIONMESSAGEREPORT_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP1
 {
 
   class ApplicationMessageReport : public Message

@@ -1,9 +1,9 @@
-#ifndef FIX50_REGISTRATIONINSTRUCTIONS_H
-#define FIX50_REGISTRATIONINSTRUCTIONS_H
+#ifndef FIX50SP2_REGISTRATIONINSTRUCTIONS_H
+#define FIX50SP2_REGISTRATIONINSTRUCTIONS_H
 
 #include "Message.h"
 
-namespace FIX50
+namespace FIX50SP2
 {
 
   class RegistrationInstructions : public Message

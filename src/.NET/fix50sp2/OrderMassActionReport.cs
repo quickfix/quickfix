@@ -1,4 +1,4 @@
-namespace QuickFix50
+namespace QuickFix50Sp2
 {
 
   public class OrderMassActionReport : Message
