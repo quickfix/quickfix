@@ -5673,7 +5673,7 @@
   <field number='326' name='SecurityTradingStatus' type='INT'>
    <value enum='1' description='OPENING_DELAY' />
    <value enum='10' description='MARKET_ON_CLOSE_IMBALANCE_SELL' />
-   <value enum='11' description='NOT_ASSIGNED' />
+   <value enum='11' description='11' />
    <value enum='12' description='NO_MARKET_IMBALANCE' />
    <value enum='13' description='NO_MARKET_ON_CLOSE_IMBALANCE' />
    <value enum='14' description='ITS_PRE_OPENING' />
@@ -7359,7 +7359,7 @@
    <value enum='4' description='ADDENDUM' />
    <value enum='5' description='NO_WAS' />
    <value enum='6' description='TRADE_REPORT_CANCEL' />
-   <value enum='7' description='NOT_ASSIGNED' />
+   <value enum='7' description='7' />
    <value enum='8' description='DEFAULTED' />
    <value enum='9' description='INVALID_CMTA' />
    <value enum='10' description='PENDED' />

@@ -2460,7 +2460,7 @@
   <field number='326' name='SecurityTradingStatus' type='INT'>
    <value enum='1' description='OPENING_DELAY' />
    <value enum='10' description='MARKET_ON_CLOSE_IMBALANCE_SELL' />
-   <value enum='11' description='NOT_ASSIGNED' />
+   <value enum='11' description='11' />
    <value enum='12' description='NO_MARKET_IMBALANCE' />
    <value enum='13' description='NO_MARKET_ON_CLOSE_IMBALANCE' />
    <value enum='14' description='ITS_PRE_OPENING' />
@@ -2531,10 +2531,10 @@
   <field number='345' name='TradSesEndTime' type='UTCTIMESTAMP' />
   <field number='346' name='NumberOfOrders' type='INT' />
   <field number='347' name='MessageEncoding' type='STRING'>
-   <value enum='EUC-JP' description='NOT_ASSIGNED_EUC-JP' />
-   <value enum='ISO-2022-JP' description='NOT_ASSIGNED_ISO-2022-JP' />
-   <value enum='Shift_JIS' description='NOT_ASSIGNED_Shift_JIS' />
-   <value enum='UTF-8' description='NOT_ASSIGNED_UTF-8' />
+   <value enum='EUC-JP' description='EUC_JP' />
+   <value enum='ISO-2022-JP' description='ISO_2022_JP' />
+   <value enum='SHIFT_JIS' description='SHIFT_JIS' />
+   <value enum='UTF-8' description='UTF_8' />
   </field>
   <field number='348' name='EncodedIssuerLen' type='LENGTH' />
   <field number='349' name='EncodedIssuer' type='DATA' />

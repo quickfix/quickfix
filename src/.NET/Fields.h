@@ -4820,9 +4820,9 @@ namespace QuickFix
     static const int FIELD = 625;
     static const String* POST_TRADING = "5";
     static const String* INTRADAY_AUCTION = "6";
-    static const String* NOT_ASSIGNED = "3";
     static const String* PRE_TRADING = "1";
     static const String* QUIESCENT = "7";
+    static const String* _3 = "3";
     static const String* OPENING_OR_OPENING_AUCTION = "2";
     static const String* CLOSING_OR_CLOSING_AUCTION = "4";
     TradingSessionSubID() : StringField(625) {}
@@ -8969,14 +8969,10 @@ namespace QuickFix
   {
   public:
     static const int FIELD = 347;
-    static const String* NOT_ASSIGNED_Shift_JIS = "Shift_JIS";
     static const String* EUC_JP = "EUC-JP";
     static const String* SHIFT_JIS = "SHIFT_JIS";
-    static const String* NOT_ASSIGNED_UTF-8 = "UTF-8";
     static const String* UTF_8 = "UTF-8";
     static const String* ISO_2022_JP = "ISO-2022-JP";
-    static const String* NOT_ASSIGNED_EUC-JP = "EUC-JP";
-    static const String* NOT_ASSIGNED_ISO-2022-JP = "ISO-2022-JP";
     MessageEncoding() : StringField(347) {}
     MessageEncoding(String* data) : StringField(347, data) {}
   };
@@ -12460,6 +12456,7 @@ namespace QuickFix
     static const int FIELD = 856;
     static const int NO_WAS = 5;
     static const int ADDENDUM = 4;
+    static const int _7 = 7;
     static const int PENDED = 10;
     static const int LOCKEDINTRADEBREAK = 7;
     static const int DEFAULTED = 8;
@@ -12467,7 +12464,6 @@ namespace QuickFix
     static const int ALLEGED_NEW = 11;
     static const int ALLEGED_TRADE_REPORT_CANCEL = 14;
     static const int ALLEGED_15 = 15;
-    static const int NOT_ASSIGNED = 7;
     static const int ALLEGED_ADDENDUM = 12;
     static const int ALLEGED = 1;
     static const int SUBMIT = 0;
@@ -13923,14 +13919,14 @@ namespace QuickFix
     static const __wchar_t PCTWAIVEDENUNITS = '5';
     static const __wchar_t PERBOND = '6';
     static const __wchar_t PER_BOND = '6';
-    static const __wchar_t NOT_ASSIGNED_4 = '4';
     static const __wchar_t PERCENTAGE = '2';
     static const __wchar_t PERCENTAGE_WAIVED_4 = '4';
     static const __wchar_t POINTS_PER_BOND_OR_CONTRACT = '6';
-    static const __wchar_t NOT_ASSIGNED_5 = '5';
     static const __wchar_t PERCENTAGE_WAIVED_5 = '5';
     static const __wchar_t PER_UNIT = '1';
     static const __wchar_t PERCENT = '2';
+    static const __wchar_t _4 = '4';
+    static const __wchar_t _5 = '5';
     CommType() : CharField(13) {}
     CommType(__wchar_t data) : CharField(13, data) {}
   };
@@ -16325,6 +16321,7 @@ namespace QuickFix
     static const int NO_OPEN_NO_RESUME = 4;
     static const int TRADING_HALT = 2;
     static const int NOT_AVAILABLE_FOR_TRADING = 18;
+    static const int _11 = 11;
     static const int NO_OPEN = 4;
     static const int NOTTRADED = 19;
     static const int FASTMARKET = 23;
@@ -16344,7 +16341,6 @@ namespace QuickFix
     static const int MARKET_ON_CLOSE_IMBALANCE_BUY = 9;
     static const int NOTAVAIL = 18;
     static const int MARKET_IMBALANCE_SELL = 8;
-    static const int NOT_ASSIGNED = 11;
     static const int OPENING_DELAY = 1;
     static const int MKTONCLSIMBSELL = 10;
     static const int NOT_TRADED_ON_THIS_MARKET = 19;

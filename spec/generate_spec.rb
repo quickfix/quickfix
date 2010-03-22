@@ -202,8 +202,10 @@ class DataDictionary
 
 			enum = enumsElement.elements["Enum"].text
 			next if enum.upcase == "(NOT SPECIFIED)"
+
 			description = toDescription(enumsElement.elements["Description"].text)
-			description = "NOT_ASSIGNED" if description == nil
+			description = toDescription(enum) if description == nil
+			next if description == nil
 
 			if( tag != 206 )
 			    if( !enums.has_key?(tag) )
@@ -423,11 +425,5 @@ class DataDictionary
 	end
 end
 
-DataDictionary.new( 4, 0, 0 )
-DataDictionary.new( 4, 1, 0 )
-DataDictionary.new( 4, 2, 0 )
-DataDictionary.new( 4, 3, 0 )
-DataDictionary.new( 4, 4, 0 )
-DataDictionary.new( 5, 0, 0 )
-DataDictionary.new( 5, 0, 1 )
-DataDictionary.new( 5, 0, 2 )
+(0..4).each { |i| DataDictionary.new( 4, i, 0 ) }
+(0..2).each { |i| DataDictionary.new( 5, 0, i ) }

@@ -2257,8 +2257,8 @@
    <value enum='1' description='PER_SHARE' />
    <value enum='2' description='PERCENTAGE' />
    <value enum='3' description='ABSOLUTE' />
-   <value enum='5' description='NOT_ASSIGNED_5' />
-   <value enum='4' description='NOT_ASSIGNED_4' />
+   <value enum='5' description='5' />
+   <value enum='4' description='4' />
   </field>
   <field number='14' name='CumQty' type='QTY' />
   <field number='15' name='Currency' type='CURRENCY' />
@@ -3356,7 +3356,7 @@
    <value enum='3' description='RESUME' />
    <value enum='1' description='OPENING_DELAY' />
    <value enum='2' description='TRADING_HALT' />
-   <value enum='11' description='NOT_ASSIGNED' />
+   <value enum='11' description='11' />
    <value enum='23' description='FAST_MARKET' />
   </field>
   <field number='327' name='HaltReason' type='CHAR'>
@@ -3413,10 +3413,10 @@
   <field number='345' name='TradSesEndTime' type='UTCTIMESTAMP' />
   <field number='346' name='NumberOfOrders' type='INT' />
   <field number='347' name='MessageEncoding' type='STRING'>
-   <value enum='UTF-8' description='NOT_ASSIGNED_UTF-8' />
-   <value enum='ISO-2022-JP' description='NOT_ASSIGNED_ISO-2022-JP' />
-   <value enum='EUC-JP' description='NOT_ASSIGNED_EUC-JP' />
-   <value enum='Shift_JIS' description='NOT_ASSIGNED_Shift_JIS' />
+   <value enum='UTF-8' description='UTF_8' />
+   <value enum='ISO-2022-JP' description='ISO_2022_JP' />
+   <value enum='EUC-JP' description='EUC_JP' />
+   <value enum='SHIFT_JIS' description='SHIFT_JIS' />
   </field>
   <field number='348' name='EncodedIssuerLen' type='LENGTH' />
   <field number='349' name='EncodedIssuer' type='DATA' />
