@@ -77,7 +77,7 @@ namespace QuickFix43
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( DontKnowTradeDK message, QuickFix.SessionID session ) 
+  public virtual void onMessage( DontKnowTrade message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( QuoteRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
@@ -239,8 +239,8 @@ namespace QuickFix43
     if( message is AllocationAck )
       onMessage( (AllocationAck)(message), sessionID );
     else
-    if( message is DontKnowTradeDK )
-      onMessage( (DontKnowTradeDK)(message), sessionID );
+    if( message is DontKnowTrade )
+      onMessage( (DontKnowTrade)(message), sessionID );
     else
     if( message is QuoteRequest )
       onMessage( (QuoteRequest)(message), sessionID );

@@ -1,12 +1,12 @@
 namespace QuickFix44
 {
 
-  public class DontKnowTradeDK : Message
+  public class DontKnowTrade : Message
   {
-    public DontKnowTradeDK() : base(MsgType()) {}
+    public DontKnowTrade() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("Q"); }
 
-    public DontKnowTradeDK(
+    public DontKnowTrade(
       QuickFix.OrderID aOrderID,
       QuickFix.ExecID aExecID,
       QuickFix.DKReason aDKReason,

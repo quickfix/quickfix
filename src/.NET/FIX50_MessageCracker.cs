@@ -63,7 +63,7 @@ namespace QuickFix50
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationInstructionAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( DontKnowTradeDK message, QuickFix.SessionID session ) 
+  public virtual void onMessage( DontKnowTrade message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( QuoteRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
@@ -171,7 +171,7 @@ namespace QuickFix50
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( AllocationReportAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( Confirmation_Ack message, QuickFix.SessionID session ) 
+  public virtual void onMessage( ConfirmationAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( SettlementInstructionRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
@@ -270,8 +270,8 @@ namespace QuickFix50
     if( message is AllocationInstructionAck )
       onMessage( (AllocationInstructionAck)(message), sessionID );
     else
-    if( message is DontKnowTradeDK )
-      onMessage( (DontKnowTradeDK)(message), sessionID );
+    if( message is DontKnowTrade )
+      onMessage( (DontKnowTrade)(message), sessionID );
     else
     if( message is QuoteRequest )
       onMessage( (QuoteRequest)(message), sessionID );
@@ -432,8 +432,8 @@ namespace QuickFix50
     if( message is AllocationReportAck )
       onMessage( (AllocationReportAck)(message), sessionID );
     else
-    if( message is Confirmation_Ack )
-      onMessage( (Confirmation_Ack)(message), sessionID );
+    if( message is ConfirmationAck )
+      onMessage( (ConfirmationAck)(message), sessionID );
     else
     if( message is SettlementInstructionRequest )
       onMessage( (SettlementInstructionRequest)(message), sessionID );

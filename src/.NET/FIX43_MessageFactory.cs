@@ -125,7 +125,7 @@ namespace QuickFix43
      }
    
      if(msgType.Equals("Q")) {
-       return new QuickFix43.DontKnowTradeDK();
+       return new QuickFix43.DontKnowTrade();
      }
    
      if(msgType.Equals("R")) {

@@ -97,7 +97,7 @@ namespace QuickFix50
      }
    
      if(msgType.Equals("Q")) {
-       return new QuickFix50.DontKnowTradeDK();
+       return new QuickFix50.DontKnowTrade();
      }
    
      if(msgType.Equals("R")) {
@@ -313,7 +313,7 @@ namespace QuickFix50
      }
    
      if(msgType.Equals("AU")) {
-       return new QuickFix50.Confirmation_Ack();
+       return new QuickFix50.ConfirmationAck();
      }
    
      if(msgType.Equals("AV")) {
