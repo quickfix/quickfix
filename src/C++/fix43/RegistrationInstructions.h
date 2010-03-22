@@ -44,7 +44,6 @@ namespace FIX43
     FIELD_SET(*this, FIX::RegistAcctType);
     FIELD_SET(*this, FIX::TaxAdvantageType);
     FIELD_SET(*this, FIX::OwnershipType);
-    FIELD_SET(*this, FIX::OwnershipType);
     FIELD_SET(*this, FIX::NoRegistDtls);
     class NoRegistDtls: public FIX::Group
     {
