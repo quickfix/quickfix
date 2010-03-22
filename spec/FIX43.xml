@@ -2976,12 +2976,7 @@
    <value enum='1' description='FIRM' />
   </field>
   <field number='205' name='MaturityDay' type='DAYOFMONTH' />
-  <field number='206' name='OptAttribute' type='CHAR'>
-   <value enum='S' description='SHORT' />
-   <value enum='Can be used for SecurityType' description='OPT_TO_IDENTIFY_A_PARTICULAR_SECURITY' />
-   <value enum='L' description='LONG' />
-   <value enum='0-9' description='SINGLE_DIGIT_VERSION_NUMBER_ASSIGNED_BY_EXCHANGE_FOLLOWING_CAPITAL_ADJUSTMENTS' />
-  </field>
+  <field number='206' name='OptAttribute' type='CHAR' />
   <field number='207' name='SecurityExchange' type='EXCHANGE' />
   <field number='208' name='NotifyBrokerOfCredit' type='BOOLEAN'>
    <value enum='N' description='NO' />
@@ -3072,7 +3067,7 @@
    <value enum='TRUE' description='TRUE_YIELD_THE_YIELD_CALCULATED_WITH_COUPON_DATES_MOVED_FROM_A_WEEKEND_OR_HOLIDAY_TO_THE_NEXT_VALID_SETTLEMENT_DATE' />
    <value enum='PREVCLOSE' description='PREVIOUS_CLOSE_YIELD_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_1_DAY_AGO' />
    <value enum='LONGEST' description='YIELD_TO_LONGEST_AVERAGE' />
-   <value enum='LONGAVGLIFE' description='YIELD_TO_LONGEST_AVERAGE_LIFE_THE_YIELD_ASSUMING_ONLY_MANDATORY_SINKS_ARE_TAKEN_THIS_RESULTS_IN_A_LOWER_PAYDOWN_OF_DEBT;_THE_YIELD_IS_THEN_CALCULATED_TO_THE_FINAL_PAYMENT_DATE' />
+   <value enum='LONGAVGLIFE' description='YIELD_TO_LONGEST_AVERAGE_LIFE_THE_YIELD_ASSUMING_ONLY_MANDATORY_SINKS_ARE_TAKEN_THIS_RESULTS_IN_A_LOWER_PAYDOWN_OF_DEBT_THE_YIELD_IS_THEN_CALCULATED_TO_THE_FINAL_PAYMENT_DATE' />
    <value enum='MATURITY' description='YIELD_TO_MATURITY_THE_YIELD_OF_A_BOND_TO_ITS_MATURITY_DATE' />
    <value enum='MARK' description='MARK_TO_MARKET_YIELD_AN_ADJUSTMENT_IN_THE_VALUATION_OF_A_SECURITIES_PORTFOLIO_TO_REFLECT_THE_CURRENT_MARKET_VALUES_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO' />
    <value enum='OPENAVG' description='OPEN_AVERAGE_YIELD_THE_AVERAGE_YIELD_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO' />

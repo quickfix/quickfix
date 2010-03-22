@@ -154,6 +154,7 @@ class DataDictionary
 		description.gsub!('"', '')
 		description.gsub!('.', '')
 		description.gsub!(':', '')
+		description.gsub!(';', '')
 		description.gsub!('%', '')
 		description.gsub!('*', '')
 		description.gsub!('_', ' ')
@@ -161,6 +162,7 @@ class DataDictionary
 		description.gsub!(' ', '_')
 		description = description.split("___")[0]
 		description.squeeze!("_") if description != nil
+		description.gsub!('NOT_ASSIGNED_', '') if description != nil
 		return "FULL_REFRESH" if description == "FULL_REFERSH"
 		return "INCREMENTAL_REFRESH" if description == "INCREMENTAL_REFRES"
 		return description
@@ -203,14 +205,15 @@ class DataDictionary
 			description = toDescription(enumsElement.elements["Description"].text)
 			description = "NOT_ASSIGNED" if description == nil
 
-			if( !enums.has_key?(tag) )
-			    enums[tag] = Array.new
+			if( tag != 206 )
+			    if( !enums.has_key?(tag) )
+			    	enums[tag] = Array.new
+			    end
+
+			    enumArray = enums[tag]
+			    enumArray.push( [enum,description] )
+			    @tagToEnum[ tag ] = enumArray
 			end
-
-			enumArray = enums[tag]
-
-			enumArray.push( [enum,description] )
-			@tagToEnum[ tag ] = enumArray
 		}
 	end
 

@@ -2231,10 +2231,7 @@
    <value enum='1' description='FIRM' />
   </field>
   <field number='205' name='MaturityDay' type='DAYOFMONTH' />
-  <field number='206' name='OptAttribute' type='CHAR'>
-   <value enum='L' description='LONG' />
-   <value enum='S' description='SHORT' />
-  </field>
+  <field number='206' name='OptAttribute' type='CHAR' />
   <field number='207' name='SecurityExchange' type='EXCHANGE' />
   <field number='208' name='NotifyBrokerOfCredit' type='BOOLEAN'>
    <value enum='N' description='NO' />
