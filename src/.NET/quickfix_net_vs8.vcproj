@@ -336,10 +336,6 @@
 				>
 			</File>
 			<File
-				RelativePath="DeprecatedFields.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Dictionary.h"
 				>
 			</File>
@@ -369,10 +365,6 @@
 			</File>
 			<File
 				RelativePath=".\FixFields.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FixTFields.h"
 				>
 			</File>
 			<File

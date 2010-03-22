@@ -225,9 +225,6 @@
 				RelativePath="DataDictionary.h">
 			</File>
 			<File
-				RelativePath="DeprecatedFields.h">
-			</File>
-			<File
 				RelativePath=".\Dictionary.h">
 			</File>
 			<File

@@ -156,7 +156,6 @@
     <ClInclude Include="CPPLog.h" />
     <ClInclude Include="CPPMessageStore.h" />
     <ClInclude Include="DataDictionary.h" />
-    <ClInclude Include="DeprecatedFields.h" />
     <ClInclude Include="Dictionary.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Field.h" />

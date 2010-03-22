@@ -39,13 +39,13 @@ namespace FIX
  */
 class MessageCracker
       : 
-	  public FIX40::MessageCracker,
-    public FIX41::MessageCracker,
-    public FIX42::MessageCracker,
-    public FIX43::MessageCracker,
-    public FIX44::MessageCracker,
-	  public FIX50::MessageCracker,
-	  public FIXT11::MessageCracker
+      public FIX40::MessageCracker,
+      public FIX41::MessageCracker,
+      public FIX42::MessageCracker,
+      public FIX43::MessageCracker,
+      public FIX44::MessageCracker,
+      public FIX50::MessageCracker,
+      public FIXT11::MessageCracker
 {
 public:
   void crack( const Message& message,

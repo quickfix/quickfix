@@ -765,7 +765,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix43\IndicationOfInterest.cs"
+                    RelPath = "fix43\IOI.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1165,7 +1165,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix44\IndicationOfInterest.cs"
+                    RelPath = "fix44\IOI.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1240,17 +1240,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix44\MultilegOrderCancelReplaceRequest.cs"
+                    RelPath = "fix44\MultilegOrderCancelReplace.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix44\NetworkStatusRequest.cs"
+                    RelPath = "fix44\NetworkCounterpartySystemStatusRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix44\NetworkStatusResponse.cs"
+                    RelPath = "fix44\NetworkCounterpartySystemStatusResponse.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1510,16 +1510,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50\Allocation.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\AllocationACK.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "fix50\AllocationInstruction.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -1600,7 +1590,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50\Confirmation_Ack.cs"
+                    RelPath = "fix50\ConfirmationAck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1640,11 +1630,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50\DontKnowTradeDK.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "fix50\Email.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -1656,16 +1641,6 @@
                 />
                 <File
                     RelPath = "fix50\ExecutionReport.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\Heartbeat.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\IndicationofInterest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1696,16 +1671,6 @@
                 />
                 <File
                     RelPath = "fix50\ListStrikePrice.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\Logon.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\Logout.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1880,22 +1845,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50\Reject.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "fix50\RequestForPositions.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "fix50\RequestForPositionsAck.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\ResendRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1955,22 +1910,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50\SequenceReset.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "fix50\SettlementInstructionRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "fix50\SettlementInstructions.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50\TestRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
