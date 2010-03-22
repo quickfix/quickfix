@@ -52,7 +52,7 @@ namespace FIX43
   class ListStatusRequest; 
   class ListStatus; 
   class AllocationAck; 
-  class DontKnowTradeDK; 
+  class DontKnowTrade; 
   class QuoteRequest; 
   class Quote; 
   class SettlementInstructions; 
@@ -152,7 +152,7 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DontKnowTradeDK&, const FIX::SessionID& ) 
+  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -262,7 +262,7 @@ namespace FIX43
  virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
  virtual void onMessage( AllocationAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( DontKnowTradeDK&, const FIX::SessionID& ) {} 
+ virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
  virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
  virtual void onMessage( SettlementInstructions&, const FIX::SessionID& ) {} 
@@ -386,7 +386,7 @@ public:
       onMessage( (const AllocationAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
-      onMessage( (const DontKnowTradeDK&)message, sessionID );
+      onMessage( (const DontKnowTrade&)message, sessionID );
     else
     if( msgTypeValue == "R" )
       onMessage( (const QuoteRequest&)message, sessionID );
@@ -596,7 +596,7 @@ void crack( Message& message,
       onMessage( (AllocationAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
-      onMessage( (DontKnowTradeDK&)message, sessionID );
+      onMessage( (DontKnowTrade&)message, sessionID );
     else
     if( msgTypeValue == "R" )
       onMessage( (QuoteRequest&)message, sessionID );

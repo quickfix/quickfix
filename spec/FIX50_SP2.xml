@@ -965,7 +965,7 @@
    <field name='SecurityTradingStatus' required='N' />
    <field name='FinancialStatus' required='N' />
    <field name='CorporateAction' required='N' />
-   <field name='HaltReason' required='N' />
+   <field name='HaltReasonInt' required='N' />
    <field name='InViewOfCommon' required='N' />
    <field name='DueToRelated' required='N' />
    <field name='BuyVolume' required='N' />
@@ -4590,7 +4590,7 @@
     <component name='SecSizesGrp' required='N' />
     <field name='LotType' required='N' />
     <field name='SecurityTradingStatus' required='N' />
-    <field name='HaltReason' required='N' />
+    <field name='HaltReasonInt' required='N' />
     <field name='SettlCurrency' required='N' />
     <component name='RateSource' required='N' />
     <field name='TrdType' required='N' />
@@ -4710,7 +4710,7 @@
     <component name='SecSizesGrp' required='N' />
     <field name='LotType' required='N' />
     <field name='SecurityTradingStatus' required='N' />
-    <field name='HaltReason' required='N' />
+    <field name='HaltReasonInt' required='N' />
     <field name='TrdType' required='N' />
     <field name='MatchType' required='N' />
     <field name='TradeID' required='N' />
@@ -6981,7 +6981,7 @@
    <value enum='25' description='CROSS' />
    <value enum='26' description='POST_CLOSE' />
   </field>
-  <field number='327' name='HaltReason' type='INT'>
+  <field number='327' name='HaltReasonInt' type='INT'>
    <value enum='0' description='NEWS_DISSEMINATION' />
    <value enum='1' description='ORDER_INFLUX' />
    <value enum='2' description='ORDER_IMBALANCE' />

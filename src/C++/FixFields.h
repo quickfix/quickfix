@@ -80,6 +80,7 @@ namespace FIX
   DEFINE_NUMINGROUP(LinesOfText);
   DEFINE_INT(AccountType);
   DEFINE_INT(MDEntryPositionNo);
+  DEFINE_INT(HaltReasonInt);
   DEFINE_LOCALMKTDATE(FutSettDate);
   DEFINE_STRING(SecurityDesc);
   DEFINE_QTY(MinQty);
@@ -810,7 +811,6 @@ namespace FIX
   DEFINE_STRING(UserStatusText);
   DEFINE_STRING(Nested2PartySubID);
   DEFINE_PERCENTAGE(EFPTrackingError);
-  DEFINE_INT(HaltReason);
   DEFINE_INT(SideLiquidityInd);
   DEFINE_FLOAT(DerivativeMinPriceIncrement);
   DEFINE_BOOLEAN(PublishTrdIndicator);
@@ -1138,6 +1138,7 @@ namespace FIX
   DEFINE_NUMINGROUP(NoLegs);
   DEFINE_STRING(UnderlyingSymbol);
   DEFINE_INT(ExerciseStyle);
+  DEFINE_CHAR(HaltReasonChar);
   DEFINE_EXCHANGE(ExDestination);
   DEFINE_NUMINGROUP(NoPartyRelationships);
   DEFINE_CHAR(DerivativeInstrmtAssignmentMethod);

@@ -45,7 +45,7 @@ namespace FIX50
   class ListStatusRequest; 
   class ListStatus; 
   class AllocationInstructionAck; 
-  class DontKnowTradeDK; 
+  class DontKnowTrade; 
   class QuoteRequest; 
   class Quote; 
   class SettlementInstructions; 
@@ -99,7 +99,7 @@ namespace FIX50
   class TradeCaptureReportAck; 
   class AllocationReport; 
   class AllocationReportAck; 
-  class Confirmation_Ack; 
+  class ConfirmationAck; 
   class SettlementInstructionRequest; 
   class AssignmentReport; 
   class CollateralRequest; 
@@ -164,7 +164,7 @@ namespace FIX50
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationInstructionAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DontKnowTradeDK&, const FIX::SessionID& ) 
+  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -272,7 +272,7 @@ namespace FIX50
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationReportAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Confirmation_Ack&, const FIX::SessionID& ) 
+  virtual void onMessage( const ConfirmationAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const SettlementInstructionRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -333,7 +333,7 @@ namespace FIX50
  virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
  virtual void onMessage( AllocationInstructionAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( DontKnowTradeDK&, const FIX::SessionID& ) {} 
+ virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
  virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
  virtual void onMessage( SettlementInstructions&, const FIX::SessionID& ) {} 
@@ -387,7 +387,7 @@ namespace FIX50
  virtual void onMessage( TradeCaptureReportAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( AllocationReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( AllocationReportAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( Confirmation_Ack&, const FIX::SessionID& ) {} 
+ virtual void onMessage( ConfirmationAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( SettlementInstructionRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( AssignmentReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( CollateralRequest&, const FIX::SessionID& ) {} 
@@ -469,7 +469,7 @@ public:
       onMessage( (const AllocationInstructionAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
-      onMessage( (const DontKnowTradeDK&)message, sessionID );
+      onMessage( (const DontKnowTrade&)message, sessionID );
     else
     if( msgTypeValue == "R" )
       onMessage( (const QuoteRequest&)message, sessionID );
@@ -631,7 +631,7 @@ public:
       onMessage( (const AllocationReportAck&)message, sessionID );
     else
     if( msgTypeValue == "AU" )
-      onMessage( (const Confirmation_Ack&)message, sessionID );
+      onMessage( (const ConfirmationAck&)message, sessionID );
     else
     if( msgTypeValue == "AV" )
       onMessage( (const SettlementInstructionRequest&)message, sessionID );
@@ -757,7 +757,7 @@ void crack( Message& message,
       onMessage( (AllocationInstructionAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
-      onMessage( (DontKnowTradeDK&)message, sessionID );
+      onMessage( (DontKnowTrade&)message, sessionID );
     else
     if( msgTypeValue == "R" )
       onMessage( (QuoteRequest&)message, sessionID );
@@ -919,7 +919,7 @@ void crack( Message& message,
       onMessage( (AllocationReportAck&)message, sessionID );
     else
     if( msgTypeValue == "AU" )
-      onMessage( (Confirmation_Ack&)message, sessionID );
+      onMessage( (ConfirmationAck&)message, sessionID );
     else
     if( msgTypeValue == "AV" )
       onMessage( (SettlementInstructionRequest&)message, sessionID );

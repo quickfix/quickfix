@@ -3527,16 +3527,16 @@ namespace QuickFix50Sp2
       public bool isSetSecurityTradingStatus()
       { return isSetField(326); }
 
-      public void set(QuickFix.HaltReason value)
+      public void set(QuickFix.HaltReasonInt value)
       { setField(value); }
-      public QuickFix.HaltReason get(QuickFix.HaltReason  value)
+      public QuickFix.HaltReasonInt get(QuickFix.HaltReasonInt  value)
       { getField(value); return value; }
-      public QuickFix.HaltReason getHaltReason()
-      { QuickFix.HaltReason value = new QuickFix.HaltReason();
+      public QuickFix.HaltReasonInt getHaltReasonInt()
+      { QuickFix.HaltReasonInt value = new QuickFix.HaltReasonInt();
         getField(value); return value; }
-      public bool isSet(QuickFix.HaltReason field)
+      public bool isSet(QuickFix.HaltReasonInt field)
       { return isSetField(field); }
-      public bool isSetHaltReason()
+      public bool isSetHaltReasonInt()
       { return isSetField(327); }
 
       public void set(QuickFix.TrdType value)

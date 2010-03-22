@@ -1144,7 +1144,7 @@
    <field name='SecurityTradingStatus' required='N' />
    <field name='FinancialStatus' required='N' />
    <field name='CorporateAction' required='N' />
-   <field name='HaltReason' required='N' />
+   <field name='HaltReasonChar' required='N' />
    <field name='InViewOfCommon' required='N' />
    <field name='DueToRelated' required='N' />
    <field name='BuyVolume' required='N' />
@@ -3359,7 +3359,7 @@
    <value enum='11' description='11' />
    <value enum='23' description='FAST_MARKET' />
   </field>
-  <field number='327' name='HaltReason' type='CHAR'>
+  <field number='327' name='HaltReasonChar' type='CHAR'>
    <value enum='X' description='EQUIPMENT_CHANGEOVER' />
    <value enum='M' description='ADDITIONAL_INFORMATION' />
    <value enum='E' description='ORDER_INFLUX' />

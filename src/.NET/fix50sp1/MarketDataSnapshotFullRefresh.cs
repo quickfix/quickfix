@@ -3191,16 +3191,16 @@ namespace QuickFix50Sp1
       public bool isSetSecurityTradingStatus()
       { return isSetField(326); }
 
-      public void set(QuickFix.HaltReason value)
+      public void set(QuickFix.HaltReasonChar value)
       { setField(value); }
-      public QuickFix.HaltReason get(QuickFix.HaltReason  value)
+      public QuickFix.HaltReasonChar get(QuickFix.HaltReasonChar  value)
       { getField(value); return value; }
-      public QuickFix.HaltReason getHaltReason()
-      { QuickFix.HaltReason value = new QuickFix.HaltReason();
+      public QuickFix.HaltReasonChar getHaltReasonChar()
+      { QuickFix.HaltReasonChar value = new QuickFix.HaltReasonChar();
         getField(value); return value; }
-      public bool isSet(QuickFix.HaltReason field)
+      public bool isSet(QuickFix.HaltReasonChar field)
       { return isSetField(field); }
-      public bool isSetHaltReason()
+      public bool isSetHaltReasonChar()
       { return isSetField(327); }
 
     };

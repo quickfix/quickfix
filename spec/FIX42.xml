@@ -1375,7 +1375,7 @@
    <field name='SecurityTradingStatus' required='N' />
    <field name='FinancialStatus' required='N' />
    <field name='CorporateAction' required='N' />
-   <field name='HaltReason' required='N' />
+   <field name='HaltReasonChar' required='N' />
    <field name='InViewOfCommon' required='N' />
    <field name='DueToRelated' required='N' />
    <field name='BuyVolume' required='N' />
@@ -2479,7 +2479,7 @@
    <value enum='8' description='MARKET_IMBALANCE_SELL' />
    <value enum='9' description='MARKET_ON_CLOSE_IMBALANCE_BUY' />
   </field>
-  <field number='327' name='HaltReason' type='CHAR'>
+  <field number='327' name='HaltReasonChar' type='CHAR'>
    <value enum='D' description='NEWS_DISSEMINATION' />
    <value enum='E' description='ORDER_INFLUX' />
    <value enum='I' description='ORDER_IMBALANCE' />

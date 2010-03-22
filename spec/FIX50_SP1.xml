@@ -945,7 +945,7 @@
    <field name='SecurityTradingStatus' required='N' />
    <field name='FinancialStatus' required='N' />
    <field name='CorporateAction' required='N' />
-   <field name='HaltReason' required='N' />
+   <field name='HaltReasonChar' required='N' />
    <field name='InViewOfCommon' required='N' />
    <field name='DueToRelated' required='N' />
    <field name='BuyVolume' required='N' />
@@ -4306,7 +4306,7 @@
     <component name='SecSizesGrp' required='N' />
     <field name='LotType' required='N' />
     <field name='SecurityTradingStatus' required='N' />
-    <field name='HaltReason' required='N' />
+    <field name='HaltReasonChar' required='N' />
    </group>
   </component>
   <component name='NstdPtys4SubGrp'>
@@ -4384,7 +4384,7 @@
     <component name='SecSizesGrp' required='N' />
     <field name='LotType' required='N' />
     <field name='SecurityTradingStatus' required='N' />
-    <field name='HaltReason' required='N' />
+    <field name='HaltReasonChar' required='N' />
     <field name='TrdType' required='N' />
     <field name='MatchType' required='N' />
     <field name='TradeID' required='N' />
@@ -6503,7 +6503,7 @@
    <value enum='24' description='PRE_CROSS' />
    <value enum='25' description='CROSS' />
   </field>
-  <field number='327' name='HaltReason' type='CHAR'>
+  <field number='327' name='HaltReasonChar' type='CHAR'>
    <value enum='D' description='NEWS_DISSEMINATION' />
    <value enum='E' description='ORDER_INFLUX' />
    <value enum='I' description='ORDER_IMBALANCE' />

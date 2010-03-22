@@ -694,6 +694,20 @@ namespace QuickFix
     MDEntryPositionNo(int data) : IntField(290, data) {}
   };
 
+  public __gc class HaltReasonInt : public IntField
+  {
+  public:
+    static const int FIELD = 327;
+    static const int ADDITIONAL_INFORMATION = 3;
+    static const int NEWS_PENDING = 4;
+    static const int ORDER_INFLUX = 1;
+    static const int NEWS_DISSEMINATION = 0;
+    static const int EQUIPMENT_CHANGEOVER = 5;
+    static const int ORDER_IMBALANCE = 2;
+    HaltReasonInt() : IntField(327) {}
+    HaltReasonInt(int data) : IntField(327, data) {}
+  };
+
   public __gc class FutSettDate : public StringField
   {
   public:
@@ -8486,27 +8500,6 @@ namespace QuickFix
     EFPTrackingError(double data, int decimalPadding) : DoubleField(405, data, decimalPadding) {}
   };
 
-  public __gc class HaltReason : public IntField
-  {
-  public:
-    static const int FIELD = 327;
-    static const int EQUIPCHANGE = X;
-    static const int ADDITIONAL_INFORMATION = 3;
-    static const int ORDINFL = E;
-    static const int NEW_PENDING = P;
-    static const int NEWSDISS = D;
-    static const int NEWS_PENDING = 4;
-    static const int ORDER_INFLUX = 1;
-    static const int NEWS_DISSEMINATION = 0;
-    static const int ADDINFO = M;
-    static const int ORDIMB = I;
-    static const int EQUIPMENT_CHANGEOVER = 5;
-    static const int ORDER_IMBALANCE = 2;
-    static const int NEWSPEND = P;
-    HaltReason() : IntField(327) {}
-    HaltReason(int data) : IntField(327, data) {}
-  };
-
   public __gc class SideLiquidityInd : public IntField
   {
   public:
@@ -12511,6 +12504,27 @@ namespace QuickFix
     static const int BERMUDA = 2;
     ExerciseStyle() : IntField(1194) {}
     ExerciseStyle(int data) : IntField(1194, data) {}
+  };
+
+  public __gc class HaltReasonChar : public CharField
+  {
+  public:
+    static const int FIELD = 327;
+    static const __wchar_t EQUIPCHANGE = 'X';
+    static const __wchar_t ADDITIONAL_INFORMATION = 'M';
+    static const __wchar_t ORDINFL = 'E';
+    static const __wchar_t NEW_PENDING = 'P';
+    static const __wchar_t NEWSDISS = 'D';
+    static const __wchar_t NEWS_PENDING = 'P';
+    static const __wchar_t ORDER_INFLUX = 'E';
+    static const __wchar_t NEWS_DISSEMINATION = 'D';
+    static const __wchar_t ADDINFO = 'M';
+    static const __wchar_t ORDIMB = 'I';
+    static const __wchar_t EQUIPMENT_CHANGEOVER = 'X';
+    static const __wchar_t ORDER_IMBALANCE = 'I';
+    static const __wchar_t NEWSPEND = 'P';
+    HaltReasonChar() : CharField(327) {}
+    HaltReasonChar(__wchar_t data) : CharField(327, data) {}
   };
 
   public __gc class ExDestination : public StringField

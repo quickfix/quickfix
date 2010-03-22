@@ -335,7 +335,7 @@ namespace FIX50SP2
       };
       FIELD_SET(*this, FIX::LotType);
       FIELD_SET(*this, FIX::SecurityTradingStatus);
-      FIELD_SET(*this, FIX::HaltReason);
+      FIELD_SET(*this, FIX::HaltReasonInt);
       FIELD_SET(*this, FIX::TrdType);
       FIELD_SET(*this, FIX::MatchType);
       FIELD_SET(*this, FIX::TradeID);

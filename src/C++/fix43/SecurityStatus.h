@@ -63,7 +63,7 @@ namespace FIX43
     FIELD_SET(*this, FIX::SecurityTradingStatus);
     FIELD_SET(*this, FIX::FinancialStatus);
     FIELD_SET(*this, FIX::CorporateAction);
-    FIELD_SET(*this, FIX::HaltReason);
+    FIELD_SET(*this, FIX::HaltReasonChar);
     FIELD_SET(*this, FIX::InViewOfCommon);
     FIELD_SET(*this, FIX::DueToRelated);
     FIELD_SET(*this, FIX::BuyVolume);

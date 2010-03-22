@@ -1422,7 +1422,7 @@
    <field name='SecurityTradingStatus' required='N' />
    <field name='FinancialStatus' required='N' />
    <field name='CorporateAction' required='N' />
-   <field name='HaltReason' required='N' />
+   <field name='HaltReasonChar' required='N' />
    <field name='InViewOfCommon' required='N' />
    <field name='DueToRelated' required='N' />
    <field name='BuyVolume' required='N' />
@@ -5224,7 +5224,7 @@
    <value enum='8' description='MKTBALSELL' />
    <value enum='9' description='MKTONCLSIMBBUY' />
   </field>
-  <field number='327' name='HaltReason' type='CHAR'>
+  <field number='327' name='HaltReasonChar' type='CHAR'>
    <value enum='D' description='NEWSDISS' />
    <value enum='E' description='ORDINFL' />
    <value enum='I' description='ORDIMB' />

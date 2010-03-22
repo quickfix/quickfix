@@ -78,6 +78,7 @@ namespace FIX
     const int LinesOfText = 33;
     const int AccountType = 581;
     const int MDEntryPositionNo = 290;
+    const int HaltReasonInt = 327;
     const int FutSettDate = 64;
     const int SecurityDesc = 107;
     const int MinQty = 110;
@@ -808,7 +809,6 @@ namespace FIX
     const int UserStatusText = 927;
     const int Nested2PartySubID = 760;
     const int EFPTrackingError = 405;
-    const int HaltReason = 327;
     const int SideLiquidityInd = 1444;
     const int DerivativeMinPriceIncrement = 1267;
     const int PublishTrdIndicator = 852;
@@ -1136,6 +1136,7 @@ namespace FIX
     const int NoLegs = 555;
     const int UnderlyingSymbol = 311;
     const int ExerciseStyle = 1194;
+    const int HaltReasonChar = 327;
     const int ExDestination = 100;
     const int NoPartyRelationships = 1514;
     const int DerivativeInstrmtAssignmentMethod = 1255;

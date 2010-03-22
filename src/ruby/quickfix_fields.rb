@@ -948,6 +948,19 @@ module Quickfix
 		end
 	end
 
+	class HaltReasonInt < Quickfix::IntField
+		def HaltReasonInt.field
+			return 327
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(327)
+			else
+				super(327, data)
+			end
+		end
+	end
+
 	class FutSettDate < Quickfix::StringField
 		def FutSettDate.field
 			return 64
@@ -10438,19 +10451,6 @@ module Quickfix
 		end
 	end
 
-	class HaltReason < Quickfix::IntField
-		def HaltReason.field
-			return 327
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(327)
-			else
-				super(327, data)
-			end
-		end
-	end
-
 	class SideLiquidityInd < Quickfix::IntField
 		def SideLiquidityInd.field
 			return 1444
@@ -14698,6 +14698,19 @@ module Quickfix
 				super(1194)
 			else
 				super(1194, data)
+			end
+		end
+	end
+
+	class HaltReasonChar < Quickfix::CharField
+		def HaltReasonChar.field
+			return 327
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(327)
+			else
+				super(327, data)
 			end
 		end
 	end

@@ -44,7 +44,7 @@ namespace FIX
  const char MsgType_ListStatusRequest[] = "M";
  const char MsgType_ListStatus[] = "N";
  const char MsgType_AllocationInstructionAck[] = "P";
- const char MsgType_DontKnowTradeDK[] = "Q";
+ const char MsgType_DontKnowTrade[] = "Q";
  const char MsgType_QuoteRequest[] = "R";
  const char MsgType_Quote[] = "S";
  const char MsgType_SettlementInstructions[] = "T";
@@ -98,7 +98,7 @@ namespace FIX
  const char MsgType_TradeCaptureReportAck[] = "AR";
  const char MsgType_AllocationReport[] = "AS";
  const char MsgType_AllocationReportAck[] = "AT";
- const char MsgType_Confirmation_Ack[] = "AU";
+ const char MsgType_ConfirmationAck[] = "AU";
  const char MsgType_SettlementInstructionRequest[] = "AV";
  const char MsgType_AssignmentReport[] = "AW";
  const char MsgType_CollateralRequest[] = "AX";
@@ -993,7 +993,7 @@ namespace FIX
  const char UnsolicitedIndicator_YES = 'Y';
  const int SecurityTradingStatus_OPENING_DELAY = 1;
  const int SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL = 10;
- const int SecurityTradingStatus_NOT_ASSIGNED = 11;
+ const int SecurityTradingStatus_11 = 11;
  const int SecurityTradingStatus_NO_MARKET_IMBALANCE = 12;
  const int SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE = 13;
  const int SecurityTradingStatus_ITS_PRE_OPENING = 14;
@@ -1014,12 +1014,12 @@ namespace FIX
  const int SecurityTradingStatus_MARKET_IMBALANCE_BUY = 7;
  const int SecurityTradingStatus_MARKET_IMBALANCE_SELL = 8;
  const int SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY = 9;
- const char HaltReason_NEWS_DISSEMINATION = 'D';
- const char HaltReason_ORDER_INFLUX = 'E';
- const char HaltReason_ORDER_IMBALANCE = 'I';
- const char HaltReason_ADDITIONAL_INFORMATION = 'M';
- const char HaltReason_NEW_PENDING = 'P';
- const char HaltReason_EQUIPMENT_CHANGEOVER = 'X';
+ const char HaltReasonChar_NEWS_DISSEMINATION = 'D';
+ const char HaltReasonChar_ORDER_INFLUX = 'E';
+ const char HaltReasonChar_ORDER_IMBALANCE = 'I';
+ const char HaltReasonChar_ADDITIONAL_INFORMATION = 'M';
+ const char HaltReasonChar_NEW_PENDING = 'P';
+ const char HaltReasonChar_EQUIPMENT_CHANGEOVER = 'X';
  const char InViewOfCommon_NO = 'N';
  const char InViewOfCommon_YES = 'Y';
  const char DueToRelated_NO = 'N';
@@ -2016,7 +2016,7 @@ namespace FIX
  const int TradeReportType_ADDENDUM = 4;
  const int TradeReportType_NO_WAS = 5;
  const int TradeReportType_TRADE_REPORT_CANCEL = 6;
- const int TradeReportType_NOT_ASSIGNED = 7;
+ const int TradeReportType_7 = 7;
  const int TradeReportType_DEFAULTED = 8;
  const int TradeReportType_INVALID_CMTA = 9;
  const int TradeReportType_PENDED = 10;

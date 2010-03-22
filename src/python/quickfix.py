@@ -2202,6 +2202,23 @@ class MDEntryPositionNo(IntField):
 MDEntryPositionNo_swigregister = _quickfix.MDEntryPositionNo_swigregister
 MDEntryPositionNo_swigregister(MDEntryPositionNo)
 
+class HaltReasonInt(IntField):
+    __swig_setmethods__ = {}
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HaltReasonInt, name, value)
+    __swig_getmethods__ = {}
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HaltReasonInt, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HaltReasonInt(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HaltReasonInt
+    __del__ = lambda self : None;
+HaltReasonInt_swigregister = _quickfix.HaltReasonInt_swigregister
+HaltReasonInt_swigregister(HaltReasonInt)
+
 class FutSettDate(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -14612,23 +14629,6 @@ class EFPTrackingError(DoubleField):
 EFPTrackingError_swigregister = _quickfix.EFPTrackingError_swigregister
 EFPTrackingError_swigregister(EFPTrackingError)
 
-class HaltReason(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, HaltReason, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, HaltReason, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_HaltReason(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_HaltReason
-    __del__ = lambda self : None;
-HaltReason_swigregister = _quickfix.HaltReason_swigregister
-HaltReason_swigregister(HaltReason)
-
 class SideLiquidityInd(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -20187,6 +20187,23 @@ class ExerciseStyle(IntField):
     __del__ = lambda self : None;
 ExerciseStyle_swigregister = _quickfix.ExerciseStyle_swigregister
 ExerciseStyle_swigregister(ExerciseStyle)
+
+class HaltReasonChar(CharField):
+    __swig_setmethods__ = {}
+    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, HaltReasonChar, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, HaltReasonChar, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_HaltReasonChar(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_HaltReasonChar
+    __del__ = lambda self : None;
+HaltReasonChar_swigregister = _quickfix.HaltReasonChar_swigregister
+HaltReasonChar_swigregister(HaltReasonChar)
 
 class ExDestination(StringField):
     __swig_setmethods__ = {}
@@ -32872,6 +32889,13 @@ class MDEntryPositionNo(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 290, data)
 
+class HaltReasonInt(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 327)
+		else:
+			quickfix.IntField.__init__(self, 327, data)
+
 class FutSettDate(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -37982,13 +38006,6 @@ class EFPTrackingError(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 405, data)
 
-class HaltReason(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 327)
-		else:
-			quickfix.IntField.__init__(self, 327, data)
-
 class SideLiquidityInd(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40277,6 +40294,13 @@ class ExerciseStyle(quickfix.IntField):
 			quickfix.IntField.__init__(self, 1194)
 		else:
 			quickfix.IntField.__init__(self, 1194, data)
+
+class HaltReasonChar(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 327)
+		else:
+			quickfix.CharField.__init__(self, 327, data)
 
 class ExDestination(quickfix.StringField):
 	def __init__(self, data = None):

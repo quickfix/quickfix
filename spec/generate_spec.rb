@@ -8,7 +8,8 @@ class DataDictionary
 		    filesp = "_SP" + sp.to_s
 		end
 
-		@f = File.new( "FIX#{major}#{minor}#{filesp}.xml", File::CREAT|File::TRUNC|File::RDWR )
+		filename = "FIX#{major}#{minor}#{filesp}.xml"
+		@f = File.new( filename, File::CREAT|File::TRUNC|File::RDWR )
 		@major = major
 		@minor = minor
 		@sp = sp
@@ -31,6 +32,7 @@ class DataDictionary
 		@msgIdToMsgContents = Hash.new
 		@componentNameToMsgId = Hash.new
 
+		puts filename
 		parseDictionary
 		printDictionary
 	end
@@ -117,9 +119,11 @@ class DataDictionary
 		@tagToEnum[ tag ] = enumArray
 	end
 
-	def toFieldName( fieldName )
+	def toFieldName( fieldName, type )
 		fieldName = fieldName.split(" (")[0].split("(")[0].strip.gsub(' ', '')
-		fieldName.gsub("UnitofMeasure", "UnitOfMeasure")
+		fieldName.gsub!("UnitofMeasure", "UnitOfMeasure")
+		fieldName = "#{fieldName}#{type.capitalize}" if fieldName == "HaltReason"
+		return fieldName
 	end
 
 	def toMessageName( messageName )
@@ -178,16 +182,16 @@ class DataDictionary
 	def parseFields
 		@fieldsDoc.elements["dataroot"].elements.each("Fields") { |fieldsElement|
 			tag = fieldsElement.elements["Tag"].text.to_i
-			next if tagShouldBeSkipped( tag )
-			addEnumsToTag( tag )
-
-			fieldName = toFieldName(fieldsElement.elements["FieldName"].text)
 			type = fieldsElement.elements["Type"].text
 			next if type == nil
 			type.upcase!
 
+			next if tagShouldBeSkipped( tag )
+			addEnumsToTag( tag )
+
 			fieldHash = Hash.new
 			fieldHash[ "type" ] = toType( type )
+			fieldName = toFieldName(fieldsElement.elements["FieldName"].text, type)
 			fieldHash[ "fieldName" ] = fieldName
 
 			@tagToField[ tag ] = fieldHash

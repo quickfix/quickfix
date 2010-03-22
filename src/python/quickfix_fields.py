@@ -511,6 +511,13 @@ class MDEntryPositionNo(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 290, data)
 
+class HaltReasonInt(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 327)
+		else:
+			quickfix.IntField.__init__(self, 327, data)
+
 class FutSettDate(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5621,13 +5628,6 @@ class EFPTrackingError(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 405, data)
 
-class HaltReason(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 327)
-		else:
-			quickfix.IntField.__init__(self, 327, data)
-
 class SideLiquidityInd(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7916,6 +7916,13 @@ class ExerciseStyle(quickfix.IntField):
 			quickfix.IntField.__init__(self, 1194)
 		else:
 			quickfix.IntField.__init__(self, 1194, data)
+
+class HaltReasonChar(quickfix.CharField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.CharField.__init__(self, 327)
+		else:
+			quickfix.CharField.__init__(self, 327, data)
 
 class ExDestination(quickfix.StringField):
 	def __init__(self, data = None):
