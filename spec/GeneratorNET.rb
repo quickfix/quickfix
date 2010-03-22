@@ -193,7 +193,6 @@ class GeneratorNET
     @f.puts "#undef STRICT"
     @f.puts "#undef DIFFERENCE"
     @f.puts '#include "Field.h"'
-    @f.puts '#include "DeprecatedFields.h"'
     @f.puts
     @f.puts "namespace QuickFix"
     @f.puts "{"
