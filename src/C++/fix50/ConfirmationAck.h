@@ -1,21 +1,21 @@
-#ifndef FIX44_CONFIRMATION_ACK_H
-#define FIX44_CONFIRMATION_ACK_H
+#ifndef FIX50_CONFIRMATIONACK_H
+#define FIX50_CONFIRMATIONACK_H
 
 #include "Message.h"
 
-namespace FIX44
+namespace FIX50
 {
 
-  class Confirmation_Ack : public Message
+  class ConfirmationAck : public Message
   {
   public:
-    Confirmation_Ack() : Message(MsgType()) {}
-    Confirmation_Ack(const FIX::Message& m) : Message(m) {}
-    Confirmation_Ack(const Message& m) : Message(m) {}
-    Confirmation_Ack(const Confirmation_Ack& m) : Message(m) {}
+    ConfirmationAck() : Message(MsgType()) {}
+    ConfirmationAck(const FIX::Message& m) : Message(m) {}
+    ConfirmationAck(const Message& m) : Message(m) {}
+    ConfirmationAck(const ConfirmationAck& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AU"); }
 
-    Confirmation_Ack(
+    ConfirmationAck(
       const FIX::ConfirmID& aConfirmID,
       const FIX::TradeDate& aTradeDate,
       const FIX::TransactTime& aTransactTime,

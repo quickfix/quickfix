@@ -833,7 +833,7 @@ class AllocationAck(Message):
 			order[4] = 0
 			fix.Group.__init__(self, 453, 448, order)
 
-class DontKnowTradeDK(Message):
+class DontKnowTrade(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("Q") )

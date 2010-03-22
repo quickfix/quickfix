@@ -1,12 +1,12 @@
 namespace QuickFix50
 {
 
-  public class Confirmation_Ack : Message
+  public class ConfirmationAck : Message
   {
-    public Confirmation_Ack() : base(MsgType()) {}
+    public ConfirmationAck() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("AU"); }
 
-    public Confirmation_Ack(
+    public ConfirmationAck(
       QuickFix.ConfirmID aConfirmID,
       QuickFix.TradeDate aTradeDate,
       QuickFix.TransactTime aTransactTime,

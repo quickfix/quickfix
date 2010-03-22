@@ -123,9 +123,10 @@ class DataDictionary
 	end
 
 	def toMessageName( messageName )
-		messageName = messageName.split("(")[0].delete("& -/’")
+		messageName = messageName.split("(")[0].delete("& -/’_")
 		return "NewOrderSingle" if messageName == "OrderSingle"
 		return "NewOrderList" if messageName == "OrderList"
+		return "DontKnowTrade" if messageName == "DontKnowTradeDK"
 		return messageName
 	end
 
@@ -426,4 +427,4 @@ DataDictionary.new( 4, 3, 0 )
 DataDictionary.new( 4, 4, 0 )
 DataDictionary.new( 5, 0, 0 )
 DataDictionary.new( 5, 0, 1 )
-DataDictionary.new( 5, 0, 1 )
+DataDictionary.new( 5, 0, 2 )

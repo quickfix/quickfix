@@ -1,4 +1,4 @@
-namespace QuickFix44
+namespace QuickFix50Sp1
 {
 
   public class ConfirmationAck : Message

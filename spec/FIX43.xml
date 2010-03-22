@@ -760,7 +760,7 @@
    <field name='EncodedText' required='N' />
    <field name='LegalConfirm' required='N' />
   </message>
-  <message name='DontKnowTradeDK' msgcat='app' msgtype='Q'>
+  <message name='DontKnowTrade' msgcat='app' msgtype='Q'>
    <field name='OrderID' required='Y' />
    <field name='ExecID' required='Y' />
    <field name='DKReason' required='Y' />

@@ -2177,7 +2177,7 @@ class AllocationInstructionAck(Message):
 			order[8] = 0
 			fix.Group.__init__(self, 78, 79, order)
 
-class DontKnowTradeDK(Message):
+class DontKnowTrade(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("Q") )
@@ -10443,7 +10443,7 @@ class AllocationReportAck(Message):
 			order[8] = 0
 			fix.Group.__init__(self, 78, 79, order)
 
-class Confirmation_Ack(Message):
+class ConfirmationAck(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("AU") )

@@ -987,7 +987,7 @@ class AllocationAck < Message
 	end
 end
 
-class DontKnowTradeDK < Message
+class DontKnowTrade < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("Q") )

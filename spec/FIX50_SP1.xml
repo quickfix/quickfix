@@ -662,7 +662,7 @@
    <field name='EncodedText' required='N' />
    <component name='AllocAckGrp' required='N' />
   </message>
-  <message name='DontKnowTradeDK' msgcat='app' msgtype='Q'>
+  <message name='DontKnowTrade' msgcat='app' msgtype='Q'>
    <field name='OrderID' required='Y' />
    <field name='SecondaryOrderID' required='N' />
    <field name='ExecID' required='Y' />
@@ -2263,7 +2263,7 @@
    <field name='Quantity' required='N' />
    <field name='AllocTransType' required='N' />
   </message>
-  <message name='Confirmation_Ack' msgcat='app' msgtype='AU'>
+  <message name='ConfirmationAck' msgcat='app' msgtype='AU'>
    <field name='ConfirmID' required='Y' />
    <field name='TradeDate' required='Y' />
    <field name='TransactTime' required='Y' />
