@@ -52,6 +52,11 @@ class Aggregator
   end
 
   def fields(name, number, type, values)
+    if( @fields.has_key?(name) )
+      oldValues = @fields[name]["values"]
+      values = oldValues.merge!(values)
+    end
+
     @fields[name] = { "name" => name, "number" => number, "type" => type, "values" => values }
   end
 

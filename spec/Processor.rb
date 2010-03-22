@@ -241,11 +241,11 @@ class Processor
         number = field.attributes["number"]
         type = field.attributes["type"]
 
-        values = Array.new
+        values = Hash.new
         field.elements.each("value") { |value|
           enum = value.attributes["enum"]
 	  description = value.attributes["description"]
-          values.push( [enum, description] )
+          values[description] = enum
         }
 
         @generators.each { |generator|
@@ -260,11 +260,11 @@ class Processor
       number = field.attributes["number"]
       type = field.attributes["type"]
 
-      values = Array.new
+      values = Hash.new
       field.elements.each("value") { |value|
         enum = value.attributes["enum"]
         description = value.attributes["description"]
-        values.push( [enum, description] )
+        values[description] = enum
       }
 
       if( !fixTTFields.has_key?(name) )

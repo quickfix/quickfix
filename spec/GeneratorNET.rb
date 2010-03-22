@@ -205,9 +205,7 @@ class GeneratorNET
     @f.puts "public:"
     @f.indent
     @f.puts "static const int FIELD = #{number};"
-    values.each { |value|
-      enum = value[0]
-      description = value[1]
+    values.each { |description, enum|
       if(description[0] >= 48 && description[0] <= 57)
         description = "_" + description
       end
