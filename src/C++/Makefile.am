@@ -71,11 +71,9 @@ libquickfix_la_SOURCES = \
 	Field.h \
 	FieldConvertors.h \
 	FieldNumbers.h \
-	DeprecatedFieldNumbers.h \
 	FieldTypes.cpp \
 	FieldTypes.h \
 	Fields.h \
-	DeprecatedFields.h \
 	FieldMap.cpp \
 	FieldMap.h \
 	Message.cpp \

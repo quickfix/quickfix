@@ -22,7 +22,6 @@
 #ifndef FIX_FIELDS_BASE_H
 #define FIX_FIELDS_BASE_H
 
-#include "DeprecatedFields.h"
 #include "FixFields.h"
 #include "Field.h"
 

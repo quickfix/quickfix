@@ -4,10 +4,10 @@ include REXML
 
 class Processor
 
-  def initialize(filename, outputdir, generator)
+  def initialize(filename, generators)
     file = File.new( filename )
-    puts filename + " -> " + outputdir
     fileT = File.new( "FIXT11.xml" )
+    @filename = filename
     @doc = Document.new file
     @docT = Document.new fileT
     @major = @doc.root.attributes["major"]
@@ -19,8 +19,7 @@ class Processor
     @fieldsT = @docT.elements["fix/fields"]
     @components = @doc.elements["fix/components"]
     populateFieldHash()
-    @generator = generator    
-    process
+    @generators = generators    
   end
 
   def populateFieldHash
@@ -52,6 +51,8 @@ class Processor
   end
 
   def process
+    puts @filename
+
     front
     header
     trailer
@@ -61,35 +62,91 @@ class Processor
     fields
   end
 
+  def process( aggregator )
+    puts @filename
+
+    front
+    header
+    trailer
+    baseMessage
+    messages
+    back
+
+    @generators.each { |generator|
+      generator.fieldsStart
+    }
+
+    aggregator.getFields.each { |name, values|
+      @generators.each { |generator|
+        generator.fields(name, values["number"], values["type"], values["values"])
+      }
+    }
+
+    @generators.each { |generator|
+      generator.fieldsEnd
+    }
+  end
+
+  def processFields
+    puts @filename
+
+    fields
+  end
+
   def front
-    @generator.front
+    @generators.each { |generator|
+      generator.front
+    }
   end
 
   def header
-    @generator.headerStart
+    @generators.each { |generator|
+      generator.headerStart
+    }
+
     @header.elements.each("field") { |element|
-      @generator.field(element.attributes["name"], lookupField(element.attributes["name"])) } 
+      @generators.each { |generator|
+        generator.field(element.attributes["name"], lookupField(element.attributes["name"])) 
+      }
+    } 
+      
     groups(@header)
-    @generator.headerEnd
+    @generators.each { |generator|
+      generator.headerEnd
+    }
   end
 
   def trailer
-    @generator.trailerStart
+    @generators.each { |generator|
+      generator.trailerStart
+    }
+
     @trailer.elements.each("field") { |element|
-      @generator.field(element.attributes["name"], lookupField(element.attributes["name"])) } 
+      @generators.each { |generator|
+        generator.field(element.attributes["name"], lookupField(element.attributes["name"])) 
+      }
+    }
+ 
     groups(@trailer)
-    @generator.trailerEnd
+    @generators.each { |generator|
+      generator.trailerEnd
+    }
   end
 
   def baseMessage
-    @generator.baseMessageStart
-    @generator.baseMessageEnd
+    @generators.each { |generator|
+      generator.baseMessageStart
+      generator.baseMessageEnd
+    }
   end
 
   def component( element )
     component = lookupComponent( element.attributes["name"] )
     component.elements.each("field") { |field|
-      @generator.field(field.attributes["name"], lookupField(field.attributes["name"])) }
+      @generators.each { |generator|
+        generator.field(field.attributes["name"], lookupField(field.attributes["name"])) 
+      }
+    }
     groups( lookupComponent(element.attributes["name"]) )
   end
 
@@ -100,13 +157,6 @@ class Processor
 
       element = group.elements["*"]
       
-      #if( element.name == "field" )
-	#delim = lookupField(element.attributes["name"])
-      #else
-	#component = lookupComponent( element.attributes["name"] )
-	#delim = lookupField(component.elements["field"].attributes["name"])
-      #end
-
       delim = nil
       order = Array.new
       group.elements.each("*") { |element|
@@ -126,19 +176,26 @@ class Processor
 	end
       }
 
-      @generator.field(name, number)
-      @generator.groupStart(name, number, delim, order)
+      @generators.each { |generator|
+        generator.field(name, number)
+        generator.groupStart(name, number, delim, order)
+      }
+
       group.elements.each("*") { |element|
-	if(element.name == "field")
-	  @generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
+        if(element.name == "field")
+          @generators.each { |generator|
+            generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
+          }
 	end
-	if(element.name == "component")
+        if(element.name == "component")
 	  component(element)
 	end
       }
 
       groups( group )
-      @generator.groupEnd
+      @generators.each { |generator|
+        generator.groupEnd
+      }
     }
   end
 
@@ -152,22 +209,30 @@ class Processor
       message.elements.each("field[@required='Y']") { |field|
 	required.push(field.attributes["name"]) }
 
-      @generator.messageStart(name, msgtype, required)
+      @generators.each { |generator|
+        generator.messageStart(name, msgtype, required)
+      }
       message.elements.each("*") { |element|
 	if(element.name == "field")
-	  @generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
+          @generators.each { |generator|
+	    generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
+          }
 	end
 	if(element.name == "component")
 	  component( element )
 	end
       }
       groups( message )
-      @generator.messageEnd
+      @generators.each { |generator|
+        generator.messageEnd
+      }
     }
   end
 
   def fields
-    @generator.fieldsStart
+    @generators.each { |generator|
+      generator.fieldsStart
+    }
     fixTTFields = Hash.new
 
     if( @major == "5" )
@@ -183,10 +248,13 @@ class Processor
           values.push( [enum, description] )
         }
 
-        @generator.fields(name, number, type, values)
+        @generators.each { |generator|
+          generator.fields(name, number, type, values)
+        }
 	fixTTFields[name] = name
       }
     end
+
     @fields.elements.each("field") { |field|
       name = field.attributes["name"]
       number = field.attributes["number"]
@@ -200,15 +268,21 @@ class Processor
       }
 
       if( !fixTTFields.has_key?(name) )
-        @generator.fields(name, number, type, values)
+      @generators.each { |generator|
+        generator.fields(name, number, type, values)
+      }
       end
     }
 
-    @generator.fieldsEnd
+    @generators.each { |generator|
+      generator.fieldsEnd
+    }
   end
 
   def back
-    @generator.back
+    @generators.each { |generator|
+      generator.back
+    }
   end
 end
 

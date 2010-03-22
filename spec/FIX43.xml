@@ -4161,7 +4161,7 @@
   </field>
   <field number='586' name='OrigOrdModTime' type='UTCTIMESTAMP' />
   <field number='587' name='LegSettlmntTyp' type='CHAR' />
-  <field number='588' name='LegFutSettDate' type='LOCALMMKTDATE' />
+  <field number='588' name='LegFutSettDate' type='LOCALMKTDATE' />
   <field number='589' name='DayBookingInst' type='CHAR'>
    <value enum='0' description='CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR' />
    <value enum='1' description='SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING' />

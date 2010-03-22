@@ -212,9 +212,6 @@ class GeneratorCPP
       f.puts "DEFINE_CHECKSUM(#{name});"
     else
       f.puts "DEFINE_#{type.upcase}(#{name});"
-      if( name == "TotNoOrders" )
-        f.puts "DEFINE_#{type.upcase}(ListNoOrds);"
-      end
     end
   end
 
@@ -238,9 +235,6 @@ class GeneratorCPP
     
   def fixFieldNumbers(f, name, number, type)
     f.puts "const int #{name} = #{number};"
-    if( name == "TotNoOrders" )
-      f.puts "const int ListNoOrds = #{number};"
-    end
   end
 
   def fixFieldNumbersEnd(f)

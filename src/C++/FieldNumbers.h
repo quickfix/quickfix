@@ -23,7 +23,6 @@
 #define FIX_FIELDNUMBERS_BASE_H
 
 #include <iostream>
-#include "DeprecatedFieldNumbers.h"
 #include "FixFieldNumbers.h"
 
 namespace FIX

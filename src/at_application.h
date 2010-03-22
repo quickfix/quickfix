@@ -28,10 +28,14 @@
 #include "fix43/NewOrderSingle.h"
 #include "fix44/NewOrderSingle.h"
 #include "fix50/NewOrderSingle.h"
+#include "fix50sp1/NewOrderSingle.h"
+#include "fix50sp2/NewOrderSingle.h"
 #include "fix42/SecurityDefinition.h"
 #include "fix43/SecurityDefinition.h"
 #include "fix44/SecurityDefinition.h"
 #include "fix50/SecurityDefinition.h"
+#include "fix50sp1/SecurityDefinition.h"
+#include "fix50sp2/SecurityDefinition.h"
 #include <map>
 
 class MessageCracker : public FIX::MessageCracker

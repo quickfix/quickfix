@@ -11,7 +11,7 @@ class GeneratorRuby
     @depth = 0;
     @dir = dir + "/"
     if( sp != "0" )
-      @f = createFile( "quick" + type.downcase + major + minor + sp + ".rb" )
+      @f = createFile( "quick" + type.downcase + major + minor + "sp#{sp}" + ".rb" )
     else
       @f = createFile( "quick" + type.downcase + major + minor + ".rb" )
     end

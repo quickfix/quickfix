@@ -233,17 +233,6 @@ class GeneratorNET
     @f.dedent
     @f.puts"};"
 
-    if(name == "TotNoOrders")
-      @f.puts "public __gc class ListNoOrds : public IntField"
-      @f.puts "{"
-      @f.puts "public:"
-      @f.indent
-      @f.puts "static int FIELD = 68;"
-      @f.puts "ListNoOrds() : IntField(68) {}"
-      @f.puts "ListNoOrds(int data) : IntField(68, data) {}"
-      @f.dedent
-      @f.puts "};"
-    end
     @f.puts
   end
 

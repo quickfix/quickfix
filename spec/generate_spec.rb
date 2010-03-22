@@ -168,6 +168,7 @@ class DataDictionary
 	def toType( type )
 		type = type.gsub('-', '')
 		return "NUMINGROUP" if type == "NUMINGRP"
+		return "LOCALMKTDATE" if type == "LOCALMMKTDATE"
 		return type
 	end
 

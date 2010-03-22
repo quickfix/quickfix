@@ -511,7 +511,6 @@ def start(self):
 %include "../C++/Group.h"
 %include "../C++/Fields.h"
 %include "../C++/FixFields.h"
-%include "../C++/DeprecatedFields.h"
 %include "../C++/Values.h"
 %include "../C++/FixValues.h"
 %include "../C++/FixTValues.h"
