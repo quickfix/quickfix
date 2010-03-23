@@ -146,6 +146,7 @@ class DataDictionary
 		description.gsub!(',', '_')
 		description.gsub!(' ', '_')
 		description.gsub!('-', '_')
+		description.gsub!('–', '')
 		description.gsub!('/', '_')
 		description.gsub!('+', ' PLUS ')
 		description.gsub!("'", '')

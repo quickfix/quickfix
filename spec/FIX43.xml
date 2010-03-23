@@ -1356,6 +1356,7 @@
     <field name='CashDistribAgentAcctNumber' required='N' />
     <field name='CashDistribPayRef' required='N' />
    </group>
+   <field name='OwnershipType' required='N' />
   </message>
   <message name='RegistrationInstructionsResponse' msgcat='app' msgtype='p'>
    <field name='RegistID' required='Y' />
@@ -3827,12 +3828,12 @@
   <field number='495' name='TaxAdvantageType' type='INT'>
    <value enum='19' description='PROFIT_SHARING_PLAN' />
    <value enum='11' description='EMPLOYER' />
-   <value enum='12' description='EMPLOYER_–_CURRENT_YEAR' />
+   <value enum='12' description='EMPLOYER_CURRENT_YEAR' />
    <value enum='13' description='NON_FUND_PROTOTYPE_IRA' />
    <value enum='14' description='NON_FUND_QUALIFIED_PLAN' />
    <value enum='15' description='DEFINED_CONTRIBUTION_PLAN' />
-   <value enum='10' description='EMPLOYEE_–_CURRENT_YEAR' />
-   <value enum='17' description='INDIVIDUAL_RETIREMENT_ACCOUNT_–_ROLLOVER' />
+   <value enum='10' description='EMPLOYEE_CURRENT_YEAR' />
+   <value enum='17' description='INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER' />
    <value enum='5' description='MINI_INSURANCE_ISA' />
    <value enum='16' description='INDIVIDUAL_RETIREMENT_ACCOUNT' />
    <value enum='9' description='EMPLOYEE' />

@@ -17,6 +17,7 @@ class GeneratorCPP
     @dir = basedir + "/" + @namespace.downcase
     @basefile = createVersionFile("Message.h")
     @f = @basefile
+    @msgToType = Hash.new
   end
 
   def createBaseFile(name)
@@ -111,6 +112,7 @@ class GeneratorCPP
   end
 
   def messageStart(name, msgtype, required)
+    @msgToType[name] = msgtype
     @f = createVersionFile(name + ".h")
     @f.puts "#ifndef " + @namespace + "_" + name.upcase + "_H"
     @f.puts "#define " + @namespace + "_" + name.upcase + "_H"
@@ -178,20 +180,25 @@ class GeneratorCPP
   def fieldsStart
     @ff = createBaseFile("FixFields.h")
     @fn = createBaseFile("FixFieldNumbers.h")
+    @fv = createBaseFile("FixValues.h")
     fixFieldsStart(@ff)
     fixFieldNumbersStart(@fn)
+    fixFieldValuesStart(@fv)
   end
 
   def fields(name, number, type, values)
     fixFields(@ff, name, number, type)
     fixFieldNumbers(@fn, name, number, type)
+    fixFieldValues(@fv, name, number, type, values)
   end
 
   def fieldsEnd
     fixFieldsEnd(@ff)
     fixFieldNumbersEnd(@fn)
+    fixFieldValuesEnd(@fv)
     @ff.close
-    #@fn.close
+    @fn.close
+    @fv.close
   end
 
   def fixFieldsStart(f)
@@ -243,7 +250,39 @@ class GeneratorCPP
     f.dedent
     f.puts "}"
     f.puts "#endif //FIX_FIELDNUMBERS_H"
-    f.close
+  end
+
+  def fixFieldValuesStart(f)
+    f.puts "#ifndef FIX_VALUES_H"
+    f.puts "#define FIX_VALUES_H"
+    f.puts
+    f.puts "#include <string>"
+    f.puts
+    f.puts "namespace FIX"
+    f.puts "{"
+    f.indent
+
+    @msgToType.each { |name, msgType|
+      f.puts "const char MsgType_#{name}[] = \"#{msgType}\";"
+    }
+  end
+
+  def fixFieldValues(f, name, number, type, values)
+    values.each { |description, enum|
+      case type
+        when "INT"
+          f.puts "const int #{name}_#{description} = #{enum};"
+        when "STRING", "MULTIPLESTRINGVALUE"
+          f.puts "const char #{name}_#{description}[] = \"#{enum}\";"
+        else
+          f.puts "const char #{name}_#{description} = '#{enum}';"
+      end
+    }
+  end
+
+  def fixFieldValuesEnd(f)
+    f.puts "}"
+    f.puts "#endif //FIX_VALUES_H"
   end
 
 end

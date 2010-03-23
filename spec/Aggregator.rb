@@ -3,10 +3,15 @@ require 'PrintFile'
 class Aggregator
   def initialize
     @fields = Hash.new
+    @msgToType = Hash.new
   end
 
   def getFields
     @fields
+  end
+
+  def getMsgToType
+    @msgToType
   end
 
   def front
@@ -40,6 +45,7 @@ class Aggregator
   end
 
   def messageStart(name, msgtype, required)
+    @msgToType[name] = msgtype
   end
 
   def messageEnd

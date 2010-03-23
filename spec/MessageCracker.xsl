@@ -54,7 +54,7 @@ namespace <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xs
   };
 }
 
-#endif //<xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H&#013;
+#endif //<xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
 </xsl:template>
 
 <xsl:template name="forward-declarations"><xsl:for-each select="//fix/messages/message"> 

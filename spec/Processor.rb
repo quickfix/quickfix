@@ -64,6 +64,7 @@ class Processor
 
   def process( aggregator )
     puts @filename
+    @aggregator = aggregator
 
     front
     header
@@ -91,6 +92,7 @@ class Processor
     puts @filename
 
     fields
+    messages
   end
 
   def front
@@ -248,6 +250,14 @@ class Processor
           values[description] = enum
         }
 
+        if( number == "35" )
+          if(@aggregator == nil)
+	    values = Hash.new
+	  else
+            values = @aggregator.getMsgType
+          end
+        end
+
         @generators.each { |generator|
           generator.fields(name, number, type, values)
         }
@@ -266,6 +276,14 @@ class Processor
         description = value.attributes["description"]
         values[description] = enum
       }
+
+      if( number == "35" )
+        if(@aggregator == nil)
+	  values = Hash.new
+	else
+          values = @aggregator.getMsgType
+        end
+      end
 
       if( !fixTTFields.has_key?(name) )
       @generators.each { |generator|
