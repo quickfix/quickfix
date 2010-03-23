@@ -78,7 +78,6 @@ class Processor
     }
 
     aggregator.getFields.each { |name, values|
-
       number = values["number"]
       type = values["type"]
       values = values["values"]

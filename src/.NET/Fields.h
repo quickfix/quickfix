@@ -4717,7 +4717,9 @@ namespace QuickFix
   {
   public:
     static const int FIELD = 1128;
+    static const String* FIX50SP1 = "8";
     static const String* FIX27 = "0";
+    static const String* FIX50SP2 = "9";
     static const String* FIX50 = "7";
     static const String* FIX40 = "2";
     static const String* FIX41 = "3";
