@@ -22,9 +22,7 @@
 #ifndef FIX_VALUES_BASE_H
 #define FIX_VALUES_BASE_H
 
-#include "DeprecatedValues.h"
 #include "FixValues.h"
-#include "FixTValues.h"
 #include <string>
 
 namespace FIX
@@ -62,4 +60,3 @@ namespace FIX
   const char BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT[] = "Deliver to firm not available at this time";
 }
 #endif //FIX_VALUES_BASE_H
-

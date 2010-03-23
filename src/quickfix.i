@@ -513,8 +513,6 @@ def start(self):
 %include "../C++/FixFields.h"
 %include "../C++/Values.h"
 %include "../C++/FixValues.h"
-%include "../C++/FixTValues.h"
-%include "../C++/DeprecatedValues.h"
 %include "../C++/SessionID.h"
 %include "../C++/Dictionary.h"
 %include "../C++/SessionSettings.h"

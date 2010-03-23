@@ -47,29 +47,25 @@ namespace QuickFixT11
     public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     
   {
-    QuickFix.MsgType msgType = new QuickFix.MsgType();
-    message.getHeader().getField(msgType);
-    String msgTypeValue = msgType.getValue();
-
-    if( msgTypeValue == "0" )
+    if( message is Heartbeat )
       onMessage( (Heartbeat)(message), sessionID );
     else
-    if( msgTypeValue == "1" )
+    if( message is TestRequest )
       onMessage( (TestRequest)(message), sessionID );
     else
-    if( msgTypeValue == "2" )
+    if( message is ResendRequest )
       onMessage( (ResendRequest)(message), sessionID );
     else
-    if( msgTypeValue == "3" )
+    if( message is Reject )
       onMessage( (Reject)(message), sessionID );
     else
-    if( msgTypeValue == "4" )
+    if( message is SequenceReset )
       onMessage( (SequenceReset)(message), sessionID );
     else
-    if( msgTypeValue == "5" )
+    if( message is Logout )
       onMessage( (Logout)(message), sessionID );
     else
-    if( msgTypeValue == "A" )
+    if( message is Logon )
       onMessage( (Logon)(message), sessionID );
     else onMessage( message, sessionID );    
   }

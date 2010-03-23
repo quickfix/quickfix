@@ -980,4 +980,3 @@ void crack( Message& message,
 }
 
 #endif //FIX44_MESSAGECRACKER_H
-

@@ -106,16 +106,6 @@ libquickfix_la_SOURCES = \
 	DOMDocument.h \
 	LIBXML_DOMDocument.cpp \
 	LIBXML_DOMDocument.h \
-	FIX40_Messages.h \
-	FIX41_Messages.h \
-	FIX42_Messages.h \
-	FIX43_Messages.h \
-	FIX44_Messages.h \
-	FIX40_MessageCracker.h \
-	FIX41_MessageCracker.h \
-	FIX42_MessageCracker.h \
-	FIX43_MessageCracker.h \
-	FIX44_MessageCracker.h \
 	MessageCracker.h \
 	Responder.h \
 	CallStack.h \

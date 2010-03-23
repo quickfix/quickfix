@@ -177,6 +177,18 @@ namespace QuickFix43
     public bool isSetOwnershipType()
     { return isSetField(517); }
 
+    public void set(QuickFix.OwnershipType value)
+    { setField(value); }
+    public QuickFix.OwnershipType get(QuickFix.OwnershipType  value)
+    { getField(value); return value; }
+    public QuickFix.OwnershipType getOwnershipType()
+    { QuickFix.OwnershipType value = new QuickFix.OwnershipType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.OwnershipType field)
+    { return isSetField(field); }
+    public bool isSetOwnershipType()
+    { return isSetField(517); }
+
     public void set(QuickFix.NoRegistDtls value)
     { setField(value); }
     public QuickFix.NoRegistDtls get(QuickFix.NoRegistDtls  value)
