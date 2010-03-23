@@ -10083,4 +10083,5601 @@ class Confirmation < Message
 			def initialize
 				order = Quickfix::IntArray.new(3)
 				order[0] = 523
-				ord
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(10)
+			order[0] = 11
+			order[1] = 37
+			order[2] = 198
+			order[3] = 526
+			order[4] = 66
+			order[5] = 756
+			order[6] = 38
+			order[7] = 799
+			order[8] = 800
+			order[9] = 0
+			super(73, 11, order)
+		end
+
+		class NoNested2PartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 757
+				order[1] = 758
+				order[2] = 759
+				order[3] = 806
+				order[4] = 0
+				super(756, 757, order)
+			end
+
+			class NoNested2PartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 760
+					order[1] = 807
+					order[2] = 0
+					super(806, 760, order)
+				end
+			end
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoCapacities < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 528
+			order[1] = 529
+			order[2] = 863
+			order[3] = 0
+			super(862, 528, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+end
+
+class PositionMaintenanceRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AL") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTradingSessions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 336
+			order[1] = 625
+			order[2] = 0
+			super(386, 336, order)
+		end
+	end
+
+	class NoPositions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 703
+			order[1] = 704
+			order[2] = 705
+			order[3] = 706
+			order[4] = 539
+			order[5] = 976
+			order[6] = 0
+			super(702, 703, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+end
+
+class PositionMaintenanceReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AM") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTradingSessions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 336
+			order[1] = 625
+			order[2] = 0
+			super(386, 336, order)
+		end
+	end
+
+	class NoPositions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 703
+			order[1] = 704
+			order[2] = 705
+			order[3] = 706
+			order[4] = 539
+			order[5] = 976
+			order[6] = 0
+			super(702, 703, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+end
+
+class RequestForPositions < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AN") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTradingSessions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 336
+			order[1] = 625
+			order[2] = 0
+			super(386, 336, order)
+		end
+	end
+end
+
+class RequestForPositionsAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AO") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+end
+
+class PositionReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AP") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(66)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 732
+			order[62] = 733
+			order[63] = 984
+			order[64] = 1037
+			order[65] = 0
+			super(711, 311, order)
+		end
+
+		class NoUnderlyingAmounts < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 985
+				order[1] = 986
+				order[2] = 987
+				order[3] = 988
+				order[4] = 0
+				super(984, 985, order)
+			end
+		end
+	end
+
+	class NoPositions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 703
+			order[1] = 704
+			order[2] = 705
+			order[3] = 706
+			order[4] = 539
+			order[5] = 976
+			order[6] = 0
+			super(702, 703, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+end
+
+class TradeCaptureReportRequestAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AQ") )
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+end
+
+class TradeCaptureReportAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AR") )
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(74)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 687
+			order[52] = 690
+			order[53] = 683
+			order[54] = 564
+			order[55] = 565
+			order[56] = 539
+			order[57] = 654
+			order[58] = 587
+			order[59] = 588
+			order[60] = 637
+			order[61] = 990
+			order[62] = 675
+			order[63] = 1073
+			order[64] = 1074
+			order[65] = 1075
+			order[66] = 1152
+			order[67] = 1342
+			order[68] = 1379
+			order[69] = 1381
+			order[70] = 1383
+			order[71] = 1384
+			order[72] = 1418
+			order[73] = 0
+			super(555, 600, order)
+		end
+
+		class NoLegStipulations < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 688
+				order[1] = 689
+				order[2] = 0
+				super(683, 688, order)
+			end
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+
+		class NoOfLegUnderlyings < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(16)
+				order[0] = 1330
+				order[1] = 1331
+				order[2] = 1332
+				order[3] = 1333
+				order[4] = 1344
+				order[5] = 1337
+				order[6] = 1338
+				order[7] = 1339
+				order[8] = 1345
+				order[9] = 1405
+				order[10] = 1340
+				order[11] = 1391
+				order[12] = 1343
+				order[13] = 1341
+				order[14] = 1392
+				order[15] = 0
+				super(1342, 1330, order)
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+
+	class NoSides < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(70)
+			order[0] = 54
+			order[1] = 37
+			order[2] = 198
+			order[3] = 11
+			order[4] = 526
+			order[5] = 66
+			order[6] = 453
+			order[7] = 1
+			order[8] = 660
+			order[9] = 581
+			order[10] = 81
+			order[11] = 575
+			order[12] = 576
+			order[13] = 578
+			order[14] = 579
+			order[15] = 821
+			order[16] = 376
+			order[17] = 377
+			order[18] = 528
+			order[19] = 529
+			order[20] = 582
+			order[21] = 40
+			order[22] = 18
+			order[23] = 483
+			order[24] = 336
+			order[25] = 625
+			order[26] = 943
+			order[27] = 12
+			order[28] = 13
+			order[29] = 479
+			order[30] = 497
+			order[31] = 157
+			order[32] = 230
+			order[33] = 158
+			order[34] = 159
+			order[35] = 738
+			order[36] = 920
+			order[37] = 921
+			order[38] = 922
+			order[39] = 238
+			order[40] = 237
+			order[41] = 118
+			order[42] = 119
+			order[43] = 155
+			order[44] = 156
+			order[45] = 77
+			order[46] = 752
+			order[47] = 518
+			order[48] = 232
+			order[49] = 136
+			order[50] = 825
+			order[51] = 826
+			order[52] = 591
+			order[53] = 70
+			order[54] = 78
+			order[55] = 1093
+			order[56] = 1072
+			order[57] = 1057
+			order[58] = 1009
+			order[59] = 1005
+			order[60] = 1006
+			order[61] = 1007
+			order[62] = 83
+			order[63] = 1008
+			order[64] = 1016
+			order[65] = 430
+			order[66] = 1154
+			order[67] = 1155
+			order[68] = 1158
+			order[69] = 0
+			super(552, 54, order)
+		end
+
+		class NoPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 448
+				order[1] = 447
+				order[2] = 452
+				order[3] = 802
+				order[4] = 0
+				super(453, 448, order)
+			end
+
+			class NoPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 523
+					order[1] = 803
+					order[2] = 0
+					super(802, 523, order)
+				end
+			end
+		end
+
+		class NoClearingInstructions < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(2)
+				order[0] = 577
+				order[1] = 0
+				super(576, 577, order)
+			end
+		end
+
+		class NoContAmts < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 519
+				order[1] = 520
+				order[2] = 521
+				order[3] = 0
+				super(518, 519, order)
+			end
+		end
+
+		class NoStipulations < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 233
+				order[1] = 234
+				order[2] = 0
+				super(232, 233, order)
+			end
+		end
+
+		class NoMiscFees < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 137
+				order[1] = 138
+				order[2] = 139
+				order[3] = 891
+				order[4] = 0
+				super(136, 137, order)
+			end
+		end
+
+		class NoAllocs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(11)
+				order[0] = 79
+				order[1] = 661
+				order[2] = 736
+				order[3] = 467
+				order[4] = 756
+				order[5] = 80
+				order[6] = 993
+				order[7] = 1002
+				order[8] = 989
+				order[9] = 1136
+				order[10] = 0
+				super(78, 79, order)
+			end
+
+			class NoNested2PartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 757
+					order[1] = 758
+					order[2] = 759
+					order[3] = 806
+					order[4] = 0
+					super(756, 757, order)
+				end
+
+				class NoNested2PartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 760
+						order[1] = 807
+						order[2] = 0
+						super(806, 760, order)
+					end
+				end
+			end
+		end
+
+		class NoSideTrdRegTS < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 1012
+				order[1] = 1013
+				order[2] = 1014
+				order[3] = 0
+				super(1016, 1012, order)
+			end
+		end
+
+		class NoSettlDetails < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1164
+				order[1] = 781
+				order[2] = 0
+				super(1158, 1164, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
+			end
+		end
+	end
+
+	class NoRootPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1117
+			order[1] = 1118
+			order[2] = 1119
+			order[3] = 1120
+			order[4] = 0
+			super(1116, 1117, order)
+		end
+
+		class NoRootPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1121
+				order[1] = 1122
+				order[2] = 0
+				super(1120, 1121, order)
+			end
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRepIndicators < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 1388
+			order[1] = 1389
+			order[2] = 0
+			super(1387, 1388, order)
+		end
+	end
+end
+
+class AllocationReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AS") )
+	end
+
+	class NoOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(10)
+			order[0] = 11
+			order[1] = 37
+			order[2] = 198
+			order[3] = 526
+			order[4] = 66
+			order[5] = 756
+			order[6] = 38
+			order[7] = 799
+			order[8] = 800
+			order[9] = 0
+			super(73, 11, order)
+		end
+
+		class NoNested2PartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 757
+				order[1] = 758
+				order[2] = 759
+				order[3] = 806
+				order[4] = 0
+				super(756, 757, order)
+			end
+
+			class NoNested2PartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 760
+					order[1] = 807
+					order[2] = 0
+					super(806, 760, order)
+				end
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(9)
+			order[0] = 32
+			order[1] = 17
+			order[2] = 527
+			order[3] = 31
+			order[4] = 669
+			order[5] = 29
+			order[6] = 1003
+			order[7] = 1041
+			order[8] = 0
+			super(124, 32, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+
+	class NoAllocs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(41)
+			order[0] = 79
+			order[1] = 661
+			order[2] = 573
+			order[3] = 366
+			order[4] = 80
+			order[5] = 467
+			order[6] = 81
+			order[7] = 539
+			order[8] = 208
+			order[9] = 209
+			order[10] = 161
+			order[11] = 360
+			order[12] = 361
+			order[13] = 12
+			order[14] = 13
+			order[15] = 479
+			order[16] = 497
+			order[17] = 153
+			order[18] = 154
+			order[19] = 119
+			order[20] = 737
+			order[21] = 120
+			order[22] = 736
+			order[23] = 155
+			order[24] = 156
+			order[25] = 742
+			order[26] = 741
+			order[27] = 136
+			order[28] = 576
+			order[29] = 780
+			order[30] = 172
+			order[31] = 169
+			order[32] = 170
+			order[33] = 171
+			order[34] = 989
+			order[35] = 1002
+			order[36] = 993
+			order[37] = 992
+			order[38] = 1047
+			order[39] = 635
+			order[40] = 0
+			super(78, 79, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+
+		class NoMiscFees < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 137
+				order[1] = 138
+				order[2] = 139
+				order[3] = 891
+				order[4] = 0
+				super(136, 137, order)
+			end
+		end
+
+		class NoClearingInstructions < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(2)
+				order[0] = 577
+				order[1] = 0
+				super(576, 577, order)
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+end
+
+class AllocationReportAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AT") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoAllocs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(15)
+			order[0] = 79
+			order[1] = 661
+			order[2] = 366
+			order[3] = 467
+			order[4] = 776
+			order[5] = 161
+			order[6] = 360
+			order[7] = 361
+			order[8] = 989
+			order[9] = 993
+			order[10] = 992
+			order[11] = 80
+			order[12] = 539
+			order[13] = 1047
+			order[14] = 0
+			super(78, 79, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+end
+
+class ConfirmationAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AU") )
+	end
+end
+
+class SettlementInstructionRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AV") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+end
+
+class AssignmentReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AW") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoPositions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 703
+			order[1] = 704
+			order[2] = 705
+			order[3] = 706
+			order[4] = 539
+			order[5] = 976
+			order[6] = 0
+			super(702, 703, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+end
+
+class CollateralRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AX") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(63)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 944
+			order[62] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+end
+
+class CollateralAssignment < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AY") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(63)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 944
+			order[62] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+end
+
+class CollateralResponse < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AZ") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(63)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 944
+			order[62] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+end
+
+class CollateralReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BA") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+end
+
+class CollateralInquiry < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BB") )
+	end
+
+	class NoCollInquiryQualifier < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 896
+			order[1] = 0
+			super(938, 896, order)
+		end
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+end
+
+class NetworkCounterpartySystemStatusRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BC") )
+	end
+
+	class NoCompIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 0
+			super(936, 930, order)
+		end
+	end
+end
+
+class NetworkCounterpartySystemStatusResponse < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BD") )
+	end
+
+	class NoCompIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 928
+			order[5] = 929
+			order[6] = 0
+			super(936, 930, order)
+		end
+	end
+end
+
+class UserRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BE") )
+	end
+end
+
+class UserResponse < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BF") )
+	end
+end
+
+class CollateralInquiryAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BG") )
+	end
+
+	class NoCollInquiryQualifier < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 896
+			order[1] = 0
+			super(938, 896, order)
+		end
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 17
+			order[1] = 0
+			super(124, 17, order)
+		end
+	end
+
+	class NoTrades < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 571
+			order[1] = 818
+			order[2] = 0
+			super(897, 571, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+end
+
+class ConfirmationRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BH") )
+	end
+
+	class NoOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(10)
+			order[0] = 11
+			order[1] = 37
+			order[2] = 198
+			order[3] = 526
+			order[4] = 66
+			order[5] = 756
+			order[6] = 38
+			order[7] = 799
+			order[8] = 800
+			order[9] = 0
+			super(73, 11, order)
+		end
+
+		class NoNested2PartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 757
+				order[1] = 758
+				order[2] = 759
+				order[3] = 806
+				order[4] = 0
+				super(756, 757, order)
+			end
+
+			class NoNested2PartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 760
+					order[1] = 807
+					order[2] = 0
+					super(806, 760, order)
+				end
+			end
+		end
+	end
+end
+
+class ContraryIntentionReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BO") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoExpiration < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 982
+			order[1] = 983
+			order[2] = 0
+			super(981, 982, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+end
+
+class SecurityDefinitionUpdateReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BP") )
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+
+	class NoMarketSegments < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 1301
+			order[1] = 1300
+			order[2] = 1201
+			order[3] = 0
+			super(1310, 1301, order)
+		end
+
+		class NoStrikeRules < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(7)
+				order[0] = 1223
+				order[1] = 1202
+				order[2] = 1203
+				order[3] = 1204
+				order[4] = 1304
+				order[5] = 1236
+				order[6] = 0
+				super(1201, 1223, order)
+			end
+
+			class NoMaturityRules < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(7)
+					order[0] = 1222
+					order[1] = 1303
+					order[2] = 1302
+					order[3] = 1241
+					order[4] = 1226
+					order[5] = 1229
+					order[6] = 0
+					super(1236, 1222, order)
+				end
+			end
+		end
+	end
+end
+
+class SecurityListUpdateReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BK") )
+	end
+
+	class NoRelatedSym < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(103)
+			order[0] = 55
+			order[1] = 65
+			order[2] = 48
+			order[3] = 22
+			order[4] = 460
+			order[5] = 461
+			order[6] = 167
+			order[7] = 762
+			order[8] = 200
+			order[9] = 541
+			order[10] = 224
+			order[11] = 225
+			order[12] = 239
+			order[13] = 226
+			order[14] = 227
+			order[15] = 228
+			order[16] = 255
+			order[17] = 543
+			order[18] = 470
+			order[19] = 471
+			order[20] = 472
+			order[21] = 240
+			order[22] = 202
+			order[23] = 947
+			order[24] = 206
+			order[25] = 231
+			order[26] = 223
+			order[27] = 207
+			order[28] = 106
+			order[29] = 348
+			order[30] = 349
+			order[31] = 107
+			order[32] = 350
+			order[33] = 351
+			order[34] = 691
+			order[35] = 667
+			order[36] = 875
+			order[37] = 876
+			order[38] = 873
+			order[39] = 874
+			order[40] = 965
+			order[41] = 966
+			order[42] = 1049
+			order[43] = 967
+			order[44] = 968
+			order[45] = 969
+			order[46] = 970
+			order[47] = 971
+			order[48] = 996
+			order[49] = 997
+			order[50] = 1079
+			order[51] = 1151
+			order[52] = 1146
+			order[53] = 1147
+			order[54] = 1227
+			order[55] = 1191
+			order[56] = 1192
+			order[57] = 1193
+			order[58] = 1194
+			order[59] = 1195
+			order[60] = 1196
+			order[61] = 1198
+			order[62] = 1199
+			order[63] = 1200
+			order[64] = 201
+			order[65] = 1244
+			order[66] = 1242
+			order[67] = 1197
+			order[68] = 668
+			order[69] = 869
+			order[70] = 913
+			order[71] = 914
+			order[72] = 915
+			order[73] = 918
+			order[74] = 788
+			order[75] = 916
+			order[76] = 917
+			order[77] = 919
+			order[78] = 898
+			order[79] = 555
+			order[80] = 218
+			order[81] = 220
+			order[82] = 221
+			order[83] = 222
+			order[84] = 662
+			order[85] = 663
+			order[86] = 699
+			order[87] = 761
+			order[88] = 235
+			order[89] = 236
+			order[90] = 701
+			order[91] = 696
+			order[92] = 697
+			order[93] = 698
+			order[94] = 58
+			order[95] = 354
+			order[96] = 355
+			order[97] = 711
+			order[98] = 15
+			order[99] = 232
+			order[100] = 1324
+			order[101] = 1201
+			order[102] = 0
+			super(146, 55, order)
+		end
+
+		class NoLegs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(60)
+				order[0] = 600
+				order[1] = 601
+				order[2] = 602
+				order[3] = 603
+				order[4] = 607
+				order[5] = 608
+				order[6] = 609
+				order[7] = 764
+				order[8] = 610
+				order[9] = 611
+				order[10] = 248
+				order[11] = 249
+				order[12] = 250
+				order[13] = 251
+				order[14] = 252
+				order[15] = 253
+				order[16] = 257
+				order[17] = 599
+				order[18] = 596
+				order[19] = 597
+				order[20] = 598
+				order[21] = 254
+				order[22] = 612
+				order[23] = 942
+				order[24] = 613
+				order[25] = 614
+				order[26] = 615
+				order[27] = 616
+				order[28] = 617
+				order[29] = 618
+				order[30] = 619
+				order[31] = 620
+				order[32] = 621
+				order[33] = 622
+				order[34] = 623
+				order[35] = 624
+				order[36] = 556
+				order[37] = 740
+				order[38] = 739
+				order[39] = 955
+				order[40] = 956
+				order[41] = 999
+				order[42] = 1001
+				order[43] = 1017
+				order[44] = 566
+				order[45] = 1212
+				order[46] = 1358
+				order[47] = 1420
+				order[48] = 1224
+				order[49] = 1421
+				order[50] = 1422
+				order[51] = 690
+				order[52] = 587
+				order[53] = 683
+				order[54] = 676
+				order[55] = 677
+				order[56] = 678
+				order[57] = 679
+				order[58] = 680
+				order[59] = 0
+				super(555, 600, order)
+			end
+
+			class NoLegStipulations < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 688
+					order[1] = 689
+					order[2] = 0
+					super(683, 688, order)
+				end
+			end
+		end
+
+		class NoUnderlyings < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(62)
+				order[0] = 311
+				order[1] = 312
+				order[2] = 309
+				order[3] = 305
+				order[4] = 462
+				order[5] = 463
+				order[6] = 310
+				order[7] = 763
+				order[8] = 313
+				order[9] = 542
+				order[10] = 241
+				order[11] = 242
+				order[12] = 243
+				order[13] = 244
+				order[14] = 245
+				order[15] = 246
+				order[16] = 256
+				order[17] = 595
+				order[18] = 592
+				order[19] = 593
+				order[20] = 594
+				order[21] = 247
+				order[22] = 316
+				order[23] = 941
+				order[24] = 317
+				order[25] = 436
+				order[26] = 435
+				order[27] = 308
+				order[28] = 306
+				order[29] = 362
+				order[30] = 363
+				order[31] = 307
+				order[32] = 364
+				order[33] = 365
+				order[34] = 877
+				order[35] = 878
+				order[36] = 318
+				order[37] = 879
+				order[38] = 810
+				order[39] = 882
+				order[40] = 883
+				order[41] = 884
+				order[42] = 885
+				order[43] = 886
+				order[44] = 972
+				order[45] = 975
+				order[46] = 973
+				order[47] = 974
+				order[48] = 998
+				order[49] = 1000
+				order[50] = 1038
+				order[51] = 1039
+				order[52] = 1044
+				order[53] = 1045
+				order[54] = 1046
+				order[55] = 1213
+				order[56] = 315
+				order[57] = 1419
+				order[58] = 1423
+				order[59] = 1424
+				order[60] = 1425
+				order[61] = 0
+				super(711, 311, order)
+			end
+		end
+
+		class NoStipulations < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 233
+				order[1] = 234
+				order[2] = 0
+				super(232, 233, order)
+			end
+		end
+
+		class NoStrikeRules < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(7)
+				order[0] = 1223
+				order[1] = 1202
+				order[2] = 1203
+				order[3] = 1204
+				order[4] = 1304
+				order[5] = 1236
+				order[6] = 0
+				super(1201, 1223, order)
+			end
+
+			class NoMaturityRules < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(7)
+					order[0] = 1222
+					order[1] = 1303
+					order[2] = 1302
+					order[3] = 1241
+					order[4] = 1226
+					order[5] = 1229
+					order[6] = 0
+					super(1236, 1222, order)
+				end
+			end
+		end
+	end
+end
+
+class AdjustedPositionReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BL") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoPositions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 703
+			order[1] = 704
+			order[2] = 705
+			order[3] = 706
+			order[4] = 539
+			order[5] = 976
+			order[6] = 0
+			super(702, 703, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+	end
+
+	class NoRelatedSym < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(69)
+			order[0] = 55
+			order[1] = 65
+			order[2] = 48
+			order[3] = 22
+			order[4] = 460
+			order[5] = 461
+			order[6] = 167
+			order[7] = 762
+			order[8] = 200
+			order[9] = 541
+			order[10] = 224
+			order[11] = 225
+			order[12] = 239
+			order[13] = 226
+			order[14] = 227
+			order[15] = 228
+			order[16] = 255
+			order[17] = 543
+			order[18] = 470
+			order[19] = 471
+			order[20] = 472
+			order[21] = 240
+			order[22] = 202
+			order[23] = 947
+			order[24] = 206
+			order[25] = 231
+			order[26] = 223
+			order[27] = 207
+			order[28] = 106
+			order[29] = 348
+			order[30] = 349
+			order[31] = 107
+			order[32] = 350
+			order[33] = 351
+			order[34] = 691
+			order[35] = 667
+			order[36] = 875
+			order[37] = 876
+			order[38] = 873
+			order[39] = 874
+			order[40] = 965
+			order[41] = 966
+			order[42] = 1049
+			order[43] = 967
+			order[44] = 968
+			order[45] = 969
+			order[46] = 970
+			order[47] = 971
+			order[48] = 996
+			order[49] = 997
+			order[50] = 1079
+			order[51] = 1151
+			order[52] = 1146
+			order[53] = 1147
+			order[54] = 1227
+			order[55] = 1191
+			order[56] = 1192
+			order[57] = 1193
+			order[58] = 1194
+			order[59] = 1195
+			order[60] = 1196
+			order[61] = 1198
+			order[62] = 1199
+			order[63] = 1200
+			order[64] = 201
+			order[65] = 1244
+			order[66] = 1242
+			order[67] = 1197
+			order[68] = 0
+			super(146, 55, order)
+		end
+	end
+end
+
+class AllocationInstructionAlert < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BM") )
+	end
+
+	class NoOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(10)
+			order[0] = 11
+			order[1] = 37
+			order[2] = 198
+			order[3] = 526
+			order[4] = 66
+			order[5] = 756
+			order[6] = 38
+			order[7] = 799
+			order[8] = 800
+			order[9] = 0
+			super(73, 11, order)
+		end
+
+		class NoNested2PartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 757
+				order[1] = 758
+				order[2] = 759
+				order[3] = 806
+				order[4] = 0
+				super(756, 757, order)
+			end
+
+			class NoNested2PartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 760
+					order[1] = 807
+					order[2] = 0
+					super(806, 760, order)
+				end
+			end
+		end
+	end
+
+	class NoExecs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(9)
+			order[0] = 32
+			order[1] = 17
+			order[2] = 527
+			order[3] = 31
+			order[4] = 669
+			order[5] = 29
+			order[6] = 1003
+			order[7] = 1041
+			order[8] = 0
+			super(124, 32, order)
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+
+	class NoPosAmt < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 707
+			order[1] = 708
+			order[2] = 1055
+			order[3] = 0
+			super(753, 707, order)
+		end
+	end
+
+	class NoAllocs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(41)
+			order[0] = 79
+			order[1] = 661
+			order[2] = 573
+			order[3] = 366
+			order[4] = 80
+			order[5] = 467
+			order[6] = 81
+			order[7] = 539
+			order[8] = 208
+			order[9] = 209
+			order[10] = 161
+			order[11] = 360
+			order[12] = 361
+			order[13] = 12
+			order[14] = 13
+			order[15] = 479
+			order[16] = 497
+			order[17] = 153
+			order[18] = 154
+			order[19] = 119
+			order[20] = 737
+			order[21] = 120
+			order[22] = 736
+			order[23] = 155
+			order[24] = 156
+			order[25] = 742
+			order[26] = 741
+			order[27] = 136
+			order[28] = 576
+			order[29] = 780
+			order[30] = 172
+			order[31] = 169
+			order[32] = 170
+			order[33] = 171
+			order[34] = 989
+			order[35] = 1002
+			order[36] = 993
+			order[37] = 992
+			order[38] = 1047
+			order[39] = 635
+			order[40] = 0
+			super(78, 79, order)
+		end
+
+		class NoNestedPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 524
+				order[1] = 525
+				order[2] = 538
+				order[3] = 804
+				order[4] = 0
+				super(539, 524, order)
+			end
+
+			class NoNestedPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 545
+					order[1] = 805
+					order[2] = 0
+					super(804, 545, order)
+				end
+			end
+		end
+
+		class NoMiscFees < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 137
+				order[1] = 138
+				order[2] = 139
+				order[3] = 891
+				order[4] = 0
+				super(136, 137, order)
+			end
+		end
+
+		class NoClearingInstructions < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(2)
+				order[0] = 577
+				order[1] = 0
+				super(576, 577, order)
+			end
+		end
+	end
+end
+
+class ExecutionAcknowledgement < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BN") )
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(62)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 241
+			order[11] = 242
+			order[12] = 243
+			order[13] = 244
+			order[14] = 245
+			order[15] = 246
+			order[16] = 256
+			order[17] = 595
+			order[18] = 592
+			order[19] = 593
+			order[20] = 594
+			order[21] = 247
+			order[22] = 316
+			order[23] = 941
+			order[24] = 317
+			order[25] = 436
+			order[26] = 435
+			order[27] = 308
+			order[28] = 306
+			order[29] = 362
+			order[30] = 363
+			order[31] = 307
+			order[32] = 364
+			order[33] = 365
+			order[34] = 877
+			order[35] = 878
+			order[36] = 318
+			order[37] = 879
+			order[38] = 810
+			order[39] = 882
+			order[40] = 883
+			order[41] = 884
+			order[42] = 885
+			order[43] = 886
+			order[44] = 972
+			order[45] = 975
+			order[46] = 973
+			order[47] = 974
+			order[48] = 998
+			order[49] = 1000
+			order[50] = 1038
+			order[51] = 1039
+			order[52] = 1044
+			order[53] = 1045
+			order[54] = 1046
+			order[55] = 1213
+			order[56] = 315
+			order[57] = 1419
+			order[58] = 1423
+			order[59] = 1424
+			order[60] = 1425
+			order[61] = 0
+			super(711, 311, order)
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(52)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 615
+			order[27] = 616
+			order[28] = 617
+			order[29] = 618
+			order[30] = 619
+			order[31] = 620
+			order[32] = 621
+			order[33] = 622
+			order[34] = 623
+			order[35] = 624
+			order[36] = 556
+			order[37] = 740
+			order[38] = 739
+			order[39] = 955
+			order[40] = 956
+			order[41] = 999
+			order[42] = 1001
+			order[43] = 1017
+			order[44] = 566
+			order[45] = 1212
+			order[46] = 1358
+			order[47] = 1420
+			order[48] = 1224
+			order[49] = 1421
+			order[50] = 1422
+			order[51] = 0
+			super(555, 600, order)
+		end
+	end
+end
+
+class TradingSessionList < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BJ") )
+	end
+
+	class NoTradingSessions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(21)
+			order[0] = 336
+			order[1] = 625
+			order[2] = 207
+			order[3] = 338
+			order[4] = 339
+			order[5] = 325
+			order[6] = 340
+			order[7] = 567
+			order[8] = 341
+			order[9] = 342
+			order[10] = 343
+			order[11] = 344
+			order[12] = 345
+			order[13] = 387
+			order[14] = 58
+			order[15] = 354
+			order[16] = 355
+			order[17] = 1301
+			order[18] = 1300
+			order[19] = 1326
+			order[20] = 0
+			super(386, 336, order)
+		end
+	end
+end
+
+class TradingSessionListRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BI") )
+	end
+end
+
+class SettlementObligationReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BQ") )
+	end
+
+	class NoSettlOblig < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(84)
+			order[0] = 430
+			order[1] = 1161
+			order[2] = 1162
+			order[3] = 1163
+			order[4] = 1157
+			order[5] = 119
+			order[6] = 15
+			order[7] = 120
+			order[8] = 155
+			order[9] = 64
+			order[10] = 55
+			order[11] = 65
+			order[12] = 48
+			order[13] = 22
+			order[14] = 460
+			order[15] = 461
+			order[16] = 167
+			order[17] = 762
+			order[18] = 200
+			order[19] = 541
+			order[20] = 224
+			order[21] = 225
+			order[22] = 239
+			order[23] = 226
+			order[24] = 227
+			order[25] = 228
+			order[26] = 255
+			order[27] = 543
+			order[28] = 470
+			order[29] = 471
+			order[30] = 472
+			order[31] = 240
+			order[32] = 202
+			order[33] = 947
+			order[34] = 206
+			order[35] = 231
+			order[36] = 223
+			order[37] = 207
+			order[38] = 106
+			order[39] = 348
+			order[40] = 349
+			order[41] = 107
+			order[42] = 350
+			order[43] = 351
+			order[44] = 691
+			order[45] = 667
+			order[46] = 875
+			order[47] = 876
+			order[48] = 873
+			order[49] = 874
+			order[50] = 965
+			order[51] = 966
+			order[52] = 1049
+			order[53] = 967
+			order[54] = 968
+			order[55] = 969
+			order[56] = 970
+			order[57] = 971
+			order[58] = 996
+			order[59] = 997
+			order[60] = 1079
+			order[61] = 1151
+			order[62] = 1146
+			order[63] = 1147
+			order[64] = 1227
+			order[65] = 1191
+			order[66] = 1192
+			order[67] = 1193
+			order[68] = 1194
+			order[69] = 1195
+			order[70] = 1196
+			order[71] = 1198
+			order[72] = 1199
+			order[73] = 1200
+			order[74] = 201
+			order[75] = 1244
+			order[76] = 1242
+			order[77] = 1197
+			order[78] = 453
+			order[79] = 168
+			order[80] = 126
+			order[81] = 779
+			order[82] = 1158
+			order[83] = 0
+			super(1165, 430, order)
+		end
+
+		class NoPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 448
+				order[1] = 447
+				order[2] = 452
+				order[3] = 802
+				order[4] = 0
+				super(453, 448, order)
+			end
+
+			class NoPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 523
+					order[1] = 803
+					order[2] = 0
+					super(802, 523, order)
+				end
+			end
+		end
+
+		class NoSettlDetails < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1164
+				order[1] = 781
+				order[2] = 0
+				super(1158, 1164, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
+			end
+		end
+	end
+end
+
+class DerivativeSecurityListUpdateReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BR") )
+	end
+
+	class NoRelatedSym < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(82)
+			order[0] = 1324
+			order[1] = 55
+			order[2] = 65
+			order[3] = 48
+			order[4] = 22
+			order[5] = 460
+			order[6] = 461
+			order[7] = 167
+			order[8] = 762
+			order[9] = 200
+			order[10] = 541
+			order[11] = 224
+			order[12] = 225
+			order[13] = 239
+			order[14] = 226
+			order[15] = 227
+			order[16] = 228
+			order[17] = 255
+			order[18] = 543
+			order[19] = 470
+			order[20] = 471
+			order[21] = 472
+			order[22] = 240
+			order[23] = 202
+			order[24] = 947
+			order[25] = 206
+			order[26] = 231
+			order[27] = 223
+			order[28] = 207
+			order[29] = 106
+			order[30] = 348
+			order[31] = 349
+			order[32] = 107
+			order[33] = 350
+			order[34] = 351
+			order[35] = 691
+			order[36] = 667
+			order[37] = 875
+			order[38] = 876
+			order[39] = 873
+			order[40] = 874
+			order[41] = 965
+			order[42] = 966
+			order[43] = 1049
+			order[44] = 967
+			order[45] = 968
+			order[46] = 969
+			order[47] = 970
+			order[48] = 971
+			order[49] = 996
+			order[50] = 997
+			order[51] = 1079
+			order[52] = 1151
+			order[53] = 1146
+			order[54] = 1147
+			order[55] = 1227
+			order[56] = 1191
+			order[57] = 1192
+			order[58] = 1193
+			order[59] = 1194
+			order[60] = 1195
+			order[61] = 1196
+			order[62] = 1198
+			order[63] = 1199
+			order[64] = 1200
+			order[65] = 201
+			order[66] = 1244
+			order[67] = 1242
+			order[68] = 1197
+			order[69] = 668
+			order[70] = 869
+			order[71] = 1305
+			order[72] = 1221
+			order[73] = 1230
+			order[74] = 1240
+			order[75] = 15
+			order[76] = 555
+			order[77] = 58
+			order[78] = 354
+			order[79] = 355
+			order[80] = 292
+			order[81] = 0
+			super(146, 1324, order)
+		end
+
+		class NoLegs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(52)
+				order[0] = 600
+				order[1] = 601
+				order[2] = 602
+				order[3] = 603
+				order[4] = 607
+				order[5] = 608
+				order[6] = 609
+				order[7] = 764
+				order[8] = 610
+				order[9] = 611
+				order[10] = 248
+				order[11] = 249
+				order[12] = 250
+				order[13] = 251
+				order[14] = 252
+				order[15] = 253
+				order[16] = 257
+				order[17] = 599
+				order[18] = 596
+				order[19] = 597
+				order[20] = 598
+				order[21] = 254
+				order[22] = 612
+				order[23] = 942
+				order[24] = 613
+				order[25] = 614
+				order[26] = 615
+				order[27] = 616
+				order[28] = 617
+				order[29] = 618
+				order[30] = 619
+				order[31] = 620
+				order[32] = 621
+				order[33] = 622
+				order[34] = 623
+				order[35] = 624
+				order[36] = 556
+				order[37] = 740
+				order[38] = 739
+				order[39] = 955
+				order[40] = 956
+				order[41] = 999
+				order[42] = 1001
+				order[43] = 1017
+				order[44] = 566
+				order[45] = 1212
+				order[46] = 1358
+				order[47] = 1420
+				order[48] = 1224
+				order[49] = 1421
+				order[50] = 1422
+				order[51] = 0
+				super(555, 600, order)
+			end
+		end
+	end
+end
+
+class TradingSessionListUpdateReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BS") )
+	end
+
+	class NoTradingSessions < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(21)
+			order[0] = 336
+			order[1] = 625
+			order[2] = 207
+			order[3] = 338
+			order[4] = 339
+			order[5] = 325
+			order[6] = 340
+			order[7] = 567
+			order[8] = 341
+			order[9] = 342
+			order[10] = 343
+			order[11] = 344
+			order[12] = 345
+			order[13] = 387
+			order[14] = 58
+			order[15] = 354
+			order[16] = 355
+			order[17] = 1301
+			order[18] = 1300
+			order[19] = 1326
+			order[20] = 0
+			super(386, 336, order)
+		end
+	end
+end
+
+class MarketDefinitionRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BT") )
+	end
+end
+
+class MarketDefinition < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BU") )
+	end
+
+	class NoOrdTypeRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 40
+			order[1] = 0
+			super(1237, 40, order)
+		end
+	end
+
+	class NoTimeInForceRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 59
+			order[1] = 0
+			super(1239, 59, order)
+		end
+	end
+
+	class NoExecInstRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 1308
+			order[1] = 0
+			super(1232, 1308, order)
+		end
+	end
+end
+
+class MarketDefinitionUpdateReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BV") )
+	end
+
+	class NoOrdTypeRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 40
+			order[1] = 0
+			super(1237, 40, order)
+		end
+	end
+
+	class NoTimeInForceRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 59
+			order[1] = 0
+			super(1239, 59, order)
+		end
+	end
+
+	class NoExecInstRules < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 1308
+			order[1] = 0
+			super(1232, 1308, order)
+		end
+	end
+end
+
+class ApplicationMessageRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BW") )
+	end
+
+	class NoApplIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 1355
+			order[1] = 1182
+			order[2] = 1183
+			order[3] = 0
+			super(1351, 1355, order)
+		end
+	end
+end
+
+class ApplicationMessageRequestAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BX") )
+	end
+
+	class NoApplIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(6)
+			order[0] = 1355
+			order[1] = 1182
+			order[2] = 1183
+			order[3] = 1357
+			order[4] = 1354
+			order[5] = 0
+			super(1351, 1355, order)
+		end
+	end
+end
+
+class ApplicationMessageReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BY") )
+	end
+
+	class NoApplIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 1355
+			order[1] = 1399
+			order[2] = 1357
+			order[3] = 0
+			super(1351, 1355, order)
+		end
+	end
+end
+
+class OrderMassActionReport < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BZ") )
+	end
+
+	class NoAffectedOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 41
+			order[1] = 535
+			order[2] = 536
+			order[3] = 0
+			super(534, 41, order)
+		end
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoNotAffectedOrders < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 1372
+			order[1] = 1371
+			order[2] = 0
+			super(1370, 1372, order)
+		end
+	end
+end
+
+class OrderMassActionRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("CA") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+end
+
+class UserNotification < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("CB") )
+	end
+end
+end

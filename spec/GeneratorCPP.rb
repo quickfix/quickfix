@@ -17,7 +17,6 @@ class GeneratorCPP
     @dir = basedir + "/" + @namespace.downcase
     @basefile = createVersionFile("Message.h")
     @f = @basefile
-    @msgToType = Hash.new
   end
 
   def createBaseFile(name)
@@ -112,7 +111,6 @@ class GeneratorCPP
   end
 
   def messageStart(name, msgtype, required)
-    @msgToType[name] = msgtype
     @f = createVersionFile(name + ".h")
     @f.puts "#ifndef " + @namespace + "_" + name.upcase + "_H"
     @f.puts "#define " + @namespace + "_" + name.upcase + "_H"
@@ -261,10 +259,6 @@ class GeneratorCPP
     f.puts "namespace FIX"
     f.puts "{"
     f.indent
-
-    @msgToType.each { |name, msgType|
-      f.puts "const char MsgType_#{name}[] = \"#{msgType}\";"
-    }
   end
 
   def fixFieldValues(f, name, number, type, values)

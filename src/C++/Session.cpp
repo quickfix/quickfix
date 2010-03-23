@@ -1002,7 +1002,7 @@ void Session::populateRejectReason( Message& reject, int field,
   MsgType msgType;
    reject.getHeader().getField( msgType );
 
-  if ( msgType == MsgType_REJECT 
+  if ( msgType == MsgType_Reject 
        && m_sessionID.getBeginString() >= FIX::BeginString_FIX42 )
   {
     reject.setField( RefTagID( field ) );

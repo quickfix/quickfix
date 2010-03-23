@@ -78,8 +78,17 @@ class Processor
     }
 
     aggregator.getFields.each { |name, values|
+
+      number = values["number"]
+      type = values["type"]
+      values = values["values"]
+
+      if( number == "35" )
+        values = aggregator.getMsgToType
+      end
+
       @generators.each { |generator|
-        generator.fields(name, values["number"], values["type"], values["values"])
+        generator.fields(name, number, type, values)
       }
     }
 
@@ -92,7 +101,7 @@ class Processor
     puts @filename
 
     fields
-    messages
+    messageTypes
   end
 
   def front
@@ -231,6 +240,17 @@ class Processor
     }
   end
 
+  def messageTypes
+      @messages.elements.each("message") { |message|
+        name = message.attributes["name"]
+        msgtype = message.attributes["msgtype"]
+
+        @generators.each { |generator|
+          generator.messageStart(name, msgtype, "N")
+        }
+      }
+  end
+
   def fields
     @generators.each { |generator|
       generator.fieldsStart
@@ -253,8 +273,6 @@ class Processor
         if( number == "35" )
           if(@aggregator == nil)
 	    values = Hash.new
-	  else
-            values = @aggregator.getMsgType
           end
         end
 
@@ -280,8 +298,6 @@ class Processor
       if( number == "35" )
         if(@aggregator == nil)
 	  values = Hash.new
-	else
-          values = @aggregator.getMsgType
         end
       end
 
