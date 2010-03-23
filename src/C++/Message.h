@@ -261,6 +261,10 @@ public:
       return ApplVerID(ApplVerID_FIX44);
     if( value == BeginString_FIX50 )
       return ApplVerID(ApplVerID_FIX50);
+    if( value == "FIX.5.0SP1" )
+      return ApplVerID(ApplVerID_FIX50SP1);
+    if( value == "FIX.5.0SP2" )
+      return ApplVerID(ApplVerID_FIX50SP2);
     return ApplVerID(ApplVerID(value));
 
     QF_STACK_POP
@@ -279,6 +283,10 @@ public:
     else if( applVerID == ApplVerID_FIX44 )
       return BeginString(BeginString_FIX44);
     else if( applVerID == ApplVerID_FIX50 )
+      return BeginString(BeginString_FIX50);
+    else if( applVerID == ApplVerID_FIX50SP1 )
+      return BeginString(BeginString_FIX50);
+    else if( applVerID == ApplVerID_FIX50SP2 )
       return BeginString(BeginString_FIX50);
     else
       return BeginString("");
