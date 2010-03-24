@@ -50,7 +50,7 @@ FileStorePath=store
 BeginString=FIXT.1.1
 DefaultApplVerID=FIX.5.0SP1
 TransportDataDictionary=../spec/FIXT11.xml
-AppDataDictionary=../spec/FIX50_SP1.xml
+AppDataDictionary=../spec/FIX50SP1.xml
 EOF
 
 cat > cfg/atsp2.cfg <<EOF
@@ -68,5 +68,5 @@ FileStorePath=store
 BeginString=FIXT.1.1
 DefaultApplVerID=FIX.5.0SP2
 TransportDataDictionary=../spec/FIXT11.xml
-AppDataDictionary=../spec/FIX50_SP2.xml
+AppDataDictionary=../spec/FIX50SP2.xml
 EOF

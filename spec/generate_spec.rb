@@ -5,7 +5,7 @@ class DataDictionary
 	    	filesp = ""
 
 		if( sp != 0 )
-		    filesp = "_SP" + sp.to_s
+		    filesp = "SP" + sp.to_s
 		end
 
 		filename = "FIX#{major}#{minor}#{filesp}.xml"

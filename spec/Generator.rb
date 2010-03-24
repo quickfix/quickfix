@@ -9,7 +9,7 @@ def versionXML( type, major, minor, sp )
   dir = "../src"
   xml = "#{type}#{major}#{minor}.xml"
   if( sp != 0 )
-    xml = "#{type}#{major}#{minor}_SP#{sp}.xml"
+    xml = "#{type}#{major}#{minor}SP#{sp}.xml"
   end
   return xml	
 end
