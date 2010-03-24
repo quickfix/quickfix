@@ -1,0 +1,32 @@
+# @testcase 15 - Send application or administrative messages to test normal and abnormal behavior/response
+# @condition Send more than one message of the same type with header and body fields ordered differently to verify acceptance. (Excluding those which have restrictions regarding order)
+# @expected Messages accepted and subsequent messages' MsgSeqNum are accepted
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=8
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=810=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# new order message
+I8=FIXT.1.135=D34=249=TW52=<TIME>56=ISLD11=id21=340=154=155=MSFT60=<TIME>
+# expect
+E8=FIXT.1.19=9935=D34=249=ISLD52=00000000-00:00:00.00056=TW11=id21=340=154=155=MSFT60=00000000-00:00:0010=0
+
+# new order message with header and body fields in different order
+I8=FIXT.1.135=D49=TW34=356=ISLD52=<TIME>40=155=MSFT60=<TIME>54=121=311=id
+# expect
+E8=FIXT.1.19=9935=D34=349=ISLD52=00000000-00:00:00.00056=TW11=id21=340=154=155=MSFT60=00000000-00:00:0010=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=449=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=449=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

@@ -1,0 +1,23 @@
+# We should expect heartbeats if we wait around
+
+iCONNECT
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=61137=8
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=61137=810=0
+
+# Wait for quickfix to send a heartbeat to us
+E8=FIXT.1.19=4935=034=249=ISLD52=00000000-00:00:00.00056=TW10=0
+
+# we respond with a heartbeat
+I8=FIXT.1.135=034=249=TW52=<TIME>56=ISLD
+
+# we should get a heartbeat back
+E8=FIXT.1.19=4935=034=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+# we will send one more for good measure
+I8=FIXT.1.135=034=349=TW52=<TIME>56=ISLD
+
+# logout message and response
+I8=FIXT.1.135=534=449=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=449=ISLD52=00000000-00:00:00.00056=TW10=0
+eDISCONNECT
+

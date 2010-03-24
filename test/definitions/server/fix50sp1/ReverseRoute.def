@@ -1,0 +1,42 @@
+# Reverse routing fields on rejects
+
+iCONNECT
+#Logon
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=301137=8
+E8=FIXT.1.19=6835=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=301137=810=0
+
+# Send an order with OnBehalfOfCompID (115) set with bad field value 40=w
+I8=FIXT.1.135=D34=249=TW52=<TIME>56=ISLD115=JCD11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see a reject with reverse route DeliverToCompID (128) set
+E8=FIXT.1.19=13135=334=249=ISLD52=00000000-00:00:00.00056=TW128=JCD45=258=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# Send an order with DeliverToCompID (128) set with bad field value 40=w
+I8=FIXT.1.135=D34=349=TW52=<TIME>56=ISLD128=JCD11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see a reject with reverse route OnBehalfOfCompID (115) set
+E8=FIXT.1.19=13135=334=349=ISLD52=00000000-00:00:00.00056=TW115=JCD45=358=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# Send an order with OnBehalfOfCompID (115) and OnBehalfOfSubID (116) set with bad field value 40=w
+I8=FIXT.1.135=D34=449=TW52=<TIME>56=ISLD115=JCD116=CS11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see a reject with reverse route DeliverToCompID (128) and DeliverToSubID (129) set
+E8=FIXT.1.19=13835=334=449=ISLD52=00000000-00:00:00.00056=TW128=JCD129=CS45=458=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# Send an order with DeliverToCompID (128) and DeliverToSubID (129) set with bad field value 40=w
+I8=FIXT.1.135=D34=549=TW52=<TIME>56=ISLD128=JCD129=CS11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see reverse route OnBehalfOfCompID (115) and OnBehalfOfSubID (116) set
+E8=FIXT.1.19=13835=334=549=ISLD52=00000000-00:00:00.00056=TW115=JCD116=CS45=558=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# Send an order with OnBehalfOfCompID (115) and OnBehalfOfSubID (116) and OnBehalfOfLocationID (144) set with bad field value 40=w
+I8=FIXT.1.135=D34=649=TW52=<TIME>56=ISLD115=JCD116=CS144=CHI11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see reverse route DeliverToCompID (128) and DeliverToSubID (129) and DeliverToLocationID (145) set
+E8=FIXT.1.19=14635=334=649=ISLD52=00000000-00:00:00.00056=TW128=JCD129=CS145=CHI45=658=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# Send an order with DeliverToCompID (128) and DeliverToSubID (129) and DeliverToLocationID (145) set with bad field value 40=w
+I8=FIXT.1.135=D34=749=TW52=<TIME>56=ISLD128=JCD129=CS145=CHI11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see reverse route OnBehalfOfCompID (115) and OnBeHalfOfSubID (116) and OnBehalfOfLocationID (144) set
+E8=FIXT.1.19=14635=334=749=ISLD52=20040503-17:56:01.00056=TW115=JCD116=CS144=CHI45=758=Value is incorrect (out of range) for this tag371=40372=D373=510=0
+
+# logout message and response
+I8=FIXT.1.135=534=849=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=849=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

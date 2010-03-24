@@ -44,61 +44,6 @@ class DataDictionary
 	end
 
 	def tagShouldNotPrint( tag )
-		if( @major >= 5 )
-		    return true if tag == 7
-		    return true if tag == 8
-		    return true if tag == 9
-		    return true if tag == 10
-		    return true if tag == 16
-		    return true if tag == 34
-		    return true if tag == 35
-		    return true if tag == 36
-		    return true if tag == 43
-		    return true if tag == 49
-		    return true if tag == 50
-		    return true if tag == 52
-		    return true if tag == 56
-		    return true if tag == 57
-		    return true if tag == 89
-		    return true if tag == 90
-		    return true if tag == 91
-		    return true if tag == 93
-		    return true if tag == 97
-		    return true if tag == 98
-		    return true if tag == 108
-		    return true if tag == 112
-		    return true if tag == 115
-		    return true if tag == 116
-		    return true if tag == 122
-		    return true if tag == 123
-		    return true if tag == 128
-		    return true if tag == 129
-		    return true if tag == 141
-		    return true if tag == 142
-		    return true if tag == 143
-		    return true if tag == 144
-		    return true if tag == 145
-		    return true if tag == 212
-		    return true if tag == 213
-		    return true if tag == 347
-		    return true if tag == 369
-		    return true if tag == 371
-		    return true if tag == 373
-		    return true if tag == 383
-		    return true if tag == 384
-		    return true if tag == 385
-		    return true if tag == 464
-		    return true if tag == 627
-		    return true if tag == 628
-		    return true if tag == 629
-		    return true if tag == 630
-		    return true if tag == 789
-		    return true if tag == 1128
-		    return true if tag == 1129
-		    return true if tag == 1130
-		    return true if tag == 1131
-		    return true if tag == 1137
-		end
 	end
 
 	def enumsShouldBeSkipped( tag )

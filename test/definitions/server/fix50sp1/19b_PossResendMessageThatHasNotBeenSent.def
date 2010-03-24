@@ -1,0 +1,27 @@
+# @testcase 19.b - Test PossResend handling
+# @condition Receive messagewith PossResend = 'Y' and application-level check of Message specific ID indicates that it has NOT been seen on this session
+# @expected Accept and process the message normally
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=8
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=810=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# sending the same message with PossResend flag set
+I8=FIXT.1.135=D34=249=TW52=<TIME>56=ISLD97=Y11=id21=340=154=155=MSFT60=<TIME>
+# expect
+E8=FIXT.1.19=10435=D34=249=ISLD52=00000000-00:00:00.00056=TW97=Y11=id21=340=154=155=MSFT60=00000000-00:00:0010=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=349=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT
