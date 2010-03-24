@@ -16,10 +16,10 @@ I8=FIX.4.335=034=249=TW52=<TIME>
 # expect a reject
 E8=FIX.4.39=9735=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Required tag missing371=56372=0373=110=0
 
-# quote message with a required field missing (Symbol)
-I8=FIX.4.335=D49=TW34=356=ISLD52=<TIME>40=160=<TIME>54=121=311=id
+# order message with a required field missing (ClOrdID)
+I8=FIX.4.335=D49=TW34=356=ISLD52=<TIME>40=160=<TIME>54=121=3
 # expect a reject
-E8=FIX.4.39=9735=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Required tag missing371=55372=D373=110=0
+E8=FIX.4.39=9735=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Required tag missing371=11372=D373=110=0
 
 #------------------------
 # end message exchange
