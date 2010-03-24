@@ -1,0 +1,26 @@
+# @testcase 14i
+# @Receive a message with repeating groups in which the "count" field value for a repeating group is incorrect.
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=9
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=910=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+#New order message with incorrect repeating group "count". NoTradingSessions (386)
+I8=FIXT.1.135=D34=249=TW52=<TIME>56=ISLD11=ID21=140=154=138=200.0055=INTC386=3336=PRE-OPEN336=AFTER-HOURS60=<TIME>
+# expect a reject
+E8=FIXT.1.19=12535=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Incorrect NumInGroup count for repeating group371=386372=D373=1610=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=349=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT

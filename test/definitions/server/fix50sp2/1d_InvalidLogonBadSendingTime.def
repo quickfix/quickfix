@@ -1,0 +1,5 @@
+# Disconnect if we receive a bad sending time
+
+iCONNECT
+I8=FIXT.1.135=A34=149=TW52=20010101-00:00:0056=ISLD98=0108=301137=9
+eDISCONNECT

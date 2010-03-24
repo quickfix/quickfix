@@ -1,0 +1,27 @@
+# @testcase 21
+# @condition Receive message with a repeating group specifier set to zero indicating that there are no members in the repeating group. This is the symantic used by CBOEDirect.
+# @expected Process the message
+
+iCONNECT
+# logon message and response
+I8=FIXT.1.135=A34=149=TW52=<TIME>56=ISLD98=0108=21137=9
+E8=FIXT.1.19=6735=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=21137=910=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+# Receive a Security Definition message with repeating group specifiers set to zero (454)
+I8=FIXT.1.135=d34=249=TW56=ISLD52=<TIME>320=JCD1091-20021011322=1034356488676323=655=TBS22=8167=CS58=No Products found for this Class Symbol454=0
+# expect the message to be processed
+E8=FIXT.1.19=16235=d34=249=ISLD52=00000000-00:00:00.00056=TW22=855=TBS58=No Products found for this Class Symbol167=CS320=JCD1091-20021011322=1034356488676323=6454=010=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIXT.1.135=534=349=TW52=<TIME>56=ISLD
+E8=FIXT.1.19=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT
