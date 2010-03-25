@@ -73,7 +73,7 @@ all: $(test)
 
 $(lib): $(objects) 
 	@echo Creating $(lib) library...
-	@ar cr $(lib) $(objects)
+	@ar crs $(lib) $(objects)
     
 $(test): $(lib) $(test_objects)
 	@echo Linking $(test)...
