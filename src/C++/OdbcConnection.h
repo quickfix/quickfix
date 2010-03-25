@@ -47,15 +47,15 @@ namespace FIX
 
 inline std::string odbcError( SQLSMALLINT statementType, SQLHANDLE handle )
 {
-    SQLCHAR state[6];
-    SQLINTEGER error;
-    SQLCHAR text[SQL_MAX_MESSAGE_LENGTH];
-    SQLSMALLINT textLength;
-    RETCODE result = SQLGetDiagRec
-      ( statementType, handle, 1, state, &error, text, sizeof(text), &textLength );
-    if( result == SQL_SUCCESS || result == SQL_SUCCESS_WITH_INFO )
-      return std::string( (char*)text );
-    return "";
+  SQLCHAR state[6];
+  SQLINTEGER error;
+  SQLCHAR text[SQL_MAX_MESSAGE_LENGTH];
+  SQLSMALLINT textLength;
+  RETCODE result = SQLGetDiagRec
+    ( statementType, handle, 1, state, &error, text, sizeof(text), &textLength );
+  if( result == SQL_SUCCESS || result == SQL_SUCCESS_WITH_INFO )
+    return std::string( (char*)text );
+  return "";
 }
 
 inline bool odbcSuccess( RETCODE result )
@@ -234,7 +234,7 @@ private:
       connectionStream << "UID=" << m_connectionID.getUser() << ";";
     if( m_connectionID.getHost().find("PWD=") == std::string::npos )
       connectionStream << "PWD=" << m_connectionID.getPassword() << ";";
-	connectionStream << m_connectionID.getHost();
+    connectionStream << m_connectionID.getHost();
     connectionString = connectionStream.str();
 
     SQLCHAR connectionStringOut[255];
