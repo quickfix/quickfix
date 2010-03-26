@@ -61,9 +61,9 @@ public:
 private:
   typedef std::map < std::string, DataDictionary* > Dictionaries;
 
-  DataDictionary& createDataDictionary(const SessionID& sessionID, 
-                                       const Dictionary& settings, 
-                                       const std::string& settingsKey) throw(ConfigError);
+  DataDictionary createDataDictionary(const SessionID& sessionID, 
+                                      const Dictionary& settings, 
+                                      const std::string& settingsKey) throw(ConfigError);
 
   void processFixtDataDictionaries(const SessionID& sessionID, 
                                    const Dictionary& settings, 

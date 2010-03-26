@@ -202,7 +202,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   QF_STACK_POP
 }
 
-DataDictionary& SessionFactory::createDataDictionary(const SessionID& sessionID, 
+DataDictionary SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                      const Dictionary& settings, 
                                                      const std::string& settingsKey) throw(ConfigError)
 { QF_STACK_PUSH(SessionFactory::createDataDictionary)
@@ -235,7 +235,7 @@ DataDictionary& SessionFactory::createDataDictionary(const SessionID& sessionID,
     ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
   }
 
-  return *m_dictionaries[ path ];    
+  return dataDictionary;    
 
   QF_STACK_POP
 }
@@ -245,7 +245,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
                                                  DataDictionaryProvider& provider) throw(ConfigError)
 { QF_STACK_PUSH(SessionFactory::processFixtDataDictionaries)
 
-  DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
+  DataDictionary dataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
   
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
@@ -256,7 +256,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
     {
       if( key == string_toUpper(APP_DATA_DICTIONARY) )
       {
-        DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
+        DataDictionary dataDictionary = createDataDictionary(sessionID, settings, APP_DATA_DICTIONARY);
         provider.addApplicationDataDictionary(Message::toApplVerID(settings.getString(DEFAULT_APPLVERID)), dataDictionary);
       }
       else
@@ -265,7 +265,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
         if( offset == std::string::npos )
           throw ConfigError(std::string("Malformed ") + APP_DATA_DICTIONARY + ": " + key);
         std::string beginStringQualifier = key.substr(offset+1);
-        DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, key);
+        DataDictionary dataDictionary = createDataDictionary(sessionID, settings, key);
         provider.addApplicationDataDictionary(Message::toApplVerID(beginStringQualifier), dataDictionary);
       }
     }
@@ -279,7 +279,7 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
                                               DataDictionaryProvider& provider) throw(ConfigError)
 { QF_STACK_PUSH(SessionFactory::processFixDataDictionary)
 
-  DataDictionary& dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
+  DataDictionary dataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), dataDictionary);
   provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), dataDictionary);
 
