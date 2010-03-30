@@ -4,7 +4,6 @@ using QuickFix;
 void sendOrderCancelRequest()
 {
   QuickFix41.OrderCancelRequest message(
-	new OrigClOrdID("123"),
 	new ClOrdID("321"),
 	new Symbol("LNUX"),
 	new Side(Side.BUY));

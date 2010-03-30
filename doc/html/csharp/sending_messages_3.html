@@ -4,7 +4,7 @@ using QuickFix;
 void sendOrderCancelRequest()
 {
   Message message = new Message();
-  Header header = message.getHeader();
+  Message.Header header = message.getHeader();
 
   header.setField(new BeginString("FIX.4.2"));
   header.setField(new SenderCompID(TW));
