@@ -511,6 +511,45 @@ TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 }
 
+TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithResetSeqNumInResponse)
+{
+  object->setResponder( this );
+  object->next();
+  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
+  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+
+  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
+  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+
+  object->setResetOnLogon( true );
+  object->next();
+  FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
+  logon.set( FIX::ResetSeqNumFlag(true) );
+  object->next( logon, UtcTimeStamp() );
+  CHECK( object->isLoggedOn() );
+}
+
+TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithoutResetSeqNumInResponse)
+{
+  object->setResponder( this );
+  object->next();
+  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
+  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+
+  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
+  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+
+  object->setResetOnLogon( true );
+  object->next();
+  FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
+  object->next( logon, UtcTimeStamp() );
+  CHECK( object->isLoggedOn() );
+}
+
 TEST_FIXTURE(acceptorFixture, notifyResendRequest)
 {
   object->next( createLogon( "ISLD", "TW", 5 ), UtcTimeStamp() );

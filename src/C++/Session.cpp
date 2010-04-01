@@ -256,7 +256,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   m_state.receivedLogon( true );
 
   if ( !m_state.initiate() 
-       || (m_state.sentReset() && !m_state.receivedReset()) )
+       || (m_state.receivedReset() && !m_state.sentReset()) )
   {
     if( logon.isSetField(m_state.heartBtInt()) )
       logon.getField( m_state.heartBtInt() );
