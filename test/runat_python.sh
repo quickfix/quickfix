@@ -10,7 +10,7 @@ python  ../src/at.py cfg/at.cfg &
 PROCID=$!
 cd $DIR
 ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix4*/*.def
-RESULT=$?
+RESULT1=$?
 kill $PROCID
 
 python  ../src/at.py cfg/atsp1.cfg &
@@ -24,7 +24,7 @@ python  ../src/at.py cfg/atsp2.cfg &
 PROCID=$!
 cd $DIR
 ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix50sp2/*.def
-RESULT2=$?
+RESULT3=$?
 kill $PROCID
 
 RESULT=$(( $RESULT1 + $RESULT2 + $RESULT3 ))
