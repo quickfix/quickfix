@@ -2,7 +2,7 @@ lib_LTLIBRARIES = libquickfix_python.la
 libquickfix_python_la_SOURCES = \
 	QuickfixPython.cpp
 
-pkgdata_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.py quickfix44.py quickfix50.py quickfixt11.py
+pkgdata_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.py quickfix44.py quickfix50.py quickfix50sp1.py quickfix50sp2.py quickfixt11.py
 
 all-local:
 	mkdir -p $(top_builddir)/lib/python
