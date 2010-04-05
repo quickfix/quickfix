@@ -1,3 +1,22 @@
+1.13.3
+------
+Added support for FIX 5.0 sp1 and sp2
+
+Fixed bug with ResetSeqNumFlag going out but not coming back.
+Logon will now be processed correctly even if field is absent
+if sequence number is set to 1.
+
+Fixed bug where data dictionary settings in the default section
+were being ignored. Mostly manifested itself by doing validation
+the user didn't want done, such as user defined field validation.
+
+Fixed initialization errors with OdbcConnection which caused some
+problems connecting to the database.
+
+Updated the generator.  Should be more consistent.  Deprecated fields
+are not longer necessary as they are now generated along with current
+fields.
+
 1.13.2
 ------
 Fixed bug where messages containing repeating groups would 

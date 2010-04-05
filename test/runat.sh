@@ -25,5 +25,5 @@ ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix50sp2/*.def
 RESULT3=$?
 kill $PROCID
 
-RESULT=$(( $RESULT1 + $RESULT2 ++ $RESULT3 ))
+RESULT=$(( $RESULT1 + $RESULT2 + $RESULT3 ))
 exit $RESULT
