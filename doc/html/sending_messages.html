@@ -80,7 +80,7 @@
     void sendOrderCancelRequest()
     {
       FIX::Message message;
-      const FIX::Header header& = message.getHeader();
+      FIX::Header header& = message.getHeader();
 
       header.setField(FIX::BeginString("FIX.4.2"));
       header.setField(FIX::SenderCompID(TW));
