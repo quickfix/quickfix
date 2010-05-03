@@ -19,14 +19,16 @@
 **
 ****************************************************************************/
 
-#ifndef FIX50_MESSAGECRACKER_H
-#define FIX50_MESSAGECRACKER_H
+#ifndef FIX50SP2_MESSAGECRACKER_H
+#define FIX50SP2_MESSAGECRACKER_H
+
 
 #include "../SessionID.h"
 #include "../Exceptions.h"
-#include "../fix50/Message.h"
 
-namespace FIX50
+#include "../fix50sp2/Message.h"
+
+namespace FIX50SP2
 {  
   class IOI; 
   class Advertisement; 
@@ -1159,4 +1161,4 @@ void crack( Message& message,
   };
 }
 
-#endif //FIX50_MESSAGECRACKER_H
+#endif

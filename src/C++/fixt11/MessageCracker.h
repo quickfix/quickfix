@@ -22,8 +22,10 @@
 #ifndef FIXT11_MESSAGECRACKER_H
 #define FIXT11_MESSAGECRACKER_H
 
+
 #include "../SessionID.h"
 #include "../Exceptions.h"
+
 #include "../fixt11/Message.h"
 
 namespace FIXT11
@@ -129,4 +131,4 @@ void crack( Message& message,
   };
 }
 
-#endif //FIXT11_MESSAGECRACKER_H
+#endif

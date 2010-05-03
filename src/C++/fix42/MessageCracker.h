@@ -22,8 +22,10 @@
 #ifndef FIX42_MESSAGECRACKER_H
 #define FIX42_MESSAGECRACKER_H
 
+
 #include "../SessionID.h"
 #include "../Exceptions.h"
+
 #include "../fix42/Message.h"
 
 namespace FIX42
@@ -519,4 +521,4 @@ void crack( Message& message,
   };
 }
 
-#endif //FIX42_MESSAGECRACKER_H
+#endif

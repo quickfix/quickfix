@@ -30,14 +30,36 @@
 
  <xsl:template match="/">/* -*- C++ -*- */
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
+<xsl:choose>
+<xsl:when test="//fix/@servicepack='0'">
 #ifndef <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
 #define <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
+</xsl:when>
+<xsl:otherwise>
+#ifndef <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>SP<xsl:value-of select="//fix/@servicepack"/>_MESSAGECRACKER_H
+#define <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>SP<xsl:value-of select="//fix/@servicepack"/>_MESSAGECRACKER_H
+</xsl:otherwise>
+</xsl:choose>
 
 #include "../SessionID.h"
 #include "../Exceptions.h"
+<xsl:choose>
+<xsl:when test="//fix/@servicepack='0'">
 #include "../<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>/Message.h"
+</xsl:when>
+<xsl:otherwise>
+#include "../<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>sp<xsl:value-of select="//fix/@servicepack"/>/Message.h"
+</xsl:otherwise>
+</xsl:choose>
 
+<xsl:choose>
+<xsl:when test="//fix/@servicepack='0'">
 namespace <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
+</xsl:when>
+<xsl:otherwise>
+namespace <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>SP<xsl:value-of select="//fix/@servicepack"/>
+</xsl:otherwise>
+</xsl:choose>
 { <xsl:call-template name="forward-declarations"/>
 
   class MessageCracker
@@ -54,7 +76,7 @@ namespace <xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xs
   };
 }
 
-#endif //<xsl:value-of select="$type"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
+#endif
 </xsl:template>
 
 <xsl:template name="forward-declarations"><xsl:for-each select="//fix/messages/message"> 

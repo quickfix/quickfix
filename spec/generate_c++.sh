@@ -1,5 +1,3 @@
-xsltproc -o ../src/C++/FixValues.h Values.xsl FIX50.xml 
-xsltproc -o ../src/C++/FixTValues.h Values.xsl FIXT11.xml 
 xsltproc -o ../src/C++/fix40/MessageCracker.h MessageCracker.xsl FIX40.xml
 xsltproc -o ../src/C++/fix41/MessageCracker.h MessageCracker.xsl FIX41.xml
 xsltproc -o ../src/C++/fix42/MessageCracker.h MessageCracker.xsl FIX42.xml
