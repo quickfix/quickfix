@@ -117,14 +117,14 @@
     try
     {
       if(argc &lt; 2) return 1;
-      std::string fileName = argv[0];
+      std::string fileName = argv[1];
 
       FIX::SessionSettings settings(fileName);
 
       MyApplication application;
       FIX::FileStoreFactory storeFactory(settings);
       FIX::FileLogFactory logFactory(settings);
-      FIX::Socketacceptor acceptor
+      FIX::SocketAcceptor acceptor
         (application, storeFactory, settings, logFactory /*optional*/);
       acceptor.start();
       // while( condition == true ) { do something; }
