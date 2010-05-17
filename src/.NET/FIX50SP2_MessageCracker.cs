@@ -22,9 +22,9 @@
 using System;
 
 
-namespace QuickFix50SP2
+namespace QuickFix50Sp2
 {
-  public class MessageCracker : QuickFix50SP1.MessageCracker
+  public class MessageCracker : QuickFix50Sp1.MessageCracker
   {
   
     public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )

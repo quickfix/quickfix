@@ -22,7 +22,7 @@
 using System;
 
 
-namespace QuickFix50SP1
+namespace QuickFix50Sp1
 {
   public class MessageCracker : QuickFix50.MessageCracker
   {

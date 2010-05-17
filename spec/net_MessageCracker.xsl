@@ -37,7 +37,7 @@ using System;
 namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 </xsl:when>
 <xsl:otherwise>
-namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>SP<xsl:value-of select="//fix/@servicepack"/>
+namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>Sp<xsl:value-of select="//fix/@servicepack"/>
 </xsl:otherwise>
 </xsl:choose>
 {
@@ -101,13 +101,13 @@ namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@m
       <xsl:if test="//fix/@minor='0'">
         <xsl:if test="//fix/@servicepack='0'">: QuickFix44.MessageCracker</xsl:if>
         <xsl:if test="//fix/@servicepack='1'">: QuickFix50.MessageCracker</xsl:if>
-        <xsl:if test="//fix/@servicepack='2'">: QuickFix50SP1.MessageCracker</xsl:if>
+        <xsl:if test="//fix/@servicepack='2'">: QuickFix50Sp1.MessageCracker</xsl:if>
       </xsl:if>
     </xsl:if>
   </xsl:if>
   <xsl:if test="//fix/@type='FIXT'">
     <xsl:if test="//fix/@major='1'">
-      <xsl:if test="//fix/@minor='1'">: QuickFix50SP2.MessageCracker</xsl:if>
+      <xsl:if test="//fix/@minor='1'">: QuickFix50Sp2.MessageCracker</xsl:if>
     </xsl:if>
   </xsl:if>
 </xsl:template>

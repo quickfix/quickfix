@@ -24,7 +24,7 @@ using System;
 
 namespace QuickFixT11
 {
-  public class MessageCracker : QuickFix50SP2.MessageCracker
+  public class MessageCracker : QuickFix50Sp2.MessageCracker
   {
   
     public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
