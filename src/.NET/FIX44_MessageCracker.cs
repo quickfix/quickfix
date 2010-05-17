@@ -21,6 +21,7 @@
 
 using System;
 
+
 namespace QuickFix44
 {
   public class MessageCracker : QuickFix43.MessageCracker
