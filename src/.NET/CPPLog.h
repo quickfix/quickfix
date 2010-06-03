@@ -70,7 +70,7 @@ public:
   void backup()
   { QF_STACK_TRY
     m_pUnmanaged->backup();
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   void onIncoming( String* s )
