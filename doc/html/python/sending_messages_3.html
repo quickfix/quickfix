@@ -1,5 +1,5 @@
 <B><CODE><PRE>
-import quickfix
+from quickfix import *
 
 def sendOrderCancelRequest:
 	message = quickfix.Message();
@@ -12,7 +12,7 @@ def sendOrderCancelRequest:
 	message.setField(quickfix.OrigClOrdID("123"))
 	message.setField(quickfix.ClOrdID("321"))
 	message.setField(quickfix.Symbol("LNUX"))
-	message.setField(quickfix.Side(Side.BUY))
+	message.setField(quickfix.Side(Side_BUY))
 	message.setField(quickfix.Text("Cancel My Order!"))
 
 	Session.sendToTarget(message)
