@@ -29,6 +29,7 @@ using namespace System;
 #include "SessionID.h"
 #include "MessageFactory.h"
 #include "quickfix/Application.h"
+#include "quickfix/Values.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -156,6 +157,13 @@ private:
     FIX::MsgType msgType;
     unmanaged.getHeader().getField( beginString );
     unmanaged.getHeader().getField( msgType );
+    if( beginString.getString() == FIX::BeginString_FIXT11 )
+    {
+      FIX::ApplVerID applVerID;
+      unmanaged.getHeader().getField( applVerID );
+      beginString = FIX::Message::toBeginString( applVerID );
+    }
+
     QuickFix::Message __pin * message
       = m_factory->create
       ( beginString.getValue().c_str(), msgType.getValue().c_str() );

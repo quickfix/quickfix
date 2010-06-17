@@ -160,6 +160,26 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "FIX50SP1_MessageCracker.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FIX50SP1_MessageFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FIX50SP2_MessageCracker.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FIX50SP2_MessageFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "FIXT11_MessageCracker.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

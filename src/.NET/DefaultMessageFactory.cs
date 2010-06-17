@@ -33,6 +33,8 @@ namespace QuickFix
       fix43Factory = new QuickFix43.MessageFactory();
       fix44Factory = new QuickFix44.MessageFactory();
       fix50Factory = new QuickFix50.MessageFactory();
+      fix50sp1Factory = new QuickFix50Sp1.MessageFactory();
+      fix50sp2Factory = new QuickFix50Sp2.MessageFactory();
       fixt11Factory = new QuickFixT11.MessageFactory();
     }
 
@@ -50,6 +52,10 @@ namespace QuickFix
         return fix44Factory.create( beginString, msgType );
       if ( beginString.Equals( "FIX.5.0" ) )
         return fix50Factory.create( beginString, msgType );
+      if ( beginString.Equals( "FIX.5.0SP1" ) )
+        return fix50sp1Factory.create(beginString, msgType);
+      if (beginString.Equals("FIX.5.0SP2"))
+        return fix50sp2Factory.create(beginString, msgType);
       if ( beginString.Equals( "FIXT.1.1" ) )
       {
         if( Message.isAdminMsgType(msgType) )
@@ -66,6 +72,8 @@ namespace QuickFix
     private QuickFix43.MessageFactory fix43Factory;
     private QuickFix44.MessageFactory fix44Factory;
     private QuickFix50.MessageFactory fix50Factory;
+    private QuickFix50Sp1.MessageFactory fix50sp1Factory;
+    private QuickFix50Sp2.MessageFactory fix50sp2Factory;
     private QuickFixT11.MessageFactory fixt11Factory;
   };
 }

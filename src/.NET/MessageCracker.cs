@@ -47,6 +47,10 @@ namespace QuickFix
         ((QuickFix44.MessageCracker)this).crack(message, sessionID);
       else if (value.Equals("FIX.5.0"))
         ((QuickFix50.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.5.0SP1"))
+        ((QuickFix50Sp1.MessageCracker)this).crack(message, sessionID);
+      else if (value.Equals("FIX.5.0SP2"))
+        ((QuickFix50Sp2.MessageCracker)this).crack(message, sessionID);
       else if( value.Equals("FIXT.1.1") )
       {
         if( message.isAdmin() )

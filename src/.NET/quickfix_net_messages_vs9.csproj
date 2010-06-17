@@ -1025,6 +1025,8 @@
     <Compile Include="fix50sp1\UserNotification.cs" />
     <Compile Include="fix50sp1\UserRequest.cs" />
     <Compile Include="fix50sp1\UserResponse.cs" />
+    <Compile Include="FIX50SP1_MessageCracker.cs" />
+    <Compile Include="FIX50SP1_MessageFactory.cs" />
     <Compile Include="fix50sp2\AdjustedPositionReport.cs" />
     <Compile Include="fix50sp2\Advertisement.cs" />
     <Compile Include="fix50sp2\AllocationInstruction.cs" />
@@ -1136,6 +1138,8 @@
     <Compile Include="fix50sp2\UserNotification.cs" />
     <Compile Include="fix50sp2\UserRequest.cs" />
     <Compile Include="fix50sp2\UserResponse.cs" />
+    <Compile Include="FIX50SP2_MessageCracker.cs" />
+    <Compile Include="FIX50SP2_MessageFactory.cs" />
     <Compile Include="fix50\AdjustedPositionReport.cs">
       <SubType>Code</SubType>
     </Compile>
