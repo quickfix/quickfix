@@ -32,7 +32,14 @@
  <xsl:copy-of select="document('COPYRIGHT.xml')"/>
 using System;
 
+<xsl:choose>
+<xsl:when test="//fix/@servicepack='0'">
 namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
+</xsl:when>
+<xsl:otherwise>
+namespace Quick<xsl:value-of select="$lowertype"/><xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>Sp<xsl:value-of select="//fix/@servicepack"/>
+</xsl:otherwise>
+</xsl:choose>
 {
 
   public class MessageFactory : QuickFix.MessageFactory
