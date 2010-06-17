@@ -30,274 +30,409 @@ namespace QuickFix43
     public QuickFix.Message create( String beginString, String msgType ) {
     
      if(msgType.Equals("0")) {
-       return new QuickFix43.Heartbeat();
+      
+      return new QuickFix43.Heartbeat();
+      
      }
    
      if(msgType.Equals("1")) {
-       return new QuickFix43.TestRequest();
+      
+      return new QuickFix43.TestRequest();
+      
      }
    
      if(msgType.Equals("2")) {
-       return new QuickFix43.ResendRequest();
+      
+      return new QuickFix43.ResendRequest();
+      
      }
    
      if(msgType.Equals("3")) {
-       return new QuickFix43.Reject();
+      
+      return new QuickFix43.Reject();
+      
      }
    
      if(msgType.Equals("4")) {
-       return new QuickFix43.SequenceReset();
+      
+      return new QuickFix43.SequenceReset();
+      
      }
    
      if(msgType.Equals("5")) {
-       return new QuickFix43.Logout();
+      
+      return new QuickFix43.Logout();
+      
      }
    
      if(msgType.Equals("6")) {
-       return new QuickFix43.IOI();
+      
+      return new QuickFix43.IOI();
+      
      }
    
      if(msgType.Equals("7")) {
-       return new QuickFix43.Advertisement();
+      
+      return new QuickFix43.Advertisement();
+      
      }
    
      if(msgType.Equals("8")) {
-       return new QuickFix43.ExecutionReport();
+      
+      return new QuickFix43.ExecutionReport();
+      
      }
    
      if(msgType.Equals("9")) {
-       return new QuickFix43.OrderCancelReject();
+      
+      return new QuickFix43.OrderCancelReject();
+      
      }
    
      if(msgType.Equals("A")) {
-       return new QuickFix43.Logon();
+      
+      return new QuickFix43.Logon();
+      
      }
    
      if(msgType.Equals("B")) {
-       return new QuickFix43.News();
+      
+      return new QuickFix43.News();
+      
      }
    
      if(msgType.Equals("C")) {
-       return new QuickFix43.Email();
+      
+      return new QuickFix43.Email();
+      
      }
    
      if(msgType.Equals("D")) {
-       return new QuickFix43.NewOrderSingle();
+      
+      return new QuickFix43.NewOrderSingle();
+      
      }
    
      if(msgType.Equals("E")) {
-       return new QuickFix43.NewOrderList();
+      
+      return new QuickFix43.NewOrderList();
+      
      }
    
      if(msgType.Equals("F")) {
-       return new QuickFix43.OrderCancelRequest();
+      
+      return new QuickFix43.OrderCancelRequest();
+      
      }
    
      if(msgType.Equals("G")) {
-       return new QuickFix43.OrderCancelReplaceRequest();
+      
+      return new QuickFix43.OrderCancelReplaceRequest();
+      
      }
    
      if(msgType.Equals("H")) {
-       return new QuickFix43.OrderStatusRequest();
+      
+      return new QuickFix43.OrderStatusRequest();
+      
      }
    
      if(msgType.Equals("J")) {
-       return new QuickFix43.Allocation();
+      
+      return new QuickFix43.Allocation();
+      
      }
    
      if(msgType.Equals("K")) {
-       return new QuickFix43.ListCancelRequest();
+      
+      return new QuickFix43.ListCancelRequest();
+      
      }
    
      if(msgType.Equals("L")) {
-       return new QuickFix43.ListExecute();
+      
+      return new QuickFix43.ListExecute();
+      
      }
    
      if(msgType.Equals("M")) {
-       return new QuickFix43.ListStatusRequest();
+      
+      return new QuickFix43.ListStatusRequest();
+      
      }
    
      if(msgType.Equals("N")) {
-       return new QuickFix43.ListStatus();
+      
+      return new QuickFix43.ListStatus();
+      
      }
    
      if(msgType.Equals("P")) {
-       return new QuickFix43.AllocationAck();
+      
+      return new QuickFix43.AllocationAck();
+      
      }
    
      if(msgType.Equals("Q")) {
-       return new QuickFix43.DontKnowTrade();
+      
+      return new QuickFix43.DontKnowTrade();
+      
      }
    
      if(msgType.Equals("R")) {
-       return new QuickFix43.QuoteRequest();
+      
+      return new QuickFix43.QuoteRequest();
+      
      }
    
      if(msgType.Equals("S")) {
-       return new QuickFix43.Quote();
+      
+      return new QuickFix43.Quote();
+      
      }
    
      if(msgType.Equals("T")) {
-       return new QuickFix43.SettlementInstructions();
+      
+      return new QuickFix43.SettlementInstructions();
+      
      }
    
      if(msgType.Equals("V")) {
-       return new QuickFix43.MarketDataRequest();
+      
+      return new QuickFix43.MarketDataRequest();
+      
      }
    
      if(msgType.Equals("W")) {
-       return new QuickFix43.MarketDataSnapshotFullRefresh();
+      
+      return new QuickFix43.MarketDataSnapshotFullRefresh();
+      
      }
    
      if(msgType.Equals("X")) {
-       return new QuickFix43.MarketDataIncrementalRefresh();
+      
+      return new QuickFix43.MarketDataIncrementalRefresh();
+      
      }
    
      if(msgType.Equals("Y")) {
-       return new QuickFix43.MarketDataRequestReject();
+      
+      return new QuickFix43.MarketDataRequestReject();
+      
      }
    
      if(msgType.Equals("Z")) {
-       return new QuickFix43.QuoteCancel();
+      
+      return new QuickFix43.QuoteCancel();
+      
      }
    
      if(msgType.Equals("a")) {
-       return new QuickFix43.QuoteStatusRequest();
+      
+      return new QuickFix43.QuoteStatusRequest();
+      
      }
    
      if(msgType.Equals("b")) {
-       return new QuickFix43.MassQuoteAcknowledgement();
+      
+      return new QuickFix43.MassQuoteAcknowledgement();
+      
      }
    
      if(msgType.Equals("c")) {
-       return new QuickFix43.SecurityDefinitionRequest();
+      
+      return new QuickFix43.SecurityDefinitionRequest();
+      
      }
    
      if(msgType.Equals("d")) {
-       return new QuickFix43.SecurityDefinition();
+      
+      return new QuickFix43.SecurityDefinition();
+      
      }
    
      if(msgType.Equals("e")) {
-       return new QuickFix43.SecurityStatusRequest();
+      
+      return new QuickFix43.SecurityStatusRequest();
+      
      }
    
      if(msgType.Equals("f")) {
-       return new QuickFix43.SecurityStatus();
+      
+      return new QuickFix43.SecurityStatus();
+      
      }
    
      if(msgType.Equals("g")) {
-       return new QuickFix43.TradingSessionStatusRequest();
+      
+      return new QuickFix43.TradingSessionStatusRequest();
+      
      }
    
      if(msgType.Equals("h")) {
-       return new QuickFix43.TradingSessionStatus();
+      
+      return new QuickFix43.TradingSessionStatus();
+      
      }
    
      if(msgType.Equals("i")) {
-       return new QuickFix43.MassQuote();
+      
+      return new QuickFix43.MassQuote();
+      
      }
    
      if(msgType.Equals("j")) {
-       return new QuickFix43.BusinessMessageReject();
+      
+      return new QuickFix43.BusinessMessageReject();
+      
      }
    
      if(msgType.Equals("k")) {
-       return new QuickFix43.BidRequest();
+      
+      return new QuickFix43.BidRequest();
+      
      }
    
      if(msgType.Equals("l")) {
-       return new QuickFix43.BidResponse();
+      
+      return new QuickFix43.BidResponse();
+      
      }
    
      if(msgType.Equals("m")) {
-       return new QuickFix43.ListStrikePrice();
+      
+      return new QuickFix43.ListStrikePrice();
+      
      }
    
      if(msgType.Equals("o")) {
-       return new QuickFix43.RegistrationInstructions();
+      
+      return new QuickFix43.RegistrationInstructions();
+      
      }
    
      if(msgType.Equals("p")) {
-       return new QuickFix43.RegistrationInstructionsResponse();
+      
+      return new QuickFix43.RegistrationInstructionsResponse();
+      
      }
    
      if(msgType.Equals("q")) {
-       return new QuickFix43.OrderMassCancelRequest();
+      
+      return new QuickFix43.OrderMassCancelRequest();
+      
      }
    
      if(msgType.Equals("r")) {
-       return new QuickFix43.OrderMassCancelReport();
+      
+      return new QuickFix43.OrderMassCancelReport();
+      
      }
    
      if(msgType.Equals("s")) {
-       return new QuickFix43.NewOrderCross();
+      
+      return new QuickFix43.NewOrderCross();
+      
      }
    
      if(msgType.Equals("u")) {
-       return new QuickFix43.CrossOrderCancelRequest();
+      
+      return new QuickFix43.CrossOrderCancelRequest();
+      
      }
    
      if(msgType.Equals("t")) {
-       return new QuickFix43.CrossOrderCancelReplaceRequest();
+      
+      return new QuickFix43.CrossOrderCancelReplaceRequest();
+      
      }
    
      if(msgType.Equals("v")) {
-       return new QuickFix43.SecurityTypeRequest();
+      
+      return new QuickFix43.SecurityTypeRequest();
+      
      }
    
      if(msgType.Equals("w")) {
-       return new QuickFix43.SecurityTypes();
+      
+      return new QuickFix43.SecurityTypes();
+      
      }
    
      if(msgType.Equals("x")) {
-       return new QuickFix43.SecurityListRequest();
+      
+      return new QuickFix43.SecurityListRequest();
+      
      }
    
      if(msgType.Equals("y")) {
-       return new QuickFix43.SecurityList();
+      
+      return new QuickFix43.SecurityList();
+      
      }
    
      if(msgType.Equals("z")) {
-       return new QuickFix43.DerivativeSecurityListRequest();
+      
+      return new QuickFix43.DerivativeSecurityListRequest();
+      
      }
    
      if(msgType.Equals("AA")) {
-       return new QuickFix43.DerivativeSecurityList();
+      
+      return new QuickFix43.DerivativeSecurityList();
+      
      }
    
      if(msgType.Equals("AB")) {
-       return new QuickFix43.NewOrderMultileg();
+      
+      return new QuickFix43.NewOrderMultileg();
+      
      }
    
      if(msgType.Equals("AC")) {
-       return new QuickFix43.MultilegOrderCancelReplaceRequest();
+      
+      return new QuickFix43.MultilegOrderCancelReplaceRequest();
+      
      }
    
      if(msgType.Equals("AD")) {
-       return new QuickFix43.TradeCaptureReportRequest();
+      
+      return new QuickFix43.TradeCaptureReportRequest();
+      
      }
    
      if(msgType.Equals("AE")) {
-       return new QuickFix43.TradeCaptureReport();
+      
+      return new QuickFix43.TradeCaptureReport();
+      
      }
    
      if(msgType.Equals("AF")) {
-       return new QuickFix43.OrderMassStatusRequest();
+      
+      return new QuickFix43.OrderMassStatusRequest();
+      
      }
    
      if(msgType.Equals("AG")) {
-       return new QuickFix43.QuoteRequestReject();
+      
+      return new QuickFix43.QuoteRequestReject();
+      
      }
    
      if(msgType.Equals("AH")) {
-       return new QuickFix43.RFQRequest();
+      
+      return new QuickFix43.RFQRequest();
+      
      }
    
      if(msgType.Equals("AI")) {
-       return new QuickFix43.QuoteStatusReport();
+      
+      return new QuickFix43.QuoteStatusReport();
+      
      }
    
     return new QuickFix43.Message();
+    
     }
   };
 }
