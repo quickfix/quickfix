@@ -50,4 +50,22 @@ TEST(validConfiguration)
   object.create(sessionID, settings);
 }
 
+TEST(startDayAndEndDayAreDifferent)
+{
+  NullApplication application;
+  MemoryStoreFactory messageStoreFactory;
+  SessionFactory object(application, messageStoreFactory, 0);
+
+  SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+  Dictionary settings;
+  settings.setString(CONNECTION_TYPE, "initiator");
+  settings.setString(USE_DATA_DICTIONARY, "N");
+  settings.setString(START_TIME, "12:00:00");
+  settings.setString(END_TIME, "12:00:00");
+  settings.setString(START_DAY, "Sun");
+  settings.setString(END_DAY, "Mon");
+  settings.setString(HEARTBTINT, "30");
+  object.create(sessionID, settings);
+}
+
 }
