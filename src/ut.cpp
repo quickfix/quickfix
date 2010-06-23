@@ -48,6 +48,7 @@
 #include <SessionIDTestCase.cpp>
 #include <SessionSettingsTestCase.cpp>
 #include <SessionTestCase.cpp>
+#include <SessionFactoryTestCase.cpp>
 #include <SettingsTestCase.cpp>
 #include <SocketAcceptorTestCase.cpp>
 #include <SocketConnectorTestCase.cpp>

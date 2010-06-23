@@ -32,7 +32,7 @@ class SessionID
 public:
   SessionID()
   {
-        toString(m_frozenString);
+    toString(m_frozenString);
   }
 
   SessionID( const std::string& beginString,
@@ -43,11 +43,11 @@ public:
     m_senderCompID( SenderCompID(senderCompID) ),
     m_targetCompID( TargetCompID(targetCompID) ),
     m_sessionQualifier( sessionQualifier ),
-	  m_isFIXT(false)
+    m_isFIXT(false)
   {
     toString(m_frozenString);
-		if( beginString.substr(0, 4) == "FIXT" )
-			m_isFIXT = true;
+    if( beginString.substr(0, 4) == "FIXT" )
+      m_isFIXT = true;
   }
 
   const BeginString& getBeginString() const

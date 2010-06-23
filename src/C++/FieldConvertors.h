@@ -164,7 +164,7 @@ struct IntConvertor
   {
     long result = 0;
     if( !convert( value, result ) )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
     else
       return result;
   }
@@ -295,7 +295,7 @@ static bool convert( const std::string& value, double& result )
   {
     double result = 0.0;
     if( !convert( value, result ) )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
     else
       return result;
   }
@@ -322,7 +322,7 @@ struct CharConvertor
   {
     char result = '\0';
     if( !convert( value, result ) )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
     else
       return result;
   }
@@ -355,7 +355,7 @@ struct BoolConvertor
   {
     bool result = false;
     if( !convert( value, result ) )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
     else
       return result;
   }
@@ -407,28 +407,28 @@ struct UtcTimeStampConvertor
     {
       case 21: haveMilliseconds = true;
       case 17: break;
-      default: throw FieldConvertError();
+      default: throw FieldConvertError(value);
     }
 
     int i = 0;
     int c = 0;
     for( c = 0; c < 8; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
-    if (value[i++] != '-') throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+    if (value[i++] != '-') throw FieldConvertError(value);
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
-    if( value[i++] != ':' ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+    if( value[i++] != ':' ) throw FieldConvertError(value);
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
-    if( value[i++] != ':' ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+    if( value[i++] != ':' ) throw FieldConvertError(value);
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
 
     if( haveMilliseconds )
     {
-      if( value[i++] != '.' ) throw FieldConvertError();
+      if( value[i++] != '.' ) throw FieldConvertError(value);
       for( c = 0; c < 3; ++c )
-	      if( !isdigit(value[i++]) ) throw FieldConvertError();
+	      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
     }
 
     int year, mon, mday, hour, min, sec, millis;
@@ -442,25 +442,25 @@ struct UtcTimeStampConvertor
 
     mon = value[i++] - '0';
     mon = 10 * mon + value[i++] - '0';
-    if( mon < 1 || 12 < mon ) throw FieldConvertError();
+    if( mon < 1 || 12 < mon ) throw FieldConvertError(value);
 
     mday = value[i++] - '0';
     mday = 10 * mday + value[i++] - '0';
-    if( mday < 1 || 31 < mday ) throw FieldConvertError();
+    if( mday < 1 || 31 < mday ) throw FieldConvertError(value);
 
     ++i; // skip '-'
 
     hour = value[i++] - '0';
     hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 23 < hour ) throw FieldConvertError();
+    if( 23 < hour ) throw FieldConvertError(value);
 
     ++i; // skip ':'
 
     min = value[i++] - '0';
     min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 59 < min ) throw FieldConvertError();
+    if( 59 < min ) throw FieldConvertError(value);
 
     ++i; // skip ':'
 
@@ -468,7 +468,7 @@ struct UtcTimeStampConvertor
     sec = 10 * sec + value[i++] - '0';
 
     // No check for >= 0 as no '-' are converted here
-    if( 60 < sec ) throw FieldConvertError();
+    if( 60 < sec ) throw FieldConvertError(value);
 
     if( haveMilliseconds )
     {
@@ -522,25 +522,25 @@ struct UtcTimeOnlyConvertor
     {
       case 12: haveMilliseconds = true;
       case 8: break;
-      default: throw FieldConvertError();
+      default: throw FieldConvertError(value);
     }
 
     int i = 0;
     int c = 0;
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
-    if( value[i++] != ':' ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+    if( value[i++] != ':' ) throw FieldConvertError(value);
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
-    if( value[i++] != ':' ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+    if( value[i++] != ':' ) throw FieldConvertError(value);
     for( c = 0; c < 2; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
 
     if( haveMilliseconds )
     {
       // ++i instead of i++ skips the '.' separator
       for( c = 0; c < 3; ++c )
-	      if( !isdigit(value[++i]) ) throw FieldConvertError();
+	      if( !isdigit(value[++i]) ) throw FieldConvertError(value);
     }
 
     int hour, min, sec, millis;
@@ -550,19 +550,19 @@ struct UtcTimeOnlyConvertor
     hour = value[i++] - '0';
     hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 23 < hour ) throw FieldConvertError();
+    if( 23 < hour ) throw FieldConvertError(value);
     ++i; // skip ':'
 
     min = value[i++] - '0';
     min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 59 < min ) throw FieldConvertError();
+    if( 59 < min ) throw FieldConvertError(value);
     ++i; // skip ':'
 
     sec = value[i++] - '0';
     sec = 10 * sec + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 60 < sec ) throw FieldConvertError();
+    if( 60 < sec ) throw FieldConvertError(value);
 
     if( haveMilliseconds )
     {
@@ -597,11 +597,11 @@ struct UtcDateConvertor
   static UtcDate convert( const std::string& value )
   throw( FieldConvertError )
   {
-    if( value.size() != 8 ) throw FieldConvertError();
+    if( value.size() != 8 ) throw FieldConvertError(value);
 
     int i = 0;
     for( int c=0; c<8; ++c )
-      if( !isdigit(value[i++]) ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
 
     int year, mon, mday;
 
@@ -615,12 +615,12 @@ struct UtcDateConvertor
     mon = value[i++] - '0';
     mon = 10 * mon + value[i++] - '0';
     if( mon < 1 || 12 < mon )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
 
     mday = value[i++] - '0';
     mday = 10 * mday + value[i++] - '0';
     if( mday < 1 || 31 < mday )
-      throw FieldConvertError();
+      throw FieldConvertError(value);
 
     return UtcDateOnly( mday, mon, year );
   }
