@@ -197,6 +197,12 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ValidateLengthAndChecksum</I> </TD>
+    <TD> If set to N, messages with incorrect length or checksum fields will not be rejected.  You can also use this to force acceptance of repeating groups without a data dictionary.  In this scenario you will not be able to access all repeating groups.</TD>
+    <TD> Y<br>N</TD>
+    <TD> Y </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ValidateFieldsOutOfOrder</I> </TD>
     <TD> If set to N, fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.</TD>
     <TD> Y<br>N</TD>

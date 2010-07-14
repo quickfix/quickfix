@@ -61,6 +61,7 @@ Session::Session( Application& application,
   m_refreshOnLogon( false ),
   m_millisecondsInTimeStamp( true ),
   m_persistMessages( true ),
+  m_validateLengthAndChecksum( true ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -429,11 +430,11 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
 
       const DataDictionary& applicationDD =
         m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
-      msg = Message( *i, sessionDD, applicationDD );
+      msg = Message( *i, sessionDD, applicationDD, m_validateLengthAndChecksum );
     }
     else
     {
-      msg = Message( *i, sessionDD );
+      msg = Message( *i, sessionDD, m_validateLengthAndChecksum );
     }
 
 
@@ -1302,11 +1303,11 @@ void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool 
     {
       const DataDictionary& applicationDD =
         m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
-      next( Message( msg, sessionDD, applicationDD ), timeStamp, queued );
+      next( Message( msg, sessionDD, applicationDD, m_validateLengthAndChecksum ), timeStamp, queued );
     }
     else
     {
-      next( Message( msg, sessionDD ), timeStamp, queued );
+      next( Message( msg, sessionDD, m_validateLengthAndChecksum ), timeStamp, queued );
     }
   }
   catch( InvalidMessage& e )

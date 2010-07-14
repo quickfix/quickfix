@@ -196,6 +196,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setMillisecondsInTimeStamp( settings.getBool( MILLISECONDS_IN_TIMESTAMP ) );
   if ( settings.has( PERSIST_MESSAGES ) )
     pSession->setPersistMessages( settings.getBool( PERSIST_MESSAGES ) );
+  if ( settings.has( VALIDATE_LENGTH_AND_CHECKSUM ) )
+    pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
 
   return pSession;
 
@@ -203,8 +205,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
 }
 
 DataDictionary SessionFactory::createDataDictionary(const SessionID& sessionID, 
-                                                     const Dictionary& settings, 
-                                                     const std::string& settingsKey) throw(ConfigError)
+                                                    const Dictionary& settings, 
+                                                    const std::string& settingsKey) throw(ConfigError)
 { QF_STACK_PUSH(SessionFactory::createDataDictionary)
 
   DataDictionary dataDictionary;

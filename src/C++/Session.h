@@ -189,6 +189,11 @@ public:
   void setPersistMessages ( bool value )
     { m_persistMessages = value; }
 
+  bool getValidateLengthAndChecksum()
+    { return m_validateLengthAndChecksum; }
+  void setValidateLengthAndChecksum ( bool value )
+    { m_validateLengthAndChecksum = value; }
+
   void setResponder( Responder* pR )
   {
     m_pResponder = pR;
@@ -308,6 +313,7 @@ private:
   bool m_refreshOnLogon;
   bool m_millisecondsInTimeStamp;
   bool m_persistMessages;
+  bool m_validateLengthAndChecksum;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;

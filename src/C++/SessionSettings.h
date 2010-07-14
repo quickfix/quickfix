@@ -67,6 +67,7 @@ const char SOCKET_NODELAY[] = "SocketNodelay";
 const char SOCKET_SEND_BUFFER_SIZE[] = "SendBufferSize";
 const char SOCKET_RECEIVE_BUFFER_SIZE[] = "ReceiveBufferSize";
 const char RECONNECT_INTERVAL[] = "ReconnectInterval";
+const char VALIDATE_LENGTH_AND_CHECKSUM[] = "ValidateLengthAndChecksum";
 const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
 const char VALIDATE_FIELDS_HAVE_VALUES[] = "ValidateFieldsHaveValues";
 const char VALIDATE_USER_DEFINED_FIELDS[] = "ValidateUserDefinedFields";
