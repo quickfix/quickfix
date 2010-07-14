@@ -43,6 +43,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
+  m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
 
