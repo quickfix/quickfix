@@ -62,6 +62,32 @@ class MessageCracker : public FIX::MessageCracker
     FIX::Session::sendToTarget( echo, sessionID );
   }
 
+  void onMessage( const FIX50SP2::NewOrderSingle& message,
+                  const FIX::SessionID& sessionID )
+  {
+    process( message, sessionID );
+  }
+
+  void onMessage( const FIX50SP2::SecurityDefinition& message,
+                  const FIX::SessionID& sessionID )
+  {
+    FIX50SP2::SecurityDefinition echo = message;
+    FIX::Session::sendToTarget( echo, sessionID );
+  }
+
+  void onMessage( const FIX50SP1::NewOrderSingle& message,
+                  const FIX::SessionID& sessionID )
+  {
+    process( message, sessionID );
+  }
+
+  void onMessage( const FIX50SP1::SecurityDefinition& message,
+                  const FIX::SessionID& sessionID )
+  {
+    FIX50SP1::SecurityDefinition echo = message;
+    FIX::Session::sendToTarget( echo, sessionID );
+  }
+
   void onMessage( const FIX50::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
