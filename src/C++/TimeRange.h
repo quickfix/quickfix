@@ -52,6 +52,19 @@ public:
                          const UtcTimeOnly& endTime,
                          int startDay,
                          int endDay,
+                         const DateTime& time,
+                         int day )
+  {
+    return isInRange
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time, day );
+  }
+
+  static bool isInRange( const UtcTimeOnly& startTime,
+                         const UtcTimeOnly& endTime,
+                         int startDay,
+                         int endDay,
                          const DateTime& time )
   {
     return isInRange
@@ -89,6 +102,19 @@ public:
   {
     return isInRange
       ( (DateTime)start, (DateTime)end, (DateTime)time );
+  }
+
+  static bool isInRange( const LocalTimeOnly& startTime,
+                         const LocalTimeOnly& endTime,
+                         int startDay,
+                         int endDay,
+                         const DateTime& time,
+                         int day )
+  {
+    return isInRange
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time, day );
   }
 
   static bool isInRange( const LocalTimeOnly& startTime,
@@ -135,6 +161,13 @@ private:
                          const DateTime& endTime,
                          int startDay,
                          int endDay,
+                         const DateTime& time,
+                         int day );
+
+  static bool isInRange( const DateTime& startTime,
+                         const DateTime& endTime,
+                         int startDay,
+                         int endDay,
                          const DateTime& time );
 
   static bool isInSameRange( const DateTime& start,
@@ -148,14 +181,19 @@ private:
                              int endDay,
                              const DateTime& time1,
                              const DateTime& time2 );
-public:
-  bool isInRange( const DateTime& dateTime )
+public:  
+  bool isInRange( const DateTime& dateTime, int day )
   {
     if( m_startDay < 0 && m_endDay < 0 )
       return isInRange( m_startTime, m_endTime, dateTime );
     else
       return isInRange
-        ( m_startTime, m_endTime, m_startDay, m_endDay, dateTime );
+        ( m_startTime, m_endTime, m_startDay, m_endDay, dateTime, day );
+  }
+
+  bool isInRange( const DateTime& dateTime )
+  {
+	  return isInRange( dateTime, dateTime.getWeekDay() );
   }
 
   bool isInSameRange( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )

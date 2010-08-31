@@ -58,8 +58,8 @@ namespace FIX
   }
 
   bool TimeRange::isInRange( const DateTime& start,
-                                   const DateTime& end,
-                                   const DateTime& time )
+                             const DateTime& end,
+                             const DateTime& time )
   { QF_STACK_PUSH(TimeRange::isInRange)
 
     UtcTimeOnly timeOnly (time);
@@ -73,47 +73,57 @@ namespace FIX
   }
 
   bool TimeRange::isInRange( const DateTime& startTime,
-                                   const DateTime& endTime,
-                                   int startDay,
-                                   int endDay,
-                                   const DateTime& time )
+                             const DateTime& endTime,
+                             int startDay,
+                             int endDay,
+                             const DateTime& time,
+                             int day )
   { QF_STACK_PUSH(TimeRange::isInRange)
 
-    int currentDay = time.getWeekDay();
     UtcTimeOnly timeOnly (time);
 
     if( startDay == endDay )
     {
-      if( currentDay != startDay )
+      if( day != startDay )
         return true;
       return isInRange( startTime, endTime, time );
     }
     else if( startDay < endDay )
     {
-      if( currentDay < startDay || currentDay > endDay )
+      if( day < startDay || day > endDay )
         return false;
-      else if( currentDay == startDay && timeOnly < startTime )
+      else if( day == startDay && timeOnly < startTime )
         return false;
-      else if( currentDay == endDay && timeOnly > endTime )
+      else if( day == endDay && timeOnly > endTime )
         return false;
     }
     else if( startDay > endDay )
     {
-      if( currentDay < startDay && currentDay > endDay )
+      if( day < startDay && day > endDay )
         return false;
-      else if( currentDay == startDay && timeOnly < startTime )
+      else if( day == startDay && timeOnly < startTime )
         return false;
-      else if( currentDay == endDay && timeOnly > endTime )
+      else if( day == endDay && timeOnly > endTime )
         return false;
     }
     return true;
     QF_STACK_POP
   }
 
+  bool TimeRange::isInRange( const DateTime& startTime,
+                             const DateTime& endTime,
+                             int startDay,
+                             int endDay,
+							 const DateTime& time ) 
+  { QF_STACK_PUSH(TimeRange::isInRange)
+    return isInRange( startTime, endTime, startDay, endDay, time, time.getWeekDay() );
+    QF_STACK_POP
+  }
+
   bool TimeRange::isInSameRange( const DateTime& start,
-                                   const DateTime& end,
-                                   const DateTime& time1,
-                                   const DateTime& time2 )
+                                 const DateTime& end,
+                                 const DateTime& time1,
+                                 const DateTime& time2 )
   { QF_STACK_PUSH(TimeRange::isInSameRange)
 
     if( !isInRange( start, end, time1 ) ) return false;
@@ -159,10 +169,10 @@ namespace FIX
                                  const DateTime& time2 )
   { QF_STACK_PUSH(TimeRange::isInSameRange)
 
-    if( !isInRange( startTime, endTime, startDay, endDay, time1 ) )
+    if( !isInRange( startTime, endTime, startDay, endDay, time1, time1.getWeekDay() ) )
       return false;
 
-    if( !isInRange( startTime, endTime, startDay, endDay, time2 ) )
+    if( !isInRange( startTime, endTime, startDay, endDay, time2, time2.getWeekDay() ) )
       return false;
 
     int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();

@@ -166,9 +166,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
       logonDay, logoutDay );
   TimeRange logonTimeRange = useLocalTime ? localLogonTime : utcLogonTime;
 
-  if( !sessionTimeRange.isInRange(logonTime) )
+  if( !sessionTimeRange.isInRange(logonTime, logonDay) )
     throw ConfigError( "LogonTime must be between StartTime and EndTime" );
-  if( !sessionTimeRange.isInRange(logoutTime) )
+  if( !sessionTimeRange.isInRange(logoutTime, logoutDay) )
     throw ConfigError( "LogoutTime must be between StartTime and EndTime" );
   pSession->setLogonTime( logonTimeRange );
 
