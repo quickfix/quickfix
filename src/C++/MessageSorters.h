@@ -114,10 +114,12 @@ struct message_order
 public:
   enum cmp_mode { header, trailer, normal, group };
 
-  message_order( cmp_mode mode = normal ) : m_mode( mode ), m_groupOrder( 0 ) {}
+  message_order( cmp_mode mode = normal ) 
+    : m_mode( mode ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 ) {}
   message_order( int first, ... );
   message_order( const int order[] );
-  message_order( const message_order& copy ) : m_groupOrder( 0 )
+  message_order( const message_order& copy ) 
+    : m_groupOrder( 0 )
   { *this = copy; }
 
   virtual ~message_order()
