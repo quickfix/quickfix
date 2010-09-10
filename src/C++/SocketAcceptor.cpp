@@ -88,7 +88,7 @@ throw ( RuntimeError )
     for( ; i != sessions.end(); ++i )
     {
       Dictionary settings = s.get( *i );
-      short port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
+      port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
         s.get().getBool( SOCKET_REUSE_ADDRESS ) : true;
