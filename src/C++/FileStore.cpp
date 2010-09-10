@@ -289,9 +289,16 @@ UtcTimeStamp FileStore::getCreationTime() const throw ( IOException )
 void FileStore::reset() throw ( IOException )
 { QF_STACK_PUSH(FileStore::reset)
 
-  m_cache.reset();
-  open( true );
-  setSession();
+  try
+  {
+    m_cache.reset();
+    open( true );
+    setSession();
+  }
+  catch( std::exception& e )
+  {
+    throw IOException( e.what() );
+  }
 
   QF_STACK_POP
 }
@@ -299,8 +306,15 @@ void FileStore::reset() throw ( IOException )
 void FileStore::refresh() throw ( IOException )
 { QF_STACK_PUSH(FileStore::refresh)
 
-  m_cache.reset();
-  open( false );
+  try
+  {
+    m_cache.reset();
+    open( false );
+  }
+  catch( std::exception& e )
+  {
+    throw IOException( e.what() );
+  }
 
   QF_STACK_POP
 }
