@@ -57,6 +57,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
+  m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
 
@@ -256,8 +257,10 @@ bool Initiator::poll( double timeout ) throw ( ConfigError, RuntimeError )
 
   if( m_firstPoll )
   {
+    m_stop = false;
     onConfigure( m_settings );
     onInitialize( m_settings );
+    connect();
     m_firstPoll = false;
   }
 
