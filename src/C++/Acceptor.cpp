@@ -203,6 +203,7 @@ bool Acceptor::poll( double timeout ) throw ( ConfigError, RuntimeError )
 
   if( m_firstPoll )
   {
+    m_stop = false;
     onConfigure( m_settings );
     onInitialize( m_settings );
     m_firstPoll = false;
