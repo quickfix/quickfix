@@ -47,11 +47,7 @@ public:
 
   void Dispose( bool dispose )
   {
-    if( m_pUnmanaged )
-    {
-      delete m_pUnmanaged;
-      m_pUnmanaged = 0;
-    }
+    m_pUnmanaged = 0;
 
     if( dispose )
       System::GC::SuppressFinalize( this );
