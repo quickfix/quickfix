@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\config_windows.h" />
+    <ClInclude Include="..\stdafx.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CallStack.h" />
@@ -667,7 +668,6 @@
     <ClInclude Include="SocketInitiator.h" />
     <ClInclude Include="SocketMonitor.h" />
     <ClInclude Include="SocketServer.h" />
-    <ClInclude Include="stdafx.h" />
     <ClInclude Include="strptime.h" />
     <ClInclude Include="ThreadedSocketAcceptor.h" />
     <ClInclude Include="ThreadedSocketConnection.h" />
