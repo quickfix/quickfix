@@ -137,6 +137,7 @@
     <ClCompile Include="C++\test\FileStoreTestCase.cpp" />
     <ClCompile Include="C++\test\FileUtilitiesTestCase.cpp" />
     <ClCompile Include="C++\test\GroupTestCase.cpp" />
+    <ClCompile Include="C++\test\SessionFactoryTestCase.cpp" />
     <ClCompile Include="getopt.c" />
     <ClCompile Include="C++\test\HttpMessageTestCase.cpp" />
     <ClCompile Include="C++\test\HttpParserTestCase.cpp" />

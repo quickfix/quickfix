@@ -291,6 +291,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\SessionFactoryTestCase.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\SessionIDTestCase.cpp"
 				>
 			</File>
