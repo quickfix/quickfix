@@ -540,7 +540,7 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       attrs->get("required", required);
       bool isRequired = (required == "Y" || required == "y");
       addXMLComponentFields(pDoc, pComponentFieldNode.get(),
-                            msgtype, *this, isRequired);
+                            msgtype, DD, isRequired);
     }
     if(pComponentFieldNode->getName() == "group")
     {
