@@ -139,11 +139,22 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   std::string msg;
   try
   {
-    readFromSocket();
-
     if ( !m_pSession )
     {
-      if ( !readMessage( msg ) ) return false;
+      struct timeval timeout = { 1, 0 };
+      fd_set readset = m_fds;
+
+      while( !readMessage( msg ) )
+      {
+        int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+        if( result > 0 )
+          readFromSocket();
+        else if( result == 0 )
+          return false;
+        else if( result < 0 )
+          return false;
+      }
+
       m_pSession = Session::lookupSession( msg, true );
       if( !isValidSession() )
       {
