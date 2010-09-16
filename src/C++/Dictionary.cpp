@@ -50,15 +50,13 @@ long Dictionary::getLong( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getLong)
 
-  Data::const_iterator i = m_data.find( string_toUpper(key) );
-  if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
-    return IntConvertor::convert( i->second );
+    return IntConvertor::convert( getString(key) );
   }
   catch ( FieldConvertError& )
   {
-    throw ConfigError( "Illegal value " + i->second + " for " + key );
+    throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
 
   QF_STACK_POP
@@ -68,15 +66,13 @@ double Dictionary::getDouble( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getDouble)
 
-  Data::const_iterator i = m_data.find( string_toUpper(key) );
-  if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
-    return DoubleConvertor::convert( i->second );
+    return DoubleConvertor::convert( getString(key) );
   }
   catch ( FieldConvertError& )
   {
-    throw ConfigError( "Illegal value " + i->second + " for " + key );
+    throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
 
   QF_STACK_POP
@@ -86,15 +82,13 @@ bool Dictionary::getBool( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getBool)
 
-  Data::const_iterator i = m_data.find( string_toUpper(key) );
-  if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
-    return BoolConvertor::convert( i->second );
+    return BoolConvertor::convert( getString(key) );
   }
   catch ( FieldConvertError& )
   {
-    throw ConfigError( "Illegal value " + i->second + " for " + key );
+    throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
 
   QF_STACK_POP
@@ -104,11 +98,9 @@ int Dictionary::getDay( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getDay)
 
-  Data::const_iterator i = m_data.find( string_toUpper(key) );
-  if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
-    std::string value = i->second;
+    std::string value = getString(key);
     if( value.size() < 2 ) throw FieldConvertError(0);
     std::string abbr = value.substr(0, 2);
     std::transform( abbr.begin(), abbr.end(), abbr.begin(), tolower );
@@ -123,7 +115,7 @@ throw( ConfigError, FieldConvertError )
   }
   catch ( FieldConvertError& )
   {
-    throw ConfigError( "Illegal value " + i->second + " for " + key );
+    throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
   return -1;
 
