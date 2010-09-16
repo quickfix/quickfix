@@ -923,6 +923,8 @@ void Session::generateBusinessReject( const Message& message, int err, int field
 
   Message reject;
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
+  if( m_sessionID.isFIXT() )
+    reject.setField( DefaultApplVerID(m_senderDefaultApplVerID) );  
   fill( reject.getHeader() );
   MsgType msgType;
   MsgSeqNum msgSeqNum;
