@@ -176,10 +176,14 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       }
 
       Session::registerSession( m_pSession->getSessionID() );
+      return true;
     }
-
-    readMessages( s.getMonitor() );
-    return true;
+    else
+    {
+      readFromSocket();
+      readMessages( s.getMonitor() );
+      return true;
+    }
   }
   catch ( SocketRecvFailed& e )
   {
