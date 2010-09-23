@@ -88,7 +88,7 @@ public:
 
   MessageStore* store() { return m_pStore; }
   void store( MessageStore* pValue ) { m_pStore = pValue; }
-  Log* log() { return m_pLog; }
+  Log* log() { return m_pLog ? m_pLog : &m_nullLog; }
   void log( Log* pValue ) { m_pLog = pValue; }
 
   void heartBtInt( const HeartBtInt& value )
@@ -223,6 +223,7 @@ private:
   Messages m_queue;
   MessageStore* m_pStore;
   Log* m_pLog;
+  NullLog m_nullLog;
   mutable Mutex m_mutex;
 };
 }
