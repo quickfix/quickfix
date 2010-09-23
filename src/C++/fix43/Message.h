@@ -60,7 +60,8 @@ namespace FIX43
   public:
     Message( const FIX::MsgType& msgtype )
     : FIX::Message(
-      FIX::BeginString("FIX.4.3"), msgtype ) {}
+      FIX::BeginString("FIX.4.3"), msgtype )
+     {} 
 
     Message(const FIX::Message& m) : FIX::Message(m) {}
     Message(const Message& m) : FIX::Message(m) {}

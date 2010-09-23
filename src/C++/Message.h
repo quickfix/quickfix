@@ -154,8 +154,10 @@ public:
    * on failure.
    */
   void setString( const std::string& string )
+  throw( InvalidMessage )
   { setString(string, true); }
   void setString( const std::string& string, bool validate )
+  throw( InvalidMessage )
   { setString(string, validate, 0); }
   void setString( const std::string& string,
                   bool validate,

@@ -1,5 +1,5 @@
 require 'quickfix'
-module Quickfix11Sp0
+module Quickfix11
 class Message < Quickfix::Message
 	def initialize
 		super

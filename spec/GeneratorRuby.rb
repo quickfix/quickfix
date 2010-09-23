@@ -1,5 +1,5 @@
 class GeneratorRuby
-  def initialize(type, major, minor, sp, dir)
+  def initialize(type, major, minor, sp, verid, dir)
     @type = type
     @major = major
     @minor = minor
@@ -15,6 +15,7 @@ class GeneratorRuby
     else
       @f = createFile( "quick" + type.downcase + major + minor + ".rb" )
     end
+    @verid = verid
     @messageStarted = false
   end
 
@@ -35,7 +36,7 @@ class GeneratorRuby
 
   def front
     @f.puts "require 'quickfix'"
-    if( @sp != "0" )
+    if( @sp == "0" )
       @f.puts "module Quickfix#{@major}#{@minor}"
     else
       @f.puts "module Quickfix#{@major}#{@minor}Sp#{@sp}"
@@ -64,6 +65,9 @@ class GeneratorRuby
     @depth += 1
     @f.puts tabs + "super"
     @f.puts tabs + "getHeader().setField( Quickfix::BeginString.new(" + "\"" + @beginstring + "\"" + ") )"
+    if( @verid != "0" )
+      @f.puts tabs + "getHeader().setField( Quickfix::ApplVerID.new(" + "\"" + @verid + "\"" + ") )"
+    end
     @depth -= 1
     @f.puts tabs + "end"
     @depth -= 1

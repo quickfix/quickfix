@@ -142,14 +142,6 @@ class MessageTestCase(unittest.TestCase):
 		except fix.InvalidMessage, e:
 			assert( 0 )
 
-	def test_noEndingDelim(self):
-		str = "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\00152=20000426-12:05:06\00156=ISLD\00110=218"
-
-		try:
-			self.object.setString( str )
-			self.failUnless(0)
-		except fix.InvalidMessage, e:
-			self.failUnless(1)
 
 	def test_outOfOrder(self):
 		str = "54=1\00120=0\00131=109.03125\00160=00000000-00:00:00\0018=FIX.4.2\0016=109.03125\0011=acct1\001151=0\001150=2\00117=2\00139=2\00138=3000\00149=MEK\00115=USD\00137=1\00148=123ABC789\00114=3000\00135=8\00156=KEM\00134=2\00155=ABCD\00111=ID1\00122=1\001"

@@ -33634,6 +33634,7 @@ SOCKET_NODELAY = cvar.SOCKET_NODELAY
 SOCKET_SEND_BUFFER_SIZE = cvar.SOCKET_SEND_BUFFER_SIZE
 SOCKET_RECEIVE_BUFFER_SIZE = cvar.SOCKET_RECEIVE_BUFFER_SIZE
 RECONNECT_INTERVAL = cvar.RECONNECT_INTERVAL
+VALIDATE_LENGTH_AND_CHECKSUM = cvar.VALIDATE_LENGTH_AND_CHECKSUM
 VALIDATE_FIELDS_OUT_OF_ORDER = cvar.VALIDATE_FIELDS_OUT_OF_ORDER
 VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
 VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
@@ -33768,6 +33769,8 @@ class Session(_object):
     def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
     def getPersistMessages(*args): return _quickfix.Session_getPersistMessages(*args)
     def setPersistMessages(*args): return _quickfix.Session_setPersistMessages(*args)
+    def getValidateLengthAndChecksum(*args): return _quickfix.Session_getValidateLengthAndChecksum(*args)
+    def setValidateLengthAndChecksum(*args): return _quickfix.Session_setValidateLengthAndChecksum(*args)
     def setResponder(*args): return _quickfix.Session_setResponder(*args)
     def send(*args): return _quickfix.Session_send(*args)
     def next(*args): return _quickfix.Session_next(*args)

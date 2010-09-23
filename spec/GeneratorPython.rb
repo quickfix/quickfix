@@ -1,5 +1,5 @@
 class GeneratorPython
-  def initialize(type, major, minor, sp, dir)
+  def initialize(type, major, minor, sp, verid, dir)
     @type = type
     @major = major
     @minor = minor
@@ -14,6 +14,7 @@ class GeneratorPython
     else
       @f = createFile( "quick" + type.downcase + major + minor + ".py" )
     end
+    @verid = verid
     @messageStarted = false
   end
 
@@ -59,6 +60,9 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "fix.Message.__init__(self)"
     @f.puts tabs + "self.getHeader().setField( fix.BeginString(" + "\"" + @beginstring + "\"" + ") )"
+    if( @verid != "0" )
+      @f.puts tabs + "self.getHeader().setField( fix.ApplVerID(" + "\"" + @verid + "\"" +") )"
+    end
     @depth -= 1
     @depth -= 1
   end

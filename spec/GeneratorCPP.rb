@@ -1,7 +1,7 @@
 require 'PrintFile'
 
 class GeneratorCPP
-  def initialize(type, major, minor, sp, basedir)
+  def initialize(type, major, minor, sp, verid, basedir)
     @type = type
     @major = major
     @minor = minor
@@ -9,6 +9,7 @@ class GeneratorCPP
     if( sp != "0" )
       @namespace += "SP#{sp}"
     end
+    @verid = verid
     @beginstring = type + "." + major + "." + minor
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
@@ -78,7 +79,12 @@ class GeneratorCPP
     @f.indent
     @f.puts "Message( const FIX::MsgType& msgtype )"
     @f.puts ": FIX::Message("
-    @f.puts "  FIX::BeginString(\"" + @beginstring + "\"), msgtype ) {}"
+    @f.puts "  FIX::BeginString(\"" + @beginstring + "\"), msgtype )"
+    if( @verid == "0" )
+      @f.puts " {} "
+    else
+      @f.puts " { getHeader().setField( FIX::ApplVerID(\"" + @verid + "\") ); }"
+    end
     @f.puts
     @f.puts "Message(const FIX::Message& m) : FIX::Message(m) {}"
     @f.puts "Message(const Message& m) : FIX::Message(m) {}"

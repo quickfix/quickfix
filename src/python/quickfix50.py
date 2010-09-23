@@ -4,6 +4,7 @@ class Message(fix.Message):
 	def __init__(self):
 		fix.Message.__init__(self)
 		self.getHeader().setField( fix.BeginString("FIXT.1.1") )
+		self.getHeader().setField( fix.ApplVerID("7") )
 
 class IOI(Message):
 	def __init__(self):

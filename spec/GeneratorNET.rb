@@ -1,7 +1,7 @@
 require 'PrintFile'
 
 class GeneratorNET
-  def initialize(type, major, minor, sp, basedir)
+  def initialize(type, major, minor, sp, verid, basedir)
     @type = type
     @major = major
     @minor = minor
@@ -13,6 +13,7 @@ class GeneratorNET
           @namespace += "Sp#{sp}"
         end
     end
+    @verid = verid
     @beginstring = type + "." + major + "." + minor
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
@@ -97,12 +98,18 @@ class GeneratorNET
     @f.puts "{"
     @f.puts "  m_header = new Header(this);"
     @f.puts "  m_trailer = new Trailer(this);"
+    if( @verid != "0" )
+      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") ); }"
+    end
     @f.puts "}"
     @f.puts
     @f.puts "public Message( QuickFix.MsgType msgType ) : base(new QuickFix.BeginString(\"" + @beginstring + "\"), msgType)"
     @f.puts "{"
     @f.puts "  m_header = new Header(this);"
     @f.puts "  m_trailer = new Trailer(this);"
+    if( @verid != "0" )
+      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") ); }"
+    end
     @f.puts "}"
     @f.puts
     @f.puts "public new Header getHeader() { return (Header)(base.getHeader()); }"

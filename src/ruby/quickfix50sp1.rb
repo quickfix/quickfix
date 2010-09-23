@@ -1,9 +1,10 @@
 require 'quickfix'
-module Quickfix50
+module Quickfix50Sp1
 class Message < Quickfix::Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::BeginString.new("FIXT.1.1") )
+		getHeader().setField( Quickfix::ApplVerID.new("8") )
 	end
 end
 
