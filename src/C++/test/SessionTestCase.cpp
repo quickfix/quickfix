@@ -1173,6 +1173,16 @@ TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
   CHECK_EQUAL( 1, toBusinessMessageReject );
 }
 
+TEST_FIXTURE(acceptorFixture, doNotRespondToLogonWhenDisabled)
+{
+  object->setResponder( this );
+  object->logout();
+  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+
+  CHECK_EQUAL( 0, toLogon );
+  CHECK_EQUAL( 0, toLogout );
+}
+
 struct resetOnEndTimeFixture : public acceptorFixture
 {
   void createSession()

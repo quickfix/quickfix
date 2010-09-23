@@ -224,6 +224,13 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   if( m_refreshOnLogon )
     refresh();
 
+  if( !isEnabled() )
+  {
+    m_state.onEvent( "Session is not enabled for logon" );
+    disconnect();
+    return;
+  }
+
   if( !isLogonTime(timeStamp) )
   {
     m_state.onEvent( "Received logon outside of valid logon time" );
