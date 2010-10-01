@@ -92,7 +92,7 @@ throw ( RuntimeError )
 }
 
 void HttpServer::start() throw ( ConfigError, RuntimeError )
-{ QF_STACK_PUSH( Acceptor::start )
+{ QF_STACK_PUSH( HttpServer::start )
 
   m_stop = false;
   onConfigure( m_settings );
@@ -119,7 +119,7 @@ void HttpServer::stop()
 }
 
 void HttpServer::onStart()
-{ QF_STACK_PUSH(HttpServer::start)
+{ QF_STACK_PUSH(HttpServer::onStart)
 
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
 
