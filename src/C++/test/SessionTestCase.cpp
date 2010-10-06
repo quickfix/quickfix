@@ -1202,9 +1202,8 @@ struct resetOnEndTimeFixture : public acceptorFixture
 
 TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
 {
-  UtcTimeStamp timeStamp = startTimeStamp;
-
   createSession();
+  UtcTimeStamp timeStamp = startTimeStamp;
   object->next( createLogon( "ISLD", "TW", 1 ), timeStamp );
   object->next( createHeartbeat( "ISLD", "TW", 2 ), timeStamp );
 
@@ -1213,7 +1212,7 @@ TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
   timeStamp += 1;
   object->next( timeStamp );
   CHECK_EQUAL( 0, disconnected );
-  timeStamp += 1;
+  timeStamp += 2;
   object->next( timeStamp );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
