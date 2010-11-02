@@ -213,7 +213,7 @@ class GeneratorNET
     @f.indent
     @f.puts "static const int FIELD = #{number};"
     values.each { |description, enum|
-      if(description[0] >= 48 && description[0] <= 57)
+      if(description[0].to_i >= 48 && description[0].to_i <= 57)
         description = "_" + description
       end
 
