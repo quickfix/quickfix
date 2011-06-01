@@ -99,7 +99,7 @@ class GeneratorNET
     @f.puts "  m_header = new Header(this);"
     @f.puts "  m_trailer = new Trailer(this);"
     if( @verid != "0" )
-      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") ); }"
+      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") );"
     end
     @f.puts "}"
     @f.puts
@@ -108,7 +108,7 @@ class GeneratorNET
     @f.puts "  m_header = new Header(this);"
     @f.puts "  m_trailer = new Trailer(this);"
     if( @verid != "0" )
-      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") ); }"
+      @f.puts "  getHeader().setField( new QuickFix.ApplVerID(\"" + @verid + "\") );"
     end
     @f.puts "}"
     @f.puts
