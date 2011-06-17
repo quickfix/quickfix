@@ -44,18 +44,18 @@ public:
   DataDictionaryProvider() {}
   DataDictionaryProvider( const DataDictionaryProvider& copy );
 
-  const DataDictionary& getSessionDataDictionary(const BeginString& beginString)
+  const DataDictionary& getSessionDataDictionary(const BeginString& beginString) const
   throw( DataDictionaryNotFound );
 
-  const DataDictionary& getApplicationDataDictionary(const ApplVerID& applVerID)
+  const DataDictionary& getApplicationDataDictionary(const ApplVerID& applVerID) const
   throw( DataDictionaryNotFound );
 
-  void addTransportDataDictionary(const BeginString& beginString, const DataDictionary& dd);
-  void addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary& dd);
+  void addTransportDataDictionary(const BeginString& beginString, const DataDictionary*);
+  void addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary*);
 
 private:
-  std::map<std::string, DataDictionary> m_transportDictionaries;
-  std::map<std::string, DataDictionary> m_applicationDictionaries;
+  std::map<std::string, const DataDictionary*> m_transportDictionaries;
+  std::map<std::string, const DataDictionary*> m_applicationDictionaries;
   DataDictionary emptyDataDictionary;
 };
 }

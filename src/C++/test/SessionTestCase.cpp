@@ -352,7 +352,7 @@ struct sessionFixture : public TestCallback
     TimeRange sessionTime( startTime, endTime );
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), DataDictionary("../spec/FIX42.xml") );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIX42.xml") );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setResponder( this );
@@ -391,9 +391,9 @@ struct sessionT11Fixture : public TestCallback
     TimeRange sessionTime( startTime, endTime );
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), DataDictionary("../spec/FIXT11.xml") );
-    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), DataDictionary("../spec/FIX50.xml") );
-    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), DataDictionary("../spec/FIX42.xml") );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIXT11.xml") );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), new DataDictionary("../spec/FIX50.xml") );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), new DataDictionary("../spec/FIX42.xml") );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setSenderDefaultApplVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
@@ -615,7 +615,7 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
 TEST_FIXTURE(sessionFixture, doesSessionExist)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
 
   Session * pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -686,7 +686,7 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
 TEST_FIXTURE(sessionFixture, lookupSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
 
   Session* pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -741,7 +741,7 @@ TEST_FIXTURE(sessionFixture, lookupSession)
 TEST_FIXTURE(sessionFixture, registerSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
 
   Session* pSession = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
