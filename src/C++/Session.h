@@ -196,6 +196,8 @@ public:
 
   void setResponder( Responder* pR )
   {
+    if( !checkSessionTime(UtcTimeStamp()) )
+      reset();
     m_pResponder = pR;
   }
 

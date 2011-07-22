@@ -1328,4 +1328,70 @@ TEST_FIXTURE(acceptorFixture, processQueuedMessages)
   CHECK_EQUAL( 2, toResendRequest );
 }
 
+struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
+{
+  static const int HEARTBTINT = 30;
+  static const int STARTTIMEFROMNOW = 2;
+  static const int ENDTIMEFROMNOW = 4;
+
+  int actuallySent;
+  bool actuallySentLogon;
+  Session * object;
+  MemoryStoreFactory memStoreFactory;
+
+  initiatorCreatedBeforeStartTimeFixture()
+    : actuallySent(0), actuallySentLogon(false)
+  {
+    startTime.setCurrent();
+    startTime.setMillisecond(0);
+    startTime += STARTTIMEFROMNOW;
+    endTime.setCurrent();
+    endTime.setMillisecond(0);
+    endTime += ENDTIMEFROMNOW;
+    TimeRange sessionTime( startTime, endTime );
+
+    SessionID sessionID( BeginString( "FIX.4.2" ), SenderCompID( "MJKG" ), TargetCompID( "IZZY" ) );
+    
+    DataDictionaryProvider provider;
+    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIX42.xml") );
+    object = new Session( *this, memStoreFactory, sessionID, provider, sessionTime, HEARTBTINT, 0 );
+  }
+
+  virtual ~initiatorCreatedBeforeStartTimeFixture()
+  {
+    if(object)
+      delete object;
+  }
+
+  bool send( const std::string& s)
+  {
+    std::string::size_type p = s.find( "\00135=A\001", 0 );
+    if( p != std::string::npos )
+      actuallySentLogon = true;
+    
+    actuallySent++;
+    return true;
+  }
+};
+
+/** 
+  * Verifies bug fix: only a Logon should be sent at
+  * StartTime, not Logout followed by Logon
+  */
+TEST_FIXTURE(initiatorCreatedBeforeStartTimeFixture, initiatorLogonAtStartTime)
+{
+  process_sleep( STARTTIMEFROMNOW );
+  
+  CHECK_EQUAL( 0, toLogon );
+  CHECK_EQUAL( 0, actuallySent);
+  CHECK_EQUAL( false, actuallySentLogon);
+  
+  object->setResponder( this );
+  object->next();
+  
+  CHECK_EQUAL( 1, toLogon );
+  CHECK_EQUAL( 1, actuallySent);
+  CHECK_EQUAL( true, actuallySentLogon);
+}
+
 }
