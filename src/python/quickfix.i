@@ -1,0 +1,269 @@
+#ifdef SWIGPYTHON
+%typemap(in) std::string& (std::string temp) {
+  temp = std::string((char*)PyString_AsString($input));
+  $1 = &temp;
+} 	 
+	  	 
+%typemap(argout) std::string& {
+  if( std::string("$1_type") == "std::string &" )
+  {
+    if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
+  }
+} 	 
+	  	 
+%typemap(in) int& (int temp) {
+  SWIG_AsVal_int($input, &temp); 	 
+  $1 = &temp;
+} 	 
+	  	 
+%typemap(argout) int& {
+  if( std::string("$1_type") == "int &" )
+  {
+    if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) ); 	 
+  }
+}
+#endif 	 
+
+%include ../quickfix.i
+
+%pythoncode %{
+#ifdef SWIGPYTHON
+import thread
+
+def _quickfix_start_thread(i_or_a):
+	i_or_a.block()
+#endif
+%}
+
+%feature("shadow") FIX::Initiator::start() %{
+def start(self):
+	thread.start_new_thread(_quickfix_start_thread, (self,))
+%}
+
+%feature("shadow") FIX::Acceptor::start() %{
+def start(self):
+	thread.start_new_thread(_quickfix_start_thread, (self,))
+%}
+
+%feature("director:except") FIX::Application::onCreate {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::onLogon {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::onLogout {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::toAdmin {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::toApp {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    void *result;
+
+    try {
+      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
+	throw *((FIX::DoNotSend*)result);
+      } else {
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    }
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::fromAdmin {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    void *result;
+
+    try {
+      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+	throw *((FIX::FieldNotFound*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+        throw *((FIX::IncorrectDataFormat*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+        throw *((FIX::IncorrectTagValue*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
+        throw *((FIX::RejectLogon*)result);
+      } else {
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    }
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::fromApp {
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    void *result;
+
+    try {
+      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+	throw *((FIX::FieldNotFound*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+        throw *((FIX::IncorrectDataFormat*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+        throw *((FIX::IncorrectTagValue*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
+        throw *((FIX::UnsupportedMessageType*)result);
+      } else {
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    }
+  }
+#endif
+}
+
+%include "../C++/Exceptions.h"
+%include "../C++/Field.h"
+%include "../C++/FieldMap.h"
+%include "../C++/Message.h"
+%include "../C++/Group.h"
+%include "../C++/Fields.h"
+%include "../C++/FixFields.h"
+%include "../C++/Values.h"
+%include "../C++/FixValues.h"
+%include "../C++/SessionID.h"
+%include "../C++/Dictionary.h"
+%include "../C++/SessionSettings.h"
+%include "../C++/Session.h"
+%include "../C++/SessionID.h"
+%include "../C++/Log.h"
+%include "../C++/FileLog.h"
+%include "../C++/MessageStore.h"
+%include "../C++/FileStore.h"
+%include "../C++/Application.h"
+%include "../C++/Initiator.h"
+%include "../C++/SocketInitiator.h"
+%include "../C++/Acceptor.h"
+%include "../C++/SocketAcceptor.h"
+%include "../C++/DataDictionary.h"
+
+%pythoncode %{
+#ifdef SWIGPYTHON
+class SocketInitiator(SocketInitiatorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+
+class SocketAcceptor(SocketAcceptorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+#endif
+%}
