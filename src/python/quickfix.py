@@ -98,11 +98,6 @@ def IntArray_frompointer(*args):
   return _quickfix.IntArray_frompointer(*args)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
-import thread
-
-def _quickfix_start_thread(i_or_a):
-	i_or_a.block()
-
 class Exception(Exception):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Exception, name, value)
@@ -644,6 +639,248 @@ class SocketCloseFailed(SocketException):
 SocketCloseFailed_swigregister = _quickfix.SocketCloseFailed_swigregister
 SocketCloseFailed_swigregister(SocketCloseFailed)
 
+class DateTime(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DateTime, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DateTime, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["m_date"] = _quickfix.DateTime_m_date_set
+    __swig_getmethods__["m_date"] = _quickfix.DateTime_m_date_get
+    if _newclass:m_date = _swig_property(_quickfix.DateTime_m_date_get, _quickfix.DateTime_m_date_set)
+    __swig_setmethods__["m_time"] = _quickfix.DateTime_m_time_set
+    __swig_getmethods__["m_time"] = _quickfix.DateTime_m_time_get
+    if _newclass:m_time = _swig_property(_quickfix.DateTime_m_time_get, _quickfix.DateTime_m_time_set)
+    SECONDS_PER_DAY = _quickfix.DateTime_SECONDS_PER_DAY
+    SECONDS_PER_HOUR = _quickfix.DateTime_SECONDS_PER_HOUR
+    SECONDS_PER_MIN = _quickfix.DateTime_SECONDS_PER_MIN
+    MINUTES_PER_HOUR = _quickfix.DateTime_MINUTES_PER_HOUR
+    MILLIS_PER_DAY = _quickfix.DateTime_MILLIS_PER_DAY
+    MILLIS_PER_HOUR = _quickfix.DateTime_MILLIS_PER_HOUR
+    MILLIS_PER_MIN = _quickfix.DateTime_MILLIS_PER_MIN
+    MILLIS_PER_SEC = _quickfix.DateTime_MILLIS_PER_SEC
+    JULIAN_19700101 = _quickfix.DateTime_JULIAN_19700101
+    def __init__(self, *args): 
+        this = _quickfix.new_DateTime(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DateTime
+    __del__ = lambda self : None;
+    def getYear(self): return _quickfix.DateTime_getYear(self)
+    def getMonth(self): return _quickfix.DateTime_getMonth(self)
+    def getDay(self): return _quickfix.DateTime_getDay(self)
+    def getDate(self): return _quickfix.DateTime_getDate(self)
+    def getJulianDate(self): return _quickfix.DateTime_getJulianDate(self)
+    def getHour(self): return _quickfix.DateTime_getHour(self)
+    def getMinute(self): return _quickfix.DateTime_getMinute(self)
+    def getSecond(self): return _quickfix.DateTime_getSecond(self)
+    def getMillisecond(self): return _quickfix.DateTime_getMillisecond(self)
+    def getHMS(self, *args): return _quickfix.DateTime_getHMS(self, *args)
+    def getWeekDay(self): return _quickfix.DateTime_getWeekDay(self)
+    def getTimeT(self): return _quickfix.DateTime_getTimeT(self)
+    def getTmUtc(self): return _quickfix.DateTime_getTmUtc(self)
+    def setYMD(self, *args): return _quickfix.DateTime_setYMD(self, *args)
+    def setHMS(self, *args): return _quickfix.DateTime_setHMS(self, *args)
+    def setHour(self, *args): return _quickfix.DateTime_setHour(self, *args)
+    def setMinute(self, *args): return _quickfix.DateTime_setMinute(self, *args)
+    def setSecond(self, *args): return _quickfix.DateTime_setSecond(self, *args)
+    def setMillisecond(self, *args): return _quickfix.DateTime_setMillisecond(self, *args)
+    def clearDate(self): return _quickfix.DateTime_clearDate(self)
+    def clearTime(self): return _quickfix.DateTime_clearTime(self)
+    def set(self, *args): return _quickfix.DateTime_set(self, *args)
+    def __iadd__(self, *args): return _quickfix.DateTime___iadd__(self, *args)
+    __swig_getmethods__["makeHMS"] = lambda x: _quickfix.DateTime_makeHMS
+    if _newclass:makeHMS = staticmethod(_quickfix.DateTime_makeHMS)
+    __swig_getmethods__["nowUtc"] = lambda x: _quickfix.DateTime_nowUtc
+    if _newclass:nowUtc = staticmethod(_quickfix.DateTime_nowUtc)
+    __swig_getmethods__["nowLocal"] = lambda x: _quickfix.DateTime_nowLocal
+    if _newclass:nowLocal = staticmethod(_quickfix.DateTime_nowLocal)
+    __swig_getmethods__["fromUtcTimeT"] = lambda x: _quickfix.DateTime_fromUtcTimeT
+    if _newclass:fromUtcTimeT = staticmethod(_quickfix.DateTime_fromUtcTimeT)
+    __swig_getmethods__["fromLocalTimeT"] = lambda x: _quickfix.DateTime_fromLocalTimeT
+    if _newclass:fromLocalTimeT = staticmethod(_quickfix.DateTime_fromLocalTimeT)
+    __swig_getmethods__["fromTm"] = lambda x: _quickfix.DateTime_fromTm
+    if _newclass:fromTm = staticmethod(_quickfix.DateTime_fromTm)
+    __swig_getmethods__["julianDate"] = lambda x: _quickfix.DateTime_julianDate
+    if _newclass:julianDate = staticmethod(_quickfix.DateTime_julianDate)
+    __swig_getmethods__["getYMD"] = lambda x: _quickfix.DateTime_getYMD
+    if _newclass:getYMD = staticmethod(_quickfix.DateTime_getYMD)
+DateTime_swigregister = _quickfix.DateTime_swigregister
+DateTime_swigregister(DateTime)
+
+def DateTime_makeHMS(*args):
+  return _quickfix.DateTime_makeHMS(*args)
+DateTime_makeHMS = _quickfix.DateTime_makeHMS
+
+def DateTime_nowUtc():
+  return _quickfix.DateTime_nowUtc()
+DateTime_nowUtc = _quickfix.DateTime_nowUtc
+
+def DateTime_nowLocal():
+  return _quickfix.DateTime_nowLocal()
+DateTime_nowLocal = _quickfix.DateTime_nowLocal
+
+def DateTime_fromUtcTimeT(*args):
+  return _quickfix.DateTime_fromUtcTimeT(*args)
+DateTime_fromUtcTimeT = _quickfix.DateTime_fromUtcTimeT
+
+def DateTime_fromLocalTimeT(*args):
+  return _quickfix.DateTime_fromLocalTimeT(*args)
+DateTime_fromLocalTimeT = _quickfix.DateTime_fromLocalTimeT
+
+def DateTime_fromTm(*args):
+  return _quickfix.DateTime_fromTm(*args)
+DateTime_fromTm = _quickfix.DateTime_fromTm
+
+def DateTime_julianDate(*args):
+  return _quickfix.DateTime_julianDate(*args)
+DateTime_julianDate = _quickfix.DateTime_julianDate
+
+def DateTime_getYMD(*args):
+  return _quickfix.DateTime_getYMD(*args)
+DateTime_getYMD = _quickfix.DateTime_getYMD
+
+
+def __sub__(*args):
+  return _quickfix.__sub__(*args)
+__sub__ = _quickfix.__sub__
+class UtcTimeStamp(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcTimeStamp, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeStamp, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_UtcTimeStamp(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.UtcTimeStamp_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_UtcTimeStamp
+    __del__ = lambda self : None;
+UtcTimeStamp_swigregister = _quickfix.UtcTimeStamp_swigregister
+UtcTimeStamp_swigregister(UtcTimeStamp)
+
+class LocalTimeStamp(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalTimeStamp, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LocalTimeStamp, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LocalTimeStamp(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.LocalTimeStamp_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_LocalTimeStamp
+    __del__ = lambda self : None;
+LocalTimeStamp_swigregister = _quickfix.LocalTimeStamp_swigregister
+LocalTimeStamp_swigregister(LocalTimeStamp)
+
+class UtcTimeOnly(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcTimeOnly, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeOnly, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_UtcTimeOnly(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.UtcTimeOnly_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_UtcTimeOnly
+    __del__ = lambda self : None;
+UtcTimeOnly_swigregister = _quickfix.UtcTimeOnly_swigregister
+UtcTimeOnly_swigregister(UtcTimeOnly)
+
+class LocalTimeOnly(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalTimeOnly, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LocalTimeOnly, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LocalTimeOnly(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.LocalTimeOnly_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_LocalTimeOnly
+    __del__ = lambda self : None;
+LocalTimeOnly_swigregister = _quickfix.LocalTimeOnly_swigregister
+LocalTimeOnly_swigregister(LocalTimeOnly)
+
+class UtcDate(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcDate, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, UtcDate, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_UtcDate(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.UtcDate_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_UtcDate
+    __del__ = lambda self : None;
+UtcDate_swigregister = _quickfix.UtcDate_swigregister
+UtcDate_swigregister(UtcDate)
+
+class LocalDate(DateTime):
+    __swig_setmethods__ = {}
+    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalDate, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LocalDate, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LocalDate(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def setCurrent(self): return _quickfix.LocalDate_setCurrent(self)
+    __swig_destroy__ = _quickfix.delete_LocalDate
+    __del__ = lambda self : None;
+LocalDate_swigregister = _quickfix.LocalDate_swigregister
+LocalDate_swigregister(LocalDate)
+
+Unknown = _quickfix.Unknown
+String = _quickfix.String
+Char = _quickfix.Char
+Price = _quickfix.Price
+Int = _quickfix.Int
+Amt = _quickfix.Amt
+Qty = _quickfix.Qty
+Currency = _quickfix.Currency
+MultipleValueString = _quickfix.MultipleValueString
+MultipleStringValue = _quickfix.MultipleStringValue
+MultipleCharValue = _quickfix.MultipleCharValue
+Exchange = _quickfix.Exchange
+Boolean = _quickfix.Boolean
+LocalMktDate = _quickfix.LocalMktDate
+Data = _quickfix.Data
+Float = _quickfix.Float
+PriceOffset = _quickfix.PriceOffset
+MonthYear = _quickfix.MonthYear
+DayOfMonth = _quickfix.DayOfMonth
+UtcDateOnly = _quickfix.UtcDateOnly
+NumInGroup = _quickfix.NumInGroup
+Percentage = _quickfix.Percentage
+SeqNum = _quickfix.SeqNum
+Length = _quickfix.Length
+Country = _quickfix.Country
+TzTimeOnly = _quickfix.TzTimeOnly
+TzTimeStamp = _quickfix.TzTimeStamp
+XmlData = _quickfix.XmlData
+Language = _quickfix.Language
 class FieldBase(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldBase, name, value)
@@ -660,7 +897,7 @@ class FieldBase(_object):
     def setString(self, *args): return _quickfix.FieldBase_setString(self, *args)
     def getField(self): return _quickfix.FieldBase_getField(self)
     def getString(self): return _quickfix.FieldBase_getString(self)
-    def getValue(self): return _quickfix.FieldBase_getValue(self)
+    def getFixString(self): return _quickfix.FieldBase_getFixString(self)
     def getLength(self): return _quickfix.FieldBase_getLength(self)
     def getTotal(self): return _quickfix.FieldBase_getTotal(self)
     def __lt__(self, *args): return _quickfix.FieldBase___lt__(self, *args)
@@ -910,6 +1147,42 @@ class FieldMap(_object):
 FieldMap_swigregister = _quickfix.FieldMap_swigregister
 FieldMap_swigregister(FieldMap)
 
+class Header(FieldMap):
+    __swig_setmethods__ = {}
+    for _s in [FieldMap]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Header, name, value)
+    __swig_getmethods__ = {}
+    for _s in [FieldMap]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Header, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        this = _quickfix.new_Header()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Header
+    __del__ = lambda self : None;
+Header_swigregister = _quickfix.Header_swigregister
+Header_swigregister(Header)
+cvar = _quickfix.cvar
+headerOrder = cvar.headerOrder
+
+class Trailer(FieldMap):
+    __swig_setmethods__ = {}
+    for _s in [FieldMap]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Trailer, name, value)
+    __swig_getmethods__ = {}
+    for _s in [FieldMap]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Trailer, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        this = _quickfix.new_Trailer()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Trailer
+    __del__ = lambda self : None;
+Trailer_swigregister = _quickfix.Trailer_swigregister
+Trailer_swigregister(Trailer)
+
 class Message(FieldMap):
     __swig_setmethods__ = {}
     for _s in [FieldMap]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -961,8 +1234,6 @@ class Message(FieldMap):
     __del__ = lambda self : None;
 Message_swigregister = _quickfix.Message_swigregister
 Message_swigregister(Message)
-cvar = _quickfix.cvar
-headerOrder = cvar.headerOrder
 
 def Message_InitializeXML(*args):
   return _quickfix.Message_InitializeXML(*args)
@@ -3038,23 +3309,6 @@ class LocationID(StringField):
     __del__ = lambda self : None;
 LocationID_swigregister = _quickfix.LocationID_swigregister
 LocationID_swigregister(LocationID)
-
-class Currency(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Currency, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Currency, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Currency(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Currency
-    __del__ = lambda self : None;
-Currency_swigregister = _quickfix.Currency_swigregister
-Currency_swigregister(Currency)
 
 class RoutingType(IntField):
     __swig_setmethods__ = {}
@@ -19665,23 +19919,6 @@ class ShortSaleReason(IntField):
 ShortSaleReason_swigregister = _quickfix.ShortSaleReason_swigregister
 ShortSaleReason_swigregister(ShortSaleReason)
 
-class XmlData(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlData, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_XmlData(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_XmlData
-    __del__ = lambda self : None;
-XmlData_swigregister = _quickfix.XmlData_swigregister
-XmlData_swigregister(XmlData)
-
 class RelationshipRiskSeniority(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -23676,23 +23913,6 @@ class LastSpotRate(DoubleField):
     __del__ = lambda self : None;
 LastSpotRate_swigregister = _quickfix.LastSpotRate_swigregister
 LastSpotRate_swigregister(LastSpotRate)
-
-class Price(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Price, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Price, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Price(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Price
-    __del__ = lambda self : None;
-Price_swigregister = _quickfix.Price_swigregister
-Price_swigregister(Price)
 
 class UnderlyingSecurityIDSource(StringField):
     __swig_setmethods__ = {}
@@ -28776,23 +28996,6 @@ class ApplReqType(IntField):
     __del__ = lambda self : None;
 ApplReqType_swigregister = _quickfix.ApplReqType_swigregister
 ApplReqType_swigregister(ApplReqType)
-
-class Country(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Country, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, Country, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_Country(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_Country
-    __del__ = lambda self : None;
-Country_swigregister = _quickfix.Country_swigregister
-Country_swigregister(Country)
 
 class UnderlyingLegSecurityIDSource(StringField):
     __swig_setmethods__ = {}
@@ -34287,10 +34490,7 @@ class Initiator(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Initiator
     __del__ = lambda self : None;
-    def start(self):
-    	thread.start_new_thread(_quickfix_start_thread, (self,))
-
-
+    def start(self): return _quickfix.Initiator_start(self)
     def block(self): return _quickfix.Initiator_block(self)
     def poll(self, timeout = 0.0): return _quickfix.Initiator_poll(self, timeout)
     def stop(self, force = False): return _quickfix.Initiator_stop(self, force)
@@ -34333,10 +34533,7 @@ class Acceptor(_object):
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self : None;
     def getLog(self): return _quickfix.Acceptor_getLog(self)
-    def start(self):
-    	thread.start_new_thread(_quickfix_start_thread, (self,))
-
-
+    def start(self): return _quickfix.Acceptor_start(self)
     def block(self): return _quickfix.Acceptor_block(self)
     def poll(self, timeout = 0.0): return _quickfix.Acceptor_poll(self, timeout)
     def stop(self, force = False): return _quickfix.Acceptor_stop(self, force)
@@ -34420,6 +34617,14 @@ class DataDictionary(_object):
 DataDictionary_swigregister = _quickfix.DataDictionary_swigregister
 DataDictionary_swigregister(DataDictionary)
 
+#ifdef SWIGPYTHON
+import thread
+
+def _quickfix_start_thread(i_or_a):
+	i_or_a.block()
+#endif
+
+#ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
 	application = 0
 	storeFactory = 0
@@ -34453,6 +34658,7 @@ class SocketAcceptor(SocketAcceptorBase):
 		self.storeFactory = storeFactory
 		self.settings = settings
 		self.logFactory = logFactory
+#endif
 
 # This file is compatible with both classic and new-style classes.
 

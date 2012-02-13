@@ -154,7 +154,7 @@ class MessageTestCase(unittest.TestCase):
 			self.failUnless(0)
 
 	def test_reverseRoute(self):
-		header = fix.FieldMap()
+		header = fix.Header()
 		beginString = fix.BeginString( "FIX.4.2" )
 		senderCompID = fix.SenderCompID( "SenderCompID" )
 		targetCompID = fix.TargetCompID( "TargetCompID" )

@@ -38,15 +38,26 @@
 
 namespace FIX
 {
-typedef FieldMap Header;
-typedef FieldMap Trailer;
-
 static int const headerOrder[] =
   {
     FIELD::BeginString,
     FIELD::BodyLength,
     FIELD::MsgType
   };
+
+class Header : public FieldMap 
+{
+public:
+  Header() : FieldMap(message_order( message_order::header ) )
+  {}
+};
+
+class Trailer : public FieldMap 
+{
+public:
+  Trailer() : FieldMap(message_order( message_order::trailer ) )
+  {}
+};
 
 /**
  * Base class for all %FIX messages.
@@ -79,9 +90,7 @@ public:
   throw( InvalidMessage );
 
   Message( const Message& copy )
-  : FieldMap( copy ),
-    m_header( message_order( message_order::header ) ),
-    m_trailer( message_order( message_order::trailer ) )
+  : FieldMap( copy )
   {
     m_header = copy.m_header;
     m_trailer = copy.m_trailer;
@@ -117,9 +126,7 @@ public:
 protected:
   // Constructor for derived classes
   Message( const BeginString& beginString, const MsgType& msgType )
-  : m_header( message_order( message_order::header ) ),
-  m_trailer( message_order( message_order::trailer ) ),
-  m_validStructure( true )
+  : m_validStructure( true )
   {
     m_header.setField( beginString );
     m_header.setField( msgType );
@@ -187,7 +194,7 @@ public:
   /// Mutable getter for the message header
   Header& getHeader() { return m_header; }
   /// Getter for the message trailer
-  const Header& getTrailer() const { return m_trailer; }
+  const Trailer& getTrailer() const { return m_trailer; }
   /// Mutable getter for the message trailer
   Trailer& getTrailer() { return m_trailer; }
 
@@ -360,8 +367,8 @@ private:
   std::string toXMLFields(const FieldMap& fields, int space) const;
 
 protected:
-  mutable FieldMap m_header;
-  mutable FieldMap m_trailer;
+  mutable Header m_header;
+  mutable Trailer m_trailer;
   bool m_validStructure;
   int m_field;
   static std::auto_ptr<DataDictionary> s_dataDictionary;

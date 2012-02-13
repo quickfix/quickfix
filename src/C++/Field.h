@@ -74,7 +74,7 @@ public:
     { return m_string; }
 
   /// Get the string representation of the Field (i.e.) 55=MSFT[SOH]
-  const std::string& getValue() const
+  const std::string& getFixString() const
   {
     calculate();
     return m_data;

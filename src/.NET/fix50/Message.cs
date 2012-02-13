@@ -25,7 +25,7 @@ namespace QuickFix50
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);
-      getHeader().setField( new QuickFix.ApplVerID("7") ); 
+      getHeader().setField( new QuickFix.ApplVerID("7") );
     }
 
     public new Header getHeader() { return (Header)(base.getHeader()); }

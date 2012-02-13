@@ -32,6 +32,23 @@
 }
 #endif 	 
 
+%typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
+  $1 = new FIX::DataDictionary*[1];
+  *$1 = temp;
+} 	 
+
+%typemap(free) FIX::DataDictionary const *& {
+  delete[] temp; 	 
+} 	 
+	  	 
+%typemap(argout) FIX::DataDictionary const *& {
+  void* argp;
+  FIX::DataDictionary* pDD = 0;
+  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+  *pDD = *(*$1);
+} 	 
+
 %include ../quickfix.i
 	  	 
 %feature("director:except") FIX::Application::onCreate {
@@ -139,3 +156,13 @@
   }
 #endif
 }
+
+%init %{
+#ifndef _MSC_VER
+      struct sigaction new_action, old_action;
+      new_action.sa_handler = SIG_DFL;
+      sigemptyset( &new_action.sa_mask );
+      new_action.sa_flags = 0;
+      sigaction( SIGINT, &new_action, &old_action );
+#endif
+%}

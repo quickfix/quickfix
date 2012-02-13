@@ -1,5 +1,7 @@
 %module(directors="1") quickfix
 
+%exceptionclass FIX::Exception;
+
 %include typemaps.i
 %include std_string.i
 %include exception.i
@@ -115,47 +117,6 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %typedef std::string FIX::TZTIMEONLY;
 %typedef std::string FIX::TZTIMESTAMP;
 
-%exceptionclass FIX::Exception;
-
-%typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
-  $1 = new FIX::DataDictionary*[1];
-  *$1 = temp;
-} 	 
-
-%typemap(free) FIX::DataDictionary const *& {
-  delete[] temp; 	 
-} 	 
-	  	 
-%typemap(argout) FIX::DataDictionary const *& {
-  void* argp;
-  FIX::DataDictionary* pDD = 0;
-  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
-  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
-  *pDD = *(*$1);
-} 	 
-
-%typemap(out) const BeginString & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
-} 	 
-	  	 
-%typemap(out) const SenderCompID & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 ); 	 
-} 	 
-	  	 
-%typemap(out) const TargetCompID & { 	 
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 ); 	 
-}
-
-%init %{
-#ifndef _MSC_VER
-      struct sigaction new_action, old_action;
-      new_action.sa_handler = SIG_DFL;
-      sigemptyset( &new_action.sa_mask );
-      new_action.sa_flags = 0;
-      sigaction( SIGINT, &new_action, &old_action );
-#endif
-%}
-
 %extend FIX::Exception {
   std::string __str__() {
     return self->what();
@@ -176,19 +137,9 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 
 %extend FIX::FieldBase {
   std::string __str__() {
-    return self->getValue();
+    return self->getFixString();
   }
 }
-
-%feature("shadow") FIX::Initiator::start() %{
-def start(self):
-	thread.start_new_thread(_quickfix_start_thread, (self,))
-%}
-
-%feature("shadow") FIX::Acceptor::start() %{
-def start(self):
-	thread.start_new_thread(_quickfix_start_thread, (self,))
-%}
 
 %include "../C++/Exceptions.h"
 %include "../C++/Field.h"

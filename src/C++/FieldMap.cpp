@@ -213,7 +213,7 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    result += i->second.getValue();
+    result += i->second.getFixString();
 
     // add groups if they exist
     if( !m_groups.size() ) continue;

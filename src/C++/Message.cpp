@@ -34,15 +34,11 @@ namespace FIX
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
-: m_header( message_order( message_order::header ) ),
-  m_trailer( message_order( message_order::trailer ) ),
-  m_validStructure( true ) {}
+: m_validStructure( true ) {}
 
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage )
-: m_header( message_order( message_order::header ) ),
-  m_trailer( message_order( message_order::trailer ) ),
-  m_validStructure( true )
+: m_validStructure( true )
 {
   setString( string, validate );
 }
@@ -51,9 +47,7 @@ Message::Message( const std::string& string,
                   const DataDictionary& dataDictionary,
                   bool validate )
 throw( InvalidMessage )
-: m_header( message_order( message_order::header ) ),
-  m_trailer( message_order( message_order::trailer ) ),
-  m_validStructure( true )
+: m_validStructure( true )
 {
   setString( string, validate, &dataDictionary, &dataDictionary );
 }
@@ -63,9 +57,7 @@ Message::Message( const std::string& string,
                   const DataDictionary& applicationDataDictionary,
                   bool validate )
 throw( InvalidMessage )
-: m_header( message_order( message_order::header ) ),
-  m_trailer( message_order( message_order::trailer ) ),
-  m_validStructure( true )
+: m_validStructure( true )
 {
   setStringHeader( string );
   if( isAdmin() )

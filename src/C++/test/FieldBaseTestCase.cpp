@@ -36,15 +36,15 @@ TEST(set)
 {
   FieldBase object( 12, "VALUE" );
   object.setString( "VALUE" );
-  CHECK_EQUAL( "12=VALUE\001", object.getValue() );
+  CHECK_EQUAL( "12=VALUE\001", object.getFixString() );
   CHECK_EQUAL( 542, object.getTotal() );
   CHECK_EQUAL( 9, object.getLength() );
   object.setString( "VALUF" );
-  CHECK_EQUAL( "12=VALUF\001", object.getValue() );
+  CHECK_EQUAL( "12=VALUF\001", object.getFixString() );
   CHECK_EQUAL( 543, object.getTotal() );
   CHECK_EQUAL( 9, object.getLength() );
   object.setField( 13 );
-  CHECK_EQUAL( "13=VALUF\001", object.getValue() );
+  CHECK_EQUAL( "13=VALUF\001", object.getFixString() );
   CHECK_EQUAL( 544, object.getTotal() );
   CHECK_EQUAL( 9, object.getLength() );
 }
