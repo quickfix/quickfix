@@ -709,7 +709,7 @@ public:
     FIX::FieldMap* pUnmanaged()
     { return &m_message->m_pUnmanaged->getTrailer(); }
 
-    FIX::Header& unmanaged()
+    FIX::Trailer& unmanaged()
     { return m_message->m_pUnmanaged->getTrailer(); }
 
     IEnumerator* GetEnumerator()
