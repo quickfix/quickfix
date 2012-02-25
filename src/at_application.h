@@ -40,6 +40,7 @@
 
 class MessageCracker : public FIX::MessageCracker
 {
+public:
   void process( const FIX::Message& message, const FIX::SessionID& sessionID )
   {
     FIX::Message echo = message;
@@ -185,7 +186,17 @@ class Application : public FIX::Application
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {
-    m_cracker.crack( message, sessionID );
+    FIX::MsgType msgType;
+    message.getHeader().getField( msgType );
+    if(msgType == FIX::MsgType_Email)
+    {
+      FIX::Message echo = message;
+      FIX::Session::sendToTarget( echo, sessionID );
+    }
+    else
+    {
+      m_cracker.crack( message, sessionID );
+    }
   }
 
   MessageCracker m_cracker;

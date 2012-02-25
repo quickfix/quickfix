@@ -21,11 +21,9 @@ require "socket"
 class SocketServer
 
   def listen(port)
-    
     @gs = TCPServer.open(port)
     addr = @gs.addr
     addr.shift
-
     while !@gs.closed?
       ns = @gs.accept
       Thread.start do

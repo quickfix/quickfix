@@ -35,10 +35,10 @@ class Reflector < Array
       if line.empty? then
       elsif (/^[IEie]\d{1},/ === line) then
 	cid = line[1].to_i - 48
-	body = fixify!(timify!(line[3, line.length]))
+	body = fixify!(fileify!(timeify!(line[3, line.length])))
       else
 	cid = 1
-	body = fixify!(timify!(line[1, line.length]))
+	body = fixify!(fileify!(timeify!(line[1, line.length])))
       end
 
       begin
@@ -106,7 +106,7 @@ class Reflector < Array
     return message
   end
 
-  def timify!(message)
+  def timeify!(message)
     copy = ""
     copy.replace(message)
     t = getTime
@@ -114,7 +114,7 @@ class Reflector < Array
     strtime = t.strftime("%Y%m%d-%H:%M:%S")
     message.sub!("<TIME>", strtime)
     if( message != copy )
-      return timify!(message)
+      return timeify!(message)
     end
 
     pos1 = /\<TIME[+-]\d+\>/ =~ message
@@ -132,13 +132,32 @@ class Reflector < Array
       exp = Regexp.compile("<TIME[" + op.chr + "]" + num + ">")
       message.sub!(exp, strtime)
       if( message != copy )
-	return timify!(message)
+	return timeify!(message)
       end
     end
 
     return message
   end
   
+  def fileify!(message)
+    copy = ""
+    copy.replace(message)
+    
+    pos1 = /\<FILE:.+>/ =~ message
+    pos2 = /\>/ =~ message
+    if( pos1 != nil )
+      file = message.slice(pos1+6..pos2-1)
+      contents = File.open(file, "rb").read.strip
+      exp = Regexp.compile("<FILE:#{file}>")
+      message.sub!(exp, contents)
+      if( message != copy )
+        return fileify!(message)
+      end
+    end
+
+    return message
+  end
+
   def getTime
     t = Time.new
     t = t.gmtime

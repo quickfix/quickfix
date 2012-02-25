@@ -27,14 +27,19 @@ class ReflectorTestCase < RUNIT::TestCase
     assert(reflector.identifyMessage(message) == ?e)
   end
 
-  def test_timify_and_fixify
+  def test_all
     reflector = MockReflector.new
-
-    str = reflector.fixify!(reflector.timify!("8=FIX.4.235=D34=249=PATS52=<TIME>56=RCG1=acct111=121=138=240=154=155=ESU260=<TIME>167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G"))
+    
+    str = "8=FIX.4.235=D34=249=PATS52=<TIME>56=RCG1=acct111=121=138=240=154=155=ESU260=<TIME>167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G"
+    reflector.timeify!(str)
+    reflector.fixify!(str)
     assert_equals("8=FIX.4.29=17135=D34=249=PATS52=20000101-20:15:0156=RCG1=acct111=121=138=240=154=155=ESU260=20000101-20:15:01167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G10=121", str)
     
-    str = reflector.fixify!(reflector.timify!("8=FIX.4.235=D34=249=PATS52=<TIME>56=RCG1=acct111=121=138=240=154=155=ESU260=<TIME>167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9709=PEA"))
-    assert_equals("8=FIX.4.29=18035=D34=249=PATS52=20000101-20:15:0156=RCG1=acct111=121=138=240=154=155=ESU260=20000101-20:15:01167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9709=PEA10=102", str)
+    str = "8=FIX.4.235=D34=249=PATS52=<TIME>56=RCG1=acct111=121=138=240=154=155=<FILE:test.txt>60=<TIME>167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9709=PEA"
+    reflector.timeify!(str)
+    reflector.fileify!(str)
+    reflector.fixify!(str)    
+    assert_equals("8=FIX.4.29=18935=D34=249=PATS52=20000101-20:15:0156=RCG1=acct111=121=138=240=154=155=File Contents60=20000101-20:15:01167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9709=PEA10=062", str)
     
   end
 
@@ -52,42 +57,51 @@ class ReflectorTestCase < RUNIT::TestCase
     assert_equals("8=FIX.4.29=5735=A34=149=TW52=20000426-12:05:0656=ISLD98=0108=3010=005", str)
   end
 
-  def test_timify_bang
+  def test_timeify_bang
     reflector = Reflector.new
     
     str = "8=FIX.4.29=5735=A34=149=TW52=20011010-10:10:1056=ISLD98=0108=3010=005"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     assert_equals("8=FIX.4.29=5735=A34=149=TW52=20011010-10:10:1056=ISLD98=0108=3010=005", str)
 
     str = "8=FIX.4.29=5735=A34=149=TW52=<TIME>56=ISLD98=0" + 
       "108=3010=005"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     match = (/8=FIX.4.29=5735=A34=149=TW52=\d{8}-\d{2}:\d{2}:\d{2}56=ISLD98=0108=3010=005/ === str)
-    assert(match != nil)
+    assert(match)
 
     str = "8=FIX.4.29=5735=A34=149=TW52=<TIME>56=ISLD" +
       "122=<TIME>98=0108=3010=005"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     match = (/8=FIX.4.29=5735=A34=149=TW52=\d{8}-\d{2}:\d{2}:\d{2}56=ISLD122=\d{8}-\d{2}:\d{2}:\d{2}98=0108=3010=005/ === str)
-    assert(match != nil)
+    assert(match)
 
     str = "8=FIX.4.29=5735=A34=149=TW52=<TIME+9>56=ISLD98=0" + 
       "108=3010=005"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     match = (/8=FIX.4.29=5735=A34=149=TW52=\d{8}-\d{2}:\d{2}:\d{2}56=ISLD98=0108=3010=005/ === str)
-    assert(match != nil)
+    assert(match)
     
     str = "8=FIX.4.29=5735=A34=149=TW52=<TIME>56=ISLD98=0" + 
       "108=3060=<TIME>10=005"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     match = (/8=FIX.4.29=5735=A34=149=TW52=\d{8}-\d{2}:\d{2}:\d{2}56=ISLD98=0108=3060=\d{8}-\d{2}:\d{2}:\d{2}10=005/ === str)
-    assert(match != nil)
+    assert(match)
     
     str = "8=FIX.4.235=D34=249=PATS52=<TIME>56=RCG1=acct111=121=138=240=154=155=ESU2" +
       "60=<TIME>167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9710=PEA"
-    reflector.timify!(str)
+    reflector.timeify!(str)
     match = (/8=FIX.4.235=D34=249=PATS52=\d{8}-\d{2}:\d{2}:\d{2}56=RCG1=acct111=121=138=240=154=155=ESU260=\d{8}-\d{2}:\d{2}:\d{2}167=FUT204=1207=CME9701=omni19702=19706=E9707=1239708=G9710=PEA/ === str)
-    assert(match != nil)
+    assert(match)
+  end
+
+  def test_fileify_bang
+    reflector = Reflector.new
+    
+    str = "8=FIX.4.235=C94=033=158=<FILE:test.txt>"
+    reflector.fileify!(str)
+    match = (/8=FIX.4.235=C94=033=158=File Contents/ === str)
+    assert(match)
   end
 
   def test_identifyFile

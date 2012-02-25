@@ -17,6 +17,7 @@
 **
 ****************************************************************************/
 
+#include "ThreadedSocketAcceptor.h"
 #include "SocketAcceptor.h"
 #include "SessionSettings.h"
 #include "FileStore.h"
@@ -36,15 +37,19 @@ typedef std::auto_ptr < FIX::Acceptor > AcceptorPtr;
 int main( int argc, char** argv )
 {
   std::string file;
+  bool threaded = false;
 
   if ( getopt( argc, argv, "+f:" ) == 'f' )
     file = optarg;
   else
   {
     std::cout << "usage: " << argv[ 0 ]
-    << " -f FILE" << std::endl;
+    << " -f FILE [-t]" << std::endl;
     return 1;
   }
+
+  if ( getopt( argc, argv, "+t" ) == 't' )
+    threaded = true;
 
   try
   {
@@ -53,9 +58,20 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory factory( "store" );
 
     AcceptorPtr pAcceptor;
-    pAcceptor = std::auto_ptr < FIX::Acceptor >
+    if ( threaded )
+    {
+      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
+                      ( new FIX::ThreadedSocketAcceptor
+                        ( application, factory, settings ) );
+      pAcceptor = p;
+    }
+    else
+    {
+      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::SocketAcceptor
                         ( application, factory, settings ) );
+      pAcceptor = p;
+    }
 
     pAcceptor->start();
     while ( true ) FIX::process_sleep( 1 );

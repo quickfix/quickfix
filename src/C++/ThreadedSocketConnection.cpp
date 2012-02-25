@@ -67,7 +67,15 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 
 bool ThreadedSocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(ThreadedSocketConnection::send)
-  return socket_send( m_socket, msg.c_str(), msg.length() ) >= 0;
+  unsigned totalSent = 0;
+  while(totalSent < msg.length())
+  {
+    unsigned sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
+    if(sent < 0) return false;
+    totalSent += sent;
+  }
+
+  return true;
   QF_STACK_POP
 }
 
