@@ -92,8 +92,10 @@ void SocketInitiator::onStart()
 
   connect();
 
-  while ( !isStopped() )
-    m_connector.block( *this );
+  while ( !isStopped() ) {
+    m_connector.block( *this, false, 1.0 );
+    onTimeout( m_connector );
+  }
 
   time_t start = 0;
   time_t now = 0;
@@ -152,14 +154,10 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize );
+    setPending( s );
 
-    if( result != -1 )
-    {
-      setPending( s );
-
-      m_pendingConnections[ result ] 
-        = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
-    }
+    m_pendingConnections[ result ] 
+      = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
   }
   catch ( std::exception& ) {}
 
