@@ -47,7 +47,7 @@ ThreadedSocketConnection::ThreadedSocketConnection
   const std::string& address, short port, 
   Application& application, Log* pLog )
   : m_socket( s ), m_address( address ), m_port( port ),
-    m_application( application ), m_pLog( m_pLog ),
+    m_application( application ), m_pLog( pLog ),
     m_pSession( Session::lookupSession( sessionID ) ),
     m_disconnect( false )
 {
