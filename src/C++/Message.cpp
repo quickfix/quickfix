@@ -374,8 +374,14 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup );
-    if ( (field.getField() == delim)
-        || (pGroup == 0 && pDD->isField(field.getField())) )
+       
+    // Start a new group because...
+    if (// found delimiter
+	(field.getField() == delim)
+        // no delimiter, but field belongs to group
+        || (pGroup == 0 && pDD->isField(field.getField()))
+	// no delimiter, but field already processed
+	|| (pDD->isField(field.getField())) && (pGroup == 0 || pGroup->isSetField(field.getField())) )
     {
       if ( pGroup )
       {

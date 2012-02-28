@@ -197,6 +197,21 @@ TEST(setStringWithGroup)
   CHECK_EQUAL( str, object.toString() );
 }
 
+TEST(setStringWithGroupWithoutDelimiter)
+{
+  FIX::Message object;
+  DataDictionary dataDictionary( "../spec/FIX43.xml" );
+  static const char* str =
+    "8=FIX.4.3\0019=171\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
+    "=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\001"
+    "67=1\0011=00303\00155=fred\00154=1\00140=1\00159=3\001"
+    "67=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110="
+    "054\001";
+
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
+}
+
 TEST(setStringWithHeaderGroup)
 {
   FIX::Message object;
