@@ -404,8 +404,6 @@ throw( ConfigError )
         addValueName( 35, msgtype, name );
 
       DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
-      if( !pMessageFieldNode.get() )
-        throw ConfigError("<message> contains no fields");
       while( pMessageFieldNode.get() )
       {
         if(pMessageFieldNode->getName() == "field"
