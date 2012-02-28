@@ -228,7 +228,7 @@ void Acceptor::stop( bool force )
   for ( ; i != sessions.end(); ++i )
   {
     Session* pSession = Session::lookupSession(i->first);
-    if( pSession->isEnabled() )
+    if( pSession && pSession->isEnabled() )
     {
       enabledSessions.push_back( pSession );
       pSession->logout();

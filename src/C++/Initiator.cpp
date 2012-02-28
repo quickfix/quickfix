@@ -283,7 +283,7 @@ void Initiator::stop( bool force )
   for ( ; i != connected.end(); ++i )
   {
     Session* pSession = Session::lookupSession(*i);
-    if( pSession->isEnabled() )
+    if( pSession && pSession->isEnabled() )
     {
       enabledSessions.push_back( pSession );
       pSession->logout();
