@@ -246,10 +246,6 @@ namespace QuickFix50Sp2
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( StreamAssignmentReportACK message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( PartyDetailsListRequest message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( PartyDetailsListReport message, QuickFix.SessionID session ) 
-    { throw new QuickFix.UnsupportedMessageType(); }
  
     public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     
@@ -577,12 +573,6 @@ namespace QuickFix50Sp2
     else
     if( message is StreamAssignmentReportACK )
       onMessage( (StreamAssignmentReportACK)(message), sessionID );
-    else
-    if( message is PartyDetailsListRequest )
-      onMessage( (PartyDetailsListRequest)(message), sessionID );
-    else
-    if( message is PartyDetailsListReport )
-      onMessage( (PartyDetailsListReport)(message), sessionID );
     else onMessage( message, sessionID );    
   }
 

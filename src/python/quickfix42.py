@@ -35,7 +35,7 @@ class Logout(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("5") )
 
-class IndicationofInterest(Message):
+class IOI(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("6") )
@@ -437,7 +437,7 @@ class ListStatus(Message):
 			order[10] = 0
 			fix.Group.__init__(self, 73, 11, order)
 
-class AllocationACK(Message):
+class AllocationInstructionAck(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("P") )

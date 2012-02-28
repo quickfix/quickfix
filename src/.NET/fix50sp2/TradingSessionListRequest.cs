@@ -26,6 +26,30 @@ namespace QuickFix50Sp2
     public bool isSetTradSesReqID()
     { return isSetField(335); }
 
+    public void set(QuickFix.MarketID value)
+    { setField(value); }
+    public QuickFix.MarketID get(QuickFix.MarketID  value)
+    { getField(value); return value; }
+    public QuickFix.MarketID getMarketID()
+    { QuickFix.MarketID value = new QuickFix.MarketID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.MarketID field)
+    { return isSetField(field); }
+    public bool isSetMarketID()
+    { return isSetField(1301); }
+
+    public void set(QuickFix.MarketSegmentID value)
+    { setField(value); }
+    public QuickFix.MarketSegmentID get(QuickFix.MarketSegmentID  value)
+    { getField(value); return value; }
+    public QuickFix.MarketSegmentID getMarketSegmentID()
+    { QuickFix.MarketSegmentID value = new QuickFix.MarketSegmentID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.MarketSegmentID field)
+    { return isSetField(field); }
+    public bool isSetMarketSegmentID()
+    { return isSetField(1300); }
+
     public void set(QuickFix.TradingSessionID value)
     { setField(value); }
     public QuickFix.TradingSessionID get(QuickFix.TradingSessionID  value)
@@ -97,30 +121,6 @@ namespace QuickFix50Sp2
     { return isSetField(field); }
     public bool isSetSubscriptionRequestType()
     { return isSetField(263); }
-
-    public void set(QuickFix.MarketID value)
-    { setField(value); }
-    public QuickFix.MarketID get(QuickFix.MarketID  value)
-    { getField(value); return value; }
-    public QuickFix.MarketID getMarketID()
-    { QuickFix.MarketID value = new QuickFix.MarketID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.MarketID field)
-    { return isSetField(field); }
-    public bool isSetMarketID()
-    { return isSetField(1301); }
-
-    public void set(QuickFix.MarketSegmentID value)
-    { setField(value); }
-    public QuickFix.MarketSegmentID get(QuickFix.MarketSegmentID  value)
-    { getField(value); return value; }
-    public QuickFix.MarketSegmentID getMarketSegmentID()
-    { QuickFix.MarketSegmentID value = new QuickFix.MarketSegmentID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.MarketSegmentID field)
-    { return isSetField(field); }
-    public bool isSetMarketSegmentID()
-    { return isSetField(1300); }
 
   };
 

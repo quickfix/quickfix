@@ -31,12 +31,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::SecurityResponseType);
     FIELD_SET(*this, FIX::TotNoSecurityTypes);
     FIELD_SET(*this, FIX::LastFragment);
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::TradingSessionID);
-    FIELD_SET(*this, FIX::TradingSessionSubID);
-    FIELD_SET(*this, FIX::SubscriptionRequestType);
     FIELD_SET(*this, FIX::NoSecurityTypes);
     class NoSecurityTypes: public FIX::Group
     {
@@ -47,6 +41,12 @@ namespace FIX44
       FIELD_SET(*this, FIX::Product);
       FIELD_SET(*this, FIX::CFICode);
     };
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
+    FIELD_SET(*this, FIX::TradingSessionID);
+    FIELD_SET(*this, FIX::TradingSessionSubID);
+    FIELD_SET(*this, FIX::SubscriptionRequestType);
   };
 
 }

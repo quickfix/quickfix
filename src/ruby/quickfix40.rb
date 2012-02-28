@@ -49,7 +49,7 @@ class Logout < Message
 	end
 end
 
-class IndicationofInterest < Message
+class IOI < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("6") )
@@ -244,7 +244,7 @@ class ListStatus < Message
 	end
 end
 
-class AllocationACK < Message
+class AllocationInstructionAck < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("P") )

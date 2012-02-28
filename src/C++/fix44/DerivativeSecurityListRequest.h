@@ -36,6 +36,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
     FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
     FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+    FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
     FIELD_SET(*this, FIX::UnderlyingIssueDate);
     FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
@@ -70,14 +71,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::UnderlyingStartValue);
     FIELD_SET(*this, FIX::UnderlyingCurrentValue);
     FIELD_SET(*this, FIX::UnderlyingEndValue);
-    FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
-    class NoUnderlyingSecurityAltID: public FIX::Group
-    {
-    public:
-    NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
-      FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
-      FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
-    };
     FIELD_SET(*this, FIX::SecuritySubType);
     FIELD_SET(*this, FIX::Currency);
     FIELD_SET(*this, FIX::Text);

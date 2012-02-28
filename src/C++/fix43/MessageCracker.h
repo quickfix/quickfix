@@ -76,6 +76,7 @@ namespace FIX43
   class BidRequest; 
   class BidResponse; 
   class ListStrikePrice; 
+  class XMLnonFIX; 
   class RegistrationInstructions; 
   class RegistrationInstructionsResponse; 
   class OrderMassCancelRequest; 
@@ -198,6 +199,8 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ListStrikePrice&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const XMLnonFIX&, const FIX::SessionID& ) 
+    {}
   virtual void onMessage( const RegistrationInstructions&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const RegistrationInstructionsResponse&, const FIX::SessionID& ) 
@@ -286,6 +289,7 @@ namespace FIX43
  virtual void onMessage( BidRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( BidResponse&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStrikePrice&, const FIX::SessionID& ) {} 
+ virtual void onMessage( XMLnonFIX&, const FIX::SessionID& ) {} 
  virtual void onMessage( RegistrationInstructions&, const FIX::SessionID& ) {} 
  virtual void onMessage( RegistrationInstructionsResponse&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) {} 
@@ -452,6 +456,9 @@ public:
     else
     if( msgTypeValue == "m" )
       onMessage( (const ListStrikePrice&)message, sessionID );
+    else
+    if( msgTypeValue == "n" )
+      onMessage( (const XMLnonFIX&)message, sessionID );
     else
     if( msgTypeValue == "o" )
       onMessage( (const RegistrationInstructions&)message, sessionID );
@@ -662,6 +669,9 @@ void crack( Message& message,
     else
     if( msgTypeValue == "m" )
       onMessage( (ListStrikePrice&)message, sessionID );
+    else
+    if( msgTypeValue == "n" )
+      onMessage( (XMLnonFIX&)message, sessionID );
     else
     if( msgTypeValue == "o" )
       onMessage( (RegistrationInstructions&)message, sessionID );

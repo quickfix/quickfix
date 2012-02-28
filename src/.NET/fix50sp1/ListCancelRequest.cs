@@ -26,78 +26,6 @@ namespace QuickFix50Sp1
     public bool isSetListID()
     { return isSetField(66); }
 
-    public void set(QuickFix.TransactTime value)
-    { setField(value); }
-    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
-    { getField(value); return value; }
-    public QuickFix.TransactTime getTransactTime()
-    { QuickFix.TransactTime value = new QuickFix.TransactTime();
-      getField(value); return value; }
-    public bool isSet(QuickFix.TransactTime field)
-    { return isSetField(field); }
-    public bool isSetTransactTime()
-    { return isSetField(60); }
-
-    public void set(QuickFix.TradeOriginationDate value)
-    { setField(value); }
-    public QuickFix.TradeOriginationDate get(QuickFix.TradeOriginationDate  value)
-    { getField(value); return value; }
-    public QuickFix.TradeOriginationDate getTradeOriginationDate()
-    { QuickFix.TradeOriginationDate value = new QuickFix.TradeOriginationDate();
-      getField(value); return value; }
-    public bool isSet(QuickFix.TradeOriginationDate field)
-    { return isSetField(field); }
-    public bool isSetTradeOriginationDate()
-    { return isSetField(229); }
-
-    public void set(QuickFix.TradeDate value)
-    { setField(value); }
-    public QuickFix.TradeDate get(QuickFix.TradeDate  value)
-    { getField(value); return value; }
-    public QuickFix.TradeDate getTradeDate()
-    { QuickFix.TradeDate value = new QuickFix.TradeDate();
-      getField(value); return value; }
-    public bool isSet(QuickFix.TradeDate field)
-    { return isSetField(field); }
-    public bool isSetTradeDate()
-    { return isSetField(75); }
-
-    public void set(QuickFix.Text value)
-    { setField(value); }
-    public QuickFix.Text get(QuickFix.Text  value)
-    { getField(value); return value; }
-    public QuickFix.Text getText()
-    { QuickFix.Text value = new QuickFix.Text();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Text field)
-    { return isSetField(field); }
-    public bool isSetText()
-    { return isSetField(58); }
-
-    public void set(QuickFix.EncodedTextLen value)
-    { setField(value); }
-    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedTextLen getEncodedTextLen()
-    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedTextLen field)
-    { return isSetField(field); }
-    public bool isSetEncodedTextLen()
-    { return isSetField(354); }
-
-    public void set(QuickFix.EncodedText value)
-    { setField(value); }
-    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedText getEncodedText()
-    { QuickFix.EncodedText value = new QuickFix.EncodedText();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedText field)
-    { return isSetField(field); }
-    public bool isSetEncodedText()
-    { return isSetField(355); }
-
     public void set(QuickFix.NoPartyIDs value)
     { setField(value); }
     public QuickFix.NoPartyIDs get(QuickFix.NoPartyIDs  value)
@@ -192,6 +120,78 @@ namespace QuickFix50Sp1
 
       };
     };
+    public void set(QuickFix.TransactTime value)
+    { setField(value); }
+    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
+    { getField(value); return value; }
+    public QuickFix.TransactTime getTransactTime()
+    { QuickFix.TransactTime value = new QuickFix.TransactTime();
+      getField(value); return value; }
+    public bool isSet(QuickFix.TransactTime field)
+    { return isSetField(field); }
+    public bool isSetTransactTime()
+    { return isSetField(60); }
+
+    public void set(QuickFix.TradeOriginationDate value)
+    { setField(value); }
+    public QuickFix.TradeOriginationDate get(QuickFix.TradeOriginationDate  value)
+    { getField(value); return value; }
+    public QuickFix.TradeOriginationDate getTradeOriginationDate()
+    { QuickFix.TradeOriginationDate value = new QuickFix.TradeOriginationDate();
+      getField(value); return value; }
+    public bool isSet(QuickFix.TradeOriginationDate field)
+    { return isSetField(field); }
+    public bool isSetTradeOriginationDate()
+    { return isSetField(229); }
+
+    public void set(QuickFix.TradeDate value)
+    { setField(value); }
+    public QuickFix.TradeDate get(QuickFix.TradeDate  value)
+    { getField(value); return value; }
+    public QuickFix.TradeDate getTradeDate()
+    { QuickFix.TradeDate value = new QuickFix.TradeDate();
+      getField(value); return value; }
+    public bool isSet(QuickFix.TradeDate field)
+    { return isSetField(field); }
+    public bool isSetTradeDate()
+    { return isSetField(75); }
+
+    public void set(QuickFix.Text value)
+    { setField(value); }
+    public QuickFix.Text get(QuickFix.Text  value)
+    { getField(value); return value; }
+    public QuickFix.Text getText()
+    { QuickFix.Text value = new QuickFix.Text();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Text field)
+    { return isSetField(field); }
+    public bool isSetText()
+    { return isSetField(58); }
+
+    public void set(QuickFix.EncodedTextLen value)
+    { setField(value); }
+    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedTextLen getEncodedTextLen()
+    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedTextLen field)
+    { return isSetField(field); }
+    public bool isSetEncodedTextLen()
+    { return isSetField(354); }
+
+    public void set(QuickFix.EncodedText value)
+    { setField(value); }
+    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedText getEncodedText()
+    { QuickFix.EncodedText value = new QuickFix.EncodedText();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedText field)
+    { return isSetField(field); }
+    public bool isSetEncodedText()
+    { return isSetField(355); }
+
   };
 
 }

@@ -31,13 +31,13 @@ namespace FIX50SP1
     FIELD_SET(*this, FIX::Username);
     FIELD_SET(*this, FIX::Password);
     FIELD_SET(*this, FIX::NewPassword);
-    FIELD_SET(*this, FIX::RawDataLength);
-    FIELD_SET(*this, FIX::RawData);
     FIELD_SET(*this, FIX::EncryptedPasswordMethod);
     FIELD_SET(*this, FIX::EncryptedPasswordLen);
     FIELD_SET(*this, FIX::EncryptedPassword);
     FIELD_SET(*this, FIX::EncryptedNewPasswordLen);
     FIELD_SET(*this, FIX::EncryptedNewPassword);
+    FIELD_SET(*this, FIX::RawDataLength);
+    FIELD_SET(*this, FIX::RawData);
   };
 
 }

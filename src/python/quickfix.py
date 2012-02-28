@@ -639,248 +639,6 @@ class SocketCloseFailed(SocketException):
 SocketCloseFailed_swigregister = _quickfix.SocketCloseFailed_swigregister
 SocketCloseFailed_swigregister(SocketCloseFailed)
 
-class DateTime(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DateTime, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, DateTime, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["m_date"] = _quickfix.DateTime_m_date_set
-    __swig_getmethods__["m_date"] = _quickfix.DateTime_m_date_get
-    if _newclass:m_date = _swig_property(_quickfix.DateTime_m_date_get, _quickfix.DateTime_m_date_set)
-    __swig_setmethods__["m_time"] = _quickfix.DateTime_m_time_set
-    __swig_getmethods__["m_time"] = _quickfix.DateTime_m_time_get
-    if _newclass:m_time = _swig_property(_quickfix.DateTime_m_time_get, _quickfix.DateTime_m_time_set)
-    SECONDS_PER_DAY = _quickfix.DateTime_SECONDS_PER_DAY
-    SECONDS_PER_HOUR = _quickfix.DateTime_SECONDS_PER_HOUR
-    SECONDS_PER_MIN = _quickfix.DateTime_SECONDS_PER_MIN
-    MINUTES_PER_HOUR = _quickfix.DateTime_MINUTES_PER_HOUR
-    MILLIS_PER_DAY = _quickfix.DateTime_MILLIS_PER_DAY
-    MILLIS_PER_HOUR = _quickfix.DateTime_MILLIS_PER_HOUR
-    MILLIS_PER_MIN = _quickfix.DateTime_MILLIS_PER_MIN
-    MILLIS_PER_SEC = _quickfix.DateTime_MILLIS_PER_SEC
-    JULIAN_19700101 = _quickfix.DateTime_JULIAN_19700101
-    def __init__(self, *args): 
-        this = _quickfix.new_DateTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DateTime
-    __del__ = lambda self : None;
-    def getYear(self): return _quickfix.DateTime_getYear(self)
-    def getMonth(self): return _quickfix.DateTime_getMonth(self)
-    def getDay(self): return _quickfix.DateTime_getDay(self)
-    def getDate(self): return _quickfix.DateTime_getDate(self)
-    def getJulianDate(self): return _quickfix.DateTime_getJulianDate(self)
-    def getHour(self): return _quickfix.DateTime_getHour(self)
-    def getMinute(self): return _quickfix.DateTime_getMinute(self)
-    def getSecond(self): return _quickfix.DateTime_getSecond(self)
-    def getMillisecond(self): return _quickfix.DateTime_getMillisecond(self)
-    def getHMS(self, *args): return _quickfix.DateTime_getHMS(self, *args)
-    def getWeekDay(self): return _quickfix.DateTime_getWeekDay(self)
-    def getTimeT(self): return _quickfix.DateTime_getTimeT(self)
-    def getTmUtc(self): return _quickfix.DateTime_getTmUtc(self)
-    def setYMD(self, *args): return _quickfix.DateTime_setYMD(self, *args)
-    def setHMS(self, *args): return _quickfix.DateTime_setHMS(self, *args)
-    def setHour(self, *args): return _quickfix.DateTime_setHour(self, *args)
-    def setMinute(self, *args): return _quickfix.DateTime_setMinute(self, *args)
-    def setSecond(self, *args): return _quickfix.DateTime_setSecond(self, *args)
-    def setMillisecond(self, *args): return _quickfix.DateTime_setMillisecond(self, *args)
-    def clearDate(self): return _quickfix.DateTime_clearDate(self)
-    def clearTime(self): return _quickfix.DateTime_clearTime(self)
-    def set(self, *args): return _quickfix.DateTime_set(self, *args)
-    def __iadd__(self, *args): return _quickfix.DateTime___iadd__(self, *args)
-    __swig_getmethods__["makeHMS"] = lambda x: _quickfix.DateTime_makeHMS
-    if _newclass:makeHMS = staticmethod(_quickfix.DateTime_makeHMS)
-    __swig_getmethods__["nowUtc"] = lambda x: _quickfix.DateTime_nowUtc
-    if _newclass:nowUtc = staticmethod(_quickfix.DateTime_nowUtc)
-    __swig_getmethods__["nowLocal"] = lambda x: _quickfix.DateTime_nowLocal
-    if _newclass:nowLocal = staticmethod(_quickfix.DateTime_nowLocal)
-    __swig_getmethods__["fromUtcTimeT"] = lambda x: _quickfix.DateTime_fromUtcTimeT
-    if _newclass:fromUtcTimeT = staticmethod(_quickfix.DateTime_fromUtcTimeT)
-    __swig_getmethods__["fromLocalTimeT"] = lambda x: _quickfix.DateTime_fromLocalTimeT
-    if _newclass:fromLocalTimeT = staticmethod(_quickfix.DateTime_fromLocalTimeT)
-    __swig_getmethods__["fromTm"] = lambda x: _quickfix.DateTime_fromTm
-    if _newclass:fromTm = staticmethod(_quickfix.DateTime_fromTm)
-    __swig_getmethods__["julianDate"] = lambda x: _quickfix.DateTime_julianDate
-    if _newclass:julianDate = staticmethod(_quickfix.DateTime_julianDate)
-    __swig_getmethods__["getYMD"] = lambda x: _quickfix.DateTime_getYMD
-    if _newclass:getYMD = staticmethod(_quickfix.DateTime_getYMD)
-DateTime_swigregister = _quickfix.DateTime_swigregister
-DateTime_swigregister(DateTime)
-
-def DateTime_makeHMS(*args):
-  return _quickfix.DateTime_makeHMS(*args)
-DateTime_makeHMS = _quickfix.DateTime_makeHMS
-
-def DateTime_nowUtc():
-  return _quickfix.DateTime_nowUtc()
-DateTime_nowUtc = _quickfix.DateTime_nowUtc
-
-def DateTime_nowLocal():
-  return _quickfix.DateTime_nowLocal()
-DateTime_nowLocal = _quickfix.DateTime_nowLocal
-
-def DateTime_fromUtcTimeT(*args):
-  return _quickfix.DateTime_fromUtcTimeT(*args)
-DateTime_fromUtcTimeT = _quickfix.DateTime_fromUtcTimeT
-
-def DateTime_fromLocalTimeT(*args):
-  return _quickfix.DateTime_fromLocalTimeT(*args)
-DateTime_fromLocalTimeT = _quickfix.DateTime_fromLocalTimeT
-
-def DateTime_fromTm(*args):
-  return _quickfix.DateTime_fromTm(*args)
-DateTime_fromTm = _quickfix.DateTime_fromTm
-
-def DateTime_julianDate(*args):
-  return _quickfix.DateTime_julianDate(*args)
-DateTime_julianDate = _quickfix.DateTime_julianDate
-
-def DateTime_getYMD(*args):
-  return _quickfix.DateTime_getYMD(*args)
-DateTime_getYMD = _quickfix.DateTime_getYMD
-
-
-def __sub__(*args):
-  return _quickfix.__sub__(*args)
-__sub__ = _quickfix.__sub__
-class UtcTimeStamp(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcTimeStamp, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeStamp, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_UtcTimeStamp(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.UtcTimeStamp_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_UtcTimeStamp
-    __del__ = lambda self : None;
-UtcTimeStamp_swigregister = _quickfix.UtcTimeStamp_swigregister
-UtcTimeStamp_swigregister(UtcTimeStamp)
-
-class LocalTimeStamp(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalTimeStamp, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, LocalTimeStamp, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_LocalTimeStamp(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.LocalTimeStamp_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_LocalTimeStamp
-    __del__ = lambda self : None;
-LocalTimeStamp_swigregister = _quickfix.LocalTimeStamp_swigregister
-LocalTimeStamp_swigregister(LocalTimeStamp)
-
-class UtcTimeOnly(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcTimeOnly, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeOnly, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_UtcTimeOnly(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.UtcTimeOnly_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_UtcTimeOnly
-    __del__ = lambda self : None;
-UtcTimeOnly_swigregister = _quickfix.UtcTimeOnly_swigregister
-UtcTimeOnly_swigregister(UtcTimeOnly)
-
-class LocalTimeOnly(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalTimeOnly, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, LocalTimeOnly, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_LocalTimeOnly(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.LocalTimeOnly_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_LocalTimeOnly
-    __del__ = lambda self : None;
-LocalTimeOnly_swigregister = _quickfix.LocalTimeOnly_swigregister
-LocalTimeOnly_swigregister(LocalTimeOnly)
-
-class UtcDate(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UtcDate, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, UtcDate, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_UtcDate(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.UtcDate_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_UtcDate
-    __del__ = lambda self : None;
-UtcDate_swigregister = _quickfix.UtcDate_swigregister
-UtcDate_swigregister(UtcDate)
-
-class LocalDate(DateTime):
-    __swig_setmethods__ = {}
-    for _s in [DateTime]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, LocalDate, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DateTime]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, LocalDate, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_LocalDate(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    def setCurrent(self): return _quickfix.LocalDate_setCurrent(self)
-    __swig_destroy__ = _quickfix.delete_LocalDate
-    __del__ = lambda self : None;
-LocalDate_swigregister = _quickfix.LocalDate_swigregister
-LocalDate_swigregister(LocalDate)
-
-Unknown = _quickfix.Unknown
-String = _quickfix.String
-Char = _quickfix.Char
-Price = _quickfix.Price
-Int = _quickfix.Int
-Amt = _quickfix.Amt
-Qty = _quickfix.Qty
-Currency = _quickfix.Currency
-MultipleValueString = _quickfix.MultipleValueString
-MultipleStringValue = _quickfix.MultipleStringValue
-MultipleCharValue = _quickfix.MultipleCharValue
-Exchange = _quickfix.Exchange
-Boolean = _quickfix.Boolean
-LocalMktDate = _quickfix.LocalMktDate
-Data = _quickfix.Data
-Float = _quickfix.Float
-PriceOffset = _quickfix.PriceOffset
-MonthYear = _quickfix.MonthYear
-DayOfMonth = _quickfix.DayOfMonth
-UtcDateOnly = _quickfix.UtcDateOnly
-NumInGroup = _quickfix.NumInGroup
-Percentage = _quickfix.Percentage
-SeqNum = _quickfix.SeqNum
-Length = _quickfix.Length
-Country = _quickfix.Country
-TzTimeOnly = _quickfix.TzTimeOnly
-TzTimeStamp = _quickfix.TzTimeStamp
-XmlData = _quickfix.XmlData
-Language = _quickfix.Language
 class FieldBase(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldBase, name, value)
@@ -1287,23 +1045,6 @@ class Group(FieldMap):
 Group_swigregister = _quickfix.Group_swigregister
 Group_swigregister(Group)
 
-class RelatedPartyID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyID
-    __del__ = lambda self : None;
-RelatedPartyID_swigregister = _quickfix.RelatedPartyID_swigregister
-RelatedPartyID_swigregister(RelatedPartyID)
-
 class MaxPriceLevels(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1423,40 +1164,6 @@ class LateIndicator(BoolField):
 LateIndicator_swigregister = _quickfix.LateIndicator_swigregister
 LateIndicator_swigregister(LateIndicator)
 
-class RiskEncodedSecurityDesc(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskEncodedSecurityDesc, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskEncodedSecurityDesc, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskEncodedSecurityDesc(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskEncodedSecurityDesc
-    __del__ = lambda self : None;
-RiskEncodedSecurityDesc_swigregister = _quickfix.RiskEncodedSecurityDesc_swigregister
-RiskEncodedSecurityDesc_swigregister(RiskEncodedSecurityDesc)
-
-class RelationshipRiskSecuritySubType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecuritySubType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecuritySubType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecuritySubType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecuritySubType
-    __del__ = lambda self : None;
-RelationshipRiskSecuritySubType_swigregister = _quickfix.RelationshipRiskSecuritySubType_swigregister
-RelationshipRiskSecuritySubType_swigregister(RelationshipRiskSecuritySubType)
-
 class SecurityListID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1490,23 +1197,6 @@ class DerivativeFlowScheduleType(IntField):
     __del__ = lambda self : None;
 DerivativeFlowScheduleType_swigregister = _quickfix.DerivativeFlowScheduleType_swigregister
 DerivativeFlowScheduleType_swigregister(DerivativeFlowScheduleType)
-
-class EncodedSymbolLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedSymbolLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EncodedSymbolLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EncodedSymbolLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EncodedSymbolLen
-    __del__ = lambda self : None;
-EncodedSymbolLen_swigregister = _quickfix.EncodedSymbolLen_swigregister
-EncodedSymbolLen_swigregister(EncodedSymbolLen)
 
 class FlexibleIndicator(BoolField):
     __swig_setmethods__ = {}
@@ -1627,23 +1317,6 @@ class ContractMultiplier(DoubleField):
 ContractMultiplier_swigregister = _quickfix.ContractMultiplier_swigregister
 ContractMultiplier_swigregister(ContractMultiplier)
 
-class PartyAltIDSource(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyAltIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyAltIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyAltIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyAltIDSource
-    __del__ = lambda self : None;
-PartyAltIDSource_swigregister = _quickfix.PartyAltIDSource_swigregister
-PartyAltIDSource_swigregister(PartyAltIDSource)
-
 class CcyAmt(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1660,6 +1333,23 @@ class CcyAmt(DoubleField):
     __del__ = lambda self : None;
 CcyAmt_swigregister = _quickfix.CcyAmt_swigregister
 CcyAmt_swigregister(CcyAmt)
+
+class LegOrderQty(DoubleField):
+    __swig_setmethods__ = {}
+    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LegOrderQty, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, LegOrderQty, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_LegOrderQty(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_LegOrderQty
+    __del__ = lambda self : None;
+LegOrderQty_swigregister = _quickfix.LegOrderQty_swigregister
+LegOrderQty_swigregister(LegOrderQty)
 
 class AllocIntermedReqType(IntField):
     __swig_setmethods__ = {}
@@ -1678,23 +1368,6 @@ class AllocIntermedReqType(IntField):
 AllocIntermedReqType_swigregister = _quickfix.AllocIntermedReqType_swigregister
 AllocIntermedReqType_swigregister(AllocIntermedReqType)
 
-class NoNested2PartyIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoNested2PartyIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartyIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoNested2PartyIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoNested2PartyIDs
-    __del__ = lambda self : None;
-NoNested2PartyIDs_swigregister = _quickfix.NoNested2PartyIDs_swigregister
-NoNested2PartyIDs_swigregister(NoNested2PartyIDs)
-
 class UnderlyingIssuer(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -1712,22 +1385,22 @@ class UnderlyingIssuer(StringField):
 UnderlyingIssuer_swigregister = _quickfix.UnderlyingIssuer_swigregister
 UnderlyingIssuer_swigregister(UnderlyingIssuer)
 
-class LegOrderQty(DoubleField):
+class NoNested2PartyIDs(IntField):
     __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, LegOrderQty, name, value)
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoNested2PartyIDs, name, value)
     __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, LegOrderQty, name)
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartyIDs, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_LegOrderQty(*args)
+        this = _quickfix.new_NoNested2PartyIDs(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_LegOrderQty
+    __swig_destroy__ = _quickfix.delete_NoNested2PartyIDs
     __del__ = lambda self : None;
-LegOrderQty_swigregister = _quickfix.LegOrderQty_swigregister
-LegOrderQty_swigregister(LegOrderQty)
+NoNested2PartyIDs_swigregister = _quickfix.NoNested2PartyIDs_swigregister
+NoNested2PartyIDs_swigregister(NoNested2PartyIDs)
 
 class MinTradeVol(DoubleField):
     __swig_setmethods__ = {}
@@ -1865,12 +1538,12 @@ class DerivativeFuturesValuationMethod(StringField):
 DerivativeFuturesValuationMethod_swigregister = _quickfix.DerivativeFuturesValuationMethod_swigregister
 DerivativeFuturesValuationMethod_swigregister(DerivativeFuturesValuationMethod)
 
-class NoLegSecurityAltID(StringField):
+class NoLegSecurityAltID(IntField):
     __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, NoLegSecurityAltID, name, value)
     __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegSecurityAltID, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
@@ -2222,23 +1895,6 @@ class CardNumber(StringField):
 CardNumber_swigregister = _quickfix.CardNumber_swigregister
 CardNumber_swigregister(CardNumber)
 
-class NoRelatedPartyIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedPartyIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedPartyIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedPartyIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedPartyIDs
-    __del__ = lambda self : None;
-NoRelatedPartyIDs_swigregister = _quickfix.NoRelatedPartyIDs_swigregister
-NoRelatedPartyIDs_swigregister(NoRelatedPartyIDs)
-
 class NoLegStipulations(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -2340,23 +1996,6 @@ class LegPrice(DoubleField):
     __del__ = lambda self : None;
 LegPrice_swigregister = _quickfix.LegPrice_swigregister
 LegPrice_swigregister(LegPrice)
-
-class RelationshipRiskMaturityTime(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskMaturityTime, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskMaturityTime, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskMaturityTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskMaturityTime
-    __del__ = lambda self : None;
-RelationshipRiskMaturityTime_swigregister = _quickfix.RelationshipRiskMaturityTime_swigregister
-RelationshipRiskMaturityTime_swigregister(RelationshipRiskMaturityTime)
 
 class DeliverToCompID(StringField):
     __swig_setmethods__ = {}
@@ -3004,23 +2643,6 @@ class UnderlyingMaturityMonthYear(StringField):
 UnderlyingMaturityMonthYear_swigregister = _quickfix.UnderlyingMaturityMonthYear_swigregister
 UnderlyingMaturityMonthYear_swigregister(UnderlyingMaturityMonthYear)
 
-class RiskWarningLevelPercent(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskWarningLevelPercent, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskWarningLevelPercent, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskWarningLevelPercent(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskWarningLevelPercent
-    __del__ = lambda self : None;
-RiskWarningLevelPercent_swigregister = _quickfix.RiskWarningLevelPercent_swigregister
-RiskWarningLevelPercent_swigregister(RiskWarningLevelPercent)
-
 class UnderlyingOriginalNotionalPercentageOutstanding(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -3105,23 +2727,6 @@ class UnderlyingRepurchaseTerm(IntField):
     __del__ = lambda self : None;
 UnderlyingRepurchaseTerm_swigregister = _quickfix.UnderlyingRepurchaseTerm_swigregister
 UnderlyingRepurchaseTerm_swigregister(UnderlyingRepurchaseTerm)
-
-class RiskWarningLevelName(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskWarningLevelName, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskWarningLevelName, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskWarningLevelName(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskWarningLevelName
-    __del__ = lambda self : None;
-RiskWarningLevelName_swigregister = _quickfix.RiskWarningLevelName_swigregister
-RiskWarningLevelName_swigregister(RiskWarningLevelName)
 
 class DerivativeCountryOfIssue(StringField):
     __swig_setmethods__ = {}
@@ -3276,23 +2881,6 @@ class ClearingBusinessDate(StringField):
 ClearingBusinessDate_swigregister = _quickfix.ClearingBusinessDate_swigregister
 ClearingBusinessDate_swigregister(ClearingBusinessDate)
 
-class NoRelationshipRiskLimits(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelationshipRiskLimits, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelationshipRiskLimits, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelationshipRiskLimits(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelationshipRiskLimits
-    __del__ = lambda self : None;
-NoRelationshipRiskLimits_swigregister = _quickfix.NoRelationshipRiskLimits_swigregister
-NoRelationshipRiskLimits_swigregister(NoRelationshipRiskLimits)
-
 class LocationID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -3309,6 +2897,23 @@ class LocationID(StringField):
     __del__ = lambda self : None;
 LocationID_swigregister = _quickfix.LocationID_swigregister
 LocationID_swigregister(LocationID)
+
+class Currency(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Currency, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Currency, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Currency(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Currency
+    __del__ = lambda self : None;
+Currency_swigregister = _quickfix.Currency_swigregister
+Currency_swigregister(Currency)
 
 class RoutingType(IntField):
     __swig_setmethods__ = {}
@@ -3360,23 +2965,6 @@ class BidTradeType(CharField):
     __del__ = lambda self : None;
 BidTradeType_swigregister = _quickfix.BidTradeType_swigregister
 BidTradeType_swigregister(BidTradeType)
-
-class RelationshipRiskInstrumentOperator(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskInstrumentOperator, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskInstrumentOperator, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskInstrumentOperator(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskInstrumentOperator
-    __del__ = lambda self : None;
-RelationshipRiskInstrumentOperator_swigregister = _quickfix.RelationshipRiskInstrumentOperator_swigregister
-RelationshipRiskInstrumentOperator_swigregister(RelationshipRiskInstrumentOperator)
 
 class UnderlyingAttachmentPoint(DoubleField):
     __swig_setmethods__ = {}
@@ -3820,23 +3408,6 @@ class SettlCurrFxRate(DoubleField):
 SettlCurrFxRate_swigregister = _quickfix.SettlCurrFxRate_swigregister
 SettlCurrFxRate_swigregister(SettlCurrFxRate)
 
-class RelatedPartyRole(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyRole, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyRole, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyRole(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyRole
-    __del__ = lambda self : None;
-RelatedPartyRole_swigregister = _quickfix.RelatedPartyRole_swigregister
-RelatedPartyRole_swigregister(RelatedPartyRole)
-
 class LegContractMultiplierUnit(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -3955,40 +3526,6 @@ class RoutingID(StringField):
     __del__ = lambda self : None;
 RoutingID_swigregister = _quickfix.RoutingID_swigregister
 RoutingID_swigregister(RoutingID)
-
-class RelationshipRiskSecurityAltID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityAltID
-    __del__ = lambda self : None;
-RelationshipRiskSecurityAltID_swigregister = _quickfix.RelationshipRiskSecurityAltID_swigregister
-RelationshipRiskSecurityAltID_swigregister(RelationshipRiskSecurityAltID)
-
-class RelatedPartyAltID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyAltID
-    __del__ = lambda self : None;
-RelatedPartyAltID_swigregister = _quickfix.RelatedPartyAltID_swigregister
-RelatedPartyAltID_swigregister(RelatedPartyAltID)
 
 class StrategyParameterType(IntField):
     __swig_setmethods__ = {}
@@ -4568,23 +4105,6 @@ class AdvSide(CharField):
 AdvSide_swigregister = _quickfix.AdvSide_swigregister
 AdvSide_swigregister(AdvSide)
 
-class RelatedContextPartySubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedContextPartySubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedContextPartySubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedContextPartySubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedContextPartySubID
-    __del__ = lambda self : None;
-RelatedContextPartySubID_swigregister = _quickfix.RelatedContextPartySubID_swigregister
-RelatedContextPartySubID_swigregister(RelatedContextPartySubID)
-
 class DerivativeSecuritySubType(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -4703,40 +4223,6 @@ class TradeRequestID(StringField):
     __del__ = lambda self : None;
 TradeRequestID_swigregister = _quickfix.TradeRequestID_swigregister
 TradeRequestID_swigregister(TradeRequestID)
-
-class RelationshipRiskLimitType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskLimitType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskLimitType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskLimitType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskLimitType
-    __del__ = lambda self : None;
-RelationshipRiskLimitType_swigregister = _quickfix.RelationshipRiskLimitType_swigregister
-RelationshipRiskLimitType_swigregister(RelationshipRiskLimitType)
-
-class RiskSecurityIDSource(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityIDSource
-    __del__ = lambda self : None;
-RiskSecurityIDSource_swigregister = _quickfix.RiskSecurityIDSource_swigregister
-RiskSecurityIDSource_swigregister(RiskSecurityIDSource)
 
 class LegFlowScheduleType(IntField):
     __swig_setmethods__ = {}
@@ -5145,23 +4631,6 @@ class MDEntryBuyer(StringField):
     __del__ = lambda self : None;
 MDEntryBuyer_swigregister = _quickfix.MDEntryBuyer_swigregister
 MDEntryBuyer_swigregister(MDEntryBuyer)
-
-class RelationshipRiskCouponRate(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskCouponRate, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskCouponRate, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskCouponRate(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskCouponRate
-    __del__ = lambda self : None;
-RelationshipRiskCouponRate_swigregister = _quickfix.RelationshipRiskCouponRate_swigregister
-RelationshipRiskCouponRate_swigregister(RelationshipRiskCouponRate)
 
 class NoDerivativeInstrumentPartySubIDs(IntField):
     __swig_setmethods__ = {}
@@ -5605,23 +5074,6 @@ class EncodedUnderlyingSecurityDesc(StringField):
 EncodedUnderlyingSecurityDesc_swigregister = _quickfix.EncodedUnderlyingSecurityDesc_swigregister
 EncodedUnderlyingSecurityDesc_swigregister(EncodedUnderlyingSecurityDesc)
 
-class RelatedPartyAltSubIDType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyAltSubIDType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyAltSubIDType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyAltSubIDType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyAltSubIDType
-    __del__ = lambda self : None;
-RelatedPartyAltSubIDType_swigregister = _quickfix.RelatedPartyAltSubIDType_swigregister
-RelatedPartyAltSubIDType_swigregister(RelatedPartyAltSubIDType)
-
 class MarketReportID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -5894,23 +5346,6 @@ class ExecBroker(StringField):
 ExecBroker_swigregister = _quickfix.ExecBroker_swigregister
 ExecBroker_swigregister(ExecBroker)
 
-class RelationshipRiskEncodedSecurityDescLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskEncodedSecurityDescLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskEncodedSecurityDescLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskEncodedSecurityDescLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskEncodedSecurityDescLen
-    __del__ = lambda self : None;
-RelationshipRiskEncodedSecurityDescLen_swigregister = _quickfix.RelationshipRiskEncodedSecurityDescLen_swigregister
-RelationshipRiskEncodedSecurityDescLen_swigregister(RelationshipRiskEncodedSecurityDescLen)
-
 class SecurityXMLLen(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -6182,23 +5617,6 @@ class LegSecurityType(StringField):
     __del__ = lambda self : None;
 LegSecurityType_swigregister = _quickfix.LegSecurityType_swigregister
 LegSecurityType_swigregister(LegSecurityType)
-
-class RiskLimitPlatform(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskLimitPlatform, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskLimitPlatform, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskLimitPlatform(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskLimitPlatform
-    __del__ = lambda self : None;
-RiskLimitPlatform_swigregister = _quickfix.RiskLimitPlatform_swigregister
-RiskLimitPlatform_swigregister(RiskLimitPlatform)
 
 class OrigCustOrderCapacity(IntField):
     __swig_setmethods__ = {}
@@ -6676,23 +6094,6 @@ class EncodedLegSecurityDesc(StringField):
 EncodedLegSecurityDesc_swigregister = _quickfix.EncodedLegSecurityDesc_swigregister
 EncodedLegSecurityDesc_swigregister(EncodedLegSecurityDesc)
 
-class RelatedContextPartyRole(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedContextPartyRole, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedContextPartyRole, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedContextPartyRole(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedContextPartyRole
-    __del__ = lambda self : None;
-RelatedContextPartyRole_swigregister = _quickfix.RelatedContextPartyRole_swigregister
-RelatedContextPartyRole_swigregister(RelatedContextPartyRole)
-
 class UnderlyingSettlementStatus(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -6744,23 +6145,6 @@ class RegistRefID(StringField):
 RegistRefID_swigregister = _quickfix.RegistRefID_swigregister
 RegistRefID_swigregister(RegistRefID)
 
-class RelationshipRiskFlexibleIndicator(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskFlexibleIndicator, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskFlexibleIndicator, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskFlexibleIndicator(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskFlexibleIndicator
-    __del__ = lambda self : None;
-RelationshipRiskFlexibleIndicator_swigregister = _quickfix.RelationshipRiskFlexibleIndicator_swigregister
-RelationshipRiskFlexibleIndicator_swigregister(RelationshipRiskFlexibleIndicator)
-
 class DerivativePriceQuoteMethod(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -6777,23 +6161,6 @@ class DerivativePriceQuoteMethod(StringField):
     __del__ = lambda self : None;
 DerivativePriceQuoteMethod_swigregister = _quickfix.DerivativePriceQuoteMethod_swigregister
 DerivativePriceQuoteMethod_swigregister(DerivativePriceQuoteMethod)
-
-class RelationshipRiskProductComplex(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskProductComplex, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskProductComplex, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskProductComplex(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskProductComplex
-    __del__ = lambda self : None;
-RelationshipRiskProductComplex_swigregister = _quickfix.RelationshipRiskProductComplex_swigregister
-RelationshipRiskProductComplex_swigregister(RelationshipRiskProductComplex)
 
 class OrderDelay(IntField):
     __swig_setmethods__ = {}
@@ -7271,40 +6638,6 @@ class OnBehalfOfSubID(StringField):
 OnBehalfOfSubID_swigregister = _quickfix.OnBehalfOfSubID_swigregister
 OnBehalfOfSubID_swigregister(OnBehalfOfSubID)
 
-class RelationshipRiskLimitPlatform(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskLimitPlatform, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskLimitPlatform, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskLimitPlatform(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskLimitPlatform
-    __del__ = lambda self : None;
-RelationshipRiskLimitPlatform_swigregister = _quickfix.RelationshipRiskLimitPlatform_swigregister
-RelationshipRiskLimitPlatform_swigregister(RelationshipRiskLimitPlatform)
-
-class RelatedPartySubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartySubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartySubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartySubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartySubID
-    __del__ = lambda self : None;
-RelatedPartySubID_swigregister = _quickfix.RelatedPartySubID_swigregister
-RelatedPartySubID_swigregister(RelatedPartySubID)
-
 class ComplexEventEndTime(UtcTimeOnlyField):
     __swig_setmethods__ = {}
     for _s in [UtcTimeOnlyField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -7526,23 +6859,6 @@ class TotQuoteEntries(IntField):
 TotQuoteEntries_swigregister = _quickfix.TotQuoteEntries_swigregister
 TotQuoteEntries_swigregister(TotQuoteEntries)
 
-class PartyAltSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyAltSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyAltSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyAltSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyAltSubID
-    __del__ = lambda self : None;
-PartyAltSubID_swigregister = _quickfix.PartyAltSubID_swigregister
-PartyAltSubID_swigregister(PartyAltSubID)
-
 class TotNoCxldQuotes(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -7644,23 +6960,6 @@ class PosQtyStatus(IntField):
     __del__ = lambda self : None;
 PosQtyStatus_swigregister = _quickfix.PosQtyStatus_swigregister
 PosQtyStatus_swigregister(PosQtyStatus)
-
-class RiskRestructuringType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskRestructuringType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskRestructuringType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskRestructuringType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskRestructuringType
-    __del__ = lambda self : None;
-RiskRestructuringType_swigregister = _quickfix.RiskRestructuringType_swigregister
-RiskRestructuringType_swigregister(RiskRestructuringType)
 
 class NoNested4PartySubIDs(IntField):
     __swig_setmethods__ = {}
@@ -8018,23 +7317,6 @@ class AdjustmentType(IntField):
     __del__ = lambda self : None;
 AdjustmentType_swigregister = _quickfix.AdjustmentType_swigregister
 AdjustmentType_swigregister(AdjustmentType)
-
-class NoPartyAltSubIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoPartyAltSubIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoPartyAltSubIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoPartyAltSubIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoPartyAltSubIDs
-    __del__ = lambda self : None;
-NoPartyAltSubIDs_swigregister = _quickfix.NoPartyAltSubIDs_swigregister
-NoPartyAltSubIDs_swigregister(NoPartyAltSubIDs)
 
 class UnderlyingInstrumentPartyID(StringField):
     __swig_setmethods__ = {}
@@ -8478,23 +7760,6 @@ class OfferYield(DoubleField):
 OfferYield_swigregister = _quickfix.OfferYield_swigregister
 OfferYield_swigregister(OfferYield)
 
-class RelatedContextPartyID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedContextPartyID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedContextPartyID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedContextPartyID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedContextPartyID
-    __del__ = lambda self : None;
-RelatedContextPartyID_swigregister = _quickfix.RelatedContextPartyID_swigregister
-RelatedContextPartyID_swigregister(RelatedContextPartyID)
-
 class TargetPartyIDSource(CharField):
     __swig_setmethods__ = {}
     for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -8767,12 +8032,12 @@ class MaturityRuleID(StringField):
 MaturityRuleID_swigregister = _quickfix.MaturityRuleID_swigregister
 MaturityRuleID_swigregister(MaturityRuleID)
 
-class UnderlyingRepoCollateralSecurityType(IntField):
+class UnderlyingRepoCollateralSecurityType(StringField):
     __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, UnderlyingRepoCollateralSecurityType, name, value)
     __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
@@ -8971,23 +8236,6 @@ class RFQReqID(StringField):
 RFQReqID_swigregister = _quickfix.RFQReqID_swigregister
 RFQReqID_swigregister(RFQReqID)
 
-class RelationshipRiskSecurityExchange(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityExchange, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityExchange, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityExchange(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityExchange
-    __del__ = lambda self : None;
-RelationshipRiskSecurityExchange_swigregister = _quickfix.RelationshipRiskSecurityExchange_swigregister
-RelationshipRiskSecurityExchange_swigregister(RelationshipRiskSecurityExchange)
-
 class UnderlyingLegSymbolSfx(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -9106,23 +8354,6 @@ class PegMoveType(IntField):
     __del__ = lambda self : None;
 PegMoveType_swigregister = _quickfix.PegMoveType_swigregister
 PegMoveType_swigregister(PegMoveType)
-
-class AsgnReqID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, AsgnReqID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, AsgnReqID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_AsgnReqID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_AsgnReqID
-    __del__ = lambda self : None;
-AsgnReqID_swigregister = _quickfix.AsgnReqID_swigregister
-AsgnReqID_swigregister(AsgnReqID)
 
 class PegDifference(DoubleField):
     __swig_setmethods__ = {}
@@ -9294,23 +8525,6 @@ class CardIssNum(StringField):
 CardIssNum_swigregister = _quickfix.CardIssNum_swigregister
 CardIssNum_swigregister(CardIssNum)
 
-class RiskCFICode(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskCFICode, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskCFICode, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskCFICode(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskCFICode
-    __del__ = lambda self : None;
-RiskCFICode_swigregister = _quickfix.RiskCFICode_swigregister
-RiskCFICode_swigregister(RiskCFICode)
-
 class EncodedMktSegmDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -9395,23 +8609,6 @@ class NoQuoteSets(IntField):
     __del__ = lambda self : None;
 NoQuoteSets_swigregister = _quickfix.NoQuoteSets_swigregister
 NoQuoteSets_swigregister(NoQuoteSets)
-
-class RelationshipRiskSecurityDesc(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityDesc, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityDesc, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityDesc(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityDesc
-    __del__ = lambda self : None;
-RelationshipRiskSecurityDesc_swigregister = _quickfix.RelationshipRiskSecurityDesc_swigregister
-RelationshipRiskSecurityDesc_swigregister(RelationshipRiskSecurityDesc)
 
 class Nested4PartySubIDType(IntField):
     __swig_setmethods__ = {}
@@ -9821,23 +9018,6 @@ class SettlInstSource(CharField):
 SettlInstSource_swigregister = _quickfix.SettlInstSource_swigregister
 SettlInstSource_swigregister(SettlInstSource)
 
-class PartyAltSubIDType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyAltSubIDType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyAltSubIDType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyAltSubIDType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyAltSubIDType
-    __del__ = lambda self : None;
-PartyAltSubIDType_swigregister = _quickfix.PartyAltSubIDType_swigregister
-PartyAltSubIDType_swigregister(PartyAltSubIDType)
-
 class UnderlyingLegSecurityDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -10110,23 +9290,6 @@ class TestMessageIndicator(BoolField):
 TestMessageIndicator_swigregister = _quickfix.TestMessageIndicator_swigregister
 TestMessageIndicator_swigregister(TestMessageIndicator)
 
-class ContextPartySubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ContextPartySubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ContextPartySubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ContextPartySubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ContextPartySubID
-    __del__ = lambda self : None;
-ContextPartySubID_swigregister = _quickfix.ContextPartySubID_swigregister
-ContextPartySubID_swigregister(ContextPartySubID)
-
 class DerivativeEventDate(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -10262,40 +9425,6 @@ class DeliverToSubID(StringField):
     __del__ = lambda self : None;
 DeliverToSubID_swigregister = _quickfix.DeliverToSubID_swigregister
 DeliverToSubID_swigregister(DeliverToSubID)
-
-class NoRelatedPartyAltIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedPartyAltIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedPartyAltIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedPartyAltIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedPartyAltIDs
-    __del__ = lambda self : None;
-NoRelatedPartyAltIDs_swigregister = _quickfix.NoRelatedPartyAltIDs_swigregister
-NoRelatedPartyAltIDs_swigregister(NoRelatedPartyAltIDs)
-
-class RiskProductComplex(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskProductComplex, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskProductComplex, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskProductComplex(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskProductComplex
-    __del__ = lambda self : None;
-RiskProductComplex_swigregister = _quickfix.RiskProductComplex_swigregister
-RiskProductComplex_swigregister(RiskProductComplex)
 
 class LegPriceUnitOfMeasureQty(DoubleField):
     __swig_setmethods__ = {}
@@ -10552,23 +9681,6 @@ class PositionEffect(CharField):
 PositionEffect_swigregister = _quickfix.PositionEffect_swigregister
 PositionEffect_swigregister(PositionEffect)
 
-class RelatedPartySubIDType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartySubIDType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartySubIDType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartySubIDType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartySubIDType
-    __del__ = lambda self : None;
-RelatedPartySubIDType_swigregister = _quickfix.RelatedPartySubIDType_swigregister
-RelatedPartySubIDType_swigregister(RelatedPartySubIDType)
-
 class TriggerAction(CharField):
     __swig_setmethods__ = {}
     for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -10755,23 +9867,6 @@ class ListNoOrds(IntField):
     __del__ = lambda self : None;
 ListNoOrds_swigregister = _quickfix.ListNoOrds_swigregister
 ListNoOrds_swigregister(ListNoOrds)
-
-class RelatedPartyIDSource(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyIDSource
-    __del__ = lambda self : None;
-RelatedPartyIDSource_swigregister = _quickfix.RelatedPartyIDSource_swigregister
-RelatedPartyIDSource_swigregister(RelatedPartyIDSource)
 
 class PegSymbol(StringField):
     __swig_setmethods__ = {}
@@ -11317,23 +10412,6 @@ class BidID(StringField):
 BidID_swigregister = _quickfix.BidID_swigregister
 BidID_swigregister(BidID)
 
-class PartyDetailsRequestResult(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyDetailsRequestResult, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyDetailsRequestResult, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyDetailsRequestResult(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyDetailsRequestResult
-    __del__ = lambda self : None;
-PartyDetailsRequestResult_swigregister = _quickfix.PartyDetailsRequestResult_swigregister
-PartyDetailsRequestResult_swigregister(PartyDetailsRequestResult)
-
 class ExerciseMethod(CharField):
     __swig_setmethods__ = {}
     for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -11776,23 +10854,6 @@ class RelatdSym(StringField):
 RelatdSym_swigregister = _quickfix.RelatdSym_swigregister
 RelatdSym_swigregister(RelatdSym)
 
-class RiskLimitAmount(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskLimitAmount, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskLimitAmount, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskLimitAmount(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskLimitAmount
-    __del__ = lambda self : None;
-RiskLimitAmount_swigregister = _quickfix.RiskLimitAmount_swigregister
-RiskLimitAmount_swigregister(RiskLimitAmount)
-
 class UnderlyingLegSecuritySubType(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -11826,57 +10887,6 @@ class NoUnderlyingSecurityAltID(IntField):
     __del__ = lambda self : None;
 NoUnderlyingSecurityAltID_swigregister = _quickfix.NoUnderlyingSecurityAltID_swigregister
 NoUnderlyingSecurityAltID_swigregister(NoUnderlyingSecurityAltID)
-
-class RelationshipRiskCFICode(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskCFICode, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskCFICode, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskCFICode(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskCFICode
-    __del__ = lambda self : None;
-RelationshipRiskCFICode_swigregister = _quickfix.RelationshipRiskCFICode_swigregister
-RelationshipRiskCFICode_swigregister(RelationshipRiskCFICode)
-
-class NoRelatedPartySubIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedPartySubIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedPartySubIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedPartySubIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedPartySubIDs
-    __del__ = lambda self : None;
-NoRelatedPartySubIDs_swigregister = _quickfix.NoRelatedPartySubIDs_swigregister
-NoRelatedPartySubIDs_swigregister(NoRelatedPartySubIDs)
-
-class RiskSymbolSfx(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSymbolSfx, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSymbolSfx, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSymbolSfx(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSymbolSfx
-    __del__ = lambda self : None;
-RiskSymbolSfx_swigregister = _quickfix.RiskSymbolSfx_swigregister
-RiskSymbolSfx_swigregister(RiskSymbolSfx)
 
 class MDQuoteType(IntField):
     __swig_setmethods__ = {}
@@ -12490,23 +11500,6 @@ class CashDistribAgentAcctName(StringField):
 CashDistribAgentAcctName_swigregister = _quickfix.CashDistribAgentAcctName_swigregister
 CashDistribAgentAcctName_swigregister(CashDistribAgentAcctName)
 
-class NoContextPartySubIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoContextPartySubIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoContextPartySubIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoContextPartySubIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoContextPartySubIDs
-    __del__ = lambda self : None;
-NoContextPartySubIDs_swigregister = _quickfix.NoContextPartySubIDs_swigregister
-NoContextPartySubIDs_swigregister(NoContextPartySubIDs)
-
 class UndlyInstrumentPartyIDSource(CharField):
     __swig_setmethods__ = {}
     for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -12659,23 +11652,6 @@ class SecuritySettlAgentAcctName(StringField):
     __del__ = lambda self : None;
 SecuritySettlAgentAcctName_swigregister = _quickfix.SecuritySettlAgentAcctName_swigregister
 SecuritySettlAgentAcctName_swigregister(SecuritySettlAgentAcctName)
-
-class RiskInstrumentMultiplier(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskInstrumentMultiplier, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskInstrumentMultiplier, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskInstrumentMultiplier(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskInstrumentMultiplier
-    __del__ = lambda self : None;
-RiskInstrumentMultiplier_swigregister = _quickfix.RiskInstrumentMultiplier_swigregister
-RiskInstrumentMultiplier_swigregister(RiskInstrumentMultiplier)
 
 class NoDerivativeEvents(IntField):
     __swig_setmethods__ = {}
@@ -13238,23 +12214,6 @@ class NoMDEntries(IntField):
 NoMDEntries_swigregister = _quickfix.NoMDEntries_swigregister
 NoMDEntries_swigregister(NoMDEntries)
 
-class NoPartyListResponseTypes(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoPartyListResponseTypes, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoPartyListResponseTypes, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoPartyListResponseTypes(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoPartyListResponseTypes
-    __del__ = lambda self : None;
-NoPartyListResponseTypes_swigregister = _quickfix.NoPartyListResponseTypes_swigregister
-NoPartyListResponseTypes_swigregister(NoPartyListResponseTypes)
-
 class StrikePriceDeterminationMethod(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -13339,23 +12298,6 @@ class IOIRefID(StringField):
     __del__ = lambda self : None;
 IOIRefID_swigregister = _quickfix.IOIRefID_swigregister
 IOIRefID_swigregister(IOIRefID)
-
-class NoContextPartyIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoContextPartyIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoContextPartyIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoContextPartyIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoContextPartyIDs
-    __del__ = lambda self : None;
-NoContextPartyIDs_swigregister = _quickfix.NoContextPartyIDs_swigregister
-NoContextPartyIDs_swigregister(NoContextPartyIDs)
 
 class TargetStrategy(IntField):
     __swig_setmethods__ = {}
@@ -13595,23 +12537,6 @@ class CustOrderCapacity(IntField):
 CustOrderCapacity_swigregister = _quickfix.CustOrderCapacity_swigregister
 CustOrderCapacity_swigregister(CustOrderCapacity)
 
-class RiskSecurityExchange(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityExchange, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityExchange, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityExchange(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityExchange
-    __del__ = lambda self : None;
-RiskSecurityExchange_swigregister = _quickfix.RiskSecurityExchange_swigregister
-RiskSecurityExchange_swigregister(RiskSecurityExchange)
-
 class LegAllocSettlCurrency(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -13697,23 +12622,6 @@ class LegSecurityID(StringField):
 LegSecurityID_swigregister = _quickfix.LegSecurityID_swigregister
 LegSecurityID_swigregister(LegSecurityID)
 
-class EncodedSymbol(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, EncodedSymbol, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, EncodedSymbol, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_EncodedSymbol(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_EncodedSymbol
-    __del__ = lambda self : None;
-EncodedSymbol_swigregister = _quickfix.EncodedSymbol_swigregister
-EncodedSymbol_swigregister(EncodedSymbol)
-
 class DerivativeSecurityDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -13747,23 +12655,6 @@ class UnitOfMeasure(StringField):
     __del__ = lambda self : None;
 UnitOfMeasure_swigregister = _quickfix.UnitOfMeasure_swigregister
 UnitOfMeasure_swigregister(UnitOfMeasure)
-
-class SecDefStatus(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SecDefStatus, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, SecDefStatus, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_SecDefStatus(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SecDefStatus
-    __del__ = lambda self : None;
-SecDefStatus_swigregister = _quickfix.SecDefStatus_swigregister
-SecDefStatus_swigregister(SecDefStatus)
 
 class Quantity(DoubleField):
     __swig_setmethods__ = {}
@@ -14122,23 +13013,6 @@ class StandInstDbType(IntField):
 StandInstDbType_swigregister = _quickfix.StandInstDbType_swigregister
 StandInstDbType_swigregister(StandInstDbType)
 
-class RelatedContextPartyIDSource(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedContextPartyIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedContextPartyIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedContextPartyIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedContextPartyIDSource
-    __del__ = lambda self : None;
-RelatedContextPartyIDSource_swigregister = _quickfix.RelatedContextPartyIDSource_swigregister
-RelatedContextPartyIDSource_swigregister(RelatedContextPartyIDSource)
-
 class QuoteEntryStatus(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -14309,23 +13183,6 @@ class AllocID(StringField):
 AllocID_swigregister = _quickfix.AllocID_swigregister
 AllocID_swigregister(AllocID)
 
-class NoPartyList(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoPartyList, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoPartyList, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoPartyList(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoPartyList
-    __del__ = lambda self : None;
-NoPartyList_swigregister = _quickfix.NoPartyList_swigregister
-NoPartyList_swigregister(NoPartyList)
-
 class UnderlyingDeliveryAmount(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -14444,23 +13301,6 @@ class PaymentMethod(IntField):
     __del__ = lambda self : None;
 PaymentMethod_swigregister = _quickfix.PaymentMethod_swigregister
 PaymentMethod_swigregister(PaymentMethod)
-
-class RiskCouponRate(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskCouponRate, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskCouponRate, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskCouponRate(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskCouponRate
-    __del__ = lambda self : None;
-RiskCouponRate_swigregister = _quickfix.RiskCouponRate_swigregister
-RiskCouponRate_swigregister(RiskCouponRate)
 
 class UnderlyingLegOptAttribute(CharField):
     __swig_setmethods__ = {}
@@ -14750,23 +13590,6 @@ class MiscFeeCurr(StringField):
     __del__ = lambda self : None;
 MiscFeeCurr_swigregister = _quickfix.MiscFeeCurr_swigregister
 MiscFeeCurr_swigregister(MiscFeeCurr)
-
-class NoRiskLimits(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRiskLimits, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRiskLimits, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRiskLimits(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRiskLimits
-    __del__ = lambda self : None;
-NoRiskLimits_swigregister = _quickfix.NoRiskLimits_swigregister
-NoRiskLimits_swigregister(NoRiskLimits)
 
 class AttachmentPoint(DoubleField):
     __swig_setmethods__ = {}
@@ -15108,23 +13931,6 @@ class ClearingFirm(StringField):
 ClearingFirm_swigregister = _quickfix.ClearingFirm_swigregister
 ClearingFirm_swigregister(ClearingFirm)
 
-class RelationshipRiskSecurityIDSource(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityIDSource
-    __del__ = lambda self : None;
-RelationshipRiskSecurityIDSource_swigregister = _quickfix.RelationshipRiskSecurityIDSource_swigregister
-RelationshipRiskSecurityIDSource_swigregister(RelationshipRiskSecurityIDSource)
-
 class SessionStatus(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -15363,57 +14169,6 @@ class QuoteReqID(StringField):
 QuoteReqID_swigregister = _quickfix.QuoteReqID_swigregister
 QuoteReqID_swigregister(QuoteReqID)
 
-class NoRelatedPartyAltSubIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedPartyAltSubIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedPartyAltSubIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedPartyAltSubIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedPartyAltSubIDs
-    __del__ = lambda self : None;
-NoRelatedPartyAltSubIDs_swigregister = _quickfix.NoRelatedPartyAltSubIDs_swigregister
-NoRelatedPartyAltSubIDs_swigregister(NoRelatedPartyAltSubIDs)
-
-class RiskProduct(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskProduct, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskProduct, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskProduct(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskProduct
-    __del__ = lambda self : None;
-RiskProduct_swigregister = _quickfix.RiskProduct_swigregister
-RiskProduct_swigregister(RiskProduct)
-
-class RiskSecurityAltIDSource(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityAltIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityAltIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityAltIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityAltIDSource
-    __del__ = lambda self : None;
-RiskSecurityAltIDSource_swigregister = _quickfix.RiskSecurityAltIDSource_swigregister
-RiskSecurityAltIDSource_swigregister(RiskSecurityAltIDSource)
-
 class PriceUnitOfMeasure(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -15635,40 +14390,6 @@ class MessageEncoding(StringField):
 MessageEncoding_swigregister = _quickfix.MessageEncoding_swigregister
 MessageEncoding_swigregister(MessageEncoding)
 
-class RiskPutOrCall(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskPutOrCall, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskPutOrCall, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskPutOrCall(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskPutOrCall
-    __del__ = lambda self : None;
-RiskPutOrCall_swigregister = _quickfix.RiskPutOrCall_swigregister
-RiskPutOrCall_swigregister(RiskPutOrCall)
-
-class RiskSecurityGroup(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityGroup, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityGroup, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityGroup(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityGroup
-    __del__ = lambda self : None;
-RiskSecurityGroup_swigregister = _quickfix.RiskSecurityGroup_swigregister
-RiskSecurityGroup_swigregister(RiskSecurityGroup)
-
 class NoPartySubIDs(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -15703,12 +14424,12 @@ class SettlInstReqID(StringField):
 SettlInstReqID_swigregister = _quickfix.SettlInstReqID_swigregister
 SettlInstReqID_swigregister(SettlInstReqID)
 
-class LegRepoCollateralSecurityType(IntField):
+class LegRepoCollateralSecurityType(StringField):
     __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, LegRepoCollateralSecurityType, name, value)
     __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
@@ -15736,23 +14457,6 @@ class AffectedSecondaryOrderID(StringField):
     __del__ = lambda self : None;
 AffectedSecondaryOrderID_swigregister = _quickfix.AffectedSecondaryOrderID_swigregister
 AffectedSecondaryOrderID_swigregister(AffectedSecondaryOrderID)
-
-class RiskSymbol(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSymbol, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSymbol, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSymbol(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSymbol
-    __del__ = lambda self : None;
-RiskSymbol_swigregister = _quickfix.RiskSymbol_swigregister
-RiskSymbol_swigregister(RiskSymbol)
 
 class DerivativeMaturityTime(StringField):
     __swig_setmethods__ = {}
@@ -15924,23 +14628,6 @@ class ExpireDate(StringField):
 ExpireDate_swigregister = _quickfix.ExpireDate_swigregister
 ExpireDate_swigregister(ExpireDate)
 
-class RiskSecurityType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityType
-    __del__ = lambda self : None;
-RiskSecurityType_swigregister = _quickfix.RiskSecurityType_swigregister
-RiskSecurityType_swigregister(RiskSecurityType)
-
 class NoMatchRules(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -16077,23 +14764,6 @@ class WaveNo(StringField):
 WaveNo_swigregister = _quickfix.WaveNo_swigregister
 WaveNo_swigregister(WaveNo)
 
-class RiskSeniority(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSeniority, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSeniority, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSeniority(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSeniority
-    __del__ = lambda self : None;
-RiskSeniority_swigregister = _quickfix.RiskSeniority_swigregister
-RiskSeniority_swigregister(RiskSeniority)
-
 class StrikePriceBoundaryMethod(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -16161,23 +14831,6 @@ class QuoteID(StringField):
     __del__ = lambda self : None;
 QuoteID_swigregister = _quickfix.QuoteID_swigregister
 QuoteID_swigregister(QuoteID)
-
-class RiskFlexibleIndicator(BoolField):
-    __swig_setmethods__ = {}
-    for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskFlexibleIndicator, name, value)
-    __swig_getmethods__ = {}
-    for _s in [BoolField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskFlexibleIndicator, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskFlexibleIndicator(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskFlexibleIndicator
-    __del__ = lambda self : None;
-RiskFlexibleIndicator_swigregister = _quickfix.RiskFlexibleIndicator_swigregister
-RiskFlexibleIndicator_swigregister(RiskFlexibleIndicator)
 
 class DerivativeInstrumentPartyIDSource(StringField):
     __swig_setmethods__ = {}
@@ -16366,12 +15019,12 @@ class CrossType(IntField):
 CrossType_swigregister = _quickfix.CrossType_swigregister
 CrossType_swigregister(CrossType)
 
-class RepoCollateralSecurityType(IntField):
+class RepoCollateralSecurityType(StringField):
     __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RepoCollateralSecurityType, name, value)
     __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, RepoCollateralSecurityType, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
@@ -16637,23 +15290,6 @@ class ContAmtCurr(StringField):
     __del__ = lambda self : None;
 ContAmtCurr_swigregister = _quickfix.ContAmtCurr_swigregister
 ContAmtCurr_swigregister(ContAmtCurr)
-
-class RelationshipRiskSecurityGroup(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityGroup, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityGroup, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityGroup(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityGroup
-    __del__ = lambda self : None;
-RelationshipRiskSecurityGroup_swigregister = _quickfix.RelationshipRiskSecurityGroup_swigregister
-RelationshipRiskSecurityGroup_swigregister(RelationshipRiskSecurityGroup)
 
 class ComplexEventType(IntField):
     __swig_setmethods__ = {}
@@ -17250,23 +15886,6 @@ class UnderlyingLegMaturityMonthYear(StringField):
 UnderlyingLegMaturityMonthYear_swigregister = _quickfix.UnderlyingLegMaturityMonthYear_swigregister
 UnderlyingLegMaturityMonthYear_swigregister(UnderlyingLegMaturityMonthYear)
 
-class DerivativeSecurityListRequestType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DerivativeSecurityListRequestType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, DerivativeSecurityListRequestType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_DerivativeSecurityListRequestType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_DerivativeSecurityListRequestType
-    __del__ = lambda self : None;
-DerivativeSecurityListRequestType_swigregister = _quickfix.DerivativeSecurityListRequestType_swigregister
-DerivativeSecurityListRequestType_swigregister(DerivativeSecurityListRequestType)
-
 class NoLotTypeRules(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -17352,23 +15971,6 @@ class GrossTradeAmt(DoubleField):
 GrossTradeAmt_swigregister = _quickfix.GrossTradeAmt_swigregister
 GrossTradeAmt_swigregister(GrossTradeAmt)
 
-class ContextPartyID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ContextPartyID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ContextPartyID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ContextPartyID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ContextPartyID
-    __del__ = lambda self : None;
-ContextPartyID_swigregister = _quickfix.ContextPartyID_swigregister
-ContextPartyID_swigregister(ContextPartyID)
-
 class SecurityListDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -17453,23 +16055,6 @@ class LegCreditRating(StringField):
     __del__ = lambda self : None;
 LegCreditRating_swigregister = _quickfix.LegCreditRating_swigregister
 LegCreditRating_swigregister(LegCreditRating)
-
-class RelationshipRiskInstrumentSettlType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskInstrumentSettlType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskInstrumentSettlType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskInstrumentSettlType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskInstrumentSettlType
-    __del__ = lambda self : None;
-RelationshipRiskInstrumentSettlType_swigregister = _quickfix.RelationshipRiskInstrumentSettlType_swigregister
-RelationshipRiskInstrumentSettlType_swigregister(RelationshipRiskInstrumentSettlType)
 
 class BidForwardPoints2(DoubleField):
     __swig_setmethods__ = {}
@@ -17590,23 +16175,6 @@ class LegSettlmntTyp(CharField):
 LegSettlmntTyp_swigregister = _quickfix.LegSettlmntTyp_swigregister
 LegSettlmntTyp_swigregister(LegSettlmntTyp)
 
-class NoRelationshipRiskInstruments(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelationshipRiskInstruments, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelationshipRiskInstruments, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelationshipRiskInstruments(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelationshipRiskInstruments
-    __del__ = lambda self : None;
-NoRelationshipRiskInstruments_swigregister = _quickfix.NoRelationshipRiskInstruments_swigregister
-NoRelationshipRiskInstruments_swigregister(NoRelationshipRiskInstruments)
-
 class DerivativeNTPositionLimit(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -17691,23 +16259,6 @@ class SessionRejectReason(IntField):
     __del__ = lambda self : None;
 SessionRejectReason_swigregister = _quickfix.SessionRejectReason_swigregister
 SessionRejectReason_swigregister(SessionRejectReason)
-
-class PartyDetailsListReportID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyDetailsListReportID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyDetailsListReportID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyDetailsListReportID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyDetailsListReportID
-    __del__ = lambda self : None;
-PartyDetailsListReportID_swigregister = _quickfix.PartyDetailsListReportID_swigregister
-PartyDetailsListReportID_swigregister(PartyDetailsListReportID)
 
 class DeliveryType(IntField):
     __swig_setmethods__ = {}
@@ -17981,40 +16532,6 @@ class LegAllocAccount(StringField):
 LegAllocAccount_swigregister = _quickfix.LegAllocAccount_swigregister
 LegAllocAccount_swigregister(LegAllocAccount)
 
-class NoRelationshipRiskWarningLevels(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelationshipRiskWarningLevels, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelationshipRiskWarningLevels, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelationshipRiskWarningLevels(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelationshipRiskWarningLevels
-    __del__ = lambda self : None;
-NoRelationshipRiskWarningLevels_swigregister = _quickfix.NoRelationshipRiskWarningLevels_swigregister
-NoRelationshipRiskWarningLevels_swigregister(NoRelationshipRiskWarningLevels)
-
-class RelationshipRiskProduct(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskProduct, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskProduct, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskProduct(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskProduct
-    __del__ = lambda self : None;
-RelationshipRiskProduct_swigregister = _quickfix.RelationshipRiskProduct_swigregister
-RelationshipRiskProduct_swigregister(RelationshipRiskProduct)
-
 class LegSecurityDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -18269,23 +16786,6 @@ class TotNoOrders(IntField):
     __del__ = lambda self : None;
 TotNoOrders_swigregister = _quickfix.TotNoOrders_swigregister
 TotNoOrders_swigregister(TotNoOrders)
-
-class PartyAltID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyAltID
-    __del__ = lambda self : None;
-PartyAltID_swigregister = _quickfix.PartyAltID_swigregister
-PartyAltID_swigregister(PartyAltID)
 
 class LegSwapType(IntField):
     __swig_setmethods__ = {}
@@ -18729,23 +17229,6 @@ class PreviouslyReported(BoolField):
 PreviouslyReported_swigregister = _quickfix.PreviouslyReported_swigregister
 PreviouslyReported_swigregister(PreviouslyReported)
 
-class ContextPartyIDSource(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ContextPartyIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ContextPartyIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ContextPartyIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ContextPartyIDSource
-    __del__ = lambda self : None;
-ContextPartyIDSource_swigregister = _quickfix.ContextPartyIDSource_swigregister
-ContextPartyIDSource_swigregister(ContextPartyIDSource)
-
 class RptSys(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -19102,23 +17585,6 @@ class ExecType(CharField):
     __del__ = lambda self : None;
 ExecType_swigregister = _quickfix.ExecType_swigregister
 ExecType_swigregister(ExecType)
-
-class NoRelatedContextPartySubIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedContextPartySubIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedContextPartySubIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedContextPartySubIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedContextPartySubIDs
-    __del__ = lambda self : None;
-NoRelatedContextPartySubIDs_swigregister = _quickfix.NoRelatedContextPartySubIDs_swigregister
-NoRelatedContextPartySubIDs_swigregister(NoRelatedContextPartySubIDs)
 
 class Nested4PartyRole(IntField):
     __swig_setmethods__ = {}
@@ -19715,23 +18181,6 @@ class TransactTime(UtcTimeStampField):
 TransactTime_swigregister = _quickfix.TransactTime_swigregister
 TransactTime_swigregister(TransactTime)
 
-class RiskLimitType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskLimitType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskLimitType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskLimitType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskLimitType
-    __del__ = lambda self : None;
-RiskLimitType_swigregister = _quickfix.RiskLimitType_swigregister
-RiskLimitType_swigregister(RiskLimitType)
-
 class UnderlyingFlowScheduleType(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -19851,23 +18300,6 @@ class LastShares(DoubleField):
 LastShares_swigregister = _quickfix.LastShares_swigregister
 LastShares_swigregister(LastShares)
 
-class RequestedPartyRole(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RequestedPartyRole, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RequestedPartyRole, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RequestedPartyRole(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RequestedPartyRole
-    __del__ = lambda self : None;
-RequestedPartyRole_swigregister = _quickfix.RequestedPartyRole_swigregister
-RequestedPartyRole_swigregister(RequestedPartyRole)
-
 class EventTime(UtcTimeStampField):
     __swig_setmethods__ = {}
     for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -19919,22 +18351,22 @@ class ShortSaleReason(IntField):
 ShortSaleReason_swigregister = _quickfix.ShortSaleReason_swigregister
 ShortSaleReason_swigregister(ShortSaleReason)
 
-class RelationshipRiskSeniority(StringField):
+class XmlData(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSeniority, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, XmlData, name, value)
     __swig_getmethods__ = {}
     for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSeniority, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSeniority(*args)
+        this = _quickfix.new_XmlData(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSeniority
+    __swig_destroy__ = _quickfix.delete_XmlData
     __del__ = lambda self : None;
-RelationshipRiskSeniority_swigregister = _quickfix.RelationshipRiskSeniority_swigregister
-RelationshipRiskSeniority_swigregister(RelationshipRiskSeniority)
+XmlData_swigregister = _quickfix.XmlData_swigregister
+XmlData_swigregister(XmlData)
 
 class NoTargetPartyIDs(IntField):
     __swig_setmethods__ = {}
@@ -20514,23 +18946,6 @@ class ExDestination(StringField):
 ExDestination_swigregister = _quickfix.ExDestination_swigregister
 ExDestination_swigregister(ExDestination)
 
-class NoPartyRelationships(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoPartyRelationships, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoPartyRelationships, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoPartyRelationships(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoPartyRelationships
-    __del__ = lambda self : None;
-NoPartyRelationships_swigregister = _quickfix.NoPartyRelationships_swigregister
-NoPartyRelationships_swigregister(NoPartyRelationships)
-
 class DerivativeInstrmtAssignmentMethod(CharField):
     __swig_setmethods__ = {}
     for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -20615,23 +19030,6 @@ class LegLastPx(DoubleField):
     __del__ = lambda self : None;
 LegLastPx_swigregister = _quickfix.LegLastPx_swigregister
 LegLastPx_swigregister(LegLastPx)
-
-class NoRiskWarningLevels(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRiskWarningLevels, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRiskWarningLevels, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRiskWarningLevels(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRiskWarningLevels
-    __del__ = lambda self : None;
-NoRiskWarningLevels_swigregister = _quickfix.NoRiskWarningLevels_swigregister
-NoRiskWarningLevels_swigregister(NoRiskWarningLevels)
 
 class AllocReportType(IntField):
     __swig_setmethods__ = {}
@@ -20786,23 +19184,6 @@ class HopSendingTime(UtcTimeStampField):
 HopSendingTime_swigregister = _quickfix.HopSendingTime_swigregister
 HopSendingTime_swigregister(HopSendingTime)
 
-class RelationshipRiskLimitAmount(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskLimitAmount, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskLimitAmount, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskLimitAmount(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskLimitAmount
-    __del__ = lambda self : None;
-RelationshipRiskLimitAmount_swigregister = _quickfix.RelationshipRiskLimitAmount_swigregister
-RelationshipRiskLimitAmount_swigregister(RelationshipRiskLimitAmount)
-
 class ApplResendFlag(BoolField):
     __swig_setmethods__ = {}
     for _s in [BoolField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -20836,23 +19217,6 @@ class DerivativeCapPrice(DoubleField):
     __del__ = lambda self : None;
 DerivativeCapPrice_swigregister = _quickfix.DerivativeCapPrice_swigregister
 DerivativeCapPrice_swigregister(DerivativeCapPrice)
-
-class RiskSecurityID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityID
-    __del__ = lambda self : None;
-RiskSecurityID_swigregister = _quickfix.RiskSecurityID_swigregister
-RiskSecurityID_swigregister(RiskSecurityID)
 
 class ComplexOptPayoutAmount(DoubleField):
     __swig_setmethods__ = {}
@@ -21058,23 +19422,6 @@ class FloorPrice(DoubleField):
 FloorPrice_swigregister = _quickfix.FloorPrice_swigregister
 FloorPrice_swigregister(FloorPrice)
 
-class RiskMaturityTime(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskMaturityTime, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskMaturityTime, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskMaturityTime(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskMaturityTime
-    __del__ = lambda self : None;
-RiskMaturityTime_swigregister = _quickfix.RiskMaturityTime_swigregister
-RiskMaturityTime_swigregister(RiskMaturityTime)
-
 class UnderlyingPriceUnitOfMeasureQty(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -21193,23 +19540,6 @@ class LegBenchmarkCurveCurrency(StringField):
     __del__ = lambda self : None;
 LegBenchmarkCurveCurrency_swigregister = _quickfix.LegBenchmarkCurveCurrency_swigregister
 LegBenchmarkCurveCurrency_swigregister(LegBenchmarkCurveCurrency)
-
-class RiskInstrumentOperator(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskInstrumentOperator, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskInstrumentOperator, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskInstrumentOperator(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskInstrumentOperator
-    __del__ = lambda self : None;
-RiskInstrumentOperator_swigregister = _quickfix.RiskInstrumentOperator_swigregister
-RiskInstrumentOperator_swigregister(RiskInstrumentOperator)
 
 class OptPayoutAmount(DoubleField):
     __swig_setmethods__ = {}
@@ -21806,23 +20136,6 @@ class BidDescriptor(StringField):
 BidDescriptor_swigregister = _quickfix.BidDescriptor_swigregister
 BidDescriptor_swigregister(BidDescriptor)
 
-class RelationshipRiskSecurityAltIDSource(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityAltIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityAltIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityAltIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityAltIDSource
-    __del__ = lambda self : None;
-RelationshipRiskSecurityAltIDSource_swigregister = _quickfix.RelationshipRiskSecurityAltIDSource_swigregister
-RelationshipRiskSecurityAltIDSource_swigregister(RelationshipRiskSecurityAltIDSource)
-
 class MDStreamID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -22196,23 +20509,6 @@ class LegBidPx(DoubleField):
     __del__ = lambda self : None;
 LegBidPx_swigregister = _quickfix.LegBidPx_swigregister
 LegBidPx_swigregister(LegBidPx)
-
-class ContextPartyRole(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ContextPartyRole, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ContextPartyRole, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ContextPartyRole(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ContextPartyRole
-    __del__ = lambda self : None;
-ContextPartyRole_swigregister = _quickfix.ContextPartyRole_swigregister
-ContextPartyRole_swigregister(ContextPartyRole)
 
 class TradSesEvent(IntField):
     __swig_setmethods__ = {}
@@ -22604,40 +20900,6 @@ class RegistRejReasonCode(IntField):
     __del__ = lambda self : None;
 RegistRejReasonCode_swigregister = _quickfix.RegistRejReasonCode_swigregister
 RegistRejReasonCode_swigregister(RegistRejReasonCode)
-
-class RelationshipRiskEncodedSecurityDesc(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskEncodedSecurityDesc, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskEncodedSecurityDesc, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskEncodedSecurityDesc(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskEncodedSecurityDesc
-    __del__ = lambda self : None;
-RelationshipRiskEncodedSecurityDesc_swigregister = _quickfix.RelationshipRiskEncodedSecurityDesc_swigregister
-RelationshipRiskEncodedSecurityDesc_swigregister(RelationshipRiskEncodedSecurityDesc)
-
-class RelationshipRiskRestructuringType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskRestructuringType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskRestructuringType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskRestructuringType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskRestructuringType
-    __del__ = lambda self : None;
-RelationshipRiskRestructuringType_swigregister = _quickfix.RelationshipRiskRestructuringType_swigregister
-RelationshipRiskRestructuringType_swigregister(RelationshipRiskRestructuringType)
 
 class SideTimeInForce(UtcTimeStampField):
     __swig_setmethods__ = {}
@@ -23115,23 +21377,6 @@ class AllocAccruedInterestAmt(DoubleField):
 AllocAccruedInterestAmt_swigregister = _quickfix.AllocAccruedInterestAmt_swigregister
 AllocAccruedInterestAmt_swigregister(AllocAccruedInterestAmt)
 
-class RiskSecuritySubType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecuritySubType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecuritySubType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecuritySubType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecuritySubType
-    __del__ = lambda self : None;
-RiskSecuritySubType_swigregister = _quickfix.RiskSecuritySubType_swigregister
-RiskSecuritySubType_swigregister(RiskSecuritySubType)
-
 class EncodedSecurityListDesc(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -23267,23 +21512,6 @@ class LongQty(DoubleField):
     __del__ = lambda self : None;
 LongQty_swigregister = _quickfix.LongQty_swigregister
 LongQty_swigregister(LongQty)
-
-class NoPartyAltIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoPartyAltIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoPartyAltIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoPartyAltIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoPartyAltIDs
-    __del__ = lambda self : None;
-NoPartyAltIDs_swigregister = _quickfix.NoPartyAltIDs_swigregister
-NoPartyAltIDs_swigregister(NoPartyAltIDs)
 
 class DerivativeSettlMethod(CharField):
     __swig_setmethods__ = {}
@@ -23795,23 +22023,6 @@ class EncodedUnderlyingIssuer(StringField):
 EncodedUnderlyingIssuer_swigregister = _quickfix.EncodedUnderlyingIssuer_swigregister
 EncodedUnderlyingIssuer_swigregister(EncodedUnderlyingIssuer)
 
-class NoRequestedPartyRoles(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRequestedPartyRoles, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRequestedPartyRoles, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRequestedPartyRoles(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRequestedPartyRoles
-    __del__ = lambda self : None;
-NoRequestedPartyRoles_swigregister = _quickfix.NoRequestedPartyRoles_swigregister
-NoRequestedPartyRoles_swigregister(NoRequestedPartyRoles)
-
 class EncryptedPassword(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -23914,6 +22125,23 @@ class LastSpotRate(DoubleField):
 LastSpotRate_swigregister = _quickfix.LastSpotRate_swigregister
 LastSpotRate_swigregister(LastSpotRate)
 
+class Price(DoubleField):
+    __swig_setmethods__ = {}
+    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Price, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Price, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Price(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Price
+    __del__ = lambda self : None;
+Price_swigregister = _quickfix.Price_swigregister
+Price_swigregister(Price)
+
 class UnderlyingSecurityIDSource(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -23947,40 +22175,6 @@ class TotNoSecurityTypes(IntField):
     __del__ = lambda self : None;
 TotNoSecurityTypes_swigregister = _quickfix.TotNoSecurityTypes_swigregister
 TotNoSecurityTypes_swigregister(TotNoSecurityTypes)
-
-class RelationshipRiskInstrumentMultiplier(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskInstrumentMultiplier, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskInstrumentMultiplier, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskInstrumentMultiplier(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskInstrumentMultiplier
-    __del__ = lambda self : None;
-RelationshipRiskInstrumentMultiplier_swigregister = _quickfix.RelationshipRiskInstrumentMultiplier_swigregister
-RelationshipRiskInstrumentMultiplier_swigregister(RelationshipRiskInstrumentMultiplier)
-
-class NoRiskInstruments(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRiskInstruments, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRiskInstruments, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRiskInstruments(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRiskInstruments
-    __del__ = lambda self : None;
-NoRiskInstruments_swigregister = _quickfix.NoRiskInstruments_swigregister
-NoRiskInstruments_swigregister(NoRiskInstruments)
 
 class ReportedPx(DoubleField):
     __swig_setmethods__ = {}
@@ -24475,23 +22669,6 @@ class ContraTrader(StringField):
 ContraTrader_swigregister = _quickfix.ContraTrader_swigregister
 ContraTrader_swigregister(ContraTrader)
 
-class RiskInstrumentSettlType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskInstrumentSettlType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskInstrumentSettlType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskInstrumentSettlType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskInstrumentSettlType
-    __del__ = lambda self : None;
-RiskInstrumentSettlType_swigregister = _quickfix.RiskInstrumentSettlType_swigregister
-RiskInstrumentSettlType_swigregister(RiskInstrumentSettlType)
-
 class MDSecSize(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -24815,23 +22992,6 @@ class YieldRedemptionDate(StringField):
 YieldRedemptionDate_swigregister = _quickfix.YieldRedemptionDate_swigregister
 YieldRedemptionDate_swigregister(YieldRedemptionDate)
 
-class RelationshipRiskSecurityID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityID
-    __del__ = lambda self : None;
-RelationshipRiskSecurityID_swigregister = _quickfix.RelationshipRiskSecurityID_swigregister
-RelationshipRiskSecurityID_swigregister(RelationshipRiskSecurityID)
-
 class NoSettlDetails(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -24933,40 +23093,6 @@ class TradSesMethod(IntField):
     __del__ = lambda self : None;
 TradSesMethod_swigregister = _quickfix.TradSesMethod_swigregister
 TradSesMethod_swigregister(TradSesMethod)
-
-class RiskLimitCurrency(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskLimitCurrency, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskLimitCurrency, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskLimitCurrency(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskLimitCurrency
-    __del__ = lambda self : None;
-RiskLimitCurrency_swigregister = _quickfix.RiskLimitCurrency_swigregister
-RiskLimitCurrency_swigregister(RiskLimitCurrency)
-
-class PartyDetailsListRequestID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyDetailsListRequestID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyDetailsListRequestID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyDetailsListRequestID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyDetailsListRequestID
-    __del__ = lambda self : None;
-PartyDetailsListRequestID_swigregister = _quickfix.PartyDetailsListRequestID_swigregister
-PartyDetailsListRequestID_swigregister(PartyDetailsListRequestID)
 
 class AgreementID(StringField):
     __swig_setmethods__ = {}
@@ -25342,23 +23468,6 @@ class PriorSettlPrice(DoubleField):
 PriorSettlPrice_swigregister = _quickfix.PriorSettlPrice_swigregister
 PriorSettlPrice_swigregister(PriorSettlPrice)
 
-class RelationshipRiskSecurityType(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSecurityType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSecurityType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSecurityType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSecurityType
-    __del__ = lambda self : None;
-RelationshipRiskSecurityType_swigregister = _quickfix.RelationshipRiskSecurityType_swigregister
-RelationshipRiskSecurityType_swigregister(RelationshipRiskSecurityType)
-
 class NotAffOrigClOrdID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -25716,23 +23825,6 @@ class StateOrProvinceOfIssue(StringField):
 StateOrProvinceOfIssue_swigregister = _quickfix.StateOrProvinceOfIssue_swigregister
 StateOrProvinceOfIssue_swigregister(StateOrProvinceOfIssue)
 
-class RelatedPartyAltSubID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyAltSubID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyAltSubID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyAltSubID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyAltSubID
-    __del__ = lambda self : None;
-RelatedPartyAltSubID_swigregister = _quickfix.RelatedPartyAltSubID_swigregister
-RelatedPartyAltSubID_swigregister(RelatedPartyAltSubID)
-
 class DerivativeInstrRegistry(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -26039,23 +24131,6 @@ class UnderlyingSecurityAltID(StringField):
 UnderlyingSecurityAltID_swigregister = _quickfix.UnderlyingSecurityAltID_swigregister
 UnderlyingSecurityAltID_swigregister(UnderlyingSecurityAltID)
 
-class NoRelationshipRiskSecurityAltID(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelationshipRiskSecurityAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelationshipRiskSecurityAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelationshipRiskSecurityAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelationshipRiskSecurityAltID
-    __del__ = lambda self : None;
-NoRelationshipRiskSecurityAltID_swigregister = _quickfix.NoRelationshipRiskSecurityAltID_swigregister
-NoRelationshipRiskSecurityAltID_swigregister(NoRelationshipRiskSecurityAltID)
-
 class RefOrdIDReason(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -26191,23 +24266,6 @@ class LastCapacity(CharField):
     __del__ = lambda self : None;
 LastCapacity_swigregister = _quickfix.LastCapacity_swigregister
 LastCapacity_swigregister(LastCapacity)
-
-class RelationshipRiskLimitCurrency(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskLimitCurrency, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskLimitCurrency, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskLimitCurrency(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskLimitCurrency
-    __del__ = lambda self : None;
-RelationshipRiskLimitCurrency_swigregister = _quickfix.RelationshipRiskLimitCurrency_swigregister
-RelationshipRiskLimitCurrency_swigregister(RelationshipRiskLimitCurrency)
 
 class UnderlyingInstrumentPartySubID(StringField):
     __swig_setmethods__ = {}
@@ -26446,23 +24504,6 @@ class NoQuoteEntries(IntField):
     __del__ = lambda self : None;
 NoQuoteEntries_swigregister = _quickfix.NoQuoteEntries_swigregister
 NoQuoteEntries_swigregister(NoQuoteEntries)
-
-class RelationshipRiskWarningLevelName(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskWarningLevelName, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskWarningLevelName, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskWarningLevelName(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskWarningLevelName
-    __del__ = lambda self : None;
-RelationshipRiskWarningLevelName_swigregister = _quickfix.RelationshipRiskWarningLevelName_swigregister
-RelationshipRiskWarningLevelName_swigregister(RelationshipRiskWarningLevelName)
 
 class DefaultCstmApplVerID(StringField):
     __swig_setmethods__ = {}
@@ -27076,40 +25117,6 @@ class LegCouponPaymentDate(StringField):
 LegCouponPaymentDate_swigregister = _quickfix.LegCouponPaymentDate_swigregister
 LegCouponPaymentDate_swigregister(LegCouponPaymentDate)
 
-class TotNoPartyList(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, TotNoPartyList, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, TotNoPartyList, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_TotNoPartyList(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_TotNoPartyList
-    __del__ = lambda self : None;
-TotNoPartyList_swigregister = _quickfix.TotNoPartyList_swigregister
-TotNoPartyList_swigregister(TotNoPartyList)
-
-class PartyListResponseType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyListResponseType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyListResponseType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyListResponseType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyListResponseType
-    __del__ = lambda self : None;
-PartyListResponseType_swigregister = _quickfix.PartyListResponseType_swigregister
-PartyListResponseType_swigregister(PartyListResponseType)
-
 class NoUnderlyingLegSecurityAltID(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -27211,23 +25218,6 @@ class PriorityIndicator(IntField):
     __del__ = lambda self : None;
 PriorityIndicator_swigregister = _quickfix.PriorityIndicator_swigregister
 PriorityIndicator_swigregister(PriorityIndicator)
-
-class ContextPartySubIDType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, ContextPartySubIDType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, ContextPartySubIDType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_ContextPartySubIDType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_ContextPartySubIDType
-    __del__ = lambda self : None;
-ContextPartySubIDType_swigregister = _quickfix.ContextPartySubIDType_swigregister
-ContextPartySubIDType_swigregister(ContextPartySubIDType)
 
 class UnderlyingLegCFICode(StringField):
     __swig_setmethods__ = {}
@@ -27535,40 +25525,6 @@ class SendingTime(UtcTimeStampField):
 SendingTime_swigregister = _quickfix.SendingTime_swigregister
 SendingTime_swigregister(SendingTime)
 
-class RelationshipRiskMaturityMonthYear(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskMaturityMonthYear, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskMaturityMonthYear, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskMaturityMonthYear(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskMaturityMonthYear
-    __del__ = lambda self : None;
-RelationshipRiskMaturityMonthYear_swigregister = _quickfix.RelationshipRiskMaturityMonthYear_swigregister
-RelationshipRiskMaturityMonthYear_swigregister(RelationshipRiskMaturityMonthYear)
-
-class RelatedPartyAltIDSource(CharField):
-    __swig_setmethods__ = {}
-    for _s in [CharField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedPartyAltIDSource, name, value)
-    __swig_getmethods__ = {}
-    for _s in [CharField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedPartyAltIDSource, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedPartyAltIDSource(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedPartyAltIDSource
-    __del__ = lambda self : None;
-RelatedPartyAltIDSource_swigregister = _quickfix.RelatedPartyAltIDSource_swigregister
-RelatedPartyAltIDSource_swigregister(RelatedPartyAltIDSource)
-
 class ComplexEventStartDate(UtcTimeStampField):
     __swig_setmethods__ = {}
     for _s in [UtcTimeStampField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -27653,23 +25609,6 @@ class SendingDate(StringField):
     __del__ = lambda self : None;
 SendingDate_swigregister = _quickfix.SendingDate_swigregister
 SendingDate_swigregister(SendingDate)
-
-class PartyRelationship(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PartyRelationship, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, PartyRelationship, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_PartyRelationship(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_PartyRelationship
-    __del__ = lambda self : None;
-PartyRelationship_swigregister = _quickfix.PartyRelationship_swigregister
-PartyRelationship_swigregister(PartyRelationship)
 
 class TimeToExpiration(DoubleField):
     __swig_setmethods__ = {}
@@ -27959,23 +25898,6 @@ class QuoteRespID(StringField):
     __del__ = lambda self : None;
 QuoteRespID_swigregister = _quickfix.QuoteRespID_swigregister
 QuoteRespID_swigregister(QuoteRespID)
-
-class RiskMaturityMonthYear(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskMaturityMonthYear, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskMaturityMonthYear, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskMaturityMonthYear(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskMaturityMonthYear
-    __del__ = lambda self : None;
-RiskMaturityMonthYear_swigregister = _quickfix.RiskMaturityMonthYear_swigregister
-RiskMaturityMonthYear_swigregister(RiskMaturityMonthYear)
 
 class Nested3PartySubID(StringField):
     __swig_setmethods__ = {}
@@ -28402,57 +26324,6 @@ class BidDescriptorType(IntField):
 BidDescriptorType_swigregister = _quickfix.BidDescriptorType_swigregister
 BidDescriptorType_swigregister(BidDescriptorType)
 
-class RiskEncodedSecurityDescLen(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskEncodedSecurityDescLen, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskEncodedSecurityDescLen, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskEncodedSecurityDescLen(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskEncodedSecurityDescLen
-    __del__ = lambda self : None;
-RiskEncodedSecurityDescLen_swigregister = _quickfix.RiskEncodedSecurityDescLen_swigregister
-RiskEncodedSecurityDescLen_swigregister(RiskEncodedSecurityDescLen)
-
-class RelationshipRiskSymbol(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSymbol, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSymbol, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSymbol(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSymbol
-    __del__ = lambda self : None;
-RelationshipRiskSymbol_swigregister = _quickfix.RelationshipRiskSymbol_swigregister
-RelationshipRiskSymbol_swigregister(RelationshipRiskSymbol)
-
-class NoRelatedContextPartyIDs(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRelatedContextPartyIDs, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedContextPartyIDs, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRelatedContextPartyIDs(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRelatedContextPartyIDs
-    __del__ = lambda self : None;
-NoRelatedContextPartyIDs_swigregister = _quickfix.NoRelatedContextPartyIDs_swigregister
-NoRelatedContextPartyIDs_swigregister(NoRelatedContextPartyIDs)
-
 class DerivativeInstrumentPartySubID(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -28503,23 +26374,6 @@ class DateOfBirth(StringField):
     __del__ = lambda self : None;
 DateOfBirth_swigregister = _quickfix.DateOfBirth_swigregister
 DateOfBirth_swigregister(DateOfBirth)
-
-class RelatedContextPartySubIDType(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelatedContextPartySubIDType, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelatedContextPartySubIDType, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelatedContextPartySubIDType(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelatedContextPartySubIDType
-    __del__ = lambda self : None;
-RelatedContextPartySubIDType_swigregister = _quickfix.RelatedContextPartySubIDType_swigregister
-RelatedContextPartySubIDType_swigregister(RelatedContextPartySubIDType)
 
 class StartStrikePxRange(DoubleField):
     __swig_setmethods__ = {}
@@ -28623,23 +26477,6 @@ class OrderQty(DoubleField):
 OrderQty_swigregister = _quickfix.OrderQty_swigregister
 OrderQty_swigregister(OrderQty)
 
-class RelationshipRiskWarningLevelPercent(DoubleField):
-    __swig_setmethods__ = {}
-    for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskWarningLevelPercent, name, value)
-    __swig_getmethods__ = {}
-    for _s in [DoubleField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskWarningLevelPercent, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskWarningLevelPercent(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskWarningLevelPercent
-    __del__ = lambda self : None;
-RelationshipRiskWarningLevelPercent_swigregister = _quickfix.RelationshipRiskWarningLevelPercent_swigregister
-RelationshipRiskWarningLevelPercent_swigregister(RelationshipRiskWarningLevelPercent)
-
 class OriginalNotionalPercentageOutstanding(DoubleField):
     __swig_setmethods__ = {}
     for _s in [DoubleField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -28725,23 +26562,6 @@ class StrategyParameterValue(StringField):
 StrategyParameterValue_swigregister = _quickfix.StrategyParameterValue_swigregister
 StrategyParameterValue_swigregister(StrategyParameterValue)
 
-class RiskSecurityDesc(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityDesc, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityDesc, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityDesc(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityDesc
-    __del__ = lambda self : None;
-RiskSecurityDesc_swigregister = _quickfix.RiskSecurityDesc_swigregister
-RiskSecurityDesc_swigregister(RiskSecurityDesc)
-
 class NoInstrumentParties(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -28775,23 +26595,6 @@ class QuoteType(IntField):
     __del__ = lambda self : None;
 QuoteType_swigregister = _quickfix.QuoteType_swigregister
 QuoteType_swigregister(QuoteType)
-
-class NoRiskSecurityAltID(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoRiskSecurityAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, NoRiskSecurityAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_NoRiskSecurityAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_NoRiskSecurityAltID
-    __del__ = lambda self : None;
-NoRiskSecurityAltID_swigregister = _quickfix.NoRiskSecurityAltID_swigregister
-NoRiskSecurityAltID_swigregister(NoRiskSecurityAltID)
 
 class NoStrategyParameters(IntField):
     __swig_setmethods__ = {}
@@ -28843,23 +26646,6 @@ class DiscretionInst(CharField):
     __del__ = lambda self : None;
 DiscretionInst_swigregister = _quickfix.DiscretionInst_swigregister
 DiscretionInst_swigregister(DiscretionInst)
-
-class RiskSecurityAltID(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RiskSecurityAltID, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RiskSecurityAltID, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RiskSecurityAltID(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RiskSecurityAltID
-    __del__ = lambda self : None;
-RiskSecurityAltID_swigregister = _quickfix.RiskSecurityAltID_swigregister
-RiskSecurityAltID_swigregister(RiskSecurityAltID)
 
 class TargetPartyRole(IntField):
     __swig_setmethods__ = {}
@@ -28963,23 +26749,6 @@ class MDReqRejReason(CharField):
 MDReqRejReason_swigregister = _quickfix.MDReqRejReason_swigregister
 MDReqRejReason_swigregister(MDReqRejReason)
 
-class RelationshipRiskPutOrCall(IntField):
-    __swig_setmethods__ = {}
-    for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskPutOrCall, name, value)
-    __swig_getmethods__ = {}
-    for _s in [IntField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskPutOrCall, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskPutOrCall(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskPutOrCall
-    __del__ = lambda self : None;
-RelationshipRiskPutOrCall_swigregister = _quickfix.RelationshipRiskPutOrCall_swigregister
-RelationshipRiskPutOrCall_swigregister(RelationshipRiskPutOrCall)
-
 class ApplReqType(IntField):
     __swig_setmethods__ = {}
     for _s in [IntField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
@@ -28996,6 +26765,23 @@ class ApplReqType(IntField):
     __del__ = lambda self : None;
 ApplReqType_swigregister = _quickfix.ApplReqType_swigregister
 ApplReqType_swigregister(ApplReqType)
+
+class Country(StringField):
+    __swig_setmethods__ = {}
+    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Country, name, value)
+    __swig_getmethods__ = {}
+    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, Country, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Country(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Country
+    __del__ = lambda self : None;
+Country_swigregister = _quickfix.Country_swigregister
+Country_swigregister(Country)
 
 class UnderlyingLegSecurityIDSource(StringField):
     __swig_setmethods__ = {}
@@ -29115,23 +26901,6 @@ class UnderlyingPutOrCall(IntField):
     __del__ = lambda self : None;
 UnderlyingPutOrCall_swigregister = _quickfix.UnderlyingPutOrCall_swigregister
 UnderlyingPutOrCall_swigregister(UnderlyingPutOrCall)
-
-class RelationshipRiskSymbolSfx(StringField):
-    __swig_setmethods__ = {}
-    for _s in [StringField]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
-    __setattr__ = lambda self, name, value: _swig_setattr(self, RelationshipRiskSymbolSfx, name, value)
-    __swig_getmethods__ = {}
-    for _s in [StringField]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
-    __getattr__ = lambda self, name: _swig_getattr(self, RelationshipRiskSymbolSfx, name)
-    __repr__ = _swig_repr
-    def __init__(self, *args): 
-        this = _quickfix.new_RelationshipRiskSymbolSfx(*args)
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _quickfix.delete_RelationshipRiskSymbolSfx
-    __del__ = lambda self : None;
-RelationshipRiskSymbolSfx_swigregister = _quickfix.RelationshipRiskSymbolSfx_swigregister
-RelationshipRiskSymbolSfx_swigregister(RelationshipRiskSymbolSfx)
 
 class UnderlyingInstrumentPartyRole(IntField):
     __swig_setmethods__ = {}
@@ -29292,60 +27061,38 @@ BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT = cvar.Busin
 DeliveryForm_BOOKENTRY = cvar.DeliveryForm_BOOKENTRY
 DeliveryForm_BEARER = cvar.DeliveryForm_BEARER
 DeliveryForm_BOOK_ENTRY = cvar.DeliveryForm_BOOK_ENTRY
-ExecRestatementReason_GTRENEW = cvar.ExecRestatementReason_GTRENEW
 ExecRestatementReason_WAREHOUSE_RECAP = cvar.ExecRestatementReason_WAREHOUSE_RECAP
-ExecRestatementReason_CANCELEDNOTBEST = cvar.ExecRestatementReason_CANCELEDNOTBEST
 ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE = cvar.ExecRestatementReason_CANCEL_ON_SYSTEM_FAILURE
-ExecRestatementReason_CXLTRADINGHALT = cvar.ExecRestatementReason_CXLTRADINGHALT
 ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY = cvar.ExecRestatementReason_PARTIAL_DECLINE_OF_ORDERQTY
 ExecRestatementReason_GT_CORPORATE_ACTION = cvar.ExecRestatementReason_GT_CORPORATE_ACTION
 ExecRestatementReason_PEG_REFRESH = cvar.ExecRestatementReason_PEG_REFRESH
-ExecRestatementReason_VERBAL = cvar.ExecRestatementReason_VERBAL
 ExecRestatementReason_CANCELED_NOT_BEST = cvar.ExecRestatementReason_CANCELED_NOT_BEST
 ExecRestatementReason_CANCEL_ON_TRADING_HALT = cvar.ExecRestatementReason_CANCEL_ON_TRADING_HALT
-ExecRestatementReason_REPX = cvar.ExecRestatementReason_REPX
-ExecRestatementReason_MRKTOPTION = cvar.ExecRestatementReason_MRKTOPTION
 ExecRestatementReason_VERBAL_CHANGE = cvar.ExecRestatementReason_VERBAL_CHANGE
-ExecRestatementReason_PARTDEC = cvar.ExecRestatementReason_PARTDEC
-ExecRestatementReason_CXLSYSTEMFAILURE = cvar.ExecRestatementReason_CXLSYSTEMFAILURE
-ExecRestatementReason_GTCORPACT = cvar.ExecRestatementReason_GTCORPACT
 ExecRestatementReason_OTHER = cvar.ExecRestatementReason_OTHER
 ExecRestatementReason_BROKER_OPTION = cvar.ExecRestatementReason_BROKER_OPTION
-ExecRestatementReason_WAREHOUSERECAP = cvar.ExecRestatementReason_WAREHOUSERECAP
-ExecRestatementReason_BRKROPT = cvar.ExecRestatementReason_BRKROPT
 ExecRestatementReason_REPRICING_OF_ORDER = cvar.ExecRestatementReason_REPRICING_OF_ORDER
 ExecRestatementReason_MARKET = cvar.ExecRestatementReason_MARKET
 ExecRestatementReason_GT_RENEWAL = cvar.ExecRestatementReason_GT_RENEWAL
 AllocIntermedReqType_PENDING_RELEASE = cvar.AllocIntermedReqType_PENDING_RELEASE
 AllocIntermedReqType_PENDING_REVERSAL = cvar.AllocIntermedReqType_PENDING_REVERSAL
-AllocIntermedReqType_ACCOUNTLEVELREJECT = cvar.AllocIntermedReqType_ACCOUNTLEVELREJECT
-AllocIntermedReqType_PENDINGACCEPT = cvar.AllocIntermedReqType_PENDINGACCEPT
-AllocIntermedReqType_BLOCK_LEVEL_REJECT = cvar.AllocIntermedReqType_BLOCK_LEVEL_REJECT
 AllocIntermedReqType_ACCOUNT_LEVEL_REJECT = cvar.AllocIntermedReqType_ACCOUNT_LEVEL_REJECT
-AllocIntermedReqType_BLOCKLEVELREJECT = cvar.AllocIntermedReqType_BLOCKLEVELREJECT
+AllocIntermedReqType_BLOCK_LEVEL_REJECT = cvar.AllocIntermedReqType_BLOCK_LEVEL_REJECT
 AllocIntermedReqType_PENDING_ACCEPT = cvar.AllocIntermedReqType_PENDING_ACCEPT
-AllocIntermedReqType_PENDINGREVERSAL = cvar.AllocIntermedReqType_PENDINGREVERSAL
-AllocIntermedReqType_PENDINGRELEASE = cvar.AllocIntermedReqType_PENDINGRELEASE
 AllocIntermedReqType_ACCEPT = cvar.AllocIntermedReqType_ACCEPT
 SecurityListTypeSource_GICS = cvar.SecurityListTypeSource_GICS
 SecurityListTypeSource_NAICS = cvar.SecurityListTypeSource_NAICS
 SecurityListTypeSource_ICB = cvar.SecurityListTypeSource_ICB
-CollInquiryQualifier_PARTIALLY_ASSIGNED = cvar.CollInquiryQualifier_PARTIALLY_ASSIGNED
 CollInquiryQualifier_OUTSTANDING_TRADES = cvar.CollInquiryQualifier_OUTSTANDING_TRADES
-CollInquiryQualifier_SUBSTITUTIONELIGIBLE = cvar.CollInquiryQualifier_SUBSTITUTIONELIGIBLE
+CollInquiryQualifier_PARTIALLY_ASSIGNED = cvar.CollInquiryQualifier_PARTIALLY_ASSIGNED
 CollInquiryQualifier_TRADE_DATE = cvar.CollInquiryQualifier_TRADE_DATE
-CollInquiryQualifier_FULLYASSIGNED = cvar.CollInquiryQualifier_FULLYASSIGNED
-CollInquiryQualifier_SUBSTITUTION_ELIGIBLE = cvar.CollInquiryQualifier_SUBSTITUTION_ELIGIBLE
 CollInquiryQualifier_FULLY_ASSIGNED = cvar.CollInquiryQualifier_FULLY_ASSIGNED
-CollInquiryQualifier_NOTASSIGNED = cvar.CollInquiryQualifier_NOTASSIGNED
-CollInquiryQualifier_GCINSTRUMENT = cvar.CollInquiryQualifier_GCINSTRUMENT
+CollInquiryQualifier_SUBSTITUTION_ELIGIBLE = cvar.CollInquiryQualifier_SUBSTITUTION_ELIGIBLE
 CollInquiryQualifier_NOT_ASSIGNED = cvar.CollInquiryQualifier_NOT_ASSIGNED
 CollInquiryQualifier_COLLATERAL_INSTRUMENT = cvar.CollInquiryQualifier_COLLATERAL_INSTRUMENT
-CollInquiryQualifier_OUTSTANDINGTRADES = cvar.CollInquiryQualifier_OUTSTANDINGTRADES
 CollInquiryQualifier_TRADEDATE = cvar.CollInquiryQualifier_TRADEDATE
-CollInquiryQualifier_GC_INSTRUMENT = cvar.CollInquiryQualifier_GC_INSTRUMENT
-CollInquiryQualifier_PARTIALLYASSIGNED = cvar.CollInquiryQualifier_PARTIALLYASSIGNED
 CollInquiryQualifier_COLLATERALINSTRUMENT = cvar.CollInquiryQualifier_COLLATERALINSTRUMENT
+CollInquiryQualifier_GC_INSTRUMENT = cvar.CollInquiryQualifier_GC_INSTRUMENT
 ContingencyType_ONE_UPDATES_THE_OTHER_4 = cvar.ContingencyType_ONE_UPDATES_THE_OTHER_4
 ContingencyType_ONE_TRIGGERS_THE_OTHER = cvar.ContingencyType_ONE_TRIGGERS_THE_OTHER
 ContingencyType_ONE_CANCELS_THE_OTHER = cvar.ContingencyType_ONE_CANCELS_THE_OTHER
@@ -29353,27 +27100,19 @@ ContingencyType_ONE_UPDATES_THE_OTHER_3 = cvar.ContingencyType_ONE_UPDATES_THE_O
 EmailType_NEW = cvar.EmailType_NEW
 EmailType_REPLY = cvar.EmailType_REPLY
 EmailType_ADMIN_REPLY = cvar.EmailType_ADMIN_REPLY
-EmailType_ADMINREPLY = cvar.EmailType_ADMINREPLY
 IOIQltyInd_MEDIUM = cvar.IOIQltyInd_MEDIUM
 IOIQltyInd_HIGH = cvar.IOIQltyInd_HIGH
 IOIQltyInd_LOW = cvar.IOIQltyInd_LOW
 MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY = cvar.MultiLegRptTypeReq_REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY
 MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY = cvar.MultiLegRptTypeReq_REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY
 MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY = cvar.MultiLegRptTypeReq_REPORT_BY_MULITLEG_SECURITY_ONLY
-AccountType_ACCOUNTCUSTOMER = cvar.AccountType_ACCOUNTCUSTOMER
 AccountType_HOUSE_TRADER = cvar.AccountType_HOUSE_TRADER
 AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS
 AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS
 AccountType_FLOOR_TRADER = cvar.AccountType_FLOOR_TRADER
 AccountType_JOINT_BACK_OFFICE_ACCOUNT = cvar.AccountType_JOINT_BACK_OFFICE_ACCOUNT
-AccountType_HOUSETRADER = cvar.AccountType_HOUSETRADER
-AccountType_FLOORTRADER = cvar.AccountType_FLOORTRADER
-AccountType_ACCOUNTNONCUSTOMERCROSS = cvar.AccountType_ACCOUNTNONCUSTOMERCROSS
 AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED
-AccountType_ACCOUNTNONCUSTOMER = cvar.AccountType_ACCOUNTNONCUSTOMER
 AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = cvar.AccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS
-AccountType_HOUSETRADERCROSS = cvar.AccountType_HOUSETRADERCROSS
-AccountType_JOINTBOACCT = cvar.AccountType_JOINTBOACCT
 AccountType_JOINT_BACKOFFICE_ACCOUNT = cvar.AccountType_JOINT_BACKOFFICE_ACCOUNT
 AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = cvar.AccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED
 HaltReasonInt_ADDITIONAL_INFORMATION = cvar.HaltReasonInt_ADDITIONAL_INFORMATION
@@ -29382,65 +27121,45 @@ HaltReasonInt_ORDER_INFLUX = cvar.HaltReasonInt_ORDER_INFLUX
 HaltReasonInt_NEWS_DISSEMINATION = cvar.HaltReasonInt_NEWS_DISSEMINATION
 HaltReasonInt_EQUIPMENT_CHANGEOVER = cvar.HaltReasonInt_EQUIPMENT_CHANGEOVER
 HaltReasonInt_ORDER_IMBALANCE = cvar.HaltReasonInt_ORDER_IMBALANCE
-ClearingFeeIndicator_3RDYEARDELEGATE = cvar.ClearingFeeIndicator_3RDYEARDELEGATE
-ClearingFeeIndicator_FULLASSOCIATEMEMBER = cvar.ClearingFeeIndicator_FULLASSOCIATEMEMBER
 ClearingFeeIndicator_106H_AND_106J_FIRMS = cvar.ClearingFeeIndicator_106H_AND_106J_FIRMS
-ClearingFeeIndicator_4THYEARDELEGATE = cvar.ClearingFeeIndicator_4THYEARDELEGATE
-ClearingFeeIndicator_5THYEARDELEGATE = cvar.ClearingFeeIndicator_5THYEARDELEGATE
-ClearingFeeIndicator_EQUITYCLEARINGMEMBER = cvar.ClearingFeeIndicator_EQUITYCLEARINGMEMBER
-ClearingFeeIndicator_GIMIDEMCOMMEMBERSHIP = cvar.ClearingFeeIndicator_GIMIDEMCOMMEMBERSHIP
-ClearingFeeIndicator_2NDYEARDELEGATE = cvar.ClearingFeeIndicator_2NDYEARDELEGATE
 ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
-ClearingFeeIndicator_1STYEARDELEGATE = cvar.ClearingFeeIndicator_1STYEARDELEGATE
-ClearingFeeIndicator_106H106J = cvar.ClearingFeeIndicator_106H106J
 ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS = cvar.ClearingFeeIndicator_GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS
 ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
 ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
 ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
 ClearingFeeIndicator_LESSEE_106F_EMPLOYEES = cvar.ClearingFeeIndicator_LESSEE_106F_EMPLOYEES
-ClearingFeeIndicator_6THYEARDELEGATE = cvar.ClearingFeeIndicator_6THYEARDELEGATE
 ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER = cvar.ClearingFeeIndicator_NON_MEMBER_AND_CUSTOMER
 ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
 ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS = cvar.ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS
 ClearingFeeIndicator_CBOE_MEMBER = cvar.ClearingFeeIndicator_CBOE_MEMBER
 ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_1ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
 ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_5TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator_NONMEMBERCUSTOMER = cvar.ClearingFeeIndicator_NONMEMBERCUSTOMER
 ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES = cvar.ClearingFeeIndicator_LESSEE_AND_106F_EMPLOYEES
 ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR = cvar.ClearingFeeIndicator_FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR
 ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_3RD_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
 ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_2ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
-ClearingFeeIndicator_CBOEMEMBER = cvar.ClearingFeeIndicator_CBOEMEMBER
-ClearingFeeIndicator_LESSEE106F = cvar.ClearingFeeIndicator_LESSEE106F
-ClearingFeeIndicator_ALLOTHERS = cvar.ClearingFeeIndicator_ALLOTHERS
 ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER = cvar.ClearingFeeIndicator_EQUITY_MEMBER_AND_CLEARING_MEMBER
 ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES = cvar.ClearingFeeIndicator_ALL_OTHER_OWNERSHIP_TYPES
 ClearingFeeIndicator_6TH_YEAR_AND_BEYOND_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = cvar.ClearingFeeIndicator_6TH_YEAR_AND_BEYOND_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT
 ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_4TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
 ClearingFeeIndicator_6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = cvar.ClearingFeeIndicator_6TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT
 BidType_DISCLOSED_STYLE = cvar.BidType_DISCLOSED_STYLE
-BidType_NONDISC = cvar.BidType_NONDISC
 BidType_NO_BIDDING_PROCESS = cvar.BidType_NO_BIDDING_PROCESS
-BidType_DISC = cvar.BidType_DISC
 BidType_DISCLOSED_SYTLE = cvar.BidType_DISCLOSED_SYTLE
-BidType_NOBID = cvar.BidType_NOBID
 BidType_NON_DISCLOSED_STYLE = cvar.BidType_NON_DISCLOSED_STYLE
 QuotePriceType_PER_SHARE = cvar.QuotePriceType_PER_SHARE
-QuotePriceType_BASISPOINTSRELATIVETOBENCHMARK = cvar.QuotePriceType_BASISPOINTSRELATIVETOBENCHMARK
-QuotePriceType_TEDPRICE = cvar.QuotePriceType_TEDPRICE
-QuotePriceType_PERSHARE = cvar.QuotePriceType_PERSHARE
+QuotePriceType_PREMIUM_PERCENTAGE_POINTS_OVER_PAR = cvar.QuotePriceType_PREMIUM_PERCENTAGE_POINTS_OVER_PAR
+QuotePriceType_DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR = cvar.QuotePriceType_DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR
 QuotePriceType_YIELD = cvar.QuotePriceType_YIELD
-QuotePriceType_FIXED_AMOUNT = cvar.QuotePriceType_FIXED_AMOUNT
-QuotePriceType_TED_YIELD = cvar.QuotePriceType_TED_YIELD
 QuotePriceType_PREMIUM = cvar.QuotePriceType_PREMIUM
-QuotePriceType_FIXEDAMOUNT = cvar.QuotePriceType_FIXEDAMOUNT
-QuotePriceType_YIELDSPREADSWAPS = cvar.QuotePriceType_YIELDSPREADSWAPS
-QuotePriceType_TEDYIELD = cvar.QuotePriceType_TEDYIELD
+QuotePriceType_TED_YIELD = cvar.QuotePriceType_TED_YIELD
+QuotePriceType_FIXED_AMOUNT = cvar.QuotePriceType_FIXED_AMOUNT
 QuotePriceType_DISCOUNT = cvar.QuotePriceType_DISCOUNT
 QuotePriceType_YIELD_SPREAD = cvar.QuotePriceType_YIELD_SPREAD
 QuotePriceType_TED_PRICE = cvar.QuotePriceType_TED_PRICE
 QuotePriceType_PERCENT = cvar.QuotePriceType_PERCENT
 QuotePriceType_SPREAD = cvar.QuotePriceType_SPREAD
+QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK = cvar.QuotePriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK
 MultilegPriceMethod_CONTRACT_WEIGHTED_AVERAGE_PRICE = cvar.MultilegPriceMethod_CONTRACT_WEIGHTED_AVERAGE_PRICE
 MultilegPriceMethod_REVERSED_NET_PRICE = cvar.MultilegPriceMethod_REVERSED_NET_PRICE
 MultilegPriceMethod_MULTIPLIED_PRICE = cvar.MultilegPriceMethod_MULTIPLIED_PRICE
@@ -29451,55 +27170,33 @@ ListMethod_PRE_LISTED_ONLY = cvar.ListMethod_PRE_LISTED_ONLY
 ListMethod_USER_REQUESTED = cvar.ListMethod_USER_REQUESTED
 MDImplicitDelete_NO = cvar.MDImplicitDelete_NO
 MDImplicitDelete_YES = cvar.MDImplicitDelete_YES
-RoutingType_BLOCKLIST = cvar.RoutingType_BLOCKLIST
 RoutingType_TARGET_LIST = cvar.RoutingType_TARGET_LIST
 RoutingType_TARGET_FIRM = cvar.RoutingType_TARGET_FIRM
-RoutingType_TARGETFIRM = cvar.RoutingType_TARGETFIRM
-RoutingType_TARGETLIST = cvar.RoutingType_TARGETLIST
 RoutingType_BLOCK_LIST = cvar.RoutingType_BLOCK_LIST
 RoutingType_BLOCK_FIRM = cvar.RoutingType_BLOCK_FIRM
-RoutingType_BLOCKFIRM = cvar.RoutingType_BLOCKFIRM
-BidTradeType_RISKTRADE = cvar.BidTradeType_RISKTRADE
-BidTradeType_VWAPGUARANTEE = cvar.BidTradeType_VWAPGUARANTEE
 BidTradeType_AGENCY = cvar.BidTradeType_AGENCY
-BidTradeType_GUARANTEEDCLOSE = cvar.BidTradeType_GUARANTEEDCLOSE
 BidTradeType_VWAP_GUARANTEE = cvar.BidTradeType_VWAP_GUARANTEE
 BidTradeType_RISK_TRADE = cvar.BidTradeType_RISK_TRADE
 BidTradeType_GUARANTEED_CLOSE = cvar.BidTradeType_GUARANTEED_CLOSE
 OrdRejReason_INCORRECT_ALLOCATED_QUANTITY = cvar.OrdRejReason_INCORRECT_ALLOCATED_QUANTITY
 OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER = cvar.OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER
-OrdRejReason_DUPLICATEVERBAL = cvar.OrdRejReason_DUPLICATEVERBAL
 OrdRejReason_ORDER_EXCEEDS_LIMIT = cvar.OrdRejReason_ORDER_EXCEEDS_LIMIT
 OrdRejReason_EXCHANGE_CLOSED = cvar.OrdRejReason_EXCHANGE_CLOSED
-OrdRejReason_DUPLICATE = cvar.OrdRejReason_DUPLICATE
 OrdRejReason_SURVEILLENCE_OPTION = cvar.OrdRejReason_SURVEILLENCE_OPTION
 OrdRejReason_UNKNOWN_ORDER = cvar.OrdRejReason_UNKNOWN_ORDER
-OrdRejReason_INCORRECTALLOCATEDQUANTITY = cvar.OrdRejReason_INCORRECTALLOCATEDQUANTITY
-OrdRejReason_TOOLATE = cvar.OrdRejReason_TOOLATE
 OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC = cvar.OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC
 OrdRejReason_DUPLICATE_ORDER = cvar.OrdRejReason_DUPLICATE_ORDER
 OrdRejReason_TOO_LATE_TO_ENTER = cvar.OrdRejReason_TOO_LATE_TO_ENTER
+OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC12_SURVEILLENCE_OPTION = cvar.OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC12_SURVEILLENCE_OPTION
 OrdRejReason_INCORRECT_QUANTITY = cvar.OrdRejReason_INCORRECT_QUANTITY
-OrdRejReason_UNKNOWNSYM = cvar.OrdRejReason_UNKNOWNSYM
-OrdRejReason_STALE = cvar.OrdRejReason_STALE
-OrdRejReason_UNKNOWN_ACCOUNT = cvar.OrdRejReason_UNKNOWN_ACCOUNT
 OrdRejReason_INVALID_PRICE_INCREMENT = cvar.OrdRejReason_INVALID_PRICE_INCREMENT
-OrdRejReason_BROKEROPT = cvar.OrdRejReason_BROKEROPT
-OrdRejReason_EXCEEDSLIM = cvar.OrdRejReason_EXCEEDSLIM
+OrdRejReason_UNKNOWN_ACCOUNT = cvar.OrdRejReason_UNKNOWN_ACCOUNT
 OrdRejReason_INVALID_INVESTOR_ID = cvar.OrdRejReason_INVALID_INVESTOR_ID
 OrdRejReason_UNKNOWN_SYMBOL = cvar.OrdRejReason_UNKNOWN_SYMBOL
-OrdRejReason_INCORRECTQUANTITY = cvar.OrdRejReason_INCORRECTQUANTITY
-OrdRejReason_UNKNOWNACCOUNTS = cvar.OrdRejReason_UNKNOWNACCOUNTS
 OrdRejReason_OTHER = cvar.OrdRejReason_OTHER
 OrdRejReason_BROKER = cvar.OrdRejReason_BROKER
 OrdRejReason_BROKER_OPTION = cvar.OrdRejReason_BROKER_OPTION
-OrdRejReason_SURVEILLENCE = cvar.OrdRejReason_SURVEILLENCE
-OrdRejReason_EXCHCLOSED = cvar.OrdRejReason_EXCHCLOSED
 OrdRejReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND = cvar.OrdRejReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND
-OrdRejReason_INVINVID = cvar.OrdRejReason_INVINVID
-OrdRejReason_UNSUPPORDERCHAR = cvar.OrdRejReason_UNSUPPORDERCHAR
-OrdRejReason_TRADEALONGREQ = cvar.OrdRejReason_TRADEALONGREQ
-OrdRejReason_UNKNOWN = cvar.OrdRejReason_UNKNOWN
 OrdRejReason_TRADE_ALONG_REQUIRED = cvar.OrdRejReason_TRADE_ALONG_REQUIRED
 OrdRejReason_STALE_ORDER = cvar.OrdRejReason_STALE_ORDER
 MaturityMonthYearIncrementUnits_WEEKS = cvar.MaturityMonthYearIncrementUnits_WEEKS
@@ -29509,42 +27206,33 @@ MaturityMonthYearIncrementUnits_DAYS = cvar.MaturityMonthYearIncrementUnits_DAYS
 DisplayWhen_EXHAUST = cvar.DisplayWhen_EXHAUST
 DisplayWhen_IMMEDIATE = cvar.DisplayWhen_IMMEDIATE
 ApplQueueAction_END_SESSION = cvar.ApplQueueAction_END_SESSION
-ApplQueueAction_QUEUEFLUSHED = cvar.ApplQueueAction_QUEUEFLUSHED
 ApplQueueAction_QUEUE_FLUSHED = cvar.ApplQueueAction_QUEUE_FLUSHED
-ApplQueueAction_ENDSESSION = cvar.ApplQueueAction_ENDSESSION
-ApplQueueAction_OVERLAYLAST = cvar.ApplQueueAction_OVERLAYLAST
 ApplQueueAction_OVERLAY_LAST = cvar.ApplQueueAction_OVERLAY_LAST
-ApplQueueAction_NOACTIONTAKEN = cvar.ApplQueueAction_NOACTIONTAKEN
 ApplQueueAction_NO_ACTION_TAKEN = cvar.ApplQueueAction_NO_ACTION_TAKEN
 RegistTransType_REPLACE = cvar.RegistTransType_REPLACE
 RegistTransType_NEW = cvar.RegistTransType_NEW
 RegistTransType_CANCEL = cvar.RegistTransType_CANCEL
 PriceType_PRODUCT_TICKS_IN_HALFS = cvar.PriceType_PRODUCT_TICKS_IN_HALFS
-PriceType_FIXEDCABINETTRADEPRICE = cvar.PriceType_FIXEDCABINETTRADEPRICE
 PriceType_PER_SHARE = cvar.PriceType_PER_SHARE
-PriceType_PCT = cvar.PriceType_PCT
-PriceType_VARIABLECABINETTRADEPRICE = cvar.PriceType_VARIABLECABINETTRADEPRICE
+PriceType_DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR = cvar.PriceType_DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR
+PriceType_PREMIUM_PERCENTAGE_POINTS_OVER_PAR = cvar.PriceType_PREMIUM_PERCENTAGE_POINTS_OVER_PAR
 PriceType_PRODUCT_TICKS_IN_FOURTHS = cvar.PriceType_PRODUCT_TICKS_IN_FOURTHS
-PriceType_TEDPRICE = cvar.PriceType_TEDPRICE
 PriceType_YIELD = cvar.PriceType_YIELD
 PriceType_TED_YIELD = cvar.PriceType_TED_YIELD
 PriceType_PREMIUM = cvar.PriceType_PREMIUM
 PriceType_FIXED_AMOUNT = cvar.PriceType_FIXED_AMOUNT
-PriceType_TEDYIELD = cvar.PriceType_TEDYIELD
 PriceType_DISCOUNT = cvar.PriceType_DISCOUNT
 PriceType_PRODUCT_TICKS_IN_SIXTY_FORTHS = cvar.PriceType_PRODUCT_TICKS_IN_SIXTY_FORTHS
 PriceType_PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS = cvar.PriceType_PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS
-PriceType_CPS = cvar.PriceType_CPS
 PriceType_PERCENTAGE = cvar.PriceType_PERCENTAGE
 PriceType_PRODUCT_TICKS_IN_EIGHTS = cvar.PriceType_PRODUCT_TICKS_IN_EIGHTS
 PriceType_PRODUCT_TICKS_IN_THIRTY_SECONDS = cvar.PriceType_PRODUCT_TICKS_IN_THIRTY_SECONDS
-PriceType_ABS = cvar.PriceType_ABS
-PriceType_VARIABLE_CABINET_TRADE_PRICE = cvar.PriceType_VARIABLE_CABINET_TRADE_PRICE
-PriceType_PER_UNIT = cvar.PriceType_PER_UNIT
 PriceType_PRODUCT_TICKS_IN_SIXTEENTHS = cvar.PriceType_PRODUCT_TICKS_IN_SIXTEENTHS
+PriceType_PER_UNIT = cvar.PriceType_PER_UNIT
+PriceType_VARIABLE_CABINET_TRADE_PRICE = cvar.PriceType_VARIABLE_CABINET_TRADE_PRICE
 PriceType_TED_PRICE = cvar.PriceType_TED_PRICE
-PriceType_FIXED_CABINET_TRADE_PRICE = cvar.PriceType_FIXED_CABINET_TRADE_PRICE
 PriceType_SPREAD = cvar.PriceType_SPREAD
+PriceType_FIXED_CABINET_TRADE_PRICE = cvar.PriceType_FIXED_CABINET_TRADE_PRICE
 PriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK = cvar.PriceType_BASIS_POINTS_RELATIVE_TO_BENCHMARK
 SettlObligMode_PRELIMINARY = cvar.SettlObligMode_PRELIMINARY
 SettlObligMode_FINAL = cvar.SettlObligMode_FINAL
@@ -29552,135 +27240,100 @@ SecurityUpdateAction_DELETE = cvar.SecurityUpdateAction_DELETE
 SecurityUpdateAction_ADD = cvar.SecurityUpdateAction_ADD
 SecurityUpdateAction_MODIFY = cvar.SecurityUpdateAction_MODIFY
 NetworkRequestType_STOP_SUBSCRIBING = cvar.NetworkRequestType_STOP_SUBSCRIBING
-NetworkRequestType_LEVELOFDETAIL = cvar.NetworkRequestType_LEVELOFDETAIL
 NetworkRequestType_SUBSCRIBE = cvar.NetworkRequestType_SUBSCRIBE
 NetworkRequestType_SNAPSHOT = cvar.NetworkRequestType_SNAPSHOT
-NetworkRequestType_STOPSUBSCRIBING = cvar.NetworkRequestType_STOPSUBSCRIBING
 NetworkRequestType_LEVEL_OF_DETAIL_THEN_NOCOMPIDS_BECOMES_REQUIRED = cvar.NetworkRequestType_LEVEL_OF_DETAIL_THEN_NOCOMPIDS_BECOMES_REQUIRED
-PartyRole_TRADER_MNEMONIC = cvar.PartyRole_TRADER_MNEMONIC
-PartyRole_ACCEPTABLE_COUNTERPARTY = cvar.PartyRole_ACCEPTABLE_COUNTERPARTY
-PartyRole_HOST_COMPETENT_AUTHORITY = cvar.PartyRole_HOST_COMPETENT_AUTHORITY
-PartyRole_CONTRATRADER = cvar.PartyRole_CONTRATRADER
-PartyRole_EXECUTINGFIRM = cvar.PartyRole_EXECUTINGFIRM
-PartyRole_CUSTOMER_ACCOUNT = cvar.PartyRole_CUSTOMER_ACCOUNT
-PartyRole_POSITIONACCOUNT = cvar.PartyRole_POSITIONACCOUNT
-PartyRole_REPORT_ORIGINATOR = cvar.PartyRole_REPORT_ORIGINATOR
-PartyRole_CONTRAFIRM = cvar.PartyRole_CONTRAFIRM
 PartyRole_EXECUTION_VENUE = cvar.PartyRole_EXECUTION_VENUE
-PartyRole_INTERMEDIARY = cvar.PartyRole_INTERMEDIARY
-PartyRole_ORDER_ENTRY_OPERATOR_ID = cvar.PartyRole_ORDER_ENTRY_OPERATOR_ID
-PartyRole_INTRODUCING_BROKER = cvar.PartyRole_INTRODUCING_BROKER
-PartyRole_FOREIGN_FIRM = cvar.PartyRole_FOREIGN_FIRM
-PartyRole_HOME_COMPETENT_AUTHORITY = cvar.PartyRole_HOME_COMPETENT_AUTHORITY
-PartyRole_EXECUTINGSYSTEM = cvar.PartyRole_EXECUTINGSYSTEM
-PartyRole_SECONDARY_ACCOUNT_NUMBER = cvar.PartyRole_SECONDARY_ACCOUNT_NUMBER
-PartyRole_INVESTMENT_FIRM = cvar.PartyRole_INVESTMENT_FIRM
-PartyRole_CONTRA_CLEARING_FIRM = cvar.PartyRole_CONTRA_CLEARING_FIRM
-PartyRole_CONTRA_POSITION_ACCOUNT = cvar.PartyRole_CONTRA_POSITION_ACCOUNT
-PartyRole_SYSTEMATIC_INTERNALISER = cvar.PartyRole_SYSTEMATIC_INTERNALISER
-PartyRole_EXCHANGE = cvar.PartyRole_EXCHANGE
-PartyRole_INTERNAL_CARRY_ACCOUNT = cvar.PartyRole_INTERNAL_CARRY_ACCOUNT
-PartyRole_LOCATE = cvar.PartyRole_LOCATE
-PartyRole_CORRESPONDENTCLEARINGORGANIZATION = cvar.PartyRole_CORRESPONDENTCLEARINGORGANIZATION
-PartyRole_ORDER_ORIGINATION_TRADER = cvar.PartyRole_ORDER_ORIGINATION_TRADER
-PartyRole_SUB_CUSTODIAN = cvar.PartyRole_SUB_CUSTODIAN
-PartyRole_ENTERING_UNIT = cvar.PartyRole_ENTERING_UNIT
-PartyRole_STEP_OUT_FIRM = cvar.PartyRole_STEP_OUT_FIRM
-PartyRole_COMPETENT_AUTHORITY_OF_THE_TRANSACTION = cvar.PartyRole_COMPETENT_AUTHORITY_OF_THE_TRANSACTION
-PartyRole_SENDER_LOCATION = cvar.PartyRole_SENDER_LOCATION
-PartyRole_REGULATED_MARKET = cvar.PartyRole_REGULATED_MARKET
-PartyRole_UNACCEPTABLE_SETTLING_COUNTERPARTY = cvar.PartyRole_UNACCEPTABLE_SETTLING_COUNTERPARTY
-PartyRole_SETTLEMENTLOCATION = cvar.PartyRole_SETTLEMENTLOCATION
-PartyRole_COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY = cvar.PartyRole_COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY
-PartyRole_QUOTE_ORIGINATOR = cvar.PartyRole_QUOTE_ORIGINATOR
-PartyRole_CLEARING_ORGANIZATION = cvar.PartyRole_CLEARING_ORGANIZATION
-PartyRole_SESSION_ID = cvar.PartyRole_SESSION_ID
-PartyRole_MARKET_MAKER = cvar.PartyRole_MARKET_MAKER
-PartyRole_INTERESTED_PARTY = cvar.PartyRole_INTERESTED_PARTY
-PartyRole_TRANSFER_TO_FIRM = cvar.PartyRole_TRANSFER_TO_FIRM
-PartyRole_CONTRA_TRADER = cvar.PartyRole_CONTRA_TRADER
-PartyRole_ENTERINGTRADER = cvar.PartyRole_ENTERINGTRADER
-PartyRole_ENTERING_TRADER = cvar.PartyRole_ENTERING_TRADER
-PartyRole_LARGE_TRADER_REPORTABLE_ACCOUNT = cvar.PartyRole_LARGE_TRADER_REPORTABLE_ACCOUNT
-PartyRole_BENEFICIARY = cvar.PartyRole_BENEFICIARY
-PartyRole_CONTRA_INVESTOR_ID = cvar.PartyRole_CONTRA_INVESTOR_ID
-PartyRole_FORIEGN_FIRM = cvar.PartyRole_FORIEGN_FIRM
-PartyRole_SETTLEMENT_LOCATION = cvar.PartyRole_SETTLEMENT_LOCATION
-PartyRole_CLEARINGORGANIZATION = cvar.PartyRole_CLEARINGORGANIZATION
-PartyRole_EXECUTING_SYSTEM = cvar.PartyRole_EXECUTING_SYSTEM
-PartyRole_CLEARING_FIRM = cvar.PartyRole_CLEARING_FIRM
-PartyRole_PLEDGEE_ACCOUNT = cvar.PartyRole_PLEDGEE_ACCOUNT
 PartyRole_CLIENT_ID = cvar.PartyRole_CLIENT_ID
-PartyRole_ENTERING_FIRM = cvar.PartyRole_ENTERING_FIRM
-PartyRole_ALLOCENTITY = cvar.PartyRole_ALLOCENTITY
-PartyRole_INVESTOR_ID = cvar.PartyRole_INVESTOR_ID
-PartyRole_CLEARINGFIRM = cvar.PartyRole_CLEARINGFIRM
-PartyRole_CORRESPONDANT_CLEARING_FIRM = cvar.PartyRole_CORRESPONDANT_CLEARING_FIRM
-PartyRole_SUBCUSTODIAN = cvar.PartyRole_SUBCUSTODIAN
-PartyRole_BUYER_SELLER = cvar.PartyRole_BUYER_SELLER
-PartyRole_CLEARING_ACCOUNT = cvar.PartyRole_CLEARING_ACCOUNT
-PartyRole_ENTERINGFIRM = cvar.PartyRole_ENTERINGFIRM
-PartyRole_PRIME_BROKER_PROVIDING_GENERAL_TRADE_SERVICES = cvar.PartyRole_PRIME_BROKER_PROVIDING_GENERAL_TRADE_SERVICES
-PartyRole_CORRESPONDENT_CLEARING_ORGANIZATION = cvar.PartyRole_CORRESPONDENT_CLEARING_ORGANIZATION
-PartyRole_ACCEPTABLE_SETTLING_COUNTERPARTY = cvar.PartyRole_ACCEPTABLE_SETTLING_COUNTERPARTY
-PartyRole_CUSTOMERACCOUNT = cvar.PartyRole_CUSTOMERACCOUNT
 PartyRole_MARKET_DATA_ENTRY_ORIGINATOR = cvar.PartyRole_MARKET_DATA_ENTRY_ORIGINATOR
-PartyRole_INTRODUCINGFIRM = cvar.PartyRole_INTRODUCINGFIRM
-PartyRole_EXECUTING_UNIT = cvar.PartyRole_EXECUTING_UNIT
-PartyRole_CENTRAL_REGISTRATION_DEPOSITORY = cvar.PartyRole_CENTRAL_REGISTRATION_DEPOSITORY
-PartyRole_INTERESTEDPARTY = cvar.PartyRole_INTERESTEDPARTY
-PartyRole_LOCATION_ID = cvar.PartyRole_LOCATION_ID
-PartyRole_ORDERORIGINATOR = cvar.PartyRole_ORDERORIGINATOR
-PartyRole_CORRESPONDENT_BROKER = cvar.PartyRole_CORRESPONDENT_BROKER
-PartyRole_ASSET_MANAGER = cvar.PartyRole_ASSET_MANAGER
-PartyRole_MULTILATERAL_TRADING_FACILITY = cvar.PartyRole_MULTILATERAL_TRADING_FACILITY
-PartyRole_SPONSORINGFIRM = cvar.PartyRole_SPONSORINGFIRM
 PartyRole_ORDER_ORIGINATION_FIRM = cvar.PartyRole_ORDER_ORIGINATION_FIRM
-PartyRole_CONTRA_EXCHANGE = cvar.PartyRole_CONTRA_EXCHANGE
-PartyRole_INVESTORID = cvar.PartyRole_INVESTORID
-PartyRole_FUNDMANAGER = cvar.PartyRole_FUNDMANAGER
-PartyRole_REGULATORYBODY = cvar.PartyRole_REGULATORYBODY
-PartyRole_CONTRA_FIRM = cvar.PartyRole_CONTRA_FIRM
-PartyRole_BROKER_OF_CREDIT = cvar.PartyRole_BROKER_OF_CREDIT
-PartyRole_LIQUIDITYPROVIDER = cvar.PartyRole_LIQUIDITYPROVIDER
-PartyRole_GIVEUPCLEARINGFIRM = cvar.PartyRole_GIVEUPCLEARINGFIRM
-PartyRole_CONTRACLEARINGFIRM = cvar.PartyRole_CONTRACLEARINGFIRM
-PartyRole_CLAIMING_ACCOUNT = cvar.PartyRole_CLAIMING_ACCOUNT
-PartyRole_INTRODUCING_FIRM = cvar.PartyRole_INTRODUCING_FIRM
-PartyRole_GIVEUP_CLEARING_FIRM = cvar.PartyRole_GIVEUP_CLEARING_FIRM
-PartyRole_EXECUTINGTRADER = cvar.PartyRole_EXECUTINGTRADER
-PartyRole_UNDERLYING_CONTRA_FIRM = cvar.PartyRole_UNDERLYING_CONTRA_FIRM
-PartyRole_EXECUTING_FIRM = cvar.PartyRole_EXECUTING_FIRM
-PartyRole_AGENT = cvar.PartyRole_AGENT
-PartyRole_LIQUIDITY_PROVIDER = cvar.PartyRole_LIQUIDITY_PROVIDER
-PartyRole_POSITION_ACCOUNT = cvar.PartyRole_POSITION_ACCOUNT
-PartyRole_BROKEROFCREDIT = cvar.PartyRole_BROKEROFCREDIT
-PartyRole_THIRD_PARTY_ALLOCATION_FIRM = cvar.PartyRole_THIRD_PARTY_ALLOCATION_FIRM
-PartyRole_CLIENTID = cvar.PartyRole_CLIENTID
-PartyRole_PLEDGOR_ACCOUNT = cvar.PartyRole_PLEDGOR_ACCOUNT
-PartyRole_REPORTING_INTERMEDIARY = cvar.PartyRole_REPORTING_INTERMEDIARY
-PartyRole_EXECUTING_TRADER = cvar.PartyRole_EXECUTING_TRADER
-PartyRole_CUSTODIAN = cvar.PartyRole_CUSTODIAN
+PartyRole_PLEDGEE_ACCOUNT = cvar.PartyRole_PLEDGEE_ACCOUNT
+PartyRole_CONTRA_TRADER = cvar.PartyRole_CONTRA_TRADER
+PartyRole_MULTILATERAL_TRADING_FACILITY = cvar.PartyRole_MULTILATERAL_TRADING_FACILITY
+PartyRole_CENTRAL_REGISTRATION_DEPOSITORY = cvar.PartyRole_CENTRAL_REGISTRATION_DEPOSITORY
+PartyRole_REPORT_ORIGINATOR = cvar.PartyRole_REPORT_ORIGINATOR
+PartyRole_TRANSFER_TO_FIRM = cvar.PartyRole_TRANSFER_TO_FIRM
 PartyRole_BROKERCLEARINGID = cvar.PartyRole_BROKERCLEARINGID
-PartyRole_CORRESPONDENTBROKER = cvar.PartyRole_CORRESPONDENTBROKER
+PartyRole_ASSET_MANAGER = cvar.PartyRole_ASSET_MANAGER
+PartyRole_INTRODUCING_BROKER = cvar.PartyRole_INTRODUCING_BROKER
 PartyRole_LOCATE_LENDING_FIRM = cvar.PartyRole_LOCATE_LENDING_FIRM
-PartyRole_INITIATINGTRADER = cvar.PartyRole_INITIATINGTRADER
-PartyRole_REGULATORY_BODY = cvar.PartyRole_REGULATORY_BODY
-PartyRole_UNACCEPTABLE_COUNTERPARTY = cvar.PartyRole_UNACCEPTABLE_COUNTERPARTY
-PartyRole_CORRESPONDANTCLEARINGFIRM = cvar.PartyRole_CORRESPONDANTCLEARINGFIRM
-PartyRole_FUND_MANAGER_CLIENT_ID = cvar.PartyRole_FUND_MANAGER_CLIENT_ID
-PartyRole_BUYERSELLERRECEIVERDELIVERER = cvar.PartyRole_BUYERSELLERRECEIVERDELIVERER
-PartyRole_DESK_ID = cvar.PartyRole_DESK_ID
-PartyRole_ALLOCATION_ENTITY = cvar.PartyRole_ALLOCATION_ENTITY
-PartyRole_MARKET_DATA_MARKET = cvar.PartyRole_MARKET_DATA_MARKET
+PartyRole_CONTRA_CLEARING_FIRM = cvar.PartyRole_CONTRA_CLEARING_FIRM
+PartyRole_CORRESPONDENT_CLEARING_ORGANIZATION = cvar.PartyRole_CORRESPONDENT_CLEARING_ORGANIZATION
+PartyRole_CUSTODIAN = cvar.PartyRole_CUSTODIAN
+PartyRole_GIVEUP_CLEARING_FIRM = cvar.PartyRole_GIVEUP_CLEARING_FIRM
+PartyRole_EXECUTING_TRADER = cvar.PartyRole_EXECUTING_TRADER
+PartyRole_EXECUTING_UNIT = cvar.PartyRole_EXECUTING_UNIT
+PartyRole_BROKER_OF_CREDIT = cvar.PartyRole_BROKER_OF_CREDIT
+PartyRole_CORRESPONDANT_CLEARING_FIRM = cvar.PartyRole_CORRESPONDANT_CLEARING_FIRM
+PartyRole_SETTLEMENT_LOCATION = cvar.PartyRole_SETTLEMENT_LOCATION
+PartyRole_THIRD_PARTY_ALLOCATION_FIRM = cvar.PartyRole_THIRD_PARTY_ALLOCATION_FIRM
+PartyRole_ORDER_ORIGINATION_TRADER = cvar.PartyRole_ORDER_ORIGINATION_TRADER
+PartyRole_HOST_COMPETENT_AUTHORITY = cvar.PartyRole_HOST_COMPETENT_AUTHORITY
+PartyRole_ORDER_ENTRY_OPERATOR_ID = cvar.PartyRole_ORDER_ENTRY_OPERATOR_ID
 PartyRole_SPONSORING_FIRM = cvar.PartyRole_SPONSORING_FIRM
-PartyRole_LOCATELENDINGFIRM = cvar.PartyRole_LOCATELENDINGFIRM
-PartyRole_UNDRCONTRAFIRM = cvar.PartyRole_UNDRCONTRAFIRM
+PartyRole_INTRODUCING_FIRM = cvar.PartyRole_INTRODUCING_FIRM
+PartyRole_CLEARING_FIRM = cvar.PartyRole_CLEARING_FIRM
+PartyRole_CONTRA_POSITION_ACCOUNT = cvar.PartyRole_CONTRA_POSITION_ACCOUNT
+PartyRole_INVESTOR_ID = cvar.PartyRole_INVESTOR_ID
+PartyRole_ENTERING_TRADER = cvar.PartyRole_ENTERING_TRADER
+PartyRole_LOCATE = cvar.PartyRole_LOCATE
+PartyRole_LARGE_TRADER_REPORTABLE_ACCOUNT = cvar.PartyRole_LARGE_TRADER_REPORTABLE_ACCOUNT
+PartyRole_ACCEPTABLE_SETTLING_COUNTERPARTY = cvar.PartyRole_ACCEPTABLE_SETTLING_COUNTERPARTY
+PartyRole_PRIME_BROKER_PROVIDING_GENERAL_TRADE_SERVICES = cvar.PartyRole_PRIME_BROKER_PROVIDING_GENERAL_TRADE_SERVICES
+PartyRole_FORIEGN_FIRM = cvar.PartyRole_FORIEGN_FIRM
+PartyRole_ACCEPTABLE_COUNTERPARTY = cvar.PartyRole_ACCEPTABLE_COUNTERPARTY
+PartyRole_CUSTOMER_ACCOUNT = cvar.PartyRole_CUSTOMER_ACCOUNT
+PartyRole_POSITION_ACCOUNT = cvar.PartyRole_POSITION_ACCOUNT
+PartyRole_LIQUIDITY_PROVIDER = cvar.PartyRole_LIQUIDITY_PROVIDER
+PartyRole_MARKET_MAKER = cvar.PartyRole_MARKET_MAKER
+PartyRole_AGENT = cvar.PartyRole_AGENT
+PartyRole_ENTERING_UNIT = cvar.PartyRole_ENTERING_UNIT
+PartyRole_FOREIGN_FIRM = cvar.PartyRole_FOREIGN_FIRM
+PartyRole_CLEARING_ACCOUNT = cvar.PartyRole_CLEARING_ACCOUNT
+PartyRole_HOME_COMPETENT_AUTHORITY = cvar.PartyRole_HOME_COMPETENT_AUTHORITY
+PartyRole_INTERESTED_PARTY = cvar.PartyRole_INTERESTED_PARTY
+PartyRole_SESSION_ID = cvar.PartyRole_SESSION_ID
+PartyRole_REPORTING_INTERMEDIARY = cvar.PartyRole_REPORTING_INTERMEDIARY
+PartyRole_INVESTMENT_FIRM = cvar.PartyRole_INVESTMENT_FIRM
+PartyRole_TRADER_MNEMONIC = cvar.PartyRole_TRADER_MNEMONIC
+PartyRole_INTERNAL_CARRY_ACCOUNT = cvar.PartyRole_INTERNAL_CARRY_ACCOUNT
+PartyRole_CONTRA_FIRM = cvar.PartyRole_CONTRA_FIRM
+PartyRole_CORRESPONDENT_BROKER = cvar.PartyRole_CORRESPONDENT_BROKER
+PartyRole_CLEARING_ORGANIZATION = cvar.PartyRole_CLEARING_ORGANIZATION
+PartyRole_SUB_CUSTODIAN = cvar.PartyRole_SUB_CUSTODIAN
+PartyRole_BUYER_SELLER = cvar.PartyRole_BUYER_SELLER
+PartyRole_STEP_OUT_FIRM = cvar.PartyRole_STEP_OUT_FIRM
+PartyRole_MARKET_DATA_MARKET = cvar.PartyRole_MARKET_DATA_MARKET
+PartyRole_EXCHANGE = cvar.PartyRole_EXCHANGE
+PartyRole_CLAIMING_ACCOUNT = cvar.PartyRole_CLAIMING_ACCOUNT
+PartyRole_SECONDARY_ACCOUNT_NUMBER = cvar.PartyRole_SECONDARY_ACCOUNT_NUMBER
+PartyRole_ALLOCATION_ENTITY = cvar.PartyRole_ALLOCATION_ENTITY
+PartyRole_INTERMEDIARY = cvar.PartyRole_INTERMEDIARY
+PartyRole_EXECUTING_FIRM = cvar.PartyRole_EXECUTING_FIRM
+PartyRole_LOCATION_ID = cvar.PartyRole_LOCATION_ID
+PartyRole_DESK_ID = cvar.PartyRole_DESK_ID
+PartyRole_EXECUTING_SYSTEM = cvar.PartyRole_EXECUTING_SYSTEM
+PartyRole_BENEFICIARY = cvar.PartyRole_BENEFICIARY
+PartyRole_FUND_MANAGER_CLIENT_ID = cvar.PartyRole_FUND_MANAGER_CLIENT_ID
+PartyRole_CONTRA_INVESTOR_ID = cvar.PartyRole_CONTRA_INVESTOR_ID
+PartyRole_UNACCEPTABLE_COUNTERPARTY = cvar.PartyRole_UNACCEPTABLE_COUNTERPARTY
+PartyRole_UNDERLYING_CONTRA_FIRM = cvar.PartyRole_UNDERLYING_CONTRA_FIRM
+PartyRole_QUOTE_ORIGINATOR = cvar.PartyRole_QUOTE_ORIGINATOR
+PartyRole_REGULATED_MARKET = cvar.PartyRole_REGULATED_MARKET
+PartyRole_COMPETENT_AUTHORITY_OF_THE_TRANSACTION = cvar.PartyRole_COMPETENT_AUTHORITY_OF_THE_TRANSACTION
+PartyRole_ENTERING_FIRM = cvar.PartyRole_ENTERING_FIRM
+PartyRole_UNACCEPTABLE_SETTLING_COUNTERPARTY = cvar.PartyRole_UNACCEPTABLE_SETTLING_COUNTERPARTY
+PartyRole_SENDER_LOCATION = cvar.PartyRole_SENDER_LOCATION
+PartyRole_SYSTEMATIC_INTERNALISER = cvar.PartyRole_SYSTEMATIC_INTERNALISER
+PartyRole_CONTRA_EXCHANGE = cvar.PartyRole_CONTRA_EXCHANGE
+PartyRole_REGULATORY_BODY = cvar.PartyRole_REGULATORY_BODY
+PartyRole_PLEDGOR_ACCOUNT = cvar.PartyRole_PLEDGOR_ACCOUNT
+PartyRole_COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY = cvar.PartyRole_COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY
 AssignmentMethod_PRO_RATA = cvar.AssignmentMethod_PRO_RATA
 AssignmentMethod_RANDOM = cvar.AssignmentMethod_RANDOM
 AssignmentMethod_PRORATA = cvar.AssignmentMethod_PRORATA
-StrategyParameterType_MONTHYEAR = cvar.StrategyParameterType_MONTHYEAR
 StrategyParameterType_TZTIMEONLY = cvar.StrategyParameterType_TZTIMEONLY
+StrategyParameterType_MONTHYEAR = cvar.StrategyParameterType_MONTHYEAR
 StrategyParameterType_PRICE = cvar.StrategyParameterType_PRICE
 StrategyParameterType_QTY = cvar.StrategyParameterType_QTY
 StrategyParameterType_BOOLEAN = cvar.StrategyParameterType_BOOLEAN
@@ -29695,7 +27348,6 @@ StrategyParameterType_INT = cvar.StrategyParameterType_INT
 StrategyParameterType_LOCALMKTDATE = cvar.StrategyParameterType_LOCALMKTDATE
 StrategyParameterType_EXCHANGE = cvar.StrategyParameterType_EXCHANGE
 StrategyParameterType_LANGUAGE = cvar.StrategyParameterType_LANGUAGE
-StrategyParameterType_MONTH_YEAR = cvar.StrategyParameterType_MONTH_YEAR
 StrategyParameterType_PERCENTAGE = cvar.StrategyParameterType_PERCENTAGE
 StrategyParameterType_LENGTH = cvar.StrategyParameterType_LENGTH
 StrategyParameterType_TZTIMESTAMP = cvar.StrategyParameterType_TZTIMESTAMP
@@ -29712,65 +27364,41 @@ StrategyParameterType_SEQNUM = cvar.StrategyParameterType_SEQNUM
 StrategyParameterType_UTCDATEONLY = cvar.StrategyParameterType_UTCDATEONLY
 StrategyParameterType_PRICEOFFSET = cvar.StrategyParameterType_PRICEOFFSET
 EncryptMethod_PGP_DES_MD5 = cvar.EncryptMethod_PGP_DES_MD5
-EncryptMethod_PGPDESMD5SEEAPPNOTEONFIXWEBSITE = cvar.EncryptMethod_PGPDESMD5SEEAPPNOTEONFIXWEBSITE
 EncryptMethod_PKCS_DES = cvar.EncryptMethod_PKCS_DES
-EncryptMethod_NONEOTHER = cvar.EncryptMethod_NONEOTHER
-EncryptMethod_PKCSDESPROPRIETARY = cvar.EncryptMethod_PKCSDESPROPRIETARY
-EncryptMethod_PGPDESDEFUNCT = cvar.EncryptMethod_PGPDESDEFUNCT
-EncryptMethod_PEMDESMD5SEEAPPNOTEONFIXWEBSITENAFORFIXMLNOTUSED = cvar.EncryptMethod_PEMDESMD5SEEAPPNOTEONFIXWEBSITENAFORFIXMLNOTUSED
 EncryptMethod_PKCS = cvar.EncryptMethod_PKCS
 EncryptMethod_PGP_DES = cvar.EncryptMethod_PGP_DES
 EncryptMethod_NONE = cvar.EncryptMethod_NONE
 EncryptMethod_DES = cvar.EncryptMethod_DES
-EncryptMethod_PKCSPROPRIETARY = cvar.EncryptMethod_PKCSPROPRIETARY
 EncryptMethod_NONE_OTHER = cvar.EncryptMethod_NONE_OTHER
-EncryptMethod_DESECBMODE = cvar.EncryptMethod_DESECBMODE
 EncryptMethod_PEM_DES_MD5 = cvar.EncryptMethod_PEM_DES_MD5
 PosAmtType_ACCRUED_COUPON_AMOUNT = cvar.PosAmtType_ACCRUED_COUPON_AMOUNT
 PosAmtType_PREMIUM_AMOUNT = cvar.PosAmtType_PREMIUM_AMOUNT
-PosAmtType_STARTOFDAYMARKTOMARKETAMOUNT = cvar.PosAmtType_STARTOFDAYMARKTOMARKETAMOUNT
-PosAmtType_INCREMENTALMARKTOMARKETAMOUNT = cvar.PosAmtType_INCREMENTALMARKTOMARKETAMOUNT
-PosAmtType_CASHAMOUNTCORPORATEEVENT = cvar.PosAmtType_CASHAMOUNTCORPORATEEVENT
 PosAmtType_INCREMENTAL_COLLATERALIZED_MARK_TO_MARKET = cvar.PosAmtType_INCREMENTAL_COLLATERALIZED_MARK_TO_MARKET
 PosAmtType_TOTAL_BANKED_AMOUNT = cvar.PosAmtType_TOTAL_BANKED_AMOUNT
 PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_FINAL_MARK_TO_MARKET_AMOUNT
 PosAmtType_SETTLEMENT_VALUE = cvar.PosAmtType_SETTLEMENT_VALUE
-PosAmtType_VALUEADJUSTEDAMOUNT = cvar.PosAmtType_VALUEADJUSTEDAMOUNT
 PosAmtType_CASH_AMOUNT = cvar.PosAmtType_CASH_AMOUNT
-PosAmtType_PREMIUMAMOUNT = cvar.PosAmtType_PREMIUMAMOUNT
 PosAmtType_INITIAL_TRADE_COUPON_AMOUNT = cvar.PosAmtType_INITIAL_TRADE_COUPON_AMOUNT
 PosAmtType_INCREMENTAL_ACCRUED_COUPON = cvar.PosAmtType_INCREMENTAL_ACCRUED_COUPON
-PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT
 PosAmtType_VALUE_ADJUSTED_AMOUNT = cvar.PosAmtType_VALUE_ADJUSTED_AMOUNT
-PosAmtType_CASHRESIDUALAMOUNT = cvar.PosAmtType_CASHRESIDUALAMOUNT
+PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_START_OF_DAY_MARK_TO_MARKET_AMOUNT
 PosAmtType_COLLATERALIZED_MARK_TO_MARKET = cvar.PosAmtType_COLLATERALIZED_MARK_TO_MARKET
 PosAmtType_CASH_RESIDUAL_AMOUNT = cvar.PosAmtType_CASH_RESIDUAL_AMOUNT
 PosAmtType_COMPENSATION_AMOUNT = cvar.PosAmtType_COMPENSATION_AMOUNT
 PosAmtType_TRADE_VARIATION_AMOUNT = cvar.PosAmtType_TRADE_VARIATION_AMOUNT
-PosAmtType_TRADEVARIATIONAMOUNT = cvar.PosAmtType_TRADEVARIATIONAMOUNT
-PosAmtType_FINALMARKTOMARKETAMOUNT = cvar.PosAmtType_FINALMARKTOMARKETAMOUNT
 PosAmtType_COUPON_AMOUNT = cvar.PosAmtType_COUPON_AMOUNT
 PosAmtType_TOTAL_COLLATERALIZED_AMOUNT = cvar.PosAmtType_TOTAL_COLLATERALIZED_AMOUNT
 PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT = cvar.PosAmtType_INCREMENTAL_MARK_TO_MARKET_AMOUNT
 ResetSeqNumFlag_NO = cvar.ResetSeqNumFlag_NO
 ResetSeqNumFlag_YES = cvar.ResetSeqNumFlag_YES
 CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED = cvar.CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED
-CollInquiryResult_NOCOLLATERALFOUNDFORTHEORDERSPECIFIED = cvar.CollInquiryResult_NOCOLLATERALFOUNDFORTHEORDERSPECIFIED
-CollInquiryResult_NOCOLLATERALFOUNDFORTHETRADESPECIFIED = cvar.CollInquiryResult_NOCOLLATERALFOUNDFORTHETRADESPECIFIED
-CollInquiryResult_INVALIDORUNKNOWNINSTRUMENT = cvar.CollInquiryResult_INVALIDORUNKNOWNINSTRUMENT
 CollInquiryResult_INVALID_DESTINATION_REQUESTED = cvar.CollInquiryResult_INVALID_DESTINATION_REQUESTED
-CollInquiryResult_INVALIDORUNKNOWNCOLLATERALTYPE = cvar.CollInquiryResult_INVALIDORUNKNOWNCOLLATERALTYPE
 CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY = cvar.CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY
-CollInquiryResult_INVALIDTRANSPORTTYPEREQUESTED = cvar.CollInquiryResult_INVALIDTRANSPORTTYPEREQUESTED
-CollInquiryResult_INVALIDPARTIES = cvar.CollInquiryResult_INVALIDPARTIES
 CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE = cvar.CollInquiryResult_INVALID_OR_UNKNOWN_COLLATERAL_TYPE
-CollInquiryResult_INVALIDDESTINATIONREQUESTED = cvar.CollInquiryResult_INVALIDDESTINATIONREQUESTED
 CollInquiryResult_SUCCESSFUL = cvar.CollInquiryResult_SUCCESSFUL
-CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT = cvar.CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT
-CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED = cvar.CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED
 CollInquiryResult_OTHER = cvar.CollInquiryResult_OTHER
-CollInquiryResult_UNAUTHORIZEDFORCOLLATERALINQUIRY = cvar.CollInquiryResult_UNAUTHORIZEDFORCOLLATERALINQUIRY
-CollInquiryResult_COLLATERALINQUIRYTYPENOTSUPPORTED = cvar.CollInquiryResult_COLLATERALINQUIRYTYPENOTSUPPORTED
+CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED = cvar.CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED
+CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT = cvar.CollInquiryResult_INVALID_OR_UNKNOWN_INSTRUMENT
 CollInquiryResult_INVALID_PARTIES = cvar.CollInquiryResult_INVALID_PARTIES
 CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED = cvar.CollInquiryResult_INVALID_TRANSPORT_TYPE_REQUESTED
 CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED = cvar.CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED
@@ -29780,23 +27408,12 @@ CollAsgnRespType_REJECTED = cvar.CollAsgnRespType_REJECTED
 CollAsgnRespType_ACCEPTED = cvar.CollAsgnRespType_ACCEPTED
 UnsolicitedIndicator_NO = cvar.UnsolicitedIndicator_NO
 UnsolicitedIndicator_YES = cvar.UnsolicitedIndicator_YES
-QuoteEntryRejectReason_UNKNWNSYM = cvar.QuoteEntryRejectReason_UNKNWNSYM
-QuoteEntryRejectReason_EXCHCLSD = cvar.QuoteEntryRejectReason_EXCHCLSD
-QuoteEntryRejectReason_EXHCNAGE = cvar.QuoteEntryRejectReason_EXHCNAGE
-QuoteEntryRejectReason_DUPORD = cvar.QuoteEntryRejectReason_DUPORD
 QuoteEntryRejectReason_INVALID_PRICE = cvar.QuoteEntryRejectReason_INVALID_PRICE
-QuoteEntryRejectReason_TOOLATE = cvar.QuoteEntryRejectReason_TOOLATE
-QuoteEntryRejectReason_INVBIDASK = cvar.QuoteEntryRejectReason_INVBIDASK
 QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY = cvar.QuoteEntryRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY
 QuoteEntryRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteEntryRejectReason_TOO_LATE_TO_ENTER
 QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT = cvar.QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT
-QuoteEntryRejectReason_ORDEXCLIM = cvar.QuoteEntryRejectReason_ORDEXCLIM
-QuoteEntryRejectReason_UNKNORD = cvar.QuoteEntryRejectReason_UNKNORD
-QuoteEntryRejectReason_INVPX = cvar.QuoteEntryRejectReason_INVPX
 QuoteEntryRejectReason_EXCHANGE = cvar.QuoteEntryRejectReason_EXCHANGE
 QuoteEntryRejectReason_UNKNOWN_SYMBOL = cvar.QuoteEntryRejectReason_UNKNOWN_SYMBOL
-QuoteEntryRejectReason_NOTAUTH = cvar.QuoteEntryRejectReason_NOTAUTH
-QuoteEntryRejectReason_OTHER = cvar.QuoteEntryRejectReason_OTHER
 QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD = cvar.QuoteEntryRejectReason_INVALID_BID_ASK_SPREAD
 QuoteEntryRejectReason_UNKNOWN_QUOTE = cvar.QuoteEntryRejectReason_UNKNOWN_QUOTE
 QuoteEntryRejectReason_DUPLICATE_QUOTE = cvar.QuoteEntryRejectReason_DUPLICATE_QUOTE
@@ -29806,8 +27423,6 @@ OrderCapacity_AGENT_FOR_OTHER_MEMBER = cvar.OrderCapacity_AGENT_FOR_OTHER_MEMBER
 OrderCapacity_PRINCIPAL = cvar.OrderCapacity_PRINCIPAL
 OrderCapacity_AGENCY = cvar.OrderCapacity_AGENCY
 OrderCapacity_INDIVIDUAL = cvar.OrderCapacity_INDIVIDUAL
-OrderCapacity_AGENTOTHERMEMBER = cvar.OrderCapacity_AGENTOTHERMEMBER
-OrderCapacity_RISKLESSPRINCIPAL = cvar.OrderCapacity_RISKLESSPRINCIPAL
 QuoteAckStatus_CANCELED_FOR_UNDERLYING = cvar.QuoteAckStatus_CANCELED_FOR_UNDERLYING
 QuoteAckStatus_CANCELED_ALL = cvar.QuoteAckStatus_CANCELED_ALL
 QuoteAckStatus_CANCELED_FOR_SECURITY_TYPE = cvar.QuoteAckStatus_CANCELED_FOR_SECURITY_TYPE
@@ -29819,7 +27434,6 @@ UserRequestType_CHANGEPASSWORDFORUSER = cvar.UserRequestType_CHANGEPASSWORDFORUS
 UserRequestType_LOGOFFUSER = cvar.UserRequestType_LOGOFFUSER
 UserRequestType_LOG_OFF_USER = cvar.UserRequestType_LOG_OFF_USER
 UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS = cvar.UserRequestType_REQUEST_INDIVIDUAL_USER_STATUS
-UserRequestType_REQUESTINDIVIDUALUSERSTATUS = cvar.UserRequestType_REQUESTINDIVIDUALUSERSTATUS
 UserRequestType_LOGONUSER = cvar.UserRequestType_LOGONUSER
 UserRequestType_LOG_ON_USER = cvar.UserRequestType_LOG_ON_USER
 TradeReportTransType_REPLACE = cvar.TradeReportTransType_REPLACE
@@ -29834,32 +27448,20 @@ AdvSide_BUY = cvar.AdvSide_BUY
 AdvSide_SELL = cvar.AdvSide_SELL
 CoveredOrUncovered_COVERED = cvar.CoveredOrUncovered_COVERED
 CoveredOrUncovered_UNCOVERED = cvar.CoveredOrUncovered_UNCOVERED
-AcctIDSource_TFMGSPTA = cvar.AcctIDSource_TFMGSPTA
 AcctIDSource_TFM = cvar.AcctIDSource_TFM
-AcctIDSource_DTCCCODE = cvar.AcctIDSource_DTCCCODE
-AcctIDSource_SIDCODE = cvar.AcctIDSource_SIDCODE
-AcctIDSource_OMGEOALERTID = cvar.AcctIDSource_OMGEOALERTID
 AcctIDSource_BIC = cvar.AcctIDSource_BIC
 AcctIDSource_OTHER = cvar.AcctIDSource_OTHER
 AcctIDSource_OMGEO = cvar.AcctIDSource_OMGEO
-AcctIDSource_SID_CODE = cvar.AcctIDSource_SID_CODE
 AcctIDSource_DTCC_CODE = cvar.AcctIDSource_DTCC_CODE
+AcctIDSource_SID_CODE = cvar.AcctIDSource_SID_CODE
 TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_UNMATCHED_TRADES_THAT_MATCH_CRITERIA
 TradeRequestType_ALL_TRADES = cvar.TradeRequestType_ALL_TRADES
 TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST = cvar.TradeRequestType_MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST
-TradeRequestType_UNREPORTEDTRADES = cvar.TradeRequestType_UNREPORTEDTRADES
-TradeRequestType_ALLTRADES = cvar.TradeRequestType_ALLTRADES
-TradeRequestType_ADVISORIESMATCH = cvar.TradeRequestType_ADVISORIESMATCH
-TradeRequestType_MATCHEDTRADES = cvar.TradeRequestType_MATCHEDTRADES
-TradeRequestType_UNMATCHEDTRADES = cvar.TradeRequestType_UNMATCHEDTRADES
 TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_UNREPORTED_TRADES_THAT_MATCH_CRITERIA
 TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA = cvar.TradeRequestType_ADVISORIES_THAT_MATCH_CRITERIA
-TradSesStatus_PRECLOSE = cvar.TradSesStatus_PRECLOSE
 TradSesStatus_HALTED = cvar.TradSesStatus_HALTED
-TradSesStatus_REQREJ = cvar.TradSesStatus_REQREJ
 TradSesStatus_REQUEST_REJECTED = cvar.TradSesStatus_REQUEST_REJECTED
 TradSesStatus_OPEN = cvar.TradSesStatus_OPEN
-TradSesStatus_PREOPEN = cvar.TradSesStatus_PREOPEN
 TradSesStatus_PRE_OPEN = cvar.TradSesStatus_PRE_OPEN
 TradSesStatus_UNKNOWN = cvar.TradSesStatus_UNKNOWN
 TradSesStatus_PRE_CLOSE = cvar.TradSesStatus_PRE_CLOSE
@@ -29891,41 +27493,28 @@ PriceProtectionScope_LOCAL = cvar.PriceProtectionScope_LOCAL
 PriceProtectionScope_NONE = cvar.PriceProtectionScope_NONE
 PriceProtectionScope_GLOBAL = cvar.PriceProtectionScope_GLOBAL
 PriceProtectionScope_NATIONAL = cvar.PriceProtectionScope_NATIONAL
-TradeReportRejectReason_SUCCESSFULDEFAULT = cvar.TradeReportRejectReason_SUCCESSFULDEFAULT
+TradeReportRejectReason_INVALID_PARTY_INFORMATION = cvar.TradeReportRejectReason_INVALID_PARTY_INFORMATION
 TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES = cvar.TradeReportRejectReason_UNAUTHORIZED_TO_REPORT_TRADES
-TradeReportRejectReason_SUCCESSFUL = cvar.TradeReportRejectReason_SUCCESSFUL
 TradeReportRejectReason_INVALID_PARTY_ONFORMATION = cvar.TradeReportRejectReason_INVALID_PARTY_ONFORMATION
 TradeReportRejectReason_UNKNOWN_INSTRUMENT = cvar.TradeReportRejectReason_UNKNOWN_INSTRUMENT
+TradeReportRejectReason_SUCCESSFUL = cvar.TradeReportRejectReason_SUCCESSFUL
 TradeReportRejectReason_OTHER = cvar.TradeReportRejectReason_OTHER
-TradeReportRejectReason_INVALIDTRADETYPE = cvar.TradeReportRejectReason_INVALIDTRADETYPE
-TradeReportRejectReason_UNKNOWNINSTRUMENT = cvar.TradeReportRejectReason_UNKNOWNINSTRUMENT
 TradeReportRejectReason_INVALID_TRADE_TYPE = cvar.TradeReportRejectReason_INVALID_TRADE_TYPE
-TradeReportRejectReason_UNAUTHORIZEDTOREPORTTRADES = cvar.TradeReportRejectReason_UNAUTHORIZEDTOREPORTTRADES
-TradeReportRejectReason_INVALIDPARTYINFORMATION = cvar.TradeReportRejectReason_INVALIDPARTYINFORMATION
 SecurityListType_NEWSPAPER_LIST = cvar.SecurityListType_NEWSPAPER_LIST
 SecurityListType_TRADING_LIST = cvar.SecurityListType_TRADING_LIST
 SecurityListType_INDUSTRY_CLASSIFICATION = cvar.SecurityListType_INDUSTRY_CLASSIFICATION
 SecurityListType_MARKET = cvar.SecurityListType_MARKET
 QuoteRejectReason_QUOTE_LOCKED = cvar.QuoteRejectReason_QUOTE_LOCKED
-QuoteRejectReason_UNKNSYM = cvar.QuoteRejectReason_UNKNSYM
-QuoteRejectReason_EXCHCLSD = cvar.QuoteRejectReason_EXCHCLSD
-QuoteRejectReason_DUPORD = cvar.QuoteRejectReason_DUPORD
 QuoteRejectReason_INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY = cvar.QuoteRejectReason_INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY
 QuoteRejectReason_INVALID_PRICE = cvar.QuoteRejectReason_INVALID_PRICE
-QuoteRejectReason_TOOLATE = cvar.QuoteRejectReason_TOOLATE
 QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY = cvar.QuoteRejectReason_NOT_AUTHORIZED_TO_QUOTE_SECURITY
 QuoteRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteRejectReason_TOO_LATE_TO_ENTER
-QuoteRejectReason_UNKNORD = cvar.QuoteRejectReason_UNKNORD
-QuoteRejectReason_INVPX = cvar.QuoteRejectReason_INVPX
 QuoteRejectReason_EXCHANGE = cvar.QuoteRejectReason_EXCHANGE
-QuoteRejectReason_INVSPREAD = cvar.QuoteRejectReason_INVSPREAD
 QuoteRejectReason_UNKNOWN_SYMBOL = cvar.QuoteRejectReason_UNKNOWN_SYMBOL
-QuoteRejectReason_NOTAUTH = cvar.QuoteRejectReason_NOTAUTH
 QuoteRejectReason_OTHER = cvar.QuoteRejectReason_OTHER
 QuoteRejectReason_INVALID_BID_ASK_SPREAD = cvar.QuoteRejectReason_INVALID_BID_ASK_SPREAD
 QuoteRejectReason_UNKNOWN_QUOTE = cvar.QuoteRejectReason_UNKNOWN_QUOTE
 QuoteRejectReason_INVALID_OR_UNKNOWN_SECURITY_ISSUER = cvar.QuoteRejectReason_INVALID_OR_UNKNOWN_SECURITY_ISSUER
-QuoteRejectReason_ORDEXLIM = cvar.QuoteRejectReason_ORDEXLIM
 QuoteRejectReason_DUPLICATE_QUOTE = cvar.QuoteRejectReason_DUPLICATE_QUOTE
 QuoteRejectReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND = cvar.QuoteRejectReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND
 QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT = cvar.QuoteRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT
@@ -29949,24 +27538,14 @@ ImpliedMarketIndicator_NOT_IMPLIED = cvar.ImpliedMarketIndicator_NOT_IMPLIED
 ImpliedMarketIndicator_IMPLIED_OUT = cvar.ImpliedMarketIndicator_IMPLIED_OUT
 ImpliedMarketIndicator_IMPLIED_IN = cvar.ImpliedMarketIndicator_IMPLIED_IN
 QuoteRequestType_AUTOMATIC = cvar.QuoteRequestType_AUTOMATIC
-QuoteRequestType_MAN = cvar.QuoteRequestType_MAN
-QuoteRequestType_AUTO = cvar.QuoteRequestType_AUTO
 QuoteRequestType_MANUAL = cvar.QuoteRequestType_MANUAL
-SecurityRequestResult_INSTRUMENTUNAVAILABLE = cvar.SecurityRequestResult_INSTRUMENTUNAVAILABLE
 SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA = cvar.SecurityRequestResult_NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA
 SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA = cvar.SecurityRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA
 SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE = cvar.SecurityRequestResult_INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE
 SecurityRequestResult_VALID_REQUEST = cvar.SecurityRequestResult_VALID_REQUEST
-SecurityRequestResult_VALIDREQ = cvar.SecurityRequestResult_VALIDREQ
-SecurityRequestResult_NOINSTRUMENTSFOUND = cvar.SecurityRequestResult_NOINSTRUMENTSFOUND
 SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST = cvar.SecurityRequestResult_INVALID_OR_UNSUPPORTED_REQUEST
-SecurityRequestResult_NOTAUTHORIZED = cvar.SecurityRequestResult_NOTAUTHORIZED
-SecurityRequestResult_NOTSUPPORTED = cvar.SecurityRequestResult_NOTSUPPORTED
-SecurityRequestResult_INVALIDREQ = cvar.SecurityRequestResult_INVALIDREQ
 SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED = cvar.SecurityRequestResult_REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED
 OrderRestrictions_ISSUER_HOLDING = cvar.OrderRestrictions_ISSUER_HOLDING
-OrderRestrictions_NON_INDEXARBITRAGE = cvar.OrderRestrictions_NON_INDEXARBITRAGE
-OrderRestrictions_EXMRKTPART = cvar.OrderRestrictions_EXMRKTPART
 OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY
 OrderRestrictions_NON_ALGORITHMIC = cvar.OrderRestrictions_NON_ALGORITHMIC
 OrderRestrictions_EXTNERAL_INTER_CONNECTED_MARKET_LINKAGE = cvar.OrderRestrictions_EXTNERAL_INTER_CONNECTED_MARKET_LINKAGE
@@ -29974,59 +27553,41 @@ OrderRestrictions_NON_INDEX_ARBITRAGE = cvar.OrderRestrictions_NON_INDEX_ARBITRA
 OrderRestrictions_ACTING_AS_MARKET_MAKER_OF_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SEUCIRTY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OF_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SEUCIRTY
 OrderRestrictions_PROGRAM_TRADE = cvar.OrderRestrictions_PROGRAM_TRADE
 OrderRestrictions_ISSUE_PRICE_STABILIZATION = cvar.OrderRestrictions_ISSUE_PRICE_STABILIZATION
-OrderRestrictions_INDEXARBITRAGE = cvar.OrderRestrictions_INDEXARBITRAGE
-OrderRestrictions_ACTMMDERIV = cvar.OrderRestrictions_ACTMMDERIV
-OrderRestrictions_FORENTITY = cvar.OrderRestrictions_FORENTITY
 OrderRestrictions_CROSS = cvar.OrderRestrictions_CROSS
-OrderRestrictions_PROGRAMTRADE = cvar.OrderRestrictions_PROGRAMTRADE
-OrderRestrictions_RISKARB = cvar.OrderRestrictions_RISKARB
 OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE = cvar.OrderRestrictions_EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE
 OrderRestrictions_FOREIGN_ENTITY = cvar.OrderRestrictions_FOREIGN_ENTITY
-OrderRestrictions_COMPETINGMARKETMAKER = cvar.OrderRestrictions_COMPETINGMARKETMAKER
-OrderRestrictions_EXINTMRKTLINK = cvar.OrderRestrictions_EXINTMRKTLINK
 OrderRestrictions_INDEX_ARBITRAGE = cvar.OrderRestrictions_INDEX_ARBITRAGE
 OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT = cvar.OrderRestrictions_EXTERNAL_MARKET_PARTICIPANT
 OrderRestrictions_ALGORITHMIC = cvar.OrderRestrictions_ALGORITHMIC
-OrderRestrictions_ACTMM = cvar.OrderRestrictions_ACTMM
 OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY = cvar.OrderRestrictions_ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY
 OrderRestrictions_RISKLESS_ARBITRAGE = cvar.OrderRestrictions_RISKLESS_ARBITRAGE
 OrderRestrictions_COMPETING_MARKET_MAKER = cvar.OrderRestrictions_COMPETING_MARKET_MAKER
 ListExecInstType_WAIT_FOR_EXECUT_INSTRUCTION = cvar.ListExecInstType_WAIT_FOR_EXECUT_INSTRUCTION
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN
-ListExecInstType_IMMED = cvar.ListExecInstType_IMMED
-ListExecInstType_WAIT = cvar.ListExecInstType_WAIT
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_3 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_3
 ListExecInstType_IMMEDIATE = cvar.ListExecInstType_IMMEDIATE
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_4 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_4
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_5 = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_5
 ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = cvar.ListExecInstType_EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP
-ListExecInstType_EXCHCIVBUYTOP = cvar.ListExecInstType_EXCHCIVBUYTOP
-ListExecInstType_EXCHCIVBUYWD = cvar.ListExecInstType_EXCHCIVBUYWD
-ListExecInstType_EXCHCIVSELL = cvar.ListExecInstType_EXCHCIVSELL
 ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION = cvar.ListExecInstType_WAIT_FOR_EXECUTE_INSTRUCTION
 DistribPaymentMethod_FED_WIRE = cvar.DistribPaymentMethod_FED_WIRE
-DistribPaymentMethod_ACH_CREDIT = cvar.DistribPaymentMethod_ACH_CREDIT
 DistribPaymentMethod_EUROCLEAR = cvar.DistribPaymentMethod_EUROCLEAR
-DistribPaymentMethod_TELEGRAPHICTRANSFER = cvar.DistribPaymentMethod_TELEGRAPHICTRANSFER
-DistribPaymentMethod_ACHCREDIT = cvar.DistribPaymentMethod_ACHCREDIT
+DistribPaymentMethod_ACH_CREDIT = cvar.DistribPaymentMethod_ACH_CREDIT
 DistribPaymentMethod_TELEGRAPHIC_TRANSFER = cvar.DistribPaymentMethod_TELEGRAPHIC_TRANSFER
 DistribPaymentMethod_FEDWIRE = cvar.DistribPaymentMethod_FEDWIRE
 DistribPaymentMethod_CHEQUE = cvar.DistribPaymentMethod_CHEQUE
 DistribPaymentMethod_DIRECT_CREDIT = cvar.DistribPaymentMethod_DIRECT_CREDIT
 DistribPaymentMethod_CREST = cvar.DistribPaymentMethod_CREST
-DistribPaymentMethod_BPAY = cvar.DistribPaymentMethod_BPAY
+DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM = cvar.DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM
 DistribPaymentMethod_CLEARSTREAM = cvar.DistribPaymentMethod_CLEARSTREAM
-DistribPaymentMethod_DIRECTCREDITBECSBACS = cvar.DistribPaymentMethod_DIRECTCREDITBECSBACS
-DistribPaymentMethod_HIGHVALUECLEARINGSYSTEMHVACS = cvar.DistribPaymentMethod_HIGHVALUECLEARINGSYSTEMHVACS
+DistribPaymentMethod_BPAY = cvar.DistribPaymentMethod_BPAY
 DistribPaymentMethod_NSCC = cvar.DistribPaymentMethod_NSCC
 DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS = cvar.DistribPaymentMethod_HIGH_VALUE_CLEARING_SYSTEM_HVACS
-DistribPaymentMethod_REINVESTINFUND = cvar.DistribPaymentMethod_REINVESTINFUND
 DistribPaymentMethod_REINVEST_IN_FUND = cvar.DistribPaymentMethod_REINVEST_IN_FUND
 OrderHandlingInstSource_NASD_OATS = cvar.OrderHandlingInstSource_NASD_OATS
-AffirmStatus_CONFIRMREJECTED = cvar.AffirmStatus_CONFIRMREJECTED
-AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED = cvar.AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED
 AffirmStatus_AFFIRMED = cvar.AffirmStatus_AFFIRMED
+AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED = cvar.AffirmStatus_CONFIRM_REJECTED_IE_NOT_AFFIRMED
 AffirmStatus_RECEIVED = cvar.AffirmStatus_RECEIVED
 OrigCustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT = cvar.OrigCustOrderCapacity_CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT
 OrigCustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT = cvar.OrigCustOrderCapacity_MEMBER_TRADING_FOR_THEIR_OWN_ACCOUNT
@@ -30038,57 +27599,39 @@ AllocMethod_MANUAL = cvar.AllocMethod_MANUAL
 MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY
 MassCancelResponse_CANCEL_ORDERS_FOR_ISSUER_OF_UNDERLYING_SECURITY = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_ISSUER_OF_UNDERLYING_SECURITY
 MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY_GROUP = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITY_GROUP
-MassCancelResponse_CXLORDERSSECURITYTYPE = cvar.MassCancelResponse_CXLORDERSSECURITYTYPE
-MassCancelResponse_CXLORDERSUNDERLYINGSECURITY = cvar.MassCancelResponse_CXLORDERSUNDERLYINGSECURITY
-MassCancelResponse_CXLORDERSTRDSESSION = cvar.MassCancelResponse_CXLORDERSTRDSESSION
-MassCancelResponse_CXLALLORDERS = cvar.MassCancelResponse_CXLALLORDERS
 MassCancelResponse_CANCEL_ORDERS_FOR_A_MARKET = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_MARKET
 MassCancelResponse_CANCEL_ORDERS_FOR_A_MARKET_SEGMENT = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_MARKET_SEGMENT
-MassCancelResponse_CXLREQREJ = cvar.MassCancelResponse_CXLREQREJ
 MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITYTYPE
 MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_TRADING_SESSION
 MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY
-MassCancelResponse_CXLORDERSSECURITY = cvar.MassCancelResponse_CXLORDERSSECURITY
-MassCancelResponse_CXLORDERSPRODUCT = cvar.MassCancelResponse_CXLORDERSPRODUCT
 MassCancelResponse_CANCEL_ALL_ORDERS = cvar.MassCancelResponse_CANCEL_ALL_ORDERS
 MassCancelResponse_CANCEL_REQUEST_REJECTED = cvar.MassCancelResponse_CANCEL_REQUEST_REJECTED
 MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITIES_ISSUER = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_SECURITIES_ISSUER
-MassCancelResponse_CXLORDERSCFICODE = cvar.MassCancelResponse_CXLORDERSCFICODE
 MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_CFICODE
 MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT = cvar.MassCancelResponse_CANCEL_ORDERS_FOR_A_PRODUCT
 StreamAsgnReqType_STREAM_ASSIGNMENT_FOR_NEW_CUSTOMER = cvar.StreamAsgnReqType_STREAM_ASSIGNMENT_FOR_NEW_CUSTOMER
 StreamAsgnReqType_STREAM_ASSIGNMENT_FOR_EXISTING_CUSTOMER = cvar.StreamAsgnReqType_STREAM_ASSIGNMENT_FOR_EXISTING_CUSTOMER
 SymbolSfx_EUCP_WITH_LUMP_SUM_INTEREST_RATHER_THAN_DISCOUNT_PRICE = cvar.SymbolSfx_EUCP_WITH_LUMP_SUM_INTEREST_RATHER_THAN_DISCOUNT_PRICE
-SymbolSfx_EUCPLUMPSUMINTEREST = cvar.SymbolSfx_EUCPLUMPSUMINTEREST
-SymbolSfx_WHENISSUED = cvar.SymbolSfx_WHENISSUED
 SymbolSfx_WHEN_ISSUED_FOR_A_SECURITY_TO_BE_REISSUED_UNDER_AN_OLD_CUSIP_OR_ISIN = cvar.SymbolSfx_WHEN_ISSUED_FOR_A_SECURITY_TO_BE_REISSUED_UNDER_AN_OLD_CUSIP_OR_ISIN
 ExDestinationIDSource_PROPRIETARY = cvar.ExDestinationIDSource_PROPRIETARY
 ExDestinationIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = cvar.ExDestinationIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER
 ExDestinationIDSource_BIC = cvar.ExDestinationIDSource_BIC
 ExDestinationIDSource_MIC = cvar.ExDestinationIDSource_MIC
 ExDestinationIDSource_ISO_COUNTRY_CODE = cvar.ExDestinationIDSource_ISO_COUNTRY_CODE
-SecurityListRequestType_ALLSECURITIES = cvar.SecurityListRequestType_ALLSECURITIES
 SecurityListRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID = cvar.SecurityListRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID
-SecurityListRequestType_SECURITYTYPECFICODE = cvar.SecurityListRequestType_SECURITYTYPECFICODE
 SecurityListRequestType_SYMBOL = cvar.SecurityListRequestType_SYMBOL
 SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE = cvar.SecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE
 SecurityListRequestType_TRADINGSESSIONID = cvar.SecurityListRequestType_TRADINGSESSIONID
 SecurityListRequestType_ALL_SECURITIES = cvar.SecurityListRequestType_ALL_SECURITIES
 SecurityListRequestType_PRODUCT = cvar.SecurityListRequestType_PRODUCT
-CollAsgnReason_FORWARDCOLLATERALDEMAND = cvar.CollAsgnReason_FORWARDCOLLATERALDEMAND
-CollAsgnReason_ADVERSETAXEVENT = cvar.CollAsgnReason_ADVERSETAXEVENT
-CollAsgnReason_MARGINDEFICIENCY = cvar.CollAsgnReason_MARGINDEFICIENCY
 CollAsgnReason_TIME_WARNING = cvar.CollAsgnReason_TIME_WARNING
-CollAsgnReason_TIMEWARNING = cvar.CollAsgnReason_TIMEWARNING
 CollAsgnReason_ADVERSE_TAX_EVENT = cvar.CollAsgnReason_ADVERSE_TAX_EVENT
-CollAsgnReason_MARGINEXCESS = cvar.CollAsgnReason_MARGINEXCESS
 CollAsgnReason_MARGIN_DEFICIENCY = cvar.CollAsgnReason_MARGIN_DEFICIENCY
 CollAsgnReason_SCHEDULED = cvar.CollAsgnReason_SCHEDULED
 CollAsgnReason_INITIAL = cvar.CollAsgnReason_INITIAL
 CollAsgnReason_FORWARD_COLLATERAL_DEMAND = cvar.CollAsgnReason_FORWARD_COLLATERAL_DEMAND
-CollAsgnReason_EVENTOFDEFAULT = cvar.CollAsgnReason_EVENTOFDEFAULT
-CollAsgnReason_MARGIN_EXCESS = cvar.CollAsgnReason_MARGIN_EXCESS
 CollAsgnReason_EVENT_OF_DEFAULT = cvar.CollAsgnReason_EVENT_OF_DEFAULT
+CollAsgnReason_MARGIN_EXCESS = cvar.CollAsgnReason_MARGIN_EXCESS
 SettlPriceType_FINAL = cvar.SettlPriceType_FINAL
 SettlPriceType_THEORETICAL = cvar.SettlPriceType_THEORETICAL
 DealingCapacity_RISKLESS_PRINCIPAL = cvar.DealingCapacity_RISKLESS_PRINCIPAL
@@ -30107,7 +27650,6 @@ MsgType_Email = cvar.MsgType_Email
 MsgType_ListExecute = cvar.MsgType_ListExecute
 MsgType_Confirmation = cvar.MsgType_Confirmation
 MsgType_NewOrderMultileg = cvar.MsgType_NewOrderMultileg
-MsgType_IndicationofInterest = cvar.MsgType_IndicationofInterest
 MsgType_MarketDataIncrementalRefresh = cvar.MsgType_MarketDataIncrementalRefresh
 MsgType_TradeCaptureReport = cvar.MsgType_TradeCaptureReport
 MsgType_RequestForPositionsAck = cvar.MsgType_RequestForPositionsAck
@@ -30136,6 +27678,7 @@ MsgType_SecurityDefinitionUpdateReport = cvar.MsgType_SecurityDefinitionUpdateRe
 MsgType_ListStatusRequest = cvar.MsgType_ListStatusRequest
 MsgType_BusinessMessageReject = cvar.MsgType_BusinessMessageReject
 MsgType_ConfirmationAck = cvar.MsgType_ConfirmationAck
+MsgType_XMLnonFIX = cvar.MsgType_XMLnonFIX
 MsgType_TestRequest = cvar.MsgType_TestRequest
 MsgType_SecurityList = cvar.MsgType_SecurityList
 MsgType_ListCancelRequest = cvar.MsgType_ListCancelRequest
@@ -30160,8 +27703,6 @@ MsgType_QuoteResponse = cvar.MsgType_QuoteResponse
 MsgType_QuoteStatusRequest = cvar.MsgType_QuoteStatusRequest
 MsgType_QuoteCancel = cvar.MsgType_QuoteCancel
 MsgType_ContraryIntentionReport = cvar.MsgType_ContraryIntentionReport
-MsgType_PartyDetailsListReport = cvar.MsgType_PartyDetailsListReport
-MsgType_PartyDetailsListRequest = cvar.MsgType_PartyDetailsListRequest
 MsgType_CrossOrderCancelRequest = cvar.MsgType_CrossOrderCancelRequest
 MsgType_NewOrderSingle = cvar.MsgType_NewOrderSingle
 MsgType_DerivativeSecurityListRequest = cvar.MsgType_DerivativeSecurityListRequest
@@ -30183,11 +27724,11 @@ MsgType_AllocationInstructionAlert = cvar.MsgType_AllocationInstructionAlert
 MsgType_TradeCaptureReportRequestAck = cvar.MsgType_TradeCaptureReportRequestAck
 MsgType_AllocationInstruction = cvar.MsgType_AllocationInstruction
 MsgType_Allocation = cvar.MsgType_Allocation
-MsgType_ApplicationMessageReport = cvar.MsgType_ApplicationMessageReport
 MsgType_RegistrationInstructions = cvar.MsgType_RegistrationInstructions
 MsgType_SecurityDefinition = cvar.MsgType_SecurityDefinition
 MsgType_SecurityDefinitionRequest = cvar.MsgType_SecurityDefinitionRequest
 MsgType_SecurityStatus = cvar.MsgType_SecurityStatus
+MsgType_ApplicationMessageReport = cvar.MsgType_ApplicationMessageReport
 MsgType_DerivativeSecurityList = cvar.MsgType_DerivativeSecurityList
 MsgType_NetworkCounterpartySystemStatusRequest = cvar.MsgType_NetworkCounterpartySystemStatusRequest
 MsgType_MarketDefinitionRequest = cvar.MsgType_MarketDefinitionRequest
@@ -30197,7 +27738,6 @@ MsgType_QuoteRequestReject = cvar.MsgType_QuoteRequestReject
 MsgType_OrderMassStatusRequest = cvar.MsgType_OrderMassStatusRequest
 MsgType_ApplicationMessageRequestAck = cvar.MsgType_ApplicationMessageRequestAck
 MsgType_SecurityStatusRequest = cvar.MsgType_SecurityStatusRequest
-MsgType_AllocationACK = cvar.MsgType_AllocationACK
 MsgType_MarketDefinitionUpdateReport = cvar.MsgType_MarketDefinitionUpdateReport
 MsgType_CrossOrderCancelReplaceRequest = cvar.MsgType_CrossOrderCancelReplaceRequest
 MsgType_OrderMassCancelReport = cvar.MsgType_OrderMassCancelReport
@@ -30224,11 +27764,8 @@ MsgType_MultilegOrderCancelReplaceRequest = cvar.MsgType_MultilegOrderCancelRepl
 MsgType_AllocationInstructionAck = cvar.MsgType_AllocationInstructionAck
 MsgType_MarketDataRequest = cvar.MsgType_MarketDataRequest
 MsgType_MarketDataRequestReject = cvar.MsgType_MarketDataRequestReject
-MultiLegReportingType_SINGLE = cvar.MultiLegReportingType_SINGLE
-MultiLegReportingType_MULTILEG = cvar.MultiLegReportingType_MULTILEG
 MultiLegReportingType_SINGLE_SECURITY = cvar.MultiLegReportingType_SINGLE_SECURITY
 MultiLegReportingType_MULTI_LEG_SECURITY = cvar.MultiLegReportingType_MULTI_LEG_SECURITY
-MultiLegReportingType_INDIVLEG = cvar.MultiLegReportingType_INDIVLEG
 MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = cvar.MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY
 MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = cvar.MultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY
 IDSource_EXCHANGE_SYMBOL = cvar.IDSource_EXCHANGE_SYMBOL
@@ -30242,9 +27779,7 @@ IDSource_QUIK = cvar.IDSource_QUIK
 IDSource_CUSIP = cvar.IDSource_CUSIP
 OrdStatus_NEW = cvar.OrdStatus_NEW
 OrdStatus_CALCULATED = cvar.OrdStatus_CALCULATED
-OrdStatus_PENDINGNEW = cvar.OrdStatus_PENDINGNEW
 OrdStatus_PENDING_CANCEL = cvar.OrdStatus_PENDING_CANCEL
-OrdStatus_PARTIAL = cvar.OrdStatus_PARTIAL
 OrdStatus_PENDING_CANCEL_REPLACE = cvar.OrdStatus_PENDING_CANCEL_REPLACE
 OrdStatus_PENDING_NEW = cvar.OrdStatus_PENDING_NEW
 OrdStatus_STOPPED = cvar.OrdStatus_STOPPED
@@ -30253,22 +27788,16 @@ OrdStatus_PENDING_REPLACE = cvar.OrdStatus_PENDING_REPLACE
 OrdStatus_CANCELED = cvar.OrdStatus_CANCELED
 OrdStatus_ACCEPTED_FOR_BIDDING = cvar.OrdStatus_ACCEPTED_FOR_BIDDING
 OrdStatus_SUSPENDED = cvar.OrdStatus_SUSPENDED
-OrdStatus_DONE = cvar.OrdStatus_DONE
 OrdStatus_REJECTED = cvar.OrdStatus_REJECTED
 OrdStatus_PARTIALLY_FILLED = cvar.OrdStatus_PARTIALLY_FILLED
 OrdStatus_EXPIRED = cvar.OrdStatus_EXPIRED
 OrdStatus_REPLACED = cvar.OrdStatus_REPLACED
 OrdStatus_DONE_FOR_DAY = cvar.OrdStatus_DONE_FOR_DAY
-OrdStatus_ACCEPTBIDDING = cvar.OrdStatus_ACCEPTBIDDING
-OrdStatus_PENDINGREP = cvar.OrdStatus_PENDINGREP
 CustomerOrFirm_FIRM = cvar.CustomerOrFirm_FIRM
 CustomerOrFirm_CUSTOMER = cvar.CustomerOrFirm_CUSTOMER
 AdjustmentType_DELTA_MINUS = cvar.AdjustmentType_DELTA_MINUS
-AdjustmentType_DELTAPLUS = cvar.AdjustmentType_DELTAPLUS
 AdjustmentType_DELTA_PLUS = cvar.AdjustmentType_DELTA_PLUS
-AdjustmentType_DELTAMINUS = cvar.AdjustmentType_DELTAMINUS
 AdjustmentType_FINAL = cvar.AdjustmentType_FINAL
-AdjustmentType_PROCESSREQUESTASMARGINDISPOSITION = cvar.AdjustmentType_PROCESSREQUESTASMARGINDISPOSITION
 AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION = cvar.AdjustmentType_PROCESS_REQUEST_AS_MARGIN_DISPOSITION
 AsOfIndicator_TRUE = cvar.AsOfIndicator_TRUE
 AsOfIndicator_FALSE = cvar.AsOfIndicator_FALSE
@@ -30290,7 +27819,6 @@ VenueType_ELECTRONIC = cvar.VenueType_ELECTRONIC
 MassActionType_CANCEL_ORDERS = cvar.MassActionType_CANCEL_ORDERS
 MassActionType_RELEASE_ORDERS_FROM_SUSPENSION = cvar.MassActionType_RELEASE_ORDERS_FROM_SUSPENSION
 MassActionType_SUSPEND_ORDERS = cvar.MassActionType_SUSPEND_ORDERS
-PosMaintResult_SUCCESSFULCOMPLETION = cvar.PosMaintResult_SUCCESSFULCOMPLETION
 PosMaintResult_SUCCESSFUL_COMPLETION = cvar.PosMaintResult_SUCCESSFUL_COMPLETION
 PosMaintResult_OTHER = cvar.PosMaintResult_OTHER
 PosMaintResult_REJECTED = cvar.PosMaintResult_REJECTED
@@ -30298,49 +27826,35 @@ IOIShares_MEDIUM = cvar.IOIShares_MEDIUM
 IOIShares_LARGE = cvar.IOIShares_LARGE
 IOIShares_SMALL = cvar.IOIShares_SMALL
 PegOffsetType_PRICE = cvar.PegOffsetType_PRICE
-PegOffsetType_BASISPOINTS = cvar.PegOffsetType_BASISPOINTS
 PegOffsetType_PRICE_TIER = cvar.PegOffsetType_PRICE_TIER
 PegOffsetType_TICKS = cvar.PegOffsetType_TICKS
-PegOffsetType_PRICETIERLEVEL = cvar.PegOffsetType_PRICETIERLEVEL
 PegOffsetType_BASIS_POINTS = cvar.PegOffsetType_BASIS_POINTS
 MassCancelRejectReason_INVALID_OR_UNKOWN_MARKET_SEGMENT = cvar.MassCancelRejectReason_INVALID_OR_UNKOWN_MARKET_SEGMENT
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY
-MassCancelRejectReason_INVALIDSECURITY = cvar.MassCancelRejectReason_INVALIDSECURITY
 MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED = cvar.MassCancelRejectReason_MASS_CANCEL_NOT_SUPPORTED
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_GROUP = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_GROUP
 MassCancelRejectReason_INVALID_OR_UNKOWN_UNDERLYING_SECURITY = cvar.MassCancelRejectReason_INVALID_OR_UNKOWN_UNDERLYING_SECURITY
-MassCancelRejectReason_INVALIDPRODUCT = cvar.MassCancelRejectReason_INVALIDPRODUCT
 MassCancelRejectReason_INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITYTYPE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITYTYPE
 MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_CFICODE
 MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_TRADING_SESSION
 MassCancelRejectReason_INVALID_OR_UNKNOWN_MARKET = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_MARKET
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_TYPE
-MassCancelRejectReason_INVALIDUNDERLYING = cvar.MassCancelRejectReason_INVALIDUNDERLYING
 MassCancelRejectReason_OTHER = cvar.MassCancelRejectReason_OTHER
 MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_ISSUER = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_SECURITY_ISSUER
-MassCancelRejectReason_INVALIDCFICODE = cvar.MassCancelRejectReason_INVALIDCFICODE
-MassCancelRejectReason_INVALIDSECURITYTYPE = cvar.MassCancelRejectReason_INVALIDSECURITYTYPE
 MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_PRODUCT
 MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING = cvar.MassCancelRejectReason_INVALID_OR_UNKNOWN_UNDERLYING
-MassCancelRejectReason_INVALIDTRDSESSION = cvar.MassCancelRejectReason_INVALIDTRDSESSION
-MassCancelRejectReason_MASSCXLNOTSUPPORTED = cvar.MassCancelRejectReason_MASSCXLNOTSUPPORTED
-ResponseTransportType_OUTOFBAND = cvar.ResponseTransportType_OUTOFBAND
 ResponseTransportType_INBAND = cvar.ResponseTransportType_INBAND
 ResponseTransportType_OUT_OF_BAND = cvar.ResponseTransportType_OUT_OF_BAND
+ResponseTransportType_INBAND_TRANSPORT_THE_REQUEST_WAS_SENT_OVER = cvar.ResponseTransportType_INBAND_TRANSPORT_THE_REQUEST_WAS_SENT_OVER
+ResponseTransportType_OUT_OF_BAND_PRE_ARRANGED_OUT_OF_BAND_DELIVERY_MECHANISM = cvar.ResponseTransportType_OUT_OF_BAND_PRE_ARRANGED_OUT_OF_BAND_DELIVERY_MECHANISM
 TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID = cvar.TradSesStatusRejReason_UNKNOWN_OR_INVALID_TRADINGSESSIONID
-TradSesStatusRejReason_UNKNOWNTRADINGSESSIONID = cvar.TradSesStatusRejReason_UNKNOWNTRADINGSESSIONID
 TradSesStatusRejReason_OTHER = cvar.TradSesStatusRejReason_OTHER
 TrdRegTimestampType_EXECUTION_TIME = cvar.TrdRegTimestampType_EXECUTION_TIME
-TrdRegTimestampType_BROKEREXECUTION = cvar.TrdRegTimestampType_BROKEREXECUTION
-TrdRegTimestampType_BROKERRECEIPT = cvar.TrdRegTimestampType_BROKERRECEIPT
-TrdRegTimestampType_TIMEIN = cvar.TrdRegTimestampType_TIMEIN
 TrdRegTimestampType_TIME_IN = cvar.TrdRegTimestampType_TIME_IN
-TrdRegTimestampType_TIMEOUT = cvar.TrdRegTimestampType_TIMEOUT
 TrdRegTimestampType_SUBMISSION_TO_CLEARING = cvar.TrdRegTimestampType_SUBMISSION_TO_CLEARING
-TrdRegTimestampType_BROKER_RECEIPT = cvar.TrdRegTimestampType_BROKER_RECEIPT
 TrdRegTimestampType_DESK_RECEIPT = cvar.TrdRegTimestampType_DESK_RECEIPT
-TrdRegTimestampType_EXECUTIONTIME = cvar.TrdRegTimestampType_EXECUTIONTIME
+TrdRegTimestampType_BROKER_RECEIPT = cvar.TrdRegTimestampType_BROKER_RECEIPT
 TrdRegTimestampType_BROKER_EXECUTION = cvar.TrdRegTimestampType_BROKER_EXECUTION
 TrdRegTimestampType_TIME_OUT = cvar.TrdRegTimestampType_TIME_OUT
 ApplVerID_FIX50SP1 = cvar.ApplVerID_FIX50SP1
@@ -30354,11 +27868,8 @@ ApplVerID_FIX42 = cvar.ApplVerID_FIX42
 ApplVerID_FIX43 = cvar.ApplVerID_FIX43
 ApplVerID_FIX44 = cvar.ApplVerID_FIX44
 HandlInst_MANUAL_ORDER_BEST_EXECUTION = cvar.HandlInst_MANUAL_ORDER_BEST_EXECUTION
-HandlInst_AUTOEXECPUB = cvar.HandlInst_AUTOEXECPUB
 HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION
-HandlInst_AUTOEXECPRIV = cvar.HandlInst_AUTOEXECPRIV
 HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK = cvar.HandlInst_AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK
-HandlInst_MANUAL = cvar.HandlInst_MANUAL
 TradingSessionSubID_POST_TRADING = cvar.TradingSessionSubID_POST_TRADING
 TradingSessionSubID_INTRADAY_AUCTION = cvar.TradingSessionSubID_INTRADAY_AUCTION
 TradingSessionSubID_PRE_TRADING = cvar.TradingSessionSubID_PRE_TRADING
@@ -30367,11 +27878,9 @@ TradingSessionSubID_3 = cvar.TradingSessionSubID_3
 TradingSessionSubID_OPENING_OR_OPENING_AUCTION = cvar.TradingSessionSubID_OPENING_OR_OPENING_AUCTION
 TradingSessionSubID_CLOSING_OR_CLOSING_AUCTION = cvar.TradingSessionSubID_CLOSING_OR_CLOSING_AUCTION
 MDEntryType_SWAP_VALUE_FACTOR = cvar.MDEntryType_SWAP_VALUE_FACTOR
-MDEntryType_OPEN_INTEREST = cvar.MDEntryType_OPEN_INTEREST
 MDEntryType_COMPOSITE_UNDERLYING_PRICE = cvar.MDEntryType_COMPOSITE_UNDERLYING_PRICE
 MDEntryType_SESSION_HIGH_BID = cvar.MDEntryType_SESSION_HIGH_BID
-MDEntryType_INDEXVALUE = cvar.MDEntryType_INDEXVALUE
-MDEntryType_OPENINTEREST = cvar.MDEntryType_OPENINTEREST
+MDEntryType_OPEN_INTEREST = cvar.MDEntryType_OPEN_INTEREST
 MDEntryType_CLOSING_PRICE = cvar.MDEntryType_CLOSING_PRICE
 MDEntryType_PRIOR_SETTLE_PRICE = cvar.MDEntryType_PRIOR_SETTLE_PRICE
 MDEntryType_TRADING_SESSION_VWAP_PRICE = cvar.MDEntryType_TRADING_SESSION_VWAP_PRICE
@@ -30380,11 +27889,7 @@ MDEntryType_SETTLE_HIGH_PRICE = cvar.MDEntryType_SETTLE_HIGH_PRICE
 MDEntryType_IMBALANCE = cvar.MDEntryType_IMBALANCE
 MDEntryType_FIXING_PRICE = cvar.MDEntryType_FIXING_PRICE
 MDEntryType_CASH_RATE = cvar.MDEntryType_CASH_RATE
-MDEntryType_CLOSING = cvar.MDEntryType_CLOSING
-MDEntryType_OPENING = cvar.MDEntryType_OPENING
 MDEntryType_OPENING_PRICE = cvar.MDEntryType_OPENING_PRICE
-MDEntryType_TRADINGHIGH = cvar.MDEntryType_TRADINGHIGH
-MDEntryType_TRADEVOLUME = cvar.MDEntryType_TRADEVOLUME
 MDEntryType_TRADE = cvar.MDEntryType_TRADE
 MDEntryType_CUMULATIVE_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS = cvar.MDEntryType_CUMULATIVE_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS
 MDEntryType_SIMULATED_SELL_PRICE = cvar.MDEntryType_SIMULATED_SELL_PRICE
@@ -30394,69 +27899,48 @@ MDEntryType_BID = cvar.MDEntryType_BID
 MDEntryType_RECOVERY_RATE_FOR_SHORT = cvar.MDEntryType_RECOVERY_RATE_FOR_SHORT
 MDEntryType_SIMULATED_BUY_PRICE = cvar.MDEntryType_SIMULATED_BUY_PRICE
 MDEntryType_EARLY_PRICES = cvar.MDEntryType_EARLY_PRICES
-MDEntryType_TRADINGLOW = cvar.MDEntryType_TRADINGLOW
 MDEntryType_TRADING_SESSION_HIGH_PRICE = cvar.MDEntryType_TRADING_SESSION_HIGH_PRICE
 MDEntryType_INDEX_VALUE = cvar.MDEntryType_INDEX_VALUE
 MDEntryType_RECOVERY_RATE_FOR_LONG = cvar.MDEntryType_RECOVERY_RATE_FOR_LONG
 MDEntryType_DAILY_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS = cvar.MDEntryType_DAILY_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS
 MDEntryType_MID_PRICE = cvar.MDEntryType_MID_PRICE
-MDEntryType_SETTLEMENT = cvar.MDEntryType_SETTLEMENT
 MDEntryType_RECOVERY_RATE = cvar.MDEntryType_RECOVERY_RATE
 MDEntryType_CUMULATIVE_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS = cvar.MDEntryType_CUMULATIVE_VALUE_ADJUSTMENT_FOR_LONG_POSITIONS
 MDEntryType_DAILY_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS = cvar.MDEntryType_DAILY_VALUE_ADJUSTMENT_FOR_SHORT_POSITIONS
-MDEntryType_TRADE_VOLUME = cvar.MDEntryType_TRADE_VOLUME
 MDEntryType_MARGIN_RATE = cvar.MDEntryType_MARGIN_RATE
 MDEntryType_SETTLE_LOW_PRICE = cvar.MDEntryType_SETTLE_LOW_PRICE
 MDEntryType_SESSION_LOW_OFFER = cvar.MDEntryType_SESSION_LOW_OFFER
-MDEntryType_TRADINGVWAP = cvar.MDEntryType_TRADINGVWAP
+MDEntryType_TRADE_VOLUME = cvar.MDEntryType_TRADE_VOLUME
 MDEntryType_SETTLEMENT_PRICE = cvar.MDEntryType_SETTLEMENT_PRICE
 MDEntryType_OFFER = cvar.MDEntryType_OFFER
 PegMoveType_FLOATING = cvar.PegMoveType_FLOATING
 PegMoveType_FIXED = cvar.PegMoveType_FIXED
-AvgPxIndicator_NOAVERAGEPRICING = cvar.AvgPxIndicator_NOAVERAGEPRICING
+AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
 AvgPxIndicator_NO_AVERAGE_PRICING = cvar.AvgPxIndicator_NO_AVERAGE_PRICING
-AvgPxIndicator_LASTTRADEAVERAGEPRICEGROUP = cvar.AvgPxIndicator_LASTTRADEAVERAGEPRICEGROUP
 AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
-AvgPxIndicator_TRADEAVERAGEPRICEGROUP = cvar.AvgPxIndicator_TRADEAVERAGEPRICEGROUP
 AvgPxIndicator_LAST_TRADE_IS_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = cvar.AvgPxIndicator_LAST_TRADE_IS_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID
 CancellationRights_NO_WAIVER_AGREEMENT = cvar.CancellationRights_NO_WAIVER_AGREEMENT
 CancellationRights_NO_M = cvar.CancellationRights_NO_M
 CancellationRights_NO_N = cvar.CancellationRights_NO_N
-CancellationRights_NOINSTIT = cvar.CancellationRights_NOINSTIT
 CancellationRights_NO_INSTITUTIONAL = cvar.CancellationRights_NO_INSTITUTIONAL
 CancellationRights_YES = cvar.CancellationRights_YES
 CancellationRights_NO_O = cvar.CancellationRights_NO_O
-CancellationRights_NOEXECONLY = cvar.CancellationRights_NOEXECONLY
 CancellationRights_NO_EXECUTION_ONLY = cvar.CancellationRights_NO_EXECUTION_ONLY
-CancellationRights_NOWAIVER = cvar.CancellationRights_NOWAIVER
-ExecPriceType_CREATIONPRICEADJAMT = cvar.ExecPriceType_CREATIONPRICEADJAMT
 ExecPriceType_CREATION_PRICE = cvar.ExecPriceType_CREATION_PRICE
-ExecPriceType_CREATIONPRICE = cvar.ExecPriceType_CREATIONPRICE
-ExecPriceType_SINGLEPRICE = cvar.ExecPriceType_SINGLEPRICE
 ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT = cvar.ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT
-ExecPriceType_OFFERPRICE = cvar.ExecPriceType_OFFERPRICE
-ExecPriceType_BIDPRICE = cvar.ExecPriceType_BIDPRICE
 ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT = cvar.ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT
-ExecPriceType_CREATIONPRICEADJPCT = cvar.ExecPriceType_CREATIONPRICEADJPCT
 ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT = cvar.ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT
-ExecPriceType_OFFERPRICEMINUSADJAMT = cvar.ExecPriceType_OFFERPRICEMINUSADJAMT
 ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT = cvar.ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT
 ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT = cvar.ExecPriceType_OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT
-ExecPriceType_OFFERPRICEMINUSADJPCT = cvar.ExecPriceType_OFFERPRICEMINUSADJPCT
 ExecPriceType_BID_PRICE = cvar.ExecPriceType_BID_PRICE
 ExecPriceType_SINGLE_PRICE = cvar.ExecPriceType_SINGLE_PRICE
 ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT = cvar.ExecPriceType_CREATION_PRICE_PLUS_ADJUSTMENT
 ExecPriceType_OFFER_PRICE = cvar.ExecPriceType_OFFER_PRICE
-AllocSettlInstType_PHONEFORINSTRUCTIONS = cvar.AllocSettlInstType_PHONEFORINSTRUCTIONS
-AllocSettlInstType_SSIDBIDSPROVIDED = cvar.AllocSettlInstType_SSIDBIDSPROVIDED
-AllocSettlInstType_FULLDETAILSPROVIDED = cvar.AllocSettlInstType_FULLDETAILSPROVIDED
-AllocSettlInstType_USEDEFAULTINSTRUCTIONS = cvar.AllocSettlInstType_USEDEFAULTINSTRUCTIONS
-AllocSettlInstType_SSI_DB_IDS_PROVIDED = cvar.AllocSettlInstType_SSI_DB_IDS_PROVIDED
 AllocSettlInstType_PHONE_FOR_INSTRUCTIONS = cvar.AllocSettlInstType_PHONE_FOR_INSTRUCTIONS
-AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED = cvar.AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED
+AllocSettlInstType_SSI_DB_IDS_PROVIDED = cvar.AllocSettlInstType_SSI_DB_IDS_PROVIDED
 AllocSettlInstType_FULL_DETAILS_PROVIDED = cvar.AllocSettlInstType_FULL_DETAILS_PROVIDED
+AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED = cvar.AllocSettlInstType_DERIVE_FROM_PARAMETERS_PROVIDED
 AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS = cvar.AllocSettlInstType_USE_DEFAULT_INSTRUCTIONS
-AllocSettlInstType_DERIVEFROMPARAMETERSPROVIDED = cvar.AllocSettlInstType_DERIVEFROMPARAMETERSPROVIDED
 StatsType_AVERAGE_PRICE = cvar.StatsType_AVERAGE_PRICE
 StatsType_HIGH = cvar.StatsType_HIGH
 StatsType_EXCHANGE_LAST = cvar.StatsType_EXCHANGE_LAST
@@ -30466,10 +27950,7 @@ TradSesMode_PRODUCTION = cvar.TradSesMode_PRODUCTION
 TradSesMode_TESTING = cvar.TradSesMode_TESTING
 SettlInstSource_INSTITUTIONS_INSTRUCTIONS = cvar.SettlInstSource_INSTITUTIONS_INSTRUCTIONS
 SettlInstSource_BROKERS_INSTRUCTIONS = cvar.SettlInstSource_BROKERS_INSTRUCTIONS
-SettlInstSource_INVESTORCIV = cvar.SettlInstSource_INVESTORCIV
 SettlInstSource_INVESTOR = cvar.SettlInstSource_INVESTOR
-SettlInstSource_INSTINSTR = cvar.SettlInstSource_INSTINSTR
-SettlInstSource_BROKERINSTR = cvar.SettlInstSource_BROKERINSTR
 ExpType_DIFFERENCE = cvar.ExpType_DIFFERENCE
 ExpType_FINAL_WILL_BE_EXERCISED = cvar.ExpType_FINAL_WILL_BE_EXERCISED
 ExpType_NON_AUTO_EXERCISE = cvar.ExpType_NON_AUTO_EXERCISE
@@ -30479,73 +27960,50 @@ SettlInstTransType_REPLACE = cvar.SettlInstTransType_REPLACE
 SettlInstTransType_NEW = cvar.SettlInstTransType_NEW
 SettlInstTransType_RESTATE = cvar.SettlInstTransType_RESTATE
 SettlInstTransType_CANCEL = cvar.SettlInstTransType_CANCEL
-TradeRequestResult_TRADEREQUESTTYPENOTSUPPORTED = cvar.TradeRequestResult_TRADEREQUESTTYPENOTSUPPORTED
-TradeRequestResult_INVALIDORUNKNOWNINSTRUMENT = cvar.TradeRequestResult_INVALIDORUNKNOWNINSTRUMENT
 TradeRequestResult_INVALID_DESTINATION_REQUESTED = cvar.TradeRequestResult_INVALID_DESTINATION_REQUESTED
 TradeRequestResult_UNAUTHORIZED_ROR_TRADE_CAPTURE_REPORT_REQUEST = cvar.TradeRequestResult_UNAUTHORIZED_ROR_TRADE_CAPTURE_REPORT_REQUEST
-TradeRequestResult_INVALIDTRANSPORTTYPEREQUESTED = cvar.TradeRequestResult_INVALIDTRANSPORTTYPEREQUESTED
-TradeRequestResult_INVALIDPARTIES = cvar.TradeRequestResult_INVALIDPARTIES
-TradeRequestResult_INVALIDDESTINATIONREQUESTED = cvar.TradeRequestResult_INVALIDDESTINATIONREQUESTED
+TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST = cvar.TradeRequestResult_UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST
 TradeRequestResult_SUCCESSFUL = cvar.TradeRequestResult_SUCCESSFUL
-TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT = cvar.TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT
 TradeRequestResult_OTHER = cvar.TradeRequestResult_OTHER
-TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED = cvar.TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED
+TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT = cvar.TradeRequestResult_INVALID_OR_UNKNOWN_INSTRUMENT
 TradeRequestResult_INVALID_PARTIES = cvar.TradeRequestResult_INVALID_PARTIES
-TradeRequestResult_UNAUTHORIZEDFORTRADECAPTUREREPORTREQUEST = cvar.TradeRequestResult_UNAUTHORIZEDFORTRADECAPTUREREPORTREQUEST
+TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED = cvar.TradeRequestResult_INVALID_TYPE_OF_TRADE_REQUESTED
 TradeRequestResult_NOT_AUTHORIZED = cvar.TradeRequestResult_NOT_AUTHORIZED
 TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED = cvar.TradeRequestResult_INVALID_TRANSPORT_TYPE_REQUESTED
-TradeRequestResult_INVALIDTYPEOFTRADEREQUESTED = cvar.TradeRequestResult_INVALIDTYPEOFTRADEREQUESTED
 TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED = cvar.TradeRequestResult_TRADEREQUESTTYPE_NOT_SUPPORTED
 TestMessageIndicator_NO = cvar.TestMessageIndicator_NO
 TestMessageIndicator_YES = cvar.TestMessageIndicator_YES
 ExpirationCycle_TRADING_ELIGIBILITY_EXPIRATION_SPECIFIED_IN_THE_DATE_AND_TIME_FIELDS_EVENTDATE = cvar.ExpirationCycle_TRADING_ELIGIBILITY_EXPIRATION_SPECIFIED_IN_THE_DATE_AND_TIME_FIELDS_EVENTDATE
-ExpirationCycle_EXPIREONTRADINGSESSIONOPEN = cvar.ExpirationCycle_EXPIREONTRADINGSESSIONOPEN
 ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE = cvar.ExpirationCycle_EXPIRE_ON_TRADING_SESSION_CLOSE
 ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN = cvar.ExpirationCycle_EXPIRE_ON_TRADING_SESSION_OPEN
-ExpirationCycle_EXPIREONTRADINGSESSIONCLOSE = cvar.ExpirationCycle_EXPIREONTRADINGSESSIONCLOSE
-AllocCancReplaceReason_ORIGINALDETAILSINCORRECT = cvar.AllocCancReplaceReason_ORIGINALDETAILSINCORRECT
 AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS = cvar.AllocCancReplaceReason_CHANGE_IN_UNDERLYING_ORDER_DETAILS
 AllocCancReplaceReason_OTHER = cvar.AllocCancReplaceReason_OTHER
 AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT = cvar.AllocCancReplaceReason_ORIGINAL_DETAILS_INCOMPLETE_INCORRECT
-AllocCancReplaceReason_CHANGEINUNDERLYINGORDERDETAILS = cvar.AllocCancReplaceReason_CHANGEINUNDERLYINGORDERDETAILS
 CxlRejReason_DUPLICATE_CLORDID = cvar.CxlRejReason_DUPLICATE_CLORDID
-CxlRejReason_UNABLETOPROCESS = cvar.CxlRejReason_UNABLETOPROCESS
 CxlRejReason_PRICE_EXCEEDS_CURRENT_PRICE = cvar.CxlRejReason_PRICE_EXCEEDS_CURRENT_PRICE
-CxlRejReason_DUPCLORDID = cvar.CxlRejReason_DUPCLORDID
 CxlRejReason_DUPLICATE_CLORDID_RECEIVED = cvar.CxlRejReason_DUPLICATE_CLORDID_RECEIVED
 CxlRejReason_UNKNOWN_ORDER = cvar.CxlRejReason_UNKNOWN_ORDER
 CxlRejReason_TOO_LATE_TO_CANCEL = cvar.CxlRejReason_TOO_LATE_TO_CANCEL
-CxlRejReason_TOOLATE = cvar.CxlRejReason_TOOLATE
-CxlRejReason_ORIGORDMODTIME = cvar.CxlRejReason_ORIGORDMODTIME
 CxlRejReason_INVALID_PRICE_INCREMENT = cvar.CxlRejReason_INVALID_PRICE_INCREMENT
-CxlRejReason_BROKEROPT = cvar.CxlRejReason_BROKEROPT
-CxlRejReason_ALREADYPENDINGCXL = cvar.CxlRejReason_ALREADYPENDINGCXL
+CxlRejReason_ORIGORDMODTIME = cvar.CxlRejReason_ORIGORDMODTIME
 CxlRejReason_OTHER = cvar.CxlRejReason_OTHER
 CxlRejReason_BROKER = cvar.CxlRejReason_BROKER
 CxlRejReason_BROKER_OPTION = cvar.CxlRejReason_BROKER_OPTION
 CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = cvar.CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST
 CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS = cvar.CxlRejReason_ORDER_ALREADY_IN_PENDING_CANCEL_OR_PENDING_REPLACE_STATUS
 CxlRejReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND = cvar.CxlRejReason_PRICE_EXCEEDS_CURRENT_PRICE_BAND
-CxlRejReason_ORIGORDMODTIMEMISMATCH = cvar.CxlRejReason_ORIGORDMODTIMEMISMATCH
 CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = cvar.CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER
-CxlRejReason_UNKNOWN = cvar.CxlRejReason_UNKNOWN
 RespondentType_SPECIFIED_MARKET_PARTICIPANTS = cvar.RespondentType_SPECIFIED_MARKET_PARTICIPANTS
 RespondentType_ALL_MARKET_MAKERS = cvar.RespondentType_ALL_MARKET_MAKERS
 RespondentType_ALL_MARKET_PARTICIPANTS = cvar.RespondentType_ALL_MARKET_PARTICIPANTS
 RespondentType_PRIMARY_MARKET_MAKER = cvar.RespondentType_PRIMARY_MARKET_MAKER
 DKReason_NO_MATCHING_ORDER = cvar.DKReason_NO_MATCHING_ORDER
-DKReason_UNKNOWNSYMBOL = cvar.DKReason_UNKNOWNSYMBOL
 DKReason_PRICE_EXCEEDS_LIMIT = cvar.DKReason_PRICE_EXCEEDS_LIMIT
-DKReason_QUANTITYEXCEEDSORDER = cvar.DKReason_QUANTITYEXCEEDSORDER
 DKReason_QUANTITY_EXCEEDS_ORDER = cvar.DKReason_QUANTITY_EXCEEDS_ORDER
 DKReason_UNKNOWN_SYMBOL = cvar.DKReason_UNKNOWN_SYMBOL
 DKReason_OTHER = cvar.DKReason_OTHER
-DKReason_WRONGSIDE = cvar.DKReason_WRONGSIDE
-DKReason_CALCULATIONDIFFERENCE = cvar.DKReason_CALCULATIONDIFFERENCE
-DKReason_PRICEEXCEEDSLIMIT = cvar.DKReason_PRICEEXCEEDSLIMIT
 DKReason_WRONG_SIDE = cvar.DKReason_WRONG_SIDE
 DKReason_CALCULATION_DIFFERENCE = cvar.DKReason_CALCULATION_DIFFERENCE
-DKReason_NOMATCH = cvar.DKReason_NOMATCH
 PositionEffect_DEFAULT = cvar.PositionEffect_DEFAULT
 PositionEffect_CLOSE = cvar.PositionEffect_CLOSE
 PositionEffect_CLOSE_BUT_NOTIFY_ON_OPEN = cvar.PositionEffect_CLOSE_BUT_NOTIFY_ON_OPEN
@@ -30555,169 +28013,110 @@ PositionEffect_ROLLED = cvar.PositionEffect_ROLLED
 TriggerAction_ACTIVATE = cvar.TriggerAction_ACTIVATE
 TriggerAction_MODIFY = cvar.TriggerAction_MODIFY
 TriggerAction_CANCEL = cvar.TriggerAction_CANCEL
-ClearingInstruction_BILATERALNETTINGONLY = cvar.ClearingInstruction_BILATERALNETTINGONLY
-ClearingInstruction_SPECIALTRADE = cvar.ClearingInstruction_SPECIALTRADE
 ClearingInstruction_EXCLUDE_FROM_ALL_NETTING = cvar.ClearingInstruction_EXCLUDE_FROM_ALL_NETTING
 ClearingInstruction_AUTOMATIC_POSTING_MODE = cvar.ClearingInstruction_AUTOMATIC_POSTING_MODE
-ClearingInstruction_EXCLEARING = cvar.ClearingInstruction_EXCLEARING
 ClearingInstruction_MULTILATERAL_NETTING = cvar.ClearingInstruction_MULTILATERAL_NETTING
-ClearingInstruction_CLEARAGAINSTCENTRALCOUNTERPARTY = cvar.ClearingInstruction_CLEARAGAINSTCENTRALCOUNTERPARTY
 ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY = cvar.ClearingInstruction_EXCLUDE_FROM_CENTRAL_COUNTERPARTY
 ClearingInstruction_AUTOMATIC_GIVE_UP_MODE = cvar.ClearingInstruction_AUTOMATIC_GIVE_UP_MODE
 ClearingInstruction_CUSTOMER_TRADE = cvar.ClearingInstruction_CUSTOMER_TRADE
-ClearingInstruction_AUTOMATICPOSTINGMODETRADEPOSTINGTOTHEPOSITIONACCOUNTNUMBERSPECIFIED = cvar.ClearingInstruction_AUTOMATICPOSTINGMODETRADEPOSTINGTOTHEPOSITIONACCOUNTNUMBERSPECIFIED
 ClearingInstruction_EX_CLEARING = cvar.ClearingInstruction_EX_CLEARING
-ClearingInstruction_QUALIFIEDSERVICEREPRESENTATIVEQSR = cvar.ClearingInstruction_QUALIFIEDSERVICEREPRESENTATIVEQSR
-ClearingInstruction_MULTILATERALNETTING = cvar.ClearingInstruction_MULTILATERALNETTING
-ClearingInstruction_PROCESSNORMALLY = cvar.ClearingInstruction_PROCESSNORMALLY
-ClearingInstruction_EXCLUDEFROMALLNETTING = cvar.ClearingInstruction_EXCLUDEFROMALLNETTING
-ClearingInstruction_SELFCLEARING = cvar.ClearingInstruction_SELFCLEARING
 ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY = cvar.ClearingInstruction_CLEAR_AGAINST_CENTRAL_COUNTERPARTY
 ClearingInstruction_BILATERAL_NETTING_ONLY = cvar.ClearingInstruction_BILATERAL_NETTING_ONLY
-ClearingInstruction_EXCLUDEFROMCENTRALCOUNTERPARTY = cvar.ClearingInstruction_EXCLUDEFROMCENTRALCOUNTERPARTY
-ClearingInstruction_MANUALMODEPREPOSTINGANDORPREGIVEUP = cvar.ClearingInstruction_MANUALMODEPREPOSTINGANDORPREGIVEUP
-ClearingInstruction_CUSTOMERTRADE = cvar.ClearingInstruction_CUSTOMERTRADE
 ClearingInstruction_PROCESS_NORMALLY = cvar.ClearingInstruction_PROCESS_NORMALLY
 ClearingInstruction_SPECIAL_TRADE = cvar.ClearingInstruction_SPECIAL_TRADE
 ClearingInstruction_MANUAL_MODE = cvar.ClearingInstruction_MANUAL_MODE
 ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR = cvar.ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE_QSR
-ClearingInstruction_AUTOMATICGIVEUPMODETRADEGIVEUPTOTHEGIVEUPDESTINATIONNUMBERSPECIFIED = cvar.ClearingInstruction_AUTOMATICGIVEUPMODETRADEGIVEUPTOTHEGIVEUPDESTINATIONNUMBERSPECIFIED
+ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE = cvar.ClearingInstruction_QUALIFIED_SERVICE_REPRESENTATIVE
 ClearingInstruction_SELF_CLEARING = cvar.ClearingInstruction_SELF_CLEARING
 OpenCloseSettlFlag_SESSION_OPEN = cvar.OpenCloseSettlFlag_SESSION_OPEN
 OpenCloseSettlFlag_EXPECTED_ENTRY = cvar.OpenCloseSettlFlag_EXPECTED_ENTRY
-OpenCloseSettlFlag_THEORETICALPRICE = cvar.OpenCloseSettlFlag_THEORETICALPRICE
-OpenCloseSettlFlag_ENTRYFROMPREVBUSINESSDAY = cvar.OpenCloseSettlFlag_ENTRYFROMPREVBUSINESSDAY
 OpenCloseSettlFlag_DAILY_OPEN = cvar.OpenCloseSettlFlag_DAILY_OPEN
-OpenCloseSettlFlag_DAILYOPEN = cvar.OpenCloseSettlFlag_DAILYOPEN
 OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE = cvar.OpenCloseSettlFlag_THEORETICAL_PRICE_VALUE
-OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY = cvar.OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY
 OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY = cvar.OpenCloseSettlFlag_ENTRY_FROM_PREVIOUS_BUSINESS_DAY
-OpenCloseSettlFlag_DELIVERYSETTLEMENT = cvar.OpenCloseSettlFlag_DELIVERYSETTLEMENT
-OpenCloseSettlFlag_SESSIONOPEN = cvar.OpenCloseSettlFlag_SESSIONOPEN
-OpenCloseSettlFlag_EXPECTEDENTRY = cvar.OpenCloseSettlFlag_EXPECTEDENTRY
+OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY = cvar.OpenCloseSettlFlag_DELIVERY_SETTLEMENT_ENTRY
 DiscretionMoveType_FLOATING = cvar.DiscretionMoveType_FLOATING
 DiscretionMoveType_FIXED = cvar.DiscretionMoveType_FIXED
 MDUpdateType_INCREMENTAL_REFRESH = cvar.MDUpdateType_INCREMENTAL_REFRESH
 MDUpdateType_FULL_REFRESH = cvar.MDUpdateType_FULL_REFRESH
-MDUpdateType_FULL = cvar.MDUpdateType_FULL
-MDUpdateType_INCREMENTAL = cvar.MDUpdateType_INCREMENTAL
 TickDirection_MINUS_TICK = cvar.TickDirection_MINUS_TICK
 TickDirection_ZERO_PLUS_TICK = cvar.TickDirection_ZERO_PLUS_TICK
 TickDirection_ZERO_MINUS_TICK = cvar.TickDirection_ZERO_MINUS_TICK
 TickDirection_PLUS_TICK = cvar.TickDirection_PLUS_TICK
-TickDirection_PLUS = cvar.TickDirection_PLUS
-TickDirection_ZEROPLUS = cvar.TickDirection_ZEROPLUS
-TickDirection_MINUS = cvar.TickDirection_MINUS
-TickDirection_ZEROMINUS = cvar.TickDirection_ZEROMINUS
 YieldType_MARK_TO_MARKET_YIELD = cvar.YieldType_MARK_TO_MARKET_YIELD
 YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER
 YieldType_YIELD_TO_MATURITY = cvar.YieldType_YIELD_TO_MATURITY
-YieldType_YIELDTOTENDERDATE = cvar.YieldType_YIELDTOTENDERDATE
-YieldType_PREVIOUS_CLOSE_YIELD = cvar.YieldType_PREVIOUS_CLOSE_YIELD
 YieldType_COMPOUND_YIELD_THE_YIELD_OF_CERTAIN_JAPANESE_BONDS_BASED_ON_ITS_PRICE_CERTAIN_JAPANESE_BONDS_HAVE_IRREGULAR_FIRST_OR_LAST_COUPONS_AND_THE_YIELD_IS_CALCULATED_COMPOUND_FOR_THESE_IRREGULAR_PERIODS = cvar.YieldType_COMPOUND_YIELD_THE_YIELD_OF_CERTAIN_JAPANESE_BONDS_BASED_ON_ITS_PRICE_CERTAIN_JAPANESE_BONDS_HAVE_IRREGULAR_FIRST_OR_LAST_COUPONS_AND_THE_YIELD_IS_CALCULATED_COMPOUND_FOR_THESE_IRREGULAR_PERIODS
-YieldType_YIELDTOSHORTESTAVERAGELIFE = cvar.YieldType_YIELDTOSHORTESTAVERAGELIFE
+YieldType_PREVIOUS_CLOSE_YIELD = cvar.YieldType_PREVIOUS_CLOSE_YIELD
 YieldType_YIELD_AT_ISSUE = cvar.YieldType_YIELD_AT_ISSUE
 YieldType_YIELD_TO_NEXT_REFUND = cvar.YieldType_YIELD_TO_NEXT_REFUND
-YieldType_YIELDATISSUE = cvar.YieldType_YIELDATISSUE
-YieldType_CLOSINGYIELD = cvar.YieldType_CLOSINGYIELD
-YieldType_GVNTEQUIVALENTYIELD = cvar.YieldType_GVNTEQUIVALENTYIELD
-YieldType_ANNUALYIELD = cvar.YieldType_ANNUALYIELD
 YieldType_AFTER_TAX_YIELD = cvar.YieldType_AFTER_TAX_YIELD
 YieldType_GVNT_EQUIVALENT_YIELD = cvar.YieldType_GVNT_EQUIVALENT_YIELD
-YieldType_YIELDCHANGESINCECLOSE = cvar.YieldType_YIELDCHANGESINCECLOSE
-YieldType_YIELDTOMATURITY = cvar.YieldType_YIELDTOMATURITY
 YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE_SAME_AS_AVGLIFE_ABOVE = cvar.YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE_SAME_AS_AVGLIFE_ABOVE
 YieldType_YIELD_CHANGE_SINCE_CLOSE_THE_CHANGE_IN_THE_YIELD_SINCE_THE_PREVIOUS_DAYS_CLOSING_YIELD = cvar.YieldType_YIELD_CHANGE_SINCE_CLOSE_THE_CHANGE_IN_THE_YIELD_SINCE_THE_PREVIOUS_DAYS_CLOSING_YIELD
-YieldType_SEMI = cvar.YieldType_SEMI
 YieldType_CURRENT_YIELD_ANNUAL_INTEREST_ON_A_BOND_DIVIDED_BY_THE_MARKET_VALUE_THE_ACTUAL_INCOME_RATE_OF_RETURN_AS_OPPOSED_TO_THE_COUPON_RATE_EXPRESSED_AS_A_PERCENTAGE = cvar.YieldType_CURRENT_YIELD_ANNUAL_INTEREST_ON_A_BOND_DIVIDED_BY_THE_MARKET_VALUE_THE_ACTUAL_INCOME_RATE_OF_RETURN_AS_OPPOSED_TO_THE_COUPON_RATE_EXPRESSED_AS_A_PERCENTAGE
+YieldType_YIELD_TO_MATURITY_THE_YIELD_OF_A_BOND_TO_ITS_MATURITY_DATE = cvar.YieldType_YIELD_TO_MATURITY_THE_YIELD_OF_A_BOND_TO_ITS_MATURITY_DATE
 YieldType_CLOSING_YIELD_MOST_RECENT_YEAR = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_YEAR
 YieldType_YIELD_TO_NEXT_CALL = cvar.YieldType_YIELD_TO_NEXT_CALL
 YieldType_YIELD_CHANGE_SINCE_CLOSE = cvar.YieldType_YIELD_CHANGE_SINCE_CLOSE
 YieldType_PROCEEDS_YIELD = cvar.YieldType_PROCEEDS_YIELD
-YieldType_YIELD_TO_MATURITY_THE_YIELD_OF_A_BOND_TO_ITS_MATURITY_DATE = cvar.YieldType_YIELD_TO_MATURITY_THE_YIELD_OF_A_BOND_TO_ITS_MATURITY_DATE
 YieldType_TAX_EQUIVALENT_YIELD_THE_AFTER_TAX_YIELD_GROSSED_UP_BY_THE_MAXIMUM_FEDERAL_TAX_RATE_OF_396_FOR_COMPARISON_TO_TAXABLE_YIELDS = cvar.YieldType_TAX_EQUIVALENT_YIELD_THE_AFTER_TAX_YIELD_GROSSED_UP_BY_THE_MAXIMUM_FEDERAL_TAX_RATE_OF_396_FOR_COMPARISON_TO_TAXABLE_YIELDS
 YieldType_INVERSE_FLOATER_BOND_YIELD_INVERSE_FLOATER_SEMI_ANNUAL_BOND_EQUIVALENT_RATE = cvar.YieldType_INVERSE_FLOATER_BOND_YIELD_INVERSE_FLOATER_SEMI_ANNUAL_BOND_EQUIVALENT_RATE
 YieldType_CURRENT_YIELD = cvar.YieldType_CURRENT_YIELD
-YieldType_SIMPLEYIELD = cvar.YieldType_SIMPLEYIELD
-YieldType_TRUEGROSSYIELD = cvar.YieldType_TRUEGROSSYIELD
-YieldType_COMPOUND_YIELD = cvar.YieldType_COMPOUND_YIELD
-YieldType_CLOSINGYIELDMOSTRECENTYEAR = cvar.YieldType_CLOSINGYIELDMOSTRECENTYEAR
 YieldType_BOOK_YIELD_THE_YIELD_OF_A_SECURITY_CALCULATED_BY_USING_ITS_BOOK_VALUE_INSTEAD_OF_THE_CURRENT_MARKET_PRICE_THIS_TERM_IS_TYPICALLY_USED_IN_THE_US_DOMESTIC_MARKET = cvar.YieldType_BOOK_YIELD_THE_YIELD_OF_A_SECURITY_CALCULATED_BY_USING_ITS_BOOK_VALUE_INSTEAD_OF_THE_CURRENT_MARKET_PRICE_THIS_TERM_IS_TYPICALLY_USED_IN_THE_US_DOMESTIC_MARKET
+YieldType_COMPOUND_YIELD = cvar.YieldType_COMPOUND_YIELD
 YieldType_YIELD_TO_NEXT_PUT_THE_YIELD_TO_THE_DATE_AT_WHICH_THE_BOND_HOLDER_CAN_NEXT_PUT_THE_BOND_TO_THE_ISSUER = cvar.YieldType_YIELD_TO_NEXT_PUT_THE_YIELD_TO_THE_DATE_AT_WHICH_THE_BOND_HOLDER_CAN_NEXT_PUT_THE_BOND_TO_THE_ISSUER
 YieldType_GOVERNMENT_EQUIVALENT_YIELD_ASK_YIELD_BASED_ON_SEMI_ANNUAL_COUPONS_COMPOUNDING_IN_ALL_PERIODS_AND_ACTUAL_ACTUAL_CALENDAR = cvar.YieldType_GOVERNMENT_EQUIVALENT_YIELD_ASK_YIELD_BASED_ON_SEMI_ANNUAL_COUPONS_COMPOUNDING_IN_ALL_PERIODS_AND_ACTUAL_ACTUAL_CALENDAR
 YieldType_YIELD_TO_TENDER_DATE_THE_YIELD_ON_A_MUNICIPAL_BOND_TO_ITS_MANDATORY_TENDER_DATE = cvar.YieldType_YIELD_TO_TENDER_DATE_THE_YIELD_ON_A_MUNICIPAL_BOND_TO_ITS_MANDATORY_TENDER_DATE
 YieldType_YIELD_TO_AVG_MATURITY = cvar.YieldType_YIELD_TO_AVG_MATURITY
-YieldType_YIELD_TO_TENDER_DATE = cvar.YieldType_YIELD_TO_TENDER_DATE
-YieldType_PROCEEDSYIELD = cvar.YieldType_PROCEEDSYIELD
 YieldType_OPEN_AVERAGE_YIELD_THE_AVERAGE_YIELD_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO = cvar.YieldType_OPEN_AVERAGE_YIELD_THE_AVERAGE_YIELD_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO
-YieldType_ANNUAL_YIELD = cvar.YieldType_ANNUAL_YIELD
-YieldType_YIELD_TO_WORST = cvar.YieldType_YIELD_TO_WORST
-YieldType_BOOK_YIELD = cvar.YieldType_BOOK_YIELD
-YieldType_YIELD_TO_NEXT_PUT = cvar.YieldType_YIELD_TO_NEXT_PUT
+YieldType_YIELD_TO_TENDER_DATE = cvar.YieldType_YIELD_TO_TENDER_DATE
 YieldType_CLOSING_YIELD_MOST_RECENT_MONTH_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_MONTHS_END = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_MONTH_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_MONTHS_END
 YieldType_CLOSING_YIELD_MOST_RECENT_YEAR_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_YEARS_END = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_YEAR_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_YEARS_END
-YieldType_OPENAVERAGEYIELD = cvar.YieldType_OPENAVERAGEYIELD
+YieldType_ANNUAL_YIELD = cvar.YieldType_ANNUAL_YIELD
+YieldType_YIELD_TO_WORST = cvar.YieldType_YIELD_TO_WORST
+YieldType_YIELD_TO_NEXT_PUT = cvar.YieldType_YIELD_TO_NEXT_PUT
+YieldType_BOOK_YIELD = cvar.YieldType_BOOK_YIELD
 YieldType_TRUE_YIELD = cvar.YieldType_TRUE_YIELD
-YieldType_TAX_EQUIVALENT_YIELD = cvar.YieldType_TAX_EQUIVALENT_YIELD
-YieldType_TRUE_GROSS_YIELD = cvar.YieldType_TRUE_GROSS_YIELD
-YieldType_INVERSE_FLOATER_BOND_YIELD = cvar.YieldType_INVERSE_FLOATER_BOND_YIELD
 YieldType_TRUE_YIELD_THE_YIELD_CALCULATED_WITH_COUPON_DATES_MOVED_FROM_A_WEEKEND_OR_HOLIDAY_TO_THE_NEXT_VALID_SETTLEMENT_DATE = cvar.YieldType_TRUE_YIELD_THE_YIELD_CALCULATED_WITH_COUPON_DATES_MOVED_FROM_A_WEEKEND_OR_HOLIDAY_TO_THE_NEXT_VALID_SETTLEMENT_DATE
 YieldType_SEMI_ANNUAL_YIELD_THE_YIELD_OF_A_BOND_WHOSE_COUPON_PAYMENTS_ARE_REINVESTED_SEMI_ANNUALLY = cvar.YieldType_SEMI_ANNUAL_YIELD_THE_YIELD_OF_A_BOND_WHOSE_COUPON_PAYMENTS_ARE_REINVESTED_SEMI_ANNUALLY
-YieldType_AFTERTAXYIELD = cvar.YieldType_AFTERTAXYIELD
 YieldType_CLOSING_YIELD_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE = cvar.YieldType_CLOSING_YIELD_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE
-YieldType_YIELDTOWORSTCONVENTION = cvar.YieldType_YIELDTOWORSTCONVENTION
+YieldType_TAX_EQUIVALENT_YIELD = cvar.YieldType_TAX_EQUIVALENT_YIELD
 YieldType_PREVIOUS_CLOSE_YIELD_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_1_DAY_AGO = cvar.YieldType_PREVIOUS_CLOSE_YIELD_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_1_DAY_AGO
-YieldType_COMPOUNDYIELD = cvar.YieldType_COMPOUNDYIELD
 YieldType_YIELD_VALUE_OF_1_32_THE_AMOUNT_THAT_THE_YIELD_WILL_CHANGE_FOR_A_1_32ND_CHANGE_IN_PRICE = cvar.YieldType_YIELD_VALUE_OF_1_32_THE_AMOUNT_THAT_THE_YIELD_WILL_CHANGE_FOR_A_1_32ND_CHANGE_IN_PRICE
+YieldType_TRUE_GROSS_YIELD = cvar.YieldType_TRUE_GROSS_YIELD
 YieldType_YIELD_TO_LONGEST_AVERAGE = cvar.YieldType_YIELD_TO_LONGEST_AVERAGE
-YieldType_PREVIOUSCLOSEYIELD = cvar.YieldType_PREVIOUSCLOSEYIELD
-YieldType_CLOSINGYIELDMOSTRECENTMONTH = cvar.YieldType_CLOSINGYIELDMOSTRECENTMONTH
+YieldType_INVERSE_FLOATER_BOND_YIELD = cvar.YieldType_INVERSE_FLOATER_BOND_YIELD
 YieldType_CLOSING_YIELD_MOST_RECENT_MONTH = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_MONTH
 YieldType_YIELD_TO_AVERAGE_LIFE_THE_YIELD_ASSUMING_THAT_ALL_SINKS = cvar.YieldType_YIELD_TO_AVERAGE_LIFE_THE_YIELD_ASSUMING_THAT_ALL_SINKS
 YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_QUARTERS_END = cvar.YieldType_CLOSING_YIELD_MOST_RECENT_QUARTER_THE_YIELD_OF_A_BOND_BASED_ON_THE_CLOSING_PRICE_AS_OF_THE_MOST_RECENT_QUARTERS_END
 YieldType_YIELD_TO_SHORTEST_AVERAGE = cvar.YieldType_YIELD_TO_SHORTEST_AVERAGE
-YieldType_TAXEQUIVALENTYIELD = cvar.YieldType_TAXEQUIVALENTYIELD
-YieldType_MOSTRECENTCLOSINGYIELD = cvar.YieldType_MOSTRECENTCLOSINGYIELD
-YieldType_MARKTOMARKETYIELD = cvar.YieldType_MARKTOMARKETYIELD
-YieldType_CURRENTYIELD = cvar.YieldType_CURRENTYIELD
 YieldType_OPEN_AVERAGE_YIELD = cvar.YieldType_OPEN_AVERAGE_YIELD
 YieldType_TRUE_GROSS_YIELD_YIELD_CALCULATED_USING_THE_PRICE_INCLUDING_ACCRUED_INTEREST_WHERE_COUPON_DATES_ARE_MOVED_FROM_HOLIDAYS_AND_WEEKENDS_TO_THE_NEXT_TRADING_DAY = cvar.YieldType_TRUE_GROSS_YIELD_YIELD_CALCULATED_USING_THE_PRICE_INCLUDING_ACCRUED_INTEREST_WHERE_COUPON_DATES_ARE_MOVED_FROM_HOLIDAYS_AND_WEEKENDS_TO_THE_NEXT_TRADING_DAY
-YieldType_YIELD_WITH_INFLATION_ASSUMPTION = cvar.YieldType_YIELD_WITH_INFLATION_ASSUMPTION
-YieldType_YIELDTONEXTREFUNDSINKING = cvar.YieldType_YIELDTONEXTREFUNDSINKING
 YieldType_PROCEEDS_YIELD_THE_CD_EQUIVALENT_YIELD_WHEN_THE_REMAINING_TIME_TO_MATURITY_IS_LESS_THAN_TWO_YEARS = cvar.YieldType_PROCEEDS_YIELD_THE_CD_EQUIVALENT_YIELD_WHEN_THE_REMAINING_TIME_TO_MATURITY_IS_LESS_THAN_TWO_YEARS
+YieldType_YIELD_WITH_INFLATION_ASSUMPTION = cvar.YieldType_YIELD_WITH_INFLATION_ASSUMPTION
 YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE_THE_YIELD_ASSUMING_ONLY_MANDATORY_SINKS_ARE_TAKEN_THIS_RESULTS_IN_A_LOWER_PAYDOWN_OF_DEBT_THE_YIELD_IS_THEN_CALCULATED_TO_THE_FINAL_PAYMENT_DATE = cvar.YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE_THE_YIELD_ASSUMING_ONLY_MANDATORY_SINKS_ARE_TAKEN_THIS_RESULTS_IN_A_LOWER_PAYDOWN_OF_DEBT_THE_YIELD_IS_THEN_CALCULATED_TO_THE_FINAL_PAYMENT_DATE
 YieldType_MARK_TO_MARKET_YIELD_AN_ADJUSTMENT_IN_THE_VALUATION_OF_A_SECURITIES_PORTFOLIO_TO_REFLECT_THE_CURRENT_MARKET_VALUES_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO = cvar.YieldType_MARK_TO_MARKET_YIELD_AN_ADJUSTMENT_IN_THE_VALUATION_OF_A_SECURITIES_PORTFOLIO_TO_REFLECT_THE_CURRENT_MARKET_VALUES_OF_THE_RESPECTIVE_SECURITIES_IN_THE_PORTFOLIO
-YieldType_SIMPLE_YIELD = cvar.YieldType_SIMPLE_YIELD
 YieldType_YIELD_TO_AVERAGE_MATURITY = cvar.YieldType_YIELD_TO_AVERAGE_MATURITY
 YieldType_YIELD_TO_WORST_CONVENTION_THE_LOWEST_YIELD_TO_ALL_POSSIBLE_REDEMPTION_DATE_SCENARIOS = cvar.YieldType_YIELD_TO_WORST_CONVENTION_THE_LOWEST_YIELD_TO_ALL_POSSIBLE_REDEMPTION_DATE_SCENARIOS
 YieldType_YIELD_TO_NEXT_CALL_THE_YIELD_OF_A_BOND_TO_THE_NEXT_POSSIBLE_CALL_DATE = cvar.YieldType_YIELD_TO_NEXT_CALL_THE_YIELD_OF_A_BOND_TO_THE_NEXT_POSSIBLE_CALL_DATE
-YieldType_YIELDTOAVGMATURITY = cvar.YieldType_YIELDTOAVGMATURITY
-YieldType_YIELDTOLONGESTAVERAGELIFE = cvar.YieldType_YIELDTOLONGESTAVERAGELIFE
+YieldType_SIMPLE_YIELD = cvar.YieldType_SIMPLE_YIELD
 YieldType_ANNUAL_YIELD_THE_ANNUAL_INTEREST_OR_DIVIDEND_INCOME_AN_INVESTMENT_EARNS_EXPRESSED_AS_A_PERCENTAGE_OF_THE_INVESTMENTS_TOTAL_VALUE = cvar.YieldType_ANNUAL_YIELD_THE_ANNUAL_INTEREST_OR_DIVIDEND_INCOME_AN_INVESTMENT_EARNS_EXPRESSED_AS_A_PERCENTAGE_OF_THE_INVESTMENTS_TOTAL_VALUE
 YieldType_SEMI_ANNUAL_YIELD = cvar.YieldType_SEMI_ANNUAL_YIELD
 YieldType_MOST_RECENT_CLOSING_YIELD = cvar.YieldType_MOST_RECENT_CLOSING_YIELD
+YieldType_GOVERNMENT_EQUIVALENT_YIELD = cvar.YieldType_GOVERNMENT_EQUIVALENT_YIELD
 YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE = cvar.YieldType_YIELD_TO_SHORTEST_AVERAGE_LIFE
 YieldType_CLOSING_YIELD = cvar.YieldType_CLOSING_YIELD
-YieldType_YIELDINFLATIONASSUMPTION = cvar.YieldType_YIELDINFLATIONASSUMPTION
 YieldType_YIELD_WITH_INFLATION_ASSUMPTION_BASED_ON_PRICE_THE_RETURN_AN_INVESTOR_WOULD_REQUIRE_ON_A_NORMAL_BOND_THAT_WOULD_MAKE_THE_REAL_RETURN_EQUAL_TO_THAT_OF_THE_INFLATION_INDEXED_BOND_ASSUMING_A_CONSTANT_INFLATION_RATE = cvar.YieldType_YIELD_WITH_INFLATION_ASSUMPTION_BASED_ON_PRICE_THE_RETURN_AN_INVESTOR_WOULD_REQUIRE_ON_A_NORMAL_BOND_THAT_WOULD_MAKE_THE_REAL_RETURN_EQUAL_TO_THAT_OF_THE_INFLATION_INDEXED_BOND_ASSUMING_A_CONSTANT_INFLATION_RATE
-YieldType_TRUEYIELD = cvar.YieldType_TRUEYIELD
-YieldType_CLOSINGYIELDMOSTRECENTQUARTER = cvar.YieldType_CLOSINGYIELDMOSTRECENTQUARTER
 YieldType_YIELD_VALUE_OF_1_32 = cvar.YieldType_YIELD_VALUE_OF_1_32
-YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE = cvar.YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE
-YieldType_INVFLOATERBONDYIELD = cvar.YieldType_INVFLOATERBONDYIELD
 YieldType_MOST_RECENT_CLOSING_YIELD_THE_LAST_AVAILABLE_YIELD_STORED_IN_HISTORY_COMPUTED_USING_PRICE = cvar.YieldType_MOST_RECENT_CLOSING_YIELD_THE_LAST_AVAILABLE_YIELD_STORED_IN_HISTORY_COMPUTED_USING_PRICE
-YieldType_YIELDTONEXTPUT = cvar.YieldType_YIELDTONEXTPUT
-YieldType_YIELDTONEXTCALL = cvar.YieldType_YIELDTONEXTCALL
+YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE = cvar.YieldType_YIELD_TO_LONGEST_AVERAGE_LIFE
 YieldType_SIMPLE_YIELD_THE_YIELD_OF_A_BOND_ASSUMING_NO_REINVESTMENT_OF_COUPON_PAYMENTS = cvar.YieldType_SIMPLE_YIELD_THE_YIELD_OF_A_BOND_ASSUMING_NO_REINVESTMENT_OF_COUPON_PAYMENTS
-YieldType_BOOKYIELD = cvar.YieldType_BOOKYIELD
-YieldType_YIELDVALUEOF132 = cvar.YieldType_YIELDVALUEOF132
+YieldType_YIELD_TO_AVERAGE_MATURITY_THE_YIELD_ACHIEVED_BY_SUBSTITUTING_A_BONDS_AVERAGE_MATURITY_FOR_THE_ISSUES_FINAL_MATURITY_DATE = cvar.YieldType_YIELD_TO_AVERAGE_MATURITY_THE_YIELD_ACHIEVED_BY_SUBSTITUTING_A_BONDS_AVERAGE_MATURITY_FOR_THE_ISSUES_FINAL_MATURITY_DATE
 PegScope_NATIONAL_XXCLUDING_LOCAL = cvar.PegScope_NATIONAL_XXCLUDING_LOCAL
 PegScope_NATIONAL_EXCLUDING_LOCAL = cvar.PegScope_NATIONAL_EXCLUDING_LOCAL
 PegScope_LOCAL = cvar.PegScope_LOCAL
-PegScope_NATIONALEXCLUDINGLOCAL = cvar.PegScope_NATIONALEXCLUDINGLOCAL
 PegScope_GLOBAL = cvar.PegScope_GLOBAL
 PegScope_NATIONAL = cvar.PegScope_NATIONAL
-PegScope_LOCALEXCHANGEECNATS = cvar.PegScope_LOCALEXCHANGEECNATS
 SettlDeliveryType_TRI_PARTY = cvar.SettlDeliveryType_TRI_PARTY
 SettlDeliveryType_HOLD_IN_CUSTODY = cvar.SettlDeliveryType_HOLD_IN_CUSTODY
 SettlDeliveryType_FREE = cvar.SettlDeliveryType_FREE
@@ -30725,33 +28124,22 @@ SettlDeliveryType_VERSUS_PAYMENT_DELIVER = cvar.SettlDeliveryType_VERSUS_PAYMENT
 SettlDeliveryType_FREE_DELIVER = cvar.SettlDeliveryType_FREE_DELIVER
 SettlDeliveryType_VERSUS_PAYMENT = cvar.SettlDeliveryType_VERSUS_PAYMENT
 DiscretionLimitType_STRICT = cvar.DiscretionLimitType_STRICT
-DiscretionLimitType_ORWORSE = cvar.DiscretionLimitType_ORWORSE
 DiscretionLimitType_OR_BETTER = cvar.DiscretionLimitType_OR_BETTER
 DiscretionLimitType_OR_WORSE = cvar.DiscretionLimitType_OR_WORSE
-DiscretionLimitType_ORBETTER = cvar.DiscretionLimitType_ORBETTER
-PartyDetailsRequestResult_UNSUPPORTED_PARTYLISTRESPONSETYPE = cvar.PartyDetailsRequestResult_UNSUPPORTED_PARTYLISTRESPONSETYPE
-PartyDetailsRequestResult_PARTIES_OR_PARTY_DETAILS_DATA_TEMPORARILY_UNAVAILABLE = cvar.PartyDetailsRequestResult_PARTIES_OR_PARTY_DETAILS_DATA_TEMPORARILY_UNAVAILABLE
-PartyDetailsRequestResult_VALID_REQUEST = cvar.PartyDetailsRequestResult_VALID_REQUEST
-PartyDetailsRequestResult_REQUEST_FOR_PARTIES_DATA_NOT_SUPPORTED = cvar.PartyDetailsRequestResult_REQUEST_FOR_PARTIES_DATA_NOT_SUPPORTED
-PartyDetailsRequestResult_NO_PARTIES_OR_PARTY_DETAILS_FOUND_THAT_MATCH_SELECTION_CRITERIA = cvar.PartyDetailsRequestResult_NO_PARTIES_OR_PARTY_DETAILS_FOUND_THAT_MATCH_SELECTION_CRITERIA
-PartyDetailsRequestResult_INVALID_OR_UNSUPPORTED_REQUEST = cvar.PartyDetailsRequestResult_INVALID_OR_UNSUPPORTED_REQUEST
-PartyDetailsRequestResult_OTHER = cvar.PartyDetailsRequestResult_OTHER
-PartyDetailsRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_PARTIES_OR_PARTY_DETAILS_DATA = cvar.PartyDetailsRequestResult_NOT_AUTHORIZED_TO_RETRIEVE_PARTIES_OR_PARTY_DETAILS_DATA
+DiscretionLimitType_STRICT_LIMIT_IS_A_STRICT_LIMIT = cvar.DiscretionLimitType_STRICT_LIMIT_IS_A_STRICT_LIMIT
+DiscretionLimitType_OR_WORSE_FOR_A_BUY_THE_DISCRETION_PRICE_IS_A_MINIMUM_AND_FOR_A_SELL_THE_DISCRETION_PRICE_IS_A_MAXIMUM = cvar.DiscretionLimitType_OR_WORSE_FOR_A_BUY_THE_DISCRETION_PRICE_IS_A_MINIMUM_AND_FOR_A_SELL_THE_DISCRETION_PRICE_IS_A_MAXIMUM
 ExerciseMethod_AUTOMATIC = cvar.ExerciseMethod_AUTOMATIC
 ExerciseMethod_MANUAL = cvar.ExerciseMethod_MANUAL
 WorkingIndicator_NO = cvar.WorkingIndicator_NO
 WorkingIndicator_YES = cvar.WorkingIndicator_YES
-SideMultiLegReportingType_INDIVIDUALLEGOFAMULTILEGSECURITY = cvar.SideMultiLegReportingType_INDIVIDUALLEGOFAMULTILEGSECURITY
-SideMultiLegReportingType_SINGLE_SECURITY = cvar.SideMultiLegReportingType_SINGLE_SECURITY
 SideMultiLegReportingType_MULTILEG_SECURITY = cvar.SideMultiLegReportingType_MULTILEG_SECURITY
+SideMultiLegReportingType_SINGLE_SECURITY = cvar.SideMultiLegReportingType_SINGLE_SECURITY
+SideMultiLegReportingType_MULTI_LEG_SECURITY = cvar.SideMultiLegReportingType_MULTI_LEG_SECURITY
+SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = cvar.SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY
 SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = cvar.SideMultiLegReportingType_INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY
-SideMultiLegReportingType_MULTILEGSECURITY = cvar.SideMultiLegReportingType_MULTILEGSECURITY
-SideMultiLegReportingType_SINGLESECURITY = cvar.SideMultiLegReportingType_SINGLESECURITY
-ConfirmRejReason_MISSINGSETTLEMENTINSTRUCTIONS = cvar.ConfirmRejReason_MISSINGSETTLEMENTINSTRUCTIONS
 ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS = cvar.ConfirmRejReason_MISSING_SETTLEMENT_INSTRUCTIONS
-ConfirmRejReason_MISMATCHEDACCOUNT = cvar.ConfirmRejReason_MISMATCHEDACCOUNT
-ConfirmRejReason_MISMATCHED_ACCOUNT = cvar.ConfirmRejReason_MISMATCHED_ACCOUNT
 ConfirmRejReason_OTHER = cvar.ConfirmRejReason_OTHER
+ConfirmRejReason_MISMATCHED_ACCOUNT = cvar.ConfirmRejReason_MISMATCHED_ACCOUNT
 BidRequestTransType_NEW = cvar.BidRequestTransType_NEW
 BidRequestTransType_NO = cvar.BidRequestTransType_NO
 BidRequestTransType_CANCEL = cvar.BidRequestTransType_CANCEL
@@ -30772,7 +28160,6 @@ CollApplType_GENERAL = cvar.CollApplType_GENERAL
 CollApplType_SPECIFIC_DEPOSIT = cvar.CollApplType_SPECIFIC_DEPOSIT
 ConfirmType_CONFIRMATION = cvar.ConfirmType_CONFIRMATION
 ConfirmType_CONFIRMATION_REQUEST_REJECTED = cvar.ConfirmType_CONFIRMATION_REQUEST_REJECTED
-ConfirmType_CONFIRMATIONREQUESTREJECTED = cvar.ConfirmType_CONFIRMATIONREQUESTREJECTED
 ConfirmType_STATUS = cvar.ConfirmType_STATUS
 MDQuoteType_INDICATIVE = cvar.MDQuoteType_INDICATIVE
 MDQuoteType_RESTRICTED_TRADEABLE = cvar.MDQuoteType_RESTRICTED_TRADEABLE
@@ -30783,11 +28170,9 @@ QtyType_CONTRACTS = cvar.QtyType_CONTRACTS
 QtyType_UNITS_OF_MEASURE_PER_TIME_UNIT = cvar.QtyType_UNITS_OF_MEASURE_PER_TIME_UNIT
 QtyType_UNITS = cvar.QtyType_UNITS
 QuoteRespType_END_TRADE = cvar.QuoteRespType_END_TRADE
-QuoteRespType_HITLIFT = cvar.QuoteRespType_HITLIFT
-QuoteRespType_HIT_LIFT = cvar.QuoteRespType_HIT_LIFT
 QuoteRespType_COVER = cvar.QuoteRespType_COVER
+QuoteRespType_HIT_LIFT = cvar.QuoteRespType_HIT_LIFT
 QuoteRespType_DONE_AWAY = cvar.QuoteRespType_DONE_AWAY
-QuoteRespType_DONEAWAY = cvar.QuoteRespType_DONEAWAY
 QuoteRespType_TIMED_OUT = cvar.QuoteRespType_TIMED_OUT
 QuoteRespType_PASS = cvar.QuoteRespType_PASS
 QuoteRespType_EXPIRED = cvar.QuoteRespType_EXPIRED
@@ -30842,8 +28227,6 @@ ExecTransType_CANCEL = cvar.ExecTransType_CANCEL
 ExecTransType_STATUS = cvar.ExecTransType_STATUS
 DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR = cvar.DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR
 DayBookingInst_ACCUMULATE = cvar.DayBookingInst_ACCUMULATE
-DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING_SPEAK_FIRST = cvar.DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING_SPEAK_FIRST
-DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR_AUTO = cvar.DayBookingInst_CAN_TRIGGER_BOOKING_WITHOUT_REFERENCE_TO_THE_ORDER_INITIATOR_AUTO
 DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING = cvar.DayBookingInst_SPEAK_WITH_ORDER_INITIATOR_BEFORE_BOOKING
 FlowScheduleType_NERC_EASTERN_OFF_PEAK = cvar.FlowScheduleType_NERC_EASTERN_OFF_PEAK
 FlowScheduleType_NERC_WESTERN_PEAK = cvar.FlowScheduleType_NERC_WESTERN_PEAK
@@ -30853,17 +28236,13 @@ FlowScheduleType_NERC_WESTERN_OFF_PEAK = cvar.FlowScheduleType_NERC_WESTERN_OFF_
 MDOriginType_CROSS = cvar.MDOriginType_CROSS
 MDOriginType_OFF_BOOK = cvar.MDOriginType_OFF_BOOK
 MDOriginType_BOOK = cvar.MDOriginType_BOOK
-CollInquiryStatus_ACCEPTED_WITH_WARNINGS = cvar.CollInquiryStatus_ACCEPTED_WITH_WARNINGS
 CollInquiryStatus_COMPLETED = cvar.CollInquiryStatus_COMPLETED
-CollInquiryStatus_ACCEPTEDWITHWARNINGS = cvar.CollInquiryStatus_ACCEPTEDWITHWARNINGS
+CollInquiryStatus_ACCEPTED_WITH_WARNINGS = cvar.CollInquiryStatus_ACCEPTED_WITH_WARNINGS
 CollInquiryStatus_REJECTED = cvar.CollInquiryStatus_REJECTED
-CollInquiryStatus_COMPLETEDWITHWARNINGS = cvar.CollInquiryStatus_COMPLETEDWITHWARNINGS
 CollInquiryStatus_ACCEPTED = cvar.CollInquiryStatus_ACCEPTED
 CollInquiryStatus_COMPLETED_WITH_WARNINGS = cvar.CollInquiryStatus_COMPLETED_WITH_WARNINGS
-CPProgram_3A3 = cvar.CPProgram_3A3
 CPProgram_OTHER = cvar.CPProgram_OTHER
 CPProgram_3 = cvar.CPProgram_3
-CPProgram_42 = cvar.CPProgram_42
 CPProgram_4 = cvar.CPProgram_4
 PosReqType_POSITIONS = cvar.PosReqType_POSITIONS
 PosReqType_BACKOUT_MESSAGE = cvar.PosReqType_BACKOUT_MESSAGE
@@ -30874,34 +28253,23 @@ PosReqType_EXERCISES = cvar.PosReqType_EXERCISES
 PosReqType_ASSIGNMENTS = cvar.PosReqType_ASSIGNMENTS
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITY
-MassStatusReqType_STATUSSECURITYTYPE = cvar.MassStatusReqType_STATUSSECURITYTYPE
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_CFICODE
-MassStatusReqType_STATUSTRDSESSION = cvar.MassStatusReqType_STATUSTRDSESSION
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PARTYID
 MassStatusReqType_STATUS_FOR_SECURITY_ISSUER = cvar.MassStatusReqType_STATUS_FOR_SECURITY_ISSUER
-MassStatusReqType_STATUSCFICODE = cvar.MassStatusReqType_STATUSCFICODE
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION
-MassStatusReqType_STATUSUNDERLYINGSECURITY = cvar.MassStatusReqType_STATUSUNDERLYINGSECURITY
-MassStatusReqType_STATUSPARTYID = cvar.MassStatusReqType_STATUSPARTYID
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_PRODUCT
 MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE = cvar.MassStatusReqType_STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE
 MassStatusReqType_STATUS_FOR_ALL_ORDERS = cvar.MassStatusReqType_STATUS_FOR_ALL_ORDERS
 MassStatusReqType_STATUS_FOR_ISSUER_OF_UNDERLYING_SECURITY = cvar.MassStatusReqType_STATUS_FOR_ISSUER_OF_UNDERLYING_SECURITY
-MassStatusReqType_STATUSSECURITY = cvar.MassStatusReqType_STATUSSECURITY
-MassStatusReqType_STATUSPRODUCT = cvar.MassStatusReqType_STATUSPRODUCT
-MassStatusReqType_STATUSALLORDERS = cvar.MassStatusReqType_STATUSALLORDERS
 SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST = cvar.SubscriptionRequestType_DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST
 SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES = cvar.SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES
-SubscriptionRequestType_SNAPSHOTUPDATE = cvar.SubscriptionRequestType_SNAPSHOTUPDATE
 SubscriptionRequestType_SNAPSHOT = cvar.SubscriptionRequestType_SNAPSHOT
-SubscriptionRequestType_UNSUBSCRIBE = cvar.SubscriptionRequestType_UNSUBSCRIBE
 NewsCategory_MARKETPLACE_NEWS = cvar.NewsCategory_MARKETPLACE_NEWS
 NewsCategory_TECHNICAL_NEWS = cvar.NewsCategory_TECHNICAL_NEWS
 NewsCategory_COMPANY_NEWS = cvar.NewsCategory_COMPANY_NEWS
 NewsCategory_OTHER_NEWS = cvar.NewsCategory_OTHER_NEWS
 NewsCategory_FINANCIAL_MARKET_NEWS = cvar.NewsCategory_FINANCIAL_MARKET_NEWS
 IOIQty_MEDIUM = cvar.IOIQty_MEDIUM
-IOIQty_1000000000 = cvar.IOIQty_1000000000
 IOIQty_LARGE = cvar.IOIQty_LARGE
 IOIQty_SMALL = cvar.IOIQty_SMALL
 IOIQty_UNDISCLOSED_QUANTITY = cvar.IOIQty_UNDISCLOSED_QUANTITY
@@ -30910,19 +28278,14 @@ ApplResponseError_APPLICATION_DOES_NOT_EXIST = cvar.ApplResponseError_APPLICATIO
 ApplResponseError_MESSAGES_REQUESTED_ARE_NOT_AVAILABLE = cvar.ApplResponseError_MESSAGES_REQUESTED_ARE_NOT_AVAILABLE
 TriggerPriceDirection_TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_DOWN_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE = cvar.TriggerPriceDirection_TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_DOWN_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE
 TriggerPriceDirection_TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_UP_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE = cvar.TriggerPriceDirection_TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_UP_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE
-LastLiquidityInd_ADDEDLIQUIDITY = cvar.LastLiquidityInd_ADDEDLIQUIDITY
 LastLiquidityInd_LIQUIDITY_ROUTED_OUT = cvar.LastLiquidityInd_LIQUIDITY_ROUTED_OUT
-LastLiquidityInd_LIQUIDITYROUTEDOUT = cvar.LastLiquidityInd_LIQUIDITYROUTEDOUT
 LastLiquidityInd_AUCTION = cvar.LastLiquidityInd_AUCTION
-LastLiquidityInd_REMOVEDLIQUIDITY = cvar.LastLiquidityInd_REMOVEDLIQUIDITY
 LastLiquidityInd_ADDED_LIQUIDITY = cvar.LastLiquidityInd_ADDED_LIQUIDITY
 LastLiquidityInd_REMOVED_LIQUIDITY = cvar.LastLiquidityInd_REMOVED_LIQUIDITY
 StrikePriceDeterminationMethod_STRIKE_SET_TO_AVERAGE_OF_UNDERLYING_SETTLEMENT_PRICE_ACROSS_THE_LIFE_OF_THE_OPTION = cvar.StrikePriceDeterminationMethod_STRIKE_SET_TO_AVERAGE_OF_UNDERLYING_SETTLEMENT_PRICE_ACROSS_THE_LIFE_OF_THE_OPTION
 StrikePriceDeterminationMethod_STRIKE_SET_AT_EXPIRATION_TO_UNDERLYING_OR_OTHER_VALUE = cvar.StrikePriceDeterminationMethod_STRIKE_SET_AT_EXPIRATION_TO_UNDERLYING_OR_OTHER_VALUE
 StrikePriceDeterminationMethod_FIXED_STRIKE = cvar.StrikePriceDeterminationMethod_FIXED_STRIKE
 StrikePriceDeterminationMethod_STRIKE_SET_TO_OPTIMAL_VALUE = cvar.StrikePriceDeterminationMethod_STRIKE_SET_TO_OPTIMAL_VALUE
-TargetStrategy_MININIZEMARKETIMPACT = cvar.TargetStrategy_MININIZEMARKETIMPACT
-TargetStrategy_RESERVEDANDAVAILABLEFORBILATERALLYAGREEDUPONUSERDEFINEDVALUES = cvar.TargetStrategy_RESERVEDANDAVAILABLEFORBILATERALLYAGREEDUPONUSERDEFINEDVALUES
 TargetStrategy_PARTICIPATE = cvar.TargetStrategy_PARTICIPATE
 TargetStrategy_MININIZE_MARKET_IMPACT = cvar.TargetStrategy_MININIZE_MARKET_IMPACT
 TargetStrategy_VWAP = cvar.TargetStrategy_VWAP
@@ -30938,11 +28301,11 @@ OwnershipType_JOINT_TRUSTEES = cvar.OwnershipType_JOINT_TRUSTEES
 OwnershipType_JOINT_INVESTORS = cvar.OwnershipType_JOINT_INVESTORS
 OwnershipType_TENANTS_IN_COMMON = cvar.OwnershipType_TENANTS_IN_COMMON
 UnitOfMeasure_US_DOLLARS = cvar.UnitOfMeasure_US_DOLLARS
-UnitOfMeasure_TROY_OUNCES = cvar.UnitOfMeasure_TROY_OUNCES
 UnitOfMeasure_TONS = cvar.UnitOfMeasure_TONS
-UnitOfMeasure_BILLION_CUBIC_FEET = cvar.UnitOfMeasure_BILLION_CUBIC_FEET
-UnitOfMeasure_ONE_MILLION_BTU = cvar.UnitOfMeasure_ONE_MILLION_BTU
+UnitOfMeasure_TROY_OUNCES = cvar.UnitOfMeasure_TROY_OUNCES
 UnitOfMeasure_MEGAWATT_HOURS = cvar.UnitOfMeasure_MEGAWATT_HOURS
+UnitOfMeasure_ONE_MILLION_BTU = cvar.UnitOfMeasure_ONE_MILLION_BTU
+UnitOfMeasure_BILLION_CUBIC_FEET = cvar.UnitOfMeasure_BILLION_CUBIC_FEET
 UnitOfMeasure_MILLION_BARRELS = cvar.UnitOfMeasure_MILLION_BARRELS
 UnitOfMeasure_GALLONS = cvar.UnitOfMeasure_GALLONS
 UnitOfMeasure_BARRELS = cvar.UnitOfMeasure_BARRELS
@@ -30950,15 +28313,6 @@ UnitOfMeasure_POUNDS = cvar.UnitOfMeasure_POUNDS
 UnitOfMeasure_METRIC_TONS = cvar.UnitOfMeasure_METRIC_TONS
 UnitOfMeasure_ALLOWANCES = cvar.UnitOfMeasure_ALLOWANCES
 UnitOfMeasure_BUSHELS = cvar.UnitOfMeasure_BUSHELS
-SecDefStatus_INVALID_DEFINITION_REQUEST = cvar.SecDefStatus_INVALID_DEFINITION_REQUEST
-SecDefStatus_PENDING_APPROVAL = cvar.SecDefStatus_PENDING_APPROVAL
-SecDefStatus_APPROVED = cvar.SecDefStatus_APPROVED
-SecDefStatus_UNAUTHORIZEDREQUEST = cvar.SecDefStatus_UNAUTHORIZEDREQUEST
-SecDefStatus_PENDINGAPPROVAL = cvar.SecDefStatus_PENDINGAPPROVAL
-SecDefStatus_UNAUTHORIZED_REQUEST = cvar.SecDefStatus_UNAUTHORIZED_REQUEST
-SecDefStatus_INVALIDDEFINITIONREQUEST = cvar.SecDefStatus_INVALIDDEFINITIONREQUEST
-SecDefStatus_APPROVEDACCEPTED = cvar.SecDefStatus_APPROVEDACCEPTED
-SecDefStatus_REJECTED = cvar.SecDefStatus_REJECTED
 SettlmntTyp_WHEN_AND_IF_ISSUED = cvar.SettlmntTyp_WHEN_AND_IF_ISSUED
 SettlmntTyp_T_PLUS_1 = cvar.SettlmntTyp_T_PLUS_1
 SettlmntTyp_FUTURE = cvar.SettlmntTyp_FUTURE
@@ -30977,10 +28331,7 @@ TradePublishIndicator_PUBLISH_TRADE = cvar.TradePublishIndicator_PUBLISH_TRADE
 ApplResponseType_MESSAGES_NOT_AVAILABLE = cvar.ApplResponseType_MESSAGES_NOT_AVAILABLE
 ApplResponseType_APPLICATION_DOES_NOT_EXIST = cvar.ApplResponseType_APPLICATION_DOES_NOT_EXIST
 ApplResponseType_REQUEST_SUCCESSFULLY_PROCESSED = cvar.ApplResponseType_REQUEST_SUCCESSFULLY_PROCESSED
-StandInstDbType_SID = cvar.StandInstDbType_SID
 StandInstDbType_DTC_SID = cvar.StandInstDbType_DTC_SID
-StandInstDbType_CUSTODIAN = cvar.StandInstDbType_CUSTODIAN
-StandInstDbType_ALERT = cvar.StandInstDbType_ALERT
 StandInstDbType_ACCOUNTNET = cvar.StandInstDbType_ACCOUNTNET
 StandInstDbType_A_GLOBAL_CUSTODIAN = cvar.StandInstDbType_A_GLOBAL_CUSTODIAN
 StandInstDbType_THOMSON_ALERT = cvar.StandInstDbType_THOMSON_ALERT
@@ -31000,23 +28351,9 @@ TriggerPriceType_BEST_BID = cvar.TriggerPriceType_BEST_BID
 TriggerPriceType_BEST_OFFER_OR_LAST_TRADE = cvar.TriggerPriceType_BEST_OFFER_OR_LAST_TRADE
 TriggerPriceType_BEST_OFFER = cvar.TriggerPriceType_BEST_OFFER
 TriggerPriceType_LAST_TRADE = cvar.TriggerPriceType_LAST_TRADE
-SideTrdSubTyp_EXTERNAL_TRANSFER = cvar.SideTrdSubTyp_EXTERNAL_TRANSFER
-SideTrdSubTyp_TRANSACTION_FROM_ASSIGNMENT = cvar.SideTrdSubTyp_TRANSACTION_FROM_ASSIGNMENT
-SideTrdSubTyp_TRANSACTION_FROM_EXERCISE = cvar.SideTrdSubTyp_TRANSACTION_FROM_EXERCISE
-SideTrdSubTyp_DIFFERENTIAL_SPREAD = cvar.SideTrdSubTyp_DIFFERENTIAL_SPREAD
-SideTrdSubTyp_ONSET_DUE_TO_AN_ALLOCATION = cvar.SideTrdSubTyp_ONSET_DUE_TO_AN_ALLOCATION
-SideTrdSubTyp_REJECT_FOR_SUBMITTING_TRADE = cvar.SideTrdSubTyp_REJECT_FOR_SUBMITTING_TRADE
-SideTrdSubTyp_CMTA = cvar.SideTrdSubTyp_CMTA
-SideTrdSubTyp_IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT = cvar.SideTrdSubTyp_IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT
-SideTrdSubTyp_INTERNAL_TRANSFER = cvar.SideTrdSubTyp_INTERNAL_TRANSFER
-SideTrdSubTyp_OFFSET_DUE_TO_AN_ALLOCATION = cvar.SideTrdSubTyp_OFFSET_DUE_TO_AN_ALLOCATION
-SideTrdSubTyp_ADVISORY_FOR_CONTRA_SIDE = cvar.SideTrdSubTyp_ADVISORY_FOR_CONTRA_SIDE
 SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST = cvar.SettlInstReqRejCode_UNABLE_TO_PROCESS_REQUEST
-SettlInstReqRejCode_NOMATCHINGSETTLEMENTINSTRUCTIONSFOUND = cvar.SettlInstReqRejCode_NOMATCHINGSETTLEMENTINSTRUCTIONSFOUND
-SettlInstReqRejCode_UNKNOWNACCOUNT = cvar.SettlInstReqRejCode_UNKNOWNACCOUNT
-SettlInstReqRejCode_UNABLETOPROCESSREQUEST = cvar.SettlInstReqRejCode_UNABLETOPROCESSREQUEST
-SettlInstReqRejCode_UNKNOWN_ACCOUNT = cvar.SettlInstReqRejCode_UNKNOWN_ACCOUNT
 SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND = cvar.SettlInstReqRejCode_NO_MATCHING_SETTLEMENT_INSTRUCTIONS_FOUND
+SettlInstReqRejCode_UNKNOWN_ACCOUNT = cvar.SettlInstReqRejCode_UNKNOWN_ACCOUNT
 SettlInstReqRejCode_OTHER = cvar.SettlInstReqRejCode_OTHER
 Urgency_FLASH = cvar.Urgency_FLASH
 Urgency_NORMAL = cvar.Urgency_NORMAL
@@ -31027,54 +28364,37 @@ CollAsgnTransType_REVERSE = cvar.CollAsgnTransType_REVERSE
 CollAsgnTransType_CANCEL = cvar.CollAsgnTransType_CANCEL
 CollAsgnTransType_RELEASE = cvar.CollAsgnTransType_RELEASE
 PaymentMethod_FED_WIRE = cvar.PaymentMethod_FED_WIRE
-PaymentMethod_ACHCREDIT = cvar.PaymentMethod_ACHCREDIT
-PaymentMethod_TELEGRAPHICTRANSFER = cvar.PaymentMethod_TELEGRAPHICTRANSFER
-PaymentMethod_DIRECTDEBITBECS = cvar.PaymentMethod_DIRECTDEBITBECS
 PaymentMethod_EUROCLEAR = cvar.PaymentMethod_EUROCLEAR
 PaymentMethod_ACH_CREDIT = cvar.PaymentMethod_ACH_CREDIT
 PaymentMethod_TELEGRAPHIC_TRANSFER = cvar.PaymentMethod_TELEGRAPHIC_TRANSFER
 PaymentMethod_FEDWIRE = cvar.PaymentMethod_FEDWIRE
-PaymentMethod_CREDITCARD = cvar.PaymentMethod_CREDITCARD
 PaymentMethod_DIRECT_DEBIT = cvar.PaymentMethod_DIRECT_DEBIT
 PaymentMethod_CREDIT_CARD = cvar.PaymentMethod_CREDIT_CARD
 PaymentMethod_CHEQUE = cvar.PaymentMethod_CHEQUE
 PaymentMethod_DIRECT_CREDIT = cvar.PaymentMethod_DIRECT_CREDIT
 PaymentMethod_CREST = cvar.PaymentMethod_CREST
 PaymentMethod_HIGH_VALUE_CLEARING_SYSTEM = cvar.PaymentMethod_HIGH_VALUE_CLEARING_SYSTEM
-PaymentMethod_DEBITCARD = cvar.PaymentMethod_DEBITCARD
 PaymentMethod_CLEARSTREAM = cvar.PaymentMethod_CLEARSTREAM
 PaymentMethod_BPAY = cvar.PaymentMethod_BPAY
-PaymentMethod_HIGHVALUECLEARINGSYSTEMHVACS = cvar.PaymentMethod_HIGHVALUECLEARINGSYSTEMHVACS
 PaymentMethod_NSCC = cvar.PaymentMethod_NSCC
 PaymentMethod_DEBIT_CARD = cvar.PaymentMethod_DEBIT_CARD
-PaymentMethod_ACHDEBIT = cvar.PaymentMethod_ACHDEBIT
-PaymentMethod_DIRECTCREDITBECS = cvar.PaymentMethod_DIRECTCREDITBECS
 PaymentMethod_ACH_DEBIT = cvar.PaymentMethod_ACH_DEBIT
 TriggerPriceTypeScope_LOCAL = cvar.TriggerPriceTypeScope_LOCAL
 TriggerPriceTypeScope_NONE = cvar.TriggerPriceTypeScope_NONE
 TriggerPriceTypeScope_GLOBAL = cvar.TriggerPriceTypeScope_GLOBAL
 TriggerPriceTypeScope_NATIONAL = cvar.TriggerPriceTypeScope_NATIONAL
 PegLimitType_STRICT = cvar.PegLimitType_STRICT
-PegLimitType_ORWORSE = cvar.PegLimitType_ORWORSE
 PegLimitType_OR_BETTER = cvar.PegLimitType_OR_BETTER
 PegLimitType_OR_WORSE = cvar.PegLimitType_OR_WORSE
-PegLimitType_ORBETTER = cvar.PegLimitType_ORBETTER
+PegLimitType_STRICT_LIMIT_IS_A_STRICT_LIMIT = cvar.PegLimitType_STRICT_LIMIT_IS_A_STRICT_LIMIT
+PegLimitType_OR_WORSE_FOR_A_BUY_THE_PEG_LIMIT_IS_A_MINIMUM_AND_FOR_A_SELL_THE_PEG_LIMIT_IS_A_MAXIMUM = cvar.PegLimitType_OR_WORSE_FOR_A_BUY_THE_PEG_LIMIT_IS_A_MINIMUM_AND_FOR_A_SELL_THE_PEG_LIMIT_IS_A_MAXIMUM
 Side_BORROW = cvar.Side_BORROW
-Side_SELLPLUS = cvar.Side_SELLPLUS
 Side_BUY_MINUS = cvar.Side_BUY_MINUS
-Side_BUYMIN = cvar.Side_BUYMIN
-Side_ASDEFINED = cvar.Side_ASDEFINED
 Side_SUBSCRIBE = cvar.Side_SUBSCRIBE
 Side_CROSS_SHORT_EXEMPT = cvar.Side_CROSS_SHORT_EXEMPT
 Side_UNDISCLOSED = cvar.Side_UNDISCLOSED
-Side_SELLSHT = cvar.Side_SELLSHT
-Side_SELLSHTEX = cvar.Side_SELLSHTEX
-Side_CROSSSHORTEX = cvar.Side_CROSSSHORTEX
 Side_CROSS = cvar.Side_CROSS
 Side_SELL_SHORT_EXEMPT = cvar.Side_SELL_SHORT_EXEMPT
-Side_UNDISC = cvar.Side_UNDISC
-Side_CROSSSHORT = cvar.Side_CROSSSHORT
-Side_BORROWFINANCING = cvar.Side_BORROWFINANCING
 Side_BUY = cvar.Side_BUY
 Side_CROSS_SHORT_EXXMPT = cvar.Side_CROSS_SHORT_EXXMPT
 Side_SELL = cvar.Side_SELL
@@ -31084,42 +28404,26 @@ Side_OPPOSITE = cvar.Side_OPPOSITE
 Side_CROSS_SHORT = cvar.Side_CROSS_SHORT
 Side_SELL_PLUS = cvar.Side_SELL_PLUS
 Side_REDEEM = cvar.Side_REDEEM
-Side_LENDFINANCING = cvar.Side_LENDFINANCING
 Side_AS_DEFINED = cvar.Side_AS_DEFINED
-ContAmtType_COMMISSIONAMT = cvar.ContAmtType_COMMISSIONAMT
-ContAmtType_FUNDBASEDRENEWALCOMM = cvar.ContAmtType_FUNDBASEDRENEWALCOMM
-ContAmtType_INITIALCHARGEPCT = cvar.ContAmtType_INITIALCHARGEPCT
-ContAmtType_EXITCHARGEAMT = cvar.ContAmtType_EXITCHARGEAMT
 ContAmtType_EXIT_CHARGE = cvar.ContAmtType_EXIT_CHARGE
 ContAmtType_DILUTION_LEVY_AMOUNT = cvar.ContAmtType_DILUTION_LEVY_AMOUNT
 ContAmtType_DILUTION_LEVY_PERCENT = cvar.ContAmtType_DILUTION_LEVY_PERCENT
 ContAmtType_DISCOUNT_AMOUNT = cvar.ContAmtType_DISCOUNT_AMOUNT
 ContAmtType_COMMISSION = cvar.ContAmtType_COMMISSION
 ContAmtType_INITIAL_CHARGE_PERCENT = cvar.ContAmtType_INITIAL_CHARGE_PERCENT
-ContAmtType_DILUTIONLEVYAMT = cvar.ContAmtType_DILUTIONLEVYAMT
 ContAmtType_DILUTION_LEVY = cvar.ContAmtType_DILUTION_LEVY
 ContAmtType_COMMISSION_AMOUNT = cvar.ContAmtType_COMMISSION_AMOUNT
 ContAmtType_NET_SETTLEMENT_AMOUNT = cvar.ContAmtType_NET_SETTLEMENT_AMOUNT
-ContAmtType_EXITCHARGEPCT = cvar.ContAmtType_EXITCHARGEPCT
-ContAmtType_COMMISSIONPCT = cvar.ContAmtType_COMMISSIONPCT
 ContAmtType_FUND_BASED_RENEWAL_COMMISSION = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION
 ContAmtType_DISCOUNT = cvar.ContAmtType_DISCOUNT
-ContAmtType_FUNDBASEDRENEWALCOMMAMTORD = cvar.ContAmtType_FUNDBASEDRENEWALCOMMAMTORD
-ContAmtType_DISCOUNTPCT = cvar.ContAmtType_DISCOUNTPCT
 ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_13 = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_13
 ContAmtType_EXIT_CHARGE_AMOUNT = cvar.ContAmtType_EXIT_CHARGE_AMOUNT
 ContAmtType_INITIAL_CHARGE = cvar.ContAmtType_INITIAL_CHARGE
-ContAmtType_EXIT_CHARGE_PERCENT = cvar.ContAmtType_EXIT_CHARGE_PERCENT
 ContAmtType_DISCOUNT_PERCENT = cvar.ContAmtType_DISCOUNT_PERCENT
-ContAmtType_INITIALCHARGEAMT = cvar.ContAmtType_INITIALCHARGEAMT
-ContAmtType_DILUTIONLEVYPCT = cvar.ContAmtType_DILUTIONLEVYPCT
+ContAmtType_EXIT_CHARGE_PERCENT = cvar.ContAmtType_EXIT_CHARGE_PERCENT
 ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_14 = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_AMOUNT_14
-ContAmtType_FUNDBASEDRENEWALCOMMAMTPROJ = cvar.ContAmtType_FUNDBASEDRENEWALCOMMAMTPROJ
-ContAmtType_NETSETTLEMENTAMOUNT = cvar.ContAmtType_NETSETTLEMENTAMOUNT
-ContAmtType_PROJECTEDFUNDVALUE = cvar.ContAmtType_PROJECTEDFUNDVALUE
-ContAmtType_DISCOUNTAMT = cvar.ContAmtType_DISCOUNTAMT
-ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT
 ContAmtType_COMMISSION_PERCENT = cvar.ContAmtType_COMMISSION_PERCENT
+ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT = cvar.ContAmtType_FUND_BASED_RENEWAL_COMMISSION_PERCENT
 ContAmtType_PROJECTED_FUND_VALUE = cvar.ContAmtType_PROJECTED_FUND_VALUE
 ContAmtType_INITIAL_CHARGE_AMOUNT = cvar.ContAmtType_INITIAL_CHARGE_AMOUNT
 OrderCategory_IMPLIED_ORDER = cvar.OrderCategory_IMPLIED_ORDER
@@ -31133,25 +28437,16 @@ OrderCategory_ORDER = cvar.OrderCategory_ORDER
 OrderCategory_LINKED_ORDER = cvar.OrderCategory_LINKED_ORDER
 AdvTransType_REPLACE = cvar.AdvTransType_REPLACE
 AdvTransType_NEW = cvar.AdvTransType_NEW
-AdvTransType_ADVCANCEL = cvar.AdvTransType_ADVCANCEL
-AdvTransType_ADVREPLACE = cvar.AdvTransType_ADVREPLACE
-AdvTransType_ADVNEW = cvar.AdvTransType_ADVNEW
 AdvTransType_CANCEL = cvar.AdvTransType_CANCEL
 PublishTrdIndicator_NO = cvar.PublishTrdIndicator_NO
 PublishTrdIndicator_YES = cvar.PublishTrdIndicator_YES
-SecurityResponseType_ACCPTSECPROPREV = cvar.SecurityResponseType_ACCPTSECPROPREV
-SecurityResponseType_SECLISTTYPESRET = cvar.SecurityResponseType_SECLISTTYPESRET
 SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST = cvar.SecurityResponseType_LIST_OF_SECURITIES_RETURNED_PER_REQUEST
 SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST = cvar.SecurityResponseType_LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST
 SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE = cvar.SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE
 SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS = cvar.SecurityResponseType_ACCEPT_SECURITY_PROPOSAL_AS_IS
-SecurityResponseType_ACCPTSECPROP = cvar.SecurityResponseType_ACCPTSECPROP
 SecurityResponseType_REJECT_SECURITY_PROPOSAL = cvar.SecurityResponseType_REJECT_SECURITY_PROPOSAL
-SecurityResponseType_SECLISTRET = cvar.SecurityResponseType_SECLISTRET
-SecurityResponseType_REJSECPROP = cvar.SecurityResponseType_REJSECPROP
 SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA = cvar.SecurityResponseType_CAN_NOT_MATCH_SELECTION_CRITERIA
 SecurityResponseType_CANNOT_MATCH_SELECTION_CRITERIA = cvar.SecurityResponseType_CANNOT_MATCH_SELECTION_CRITERIA
-SecurityResponseType_NOMATCH = cvar.SecurityResponseType_NOMATCH
 SessionStatus_PASSWORD_EXPIRED = cvar.SessionStatus_PASSWORD_EXPIRED
 SessionStatus_SESSION_LOGOUT_COMPLETE = cvar.SessionStatus_SESSION_LOGOUT_COMPLETE
 SessionStatus_INVALID_USERNAME_OR_PASSWORD = cvar.SessionStatus_INVALID_USERNAME_OR_PASSWORD
@@ -31161,25 +28456,19 @@ SessionStatus_ACCOUNT_LOCKED = cvar.SessionStatus_ACCOUNT_LOCKED
 SessionStatus_LOGONS_ARE_NOT_ALLOWED_AT_THIS_TIME = cvar.SessionStatus_LOGONS_ARE_NOT_ALLOWED_AT_THIS_TIME
 SessionStatus_SESSION_PASSWORD_DUE_TO_EXPIRE = cvar.SessionStatus_SESSION_PASSWORD_DUE_TO_EXPIRE
 SessionStatus_NEW_SESSION_PASSWORD_DOES_NOT_COMPLY_WITH_POLICY = cvar.SessionStatus_NEW_SESSION_PASSWORD_DOES_NOT_COMPLY_WITH_POLICY
-AllocAccountType_JBO = cvar.AllocAccountType_JBO
 AllocAccountType_HOUSE_TRADER = cvar.AllocAccountType_HOUSE_TRADER
-AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS
 AllocAccountType_FLOOR_TRADER = cvar.AllocAccountType_FLOOR_TRADER
-AllocAccountType_ACCOUNTISHOUSETRADERANDISCROSSMARGINED = cvar.AllocAccountType_ACCOUNTISHOUSETRADERANDISCROSSMARGINED
-AllocAccountType_ACCOUNTISCARRIEDONCUSTOMERSIDEOFBOOKS = cvar.AllocAccountType_ACCOUNTISCARRIEDONCUSTOMERSIDEOFBOOKS
+AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS
 AllocAccountType_JOINT_BACK_OFFICE_ACCOUNT = cvar.AllocAccountType_JOINT_BACK_OFFICE_ACCOUNT
-AllocAccountType_ACCOUNTISCARRIEDONNONCUSTOMERSIDEOFBOOKSANDISCROSSMARGINED = cvar.AllocAccountType_ACCOUNTISCARRIEDONNONCUSTOMERSIDEOFBOOKSANDISCROSSMARGINED
-AllocAccountType_HOUSETRADER = cvar.AllocAccountType_HOUSETRADER
-AllocAccountType_FLOORTRADER = cvar.AllocAccountType_FLOORTRADER
 AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED
+AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS
 AllocAccountType_ACCOUNT_IS_CARRIED_PN_CUSTOMER_SIDE_OF_BOOKS = cvar.AllocAccountType_ACCOUNT_IS_CARRIED_PN_CUSTOMER_SIDE_OF_BOOKS
-AllocAccountType_ACCOUNTISCARRIEDONNONCUSTOMERSIDEOFBOOKS = cvar.AllocAccountType_ACCOUNTISCARRIEDONNONCUSTOMERSIDEOFBOOKS
+AllocAccountType_JOINT_BACKOFFICE_ACCOUNT = cvar.AllocAccountType_JOINT_BACKOFFICE_ACCOUNT
 AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = cvar.AllocAccountType_ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED
 AllocTransType_REPLACE = cvar.AllocTransType_REPLACE
 AllocTransType_NEW = cvar.AllocTransType_NEW
 AllocTransType_CALCULATED = cvar.AllocTransType_CALCULATED
 AllocTransType_PRELIMINARY = cvar.AllocTransType_PRELIMINARY
-AllocTransType_CALCULATEDWITHOUTPRELIMINARY = cvar.AllocTransType_CALCULATEDWITHOUTPRELIMINARY
 AllocTransType_CANCEL = cvar.AllocTransType_CANCEL
 AllocTransType_REVERSAL = cvar.AllocTransType_REVERSAL
 AllocTransType_CALCULATED_WITHOUT_PRELIMINARY = cvar.AllocTransType_CALCULATED_WITHOUT_PRELIMINARY
@@ -31188,7 +28477,6 @@ ExpirationQtyType_FINAL_WILL_BE_EXERCISED = cvar.ExpirationQtyType_FINAL_WILL_BE
 ExpirationQtyType_NON_AUTO_EXERCISE = cvar.ExpirationQtyType_NON_AUTO_EXERCISE
 ExpirationQtyType_CONTRARY_INTENTION = cvar.ExpirationQtyType_CONTRARY_INTENTION
 ExpirationQtyType_AUTO_EXERCISE = cvar.ExpirationQtyType_AUTO_EXERCISE
-AllocHandlInst_FORWARDMATCH = cvar.AllocHandlInst_FORWARDMATCH
 AllocHandlInst_FORWARD_AND_MATCH = cvar.AllocHandlInst_FORWARD_AND_MATCH
 AllocHandlInst_FORWARD = cvar.AllocHandlInst_FORWARD
 AllocHandlInst_MATCH = cvar.AllocHandlInst_MATCH
@@ -31197,122 +28485,74 @@ TradeRequestStatus_REJECTED = cvar.TradeRequestStatus_REJECTED
 TradeRequestStatus_ACCEPTED = cvar.TradeRequestStatus_ACCEPTED
 PreallocMethod_DO_NOT_PRO_RATA_DISCUSS_FIRST = cvar.PreallocMethod_DO_NOT_PRO_RATA_DISCUSS_FIRST
 PreallocMethod_PRO_RATA = cvar.PreallocMethod_PRO_RATA
-PreallocMethod_DO_NOT_PRORATA_DISCUSS_FIRST = cvar.PreallocMethod_DO_NOT_PRORATA_DISCUSS_FIRST
 PreallocMethod_DO_NOT_PRO_RATA = cvar.PreallocMethod_DO_NOT_PRO_RATA
-PreallocMethod_PRORATA = cvar.PreallocMethod_PRORATA
-TaxAdvantageType_ROTHIRANONPROTOTYPEUS = cvar.TaxAdvantageType_ROTHIRANONPROTOTYPEUS
-TaxAdvantageType_INDIVIDUALRETIREMENTACCOUNTROLLOVERUS = cvar.TaxAdvantageType_INDIVIDUALRETIREMENTACCOUNTROLLOVERUS
-TaxAdvantageType_PROFITSHARINGPLANUS = cvar.TaxAdvantageType_PROFITSHARINGPLANUS
-TaxAdvantageType_SELF_DIRECTED_IRA = cvar.TaxAdvantageType_SELF_DIRECTED_IRA
-TaxAdvantageType_401 = cvar.TaxAdvantageType_401
-TaxAdvantageType_EMPLOYER_11 = cvar.TaxAdvantageType_EMPLOYER_11
-TaxAdvantageType_457US = cvar.TaxAdvantageType_457US
-TaxAdvantageType_EMPLOYER_12 = cvar.TaxAdvantageType_EMPLOYER_12
-TaxAdvantageType_MINI_CASH_ISA = cvar.TaxAdvantageType_MINI_CASH_ISA
-TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA = cvar.TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA
-TaxAdvantageType_ROTH_CONVERSION_IRA_26 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_26
-TaxAdvantageType_EMPLOYEE = cvar.TaxAdvantageType_EMPLOYEE
-TaxAdvantageType_SELFDIRECTEDIRAUS = cvar.TaxAdvantageType_SELFDIRECTEDIRAUS
-TaxAdvantageType_403 = cvar.TaxAdvantageType_403
-TaxAdvantageType_NON_FUND_PROTOTYPE_IRA = cvar.TaxAdvantageType_NON_FUND_PROTOTYPE_IRA
-TaxAdvantageType_NONFUNDPROTOTYPEIRAUS = cvar.TaxAdvantageType_NONFUNDPROTOTYPEIRAUS
-TaxAdvantageType_ROTH_CONVERSION_IRA_27 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_27
-TaxAdvantageType_ROTHCONVERSIONIRANONPROTOTYPEUS = cvar.TaxAdvantageType_ROTHCONVERSIONIRANONPROTOTYPEUS
-TaxAdvantageType_MINI_INSURANCE_ISA = cvar.TaxAdvantageType_MINI_INSURANCE_ISA
-TaxAdvantageType_ROTHCONVERSIONIRAFUNDPROTOTYPEUS = cvar.TaxAdvantageType_ROTHCONVERSIONIRAFUNDPROTOTYPEUS
-TaxAdvantageType_EDUCATIONIRAFUNDPROTOTYPEUS = cvar.TaxAdvantageType_EDUCATIONIRAFUNDPROTOTYPEUS
-TaxAdvantageType_MAXIISAUK = cvar.TaxAdvantageType_MAXIISAUK
-TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER
-TaxAdvantageType_NONFUNDQUALIFIEDPLANUS = cvar.TaxAdvantageType_NONFUNDQUALIFIEDPLANUS
-TaxAdvantageType_EMPLOYER_CURRENT_YEAR = cvar.TaxAdvantageType_EMPLOYER_CURRENT_YEAR
-TaxAdvantageType_PRIORYEARPAYMENTUS = cvar.TaxAdvantageType_PRIORYEARPAYMENTUS
-TaxAdvantageType_TESSAUK = cvar.TaxAdvantageType_TESSAUK
-TaxAdvantageType_CURRENTYEARPAYMENTUS = cvar.TaxAdvantageType_CURRENTYEARPAYMENTUS
-TaxAdvantageType_EDUCATIONIRANONPROTOTYPEUS = cvar.TaxAdvantageType_EDUCATIONIRANONPROTOTYPEUS
-TaxAdvantageType_INDIVIDUALRETIREMENTACCOUNTUS = cvar.TaxAdvantageType_INDIVIDUALRETIREMENTACCOUNTUS
-TaxAdvantageType_KEOGHUS = cvar.TaxAdvantageType_KEOGHUS
-TaxAdvantageType_EDUCATION_IRA_28 = cvar.TaxAdvantageType_EDUCATION_IRA_28
-TaxAdvantageType_PROFIT_SHARING_PLAN = cvar.TaxAdvantageType_PROFIT_SHARING_PLAN
-TaxAdvantageType_NON_FUND_QUALIFIED_PLAN = cvar.TaxAdvantageType_NON_FUND_QUALIFIED_PLAN
-TaxAdvantageType_ROTHIRAFUNDPROTOTYPEUS = cvar.TaxAdvantageType_ROTHIRAFUNDPROTOTYPEUS
-TaxAdvantageType_EDUCATION_IRA_29 = cvar.TaxAdvantageType_EDUCATION_IRA_29
-TaxAdvantageType_EMPLOYEE_10 = cvar.TaxAdvantageType_EMPLOYEE_10
-TaxAdvantageType_EMPLOYEE_9 = cvar.TaxAdvantageType_EMPLOYEE_9
-TaxAdvantageType_EMPLOYEE_CURRENT_YEAR = cvar.TaxAdvantageType_EMPLOYEE_CURRENT_YEAR
-TaxAdvantageType_MAXI_ISA = cvar.TaxAdvantageType_MAXI_ISA
-TaxAdvantageType_MINIINSURANCEISAUK = cvar.TaxAdvantageType_MINIINSURANCEISAUK
-TaxAdvantageType_PRIOR_YEAR_PAYMENT = cvar.TaxAdvantageType_PRIOR_YEAR_PAYMENT
-TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN = cvar.TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN
-TaxAdvantageType_401K = cvar.TaxAdvantageType_401K
-TaxAdvantageType_403BUS = cvar.TaxAdvantageType_403BUS
-TaxAdvantageType_MINICASHISAUK = cvar.TaxAdvantageType_MINICASHISAUK
-TaxAdvantageType_ROTH_IRA_24 = cvar.TaxAdvantageType_ROTH_IRA_24
-TaxAdvantageType_MINISTOCKSANDSHARESISAUK = cvar.TaxAdvantageType_MINISTOCKSANDSHARESISAUK
-TaxAdvantageType_OTHER = cvar.TaxAdvantageType_OTHER
-TaxAdvantageType_EMPLOYERCURRENTYEARUS = cvar.TaxAdvantageType_EMPLOYERCURRENTYEARUS
-TaxAdvantageType_ASSET_TRANSFER = cvar.TaxAdvantageType_ASSET_TRANSFER
-TaxAdvantageType_ROTH_IRA_25 = cvar.TaxAdvantageType_ROTH_IRA_25
-TaxAdvantageType_KEOGH = cvar.TaxAdvantageType_KEOGH
-TaxAdvantageType_DEFINEDCONTRIBUTIONPLANUS = cvar.TaxAdvantageType_DEFINEDCONTRIBUTIONPLANUS
-TaxAdvantageType_401KUS = cvar.TaxAdvantageType_401KUS
-TaxAdvantageType_TESSA = cvar.TaxAdvantageType_TESSA
-TaxAdvantageType_NONE_NOT_APPLICABLE = cvar.TaxAdvantageType_NONE_NOT_APPLICABLE
-TaxAdvantageType_NONE = cvar.TaxAdvantageType_NONE
 TaxAdvantageType_457 = cvar.TaxAdvantageType_457
-TaxAdvantageType_EMPLOYEEPRIORYEARUS = cvar.TaxAdvantageType_EMPLOYEEPRIORYEARUS
-TaxAdvantageType_EMPLOYERPRIORYEARUS = cvar.TaxAdvantageType_EMPLOYERPRIORYEARUS
-TaxAdvantageType_EMPLOYER = cvar.TaxAdvantageType_EMPLOYER
-TaxAdvantageType_EMPLOYEECURRENTYEARUS = cvar.TaxAdvantageType_EMPLOYEECURRENTYEARUS
+TaxAdvantageType_MAXI_ISA = cvar.TaxAdvantageType_MAXI_ISA
+TaxAdvantageType_EMPLOYEE_CURRENT_YEAR = cvar.TaxAdvantageType_EMPLOYEE_CURRENT_YEAR
+TaxAdvantageType_EMPLOYEE_9 = cvar.TaxAdvantageType_EMPLOYEE_9
+TaxAdvantageType_403 = cvar.TaxAdvantageType_403
+TaxAdvantageType_KEOGH = cvar.TaxAdvantageType_KEOGH
+TaxAdvantageType_401K = cvar.TaxAdvantageType_401K
+TaxAdvantageType_SELF_DIRECTED_IRA = cvar.TaxAdvantageType_SELF_DIRECTED_IRA
+TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN = cvar.TaxAdvantageType_DEFINED_CONTRIBUTION_PLAN
 TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_16 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_16
-TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT
-TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17
+TaxAdvantageType_ROTH_IRA_24 = cvar.TaxAdvantageType_ROTH_IRA_24
 TaxAdvantageType_CURRENT_YEAR_PAYMENT = cvar.TaxAdvantageType_CURRENT_YEAR_PAYMENT
-TaxAdvantageType_ASSETTRANSFERUS = cvar.TaxAdvantageType_ASSETTRANSFERUS
+TaxAdvantageType_MINI_INSURANCE_ISA = cvar.TaxAdvantageType_MINI_INSURANCE_ISA
+TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17 = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_17
+TaxAdvantageType_EDUCATION_IRA_28 = cvar.TaxAdvantageType_EDUCATION_IRA_28
+TaxAdvantageType_ROTH_IRA_25 = cvar.TaxAdvantageType_ROTH_IRA_25
+TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT
+TaxAdvantageType_EMPLOYEE_10 = cvar.TaxAdvantageType_EMPLOYEE_10
+TaxAdvantageType_EDUCATION_IRA_29 = cvar.TaxAdvantageType_EDUCATION_IRA_29
+TaxAdvantageType_PRIOR_YEAR_PAYMENT = cvar.TaxAdvantageType_PRIOR_YEAR_PAYMENT
+TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER = cvar.TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER
+TaxAdvantageType_EMPLOYER_11 = cvar.TaxAdvantageType_EMPLOYER_11
+TaxAdvantageType_ASSET_TRANSFER = cvar.TaxAdvantageType_ASSET_TRANSFER
+TaxAdvantageType_EMPLOYER_12 = cvar.TaxAdvantageType_EMPLOYER_12
+TaxAdvantageType_OTHER = cvar.TaxAdvantageType_OTHER
+TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA = cvar.TaxAdvantageType_MINI_STOCKS_AND_SHARES_ISA
+TaxAdvantageType_EMPLOYEE = cvar.TaxAdvantageType_EMPLOYEE
+TaxAdvantageType_ROTH_CONVERSION_IRA_26 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_26
+TaxAdvantageType_MINI_CASH_ISA = cvar.TaxAdvantageType_MINI_CASH_ISA
+TaxAdvantageType_ROTH_CONVERSION_IRA_27 = cvar.TaxAdvantageType_ROTH_CONVERSION_IRA_27
+TaxAdvantageType_NONE_NOT_APPLICABLE = cvar.TaxAdvantageType_NONE_NOT_APPLICABLE
+TaxAdvantageType_TESSA = cvar.TaxAdvantageType_TESSA
+TaxAdvantageType_NON_FUND_QUALIFIED_PLAN = cvar.TaxAdvantageType_NON_FUND_QUALIFIED_PLAN
+TaxAdvantageType_EMPLOYER_CURRENT_YEAR = cvar.TaxAdvantageType_EMPLOYER_CURRENT_YEAR
+TaxAdvantageType_EMPLOYER = cvar.TaxAdvantageType_EMPLOYER
+TaxAdvantageType_PROFIT_SHARING_PLAN = cvar.TaxAdvantageType_PROFIT_SHARING_PLAN
+TaxAdvantageType_401 = cvar.TaxAdvantageType_401
+TaxAdvantageType_NON_FUND_PROTOTYPE_IRA = cvar.TaxAdvantageType_NON_FUND_PROTOTYPE_IRA
 MessageEncoding_EUC_JP = cvar.MessageEncoding_EUC_JP
 MessageEncoding_SHIFT_JIS = cvar.MessageEncoding_SHIFT_JIS
 MessageEncoding_UTF_8 = cvar.MessageEncoding_UTF_8
 MessageEncoding_ISO_2022_JP = cvar.MessageEncoding_ISO_2022_JP
+MessageEncoding_EUC = cvar.MessageEncoding_EUC
+MessageEncoding_JIS = cvar.MessageEncoding_JIS
+MessageEncoding_FOR_USING_SJIS = cvar.MessageEncoding_FOR_USING_SJIS
+MessageEncoding_UNICODE = cvar.MessageEncoding_UNICODE
 TimeInForce_GOOD_TILL_CROSSING = cvar.TimeInForce_GOOD_TILL_CROSSING
 TimeInForce_FILL_OR_KILL = cvar.TimeInForce_FILL_OR_KILL
 TimeInForce_GOOD_TILL_DATE = cvar.TimeInForce_GOOD_TILL_DATE
-TimeInForce_ATTHEOPENING = cvar.TimeInForce_ATTHEOPENING
-TimeInForce_FILLORKILL = cvar.TimeInForce_FILLORKILL
-TimeInForce_GOODTILLDATE = cvar.TimeInForce_GOODTILLDATE
-TimeInForce_GOODTILLCANCEL = cvar.TimeInForce_GOODTILLCANCEL
-TimeInForce_ATTHECLOSE = cvar.TimeInForce_ATTHECLOSE
 TimeInForce_GOOD_TILL_CANCEL = cvar.TimeInForce_GOOD_TILL_CANCEL
 TimeInForce_DAY = cvar.TimeInForce_DAY
 TimeInForce_AT_CROSSING = cvar.TimeInForce_AT_CROSSING
-TimeInForce_IMMEDIATEORCANCEL = cvar.TimeInForce_IMMEDIATEORCANCEL
 TimeInForce_IMMEDIATE_OR_CANCEL = cvar.TimeInForce_IMMEDIATE_OR_CANCEL
-TimeInForce_GOODTILLCROSSING = cvar.TimeInForce_GOODTILLCROSSING
 TimeInForce_GOOD_THROUGH_CROSSING = cvar.TimeInForce_GOOD_THROUGH_CROSSING
 TimeInForce_AT_THE_CLOSE = cvar.TimeInForce_AT_THE_CLOSE
 TimeInForce_AT_THE_OPENING = cvar.TimeInForce_AT_THE_OPENING
-IOIQualifier_AON = cvar.IOIQualifier_AON
 IOIQualifier_THROUGH_THE_DAY = cvar.IOIQualifier_THROUGH_THE_DAY
 IOIQualifier_INDIDCATION = cvar.IOIQualifier_INDIDCATION
-IOIQualifier_MOC = cvar.IOIQualifier_MOC
-IOIQualifier_READYTRADE = cvar.IOIQualifier_READYTRADE
-IOIQualifier_ATMID = cvar.IOIQualifier_ATMID
-IOIQualifier_INDWRKAWAY = cvar.IOIQualifier_INDWRKAWAY
 IOIQualifier_AT_THE_MARKET = cvar.IOIQualifier_AT_THE_MARKET
 IOIQualifier_AT_THE_MIDPOINT = cvar.IOIQualifier_AT_THE_MIDPOINT
 IOIQualifier_CROSSING_OPPORTUNITY = cvar.IOIQualifier_CROSSING_OPPORTUNITY
 IOIQualifier_CURRENT_QUOTE = cvar.IOIQualifier_CURRENT_QUOTE
 IOIQualifier_IN_TOUCH_WITH = cvar.IOIQualifier_IN_TOUCH_WITH
 IOIQualifier_ALL_OR_NONE = cvar.IOIQualifier_ALL_OR_NONE
-IOIQualifier_THROUGHDAY = cvar.IOIQualifier_THROUGHDAY
 IOIQualifier_TAKING_A_POSITION = cvar.IOIQualifier_TAKING_A_POSITION
 IOIQualifier_AT_THE_OPEN = cvar.IOIQualifier_AT_THE_OPEN
-IOIQualifier_TAKEPOSITION = cvar.IOIQualifier_TAKEPOSITION
 IOIQualifier_PORTFOLIO_SHOW_N = cvar.IOIQualifier_PORTFOLIO_SHOW_N
-IOIQualifier_INTOUCH = cvar.IOIQualifier_INTOUCH
-IOIQualifier_MOREBEHIND = cvar.IOIQualifier_MOREBEHIND
-IOIQualifier_ATMARKET = cvar.IOIQualifier_ATMARKET
-IOIQualifier_CROSSOPP = cvar.IOIQualifier_CROSSOPP
-IOIQualifier_PREOPEN = cvar.IOIQualifier_PREOPEN
-IOIQualifier_ATCLOSE = cvar.IOIQualifier_ATCLOSE
 IOIQualifier_MARKET_ON_CLOSE = cvar.IOIQualifier_MARKET_ON_CLOSE
 IOIQualifier_VERSUS = cvar.IOIQualifier_VERSUS
 IOIQualifier_LIMIT = cvar.IOIQualifier_LIMIT
@@ -31321,9 +28561,7 @@ IOIQualifier_READY_TO_TRADE = cvar.IOIQualifier_READY_TO_TRADE
 IOIQualifier_PRE_OPEN = cvar.IOIQualifier_PRE_OPEN
 IOIQualifier_INDICATION = cvar.IOIQualifier_INDICATION
 IOIQualifier_MORE_BEHIND = cvar.IOIQualifier_MORE_BEHIND
-IOIQualifier_ATOPEN = cvar.IOIQualifier_ATOPEN
 IOIQualifier_VWAP = cvar.IOIQualifier_VWAP
-IOIQualifier_PORTSHOW = cvar.IOIQualifier_PORTSHOW
 IOIQualifier_AT_THE_CLOSE = cvar.IOIQualifier_AT_THE_CLOSE
 StrikePriceBoundaryMethod_GREATER_THAN_OR_EQUAL_TO_UNDERLYING_PRICE_IS_IN_THE_MONEY = cvar.StrikePriceBoundaryMethod_GREATER_THAN_OR_EQUAL_TO_UNDERLYING_PRICE_IS_IN_THE_MONEY
 StrikePriceBoundaryMethod_GREATER_THAN_UNDERLYING_IS_IN_THE_MONEY = cvar.StrikePriceBoundaryMethod_GREATER_THAN_UNDERLYING_IS_IN_THE_MONEY
@@ -31334,49 +28572,35 @@ MiscFeeType_CONVERSION = cvar.MiscFeeType_CONVERSION
 MiscFeeType_CONSUMPTION_TAX = cvar.MiscFeeType_CONSUMPTION_TAX
 MiscFeeType_LOCAL_COMMISSION = cvar.MiscFeeType_LOCAL_COMMISSION
 MiscFeeType_TAX = cvar.MiscFeeType_TAX
-MiscFeeType_LOCALCOMM = cvar.MiscFeeType_LOCALCOMM
 MiscFeeType_MARKUP = cvar.MiscFeeType_MARKUP
 MiscFeeType_SECURITY_LENDING = cvar.MiscFeeType_SECURITY_LENDING
 MiscFeeType_PER_TRANSACTION = cvar.MiscFeeType_PER_TRANSACTION
 MiscFeeType_REGULATORY = cvar.MiscFeeType_REGULATORY
-MiscFeeType_EXCHFEE = cvar.MiscFeeType_EXCHFEE
-MiscFeeType_CONSUMPTION = cvar.MiscFeeType_CONSUMPTION
 MiscFeeType_STAMP = cvar.MiscFeeType_STAMP
 MiscFeeType_TRANSFER_FEE = cvar.MiscFeeType_TRANSFER_FEE
 MiscFeeType_AGENT = cvar.MiscFeeType_AGENT
 MiscFeeType_OTHER = cvar.MiscFeeType_OTHER
-MiscFeeType_TRANSACTION = cvar.MiscFeeType_TRANSACTION
-MiscFeeType_REG = cvar.MiscFeeType_REG
 MiscFeeType_EXCHANGE_FEES = cvar.MiscFeeType_EXCHANGE_FEES
 MiscFeeType_LEVY = cvar.MiscFeeType_LEVY
-SecurityIDSource_CLEARING_HOUSE = cvar.SecurityIDSource_CLEARING_HOUSE
 SecurityIDSource_OPTION_PRICE_REPORTING_AUTHORITY = cvar.SecurityIDSource_OPTION_PRICE_REPORTING_AUTHORITY
+SecurityIDSource_CLEARING_HOUSE = cvar.SecurityIDSource_CLEARING_HOUSE
 SecurityIDSource_EXCHANGE_SYMBOL = cvar.SecurityIDSource_EXCHANGE_SYMBOL
 SecurityIDSource_SICOVAM = cvar.SecurityIDSource_SICOVAM
-SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION
 SecurityIDSource_ISDA_FPML_PRODUCT_URL = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_URL
-SecurityIDSource_RIC = cvar.SecurityIDSource_RIC
-SecurityIDSource_CLEARINGHOUSE = cvar.SecurityIDSource_CLEARINGHOUSE
-SecurityIDSource_FPML = cvar.SecurityIDSource_FPML
+SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION = cvar.SecurityIDSource_ISDA_FPML_PRODUCT_SPECIFICATION
 SecurityIDSource_RIC_CODE = cvar.SecurityIDSource_RIC_CODE
-SecurityIDSource_ISOCURR = cvar.SecurityIDSource_ISOCURR
 SecurityIDSource_ISO_CURRENCY_CODE = cvar.SecurityIDSource_ISO_CURRENCY_CODE
 SecurityIDSource_COMMON = cvar.SecurityIDSource_COMMON
 SecurityIDSource_VALOREN = cvar.SecurityIDSource_VALOREN
 SecurityIDSource_BELGIAN = cvar.SecurityIDSource_BELGIAN
-SecurityIDSource_CTA = cvar.SecurityIDSource_CTA
+SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY = cvar.SecurityIDSource_OPTIONS_PRICE_REPORTING_AUTHORITY
 SecurityIDSource_ISIN_NUMBER = cvar.SecurityIDSource_ISIN_NUMBER
-SecurityIDSource_ISIN = cvar.SecurityIDSource_ISIN
-SecurityIDSource_ISOCOUNTRY = cvar.SecurityIDSource_ISOCOUNTRY
 SecurityIDSource_SEDOL = cvar.SecurityIDSource_SEDOL
 SecurityIDSource_ISO_COUNTRY_CODE = cvar.SecurityIDSource_ISO_COUNTRY_CODE
 SecurityIDSource_LETTER_OF_CREDIT = cvar.SecurityIDSource_LETTER_OF_CREDIT
 SecurityIDSource_BLOOMBERG_SYMBOL = cvar.SecurityIDSource_BLOOMBERG_SYMBOL
-SecurityIDSource_BLMBRG = cvar.SecurityIDSource_BLMBRG
-SecurityIDSource_OPTIONPRICEREPORTINGAUTHORITY = cvar.SecurityIDSource_OPTIONPRICEREPORTINGAUTHORITY
 SecurityIDSource_WERTPAPIER = cvar.SecurityIDSource_WERTPAPIER
 SecurityIDSource_MARKETPLACE_ASSIGNED_IDENTIFIER = cvar.SecurityIDSource_MARKETPLACE_ASSIGNED_IDENTIFIER
-SecurityIDSource_EXCHSYMB = cvar.SecurityIDSource_EXCHSYMB
 SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION = cvar.SecurityIDSource_CONSOLIDATED_TAPE_ASSOCIATION
 SecurityIDSource_DUTCH = cvar.SecurityIDSource_DUTCH
 SecurityIDSource_QUIK = cvar.SecurityIDSource_QUIK
@@ -31386,18 +28610,16 @@ NewsRefType_COMPLIMENTARY = cvar.NewsRefType_COMPLIMENTARY
 NewsRefType_REPLACEMENT = cvar.NewsRefType_REPLACEMENT
 TriggerOrderType_LIMIT = cvar.TriggerOrderType_LIMIT
 TriggerOrderType_MARKET = cvar.TriggerOrderType_MARKET
+CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE_IN_THE_CASE_OTHER_ORDERS_EXIST_WITH_THE_SAME_PRICE_THE_QUANTITY_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_EXISTING_ORDERS_AND_QUOTES_THE_REMAINDER_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_OTHER_SIDE_OF_THE_CROSS_THE_TWO_SIDES_POTENTIALLY_HAVE_DIFFERENT_QUANTITIES = cvar.CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE_IN_THE_CASE_OTHER_ORDERS_EXIST_WITH_THE_SAME_PRICE_THE_QUANTITY_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_EXISTING_ORDERS_AND_QUOTES_THE_REMAINDER_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_OTHER_SIDE_OF_THE_CROSS_THE_TWO_SIDES_POTENTIALLY_HAVE_DIFFERENT_QUANTITIES
 CrossType_CROSS_AON = cvar.CrossType_CROSS_AON
 CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE_ONE_SIDE_OF_THE_CROSS_IS_FULLY_EXECUTED = cvar.CrossType_CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE_ONE_SIDE_OF_THE_CROSS_IS_FULLY_EXECUTED
 CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT_BOTH_SIDES_ARE_TREATED_IN_THE_SAME_MANNER_THIS_IS_EQUIVALENT_TO_AN_ALL_OR_NONE = cvar.CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT_BOTH_SIDES_ARE_TREATED_IN_THE_SAME_MANNER_THIS_IS_EQUIVALENT_TO_AN_ALL_OR_NONE
-CrossType_CROSSAON = cvar.CrossType_CROSSAON
 CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE = cvar.CrossType_CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE
 CrossType_CROSS_ONE_SIDE = cvar.CrossType_CROSS_ONE_SIDE
 CrossType_CROSS_SAME_PRICE = cvar.CrossType_CROSS_SAME_PRICE
-CrossType_CROSSSAMEPRICE = cvar.CrossType_CROSSSAMEPRICE
 CrossType_CROSS_IOC = cvar.CrossType_CROSS_IOC
-CrossType_CROSSIOC = cvar.CrossType_CROSSIOC
-CrossType_CROSSONESIDE = cvar.CrossType_CROSSONESIDE
 CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_ONE_SIDE_IS_FULLY_EXECUTED_THE_OTHER_SIDE_IS_PARTIALLY_EXECUTED_WITH_THE_REMAINDER_BEING_CANCELLED_THIS_IS_EQUIVALENT_TO_AN_IMMEDIATE_OR_CANCEL_ON_THE_OTHER_SIDE = cvar.CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_ONE_SIDE_IS_FULLY_EXECUTED_THE_OTHER_SIDE_IS_PARTIALLY_EXECUTED_WITH_THE_REMAINDER_BEING_CANCELLED_THIS_IS_EQUIVALENT_TO_AN_IMMEDIATE_OR_CANCEL_ON_THE_OTHER_SIDE
+CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_ONE_SIDE_IS_FULLY_EXECUTED_THE_OTHER_SIDE_IS_PARTIALLY_EXECUTED_WITH_THE_REMAINDER_BEING_CANCELLED_THIS_IS_EQUIVALENT_TO_AN_IMMEDIATE_OR_CANCEL_ON_THE_OTHER_SIDE_NOTE_THE_CROSSPRIORITZATION = cvar.CrossType_CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_ONE_SIDE_IS_FULLY_EXECUTED_THE_OTHER_SIDE_IS_PARTIALLY_EXECUTED_WITH_THE_REMAINDER_BEING_CANCELLED_THIS_IS_EQUIVALENT_TO_AN_IMMEDIATE_OR_CANCEL_ON_THE_OTHER_SIDE_NOTE_THE_CROSSPRIORITZATION
 OpenCloseSettleFlag_SESSION_OPEN = cvar.OpenCloseSettleFlag_SESSION_OPEN
 OpenCloseSettleFlag_DAILY_OPEN = cvar.OpenCloseSettleFlag_DAILY_OPEN
 OpenCloseSettleFlag_EXPECTED_PRICE = cvar.OpenCloseSettleFlag_EXPECTED_PRICE
@@ -31406,25 +28628,15 @@ OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE = cvar.OpenCloseSettleFlag_DELIVER
 MDBookType_PRICE_DEPTH = cvar.MDBookType_PRICE_DEPTH
 MDBookType_ORDER_DEPTH = cvar.MDBookType_ORDER_DEPTH
 MDBookType_TOP_OF_BOOK = cvar.MDBookType_TOP_OF_BOOK
-BasisPxType_VWAPAFT = cvar.BasisPxType_VWAPAFT
 BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI = cvar.BasisPxType_VWAP_THROUGH_A_DAY_EXCEPT_YORI
 BasisPxType_VWAP_THROUGH_A_MORNING_SESSION = cvar.BasisPxType_VWAP_THROUGH_A_MORNING_SESSION
 BasisPxType_CLOSING_PRICE = cvar.BasisPxType_CLOSING_PRICE
 BasisPxType_VWAP_THROUGH_A_DAY = cvar.BasisPxType_VWAP_THROUGH_A_DAY
-BasisPxType_CLOSING_PRICE_AT_MORNINGN_SESSION = cvar.BasisPxType_CLOSING_PRICE_AT_MORNINGN_SESSION
-BasisPxType_VWAPDAY = cvar.BasisPxType_VWAPDAY
-BasisPxType_VWAPMORNXYORI = cvar.BasisPxType_VWAPMORNXYORI
-BasisPxType_VWAPMORN = cvar.BasisPxType_VWAPMORN
-BasisPxType_VWAPDAYXYORI = cvar.BasisPxType_VWAPDAYXYORI
 BasisPxType_OTHERS = cvar.BasisPxType_OTHERS
 BasisPxType_OPEN = cvar.BasisPxType_OPEN
-BasisPxType_CURRPX = cvar.BasisPxType_CURRPX
-BasisPxType_VWAPAFTXYORI = cvar.BasisPxType_VWAPAFTXYORI
 BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION = cvar.BasisPxType_CLOSING_PRICE_AT_MORNING_SESSION
-BasisPxType_CLSPXMORN = cvar.BasisPxType_CLSPXMORN
 BasisPxType_CURRENT_PRICE = cvar.BasisPxType_CURRENT_PRICE
 BasisPxType_SQ = cvar.BasisPxType_SQ
-BasisPxType_CLSPX = cvar.BasisPxType_CLSPX
 BasisPxType_STRIKE = cvar.BasisPxType_STRIKE
 BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI = cvar.BasisPxType_VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI
 BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI = cvar.BasisPxType_VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI
@@ -31442,17 +28654,13 @@ MassActionResponse_REJECTED = cvar.MassActionResponse_REJECTED
 MassActionResponse_ACCEPTED = cvar.MassActionResponse_ACCEPTED
 SecurityRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID = cvar.SecurityRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID
 SecurityRequestType_REQUEST_LIST_SECURITY_TYPES = cvar.SecurityRequestType_REQUEST_LIST_SECURITY_TYPES
-SecurityRequestType_REQSECIDPROV = cvar.SecurityRequestType_REQSECIDPROV
 SecurityRequestType_REQUEST_LIST_SECURITIES = cvar.SecurityRequestType_REQUEST_LIST_SECURITIES
-SecurityRequestType_REQSECID = cvar.SecurityRequestType_REQSECID
 SecurityRequestType_SYMBOL = cvar.SecurityRequestType_SYMBOL
 SecurityRequestType_SECURITYTYPE_AND_OR_CFICODE = cvar.SecurityRequestType_SECURITYTYPE_AND_OR_CFICODE
 SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED = cvar.SecurityRequestType_REQUEST_SECURITY_IDENTITY_FOR_THE_SPECIFICATIONS_PROVIDED
-SecurityRequestType_REQSECLIST = cvar.SecurityRequestType_REQSECLIST
 SecurityRequestType_TRADINGSESSIONID = cvar.SecurityRequestType_TRADINGSESSIONID
 SecurityRequestType_PRODUCT = cvar.SecurityRequestType_PRODUCT
 SecurityRequestType_ALL_SECURITIES = cvar.SecurityRequestType_ALL_SECURITIES
-SecurityRequestType_REQSECLISTTYPES = cvar.SecurityRequestType_REQSECLISTTYPES
 SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS = cvar.SecurityRequestType_REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS
 ListRejectReason_EXCHANGE_CLOSED = cvar.ListRejectReason_EXCHANGE_CLOSED
 ListRejectReason_UNKNOWN_ORDER = cvar.ListRejectReason_UNKNOWN_ORDER
@@ -31472,24 +28680,17 @@ DeskType_AGENCY = cvar.DeskType_AGENCY
 DeskType_PREFERRED_TRADING = cvar.DeskType_PREFERRED_TRADING
 DeskType_OTHER = cvar.DeskType_OTHER
 DeskType_PROGRAM_TRADING = cvar.DeskType_PROGRAM_TRADING
-SettlType_T4 = cvar.SettlType_T4
-SettlType_T5 = cvar.SettlType_T5
 SettlType_WHEN_AND_IF_ISSUED = cvar.SettlType_WHEN_AND_IF_ISSUED
-SettlType_NEXTDAY = cvar.SettlType_NEXTDAY
 SettlType_FUTURE = cvar.SettlType_FUTURE
-SettlType_T_PLUS_2 = cvar.SettlType_T_PLUS_2
-SettlType_SELLERS_OPTION = cvar.SettlType_SELLERS_OPTION
 SettlType_BROKEN_DATE = cvar.SettlType_BROKEN_DATE
+SettlType_SELLERS_OPTION = cvar.SettlType_SELLERS_OPTION
+SettlType_T_PLUS_2 = cvar.SettlType_T_PLUS_2
 SettlType_T_PLUS_3 = cvar.SettlType_T_PLUS_3
 SettlType_T_PLUS_4 = cvar.SettlType_T_PLUS_4
 SettlType_REGULAR = cvar.SettlType_REGULAR
-SettlType_NEXT_DAY = cvar.SettlType_NEXT_DAY
-SettlType_T_PLUS_5 = cvar.SettlType_T_PLUS_5
 SettlType_FX_SPOT_NEXT_SETTLEMENT = cvar.SettlType_FX_SPOT_NEXT_SETTLEMENT
-SettlType_T1 = cvar.SettlType_T1
-SettlType_WHENISSUED = cvar.SettlType_WHENISSUED
-SettlType_T2 = cvar.SettlType_T2
-SettlType_T3 = cvar.SettlType_T3
+SettlType_T_PLUS_5 = cvar.SettlType_T_PLUS_5
+SettlType_NEXT_DAY = cvar.SettlType_NEXT_DAY
 SettlType_CASH = cvar.SettlType_CASH
 OpenClose_CLOSE = cvar.OpenClose_CLOSE
 OpenClose_OPEN = cvar.OpenClose_OPEN
@@ -31497,12 +28698,12 @@ ContractMultiplierUnit_SHARES = cvar.ContractMultiplierUnit_SHARES
 ContractMultiplierUnit_HOURS = cvar.ContractMultiplierUnit_HOURS
 ContractMultiplierUnit_DAYS = cvar.ContractMultiplierUnit_DAYS
 TrdType_VOLUME_WEIGHTED_AVERAGE_TRADE = cvar.TrdType_VOLUME_WEIGHTED_AVERAGE_TRADE
-TrdType_LATE_TRADE = cvar.TrdType_LATE_TRADE
 TrdType_FUTURES_LARGE_ORDER_EXECUTION = cvar.TrdType_FUTURES_LARGE_ORDER_EXECUTION
 TrdType_EXCHANGE_OF_FUTURES_FOR_FUTURES = cvar.TrdType_EXCHANGE_OF_FUTURES_FOR_FUTURES
 TrdType_SPECIAL_EX_CAPITAL_REPAYMENTS = cvar.TrdType_SPECIAL_EX_CAPITAL_REPAYMENTS
 TrdType_BLOCK_TRADE_38 = cvar.TrdType_BLOCK_TRADE_38
 TrdType_DELTA_NEUTRAL_TRANSACTION = cvar.TrdType_DELTA_NEUTRAL_TRANSACTION
+TrdType_LATE_TRADE = cvar.TrdType_LATE_TRADE
 TrdType_CASH_SETTLEMENT = cvar.TrdType_CASH_SETTLEMENT
 TrdType_SPECIAL_CUM_CAPITAL_REPAYMENTS = cvar.TrdType_SPECIAL_CUM_CAPITAL_REPAYMENTS
 TrdType_SPECIAL_CUM_BONUS = cvar.TrdType_SPECIAL_CUM_BONUS
@@ -31511,24 +28712,21 @@ TrdType_ALL_OR_NONE = cvar.TrdType_ALL_OR_NONE
 TrdType_OPTION_EXERCISE = cvar.TrdType_OPTION_EXERCISE
 TrdType_FINANCING_TRANSACTION = cvar.TrdType_FINANCING_TRANSACTION
 TrdType_TRANSFER = cvar.TrdType_TRANSFER
-TrdType_REGULAR_TRADE = cvar.TrdType_REGULAR_TRADE
 TrdType_TRADING_AT_SETTLEMENT = cvar.TrdType_TRADING_AT_SETTLEMENT
 TrdType_SPECIAL_EX_DIVIDEND = cvar.TrdType_SPECIAL_EX_DIVIDEND
 TrdType_SPECIAL_EX_COUPON = cvar.TrdType_SPECIAL_EX_COUPON
 TrdType_SPECIAL_PRICE = cvar.TrdType_SPECIAL_PRICE
 TrdType_SPECIAL_CUM_RIGHTS = cvar.TrdType_SPECIAL_CUM_RIGHTS
 TrdType_SPECIAL_EX_BONUS = cvar.TrdType_SPECIAL_EX_BONUS
-TrdType_BLOCKTRADE = cvar.TrdType_BLOCKTRADE
+TrdType_REGULAR_TRADE = cvar.TrdType_REGULAR_TRADE
 TrdType_EXCHANGE_GRANTED_TRADE = cvar.TrdType_EXCHANGE_GRANTED_TRADE
 TrdType_EXCHANGE_BASIS_FACILITY = cvar.TrdType_EXCHANGE_BASIS_FACILITY
 TrdType_BLOCK_TRADE_1 = cvar.TrdType_BLOCK_TRADE_1
-TrdType_LATE_BUNCHED_TRADE = cvar.TrdType_LATE_BUNCHED_TRADE
 TrdType_ERROR_TRADE = cvar.TrdType_ERROR_TRADE
 TrdType_NAME_CHANGE = cvar.TrdType_NAME_CHANGE
-TrdType_LATEBUNCHEDTRADE = cvar.TrdType_LATEBUNCHEDTRADE
+TrdType_LATE_BUNCHED_TRADE = cvar.TrdType_LATE_BUNCHED_TRADE
 TrdType_EFP = cvar.TrdType_EFP
 TrdType_NON_STANDARD_SETTLEMENT = cvar.TrdType_NON_STANDARD_SETTLEMENT
-TrdType_PRIOR_REFERENCE_PRICE_TRADE = cvar.TrdType_PRIOR_REFERENCE_PRICE_TRADE
 TrdType_EXCHANGE_FOR_RISK = cvar.TrdType_EXCHANGE_FOR_RISK
 TrdType_EXCHANGE_FOR_SWAP = cvar.TrdType_EXCHANGE_FOR_SWAP
 TrdType_EXCHANGE_OF_FUTURES_FOR = cvar.TrdType_EXCHANGE_OF_FUTURES_FOR
@@ -31538,39 +28736,31 @@ TrdType_SUBSTITUTION_OF_FUTURES_FOR_FORWARDS = cvar.TrdType_SUBSTITUTION_OF_FUTU
 TrdType_SPECIAL_CUM_DIVIDEND = cvar.TrdType_SPECIAL_CUM_DIVIDEND
 TrdType_GUARANTEED_DELIVERY = cvar.TrdType_GUARANTEED_DELIVERY
 TrdType_PROROGATION_SELL = cvar.TrdType_PROROGATION_SELL
-TrdType_WEIGHTEDAVERAGEPRICETRADE = cvar.TrdType_WEIGHTEDAVERAGEPRICETRADE
+TrdType_PRIOR_REFERENCE_PRICE_TRADE = cvar.TrdType_PRIOR_REFERENCE_PRICE_TRADE
 TrdType_PORTFOLIO_TRADE = cvar.TrdType_PORTFOLIO_TRADE
-TrdType_WEIGHTED_AVERAGE_PRICE_TRADE = cvar.TrdType_WEIGHTED_AVERAGE_PRICE_TRADE
 TrdType_WORKED_PRINCIPAL_TRADE = cvar.TrdType_WORKED_PRINCIPAL_TRADE
 TrdType_PORTFOLIO_TRANSFER = cvar.TrdType_PORTFOLIO_TRANSFER
-TrdType_T_TRADE = cvar.TrdType_T_TRADE
+TrdType_WEIGHTED_AVERAGE_PRICE_TRADE = cvar.TrdType_WEIGHTED_AVERAGE_PRICE_TRADE
 TrdType_EXCHANGE_OF_OPTIONS_FOR_OPTIONS = cvar.TrdType_EXCHANGE_OF_OPTIONS_FOR_OPTIONS
 TrdType_SPECIAL_CUM_COUPON = cvar.TrdType_SPECIAL_CUM_COUPON
-TrdType_BUNCHEDTRADE = cvar.TrdType_BUNCHEDTRADE
-TrdType_TTRADE = cvar.TrdType_TTRADE
+TrdType_T_TRADE = cvar.TrdType_T_TRADE
+TrdType_BLOCK_TRADE = cvar.TrdType_BLOCK_TRADE
 TrdType_OTC = cvar.TrdType_OTC
 TrdType_AFTER_HOURS_TRADE = cvar.TrdType_AFTER_HOURS_TRADE
-TrdType_PRIORREFERENCEPRICETRADE = cvar.TrdType_PRIORREFERENCEPRICETRADE
-TrdType_AFTERHOURSTRADE = cvar.TrdType_AFTERHOURSTRADE
 TrdType_DERIVATIVE_RELATED_TRANSACTION = cvar.TrdType_DERIVATIVE_RELATED_TRANSACTION
 TrdType_REPURCHASE_AGREEMENT = cvar.TrdType_REPURCHASE_AGREEMENT
 TrdType_SPECIAL_EX_RIGHTS = cvar.TrdType_SPECIAL_EX_RIGHTS
 TrdType_PROROGATION_BUY = cvar.TrdType_PROROGATION_BUY
-TrdType_BUNCHED_TRADE = cvar.TrdType_BUNCHED_TRADE
 TrdType_OPTION_CABINET_TRADE = cvar.TrdType_OPTION_CABINET_TRADE
-TrdType_LATETRADE = cvar.TrdType_LATETRADE
-TrdType_REGULARTRADE = cvar.TrdType_REGULARTRADE
+TrdType_BUNCHED_TRADE = cvar.TrdType_BUNCHED_TRADE
 RestructuringType_MODIFIED_MOD_RESTRUCTURING = cvar.RestructuringType_MODIFIED_MOD_RESTRUCTURING
 RestructuringType_FULL_RESTRUCTURING = cvar.RestructuringType_FULL_RESTRUCTURING
 RestructuringType_NO_RESTRUCTURING_SPECIFIED = cvar.RestructuringType_NO_RESTRUCTURING_SPECIFIED
 RestructuringType_MODIFIED_RESTRUCTURING = cvar.RestructuringType_MODIFIED_RESTRUCTURING
-ProgRptReqs_SELLSIDE = cvar.ProgRptReqs_SELLSIDE
-ProgRptReqs_REALTIME = cvar.ProgRptReqs_REALTIME
 ProgRptReqs_REAL_TIME_EXECUTION_REPORTS = cvar.ProgRptReqs_REAL_TIME_EXECUTION_REPORTS
 ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = cvar.ProgRptReqs_BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST
 ProgRptReqs_SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = cvar.ProgRptReqs_SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD
 ProgRptReqs_BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST = cvar.ProgRptReqs_BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST
-ProgRptReqs_BUYSIDE = cvar.ProgRptReqs_BUYSIDE
 ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = cvar.ProgRptReqs_SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD
 TradingSessionID_EVENING = cvar.TradingSessionID_EVENING
 TradingSessionID_AFTER_HOURS = cvar.TradingSessionID_AFTER_HOURS
@@ -31578,20 +28768,14 @@ TradingSessionID_HALFDAY = cvar.TradingSessionID_HALFDAY
 TradingSessionID_DAY = cvar.TradingSessionID_DAY
 TradingSessionID_MORNING = cvar.TradingSessionID_MORNING
 TradingSessionID_AFTERNOON = cvar.TradingSessionID_AFTERNOON
-ListOrderStatus_RECVFOREXEC = cvar.ListOrderStatus_RECVFOREXEC
-ListOrderStatus_CXL = cvar.ListOrderStatus_CXL
-ListOrderStatus_REJ = cvar.ListOrderStatus_REJ
 ListOrderStatus_CANCELING = cvar.ListOrderStatus_CANCELING
 ListOrderStatus_REJECT = cvar.ListOrderStatus_REJECT
 ListOrderStatus_ALL_DONE = cvar.ListOrderStatus_ALL_DONE
-ListOrderStatus_INBIDPROC = cvar.ListOrderStatus_INBIDPROC
-ListOrderStatus_ALLDONE = cvar.ListOrderStatus_ALLDONE
 ListOrderStatus_IN_BIDDING_PROCESS = cvar.ListOrderStatus_IN_BIDDING_PROCESS
 ListOrderStatus_RECEIVED_FOR_EXECUTION = cvar.ListOrderStatus_RECEIVED_FOR_EXECUTION
 ListOrderStatus_ALERT = cvar.ListOrderStatus_ALERT
 ListOrderStatus_RECEIVEDFOREXECUTION = cvar.ListOrderStatus_RECEIVEDFOREXECUTION
 ListOrderStatus_INBIDDINGPROCESS = cvar.ListOrderStatus_INBIDDINGPROCESS
-ListOrderStatus_EXEC = cvar.ListOrderStatus_EXEC
 ListOrderStatus_CANCELLING = cvar.ListOrderStatus_CANCELLING
 ListOrderStatus_EXECUTING = cvar.ListOrderStatus_EXECUTING
 RegistStatus_REJECT = cvar.RegistStatus_REJECT
@@ -31607,489 +28791,304 @@ UnderlyingPriceDeterminationMethod_AVERAGE_VALUE = cvar.UnderlyingPriceDetermina
 UnderlyingPriceDeterminationMethod_REGULAR = cvar.UnderlyingPriceDeterminationMethod_REGULAR
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY_GROUP = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITY_GROUP
-MassCancelRequestType_CXLORDERSSECURITYTYPE = cvar.MassCancelRequestType_CXLORDERSSECURITYTYPE
-MassCancelRequestType_CXLORDERSUNDERLYINGSECURITY = cvar.MassCancelRequestType_CXLORDERSUNDERLYINGSECURITY
-MassCancelRequestType_CXLORDERSTRDSESSION = cvar.MassCancelRequestType_CXLORDERSTRDSESSION
-MassCancelRequestType_CXLALLORDERS = cvar.MassCancelRequestType_CXLALLORDERS
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_MARKET = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_MARKET
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_MARKET_SEGMENT = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_MARKET_SEGMENT
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_SECURITYTYPE
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_TRADING_SESSION
 MassCancelRequestType_CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY = cvar.MassCancelRequestType_CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY
 MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY
-MassCancelRequestType_CXLORDERSSECURITY = cvar.MassCancelRequestType_CXLORDERSSECURITY
-MassCancelRequestType_CXLORDERSPRODUCT = cvar.MassCancelRequestType_CXLORDERSPRODUCT
 MassCancelRequestType_CANCEL_ALL_ORDERS = cvar.MassCancelRequestType_CANCEL_ALL_ORDERS
 MassCancelRequestType_CANCEL_FOR_SECURITY_ISSUER = cvar.MassCancelRequestType_CANCEL_FOR_SECURITY_ISSUER
-MassCancelRequestType_CXLORDERSCFICODE = cvar.MassCancelRequestType_CXLORDERSCFICODE
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_PRODUCT
 MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE = cvar.MassCancelRequestType_CANCEL_ORDERS_FOR_A_CFICODE
-DerivativeSecurityListRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID = cvar.DerivativeSecurityListRequestType_MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID
-DerivativeSecurityListRequestType_UNDELYINGSYMBOL = cvar.DerivativeSecurityListRequestType_UNDELYINGSYMBOL
-DerivativeSecurityListRequestType_UNDERLYING_PRODUCT = cvar.DerivativeSecurityListRequestType_UNDERLYING_PRODUCT
-DerivativeSecurityListRequestType_UNDERLYING_SECURITYTYPE_AND_OR_CFICODE = cvar.DerivativeSecurityListRequestType_UNDERLYING_SECURITYTYPE_AND_OR_CFICODE
-DerivativeSecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE = cvar.DerivativeSecurityListRequestType_SECURITYTYPE_AND_OR_CFICODE
-DerivativeSecurityListRequestType_SYMBOL = cvar.DerivativeSecurityListRequestType_SYMBOL
-DerivativeSecurityListRequestType_TRADINGSESSIONID = cvar.DerivativeSecurityListRequestType_TRADINGSESSIONID
-DerivativeSecurityListRequestType_ALL_SECURITIES = cvar.DerivativeSecurityListRequestType_ALL_SECURITIES
-DerivativeSecurityListRequestType_PRODUCT = cvar.DerivativeSecurityListRequestType_PRODUCT
-CxlRejResponseTo_ORDCXLREPREQ = cvar.CxlRejResponseTo_ORDCXLREPREQ
 CxlRejResponseTo_ORDER_CANCEL_REQUEST = cvar.CxlRejResponseTo_ORDER_CANCEL_REQUEST
 CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST = cvar.CxlRejResponseTo_ORDER_CANCEL_REPLACE_REQUEST
-CxlRejResponseTo_ORDCXLREQ = cvar.CxlRejResponseTo_ORDCXLREQ
 QuoteCancelType_CANCEL_BY_QUOTETYPE = cvar.QuoteCancelType_CANCEL_BY_QUOTETYPE
 QuoteCancelType_CANCEL_FOR_ONE_OR_MORE_SECURITIES = cvar.QuoteCancelType_CANCEL_FOR_ONE_OR_MORE_SECURITIES
 QuoteCancelType_CANCEL_QUOTE_SPECIFIED_IN_QUOTEID = cvar.QuoteCancelType_CANCEL_QUOTE_SPECIFIED_IN_QUOTEID
 QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL = cvar.QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL
-QuoteCancelType_CXLUNDER = cvar.QuoteCancelType_CXLUNDER
 QuoteCancelType_CANCEL_ALL_QUOTES = cvar.QuoteCancelType_CANCEL_ALL_QUOTES
-QuoteCancelType_CXLSYM = cvar.QuoteCancelType_CXLSYM
 QuoteCancelType_CANCEL_FOR_UNDERLYING_SECURITY = cvar.QuoteCancelType_CANCEL_FOR_UNDERLYING_SECURITY
 QuoteCancelType_CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY = cvar.QuoteCancelType_CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY
 QuoteCancelType_CANCEL_FOR_SECURITY_ISSUER = cvar.QuoteCancelType_CANCEL_FOR_SECURITY_ISSUER
-QuoteCancelType_CXLSECTYPE = cvar.QuoteCancelType_CXLSECTYPE
 QuoteCancelType_CANCEL_FOR_ALL_QUOTES = cvar.QuoteCancelType_CANCEL_FOR_ALL_QUOTES
-QuoteCancelType_CXLALL = cvar.QuoteCancelType_CXLALL
 QuoteCancelType_CANCEL_FOR_SECURITY_TYPE = cvar.QuoteCancelType_CANCEL_FOR_SECURITY_TYPE
 QuoteCancelType_CANCEL_FOR_SYMBOL = cvar.QuoteCancelType_CANCEL_FOR_SYMBOL
-StipulationType_POOLS_PER_LOT = cvar.StipulationType_POOLS_PER_LOT
-StipulationType_MAXIMUM_LOAN_BALANCE = cvar.StipulationType_MAXIMUM_LOAN_BALANCE
-StipulationType_CONSTANTPREPAYMENTYIELD = cvar.StipulationType_CONSTANTPREPAYMENTYIELD
-StipulationType_CUSTOM_START_END_DATE = cvar.StipulationType_CUSTOM_START_END_DATE
-StipulationType_CALL_PROTECTION = cvar.StipulationType_CALL_PROTECTION
-StipulationType_MATURITYYEARANDMONTH = cvar.StipulationType_MATURITYYEARANDMONTH
-StipulationType_FINALCPROFHOMEEQUITYPREPAYMENTCURVE = cvar.StipulationType_FINALCPROFHOMEEQUITYPREPAYMENTCURVE
-StipulationType_MATURITYRANGE = cvar.StipulationType_MATURITYRANGE
-StipulationType_COUPON_RANGE = cvar.StipulationType_COUPON_RANGE
-StipulationType_PERCENTOFBMAPREPAYMENTCURVE = cvar.StipulationType_PERCENTOFBMAPREPAYMENTCURVE
-StipulationType_SUBSTITUTIONSLEFTREPO = cvar.StipulationType_SUBSTITUTIONSLEFTREPO
-StipulationType_LOOKBACKDAYS = cvar.StipulationType_LOOKBACKDAYS
-StipulationType_CALLPROTECTION = cvar.StipulationType_CALLPROTECTION
-StipulationType_MAXIMUMSUBSTITUTIONSREPO = cvar.StipulationType_MAXIMUMSUBSTITUTIONSREPO
-StipulationType_YEARORYEARMONTHOFISSUE = cvar.StipulationType_YEARORYEARMONTHOFISSUE
-StipulationType_CONSTANTPREPAYMENTRATE = cvar.StipulationType_CONSTANTPREPAYMENTRATE
-StipulationType_ISSUE_SIZE_RANGE = cvar.StipulationType_ISSUE_SIZE_RANGE
-StipulationType_WEIGHTEDAVERAGEMATURITY = cvar.StipulationType_WEIGHTEDAVERAGEMATURITY
-StipulationType_CONSTANT_PREPAYMENT_RATE = cvar.StipulationType_CONSTANT_PREPAYMENT_RATE
-StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE
-StipulationType_POOLSMINIMUM = cvar.StipulationType_POOLSMINIMUM
-StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE = cvar.StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE
-StipulationType_BROKERS_SALES_CREDIT = cvar.StipulationType_BROKERS_SALES_CREDIT
-StipulationType_ORDER_QUANTITY_INCREMENT = cvar.StipulationType_ORDER_QUANTITY_INCREMENT
-StipulationType_REFERENCE_TO_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_REFERENCE_TO_ROLLING_OR_CLOSING_TRADE
-StipulationType_AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET = cvar.StipulationType_AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET
-StipulationType_ISSUERS_TICKER = cvar.StipulationType_ISSUERS_TICKER
-StipulationType_ISOCURRENCYCODE = cvar.StipulationType_ISOCURRENCYCODE
-StipulationType_THE_MINIMUM_RESIDUAL_OFFER_QUANTITY = cvar.StipulationType_THE_MINIMUM_RESIDUAL_OFFER_QUANTITY
-StipulationType_DISCOUNT_RATE = cvar.StipulationType_DISCOUNT_RATE
-StipulationType_VALUATIONDISCOUNT = cvar.StipulationType_VALUATIONDISCOUNT
-StipulationType_SINGLE_MONTHLY_MORTALITY = cvar.StipulationType_SINGLE_MONTHLY_MORTALITY
-StipulationType_LOT_VARIANCE = cvar.StipulationType_LOT_VARIANCE
-StipulationType_PERCENTOFMANUFACTUREDHOUSINGPREPAYMENTCURVE = cvar.StipulationType_PERCENTOFMANUFACTUREDHOUSINGPREPAYMENTCURVE
-StipulationType_FREEFORMTEXT = cvar.StipulationType_FREEFORMTEXT
-StipulationType_WHOLE_POOL = cvar.StipulationType_WHOLE_POOL
-StipulationType_GEOGRAPHICS_AND_RANGE = cvar.StipulationType_GEOGRAPHICS_AND_RANGE
-StipulationType_INTEREST_OF_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_INTEREST_OF_ROLLING_OR_CLOSING_TRADE
-StipulationType_TRADEVARIANCEVALUEINPERCENTMAXIMUMOVERORUNDERALLOCATIONALLOWED = cvar.StipulationType_TRADEVARIANCEVALUEINPERCENTMAXIMUMOVERORUNDERALLOCATIONALLOWED
-StipulationType_FREEFORM_TEXT = cvar.StipulationType_FREEFORM_TEXT
-StipulationType_RATING_SOURCE_AND_RANGE = cvar.StipulationType_RATING_SOURCE_AND_RANGE
-StipulationType_OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS = cvar.StipulationType_OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS
-StipulationType_OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS = cvar.StipulationType_OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS
-StipulationType_NUMBER_OF_PIECES = cvar.StipulationType_NUMBER_OF_PIECES
-StipulationType_MINIMUM_INCREMENT = cvar.StipulationType_MINIMUM_INCREMENT
-StipulationType_PRODUCTIONYEAR = cvar.StipulationType_PRODUCTIONYEAR
-StipulationType_WEIGHTED_AVERAGE_MATURITY = cvar.StipulationType_WEIGHTED_AVERAGE_MATURITY
-StipulationType_GEOGRAPHICS = cvar.StipulationType_GEOGRAPHICS
-StipulationType_MINIMUMQUANTITY = cvar.StipulationType_MINIMUMQUANTITY
-StipulationType_POOL_IDENTIFIER = cvar.StipulationType_POOL_IDENTIFIER
-StipulationType_MATURITY_YEAR_AND_MONTH = cvar.StipulationType_MATURITY_YEAR_AND_MONTH
-StipulationType_PRICINGFREQUENCY = cvar.StipulationType_PRICINGFREQUENCY
-StipulationType_SECURITYTYPEINCLUDEDOREXCLUDED = cvar.StipulationType_SECURITYTYPEINCLUDEDOREXCLUDED
-StipulationType_EXPLICITLOTIDENTIFIER = cvar.StipulationType_EXPLICITLOTIDENTIFIER
-StipulationType_MAXIMUM_SUBSTITUTIONS = cvar.StipulationType_MAXIMUM_SUBSTITUTIONS
-StipulationType_PRIMARY_OR_SECONDARY_MARKET_INDICATOR = cvar.StipulationType_PRIMARY_OR_SECONDARY_MARKET_INDICATOR
-StipulationType_WEIGHTEDAVERAGELOANAGE = cvar.StipulationType_WEIGHTEDAVERAGELOANAGE
-StipulationType_BENCHMARK_PRICE_SOURCE = cvar.StipulationType_BENCHMARK_PRICE_SOURCE
-StipulationType_MINIMUMDENOMINATION = cvar.StipulationType_MINIMUMDENOMINATION
-StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE = cvar.StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE
-StipulationType_PAYMENTFREQUENCYCALENDAR = cvar.StipulationType_PAYMENTFREQUENCYCALENDAR
-StipulationType_POOLS_MAXIMUM = cvar.StipulationType_POOLS_MAXIMUM
-StipulationType_SUBSTITUTIONS_FREQUENCY = cvar.StipulationType_SUBSTITUTIONS_FREQUENCY
-StipulationType_BENCHMARKPRICESOURCE = cvar.StipulationType_BENCHMARKPRICESOURCE
-StipulationType_ABSOLUTEPREPAYMENTSPEED = cvar.StipulationType_ABSOLUTEPREPAYMENTSPEED
-StipulationType_BANKQUALIFIED = cvar.StipulationType_BANKQUALIFIED
-StipulationType_YIELDRANGE = cvar.StipulationType_YIELDRANGE
-StipulationType_BARGAINCONDITIONS = cvar.StipulationType_BARGAINCONDITIONS
-StipulationType_MONTHLYPREPAYMENTRATE = cvar.StipulationType_MONTHLYPREPAYMENTRATE
-StipulationType_POOLSPERLOT = cvar.StipulationType_POOLSPERLOT
-StipulationType_CONSTANT_PREPAYMENT_YIELD = cvar.StipulationType_CONSTANT_PREPAYMENT_YIELD
-StipulationType_MINIMUM_DENOMINATION = cvar.StipulationType_MINIMUM_DENOMINATION
-StipulationType_ALTERNATIVE_MINIMUM_TAX = cvar.StipulationType_ALTERNATIVE_MINIMUM_TAX
-StipulationType_CUSTOMSTARTENDDATE = cvar.StipulationType_CUSTOMSTARTENDDATE
-StipulationType_TYPEOFREDEMPTIONVALUESARE = cvar.StipulationType_TYPEOFREDEMPTIONVALUESARE
-StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE
-StipulationType_NUMBEROFPIECES = cvar.StipulationType_NUMBEROFPIECES
-StipulationType_AMT = cvar.StipulationType_AMT
-StipulationType_CONSTANTPREPAYMENTPENALTY = cvar.StipulationType_CONSTANTPREPAYMENTPENALTY
-StipulationType_MAXIMUM_ORDER_SIZE = cvar.StipulationType_MAXIMUM_ORDER_SIZE
-StipulationType_AUTOREINVESTMENTATRATEORBETTER = cvar.StipulationType_AUTOREINVESTMENTATRATEORBETTER
-StipulationType_BARGAIN_CONDITIONS = cvar.StipulationType_BARGAIN_CONDITIONS
-StipulationType_GEOGRAPHICSANDRANGE = cvar.StipulationType_GEOGRAPHICSANDRANGE
-StipulationType_LOTVARIANCEVALUEINPERCENTMAXIMUMOVERORUNDERALLOCATIONALLOWED = cvar.StipulationType_LOTVARIANCEVALUEINPERCENTMAXIMUMOVERORUNDERALLOCATIONALLOWED
-StipulationType_TYPE_OF_ROLL_TRADE = cvar.StipulationType_TYPE_OF_ROLL_TRADE
-StipulationType_PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE
-StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE
-StipulationType_WEIGHTED_AVERAGE_COUPON = cvar.StipulationType_WEIGHTED_AVERAGE_COUPON
-StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER = cvar.StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER
-StipulationType_STRUCTURE = cvar.StipulationType_STRUCTURE
-StipulationType_WHOLEPOOL = cvar.StipulationType_WHOLEPOOL
-StipulationType_MARKET_SECTOR = cvar.StipulationType_MARKET_SECTOR
-StipulationType_MATURITY_RANGE = cvar.StipulationType_MATURITY_RANGE
-StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED = cvar.StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED
-StipulationType_POOLSPERMILLION = cvar.StipulationType_POOLSPERMILLION
-StipulationType_TRADE_VARIANCE = cvar.StipulationType_TRADE_VARIANCE
-StipulationType_ISSUERSTICKER = cvar.StipulationType_ISSUERSTICKER
-StipulationType_PRICERANGE = cvar.StipulationType_PRICERANGE
-StipulationType_LOOKBACK_DAYS = cvar.StipulationType_LOOKBACK_DAYS
-StipulationType_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE = cvar.StipulationType_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE
-StipulationType_POOLS_PER_MILLION = cvar.StipulationType_POOLS_PER_MILLION
-StipulationType_MINIMUMINCREMENT = cvar.StipulationType_MINIMUMINCREMENT
-StipulationType_MATURITY_YEAR = cvar.StipulationType_MATURITY_YEAR
-StipulationType_RATINGSOURCEANDRANGE = cvar.StipulationType_RATINGSOURCEANDRANGE
-StipulationType_AVERAGE_LOAN_SIZE = cvar.StipulationType_AVERAGE_LOAN_SIZE
-StipulationType_PURPOSE = cvar.StipulationType_PURPOSE
-StipulationType_ISO_CURRENCY_CODE = cvar.StipulationType_ISO_CURRENCY_CODE
-StipulationType_RESTRICTED = cvar.StipulationType_RESTRICTED
-StipulationType_BROKER_SALES_CREDIT_OVERRIDE = cvar.StipulationType_BROKER_SALES_CREDIT_OVERRIDE
-StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON = cvar.StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON
-StipulationType_WEIGHTEDAVERAGECOUPON = cvar.StipulationType_WEIGHTEDAVERAGECOUPON
-StipulationType_OF_PROSPECTUS_PREPAYMENT_CURVE = cvar.StipulationType_OF_PROSPECTUS_PREPAYMENT_CURVE
-StipulationType_ISSUESIZERANGE = cvar.StipulationType_ISSUESIZERANGE
-StipulationType_YEAR_OF_ISSUE = cvar.StipulationType_YEAR_OF_ISSUE
-StipulationType_WEIGHTEDAVERAGELIFECOUPON = cvar.StipulationType_WEIGHTEDAVERAGELIFECOUPON
-StipulationType_PAYMENT_FREQUENCY_CALENDAR = cvar.StipulationType_PAYMENT_FREQUENCY_CALENDAR
-StipulationType_TRADERS_CREDIT = cvar.StipulationType_TRADERS_CREDIT
-StipulationType_MINIMUM_QUANTITY = cvar.StipulationType_MINIMUM_QUANTITY
-StipulationType_SUBSTITUTIONS_LEFT = cvar.StipulationType_SUBSTITUTIONS_LEFT
-StipulationType_POOLS_PER_TRADE = cvar.StipulationType_POOLS_PER_TRADE
-StipulationType_TYPE_OF_REDEMPTION = cvar.StipulationType_TYPE_OF_REDEMPTION
-StipulationType_CONSTANT_PREPAYMENT_PENALTY = cvar.StipulationType_CONSTANT_PREPAYMENT_PENALTY
-StipulationType_WEIGHTED_AVERAGE_LOAN_AGE = cvar.StipulationType_WEIGHTED_AVERAGE_LOAN_AGE
-StipulationType_PRICE_RANGE = cvar.StipulationType_PRICE_RANGE
-StipulationType_SUBSTITUTIONSFREQUENCYREPO = cvar.StipulationType_SUBSTITUTIONSFREQUENCYREPO
-StipulationType_PRODUCTION_YEAR = cvar.StipulationType_PRODUCTION_YEAR
-StipulationType_SINGLEMONTHLYMORTALITY = cvar.StipulationType_SINGLEMONTHLYMORTALITY
-StipulationType_OF_BMA_PREPAYMENT_CURVE = cvar.StipulationType_OF_BMA_PREPAYMENT_CURVE
-StipulationType_EXPLICIT_LOT_IDENTIFIER = cvar.StipulationType_EXPLICIT_LOT_IDENTIFIER
-StipulationType_ABSOLUTE_PREPAYMENT_SPEED = cvar.StipulationType_ABSOLUTE_PREPAYMENT_SPEED
-StipulationType_MAXIMUMDENOMINATION = cvar.StipulationType_MAXIMUMDENOMINATION
-StipulationType_PERCENTOFPROSPECTUSPREPAYMENTCURVE = cvar.StipulationType_PERCENTOFPROSPECTUSPREPAYMENTCURVE
-StipulationType_VALUATION_DISCOUNT = cvar.StipulationType_VALUATION_DISCOUNT
 StipulationType_YIELD_TO_MATURITY = cvar.StipulationType_YIELD_TO_MATURITY
-StipulationType_WEIGHTED_AVERAGE_LIFE = cvar.StipulationType_WEIGHTED_AVERAGE_LIFE
-StipulationType_POOLSMAXIMUM = cvar.StipulationType_POOLSMAXIMUM
-StipulationType_YIELD_RANGE = cvar.StipulationType_YIELD_RANGE
-StipulationType_PRICING_FREQUENCY = cvar.StipulationType_PRICING_FREQUENCY
-StipulationType_POOLSPERTRADE = cvar.StipulationType_POOLSPERTRADE
-StipulationType_MONTHLY_PREPAYMENT_RATE = cvar.StipulationType_MONTHLY_PREPAYMENT_RATE
-StipulationType_COUPONRANGE = cvar.StipulationType_COUPONRANGE
-StipulationType_MARKETSECTOR = cvar.StipulationType_MARKETSECTOR
-StipulationType_AVERAGE_FICO_SCORE = cvar.StipulationType_AVERAGE_FICO_SCORE
-StipulationType_INSURED = cvar.StipulationType_INSURED
+StipulationType_ALTERNATIVE_MINIMUM_TAX = cvar.StipulationType_ALTERNATIVE_MINIMUM_TAX
+StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON_VALUE_IN_PERCENT = cvar.StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON_VALUE_IN_PERCENT
+StipulationType_GEOGRAPHICS_AND_RANGE = cvar.StipulationType_GEOGRAPHICS_AND_RANGE
+StipulationType_COUPON_RANGE = cvar.StipulationType_COUPON_RANGE
 StipulationType_BANK_QUALIFIED = cvar.StipulationType_BANK_QUALIFIED
-PriceQuoteMethod_STANDARD = cvar.PriceQuoteMethod_STANDARD
+StipulationType_RATING_SOURCE_AND_RANGE = cvar.StipulationType_RATING_SOURCE_AND_RANGE
+StipulationType_SUBSTITUTIONS_FREQUENCY = cvar.StipulationType_SUBSTITUTIONS_FREQUENCY
+StipulationType_MINIMUM_DENOMINATION = cvar.StipulationType_MINIMUM_DENOMINATION
+StipulationType_AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET = cvar.StipulationType_AVAILABLE_OFFER_QUANTITY_TO_BE_SHOWN_TO_THE_STREET
+StipulationType_MAXIMUM_ORDER_SIZE = cvar.StipulationType_MAXIMUM_ORDER_SIZE
+StipulationType_ABSOLUTE_PREPAYMENT_SPEED = cvar.StipulationType_ABSOLUTE_PREPAYMENT_SPEED
+StipulationType_PRICING_FREQUENCY = cvar.StipulationType_PRICING_FREQUENCY
+StipulationType_CONSTANT_PREPAYMENT_YIELD = cvar.StipulationType_CONSTANT_PREPAYMENT_YIELD
+StipulationType_YIELD_RANGE = cvar.StipulationType_YIELD_RANGE
+StipulationType_PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_PRINCIPAL_OF_ROLLING_OR_CLOSING_TRADE
+StipulationType_BENCHMARK_PRICE_SOURCE = cvar.StipulationType_BENCHMARK_PRICE_SOURCE
+StipulationType_MAXIMUM_SUBSTITUTIONS = cvar.StipulationType_MAXIMUM_SUBSTITUTIONS
+StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE
+StipulationType_MONTHLY_PREPAYMENT_RATE = cvar.StipulationType_MONTHLY_PREPAYMENT_RATE
+StipulationType_PURPOSE = cvar.StipulationType_PURPOSE
+StipulationType_WHOLE_POOL = cvar.StipulationType_WHOLE_POOL
+StipulationType_WEIGHTED_AVERAGE_LOAN_AGE = cvar.StipulationType_WEIGHTED_AVERAGE_LOAN_AGE
+StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON = cvar.StipulationType_WEIGHTED_AVERAGE_LIFE_COUPON
+StipulationType_POOLS_MAXIMUM = cvar.StipulationType_POOLS_MAXIMUM
+StipulationType_MINIMUM_QUANTITY = cvar.StipulationType_MINIMUM_QUANTITY
+StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE = cvar.StipulationType_FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE
+StipulationType_VALUATION_DISCOUNT = cvar.StipulationType_VALUATION_DISCOUNT
+StipulationType_GEOGRAPHICS = cvar.StipulationType_GEOGRAPHICS
+StipulationType_AMT = cvar.StipulationType_AMT
+StipulationType_WEIGHTED_AVERAGE_MATURITY = cvar.StipulationType_WEIGHTED_AVERAGE_MATURITY
+StipulationType_CALL_PROTECTION = cvar.StipulationType_CALL_PROTECTION
+StipulationType_EXPLICIT_LOT_IDENTIFIER = cvar.StipulationType_EXPLICIT_LOT_IDENTIFIER
+StipulationType_FREEFORM_TEXT = cvar.StipulationType_FREEFORM_TEXT
+StipulationType_TRADE_VARIANCE = cvar.StipulationType_TRADE_VARIANCE
+StipulationType_WEIGHTED_AVERAGE_COUPONVALUE_IN_PERCENT = cvar.StipulationType_WEIGHTED_AVERAGE_COUPONVALUE_IN_PERCENT
+StipulationType_OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS = cvar.StipulationType_OFFER_PRICE_TO_BE_SHOWN_TO_INTERNAL_BROKERS
+StipulationType_STRUCTURE = cvar.StipulationType_STRUCTURE
+StipulationType_RESTRICTED = cvar.StipulationType_RESTRICTED
+StipulationType_CONSTANT_PREPAYMENT_PENALTY = cvar.StipulationType_CONSTANT_PREPAYMENT_PENALTY
+StipulationType_OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS = cvar.StipulationType_OFFER_QUANTITY_TO_BE_SHOWN_TO_INTERNAL_BROKERS
+StipulationType_REFERENCE_TO_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_REFERENCE_TO_ROLLING_OR_CLOSING_TRADE
+StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE
+StipulationType_TYPE_OF_REDEMPTION = cvar.StipulationType_TYPE_OF_REDEMPTION
+StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED = cvar.StipulationType_SECURITYTYPE_INCLUDED_OR_EXCLUDED
+StipulationType_PAYMENT_FREQUENCY_CALENDAR = cvar.StipulationType_PAYMENT_FREQUENCY_CALENDAR
+StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER = cvar.StipulationType_AUTO_REINVESTMENT_AT_RATE_OR_BETTER
+StipulationType_ISSUERS_TICKER = cvar.StipulationType_ISSUERS_TICKER
+StipulationType_MAXIMUM_LOAN_BALANCE = cvar.StipulationType_MAXIMUM_LOAN_BALANCE
+StipulationType_BROKER_SALES_CREDIT_OVERRIDE = cvar.StipulationType_BROKER_SALES_CREDIT_OVERRIDE
+StipulationType_OF_BMA_PREPAYMENT_CURVE = cvar.StipulationType_OF_BMA_PREPAYMENT_CURVE
+StipulationType_ISO_CURRENCY_CODE = cvar.StipulationType_ISO_CURRENCY_CODE
+StipulationType_MARKET_SECTOR = cvar.StipulationType_MARKET_SECTOR
+StipulationType_POOL_IDENTIFIER = cvar.StipulationType_POOL_IDENTIFIER
+StipulationType_TYPE_OF_ROLL_TRADE = cvar.StipulationType_TYPE_OF_ROLL_TRADE
+StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED = cvar.StipulationType_SECURITY_TYPE_INCLUDED_OR_EXCLUDED
+StipulationType_YEAR_OF_ISSUE = cvar.StipulationType_YEAR_OF_ISSUE
+StipulationType_LOOKBACK_DAYS = cvar.StipulationType_LOOKBACK_DAYS
+StipulationType_TYPE_OF_REDEMPTION_VALUES_ARE_NONCALLABLE_CALLABLE_PREFUNDED_ESCROWEDTOMATURITY_PUTABLE_CONVERTIBLE = cvar.StipulationType_TYPE_OF_REDEMPTION_VALUES_ARE_NONCALLABLE_CALLABLE_PREFUNDED_ESCROWEDTOMATURITY_PUTABLE_CONVERTIBLE
+StipulationType_MATURITY_YEAR = cvar.StipulationType_MATURITY_YEAR
+StipulationType_CUSTOM_START_END_DATE = cvar.StipulationType_CUSTOM_START_END_DATE
+StipulationType_ORDER_QUANTITY_INCREMENT = cvar.StipulationType_ORDER_QUANTITY_INCREMENT
+StipulationType_DISCOUNT_RATE = cvar.StipulationType_DISCOUNT_RATE
+StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE = cvar.StipulationType_PERCENT_OF_BMA_PREPAYMENT_CURVE
+StipulationType_CONSTANT_PREPAYMENT_RATE = cvar.StipulationType_CONSTANT_PREPAYMENT_RATE
+StipulationType_OF_PROSPECTUS_PREPAYMENT_CURVE = cvar.StipulationType_OF_PROSPECTUS_PREPAYMENT_CURVE
+StipulationType_AVERAGE_LOAN_SIZE = cvar.StipulationType_AVERAGE_LOAN_SIZE
+StipulationType_TRADERS_CREDIT = cvar.StipulationType_TRADERS_CREDIT
+StipulationType_POOLS_PER_LOT = cvar.StipulationType_POOLS_PER_LOT
+StipulationType_WEIGHTED_AVERAGE_LIFE = cvar.StipulationType_WEIGHTED_AVERAGE_LIFE
+StipulationType_MATURITY_RANGE = cvar.StipulationType_MATURITY_RANGE
+StipulationType_POOLS_PER_MILLION = cvar.StipulationType_POOLS_PER_MILLION
+StipulationType_LOT_VARIANCE = cvar.StipulationType_LOT_VARIANCE
+StipulationType_PRIMARY_OR_SECONDARY_MARKET_INDICATOR = cvar.StipulationType_PRIMARY_OR_SECONDARY_MARKET_INDICATOR
+StipulationType_AVERAGE_FICO_SCORE = cvar.StipulationType_AVERAGE_FICO_SCORE
+StipulationType_WEIGHTED_AVERAGE_MATURITY_VALUE_IN_MONTHS = cvar.StipulationType_WEIGHTED_AVERAGE_MATURITY_VALUE_IN_MONTHS
+StipulationType_PRICE_RANGE = cvar.StipulationType_PRICE_RANGE
+StipulationType_MATURITY_YEAR_AND_MONTH = cvar.StipulationType_MATURITY_YEAR_AND_MONTH
+StipulationType_MINIMUM_INCREMENT = cvar.StipulationType_MINIMUM_INCREMENT
+StipulationType_WEIGHTED_AVERAGE_COUPON = cvar.StipulationType_WEIGHTED_AVERAGE_COUPON
+StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE = cvar.StipulationType_YEAR_OR_YEAR_MONTH_OF_ISSUE
+StipulationType_SUBSTITUTIONS_LEFT = cvar.StipulationType_SUBSTITUTIONS_LEFT
+StipulationType_NUMBER_OF_PIECES = cvar.StipulationType_NUMBER_OF_PIECES
+StipulationType_INSURED = cvar.StipulationType_INSURED
+StipulationType_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE = cvar.StipulationType_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE
+StipulationType_THE_MINIMUM_RESIDUAL_OFFER_QUANTITY = cvar.StipulationType_THE_MINIMUM_RESIDUAL_OFFER_QUANTITY
+StipulationType_BARGAIN_CONDITIONS = cvar.StipulationType_BARGAIN_CONDITIONS
+StipulationType_POOLS_PER_TRADE = cvar.StipulationType_POOLS_PER_TRADE
+StipulationType_WEIGHTED_AVERAGE_LOAN_AGE_VALUE_IN_MONTHS = cvar.StipulationType_WEIGHTED_AVERAGE_LOAN_AGE_VALUE_IN_MONTHS
+StipulationType_SINGLE_MONTHLY_MORTALITY = cvar.StipulationType_SINGLE_MONTHLY_MORTALITY
+StipulationType_INTEREST_OF_ROLLING_OR_CLOSING_TRADE = cvar.StipulationType_INTEREST_OF_ROLLING_OR_CLOSING_TRADE
+StipulationType_BROKERS_SALES_CREDIT = cvar.StipulationType_BROKERS_SALES_CREDIT
+StipulationType_ISSUE_SIZE_RANGE = cvar.StipulationType_ISSUE_SIZE_RANGE
+StipulationType_BARGAIN_CONDITIONS_SEE = cvar.StipulationType_BARGAIN_CONDITIONS_SEE
+StipulationType_PRODUCTION_YEAR = cvar.StipulationType_PRODUCTION_YEAR
 PriceQuoteMethod_PERCENT_OF_PAR = cvar.PriceQuoteMethod_PERCENT_OF_PAR
+PriceQuoteMethod_STANDARD_MONEY_PER_UNIT_OF_A_PHYSICAL = cvar.PriceQuoteMethod_STANDARD_MONEY_PER_UNIT_OF_A_PHYSICAL
 PriceQuoteMethod_INDEX = cvar.PriceQuoteMethod_INDEX
 PriceQuoteMethod_INTEREST_RATE_INDEX = cvar.PriceQuoteMethod_INTEREST_RATE_INDEX
-SessionRejectReason_REQUIREDTAGMISSING = cvar.SessionRejectReason_REQUIREDTAGMISSING
-SessionRejectReason_TAGSPECIFIEDOUTOFREQUIREDORDER = cvar.SessionRejectReason_TAGSPECIFIEDOUTOFREQUIREDORDER
 SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER = cvar.SessionRejectReason_NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER
-SessionRejectReason_INVALIDTAGNUMBER = cvar.SessionRejectReason_INVALIDTAGNUMBER
-SessionRejectReason_VALUEISINCORRECTOUTOFRANGEFORTHISTAG = cvar.SessionRejectReason_VALUEISINCORRECTOUTOFRANGEFORTHISTAG
 SessionRejectReason_COMPID_PROBLEM = cvar.SessionRejectReason_COMPID_PROBLEM
-SessionRejectReason_SENDINGTIMEACCURACYPROBLEM = cvar.SessionRejectReason_SENDINGTIMEACCURACYPROBLEM
 SessionRejectReason_SIGNATURE_PROBLEM = cvar.SessionRejectReason_SIGNATURE_PROBLEM
 SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE = cvar.SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE
-SessionRejectReason_UNDEFINEDTAG = cvar.SessionRejectReason_UNDEFINEDTAG
 SessionRejectReason_XML_VALIDATION_ERROR = cvar.SessionRejectReason_XML_VALIDATION_ERROR
-SessionRejectReason_NONDATAVALUEINCLUDESFIELDDELIMITERSOHCHARACTER = cvar.SessionRejectReason_NONDATAVALUEINCLUDESFIELDDELIMITERSOHCHARACTER
 SessionRejectReason_UNDEFINED_TAG = cvar.SessionRejectReason_UNDEFINED_TAG
-SessionRejectReason_TAGAPPEARSMORETHANONCE = cvar.SessionRejectReason_TAGAPPEARSMORETHANONCE
 SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE = cvar.SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE
 SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER = cvar.SessionRejectReason_REPEATING_GROUP_FIELDS_OUT_OF_ORDER
 SessionRejectReason_REQUIRED_TAG_MISSING = cvar.SessionRejectReason_REQUIRED_TAG_MISSING
-SessionRejectReason_INVALIDMSGTYPE = cvar.SessionRejectReason_INVALIDMSGTYPE
-SessionRejectReason_XMLVALIDATIONERROR = cvar.SessionRejectReason_XMLVALIDATIONERROR
-SessionRejectReason_REPEATINGGROUPFIELDSOUTOFORDER = cvar.SessionRejectReason_REPEATINGGROUPFIELDSOUTOFORDER
-SessionRejectReason_INCORRECTNUMINGROUPCOUNTFORREPEATINGGROUP = cvar.SessionRejectReason_INCORRECTNUMINGROUPCOUNTFORREPEATINGGROUP
-SessionRejectReason_TAGSPECIFIEDWITHOUTAVALUE = cvar.SessionRejectReason_TAGSPECIFIEDWITHOUTAVALUE
-SessionRejectReason_DECRYPTIONPROBLEM = cvar.SessionRejectReason_DECRYPTIONPROBLEM
-SessionRejectReason_INCORRECTDATAFORMATFORVALUE = cvar.SessionRejectReason_INCORRECTDATAFORMATFORVALUE
 SessionRejectReason_OTHER = cvar.SessionRejectReason_OTHER
 SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP = cvar.SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP
 SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE = cvar.SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE
-SessionRejectReason_COMPIDPROBLEM = cvar.SessionRejectReason_COMPIDPROBLEM
 SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER = cvar.SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER
-SessionRejectReason_SIGNATUREPROBLEM = cvar.SessionRejectReason_SIGNATUREPROBLEM
 SessionRejectReason_DECRYPTION_PROBLEM = cvar.SessionRejectReason_DECRYPTION_PROBLEM
 SessionRejectReason_INVALID_TAG_NUMBER = cvar.SessionRejectReason_INVALID_TAG_NUMBER
-SessionRejectReason_TAGNOTDEFINEDFORTHISMESSAGETYPE = cvar.SessionRejectReason_TAGNOTDEFINEDFORTHISMESSAGETYPE
 SessionRejectReason_VALUE_IS_INCORRECT = cvar.SessionRejectReason_VALUE_IS_INCORRECT
 SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE = cvar.SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE
 SessionRejectReason_INVALID_MSGTYPE = cvar.SessionRejectReason_INVALID_MSGTYPE
 SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM = cvar.SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM
 DeliveryType_TRI_PARTY = cvar.DeliveryType_TRI_PARTY
 DeliveryType_HOLD_IN_CUSTODY = cvar.DeliveryType_HOLD_IN_CUSTODY
-DeliveryType_FREE = cvar.DeliveryType_FREE
-DeliveryType_HOLDINCUSTODY = cvar.DeliveryType_HOLDINCUSTODY
-DeliveryType_VERSUSPAYMENT = cvar.DeliveryType_VERSUSPAYMENT
-DeliveryType_VERSUS_PAYMENT_DELIVER = cvar.DeliveryType_VERSUS_PAYMENT_DELIVER
 DeliveryType_FREE_DELIVER = cvar.DeliveryType_FREE_DELIVER
-DeliveryType_TRIPARTY = cvar.DeliveryType_TRIPARTY
+DeliveryType_VERSUS_PAYMENT_DELIVER = cvar.DeliveryType_VERSUS_PAYMENT_DELIVER
 Scope_LOCAL = cvar.Scope_LOCAL
 Scope_LOCAL_MARKET = cvar.Scope_LOCAL_MARKET
 Scope_GLOBAL = cvar.Scope_GLOBAL
 Scope_NATIONAL = cvar.Scope_NATIONAL
-Scope_LOCALMARKET = cvar.Scope_LOCALMARKET
 DeleteReason_CANCELLATION = cvar.DeleteReason_CANCELLATION
-DeleteReason_CANCELTRADEBUST = cvar.DeleteReason_CANCELTRADEBUST
 DeleteReason_CANCELATION = cvar.DeleteReason_CANCELATION
 DeleteReason_ERROR = cvar.DeleteReason_ERROR
 InViewOfCommon_NO = cvar.InViewOfCommon_NO
 InViewOfCommon_YES = cvar.InViewOfCommon_YES
-NoSides_BOTHSIDES = cvar.NoSides_BOTHSIDES
-NoSides_ONESIDE = cvar.NoSides_ONESIDE
 NoSides_ONE_SIDE = cvar.NoSides_ONE_SIDE
 NoSides_BOTH_SIDES = cvar.NoSides_BOTH_SIDES
-SecurityType_TERM_LIQUIDITY_NOTE = cvar.SecurityType_TERM_LIQUIDITY_NOTE
-SecurityType_TO_BE_ANNOUNCED = cvar.SecurityType_TO_BE_ANNOUNCED
-SecurityType_REVERSE_REPURCHASE_AGREEMENT = cvar.SecurityType_REVERSE_REPURCHASE_AGREEMENT
-SecurityType_BRADY_BOND = cvar.SecurityType_BRADY_BOND
-SecurityType_TREASURYINFLATIONPROTECTEDSECURITIES = cvar.SecurityType_TREASURYINFLATIONPROTECTEDSECURITIES
-SecurityType_CORP_MORTGAGE_BACKED_SECURITIES = cvar.SecurityType_CORP_MORTGAGE_BACKED_SECURITIES
-SecurityType_CERTIFICATE_OF_PARTICIPATION = cvar.SecurityType_CERTIFICATE_OF_PARTICIPATION
-SecurityType_BUY_SELLBACK = cvar.SecurityType_BUY_SELLBACK
-SecurityType_OPTIONS_ON_COMBO = cvar.SecurityType_OPTIONS_ON_COMBO
-SecurityType_MULTILEG_INSTRUMENT = cvar.SecurityType_MULTILEG_INSTRUMENT
-SecurityType_TAX_ALLOCATION = cvar.SecurityType_TAX_ALLOCATION
-SecurityType_US_TREASURY_NOTE_BOND = cvar.SecurityType_US_TREASURY_NOTE_BOND
-SecurityType_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_REVENUE_ANTICIPATION_NOTE
-SecurityType_YANKEECERTIFICATEOFDEPOSIT = cvar.SecurityType_YANKEECERTIFICATEOFDEPOSIT
-SecurityType_MEDIUMTERMNOTES = cvar.SecurityType_MEDIUMTERMNOTES
-SecurityType_SPECIAL_TAX = cvar.SecurityType_SPECIAL_TAX
-SecurityType_PRIVATE_EXPORT_FUNDING = cvar.SecurityType_PRIVATE_EXPORT_FUNDING
-SecurityType_EUROCERTIFICATEOFDEPOSIT = cvar.SecurityType_EUROCERTIFICATEOFDEPOSIT
-SecurityType_SPECIAL_OBLIGATION = cvar.SecurityType_SPECIAL_OBLIGATION
-SecurityType_FX_SWAP = cvar.SecurityType_FX_SWAP
-SecurityType_REVOLVER_TERM_LOAN = cvar.SecurityType_REVOLVER_TERM_LOAN
-SecurityType_TAXEXEMPTCOMMERCIALPAPER = cvar.SecurityType_TAXEXEMPTCOMMERCIALPAPER
-SecurityType_REVOLVER_LOAN = cvar.SecurityType_REVOLVER_LOAN
-SecurityType_CASH = cvar.SecurityType_CASH
-SecurityType_USTREASURYNOTEDEPRECATEDVALUEUSETNOTE = cvar.SecurityType_USTREASURYNOTEDEPRECATEDVALUEUSETNOTE
-SecurityType_MISCELLANEOUS_PASS_THRU = cvar.SecurityType_MISCELLANEOUS_PASS_THRU
-SecurityType_CONVERTIBLEBOND = cvar.SecurityType_CONVERTIBLEBOND
-SecurityType_VARIABLE_RATE_DEMAND_NOTE = cvar.SecurityType_VARIABLE_RATE_DEMAND_NOTE
-SecurityType_MULTILEGINSTRUMENT = cvar.SecurityType_MULTILEGINSTRUMENT
-SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE = cvar.SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE
-SecurityType_SPECIALOBLIGATION = cvar.SecurityType_SPECIALOBLIGATION
-SecurityType_CANADIAN_TREASURY_BILLS = cvar.SecurityType_CANADIAN_TREASURY_BILLS
-SecurityType_REVENUEANTICIPATIONNOTE = cvar.SecurityType_REVENUEANTICIPATIONNOTE
-SecurityType_CERTIFICATEOFOBLIGATION = cvar.SecurityType_CERTIFICATEOFOBLIGATION
-SecurityType_INDEXEDLINKED = cvar.SecurityType_INDEXEDLINKED
-SecurityType_LETTER_OF_CREDIT = cvar.SecurityType_LETTER_OF_CREDIT
-SecurityType_MANDATORYTENDER = cvar.SecurityType_MANDATORYTENDER
-SecurityType_USTREASURYBOND = cvar.SecurityType_USTREASURYBOND
-SecurityType_TERMLOAN = cvar.SecurityType_TERMLOAN
-SecurityType_OPTIONS_ON_FUTURES = cvar.SecurityType_OPTIONS_ON_FUTURES
-SecurityType_PROMISSORYNOTE = cvar.SecurityType_PROMISSORYNOTE
-SecurityType_DUAL_CURRENCY = cvar.SecurityType_DUAL_CURRENCY
-SecurityType_WILDCARD_ENTRY = cvar.SecurityType_WILDCARD_ENTRY
-SecurityType_BANK_DEPOSITORY_NOTE = cvar.SecurityType_BANK_DEPOSITORY_NOTE
-SecurityType_REPLACED = cvar.SecurityType_REPLACED
-SecurityType_MORTGAGE_PRINCIPAL_ONLY = cvar.SecurityType_MORTGAGE_PRINCIPAL_ONLY
-SecurityType_CANADIAN_TREASURY_NOTES = cvar.SecurityType_CANADIAN_TREASURY_NOTES
-SecurityType_USTREASURYBILLDEPRECATEDVALUEUSETBILL = cvar.SecurityType_USTREASURYBILLDEPRECATEDVALUEUSETBILL
-SecurityType_TOBEANNOUNCED = cvar.SecurityType_TOBEANNOUNCED
-SecurityType_SECURITIES_PLEDGE = cvar.SecurityType_SECURITIES_PLEDGE
-SecurityType_YANKEE_CORPORATE_BOND = cvar.SecurityType_YANKEE_CORPORATE_BOND
-SecurityType_FX_SPOT = cvar.SecurityType_FX_SPOT
-SecurityType_LIQUIDITYNOTE = cvar.SecurityType_LIQUIDITYNOTE
-SecurityType_OVERNIGHT = cvar.SecurityType_OVERNIGHT
-SecurityType_MORTGAGE_INTEREST_ONLY = cvar.SecurityType_MORTGAGE_INTEREST_ONLY
-SecurityType_BRIDGELOAN = cvar.SecurityType_BRIDGELOAN
-SecurityType_OTHER_ANTICIPATION_NOTES_BAN_GAN_ETC = cvar.SecurityType_OTHER_ANTICIPATION_NOTES_BAN_GAN_ETC
-SecurityType_EXTENDED_COMM_NOTE = cvar.SecurityType_EXTENDED_COMM_NOTE
-SecurityType_CERTIFICATEOFPARTICIPATION = cvar.SecurityType_CERTIFICATEOFPARTICIPATION
-SecurityType_CATS_TIGERS_LIONS = cvar.SecurityType_CATS_TIGERS_LIONS
-SecurityType_FORWARD = cvar.SecurityType_FORWARD
-SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT = cvar.SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT
-SecurityType_PREFERRED_STOCK = cvar.SecurityType_PREFERRED_STOCK
-SecurityType_US_TREASURY_BOND = cvar.SecurityType_US_TREASURY_BOND
-SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES = cvar.SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES
-SecurityType_BUYSELLBACK = cvar.SecurityType_BUYSELLBACK
-SecurityType_OPTIONS_ON_PHYSICAL = cvar.SecurityType_OPTIONS_ON_PHYSICAL
-SecurityType_ASSETBACKEDSECURITIES = cvar.SecurityType_ASSETBACKEDSECURITIES
-SecurityType_NON_DELIVERABLE_FORWARD = cvar.SecurityType_NON_DELIVERABLE_FORWARD
-SecurityType_MORTGAGE_PRINCIPLE_ONLY = cvar.SecurityType_MORTGAGE_PRINCIPLE_ONLY
-SecurityType_MORTGAGE_IOETTE = cvar.SecurityType_MORTGAGE_IOETTE
-SecurityType_USD_SUPRANATIONAL_COUPONS = cvar.SecurityType_USD_SUPRANATIONAL_COUPONS
-SecurityType_WARRANT = cvar.SecurityType_WARRANT
-SecurityType_FOREIGN_EXCHANGE_CONTRACT = cvar.SecurityType_FOREIGN_EXCHANGE_CONTRACT
-SecurityType_FOREIGNEXCHANGECONTRACT = cvar.SecurityType_FOREIGNEXCHANGECONTRACT
-SecurityType_EURO_CORPORATE_FLOATING_RATE_NOTES = cvar.SecurityType_EURO_CORPORATE_FLOATING_RATE_NOTES
-SecurityType_SPECIAL_ASSESSMENT = cvar.SecurityType_SPECIAL_ASSESSMENT
-SecurityType_EUROSUPRANATIONALCOUPONS = cvar.SecurityType_EUROSUPRANATIONALCOUPONS
-SecurityType_DEBTOR_IN_POSSESSION = cvar.SecurityType_DEBTOR_IN_POSSESSION
-SecurityType_CANADIAN_MONEY_MARKETS = cvar.SecurityType_CANADIAN_MONEY_MARKETS
-SecurityType_MORTGAGEPRINCIPALONLY = cvar.SecurityType_MORTGAGEPRINCIPALONLY
-SecurityType_USTREASURYNOTE = cvar.SecurityType_USTREASURYNOTE
-SecurityType_DEBTORINPOSSESSION = cvar.SecurityType_DEBTORINPOSSESSION
-SecurityType_REVENUEBONDS = cvar.SecurityType_REVENUEBONDS
-SecurityType_MORTGAGEINTERESTONLY = cvar.SecurityType_MORTGAGEINTERESTONLY
-SecurityType_DEPOSITNOTES = cvar.SecurityType_DEPOSITNOTES
-SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE
-SecurityType_MORTGAGEPRIVATEPLACEMENT = cvar.SecurityType_MORTGAGEPRIVATEPLACEMENT
-SecurityType_NO_SECURITY_TYPE = cvar.SecurityType_NO_SECURITY_TYPE
-SecurityType_SPECIALASSESSMENT = cvar.SecurityType_SPECIALASSESSMENT
-SecurityType_LETTEROFCREDIT = cvar.SecurityType_LETTEROFCREDIT
-SecurityType_TAXALLOCATION = cvar.SecurityType_TAXALLOCATION
-SecurityType_TAXABLE_MUNICIPAL_CP = cvar.SecurityType_TAXABLE_MUNICIPAL_CP
-SecurityType_OPTION = cvar.SecurityType_OPTION
-SecurityType_NOSECURITYTYPE = cvar.SecurityType_NOSECURITYTYPE
-SecurityType_PROMISSORY_NOTE = cvar.SecurityType_PROMISSORY_NOTE
-SecurityType_COLLATERALIZEDMORTGAGEOBLIGATION = cvar.SecurityType_COLLATERALIZEDMORTGAGEOBLIGATION
-SecurityType_DUALCURRENCY = cvar.SecurityType_DUALCURRENCY
-SecurityType_CREDIT_DEFAULT_SWAP = cvar.SecurityType_CREDIT_DEFAULT_SWAP
-SecurityType_TAXANTICIPATIONNOTE = cvar.SecurityType_TAXANTICIPATIONNOTE
-SecurityType_MORTGAGE_PRIVATE_PLACEMENT = cvar.SecurityType_MORTGAGE_PRIVATE_PLACEMENT
-SecurityType_GENERAL_OBLIGATION_BONDS = cvar.SecurityType_GENERAL_OBLIGATION_BONDS
-SecurityType_SHORTTERMLOANNOTE = cvar.SecurityType_SHORTTERMLOANNOTE
-SecurityType_COMMERCIAL_PAPER = cvar.SecurityType_COMMERCIAL_PAPER
-SecurityType_MORTGAGE_BACKED_SECURITIES = cvar.SecurityType_MORTGAGE_BACKED_SECURITIES
-SecurityType_EURO_SOVEREIGNS = cvar.SecurityType_EURO_SOVEREIGNS
-SecurityType_TAX_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_TAX_REVENUE_ANTICIPATION_NOTE
-SecurityType_PFANDBRIEFE = cvar.SecurityType_PFANDBRIEFE
-SecurityType_OTHER_ANTICIPATION_NOTES = cvar.SecurityType_OTHER_ANTICIPATION_NOTES
-SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER = cvar.SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER
-SecurityType_PRIVATEEXPORTFUNDING = cvar.SecurityType_PRIVATEEXPORTFUNDING
-SecurityType_OTHERANTICIPATIONNOTESBANGANETC = cvar.SecurityType_OTHERANTICIPATIONNOTESBANGANETC
-SecurityType_TAX_ANTICIPATION_NOTE = cvar.SecurityType_TAX_ANTICIPATION_NOTE
-SecurityType_TREASURY_BILL = cvar.SecurityType_TREASURY_BILL
-SecurityType_PLAZOS_FIJOS = cvar.SecurityType_PLAZOS_FIJOS
-SecurityType_EURO_COMMERCIAL_PAPER = cvar.SecurityType_EURO_COMMERCIAL_PAPER
-SecurityType_MANDATORY_TENDER = cvar.SecurityType_MANDATORY_TENDER
-SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION = cvar.SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION
-SecurityType_PREFERREDSTOCK = cvar.SecurityType_PREFERREDSTOCK
-SecurityType_VARIABLERATEDEMANDNOTE = cvar.SecurityType_VARIABLERATEDEMANDNOTE
-SecurityType_DEFAULTED = cvar.SecurityType_DEFAULTED
-SecurityType_INDEXED_LINKED = cvar.SecurityType_INDEXED_LINKED
-SecurityType_IOETTE_MORTGAGE = cvar.SecurityType_IOETTE_MORTGAGE
-SecurityType_CERTIFICATE_OF_DEPOSIT = cvar.SecurityType_CERTIFICATE_OF_DEPOSIT
-SecurityType_BILLOFEXCHANGES = cvar.SecurityType_BILLOFEXCHANGES
-SecurityType_PRINCIPALSTRIPOFACALLABLEBONDORNOTE = cvar.SecurityType_PRINCIPALSTRIPOFACALLABLEBONDORNOTE
-SecurityType_EUROSOVEREIGNS = cvar.SecurityType_EUROSOVEREIGNS
-SecurityType_TIME_DEPOSIT = cvar.SecurityType_TIME_DEPOSIT
-SecurityType_CORPORATEBOND = cvar.SecurityType_CORPORATEBOND
-SecurityType_FX_FORWARD = cvar.SecurityType_FX_FORWARD
-SecurityType_US_CORPORATE_FLOATING_RATE_NOTES = cvar.SecurityType_US_CORPORATE_FLOATING_RATE_NOTES
-SecurityType_US_TREASURY_NOTE_TNOTE = cvar.SecurityType_US_TREASURY_NOTE_TNOTE
-SecurityType_MORTGAGEBACKEDSECURITIES = cvar.SecurityType_MORTGAGEBACKEDSECURITIES
-SecurityType_DEPOSIT_NOTES = cvar.SecurityType_DEPOSIT_NOTES
-SecurityType_CORPORATEPRIVATEPLACEMENT = cvar.SecurityType_CORPORATEPRIVATEPLACEMENT
-SecurityType_FEDERAL_HOUSING_AUTHORITY = cvar.SecurityType_FEDERAL_HOUSING_AUTHORITY
-SecurityType_MATURED = cvar.SecurityType_MATURED
-SecurityType_SWINGLINEFACILITY = cvar.SecurityType_SWINGLINEFACILITY
-SecurityType_MULTI_LEG_INSTRUMENT = cvar.SecurityType_MULTI_LEG_INSTRUMENT
-SecurityType_CANADIAN_PROVINCIAL_BONDS = cvar.SecurityType_CANADIAN_PROVINCIAL_BONDS
-SecurityType_MEDIUM_TERM_NOTES = cvar.SecurityType_MEDIUM_TERM_NOTES
-SecurityType_RETIRED = cvar.SecurityType_RETIRED
-SecurityType_MUTUAL_FUND = cvar.SecurityType_MUTUAL_FUND
-SecurityType_SECURITIESPLEDGE = cvar.SecurityType_SECURITIESPLEDGE
-SecurityType_COMMERCIALPAPER = cvar.SecurityType_COMMERCIALPAPER
-SecurityType_REPURCHASE_AGREEMENT = cvar.SecurityType_REPURCHASE_AGREEMENT
-SecurityType_BILL_OF_EXCHANGES = cvar.SecurityType_BILL_OF_EXCHANGES
-SecurityType_MUTUALFUND = cvar.SecurityType_MUTUALFUND
-SecurityType_COLLATERALIZE_MORTGAGE_OBLIGATION = cvar.SecurityType_COLLATERALIZE_MORTGAGE_OBLIGATION
-SecurityType_EXTENDEDCOMMNOTE = cvar.SecurityType_EXTENDEDCOMMNOTE
-SecurityType_FEDERAL_HOME_LOAN = cvar.SecurityType_FEDERAL_HOME_LOAN
-SecurityType_REVOLVERLOAN = cvar.SecurityType_REVOLVERLOAN
-SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE
-SecurityType_STRUCTURED_NOTES = cvar.SecurityType_STRUCTURED_NOTES
-SecurityType_INTERESTSTRIPFROMANYBONDORNOTE = cvar.SecurityType_INTERESTSTRIPFROMANYBONDORNOTE
-SecurityType_CANADIAN_MORTGAGE_BONDS = cvar.SecurityType_CANADIAN_MORTGAGE_BONDS
-SecurityType_REPURCHASE = cvar.SecurityType_REPURCHASE
-SecurityType_AGENCY_POOLS = cvar.SecurityType_AGENCY_POOLS
-SecurityType_EURO_CORPORATE_BOND = cvar.SecurityType_EURO_CORPORATE_BOND
-SecurityType_SWING_LINE_FACILITY = cvar.SecurityType_SWING_LINE_FACILITY
-SecurityType_USDSUPRANATIONALCOUPONS = cvar.SecurityType_USDSUPRANATIONALCOUPONS
-SecurityType_REVOLVERTERMLOAN = cvar.SecurityType_REVOLVERTERMLOAN
-SecurityType_LIQUIDITY_NOTE = cvar.SecurityType_LIQUIDITY_NOTE
-SecurityType_MISCELLANEOUSPASSTHROUGH = cvar.SecurityType_MISCELLANEOUSPASSTHROUGH
-SecurityType_CONVERTIBLE_BOND = cvar.SecurityType_CONVERTIBLE_BOND
-SecurityType_ASSET_BACKED_SECURITIES = cvar.SecurityType_ASSET_BACKED_SECURITIES
-SecurityType_WILDCARDENTRY = cvar.SecurityType_WILDCARDENTRY
-SecurityType_YANKEECORPORATEBOND = cvar.SecurityType_YANKEECORPORATEBOND
-SecurityType_TAXREVENUEANTICIPATIONNOTE = cvar.SecurityType_TAXREVENUEANTICIPATIONNOTE
-SecurityType_GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION = cvar.SecurityType_GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION
-SecurityType_BRADYBOND = cvar.SecurityType_BRADYBOND
-SecurityType_USTREASURYBILL = cvar.SecurityType_USTREASURYBILL
-SecurityType_STUDENT_LOAN_MARKETING_ASSOCIATION = cvar.SecurityType_STUDENT_LOAN_MARKETING_ASSOCIATION
-SecurityType_EUROCORPORATEBOND = cvar.SecurityType_EUROCORPORATEBOND
-SecurityType_FUTURE = cvar.SecurityType_FUTURE
-SecurityType_US_TREASURY_BILL_TBILL = cvar.SecurityType_US_TREASURY_BILL_TBILL
-SecurityType_TREASURIES_PLUS_AGENCY_DEBENTURE = cvar.SecurityType_TREASURIES_PLUS_AGENCY_DEBENTURE
 SecurityType_EURO_CERTIFICATE_OF_DEPOSIT = cvar.SecurityType_EURO_CERTIFICATE_OF_DEPOSIT
-SecurityType_BANKERS_ACCEPTANCE = cvar.SecurityType_BANKERS_ACCEPTANCE
-SecurityType_AMENDEDRESTATED = cvar.SecurityType_AMENDEDRESTATED
-SecurityType_TERM_LOAN = cvar.SecurityType_TERM_LOAN
-SecurityType_BANKNOTES = cvar.SecurityType_BANKNOTES
-SecurityType_SHORT_TERM_LOAN_NOTE = cvar.SecurityType_SHORT_TERM_LOAN_NOTE
-SecurityType_AMENDED_RESTATED = cvar.SecurityType_AMENDED_RESTATED
-SecurityType_INTEREST_RATE_SWAP = cvar.SecurityType_INTEREST_RATE_SWAP
-SecurityType_EUROCOMMERCIALPAPER = cvar.SecurityType_EUROCOMMERCIALPAPER
-SecurityType_US_TREASURY_NOTE_UST = cvar.SecurityType_US_TREASURY_NOTE_UST
-SecurityType_US_TREASURY_BILL_USTB = cvar.SecurityType_US_TREASURY_BILL_USTB
-SecurityType_FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION = cvar.SecurityType_FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION
-SecurityType_WITHDRAWN = cvar.SecurityType_WITHDRAWN
-SecurityType_CORPORATE_PRIVATE_PLACEMENT = cvar.SecurityType_CORPORATE_PRIVATE_PLACEMENT
-SecurityType_CERTIFICATE_OF_OBLIGATION = cvar.SecurityType_CERTIFICATE_OF_OBLIGATION
-SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE = cvar.SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE
-SecurityType_STRUCTUREDNOTES = cvar.SecurityType_STRUCTUREDNOTES
-SecurityType_BANKERSACCEPTANCE = cvar.SecurityType_BANKERSACCEPTANCE
-SecurityType_NO_ISITC_SECURITY_TYPE = cvar.SecurityType_NO_ISITC_SECURITY_TYPE
-SecurityType_CALLLOANS = cvar.SecurityType_CALLLOANS
-SecurityType_MISCELLANEOUS_PASS_THROUGH = cvar.SecurityType_MISCELLANEOUS_PASS_THROUGH
-SecurityType_FEDERAL_AGENCY_COUPON = cvar.SecurityType_FEDERAL_AGENCY_COUPON
-SecurityType_CORPORATE_BOND = cvar.SecurityType_CORPORATE_BOND
-SecurityType_WILDCARD_ENTRY_FOR_USE_ON_SECURITY_DEFINITION_REQUEST = cvar.SecurityType_WILDCARD_ENTRY_FOR_USE_ON_SECURITY_DEFINITION_REQUEST
-SecurityType_CORPMORTGAGEBACKEDSECURITIES = cvar.SecurityType_CORPMORTGAGEBACKEDSECURITIES
-SecurityType_EURO_SUPRANATIONAL_COUPONS = cvar.SecurityType_EURO_SUPRANATIONAL_COUPONS
-SecurityType_CALL_LOANS = cvar.SecurityType_CALL_LOANS
-SecurityType_CERTIFICATEOFDEPOSIT = cvar.SecurityType_CERTIFICATEOFDEPOSIT
-SecurityType_SECURED_LIQUIDITY_NOTE = cvar.SecurityType_SECURED_LIQUIDITY_NOTE
-SecurityType_TIMEDEPOSIT = cvar.SecurityType_TIMEDEPOSIT
-SecurityType_BANK_NOTES = cvar.SecurityType_BANK_NOTES
-SecurityType_US_TREASURY_BILL = cvar.SecurityType_US_TREASURY_BILL
-SecurityType_GENERALOBLIGATIONBONDS = cvar.SecurityType_GENERALOBLIGATIONBONDS
-SecurityType_COMMONSTOCK = cvar.SecurityType_COMMONSTOCK
-SecurityType_PLAZOSFIJOS = cvar.SecurityType_PLAZOSFIJOS
-SecurityType_SECURITIES_LOAN = cvar.SecurityType_SECURITIES_LOAN
-SecurityType_SECURITIESLOAN = cvar.SecurityType_SECURITIESLOAN
 SecurityType_MUNICIPAL_BOND = cvar.SecurityType_MUNICIPAL_BOND
-SecurityType_REVENUE_BONDS = cvar.SecurityType_REVENUE_BONDS
-SecurityType_SPECIALTAX = cvar.SecurityType_SPECIALTAX
-SecurityType_PRINCIPALSTRIPFROMANONCALLABLEBONDORNOTE = cvar.SecurityType_PRINCIPALSTRIPFROMANONCALLABLEBONDORNOTE
-SecurityType_BRIDGE_LOAN = cvar.SecurityType_BRIDGE_LOAN
-SecurityType_IOETTEMORTGAGE = cvar.SecurityType_IOETTEMORTGAGE
-SecurityType_FEDERALAGENCYCOUPON = cvar.SecurityType_FEDERALAGENCYCOUPON
+SecurityType_MORTGAGE_INTEREST_ONLY = cvar.SecurityType_MORTGAGE_INTEREST_ONLY
+SecurityType_MATURED = cvar.SecurityType_MATURED
+SecurityType_FUTURE = cvar.SecurityType_FUTURE
+SecurityType_TREASURY_BILL = cvar.SecurityType_TREASURY_BILL
+SecurityType_BILL_OF_EXCHANGES = cvar.SecurityType_BILL_OF_EXCHANGES
+SecurityType_TIME_DEPOSIT = cvar.SecurityType_TIME_DEPOSIT
+SecurityType_MORTGAGE_IOETTE = cvar.SecurityType_MORTGAGE_IOETTE
+SecurityType_REPURCHASE_AGREEMENT = cvar.SecurityType_REPURCHASE_AGREEMENT
+SecurityType_SPECIAL_OBLIGATION = cvar.SecurityType_SPECIAL_OBLIGATION
+SecurityType_COMMERCIAL_PAPER = cvar.SecurityType_COMMERCIAL_PAPER
+SecurityType_CORPORATE_BOND = cvar.SecurityType_CORPORATE_BOND
+SecurityType_CORP_MORTGAGE_BACKED_SECURITIES = cvar.SecurityType_CORP_MORTGAGE_BACKED_SECURITIES
+SecurityType_OTHER_ANTICIPATION_NOTES_BAN_GAN_ETC = cvar.SecurityType_OTHER_ANTICIPATION_NOTES_BAN_GAN_ETC
+SecurityType_STRUCTURED_NOTES = cvar.SecurityType_STRUCTURED_NOTES
+SecurityType_REPURCHASE = cvar.SecurityType_REPURCHASE
+SecurityType_CANADIAN_MORTGAGE_BONDS = cvar.SecurityType_CANADIAN_MORTGAGE_BONDS
+SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE
+SecurityType_TREASURIES_PLUS_AGENCY_DEBENTURE = cvar.SecurityType_TREASURIES_PLUS_AGENCY_DEBENTURE
+SecurityType_TAX_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_TAX_REVENUE_ANTICIPATION_NOTE
+SecurityType_US_TREASURY_BILL = cvar.SecurityType_US_TREASURY_BILL
+SecurityType_PLAZOS_FIJOS = cvar.SecurityType_PLAZOS_FIJOS
+SecurityType_CANADIAN_TREASURY_NOTES = cvar.SecurityType_CANADIAN_TREASURY_NOTES
+SecurityType_YANKEE_CORPORATE_BOND = cvar.SecurityType_YANKEE_CORPORATE_BOND
+SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE = cvar.SecurityType_FEDERAL_AGENCY_DISCOUNT_NOTE
+SecurityType_BUY_SELLBACK = cvar.SecurityType_BUY_SELLBACK
+SecurityType_NO_ISITC_SECURITY_TYPE = cvar.SecurityType_NO_ISITC_SECURITY_TYPE
+SecurityType_PROMISSORY_NOTE = cvar.SecurityType_PROMISSORY_NOTE
+SecurityType_PRIVATE_EXPORT_FUNDING = cvar.SecurityType_PRIVATE_EXPORT_FUNDING
+SecurityType_CASH = cvar.SecurityType_CASH
+SecurityType_DEPOSIT_NOTES = cvar.SecurityType_DEPOSIT_NOTES
+SecurityType_FOREIGN_EXCHANGE_CONTRACT = cvar.SecurityType_FOREIGN_EXCHANGE_CONTRACT
+SecurityType_SECURITIES_PLEDGE = cvar.SecurityType_SECURITIES_PLEDGE
+SecurityType_RETIRED = cvar.SecurityType_RETIRED
+SecurityType_OVERNIGHT = cvar.SecurityType_OVERNIGHT
+SecurityType_REVENUE_ANTICIPATION_NOTE = cvar.SecurityType_REVENUE_ANTICIPATION_NOTE
+SecurityType_REVERSE_REPURCHASE_AGREEMENT = cvar.SecurityType_REVERSE_REPURCHASE_AGREEMENT
+SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION = cvar.SecurityType_COLLATERALIZED_MORTGAGE_OBLIGATION
+SecurityType_WARRANT = cvar.SecurityType_WARRANT
+SecurityType_LIQUIDITY_NOTE = cvar.SecurityType_LIQUIDITY_NOTE
+SecurityType_MANDATORY_TENDER = cvar.SecurityType_MANDATORY_TENDER
 SecurityType_COMMON_STOCK = cvar.SecurityType_COMMON_STOCK
-SecurityType_FEDERALAGENCYDISCOUNTNOTE = cvar.SecurityType_FEDERALAGENCYDISCOUNTNOTE
-RoundingDirection_ROUNDUP = cvar.RoundingDirection_ROUNDUP
+SecurityType_EURO_CORPORATE_BOND = cvar.SecurityType_EURO_CORPORATE_BOND
+SecurityType_CALL_LOANS = cvar.SecurityType_CALL_LOANS
+SecurityType_OPTIONS_ON_PHYSICAL = cvar.SecurityType_OPTIONS_ON_PHYSICAL
+SecurityType_REVOLVER_LOAN = cvar.SecurityType_REVOLVER_LOAN
+SecurityType_OPTION = cvar.SecurityType_OPTION
+SecurityType_FEDERAL_AGENCY_COUPON = cvar.SecurityType_FEDERAL_AGENCY_COUPON
+SecurityType_TAX_ALLOCATION = cvar.SecurityType_TAX_ALLOCATION
+SecurityType_MISCELLANEOUS_PASS_THROUGH = cvar.SecurityType_MISCELLANEOUS_PASS_THROUGH
+SecurityType_VARIABLE_RATE_DEMAND_NOTE = cvar.SecurityType_VARIABLE_RATE_DEMAND_NOTE
+SecurityType_MORTGAGE_PRINCIPAL_ONLY = cvar.SecurityType_MORTGAGE_PRINCIPAL_ONLY
+SecurityType_TAXABLE_MUNICIPAL_CP = cvar.SecurityType_TAXABLE_MUNICIPAL_CP
+SecurityType_INTEREST_RATE_SWAP = cvar.SecurityType_INTEREST_RATE_SWAP
+SecurityType_BANK_NOTES = cvar.SecurityType_BANK_NOTES
+SecurityType_ASSET_BACKED_SECURITIES = cvar.SecurityType_ASSET_BACKED_SECURITIES
+SecurityType_MULTILEG_INSTRUMENT = cvar.SecurityType_MULTILEG_INSTRUMENT
+SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE = cvar.SecurityType_INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE
+SecurityType_CREDIT_DEFAULT_SWAP = cvar.SecurityType_CREDIT_DEFAULT_SWAP
+SecurityType_FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION = cvar.SecurityType_FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION
+SecurityType_USD_SUPRANATIONAL_COUPONS = cvar.SecurityType_USD_SUPRANATIONAL_COUPONS
+SecurityType_REVOLVER_TERM_LOAN = cvar.SecurityType_REVOLVER_TERM_LOAN
+SecurityType_MORTGAGE_PRINCIPLE_ONLY = cvar.SecurityType_MORTGAGE_PRINCIPLE_ONLY
+SecurityType_REPLACED = cvar.SecurityType_REPLACED
+SecurityType_US_TREASURY_BILL_TBILL = cvar.SecurityType_US_TREASURY_BILL_TBILL
+SecurityType_CERTIFICATE_OF_DEPOSIT = cvar.SecurityType_CERTIFICATE_OF_DEPOSIT
+SecurityType_SPECIAL_ASSESSMENT = cvar.SecurityType_SPECIAL_ASSESSMENT
+SecurityType_SHORT_TERM_LOAN_NOTE = cvar.SecurityType_SHORT_TERM_LOAN_NOTE
+SecurityType_LETTER_OF_CREDIT = cvar.SecurityType_LETTER_OF_CREDIT
+SecurityType_OPTIONS_ON_COMBO = cvar.SecurityType_OPTIONS_ON_COMBO
+SecurityType_SPECIAL_TAX = cvar.SecurityType_SPECIAL_TAX
+SecurityType_PREFERRED_STOCK = cvar.SecurityType_PREFERRED_STOCK
+SecurityType_US_TREASURY_NOTE_TNOTE = cvar.SecurityType_US_TREASURY_NOTE_TNOTE
+SecurityType_AGENCY_POOLS = cvar.SecurityType_AGENCY_POOLS
+SecurityType_MEDIUM_TERM_NOTES = cvar.SecurityType_MEDIUM_TERM_NOTES
+SecurityType_CANADIAN_PROVINCIAL_BONDS = cvar.SecurityType_CANADIAN_PROVINCIAL_BONDS
+SecurityType_IOETTE_MORTGAGE = cvar.SecurityType_IOETTE_MORTGAGE
+SecurityType_STUDENT_LOAN_MARKETING_ASSOCIATION = cvar.SecurityType_STUDENT_LOAN_MARKETING_ASSOCIATION
+SecurityType_SECURITIES_LOAN = cvar.SecurityType_SECURITIES_LOAN
+SecurityType_EURO_CORPORATE_FLOATING_RATE_NOTES = cvar.SecurityType_EURO_CORPORATE_FLOATING_RATE_NOTES
+SecurityType_CERTIFICATE_OF_PARTICIPATION = cvar.SecurityType_CERTIFICATE_OF_PARTICIPATION
+SecurityType_FEDERAL_HOME_LOAN = cvar.SecurityType_FEDERAL_HOME_LOAN
+SecurityType_US_CORPORATE_FLOATING_RATE_NOTES = cvar.SecurityType_US_CORPORATE_FLOATING_RATE_NOTES
+SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT = cvar.SecurityType_YANKEE_CERTIFICATE_OF_DEPOSIT
+SecurityType_MULTI_LEG_INSTRUMENT = cvar.SecurityType_MULTI_LEG_INSTRUMENT
+SecurityType_WITHDRAWN = cvar.SecurityType_WITHDRAWN
+SecurityType_MISCELLANEOUS_PASS_THRU = cvar.SecurityType_MISCELLANEOUS_PASS_THRU
+SecurityType_CANADIAN_MONEY_MARKETS = cvar.SecurityType_CANADIAN_MONEY_MARKETS
+SecurityType_FORWARD = cvar.SecurityType_FORWARD
+SecurityType_EURO_SUPRANATIONAL_COUPONS = cvar.SecurityType_EURO_SUPRANATIONAL_COUPONS
+SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE = cvar.SecurityType_PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE
+SecurityType_EURO_SOVEREIGNS = cvar.SecurityType_EURO_SOVEREIGNS
+SecurityType_CERTIFICATE_OF_OBLIGATION = cvar.SecurityType_CERTIFICATE_OF_OBLIGATION
+SecurityType_BANK_DEPOSITORY_NOTE = cvar.SecurityType_BANK_DEPOSITORY_NOTE
+SecurityType_US_TREASURY_BILL_USTB = cvar.SecurityType_US_TREASURY_BILL_USTB
+SecurityType_FX_SWAP = cvar.SecurityType_FX_SWAP
+SecurityType_WILDCARD_ENTRY = cvar.SecurityType_WILDCARD_ENTRY
+SecurityType_SWING_LINE_FACILITY = cvar.SecurityType_SWING_LINE_FACILITY
+SecurityType_FEDERAL_HOUSING_AUTHORITY = cvar.SecurityType_FEDERAL_HOUSING_AUTHORITY
+SecurityType_CORPORATE_PRIVATE_PLACEMENT = cvar.SecurityType_CORPORATE_PRIVATE_PLACEMENT
+SecurityType_GENERAL_OBLIGATION_BONDS = cvar.SecurityType_GENERAL_OBLIGATION_BONDS
+SecurityType_WILDCARD_ENTRY_FOR_USE_ON_SECURITY_DEFINITION_REQUEST = cvar.SecurityType_WILDCARD_ENTRY_FOR_USE_ON_SECURITY_DEFINITION_REQUEST
+SecurityType_INDEXED_LINKED = cvar.SecurityType_INDEXED_LINKED
+SecurityType_TO_BE_ANNOUNCED = cvar.SecurityType_TO_BE_ANNOUNCED
+SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES = cvar.SecurityType_TREASURY_INFLATION_PROTECTED_SECURITIES
+SecurityType_NON_DELIVERABLE_FORWARD = cvar.SecurityType_NON_DELIVERABLE_FORWARD
+SecurityType_OPTIONS_ON_FUTURES = cvar.SecurityType_OPTIONS_ON_FUTURES
+SecurityType_TAX_ANTICIPATION_NOTE = cvar.SecurityType_TAX_ANTICIPATION_NOTE
+SecurityType_TERM_LOAN = cvar.SecurityType_TERM_LOAN
+SecurityType_AMENDED_RESTATED = cvar.SecurityType_AMENDED_RESTATED
+SecurityType_FX_FORWARD = cvar.SecurityType_FX_FORWARD
+SecurityType_CANADIAN_TREASURY_BILLS = cvar.SecurityType_CANADIAN_TREASURY_BILLS
+SecurityType_DUAL_CURRENCY = cvar.SecurityType_DUAL_CURRENCY
+SecurityType_MORTGAGE_PRIVATE_PLACEMENT = cvar.SecurityType_MORTGAGE_PRIVATE_PLACEMENT
+SecurityType_EURO_COMMERCIAL_PAPER = cvar.SecurityType_EURO_COMMERCIAL_PAPER
+SecurityType_GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION = cvar.SecurityType_GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION
+SecurityType_US_TREASURY_BOND = cvar.SecurityType_US_TREASURY_BOND
+SecurityType_SECURED_LIQUIDITY_NOTE = cvar.SecurityType_SECURED_LIQUIDITY_NOTE
+SecurityType_MORTGAGE_BACKED_SECURITIES = cvar.SecurityType_MORTGAGE_BACKED_SECURITIES
+SecurityType_US_TREASURY_NOTE_UST = cvar.SecurityType_US_TREASURY_NOTE_UST
+SecurityType_DEBTOR_IN_POSSESSION = cvar.SecurityType_DEBTOR_IN_POSSESSION
+SecurityType_TERM_LIQUIDITY_NOTE = cvar.SecurityType_TERM_LIQUIDITY_NOTE
+SecurityType_US_TREASURY_NOTE_BOND = cvar.SecurityType_US_TREASURY_NOTE_BOND
+SecurityType_REVENUE_BONDS = cvar.SecurityType_REVENUE_BONDS
+SecurityType_BRIDGE_LOAN = cvar.SecurityType_BRIDGE_LOAN
+SecurityType_CATS_TIGERS_LIONS = cvar.SecurityType_CATS_TIGERS_LIONS
+SecurityType_BRADY_BOND = cvar.SecurityType_BRADY_BOND
+SecurityType_NO_SECURITY_TYPE = cvar.SecurityType_NO_SECURITY_TYPE
+SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER = cvar.SecurityType_TAX_EXEMPT_COMMERCIAL_PAPER
+SecurityType_COLLATERALIZE_MORTGAGE_OBLIGATION = cvar.SecurityType_COLLATERALIZE_MORTGAGE_OBLIGATION
+SecurityType_DEFAULTED = cvar.SecurityType_DEFAULTED
+SecurityType_OTHER_ANTICIPATION_NOTES = cvar.SecurityType_OTHER_ANTICIPATION_NOTES
+SecurityType_MUTUAL_FUND = cvar.SecurityType_MUTUAL_FUND
+SecurityType_EXTENDED_COMM_NOTE = cvar.SecurityType_EXTENDED_COMM_NOTE
+SecurityType_CONVERTIBLE_BOND = cvar.SecurityType_CONVERTIBLE_BOND
+SecurityType_PFANDBRIEFE = cvar.SecurityType_PFANDBRIEFE
+SecurityType_FX_SPOT = cvar.SecurityType_FX_SPOT
+SecurityType_BANKERS_ACCEPTANCE = cvar.SecurityType_BANKERS_ACCEPTANCE
 RoundingDirection_ROUND_DOWN = cvar.RoundingDirection_ROUND_DOWN
 RoundingDirection_ROUND_TO_NEAREST = cvar.RoundingDirection_ROUND_TO_NEAREST
 RoundingDirection_ROUND_UP = cvar.RoundingDirection_ROUND_UP
-RoundingDirection_ROUNDDOWN = cvar.RoundingDirection_ROUNDDOWN
-RoundingDirection_ROUNDNEAREST = cvar.RoundingDirection_ROUNDNEAREST
 TimeUnit_MINUTE = cvar.TimeUnit_MINUTE
 TimeUnit_WEEK = cvar.TimeUnit_WEEK
 TimeUnit_SECOND = cvar.TimeUnit_SECOND
@@ -32098,33 +29097,21 @@ TimeUnit_HOUR = cvar.TimeUnit_HOUR
 TimeUnit_DAY = cvar.TimeUnit_DAY
 TimeUnit_YEAR = cvar.TimeUnit_YEAR
 LegSwapType_MODIFIED_DURATION = cvar.LegSwapType_MODIFIED_DURATION
-LegSwapType_PARFORPAR = cvar.LegSwapType_PARFORPAR
 LegSwapType_RISK = cvar.LegSwapType_RISK
 LegSwapType_PAR_FOR_PAR = cvar.LegSwapType_PAR_FOR_PAR
-LegSwapType_MODIFIEDDURATION = cvar.LegSwapType_MODIFIEDDURATION
 LegSwapType_PROCEEDS = cvar.LegSwapType_PROCEEDS
 IOITransType_REPLACE = cvar.IOITransType_REPLACE
 IOITransType_NEW = cvar.IOITransType_NEW
 IOITransType_CANCEL = cvar.IOITransType_CANCEL
-PosReqResult_REQUESTFORPOSITIONNOTSUPPORTED = cvar.PosReqResult_REQUESTFORPOSITIONNOTSUPPORTED
 PosReqResult_VALID_REQUEST = cvar.PosReqResult_VALID_REQUEST
-PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA = cvar.PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA
 PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS = cvar.PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS
+PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA = cvar.PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA
 PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST = cvar.PosReqResult_INVALID_OR_UNSUPPORTED_REQUEST
-PosReqResult_NOTAUTHORIZEDTOREQUESTPOSITIONS = cvar.PosReqResult_NOTAUTHORIZEDTOREQUESTPOSITIONS
 PosReqResult_OTHER = cvar.PosReqResult_OTHER
-PosReqResult_NOPOSITIONSFOUNDTHATMATCHCRITERIA = cvar.PosReqResult_NOPOSITIONSFOUNDTHATMATCHCRITERIA
 PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED = cvar.PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED
-PosReqResult_INVALIDORUNSUPPORTEDREQUEST = cvar.PosReqResult_INVALIDORUNSUPPORTEDREQUEST
-PosReqResult_VALIDREQUEST = cvar.PosReqResult_VALIDREQUEST
-SettlInstMode_ACCOUNTOVERRIDING = cvar.SettlInstMode_ACCOUNTOVERRIDING
-SettlInstMode_REJECT = cvar.SettlInstMode_REJECT
 SettlInstMode_DEFAULT = cvar.SettlInstMode_DEFAULT
 SettlInstMode_REQUEST_REJECT = cvar.SettlInstMode_REQUEST_REJECT
 SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING = cvar.SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING
-SettlInstMode_SIPROVIDED = cvar.SettlInstMode_SIPROVIDED
-SettlInstMode_ACCOUNTSTANDING = cvar.SettlInstMode_ACCOUNTSTANDING
-SettlInstMode_CIVORDERSINGLEACCT = cvar.SettlInstMode_CIVORDERSINGLEACCT
 SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_STANDING = cvar.SettlInstMode_SPECIFIC_ALLOCATION_ACCOUNT_STANDING
 SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT = cvar.SettlInstMode_SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT
 SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED = cvar.SettlInstMode_STANDING_INSTRUCTIONS_PROVIDED
@@ -32157,55 +29144,44 @@ CustOrderHandlingInst_EXCHANGE_FOR_PHYSICAL_TRANSACTION = cvar.CustOrderHandling
 SecurityStatus_INACTIVE = cvar.SecurityStatus_INACTIVE
 SecurityStatus_ACTIVE = cvar.SecurityStatus_ACTIVE
 ProcessCode_SOFT_DOLLAR = cvar.ProcessCode_SOFT_DOLLAR
-ProcessCode_STEPOUTSOFT = cvar.ProcessCode_STEPOUTSOFT
-ProcessCode_STEPOUT = cvar.ProcessCode_STEPOUT
 ProcessCode_PLAN_SPONSOR = cvar.ProcessCode_PLAN_SPONSOR
 ProcessCode_STEP_IN = cvar.ProcessCode_STEP_IN
-ProcessCode_STEPIN = cvar.ProcessCode_STEPIN
 ProcessCode_REGULAR = cvar.ProcessCode_REGULAR
-ProcessCode_SOFTDOLLAR = cvar.ProcessCode_SOFTDOLLAR
-ProcessCode_PLANSPONSOR = cvar.ProcessCode_PLANSPONSOR
-ProcessCode_STEPINSOFT = cvar.ProcessCode_STEPINSOFT
 ProcessCode_SOFT_DOLLAR_STEP_OUT = cvar.ProcessCode_SOFT_DOLLAR_STEP_OUT
 ProcessCode_STEP_OUT = cvar.ProcessCode_STEP_OUT
 ProcessCode_SOFT_DOLLAR_STEP_IN = cvar.ProcessCode_SOFT_DOLLAR_STEP_IN
 ExecInst_TRY_TO_STOP = cvar.ExecInst_TRY_TO_STOP
 ExecInst_PEG_TO_LIMIT_PRICE = cvar.ExecInst_PEG_TO_LIMIT_PRICE
 ExecInst_EXECUTE_AS_DURATION_NEUTRAL = cvar.ExecInst_EXECUTE_AS_DURATION_NEUTRAL
-ExecInst_PARTICIPANT_DONT_INITIATE = cvar.ExecInst_PARTICIPANT_DONT_INITIATE
 ExecInst_REINSTATE_ON_TRADING_HALT = cvar.ExecInst_REINSTATE_ON_TRADING_HALT
 ExecInst_NO_CROSS = cvar.ExecInst_NO_CROSS
 ExecInst_PEGVWAP = cvar.ExecInst_PEGVWAP
 ExecInst_STRICT_SCALE = cvar.ExecInst_STRICT_SCALE
 ExecInst_AON = cvar.ExecInst_AON
-ExecInst_TRAILING_STOP_PEG = cvar.ExecInst_TRAILING_STOP_PEG
-ExecInst_TRAILSTOPPEG = cvar.ExecInst_TRAILSTOPPEG
 ExecInst_MARKPEG = cvar.ExecInst_MARKPEG
 ExecInst_MIDPRCPEG = cvar.ExecInst_MIDPRCPEG
 ExecInst_OKCROSS = cvar.ExecInst_OKCROSS
+ExecInst_TRAILING_STOP_PEG = cvar.ExecInst_TRAILING_STOP_PEG
 ExecInst_EXECUTE_AS_FX_NEUTRAL = cvar.ExecInst_EXECUTE_AS_FX_NEUTRAL
 ExecInst_CUSTDISPINST = cvar.ExecInst_CUSTDISPINST
-ExecInst_IGNOREPRICECHK = cvar.ExecInst_IGNOREPRICECHK
-ExecInst_STRICTLIMIT = cvar.ExecInst_STRICTLIMIT
-ExecInst_WORKTOSTRATEGY = cvar.ExecInst_WORKTOSTRATEGY
 ExecInst_OK_TO_CROSS = cvar.ExecInst_OK_TO_CROSS
 ExecInst_SUSPEND_ON_SYSTEM_FAILURE = cvar.ExecInst_SUSPEND_ON_SYSTEM_FAILURE
-ExecInst_REINSTATE_ON_SYSTEM_FAILURE = cvar.ExecInst_REINSTATE_ON_SYSTEM_FAILURE
 ExecInst_GO_ALONG = cvar.ExecInst_GO_ALONG
 ExecInst_INSTITONLY = cvar.ExecInst_INSTITONLY
 ExecInst_DO_NOT_INCREASE = cvar.ExecInst_DO_NOT_INCREASE
 ExecInst_SUSPEND = cvar.ExecInst_SUSPEND
 ExecInst_TRYTOSTOP = cvar.ExecInst_TRYTOSTOP
 ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER = cvar.ExecInst_FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER
+ExecInst_REINSTATE_ON_SYSTEM_FAILURE = cvar.ExecInst_REINSTATE_ON_SYSTEM_FAILURE
 ExecInst_SUSPEND_ON_TRADING_HALT = cvar.ExecInst_SUSPEND_ON_TRADING_HALT
 ExecInst_INTERMARKET_SWEEP = cvar.ExecInst_INTERMARKET_SWEEP
-ExecInst_IGNORE_PRICE_VALIDITY_CHECKS = cvar.ExecInst_IGNORE_PRICE_VALIDITY_CHECKS
+ExecInst_BEST_EXECUTION = cvar.ExecInst_BEST_EXECUTION
 ExecInst_PARTICIPATE_DONT_INITIATE = cvar.ExecInst_PARTICIPATE_DONT_INITIATE
 ExecInst_LASTPEG = cvar.ExecInst_LASTPEG
 ExecInst_PEG_TO_VWAP = cvar.ExecInst_PEG_TO_VWAP
 ExecInst_PRIMARY_PEG = cvar.ExecInst_PRIMARY_PEG
 ExecInst_NONNEGO = cvar.ExecInst_NONNEGO
-ExecInst_BEST_EXECUTION = cvar.ExecInst_BEST_EXECUTION
+ExecInst_IGNORE_PRICE_VALIDITY_CHECKS = cvar.ExecInst_IGNORE_PRICE_VALIDITY_CHECKS
 ExecInst_STAY_ON_BID_SIDE = cvar.ExecInst_STAY_ON_BID_SIDE
 ExecInst_NOTHELD = cvar.ExecInst_NOTHELD
 ExecInst_STRICTSCALE = cvar.ExecInst_STRICTSCALE
@@ -32228,19 +29204,18 @@ ExecInst_INSTITUTIONS_ONLY = cvar.ExecInst_INSTITUTIONS_ONLY
 ExecInst_NOT_HELD = cvar.ExecInst_NOT_HELD
 ExecInst_CANCELONTRADINGHALT = cvar.ExecInst_CANCELONTRADINGHALT
 ExecInst_CANCELONSYSFAIL = cvar.ExecInst_CANCELONSYSFAIL
-ExecInst_CANCEL_ON_SYSTEM_FAILURE = cvar.ExecInst_CANCEL_ON_SYSTEM_FAILURE
 ExecInst_MARKET_PEG = cvar.ExecInst_MARKET_PEG
 ExecInst_TRADEALONG = cvar.ExecInst_TRADEALONG
 ExecInst_CALL_FIRST = cvar.ExecInst_CALL_FIRST
-ExecInst_PEGTOLIMIT = cvar.ExecInst_PEGTOLIMIT
+ExecInst_CANCEL_ON_SYSTEM_FAILURE = cvar.ExecInst_CANCEL_ON_SYSTEM_FAILURE
 ExecInst_EXECUTE_AS_DELTA_NEUTRAL_USING_VOLATILITY_PROVIDED = cvar.ExecInst_EXECUTE_AS_DELTA_NEUTRAL_USING_VOLATILITY_PROVIDED
 ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE = cvar.ExecInst_SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE
 ExecInst_NON_NEGOTIABLE = cvar.ExecInst_NON_NEGOTIABLE
 ExecInst_TRY_TO_SCALE = cvar.ExecInst_TRY_TO_SCALE
 ExecInst_EXTERNAL_ROUTING_ALLOWED = cvar.ExecInst_EXTERNAL_ROUTING_ALLOWED
-ExecInst_WORK_TO_TARGET_STRATEGY = cvar.ExecInst_WORK_TO_TARGET_STRATEGY
 ExecInst_STAY_ON_OFFER_SIDE = cvar.ExecInst_STAY_ON_OFFER_SIDE
 ExecInst_CUSTOMER_DISPLAY_INSTRUCTION = cvar.ExecInst_CUSTOMER_DISPLAY_INSTRUCTION
+ExecInst_WORK_TO_TARGET_STRATEGY = cvar.ExecInst_WORK_TO_TARGET_STRATEGY
 ExecInst_OVERDAY = cvar.ExecInst_OVERDAY
 ExecInst_LAST_PEG = cvar.ExecInst_LAST_PEG
 ExecInst_CALLFIRST = cvar.ExecInst_CALLFIRST
@@ -32255,46 +29230,38 @@ ExecInst_CANCEL_ON_CONNECTION_LOSS = cvar.ExecInst_CANCEL_ON_CONNECTION_LOSS
 ExecInst_EXTERNAL_ROUTING_NOT_ALLOWED = cvar.ExecInst_EXTERNAL_ROUTING_NOT_ALLOWED
 ExecInst_CANCEL_IF_NOT_BEST = cvar.ExecInst_CANCEL_IF_NOT_BEST
 ExecInst_PARTNOTINIT = cvar.ExecInst_PARTNOTINIT
-ExecInst_CXLIFNOTBEST = cvar.ExecInst_CXLIFNOTBEST
 ExecInst_NETTING = cvar.ExecInst_NETTING
 ExecInst_IMBALANCE_ONLY = cvar.ExecInst_IMBALANCE_ONLY
-ExecInst_CANCEL_ON_TRADING_HALT = cvar.ExecInst_CANCEL_ON_TRADING_HALT
-ExecInst_TRADE_ALONG = cvar.ExecInst_TRADE_ALONG
 ExecInst_DNR = cvar.ExecInst_DNR
 ExecInst_STAYOFFER = cvar.ExecInst_STAYOFFER
 ExecInst_STAYBID = cvar.ExecInst_STAYBID
+ExecInst_TRADE_ALONG = cvar.ExecInst_TRADE_ALONG
+ExecInst_CANCEL_ON_TRADING_HALT = cvar.ExecInst_CANCEL_ON_TRADING_HALT
 ExecInst_RESTATEONSYSFAIL = cvar.ExecInst_RESTATEONSYSFAIL
 ExecInst_PRIMPEG = cvar.ExecInst_PRIMPEG
 ExecType_REPLACE = cvar.ExecType_REPLACE
 ExecType_NEW = cvar.ExecType_NEW
 ExecType_CALCULATED = cvar.ExecType_CALCULATED
-ExecType_PENDINGNEW = cvar.ExecType_PENDINGNEW
-ExecType_ORDERSTATUS = cvar.ExecType_ORDERSTATUS
 ExecType_PENDING_CANCEL = cvar.ExecType_PENDING_CANCEL
 ExecType_TRADE_IN_A_CLEARING_HOLD = cvar.ExecType_TRADE_IN_A_CLEARING_HOLD
 ExecType_TRADE_HAS_BEEN_RELEASED_TO_CLEARING = cvar.ExecType_TRADE_HAS_BEEN_RELEASED_TO_CLEARING
 ExecType_ORDER_STATUS = cvar.ExecType_ORDER_STATUS
 ExecType_PENDING_CANCEL_REPLACE = cvar.ExecType_PENDING_CANCEL_REPLACE
 ExecType_PARTIAL_FILL = cvar.ExecType_PARTIAL_FILL
-ExecType_PENDINGCXL = cvar.ExecType_PENDINGCXL
 ExecType_PENDING_NEW = cvar.ExecType_PENDING_NEW
 ExecType_STOPPED = cvar.ExecType_STOPPED
 ExecType_CANCELED = cvar.ExecType_CANCELED
 ExecType_PENDING_REPLACE = cvar.ExecType_PENDING_REPLACE
 ExecType_TRADE = cvar.ExecType_TRADE
 ExecType_TRADE_CORRECT = cvar.ExecType_TRADE_CORRECT
-ExecType_PENDINGREPLACE = cvar.ExecType_PENDINGREPLACE
 ExecType_SUSPENDED = cvar.ExecType_SUSPENDED
 ExecType_FILL = cvar.ExecType_FILL
-ExecType_DONE = cvar.ExecType_DONE
 ExecType_RESTATED = cvar.ExecType_RESTATED
 ExecType_REJECTED = cvar.ExecType_REJECTED
 ExecType_REPLACED = cvar.ExecType_REPLACED
 ExecType_EXPIRED = cvar.ExecType_EXPIRED
 ExecType_DONE_FOR_DAY = cvar.ExecType_DONE_FOR_DAY
 ExecType_TRIGGERED_OR_ACTIVATED_BY_SYSTEM = cvar.ExecType_TRIGGERED_OR_ACTIVATED_BY_SYSTEM
-ExecType_TRADECORRECT = cvar.ExecType_TRADECORRECT
-ExecType_TRADECANCEL = cvar.ExecType_TRADECANCEL
 ExecType_TRADE_CANCEL = cvar.ExecType_TRADE_CANCEL
 ExecType_CANCELLED = cvar.ExecType_CANCELLED
 MultilegModel_USER_DEFINED_MULTLEG_SECURITY = cvar.MultilegModel_USER_DEFINED_MULTLEG_SECURITY
@@ -32316,36 +29283,24 @@ EventType_SWAP_ROLL_DATE = cvar.EventType_SWAP_ROLL_DATE
 EventType_FINAL_INVENTORY_DUE_DATE = cvar.EventType_FINAL_INVENTORY_DUE_DATE
 EventType_OTHER = cvar.EventType_OTHER
 EventType_INACTIVIATION = cvar.EventType_INACTIVIATION
-EventType_SINKINGFUNDCALL = cvar.EventType_SINKINGFUNDCALL
 EventType_SWAP_END_DATE = cvar.EventType_SWAP_END_DATE
 EventType_LAST_INTENT_DATE = cvar.EventType_LAST_INTENT_DATE
 EventType_SINKING_FUND_CALL = cvar.EventType_SINKING_FUND_CALL
 EventType_CALL = cvar.EventType_CALL
-TradeAllocIndicator_ALLOCATIONREQUIREDALLOCATIONINFORMATIONNOTPROVIDED = cvar.TradeAllocIndicator_ALLOCATIONREQUIREDALLOCATIONINFORMATIONNOTPROVIDED
 TradeAllocIndicator_ALLOCATION_REQUIRED = cvar.TradeAllocIndicator_ALLOCATION_REQUIRED
 TradeAllocIndicator_ALLOCATION_TO_CLAIM_ACCOUNT = cvar.TradeAllocIndicator_ALLOCATION_TO_CLAIM_ACCOUNT
-TradeAllocIndicator_USEALLOCATIONPROVIDEDWITHTHETRADE = cvar.TradeAllocIndicator_USEALLOCATIONPROVIDEDWITHTHETRADE
 TradeAllocIndicator_ALLOCATION_FROM_EXECUTOR = cvar.TradeAllocIndicator_ALLOCATION_FROM_EXECUTOR
 TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE = cvar.TradeAllocIndicator_USE_ALLOCATION_PROVIDED_WITH_THE_TRADE
-TradeAllocIndicator_ALLOCATIONNOTREQUIRED = cvar.TradeAllocIndicator_ALLOCATIONNOTREQUIRED
-TradeAllocIndicator_ALLOCATION_NOT_REQUIRED = cvar.TradeAllocIndicator_ALLOCATION_NOT_REQUIRED
 TradeAllocIndicator_ALLOCATION_GIVE_UP_EXECUTOR = cvar.TradeAllocIndicator_ALLOCATION_GIVE_UP_EXECUTOR
+TradeAllocIndicator_ALLOCATION_NOT_REQUIRED = cvar.TradeAllocIndicator_ALLOCATION_NOT_REQUIRED
 UserStatus_NOT_LOGGED_IN = cvar.UserStatus_NOT_LOGGED_IN
 UserStatus_PASSWORD_INCORRECT = cvar.UserStatus_PASSWORD_INCORRECT
-UserStatus_USERNOTRECOGNISED = cvar.UserStatus_USERNOTRECOGNISED
 UserStatus_LOGGED_IN = cvar.UserStatus_LOGGED_IN
-UserStatus_PASSWORDCHANGED = cvar.UserStatus_PASSWORDCHANGED
 UserStatus_FORCED_USER_LOGOUT_BY_EXCHANGE = cvar.UserStatus_FORCED_USER_LOGOUT_BY_EXCHANGE
 UserStatus_USER_NOT_RECOGNISED = cvar.UserStatus_USER_NOT_RECOGNISED
-UserStatus_NOTLOGGEDIN = cvar.UserStatus_NOTLOGGEDIN
-UserStatus_PASSWORD_CHANGED = cvar.UserStatus_PASSWORD_CHANGED
 UserStatus_OTHER = cvar.UserStatus_OTHER
-UserStatus_LOGGEDIN = cvar.UserStatus_LOGGEDIN
+UserStatus_PASSWORD_CHANGED = cvar.UserStatus_PASSWORD_CHANGED
 UserStatus_SESSION_SHUTDOWN_WARNING = cvar.UserStatus_SESSION_SHUTDOWN_WARNING
-UserStatus_PASSWORDINCORRECT = cvar.UserStatus_PASSWORDINCORRECT
-InstrRegistry_PHYSICAL = cvar.InstrRegistry_PHYSICAL
-InstrRegistry_COUNTRY = cvar.InstrRegistry_COUNTRY
-InstrRegistry_CUSTODIAN = cvar.InstrRegistry_CUSTODIAN
 OrderDelayUnit_WEEKS = cvar.OrderDelayUnit_WEEKS
 OrderDelayUnit_TENTHS_OF_A_SECOND = cvar.OrderDelayUnit_TENTHS_OF_A_SECOND
 OrderDelayUnit_SECONDS = cvar.OrderDelayUnit_SECONDS
@@ -32363,63 +29318,41 @@ TradedFlatSwitch_YES = cvar.TradedFlatSwitch_YES
 TrdRptStatus_ACCEPTED_WITH_ERRORS = cvar.TrdRptStatus_ACCEPTED_WITH_ERRORS
 TrdRptStatus_REJECTED = cvar.TrdRptStatus_REJECTED
 TrdRptStatus_ACCEPTED = cvar.TrdRptStatus_ACCEPTED
-QuoteStatus_CANCELEDDUETOLOCKMARKET = cvar.QuoteStatus_CANCELEDDUETOLOCKMARKET
-QuoteStatus_REJ = cvar.QuoteStatus_REJ
 QuoteStatus_PENDING = cvar.QuoteStatus_PENDING
-QuoteStatus_LOCKEDMARKETWARNING = cvar.QuoteStatus_LOCKEDMARKETWARNING
-QuoteStatus_CROSSMARKETWARNING = cvar.QuoteStatus_CROSSMARKETWARNING
-QuoteStatus_REMOVED = cvar.QuoteStatus_REMOVED
-QuoteStatus_CXLUNDER = cvar.QuoteStatus_CXLUNDER
 QuoteStatus_PENDING_END_TRADE = cvar.QuoteStatus_PENDING_END_TRADE
 QuoteStatus_CROSS_MARKET_WARNING = cvar.QuoteStatus_CROSS_MARKET_WARNING
-QuoteStatus_QUOTENOTFOUND = cvar.QuoteStatus_QUOTENOTFOUND
 QuoteStatus_CANCELED = cvar.QuoteStatus_CANCELED
 QuoteStatus_LOCKED_MARKET_WARNING = cvar.QuoteStatus_LOCKED_MARKET_WARNING
-QuoteStatus_CXLSYM = cvar.QuoteStatus_CXLSYM
 QuoteStatus_CANCELED_FOR_UNDERLYING = cvar.QuoteStatus_CANCELED_FOR_UNDERLYING
 QuoteStatus_UNSOLICITED_QUOTE_REPLENISHMENT = cvar.QuoteStatus_UNSOLICITED_QUOTE_REPLENISHMENT
 QuoteStatus_TOO_LATE_TO_END = cvar.QuoteStatus_TOO_LATE_TO_END
 QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET = cvar.QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET
 QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET = cvar.QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET
-QuoteStatus_ACCPT = cvar.QuoteStatus_ACCPT
 QuoteStatus_CANCELED_FOR_SECURITY_TYPE = cvar.QuoteStatus_CANCELED_FOR_SECURITY_TYPE
 QuoteStatus_CANCELED_ALL = cvar.QuoteStatus_CANCELED_ALL
 QuoteStatus_PASS = cvar.QuoteStatus_PASS
-QuoteStatus_CANCELEDDUETOCROSSMARKET = cvar.QuoteStatus_CANCELEDDUETOCROSSMARKET
 QuoteStatus_REJECTED = cvar.QuoteStatus_REJECTED
 QuoteStatus_QUERY = cvar.QuoteStatus_QUERY
-QuoteStatus_CXLSECTYPE = cvar.QuoteStatus_CXLSECTYPE
 QuoteStatus_ACCEPTED = cvar.QuoteStatus_ACCEPTED
 QuoteStatus_EXPIRED = cvar.QuoteStatus_EXPIRED
 QuoteStatus_CANCELED_FOR_SYMBOL = cvar.QuoteStatus_CANCELED_FOR_SYMBOL
 QuoteStatus_REMOVED_FROM_MARKET = cvar.QuoteStatus_REMOVED_FROM_MARKET
 QuoteStatus_ACTIVE = cvar.QuoteStatus_ACTIVE
 QuoteStatus_CANCEL_FOR_SYMBOL = cvar.QuoteStatus_CANCEL_FOR_SYMBOL
-QuoteStatus_CXLALL = cvar.QuoteStatus_CXLALL
 QuoteStatus_QUOTE_NOT_FOUND = cvar.QuoteStatus_QUOTE_NOT_FOUND
 SolicitedFlag_NO = cvar.SolicitedFlag_NO
 SolicitedFlag_YES = cvar.SolicitedFlag_YES
-RiskLimitType_GROSS_LIMIT = cvar.RiskLimitType_GROSS_LIMIT
-RiskLimitType_SHORT_LIMIT = cvar.RiskLimitType_SHORT_LIMIT
-RiskLimitType_LONG_LIMIT = cvar.RiskLimitType_LONG_LIMIT
-RiskLimitType_NET_LIMIT = cvar.RiskLimitType_NET_LIMIT
-RiskLimitType_EXPOSURE = cvar.RiskLimitType_EXPOSURE
 ShortSaleReason_DEALER_SOLD_SHORT = cvar.ShortSaleReason_DEALER_SOLD_SHORT
-ShortSaleReason_DEALERSOLDSHORTEXEMPT = cvar.ShortSaleReason_DEALERSOLDSHORTEXEMPT
 ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT
-ShortSaleReason_DEALERSOLDSHORT = cvar.ShortSaleReason_DEALERSOLDSHORT
-ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT = cvar.ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT
 ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT_EXEMPT
-ShortSaleReason_SELLINGCUSTOMERSOLDSHORT = cvar.ShortSaleReason_SELLINGCUSTOMERSOLDSHORT
-ShortSaleReason_SELLINGCUSTOMERSOLDSHORTEXEMPT = cvar.ShortSaleReason_SELLINGCUSTOMERSOLDSHORTEXEMPT
+ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT = cvar.ShortSaleReason_SELLING_CUSTOMER_SOLD_SHORT
+ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE = cvar.ShortSaleReason_QUALIFED_SERVICE_REPRESENTATIVE
 ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT = cvar.ShortSaleReason_DEALER_SOLD_SHORT_EXEMPT
-ShortSaleReason_QSRORAGUCONTRASIDESOLDSHORT = cvar.ShortSaleReason_QSRORAGUCONTRASIDESOLDSHORT
 ShortSaleReason_QUALIFIED_SERVICE_REPRESENTATIVE = cvar.ShortSaleReason_QUALIFIED_SERVICE_REPRESENTATIVE
-ShortSaleReason_QSRORAGUCONTRASIDESOLDSHORTEXEMPT = cvar.ShortSaleReason_QSRORAGUCONTRASIDESOLDSHORTEXEMPT
-PegRoundDirection_MOREPASSIVE = cvar.PegRoundDirection_MOREPASSIVE
-PegRoundDirection_MOREAGGRESSIVE = cvar.PegRoundDirection_MOREAGGRESSIVE
+PegRoundDirection_MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK = cvar.PegRoundDirection_MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK
 PegRoundDirection_MORE_AGGRESSIVE = cvar.PegRoundDirection_MORE_AGGRESSIVE
 PegRoundDirection_MORE_PASSIVE = cvar.PegRoundDirection_MORE_PASSIVE
+PegRoundDirection_MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK = cvar.PegRoundDirection_MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK
 ModelType_PROPRIETARY = cvar.ModelType_PROPRIETARY
 ModelType_UTILITY_PROVIDED_STANDARD_MODEL = cvar.ModelType_UTILITY_PROVIDED_STANDARD_MODEL
 FuturesValuationMethod_FUTURES_STYLE_WITH_AN_ATTACHED_CASH_ADJUSTMENT = cvar.FuturesValuationMethod_FUTURES_STYLE_WITH_AN_ATTACHED_CASH_ADJUSTMENT
@@ -32428,11 +29361,8 @@ FuturesValuationMethod_FUTURES_STYLE_MARK_TO_MARKET = cvar.FuturesValuationMetho
 SettlMethod_CASH_SETTLEMENT_REQUIRED = cvar.SettlMethod_CASH_SETTLEMENT_REQUIRED
 SettlMethod_PHYSICAL_SETTLEMENT_REQUIRED = cvar.SettlMethod_PHYSICAL_SETTLEMENT_REQUIRED
 ConfirmStatus_CONFIRMED = cvar.ConfirmStatus_CONFIRMED
-ConfirmStatus_REQUESTREJECTED = cvar.ConfirmStatus_REQUESTREJECTED
-ConfirmStatus_MISSINGSETTLEMENTINSTRUCTIONS = cvar.ConfirmStatus_MISSINGSETTLEMENTINSTRUCTIONS
 ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS = cvar.ConfirmStatus_MISSING_SETTLEMENT_INSTRUCTIONS
 ConfirmStatus_REQUEST_REJECTED = cvar.ConfirmStatus_REQUEST_REJECTED
-ConfirmStatus_MISMATCHEDACCOUNT = cvar.ConfirmStatus_MISMATCHEDACCOUNT
 ConfirmStatus_MISMATCHED_ACCOUNT = cvar.ConfirmStatus_MISMATCHED_ACCOUNT
 ConfirmStatus_RECEIVED = cvar.ConfirmStatus_RECEIVED
 LocateReqd_NO = cvar.LocateReqd_NO
@@ -32446,14 +29376,14 @@ StreamAsgnType_REJECTED = cvar.StreamAsgnType_REJECTED
 LastRptRequested_NO = cvar.LastRptRequested_NO
 LastRptRequested_YES = cvar.LastRptRequested_YES
 SettlSessID_END_OF_DAY = cvar.SettlSessID_END_OF_DAY
-SettlSessID_REGULAR_TRADING_HOURS = cvar.SettlSessID_REGULAR_TRADING_HOURS
 SettlSessID_ELECTRONIC_TRADING_HOURS = cvar.SettlSessID_ELECTRONIC_TRADING_HOURS
+SettlSessID_REGULAR_TRADING_HOURS = cvar.SettlSessID_REGULAR_TRADING_HOURS
 SettlSessID_INTRADAY = cvar.SettlSessID_INTRADAY
+TradeReportType_LOCKED_IN_TRADE_BREAK = cvar.TradeReportType_LOCKED_IN_TRADE_BREAK
 TradeReportType_NO_WAS = cvar.TradeReportType_NO_WAS
 TradeReportType_ADDENDUM = cvar.TradeReportType_ADDENDUM
 TradeReportType_7 = cvar.TradeReportType_7
 TradeReportType_PENDED = cvar.TradeReportType_PENDED
-TradeReportType_LOCKEDINTRADEBREAK = cvar.TradeReportType_LOCKEDINTRADEBREAK
 TradeReportType_DEFAULTED = cvar.TradeReportType_DEFAULTED
 TradeReportType_DECLINE = cvar.TradeReportType_DECLINE
 TradeReportType_ALLEGED_NEW = cvar.TradeReportType_ALLEGED_NEW
@@ -32462,191 +29392,123 @@ TradeReportType_ALLEGED_15 = cvar.TradeReportType_ALLEGED_15
 TradeReportType_ALLEGED_ADDENDUM = cvar.TradeReportType_ALLEGED_ADDENDUM
 TradeReportType_ALLEGED = cvar.TradeReportType_ALLEGED
 TradeReportType_SUBMIT = cvar.TradeReportType_SUBMIT
-TradeReportType_NOWAS = cvar.TradeReportType_NOWAS
 TradeReportType_ALLEGED_1 = cvar.TradeReportType_ALLEGED_1
 TradeReportType_INVALID_CMTA = cvar.TradeReportType_INVALID_CMTA
-TradeReportType_TRADEREPORTCANCEL = cvar.TradeReportType_TRADEREPORTCANCEL
-TradeReportType_TRADE_REPORT_CANCEL = cvar.TradeReportType_TRADE_REPORT_CANCEL
 TradeReportType_ALLEGED_NO_WAS = cvar.TradeReportType_ALLEGED_NO_WAS
+TradeReportType_TRADE_REPORT_CANCEL = cvar.TradeReportType_TRADE_REPORT_CANCEL
 TradeReportType_ACCEPT = cvar.TradeReportType_ACCEPT
 ExerciseStyle_AMERICAN = cvar.ExerciseStyle_AMERICAN
 ExerciseStyle_EUROPEAN = cvar.ExerciseStyle_EUROPEAN
 ExerciseStyle_BERMUDA = cvar.ExerciseStyle_BERMUDA
-HaltReasonChar_EQUIPCHANGE = cvar.HaltReasonChar_EQUIPCHANGE
 HaltReasonChar_ADDITIONAL_INFORMATION = cvar.HaltReasonChar_ADDITIONAL_INFORMATION
-HaltReasonChar_ORDINFL = cvar.HaltReasonChar_ORDINFL
 HaltReasonChar_NEW_PENDING = cvar.HaltReasonChar_NEW_PENDING
-HaltReasonChar_NEWSDISS = cvar.HaltReasonChar_NEWSDISS
 HaltReasonChar_NEWS_PENDING = cvar.HaltReasonChar_NEWS_PENDING
 HaltReasonChar_ORDER_INFLUX = cvar.HaltReasonChar_ORDER_INFLUX
 HaltReasonChar_NEWS_DISSEMINATION = cvar.HaltReasonChar_NEWS_DISSEMINATION
-HaltReasonChar_ADDINFO = cvar.HaltReasonChar_ADDINFO
-HaltReasonChar_ORDIMB = cvar.HaltReasonChar_ORDIMB
 HaltReasonChar_EQUIPMENT_CHANGEOVER = cvar.HaltReasonChar_EQUIPMENT_CHANGEOVER
 HaltReasonChar_ORDER_IMBALANCE = cvar.HaltReasonChar_ORDER_IMBALANCE
-HaltReasonChar_NEWSPEND = cvar.HaltReasonChar_NEWSPEND
 ExDestination_POSIT = cvar.ExDestination_POSIT
 ExDestination_NONE = cvar.ExDestination_NONE
 AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = cvar.AllocReportType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY
 AllocReportType_WAREHOUSE_RECAP = cvar.AllocReportType_WAREHOUSE_RECAP
 AllocReportType_REJECT = cvar.AllocReportType_REJECT
-AllocReportType_REQUESTTOINTERMEDIARY = cvar.AllocReportType_REQUESTTOINTERMEDIARY
 AllocReportType_ACCEPT_PENDING = cvar.AllocReportType_ACCEPT_PENDING
-AllocReportType_REQUEST_TO_INTERMEDIARY = cvar.AllocReportType_REQUEST_TO_INTERMEDIARY
 AllocReportType_COMPLETE = cvar.AllocReportType_COMPLETE
-AllocReportType_SELLSIDECALCULATEDUSINGPRELIMINARY = cvar.AllocReportType_SELLSIDECALCULATEDUSINGPRELIMINARY
+AllocReportType_REQUEST_TO_INTERMEDIARY = cvar.AllocReportType_REQUEST_TO_INTERMEDIARY
 AllocReportType_PRELIMINARY_REQUEST_TO_INTERMEDIARY = cvar.AllocReportType_PRELIMINARY_REQUEST_TO_INTERMEDIARY
 AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY = cvar.AllocReportType_SELLSIDE_CALCULATED_USING_PRELIMINARY
 AllocReportType_REVERSE_PENDING = cvar.AllocReportType_REVERSE_PENDING
-AllocReportType_WAREHOUSERECAP = cvar.AllocReportType_WAREHOUSERECAP
 AllocReportType_ACCEPT = cvar.AllocReportType_ACCEPT
-AllocReportType_SELLSIDECALCULATEDWITHOUTPRELIMINARY = cvar.AllocReportType_SELLSIDECALCULATEDWITHOUTPRELIMINARY
-AllocType_BUYSIDEREADYTOBOOKSINGLE = cvar.AllocType_BUYSIDEREADYTOBOOKSINGLE
 AllocType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = cvar.AllocType_SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY
-AllocType_CALCULATED = cvar.AllocType_CALCULATED
 AllocType_INCOMPLETE_GROUP = cvar.AllocType_INCOMPLETE_GROUP
 AllocType_REVERSAL_PENDING = cvar.AllocType_REVERSAL_PENDING
-AllocType_PRELIMINARY = cvar.AllocType_PRELIMINARY
+AllocType_CALCULATED = cvar.AllocType_CALCULATED
 AllocType_REJECT = cvar.AllocType_REJECT
-AllocType_WAREHOUSEINSTRUCTION = cvar.AllocType_WAREHOUSEINSTRUCTION
-AllocType_BUYSIDEPRELIM = cvar.AllocType_BUYSIDEPRELIM
-AllocType_REQUESTTOINTERMEDIARY = cvar.AllocType_REQUESTTOINTERMEDIARY
+AllocType_PRELIMINARY = cvar.AllocType_PRELIMINARY
 AllocType_ACCEPT_PENDING = cvar.AllocType_ACCEPT_PENDING
-AllocType_BUYSIDEREADYTOBOOKCOMBINED = cvar.AllocType_BUYSIDEREADYTOBOOKCOMBINED
 AllocType_BUYSIDE_CALCULATED = cvar.AllocType_BUYSIDE_CALCULATED
 AllocType_REQUEST_TO_INTERMEDIARY = cvar.AllocType_REQUEST_TO_INTERMEDIARY
-AllocType_SELLSIDECALCWITHOUTPRELIM = cvar.AllocType_SELLSIDECALCWITHOUTPRELIM
 AllocType_BUYSIDE_READY_TO_BOOK_5 = cvar.AllocType_BUYSIDE_READY_TO_BOOK_5
 AllocType_BUYSIDE_READY_TO_BOOK_6 = cvar.AllocType_BUYSIDE_READY_TO_BOOK_6
 AllocType_COMPLETE_GROUP = cvar.AllocType_COMPLETE_GROUP
-AllocType_BUYSIDECALC = cvar.AllocType_BUYSIDECALC
 AllocType_SELLSIDE_CALCULATED_USING_PRELIMINARY = cvar.AllocType_SELLSIDE_CALCULATED_USING_PRELIMINARY
-AllocType_READY_TO_BOOK = cvar.AllocType_READY_TO_BOOK
 AllocType_BUYSIDE_READY_TO_BOOK = cvar.AllocType_BUYSIDE_READY_TO_BOOK
+AllocType_READY_TO_BOOK = cvar.AllocType_READY_TO_BOOK
 AllocType_WAREHOUSE_INSTRUCTION = cvar.AllocType_WAREHOUSE_INSTRUCTION
 AllocType_BUYSIDE_PRELIMINARY = cvar.AllocType_BUYSIDE_PRELIMINARY
 AllocType_ACCEPT = cvar.AllocType_ACCEPT
-AllocType_SELLSIDECALC = cvar.AllocType_SELLSIDECALC
 QuoteRequestRejectReason_INSUFFICIENT_CREDIT = cvar.QuoteRequestRejectReason_INSUFFICIENT_CREDIT
-QuoteRequestRejectReason_NOMARKETFORINSTRUMENT = cvar.QuoteRequestRejectReason_NOMARKETFORINSTRUMENT
-QuoteRequestRejectReason_NOTAUTHTOREQQUOTE = cvar.QuoteRequestRejectReason_NOTAUTHTOREQQUOTE
 QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE = cvar.QuoteRequestRejectReason_NOT_AUTHORIZED_TO_REQUEST_QUOTE
-QuoteRequestRejectReason_QUOTEREQUESTEXLIMIT = cvar.QuoteRequestRejectReason_QUOTEREQUESTEXLIMIT
 QuoteRequestRejectReason_INVALID_PRICE = cvar.QuoteRequestRejectReason_INVALID_PRICE
-QuoteRequestRejectReason_EXCHANGECLOSED = cvar.QuoteRequestRejectReason_EXCHANGECLOSED
-QuoteRequestRejectReason_TOOLATE = cvar.QuoteRequestRejectReason_TOOLATE
-QuoteRequestRejectReason_INVPRICE = cvar.QuoteRequestRejectReason_INVPRICE
-QuoteRequestRejectReason_NOMATCHFORINQUIRY = cvar.QuoteRequestRejectReason_NOMATCHFORINQUIRY
 QuoteRequestRejectReason_TOO_LATE_TO_ENTER = cvar.QuoteRequestRejectReason_TOO_LATE_TO_ENTER
 QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY = cvar.QuoteRequestRejectReason_NO_MATCH_FOR_INQUIRY
-QuoteRequestRejectReason_UNKNOWNSYM = cvar.QuoteRequestRejectReason_UNKNOWNSYM
 QuoteRequestRejectReason_EXCHANGE = cvar.QuoteRequestRejectReason_EXCHANGE
 QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT = cvar.QuoteRequestRejectReason_NO_MARKET_FOR_INSTRUMENT
 QuoteRequestRejectReason_UNKNOWN_SYMBOL = cvar.QuoteRequestRejectReason_UNKNOWN_SYMBOL
 QuoteRequestRejectReason_OTHER = cvar.QuoteRequestRejectReason_OTHER
 QuoteRequestRejectReason_PASS = cvar.QuoteRequestRejectReason_PASS
-QuoteRequestRejectReason_NOINVENTORY = cvar.QuoteRequestRejectReason_NOINVENTORY
 QuoteRequestRejectReason_NO_INVENTORY = cvar.QuoteRequestRejectReason_NO_INVENTORY
 QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT = cvar.QuoteRequestRejectReason_QUOTE_REQUEST_EXCEEDS_LIMIT
-LiquidityIndType_5DAY = cvar.LiquidityIndType_5DAY
-LiquidityIndType_NORMAL = cvar.LiquidityIndType_NORMAL
 LiquidityIndType_20_DAY_MOVING_AVERAGE = cvar.LiquidityIndType_20_DAY_MOVING_AVERAGE
 LiquidityIndType_5_DAY_MOVING_AVERAGE = cvar.LiquidityIndType_5_DAY_MOVING_AVERAGE
 LiquidityIndType_5DAY_MOVING_AVERAGE = cvar.LiquidityIndType_5DAY_MOVING_AVERAGE
 LiquidityIndType_NORMAL_MARKET_SIZE = cvar.LiquidityIndType_NORMAL_MARKET_SIZE
 LiquidityIndType_OTHER = cvar.LiquidityIndType_OTHER
-LiquidityIndType_20DAY = cvar.LiquidityIndType_20DAY
 StatusValue_IN_PROCESS = cvar.StatusValue_IN_PROCESS
-StatusValue_NOTCONNECTEDDOWNEXPECTEDUP = cvar.StatusValue_NOTCONNECTEDDOWNEXPECTEDUP
+StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN = cvar.StatusValue_NOT_CONNECTED_DOWN_EXPECTED_DOWN
 StatusValue_NOT_CONNECTED_2 = cvar.StatusValue_NOT_CONNECTED_2
-StatusValue_NOTCONNECTEDDOWNEXPECTEDDOWN = cvar.StatusValue_NOTCONNECTEDDOWNEXPECTEDDOWN
+StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP = cvar.StatusValue_NOT_CONNECTED_DOWN_EXPECTED_UP
 StatusValue_CONNECTED = cvar.StatusValue_CONNECTED
 StatusValue_NOT_CONNECTED_3 = cvar.StatusValue_NOT_CONNECTED_3
-StatusValue_INPROCESS = cvar.StatusValue_INPROCESS
-PosType_INTRA_SPREAD_QTY = cvar.PosType_INTRA_SPREAD_QTY
-PosType_INTER_SPREAD_QTY = cvar.PosType_INTER_SPREAD_QTY
-PosType_TRANSFER_TRADE_QTY = cvar.PosType_TRANSFER_TRADE_QTY
 PosType_EXCHANGE_FOR_PHYSICAL_QTY = cvar.PosType_EXCHANGE_FOR_PHYSICAL_QTY
-PosType_TRANSFERTRADEQTY = cvar.PosType_TRANSFERTRADEQTY
-PosType_TRANSACTIONQUANTITY = cvar.PosType_TRANSACTIONQUANTITY
-PosType_ADJUSTMENTQTY = cvar.PosType_ADJUSTMENTQTY
+PosType_TRANSFER_TRADE_QTY = cvar.PosType_TRANSFER_TRADE_QTY
+PosType_INTER_SPREAD_QTY = cvar.PosType_INTER_SPREAD_QTY
+PosType_INTRA_SPREAD_QTY = cvar.PosType_INTRA_SPREAD_QTY
 PosType_START_OF_DAY_QTY = cvar.PosType_START_OF_DAY_QTY
-PosType_ENDOFDAYQTY = cvar.PosType_ENDOFDAYQTY
 PosType_DELIVERY_QTY = cvar.PosType_DELIVERY_QTY
-PosType_TRANSACTIONFROMEXERCISE = cvar.PosType_TRANSACTIONFROMEXERCISE
-PosType_OPTIONEXERCISEQTY = cvar.PosType_OPTIONEXERCISEQTY
-PosType_DELIVERYQTY = cvar.PosType_DELIVERYQTY
-PosType_OPTION_ASSIGNMENT = cvar.PosType_OPTION_ASSIGNMENT
 PosType_PIT_TRADE_QTY = cvar.PosType_PIT_TRADE_QTY
 PosType_TRANSACTION_FROM_ASSIGNMENT = cvar.PosType_TRANSACTION_FROM_ASSIGNMENT
 PosType_TRANSACTION_FROM_EXERCISE = cvar.PosType_TRANSACTION_FROM_EXERCISE
-PosType_INTEGRALSPLIT = cvar.PosType_INTEGRALSPLIT
-PosType_ELECTRONICTRADEQTY = cvar.PosType_ELECTRONICTRADEQTY
+PosType_OPTION_ASSIGNMENT = cvar.PosType_OPTION_ASSIGNMENT
 PosType_AS_OF_TRADE_QTY = cvar.PosType_AS_OF_TRADE_QTY
 PosType_ELECTRONIC_TRADE_QTY = cvar.PosType_ELECTRONIC_TRADE_QTY
-PosType_PITTRADEQTY = cvar.PosType_PITTRADEQTY
-PosType_OPTIONASSIGNMENT = cvar.PosType_OPTIONASSIGNMENT
 PosType_SUCCESSION_EVENT_ADJUSTMENT = cvar.PosType_SUCCESSION_EVENT_ADJUSTMENT
 PosType_OPTION_EXERCISE_QTY = cvar.PosType_OPTION_EXERCISE_QTY
 PosType_TRANSACTION_QUANTITY = cvar.PosType_TRANSACTION_QUANTITY
 PosType_NET_DELTA_QTY = cvar.PosType_NET_DELTA_QTY
-PosType_END_OF_DAY_QTY = cvar.PosType_END_OF_DAY_QTY
-PosType_ADJUSTMENT_QTY = cvar.PosType_ADJUSTMENT_QTY
-PosType_TOTAL_TRANSACTION_QTY = cvar.PosType_TOTAL_TRANSACTION_QTY
 PosType_DELIVERY_NOTICE_QTY = cvar.PosType_DELIVERY_NOTICE_QTY
+PosType_TOTAL_TRANSACTION_QTY = cvar.PosType_TOTAL_TRANSACTION_QTY
+PosType_ADJUSTMENT_QTY = cvar.PosType_ADJUSTMENT_QTY
+PosType_END_OF_DAY_QTY = cvar.PosType_END_OF_DAY_QTY
 PosType_RECEIVE_QUANTITY = cvar.PosType_RECEIVE_QUANTITY
-PosType_ASOFTRADEQTY = cvar.PosType_ASOFTRADEQTY
-PosType_ALLOCATIONTRADEQTY = cvar.PosType_ALLOCATIONTRADEQTY
 PosType_CREDIT_EVENT_ADJUSTMENT = cvar.PosType_CREDIT_EVENT_ADJUSTMENT
 PosType_PRIVATELY_NEGOTIATED_TRADE_QTY = cvar.PosType_PRIVATELY_NEGOTIATED_TRADE_QTY
-PosType_CROSS_MARGIN_QTY = cvar.PosType_CROSS_MARGIN_QTY
 PosType_CORPORATE_ACTION_ADJUSTMENT = cvar.PosType_CORPORATE_ACTION_ADJUSTMENT
-PosType_TOTALTRANSACTIONQTY = cvar.PosType_TOTALTRANSACTIONQTY
-PosType_STARTOFDAYQTY = cvar.PosType_STARTOFDAYQTY
+PosType_CROSS_MARGIN_QTY = cvar.PosType_CROSS_MARGIN_QTY
 PosType_INTEGRAL_SPLIT = cvar.PosType_INTEGRAL_SPLIT
-PosType_INTERSPREADQTY = cvar.PosType_INTERSPREADQTY
-PosType_INTRASPREADQTY = cvar.PosType_INTRASPREADQTY
 PosType_ALLOCATION_TRADE_QTY = cvar.PosType_ALLOCATION_TRADE_QTY
-PosType_CROSSMARGINQTY = cvar.PosType_CROSSMARGINQTY
-PosType_TRANSACTIONFROMASSIGNMENT = cvar.PosType_TRANSACTIONFROMASSIGNMENT
 StreamAsgnAckType_ASSIGNMENT_REJECTED = cvar.StreamAsgnAckType_ASSIGNMENT_REJECTED
 StreamAsgnAckType_ASSIGNMENT_ACCEPTED = cvar.StreamAsgnAckType_ASSIGNMENT_ACCEPTED
-RiskInstrumentOperator_EXCLUDE = cvar.RiskInstrumentOperator_EXCLUDE
-RiskInstrumentOperator_INCLUDE = cvar.RiskInstrumentOperator_INCLUDE
-MiscFeeBasis_PERUNIT = cvar.MiscFeeBasis_PERUNIT
 MiscFeeBasis_ABSOLUTE = cvar.MiscFeeBasis_ABSOLUTE
 MiscFeeBasis_PERCENTAGE = cvar.MiscFeeBasis_PERCENTAGE
 MiscFeeBasis_PER_UNIT = cvar.MiscFeeBasis_PER_UNIT
 OrdType_FOREX_MARKET = cvar.OrdType_FOREX_MARKET
 OrdType_FOREX_PREVIOUSLY_QUOTED = cvar.OrdType_FOREX_PREVIOUSLY_QUOTED
-OrdType_ONBASIS = cvar.OrdType_ONBASIS
-OrdType_PREVIOUSLYINDICATED = cvar.OrdType_PREVIOUSLYINDICATED
 OrdType_PREVIOUS_FUND_VALUATION_POINT = cvar.OrdType_PREVIOUS_FUND_VALUATION_POINT
 OrdType_PEGGED = cvar.OrdType_PEGGED
-OrdType_LIMITONCLOSE = cvar.OrdType_LIMITONCLOSE
 OrdType_LIMIT_WITH_OR_WITHOUT = cvar.OrdType_LIMIT_WITH_OR_WITHOUT
 OrdType_STOP_LIMIT = cvar.OrdType_STOP_LIMIT
 OrdType_FOREX_SWAP = cvar.OrdType_FOREX_SWAP
-OrdType_WITHORWITHOUT = cvar.OrdType_WITHORWITHOUT
-OrdType_FOREXLIMIT = cvar.OrdType_FOREXLIMIT
 OrdType_MARKET_WITH_LEFT_OVER_AS_LIMIT = cvar.OrdType_MARKET_WITH_LEFT_OVER_AS_LIMIT
-OrdType_PREVIOUSLYQUOTED = cvar.OrdType_PREVIOUSLYQUOTED
 OrdType_PREVIOUSLY_QUOTED = cvar.OrdType_PREVIOUSLY_QUOTED
 OrdType_COUNTER_ORDER_SELECTION = cvar.OrdType_COUNTER_ORDER_SELECTION
-OrdType_LIMITWITHORWITHOUT = cvar.OrdType_LIMITWITHORWITHOUT
-OrdType_FOREXSWAP = cvar.OrdType_FOREXSWAP
 OrdType_MARKET_IF_TOUCHED = cvar.OrdType_MARKET_IF_TOUCHED
 OrdType_NEXT_FUND_VALUATION_POINT = cvar.OrdType_NEXT_FUND_VALUATION_POINT
 OrdType_FOREX_C = cvar.OrdType_FOREX_C
 OrdType_ON_CLOSE = cvar.OrdType_ON_CLOSE
 OrdType_STOP = cvar.OrdType_STOP
-OrdType_STOPLIMIT = cvar.OrdType_STOPLIMIT
-OrdType_LIMITORBETTER = cvar.OrdType_LIMITORBETTER
-OrdType_ONCLOSE = cvar.OrdType_ONCLOSE
 OrdType_FOREX_LIMIT = cvar.OrdType_FOREX_LIMIT
-OrdType_FOREXMARKET = cvar.OrdType_FOREXMARKET
 OrdType_FOREX = cvar.OrdType_FOREX
-OrdType_MARKETIFTOUCHED = cvar.OrdType_MARKETIFTOUCHED
 OrdType_FUNARI = cvar.OrdType_FUNARI
 OrdType_FOREX_F = cvar.OrdType_FOREX_F
 OrdType_PREVIOUSLY_INDICATED = cvar.OrdType_PREVIOUSLY_INDICATED
@@ -32656,109 +29518,75 @@ OrdType_LIMIT = cvar.OrdType_LIMIT
 OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT = cvar.OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT
 OrdType_FOREX_G = cvar.OrdType_FOREX_G
 OrdType_LIMIT_ON_CLOSE = cvar.OrdType_LIMIT_ON_CLOSE
-OrdType_MARKETONCLOSE = cvar.OrdType_MARKETONCLOSE
-OrdType_PREVIOUSFUNDVALUATIONPOINT = cvar.OrdType_PREVIOUSFUNDVALUATIONPOINT
-OrdType_NEXTFUNDVALUATIONPOINT = cvar.OrdType_NEXTFUNDVALUATIONPOINT
 OrdType_FOREX_H = cvar.OrdType_FOREX_H
-OrdType_FOREXPREVIOUSLYQUOTED = cvar.OrdType_FOREXPREVIOUSLYQUOTED
-OrdType_MARKETWITHLEFTOVERLIMIT = cvar.OrdType_MARKETWITHLEFTOVERLIMIT
 OrdType_ON_BASIS = cvar.OrdType_ON_BASIS
 OrdType_LIMIT_OR_BETTER = cvar.OrdType_LIMIT_OR_BETTER
 OrdType_MARKET = cvar.OrdType_MARKET
-MatchType_ACT_DEFAULT_AFTER_M2 = cvar.MatchType_ACT_DEFAULT_AFTER_M2
-MatchType_SUMMARIZEDMATCHUSINGA2 = cvar.MatchType_SUMMARIZEDMATCHUSINGA2
-MatchType_COUNTER_ORDER_SELECTION_6 = cvar.MatchType_COUNTER_ORDER_SELECTION_6
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND
+MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS = cvar.MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS
 MatchType_SUMMARIZED_MATCH_USING_A4_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A4_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
 MatchType_NON_ACT = cvar.MatchType_NON_ACT
-MatchType_SUMMARIZEDMATCHUSINGA3 = cvar.MatchType_SUMMARIZEDMATCHUSINGA3
-MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S1 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S1
-MatchType_SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH = cvar.MatchType_SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH
-MatchType_SUMMARIZEDMATCHUSINGA4 = cvar.MatchType_SUMMARIZEDMATCHUSINGA4
-MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S2 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S2
-MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
-MatchType_SUMMARIZEDMATCHUSINGA5 = cvar.MatchType_SUMMARIZEDMATCHUSINGA5
-MatchType_NASDAQACTM2MATCH = cvar.MatchType_NASDAQACTM2MATCH
-MatchType_CROSS_AUCTION_5 = cvar.MatchType_CROSS_AUCTION_5
-MatchType_ACT_M1_MATCH = cvar.MatchType_ACT_M1_MATCH
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND
 MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S3 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S3
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSTWOBADGES = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSTWOBADGES
-MatchType_NASDAQACTDEFAULTAFTERM2 = cvar.MatchType_NASDAQACTDEFAULTAFTERM2
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSFOURBADGES = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSFOURBADGES
-MatchType_NASDAQACTM1MATCH = cvar.MatchType_NASDAQACTM1MATCH
-MatchType_CALL_AUCTION_7 = cvar.MatchType_CALL_AUCTION_7
-MatchType_CROSS_AUCTION_63 = cvar.MatchType_CROSS_AUCTION_63
-MatchType_ISSUING_BUY_BACK_AUCTION = cvar.MatchType_ISSUING_BUY_BACK_AUCTION
-MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S4 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S4
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSFOURBADGESANDEXECUTIONTIME = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSFOURBADGESANDEXECUTIONTIME
-MatchType_ONE_PARTY_TRADE_REPORT = cvar.MatchType_ONE_PARTY_TRADE_REPORT
-MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S5 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S5
-MatchType_ACT_M2_MATCH = cvar.MatchType_ACT_M2_MATCH
-MatchType_SUMMARIZEDMATCHMINUSBADGESANDTIMES = cvar.MatchType_SUMMARIZEDMATCHMINUSBADGESANDTIMES
-MatchType_NASDAQACTDEFAULTTRADE = cvar.MatchType_NASDAQACTDEFAULTTRADE
-MatchType_CALL_AUCTION = cvar.MatchType_CALL_AUCTION
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH
-MatchType_ACT_ACCEPTED_TRADE = cvar.MatchType_ACT_ACCEPTED_TRADE
-MatchType_TWO_PARTY_TRADE_REPORT = cvar.MatchType_TWO_PARTY_TRADE_REPORT
-MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED
-MatchType_CONTINUOUS_AUTO_MATCH = cvar.MatchType_CONTINUOUS_AUTO_MATCH
-MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
-MatchType_ACT_M6_MATCH = cvar.MatchType_ACT_M6_MATCH
-MatchType_SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
-MatchType_ACT_DEFAULT_TRADE = cvar.MatchType_ACT_DEFAULT_TRADE
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORMINUSBADGESANDTIMES = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORMINUSBADGESANDTIMES
-MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST = cvar.MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST
 MatchType_AUTO_MATCH = cvar.MatchType_AUTO_MATCH
-MatchType_NASDAQACTM6MATCH = cvar.MatchType_NASDAQACTM6MATCH
-MatchType_OCSLOCKEDIN = cvar.MatchType_OCSLOCKEDIN
-MatchType_COUNTER_ORDER_SELECTION = cvar.MatchType_COUNTER_ORDER_SELECTION
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES
-MatchType_SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
-MatchType_NASDAQACTACCEPTEDTRADE = cvar.MatchType_NASDAQACTACCEPTEDTRADE
-MatchType_CALL_AUCTION_65 = cvar.MatchType_CALL_AUCTION_65
-MatchType_CROSS_AUCTION = cvar.MatchType_CROSS_AUCTION
-MatchType_OCS_LOCKED_IN_NON_ACT = cvar.MatchType_OCS_LOCKED_IN_NON_ACT
-MatchType_CONFIRMED_TRADE_REPORT = cvar.MatchType_CONFIRMED_TRADE_REPORT
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSTWOBADGESANDEXECUTIONTIME = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSTWOBADGESANDEXECUTIONTIME
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES
 MatchType_SUMMARIZED_MATCH_USING_A2_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A2_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
-MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSEXECUTIONTIME = cvar.MatchType_EXACTMATCHONTRADEDATESTOCKSYMBOLQUANTITYPRICETRADETYPEANDSPECIALTRADEINDICATORPLUSEXECUTIONTIME
-MatchType_NASDAQNONACT = cvar.MatchType_NASDAQNONACT
-MatchType_COMPAREDRECORDSRESULTINGFROMSTAMPEDADVISORIESORSPECIALISTACCEPTSPAIROFFS = cvar.MatchType_COMPAREDRECORDSRESULTINGFROMSTAMPEDADVISORIESORSPECIALISTACCEPTSPAIROFFS
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME
-MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS = cvar.MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS
-MatchType_SUMMARIZEDMATCHUSINGA1 = cvar.MatchType_SUMMARIZEDMATCHUSINGA1
-MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME
+MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S4 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S4
+MatchType_CALL_AUCTION = cvar.MatchType_CALL_AUCTION
+MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED
+MatchType_SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
+MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST = cvar.MatchType_COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES
+MatchType_ACT_M2_MATCH = cvar.MatchType_ACT_M2_MATCH
+MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S5 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S5
+MatchType_ONE_PARTY_TRADE_REPORT = cvar.MatchType_ONE_PARTY_TRADE_REPORT
+MatchType_ACT_M1_MATCH = cvar.MatchType_ACT_M1_MATCH
+MatchType_COUNTER_ORDER_SELECTION = cvar.MatchType_COUNTER_ORDER_SELECTION
+MatchType_ISSUING_BUY_BACK_AUCTION = cvar.MatchType_ISSUING_BUY_BACK_AUCTION
+MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
+MatchType_CROSS_AUCTION_63 = cvar.MatchType_CROSS_AUCTION_63
+MatchType_CROSS_AUCTION_5 = cvar.MatchType_CROSS_AUCTION_5
+MatchType_CALL_AUCTION_7 = cvar.MatchType_CALL_AUCTION_7
 MatchType_COUNTER_ORDER_SELECTION_64 = cvar.MatchType_COUNTER_ORDER_SELECTION_64
+MatchType_TWO_PARTY_TRADE_REPORT = cvar.MatchType_TWO_PARTY_TRADE_REPORT
+MatchType_SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH = cvar.MatchType_SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME
+MatchType_ACT_DEFAULT_TRADE = cvar.MatchType_ACT_DEFAULT_TRADE
+MatchType_ACT_ACCEPTED_TRADE = cvar.MatchType_ACT_ACCEPTED_TRADE
+MatchType_COUNTER_ORDER_SELECTION_6 = cvar.MatchType_COUNTER_ORDER_SELECTION_6
+MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME
+MatchType_CROSS_AUCTION = cvar.MatchType_CROSS_AUCTION
+MatchType_CALL_AUCTION_65 = cvar.MatchType_CALL_AUCTION_65
+MatchType_CONFIRMED_TRADE_REPORT = cvar.MatchType_CONFIRMED_TRADE_REPORT
+MatchType_SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = cvar.MatchType_SUMMARIZED_MATCH_USING_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED
+MatchType_ACT_M6_MATCH = cvar.MatchType_ACT_M6_MATCH
+MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = cvar.MatchType_ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT
+MatchType_CONTINUOUS_AUTO_MATCH = cvar.MatchType_CONTINUOUS_AUTO_MATCH
+MatchType_OCS_LOCKED_IN_NON_ACT = cvar.MatchType_OCS_LOCKED_IN_NON_ACT
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME
+MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S1 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S1
+MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH = cvar.MatchType_EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH
+MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S2 = cvar.MatchType_SUMMARIZED_MATCH_USING_A1_TO_A5_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED_S2
+MatchType_ACT_DEFAULT_AFTER_M2 = cvar.MatchType_ACT_DEFAULT_AFTER_M2
 OptPayoutType_BINARY = cvar.OptPayoutType_BINARY
 OptPayoutType_VANILLA = cvar.OptPayoutType_VANILLA
 OptPayoutType_CAPPED = cvar.OptPayoutType_CAPPED
 MarketUpdateAction_DELETE = cvar.MarketUpdateAction_DELETE
 MarketUpdateAction_ADD = cvar.MarketUpdateAction_ADD
 MarketUpdateAction_MODIFY = cvar.MarketUpdateAction_MODIFY
-CollAsgnRejectReason_INVALIDTYPEOFCOLLATERAL = cvar.CollAsgnRejectReason_INVALIDTYPEOFCOLLATERAL
 CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION = cvar.CollAsgnRejectReason_UNAUTHORIZED_TRANSACTION
 CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT = cvar.CollAsgnRejectReason_UNKNOWN_OR_INVALID_INSTRUMENT
-CollAsgnRejectReason_UNKNOWNDEAL = cvar.CollAsgnRejectReason_UNKNOWNDEAL
 CollAsgnRejectReason_UNKNOWN_DEAL = cvar.CollAsgnRejectReason_UNKNOWN_DEAL
-CollAsgnRejectReason_UNAUTHORIZEDTRANSACTION = cvar.CollAsgnRejectReason_UNAUTHORIZEDTRANSACTION
 CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL = cvar.CollAsgnRejectReason_INVALID_TYPE_OF_COLLATERAL
-CollAsgnRejectReason_INSUFFICIENTCOLLATERAL = cvar.CollAsgnRejectReason_INSUFFICIENTCOLLATERAL
-CollAsgnRejectReason_UNKNOWNORINVALIDINSTRUMENT = cvar.CollAsgnRejectReason_UNKNOWNORINVALIDINSTRUMENT
-CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION = cvar.CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION
 CollAsgnRejectReason_OTHER = cvar.CollAsgnRejectReason_OTHER
+CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION = cvar.CollAsgnRejectReason_EXCESSIVE_SUBSTITUTION
 CollAsgnRejectReason_INSUFFICIENT_COLLATERAL = cvar.CollAsgnRejectReason_INSUFFICIENT_COLLATERAL
-CollAsgnRejectReason_EXCESSIVESUBSTITUTION = cvar.CollAsgnRejectReason_EXCESSIVESUBSTITUTION
 IndividualAllocType_SUB_ALLOCATE = cvar.IndividualAllocType_SUB_ALLOCATE
 IndividualAllocType_THIRD_PARTY_ALLOCATION = cvar.IndividualAllocType_THIRD_PARTY_ALLOCATION
-GTBookingInst_ACCUMUNTILFILL = cvar.GTBookingInst_ACCUMUNTILFILL
-GTBookingInst_ACCUMUNTILNOTIFY = cvar.GTBookingInst_ACCUMUNTILNOTIFY
 GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION = cvar.GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION
 GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE = cvar.GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE
 GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES = cvar.GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES
-GTBookingInst_BOOKALL = cvar.GTBookingInst_BOOKALL
 GTBookingInst_ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE = cvar.GTBookingInst_ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE
 GTBookingInst_ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES = cvar.GTBookingInst_ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES
 PutOrCall_PUT = cvar.PutOrCall_PUT
@@ -32773,10 +29601,8 @@ TickRuleType_VARIABLE = cvar.TickRuleType_VARIABLE
 TickRuleType_SETTLED_AS_A_SPREAD_LEG = cvar.TickRuleType_SETTLED_AS_A_SPREAD_LEG
 TickRuleType_FIXED = cvar.TickRuleType_FIXED
 DiscretionOffsetType_PRICE = cvar.DiscretionOffsetType_PRICE
-DiscretionOffsetType_BASISPOINTS = cvar.DiscretionOffsetType_BASISPOINTS
 DiscretionOffsetType_PRICE_TIER = cvar.DiscretionOffsetType_PRICE_TIER
 DiscretionOffsetType_TICKS = cvar.DiscretionOffsetType_TICKS
-DiscretionOffsetType_PRICETIERLEVEL = cvar.DiscretionOffsetType_PRICETIERLEVEL
 DiscretionOffsetType_BASIS_POINTS = cvar.DiscretionOffsetType_BASIS_POINTS
 ConfirmTransType_REPLACE = cvar.ConfirmTransType_REPLACE
 ConfirmTransType_NEW = cvar.ConfirmTransType_NEW
@@ -32789,7 +29615,6 @@ TradSesEvent_TRADING_RESUMES = cvar.TradSesEvent_TRADING_RESUMES
 DlvyInstType_SECURITIES = cvar.DlvyInstType_SECURITIES
 DlvyInstType_CASH = cvar.DlvyInstType_CASH
 TradeCondition_IMPLIED_TRADE = cvar.TradeCondition_IMPLIED_TRADE
-TradeCondition_CASHMKT = cvar.TradeCondition_CASHMKT
 TradeCondition_OPENING_PRICE = cvar.TradeCondition_OPENING_PRICE
 TradeCondition_PRIOR_REFERENCE_PRICE = cvar.TradeCondition_PRIOR_REFERENCE_PRICE
 TradeCondition_CANCEL_LAST_ETH = cvar.TradeCondition_CANCEL_LAST_ETH
@@ -32798,7 +29623,6 @@ TradeCondition_DISTRIBUTION = cvar.TradeCondition_DISTRIBUTION
 TradeCondition_NEXT_DAY_TRADE = cvar.TradeCondition_NEXT_DAY_TRADE
 TradeCondition_STRADDLE_ETH = cvar.TradeCondition_STRADDLE_ETH
 TradeCondition_SPREAD = cvar.TradeCondition_SPREAD
-TradeCondition_OPENINGPRICE = cvar.TradeCondition_OPENINGPRICE
 TradeCondition_CROSSED_AO = cvar.TradeCondition_CROSSED_AO
 TradeCondition_SOLD_LAST_SALE = cvar.TradeCondition_SOLD_LAST_SALE
 TradeCondition_OPENED_SALE_ETH = cvar.TradeCondition_OPENED_SALE_ETH
@@ -32806,12 +29630,10 @@ TradeCondition_REOPEN_ETH = cvar.TradeCondition_REOPEN_ETH
 TradeCondition_SOLD_LAST_SALE_ETH = cvar.TradeCondition_SOLD_LAST_SALE_ETH
 TradeCondition_STOPPED_SOLD_LAST = cvar.TradeCondition_STOPPED_SOLD_LAST
 TradeCondition_TRADES_RESULTING_FROM_INTERMARKET_SWEEP = cvar.TradeCondition_TRADES_RESULTING_FROM_INTERMARKET_SWEEP
-TradeCondition_NEXTDAY_D = cvar.TradeCondition_NEXTDAY_D
 TradeCondition_FORM_T = cvar.TradeCondition_FORM_T
 TradeCondition_ADJUSTED = cvar.TradeCondition_ADJUSTED
 TradeCondition_CANCEL_ETH = cvar.TradeCondition_CANCEL_ETH
 TradeCondition_OUT_OF_SEQUENCE_ETH = cvar.TradeCondition_OUT_OF_SEQUENCE_ETH
-TradeCondition_RULE127 = cvar.TradeCondition_RULE127
 TradeCondition_COMBO_ETH = cvar.TradeCondition_COMBO_ETH
 TradeCondition_CANCEL_ONLY_ETH = cvar.TradeCondition_CANCEL_ONLY_ETH
 TradeCondition_STRADDLE = cvar.TradeCondition_STRADDLE
@@ -32832,43 +29654,35 @@ TradeCondition_STOPPED = cvar.TradeCondition_STOPPED
 TradeCondition_CONVERTED_PRICE_INDICATOR = cvar.TradeCondition_CONVERTED_PRICE_INDICATOR
 TradeCondition_OFFICIAL_CLOSING_PRICE = cvar.TradeCondition_OFFICIAL_CLOSING_PRICE
 TradeCondition_ADJUSTED_ETH = cvar.TradeCondition_ADJUSTED_ETH
-TradeCondition_AVGPX = cvar.TradeCondition_AVGPX
 TradeCondition_RULE_155_TRADE = cvar.TradeCondition_RULE_155_TRADE
-TradeCondition_SOLDLAST = cvar.TradeCondition_SOLDLAST
-TradeCondition_NEXTDAY_J = cvar.TradeCondition_NEXTDAY_J
 TradeCondition_AUTOMATIC_EXECUTION = cvar.TradeCondition_AUTOMATIC_EXECUTION
 TradeCondition_CROSSED_X = cvar.TradeCondition_CROSSED_X
 TradeCondition_AUTO_EXECUTION_ETH = cvar.TradeCondition_AUTO_EXECUTION_ETH
 TradeCondition_MULTILEG_TO_MULTILEG_TRADE = cvar.TradeCondition_MULTILEG_TO_MULTILEG_TRADE
-TradeCondition_OFFICAL_CLOSING_PRICE = cvar.TradeCondition_OFFICAL_CLOSING_PRICE
-TradeCondition_FINAL_PRICE_OF_SESSION = cvar.TradeCondition_FINAL_PRICE_OF_SESSION
 TradeCondition_BASKET_INDEX = cvar.TradeCondition_BASKET_INDEX
 TradeCondition_TRADES_RESULTING_FROM_MANUAL_SLOW_QUOTE = cvar.TradeCondition_TRADES_RESULTING_FROM_MANUAL_SLOW_QUOTE
+TradeCondition_FINAL_PRICE_OF_SESSION = cvar.TradeCondition_FINAL_PRICE_OF_SESSION
 TradeCondition_STOPPED_STOCK = cvar.TradeCondition_STOPPED_STOCK
+TradeCondition_OFFICAL_CLOSING_PRICE = cvar.TradeCondition_OFFICAL_CLOSING_PRICE
 TradeCondition_MULT_ASSET_CLASS_MULTILEG_TRADE = cvar.TradeCondition_MULT_ASSET_CLASS_MULTILEG_TRADE
-TradeCondition_STOPPED_ETH = cvar.TradeCondition_STOPPED_ETH
-TradeCondition_REGULAR_ETH = cvar.TradeCondition_REGULAR_ETH
-TradeCondition_CANCEL_OPEN = cvar.TradeCondition_CANCEL_OPEN
 TradeCondition_CASH = cvar.TradeCondition_CASH
-TradeCondition_CASHTRADE = cvar.TradeCondition_CASHTRADE
-TradeCondition_RULE155 = cvar.TradeCondition_RULE155
-TradeCondition_CANCEL_STOPPED_ETH = cvar.TradeCondition_CANCEL_STOPPED_ETH
+TradeCondition_CANCEL_OPEN = cvar.TradeCondition_CANCEL_OPEN
+TradeCondition_REGULAR_ETH = cvar.TradeCondition_REGULAR_ETH
+TradeCondition_STOPPED_ETH = cvar.TradeCondition_STOPPED_ETH
 TradeCondition_VOLUME_ONLY = cvar.TradeCondition_VOLUME_ONLY
-TradeCondition_SPLIT_TRADE = cvar.TradeCondition_SPLIT_TRADE
+TradeCondition_CANCEL_STOPPED_ETH = cvar.TradeCondition_CANCEL_STOPPED_ETH
 TradeCondition_STOPPED_OUT_OF_SEQUENCE = cvar.TradeCondition_STOPPED_OUT_OF_SEQUENCE
 TradeCondition_CASH_TRADE = cvar.TradeCondition_CASH_TRADE
+TradeCondition_SPLIT_TRADE = cvar.TradeCondition_SPLIT_TRADE
 TradeCondition_IMBALANCE_MORE_BUYERS = cvar.TradeCondition_IMBALANCE_MORE_BUYERS
-TradeCondition_BUNCHED = cvar.TradeCondition_BUNCHED
-TradeCondition_INTRADAY = cvar.TradeCondition_INTRADAY
 TradeCondition_IMBALANCE_MORE_SELLERS = cvar.TradeCondition_IMBALANCE_MORE_SELLERS
 TradeCondition_INTRADAY_TRADE_DETAIL = cvar.TradeCondition_INTRADAY_TRADE_DETAIL
 TradeCondition_RULE_127_TRADE = cvar.TradeCondition_RULE_127_TRADE
-TradeCondition_IMBALANCEMOREBUYERS = cvar.TradeCondition_IMBALANCEMOREBUYERS
+TradeCondition_BUNCHED = cvar.TradeCondition_BUNCHED
 TradeCondition_REOPEN = cvar.TradeCondition_REOPEN
 TradeCondition_EX_PIT = cvar.TradeCondition_EX_PIT
-TradeCondition_CANCEL_LAST = cvar.TradeCondition_CANCEL_LAST
 TradeCondition_DIRECT_PLUS = cvar.TradeCondition_DIRECT_PLUS
-TradeCondition_IMBALANCEMORESELLERS = cvar.TradeCondition_IMBALANCEMORESELLERS
+TradeCondition_CANCEL_LAST = cvar.TradeCondition_CANCEL_LAST
 TradeCondition_AVERAGE_PRICE_TRADE = cvar.TradeCondition_AVERAGE_PRICE_TRADE
 TradeCondition_SOLD_LAST = cvar.TradeCondition_SOLD_LAST
 TradeCondition_MARKETPLACE_ENTERED_TRADE = cvar.TradeCondition_MARKETPLACE_ENTERED_TRADE
@@ -32882,10 +29696,8 @@ PriceLimitType_PRICE = cvar.PriceLimitType_PRICE
 PriceLimitType_TICKS = cvar.PriceLimitType_TICKS
 PriceLimitType_PERCENTAGE = cvar.PriceLimitType_PERCENTAGE
 CommType_PER_SHARE = cvar.CommType_PER_SHARE
-CommType_PCTWAIVEDCSHDISC = cvar.CommType_PCTWAIVEDCSHDISC
+CommType_POINTS_PER_BOND_OR_CONTRACT_SUPPLY_CONTRACTMULTIPLIER = cvar.CommType_POINTS_PER_BOND_OR_CONTRACT_SUPPLY_CONTRACTMULTIPLIER
 CommType_ABSOLUTE = cvar.CommType_ABSOLUTE
-CommType_PCTWAIVEDENUNITS = cvar.CommType_PCTWAIVEDENUNITS
-CommType_PERBOND = cvar.CommType_PERBOND
 CommType_PER_BOND = cvar.CommType_PER_BOND
 CommType_PERCENTAGE = cvar.CommType_PERCENTAGE
 CommType_PERCENTAGE_WAIVED_4 = cvar.CommType_PERCENTAGE_WAIVED_4
@@ -32896,119 +29708,75 @@ CommType_PERCENT = cvar.CommType_PERCENT
 CommType_4 = cvar.CommType_4
 CommType_5 = cvar.CommType_5
 RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_DISTRIB_INSTNS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_DISTRIB_INSTNS
-RegistRejReasonCode_INVALIDOWNERSHIPTYPE = cvar.RegistRejReasonCode_INVALIDOWNERSHIPTYPE
-RegistRejReasonCode_INVALIDREGDTLS = cvar.RegistRejReasonCode_INVALIDREGDTLS
-RegistRejReasonCode_INVALIDMAILINGDTLS = cvar.RegistRejReasonCode_INVALIDMAILINGDTLS
 RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DTLS
 RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETAILS
 RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS
-RegistRejReasonCode_INVALIDINVESTORCOUNTRYOFRESIDENCE = cvar.RegistRejReasonCode_INVALIDINVESTORCOUNTRYOFRESIDENCE
-RegistRejReasonCode_INVALIDCASHDISTRIBAGENTCODE = cvar.RegistRejReasonCode_INVALIDCASHDISTRIBAGENTCODE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME
 RegistRejReasonCode_INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE = cvar.RegistRejReasonCode_INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE
-RegistRejReasonCode_INVALIDDATEOFBIRTH = cvar.RegistRejReasonCode_INVALIDDATEOFBIRTH
-RegistRejReasonCode_INVALIDDISTRIBPAYMENTMETHOD = cvar.RegistRejReasonCode_INVALIDDISTRIBPAYMENTMETHOD
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DATE_OF_BIRTH
-RegistRejReasonCode_INVALIDNODISTRIBINSTNS = cvar.RegistRejReasonCode_INVALIDNODISTRIBINSTNS
-RegistRejReasonCode_INVALIDCASHDISTRIBAGENTACCTNUM = cvar.RegistRejReasonCode_INVALIDCASHDISTRIBAGENTACCTNUM
-RegistRejReasonCode_INVALIDTAXEXEMPTTYPE = cvar.RegistRejReasonCode_INVALIDTAXEXEMPTTYPE
-RegistRejReasonCode_INVALIDMAILINGINST = cvar.RegistRejReasonCode_INVALIDMAILINGINST
 RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_INST
 RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NO_REG_DETLS
-RegistRejReasonCode_INVALIDACCOUNTTYPE = cvar.RegistRejReasonCode_INVALIDACCOUNTTYPE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_CODE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DETAILS
-RegistRejReasonCode_INVALIDREGSEQNO = cvar.RegistRejReasonCode_INVALIDREGSEQNO
 RegistRejReasonCode_OTHER = cvar.RegistRejReasonCode_OTHER
-RegistRejReasonCode_INVALIDDISTRIBPERCENTAGE = cvar.RegistRejReasonCode_INVALIDDISTRIBPERCENTAGE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_DTLS
 RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_ACCOUNT_TYPE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DETAILS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_MAILING_DETAILS
-RegistRejReasonCode_INVALIDINVESTORIDSOURCE = cvar.RegistRejReasonCode_INVALIDINVESTORIDSOURCE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE
-RegistRejReasonCode_INVALIDCASHDISTRIBAGENTACCTNAME = cvar.RegistRejReasonCode_INVALIDCASHDISTRIBAGENTACCTNAME
-RegistRejReasonCode_INVALIDNOREGDETLS = cvar.RegistRejReasonCode_INVALIDNOREGDETLS
-RegistRejReasonCode_INVALIDINVESTORID = cvar.RegistRejReasonCode_INVALIDINVESTORID
 RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NUM
 RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_REG_SEQ_NO
 RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_INVESTOR_ID
 RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_OWNERSHIP_TYPE
 RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS = cvar.RegistRejReasonCode_INVALID_UNACCEPTABLE_NODISTRIBINSTNS
 FinancialStatus_BANKRUPT = cvar.FinancialStatus_BANKRUPT
-FinancialStatus_PENDINGDELISTING = cvar.FinancialStatus_PENDINGDELISTING
 FinancialStatus_RESTRICTED = cvar.FinancialStatus_RESTRICTED
 FinancialStatus_PENDING_DELISTING = cvar.FinancialStatus_PENDING_DELISTING
 LastFragment_NO = cvar.LastFragment_NO
 LastFragment_YES = cvar.LastFragment_YES
 NotifyBrokerOfCredit_NO = cvar.NotifyBrokerOfCredit_NO
 NotifyBrokerOfCredit_YES = cvar.NotifyBrokerOfCredit_YES
-PartySubIDType_REGISTERED_ADDRESS_12 = cvar.PartySubIDType_REGISTERED_ADDRESS_12
-PartySubIDType_CASH_ACCOUNT_NUMBER = cvar.PartySubIDType_CASH_ACCOUNT_NUMBER
-PartySubIDType_FAX_NUMBER = cvar.PartySubIDType_FAX_NUMBER
-PartySubIDType_CONTACTNAME = cvar.PartySubIDType_CONTACTNAME
-PartySubIDType_RESERVEDANDAVAILABLEFORBILATERALLYAGREEDUPONUSERDEFINEDVALUES = cvar.PartySubIDType_RESERVEDANDAVAILABLEFORBILATERALLYAGREEDUPONUSERDEFINEDVALUES
 PartySubIDType_DEPARTMENT = cvar.PartySubIDType_DEPARTMENT
+PartySubIDType_FAX_NUMBER = cvar.PartySubIDType_FAX_NUMBER
+PartySubIDType_CASH_ACCOUNT_NUMBER = cvar.PartySubIDType_CASH_ACCOUNT_NUMBER
+PartySubIDType_REGISTERED_ADDRESS_12 = cvar.PartySubIDType_REGISTERED_ADDRESS_12
 PartySubIDType_CONTACT_NAME = cvar.PartySubIDType_CONTACT_NAME
-PartySubIDType_TELEXNUMBER = cvar.PartySubIDType_TELEXNUMBER
 PartySubIDType_PERSON = cvar.PartySubIDType_PERSON
 PartySubIDType_FIRM = cvar.PartySubIDType_FIRM
-PartySubIDType_CASH_ACCOUNT_NAME = cvar.PartySubIDType_CASH_ACCOUNT_NAME
-PartySubIDType_POSITION_ACCOUNT_TYPE = cvar.PartySubIDType_POSITION_ACCOUNT_TYPE
-PartySubIDType_POSTAL_ADDRESS = cvar.PartySubIDType_POSTAL_ADDRESS
 PartySubIDType_SECURITY_LOCATE_ID = cvar.PartySubIDType_SECURITY_LOCATE_ID
-PartySubIDType_POSTALADDRESS = cvar.PartySubIDType_POSTALADDRESS
-PartySubIDType_FUND_ACCOUNT_NAME = cvar.PartySubIDType_FUND_ACCOUNT_NAME
+PartySubIDType_POSITION_ACCOUNT_TYPE = cvar.PartySubIDType_POSITION_ACCOUNT_TYPE
+PartySubIDType_CASH_ACCOUNT_NAME = cvar.PartySubIDType_CASH_ACCOUNT_NAME
+PartySubIDType_POSTAL_ADDRESS = cvar.PartySubIDType_POSTAL_ADDRESS
 PartySubIDType_PROFESSIONAL_CLIENT = cvar.PartySubIDType_PROFESSIONAL_CLIENT
 PartySubIDType_LOCATION = cvar.PartySubIDType_LOCATION
-PartySubIDType_FULLLEGALNAMEOFFIRM = cvar.PartySubIDType_FULLLEGALNAMEOFFIRM
-PartySubIDType_LOCATIONDESK = cvar.PartySubIDType_LOCATIONDESK
-PartySubIDType_REGISTEREDADDRESS_12 = cvar.PartySubIDType_REGISTEREDADDRESS_12
+PartySubIDType_FUND_ACCOUNT_NAME = cvar.PartySubIDType_FUND_ACCOUNT_NAME
 PartySubIDType_REGISTRATION_NUMBER = cvar.PartySubIDType_REGISTRATION_NUMBER
-PartySubIDType_EMAILADDRESS = cvar.PartySubIDType_EMAILADDRESS
 PartySubIDType_SYSTEM = cvar.PartySubIDType_SYSTEM
-PartySubIDType_SECURITIESACCOUNTNUMBER = cvar.PartySubIDType_SECURITIESACCOUNTNUMBER
-PartySubIDType_REGULATORY_STATUS = cvar.PartySubIDType_REGULATORY_STATUS
 PartySubIDType_CSD_PARTICIPANT_MEMBER_CODE = cvar.PartySubIDType_CSD_PARTICIPANT_MEMBER_CODE
-PartySubIDType_PHONENUMBER = cvar.PartySubIDType_PHONENUMBER
+PartySubIDType_REGULATORY_STATUS = cvar.PartySubIDType_REGULATORY_STATUS
 PartySubIDType_CURRENCY_DELIVERY_IDENTIFIER = cvar.PartySubIDType_CURRENCY_DELIVERY_IDENTIFIER
-PartySubIDType_REGISTRATION_NAME = cvar.PartySubIDType_REGISTRATION_NAME
-PartySubIDType_REGISTERED_ADDRESS_18 = cvar.PartySubIDType_REGISTERED_ADDRESS_18
 PartySubIDType_TELEX_NUMBER = cvar.PartySubIDType_TELEX_NUMBER
-PartySubIDType_EMAIL_ADDRESS = cvar.PartySubIDType_EMAIL_ADDRESS
-PartySubIDType_FAXNUMBER = cvar.PartySubIDType_FAXNUMBER
+PartySubIDType_REGISTERED_ADDRESS_18 = cvar.PartySubIDType_REGISTERED_ADDRESS_18
 PartySubIDType_BIC = cvar.PartySubIDType_BIC
-PartySubIDType_CASHACCOUNT = cvar.PartySubIDType_CASHACCOUNT
-PartySubIDType_REGISTRATIONNUMBER = cvar.PartySubIDType_REGISTRATIONNUMBER
+PartySubIDType_REGISTRATION_NAME = cvar.PartySubIDType_REGISTRATION_NAME
+PartySubIDType_EMAIL_ADDRESS = cvar.PartySubIDType_EMAIL_ADDRESS
 PartySubIDType_LOCATION_DESK = cvar.PartySubIDType_LOCATION_DESK
 PartySubIDType_APPLICATION = cvar.PartySubIDType_APPLICATION
-PartySubIDType_CASHACCOUNTNAME = cvar.PartySubIDType_CASHACCOUNTNAME
 PartySubIDType_SECURITIES_ACCOUNT_NAME = cvar.PartySubIDType_SECURITIES_ACCOUNT_NAME
 PartySubIDType_PHONE_NUMBER = cvar.PartySubIDType_PHONE_NUMBER
-PartySubIDType_SECURITIESACCOUNTNAME = cvar.PartySubIDType_SECURITIESACCOUNTNAME
-PartySubIDType_REGISTRATIONNAME = cvar.PartySubIDType_REGISTRATIONNAME
 PartySubIDType_ELIGIBLE_COUNTERPARTY = cvar.PartySubIDType_ELIGIBLE_COUNTERPARTY
-PartySubIDType_REGISTEREDADDRESS_18 = cvar.PartySubIDType_REGISTEREDADDRESS_18
-PartySubIDType_SECURITIES_ACCOUNT_NUMBER = cvar.PartySubIDType_SECURITIES_ACCOUNT_NUMBER
-PartySubIDType_FULL_LEGAL_NAME_OF_FIRM = cvar.PartySubIDType_FULL_LEGAL_NAME_OF_FIRM
 PartySubIDType_MARKET_MAKER = cvar.PartySubIDType_MARKET_MAKER
 PartySubIDType_EXECUTION_VENUE = cvar.PartySubIDType_EXECUTION_VENUE
-PartySubIDType_POSITIONACCOUNTTYPE = cvar.PartySubIDType_POSITIONACCOUNTTYPE
-PartySubIDType_FUNDACCOUNTNAME = cvar.PartySubIDType_FUNDACCOUNTNAME
-PartySubIDType_CSDPARTICIPANTMEMBERCODE = cvar.PartySubIDType_CSDPARTICIPANTMEMBERCODE
-PartySubIDType_REGULATORYSTATUS = cvar.PartySubIDType_REGULATORYSTATUS
+PartySubIDType_SECURITIES_ACCOUNT_NUMBER = cvar.PartySubIDType_SECURITIES_ACCOUNT_NUMBER
+PartySubIDType_FULL_LEGAL_NAME_OF_FIRM = cvar.PartySubIDType_FULL_LEGAL_NAME_OF_FIRM
 AllocNoOrdersType_EXPLICIT_LIST_PROVIDED = cvar.AllocNoOrdersType_EXPLICIT_LIST_PROVIDED
-AllocNoOrdersType_NOTSPECIFIED = cvar.AllocNoOrdersType_NOTSPECIFIED
 AllocNoOrdersType_NOT_SPECIFIED = cvar.AllocNoOrdersType_NOT_SPECIFIED
-AllocNoOrdersType_EXPLICITLISTPROVIDED = cvar.AllocNoOrdersType_EXPLICITLISTPROVIDED
 AllocLinkType_FX_SWAP = cvar.AllocLinkType_FX_SWAP
 AllocLinkType_F_X_NETTING = cvar.AllocLinkType_F_X_NETTING
-AllocLinkType_FXNETTING = cvar.AllocLinkType_FXNETTING
 AllocLinkType_FX_NETTING = cvar.AllocLinkType_FX_NETTING
-AllocLinkType_FXSWAP = cvar.AllocLinkType_FXSWAP
 AllocLinkType_F_X_SWAP = cvar.AllocLinkType_F_X_SWAP
 UnderlyingSettlementType_T_PLUS_1 = cvar.UnderlyingSettlementType_T_PLUS_1
 UnderlyingSettlementType_T_PLUS_3 = cvar.UnderlyingSettlementType_T_PLUS_3
@@ -33018,16 +29786,12 @@ DisplayMethod_UNDISCLOSED = cvar.DisplayMethod_UNDISCLOSED
 DisplayMethod_RANDOM = cvar.DisplayMethod_RANDOM
 DisplayMethod_INITIAL = cvar.DisplayMethod_INITIAL
 CollStatus_PARTIALLY_ASSIGNED = cvar.CollStatus_PARTIALLY_ASSIGNED
-CollStatus_ASSIGNEDACCEPTED = cvar.CollStatus_ASSIGNEDACCEPTED
 CollStatus_ASSIGNMENT_PROPOSED = cvar.CollStatus_ASSIGNMENT_PROPOSED
-CollStatus_ASSIGNED = cvar.CollStatus_ASSIGNED
 CollStatus_CHALLENGED = cvar.CollStatus_CHALLENGED
+CollStatus_ASSIGNED = cvar.CollStatus_ASSIGNED
 CollStatus_UNASSIGNED = cvar.CollStatus_UNASSIGNED
-CollStatus_ASSIGNMENTPROPOSED = cvar.CollStatus_ASSIGNMENTPROPOSED
-CollStatus_PARTIALLYASSIGNED = cvar.CollStatus_PARTIALLYASSIGNED
 SideValueInd_SIDEVALUE_2 = cvar.SideValueInd_SIDEVALUE_2
 SideValueInd_SIDEVALUE1 = cvar.SideValueInd_SIDEVALUE1
-SideValueInd_SIDEVALUE2 = cvar.SideValueInd_SIDEVALUE2
 SideValueInd_SIDE_VALUE_1 = cvar.SideValueInd_SIDE_VALUE_1
 SideValueInd_SIDE_VALUE_2 = cvar.SideValueInd_SIDE_VALUE_2
 MsgDirection_RECEIVE = cvar.MsgDirection_RECEIVE
@@ -33038,12 +29802,9 @@ MDUpdateAction_DELETE_THRU = cvar.MDUpdateAction_DELETE_THRU
 MDUpdateAction_DELETE_FROM = cvar.MDUpdateAction_DELETE_FROM
 MDUpdateAction_OVERLAY = cvar.MDUpdateAction_OVERLAY
 MDUpdateAction_CHANGE = cvar.MDUpdateAction_CHANGE
-MatchStatus_ADVALERT = cvar.MatchStatus_ADVALERT
 MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRED = cvar.MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRED
 MatchStatus_COMPARED_MATCHED_OR_AFFIRMED = cvar.MatchStatus_COMPARED_MATCHED_OR_AFFIRMED
 MatchStatus_ADVISORY_OR_ALERT = cvar.MatchStatus_ADVISORY_OR_ALERT
-MatchStatus_UNCOMPUNMATUNAFF = cvar.MatchStatus_UNCOMPUNMATUNAFF
-MatchStatus_COMPMATAFF = cvar.MatchStatus_COMPMATAFF
 MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED = cvar.MatchStatus_UNCOMPARED_UNMATCHED_OR_UNAFFIRMED
 RateSource_REUTERS = cvar.RateSource_REUTERS
 RateSource_OTHER = cvar.RateSource_OTHER
@@ -33055,43 +29816,27 @@ AllocPositionEffect_OPEN = cvar.AllocPositionEffect_OPEN
 AllocPositionEffect_ROLLED = cvar.AllocPositionEffect_ROLLED
 PartyIDSource_US_EMPLOYER_OR_TAX_ID_NUMBER = cvar.PartyIDSource_US_EMPLOYER_OR_TAX_ID_NUMBER
 PartyIDSource_PROPRIETARY = cvar.PartyIDSource_PROPRIETARY
-PartyIDSource_USEMPLOYERIDNUMBER = cvar.PartyIDSource_USEMPLOYERIDNUMBER
-PartyIDSource_ACCPTMARKETPART = cvar.PartyIDSource_ACCPTMARKETPART
-PartyIDSource_CSDPARTCODE = cvar.PartyIDSource_CSDPARTCODE
 PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER = cvar.PartyIDSource_AUSTRALIAN_TAX_FILE_NUMBER
-PartyIDSource_KOREANINVESTORID = cvar.PartyIDSource_KOREANINVESTORID
 PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = cvar.PartyIDSource_GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER
 PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER = cvar.PartyIDSource_AUSTRALIAN_BUSINESS_NUMBER
 PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER = cvar.PartyIDSource_US_EMPLOYER_IDENTIFICATION_NUMBER
-PartyIDSource_AUSTRALIANTAXFILENUMBER = cvar.PartyIDSource_AUSTRALIANTAXFILENUMBER
 PartyIDSource_TAIWANESE_TRADING_ACCOUNT = cvar.PartyIDSource_TAIWANESE_TRADING_ACCOUNT
 PartyIDSource_TAIWANESE_TRADING_ACCT = cvar.PartyIDSource_TAIWANESE_TRADING_ACCT
-PartyIDSource_CHINESEBSHARE = cvar.PartyIDSource_CHINESEBSHARE
-PartyIDSource_AUSTRALIANBUSINESSNUMBER = cvar.PartyIDSource_AUSTRALIANBUSINESSNUMBER
 PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY = cvar.PartyIDSource_MALAYSIAN_CENTRAL_DEPOSITORY
 PartyIDSource_US_SOCIAL_SECURITY_NUMBER = cvar.PartyIDSource_US_SOCIAL_SECURITY_NUMBER
-PartyIDSource_TAIWANESEQUALIFIED = cvar.PartyIDSource_TAIWANESEQUALIFIED
-PartyIDSource_USSOCIALSECURITY = cvar.PartyIDSource_USSOCIALSECURITY
-PartyIDSource_DIRECTEDDEFINEDISITC = cvar.PartyIDSource_DIRECTEDDEFINEDISITC
 PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER = cvar.PartyIDSource_UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER
 PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE = cvar.PartyIDSource_CSD_PARTICIPANT_MEMBER_CODE
 PartyIDSource_DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT = cvar.PartyIDSource_DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT
 PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII = cvar.PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII
 PartyIDSource_SETTLEMENT_ENTITY_LOCATION = cvar.PartyIDSource_SETTLEMENT_ENTITY_LOCATION
 PartyIDSource_PROPRIETARY_CUSTOM_CODE = cvar.PartyIDSource_PROPRIETARY_CUSTOM_CODE
-PartyIDSource_UKNATIONALINSPENNUMBER = cvar.PartyIDSource_UKNATIONALINSPENNUMBER
 PartyIDSource_BIC = cvar.PartyIDSource_BIC
 PartyIDSource_CHINESE_INVESTOR_ID = cvar.PartyIDSource_CHINESE_INVESTOR_ID
-PartyIDSource_TAIWANESETRADINGACCT = cvar.PartyIDSource_TAIWANESETRADINGACCT
 PartyIDSource_MIC = cvar.PartyIDSource_MIC
 PartyIDSource_KOREAN_INVESTOR_ID = cvar.PartyIDSource_KOREAN_INVESTOR_ID
 PartyIDSource_ISO_COUNTRY_CODE = cvar.PartyIDSource_ISO_COUNTRY_CODE
 PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID = cvar.PartyIDSource_TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID
-PartyIDSource_PROPCODE = cvar.PartyIDSource_PROPCODE
-PartyIDSource_ISOCODE = cvar.PartyIDSource_ISOCODE
 PartyIDSource_CHINESE_B_SHARE = cvar.PartyIDSource_CHINESE_B_SHARE
-PartyIDSource_MCDNUMBER = cvar.PartyIDSource_MCDNUMBER
-PartyIDSource_SETTLENTLOC = cvar.PartyIDSource_SETTLENTLOC
 ExchangeForPhysical_NO = cvar.ExchangeForPhysical_NO
 ExchangeForPhysical_YES = cvar.ExchangeForPhysical_YES
 SecurityTradingEvent_CHANGE_OF_SECURITY_TRADING_STATUS = cvar.SecurityTradingEvent_CHANGE_OF_SECURITY_TRADING_STATUS
@@ -33110,14 +29855,12 @@ PossDupFlag_NO = cvar.PossDupFlag_NO
 PossDupFlag_YES = cvar.PossDupFlag_YES
 ListStatusType_ALL_DONE = cvar.ListStatusType_ALL_DONE
 ListStatusType_TIMED = cvar.ListStatusType_TIMED
-ListStatusType_RESP = cvar.ListStatusType_RESP
 ListStatusType_EXECSTARTED = cvar.ListStatusType_EXECSTARTED
 ListStatusType_RESPONSE = cvar.ListStatusType_RESPONSE
 ListStatusType_ALLDONE = cvar.ListStatusType_ALLDONE
 ListStatusType_ALERT = cvar.ListStatusType_ALERT
 ListStatusType_ACK = cvar.ListStatusType_ACK
 ListStatusType_EXEC_STARTED = cvar.ListStatusType_EXEC_STARTED
-ListStatusType_EXECSTART = cvar.ListStatusType_EXECSTART
 GapFillFlag_NO = cvar.GapFillFlag_NO
 GapFillFlag_YES = cvar.GapFillFlag_YES
 TradeHandlingInstr_AUTOMATED_FLOOR_ORDER_ROUTING = cvar.TradeHandlingInstr_AUTOMATED_FLOOR_ORDER_ROUTING
@@ -33126,9 +29869,7 @@ TradeHandlingInstr_ONE_PARTY_REPORT_FOR_MATCHING = cvar.TradeHandlingInstr_ONE_P
 TradeHandlingInstr_TRADE_CONFIRMATION = cvar.TradeHandlingInstr_TRADE_CONFIRMATION
 TradeHandlingInstr_ONE_PARTY_REPORT_FOR_PASS_THROUGH = cvar.TradeHandlingInstr_ONE_PARTY_REPORT_FOR_PASS_THROUGH
 TradeHandlingInstr_TWO_PARTY_REPORT_FOR_CLAIM = cvar.TradeHandlingInstr_TWO_PARTY_REPORT_FOR_CLAIM
-TradSesMethod_TWOPARTY = cvar.TradSesMethod_TWOPARTY
 TradSesMethod_ELECTRONIC = cvar.TradSesMethod_ELECTRONIC
-TradSesMethod_OPENOUTCRY = cvar.TradSesMethod_OPENOUTCRY
 TradSesMethod_TWO_PARTY = cvar.TradSesMethod_TWO_PARTY
 TradSesMethod_OPEN_OUTCRY = cvar.TradSesMethod_OPEN_OUTCRY
 TradeType_AGENCY = cvar.TradeType_AGENCY
@@ -33149,8 +29890,6 @@ BenchmarkCurveName_EURIBOR = cvar.BenchmarkCurveName_EURIBOR
 BenchmarkCurveName_EONIA = cvar.BenchmarkCurveName_EONIA
 BenchmarkCurveName_LIBOR = cvar.BenchmarkCurveName_LIBOR
 BenchmarkCurveName_SWAP = cvar.BenchmarkCurveName_SWAP
-CashMargin_MARGINCLOSE = cvar.CashMargin_MARGINCLOSE
-CashMargin_MARGINOPEN = cvar.CashMargin_MARGINOPEN
 CashMargin_MARGIN_CLOSE = cvar.CashMargin_MARGIN_CLOSE
 CashMargin_MARGIN_OPEN = cvar.CashMargin_MARGIN_OPEN
 CashMargin_CASH = cvar.CashMargin_CASH
@@ -33182,44 +29921,31 @@ DeskOrderHandlingInst_MINIMUM_QUANTITY = cvar.DeskOrderHandlingInst_MINIMUM_QUAN
 DeskOrderHandlingInst_MARKET_AT_OPEN = cvar.DeskOrderHandlingInst_MARKET_AT_OPEN
 DeskOrderHandlingInst_IMBALANCE_ONLY = cvar.DeskOrderHandlingInst_IMBALANCE_ONLY
 DeskOrderHandlingInst_EXCHANGE_FOR_PHYSICAL_TRANSACTION = cvar.DeskOrderHandlingInst_EXCHANGE_FOR_PHYSICAL_TRANSACTION
-PosTransType_DO_NOT_EXERCISE = cvar.PosTransType_DO_NOT_EXERCISE
 PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION = cvar.PosTransType_POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION
-PosTransType_DONOTEXERCISE = cvar.PosTransType_DONOTEXERCISE
+PosTransType_DO_NOT_EXERCISE = cvar.PosTransType_DO_NOT_EXERCISE
 PosTransType_LARGE_TRADER_SUBMISSION = cvar.PosTransType_LARGE_TRADER_SUBMISSION
-PosTransType_POSITIONCHANGESUBMISSIONMARGINDISPOSITION = cvar.PosTransType_POSITIONCHANGESUBMISSIONMARGINDISPOSITION
-PosTransType_POSITIONADJUSTMENT = cvar.PosTransType_POSITIONADJUSTMENT
 PosTransType_EXERCISE = cvar.PosTransType_EXERCISE
-PosTransType_POSITION_ADJUSTMENT = cvar.PosTransType_POSITION_ADJUSTMENT
 PosTransType_PLEDGE = cvar.PosTransType_PLEDGE
+PosTransType_POSITION_ADJUSTMENT = cvar.PosTransType_POSITION_ADJUSTMENT
 Seniority_SUBORDINATED = cvar.Seniority_SUBORDINATED
 Seniority_SENIOR_SECURED = cvar.Seniority_SENIOR_SECURED
 Seniority_SENIOR = cvar.Seniority_SENIOR
 SettlCurrFxRateCalc_DIVIDE = cvar.SettlCurrFxRateCalc_DIVIDE
 SettlCurrFxRateCalc_MULTIPLY = cvar.SettlCurrFxRateCalc_MULTIPLY
-PosMaintStatus_ACCEPTED_WITH_WARNINGS = cvar.PosMaintStatus_ACCEPTED_WITH_WARNINGS
 PosMaintStatus_COMPLETED = cvar.PosMaintStatus_COMPLETED
-PosMaintStatus_ACCEPTEDWITHWARNINGS = cvar.PosMaintStatus_ACCEPTEDWITHWARNINGS
-PosMaintStatus_COMPLETEDWITHWARNINGS = cvar.PosMaintStatus_COMPLETEDWITHWARNINGS
+PosMaintStatus_ACCEPTED_WITH_WARNINGS = cvar.PosMaintStatus_ACCEPTED_WITH_WARNINGS
 PosMaintStatus_REJECTED = cvar.PosMaintStatus_REJECTED
 PosMaintStatus_ACCEPTED = cvar.PosMaintStatus_ACCEPTED
 PosMaintStatus_COMPLETED_WITH_WARNINGS = cvar.PosMaintStatus_COMPLETED_WITH_WARNINGS
 Benchmark_6_MO_LIBOR = cvar.Benchmark_6_MO_LIBOR
 Benchmark_OLD_5 = cvar.Benchmark_OLD_5
 Benchmark_OLD_30 = cvar.Benchmark_OLD_30
-Benchmark_30YR = cvar.Benchmark_30YR
-Benchmark_5YR = cvar.Benchmark_5YR
 Benchmark_3_MO_LIBOR = cvar.Benchmark_3_MO_LIBOR
 Benchmark_OLD_10 = cvar.Benchmark_OLD_10
-Benchmark_6MOLIBOR = cvar.Benchmark_6MOLIBOR
-Benchmark_10YR = cvar.Benchmark_10YR
 Benchmark_CURVE = cvar.Benchmark_CURVE
 Benchmark_30_YR = cvar.Benchmark_30_YR
 Benchmark_10_YR = cvar.Benchmark_10_YR
 Benchmark_5_YR = cvar.Benchmark_5_YR
-Benchmark_OLD30 = cvar.Benchmark_OLD30
-Benchmark_OLD5 = cvar.Benchmark_OLD5
-Benchmark_OLD10 = cvar.Benchmark_OLD10
-Benchmark_3MOLIBOR = cvar.Benchmark_3MOLIBOR
 MaturityMonthYearFormat_YEARMONTHWEEK = cvar.MaturityMonthYearFormat_YEARMONTHWEEK
 MaturityMonthYearFormat_YEARMONTHDAY = cvar.MaturityMonthYearFormat_YEARMONTHDAY
 MaturityMonthYearFormat_YEARMONTH_ONLY = cvar.MaturityMonthYearFormat_YEARMONTH_ONLY
@@ -33232,31 +29958,19 @@ ApplReportType_HEARTBEAT_MESSAGE_INDICATING_THAT_APPLICATION_IDENTIFIED_BY_REFAP
 ReportToExch_NO = cvar.ReportToExch_NO
 ReportToExch_YES = cvar.ReportToExch_YES
 AllocRejCode_INCORRECT_ALLOCATED_QUANTITY = cvar.AllocRejCode_INCORRECT_ALLOCATED_QUANTITY
-AllocRejCode_UNKNOWNACCT = cvar.AllocRejCode_UNKNOWNACCT
-AllocRejCode_INCORRECTAVGPRC = cvar.AllocRejCode_INCORRECTAVGPRC
 AllocRejCode_UNKNOWN_ORDERID = cvar.AllocRejCode_UNKNOWN_ORDERID
-AllocRejCode_WAREHOUSEREQUESTREJECTED = cvar.AllocRejCode_WAREHOUSEREQUESTREJECTED
-AllocRejCode_UNKNOWNORSTALEEXECID = cvar.AllocRejCode_UNKNOWNORSTALEEXECID
-AllocRejCode_WAREHOUSE_REQUEST_REJECTED = cvar.AllocRejCode_WAREHOUSE_REQUEST_REJECTED
 AllocRejCode_INCORRECT_AVERAGEG_PRICE = cvar.AllocRejCode_INCORRECT_AVERAGEG_PRICE
-AllocRejCode_MISMATCHEDDATA = cvar.AllocRejCode_MISMATCHEDDATA
-AllocRejCode_INCORRECTBRKMNC = cvar.AllocRejCode_INCORRECTBRKMNC
-AllocRejCode_UNKNOWNLISTID = cvar.AllocRejCode_UNKNOWNLISTID
+AllocRejCode_WAREHOUSE_REQUEST_REJECTED = cvar.AllocRejCode_WAREHOUSE_REQUEST_REJECTED
 AllocRejCode_OTHER_99 = cvar.AllocRejCode_OTHER_99
-AllocRejCode_INCORRECTALLOCATEDQUANTITY = cvar.AllocRejCode_INCORRECTALLOCATEDQUANTITY
 AllocRejCode_UNKNOWN_LISTID = cvar.AllocRejCode_UNKNOWN_LISTID
 AllocRejCode_INCORRECT_QUANTITY = cvar.AllocRejCode_INCORRECT_QUANTITY
 AllocRejCode_INCORRECT_AVERAGE_PRICE = cvar.AllocRejCode_INCORRECT_AVERAGE_PRICE
 AllocRejCode_UNKNOWN_ACCOUNT = cvar.AllocRejCode_UNKNOWN_ACCOUNT
 AllocRejCode_UNKNOWN_OR_STALE_EXECID = cvar.AllocRejCode_UNKNOWN_OR_STALE_EXECID
+AllocRejCode_MISMATCHED_DATA_VALUE = cvar.AllocRejCode_MISMATCHED_DATA_VALUE
 AllocRejCode_OTHER = cvar.AllocRejCode_OTHER
 AllocRejCode_OTHER_7 = cvar.AllocRejCode_OTHER_7
 AllocRejCode_UNKNOWN_CLORDID = cvar.AllocRejCode_UNKNOWN_CLORDID
-AllocRejCode_INCORRECTQTY = cvar.AllocRejCode_INCORRECTQTY
-AllocRejCode_COMMDIFF = cvar.AllocRejCode_COMMDIFF
-AllocRejCode_CALCULATIONDIFFERENCE = cvar.AllocRejCode_CALCULATIONDIFFERENCE
-AllocRejCode_UNKNOWNCLORDID = cvar.AllocRejCode_UNKNOWNCLORDID
-AllocRejCode_UNKNOWNORDID = cvar.AllocRejCode_UNKNOWNORDID
 AllocRejCode_MISMATCHED_DATA = cvar.AllocRejCode_MISMATCHED_DATA
 AllocRejCode_CALCULATION_DIFFERENCE = cvar.AllocRejCode_CALCULATION_DIFFERENCE
 AllocRejCode_COMMISSION_DIFFERENCE = cvar.AllocRejCode_COMMISSION_DIFFERENCE
@@ -33273,63 +29987,42 @@ RefOrderIDSource_QUOTEENTRYID = cvar.RefOrderIDSource_QUOTEENTRYID
 RefOrderIDSource_QUOTENTRYID = cvar.RefOrderIDSource_QUOTENTRYID
 RefOrderIDSource_ORDEID = cvar.RefOrderIDSource_ORDEID
 RefOrderIDSource_SECONDARYORDEID = cvar.RefOrderIDSource_SECONDARYORDEID
-LastCapacity_A = cvar.LastCapacity_A
-LastCapacity_XP = cvar.LastCapacity_XP
 LastCapacity_CROSS_AS_PRINCIPAL = cvar.LastCapacity_CROSS_AS_PRINCIPAL
 LastCapacity_PRINCIPAL = cvar.LastCapacity_PRINCIPAL
-LastCapacity_P = cvar.LastCapacity_P
 LastCapacity_CROSS_AS_AGENT = cvar.LastCapacity_CROSS_AS_AGENT
 LastCapacity_AGENT = cvar.LastCapacity_AGENT
-LastCapacity_XA = cvar.LastCapacity_XA
 InstrAttribType_INSTRUMENT_STRIKE_PRICE = cvar.InstrAttribType_INSTRUMENT_STRIKE_PRICE
 InstrAttribType_IN_DEFAULT = cvar.InstrAttribType_IN_DEFAULT
-InstrAttribType_COUPONPERIOD = cvar.InstrAttribType_COUPONPERIOD
-InstrAttribType_ORIGINAL_ISSUE_DISCOUNT = cvar.InstrAttribType_ORIGINAL_ISSUE_DISCOUNT
 InstrAttribType_PRE_REFUNDED = cvar.InstrAttribType_PRE_REFUNDED
 InstrAttribType_SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX = cvar.InstrAttribType_SUBJECT_TO_ALTERNATIVE_MINIMUM_TAX
-InstrAttribType_CALLABLEPUTTABLE = cvar.InstrAttribType_CALLABLEPUTTABLE
-InstrAttribType_WHEN_AND_IF_ISSUED = cvar.InstrAttribType_WHEN_AND_IF_ISSUED
-InstrAttribType_STEPPEDCOUPON = cvar.InstrAttribType_STEPPEDCOUPON
+InstrAttribType_ORIGINAL_ISSUE_DISCOUNT = cvar.InstrAttribType_ORIGINAL_ISSUE_DISCOUNT
 InstrAttribType_UNRATED = cvar.InstrAttribType_UNRATED
+InstrAttribType_WHEN_AND_IF_ISSUED = cvar.InstrAttribType_WHEN_AND_IF_ISSUED
 InstrAttribType_CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED = cvar.InstrAttribType_CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED
+InstrAttribType_ESCROWED_TO_REDEMPTION_DATE_CALLABLE_SUPPLY_REDEMPTION_DATE_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_ESCROWED_TO_REDEMPTION_DATE_CALLABLE_SUPPLY_REDEMPTION_DATE_IN_THE_INSTRATTRIBVALUE
 InstrAttribType_STEPPED_COUPON = cvar.InstrAttribType_STEPPED_COUPON
-InstrAttribType_TEXT = cvar.InstrAttribType_TEXT
-InstrAttribType_ORIGINALISSUEDISCOUNTPRICE = cvar.InstrAttribType_ORIGINALISSUEDISCOUNTPRICE
-InstrAttribType_ESCROWEDTOREDEMPTIONDATE = cvar.InstrAttribType_ESCROWEDTOREDEMPTIONDATE
 InstrAttribType_INSTRUMENT_DENOMINATOR = cvar.InstrAttribType_INSTRUMENT_DENOMINATOR
 InstrAttribType_ESCROWED_TO_REDEMPTION_DATE = cvar.InstrAttribType_ESCROWED_TO_REDEMPTION_DATE
-InstrAttribType_INTEREST_BEARING = cvar.InstrAttribType_INTEREST_BEARING
 InstrAttribType_TAXABLE = cvar.InstrAttribType_TAXABLE
-InstrAttribType_CALLABLE_PUTTABLE = cvar.InstrAttribType_CALLABLE_PUTTABLE
+InstrAttribType_INTEREST_BEARING = cvar.InstrAttribType_INTEREST_BEARING
 InstrAttribType_CALLABLE_BELOW_MATURITY_VALUE = cvar.InstrAttribType_CALLABLE_BELOW_MATURITY_VALUE
-InstrAttribType_COUPON_PERIOD = cvar.InstrAttribType_COUPON_PERIOD
-InstrAttribType_LESSFEEFORPUT = cvar.InstrAttribType_LESSFEEFORPUT
-InstrAttribType_INTERESTBEARING = cvar.InstrAttribType_INTERESTBEARING
 InstrAttribType_PREREFUNDED = cvar.InstrAttribType_PREREFUNDED
+InstrAttribType_CALLABLE_PUTTABLE = cvar.InstrAttribType_CALLABLE_PUTTABLE
+InstrAttribType_COUPON_PERIOD = cvar.InstrAttribType_COUPON_PERIOD
 InstrAttribType_INSTRUMENT_PRICE_PRECISION = cvar.InstrAttribType_INSTRUMENT_PRICE_PRECISION
 InstrAttribType_TRADEABLE_INDICATOR = cvar.InstrAttribType_TRADEABLE_INDICATOR
 InstrAttribType_ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_ORIGINAL_ISSUE_DISCOUNT_PRICE_SUPPLY_PRICE_IN_THE_INSTRATTRIBVALUE
 InstrAttribType_VARIABLE_RATE = cvar.InstrAttribType_VARIABLE_RATE
-InstrAttribType_WHENISSUED = cvar.InstrAttribType_WHENISSUED
-InstrAttribType_ZEROCOUPON = cvar.InstrAttribType_ZEROCOUPON
-InstrAttribType_SUBJECTTOALTERNATIVEMINIMUMTAX = cvar.InstrAttribType_SUBJECTTOALTERNATIVEMINIMUMTAX
-InstrAttribType_ESCROWEDTOMATURITY = cvar.InstrAttribType_ESCROWEDTOMATURITY
 InstrAttribType_FLAT = cvar.InstrAttribType_FLAT
 InstrAttribType_TRADE_TYPE_ELIGIBILITY_DETAILS_FOR_SECURITY = cvar.InstrAttribType_TRADE_TYPE_ELIGIBILITY_DETAILS_FOR_SECURITY
 InstrAttribType_INSTRUMENT_NUMERATOR = cvar.InstrAttribType_INSTRUMENT_NUMERATOR
+InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE
+InstrAttribType_INDEXED = cvar.InstrAttribType_INDEXED
 InstrAttribType_ESCROWED_TO_MATURITY = cvar.InstrAttribType_ESCROWED_TO_MATURITY
 InstrAttribType_LESS_FEE_FOR_PUT = cvar.InstrAttribType_LESS_FEE_FOR_PUT
-InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE = cvar.InstrAttribType_TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE
-InstrAttribType_CALLABLEWITHOUTNOTICEBYMAILTOHOLDERUNLESSREGISTERED = cvar.InstrAttribType_CALLABLEWITHOUTNOTICEBYMAILTOHOLDERUNLESSREGISTERED
-InstrAttribType_INDEXED = cvar.InstrAttribType_INDEXED
-InstrAttribType_INDEFAULT = cvar.InstrAttribType_INDEFAULT
 InstrAttribType_ZERO_COUPON = cvar.InstrAttribType_ZERO_COUPON
-InstrAttribType_NOPERIODICPAYMENTS = cvar.InstrAttribType_NOPERIODICPAYMENTS
-InstrAttribType_CALLABLEBELOWMATURITYVALUE = cvar.InstrAttribType_CALLABLEBELOWMATURITYVALUE
-InstrAttribType_ORIGINALISSUEDISCOUNT = cvar.InstrAttribType_ORIGINALISSUEDISCOUNT
 InstrAttribType_PRICE_TICK_RULES_FOR_SECURITY = cvar.InstrAttribType_PRICE_TICK_RULES_FOR_SECURITY
 InstrAttribType_NO_PERIODIC_PAYMENTS = cvar.InstrAttribType_NO_PERIODIC_PAYMENTS
-InstrAttribType_VARIABLERATE = cvar.InstrAttribType_VARIABLERATE
 Product_FINANCING = cvar.Product_FINANCING
 Product_COMMODITY = cvar.Product_COMMODITY
 Product_EQUITY = cvar.Product_EQUITY
@@ -33343,109 +30036,57 @@ Product_INDEX = cvar.Product_INDEX
 Product_MUNICIPAL = cvar.Product_MUNICIPAL
 Product_LOAN = cvar.Product_LOAN
 Product_GOVERNMENT = cvar.Product_GOVERNMENT
-SecurityTradingStatus_NOMKTIMB = cvar.SecurityTradingStatus_NOMKTIMB
-SecurityTradingStatus_NOOPEN = cvar.SecurityTradingStatus_NOOPEN
 SecurityTradingStatus_FAST_MARKET = cvar.SecurityTradingStatus_FAST_MARKET
 SecurityTradingStatus_NO_OPEN_NO_RESUME = cvar.SecurityTradingStatus_NO_OPEN_NO_RESUME
 SecurityTradingStatus_TRADING_HALT = cvar.SecurityTradingStatus_TRADING_HALT
 SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING = cvar.SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING
-SecurityTradingStatus_11 = cvar.SecurityTradingStatus_11
 SecurityTradingStatus_NO_OPEN = cvar.SecurityTradingStatus_NO_OPEN
-SecurityTradingStatus_NOTTRADED = cvar.SecurityTradingStatus_NOTTRADED
-SecurityTradingStatus_FASTMARKET = cvar.SecurityTradingStatus_FASTMARKET
-SecurityTradingStatus_MKTBALSELL = cvar.SecurityTradingStatus_MKTBALSELL
-SecurityTradingStatus_NEWPXIND = cvar.SecurityTradingStatus_NEWPXIND
-SecurityTradingStatus_TRDDISTIME = cvar.SecurityTradingStatus_TRDDISTIME
-SecurityTradingStatus_PXIND = cvar.SecurityTradingStatus_PXIND
 SecurityTradingStatus_CROSS = cvar.SecurityTradingStatus_CROSS
-SecurityTradingStatus_OPENINGROTATION = cvar.SecurityTradingStatus_OPENINGROTATION
-SecurityTradingStatus_TRDRNGIND = cvar.SecurityTradingStatus_TRDRNGIND
 SecurityTradingStatus_RESUME = cvar.SecurityTradingStatus_RESUME
 SecurityTradingStatus_TRADE_DISSEMINATION_TIME = cvar.SecurityTradingStatus_TRADE_DISSEMINATION_TIME
 SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE = cvar.SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE
 SecurityTradingStatus_POST_CLOSE = cvar.SecurityTradingStatus_POST_CLOSE
-SecurityTradingStatus_OPENDELAY = cvar.SecurityTradingStatus_OPENDELAY
-SecurityTradingStatus_READY = cvar.SecurityTradingStatus_READY
 SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY = cvar.SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY
-SecurityTradingStatus_NOTAVAIL = cvar.SecurityTradingStatus_NOTAVAIL
 SecurityTradingStatus_MARKET_IMBALANCE_SELL = cvar.SecurityTradingStatus_MARKET_IMBALANCE_SELL
 SecurityTradingStatus_OPENING_DELAY = cvar.SecurityTradingStatus_OPENING_DELAY
-SecurityTradingStatus_MKTONCLSIMBSELL = cvar.SecurityTradingStatus_MKTONCLSIMBSELL
 SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET = cvar.SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET
 SecurityTradingStatus_ITS_PRE_OPENING = cvar.SecurityTradingStatus_ITS_PRE_OPENING
 SecurityTradingStatus_PRE_CROSS = cvar.SecurityTradingStatus_PRE_CROSS
-SecurityTradingStatus_NA = cvar.SecurityTradingStatus_NA
-SecurityTradingStatus_NOMKTONCLSIMB = cvar.SecurityTradingStatus_NOMKTONCLSIMB
 SecurityTradingStatus_PRE_OPEN = cvar.SecurityTradingStatus_PRE_OPEN
 SecurityTradingStatus_MARKET_IMBALANCE_BUY = cvar.SecurityTradingStatus_MARKET_IMBALANCE_BUY
 SecurityTradingStatus_TRADING_RANGE_INDICATION = cvar.SecurityTradingStatus_TRADING_RANGE_INDICATION
 SecurityTradingStatus_READY_TO_TRADE = cvar.SecurityTradingStatus_READY_TO_TRADE
 SecurityTradingStatus_NEW_PRICE_INDICATION = cvar.SecurityTradingStatus_NEW_PRICE_INDICATION
-SecurityTradingStatus_ITSPREOPN = cvar.SecurityTradingStatus_ITSPREOPN
-SecurityTradingStatus_TRDHALT = cvar.SecurityTradingStatus_TRDHALT
-SecurityTradingStatus_MKTONCLSIMBBUY = cvar.SecurityTradingStatus_MKTONCLSIMBBUY
 SecurityTradingStatus_OPENING_ROTATION = cvar.SecurityTradingStatus_OPENING_ROTATION
 SecurityTradingStatus_PRICE_INDICATION = cvar.SecurityTradingStatus_PRICE_INDICATION
 SecurityTradingStatus_UNKNOWN_OR_INVALID = cvar.SecurityTradingStatus_UNKNOWN_OR_INVALID
 SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL = cvar.SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL
-SecurityTradingStatus_UNKNOWN = cvar.SecurityTradingStatus_UNKNOWN
-SecurityTradingStatus_MKTIMBBUY = cvar.SecurityTradingStatus_MKTIMBBUY
 SecurityTradingStatus_NO_MARKET_IMBALANCE = cvar.SecurityTradingStatus_NO_MARKET_IMBALANCE
-Rule80A_PRGINDEXARBOTHMEM = cvar.Rule80A_PRGINDEXARBOTHMEM
 Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPETING_MARKET_MAKER = cvar.Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPETING_MARKET_MAKER
 Rule80A_SPECIALIST_TRADES = cvar.Rule80A_SPECIALIST_TRADES
 Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
 Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM_ORG = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM_ORG
-Rule80A_SHTEXTRANI = cvar.Rule80A_SHTEXTRANI
-Rule80A_SHTEXTRANMEMWT = cvar.Rule80A_SHTEXTRANMEMWT
 Rule80A_SHORT_EXEMPT_TRANSACTION_F = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_F
 Rule80A_COMPETING_DEALER_TRADES_O = cvar.Rule80A_COMPETING_DEALER_TRADES_O
 Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER
-Rule80A_AGENCY_ALGORITHMIC_PROGRAM_TRADING = cvar.Rule80A_AGENCY_ALGORITHMIC_PROGRAM_TRADING
-Rule80A_SHTEXTRANMEM = cvar.Rule80A_SHTEXTRANMEM
-Rule80A_PRGINDEXARBOTHAGN = cvar.Rule80A_PRGINDEXARBOTHAGN
-Rule80A_PRGNONINDEXARBINV = cvar.Rule80A_PRGNONINDEXARBINV
 Rule80A_SHORT_EXEMPT_TRANSACTION_H = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_H
 Rule80A_PRINCIPAL = cvar.Rule80A_PRINCIPAL
-Rule80A_AGENCY_INDEX_ARBITRAGE = cvar.Rule80A_AGENCY_INDEX_ARBITRAGE
-Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPTING_MARKET_MAKER = cvar.Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_A_NON_MEMBER_COMPTING_MARKET_MAKER
-Rule80A_SHTEXTRANA = cvar.Rule80A_SHTEXTRANA
-Rule80A_SHTEXTRANW = cvar.Rule80A_SHTEXTRANW
-Rule80A_PRGINDEXARBINV = cvar.Rule80A_PRGINDEXARBINV
 Rule80A_COMPETING_DEALER_TRADES_R = cvar.Rule80A_COMPETING_DEALER_TRADES_R
 Rule80A_INDIVIDUAL_INVESTOR_SINGLE_ORDER = cvar.Rule80A_INDIVIDUAL_INVESTOR_SINGLE_ORDER
-Rule80A_PROPRIETARY_NON_ALGORITHMIC_PROGRAM_TRADE = cvar.Rule80A_PROPRIETARY_NON_ALGORITHMIC_PROGRAM_TRADE
-Rule80A_AGENT_FOR_OTHER_MEMBER_NON_ALGORITHMIC_PROGRAM_TRADE = cvar.Rule80A_AGENT_FOR_OTHER_MEMBER_NON_ALGORITHMIC_PROGRAM_TRADE
-Rule80A_ALLOTHERAGN = cvar.Rule80A_ALLOTHERAGN
-Rule80A_PRGNONINDEXARBOTHAGN = cvar.Rule80A_PRGNONINDEXARBOTHAGN
 Rule80A_PROPRIETARY_TRANSACTIONS_FOR_COMPETING_MARKET_MAKER_THAT_IS_AFFILIATED_WITH_THE_CLEARING_MEMBER = cvar.Rule80A_PROPRIETARY_TRANSACTIONS_FOR_COMPETING_MARKET_MAKER_THAT_IS_AFFILIATED_WITH_THE_CLEARING_MEMBER
 Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_NOT_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_NOT_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE
-Rule80A_AGENCYSINGLE = cvar.Rule80A_AGENCYSINGLE
 Rule80A_COMPETING_DEALER_TRADES_T = cvar.Rule80A_COMPETING_DEALER_TRADES_T
 Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER
-Rule80A_PROPRIETARY_ALGORITHMIC_PROGRAM_TRADING = cvar.Rule80A_PROPRIETARY_ALGORITHMIC_PROGRAM_TRADING
-Rule80A_AGENCY_NON_ALGORITHMIC_PROGRAM_TRADE = cvar.Rule80A_AGENCY_NON_ALGORITHMIC_PROGRAM_TRADE
-Rule80A_PRGNONINDEXARBMEM = cvar.Rule80A_PRGNONINDEXARBMEM
-Rule80A_PRGNONINDEXARBOTHMEM = cvar.Rule80A_PRGNONINDEXARBOTHMEM
 Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_NON_MEMBER_COMPETING_MARKET_MAKER = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_NON_MEMBER_COMPETING_MARKET_MAKER
 Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY
 Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = cvar.Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER
 Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM_ORG = cvar.Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM_ORG
-Rule80A_PRGINDEXARBMEM = cvar.Rule80A_PRGINDEXARBMEM
-Rule80A_INVINESTOR = cvar.Rule80A_INVINESTOR
 Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL
 Rule80A_SHORT_EXEMPT_TRANSACTION_B = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_B
 Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFILIATED_WITH_THE_FIRM_CLEARING_THE_TRADE
 Rule80A_AGENCY_SINGLE_ORDER = cvar.Rule80A_AGENCY_SINGLE_ORDER
-Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFLIATED_WITH_THE_FIRM_CLEARING_THE_TRADE = cvar.Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_MEMBER_COMPETING_MARKET_MAKER_AFFLIATED_WITH_THE_FIRM_CLEARING_THE_TRADE
-Rule80A_COMPETINGDEALER = cvar.Rule80A_COMPETINGDEALER
-Rule80A_COMPDEALER1 = cvar.Rule80A_COMPDEALER1
-Rule80A_SHTEXTRANNONMEM = cvar.Rule80A_SHTEXTRANNONMEM
 Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_AN_UNAFFILIATED_MEMBERS_COMPETING_MARKET_MAKER = cvar.Rule80A_TRANSACTIONS_FOR_THE_ACCOUNT_OF_AN_UNAFFILIATED_MEMBERS_COMPETING_MARKET_MAKER
 Rule80A_REGISTERED_EQUITY_MARKET_MAKER_TRADES = cvar.Rule80A_REGISTERED_EQUITY_MARKET_MAKER_TRADES
-Rule80A_MARKETMAKER = cvar.Rule80A_MARKETMAKER
-Rule80A_SPECIALIST = cvar.Rule80A_SPECIALIST
-Rule80A_COMPDEALER2 = cvar.Rule80A_COMPDEALER2
 Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY
 Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = cvar.Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER
 CorporateAction_MERGER_REORGANIZATION = cvar.CorporateAction_MERGER_REORGANIZATION
@@ -33456,7 +30097,6 @@ CorporateAction_STOCK_DIVIDEND = cvar.CorporateAction_STOCK_DIVIDEND
 CorporateAction_REVERSE_STOCK_SPLIT = cvar.CorporateAction_REVERSE_STOCK_SPLIT
 CorporateAction_POSITION_CONSOLIDATION = cvar.CorporateAction_POSITION_CONSOLIDATION
 CorporateAction_SPINOFF = cvar.CorporateAction_SPINOFF
-CorporateAction_EXDIVIDEND = cvar.CorporateAction_EXDIVIDEND
 CorporateAction_EX_INTEREST = cvar.CorporateAction_EX_INTEREST
 CorporateAction_LIQUIDATION_REORGANIZATION = cvar.CorporateAction_LIQUIDATION_REORGANIZATION
 CorporateAction_CASH_DIVIDEND = cvar.CorporateAction_CASH_DIVIDEND
@@ -33464,25 +30104,25 @@ CorporateAction_STANDARD_INTEGER_STOCK_SPLIT = cvar.CorporateAction_STANDARD_INT
 CorporateAction_RIGHTS_OFFERING = cvar.CorporateAction_RIGHTS_OFFERING
 CorporateAction_SHAREHOLDER_MEETING = cvar.CorporateAction_SHAREHOLDER_MEETING
 CorporateAction_WARRANT = cvar.CorporateAction_WARRANT
-CorporateAction_EXDIST = cvar.CorporateAction_EXDIST
 CorporateAction_EX_RIGHTS = cvar.CorporateAction_EX_RIGHTS
 CorporateAction_EX_DISTRIBUTION = cvar.CorporateAction_EX_DISTRIBUTION
 CorporateAction_EX_DIVIDEND = cvar.CorporateAction_EX_DIVIDEND
 CorporateAction_TENDER_OFFER = cvar.CorporateAction_TENDER_OFFER
 CorporateAction_SPECIAL_ACTION = cvar.CorporateAction_SPECIAL_ACTION
-CorporateAction_EXINTEREST = cvar.CorporateAction_EXINTEREST
 CorporateAction_NON_INTEGER_STOCK_SPLIT = cvar.CorporateAction_NON_INTEGER_STOCK_SPLIT
 CorporateAction_CUSIP = cvar.CorporateAction_CUSIP
 CorporateAction_LEAP_ROLLOVER = cvar.CorporateAction_LEAP_ROLLOVER
-CorporateAction_EXRIGHTS = cvar.CorporateAction_EXRIGHTS
 TerminationType_TERM = cvar.TerminationType_TERM
 TerminationType_FLEXIBLE = cvar.TerminationType_FLEXIBLE
 TerminationType_OPEN = cvar.TerminationType_OPEN
 TerminationType_OVERNIGHT = cvar.TerminationType_OVERNIGHT
-PosMaintAction_REPLACE = cvar.PosMaintAction_REPLACE
 PosMaintAction_NEW = cvar.PosMaintAction_NEW
+PosMaintAction_REPLACE = cvar.PosMaintAction_REPLACE
 PosMaintAction_REVERSE = cvar.PosMaintAction_REVERSE
+PosMaintAction_CANCEL_USED_TO_REMOVE_THE_OVERALL_TRANSACTION_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_REFERENCE_ID = cvar.PosMaintAction_CANCEL_USED_TO_REMOVE_THE_OVERALL_TRANSACTION_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_REFERENCE_ID
+PosMaintAction_REPLACE_USED_TO_OVERRIDE_THE_OVERALL_TRANSACTION_QUANTITY_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_THE_REFERENCE_ID = cvar.PosMaintAction_REPLACE_USED_TO_OVERRIDE_THE_OVERALL_TRANSACTION_QUANTITY_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_THE_REFERENCE_ID
 PosMaintAction_CANCEL = cvar.PosMaintAction_CANCEL
+PosMaintAction_NEW_USED_TO_INCREMENT_THE_OVERALL_TRANSACTION_QUANTITY = cvar.PosMaintAction_NEW_USED_TO_INCREMENT_THE_OVERALL_TRANSACTION_QUANTITY
 ComplexEventPriceTimeType_SPECIFIED_DATE_TIME = cvar.ComplexEventPriceTimeType_SPECIFIED_DATE_TIME
 ComplexEventPriceTimeType_EXPIRATION = cvar.ComplexEventPriceTimeType_EXPIRATION
 ComplexEventPriceTimeType_IMMEDIATE = cvar.ComplexEventPriceTimeType_IMMEDIATE
@@ -33494,15 +30134,10 @@ BookingUnit_AGGREGATE_EXECUTIONS_FOR_THIS_SYMBOL_SIDE_AND_SETTLEMENT_DATE = cvar
 BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER = cvar.BookingUnit_AGGREGATE_PARTIAL_EXECUTIONS_ON_THIS_ORDER_AND_BOOK_ONE_TRADE_PER_ORDER
 BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT = cvar.BookingUnit_EACH_PARTIAL_EXECUTION_IS_A_BOOKABLE_UNIT
 AllocStatus_REJECTED_BY_INTERMEDIARY = cvar.AllocStatus_REJECTED_BY_INTERMEDIARY
-AllocStatus_ACCEPTEDSUCCESSFULLYPROCESSED = cvar.AllocStatus_ACCEPTEDSUCCESSFULLYPROCESSED
-AllocStatus_ACCOUNTLEVELREJECT = cvar.AllocStatus_ACCOUNTLEVELREJECT
 AllocStatus_BLOCK_LEVEL_REJECT = cvar.AllocStatus_BLOCK_LEVEL_REJECT
 AllocStatus_ACCOUNT_LEVEL_REJECT = cvar.AllocStatus_ACCOUNT_LEVEL_REJECT
 AllocStatus_INCOMPLETE = cvar.AllocStatus_INCOMPLETE
 AllocStatus_ALLOCATION_PENDING = cvar.AllocStatus_ALLOCATION_PENDING
-AllocStatus_BLOCKLEVELREJECT = cvar.AllocStatus_BLOCKLEVELREJECT
-AllocStatus_REJECTEDBYINTERMEDIARY = cvar.AllocStatus_REJECTEDBYINTERMEDIARY
-AllocStatus_RECEIVEDRECEIVEDNOTYETPROCESSED = cvar.AllocStatus_RECEIVEDRECEIVEDNOTYETPROCESSED
 AllocStatus_REVERSED = cvar.AllocStatus_REVERSED
 AllocStatus_RECEIVED = cvar.AllocStatus_RECEIVED
 AllocStatus_PARTIAL_ACCEPT = cvar.AllocStatus_PARTIAL_ACCEPT
@@ -33510,29 +30145,18 @@ AllocStatus_REJECTED = cvar.AllocStatus_REJECTED
 AllocStatus_ACCEPTED = cvar.AllocStatus_ACCEPTED
 IncTaxInd_NET = cvar.IncTaxInd_NET
 IncTaxInd_GROSS = cvar.IncTaxInd_GROSS
-PartyListResponseType_RETURN_ONLY_PARTY_INFORMATION = cvar.PartyListResponseType_RETURN_ONLY_PARTY_INFORMATION
-PartyListResponseType_RETURN_ALL_AVAILABLE_INFORMATION_ON_PARTIES_AND_RELATED_PARTIES = cvar.PartyListResponseType_RETURN_ALL_AVAILABLE_INFORMATION_ON_PARTIES_AND_RELATED_PARTIES
-PartyListResponseType_INCLUDE_RISK_LIMIT_INFORMATION = cvar.PartyListResponseType_INCLUDE_RISK_LIMIT_INFORMATION
-PartyListResponseType_INCLUDE_INFORMATION_ON_RELATED_PARTIES = cvar.PartyListResponseType_INCLUDE_INFORMATION_ON_RELATED_PARTIES
 PosReqStatus_COMPLETED = cvar.PosReqStatus_COMPLETED
 PosReqStatus_REJECTED = cvar.PosReqStatus_REJECTED
-PosReqStatus_COMPLETEDWITHWARNINGS = cvar.PosReqStatus_COMPLETEDWITHWARNINGS
 PosReqStatus_COMPLETED_WITH_WARNINGS = cvar.PosReqStatus_COMPLETED_WITH_WARNINGS
 PriorityIndicator_PRIORITY_UNCHANGED = cvar.PriorityIndicator_PRIORITY_UNCHANGED
-PriorityIndicator_PRIORITYUNCHANGED = cvar.PriorityIndicator_PRIORITYUNCHANGED
-PriorityIndicator_LOSTPRIORITY = cvar.PriorityIndicator_LOSTPRIORITY
 PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE = cvar.PriorityIndicator_LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE
-MoneyLaunderingStatus_NOTCHECKED = cvar.MoneyLaunderingStatus_NOTCHECKED
 MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT = cvar.MoneyLaunderingStatus_EXEMPT_BELOW_THE_LIMIT
-MoneyLaunderingStatus_EXAUTHCREDIT = cvar.MoneyLaunderingStatus_EXAUTHCREDIT
 MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION = cvar.MoneyLaunderingStatus_EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION
 MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION = cvar.MoneyLaunderingStatus_EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION
 MoneyLaunderingStatus_NOT_CHECKED = cvar.MoneyLaunderingStatus_NOT_CHECKED
 MoneyLaunderingStatus_PASSED = cvar.MoneyLaunderingStatus_PASSED
 MoneyLaunderingStatus_EXEMPT_1 = cvar.MoneyLaunderingStatus_EXEMPT_1
-MoneyLaunderingStatus_EXCLIENTMONEYTYPE = cvar.MoneyLaunderingStatus_EXCLIENTMONEYTYPE
 MoneyLaunderingStatus_EXEMPT_2 = cvar.MoneyLaunderingStatus_EXEMPT_2
-MoneyLaunderingStatus_EXBELOWLIM = cvar.MoneyLaunderingStatus_EXBELOWLIM
 MoneyLaunderingStatus_EXEMPT_3 = cvar.MoneyLaunderingStatus_EXEMPT_3
 LotType_ROUND_LOT_BASED_UPON_UNITOFMEASURE = cvar.LotType_ROUND_LOT_BASED_UPON_UNITOFMEASURE
 LotType_ROUND_LOT = cvar.LotType_ROUND_LOT
@@ -33544,7 +30168,6 @@ QuoteCondition_BETTER_PRICES_IN_CONDITIONAL_ORDERS = cvar.QuoteCondition_BETTER_
 QuoteCondition_TRADING_RANGE = cvar.QuoteCondition_TRADING_RANGE
 QuoteCondition_HALT_ETH = cvar.QuoteCondition_HALT_ETH
 QuoteCondition_BID_OFFER_SPECIALIST = cvar.QuoteCondition_BID_OFFER_SPECIALIST
-QuoteCondition_CONSOLBEST = cvar.QuoteCondition_CONSOLBEST
 QuoteCondition_CROSSED = cvar.QuoteCondition_CROSSED
 QuoteCondition_NO_OPEN = cvar.QuoteCondition_NO_OPEN
 QuoteCondition_HALT = cvar.QuoteCondition_HALT
@@ -33557,7 +30180,6 @@ QuoteCondition_DEPTH_ON_OFFER = cvar.QuoteCondition_DEPTH_ON_OFFER
 QuoteCondition_ADDITIONAL_INFO_DUE_TO_RELATED = cvar.QuoteCondition_ADDITIONAL_INFO_DUE_TO_RELATED
 QuoteCondition_REGULAR_ETH = cvar.QuoteCondition_REGULAR_ETH
 QuoteCondition_ROTATION_ETH = cvar.QuoteCondition_ROTATION_ETH
-QuoteCondition_NONFIRM = cvar.QuoteCondition_NONFIRM
 QuoteCondition_EXCHANGE_BEST = cvar.QuoteCondition_EXCHANGE_BEST
 QuoteCondition_DEPTH_ON_BID = cvar.QuoteCondition_DEPTH_ON_BID
 QuoteCondition_CLOSING = cvar.QuoteCondition_CLOSING
@@ -33592,7 +30214,6 @@ QuoteCondition_NON_FIRM = cvar.QuoteCondition_NON_FIRM
 QuoteCondition_CLOSED_INACTIVE = cvar.QuoteCondition_CLOSED_INACTIVE
 QuoteCondition_ADDITIONAL_INFO = cvar.QuoteCondition_ADDITIONAL_INFO
 QuoteCondition_EQUIPMENT_CHANGEOVER = cvar.QuoteCondition_EQUIPMENT_CHANGEOVER
-QuoteCondition_EXCHBEST = cvar.QuoteCondition_EXCHBEST
 QuoteCondition_FAST_TRADING = cvar.QuoteCondition_FAST_TRADING
 QuoteCondition_FULL_CURVE = cvar.QuoteCondition_FULL_CURVE
 QuoteCondition_MEDIAN_PRICE = cvar.QuoteCondition_MEDIAN_PRICE
@@ -33601,100 +30222,38 @@ QuoteCondition_ORDER_IMBALANCE = cvar.QuoteCondition_ORDER_IMBALANCE
 QuoteCondition_AUTOMATIC_EXECUTION_ETH = cvar.QuoteCondition_AUTOMATIC_EXECUTION_ETH
 QuoteCondition_ROTATION = cvar.QuoteCondition_ROTATION
 QuoteCondition_BID_SPECIALIST = cvar.QuoteCondition_BID_SPECIALIST
-QuoteCondition_FAST = cvar.QuoteCondition_FAST
 QuoteCondition_CONSOLIDATED_BEST = cvar.QuoteCondition_CONSOLIDATED_BEST
 QuoteCondition_CLOSED = cvar.QuoteCondition_CLOSED
-PartyRelationship_OWNED_BY_30 = cvar.PartyRelationship_OWNED_BY_30
-PartyRelationship_PROVIDES_QUOTES_TO = cvar.PartyRelationship_PROVIDES_QUOTES_TO
-PartyRelationship_POSTS_TRADES_TO = cvar.PartyRelationship_POSTS_TRADES_TO
-PartyRelationship_REGULATORY_OWNER_OF = cvar.PartyRelationship_REGULATORY_OWNER_OF
-PartyRelationship_SUBSIDIARY_OF = cvar.PartyRelationship_SUBSIDIARY_OF
-PartyRelationship_HAS_MEMBERS = cvar.PartyRelationship_HAS_MEMBERS
-PartyRelationship_ENTERS_TRADES_THROUGH = cvar.PartyRelationship_ENTERS_TRADES_THROUGH
-PartyRelationship_BENEFICIAL_OWNER_OF = cvar.PartyRelationship_BENEFICIAL_OWNER_OF
-PartyRelationship_OWNED_BY_34 = cvar.PartyRelationship_OWNED_BY_34
-PartyRelationship_CONTROLS = cvar.PartyRelationship_CONTROLS
-PartyRelationship_REQUESTS_QUOTES_FROM = cvar.PartyRelationship_REQUESTS_QUOTES_FROM
-PartyRelationship_SPONSORS = cvar.PartyRelationship_SPONSORS
-PartyRelationship_CLEARS_THROUGH = cvar.PartyRelationship_CLEARS_THROUGH
-PartyRelationship_OWNED_BY_36 = cvar.PartyRelationship_OWNED_BY_36
-PartyRelationship_BROKERS_TRADES_THROUGH = cvar.PartyRelationship_BROKERS_TRADES_THROUGH
-PartyRelationship_INVESTS_THROUGH = cvar.PartyRelationship_INVESTS_THROUGH
-PartyRelationship_PARTICIPANT_OF_MARKETPLACE = cvar.PartyRelationship_PARTICIPANT_OF_MARKETPLACE
-PartyRelationship_LEGAL = cvar.PartyRelationship_LEGAL
-PartyRelationship_ENTERS_TRADES_FOR = cvar.PartyRelationship_ENTERS_TRADES_FOR
-PartyRelationship_CARRIES_POSITIONS_FOR = cvar.PartyRelationship_CARRIES_POSITIONS_FOR
-PartyRelationship_IS_GUARANTEED_BY = cvar.PartyRelationship_IS_GUARANTEED_BY
-PartyRelationship_IS_CONTROLLED_BY = cvar.PartyRelationship_IS_CONTROLLED_BY
-PartyRelationship_PROVIDES_TRADING_SERVICES_FOR = cvar.PartyRelationship_PROVIDES_TRADING_SERVICES_FOR
-PartyRelationship_IS_ALSO = cvar.PartyRelationship_IS_ALSO
-PartyRelationship_PARENT_FIRM_FOR = cvar.PartyRelationship_PARENT_FIRM_FOR
-PartyRelationship_APPROVED_BY = cvar.PartyRelationship_APPROVED_BY
-PartyRelationship_APPROVES_OF = cvar.PartyRelationship_APPROVES_OF
-PartyRelationship_USES_TRADING_SERVICES_OF = cvar.PartyRelationship_USES_TRADING_SERVICES_OF
-PartyRelationship_PROVIDES_GUARANTEE_FOR = cvar.PartyRelationship_PROVIDES_GUARANTEE_FOR
-PartyRelationship_SPONSORED_THROUGH = cvar.PartyRelationship_SPONSORED_THROUGH
-PartyRelationship_TRADES_FOR = cvar.PartyRelationship_TRADES_FOR
-PartyRelationship_CLEARS_FOR = cvar.PartyRelationship_CLEARS_FOR
-PartyRelationship_BROKERS_TRADES_FOR = cvar.PartyRelationship_BROKERS_TRADES_FOR
-PartyRelationship_INVESTS_FOR = cvar.PartyRelationship_INVESTS_FOR
-PartyRelationship_PROVIDES_MARKETPLACE_FOR = cvar.PartyRelationship_PROVIDES_MARKETPLACE_FOR
-PartyRelationship_MEMBER_OF = cvar.PartyRelationship_MEMBER_OF
-PartyRelationship_TRADES_THROUGH = cvar.PartyRelationship_TRADES_THROUGH
 SettlLocation_EUROCLEAR = cvar.SettlLocation_EUROCLEAR
 SettlLocation_CEDEL = cvar.SettlLocation_CEDEL
 SettlLocation_PARTICIPANT_TRUST_COMPANY = cvar.SettlLocation_PARTICIPANT_TRUST_COMPANY
 SettlLocation_PHYSICAL = cvar.SettlLocation_PHYSICAL
-SettlLocation_EURO_CLEAR = cvar.SettlLocation_EURO_CLEAR
-SettlLocation_FEDERALBOOKENTRY = cvar.SettlLocation_FEDERALBOOKENTRY
-SettlLocation_PARTICIPANTTRUSTCOMPANY = cvar.SettlLocation_PARTICIPANTTRUSTCOMPANY
 SettlLocation_DEPOSITORY_TRUST_COMPANY = cvar.SettlLocation_DEPOSITORY_TRUST_COMPANY
-SettlLocation_DEPOSITORYTRUSTCOMPANY = cvar.SettlLocation_DEPOSITORYTRUSTCOMPANY
 SettlLocation_LOCAL_MARKET_SETTLE_LOCATION = cvar.SettlLocation_LOCAL_MARKET_SETTLE_LOCATION
-SettlLocation_LOCALMARKETSETTLELOCATION = cvar.SettlLocation_LOCALMARKETSETTLELOCATION
 SettlLocation_FEDERAL_BOOK_ENTRY = cvar.SettlLocation_FEDERAL_BOOK_ENTRY
-DiscretionScope_LOCAL = cvar.DiscretionScope_LOCAL
 DiscretionScope_NATIONAL_EXCLUDING_LOCAL = cvar.DiscretionScope_NATIONAL_EXCLUDING_LOCAL
-DiscretionScope_NATIONALEXCLUDINGLOCAL = cvar.DiscretionScope_NATIONALEXCLUDINGLOCAL
+DiscretionScope_LOCAL = cvar.DiscretionScope_LOCAL
 DiscretionScope_GLOBAL = cvar.DiscretionScope_GLOBAL
 DiscretionScope_NATIONAL = cvar.DiscretionScope_NATIONAL
-DiscretionScope_LOCALEXCHANGEECNATS = cvar.DiscretionScope_LOCALEXCHANGEECNATS
-OwnerType_NETWORKINGSUBACCT = cvar.OwnerType_NETWORKINGSUBACCT
 OwnerType_PUBLIC_COMPANY = cvar.OwnerType_PUBLIC_COMPANY
 OwnerType_INDIVIDUAL_TRUSTEE = cvar.OwnerType_INDIVIDUAL_TRUSTEE
 OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT = cvar.OwnerType_CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT
 OwnerType_INDIVIDUAL_INVESTOR = cvar.OwnerType_INDIVIDUAL_INVESTOR
 OwnerType_COMPANY_TRUSTEE = cvar.OwnerType_COMPANY_TRUSTEE
-OwnerType_CORPBODY = cvar.OwnerType_CORPBODY
-OwnerType_INDIVTRUSTEE = cvar.OwnerType_INDIVTRUSTEE
-OwnerType_PENSIONPLAN = cvar.OwnerType_PENSIONPLAN
 OwnerType_PRIVATE_COMPANY = cvar.OwnerType_PRIVATE_COMPANY
 OwnerType_NETWORKING_SUB_ACCOUNT = cvar.OwnerType_NETWORKING_SUB_ACCOUNT
-OwnerType_NON_PROFITORG = cvar.OwnerType_NON_PROFITORG
-OwnerType_PRIVATECOMPANY = cvar.OwnerType_PRIVATECOMPANY
 OwnerType_PENSION_PLAN = cvar.OwnerType_PENSION_PLAN
-OwnerType_COMPANYTRUSTEE = cvar.OwnerType_COMPANYTRUSTEE
 OwnerType_TRUSTS = cvar.OwnerType_TRUSTS
 OwnerType_FIDUCIARIES = cvar.OwnerType_FIDUCIARIES
-OwnerType_INDIVINVESTOR = cvar.OwnerType_INDIVINVESTOR
 OwnerType_NON_PROFIT_ORGANIZATION = cvar.OwnerType_NON_PROFIT_ORGANIZATION
 OwnerType_CORPORATE_BODY = cvar.OwnerType_CORPORATE_BODY
-OwnerType_PUBLICCOMPANY = cvar.OwnerType_PUBLICCOMPANY
-OwnerType_CUSTODIANMINORSACT = cvar.OwnerType_CUSTODIANMINORSACT
 OwnerType_NOMINEE = cvar.OwnerType_NOMINEE
 ApplQueueResolution_END_SESSION = cvar.ApplQueueResolution_END_SESSION
-ApplQueueResolution_QUEUEFLUSHED = cvar.ApplQueueResolution_QUEUEFLUSHED
 ApplQueueResolution_QUEUE_FLUSHED = cvar.ApplQueueResolution_QUEUE_FLUSHED
-ApplQueueResolution_ENDSESSION = cvar.ApplQueueResolution_ENDSESSION
-ApplQueueResolution_OVERLAYLAST = cvar.ApplQueueResolution_OVERLAYLAST
 ApplQueueResolution_OVERLAY_LAST = cvar.ApplQueueResolution_OVERLAY_LAST
-ApplQueueResolution_NOACTIONTAKEN = cvar.ApplQueueResolution_NOACTIONTAKEN
 ApplQueueResolution_NO_ACTION_TAKEN = cvar.ApplQueueResolution_NO_ACTION_TAKEN
 QuoteResponseLevel_SUMMARY_ACKNOWLEDGEMENT = cvar.QuoteResponseLevel_SUMMARY_ACKNOWLEDGEMENT
-QuoteResponseLevel_ACKEACH = cvar.QuoteResponseLevel_ACKEACH
 QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES = cvar.QuoteResponseLevel_ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES
-QuoteResponseLevel_ACKNEG = cvar.QuoteResponseLevel_ACKNEG
-QuoteResponseLevel_NOACK = cvar.QuoteResponseLevel_NOACK
 QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGE = cvar.QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGE
 QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES = cvar.QuoteResponseLevel_ACKNOWLEDGE_EACH_QUOTE_MESSAGES
 QuoteResponseLevel_NO_ACKNOWLEDGEMENT = cvar.QuoteResponseLevel_NO_ACKNOWLEDGEMENT
@@ -33706,71 +30265,47 @@ NetGrossInd_GROSS = cvar.NetGrossInd_GROSS
 CxlType_PARTIAL_CANCEL = cvar.CxlType_PARTIAL_CANCEL
 CxlType_FULL_REMAINING_QUANTITY = cvar.CxlType_FULL_REMAINING_QUANTITY
 DeskTypeSource_NASD_OATS = cvar.DeskTypeSource_NASD_OATS
-DiscretionRoundDirection_MOREPASSIVE = cvar.DiscretionRoundDirection_MOREPASSIVE
-DiscretionRoundDirection_MOREAGGRESSIVE = cvar.DiscretionRoundDirection_MOREAGGRESSIVE
+DiscretionRoundDirection_MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK = cvar.DiscretionRoundDirection_MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK
 DiscretionRoundDirection_MORE_AGGRESSIVE = cvar.DiscretionRoundDirection_MORE_AGGRESSIVE
 DiscretionRoundDirection_MORE_PASSIVE = cvar.DiscretionRoundDirection_MORE_PASSIVE
+DiscretionRoundDirection_MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK = cvar.DiscretionRoundDirection_MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK
 BidDescriptorType_COUNTRY = cvar.BidDescriptorType_COUNTRY
 BidDescriptorType_INDEX = cvar.BidDescriptorType_INDEX
 BidDescriptorType_SECTOR = cvar.BidDescriptorType_SECTOR
 NetworkStatusResponseType_INCREMENTAL_UPDATE = cvar.NetworkStatusResponseType_INCREMENTAL_UPDATE
-NetworkStatusResponseType_INCREMENTALUPDATE = cvar.NetworkStatusResponseType_INCREMENTALUPDATE
 NetworkStatusResponseType_FULL = cvar.NetworkStatusResponseType_FULL
 QuoteType_INDICATIVE = cvar.QuoteType_INDICATIVE
-QuoteType_RESTRICTEDTRADEABLE = cvar.QuoteType_RESTRICTEDTRADEABLE
 QuoteType_RESTRICTED_TRADEABLE = cvar.QuoteType_RESTRICTED_TRADEABLE
 QuoteType_TRADEABLE = cvar.QuoteType_TRADEABLE
 QuoteType_COUNTER = cvar.QuoteType_COUNTER
-DiscretionInst_RELVWAP = cvar.DiscretionInst_RELVWAP
-DiscretionInst_RELLOCPRIMPX = cvar.DiscretionInst_RELLOCPRIMPX
 DiscretionInst_RELATED_TO_MARKET_PRICE = cvar.DiscretionInst_RELATED_TO_MARKET_PRICE
-DiscretionInst_RELMIDPX = cvar.DiscretionInst_RELMIDPX
 DiscretionInst_RELATED_TO_VWAP = cvar.DiscretionInst_RELATED_TO_VWAP
 DiscretionInst_RELATED_TO_MIDPOINT_PRICE = cvar.DiscretionInst_RELATED_TO_MIDPOINT_PRICE
-DiscretionInst_RELDISPPX = cvar.DiscretionInst_RELDISPPX
 DiscretionInst_RELATED_TO_DISPLAYED_PRICE = cvar.DiscretionInst_RELATED_TO_DISPLAYED_PRICE
 DiscretionInst_RELATED_TO_PRIMARY_PRICE = cvar.DiscretionInst_RELATED_TO_PRIMARY_PRICE
 DiscretionInst_AVERAGE_PRICE_GUARANTEE = cvar.DiscretionInst_AVERAGE_PRICE_GUARANTEE
-DiscretionInst_RELMKTPX = cvar.DiscretionInst_RELMKTPX
-DiscretionInst_RELPRIMPX = cvar.DiscretionInst_RELPRIMPX
-DiscretionInst_RELLSTPX = cvar.DiscretionInst_RELLSTPX
 DiscretionInst_RELATED_TO_LAST_TRADE_PRICE = cvar.DiscretionInst_RELATED_TO_LAST_TRADE_PRICE
 DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE = cvar.DiscretionInst_RELATED_TO_LOCAL_PRIMARY_PRICE
 CrossPrioritization_BUY_SIDE_IS_PRIORITIZED = cvar.CrossPrioritization_BUY_SIDE_IS_PRIORITIZED
 CrossPrioritization_SELL_SIDE_IS_PRIORITIZED = cvar.CrossPrioritization_SELL_SIDE_IS_PRIORITIZED
-CrossPrioritization_BUY_SIDE_PRIORITIZED = cvar.CrossPrioritization_BUY_SIDE_PRIORITIZED
-CrossPrioritization_SELL_SIDE_PRIORITIZED = cvar.CrossPrioritization_SELL_SIDE_PRIORITIZED
 CrossPrioritization_NONE = cvar.CrossPrioritization_NONE
 CrossPrioritization_SELLSIDE_PRIORITIZED = cvar.CrossPrioritization_SELLSIDE_PRIORITIZED
 CrossPrioritization_BUYSIDE_PRIORITIZED = cvar.CrossPrioritization_BUYSIDE_PRIORITIZED
 IOIOthSvc_AUTEX = cvar.IOIOthSvc_AUTEX
 IOIOthSvc_BRIDGE = cvar.IOIOthSvc_BRIDGE
-MDReqRejReason_UNSUPPSUB = cvar.MDReqRejReason_UNSUPPSUB
 MDReqRejReason_UNSUPPORTED_MDENTRYTYPE = cvar.MDReqRejReason_UNSUPPORTED_MDENTRYTYPE
 MDReqRejReason_INSUFFICIENT_CREDIT = cvar.MDReqRejReason_INSUFFICIENT_CREDIT
-MDReqRejReason_UNSUPPMKTDEPTH = cvar.MDReqRejReason_UNSUPPMKTDEPTH
-MDReqRejReason_UNSUPPENTRY = cvar.MDReqRejReason_UNSUPPENTRY
 MDReqRejReason_INSUFFICIENT_BANDWIDTH = cvar.MDReqRejReason_INSUFFICIENT_BANDWIDTH
 MDReqRejReason_UNSUPPORTED_SCOPE = cvar.MDReqRejReason_UNSUPPORTED_SCOPE
-MDReqRejReason_UNSUPPMDIMPLICITDELETE = cvar.MDReqRejReason_UNSUPPMDIMPLICITDELETE
 MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID = cvar.MDReqRejReason_UNSUPPORTED_TRADINGSESSIONID
-MDReqRejReason_UNKNOWNSYM = cvar.MDReqRejReason_UNKNOWNSYM
-MDReqRejReason_UNSUPPMDUPDATE = cvar.MDReqRejReason_UNSUPPMDUPDATE
-MDReqRejReason_UNSUPPPOSITIONEFFECTSETTLEFLAG = cvar.MDReqRejReason_UNSUPPPOSITIONEFFECTSETTLEFLAG
 MDReqRejReason_DUPLICATE_MDREQID = cvar.MDReqRejReason_DUPLICATE_MDREQID
-MDReqRejReason_DUPID = cvar.MDReqRejReason_DUPID
 MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK = cvar.MDReqRejReason_UNSUPPORTED_AGGREGATEDBOOK
 MDReqRejReason_UNSUPPORTED_MDUPDATETYPE = cvar.MDReqRejReason_UNSUPPORTED_MDUPDATETYPE
 MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE = cvar.MDReqRejReason_UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE
 MDReqRejReason_UNKNOWN_SYMBOL = cvar.MDReqRejReason_UNKNOWN_SYMBOL
-MDReqRejReason_INSBAND = cvar.MDReqRejReason_INSBAND
-MDReqRejReason_UNSUPPSCOPE = cvar.MDReqRejReason_UNSUPPSCOPE
 MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG = cvar.MDReqRejReason_UNSUPPORTED_OPENCLOSESETTLEFLAG
 MDReqRejReason_UNSUPPORTED_MARKETDEPTH = cvar.MDReqRejReason_UNSUPPORTED_MARKETDEPTH
-MDReqRejReason_UNSUPPAGGBK = cvar.MDReqRejReason_UNSUPPAGGBK
 MDReqRejReason_INSUFFICIENT_PERMISSIONS = cvar.MDReqRejReason_INSUFFICIENT_PERMISSIONS
-MDReqRejReason_INSPERM = cvar.MDReqRejReason_INSPERM
-MDReqRejReason_UNSUPPTRDSESSIONID = cvar.MDReqRejReason_UNSUPPTRDSESSIONID
 MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE = cvar.MDReqRejReason_UNSUPPORTED_MDIMPLICITDELETE
 ApplReqType_REQUEST_FOR_THE_LAST_APPLLASTSEQNUM_PUBLISHED_FOR_THE_SPECIFIED_APPLICATIONS = cvar.ApplReqType_REQUEST_FOR_THE_LAST_APPLLASTSEQNUM_PUBLISHED_FOR_THE_SPECIFIED_APPLICATIONS
 ApplReqType_UNSUBSCRIBE_TO_THE_SPECIFIED_APPLICATIONS = cvar.ApplReqType_UNSUBSCRIBE_TO_THE_SPECIFIED_APPLICATIONS
@@ -33781,29 +30316,19 @@ ApplReqType_REQUEST_VALID_SET_OF_APPLICATIONS = cvar.ApplReqType_REQUEST_VALID_S
 ApplReqType_CANCEL_RETRANSMISSION = cvar.ApplReqType_CANCEL_RETRANSMISSION
 AggressorIndicator_NO = cvar.AggressorIndicator_NO
 AggressorIndicator_YES = cvar.AggressorIndicator_YES
-BusinessRejectReason_APPNA = cvar.BusinessRejectReason_APPNA
 BusinessRejectReason_UNKNOWN_SECURITY = cvar.BusinessRejectReason_UNKNOWN_SECURITY
-BusinessRejectReason_UNKNMSGTYPE = cvar.BusinessRejectReason_UNKNMSGTYPE
-BusinessRejectReason_CONDFLDMISS = cvar.BusinessRejectReason_CONDFLDMISS
-BusinessRejectReason_UNKNID = cvar.BusinessRejectReason_UNKNID
 BusinessRejectReason_APPLICATION_NOT_AVAILABLE = cvar.BusinessRejectReason_APPLICATION_NOT_AVAILABLE
 BusinessRejectReason_INVALID_PRICE_INCREMENT = cvar.BusinessRejectReason_INVALID_PRICE_INCREMENT
 BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME = cvar.BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME
 BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING = cvar.BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING
 BusinessRejectReason_UNKNOWN_ID = cvar.BusinessRejectReason_UNKNOWN_ID
-BusinessRejectReason_NOTAUTH = cvar.BusinessRejectReason_NOTAUTH
-BusinessRejectReason_NODELIVTOFIRM = cvar.BusinessRejectReason_NODELIVTOFIRM
 BusinessRejectReason_OTHER = cvar.BusinessRejectReason_OTHER
 BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE = cvar.BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE
 BusinessRejectReason_UNKNOWN_MESSAGE_TYPE = cvar.BusinessRejectReason_UNKNOWN_MESSAGE_TYPE
 BusinessRejectReason_NOT_AUTHORIZED = cvar.BusinessRejectReason_NOT_AUTHORIZED
-BusinessRejectReason_UNKNSEC = cvar.BusinessRejectReason_UNKNSEC
 BusinessRejectReason_UNKOWN_ID = cvar.BusinessRejectReason_UNKOWN_ID
 BookingType_REGULAR_BOOKING = cvar.BookingType_REGULAR_BOOKING
-BookingType_REGULARBOOKING = cvar.BookingType_REGULARBOOKING
 BookingType_CFD = cvar.BookingType_CFD
-BookingType_CFDCONTRACTFORDIFFERENCE = cvar.BookingType_CFDCONTRACTFORDIFFERENCE
-BookingType_TOTALRETURNSWAP = cvar.BookingType_TOTALRETURNSWAP
 BookingType_TOTAL_RETURN_SWAP = cvar.BookingType_TOTAL_RETURN_SWAP
 
 class Dictionary(_object):
@@ -34665,13 +31190,6 @@ class SocketAcceptor(SocketAcceptorBase):
 
 import quickfix
 
-class RelatedPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1563)
-		else:
-			quickfix.StringField.__init__(self, 1563, data)
-
 class MaxPriceLevels(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -34721,20 +31239,6 @@ class LateIndicator(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 978, data)
 
-class RiskEncodedSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1621)
-		else:
-			quickfix.StringField.__init__(self, 1621, data)
-
-class RelationshipRiskSecuritySubType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1601)
-		else:
-			quickfix.StringField.__init__(self, 1601, data)
-
 class SecurityListID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -34748,13 +31252,6 @@ class DerivativeFlowScheduleType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 1442)
 		else:
 			quickfix.IntField.__init__(self, 1442, data)
-
-class EncodedSymbolLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1359)
-		else:
-			quickfix.IntField.__init__(self, 1359, data)
 
 class FlexibleIndicator(quickfix.BoolField):
 	def __init__(self, data = None):
@@ -34805,19 +31302,19 @@ class ContractMultiplier(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 231, data)
 
-class PartyAltIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1518)
-		else:
-			quickfix.CharField.__init__(self, 1518, data)
-
 class CcyAmt(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.DoubleField.__init__(self, 1157)
 		else:
 			quickfix.DoubleField.__init__(self, 1157, data)
+
+class LegOrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 685)
+		else:
+			quickfix.DoubleField.__init__(self, 685, data)
 
 class AllocIntermedReqType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -34826,13 +31323,6 @@ class AllocIntermedReqType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 808, data)
 
-class NoNested2PartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 756)
-		else:
-			quickfix.IntField.__init__(self, 756, data)
-
 class UnderlyingIssuer(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -34840,12 +31330,12 @@ class UnderlyingIssuer(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 306, data)
 
-class LegOrderQty(quickfix.DoubleField):
+class NoNested2PartyIDs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.DoubleField.__init__(self, 685)
+			quickfix.IntField.__init__(self, 756)
 		else:
-			quickfix.DoubleField.__init__(self, 685, data)
+			quickfix.IntField.__init__(self, 756, data)
 
 class MinTradeVol(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -34903,12 +31393,12 @@ class DerivativeFuturesValuationMethod(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1319, data)
 
-class NoLegSecurityAltID(quickfix.StringField):
+class NoLegSecurityAltID(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.StringField.__init__(self, 604)
+			quickfix.IntField.__init__(self, 604)
 		else:
-			quickfix.StringField.__init__(self, 604, data)
+			quickfix.IntField.__init__(self, 604, data)
 
 class DerivativeSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
@@ -35050,13 +31540,6 @@ class CardNumber(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 489, data)
 
-class NoRelatedPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1562)
-		else:
-			quickfix.IntField.__init__(self, 1562, data)
-
 class NoLegStipulations(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -35098,13 +31581,6 @@ class LegPrice(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 566)
 		else:
 			quickfix.DoubleField.__init__(self, 566, data)
-
-class RelationshipRiskMaturityTime(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1603)
-		else:
-			quickfix.StringField.__init__(self, 1603, data)
 
 class DeliverToCompID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -35372,13 +31848,6 @@ class UnderlyingMaturityMonthYear(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 313, data)
 
-class RiskWarningLevelPercent(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1560)
-		else:
-			quickfix.DoubleField.__init__(self, 1560, data)
-
 class UnderlyingOriginalNotionalPercentageOutstanding(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -35413,13 +31882,6 @@ class UnderlyingRepurchaseTerm(quickfix.IntField):
 			quickfix.IntField.__init__(self, 244)
 		else:
 			quickfix.IntField.__init__(self, 244, data)
-
-class RiskWarningLevelName(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1561)
-		else:
-			quickfix.StringField.__init__(self, 1561, data)
 
 class DerivativeCountryOfIssue(quickfix.StringField):
 	def __init__(self, data = None):
@@ -35484,13 +31946,6 @@ class ClearingBusinessDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 715, data)
 
-class NoRelationshipRiskLimits(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1582)
-		else:
-			quickfix.IntField.__init__(self, 1582, data)
-
 class LocationID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -35525,13 +31980,6 @@ class BidTradeType(quickfix.CharField):
 			quickfix.CharField.__init__(self, 418)
 		else:
 			quickfix.CharField.__init__(self, 418, data)
-
-class RelationshipRiskInstrumentOperator(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1588)
-		else:
-			quickfix.IntField.__init__(self, 1588, data)
 
 class UnderlyingAttachmentPoint(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -35715,13 +32163,6 @@ class SettlCurrFxRate(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 155, data)
 
-class RelatedPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1565)
-		else:
-			quickfix.IntField.__init__(self, 1565, data)
-
 class LegContractMultiplierUnit(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -35770,20 +32211,6 @@ class RoutingID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 217)
 		else:
 			quickfix.StringField.__init__(self, 217, data)
-
-class RelationshipRiskSecurityAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1594)
-		else:
-			quickfix.StringField.__init__(self, 1594, data)
-
-class RelatedPartyAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1570)
-		else:
-			quickfix.StringField.__init__(self, 1570, data)
 
 class StrategyParameterType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -36023,13 +32450,6 @@ class AdvSide(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 4, data)
 
-class RelatedContextPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1580)
-		else:
-			quickfix.StringField.__init__(self, 1580, data)
-
 class DerivativeSecuritySubType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -36078,20 +32498,6 @@ class TradeRequestID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 568)
 		else:
 			quickfix.StringField.__init__(self, 568, data)
-
-class RelationshipRiskLimitType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1583)
-		else:
-			quickfix.IntField.__init__(self, 1583, data)
-
-class RiskSecurityIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1539)
-		else:
-			quickfix.StringField.__init__(self, 1539, data)
 
 class LegFlowScheduleType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -36260,13 +32666,6 @@ class MDEntryBuyer(quickfix.StringField):
 			quickfix.StringField.__init__(self, 288)
 		else:
 			quickfix.StringField.__init__(self, 288, data)
-
-class RelationshipRiskCouponRate(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1608)
-		else:
-			quickfix.DoubleField.__init__(self, 1608, data)
 
 class NoDerivativeInstrumentPartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -36450,13 +32849,6 @@ class EncodedUnderlyingSecurityDesc(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 365, data)
 
-class RelatedPartyAltSubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1574)
-		else:
-			quickfix.IntField.__init__(self, 1574, data)
-
 class MarketReportID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -36569,13 +32961,6 @@ class ExecBroker(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 76, data)
 
-class RelationshipRiskEncodedSecurityDescLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1618)
-		else:
-			quickfix.IntField.__init__(self, 1618, data)
-
 class SecurityXMLLen(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -36687,13 +33072,6 @@ class LegSecurityType(quickfix.StringField):
 			quickfix.StringField.__init__(self, 609)
 		else:
 			quickfix.StringField.__init__(self, 609, data)
-
-class RiskLimitPlatform(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1533)
-		else:
-			quickfix.StringField.__init__(self, 1533, data)
 
 class OrigCustOrderCapacity(quickfix.IntField):
 	def __init__(self, data = None):
@@ -36891,13 +33269,6 @@ class EncodedLegSecurityDesc(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 622, data)
 
-class RelatedContextPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1578)
-		else:
-			quickfix.IntField.__init__(self, 1578, data)
-
 class UnderlyingSettlementStatus(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -36919,26 +33290,12 @@ class RegistRefID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 508, data)
 
-class RelationshipRiskFlexibleIndicator(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 1607)
-		else:
-			quickfix.BoolField.__init__(self, 1607, data)
-
 class DerivativePriceQuoteMethod(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.StringField.__init__(self, 1318)
 		else:
 			quickfix.StringField.__init__(self, 1318, data)
-
-class RelationshipRiskProductComplex(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1597)
-		else:
-			quickfix.StringField.__init__(self, 1597, data)
 
 class OrderDelay(quickfix.IntField):
 	def __init__(self, data = None):
@@ -37136,20 +33493,6 @@ class OnBehalfOfSubID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 116, data)
 
-class RelationshipRiskLimitPlatform(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1586)
-		else:
-			quickfix.StringField.__init__(self, 1586, data)
-
-class RelatedPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1567)
-		else:
-			quickfix.StringField.__init__(self, 1567, data)
-
 class ComplexEventEndTime(quickfix.UtcTimeOnlyField):
 	def __init__(self, data = None):
 		if data == None:
@@ -37241,13 +33584,6 @@ class TotQuoteEntries(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 304, data)
 
-class PartyAltSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1520)
-		else:
-			quickfix.StringField.__init__(self, 1520, data)
-
 class TotNoCxldQuotes(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -37289,13 +33625,6 @@ class PosQtyStatus(quickfix.IntField):
 			quickfix.IntField.__init__(self, 706)
 		else:
 			quickfix.IntField.__init__(self, 706, data)
-
-class RiskRestructuringType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1551)
-		else:
-			quickfix.StringField.__init__(self, 1551, data)
 
 class NoNested4PartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -37443,13 +33772,6 @@ class AdjustmentType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 718)
 		else:
 			quickfix.IntField.__init__(self, 718, data)
-
-class NoPartyAltSubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1519)
-		else:
-			quickfix.IntField.__init__(self, 1519, data)
 
 class UnderlyingInstrumentPartyID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -37633,13 +33955,6 @@ class OfferYield(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 634, data)
 
-class RelatedContextPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1576)
-		else:
-			quickfix.StringField.__init__(self, 1576, data)
-
 class TargetPartyIDSource(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -37752,12 +34067,12 @@ class MaturityRuleID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1222, data)
 
-class UnderlyingRepoCollateralSecurityType(quickfix.IntField):
+class UnderlyingRepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 243)
+			quickfix.StringField.__init__(self, 243)
 		else:
-			quickfix.IntField.__init__(self, 243, data)
+			quickfix.StringField.__init__(self, 243, data)
 
 class NoTimeInForceRules(quickfix.IntField):
 	def __init__(self, data = None):
@@ -37836,13 +34151,6 @@ class RFQReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 644, data)
 
-class RelationshipRiskSecurityExchange(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1609)
-		else:
-			quickfix.StringField.__init__(self, 1609, data)
-
 class UnderlyingLegSymbolSfx(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -37891,13 +34199,6 @@ class PegMoveType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 835)
 		else:
 			quickfix.IntField.__init__(self, 835, data)
-
-class AsgnReqID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 831)
-		else:
-			quickfix.StringField.__init__(self, 831, data)
 
 class PegDifference(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -37969,13 +34270,6 @@ class CardIssNum(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 491, data)
 
-class RiskCFICode(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1546)
-		else:
-			quickfix.StringField.__init__(self, 1546, data)
-
 class EncodedMktSegmDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -38010,13 +34304,6 @@ class NoQuoteSets(quickfix.IntField):
 			quickfix.IntField.__init__(self, 296)
 		else:
 			quickfix.IntField.__init__(self, 296, data)
-
-class RelationshipRiskSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1610)
-		else:
-			quickfix.StringField.__init__(self, 1610, data)
 
 class Nested4PartySubIDType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -38186,13 +34473,6 @@ class SettlInstSource(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 165, data)
 
-class PartyAltSubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1521)
-		else:
-			quickfix.IntField.__init__(self, 1521, data)
-
 class UnderlyingLegSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -38305,13 +34585,6 @@ class TestMessageIndicator(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 464, data)
 
-class ContextPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1527)
-		else:
-			quickfix.StringField.__init__(self, 1527, data)
-
 class DerivativeEventDate(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -38367,20 +34640,6 @@ class DeliverToSubID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 129)
 		else:
 			quickfix.StringField.__init__(self, 129, data)
-
-class NoRelatedPartyAltIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1569)
-		else:
-			quickfix.IntField.__init__(self, 1569, data)
-
-class RiskProductComplex(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1544)
-		else:
-			quickfix.StringField.__init__(self, 1544, data)
 
 class LegPriceUnitOfMeasureQty(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -38487,13 +34746,6 @@ class PositionEffect(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 77, data)
 
-class RelatedPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1568)
-		else:
-			quickfix.IntField.__init__(self, 1568, data)
-
 class TriggerAction(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -38570,13 +34822,6 @@ class ListNoOrds(quickfix.IntField):
 			quickfix.IntField.__init__(self, 68)
 		else:
 			quickfix.IntField.__init__(self, 68, data)
-
-class RelatedPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1564)
-		else:
-			quickfix.CharField.__init__(self, 1564, data)
 
 class PegSymbol(quickfix.StringField):
 	def __init__(self, data = None):
@@ -38802,13 +35047,6 @@ class BidID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 390, data)
 
-class PartyDetailsRequestResult(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1511)
-		else:
-			quickfix.IntField.__init__(self, 1511, data)
-
 class ExerciseMethod(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -38991,13 +35229,6 @@ class RelatdSym(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 46, data)
 
-class RiskLimitAmount(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1531)
-		else:
-			quickfix.DoubleField.__init__(self, 1531, data)
-
 class UnderlyingLegSecuritySubType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -39011,27 +35242,6 @@ class NoUnderlyingSecurityAltID(quickfix.IntField):
 			quickfix.IntField.__init__(self, 457)
 		else:
 			quickfix.IntField.__init__(self, 457, data)
-
-class RelationshipRiskCFICode(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1599)
-		else:
-			quickfix.StringField.__init__(self, 1599, data)
-
-class NoRelatedPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1566)
-		else:
-			quickfix.IntField.__init__(self, 1566, data)
-
-class RiskSymbolSfx(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1537)
-		else:
-			quickfix.StringField.__init__(self, 1537, data)
 
 class MDQuoteType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -39285,13 +35495,6 @@ class CashDistribAgentAcctName(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 502, data)
 
-class NoContextPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1526)
-		else:
-			quickfix.IntField.__init__(self, 1526, data)
-
 class UndlyInstrumentPartyIDSource(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -39354,13 +35557,6 @@ class SecuritySettlAgentAcctName(quickfix.StringField):
 			quickfix.StringField.__init__(self, 179)
 		else:
 			quickfix.StringField.__init__(self, 179, data)
-
-class RiskInstrumentMultiplier(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1558)
-		else:
-			quickfix.DoubleField.__init__(self, 1558, data)
 
 class NoDerivativeEvents(quickfix.IntField):
 	def __init__(self, data = None):
@@ -39593,13 +35789,6 @@ class NoMDEntries(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 268, data)
 
-class NoPartyListResponseTypes(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1506)
-		else:
-			quickfix.IntField.__init__(self, 1506, data)
-
 class StrikePriceDeterminationMethod(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -39634,13 +35823,6 @@ class IOIRefID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 26)
 		else:
 			quickfix.StringField.__init__(self, 26, data)
-
-class NoContextPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1522)
-		else:
-			quickfix.IntField.__init__(self, 1522, data)
 
 class TargetStrategy(quickfix.IntField):
 	def __init__(self, data = None):
@@ -39740,13 +35922,6 @@ class CustOrderCapacity(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 582, data)
 
-class RiskSecurityExchange(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1616)
-		else:
-			quickfix.StringField.__init__(self, 1616, data)
-
 class LegAllocSettlCurrency(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -39782,13 +35957,6 @@ class LegSecurityID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 602, data)
 
-class EncodedSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1360)
-		else:
-			quickfix.StringField.__init__(self, 1360, data)
-
 class DerivativeSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -39802,13 +35970,6 @@ class UnitOfMeasure(quickfix.StringField):
 			quickfix.StringField.__init__(self, 996)
 		else:
 			quickfix.StringField.__init__(self, 996, data)
-
-class SecDefStatus(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 653)
-		else:
-			quickfix.IntField.__init__(self, 653, data)
 
 class Quantity(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -39957,13 +36118,6 @@ class StandInstDbType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 169, data)
 
-class RelatedContextPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1577)
-		else:
-			quickfix.CharField.__init__(self, 1577, data)
-
 class QuoteEntryStatus(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40034,13 +36188,6 @@ class AllocID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 70, data)
 
-class NoPartyList(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1513)
-		else:
-			quickfix.IntField.__init__(self, 1513, data)
-
 class UnderlyingDeliveryAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40089,13 +36236,6 @@ class PaymentMethod(quickfix.IntField):
 			quickfix.IntField.__init__(self, 492)
 		else:
 			quickfix.IntField.__init__(self, 492, data)
-
-class RiskCouponRate(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1555)
-		else:
-			quickfix.DoubleField.__init__(self, 1555, data)
 
 class UnderlyingLegOptAttribute(quickfix.CharField):
 	def __init__(self, data = None):
@@ -40215,13 +36355,6 @@ class MiscFeeCurr(quickfix.StringField):
 			quickfix.StringField.__init__(self, 138)
 		else:
 			quickfix.StringField.__init__(self, 138, data)
-
-class NoRiskLimits(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1529)
-		else:
-			quickfix.IntField.__init__(self, 1529, data)
 
 class AttachmentPoint(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -40363,13 +36496,6 @@ class ClearingFirm(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 439, data)
 
-class RelationshipRiskSecurityIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1592)
-		else:
-			quickfix.StringField.__init__(self, 1592, data)
-
 class SessionStatus(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40468,27 +36594,6 @@ class QuoteReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 131, data)
 
-class NoRelatedPartyAltSubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1572)
-		else:
-			quickfix.IntField.__init__(self, 1572, data)
-
-class RiskProduct(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1543)
-		else:
-			quickfix.IntField.__init__(self, 1543, data)
-
-class RiskSecurityAltIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1542)
-		else:
-			quickfix.StringField.__init__(self, 1542, data)
-
 class PriceUnitOfMeasure(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40580,20 +36685,6 @@ class MessageEncoding(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 347, data)
 
-class RiskPutOrCall(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1553)
-		else:
-			quickfix.IntField.__init__(self, 1553, data)
-
-class RiskSecurityGroup(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1545)
-		else:
-			quickfix.StringField.__init__(self, 1545, data)
-
 class NoPartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40608,12 +36699,12 @@ class SettlInstReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 791, data)
 
-class LegRepoCollateralSecurityType(quickfix.IntField):
+class LegRepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 250)
+			quickfix.StringField.__init__(self, 250)
 		else:
-			quickfix.IntField.__init__(self, 250, data)
+			quickfix.StringField.__init__(self, 250, data)
 
 class AffectedSecondaryOrderID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -40621,13 +36712,6 @@ class AffectedSecondaryOrderID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 536)
 		else:
 			quickfix.StringField.__init__(self, 536, data)
-
-class RiskSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1536)
-		else:
-			quickfix.StringField.__init__(self, 1536, data)
 
 class DerivativeMaturityTime(quickfix.StringField):
 	def __init__(self, data = None):
@@ -40699,13 +36783,6 @@ class ExpireDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 432, data)
 
-class RiskSecurityType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1547)
-		else:
-			quickfix.StringField.__init__(self, 1547, data)
-
 class NoMatchRules(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40762,13 +36839,6 @@ class WaveNo(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 105, data)
 
-class RiskSeniority(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1552)
-		else:
-			quickfix.StringField.__init__(self, 1552, data)
-
 class StrikePriceBoundaryMethod(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -40796,13 +36866,6 @@ class QuoteID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 117)
 		else:
 			quickfix.StringField.__init__(self, 117, data)
-
-class RiskFlexibleIndicator(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 1554)
-		else:
-			quickfix.BoolField.__init__(self, 1554, data)
 
 class DerivativeInstrumentPartyIDSource(quickfix.StringField):
 	def __init__(self, data = None):
@@ -40881,12 +36944,12 @@ class CrossType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 549, data)
 
-class RepoCollateralSecurityType(quickfix.IntField):
+class RepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 239)
+			quickfix.StringField.__init__(self, 239)
 		else:
-			quickfix.IntField.__init__(self, 239, data)
+			quickfix.StringField.__init__(self, 239, data)
 
 class Password(quickfix.StringField):
 	def __init__(self, data = None):
@@ -40992,13 +37055,6 @@ class ContAmtCurr(quickfix.StringField):
 			quickfix.StringField.__init__(self, 521)
 		else:
 			quickfix.StringField.__init__(self, 521, data)
-
-class RelationshipRiskSecurityGroup(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1598)
-		else:
-			quickfix.StringField.__init__(self, 1598, data)
 
 class ComplexEventType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -41245,13 +37301,6 @@ class UnderlyingLegMaturityMonthYear(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1339, data)
 
-class DerivativeSecurityListRequestType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1307)
-		else:
-			quickfix.IntField.__init__(self, 1307, data)
-
 class NoLotTypeRules(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -41287,13 +37336,6 @@ class GrossTradeAmt(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 381, data)
 
-class ContextPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1523)
-		else:
-			quickfix.StringField.__init__(self, 1523, data)
-
 class SecurityListDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -41328,13 +37370,6 @@ class LegCreditRating(quickfix.StringField):
 			quickfix.StringField.__init__(self, 257)
 		else:
 			quickfix.StringField.__init__(self, 257, data)
-
-class RelationshipRiskInstrumentSettlType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1611)
-		else:
-			quickfix.StringField.__init__(self, 1611, data)
 
 class BidForwardPoints2(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -41385,13 +37420,6 @@ class LegSettlmntTyp(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 587, data)
 
-class NoRelationshipRiskInstruments(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1587)
-		else:
-			quickfix.IntField.__init__(self, 1587, data)
-
 class DerivativeNTPositionLimit(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -41426,13 +37454,6 @@ class SessionRejectReason(quickfix.IntField):
 			quickfix.IntField.__init__(self, 373)
 		else:
 			quickfix.IntField.__init__(self, 373, data)
-
-class PartyDetailsListReportID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1510)
-		else:
-			quickfix.StringField.__init__(self, 1510, data)
 
 class DeliveryType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -41546,20 +37567,6 @@ class LegAllocAccount(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 671, data)
 
-class NoRelationshipRiskWarningLevels(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1613)
-		else:
-			quickfix.IntField.__init__(self, 1613, data)
-
-class RelationshipRiskProduct(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1596)
-		else:
-			quickfix.IntField.__init__(self, 1596, data)
-
 class LegSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -41664,13 +37671,6 @@ class TotNoOrders(quickfix.IntField):
 			quickfix.IntField.__init__(self, 68)
 		else:
 			quickfix.IntField.__init__(self, 68, data)
-
-class PartyAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1517)
-		else:
-			quickfix.StringField.__init__(self, 1517, data)
 
 class LegSwapType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -41854,13 +37854,6 @@ class PreviouslyReported(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 570, data)
 
-class ContextPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1524)
-		else:
-			quickfix.CharField.__init__(self, 1524, data)
-
 class RptSys(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42007,13 +38000,6 @@ class ExecType(quickfix.CharField):
 			quickfix.CharField.__init__(self, 150)
 		else:
 			quickfix.CharField.__init__(self, 150, data)
-
-class NoRelatedContextPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1579)
-		else:
-			quickfix.IntField.__init__(self, 1579, data)
 
 class Nested4PartyRole(quickfix.IntField):
 	def __init__(self, data = None):
@@ -42260,13 +38246,6 @@ class TransactTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 60, data)
 
-class RiskLimitType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1530)
-		else:
-			quickfix.IntField.__init__(self, 1530, data)
-
 class UnderlyingFlowScheduleType(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42316,13 +38295,6 @@ class LastShares(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 32, data)
 
-class RequestedPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1509)
-		else:
-			quickfix.IntField.__init__(self, 1509, data)
-
 class EventTime(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42350,13 +38322,6 @@ class XmlData(quickfix.StringField):
 			quickfix.StringField.__init__(self, 213)
 		else:
 			quickfix.StringField.__init__(self, 213, data)
-
-class RelationshipRiskSeniority(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1605)
-		else:
-			quickfix.StringField.__init__(self, 1605, data)
 
 class NoTargetPartyIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -42596,13 +38561,6 @@ class ExDestination(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 100, data)
 
-class NoPartyRelationships(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1514)
-		else:
-			quickfix.IntField.__init__(self, 1514, data)
-
 class DerivativeInstrmtAssignmentMethod(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42637,13 +38595,6 @@ class LegLastPx(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 637)
 		else:
 			quickfix.DoubleField.__init__(self, 637, data)
-
-class NoRiskWarningLevels(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1559)
-		else:
-			quickfix.IntField.__init__(self, 1559, data)
 
 class AllocReportType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -42708,13 +38659,6 @@ class HopSendingTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 629, data)
 
-class RelationshipRiskLimitAmount(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1584)
-		else:
-			quickfix.DoubleField.__init__(self, 1584, data)
-
 class ApplResendFlag(quickfix.BoolField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42728,13 +38672,6 @@ class DerivativeCapPrice(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 1321)
 		else:
 			quickfix.DoubleField.__init__(self, 1321, data)
-
-class RiskSecurityID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1538)
-		else:
-			quickfix.StringField.__init__(self, 1538, data)
 
 class ComplexOptPayoutAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -42820,13 +38757,6 @@ class FloorPrice(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 1200, data)
 
-class RiskMaturityTime(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1550)
-		else:
-			quickfix.StringField.__init__(self, 1550, data)
-
 class UnderlyingPriceUnitOfMeasureQty(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -42875,13 +38805,6 @@ class LegBenchmarkCurveCurrency(quickfix.StringField):
 			quickfix.StringField.__init__(self, 676)
 		else:
 			quickfix.StringField.__init__(self, 676, data)
-
-class RiskInstrumentOperator(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1535)
-		else:
-			quickfix.IntField.__init__(self, 1535, data)
 
 class OptPayoutAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -43128,13 +39051,6 @@ class BidDescriptor(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 400, data)
 
-class RelationshipRiskSecurityAltIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1595)
-		else:
-			quickfix.StringField.__init__(self, 1595, data)
-
 class MDStreamID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -43288,13 +39204,6 @@ class LegBidPx(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 681)
 		else:
 			quickfix.DoubleField.__init__(self, 681, data)
-
-class ContextPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1525)
-		else:
-			quickfix.IntField.__init__(self, 1525, data)
 
 class TradSesEvent(quickfix.IntField):
 	def __init__(self, data = None):
@@ -43456,20 +39365,6 @@ class RegistRejReasonCode(quickfix.IntField):
 			quickfix.IntField.__init__(self, 507)
 		else:
 			quickfix.IntField.__init__(self, 507, data)
-
-class RelationshipRiskEncodedSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1619)
-		else:
-			quickfix.StringField.__init__(self, 1619, data)
-
-class RelationshipRiskRestructuringType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1604)
-		else:
-			quickfix.StringField.__init__(self, 1604, data)
 
 class SideTimeInForce(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
@@ -43667,13 +39562,6 @@ class AllocAccruedInterestAmt(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 742, data)
 
-class RiskSecuritySubType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1548)
-		else:
-			quickfix.StringField.__init__(self, 1548, data)
-
 class EncodedSecurityListDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -43729,13 +39617,6 @@ class LongQty(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 704)
 		else:
 			quickfix.DoubleField.__init__(self, 704, data)
-
-class NoPartyAltIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1516)
-		else:
-			quickfix.IntField.__init__(self, 1516, data)
 
 class DerivativeSettlMethod(quickfix.CharField):
 	def __init__(self, data = None):
@@ -43947,13 +39828,6 @@ class EncodedUnderlyingIssuer(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 363, data)
 
-class NoRequestedPartyRoles(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1508)
-		else:
-			quickfix.IntField.__init__(self, 1508, data)
-
 class EncryptedPassword(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44016,20 +39890,6 @@ class TotNoSecurityTypes(quickfix.IntField):
 			quickfix.IntField.__init__(self, 557)
 		else:
 			quickfix.IntField.__init__(self, 557, data)
-
-class RelationshipRiskInstrumentMultiplier(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1612)
-		else:
-			quickfix.DoubleField.__init__(self, 1612, data)
-
-class NoRiskInstruments(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1534)
-		else:
-			quickfix.IntField.__init__(self, 1534, data)
 
 class ReportedPx(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -44234,13 +40094,6 @@ class ContraTrader(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 337, data)
 
-class RiskInstrumentSettlType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1557)
-		else:
-			quickfix.StringField.__init__(self, 1557, data)
-
 class MDSecSize(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44374,13 +40227,6 @@ class YieldRedemptionDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 696, data)
 
-class RelationshipRiskSecurityID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1591)
-		else:
-			quickfix.StringField.__init__(self, 1591, data)
-
 class NoSettlDetails(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44422,20 +40268,6 @@ class TradSesMethod(quickfix.IntField):
 			quickfix.IntField.__init__(self, 338)
 		else:
 			quickfix.IntField.__init__(self, 338, data)
-
-class RiskLimitCurrency(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1532)
-		else:
-			quickfix.StringField.__init__(self, 1532, data)
-
-class PartyDetailsListRequestID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1505)
-		else:
-			quickfix.StringField.__init__(self, 1505, data)
 
 class AgreementID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -44591,13 +40423,6 @@ class PriorSettlPrice(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 734, data)
 
-class RelationshipRiskSecurityType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1600)
-		else:
-			quickfix.StringField.__init__(self, 1600, data)
-
 class NotAffOrigClOrdID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44745,13 +40570,6 @@ class StateOrProvinceOfIssue(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 471, data)
 
-class RelatedPartyAltSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1573)
-		else:
-			quickfix.StringField.__init__(self, 1573, data)
-
 class DerivativeInstrRegistry(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44878,13 +40696,6 @@ class UnderlyingSecurityAltID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 458, data)
 
-class NoRelationshipRiskSecurityAltID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1593)
-		else:
-			quickfix.IntField.__init__(self, 1593, data)
-
 class RefOrdIDReason(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -44940,13 +40751,6 @@ class LastCapacity(quickfix.CharField):
 			quickfix.CharField.__init__(self, 29)
 		else:
 			quickfix.CharField.__init__(self, 29, data)
-
-class RelationshipRiskLimitCurrency(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1585)
-		else:
-			quickfix.StringField.__init__(self, 1585, data)
 
 class UnderlyingInstrumentPartySubID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -45045,13 +40849,6 @@ class NoQuoteEntries(quickfix.IntField):
 			quickfix.IntField.__init__(self, 295)
 		else:
 			quickfix.IntField.__init__(self, 295, data)
-
-class RelationshipRiskWarningLevelName(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1615)
-		else:
-			quickfix.StringField.__init__(self, 1615, data)
 
 class DefaultCstmApplVerID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -45305,20 +41102,6 @@ class LegCouponPaymentDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 248, data)
 
-class TotNoPartyList(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1512)
-		else:
-			quickfix.IntField.__init__(self, 1512, data)
-
-class PartyListResponseType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1507)
-		else:
-			quickfix.IntField.__init__(self, 1507, data)
-
 class NoUnderlyingLegSecurityAltID(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -45360,13 +41143,6 @@ class PriorityIndicator(quickfix.IntField):
 			quickfix.IntField.__init__(self, 638)
 		else:
 			quickfix.IntField.__init__(self, 638, data)
-
-class ContextPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1528)
-		else:
-			quickfix.IntField.__init__(self, 1528, data)
 
 class UnderlyingLegCFICode(quickfix.StringField):
 	def __init__(self, data = None):
@@ -45494,20 +41270,6 @@ class SendingTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 52, data)
 
-class RelationshipRiskMaturityMonthYear(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1602)
-		else:
-			quickfix.StringField.__init__(self, 1602, data)
-
-class RelatedPartyAltIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1571)
-		else:
-			quickfix.CharField.__init__(self, 1571, data)
-
 class ComplexEventStartDate(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
 		if data == None:
@@ -45542,13 +41304,6 @@ class SendingDate(quickfix.StringField):
 			quickfix.StringField.__init__(self, 51)
 		else:
 			quickfix.StringField.__init__(self, 51, data)
-
-class PartyRelationship(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1515)
-		else:
-			quickfix.IntField.__init__(self, 1515, data)
 
 class TimeToExpiration(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -45668,13 +41423,6 @@ class QuoteRespID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 693)
 		else:
 			quickfix.StringField.__init__(self, 693, data)
-
-class RiskMaturityMonthYear(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1549)
-		else:
-			quickfix.StringField.__init__(self, 1549, data)
 
 class Nested3PartySubID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -45851,27 +41599,6 @@ class BidDescriptorType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 399, data)
 
-class RiskEncodedSecurityDescLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1620)
-		else:
-			quickfix.IntField.__init__(self, 1620, data)
-
-class RelationshipRiskSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1589)
-		else:
-			quickfix.StringField.__init__(self, 1589, data)
-
-class NoRelatedContextPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1575)
-		else:
-			quickfix.IntField.__init__(self, 1575, data)
-
 class DerivativeInstrumentPartySubID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -45892,13 +41619,6 @@ class DateOfBirth(quickfix.StringField):
 			quickfix.StringField.__init__(self, 486)
 		else:
 			quickfix.StringField.__init__(self, 486, data)
-
-class RelatedContextPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1581)
-		else:
-			quickfix.IntField.__init__(self, 1581, data)
 
 class StartStrikePxRange(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -45942,13 +41662,6 @@ class OrderQty(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 38, data)
 
-class RelationshipRiskWarningLevelPercent(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1614)
-		else:
-			quickfix.DoubleField.__init__(self, 1614, data)
-
 class OriginalNotionalPercentageOutstanding(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -45984,13 +41697,6 @@ class StrategyParameterValue(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 960, data)
 
-class RiskSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1556)
-		else:
-			quickfix.StringField.__init__(self, 1556, data)
-
 class NoInstrumentParties(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -46004,13 +41710,6 @@ class QuoteType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 537)
 		else:
 			quickfix.IntField.__init__(self, 537, data)
-
-class NoRiskSecurityAltID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1540)
-		else:
-			quickfix.IntField.__init__(self, 1540, data)
 
 class NoStrategyParameters(quickfix.IntField):
 	def __init__(self, data = None):
@@ -46032,13 +41731,6 @@ class DiscretionInst(quickfix.CharField):
 			quickfix.CharField.__init__(self, 388)
 		else:
 			quickfix.CharField.__init__(self, 388, data)
-
-class RiskSecurityAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1541)
-		else:
-			quickfix.StringField.__init__(self, 1541, data)
 
 class TargetPartyRole(quickfix.IntField):
 	def __init__(self, data = None):
@@ -46081,13 +41773,6 @@ class MDReqRejReason(quickfix.CharField):
 			quickfix.CharField.__init__(self, 281)
 		else:
 			quickfix.CharField.__init__(self, 281, data)
-
-class RelationshipRiskPutOrCall(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1606)
-		else:
-			quickfix.IntField.__init__(self, 1606, data)
 
 class ApplReqType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -46151,13 +41836,6 @@ class UnderlyingPutOrCall(quickfix.IntField):
 			quickfix.IntField.__init__(self, 315)
 		else:
 			quickfix.IntField.__init__(self, 315, data)
-
-class RelationshipRiskSymbolSfx(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1590)
-		else:
-			quickfix.StringField.__init__(self, 1590, data)
 
 class UnderlyingInstrumentPartyRole(quickfix.IntField):
 	def __init__(self, data = None):

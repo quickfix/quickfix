@@ -24,9 +24,6 @@ namespace FIX44
 
     FIELD_SET(*this, FIX::MDReqID);
     FIELD_SET(*this, FIX::MDReqRejReason);
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoAltMDSource);
     class NoAltMDSource: public FIX::Group
     {
@@ -34,6 +31,9 @@ namespace FIX44
     NoAltMDSource() : FIX::Group(816,817,FIX::message_order(817,0)) {}
       FIELD_SET(*this, FIX::AltMDSourceID);
     };
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

@@ -158,6 +158,18 @@ namespace QuickFix44
     public bool isSetUnderlyingMaturityDate()
     { return isSetField(542); }
 
+    public void set(QuickFix.UnderlyingPutOrCall value)
+    { setField(value); }
+    public QuickFix.UnderlyingPutOrCall get(QuickFix.UnderlyingPutOrCall  value)
+    { getField(value); return value; }
+    public QuickFix.UnderlyingPutOrCall getUnderlyingPutOrCall()
+    { QuickFix.UnderlyingPutOrCall value = new QuickFix.UnderlyingPutOrCall();
+      getField(value); return value; }
+    public bool isSet(QuickFix.UnderlyingPutOrCall field)
+    { return isSetField(field); }
+    public bool isSetUnderlyingPutOrCall()
+    { return isSetField(315); }
+
     public void set(QuickFix.UnderlyingCouponPaymentDate value)
     { setField(value); }
     public QuickFix.UnderlyingCouponPaymentDate get(QuickFix.UnderlyingCouponPaymentDate  value)
@@ -566,47 +578,6 @@ namespace QuickFix44
     public bool isSetUnderlyingEndValue()
     { return isSetField(886); }
 
-    public void set(QuickFix.NoUnderlyingSecurityAltID value)
-    { setField(value); }
-    public QuickFix.NoUnderlyingSecurityAltID get(QuickFix.NoUnderlyingSecurityAltID  value)
-    { getField(value); return value; }
-    public QuickFix.NoUnderlyingSecurityAltID getNoUnderlyingSecurityAltID()
-    { QuickFix.NoUnderlyingSecurityAltID value = new QuickFix.NoUnderlyingSecurityAltID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoUnderlyingSecurityAltID field)
-    { return isSetField(field); }
-    public bool isSetNoUnderlyingSecurityAltID()
-    { return isSetField(457); }
-
-    public class NoUnderlyingSecurityAltID: QuickFix.Group
-    {
-    public NoUnderlyingSecurityAltID() : base(457,458,message_order ) {}
-    static int[] message_order = new int[] {458,459,0};
-      public void set(QuickFix.UnderlyingSecurityAltID value)
-      { setField(value); }
-      public QuickFix.UnderlyingSecurityAltID get(QuickFix.UnderlyingSecurityAltID  value)
-      { getField(value); return value; }
-      public QuickFix.UnderlyingSecurityAltID getUnderlyingSecurityAltID()
-      { QuickFix.UnderlyingSecurityAltID value = new QuickFix.UnderlyingSecurityAltID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.UnderlyingSecurityAltID field)
-      { return isSetField(field); }
-      public bool isSetUnderlyingSecurityAltID()
-      { return isSetField(458); }
-
-      public void set(QuickFix.UnderlyingSecurityAltIDSource value)
-      { setField(value); }
-      public QuickFix.UnderlyingSecurityAltIDSource get(QuickFix.UnderlyingSecurityAltIDSource  value)
-      { getField(value); return value; }
-      public QuickFix.UnderlyingSecurityAltIDSource getUnderlyingSecurityAltIDSource()
-      { QuickFix.UnderlyingSecurityAltIDSource value = new QuickFix.UnderlyingSecurityAltIDSource();
-        getField(value); return value; }
-      public bool isSet(QuickFix.UnderlyingSecurityAltIDSource field)
-      { return isSetField(field); }
-      public bool isSetUnderlyingSecurityAltIDSource()
-      { return isSetField(459); }
-
-    };
     public void set(QuickFix.SecuritySubType value)
     { setField(value); }
     public QuickFix.SecuritySubType get(QuickFix.SecuritySubType  value)

@@ -40,126 +40,6 @@ namespace QuickFix44
     public bool isSetConfirmType()
     { return isSetField(773); }
 
-    public void set(QuickFix.AllocID value)
-    { setField(value); }
-    public QuickFix.AllocID get(QuickFix.AllocID  value)
-    { getField(value); return value; }
-    public QuickFix.AllocID getAllocID()
-    { QuickFix.AllocID value = new QuickFix.AllocID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.AllocID field)
-    { return isSetField(field); }
-    public bool isSetAllocID()
-    { return isSetField(70); }
-
-    public void set(QuickFix.SecondaryAllocID value)
-    { setField(value); }
-    public QuickFix.SecondaryAllocID get(QuickFix.SecondaryAllocID  value)
-    { getField(value); return value; }
-    public QuickFix.SecondaryAllocID getSecondaryAllocID()
-    { QuickFix.SecondaryAllocID value = new QuickFix.SecondaryAllocID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.SecondaryAllocID field)
-    { return isSetField(field); }
-    public bool isSetSecondaryAllocID()
-    { return isSetField(793); }
-
-    public void set(QuickFix.IndividualAllocID value)
-    { setField(value); }
-    public QuickFix.IndividualAllocID get(QuickFix.IndividualAllocID  value)
-    { getField(value); return value; }
-    public QuickFix.IndividualAllocID getIndividualAllocID()
-    { QuickFix.IndividualAllocID value = new QuickFix.IndividualAllocID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.IndividualAllocID field)
-    { return isSetField(field); }
-    public bool isSetIndividualAllocID()
-    { return isSetField(467); }
-
-    public void set(QuickFix.TransactTime value)
-    { setField(value); }
-    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
-    { getField(value); return value; }
-    public QuickFix.TransactTime getTransactTime()
-    { QuickFix.TransactTime value = new QuickFix.TransactTime();
-      getField(value); return value; }
-    public bool isSet(QuickFix.TransactTime field)
-    { return isSetField(field); }
-    public bool isSetTransactTime()
-    { return isSetField(60); }
-
-    public void set(QuickFix.AllocAccount value)
-    { setField(value); }
-    public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)
-    { getField(value); return value; }
-    public QuickFix.AllocAccount getAllocAccount()
-    { QuickFix.AllocAccount value = new QuickFix.AllocAccount();
-      getField(value); return value; }
-    public bool isSet(QuickFix.AllocAccount field)
-    { return isSetField(field); }
-    public bool isSetAllocAccount()
-    { return isSetField(79); }
-
-    public void set(QuickFix.AllocAcctIDSource value)
-    { setField(value); }
-    public QuickFix.AllocAcctIDSource get(QuickFix.AllocAcctIDSource  value)
-    { getField(value); return value; }
-    public QuickFix.AllocAcctIDSource getAllocAcctIDSource()
-    { QuickFix.AllocAcctIDSource value = new QuickFix.AllocAcctIDSource();
-      getField(value); return value; }
-    public bool isSet(QuickFix.AllocAcctIDSource field)
-    { return isSetField(field); }
-    public bool isSetAllocAcctIDSource()
-    { return isSetField(661); }
-
-    public void set(QuickFix.AllocAccountType value)
-    { setField(value); }
-    public QuickFix.AllocAccountType get(QuickFix.AllocAccountType  value)
-    { getField(value); return value; }
-    public QuickFix.AllocAccountType getAllocAccountType()
-    { QuickFix.AllocAccountType value = new QuickFix.AllocAccountType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.AllocAccountType field)
-    { return isSetField(field); }
-    public bool isSetAllocAccountType()
-    { return isSetField(798); }
-
-    public void set(QuickFix.Text value)
-    { setField(value); }
-    public QuickFix.Text get(QuickFix.Text  value)
-    { getField(value); return value; }
-    public QuickFix.Text getText()
-    { QuickFix.Text value = new QuickFix.Text();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Text field)
-    { return isSetField(field); }
-    public bool isSetText()
-    { return isSetField(58); }
-
-    public void set(QuickFix.EncodedTextLen value)
-    { setField(value); }
-    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedTextLen getEncodedTextLen()
-    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedTextLen field)
-    { return isSetField(field); }
-    public bool isSetEncodedTextLen()
-    { return isSetField(354); }
-
-    public void set(QuickFix.EncodedText value)
-    { setField(value); }
-    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedText getEncodedText()
-    { QuickFix.EncodedText value = new QuickFix.EncodedText();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedText field)
-    { return isSetField(field); }
-    public bool isSetEncodedText()
-    { return isSetField(355); }
-
     public void set(QuickFix.NoOrders value)
     { setField(value); }
     public QuickFix.NoOrders get(QuickFix.NoOrders  value)
@@ -367,6 +247,126 @@ namespace QuickFix44
       { return isSetField(800); }
 
     };
+    public void set(QuickFix.AllocID value)
+    { setField(value); }
+    public QuickFix.AllocID get(QuickFix.AllocID  value)
+    { getField(value); return value; }
+    public QuickFix.AllocID getAllocID()
+    { QuickFix.AllocID value = new QuickFix.AllocID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.AllocID field)
+    { return isSetField(field); }
+    public bool isSetAllocID()
+    { return isSetField(70); }
+
+    public void set(QuickFix.SecondaryAllocID value)
+    { setField(value); }
+    public QuickFix.SecondaryAllocID get(QuickFix.SecondaryAllocID  value)
+    { getField(value); return value; }
+    public QuickFix.SecondaryAllocID getSecondaryAllocID()
+    { QuickFix.SecondaryAllocID value = new QuickFix.SecondaryAllocID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.SecondaryAllocID field)
+    { return isSetField(field); }
+    public bool isSetSecondaryAllocID()
+    { return isSetField(793); }
+
+    public void set(QuickFix.IndividualAllocID value)
+    { setField(value); }
+    public QuickFix.IndividualAllocID get(QuickFix.IndividualAllocID  value)
+    { getField(value); return value; }
+    public QuickFix.IndividualAllocID getIndividualAllocID()
+    { QuickFix.IndividualAllocID value = new QuickFix.IndividualAllocID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.IndividualAllocID field)
+    { return isSetField(field); }
+    public bool isSetIndividualAllocID()
+    { return isSetField(467); }
+
+    public void set(QuickFix.TransactTime value)
+    { setField(value); }
+    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
+    { getField(value); return value; }
+    public QuickFix.TransactTime getTransactTime()
+    { QuickFix.TransactTime value = new QuickFix.TransactTime();
+      getField(value); return value; }
+    public bool isSet(QuickFix.TransactTime field)
+    { return isSetField(field); }
+    public bool isSetTransactTime()
+    { return isSetField(60); }
+
+    public void set(QuickFix.AllocAccount value)
+    { setField(value); }
+    public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)
+    { getField(value); return value; }
+    public QuickFix.AllocAccount getAllocAccount()
+    { QuickFix.AllocAccount value = new QuickFix.AllocAccount();
+      getField(value); return value; }
+    public bool isSet(QuickFix.AllocAccount field)
+    { return isSetField(field); }
+    public bool isSetAllocAccount()
+    { return isSetField(79); }
+
+    public void set(QuickFix.AllocAcctIDSource value)
+    { setField(value); }
+    public QuickFix.AllocAcctIDSource get(QuickFix.AllocAcctIDSource  value)
+    { getField(value); return value; }
+    public QuickFix.AllocAcctIDSource getAllocAcctIDSource()
+    { QuickFix.AllocAcctIDSource value = new QuickFix.AllocAcctIDSource();
+      getField(value); return value; }
+    public bool isSet(QuickFix.AllocAcctIDSource field)
+    { return isSetField(field); }
+    public bool isSetAllocAcctIDSource()
+    { return isSetField(661); }
+
+    public void set(QuickFix.AllocAccountType value)
+    { setField(value); }
+    public QuickFix.AllocAccountType get(QuickFix.AllocAccountType  value)
+    { getField(value); return value; }
+    public QuickFix.AllocAccountType getAllocAccountType()
+    { QuickFix.AllocAccountType value = new QuickFix.AllocAccountType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.AllocAccountType field)
+    { return isSetField(field); }
+    public bool isSetAllocAccountType()
+    { return isSetField(798); }
+
+    public void set(QuickFix.Text value)
+    { setField(value); }
+    public QuickFix.Text get(QuickFix.Text  value)
+    { getField(value); return value; }
+    public QuickFix.Text getText()
+    { QuickFix.Text value = new QuickFix.Text();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Text field)
+    { return isSetField(field); }
+    public bool isSetText()
+    { return isSetField(58); }
+
+    public void set(QuickFix.EncodedTextLen value)
+    { setField(value); }
+    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedTextLen getEncodedTextLen()
+    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedTextLen field)
+    { return isSetField(field); }
+    public bool isSetEncodedTextLen()
+    { return isSetField(354); }
+
+    public void set(QuickFix.EncodedText value)
+    { setField(value); }
+    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedText getEncodedText()
+    { QuickFix.EncodedText value = new QuickFix.EncodedText();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedText field)
+    { return isSetField(field); }
+    public bool isSetEncodedText()
+    { return isSetField(355); }
+
   };
 
 }

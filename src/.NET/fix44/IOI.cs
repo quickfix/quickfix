@@ -174,6 +174,18 @@ namespace QuickFix44
     public bool isSetMaturityDate()
     { return isSetField(541); }
 
+    public void set(QuickFix.PutOrCall value)
+    { setField(value); }
+    public QuickFix.PutOrCall get(QuickFix.PutOrCall  value)
+    { getField(value); return value; }
+    public QuickFix.PutOrCall getPutOrCall()
+    { QuickFix.PutOrCall value = new QuickFix.PutOrCall();
+      getField(value); return value; }
+    public bool isSet(QuickFix.PutOrCall field)
+    { return isSetField(field); }
+    public bool isSetPutOrCall()
+    { return isSetField(201); }
+
     public void set(QuickFix.CouponPaymentDate value)
     { setField(value); }
     public QuickFix.CouponPaymentDate get(QuickFix.CouponPaymentDate  value)
@@ -534,112 +546,6 @@ namespace QuickFix44
     public bool isSetInterestAccrualDate()
     { return isSetField(874); }
 
-    public void set(QuickFix.NoSecurityAltID value)
-    { setField(value); }
-    public QuickFix.NoSecurityAltID get(QuickFix.NoSecurityAltID  value)
-    { getField(value); return value; }
-    public QuickFix.NoSecurityAltID getNoSecurityAltID()
-    { QuickFix.NoSecurityAltID value = new QuickFix.NoSecurityAltID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoSecurityAltID field)
-    { return isSetField(field); }
-    public bool isSetNoSecurityAltID()
-    { return isSetField(454); }
-
-    public class NoSecurityAltID: QuickFix.Group
-    {
-    public NoSecurityAltID() : base(454,455,message_order ) {}
-    static int[] message_order = new int[] {455,456,0};
-      public void set(QuickFix.SecurityAltID value)
-      { setField(value); }
-      public QuickFix.SecurityAltID get(QuickFix.SecurityAltID  value)
-      { getField(value); return value; }
-      public QuickFix.SecurityAltID getSecurityAltID()
-      { QuickFix.SecurityAltID value = new QuickFix.SecurityAltID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.SecurityAltID field)
-      { return isSetField(field); }
-      public bool isSetSecurityAltID()
-      { return isSetField(455); }
-
-      public void set(QuickFix.SecurityAltIDSource value)
-      { setField(value); }
-      public QuickFix.SecurityAltIDSource get(QuickFix.SecurityAltIDSource  value)
-      { getField(value); return value; }
-      public QuickFix.SecurityAltIDSource getSecurityAltIDSource()
-      { QuickFix.SecurityAltIDSource value = new QuickFix.SecurityAltIDSource();
-        getField(value); return value; }
-      public bool isSet(QuickFix.SecurityAltIDSource field)
-      { return isSetField(field); }
-      public bool isSetSecurityAltIDSource()
-      { return isSetField(456); }
-
-    };
-    public void set(QuickFix.NoEvents value)
-    { setField(value); }
-    public QuickFix.NoEvents get(QuickFix.NoEvents  value)
-    { getField(value); return value; }
-    public QuickFix.NoEvents getNoEvents()
-    { QuickFix.NoEvents value = new QuickFix.NoEvents();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoEvents field)
-    { return isSetField(field); }
-    public bool isSetNoEvents()
-    { return isSetField(864); }
-
-    public class NoEvents: QuickFix.Group
-    {
-    public NoEvents() : base(864,865,message_order ) {}
-    static int[] message_order = new int[] {865,866,867,868,0};
-      public void set(QuickFix.EventType value)
-      { setField(value); }
-      public QuickFix.EventType get(QuickFix.EventType  value)
-      { getField(value); return value; }
-      public QuickFix.EventType getEventType()
-      { QuickFix.EventType value = new QuickFix.EventType();
-        getField(value); return value; }
-      public bool isSet(QuickFix.EventType field)
-      { return isSetField(field); }
-      public bool isSetEventType()
-      { return isSetField(865); }
-
-      public void set(QuickFix.EventDate value)
-      { setField(value); }
-      public QuickFix.EventDate get(QuickFix.EventDate  value)
-      { getField(value); return value; }
-      public QuickFix.EventDate getEventDate()
-      { QuickFix.EventDate value = new QuickFix.EventDate();
-        getField(value); return value; }
-      public bool isSet(QuickFix.EventDate field)
-      { return isSetField(field); }
-      public bool isSetEventDate()
-      { return isSetField(866); }
-
-      public void set(QuickFix.EventPx value)
-      { setField(value); }
-      public QuickFix.EventPx get(QuickFix.EventPx  value)
-      { getField(value); return value; }
-      public QuickFix.EventPx getEventPx()
-      { QuickFix.EventPx value = new QuickFix.EventPx();
-        getField(value); return value; }
-      public bool isSet(QuickFix.EventPx field)
-      { return isSetField(field); }
-      public bool isSetEventPx()
-      { return isSetField(867); }
-
-      public void set(QuickFix.EventText value)
-      { setField(value); }
-      public QuickFix.EventText get(QuickFix.EventText  value)
-      { getField(value); return value; }
-      public QuickFix.EventText getEventText()
-      { QuickFix.EventText value = new QuickFix.EventText();
-        getField(value); return value; }
-      public bool isSet(QuickFix.EventText field)
-      { return isSetField(field); }
-      public bool isSetEventText()
-      { return isSetField(868); }
-
-    };
     public void set(QuickFix.AgreementDesc value)
     { setField(value); }
     public QuickFix.AgreementDesc get(QuickFix.AgreementDesc  value)
@@ -748,443 +654,6 @@ namespace QuickFix44
     public bool isSetMarginRatio()
     { return isSetField(898); }
 
-    public void set(QuickFix.Side value)
-    { setField(value); }
-    public QuickFix.Side get(QuickFix.Side  value)
-    { getField(value); return value; }
-    public QuickFix.Side getSide()
-    { QuickFix.Side value = new QuickFix.Side();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Side field)
-    { return isSetField(field); }
-    public bool isSetSide()
-    { return isSetField(54); }
-
-    public void set(QuickFix.QtyType value)
-    { setField(value); }
-    public QuickFix.QtyType get(QuickFix.QtyType  value)
-    { getField(value); return value; }
-    public QuickFix.QtyType getQtyType()
-    { QuickFix.QtyType value = new QuickFix.QtyType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.QtyType field)
-    { return isSetField(field); }
-    public bool isSetQtyType()
-    { return isSetField(854); }
-
-    public void set(QuickFix.OrderQty value)
-    { setField(value); }
-    public QuickFix.OrderQty get(QuickFix.OrderQty  value)
-    { getField(value); return value; }
-    public QuickFix.OrderQty getOrderQty()
-    { QuickFix.OrderQty value = new QuickFix.OrderQty();
-      getField(value); return value; }
-    public bool isSet(QuickFix.OrderQty field)
-    { return isSetField(field); }
-    public bool isSetOrderQty()
-    { return isSetField(38); }
-
-    public void set(QuickFix.CashOrderQty value)
-    { setField(value); }
-    public QuickFix.CashOrderQty get(QuickFix.CashOrderQty  value)
-    { getField(value); return value; }
-    public QuickFix.CashOrderQty getCashOrderQty()
-    { QuickFix.CashOrderQty value = new QuickFix.CashOrderQty();
-      getField(value); return value; }
-    public bool isSet(QuickFix.CashOrderQty field)
-    { return isSetField(field); }
-    public bool isSetCashOrderQty()
-    { return isSetField(152); }
-
-    public void set(QuickFix.OrderPercent value)
-    { setField(value); }
-    public QuickFix.OrderPercent get(QuickFix.OrderPercent  value)
-    { getField(value); return value; }
-    public QuickFix.OrderPercent getOrderPercent()
-    { QuickFix.OrderPercent value = new QuickFix.OrderPercent();
-      getField(value); return value; }
-    public bool isSet(QuickFix.OrderPercent field)
-    { return isSetField(field); }
-    public bool isSetOrderPercent()
-    { return isSetField(516); }
-
-    public void set(QuickFix.RoundingDirection value)
-    { setField(value); }
-    public QuickFix.RoundingDirection get(QuickFix.RoundingDirection  value)
-    { getField(value); return value; }
-    public QuickFix.RoundingDirection getRoundingDirection()
-    { QuickFix.RoundingDirection value = new QuickFix.RoundingDirection();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RoundingDirection field)
-    { return isSetField(field); }
-    public bool isSetRoundingDirection()
-    { return isSetField(468); }
-
-    public void set(QuickFix.RoundingModulus value)
-    { setField(value); }
-    public QuickFix.RoundingModulus get(QuickFix.RoundingModulus  value)
-    { getField(value); return value; }
-    public QuickFix.RoundingModulus getRoundingModulus()
-    { QuickFix.RoundingModulus value = new QuickFix.RoundingModulus();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RoundingModulus field)
-    { return isSetField(field); }
-    public bool isSetRoundingModulus()
-    { return isSetField(469); }
-
-    public void set(QuickFix.IOIQty value)
-    { setField(value); }
-    public QuickFix.IOIQty get(QuickFix.IOIQty  value)
-    { getField(value); return value; }
-    public QuickFix.IOIQty getIOIQty()
-    { QuickFix.IOIQty value = new QuickFix.IOIQty();
-      getField(value); return value; }
-    public bool isSet(QuickFix.IOIQty field)
-    { return isSetField(field); }
-    public bool isSetIOIQty()
-    { return isSetField(27); }
-
-    public void set(QuickFix.Currency value)
-    { setField(value); }
-    public QuickFix.Currency get(QuickFix.Currency  value)
-    { getField(value); return value; }
-    public QuickFix.Currency getCurrency()
-    { QuickFix.Currency value = new QuickFix.Currency();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Currency field)
-    { return isSetField(field); }
-    public bool isSetCurrency()
-    { return isSetField(15); }
-
-    public void set(QuickFix.NoStipulations value)
-    { setField(value); }
-    public QuickFix.NoStipulations get(QuickFix.NoStipulations  value)
-    { getField(value); return value; }
-    public QuickFix.NoStipulations getNoStipulations()
-    { QuickFix.NoStipulations value = new QuickFix.NoStipulations();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoStipulations field)
-    { return isSetField(field); }
-    public bool isSetNoStipulations()
-    { return isSetField(232); }
-
-    public class NoStipulations: QuickFix.Group
-    {
-    public NoStipulations() : base(232,233,message_order ) {}
-    static int[] message_order = new int[] {233,234,0};
-      public void set(QuickFix.StipulationType value)
-      { setField(value); }
-      public QuickFix.StipulationType get(QuickFix.StipulationType  value)
-      { getField(value); return value; }
-      public QuickFix.StipulationType getStipulationType()
-      { QuickFix.StipulationType value = new QuickFix.StipulationType();
-        getField(value); return value; }
-      public bool isSet(QuickFix.StipulationType field)
-      { return isSetField(field); }
-      public bool isSetStipulationType()
-      { return isSetField(233); }
-
-      public void set(QuickFix.StipulationValue value)
-      { setField(value); }
-      public QuickFix.StipulationValue get(QuickFix.StipulationValue  value)
-      { getField(value); return value; }
-      public QuickFix.StipulationValue getStipulationValue()
-      { QuickFix.StipulationValue value = new QuickFix.StipulationValue();
-        getField(value); return value; }
-      public bool isSet(QuickFix.StipulationValue field)
-      { return isSetField(field); }
-      public bool isSetStipulationValue()
-      { return isSetField(234); }
-
-    };
-    public void set(QuickFix.PriceType value)
-    { setField(value); }
-    public QuickFix.PriceType get(QuickFix.PriceType  value)
-    { getField(value); return value; }
-    public QuickFix.PriceType getPriceType()
-    { QuickFix.PriceType value = new QuickFix.PriceType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.PriceType field)
-    { return isSetField(field); }
-    public bool isSetPriceType()
-    { return isSetField(423); }
-
-    public void set(QuickFix.Price value)
-    { setField(value); }
-    public QuickFix.Price get(QuickFix.Price  value)
-    { getField(value); return value; }
-    public QuickFix.Price getPrice()
-    { QuickFix.Price value = new QuickFix.Price();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Price field)
-    { return isSetField(field); }
-    public bool isSetPrice()
-    { return isSetField(44); }
-
-    public void set(QuickFix.ValidUntilTime value)
-    { setField(value); }
-    public QuickFix.ValidUntilTime get(QuickFix.ValidUntilTime  value)
-    { getField(value); return value; }
-    public QuickFix.ValidUntilTime getValidUntilTime()
-    { QuickFix.ValidUntilTime value = new QuickFix.ValidUntilTime();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ValidUntilTime field)
-    { return isSetField(field); }
-    public bool isSetValidUntilTime()
-    { return isSetField(62); }
-
-    public void set(QuickFix.IOIQltyInd value)
-    { setField(value); }
-    public QuickFix.IOIQltyInd get(QuickFix.IOIQltyInd  value)
-    { getField(value); return value; }
-    public QuickFix.IOIQltyInd getIOIQltyInd()
-    { QuickFix.IOIQltyInd value = new QuickFix.IOIQltyInd();
-      getField(value); return value; }
-    public bool isSet(QuickFix.IOIQltyInd field)
-    { return isSetField(field); }
-    public bool isSetIOIQltyInd()
-    { return isSetField(25); }
-
-    public void set(QuickFix.IOINaturalFlag value)
-    { setField(value); }
-    public QuickFix.IOINaturalFlag get(QuickFix.IOINaturalFlag  value)
-    { getField(value); return value; }
-    public QuickFix.IOINaturalFlag getIOINaturalFlag()
-    { QuickFix.IOINaturalFlag value = new QuickFix.IOINaturalFlag();
-      getField(value); return value; }
-    public bool isSet(QuickFix.IOINaturalFlag field)
-    { return isSetField(field); }
-    public bool isSetIOINaturalFlag()
-    { return isSetField(130); }
-
-    public void set(QuickFix.Text value)
-    { setField(value); }
-    public QuickFix.Text get(QuickFix.Text  value)
-    { getField(value); return value; }
-    public QuickFix.Text getText()
-    { QuickFix.Text value = new QuickFix.Text();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Text field)
-    { return isSetField(field); }
-    public bool isSetText()
-    { return isSetField(58); }
-
-    public void set(QuickFix.EncodedTextLen value)
-    { setField(value); }
-    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedTextLen getEncodedTextLen()
-    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedTextLen field)
-    { return isSetField(field); }
-    public bool isSetEncodedTextLen()
-    { return isSetField(354); }
-
-    public void set(QuickFix.EncodedText value)
-    { setField(value); }
-    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
-    { getField(value); return value; }
-    public QuickFix.EncodedText getEncodedText()
-    { QuickFix.EncodedText value = new QuickFix.EncodedText();
-      getField(value); return value; }
-    public bool isSet(QuickFix.EncodedText field)
-    { return isSetField(field); }
-    public bool isSetEncodedText()
-    { return isSetField(355); }
-
-    public void set(QuickFix.TransactTime value)
-    { setField(value); }
-    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
-    { getField(value); return value; }
-    public QuickFix.TransactTime getTransactTime()
-    { QuickFix.TransactTime value = new QuickFix.TransactTime();
-      getField(value); return value; }
-    public bool isSet(QuickFix.TransactTime field)
-    { return isSetField(field); }
-    public bool isSetTransactTime()
-    { return isSetField(60); }
-
-    public void set(QuickFix.URLLink value)
-    { setField(value); }
-    public QuickFix.URLLink get(QuickFix.URLLink  value)
-    { getField(value); return value; }
-    public QuickFix.URLLink getURLLink()
-    { QuickFix.URLLink value = new QuickFix.URLLink();
-      getField(value); return value; }
-    public bool isSet(QuickFix.URLLink field)
-    { return isSetField(field); }
-    public bool isSetURLLink()
-    { return isSetField(149); }
-
-    public void set(QuickFix.Spread value)
-    { setField(value); }
-    public QuickFix.Spread get(QuickFix.Spread  value)
-    { getField(value); return value; }
-    public QuickFix.Spread getSpread()
-    { QuickFix.Spread value = new QuickFix.Spread();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Spread field)
-    { return isSetField(field); }
-    public bool isSetSpread()
-    { return isSetField(218); }
-
-    public void set(QuickFix.BenchmarkCurveCurrency value)
-    { setField(value); }
-    public QuickFix.BenchmarkCurveCurrency get(QuickFix.BenchmarkCurveCurrency  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkCurveCurrency getBenchmarkCurveCurrency()
-    { QuickFix.BenchmarkCurveCurrency value = new QuickFix.BenchmarkCurveCurrency();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkCurveCurrency field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkCurveCurrency()
-    { return isSetField(220); }
-
-    public void set(QuickFix.BenchmarkCurveName value)
-    { setField(value); }
-    public QuickFix.BenchmarkCurveName get(QuickFix.BenchmarkCurveName  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkCurveName getBenchmarkCurveName()
-    { QuickFix.BenchmarkCurveName value = new QuickFix.BenchmarkCurveName();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkCurveName field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkCurveName()
-    { return isSetField(221); }
-
-    public void set(QuickFix.BenchmarkCurvePoint value)
-    { setField(value); }
-    public QuickFix.BenchmarkCurvePoint get(QuickFix.BenchmarkCurvePoint  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkCurvePoint getBenchmarkCurvePoint()
-    { QuickFix.BenchmarkCurvePoint value = new QuickFix.BenchmarkCurvePoint();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkCurvePoint field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkCurvePoint()
-    { return isSetField(222); }
-
-    public void set(QuickFix.BenchmarkPrice value)
-    { setField(value); }
-    public QuickFix.BenchmarkPrice get(QuickFix.BenchmarkPrice  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkPrice getBenchmarkPrice()
-    { QuickFix.BenchmarkPrice value = new QuickFix.BenchmarkPrice();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkPrice field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkPrice()
-    { return isSetField(662); }
-
-    public void set(QuickFix.BenchmarkPriceType value)
-    { setField(value); }
-    public QuickFix.BenchmarkPriceType get(QuickFix.BenchmarkPriceType  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkPriceType getBenchmarkPriceType()
-    { QuickFix.BenchmarkPriceType value = new QuickFix.BenchmarkPriceType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkPriceType field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkPriceType()
-    { return isSetField(663); }
-
-    public void set(QuickFix.BenchmarkSecurityID value)
-    { setField(value); }
-    public QuickFix.BenchmarkSecurityID get(QuickFix.BenchmarkSecurityID  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkSecurityID getBenchmarkSecurityID()
-    { QuickFix.BenchmarkSecurityID value = new QuickFix.BenchmarkSecurityID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkSecurityID field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkSecurityID()
-    { return isSetField(699); }
-
-    public void set(QuickFix.BenchmarkSecurityIDSource value)
-    { setField(value); }
-    public QuickFix.BenchmarkSecurityIDSource get(QuickFix.BenchmarkSecurityIDSource  value)
-    { getField(value); return value; }
-    public QuickFix.BenchmarkSecurityIDSource getBenchmarkSecurityIDSource()
-    { QuickFix.BenchmarkSecurityIDSource value = new QuickFix.BenchmarkSecurityIDSource();
-      getField(value); return value; }
-    public bool isSet(QuickFix.BenchmarkSecurityIDSource field)
-    { return isSetField(field); }
-    public bool isSetBenchmarkSecurityIDSource()
-    { return isSetField(761); }
-
-    public void set(QuickFix.YieldType value)
-    { setField(value); }
-    public QuickFix.YieldType get(QuickFix.YieldType  value)
-    { getField(value); return value; }
-    public QuickFix.YieldType getYieldType()
-    { QuickFix.YieldType value = new QuickFix.YieldType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.YieldType field)
-    { return isSetField(field); }
-    public bool isSetYieldType()
-    { return isSetField(235); }
-
-    public void set(QuickFix.Yield value)
-    { setField(value); }
-    public QuickFix.Yield get(QuickFix.Yield  value)
-    { getField(value); return value; }
-    public QuickFix.Yield getYield()
-    { QuickFix.Yield value = new QuickFix.Yield();
-      getField(value); return value; }
-    public bool isSet(QuickFix.Yield field)
-    { return isSetField(field); }
-    public bool isSetYield()
-    { return isSetField(236); }
-
-    public void set(QuickFix.YieldCalcDate value)
-    { setField(value); }
-    public QuickFix.YieldCalcDate get(QuickFix.YieldCalcDate  value)
-    { getField(value); return value; }
-    public QuickFix.YieldCalcDate getYieldCalcDate()
-    { QuickFix.YieldCalcDate value = new QuickFix.YieldCalcDate();
-      getField(value); return value; }
-    public bool isSet(QuickFix.YieldCalcDate field)
-    { return isSetField(field); }
-    public bool isSetYieldCalcDate()
-    { return isSetField(701); }
-
-    public void set(QuickFix.YieldRedemptionDate value)
-    { setField(value); }
-    public QuickFix.YieldRedemptionDate get(QuickFix.YieldRedemptionDate  value)
-    { getField(value); return value; }
-    public QuickFix.YieldRedemptionDate getYieldRedemptionDate()
-    { QuickFix.YieldRedemptionDate value = new QuickFix.YieldRedemptionDate();
-      getField(value); return value; }
-    public bool isSet(QuickFix.YieldRedemptionDate field)
-    { return isSetField(field); }
-    public bool isSetYieldRedemptionDate()
-    { return isSetField(696); }
-
-    public void set(QuickFix.YieldRedemptionPrice value)
-    { setField(value); }
-    public QuickFix.YieldRedemptionPrice get(QuickFix.YieldRedemptionPrice  value)
-    { getField(value); return value; }
-    public QuickFix.YieldRedemptionPrice getYieldRedemptionPrice()
-    { QuickFix.YieldRedemptionPrice value = new QuickFix.YieldRedemptionPrice();
-      getField(value); return value; }
-    public bool isSet(QuickFix.YieldRedemptionPrice field)
-    { return isSetField(field); }
-    public bool isSetYieldRedemptionPrice()
-    { return isSetField(697); }
-
-    public void set(QuickFix.YieldRedemptionPriceType value)
-    { setField(value); }
-    public QuickFix.YieldRedemptionPriceType get(QuickFix.YieldRedemptionPriceType  value)
-    { getField(value); return value; }
-    public QuickFix.YieldRedemptionPriceType getYieldRedemptionPriceType()
-    { QuickFix.YieldRedemptionPriceType value = new QuickFix.YieldRedemptionPriceType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.YieldRedemptionPriceType field)
-    { return isSetField(field); }
-    public bool isSetYieldRedemptionPriceType()
-    { return isSetField(698); }
-
     public void set(QuickFix.NoUnderlyings value)
     { setField(value); }
     public QuickFix.NoUnderlyings get(QuickFix.NoUnderlyings  value)
@@ -1200,7 +669,7 @@ namespace QuickFix44
     public class NoUnderlyings: QuickFix.Group
     {
     public NoUnderlyings() : base(711,311,message_order ) {}
-    static int[] message_order = new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
+    static int[] message_order = new int[] {311,312,309,305,462,463,310,763,313,542,315,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
       public void set(QuickFix.UnderlyingSymbol value)
       { setField(value); }
       public QuickFix.UnderlyingSymbol get(QuickFix.UnderlyingSymbol  value)
@@ -1320,6 +789,18 @@ namespace QuickFix44
       { return isSetField(field); }
       public bool isSetUnderlyingMaturityDate()
       { return isSetField(542); }
+
+      public void set(QuickFix.UnderlyingPutOrCall value)
+      { setField(value); }
+      public QuickFix.UnderlyingPutOrCall get(QuickFix.UnderlyingPutOrCall  value)
+      { getField(value); return value; }
+      public QuickFix.UnderlyingPutOrCall getUnderlyingPutOrCall()
+      { QuickFix.UnderlyingPutOrCall value = new QuickFix.UnderlyingPutOrCall();
+        getField(value); return value; }
+      public bool isSet(QuickFix.UnderlyingPutOrCall field)
+      { return isSetField(field); }
+      public bool isSetUnderlyingPutOrCall()
+      { return isSetField(315); }
 
       public void set(QuickFix.UnderlyingCouponPaymentDate value)
       { setField(value); }
@@ -1729,47 +1210,155 @@ namespace QuickFix44
       public bool isSetUnderlyingEndValue()
       { return isSetField(886); }
 
-      public void set(QuickFix.NoUnderlyingSecurityAltID value)
+    };
+    public void set(QuickFix.Side value)
+    { setField(value); }
+    public QuickFix.Side get(QuickFix.Side  value)
+    { getField(value); return value; }
+    public QuickFix.Side getSide()
+    { QuickFix.Side value = new QuickFix.Side();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Side field)
+    { return isSetField(field); }
+    public bool isSetSide()
+    { return isSetField(54); }
+
+    public void set(QuickFix.QtyType value)
+    { setField(value); }
+    public QuickFix.QtyType get(QuickFix.QtyType  value)
+    { getField(value); return value; }
+    public QuickFix.QtyType getQtyType()
+    { QuickFix.QtyType value = new QuickFix.QtyType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.QtyType field)
+    { return isSetField(field); }
+    public bool isSetQtyType()
+    { return isSetField(854); }
+
+    public void set(QuickFix.OrderQty value)
+    { setField(value); }
+    public QuickFix.OrderQty get(QuickFix.OrderQty  value)
+    { getField(value); return value; }
+    public QuickFix.OrderQty getOrderQty()
+    { QuickFix.OrderQty value = new QuickFix.OrderQty();
+      getField(value); return value; }
+    public bool isSet(QuickFix.OrderQty field)
+    { return isSetField(field); }
+    public bool isSetOrderQty()
+    { return isSetField(38); }
+
+    public void set(QuickFix.CashOrderQty value)
+    { setField(value); }
+    public QuickFix.CashOrderQty get(QuickFix.CashOrderQty  value)
+    { getField(value); return value; }
+    public QuickFix.CashOrderQty getCashOrderQty()
+    { QuickFix.CashOrderQty value = new QuickFix.CashOrderQty();
+      getField(value); return value; }
+    public bool isSet(QuickFix.CashOrderQty field)
+    { return isSetField(field); }
+    public bool isSetCashOrderQty()
+    { return isSetField(152); }
+
+    public void set(QuickFix.OrderPercent value)
+    { setField(value); }
+    public QuickFix.OrderPercent get(QuickFix.OrderPercent  value)
+    { getField(value); return value; }
+    public QuickFix.OrderPercent getOrderPercent()
+    { QuickFix.OrderPercent value = new QuickFix.OrderPercent();
+      getField(value); return value; }
+    public bool isSet(QuickFix.OrderPercent field)
+    { return isSetField(field); }
+    public bool isSetOrderPercent()
+    { return isSetField(516); }
+
+    public void set(QuickFix.RoundingDirection value)
+    { setField(value); }
+    public QuickFix.RoundingDirection get(QuickFix.RoundingDirection  value)
+    { getField(value); return value; }
+    public QuickFix.RoundingDirection getRoundingDirection()
+    { QuickFix.RoundingDirection value = new QuickFix.RoundingDirection();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RoundingDirection field)
+    { return isSetField(field); }
+    public bool isSetRoundingDirection()
+    { return isSetField(468); }
+
+    public void set(QuickFix.RoundingModulus value)
+    { setField(value); }
+    public QuickFix.RoundingModulus get(QuickFix.RoundingModulus  value)
+    { getField(value); return value; }
+    public QuickFix.RoundingModulus getRoundingModulus()
+    { QuickFix.RoundingModulus value = new QuickFix.RoundingModulus();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RoundingModulus field)
+    { return isSetField(field); }
+    public bool isSetRoundingModulus()
+    { return isSetField(469); }
+
+    public void set(QuickFix.IOIQty value)
+    { setField(value); }
+    public QuickFix.IOIQty get(QuickFix.IOIQty  value)
+    { getField(value); return value; }
+    public QuickFix.IOIQty getIOIQty()
+    { QuickFix.IOIQty value = new QuickFix.IOIQty();
+      getField(value); return value; }
+    public bool isSet(QuickFix.IOIQty field)
+    { return isSetField(field); }
+    public bool isSetIOIQty()
+    { return isSetField(27); }
+
+    public void set(QuickFix.Currency value)
+    { setField(value); }
+    public QuickFix.Currency get(QuickFix.Currency  value)
+    { getField(value); return value; }
+    public QuickFix.Currency getCurrency()
+    { QuickFix.Currency value = new QuickFix.Currency();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Currency field)
+    { return isSetField(field); }
+    public bool isSetCurrency()
+    { return isSetField(15); }
+
+    public void set(QuickFix.NoStipulations value)
+    { setField(value); }
+    public QuickFix.NoStipulations get(QuickFix.NoStipulations  value)
+    { getField(value); return value; }
+    public QuickFix.NoStipulations getNoStipulations()
+    { QuickFix.NoStipulations value = new QuickFix.NoStipulations();
+      getField(value); return value; }
+    public bool isSet(QuickFix.NoStipulations field)
+    { return isSetField(field); }
+    public bool isSetNoStipulations()
+    { return isSetField(232); }
+
+    public class NoStipulations: QuickFix.Group
+    {
+    public NoStipulations() : base(232,233,message_order ) {}
+    static int[] message_order = new int[] {233,234,0};
+      public void set(QuickFix.StipulationType value)
       { setField(value); }
-      public QuickFix.NoUnderlyingSecurityAltID get(QuickFix.NoUnderlyingSecurityAltID  value)
+      public QuickFix.StipulationType get(QuickFix.StipulationType  value)
       { getField(value); return value; }
-      public QuickFix.NoUnderlyingSecurityAltID getNoUnderlyingSecurityAltID()
-      { QuickFix.NoUnderlyingSecurityAltID value = new QuickFix.NoUnderlyingSecurityAltID();
+      public QuickFix.StipulationType getStipulationType()
+      { QuickFix.StipulationType value = new QuickFix.StipulationType();
         getField(value); return value; }
-      public bool isSet(QuickFix.NoUnderlyingSecurityAltID field)
+      public bool isSet(QuickFix.StipulationType field)
       { return isSetField(field); }
-      public bool isSetNoUnderlyingSecurityAltID()
-      { return isSetField(457); }
+      public bool isSetStipulationType()
+      { return isSetField(233); }
 
-      public class NoUnderlyingSecurityAltID: QuickFix.Group
-      {
-      public NoUnderlyingSecurityAltID() : base(457,458,message_order ) {}
-      static int[] message_order = new int[] {458,459,0};
-        public void set(QuickFix.UnderlyingSecurityAltID value)
-        { setField(value); }
-        public QuickFix.UnderlyingSecurityAltID get(QuickFix.UnderlyingSecurityAltID  value)
-        { getField(value); return value; }
-        public QuickFix.UnderlyingSecurityAltID getUnderlyingSecurityAltID()
-        { QuickFix.UnderlyingSecurityAltID value = new QuickFix.UnderlyingSecurityAltID();
-          getField(value); return value; }
-        public bool isSet(QuickFix.UnderlyingSecurityAltID field)
-        { return isSetField(field); }
-        public bool isSetUnderlyingSecurityAltID()
-        { return isSetField(458); }
+      public void set(QuickFix.StipulationValue value)
+      { setField(value); }
+      public QuickFix.StipulationValue get(QuickFix.StipulationValue  value)
+      { getField(value); return value; }
+      public QuickFix.StipulationValue getStipulationValue()
+      { QuickFix.StipulationValue value = new QuickFix.StipulationValue();
+        getField(value); return value; }
+      public bool isSet(QuickFix.StipulationValue field)
+      { return isSetField(field); }
+      public bool isSetStipulationValue()
+      { return isSetField(234); }
 
-        public void set(QuickFix.UnderlyingSecurityAltIDSource value)
-        { setField(value); }
-        public QuickFix.UnderlyingSecurityAltIDSource get(QuickFix.UnderlyingSecurityAltIDSource  value)
-        { getField(value); return value; }
-        public QuickFix.UnderlyingSecurityAltIDSource getUnderlyingSecurityAltIDSource()
-        { QuickFix.UnderlyingSecurityAltIDSource value = new QuickFix.UnderlyingSecurityAltIDSource();
-          getField(value); return value; }
-        public bool isSet(QuickFix.UnderlyingSecurityAltIDSource field)
-        { return isSetField(field); }
-        public bool isSetUnderlyingSecurityAltIDSource()
-        { return isSetField(459); }
-
-      };
     };
     public void set(QuickFix.NoLegs value)
     { setField(value); }
@@ -1786,7 +1375,7 @@ namespace QuickFix44
     public class NoLegs: QuickFix.Group
     {
     public NoLegs() : base(555,600,message_order ) {}
-    static int[] message_order = new int[] {600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,682,683,0};
+    static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,682,683,0};
       public void set(QuickFix.LegSymbol value)
       { setField(value); }
       public QuickFix.LegSymbol get(QuickFix.LegSymbol  value)
@@ -2279,47 +1868,6 @@ namespace QuickFix44
       public bool isSetLegInterestAccrualDate()
       { return isSetField(956); }
 
-      public void set(QuickFix.NoLegSecurityAltID value)
-      { setField(value); }
-      public QuickFix.NoLegSecurityAltID get(QuickFix.NoLegSecurityAltID  value)
-      { getField(value); return value; }
-      public QuickFix.NoLegSecurityAltID getNoLegSecurityAltID()
-      { QuickFix.NoLegSecurityAltID value = new QuickFix.NoLegSecurityAltID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.NoLegSecurityAltID field)
-      { return isSetField(field); }
-      public bool isSetNoLegSecurityAltID()
-      { return isSetField(604); }
-
-      public class NoLegSecurityAltID: QuickFix.Group
-      {
-      public NoLegSecurityAltID() : base(604,605,message_order ) {}
-      static int[] message_order = new int[] {605,606,0};
-        public void set(QuickFix.LegSecurityAltID value)
-        { setField(value); }
-        public QuickFix.LegSecurityAltID get(QuickFix.LegSecurityAltID  value)
-        { getField(value); return value; }
-        public QuickFix.LegSecurityAltID getLegSecurityAltID()
-        { QuickFix.LegSecurityAltID value = new QuickFix.LegSecurityAltID();
-          getField(value); return value; }
-        public bool isSet(QuickFix.LegSecurityAltID field)
-        { return isSetField(field); }
-        public bool isSetLegSecurityAltID()
-        { return isSetField(605); }
-
-        public void set(QuickFix.LegSecurityAltIDSource value)
-        { setField(value); }
-        public QuickFix.LegSecurityAltIDSource get(QuickFix.LegSecurityAltIDSource  value)
-        { getField(value); return value; }
-        public QuickFix.LegSecurityAltIDSource getLegSecurityAltIDSource()
-        { QuickFix.LegSecurityAltIDSource value = new QuickFix.LegSecurityAltIDSource();
-          getField(value); return value; }
-        public bool isSet(QuickFix.LegSecurityAltIDSource field)
-        { return isSetField(field); }
-        public bool isSetLegSecurityAltIDSource()
-        { return isSetField(606); }
-
-      };
       public void set(QuickFix.LegIOIQty value)
       { setField(value); }
       public QuickFix.LegIOIQty get(QuickFix.LegIOIQty  value)
@@ -2374,6 +1922,66 @@ namespace QuickFix44
 
       };
     };
+    public void set(QuickFix.PriceType value)
+    { setField(value); }
+    public QuickFix.PriceType get(QuickFix.PriceType  value)
+    { getField(value); return value; }
+    public QuickFix.PriceType getPriceType()
+    { QuickFix.PriceType value = new QuickFix.PriceType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.PriceType field)
+    { return isSetField(field); }
+    public bool isSetPriceType()
+    { return isSetField(423); }
+
+    public void set(QuickFix.Price value)
+    { setField(value); }
+    public QuickFix.Price get(QuickFix.Price  value)
+    { getField(value); return value; }
+    public QuickFix.Price getPrice()
+    { QuickFix.Price value = new QuickFix.Price();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Price field)
+    { return isSetField(field); }
+    public bool isSetPrice()
+    { return isSetField(44); }
+
+    public void set(QuickFix.ValidUntilTime value)
+    { setField(value); }
+    public QuickFix.ValidUntilTime get(QuickFix.ValidUntilTime  value)
+    { getField(value); return value; }
+    public QuickFix.ValidUntilTime getValidUntilTime()
+    { QuickFix.ValidUntilTime value = new QuickFix.ValidUntilTime();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ValidUntilTime field)
+    { return isSetField(field); }
+    public bool isSetValidUntilTime()
+    { return isSetField(62); }
+
+    public void set(QuickFix.IOIQltyInd value)
+    { setField(value); }
+    public QuickFix.IOIQltyInd get(QuickFix.IOIQltyInd  value)
+    { getField(value); return value; }
+    public QuickFix.IOIQltyInd getIOIQltyInd()
+    { QuickFix.IOIQltyInd value = new QuickFix.IOIQltyInd();
+      getField(value); return value; }
+    public bool isSet(QuickFix.IOIQltyInd field)
+    { return isSetField(field); }
+    public bool isSetIOIQltyInd()
+    { return isSetField(25); }
+
+    public void set(QuickFix.IOINaturalFlag value)
+    { setField(value); }
+    public QuickFix.IOINaturalFlag get(QuickFix.IOINaturalFlag  value)
+    { getField(value); return value; }
+    public QuickFix.IOINaturalFlag getIOINaturalFlag()
+    { QuickFix.IOINaturalFlag value = new QuickFix.IOINaturalFlag();
+      getField(value); return value; }
+    public bool isSet(QuickFix.IOINaturalFlag field)
+    { return isSetField(field); }
+    public bool isSetIOINaturalFlag()
+    { return isSetField(130); }
+
     public void set(QuickFix.NoIOIQualifiers value)
     { setField(value); }
     public QuickFix.NoIOIQualifiers get(QuickFix.NoIOIQualifiers  value)
@@ -2403,6 +2011,66 @@ namespace QuickFix44
       { return isSetField(104); }
 
     };
+    public void set(QuickFix.Text value)
+    { setField(value); }
+    public QuickFix.Text get(QuickFix.Text  value)
+    { getField(value); return value; }
+    public QuickFix.Text getText()
+    { QuickFix.Text value = new QuickFix.Text();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Text field)
+    { return isSetField(field); }
+    public bool isSetText()
+    { return isSetField(58); }
+
+    public void set(QuickFix.EncodedTextLen value)
+    { setField(value); }
+    public QuickFix.EncodedTextLen get(QuickFix.EncodedTextLen  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedTextLen getEncodedTextLen()
+    { QuickFix.EncodedTextLen value = new QuickFix.EncodedTextLen();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedTextLen field)
+    { return isSetField(field); }
+    public bool isSetEncodedTextLen()
+    { return isSetField(354); }
+
+    public void set(QuickFix.EncodedText value)
+    { setField(value); }
+    public QuickFix.EncodedText get(QuickFix.EncodedText  value)
+    { getField(value); return value; }
+    public QuickFix.EncodedText getEncodedText()
+    { QuickFix.EncodedText value = new QuickFix.EncodedText();
+      getField(value); return value; }
+    public bool isSet(QuickFix.EncodedText field)
+    { return isSetField(field); }
+    public bool isSetEncodedText()
+    { return isSetField(355); }
+
+    public void set(QuickFix.TransactTime value)
+    { setField(value); }
+    public QuickFix.TransactTime get(QuickFix.TransactTime  value)
+    { getField(value); return value; }
+    public QuickFix.TransactTime getTransactTime()
+    { QuickFix.TransactTime value = new QuickFix.TransactTime();
+      getField(value); return value; }
+    public bool isSet(QuickFix.TransactTime field)
+    { return isSetField(field); }
+    public bool isSetTransactTime()
+    { return isSetField(60); }
+
+    public void set(QuickFix.URLLink value)
+    { setField(value); }
+    public QuickFix.URLLink get(QuickFix.URLLink  value)
+    { getField(value); return value; }
+    public QuickFix.URLLink getURLLink()
+    { QuickFix.URLLink value = new QuickFix.URLLink();
+      getField(value); return value; }
+    public bool isSet(QuickFix.URLLink field)
+    { return isSetField(field); }
+    public bool isSetURLLink()
+    { return isSetField(149); }
+
     public void set(QuickFix.NoRoutingIDs value)
     { setField(value); }
     public QuickFix.NoRoutingIDs get(QuickFix.NoRoutingIDs  value)
@@ -2444,6 +2112,174 @@ namespace QuickFix44
       { return isSetField(217); }
 
     };
+    public void set(QuickFix.Spread value)
+    { setField(value); }
+    public QuickFix.Spread get(QuickFix.Spread  value)
+    { getField(value); return value; }
+    public QuickFix.Spread getSpread()
+    { QuickFix.Spread value = new QuickFix.Spread();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Spread field)
+    { return isSetField(field); }
+    public bool isSetSpread()
+    { return isSetField(218); }
+
+    public void set(QuickFix.BenchmarkCurveCurrency value)
+    { setField(value); }
+    public QuickFix.BenchmarkCurveCurrency get(QuickFix.BenchmarkCurveCurrency  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkCurveCurrency getBenchmarkCurveCurrency()
+    { QuickFix.BenchmarkCurveCurrency value = new QuickFix.BenchmarkCurveCurrency();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkCurveCurrency field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkCurveCurrency()
+    { return isSetField(220); }
+
+    public void set(QuickFix.BenchmarkCurveName value)
+    { setField(value); }
+    public QuickFix.BenchmarkCurveName get(QuickFix.BenchmarkCurveName  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkCurveName getBenchmarkCurveName()
+    { QuickFix.BenchmarkCurveName value = new QuickFix.BenchmarkCurveName();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkCurveName field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkCurveName()
+    { return isSetField(221); }
+
+    public void set(QuickFix.BenchmarkCurvePoint value)
+    { setField(value); }
+    public QuickFix.BenchmarkCurvePoint get(QuickFix.BenchmarkCurvePoint  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkCurvePoint getBenchmarkCurvePoint()
+    { QuickFix.BenchmarkCurvePoint value = new QuickFix.BenchmarkCurvePoint();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkCurvePoint field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkCurvePoint()
+    { return isSetField(222); }
+
+    public void set(QuickFix.BenchmarkPrice value)
+    { setField(value); }
+    public QuickFix.BenchmarkPrice get(QuickFix.BenchmarkPrice  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkPrice getBenchmarkPrice()
+    { QuickFix.BenchmarkPrice value = new QuickFix.BenchmarkPrice();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkPrice field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkPrice()
+    { return isSetField(662); }
+
+    public void set(QuickFix.BenchmarkPriceType value)
+    { setField(value); }
+    public QuickFix.BenchmarkPriceType get(QuickFix.BenchmarkPriceType  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkPriceType getBenchmarkPriceType()
+    { QuickFix.BenchmarkPriceType value = new QuickFix.BenchmarkPriceType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkPriceType field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkPriceType()
+    { return isSetField(663); }
+
+    public void set(QuickFix.BenchmarkSecurityID value)
+    { setField(value); }
+    public QuickFix.BenchmarkSecurityID get(QuickFix.BenchmarkSecurityID  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkSecurityID getBenchmarkSecurityID()
+    { QuickFix.BenchmarkSecurityID value = new QuickFix.BenchmarkSecurityID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkSecurityID field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkSecurityID()
+    { return isSetField(699); }
+
+    public void set(QuickFix.BenchmarkSecurityIDSource value)
+    { setField(value); }
+    public QuickFix.BenchmarkSecurityIDSource get(QuickFix.BenchmarkSecurityIDSource  value)
+    { getField(value); return value; }
+    public QuickFix.BenchmarkSecurityIDSource getBenchmarkSecurityIDSource()
+    { QuickFix.BenchmarkSecurityIDSource value = new QuickFix.BenchmarkSecurityIDSource();
+      getField(value); return value; }
+    public bool isSet(QuickFix.BenchmarkSecurityIDSource field)
+    { return isSetField(field); }
+    public bool isSetBenchmarkSecurityIDSource()
+    { return isSetField(761); }
+
+    public void set(QuickFix.YieldType value)
+    { setField(value); }
+    public QuickFix.YieldType get(QuickFix.YieldType  value)
+    { getField(value); return value; }
+    public QuickFix.YieldType getYieldType()
+    { QuickFix.YieldType value = new QuickFix.YieldType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.YieldType field)
+    { return isSetField(field); }
+    public bool isSetYieldType()
+    { return isSetField(235); }
+
+    public void set(QuickFix.Yield value)
+    { setField(value); }
+    public QuickFix.Yield get(QuickFix.Yield  value)
+    { getField(value); return value; }
+    public QuickFix.Yield getYield()
+    { QuickFix.Yield value = new QuickFix.Yield();
+      getField(value); return value; }
+    public bool isSet(QuickFix.Yield field)
+    { return isSetField(field); }
+    public bool isSetYield()
+    { return isSetField(236); }
+
+    public void set(QuickFix.YieldCalcDate value)
+    { setField(value); }
+    public QuickFix.YieldCalcDate get(QuickFix.YieldCalcDate  value)
+    { getField(value); return value; }
+    public QuickFix.YieldCalcDate getYieldCalcDate()
+    { QuickFix.YieldCalcDate value = new QuickFix.YieldCalcDate();
+      getField(value); return value; }
+    public bool isSet(QuickFix.YieldCalcDate field)
+    { return isSetField(field); }
+    public bool isSetYieldCalcDate()
+    { return isSetField(701); }
+
+    public void set(QuickFix.YieldRedemptionDate value)
+    { setField(value); }
+    public QuickFix.YieldRedemptionDate get(QuickFix.YieldRedemptionDate  value)
+    { getField(value); return value; }
+    public QuickFix.YieldRedemptionDate getYieldRedemptionDate()
+    { QuickFix.YieldRedemptionDate value = new QuickFix.YieldRedemptionDate();
+      getField(value); return value; }
+    public bool isSet(QuickFix.YieldRedemptionDate field)
+    { return isSetField(field); }
+    public bool isSetYieldRedemptionDate()
+    { return isSetField(696); }
+
+    public void set(QuickFix.YieldRedemptionPrice value)
+    { setField(value); }
+    public QuickFix.YieldRedemptionPrice get(QuickFix.YieldRedemptionPrice  value)
+    { getField(value); return value; }
+    public QuickFix.YieldRedemptionPrice getYieldRedemptionPrice()
+    { QuickFix.YieldRedemptionPrice value = new QuickFix.YieldRedemptionPrice();
+      getField(value); return value; }
+    public bool isSet(QuickFix.YieldRedemptionPrice field)
+    { return isSetField(field); }
+    public bool isSetYieldRedemptionPrice()
+    { return isSetField(697); }
+
+    public void set(QuickFix.YieldRedemptionPriceType value)
+    { setField(value); }
+    public QuickFix.YieldRedemptionPriceType get(QuickFix.YieldRedemptionPriceType  value)
+    { getField(value); return value; }
+    public QuickFix.YieldRedemptionPriceType getYieldRedemptionPriceType()
+    { QuickFix.YieldRedemptionPriceType value = new QuickFix.YieldRedemptionPriceType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.YieldRedemptionPriceType field)
+    { return isSetField(field); }
+    public bool isSetYieldRedemptionPriceType()
+    { return isSetField(698); }
+
   };
 
 }

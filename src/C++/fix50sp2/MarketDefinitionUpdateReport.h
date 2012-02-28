@@ -24,6 +24,10 @@ namespace FIX50SP2
       set(aMarketID);
     }
 
+    FIELD_SET(*this, FIX::ApplID);
+    FIELD_SET(*this, FIX::ApplSeqNum);
+    FIELD_SET(*this, FIX::ApplLastSeqNum);
+    FIELD_SET(*this, FIX::ApplResendFlag);
     FIELD_SET(*this, FIX::MarketReportID);
     FIELD_SET(*this, FIX::MarketReqID);
     FIELD_SET(*this, FIX::MarketUpdateAction);
@@ -69,10 +73,6 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::ApplID);
-    FIELD_SET(*this, FIX::ApplSeqNum);
-    FIELD_SET(*this, FIX::ApplLastSeqNum);
-    FIELD_SET(*this, FIX::ApplResendFlag);
   };
 
 }

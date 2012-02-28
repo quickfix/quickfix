@@ -38,6 +38,42 @@ namespace QuickFix50Sp1
     public bool isSetRefMsgType()
     { return isSetField(372); }
 
+    public void set(QuickFix.RefApplVerID value)
+    { setField(value); }
+    public QuickFix.RefApplVerID get(QuickFix.RefApplVerID  value)
+    { getField(value); return value; }
+    public QuickFix.RefApplVerID getRefApplVerID()
+    { QuickFix.RefApplVerID value = new QuickFix.RefApplVerID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RefApplVerID field)
+    { return isSetField(field); }
+    public bool isSetRefApplVerID()
+    { return isSetField(1130); }
+
+    public void set(QuickFix.RefApplExtID value)
+    { setField(value); }
+    public QuickFix.RefApplExtID get(QuickFix.RefApplExtID  value)
+    { getField(value); return value; }
+    public QuickFix.RefApplExtID getRefApplExtID()
+    { QuickFix.RefApplExtID value = new QuickFix.RefApplExtID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RefApplExtID field)
+    { return isSetField(field); }
+    public bool isSetRefApplExtID()
+    { return isSetField(1406); }
+
+    public void set(QuickFix.RefCstmApplVerID value)
+    { setField(value); }
+    public QuickFix.RefCstmApplVerID get(QuickFix.RefCstmApplVerID  value)
+    { getField(value); return value; }
+    public QuickFix.RefCstmApplVerID getRefCstmApplVerID()
+    { QuickFix.RefCstmApplVerID value = new QuickFix.RefCstmApplVerID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RefCstmApplVerID field)
+    { return isSetField(field); }
+    public bool isSetRefCstmApplVerID()
+    { return isSetField(1131); }
+
     public void set(QuickFix.BusinessRejectRefID value)
     { setField(value); }
     public QuickFix.BusinessRejectRefID get(QuickFix.BusinessRejectRefID  value)
@@ -97,42 +133,6 @@ namespace QuickFix50Sp1
     { return isSetField(field); }
     public bool isSetEncodedText()
     { return isSetField(355); }
-
-    public void set(QuickFix.RefApplVerID value)
-    { setField(value); }
-    public QuickFix.RefApplVerID get(QuickFix.RefApplVerID  value)
-    { getField(value); return value; }
-    public QuickFix.RefApplVerID getRefApplVerID()
-    { QuickFix.RefApplVerID value = new QuickFix.RefApplVerID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RefApplVerID field)
-    { return isSetField(field); }
-    public bool isSetRefApplVerID()
-    { return isSetField(1130); }
-
-    public void set(QuickFix.RefApplExtID value)
-    { setField(value); }
-    public QuickFix.RefApplExtID get(QuickFix.RefApplExtID  value)
-    { getField(value); return value; }
-    public QuickFix.RefApplExtID getRefApplExtID()
-    { QuickFix.RefApplExtID value = new QuickFix.RefApplExtID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RefApplExtID field)
-    { return isSetField(field); }
-    public bool isSetRefApplExtID()
-    { return isSetField(1406); }
-
-    public void set(QuickFix.RefCstmApplVerID value)
-    { setField(value); }
-    public QuickFix.RefCstmApplVerID get(QuickFix.RefCstmApplVerID  value)
-    { getField(value); return value; }
-    public QuickFix.RefCstmApplVerID getRefCstmApplVerID()
-    { QuickFix.RefCstmApplVerID value = new QuickFix.RefCstmApplVerID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RefCstmApplVerID field)
-    { return isSetField(field); }
-    public bool isSetRefCstmApplVerID()
-    { return isSetField(1131); }
 
   };
 

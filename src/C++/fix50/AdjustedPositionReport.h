@@ -28,6 +28,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::PosReqType);
     FIELD_SET(*this, FIX::ClearingBusinessDate);
     FIELD_SET(*this, FIX::SettlSessID);
+    FIELD_SET(*this, FIX::PosMaintRptRefID);
     FIELD_SET(*this, FIX::NoPartyIDs);
     class NoPartyIDs: public FIX::Group
     {
@@ -49,11 +50,12 @@ namespace FIX50
     class NoPositions: public FIX::Group
     {
     public:
-    NoPositions() : FIX::Group(702,703,FIX::message_order(703,704,705,706,539,976,0)) {}
+    NoPositions() : FIX::Group(702,703,FIX::message_order(703,704,705,706,976,539,0)) {}
       FIELD_SET(*this, FIX::PosType);
       FIELD_SET(*this, FIX::LongQty);
       FIELD_SET(*this, FIX::ShortQty);
       FIELD_SET(*this, FIX::PosQtyStatus);
+      FIELD_SET(*this, FIX::QuantityDate);
       FIELD_SET(*this, FIX::NoNestedPartyIDs);
       class NoNestedPartyIDs: public FIX::Group
       {
@@ -71,7 +73,6 @@ namespace FIX50
           FIELD_SET(*this, FIX::NestedPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::QuantityDate);
     };
     FIELD_SET(*this, FIX::Symbol);
     FIELD_SET(*this, FIX::SymbolSfx);
@@ -83,6 +84,11 @@ namespace FIX50
     FIELD_SET(*this, FIX::SecuritySubType);
     FIELD_SET(*this, FIX::MaturityMonthYear);
     FIELD_SET(*this, FIX::MaturityDate);
+    FIELD_SET(*this, FIX::MaturityTime);
+    FIELD_SET(*this, FIX::PutOrCall);
+    FIELD_SET(*this, FIX::SettleOnOpenFlag);
+    FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
+    FIELD_SET(*this, FIX::SecurityStatus);
     FIELD_SET(*this, FIX::CouponPaymentDate);
     FIELD_SET(*this, FIX::IssueDate);
     FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -97,10 +103,17 @@ namespace FIX50
     FIELD_SET(*this, FIX::RedemptionDate);
     FIELD_SET(*this, FIX::StrikePrice);
     FIELD_SET(*this, FIX::StrikeCurrency);
+    FIELD_SET(*this, FIX::StrikeMultiplier);
+    FIELD_SET(*this, FIX::StrikeValue);
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
+    FIELD_SET(*this, FIX::MinPriceIncrement);
+    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);
+    FIELD_SET(*this, FIX::PositionLimit);
+    FIELD_SET(*this, FIX::NTPositionLimit);
     FIELD_SET(*this, FIX::Issuer);
     FIELD_SET(*this, FIX::EncodedIssuerLen);
     FIELD_SET(*this, FIX::EncodedIssuer);
@@ -113,20 +126,8 @@ namespace FIX50
     FIELD_SET(*this, FIX::CPRegType);
     FIELD_SET(*this, FIX::DatedDate);
     FIELD_SET(*this, FIX::InterestAccrualDate);
-    FIELD_SET(*this, FIX::SecurityStatus);
-    FIELD_SET(*this, FIX::SettleOnOpenFlag);
-    FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
-    FIELD_SET(*this, FIX::StrikeMultiplier);
-    FIELD_SET(*this, FIX::StrikeValue);
-    FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::PositionLimit);
-    FIELD_SET(*this, FIX::NTPositionLimit);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
-    FIELD_SET(*this, FIX::TimeUnit);
-    FIELD_SET(*this, FIX::MaturityTime);
     FIELD_SET(*this, FIX::SettlPrice);
     FIELD_SET(*this, FIX::PriorSettlPrice);
-    FIELD_SET(*this, FIX::PosMaintRptRefID);
   };
 
 }

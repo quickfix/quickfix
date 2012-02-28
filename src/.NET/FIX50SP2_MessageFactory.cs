@@ -677,18 +677,6 @@ namespace QuickFix50Sp2
       
      }
    
-     if(msgType.Equals("CF")) {
-      
-      return new QuickFix50Sp2.PartyDetailsListRequest();
-      
-     }
-   
-     if(msgType.Equals("CG")) {
-      
-      return new QuickFix50Sp2.PartyDetailsListReport();
-      
-     }
-   
     return new QuickFix50Sp2.Message();
     
     }

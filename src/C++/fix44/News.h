@@ -27,9 +27,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::Headline);
     FIELD_SET(*this, FIX::EncodedHeadlineLen);
     FIELD_SET(*this, FIX::EncodedHeadline);
-    FIELD_SET(*this, FIX::URLLink);
-    FIELD_SET(*this, FIX::RawDataLength);
-    FIELD_SET(*this, FIX::RawData);
     FIELD_SET(*this, FIX::NoRoutingIDs);
     class NoRoutingIDs: public FIX::Group
     {
@@ -42,7 +39,7 @@ namespace FIX44
     class NoRelatedSym: public FIX::Group
     {
     public:
-    NoRelatedSym() : FIX::Group(146,55,FIX::message_order(55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,0)) {}
+    NoRelatedSym() : FIX::Group(146,55,FIX::message_order(55,65,48,22,460,461,167,762,200,541,201,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,0)) {}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -53,6 +50,7 @@ namespace FIX44
       FIELD_SET(*this, FIX::SecuritySubType);
       FIELD_SET(*this, FIX::MaturityMonthYear);
       FIELD_SET(*this, FIX::MaturityDate);
+      FIELD_SET(*this, FIX::PutOrCall);
       FIELD_SET(*this, FIX::CouponPaymentDate);
       FIELD_SET(*this, FIX::IssueDate);
       FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -83,30 +81,12 @@ namespace FIX44
       FIELD_SET(*this, FIX::CPRegType);
       FIELD_SET(*this, FIX::DatedDate);
       FIELD_SET(*this, FIX::InterestAccrualDate);
-      FIELD_SET(*this, FIX::NoSecurityAltID);
-      class NoSecurityAltID: public FIX::Group
-      {
-      public:
-      NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
-        FIELD_SET(*this, FIX::SecurityAltID);
-        FIELD_SET(*this, FIX::SecurityAltIDSource);
-      };
-      FIELD_SET(*this, FIX::NoEvents);
-      class NoEvents: public FIX::Group
-      {
-      public:
-      NoEvents() : FIX::Group(864,865,FIX::message_order(865,866,867,868,0)) {}
-        FIELD_SET(*this, FIX::EventType);
-        FIELD_SET(*this, FIX::EventDate);
-        FIELD_SET(*this, FIX::EventPx);
-        FIELD_SET(*this, FIX::EventText);
-      };
     };
     FIELD_SET(*this, FIX::NoLegs);
     class NoLegs: public FIX::Group
     {
     public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
       FIELD_SET(*this, FIX::LegSymbol);
       FIELD_SET(*this, FIX::LegSymbolSfx);
       FIELD_SET(*this, FIX::LegSecurityID);
@@ -148,20 +128,12 @@ namespace FIX44
       FIELD_SET(*this, FIX::LegDatedDate);
       FIELD_SET(*this, FIX::LegContractSettlMonth);
       FIELD_SET(*this, FIX::LegInterestAccrualDate);
-      FIELD_SET(*this, FIX::NoLegSecurityAltID);
-      class NoLegSecurityAltID: public FIX::Group
-      {
-      public:
-      NoLegSecurityAltID() : FIX::Group(604,605,FIX::message_order(605,606,0)) {}
-        FIELD_SET(*this, FIX::LegSecurityAltID);
-        FIELD_SET(*this, FIX::LegSecurityAltIDSource);
-      };
     };
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group
     {
     public:
-    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
+    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,315,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
       FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -172,6 +144,7 @@ namespace FIX44
       FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
       FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
       FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+      FIELD_SET(*this, FIX::UnderlyingPutOrCall);
       FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
       FIELD_SET(*this, FIX::UnderlyingIssueDate);
       FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
@@ -206,14 +179,6 @@ namespace FIX44
       FIELD_SET(*this, FIX::UnderlyingStartValue);
       FIELD_SET(*this, FIX::UnderlyingCurrentValue);
       FIELD_SET(*this, FIX::UnderlyingEndValue);
-      FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
-      class NoUnderlyingSecurityAltID: public FIX::Group
-      {
-      public:
-      NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
-        FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
-        FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
-      };
     };
     FIELD_SET(*this, FIX::NoLinesOfText);
     class NoLinesOfText: public FIX::Group
@@ -224,6 +189,9 @@ namespace FIX44
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);
     };
+    FIELD_SET(*this, FIX::URLLink);
+    FIELD_SET(*this, FIX::RawDataLength);
+    FIELD_SET(*this, FIX::RawData);
   };
 
 }

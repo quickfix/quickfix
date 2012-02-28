@@ -36,7 +36,7 @@ namespace FIX40
   class Reject; 
   class SequenceReset; 
   class Logout; 
-  class IndicationofInterest; 
+  class IOI; 
   class Advertisement; 
   class ExecutionReport; 
   class OrderCancelReject; 
@@ -53,7 +53,7 @@ namespace FIX40
   class ListExecute; 
   class ListStatusRequest; 
   class ListStatus; 
-  class AllocationACK; 
+  class AllocationInstructionAck; 
   class DontKnowTrade; 
   class QuoteRequest; 
   class Quote;
@@ -78,7 +78,7 @@ namespace FIX40
     {}
   virtual void onMessage( const Logout&, const FIX::SessionID& ) 
     {}
-  virtual void onMessage( const IndicationofInterest&, const FIX::SessionID& ) 
+  virtual void onMessage( const IOI&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -112,7 +112,7 @@ namespace FIX40
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ListStatus&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationACK&, const FIX::SessionID& ) 
+  virtual void onMessage( const AllocationInstructionAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -126,7 +126,7 @@ namespace FIX40
  virtual void onMessage( Reject&, const FIX::SessionID& ) {} 
  virtual void onMessage( SequenceReset&, const FIX::SessionID& ) {} 
  virtual void onMessage( Logout&, const FIX::SessionID& ) {} 
- virtual void onMessage( IndicationofInterest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( IOI&, const FIX::SessionID& ) {} 
  virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
  virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) {} 
@@ -143,7 +143,7 @@ namespace FIX40
  virtual void onMessage( ListExecute&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationACK&, const FIX::SessionID& ) {} 
+ virtual void onMessage( AllocationInstructionAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
  virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
@@ -174,7 +174,7 @@ public:
       onMessage( (const Logout&)message, sessionID );
     else
     if( msgTypeValue == "6" )
-      onMessage( (const IndicationofInterest&)message, sessionID );
+      onMessage( (const IOI&)message, sessionID );
     else
     if( msgTypeValue == "7" )
       onMessage( (const Advertisement&)message, sessionID );
@@ -225,7 +225,7 @@ public:
       onMessage( (const ListStatus&)message, sessionID );
     else
     if( msgTypeValue == "P" )
-      onMessage( (const AllocationACK&)message, sessionID );
+      onMessage( (const AllocationInstructionAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
       onMessage( (const DontKnowTrade&)message, sessionID );
@@ -264,7 +264,7 @@ void crack( Message& message,
       onMessage( (Logout&)message, sessionID );
     else
     if( msgTypeValue == "6" )
-      onMessage( (IndicationofInterest&)message, sessionID );
+      onMessage( (IOI&)message, sessionID );
     else
     if( msgTypeValue == "7" )
       onMessage( (Advertisement&)message, sessionID );
@@ -315,7 +315,7 @@ void crack( Message& message,
       onMessage( (ListStatus&)message, sessionID );
     else
     if( msgTypeValue == "P" )
-      onMessage( (AllocationACK&)message, sessionID );
+      onMessage( (AllocationInstructionAck&)message, sessionID );
     else
     if( msgTypeValue == "Q" )
       onMessage( (DontKnowTrade&)message, sessionID );

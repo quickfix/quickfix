@@ -36,6 +36,8 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::ListStatusType);
     FIELD_SET(*this, FIX::NoRpts);
     FIELD_SET(*this, FIX::ListOrderStatus);
+    FIELD_SET(*this, FIX::ContingencyType);
+    FIELD_SET(*this, FIX::ListRejectReason);
     FIELD_SET(*this, FIX::RptSeq);
     FIELD_SET(*this, FIX::ListStatusText);
     FIELD_SET(*this, FIX::EncodedListStatusTextLen);
@@ -47,8 +49,9 @@ namespace FIX50SP2
     class NoOrders: public FIX::Group
     {
     public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,526,14,39,636,151,84,6,103,58,354,355,37,0)) {}
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,526,14,39,636,151,84,6,103,58,354,355,0)) {}
       FIELD_SET(*this, FIX::ClOrdID);
+      FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryClOrdID);
       FIELD_SET(*this, FIX::CumQty);
       FIELD_SET(*this, FIX::OrdStatus);
@@ -60,10 +63,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);
-      FIELD_SET(*this, FIX::OrderID);
     };
-    FIELD_SET(*this, FIX::ContingencyType);
-    FIELD_SET(*this, FIX::ListRejectReason);
   };
 
 }

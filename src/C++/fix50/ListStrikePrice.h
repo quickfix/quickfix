@@ -31,7 +31,7 @@ namespace FIX50
     class NoStrikes: public FIX::Group
     {
     public:
-    NoStrikes() : FIX::Group(428,55,FIX::message_order(55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,965,966,1049,967,968,969,970,971,996,997,1079,0)) {}
+    NoStrikes() : FIX::Group(428,55,FIX::message_order(55,65,48,22,460,461,167,762,200,541,1079,201,966,1049,965,224,225,239,226,227,228,255,543,470,471,472,240,202,947,967,968,206,231,969,996,997,223,207,970,971,106,348,349,107,350,351,691,667,875,876,873,874,0)) {}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -42,6 +42,11 @@ namespace FIX50
       FIELD_SET(*this, FIX::SecuritySubType);
       FIELD_SET(*this, FIX::MaturityMonthYear);
       FIELD_SET(*this, FIX::MaturityDate);
+      FIELD_SET(*this, FIX::MaturityTime);
+      FIELD_SET(*this, FIX::PutOrCall);
+      FIELD_SET(*this, FIX::SettleOnOpenFlag);
+      FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
+      FIELD_SET(*this, FIX::SecurityStatus);
       FIELD_SET(*this, FIX::CouponPaymentDate);
       FIELD_SET(*this, FIX::IssueDate);
       FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -56,10 +61,17 @@ namespace FIX50
       FIELD_SET(*this, FIX::RedemptionDate);
       FIELD_SET(*this, FIX::StrikePrice);
       FIELD_SET(*this, FIX::StrikeCurrency);
+      FIELD_SET(*this, FIX::StrikeMultiplier);
+      FIELD_SET(*this, FIX::StrikeValue);
       FIELD_SET(*this, FIX::OptAttribute);
       FIELD_SET(*this, FIX::ContractMultiplier);
+      FIELD_SET(*this, FIX::MinPriceIncrement);
+      FIELD_SET(*this, FIX::UnitOfMeasure);
+      FIELD_SET(*this, FIX::TimeUnit);
       FIELD_SET(*this, FIX::CouponRate);
       FIELD_SET(*this, FIX::SecurityExchange);
+      FIELD_SET(*this, FIX::PositionLimit);
+      FIELD_SET(*this, FIX::NTPositionLimit);
       FIELD_SET(*this, FIX::Issuer);
       FIELD_SET(*this, FIX::EncodedIssuerLen);
       FIELD_SET(*this, FIX::EncodedIssuer);
@@ -72,23 +84,12 @@ namespace FIX50
       FIELD_SET(*this, FIX::CPRegType);
       FIELD_SET(*this, FIX::DatedDate);
       FIELD_SET(*this, FIX::InterestAccrualDate);
-      FIELD_SET(*this, FIX::SecurityStatus);
-      FIELD_SET(*this, FIX::SettleOnOpenFlag);
-      FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
-      FIELD_SET(*this, FIX::StrikeMultiplier);
-      FIELD_SET(*this, FIX::StrikeValue);
-      FIELD_SET(*this, FIX::MinPriceIncrement);
-      FIELD_SET(*this, FIX::PositionLimit);
-      FIELD_SET(*this, FIX::NTPositionLimit);
-      FIELD_SET(*this, FIX::UnitOfMeasure);
-      FIELD_SET(*this, FIX::TimeUnit);
-      FIELD_SET(*this, FIX::MaturityTime);
     };
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group
     {
     public:
-    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,972,975,973,974,998,1000,1038,1039,1044,1045,1046,140,11,526,54,44,15,58,354,355,0)) {}
+    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,315,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,998,1000,435,308,306,362,363,307,364,365,877,878,972,318,879,975,973,974,810,882,883,884,885,886,1044,1045,1046,1038,1039,140,11,526,54,44,15,58,354,355,0)) {}
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
       FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -99,6 +100,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
       FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
       FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+      FIELD_SET(*this, FIX::UnderlyingPutOrCall);
       FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
       FIELD_SET(*this, FIX::UnderlyingIssueDate);
       FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
@@ -115,6 +117,8 @@ namespace FIX50
       FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
       FIELD_SET(*this, FIX::UnderlyingOptAttribute);
       FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
+      FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
+      FIELD_SET(*this, FIX::UnderlyingTimeUnit);
       FIELD_SET(*this, FIX::UnderlyingCouponRate);
       FIELD_SET(*this, FIX::UnderlyingSecurityExchange);
       FIELD_SET(*this, FIX::UnderlyingIssuer);
@@ -125,25 +129,23 @@ namespace FIX50
       FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDesc);
       FIELD_SET(*this, FIX::UnderlyingCPProgram);
       FIELD_SET(*this, FIX::UnderlyingCPRegType);
+      FIELD_SET(*this, FIX::UnderlyingAllocationPercent);
       FIELD_SET(*this, FIX::UnderlyingCurrency);
       FIELD_SET(*this, FIX::UnderlyingQty);
+      FIELD_SET(*this, FIX::UnderlyingSettlementType);
+      FIELD_SET(*this, FIX::UnderlyingCashAmount);
+      FIELD_SET(*this, FIX::UnderlyingCashType);
       FIELD_SET(*this, FIX::UnderlyingPx);
       FIELD_SET(*this, FIX::UnderlyingDirtyPrice);
       FIELD_SET(*this, FIX::UnderlyingEndPrice);
       FIELD_SET(*this, FIX::UnderlyingStartValue);
       FIELD_SET(*this, FIX::UnderlyingCurrentValue);
       FIELD_SET(*this, FIX::UnderlyingEndValue);
-      FIELD_SET(*this, FIX::UnderlyingAllocationPercent);
-      FIELD_SET(*this, FIX::UnderlyingSettlementType);
-      FIELD_SET(*this, FIX::UnderlyingCashAmount);
-      FIELD_SET(*this, FIX::UnderlyingCashType);
-      FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
-      FIELD_SET(*this, FIX::UnderlyingTimeUnit);
-      FIELD_SET(*this, FIX::UnderlyingCapValue);
-      FIELD_SET(*this, FIX::UnderlyingSettlMethod);
       FIELD_SET(*this, FIX::UnderlyingAdjustedQuantity);
       FIELD_SET(*this, FIX::UnderlyingFXRate);
       FIELD_SET(*this, FIX::UnderlyingFXRateCalc);
+      FIELD_SET(*this, FIX::UnderlyingCapValue);
+      FIELD_SET(*this, FIX::UnderlyingSettlMethod);
       FIELD_SET(*this, FIX::PrevClosePx);
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::SecondaryClOrdID);

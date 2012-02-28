@@ -53,6 +53,49 @@ namespace FIX44
     FIELD_SET(*this, FIX::AllocLinkType);
     FIELD_SET(*this, FIX::BookingRefID);
     FIELD_SET(*this, FIX::AllocNoOrdersType);
+    FIELD_SET(*this, FIX::NoOrders);
+    class NoOrders: public FIX::Group
+    {
+    public:
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,756,38,799,800,0)) {}
+      FIELD_SET(*this, FIX::ClOrdID);
+      FIELD_SET(*this, FIX::OrderID);
+      FIELD_SET(*this, FIX::SecondaryOrderID);
+      FIELD_SET(*this, FIX::SecondaryClOrdID);
+      FIELD_SET(*this, FIX::ListID);
+      FIELD_SET(*this, FIX::NoNested2PartyIDs);
+      class NoNested2PartyIDs: public FIX::Group
+      {
+      public:
+      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,806,0)) {}
+        FIELD_SET(*this, FIX::Nested2PartyID);
+        FIELD_SET(*this, FIX::Nested2PartyIDSource);
+        FIELD_SET(*this, FIX::Nested2PartyRole);
+        FIELD_SET(*this, FIX::NoNested2PartySubIDs);
+        class NoNested2PartySubIDs: public FIX::Group
+        {
+        public:
+        NoNested2PartySubIDs() : FIX::Group(806,760,FIX::message_order(760,807,0)) {}
+          FIELD_SET(*this, FIX::Nested2PartySubID);
+          FIELD_SET(*this, FIX::Nested2PartySubIDType);
+        };
+      };
+      FIELD_SET(*this, FIX::OrderQty);
+      FIELD_SET(*this, FIX::OrderAvgPx);
+      FIELD_SET(*this, FIX::OrderBookingQty);
+    };
+    FIELD_SET(*this, FIX::NoExecs);
+    class NoExecs: public FIX::Group
+    {
+    public:
+    NoExecs() : FIX::Group(124,32,FIX::message_order(32,17,527,31,669,29,0)) {}
+      FIELD_SET(*this, FIX::LastQty);
+      FIELD_SET(*this, FIX::ExecID);
+      FIELD_SET(*this, FIX::SecondaryExecID);
+      FIELD_SET(*this, FIX::LastPx);
+      FIELD_SET(*this, FIX::LastParPx);
+      FIELD_SET(*this, FIX::LastCapacity);
+    };
     FIELD_SET(*this, FIX::PreviouslyReported);
     FIELD_SET(*this, FIX::ReversalIndicator);
     FIELD_SET(*this, FIX::MatchType);
@@ -67,6 +110,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::SecuritySubType);
     FIELD_SET(*this, FIX::MaturityMonthYear);
     FIELD_SET(*this, FIX::MaturityDate);
+    FIELD_SET(*this, FIX::PutOrCall);
     FIELD_SET(*this, FIX::CouponPaymentDate);
     FIELD_SET(*this, FIX::IssueDate);
     FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -97,34 +141,8 @@ namespace FIX44
     FIELD_SET(*this, FIX::CPRegType);
     FIELD_SET(*this, FIX::DatedDate);
     FIELD_SET(*this, FIX::InterestAccrualDate);
-    FIELD_SET(*this, FIX::NoSecurityAltID);
-    class NoSecurityAltID: public FIX::Group
-    {
-    public:
-    NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
-      FIELD_SET(*this, FIX::SecurityAltID);
-      FIELD_SET(*this, FIX::SecurityAltIDSource);
-    };
-    FIELD_SET(*this, FIX::NoEvents);
-    class NoEvents: public FIX::Group
-    {
-    public:
-    NoEvents() : FIX::Group(864,865,FIX::message_order(865,866,867,868,0)) {}
-      FIELD_SET(*this, FIX::EventType);
-      FIELD_SET(*this, FIX::EventDate);
-      FIELD_SET(*this, FIX::EventPx);
-      FIELD_SET(*this, FIX::EventText);
-    };
     FIELD_SET(*this, FIX::DeliveryForm);
     FIELD_SET(*this, FIX::PctAtRisk);
-    FIELD_SET(*this, FIX::NoInstrAttrib);
-    class NoInstrAttrib: public FIX::Group
-    {
-    public:
-    NoInstrAttrib() : FIX::Group(870,871,FIX::message_order(871,872,0)) {}
-      FIELD_SET(*this, FIX::InstrAttribType);
-      FIELD_SET(*this, FIX::InstrAttribValue);
-    };
     FIELD_SET(*this, FIX::AgreementDesc);
     FIELD_SET(*this, FIX::AgreementID);
     FIELD_SET(*this, FIX::AgreementDate);
@@ -134,6 +152,104 @@ namespace FIX44
     FIELD_SET(*this, FIX::EndDate);
     FIELD_SET(*this, FIX::DeliveryType);
     FIELD_SET(*this, FIX::MarginRatio);
+    FIELD_SET(*this, FIX::NoUnderlyings);
+    class NoUnderlyings: public FIX::Group
+    {
+    public:
+    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,315,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingSymbol);
+      FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
+      FIELD_SET(*this, FIX::UnderlyingSecurityID);
+      FIELD_SET(*this, FIX::UnderlyingSecurityIDSource);
+      FIELD_SET(*this, FIX::UnderlyingProduct);
+      FIELD_SET(*this, FIX::UnderlyingCFICode);
+      FIELD_SET(*this, FIX::UnderlyingSecurityType);
+      FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
+      FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
+      FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+      FIELD_SET(*this, FIX::UnderlyingPutOrCall);
+      FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
+      FIELD_SET(*this, FIX::UnderlyingIssueDate);
+      FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
+      FIELD_SET(*this, FIX::UnderlyingRepurchaseTerm);
+      FIELD_SET(*this, FIX::UnderlyingRepurchaseRate);
+      FIELD_SET(*this, FIX::UnderlyingFactor);
+      FIELD_SET(*this, FIX::UnderlyingCreditRating);
+      FIELD_SET(*this, FIX::UnderlyingInstrRegistry);
+      FIELD_SET(*this, FIX::UnderlyingCountryOfIssue);
+      FIELD_SET(*this, FIX::UnderlyingStateOrProvinceOfIssue);
+      FIELD_SET(*this, FIX::UnderlyingLocaleOfIssue);
+      FIELD_SET(*this, FIX::UnderlyingRedemptionDate);
+      FIELD_SET(*this, FIX::UnderlyingStrikePrice);
+      FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
+      FIELD_SET(*this, FIX::UnderlyingOptAttribute);
+      FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
+      FIELD_SET(*this, FIX::UnderlyingCouponRate);
+      FIELD_SET(*this, FIX::UnderlyingSecurityExchange);
+      FIELD_SET(*this, FIX::UnderlyingIssuer);
+      FIELD_SET(*this, FIX::EncodedUnderlyingIssuerLen);
+      FIELD_SET(*this, FIX::EncodedUnderlyingIssuer);
+      FIELD_SET(*this, FIX::UnderlyingSecurityDesc);
+      FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDescLen);
+      FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDesc);
+      FIELD_SET(*this, FIX::UnderlyingCPProgram);
+      FIELD_SET(*this, FIX::UnderlyingCPRegType);
+      FIELD_SET(*this, FIX::UnderlyingCurrency);
+      FIELD_SET(*this, FIX::UnderlyingQty);
+      FIELD_SET(*this, FIX::UnderlyingPx);
+      FIELD_SET(*this, FIX::UnderlyingDirtyPrice);
+      FIELD_SET(*this, FIX::UnderlyingEndPrice);
+      FIELD_SET(*this, FIX::UnderlyingStartValue);
+      FIELD_SET(*this, FIX::UnderlyingCurrentValue);
+      FIELD_SET(*this, FIX::UnderlyingEndValue);
+    };
+    FIELD_SET(*this, FIX::NoLegs);
+    class NoLegs: public FIX::Group
+    {
+    public:
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
+      FIELD_SET(*this, FIX::LegSymbol);
+      FIELD_SET(*this, FIX::LegSymbolSfx);
+      FIELD_SET(*this, FIX::LegSecurityID);
+      FIELD_SET(*this, FIX::LegSecurityIDSource);
+      FIELD_SET(*this, FIX::LegProduct);
+      FIELD_SET(*this, FIX::LegCFICode);
+      FIELD_SET(*this, FIX::LegSecurityType);
+      FIELD_SET(*this, FIX::LegSecuritySubType);
+      FIELD_SET(*this, FIX::LegMaturityMonthYear);
+      FIELD_SET(*this, FIX::LegMaturityDate);
+      FIELD_SET(*this, FIX::LegCouponPaymentDate);
+      FIELD_SET(*this, FIX::LegIssueDate);
+      FIELD_SET(*this, FIX::LegRepoCollateralSecurityType);
+      FIELD_SET(*this, FIX::LegRepurchaseTerm);
+      FIELD_SET(*this, FIX::LegRepurchaseRate);
+      FIELD_SET(*this, FIX::LegFactor);
+      FIELD_SET(*this, FIX::LegCreditRating);
+      FIELD_SET(*this, FIX::LegInstrRegistry);
+      FIELD_SET(*this, FIX::LegCountryOfIssue);
+      FIELD_SET(*this, FIX::LegStateOrProvinceOfIssue);
+      FIELD_SET(*this, FIX::LegLocaleOfIssue);
+      FIELD_SET(*this, FIX::LegRedemptionDate);
+      FIELD_SET(*this, FIX::LegStrikePrice);
+      FIELD_SET(*this, FIX::LegStrikeCurrency);
+      FIELD_SET(*this, FIX::LegOptAttribute);
+      FIELD_SET(*this, FIX::LegContractMultiplier);
+      FIELD_SET(*this, FIX::LegCouponRate);
+      FIELD_SET(*this, FIX::LegSecurityExchange);
+      FIELD_SET(*this, FIX::LegIssuer);
+      FIELD_SET(*this, FIX::EncodedLegIssuerLen);
+      FIELD_SET(*this, FIX::EncodedLegIssuer);
+      FIELD_SET(*this, FIX::LegSecurityDesc);
+      FIELD_SET(*this, FIX::EncodedLegSecurityDescLen);
+      FIELD_SET(*this, FIX::EncodedLegSecurityDesc);
+      FIELD_SET(*this, FIX::LegRatioQty);
+      FIELD_SET(*this, FIX::LegSide);
+      FIELD_SET(*this, FIX::LegCurrency);
+      FIELD_SET(*this, FIX::LegPool);
+      FIELD_SET(*this, FIX::LegDatedDate);
+      FIELD_SET(*this, FIX::LegContractSettlMonth);
+      FIELD_SET(*this, FIX::LegInterestAccrualDate);
+    };
     FIELD_SET(*this, FIX::Quantity);
     FIELD_SET(*this, FIX::QtyType);
     FIELD_SET(*this, FIX::LastMkt);
@@ -209,167 +325,11 @@ namespace FIX44
     FIELD_SET(*this, FIX::YieldRedemptionPriceType);
     FIELD_SET(*this, FIX::TotNoAllocs);
     FIELD_SET(*this, FIX::LastFragment);
-    FIELD_SET(*this, FIX::NoOrders);
-    class NoOrders: public FIX::Group
-    {
-    public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,756,38,799,800,0)) {}
-      FIELD_SET(*this, FIX::ClOrdID);
-      FIELD_SET(*this, FIX::OrderID);
-      FIELD_SET(*this, FIX::SecondaryOrderID);
-      FIELD_SET(*this, FIX::SecondaryClOrdID);
-      FIELD_SET(*this, FIX::ListID);
-      FIELD_SET(*this, FIX::NoNested2PartyIDs);
-      class NoNested2PartyIDs: public FIX::Group
-      {
-      public:
-      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,806,0)) {}
-        FIELD_SET(*this, FIX::Nested2PartyID);
-        FIELD_SET(*this, FIX::Nested2PartyIDSource);
-        FIELD_SET(*this, FIX::Nested2PartyRole);
-        FIELD_SET(*this, FIX::NoNested2PartySubIDs);
-        class NoNested2PartySubIDs: public FIX::Group
-        {
-        public:
-        NoNested2PartySubIDs() : FIX::Group(806,760,FIX::message_order(760,807,0)) {}
-          FIELD_SET(*this, FIX::Nested2PartySubID);
-          FIELD_SET(*this, FIX::Nested2PartySubIDType);
-        };
-      };
-      FIELD_SET(*this, FIX::OrderQty);
-      FIELD_SET(*this, FIX::OrderAvgPx);
-      FIELD_SET(*this, FIX::OrderBookingQty);
-    };
-    FIELD_SET(*this, FIX::NoExecs);
-    class NoExecs: public FIX::Group
-    {
-    public:
-    NoExecs() : FIX::Group(124,32,FIX::message_order(32,17,527,31,669,29,0)) {}
-      FIELD_SET(*this, FIX::LastQty);
-      FIELD_SET(*this, FIX::ExecID);
-      FIELD_SET(*this, FIX::SecondaryExecID);
-      FIELD_SET(*this, FIX::LastPx);
-      FIELD_SET(*this, FIX::LastParPx);
-      FIELD_SET(*this, FIX::LastCapacity);
-    };
-    FIELD_SET(*this, FIX::NoUnderlyings);
-    class NoUnderlyings: public FIX::Group
-    {
-    public:
-    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
-      FIELD_SET(*this, FIX::UnderlyingSymbol);
-      FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
-      FIELD_SET(*this, FIX::UnderlyingSecurityID);
-      FIELD_SET(*this, FIX::UnderlyingSecurityIDSource);
-      FIELD_SET(*this, FIX::UnderlyingProduct);
-      FIELD_SET(*this, FIX::UnderlyingCFICode);
-      FIELD_SET(*this, FIX::UnderlyingSecurityType);
-      FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
-      FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
-      FIELD_SET(*this, FIX::UnderlyingMaturityDate);
-      FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
-      FIELD_SET(*this, FIX::UnderlyingIssueDate);
-      FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
-      FIELD_SET(*this, FIX::UnderlyingRepurchaseTerm);
-      FIELD_SET(*this, FIX::UnderlyingRepurchaseRate);
-      FIELD_SET(*this, FIX::UnderlyingFactor);
-      FIELD_SET(*this, FIX::UnderlyingCreditRating);
-      FIELD_SET(*this, FIX::UnderlyingInstrRegistry);
-      FIELD_SET(*this, FIX::UnderlyingCountryOfIssue);
-      FIELD_SET(*this, FIX::UnderlyingStateOrProvinceOfIssue);
-      FIELD_SET(*this, FIX::UnderlyingLocaleOfIssue);
-      FIELD_SET(*this, FIX::UnderlyingRedemptionDate);
-      FIELD_SET(*this, FIX::UnderlyingStrikePrice);
-      FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
-      FIELD_SET(*this, FIX::UnderlyingOptAttribute);
-      FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
-      FIELD_SET(*this, FIX::UnderlyingCouponRate);
-      FIELD_SET(*this, FIX::UnderlyingSecurityExchange);
-      FIELD_SET(*this, FIX::UnderlyingIssuer);
-      FIELD_SET(*this, FIX::EncodedUnderlyingIssuerLen);
-      FIELD_SET(*this, FIX::EncodedUnderlyingIssuer);
-      FIELD_SET(*this, FIX::UnderlyingSecurityDesc);
-      FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDescLen);
-      FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDesc);
-      FIELD_SET(*this, FIX::UnderlyingCPProgram);
-      FIELD_SET(*this, FIX::UnderlyingCPRegType);
-      FIELD_SET(*this, FIX::UnderlyingCurrency);
-      FIELD_SET(*this, FIX::UnderlyingQty);
-      FIELD_SET(*this, FIX::UnderlyingPx);
-      FIELD_SET(*this, FIX::UnderlyingDirtyPrice);
-      FIELD_SET(*this, FIX::UnderlyingEndPrice);
-      FIELD_SET(*this, FIX::UnderlyingStartValue);
-      FIELD_SET(*this, FIX::UnderlyingCurrentValue);
-      FIELD_SET(*this, FIX::UnderlyingEndValue);
-      FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
-      class NoUnderlyingSecurityAltID: public FIX::Group
-      {
-      public:
-      NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
-        FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
-        FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
-      };
-    };
-    FIELD_SET(*this, FIX::NoLegs);
-    class NoLegs: public FIX::Group
-    {
-    public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
-      FIELD_SET(*this, FIX::LegSymbol);
-      FIELD_SET(*this, FIX::LegSymbolSfx);
-      FIELD_SET(*this, FIX::LegSecurityID);
-      FIELD_SET(*this, FIX::LegSecurityIDSource);
-      FIELD_SET(*this, FIX::LegProduct);
-      FIELD_SET(*this, FIX::LegCFICode);
-      FIELD_SET(*this, FIX::LegSecurityType);
-      FIELD_SET(*this, FIX::LegSecuritySubType);
-      FIELD_SET(*this, FIX::LegMaturityMonthYear);
-      FIELD_SET(*this, FIX::LegMaturityDate);
-      FIELD_SET(*this, FIX::LegCouponPaymentDate);
-      FIELD_SET(*this, FIX::LegIssueDate);
-      FIELD_SET(*this, FIX::LegRepoCollateralSecurityType);
-      FIELD_SET(*this, FIX::LegRepurchaseTerm);
-      FIELD_SET(*this, FIX::LegRepurchaseRate);
-      FIELD_SET(*this, FIX::LegFactor);
-      FIELD_SET(*this, FIX::LegCreditRating);
-      FIELD_SET(*this, FIX::LegInstrRegistry);
-      FIELD_SET(*this, FIX::LegCountryOfIssue);
-      FIELD_SET(*this, FIX::LegStateOrProvinceOfIssue);
-      FIELD_SET(*this, FIX::LegLocaleOfIssue);
-      FIELD_SET(*this, FIX::LegRedemptionDate);
-      FIELD_SET(*this, FIX::LegStrikePrice);
-      FIELD_SET(*this, FIX::LegStrikeCurrency);
-      FIELD_SET(*this, FIX::LegOptAttribute);
-      FIELD_SET(*this, FIX::LegContractMultiplier);
-      FIELD_SET(*this, FIX::LegCouponRate);
-      FIELD_SET(*this, FIX::LegSecurityExchange);
-      FIELD_SET(*this, FIX::LegIssuer);
-      FIELD_SET(*this, FIX::EncodedLegIssuerLen);
-      FIELD_SET(*this, FIX::EncodedLegIssuer);
-      FIELD_SET(*this, FIX::LegSecurityDesc);
-      FIELD_SET(*this, FIX::EncodedLegSecurityDescLen);
-      FIELD_SET(*this, FIX::EncodedLegSecurityDesc);
-      FIELD_SET(*this, FIX::LegRatioQty);
-      FIELD_SET(*this, FIX::LegSide);
-      FIELD_SET(*this, FIX::LegCurrency);
-      FIELD_SET(*this, FIX::LegPool);
-      FIELD_SET(*this, FIX::LegDatedDate);
-      FIELD_SET(*this, FIX::LegContractSettlMonth);
-      FIELD_SET(*this, FIX::LegInterestAccrualDate);
-      FIELD_SET(*this, FIX::NoLegSecurityAltID);
-      class NoLegSecurityAltID: public FIX::Group
-      {
-      public:
-      NoLegSecurityAltID() : FIX::Group(604,605,FIX::message_order(605,606,0)) {}
-        FIELD_SET(*this, FIX::LegSecurityAltID);
-        FIELD_SET(*this, FIX::LegSecurityAltIDSource);
-      };
-    };
     FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,742,741,136,576,635,780,172,169,170,171,85,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,742,741,136,576,780,172,169,170,171,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocAcctIDSource);
       FIELD_SET(*this, FIX::MatchStatus);
@@ -413,37 +373,6 @@ namespace FIX44
       FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
       FIELD_SET(*this, FIX::AllocAccruedInterestAmt);
       FIELD_SET(*this, FIX::AllocInterestAtMaturity);
-      FIELD_SET(*this, FIX::ClearingFeeIndicator);
-      FIELD_SET(*this, FIX::AllocSettlInstType);
-      FIELD_SET(*this, FIX::SettlDeliveryType);
-      FIELD_SET(*this, FIX::StandInstDbType);
-      FIELD_SET(*this, FIX::StandInstDbName);
-      FIELD_SET(*this, FIX::StandInstDbID);
-      FIELD_SET(*this, FIX::NoDlvyInst);
-      class NoDlvyInst: public FIX::Group
-      {
-      public:
-      NoDlvyInst() : FIX::Group(85,165,FIX::message_order(165,787,781,0)) {}
-        FIELD_SET(*this, FIX::SettlInstSource);
-        FIELD_SET(*this, FIX::DlvyInstType);
-        FIELD_SET(*this, FIX::NoSettlPartyIDs);
-        class NoSettlPartyIDs: public FIX::Group
-        {
-        public:
-        NoSettlPartyIDs() : FIX::Group(781,782,FIX::message_order(782,783,784,801,0)) {}
-          FIELD_SET(*this, FIX::SettlPartyID);
-          FIELD_SET(*this, FIX::SettlPartyIDSource);
-          FIELD_SET(*this, FIX::SettlPartyRole);
-          FIELD_SET(*this, FIX::NoSettlPartySubIDs);
-          class NoSettlPartySubIDs: public FIX::Group
-          {
-          public:
-          NoSettlPartySubIDs() : FIX::Group(801,785,FIX::message_order(785,786,0)) {}
-            FIELD_SET(*this, FIX::SettlPartySubID);
-            FIELD_SET(*this, FIX::SettlPartySubIDType);
-          };
-        };
-      };
       FIELD_SET(*this, FIX::NoMiscFees);
       class NoMiscFees: public FIX::Group
       {
@@ -461,6 +390,11 @@ namespace FIX44
       NoClearingInstructions() : FIX::Group(576,577,FIX::message_order(577,0)) {}
         FIELD_SET(*this, FIX::ClearingInstruction);
       };
+      FIELD_SET(*this, FIX::AllocSettlInstType);
+      FIELD_SET(*this, FIX::SettlDeliveryType);
+      FIELD_SET(*this, FIX::StandInstDbType);
+      FIELD_SET(*this, FIX::StandInstDbName);
+      FIELD_SET(*this, FIX::StandInstDbID);
     };
   };
 

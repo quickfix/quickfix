@@ -200,7 +200,7 @@ namespace QuickFix43
     public class NoQuoteSets: QuickFix.Group
     {
     public NoQuoteSets() : base(296,302,message_order ) {}
-    static int[] message_order = new int[] {302,311,312,309,305,457,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,317,436,435,308,306,362,363,307,364,365,304,295,0};
+    static int[] message_order = new int[] {302,311,312,309,305,457,462,463,310,313,542,315,241,242,243,244,245,246,256,595,592,593,594,247,316,317,436,435,308,306,362,363,307,364,365,304,295,0};
       public void set(QuickFix.QuoteSetID value)
       { setField(value); }
       public QuickFix.QuoteSetID get(QuickFix.QuoteSetID  value)
@@ -320,6 +320,18 @@ namespace QuickFix43
       { return isSetField(field); }
       public bool isSetUnderlyingMaturityDate()
       { return isSetField(542); }
+
+      public void set(QuickFix.UnderlyingPutOrCall value)
+      { setField(value); }
+      public QuickFix.UnderlyingPutOrCall get(QuickFix.UnderlyingPutOrCall  value)
+      { getField(value); return value; }
+      public QuickFix.UnderlyingPutOrCall getUnderlyingPutOrCall()
+      { QuickFix.UnderlyingPutOrCall value = new QuickFix.UnderlyingPutOrCall();
+        getField(value); return value; }
+      public bool isSet(QuickFix.UnderlyingPutOrCall field)
+      { return isSetField(field); }
+      public bool isSetUnderlyingPutOrCall()
+      { return isSetField(315); }
 
       public void set(QuickFix.UnderlyingCouponPaymentDate value)
       { setField(value); }

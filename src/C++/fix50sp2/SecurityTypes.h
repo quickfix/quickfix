@@ -26,6 +26,10 @@ namespace FIX50SP2
       set(aSecurityResponseType);
     }
 
+    FIELD_SET(*this, FIX::ApplID);
+    FIELD_SET(*this, FIX::ApplSeqNum);
+    FIELD_SET(*this, FIX::ApplLastSeqNum);
+    FIELD_SET(*this, FIX::ApplResendFlag);
     FIELD_SET(*this, FIX::SecurityReqID);
     FIELD_SET(*this, FIX::SecurityResponseID);
     FIELD_SET(*this, FIX::SecurityResponseType);
@@ -45,15 +49,11 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
+    FIELD_SET(*this, FIX::MarketID);
+    FIELD_SET(*this, FIX::MarketSegmentID);
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);
     FIELD_SET(*this, FIX::SubscriptionRequestType);
-    FIELD_SET(*this, FIX::MarketID);
-    FIELD_SET(*this, FIX::MarketSegmentID);
-    FIELD_SET(*this, FIX::ApplID);
-    FIELD_SET(*this, FIX::ApplSeqNum);
-    FIELD_SET(*this, FIX::ApplLastSeqNum);
-    FIELD_SET(*this, FIX::ApplResendFlag);
   };
 
 }

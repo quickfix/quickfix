@@ -1,17 +1,4 @@
 module Quickfix
-	class RelatedPartyID < Quickfix::StringField
-		def RelatedPartyID.field
-			return 1563
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1563)
-			else
-				super(1563, data)
-			end
-		end
-	end
-
 	class MaxPriceLevels < Quickfix::IntField
 		def MaxPriceLevels.field
 			return 1090
@@ -103,32 +90,6 @@ module Quickfix
 		end
 	end
 
-	class RiskEncodedSecurityDesc < Quickfix::StringField
-		def RiskEncodedSecurityDesc.field
-			return 1621
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1621)
-			else
-				super(1621, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSecuritySubType < Quickfix::StringField
-		def RelationshipRiskSecuritySubType.field
-			return 1601
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1601)
-			else
-				super(1601, data)
-			end
-		end
-	end
-
 	class SecurityListID < Quickfix::StringField
 		def SecurityListID.field
 			return 1465
@@ -151,19 +112,6 @@ module Quickfix
 				super(1442)
 			else
 				super(1442, data)
-			end
-		end
-	end
-
-	class EncodedSymbolLen < Quickfix::IntField
-		def EncodedSymbolLen.field
-			return 1359
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1359)
-			else
-				super(1359, data)
 			end
 		end
 	end
@@ -259,19 +207,6 @@ module Quickfix
 		end
 	end
 
-	class PartyAltIDSource < Quickfix::CharField
-		def PartyAltIDSource.field
-			return 1518
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1518)
-			else
-				super(1518, data)
-			end
-		end
-	end
-
 	class CcyAmt < Quickfix::DoubleField
 		def CcyAmt.field
 			return 1157
@@ -281,6 +216,19 @@ module Quickfix
 				super(1157)
 			else
 				super(1157, data)
+			end
+		end
+	end
+
+	class LegOrderQty < Quickfix::DoubleField
+		def LegOrderQty.field
+			return 685
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(685)
+			else
+				super(685, data)
 			end
 		end
 	end
@@ -298,19 +246,6 @@ module Quickfix
 		end
 	end
 
-	class NoNested2PartyIDs < Quickfix::IntField
-		def NoNested2PartyIDs.field
-			return 756
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(756)
-			else
-				super(756, data)
-			end
-		end
-	end
-
 	class UnderlyingIssuer < Quickfix::StringField
 		def UnderlyingIssuer.field
 			return 306
@@ -324,15 +259,15 @@ module Quickfix
 		end
 	end
 
-	class LegOrderQty < Quickfix::DoubleField
-		def LegOrderQty.field
-			return 685
+	class NoNested2PartyIDs < Quickfix::IntField
+		def NoNested2PartyIDs.field
+			return 756
 		end
 		def initialize(data = nil)
 			if( data == nil )
-				super(685)
+				super(756)
 			else
-				super(685, data)
+				super(756, data)
 			end
 		end
 	end
@@ -441,7 +376,7 @@ module Quickfix
 		end
 	end
 
-	class NoLegSecurityAltID < Quickfix::StringField
+	class NoLegSecurityAltID < Quickfix::IntField
 		def NoLegSecurityAltID.field
 			return 604
 		end
@@ -714,19 +649,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelatedPartyIDs < Quickfix::IntField
-		def NoRelatedPartyIDs.field
-			return 1562
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1562)
-			else
-				super(1562, data)
-			end
-		end
-	end
-
 	class NoLegStipulations < Quickfix::IntField
 		def NoLegStipulations.field
 			return 683
@@ -801,19 +723,6 @@ module Quickfix
 				super(566)
 			else
 				super(566, data)
-			end
-		end
-	end
-
-	class RelationshipRiskMaturityTime < Quickfix::StringField
-		def RelationshipRiskMaturityTime.field
-			return 1603
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1603)
-			else
-				super(1603, data)
 			end
 		end
 	end
@@ -1312,19 +1221,6 @@ module Quickfix
 		end
 	end
 
-	class RiskWarningLevelPercent < Quickfix::DoubleField
-		def RiskWarningLevelPercent.field
-			return 1560
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1560)
-			else
-				super(1560, data)
-			end
-		end
-	end
-
 	class UnderlyingOriginalNotionalPercentageOutstanding < Quickfix::DoubleField
 		def UnderlyingOriginalNotionalPercentageOutstanding.field
 			return 1456
@@ -1386,19 +1282,6 @@ module Quickfix
 				super(244)
 			else
 				super(244, data)
-			end
-		end
-	end
-
-	class RiskWarningLevelName < Quickfix::StringField
-		def RiskWarningLevelName.field
-			return 1561
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1561)
-			else
-				super(1561, data)
 			end
 		end
 	end
@@ -1520,19 +1403,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelationshipRiskLimits < Quickfix::IntField
-		def NoRelationshipRiskLimits.field
-			return 1582
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1582)
-			else
-				super(1582, data)
-			end
-		end
-	end
-
 	class LocationID < Quickfix::StringField
 		def LocationID.field
 			return 283
@@ -1594,19 +1464,6 @@ module Quickfix
 				super(418)
 			else
 				super(418, data)
-			end
-		end
-	end
-
-	class RelationshipRiskInstrumentOperator < Quickfix::IntField
-		def RelationshipRiskInstrumentOperator.field
-			return 1588
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1588)
-			else
-				super(1588, data)
 			end
 		end
 	end
@@ -1949,19 +1806,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedPartyRole < Quickfix::IntField
-		def RelatedPartyRole.field
-			return 1565
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1565)
-			else
-				super(1565, data)
-			end
-		end
-	end
-
 	class LegContractMultiplierUnit < Quickfix::IntField
 		def LegContractMultiplierUnit.field
 			return 1436
@@ -2049,32 +1893,6 @@ module Quickfix
 				super(217)
 			else
 				super(217, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSecurityAltID < Quickfix::StringField
-		def RelationshipRiskSecurityAltID.field
-			return 1594
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1594)
-			else
-				super(1594, data)
-			end
-		end
-	end
-
-	class RelatedPartyAltID < Quickfix::StringField
-		def RelatedPartyAltID.field
-			return 1570
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1570)
-			else
-				super(1570, data)
 			end
 		end
 	end
@@ -2521,19 +2339,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedContextPartySubID < Quickfix::StringField
-		def RelatedContextPartySubID.field
-			return 1580
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1580)
-			else
-				super(1580, data)
-			end
-		end
-	end
-
 	class DerivativeSecuritySubType < Quickfix::StringField
 		def DerivativeSecuritySubType.field
 			return 1250
@@ -2621,32 +2426,6 @@ module Quickfix
 				super(568)
 			else
 				super(568, data)
-			end
-		end
-	end
-
-	class RelationshipRiskLimitType < Quickfix::IntField
-		def RelationshipRiskLimitType.field
-			return 1583
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1583)
-			else
-				super(1583, data)
-			end
-		end
-	end
-
-	class RiskSecurityIDSource < Quickfix::StringField
-		def RiskSecurityIDSource.field
-			return 1539
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1539)
-			else
-				super(1539, data)
 			end
 		end
 	end
@@ -2959,19 +2738,6 @@ module Quickfix
 				super(288)
 			else
 				super(288, data)
-			end
-		end
-	end
-
-	class RelationshipRiskCouponRate < Quickfix::DoubleField
-		def RelationshipRiskCouponRate.field
-			return 1608
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1608)
-			else
-				super(1608, data)
 			end
 		end
 	end
@@ -3314,19 +3080,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedPartyAltSubIDType < Quickfix::IntField
-		def RelatedPartyAltSubIDType.field
-			return 1574
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1574)
-			else
-				super(1574, data)
-			end
-		end
-	end
-
 	class MarketReportID < Quickfix::StringField
 		def MarketReportID.field
 			return 1394
@@ -3535,19 +3288,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskEncodedSecurityDescLen < Quickfix::IntField
-		def RelationshipRiskEncodedSecurityDescLen.field
-			return 1618
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1618)
-			else
-				super(1618, data)
-			end
-		end
-	end
-
 	class SecurityXMLLen < Quickfix::IntField
 		def SecurityXMLLen.field
 			return 1184
@@ -3752,19 +3492,6 @@ module Quickfix
 				super(609)
 			else
 				super(609, data)
-			end
-		end
-	end
-
-	class RiskLimitPlatform < Quickfix::StringField
-		def RiskLimitPlatform.field
-			return 1533
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1533)
-			else
-				super(1533, data)
 			end
 		end
 	end
@@ -4133,19 +3860,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedContextPartyRole < Quickfix::IntField
-		def RelatedContextPartyRole.field
-			return 1578
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1578)
-			else
-				super(1578, data)
-			end
-		end
-	end
-
 	class UnderlyingSettlementStatus < Quickfix::StringField
 		def UnderlyingSettlementStatus.field
 			return 988
@@ -4185,19 +3899,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskFlexibleIndicator < Quickfix::BoolField
-		def RelationshipRiskFlexibleIndicator.field
-			return 1607
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1607)
-			else
-				super(1607, data)
-			end
-		end
-	end
-
 	class DerivativePriceQuoteMethod < Quickfix::StringField
 		def DerivativePriceQuoteMethod.field
 			return 1318
@@ -4207,19 +3908,6 @@ module Quickfix
 				super(1318)
 			else
 				super(1318, data)
-			end
-		end
-	end
-
-	class RelationshipRiskProductComplex < Quickfix::StringField
-		def RelationshipRiskProductComplex.field
-			return 1597
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1597)
-			else
-				super(1597, data)
 			end
 		end
 	end
@@ -4588,32 +4276,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskLimitPlatform < Quickfix::StringField
-		def RelationshipRiskLimitPlatform.field
-			return 1586
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1586)
-			else
-				super(1586, data)
-			end
-		end
-	end
-
-	class RelatedPartySubID < Quickfix::StringField
-		def RelatedPartySubID.field
-			return 1567
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1567)
-			else
-				super(1567, data)
-			end
-		end
-	end
-
 	class ComplexEventEndTime < Quickfix::UtcTimeOnlyField
 		def ComplexEventEndTime.field
 			return 1496
@@ -4783,19 +4445,6 @@ module Quickfix
 		end
 	end
 
-	class PartyAltSubID < Quickfix::StringField
-		def PartyAltSubID.field
-			return 1520
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1520)
-			else
-				super(1520, data)
-			end
-		end
-	end
-
 	class TotNoCxldQuotes < Quickfix::IntField
 		def TotNoCxldQuotes.field
 			return 1168
@@ -4870,19 +4519,6 @@ module Quickfix
 				super(706)
 			else
 				super(706, data)
-			end
-		end
-	end
-
-	class RiskRestructuringType < Quickfix::StringField
-		def RiskRestructuringType.field
-			return 1551
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1551)
-			else
-				super(1551, data)
 			end
 		end
 	end
@@ -5156,19 +4792,6 @@ module Quickfix
 				super(718)
 			else
 				super(718, data)
-			end
-		end
-	end
-
-	class NoPartyAltSubIDs < Quickfix::IntField
-		def NoPartyAltSubIDs.field
-			return 1519
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1519)
-			else
-				super(1519, data)
 			end
 		end
 	end
@@ -5511,19 +5134,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedContextPartyID < Quickfix::StringField
-		def RelatedContextPartyID.field
-			return 1576
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1576)
-			else
-				super(1576, data)
-			end
-		end
-	end
-
 	class TargetPartyIDSource < Quickfix::CharField
 		def TargetPartyIDSource.field
 			return 1463
@@ -5732,7 +5342,7 @@ module Quickfix
 		end
 	end
 
-	class UnderlyingRepoCollateralSecurityType < Quickfix::IntField
+	class UnderlyingRepoCollateralSecurityType < Quickfix::StringField
 		def UnderlyingRepoCollateralSecurityType.field
 			return 243
 		end
@@ -5888,19 +5498,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskSecurityExchange < Quickfix::StringField
-		def RelationshipRiskSecurityExchange.field
-			return 1609
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1609)
-			else
-				super(1609, data)
-			end
-		end
-	end
-
 	class UnderlyingLegSymbolSfx < Quickfix::StringField
 		def UnderlyingLegSymbolSfx.field
 			return 1331
@@ -5988,19 +5585,6 @@ module Quickfix
 				super(835)
 			else
 				super(835, data)
-			end
-		end
-	end
-
-	class AsgnReqID < Quickfix::StringField
-		def AsgnReqID.field
-			return 831
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(831)
-			else
-				super(831, data)
 			end
 		end
 	end
@@ -6135,19 +5719,6 @@ module Quickfix
 		end
 	end
 
-	class RiskCFICode < Quickfix::StringField
-		def RiskCFICode.field
-			return 1546
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1546)
-			else
-				super(1546, data)
-			end
-		end
-	end
-
 	class EncodedMktSegmDesc < Quickfix::StringField
 		def EncodedMktSegmDesc.field
 			return 1398
@@ -6209,19 +5780,6 @@ module Quickfix
 				super(296)
 			else
 				super(296, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSecurityDesc < Quickfix::StringField
-		def RelationshipRiskSecurityDesc.field
-			return 1610
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1610)
-			else
-				super(1610, data)
 			end
 		end
 	end
@@ -6538,19 +6096,6 @@ module Quickfix
 		end
 	end
 
-	class PartyAltSubIDType < Quickfix::IntField
-		def PartyAltSubIDType.field
-			return 1521
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1521)
-			else
-				super(1521, data)
-			end
-		end
-	end
-
 	class UnderlyingLegSecurityDesc < Quickfix::StringField
 		def UnderlyingLegSecurityDesc.field
 			return 1392
@@ -6759,19 +6304,6 @@ module Quickfix
 		end
 	end
 
-	class ContextPartySubID < Quickfix::StringField
-		def ContextPartySubID.field
-			return 1527
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1527)
-			else
-				super(1527, data)
-			end
-		end
-	end
-
 	class DerivativeEventDate < Quickfix::StringField
 		def DerivativeEventDate.field
 			return 1288
@@ -6872,32 +6404,6 @@ module Quickfix
 				super(129)
 			else
 				super(129, data)
-			end
-		end
-	end
-
-	class NoRelatedPartyAltIDs < Quickfix::IntField
-		def NoRelatedPartyAltIDs.field
-			return 1569
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1569)
-			else
-				super(1569, data)
-			end
-		end
-	end
-
-	class RiskProductComplex < Quickfix::StringField
-		def RiskProductComplex.field
-			return 1544
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1544)
-			else
-				super(1544, data)
 			end
 		end
 	end
@@ -7097,19 +6603,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedPartySubIDType < Quickfix::IntField
-		def RelatedPartySubIDType.field
-			return 1568
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1568)
-			else
-				super(1568, data)
-			end
-		end
-	end
-
 	class TriggerAction < Quickfix::CharField
 		def TriggerAction.field
 			return 1101
@@ -7249,19 +6742,6 @@ module Quickfix
 				super(68)
 			else
 				super(68, data)
-			end
-		end
-	end
-
-	class RelatedPartyIDSource < Quickfix::CharField
-		def RelatedPartyIDSource.field
-			return 1564
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1564)
-			else
-				super(1564, data)
 			end
 		end
 	end
@@ -7682,19 +7162,6 @@ module Quickfix
 		end
 	end
 
-	class PartyDetailsRequestResult < Quickfix::IntField
-		def PartyDetailsRequestResult.field
-			return 1511
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1511)
-			else
-				super(1511, data)
-			end
-		end
-	end
-
 	class ExerciseMethod < Quickfix::CharField
 		def ExerciseMethod.field
 			return 747
@@ -8033,19 +7500,6 @@ module Quickfix
 		end
 	end
 
-	class RiskLimitAmount < Quickfix::DoubleField
-		def RiskLimitAmount.field
-			return 1531
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1531)
-			else
-				super(1531, data)
-			end
-		end
-	end
-
 	class UnderlyingLegSecuritySubType < Quickfix::StringField
 		def UnderlyingLegSecuritySubType.field
 			return 1338
@@ -8068,45 +7522,6 @@ module Quickfix
 				super(457)
 			else
 				super(457, data)
-			end
-		end
-	end
-
-	class RelationshipRiskCFICode < Quickfix::StringField
-		def RelationshipRiskCFICode.field
-			return 1599
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1599)
-			else
-				super(1599, data)
-			end
-		end
-	end
-
-	class NoRelatedPartySubIDs < Quickfix::IntField
-		def NoRelatedPartySubIDs.field
-			return 1566
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1566)
-			else
-				super(1566, data)
-			end
-		end
-	end
-
-	class RiskSymbolSfx < Quickfix::StringField
-		def RiskSymbolSfx.field
-			return 1537
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1537)
-			else
-				super(1537, data)
 			end
 		end
 	end
@@ -8579,19 +7994,6 @@ module Quickfix
 		end
 	end
 
-	class NoContextPartySubIDs < Quickfix::IntField
-		def NoContextPartySubIDs.field
-			return 1526
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1526)
-			else
-				super(1526, data)
-			end
-		end
-	end
-
 	class UndlyInstrumentPartyIDSource < Quickfix::CharField
 		def UndlyInstrumentPartyIDSource.field
 			return 1060
@@ -8705,19 +8107,6 @@ module Quickfix
 				super(179)
 			else
 				super(179, data)
-			end
-		end
-	end
-
-	class RiskInstrumentMultiplier < Quickfix::DoubleField
-		def RiskInstrumentMultiplier.field
-			return 1558
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1558)
-			else
-				super(1558, data)
 			end
 		end
 	end
@@ -9151,19 +8540,6 @@ module Quickfix
 		end
 	end
 
-	class NoPartyListResponseTypes < Quickfix::IntField
-		def NoPartyListResponseTypes.field
-			return 1506
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1506)
-			else
-				super(1506, data)
-			end
-		end
-	end
-
 	class StrikePriceDeterminationMethod < Quickfix::IntField
 		def StrikePriceDeterminationMethod.field
 			return 1478
@@ -9225,19 +8601,6 @@ module Quickfix
 				super(26)
 			else
 				super(26, data)
-			end
-		end
-	end
-
-	class NoContextPartyIDs < Quickfix::IntField
-		def NoContextPartyIDs.field
-			return 1522
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1522)
-			else
-				super(1522, data)
 			end
 		end
 	end
@@ -9424,19 +8787,6 @@ module Quickfix
 		end
 	end
 
-	class RiskSecurityExchange < Quickfix::StringField
-		def RiskSecurityExchange.field
-			return 1616
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1616)
-			else
-				super(1616, data)
-			end
-		end
-	end
-
 	class LegAllocSettlCurrency < Quickfix::StringField
 		def LegAllocSettlCurrency.field
 			return 1367
@@ -9502,19 +8852,6 @@ module Quickfix
 		end
 	end
 
-	class EncodedSymbol < Quickfix::StringField
-		def EncodedSymbol.field
-			return 1360
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1360)
-			else
-				super(1360, data)
-			end
-		end
-	end
-
 	class DerivativeSecurityDesc < Quickfix::StringField
 		def DerivativeSecurityDesc.field
 			return 1279
@@ -9537,19 +8874,6 @@ module Quickfix
 				super(996)
 			else
 				super(996, data)
-			end
-		end
-	end
-
-	class SecDefStatus < Quickfix::IntField
-		def SecDefStatus.field
-			return 653
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(653)
-			else
-				super(653, data)
 			end
 		end
 	end
@@ -9827,19 +9151,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedContextPartyIDSource < Quickfix::CharField
-		def RelatedContextPartyIDSource.field
-			return 1577
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1577)
-			else
-				super(1577, data)
-			end
-		end
-	end
-
 	class QuoteEntryStatus < Quickfix::IntField
 		def QuoteEntryStatus.field
 			return 1167
@@ -9970,19 +9281,6 @@ module Quickfix
 		end
 	end
 
-	class NoPartyList < Quickfix::IntField
-		def NoPartyList.field
-			return 1513
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1513)
-			else
-				super(1513, data)
-			end
-		end
-	end
-
 	class UnderlyingDeliveryAmount < Quickfix::DoubleField
 		def UnderlyingDeliveryAmount.field
 			return 1037
@@ -10070,19 +9368,6 @@ module Quickfix
 				super(492)
 			else
 				super(492, data)
-			end
-		end
-	end
-
-	class RiskCouponRate < Quickfix::DoubleField
-		def RiskCouponRate.field
-			return 1555
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1555)
-			else
-				super(1555, data)
 			end
 		end
 	end
@@ -10304,19 +9589,6 @@ module Quickfix
 				super(138)
 			else
 				super(138, data)
-			end
-		end
-	end
-
-	class NoRiskLimits < Quickfix::IntField
-		def NoRiskLimits.field
-			return 1529
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1529)
-			else
-				super(1529, data)
 			end
 		end
 	end
@@ -10581,19 +9853,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskSecurityIDSource < Quickfix::StringField
-		def RelationshipRiskSecurityIDSource.field
-			return 1592
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1592)
-			else
-				super(1592, data)
-			end
-		end
-	end
-
 	class SessionStatus < Quickfix::IntField
 		def SessionStatus.field
 			return 1409
@@ -10776,45 +10035,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelatedPartyAltSubIDs < Quickfix::IntField
-		def NoRelatedPartyAltSubIDs.field
-			return 1572
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1572)
-			else
-				super(1572, data)
-			end
-		end
-	end
-
-	class RiskProduct < Quickfix::IntField
-		def RiskProduct.field
-			return 1543
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1543)
-			else
-				super(1543, data)
-			end
-		end
-	end
-
-	class RiskSecurityAltIDSource < Quickfix::StringField
-		def RiskSecurityAltIDSource.field
-			return 1542
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1542)
-			else
-				super(1542, data)
-			end
-		end
-	end
-
 	class PriceUnitOfMeasure < Quickfix::StringField
 		def PriceUnitOfMeasure.field
 			return 1191
@@ -10984,32 +10204,6 @@ module Quickfix
 		end
 	end
 
-	class RiskPutOrCall < Quickfix::IntField
-		def RiskPutOrCall.field
-			return 1553
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1553)
-			else
-				super(1553, data)
-			end
-		end
-	end
-
-	class RiskSecurityGroup < Quickfix::StringField
-		def RiskSecurityGroup.field
-			return 1545
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1545)
-			else
-				super(1545, data)
-			end
-		end
-	end
-
 	class NoPartySubIDs < Quickfix::IntField
 		def NoPartySubIDs.field
 			return 802
@@ -11036,7 +10230,7 @@ module Quickfix
 		end
 	end
 
-	class LegRepoCollateralSecurityType < Quickfix::IntField
+	class LegRepoCollateralSecurityType < Quickfix::StringField
 		def LegRepoCollateralSecurityType.field
 			return 250
 		end
@@ -11058,19 +10252,6 @@ module Quickfix
 				super(536)
 			else
 				super(536, data)
-			end
-		end
-	end
-
-	class RiskSymbol < Quickfix::StringField
-		def RiskSymbol.field
-			return 1536
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1536)
-			else
-				super(1536, data)
 			end
 		end
 	end
@@ -11205,19 +10386,6 @@ module Quickfix
 		end
 	end
 
-	class RiskSecurityType < Quickfix::StringField
-		def RiskSecurityType.field
-			return 1547
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1547)
-			else
-				super(1547, data)
-			end
-		end
-	end
-
 	class NoMatchRules < Quickfix::IntField
 		def NoMatchRules.field
 			return 1235
@@ -11322,19 +10490,6 @@ module Quickfix
 		end
 	end
 
-	class RiskSeniority < Quickfix::StringField
-		def RiskSeniority.field
-			return 1552
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1552)
-			else
-				super(1552, data)
-			end
-		end
-	end
-
 	class StrikePriceBoundaryMethod < Quickfix::IntField
 		def StrikePriceBoundaryMethod.field
 			return 1479
@@ -11383,19 +10538,6 @@ module Quickfix
 				super(117)
 			else
 				super(117, data)
-			end
-		end
-	end
-
-	class RiskFlexibleIndicator < Quickfix::BoolField
-		def RiskFlexibleIndicator.field
-			return 1554
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1554)
-			else
-				super(1554, data)
 			end
 		end
 	end
@@ -11543,7 +10685,7 @@ module Quickfix
 		end
 	end
 
-	class RepoCollateralSecurityType < Quickfix::IntField
+	class RepoCollateralSecurityType < Quickfix::StringField
 		def RepoCollateralSecurityType.field
 			return 239
 		end
@@ -11747,19 +10889,6 @@ module Quickfix
 				super(521)
 			else
 				super(521, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSecurityGroup < Quickfix::StringField
-		def RelationshipRiskSecurityGroup.field
-			return 1598
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1598)
-			else
-				super(1598, data)
 			end
 		end
 	end
@@ -12219,19 +11348,6 @@ module Quickfix
 		end
 	end
 
-	class DerivativeSecurityListRequestType < Quickfix::IntField
-		def DerivativeSecurityListRequestType.field
-			return 1307
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1307)
-			else
-				super(1307, data)
-			end
-		end
-	end
-
 	class NoLotTypeRules < Quickfix::IntField
 		def NoLotTypeRules.field
 			return 1234
@@ -12297,19 +11413,6 @@ module Quickfix
 		end
 	end
 
-	class ContextPartyID < Quickfix::StringField
-		def ContextPartyID.field
-			return 1523
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1523)
-			else
-				super(1523, data)
-			end
-		end
-	end
-
 	class SecurityListDesc < Quickfix::StringField
 		def SecurityListDesc.field
 			return 1467
@@ -12371,19 +11474,6 @@ module Quickfix
 				super(257)
 			else
 				super(257, data)
-			end
-		end
-	end
-
-	class RelationshipRiskInstrumentSettlType < Quickfix::StringField
-		def RelationshipRiskInstrumentSettlType.field
-			return 1611
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1611)
-			else
-				super(1611, data)
 			end
 		end
 	end
@@ -12479,19 +11569,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelationshipRiskInstruments < Quickfix::IntField
-		def NoRelationshipRiskInstruments.field
-			return 1587
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1587)
-			else
-				super(1587, data)
-			end
-		end
-	end
-
 	class DerivativeNTPositionLimit < Quickfix::IntField
 		def DerivativeNTPositionLimit.field
 			return 1274
@@ -12553,19 +11630,6 @@ module Quickfix
 				super(373)
 			else
 				super(373, data)
-			end
-		end
-	end
-
-	class PartyDetailsListReportID < Quickfix::StringField
-		def PartyDetailsListReportID.field
-			return 1510
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1510)
-			else
-				super(1510, data)
 			end
 		end
 	end
@@ -12778,32 +11842,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelationshipRiskWarningLevels < Quickfix::IntField
-		def NoRelationshipRiskWarningLevels.field
-			return 1613
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1613)
-			else
-				super(1613, data)
-			end
-		end
-	end
-
-	class RelationshipRiskProduct < Quickfix::IntField
-		def RelationshipRiskProduct.field
-			return 1596
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1596)
-			else
-				super(1596, data)
-			end
-		end
-	end
-
 	class LegSecurityDesc < Quickfix::StringField
 		def LegSecurityDesc.field
 			return 620
@@ -12995,19 +12033,6 @@ module Quickfix
 				super(68)
 			else
 				super(68, data)
-			end
-		end
-	end
-
-	class PartyAltID < Quickfix::StringField
-		def PartyAltID.field
-			return 1517
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1517)
-			else
-				super(1517, data)
 			end
 		end
 	end
@@ -13350,19 +12375,6 @@ module Quickfix
 		end
 	end
 
-	class ContextPartyIDSource < Quickfix::CharField
-		def ContextPartyIDSource.field
-			return 1524
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1524)
-			else
-				super(1524, data)
-			end
-		end
-	end
-
 	class RptSys < Quickfix::StringField
 		def RptSys.field
 			return 1135
@@ -13632,19 +12644,6 @@ module Quickfix
 				super(150)
 			else
 				super(150, data)
-			end
-		end
-	end
-
-	class NoRelatedContextPartySubIDs < Quickfix::IntField
-		def NoRelatedContextPartySubIDs.field
-			return 1579
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1579)
-			else
-				super(1579, data)
 			end
 		end
 	end
@@ -14104,19 +13103,6 @@ module Quickfix
 		end
 	end
 
-	class RiskLimitType < Quickfix::IntField
-		def RiskLimitType.field
-			return 1530
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1530)
-			else
-				super(1530, data)
-			end
-		end
-	end
-
 	class UnderlyingFlowScheduleType < Quickfix::IntField
 		def UnderlyingFlowScheduleType.field
 			return 1441
@@ -14208,19 +13194,6 @@ module Quickfix
 		end
 	end
 
-	class RequestedPartyRole < Quickfix::IntField
-		def RequestedPartyRole.field
-			return 1509
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1509)
-			else
-				super(1509, data)
-			end
-		end
-	end
-
 	class EventTime < Quickfix::UtcTimeStampField
 		def EventTime.field
 			return 1145
@@ -14269,19 +13242,6 @@ module Quickfix
 				super(213)
 			else
 				super(213, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSeniority < Quickfix::StringField
-		def RelationshipRiskSeniority.field
-			return 1605
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1605)
-			else
-				super(1605, data)
 			end
 		end
 	end
@@ -14728,19 +13688,6 @@ module Quickfix
 		end
 	end
 
-	class NoPartyRelationships < Quickfix::IntField
-		def NoPartyRelationships.field
-			return 1514
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1514)
-			else
-				super(1514, data)
-			end
-		end
-	end
-
 	class DerivativeInstrmtAssignmentMethod < Quickfix::CharField
 		def DerivativeInstrmtAssignmentMethod.field
 			return 1255
@@ -14802,19 +13749,6 @@ module Quickfix
 				super(637)
 			else
 				super(637, data)
-			end
-		end
-	end
-
-	class NoRiskWarningLevels < Quickfix::IntField
-		def NoRiskWarningLevels.field
-			return 1559
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1559)
-			else
-				super(1559, data)
 			end
 		end
 	end
@@ -14936,19 +13870,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskLimitAmount < Quickfix::DoubleField
-		def RelationshipRiskLimitAmount.field
-			return 1584
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1584)
-			else
-				super(1584, data)
-			end
-		end
-	end
-
 	class ApplResendFlag < Quickfix::BoolField
 		def ApplResendFlag.field
 			return 1352
@@ -14971,19 +13892,6 @@ module Quickfix
 				super(1321)
 			else
 				super(1321, data)
-			end
-		end
-	end
-
-	class RiskSecurityID < Quickfix::StringField
-		def RiskSecurityID.field
-			return 1538
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1538)
-			else
-				super(1538, data)
 			end
 		end
 	end
@@ -15144,19 +14052,6 @@ module Quickfix
 		end
 	end
 
-	class RiskMaturityTime < Quickfix::StringField
-		def RiskMaturityTime.field
-			return 1550
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1550)
-			else
-				super(1550, data)
-			end
-		end
-	end
-
 	class UnderlyingPriceUnitOfMeasureQty < Quickfix::DoubleField
 		def UnderlyingPriceUnitOfMeasureQty.field
 			return 1425
@@ -15244,19 +14139,6 @@ module Quickfix
 				super(676)
 			else
 				super(676, data)
-			end
-		end
-	end
-
-	class RiskInstrumentOperator < Quickfix::IntField
-		def RiskInstrumentOperator.field
-			return 1535
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1535)
-			else
-				super(1535, data)
 			end
 		end
 	end
@@ -15716,19 +14598,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskSecurityAltIDSource < Quickfix::StringField
-		def RelationshipRiskSecurityAltIDSource.field
-			return 1595
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1595)
-			else
-				super(1595, data)
-			end
-		end
-	end
-
 	class MDStreamID < Quickfix::StringField
 		def MDStreamID.field
 			return 1500
@@ -16011,19 +14880,6 @@ module Quickfix
 				super(681)
 			else
 				super(681, data)
-			end
-		end
-	end
-
-	class ContextPartyRole < Quickfix::IntField
-		def ContextPartyRole.field
-			return 1525
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1525)
-			else
-				super(1525, data)
 			end
 		end
 	end
@@ -16323,32 +15179,6 @@ module Quickfix
 				super(507)
 			else
 				super(507, data)
-			end
-		end
-	end
-
-	class RelationshipRiskEncodedSecurityDesc < Quickfix::StringField
-		def RelationshipRiskEncodedSecurityDesc.field
-			return 1619
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1619)
-			else
-				super(1619, data)
-			end
-		end
-	end
-
-	class RelationshipRiskRestructuringType < Quickfix::StringField
-		def RelationshipRiskRestructuringType.field
-			return 1604
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1604)
-			else
-				super(1604, data)
 			end
 		end
 	end
@@ -16717,19 +15547,6 @@ module Quickfix
 		end
 	end
 
-	class RiskSecuritySubType < Quickfix::StringField
-		def RiskSecuritySubType.field
-			return 1548
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1548)
-			else
-				super(1548, data)
-			end
-		end
-	end
-
 	class EncodedSecurityListDesc < Quickfix::StringField
 		def EncodedSecurityListDesc.field
 			return 1469
@@ -16830,19 +15647,6 @@ module Quickfix
 				super(704)
 			else
 				super(704, data)
-			end
-		end
-	end
-
-	class NoPartyAltIDs < Quickfix::IntField
-		def NoPartyAltIDs.field
-			return 1516
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1516)
-			else
-				super(1516, data)
 			end
 		end
 	end
@@ -17237,19 +16041,6 @@ module Quickfix
 		end
 	end
 
-	class NoRequestedPartyRoles < Quickfix::IntField
-		def NoRequestedPartyRoles.field
-			return 1508
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1508)
-			else
-				super(1508, data)
-			end
-		end
-	end
-
 	class EncryptedPassword < Quickfix::StringField
 		def EncryptedPassword.field
 			return 1402
@@ -17363,32 +16154,6 @@ module Quickfix
 				super(557)
 			else
 				super(557, data)
-			end
-		end
-	end
-
-	class RelationshipRiskInstrumentMultiplier < Quickfix::DoubleField
-		def RelationshipRiskInstrumentMultiplier.field
-			return 1612
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1612)
-			else
-				super(1612, data)
-			end
-		end
-	end
-
-	class NoRiskInstruments < Quickfix::IntField
-		def NoRiskInstruments.field
-			return 1534
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1534)
-			else
-				super(1534, data)
 			end
 		end
 	end
@@ -17770,19 +16535,6 @@ module Quickfix
 		end
 	end
 
-	class RiskInstrumentSettlType < Quickfix::StringField
-		def RiskInstrumentSettlType.field
-			return 1557
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1557)
-			else
-				super(1557, data)
-			end
-		end
-	end
-
 	class MDSecSize < Quickfix::DoubleField
 		def MDSecSize.field
 			return 1179
@@ -18030,19 +16782,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskSecurityID < Quickfix::StringField
-		def RelationshipRiskSecurityID.field
-			return 1591
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1591)
-			else
-				super(1591, data)
-			end
-		end
-	end
-
 	class NoSettlDetails < Quickfix::IntField
 		def NoSettlDetails.field
 			return 1158
@@ -18117,32 +16856,6 @@ module Quickfix
 				super(338)
 			else
 				super(338, data)
-			end
-		end
-	end
-
-	class RiskLimitCurrency < Quickfix::StringField
-		def RiskLimitCurrency.field
-			return 1532
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1532)
-			else
-				super(1532, data)
-			end
-		end
-	end
-
-	class PartyDetailsListRequestID < Quickfix::StringField
-		def PartyDetailsListRequestID.field
-			return 1505
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1505)
-			else
-				super(1505, data)
 			end
 		end
 	end
@@ -18433,19 +17146,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskSecurityType < Quickfix::StringField
-		def RelationshipRiskSecurityType.field
-			return 1600
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1600)
-			else
-				super(1600, data)
-			end
-		end
-	end
-
 	class NotAffOrigClOrdID < Quickfix::StringField
 		def NotAffOrigClOrdID.field
 			return 1372
@@ -18719,19 +17419,6 @@ module Quickfix
 		end
 	end
 
-	class RelatedPartyAltSubID < Quickfix::StringField
-		def RelatedPartyAltSubID.field
-			return 1573
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1573)
-			else
-				super(1573, data)
-			end
-		end
-	end
-
 	class DerivativeInstrRegistry < Quickfix::StringField
 		def DerivativeInstrRegistry.field
 			return 1257
@@ -18966,19 +17653,6 @@ module Quickfix
 		end
 	end
 
-	class NoRelationshipRiskSecurityAltID < Quickfix::IntField
-		def NoRelationshipRiskSecurityAltID.field
-			return 1593
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1593)
-			else
-				super(1593, data)
-			end
-		end
-	end
-
 	class RefOrdIDReason < Quickfix::IntField
 		def RefOrdIDReason.field
 			return 1431
@@ -19079,19 +17753,6 @@ module Quickfix
 				super(29)
 			else
 				super(29, data)
-			end
-		end
-	end
-
-	class RelationshipRiskLimitCurrency < Quickfix::StringField
-		def RelationshipRiskLimitCurrency.field
-			return 1585
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1585)
-			else
-				super(1585, data)
 			end
 		end
 	end
@@ -19274,19 +17935,6 @@ module Quickfix
 				super(295)
 			else
 				super(295, data)
-			end
-		end
-	end
-
-	class RelationshipRiskWarningLevelName < Quickfix::StringField
-		def RelationshipRiskWarningLevelName.field
-			return 1615
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1615)
-			else
-				super(1615, data)
 			end
 		end
 	end
@@ -19759,32 +18407,6 @@ module Quickfix
 		end
 	end
 
-	class TotNoPartyList < Quickfix::IntField
-		def TotNoPartyList.field
-			return 1512
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1512)
-			else
-				super(1512, data)
-			end
-		end
-	end
-
-	class PartyListResponseType < Quickfix::IntField
-		def PartyListResponseType.field
-			return 1507
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1507)
-			else
-				super(1507, data)
-			end
-		end
-	end
-
 	class NoUnderlyingLegSecurityAltID < Quickfix::IntField
 		def NoUnderlyingLegSecurityAltID.field
 			return 1334
@@ -19859,19 +18481,6 @@ module Quickfix
 				super(638)
 			else
 				super(638, data)
-			end
-		end
-	end
-
-	class ContextPartySubIDType < Quickfix::IntField
-		def ContextPartySubIDType.field
-			return 1528
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1528)
-			else
-				super(1528, data)
 			end
 		end
 	end
@@ -20110,32 +18719,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskMaturityMonthYear < Quickfix::StringField
-		def RelationshipRiskMaturityMonthYear.field
-			return 1602
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1602)
-			else
-				super(1602, data)
-			end
-		end
-	end
-
-	class RelatedPartyAltIDSource < Quickfix::CharField
-		def RelatedPartyAltIDSource.field
-			return 1571
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1571)
-			else
-				super(1571, data)
-			end
-		end
-	end
-
 	class ComplexEventStartDate < Quickfix::UtcTimeStampField
 		def ComplexEventStartDate.field
 			return 1492
@@ -20197,19 +18780,6 @@ module Quickfix
 				super(51)
 			else
 				super(51, data)
-			end
-		end
-	end
-
-	class PartyRelationship < Quickfix::IntField
-		def PartyRelationship.field
-			return 1515
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1515)
-			else
-				super(1515, data)
 			end
 		end
 	end
@@ -20431,19 +19001,6 @@ module Quickfix
 				super(693)
 			else
 				super(693, data)
-			end
-		end
-	end
-
-	class RiskMaturityMonthYear < Quickfix::StringField
-		def RiskMaturityMonthYear.field
-			return 1549
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1549)
-			else
-				super(1549, data)
 			end
 		end
 	end
@@ -20773,45 +19330,6 @@ module Quickfix
 		end
 	end
 
-	class RiskEncodedSecurityDescLen < Quickfix::IntField
-		def RiskEncodedSecurityDescLen.field
-			return 1620
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1620)
-			else
-				super(1620, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSymbol < Quickfix::StringField
-		def RelationshipRiskSymbol.field
-			return 1589
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1589)
-			else
-				super(1589, data)
-			end
-		end
-	end
-
-	class NoRelatedContextPartyIDs < Quickfix::IntField
-		def NoRelatedContextPartyIDs.field
-			return 1575
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1575)
-			else
-				super(1575, data)
-			end
-		end
-	end
-
 	class DerivativeInstrumentPartySubID < Quickfix::StringField
 		def DerivativeInstrumentPartySubID.field
 			return 1297
@@ -20847,19 +19365,6 @@ module Quickfix
 				super(486)
 			else
 				super(486, data)
-			end
-		end
-	end
-
-	class RelatedContextPartySubIDType < Quickfix::IntField
-		def RelatedContextPartySubIDType.field
-			return 1581
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1581)
-			else
-				super(1581, data)
 			end
 		end
 	end
@@ -20942,19 +19447,6 @@ module Quickfix
 		end
 	end
 
-	class RelationshipRiskWarningLevelPercent < Quickfix::DoubleField
-		def RelationshipRiskWarningLevelPercent.field
-			return 1614
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1614)
-			else
-				super(1614, data)
-			end
-		end
-	end
-
 	class OriginalNotionalPercentageOutstanding < Quickfix::DoubleField
 		def OriginalNotionalPercentageOutstanding.field
 			return 1452
@@ -21020,19 +19512,6 @@ module Quickfix
 		end
 	end
 
-	class RiskSecurityDesc < Quickfix::StringField
-		def RiskSecurityDesc.field
-			return 1556
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1556)
-			else
-				super(1556, data)
-			end
-		end
-	end
-
 	class NoInstrumentParties < Quickfix::IntField
 		def NoInstrumentParties.field
 			return 1018
@@ -21055,19 +19534,6 @@ module Quickfix
 				super(537)
 			else
 				super(537, data)
-			end
-		end
-	end
-
-	class NoRiskSecurityAltID < Quickfix::IntField
-		def NoRiskSecurityAltID.field
-			return 1540
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1540)
-			else
-				super(1540, data)
 			end
 		end
 	end
@@ -21107,19 +19573,6 @@ module Quickfix
 				super(388)
 			else
 				super(388, data)
-			end
-		end
-	end
-
-	class RiskSecurityAltID < Quickfix::StringField
-		def RiskSecurityAltID.field
-			return 1541
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1541)
-			else
-				super(1541, data)
 			end
 		end
 	end
@@ -21198,19 +19651,6 @@ module Quickfix
 				super(281)
 			else
 				super(281, data)
-			end
-		end
-	end
-
-	class RelationshipRiskPutOrCall < Quickfix::IntField
-		def RelationshipRiskPutOrCall.field
-			return 1606
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1606)
-			else
-				super(1606, data)
 			end
 		end
 	end
@@ -21328,19 +19768,6 @@ module Quickfix
 				super(315)
 			else
 				super(315, data)
-			end
-		end
-	end
-
-	class RelationshipRiskSymbolSfx < Quickfix::StringField
-		def RelationshipRiskSymbolSfx.field
-			return 1590
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(1590)
-			else
-				super(1590, data)
 			end
 		end
 	end

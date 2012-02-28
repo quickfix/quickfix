@@ -1,12 +1,12 @@
 namespace QuickFix41
 {
 
-  public class AllocationACK : Message
+  public class AllocationInstructionAck : Message
   {
-    public AllocationACK() : base(MsgType()) {}
+    public AllocationInstructionAck() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("P"); }
 
-    public AllocationACK(
+    public AllocationInstructionAck(
       QuickFix.AllocID aAllocID,
       QuickFix.TradeDate aTradeDate,
       QuickFix.AllocStatus aAllocStatus )

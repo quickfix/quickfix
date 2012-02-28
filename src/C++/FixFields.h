@@ -7,7 +7,6 @@
 
 namespace FIX
 {
-  DEFINE_STRING(RelatedPartyID);
   DEFINE_INT(MaxPriceLevels);
   DEFINE_DATA(DerivativeEncodedIssuer);
   DEFINE_NUMINGROUP(NoCompIDs);
@@ -15,11 +14,8 @@ namespace FIX
   DEFINE_STRING(NestedPartyID);
   DEFINE_PERCENTAGE(DetachmentPoint);
   DEFINE_BOOLEAN(LateIndicator);
-  DEFINE_DATA(RiskEncodedSecurityDesc);
-  DEFINE_STRING(RelationshipRiskSecuritySubType);
   DEFINE_STRING(SecurityListID);
   DEFINE_INT(DerivativeFlowScheduleType);
-  DEFINE_LENGTH(EncodedSymbolLen);
   DEFINE_BOOLEAN(FlexibleIndicator);
   DEFINE_NUMINGROUP(NoExecInstRules);
   DEFINE_UTCTIMESTAMP(SideTrdRegTimestamp);
@@ -27,12 +23,11 @@ namespace FIX
   DEFINE_INT(ExecRestatementReason);
   DEFINE_PERCENTAGE(MidYield);
   DEFINE_FLOAT(ContractMultiplier);
-  DEFINE_CHAR(PartyAltIDSource);
   DEFINE_AMT(CcyAmt);
-  DEFINE_INT(AllocIntermedReqType);
-  DEFINE_NUMINGROUP(NoNested2PartyIDs);
-  DEFINE_STRING(UnderlyingIssuer);
   DEFINE_QTY(LegOrderQty);
+  DEFINE_INT(AllocIntermedReqType);
+  DEFINE_STRING(UnderlyingIssuer);
+  DEFINE_NUMINGROUP(NoNested2PartyIDs);
   DEFINE_QTY(MinTradeVol);
   DEFINE_AMT(SettlCurrAmt);
   DEFINE_INT(DerivativeInstrumentPartyRole);
@@ -41,7 +36,7 @@ namespace FIX
   DEFINE_INT(SecurityListTypeSource);
   DEFINE_STRING(ApplReqID);
   DEFINE_STRING(DerivativeFuturesValuationMethod);
-  DEFINE_STRING(NoLegSecurityAltID);
+  DEFINE_NUMINGROUP(NoLegSecurityAltID);
   DEFINE_STRING(DerivativeSecurityType);
   DEFINE_INT(CollInquiryQualifier);
   DEFINE_DATA(RawData);
@@ -62,14 +57,12 @@ namespace FIX
   DEFINE_CHAR(IOIQltyInd);
   DEFINE_STRING(Issuer);
   DEFINE_STRING(CardNumber);
-  DEFINE_NUMINGROUP(NoRelatedPartyIDs);
   DEFINE_NUMINGROUP(NoLegStipulations);
   DEFINE_EXCHANGE(LegSecurityExchange);
   DEFINE_QTY(CashOrderQty);
   DEFINE_AMT(AccruedInterestAmt);
   DEFINE_STRING(MDEntrySeller);
   DEFINE_PRICE(LegPrice);
-  DEFINE_TZTIMEONLY(RelationshipRiskMaturityTime);
   DEFINE_STRING(DeliverToCompID);
   DEFINE_STRING(TargetLocationID);
   DEFINE_PRICEOFFSET(OfferForwardPoints2);
@@ -108,13 +101,11 @@ namespace FIX
   DEFINE_INT(QuotePriceType);
   DEFINE_DATA(EncodedAllocText);
   DEFINE_MONTHYEAR(UnderlyingMaturityMonthYear);
-  DEFINE_PERCENTAGE(RiskWarningLevelPercent);
   DEFINE_PERCENTAGE(UnderlyingOriginalNotionalPercentageOutstanding);
   DEFINE_INT(MultilegPriceMethod);
   DEFINE_INT(TotNoFills);
   DEFINE_STRING(DerivativeSettleOnOpenFlag);
   DEFINE_INT(UnderlyingRepurchaseTerm);
-  DEFINE_STRING(RiskWarningLevelName);
   DEFINE_COUNTRY(DerivativeCountryOfIssue);
   DEFINE_INT(ListMethod);
   DEFINE_STRING(UnderlyingCPProgram);
@@ -124,13 +115,11 @@ namespace FIX
   DEFINE_BOOLEAN(MDImplicitDelete);
   DEFINE_NUMINGROUP(NoStipulations);
   DEFINE_LOCALMKTDATE(ClearingBusinessDate);
-  DEFINE_NUMINGROUP(NoRelationshipRiskLimits);
   DEFINE_STRING(LocationID);
   DEFINE_CURRENCY(Currency);
   DEFINE_INT(RoutingType);
   DEFINE_PRICE(UnderlyingStrikePrice);
   DEFINE_CHAR(BidTradeType);
-  DEFINE_INT(RelationshipRiskInstrumentOperator);
   DEFINE_PERCENTAGE(UnderlyingAttachmentPoint);
   DEFINE_INT(TotNoRejQuotes);
   DEFINE_STRING(OrdStatusReqID);
@@ -157,7 +146,6 @@ namespace FIX
   DEFINE_INT(PartyRole);
   DEFINE_FLOAT(LegRatioQty);
   DEFINE_FLOAT(SettlCurrFxRate);
-  DEFINE_INT(RelatedPartyRole);
   DEFINE_INT(LegContractMultiplierUnit);
   DEFINE_DATA(SecureData);
   DEFINE_STRING(SenderLocationID);
@@ -165,8 +153,6 @@ namespace FIX
   DEFINE_DATA(EncodedLegIssuer);
   DEFINE_CHAR(AssignmentMethod);
   DEFINE_STRING(RoutingID);
-  DEFINE_STRING(RelationshipRiskSecurityAltID);
-  DEFINE_STRING(RelatedPartyAltID);
   DEFINE_INT(StrategyParameterType);
   DEFINE_INT(EncryptMethod);
   DEFINE_STRING(UnderlyingStateOrProvinceOfIssue);
@@ -201,7 +187,6 @@ namespace FIX
   DEFINE_INT(SecondaryTrdType);
   DEFINE_INT(TradeReportTransType);
   DEFINE_CHAR(AdvSide);
-  DEFINE_STRING(RelatedContextPartySubID);
   DEFINE_STRING(DerivativeSecuritySubType);
   DEFINE_STRING(TriggerTradingSessionSubID);
   DEFINE_STRING(TradeLinkID);
@@ -209,8 +194,6 @@ namespace FIX
   DEFINE_SEQNUM(HopRefID);
   DEFINE_STRING(Designation);
   DEFINE_STRING(TradeRequestID);
-  DEFINE_INT(RelationshipRiskLimitType);
-  DEFINE_STRING(RiskSecurityIDSource);
   DEFINE_INT(LegFlowScheduleType);
   DEFINE_STRING(LegPriceUnitOfMeasure);
   DEFINE_CHAR(Nested4PartyIDSource);
@@ -235,7 +218,6 @@ namespace FIX
   DEFINE_NUMINGROUP(NoExpiration);
   DEFINE_STRING(TargetCompID);
   DEFINE_STRING(MDEntryBuyer);
-  DEFINE_PERCENTAGE(RelationshipRiskCouponRate);
   DEFINE_NUMINGROUP(NoDerivativeInstrumentPartySubIDs);
   DEFINE_NUMINGROUP(NoMaturityRules);
   DEFINE_STRING(QuoteMsgID);
@@ -262,7 +244,6 @@ namespace FIX
   DEFINE_BOOLEAN(PossResend);
   DEFINE_STRING(Symbol);
   DEFINE_DATA(EncodedUnderlyingSecurityDesc);
-  DEFINE_INT(RelatedPartyAltSubIDType);
   DEFINE_STRING(MarketReportID);
   DEFINE_PRICE(DiscretionPrice);
   DEFINE_FLOAT(ContAmtValue);
@@ -279,7 +260,6 @@ namespace FIX
   DEFINE_CHAR(ListExecInstType);
   DEFINE_STRING(SecondaryOrderID);
   DEFINE_STRING(ExecBroker);
-  DEFINE_LENGTH(RelationshipRiskEncodedSecurityDescLen);
   DEFINE_LENGTH(SecurityXMLLen);
   DEFINE_SEQNUM(ApplSeqNum);
   DEFINE_QTY(MaxTradeVol);
@@ -296,7 +276,6 @@ namespace FIX
   DEFINE_STRING(MailingInst);
   DEFINE_QTY(OfferSize);
   DEFINE_STRING(LegSecurityType);
-  DEFINE_STRING(RiskLimitPlatform);
   DEFINE_INT(OrigCustOrderCapacity);
   DEFINE_INT(AllocMethod);
   DEFINE_LOCALMKTDATE(QuantityDate);
@@ -325,13 +304,10 @@ namespace FIX
   DEFINE_STRING(CollRespID);
   DEFINE_INT(SecurityListRequestType);
   DEFINE_DATA(EncodedLegSecurityDesc);
-  DEFINE_INT(RelatedContextPartyRole);
   DEFINE_STRING(UnderlyingSettlementStatus);
   DEFINE_STRING(SecurityAltID);
   DEFINE_STRING(RegistRefID);
-  DEFINE_BOOLEAN(RelationshipRiskFlexibleIndicator);
   DEFINE_STRING(DerivativePriceQuoteMethod);
-  DEFINE_STRING(RelationshipRiskProductComplex);
   DEFINE_INT(OrderDelay);
   DEFINE_NUMINGROUP(NoNotAffectedOrders);
   DEFINE_STRING(Nested3PartyID);
@@ -360,8 +336,6 @@ namespace FIX
   DEFINE_CHAR(LegSettlType);
   DEFINE_STRING(OnBehalfOfLocationID);
   DEFINE_STRING(OnBehalfOfSubID);
-  DEFINE_STRING(RelationshipRiskLimitPlatform);
-  DEFINE_STRING(RelatedPartySubID);
   DEFINE_UTCTIMEONLY(ComplexEventEndTime);
   DEFINE_INT(RateSourceType);
   DEFINE_STRING(DerivativeStateOrProvinceOfIssue);
@@ -375,14 +349,12 @@ namespace FIX
   DEFINE_AMT(OpenInterest);
   DEFINE_FLOAT(UnderlyingContractMultiplier);
   DEFINE_INT(TotQuoteEntries);
-  DEFINE_STRING(PartyAltSubID);
   DEFINE_INT(TotNoCxldQuotes);
   DEFINE_BOOLEAN(AggregatedBook);
   DEFINE_STRING(PaymentRef);
   DEFINE_LOCALMKTDATE(PaymentDate);
   DEFINE_PERCENTAGE(OrderPercent);
   DEFINE_INT(PosQtyStatus);
-  DEFINE_STRING(RiskRestructuringType);
   DEFINE_NUMINGROUP(NoNested4PartySubIDs);
   DEFINE_BOOLEAN(PrivateQuote);
   DEFINE_STRING(SecondaryTradeID);
@@ -404,7 +376,6 @@ namespace FIX
   DEFINE_STRING(InstrumentPartySubID);
   DEFINE_INT(CustomerOrFirm);
   DEFINE_INT(AdjustmentType);
-  DEFINE_NUMINGROUP(NoPartyAltSubIDs);
   DEFINE_STRING(UnderlyingInstrumentPartyID);
   DEFINE_CHAR(AsOfIndicator);
   DEFINE_STRING(QuoteStatusReqID);
@@ -431,7 +402,6 @@ namespace FIX
   DEFINE_STRING(RefCompID);
   DEFINE_FLOAT(SettlCurrOfferFxRate);
   DEFINE_PERCENTAGE(OfferYield);
-  DEFINE_STRING(RelatedContextPartyID);
   DEFINE_CHAR(TargetPartyIDSource);
   DEFINE_LENGTH(EncryptedNewPasswordLen);
   DEFINE_NUMINGROUP(NoPositions);
@@ -448,7 +418,7 @@ namespace FIX
   DEFINE_INT(TradSesStatusRejReason);
   DEFINE_PERCENTAGE(UnderlyingDetachmentPoint);
   DEFINE_STRING(MaturityRuleID);
-  DEFINE_INT(UnderlyingRepoCollateralSecurityType);
+  DEFINE_STRING(UnderlyingRepoCollateralSecurityType);
   DEFINE_NUMINGROUP(NoTimeInForceRules);
   DEFINE_NUMINGROUP(NoRootPartySubIDs);
   DEFINE_QTY(DisplayMinIncr);
@@ -460,7 +430,6 @@ namespace FIX
   DEFINE_STRING(NestedInstrAttribValue);
   DEFINE_STRING(TradingSessionSubID);
   DEFINE_STRING(RFQReqID);
-  DEFINE_EXCHANGE(RelationshipRiskSecurityExchange);
   DEFINE_STRING(UnderlyingLegSymbolSfx);
   DEFINE_INT(LiquidityNumSecurities);
   DEFINE_NUMINGROUP(NoMsgTypes);
@@ -468,7 +437,6 @@ namespace FIX
   DEFINE_CHAR(MDEntryType);
   DEFINE_CURRENCY(AgreementCurrency);
   DEFINE_INT(PegMoveType);
-  DEFINE_STRING(AsgnReqID);
   DEFINE_PRICEOFFSET(PegDifference);
   DEFINE_PRICEOFFSET(Spread);
   DEFINE_LENGTH(EncodedAllocTextLen);
@@ -479,13 +447,11 @@ namespace FIX
   DEFINE_CHAR(CancellationRights);
   DEFINE_INT(ListSeqNo);
   DEFINE_STRING(CardIssNum);
-  DEFINE_STRING(RiskCFICode);
   DEFINE_DATA(EncodedMktSegmDesc);
   DEFINE_INT(DerivativeEventType);
   DEFINE_MONTHYEAR(DerivativeMaturityMonthYear);
   DEFINE_STRING(SideTradeReportID);
   DEFINE_NUMINGROUP(NoQuoteSets);
-  DEFINE_STRING(RelationshipRiskSecurityDesc);
   DEFINE_INT(Nested4PartySubIDType);
   DEFINE_PRICE(FillPx);
   DEFINE_INT(StrikeExerciseStyle);
@@ -510,7 +476,6 @@ namespace FIX
   DEFINE_CURRENCY(UnderlyingStrikeCurrency);
   DEFINE_INT(TradSesMode);
   DEFINE_CHAR(SettlInstSource);
-  DEFINE_INT(PartyAltSubIDType);
   DEFINE_STRING(UnderlyingLegSecurityDesc);
   DEFINE_NUMINGROUP(NoDerivativeInstrumentParties);
   DEFINE_UTCTIMESTAMP(DerivativeEventTime);
@@ -527,7 +492,6 @@ namespace FIX
   DEFINE_STRING(TradeInputSource);
   DEFINE_QTY(OrderQty2);
   DEFINE_BOOLEAN(TestMessageIndicator);
-  DEFINE_STRING(ContextPartySubID);
   DEFINE_LOCALMKTDATE(DerivativeEventDate);
   DEFINE_AMT(SideGrossTradeAmt);
   DEFINE_PRICE(PeggedPrice);
@@ -536,12 +500,10 @@ namespace FIX
   DEFINE_INT(CxlRejReason);
   DEFINE_STRING(BeginString);
   DEFINE_STRING(DeliverToSubID);
-  DEFINE_NUMINGROUP(NoRelatedPartyAltIDs);
-  DEFINE_STRING(RiskProductComplex);
   DEFINE_QTY(LegPriceUnitOfMeasureQty);
   DEFINE_NUMINGROUP(NoCollInquiryQualifier);
   DEFINE_PRICE(OfferPx);
-  DEFINE_UTCDATEONLY(TotalVolumeTradedDate);
+  DEFINE_UTCDATE(TotalVolumeTradedDate);
   DEFINE_NUMINGROUP(NoContAmts);
   DEFINE_QTY(MinOfferSize);
   DEFINE_PRICE(AvgParPx);
@@ -553,7 +515,6 @@ namespace FIX
   DEFINE_STRING(ListID);
   DEFINE_STRING(LegSecurityAltID);
   DEFINE_CHAR(PositionEffect);
-  DEFINE_INT(RelatedPartySubIDType);
   DEFINE_CHAR(TriggerAction);
   DEFINE_STRING(RefOrderID);
   DEFINE_INT(ClearingInstruction);
@@ -565,7 +526,6 @@ namespace FIX
   DEFINE_FLOAT(StrikeMultiplier);
   DEFINE_INT(DiscretionMoveType);
   DEFINE_INT(ListNoOrds);
-  DEFINE_CHAR(RelatedPartyIDSource);
   DEFINE_STRING(PegSymbol);
   DEFINE_PRICE(DayAvgPx);
   DEFINE_STRING(Headline);
@@ -598,7 +558,6 @@ namespace FIX
   DEFINE_STRING(SettlSessSubID);
   DEFINE_STRING(MailingDtls);
   DEFINE_STRING(BidID);
-  DEFINE_INT(PartyDetailsRequestResult);
   DEFINE_CHAR(ExerciseMethod);
   DEFINE_CURRENCY(CommCurrency);
   DEFINE_NUMINGROUP(NoSettlOblig);
@@ -625,12 +584,8 @@ namespace FIX
   DEFINE_INT(ConfirmType);
   DEFINE_MONTHYEAR(LegMaturityMonthYear);
   DEFINE_STRING(RelatdSym);
-  DEFINE_AMT(RiskLimitAmount);
   DEFINE_STRING(UnderlyingLegSecuritySubType);
   DEFINE_NUMINGROUP(NoUnderlyingSecurityAltID);
-  DEFINE_STRING(RelationshipRiskCFICode);
-  DEFINE_NUMINGROUP(NoRelatedPartySubIDs);
-  DEFINE_STRING(RiskSymbolSfx);
   DEFINE_INT(MDQuoteType);
   DEFINE_INT(QtyType);
   DEFINE_INT(QuoteRespType);
@@ -667,7 +622,6 @@ namespace FIX
   DEFINE_STRING(AltMDSourceID);
   DEFINE_NUMINGROUP(NoOrders);
   DEFINE_STRING(CashDistribAgentAcctName);
-  DEFINE_NUMINGROUP(NoContextPartySubIDs);
   DEFINE_CHAR(UndlyInstrumentPartyIDSource);
   DEFINE_STRING(UnderlyingSettlMethod);
   DEFINE_NUMINGROUP(NoMDEntryTypes);
@@ -677,7 +631,6 @@ namespace FIX
   DEFINE_LOCALMKTDATE(TradeOriginationDate);
   DEFINE_PRICE(SettlPrice);
   DEFINE_STRING(SecuritySettlAgentAcctName);
-  DEFINE_FLOAT(RiskInstrumentMultiplier);
   DEFINE_NUMINGROUP(NoDerivativeEvents);
   DEFINE_PRICE(UnderlyingEndPrice);
   DEFINE_CHAR(SubscriptionRequestType);
@@ -711,13 +664,11 @@ namespace FIX
   DEFINE_INT(LastLiquidityInd);
   DEFINE_STRING(SecurityID);
   DEFINE_NUMINGROUP(NoMDEntries);
-  DEFINE_NUMINGROUP(NoPartyListResponseTypes);
   DEFINE_INT(StrikePriceDeterminationMethod);
   DEFINE_LOCALMKTDATE(EndDate);
   DEFINE_AMT(CashOutstanding);
   DEFINE_STRING(MDReqID);
   DEFINE_STRING(IOIRefID);
-  DEFINE_NUMINGROUP(NoContextPartyIDs);
   DEFINE_INT(TargetStrategy);
   DEFINE_STRING(ConfirmRefID);
   DEFINE_INT(SellerDays);
@@ -732,16 +683,13 @@ namespace FIX
   DEFINE_STRING(UnderlyingCashType);
   DEFINE_NUMINGROUP(NoMiscFees);
   DEFINE_INT(CustOrderCapacity);
-  DEFINE_EXCHANGE(RiskSecurityExchange);
   DEFINE_CURRENCY(LegAllocSettlCurrency);
   DEFINE_QTY(UnderlyingAdjustedQuantity);
   DEFINE_CHAR(OwnershipType);
   DEFINE_QTY(MaxShow);
   DEFINE_STRING(LegSecurityID);
-  DEFINE_DATA(EncodedSymbol);
   DEFINE_STRING(DerivativeSecurityDesc);
   DEFINE_STRING(UnitOfMeasure);
-  DEFINE_INT(SecDefStatus);
   DEFINE_QTY(Quantity);
   DEFINE_STRING(NewsID);
   DEFINE_INT(UndlyInstrumentPartySubIDType);
@@ -763,7 +711,6 @@ namespace FIX
   DEFINE_INT(MDSubBookType);
   DEFINE_STRING(Username);
   DEFINE_INT(StandInstDbType);
-  DEFINE_CHAR(RelatedContextPartyIDSource);
   DEFINE_INT(QuoteEntryStatus);
   DEFINE_CHAR(TriggerPriceType);
   DEFINE_INT(SideTrdSubTyp);
@@ -774,7 +721,6 @@ namespace FIX
   DEFINE_FLOAT(StrikeValue);
   DEFINE_CHAR(Urgency);
   DEFINE_STRING(AllocID);
-  DEFINE_NUMINGROUP(NoPartyList);
   DEFINE_AMT(UnderlyingDeliveryAmount);
   DEFINE_INT(SideQty);
   DEFINE_INT(CollAsgnTransType);
@@ -782,7 +728,6 @@ namespace FIX
   DEFINE_QTY(DefBidSize);
   DEFINE_STRING(LegStateOrProvinceOfIssue);
   DEFINE_INT(PaymentMethod);
-  DEFINE_PERCENTAGE(RiskCouponRate);
   DEFINE_CHAR(UnderlyingLegOptAttribute);
   DEFINE_FLOAT(LegVolatility);
   DEFINE_INT(DerivativeInstrAttribType);
@@ -800,7 +745,6 @@ namespace FIX
   DEFINE_PRICEOFFSET(DiscretionOffset);
   DEFINE_INT(ContAmtType);
   DEFINE_CURRENCY(MiscFeeCurr);
-  DEFINE_NUMINGROUP(NoRiskLimits);
   DEFINE_PERCENTAGE(AttachmentPoint);
   DEFINE_CHAR(OrderCategory);
   DEFINE_STRING(AdvTransType);
@@ -821,7 +765,6 @@ namespace FIX
   DEFINE_INT(SecurityResponseType);
   DEFINE_STRING(LegBenchmarkCurvePoint);
   DEFINE_STRING(ClearingFirm);
-  DEFINE_STRING(RelationshipRiskSecurityIDSource);
   DEFINE_INT(SessionStatus);
   DEFINE_STRING(TriggerSecurityID);
   DEFINE_INT(TotNoAllocs);
@@ -836,9 +779,6 @@ namespace FIX
   DEFINE_INT(ExpirationQtyType);
   DEFINE_LENGTH(EncodedUnderlyingSecurityDescLen);
   DEFINE_STRING(QuoteReqID);
-  DEFINE_NUMINGROUP(NoRelatedPartyAltSubIDs);
-  DEFINE_INT(RiskProduct);
-  DEFINE_STRING(RiskSecurityAltIDSource);
   DEFINE_STRING(PriceUnitOfMeasure);
   DEFINE_TZTIMESTAMP(TZTransactTime);
   DEFINE_INT(AllocHandlInst);
@@ -852,13 +792,10 @@ namespace FIX
   DEFINE_CHAR(PreallocMethod);
   DEFINE_INT(TaxAdvantageType);
   DEFINE_STRING(MessageEncoding);
-  DEFINE_INT(RiskPutOrCall);
-  DEFINE_STRING(RiskSecurityGroup);
   DEFINE_NUMINGROUP(NoPartySubIDs);
   DEFINE_STRING(SettlInstReqID);
-  DEFINE_INT(LegRepoCollateralSecurityType);
+  DEFINE_STRING(LegRepoCollateralSecurityType);
   DEFINE_STRING(AffectedSecondaryOrderID);
-  DEFINE_STRING(RiskSymbol);
   DEFINE_TZTIMEONLY(DerivativeMaturityTime);
   DEFINE_UTCTIMESTAMP(ExpireTime);
   DEFINE_FLOAT(UnderlyingFactor);
@@ -869,7 +806,6 @@ namespace FIX
   DEFINE_INT(Nested2PartySubIDType);
   DEFINE_STRING(LegIOIQty);
   DEFINE_LOCALMKTDATE(ExpireDate);
-  DEFINE_STRING(RiskSecurityType);
   DEFINE_NUMINGROUP(NoMatchRules);
   DEFINE_SEQNUM(ApplEndSeqNum);
   DEFINE_PRICE(EventPx);
@@ -878,12 +814,10 @@ namespace FIX
   DEFINE_PRICE(LowPx);
   DEFINE_CHAR(IOIQualifier);
   DEFINE_STRING(WaveNo);
-  DEFINE_STRING(RiskSeniority);
   DEFINE_INT(StrikePriceBoundaryMethod);
   DEFINE_LOCALMKTDATE(DerivativeIssueDate);
   DEFINE_STRING(MiscFeeType);
   DEFINE_STRING(QuoteID);
-  DEFINE_BOOLEAN(RiskFlexibleIndicator);
   DEFINE_STRING(DerivativeInstrumentPartyIDSource);
   DEFINE_STRING(SettlObligID);
   DEFINE_STRING(InstrAttribValue);
@@ -895,7 +829,7 @@ namespace FIX
   DEFINE_CHAR(TriggerOrderType);
   DEFINE_PRICE(UnderlyingDirtyPrice);
   DEFINE_INT(CrossType);
-  DEFINE_INT(RepoCollateralSecurityType);
+  DEFINE_STRING(RepoCollateralSecurityType);
   DEFINE_STRING(Password);
   DEFINE_MULTIPLEVALUESTRING(OpenCloseSettleFlag);
   DEFINE_STRING(Subject);
@@ -911,7 +845,6 @@ namespace FIX
   DEFINE_STRING(ComplianceID);
   DEFINE_STRING(EmailThreadID);
   DEFINE_CURRENCY(ContAmtCurr);
-  DEFINE_STRING(RelationshipRiskSecurityGroup);
   DEFINE_INT(ComplexEventType);
   DEFINE_INT(MassActionResponse);
   DEFINE_LOCALMKTDATE(UnderlyingIssueDate);
@@ -947,19 +880,16 @@ namespace FIX
   DEFINE_NUMINGROUP(NoAffectedOrders);
   DEFINE_STRING(CashSettlAgentAcctNum);
   DEFINE_MONTHYEAR(UnderlyingLegMaturityMonthYear);
-  DEFINE_INT(DerivativeSecurityListRequestType);
   DEFINE_NUMINGROUP(NoLotTypeRules);
-  DEFINE_INT(NoDates);
+  DEFINE_NUMINGROUP(NoDates);
   DEFINE_CHAR(CxlRejResponseTo);
   DEFINE_UTCTIMESTAMP(EffectiveTime);
   DEFINE_AMT(GrossTradeAmt);
-  DEFINE_STRING(ContextPartyID);
   DEFINE_STRING(SecurityListDesc);
   DEFINE_STRING(NotAffectedOrderID);
   DEFINE_FLOAT(DerivativeStrikeValue);
   DEFINE_NUMINGROUP(NoPosAmt);
   DEFINE_STRING(LegCreditRating);
-  DEFINE_STRING(RelationshipRiskInstrumentSettlType);
   DEFINE_PRICEOFFSET(BidForwardPoints2);
   DEFINE_LOCALMKTDATE(SettlDate);
   DEFINE_STRING(ClientID);
@@ -967,13 +897,11 @@ namespace FIX
   DEFINE_STRING(StipulationType);
   DEFINE_AMT(OutMainCntryUIndex);
   DEFINE_CHAR(LegSettlmntTyp);
-  DEFINE_NUMINGROUP(NoRelationshipRiskInstruments);
   DEFINE_INT(DerivativeNTPositionLimit);
   DEFINE_STRING(PriceQuoteMethod);
   DEFINE_PRICE(LowLimitPrice);
   DEFINE_STRING(LegUnitOfMeasure);
   DEFINE_INT(SessionRejectReason);
-  DEFINE_STRING(PartyDetailsListReportID);
   DEFINE_INT(DeliveryType);
   DEFINE_PRICE(AllocPrice);
   DEFINE_NUMINGROUP(NoBidComponents);
@@ -990,8 +918,6 @@ namespace FIX
   DEFINE_STRING(RegistRejReasonText);
   DEFINE_NUMINGROUP(NoSides);
   DEFINE_STRING(LegAllocAccount);
-  DEFINE_NUMINGROUP(NoRelationshipRiskWarningLevels);
-  DEFINE_INT(RelationshipRiskProduct);
   DEFINE_STRING(LegSecurityDesc);
   DEFINE_STRING(ClOrdLinkID);
   DEFINE_UTCTIMESTAMP(OrigSendingTime);
@@ -1007,7 +933,6 @@ namespace FIX
   DEFINE_QTY(DerivativePriceUnitOfMeasureQty);
   DEFINE_STRING(TimeUnit);
   DEFINE_INT(TotNoOrders);
-  DEFINE_STRING(PartyAltID);
   DEFINE_INT(LegSwapType);
   DEFINE_CHAR(IOITransType);
   DEFINE_LENGTH(RawDataLength);
@@ -1034,7 +959,6 @@ namespace FIX
   DEFINE_CHAR(SettlInstMode);
   DEFINE_STRING(SecurityAltIDSource);
   DEFINE_BOOLEAN(PreviouslyReported);
-  DEFINE_CHAR(ContextPartyIDSource);
   DEFINE_STRING(RptSys);
   DEFINE_NUMINGROUP(NoNested2PartySubIDs);
   DEFINE_STRING(RefAllocID);
@@ -1056,7 +980,6 @@ namespace FIX
   DEFINE_UTCTIMESTAMP(OrigTime);
   DEFINE_UTCTIMESTAMP(ExecValuationPoint);
   DEFINE_CHAR(ExecType);
-  DEFINE_NUMINGROUP(NoRelatedContextPartySubIDs);
   DEFINE_INT(Nested4PartyRole);
   DEFINE_INT(MultilegModel);
   DEFINE_STRING(SecurityGroup);
@@ -1092,7 +1015,6 @@ namespace FIX
   DEFINE_STRING(OrderInputDevice);
   DEFINE_BOOLEAN(SolicitedFlag);
   DEFINE_UTCTIMESTAMP(TransactTime);
-  DEFINE_INT(RiskLimitType);
   DEFINE_INT(UnderlyingFlowScheduleType);
   DEFINE_STRING(UnderlyingStipValue);
   DEFINE_SEQNUM(NextExpectedMsgSeqNum);
@@ -1100,12 +1022,10 @@ namespace FIX
   DEFINE_STRING(CFICode);
   DEFINE_FLOAT(Factor);
   DEFINE_QTY(LastShares);
-  DEFINE_INT(RequestedPartyRole);
   DEFINE_UTCTIMESTAMP(EventTime);
   DEFINE_INT(RootPartySubIDType);
   DEFINE_INT(ShortSaleReason);
   DEFINE_DATA(XmlData);
-  DEFINE_STRING(RelationshipRiskSeniority);
   DEFINE_NUMINGROUP(NoTargetPartyIDs);
   DEFINE_NUMINGROUP(NoRootPartyIDs);
   DEFINE_LOCALMKTDATE(EventDate);
@@ -1140,13 +1060,11 @@ namespace FIX
   DEFINE_INT(ExerciseStyle);
   DEFINE_CHAR(HaltReasonChar);
   DEFINE_EXCHANGE(ExDestination);
-  DEFINE_NUMINGROUP(NoPartyRelationships);
   DEFINE_CHAR(DerivativeInstrmtAssignmentMethod);
   DEFINE_STRING(UnderlyingIDSource);
   DEFINE_STRING(AdvId);
   DEFINE_UTCTIMESTAMP(TransBkdTime);
   DEFINE_PRICE(LegLastPx);
-  DEFINE_NUMINGROUP(NoRiskWarningLevels);
   DEFINE_INT(AllocReportType);
   DEFINE_STRING(RegistDtls);
   DEFINE_INT(AllocType);
@@ -1156,10 +1074,8 @@ namespace FIX
   DEFINE_PRICE(LegOfferPx);
   DEFINE_INT(LiquidityIndType);
   DEFINE_UTCTIMESTAMP(HopSendingTime);
-  DEFINE_AMT(RelationshipRiskLimitAmount);
   DEFINE_BOOLEAN(ApplResendFlag);
   DEFINE_PRICE(DerivativeCapPrice);
-  DEFINE_STRING(RiskSecurityID);
   DEFINE_AMT(ComplexOptPayoutAmount);
   DEFINE_LANGUAGE(LanguageCode);
   DEFINE_STRING(SettlObligRefID);
@@ -1172,7 +1088,6 @@ namespace FIX
   DEFINE_STRING(SettlDepositoryCode);
   DEFINE_INT(StreamAsgnAckType);
   DEFINE_PRICE(FloorPrice);
-  DEFINE_TZTIMEONLY(RiskMaturityTime);
   DEFINE_QTY(UnderlyingPriceUnitOfMeasureQty);
   DEFINE_FLOAT(FeeMultiplier);
   DEFINE_TZTIMEONLY(UnderlyingMaturityTime);
@@ -1180,7 +1095,6 @@ namespace FIX
   DEFINE_AMT(LegGrossTradeAmt);
   DEFINE_UTCDATEONLY(MDEntryDate);
   DEFINE_CURRENCY(LegBenchmarkCurveCurrency);
-  DEFINE_INT(RiskInstrumentOperator);
   DEFINE_AMT(OptPayoutAmount);
   DEFINE_INT(MiscFeeBasis);
   DEFINE_UTCTIMESTAMP(ValidUntilTime);
@@ -1216,7 +1130,6 @@ namespace FIX
   DEFINE_CHAR(FundRenewWaiv);
   DEFINE_STRING(SecuritySettlAgentName);
   DEFINE_STRING(BidDescriptor);
-  DEFINE_STRING(RelationshipRiskSecurityAltIDSource);
   DEFINE_STRING(MDStreamID);
   DEFINE_NUMINGROUP(NoAsgnReqs);
   DEFINE_PERCENTAGE(NotionalPercentageOutstanding);
@@ -1239,7 +1152,6 @@ namespace FIX
   DEFINE_FLOAT(DiscretionOffsetValue);
   DEFINE_STRING(BookingRefID);
   DEFINE_PRICE(LegBidPx);
-  DEFINE_INT(ContextPartyRole);
   DEFINE_INT(TradSesEvent);
   DEFINE_INT(DerivativeProduct);
   DEFINE_INT(RootPartyRole);
@@ -1263,8 +1175,6 @@ namespace FIX
   DEFINE_PRICEOFFSET(SpreadToBenchmark);
   DEFINE_CHAR(CommType);
   DEFINE_INT(RegistRejReasonCode);
-  DEFINE_DATA(RelationshipRiskEncodedSecurityDesc);
-  DEFINE_STRING(RelationshipRiskRestructuringType);
   DEFINE_UTCTIMESTAMP(SideTimeInForce);
   DEFINE_UTCTIMESTAMP(TrdRegTimestamp);
   DEFINE_MULTIPLECHARVALUE(FinancialStatus);
@@ -1293,7 +1203,6 @@ namespace FIX
   DEFINE_INT(AllocLinkType);
   DEFINE_PERCENTAGE(UnderlyingAllocationPercent);
   DEFINE_AMT(AllocAccruedInterestAmt);
-  DEFINE_STRING(RiskSecuritySubType);
   DEFINE_DATA(EncodedSecurityListDesc);
   DEFINE_LENGTH(EncryptedPasswordLen);
   DEFINE_PERCENTAGE(LegDividendYield);
@@ -1302,7 +1211,6 @@ namespace FIX
   DEFINE_INT(UnderlyingSettlementType);
   DEFINE_QTY(OrderCapacityQty);
   DEFINE_QTY(LongQty);
-  DEFINE_NUMINGROUP(NoPartyAltIDs);
   DEFINE_CHAR(DerivativeSettlMethod);
   DEFINE_STRING(TriggerTradingSessionID);
   DEFINE_CHAR(DisplayMethod);
@@ -1333,7 +1241,6 @@ namespace FIX
   DEFINE_CHAR(AllocPositionEffect);
   DEFINE_CHAR(PartyIDSource);
   DEFINE_DATA(EncodedUnderlyingIssuer);
-  DEFINE_NUMINGROUP(NoRequestedPartyRoles);
   DEFINE_DATA(EncryptedPassword);
   DEFINE_QTY(TriggerNewQty);
   DEFINE_PRICEOFFSET(LegLastForwardPoints);
@@ -1343,8 +1250,6 @@ namespace FIX
   DEFINE_PRICE(Price);
   DEFINE_STRING(UnderlyingSecurityIDSource);
   DEFINE_INT(TotNoSecurityTypes);
-  DEFINE_FLOAT(RelationshipRiskInstrumentMultiplier);
-  DEFINE_NUMINGROUP(NoRiskInstruments);
   DEFINE_PRICE(ReportedPx);
   DEFINE_STRING(LegSymbol);
   DEFINE_STRING(LegIssuer);
@@ -1374,7 +1279,6 @@ namespace FIX
   DEFINE_STRING(DerivativeSymbolSfx);
   DEFINE_INT(NestedInstrAttribType);
   DEFINE_STRING(ContraTrader);
-  DEFINE_STRING(RiskInstrumentSettlType);
   DEFINE_QTY(MDSecSize);
   DEFINE_NUMINGROUP(NoOfSecSizes);
   DEFINE_INT(CollAction);
@@ -1394,15 +1298,12 @@ namespace FIX
   DEFINE_STRING(TargetStrategyParameters);
   DEFINE_PRICEOFFSET(LastForwardPoints);
   DEFINE_LOCALMKTDATE(YieldRedemptionDate);
-  DEFINE_STRING(RelationshipRiskSecurityID);
   DEFINE_NUMINGROUP(NoSettlDetails);
   DEFINE_CHAR(TradeHandlingInstr);
   DEFINE_STRING(CashSettlAgentCode);
   DEFINE_INT(LegPriceType);
   DEFINE_LENGTH(EncodedListExecInstLen);
   DEFINE_INT(TradSesMethod);
-  DEFINE_CURRENCY(RiskLimitCurrency);
-  DEFINE_STRING(PartyDetailsListRequestID);
   DEFINE_STRING(AgreementID);
   DEFINE_CURRENCY(CashDistribCurr);
   DEFINE_PRICE(BidPx);
@@ -1425,7 +1326,6 @@ namespace FIX
   DEFINE_MULTIPLESTRINGVALUE(DeskOrderHandlingInst);
   DEFINE_CHAR(SettlPartyIDSource);
   DEFINE_PRICE(PriorSettlPrice);
-  DEFINE_STRING(RelationshipRiskSecurityType);
   DEFINE_STRING(NotAffOrigClOrdID);
   DEFINE_STRING(TradingSessionDesc);
   DEFINE_PRICE(DerivativeFloorPrice);
@@ -1447,7 +1347,6 @@ namespace FIX
   DEFINE_STRING(UnderlyingTradingSessionID);
   DEFINE_INT(TotNoRelatedSym);
   DEFINE_STRING(StateOrProvinceOfIssue);
-  DEFINE_STRING(RelatedPartyAltSubID);
   DEFINE_STRING(DerivativeInstrRegistry);
   DEFINE_PRICEOFFSET(LegBidForwardPoints);
   DEFINE_BOOLEAN(ManualOrderIndicator);
@@ -1466,7 +1365,6 @@ namespace FIX
   DEFINE_NUMINGROUP(NoRelatedSym);
   DEFINE_INT(AllocRejCode);
   DEFINE_STRING(UnderlyingSecurityAltID);
-  DEFINE_NUMINGROUP(NoRelationshipRiskSecurityAltID);
   DEFINE_INT(RefOrdIDReason);
   DEFINE_STRING(DerivativeInstrumentPartyID);
   DEFINE_STRING(SecurityXMLSchema);
@@ -1475,7 +1373,6 @@ namespace FIX
   DEFINE_AMT(EndAccruedInterestAmt);
   DEFINE_PERCENTAGE(AccruedInterestRate);
   DEFINE_CHAR(LastCapacity);
-  DEFINE_CURRENCY(RelationshipRiskLimitCurrency);
   DEFINE_STRING(UnderlyingInstrumentPartySubID);
   DEFINE_NUMINGROUP(NoFills);
   DEFINE_NUMINGROUP(NoOrdTypeRules);
@@ -1490,7 +1387,6 @@ namespace FIX
   DEFINE_INT(Product);
   DEFINE_QTY(AllocShares);
   DEFINE_NUMINGROUP(NoQuoteEntries);
-  DEFINE_STRING(RelationshipRiskWarningLevelName);
   DEFINE_STRING(DefaultCstmApplVerID);
   DEFINE_INT(DerivativeListMethod);
   DEFINE_LENGTH(DerivativeSecurityXMLLen);
@@ -1527,15 +1423,12 @@ namespace FIX
   DEFINE_INT(IncTaxInd);
   DEFINE_NUMINGROUP(NoBidDescriptors);
   DEFINE_LOCALMKTDATE(LegCouponPaymentDate);
-  DEFINE_INT(TotNoPartyList);
-  DEFINE_INT(PartyListResponseType);
   DEFINE_NUMINGROUP(NoUnderlyingLegSecurityAltID);
   DEFINE_BOOLEAN(ReversalIndicator);
   DEFINE_CHECKSUM(CheckSum);
   DEFINE_STRING(TargetSubID);
   DEFINE_INT(PosReqStatus);
   DEFINE_INT(PriorityIndicator);
-  DEFINE_INT(ContextPartySubIDType);
   DEFINE_STRING(UnderlyingLegCFICode);
   DEFINE_STRING(DerivativeTimeUnit);
   DEFINE_NUMINGROUP(NoNested3PartyIDs);
@@ -1554,14 +1447,11 @@ namespace FIX
   DEFINE_STRING(TriggerSymbol);
   DEFINE_STRING(UnderlyingLocaleOfIssue);
   DEFINE_UTCTIMESTAMP(SendingTime);
-  DEFINE_MONTHYEAR(RelationshipRiskMaturityMonthYear);
-  DEFINE_CHAR(RelatedPartyAltIDSource);
   DEFINE_UTCTIMESTAMP(ComplexEventStartDate);
   DEFINE_STRING(UnderlyingRestructuringType);
   DEFINE_QTY(LegUnitOfMeasureQty);
   DEFINE_NUMINGROUP(NoTrdRegTimestamps);
   DEFINE_LOCALMKTDATE(SendingDate);
-  DEFINE_INT(PartyRelationship);
   DEFINE_FLOAT(TimeToExpiration);
   DEFINE_QTY(LegAllocQty);
   DEFINE_STRING(SettlLocation);
@@ -1579,7 +1469,6 @@ namespace FIX
   DEFINE_QTY(Shares);
   DEFINE_PERCENTAGE(Yield);
   DEFINE_STRING(QuoteRespID);
-  DEFINE_MONTHYEAR(RiskMaturityMonthYear);
   DEFINE_STRING(Nested3PartySubID);
   DEFINE_INT(ApplQueueResolution);
   DEFINE_STRING(TrdRegTimestampOrigin);
@@ -1605,40 +1494,31 @@ namespace FIX
   DEFINE_STRING(ReceivedDeptID);
   DEFINE_AMT(MaturityNetMoney);
   DEFINE_INT(BidDescriptorType);
-  DEFINE_LENGTH(RiskEncodedSecurityDescLen);
-  DEFINE_STRING(RelationshipRiskSymbol);
-  DEFINE_NUMINGROUP(NoRelatedContextPartyIDs);
   DEFINE_STRING(DerivativeInstrumentPartySubID);
   DEFINE_INT(NetworkStatusResponseType);
   DEFINE_LOCALMKTDATE(DateOfBirth);
-  DEFINE_INT(RelatedContextPartySubIDType);
   DEFINE_PRICE(StartStrikePxRange);
   DEFINE_STRING(UndlyInstrumentPartySubID);
   DEFINE_STRING(SecondaryTradeReportRefID);
   DEFINE_STRING(UnderlyingCPRegType);
   DEFINE_LENGTH(SignatureLength);
   DEFINE_QTY(OrderQty);
-  DEFINE_PERCENTAGE(RelationshipRiskWarningLevelPercent);
   DEFINE_PERCENTAGE(OriginalNotionalPercentageOutstanding);
   DEFINE_STRING(UnderlyingTimeUnit);
   DEFINE_LENGTH(EncodedHeadlineLen);
   DEFINE_NUMINGROUP(NoRegistDtls);
   DEFINE_STRING(StrategyParameterValue);
-  DEFINE_STRING(RiskSecurityDesc);
   DEFINE_NUMINGROUP(NoInstrumentParties);
   DEFINE_INT(QuoteType);
-  DEFINE_NUMINGROUP(NoRiskSecurityAltID);
   DEFINE_NUMINGROUP(NoStrategyParameters);
   DEFINE_INT(IndividualAllocRejCode);
   DEFINE_CHAR(DiscretionInst);
-  DEFINE_STRING(RiskSecurityAltID);
   DEFINE_INT(TargetPartyRole);
   DEFINE_INT(CrossPrioritization);
   DEFINE_DATA(EncodedListStatusText);
   DEFINE_CHAR(IOIOthSvc);
   DEFINE_LOCALMKTDATE(LegIssueDate);
   DEFINE_CHAR(MDReqRejReason);
-  DEFINE_INT(RelationshipRiskPutOrCall);
   DEFINE_INT(ApplReqType);
   DEFINE_COUNTRY(Country);
   DEFINE_STRING(UnderlyingLegSecurityIDSource);
@@ -1648,7 +1528,6 @@ namespace FIX
   DEFINE_INT(BusinessRejectReason);
   DEFINE_LOCALMKTDATE(TradeDate);
   DEFINE_INT(UnderlyingPutOrCall);
-  DEFINE_STRING(RelationshipRiskSymbolSfx);
   DEFINE_INT(UnderlyingInstrumentPartyRole);
   DEFINE_INT(DerivativePositionLimit);
   DEFINE_STRING(TierCode);

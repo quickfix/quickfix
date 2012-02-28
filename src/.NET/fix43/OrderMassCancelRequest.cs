@@ -609,6 +609,18 @@ namespace QuickFix43
     public bool isSetUnderlyingMaturityDate()
     { return isSetField(542); }
 
+    public void set(QuickFix.UnderlyingPutOrCall value)
+    { setField(value); }
+    public QuickFix.UnderlyingPutOrCall get(QuickFix.UnderlyingPutOrCall  value)
+    { getField(value); return value; }
+    public QuickFix.UnderlyingPutOrCall getUnderlyingPutOrCall()
+    { QuickFix.UnderlyingPutOrCall value = new QuickFix.UnderlyingPutOrCall();
+      getField(value); return value; }
+    public bool isSet(QuickFix.UnderlyingPutOrCall field)
+    { return isSetField(field); }
+    public bool isSetUnderlyingPutOrCall()
+    { return isSetField(315); }
+
     public void set(QuickFix.UnderlyingCouponPaymentDate value)
     { setField(value); }
     public QuickFix.UnderlyingCouponPaymentDate get(QuickFix.UnderlyingCouponPaymentDate  value)

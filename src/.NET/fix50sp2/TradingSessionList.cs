@@ -6,6 +6,54 @@ namespace QuickFix50Sp2
     public TradingSessionList() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("BJ"); }
 
+    public void set(QuickFix.ApplID value)
+    { setField(value); }
+    public QuickFix.ApplID get(QuickFix.ApplID  value)
+    { getField(value); return value; }
+    public QuickFix.ApplID getApplID()
+    { QuickFix.ApplID value = new QuickFix.ApplID();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ApplID field)
+    { return isSetField(field); }
+    public bool isSetApplID()
+    { return isSetField(1180); }
+
+    public void set(QuickFix.ApplSeqNum value)
+    { setField(value); }
+    public QuickFix.ApplSeqNum get(QuickFix.ApplSeqNum  value)
+    { getField(value); return value; }
+    public QuickFix.ApplSeqNum getApplSeqNum()
+    { QuickFix.ApplSeqNum value = new QuickFix.ApplSeqNum();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ApplSeqNum field)
+    { return isSetField(field); }
+    public bool isSetApplSeqNum()
+    { return isSetField(1181); }
+
+    public void set(QuickFix.ApplLastSeqNum value)
+    { setField(value); }
+    public QuickFix.ApplLastSeqNum get(QuickFix.ApplLastSeqNum  value)
+    { getField(value); return value; }
+    public QuickFix.ApplLastSeqNum getApplLastSeqNum()
+    { QuickFix.ApplLastSeqNum value = new QuickFix.ApplLastSeqNum();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ApplLastSeqNum field)
+    { return isSetField(field); }
+    public bool isSetApplLastSeqNum()
+    { return isSetField(1350); }
+
+    public void set(QuickFix.ApplResendFlag value)
+    { setField(value); }
+    public QuickFix.ApplResendFlag get(QuickFix.ApplResendFlag  value)
+    { getField(value); return value; }
+    public QuickFix.ApplResendFlag getApplResendFlag()
+    { QuickFix.ApplResendFlag value = new QuickFix.ApplResendFlag();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ApplResendFlag field)
+    { return isSetField(field); }
+    public bool isSetApplResendFlag()
+    { return isSetField(1352); }
+
     public void set(QuickFix.TradSesReqID value)
     { setField(value); }
     public QuickFix.TradSesReqID get(QuickFix.TradSesReqID  value)
@@ -33,7 +81,7 @@ namespace QuickFix50Sp2
     public class NoTradingSessions: QuickFix.Group
     {
     public NoTradingSessions() : base(386,336,message_order ) {}
-    static int[] message_order = new int[] {336,625,207,338,339,325,340,567,341,342,343,344,345,387,58,354,355,1301,1300,1326,60,1327,0};
+    static int[] message_order = new int[] {336,625,207,1301,1300,1326,338,339,325,340,567,341,342,343,344,345,387,58,354,355,60,1327,0};
       public void set(QuickFix.TradingSessionID value)
       { setField(value); }
       public QuickFix.TradingSessionID get(QuickFix.TradingSessionID  value)
@@ -69,6 +117,42 @@ namespace QuickFix50Sp2
       { return isSetField(field); }
       public bool isSetSecurityExchange()
       { return isSetField(207); }
+
+      public void set(QuickFix.MarketID value)
+      { setField(value); }
+      public QuickFix.MarketID get(QuickFix.MarketID  value)
+      { getField(value); return value; }
+      public QuickFix.MarketID getMarketID()
+      { QuickFix.MarketID value = new QuickFix.MarketID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.MarketID field)
+      { return isSetField(field); }
+      public bool isSetMarketID()
+      { return isSetField(1301); }
+
+      public void set(QuickFix.MarketSegmentID value)
+      { setField(value); }
+      public QuickFix.MarketSegmentID get(QuickFix.MarketSegmentID  value)
+      { getField(value); return value; }
+      public QuickFix.MarketSegmentID getMarketSegmentID()
+      { QuickFix.MarketSegmentID value = new QuickFix.MarketSegmentID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.MarketSegmentID field)
+      { return isSetField(field); }
+      public bool isSetMarketSegmentID()
+      { return isSetField(1300); }
+
+      public void set(QuickFix.TradingSessionDesc value)
+      { setField(value); }
+      public QuickFix.TradingSessionDesc get(QuickFix.TradingSessionDesc  value)
+      { getField(value); return value; }
+      public QuickFix.TradingSessionDesc getTradingSessionDesc()
+      { QuickFix.TradingSessionDesc value = new QuickFix.TradingSessionDesc();
+        getField(value); return value; }
+      public bool isSet(QuickFix.TradingSessionDesc field)
+      { return isSetField(field); }
+      public bool isSetTradingSessionDesc()
+      { return isSetField(1326); }
 
       public void set(QuickFix.TradSesMethod value)
       { setField(value); }
@@ -238,42 +322,6 @@ namespace QuickFix50Sp2
       public bool isSetEncodedText()
       { return isSetField(355); }
 
-      public void set(QuickFix.MarketID value)
-      { setField(value); }
-      public QuickFix.MarketID get(QuickFix.MarketID  value)
-      { getField(value); return value; }
-      public QuickFix.MarketID getMarketID()
-      { QuickFix.MarketID value = new QuickFix.MarketID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.MarketID field)
-      { return isSetField(field); }
-      public bool isSetMarketID()
-      { return isSetField(1301); }
-
-      public void set(QuickFix.MarketSegmentID value)
-      { setField(value); }
-      public QuickFix.MarketSegmentID get(QuickFix.MarketSegmentID  value)
-      { getField(value); return value; }
-      public QuickFix.MarketSegmentID getMarketSegmentID()
-      { QuickFix.MarketSegmentID value = new QuickFix.MarketSegmentID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.MarketSegmentID field)
-      { return isSetField(field); }
-      public bool isSetMarketSegmentID()
-      { return isSetField(1300); }
-
-      public void set(QuickFix.TradingSessionDesc value)
-      { setField(value); }
-      public QuickFix.TradingSessionDesc get(QuickFix.TradingSessionDesc  value)
-      { getField(value); return value; }
-      public QuickFix.TradingSessionDesc getTradingSessionDesc()
-      { QuickFix.TradingSessionDesc value = new QuickFix.TradingSessionDesc();
-        getField(value); return value; }
-      public bool isSet(QuickFix.TradingSessionDesc field)
-      { return isSetField(field); }
-      public bool isSetTradingSessionDesc()
-      { return isSetField(1326); }
-
       public void set(QuickFix.TransactTime value)
       { setField(value); }
       public QuickFix.TransactTime get(QuickFix.TransactTime  value)
@@ -299,54 +347,6 @@ namespace QuickFix50Sp2
       { return isSetField(1327); }
 
     };
-    public void set(QuickFix.ApplID value)
-    { setField(value); }
-    public QuickFix.ApplID get(QuickFix.ApplID  value)
-    { getField(value); return value; }
-    public QuickFix.ApplID getApplID()
-    { QuickFix.ApplID value = new QuickFix.ApplID();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplID field)
-    { return isSetField(field); }
-    public bool isSetApplID()
-    { return isSetField(1180); }
-
-    public void set(QuickFix.ApplSeqNum value)
-    { setField(value); }
-    public QuickFix.ApplSeqNum get(QuickFix.ApplSeqNum  value)
-    { getField(value); return value; }
-    public QuickFix.ApplSeqNum getApplSeqNum()
-    { QuickFix.ApplSeqNum value = new QuickFix.ApplSeqNum();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplSeqNum field)
-    { return isSetField(field); }
-    public bool isSetApplSeqNum()
-    { return isSetField(1181); }
-
-    public void set(QuickFix.ApplLastSeqNum value)
-    { setField(value); }
-    public QuickFix.ApplLastSeqNum get(QuickFix.ApplLastSeqNum  value)
-    { getField(value); return value; }
-    public QuickFix.ApplLastSeqNum getApplLastSeqNum()
-    { QuickFix.ApplLastSeqNum value = new QuickFix.ApplLastSeqNum();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplLastSeqNum field)
-    { return isSetField(field); }
-    public bool isSetApplLastSeqNum()
-    { return isSetField(1350); }
-
-    public void set(QuickFix.ApplResendFlag value)
-    { setField(value); }
-    public QuickFix.ApplResendFlag get(QuickFix.ApplResendFlag  value)
-    { getField(value); return value; }
-    public QuickFix.ApplResendFlag getApplResendFlag()
-    { QuickFix.ApplResendFlag value = new QuickFix.ApplResendFlag();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ApplResendFlag field)
-    { return isSetField(field); }
-    public bool isSetApplResendFlag()
-    { return isSetField(1352); }
-
   };
 
 }

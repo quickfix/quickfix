@@ -5,7 +5,6 @@ namespace FIX
 {
   namespace FIELD
   {
-    const int RelatedPartyID = 1563;
     const int MaxPriceLevels = 1090;
     const int DerivativeEncodedIssuer = 1278;
     const int NoCompIDs = 936;
@@ -13,11 +12,8 @@ namespace FIX
     const int NestedPartyID = 524;
     const int DetachmentPoint = 1458;
     const int LateIndicator = 978;
-    const int RiskEncodedSecurityDesc = 1621;
-    const int RelationshipRiskSecuritySubType = 1601;
     const int SecurityListID = 1465;
     const int DerivativeFlowScheduleType = 1442;
-    const int EncodedSymbolLen = 1359;
     const int FlexibleIndicator = 1244;
     const int NoExecInstRules = 1232;
     const int SideTrdRegTimestamp = 1012;
@@ -25,12 +21,11 @@ namespace FIX
     const int ExecRestatementReason = 378;
     const int MidYield = 633;
     const int ContractMultiplier = 231;
-    const int PartyAltIDSource = 1518;
     const int CcyAmt = 1157;
-    const int AllocIntermedReqType = 808;
-    const int NoNested2PartyIDs = 756;
-    const int UnderlyingIssuer = 306;
     const int LegOrderQty = 685;
+    const int AllocIntermedReqType = 808;
+    const int UnderlyingIssuer = 306;
+    const int NoNested2PartyIDs = 756;
     const int MinTradeVol = 562;
     const int SettlCurrAmt = 119;
     const int DerivativeInstrumentPartyRole = 1295;
@@ -60,14 +55,12 @@ namespace FIX
     const int IOIQltyInd = 25;
     const int Issuer = 106;
     const int CardNumber = 489;
-    const int NoRelatedPartyIDs = 1562;
     const int NoLegStipulations = 683;
     const int LegSecurityExchange = 616;
     const int CashOrderQty = 152;
     const int AccruedInterestAmt = 159;
     const int MDEntrySeller = 289;
     const int LegPrice = 566;
-    const int RelationshipRiskMaturityTime = 1603;
     const int DeliverToCompID = 128;
     const int TargetLocationID = 143;
     const int OfferForwardPoints2 = 643;
@@ -106,13 +99,11 @@ namespace FIX
     const int QuotePriceType = 692;
     const int EncodedAllocText = 361;
     const int UnderlyingMaturityMonthYear = 313;
-    const int RiskWarningLevelPercent = 1560;
     const int UnderlyingOriginalNotionalPercentageOutstanding = 1456;
     const int MultilegPriceMethod = 1378;
     const int TotNoFills = 1361;
     const int DerivativeSettleOnOpenFlag = 1254;
     const int UnderlyingRepurchaseTerm = 244;
-    const int RiskWarningLevelName = 1561;
     const int DerivativeCountryOfIssue = 1258;
     const int ListMethod = 1198;
     const int UnderlyingCPProgram = 877;
@@ -122,13 +113,11 @@ namespace FIX
     const int MDImplicitDelete = 547;
     const int NoStipulations = 232;
     const int ClearingBusinessDate = 715;
-    const int NoRelationshipRiskLimits = 1582;
     const int LocationID = 283;
     const int Currency = 15;
     const int RoutingType = 216;
     const int UnderlyingStrikePrice = 316;
     const int BidTradeType = 418;
-    const int RelationshipRiskInstrumentOperator = 1588;
     const int UnderlyingAttachmentPoint = 1459;
     const int TotNoRejQuotes = 1170;
     const int OrdStatusReqID = 790;
@@ -155,7 +144,6 @@ namespace FIX
     const int PartyRole = 452;
     const int LegRatioQty = 623;
     const int SettlCurrFxRate = 155;
-    const int RelatedPartyRole = 1565;
     const int LegContractMultiplierUnit = 1436;
     const int SecureData = 91;
     const int SenderLocationID = 142;
@@ -163,8 +151,6 @@ namespace FIX
     const int EncodedLegIssuer = 619;
     const int AssignmentMethod = 744;
     const int RoutingID = 217;
-    const int RelationshipRiskSecurityAltID = 1594;
-    const int RelatedPartyAltID = 1570;
     const int StrategyParameterType = 959;
     const int EncryptMethod = 98;
     const int UnderlyingStateOrProvinceOfIssue = 593;
@@ -199,7 +185,6 @@ namespace FIX
     const int SecondaryTrdType = 855;
     const int TradeReportTransType = 487;
     const int AdvSide = 4;
-    const int RelatedContextPartySubID = 1580;
     const int DerivativeSecuritySubType = 1250;
     const int TriggerTradingSessionSubID = 1114;
     const int TradeLinkID = 820;
@@ -207,8 +192,6 @@ namespace FIX
     const int HopRefID = 630;
     const int Designation = 494;
     const int TradeRequestID = 568;
-    const int RelationshipRiskLimitType = 1583;
-    const int RiskSecurityIDSource = 1539;
     const int LegFlowScheduleType = 1440;
     const int LegPriceUnitOfMeasure = 1421;
     const int Nested4PartyIDSource = 1416;
@@ -233,7 +216,6 @@ namespace FIX
     const int NoExpiration = 981;
     const int TargetCompID = 56;
     const int MDEntryBuyer = 288;
-    const int RelationshipRiskCouponRate = 1608;
     const int NoDerivativeInstrumentPartySubIDs = 1296;
     const int NoMaturityRules = 1236;
     const int QuoteMsgID = 1166;
@@ -260,7 +242,6 @@ namespace FIX
     const int PossResend = 97;
     const int Symbol = 55;
     const int EncodedUnderlyingSecurityDesc = 365;
-    const int RelatedPartyAltSubIDType = 1574;
     const int MarketReportID = 1394;
     const int DiscretionPrice = 845;
     const int ContAmtValue = 520;
@@ -277,7 +258,6 @@ namespace FIX
     const int ListExecInstType = 433;
     const int SecondaryOrderID = 198;
     const int ExecBroker = 76;
-    const int RelationshipRiskEncodedSecurityDescLen = 1618;
     const int SecurityXMLLen = 1184;
     const int ApplSeqNum = 1181;
     const int MaxTradeVol = 1140;
@@ -294,7 +274,6 @@ namespace FIX
     const int MailingInst = 482;
     const int OfferSize = 135;
     const int LegSecurityType = 609;
-    const int RiskLimitPlatform = 1533;
     const int OrigCustOrderCapacity = 1432;
     const int AllocMethod = 1002;
     const int QuantityDate = 976;
@@ -323,13 +302,10 @@ namespace FIX
     const int CollRespID = 904;
     const int SecurityListRequestType = 559;
     const int EncodedLegSecurityDesc = 622;
-    const int RelatedContextPartyRole = 1578;
     const int UnderlyingSettlementStatus = 988;
     const int SecurityAltID = 455;
     const int RegistRefID = 508;
-    const int RelationshipRiskFlexibleIndicator = 1607;
     const int DerivativePriceQuoteMethod = 1318;
-    const int RelationshipRiskProductComplex = 1597;
     const int OrderDelay = 1428;
     const int NoNotAffectedOrders = 1370;
     const int Nested3PartyID = 949;
@@ -358,8 +334,6 @@ namespace FIX
     const int LegSettlType = 587;
     const int OnBehalfOfLocationID = 144;
     const int OnBehalfOfSubID = 116;
-    const int RelationshipRiskLimitPlatform = 1586;
-    const int RelatedPartySubID = 1567;
     const int ComplexEventEndTime = 1496;
     const int RateSourceType = 1447;
     const int DerivativeStateOrProvinceOfIssue = 1259;
@@ -373,14 +347,12 @@ namespace FIX
     const int OpenInterest = 746;
     const int UnderlyingContractMultiplier = 436;
     const int TotQuoteEntries = 304;
-    const int PartyAltSubID = 1520;
     const int TotNoCxldQuotes = 1168;
     const int AggregatedBook = 266;
     const int PaymentRef = 476;
     const int PaymentDate = 504;
     const int OrderPercent = 516;
     const int PosQtyStatus = 706;
-    const int RiskRestructuringType = 1551;
     const int NoNested4PartySubIDs = 1413;
     const int PrivateQuote = 1171;
     const int SecondaryTradeID = 1040;
@@ -402,7 +374,6 @@ namespace FIX
     const int InstrumentPartySubID = 1053;
     const int CustomerOrFirm = 204;
     const int AdjustmentType = 718;
-    const int NoPartyAltSubIDs = 1519;
     const int UnderlyingInstrumentPartyID = 1059;
     const int AsOfIndicator = 1015;
     const int QuoteStatusReqID = 649;
@@ -429,7 +400,6 @@ namespace FIX
     const int RefCompID = 930;
     const int SettlCurrOfferFxRate = 657;
     const int OfferYield = 634;
-    const int RelatedContextPartyID = 1576;
     const int TargetPartyIDSource = 1463;
     const int EncryptedNewPasswordLen = 1403;
     const int NoPositions = 702;
@@ -458,7 +428,6 @@ namespace FIX
     const int NestedInstrAttribValue = 1211;
     const int TradingSessionSubID = 625;
     const int RFQReqID = 644;
-    const int RelationshipRiskSecurityExchange = 1609;
     const int UnderlyingLegSymbolSfx = 1331;
     const int LiquidityNumSecurities = 441;
     const int NoMsgTypes = 384;
@@ -466,7 +435,6 @@ namespace FIX
     const int MDEntryType = 269;
     const int AgreementCurrency = 918;
     const int PegMoveType = 835;
-    const int AsgnReqID = 831;
     const int PegDifference = 211;
     const int Spread = 218;
     const int EncodedAllocTextLen = 360;
@@ -477,13 +445,11 @@ namespace FIX
     const int CancellationRights = 480;
     const int ListSeqNo = 67;
     const int CardIssNum = 491;
-    const int RiskCFICode = 1546;
     const int EncodedMktSegmDesc = 1398;
     const int DerivativeEventType = 1287;
     const int DerivativeMaturityMonthYear = 1251;
     const int SideTradeReportID = 1005;
     const int NoQuoteSets = 296;
-    const int RelationshipRiskSecurityDesc = 1610;
     const int Nested4PartySubIDType = 1411;
     const int FillPx = 1364;
     const int StrikeExerciseStyle = 1304;
@@ -508,7 +474,6 @@ namespace FIX
     const int UnderlyingStrikeCurrency = 941;
     const int TradSesMode = 339;
     const int SettlInstSource = 165;
-    const int PartyAltSubIDType = 1521;
     const int UnderlyingLegSecurityDesc = 1392;
     const int NoDerivativeInstrumentParties = 1292;
     const int DerivativeEventTime = 1289;
@@ -525,7 +490,6 @@ namespace FIX
     const int TradeInputSource = 578;
     const int OrderQty2 = 192;
     const int TestMessageIndicator = 464;
-    const int ContextPartySubID = 1527;
     const int DerivativeEventDate = 1288;
     const int SideGrossTradeAmt = 1072;
     const int PeggedPrice = 839;
@@ -534,8 +498,6 @@ namespace FIX
     const int CxlRejReason = 102;
     const int BeginString = 8;
     const int DeliverToSubID = 129;
-    const int NoRelatedPartyAltIDs = 1569;
-    const int RiskProductComplex = 1544;
     const int LegPriceUnitOfMeasureQty = 1422;
     const int NoCollInquiryQualifier = 938;
     const int OfferPx = 133;
@@ -551,7 +513,6 @@ namespace FIX
     const int ListID = 66;
     const int LegSecurityAltID = 605;
     const int PositionEffect = 77;
-    const int RelatedPartySubIDType = 1568;
     const int TriggerAction = 1101;
     const int RefOrderID = 1080;
     const int ClearingInstruction = 577;
@@ -563,7 +524,6 @@ namespace FIX
     const int StrikeMultiplier = 967;
     const int DiscretionMoveType = 841;
     const int ListNoOrds = 68;
-    const int RelatedPartyIDSource = 1564;
     const int PegSymbol = 1098;
     const int DayAvgPx = 426;
     const int Headline = 148;
@@ -596,7 +556,6 @@ namespace FIX
     const int SettlSessSubID = 717;
     const int MailingDtls = 474;
     const int BidID = 390;
-    const int PartyDetailsRequestResult = 1511;
     const int ExerciseMethod = 747;
     const int CommCurrency = 479;
     const int NoSettlOblig = 1165;
@@ -623,12 +582,8 @@ namespace FIX
     const int ConfirmType = 773;
     const int LegMaturityMonthYear = 610;
     const int RelatdSym = 46;
-    const int RiskLimitAmount = 1531;
     const int UnderlyingLegSecuritySubType = 1338;
     const int NoUnderlyingSecurityAltID = 457;
-    const int RelationshipRiskCFICode = 1599;
-    const int NoRelatedPartySubIDs = 1566;
-    const int RiskSymbolSfx = 1537;
     const int MDQuoteType = 1070;
     const int QtyType = 854;
     const int QuoteRespType = 694;
@@ -665,7 +620,6 @@ namespace FIX
     const int AltMDSourceID = 817;
     const int NoOrders = 73;
     const int CashDistribAgentAcctName = 502;
-    const int NoContextPartySubIDs = 1526;
     const int UndlyInstrumentPartyIDSource = 1060;
     const int UnderlyingSettlMethod = 1039;
     const int NoMDEntryTypes = 267;
@@ -675,7 +629,6 @@ namespace FIX
     const int TradeOriginationDate = 229;
     const int SettlPrice = 730;
     const int SecuritySettlAgentAcctName = 179;
-    const int RiskInstrumentMultiplier = 1558;
     const int NoDerivativeEvents = 1286;
     const int UnderlyingEndPrice = 883;
     const int SubscriptionRequestType = 263;
@@ -709,13 +662,11 @@ namespace FIX
     const int LastLiquidityInd = 851;
     const int SecurityID = 48;
     const int NoMDEntries = 268;
-    const int NoPartyListResponseTypes = 1506;
     const int StrikePriceDeterminationMethod = 1478;
     const int EndDate = 917;
     const int CashOutstanding = 901;
     const int MDReqID = 262;
     const int IOIRefID = 26;
-    const int NoContextPartyIDs = 1522;
     const int TargetStrategy = 847;
     const int ConfirmRefID = 772;
     const int SellerDays = 287;
@@ -730,16 +681,13 @@ namespace FIX
     const int UnderlyingCashType = 974;
     const int NoMiscFees = 136;
     const int CustOrderCapacity = 582;
-    const int RiskSecurityExchange = 1616;
     const int LegAllocSettlCurrency = 1367;
     const int UnderlyingAdjustedQuantity = 1044;
     const int OwnershipType = 517;
     const int MaxShow = 210;
     const int LegSecurityID = 602;
-    const int EncodedSymbol = 1360;
     const int DerivativeSecurityDesc = 1279;
     const int UnitOfMeasure = 996;
-    const int SecDefStatus = 653;
     const int Quantity = 53;
     const int NewsID = 1472;
     const int UndlyInstrumentPartySubIDType = 1064;
@@ -761,7 +709,6 @@ namespace FIX
     const int MDSubBookType = 1173;
     const int Username = 553;
     const int StandInstDbType = 169;
-    const int RelatedContextPartyIDSource = 1577;
     const int QuoteEntryStatus = 1167;
     const int TriggerPriceType = 1107;
     const int SideTrdSubTyp = 1008;
@@ -772,7 +719,6 @@ namespace FIX
     const int StrikeValue = 968;
     const int Urgency = 61;
     const int AllocID = 70;
-    const int NoPartyList = 1513;
     const int UnderlyingDeliveryAmount = 1037;
     const int SideQty = 1009;
     const int CollAsgnTransType = 903;
@@ -780,7 +726,6 @@ namespace FIX
     const int DefBidSize = 293;
     const int LegStateOrProvinceOfIssue = 597;
     const int PaymentMethod = 492;
-    const int RiskCouponRate = 1555;
     const int UnderlyingLegOptAttribute = 1391;
     const int LegVolatility = 1379;
     const int DerivativeInstrAttribType = 1313;
@@ -798,7 +743,6 @@ namespace FIX
     const int DiscretionOffset = 389;
     const int ContAmtType = 519;
     const int MiscFeeCurr = 138;
-    const int NoRiskLimits = 1529;
     const int AttachmentPoint = 1457;
     const int OrderCategory = 1115;
     const int AdvTransType = 5;
@@ -819,7 +763,6 @@ namespace FIX
     const int SecurityResponseType = 323;
     const int LegBenchmarkCurvePoint = 678;
     const int ClearingFirm = 439;
-    const int RelationshipRiskSecurityIDSource = 1592;
     const int SessionStatus = 1409;
     const int TriggerSecurityID = 1104;
     const int TotNoAllocs = 892;
@@ -834,9 +777,6 @@ namespace FIX
     const int ExpirationQtyType = 982;
     const int EncodedUnderlyingSecurityDescLen = 364;
     const int QuoteReqID = 131;
-    const int NoRelatedPartyAltSubIDs = 1572;
-    const int RiskProduct = 1543;
-    const int RiskSecurityAltIDSource = 1542;
     const int PriceUnitOfMeasure = 1191;
     const int TZTransactTime = 1132;
     const int AllocHandlInst = 209;
@@ -850,13 +790,10 @@ namespace FIX
     const int PreallocMethod = 591;
     const int TaxAdvantageType = 495;
     const int MessageEncoding = 347;
-    const int RiskPutOrCall = 1553;
-    const int RiskSecurityGroup = 1545;
     const int NoPartySubIDs = 802;
     const int SettlInstReqID = 791;
     const int LegRepoCollateralSecurityType = 250;
     const int AffectedSecondaryOrderID = 536;
-    const int RiskSymbol = 1536;
     const int DerivativeMaturityTime = 1253;
     const int ExpireTime = 126;
     const int UnderlyingFactor = 246;
@@ -867,7 +804,6 @@ namespace FIX
     const int Nested2PartySubIDType = 807;
     const int LegIOIQty = 682;
     const int ExpireDate = 432;
-    const int RiskSecurityType = 1547;
     const int NoMatchRules = 1235;
     const int ApplEndSeqNum = 1183;
     const int EventPx = 867;
@@ -876,12 +812,10 @@ namespace FIX
     const int LowPx = 333;
     const int IOIQualifier = 104;
     const int WaveNo = 105;
-    const int RiskSeniority = 1552;
     const int StrikePriceBoundaryMethod = 1479;
     const int DerivativeIssueDate = 1276;
     const int MiscFeeType = 139;
     const int QuoteID = 117;
-    const int RiskFlexibleIndicator = 1554;
     const int DerivativeInstrumentPartyIDSource = 1294;
     const int SettlObligID = 1161;
     const int InstrAttribValue = 872;
@@ -909,7 +843,6 @@ namespace FIX
     const int ComplianceID = 376;
     const int EmailThreadID = 164;
     const int ContAmtCurr = 521;
-    const int RelationshipRiskSecurityGroup = 1598;
     const int ComplexEventType = 1484;
     const int MassActionResponse = 1375;
     const int UnderlyingIssueDate = 242;
@@ -945,19 +878,16 @@ namespace FIX
     const int NoAffectedOrders = 534;
     const int CashSettlAgentAcctNum = 184;
     const int UnderlyingLegMaturityMonthYear = 1339;
-    const int DerivativeSecurityListRequestType = 1307;
     const int NoLotTypeRules = 1234;
     const int NoDates = 580;
     const int CxlRejResponseTo = 434;
     const int EffectiveTime = 168;
     const int GrossTradeAmt = 381;
-    const int ContextPartyID = 1523;
     const int SecurityListDesc = 1467;
     const int NotAffectedOrderID = 1371;
     const int DerivativeStrikeValue = 1264;
     const int NoPosAmt = 753;
     const int LegCreditRating = 257;
-    const int RelationshipRiskInstrumentSettlType = 1611;
     const int BidForwardPoints2 = 642;
     const int SettlDate = 64;
     const int ClientID = 109;
@@ -965,13 +895,11 @@ namespace FIX
     const int StipulationType = 233;
     const int OutMainCntryUIndex = 412;
     const int LegSettlmntTyp = 587;
-    const int NoRelationshipRiskInstruments = 1587;
     const int DerivativeNTPositionLimit = 1274;
     const int PriceQuoteMethod = 1196;
     const int LowLimitPrice = 1148;
     const int LegUnitOfMeasure = 999;
     const int SessionRejectReason = 373;
-    const int PartyDetailsListReportID = 1510;
     const int DeliveryType = 919;
     const int AllocPrice = 366;
     const int NoBidComponents = 420;
@@ -988,8 +916,6 @@ namespace FIX
     const int RegistRejReasonText = 496;
     const int NoSides = 552;
     const int LegAllocAccount = 671;
-    const int NoRelationshipRiskWarningLevels = 1613;
-    const int RelationshipRiskProduct = 1596;
     const int LegSecurityDesc = 620;
     const int ClOrdLinkID = 583;
     const int OrigSendingTime = 122;
@@ -1005,7 +931,6 @@ namespace FIX
     const int DerivativePriceUnitOfMeasureQty = 1316;
     const int TimeUnit = 997;
     const int TotNoOrders = 68;
-    const int PartyAltID = 1517;
     const int LegSwapType = 690;
     const int IOITransType = 28;
     const int RawDataLength = 95;
@@ -1032,7 +957,6 @@ namespace FIX
     const int SettlInstMode = 160;
     const int SecurityAltIDSource = 456;
     const int PreviouslyReported = 570;
-    const int ContextPartyIDSource = 1524;
     const int RptSys = 1135;
     const int NoNested2PartySubIDs = 806;
     const int RefAllocID = 72;
@@ -1054,7 +978,6 @@ namespace FIX
     const int OrigTime = 42;
     const int ExecValuationPoint = 515;
     const int ExecType = 150;
-    const int NoRelatedContextPartySubIDs = 1579;
     const int Nested4PartyRole = 1417;
     const int MultilegModel = 1377;
     const int SecurityGroup = 1151;
@@ -1090,7 +1013,6 @@ namespace FIX
     const int OrderInputDevice = 821;
     const int SolicitedFlag = 377;
     const int TransactTime = 60;
-    const int RiskLimitType = 1530;
     const int UnderlyingFlowScheduleType = 1441;
     const int UnderlyingStipValue = 889;
     const int NextExpectedMsgSeqNum = 789;
@@ -1098,12 +1020,10 @@ namespace FIX
     const int CFICode = 461;
     const int Factor = 228;
     const int LastShares = 32;
-    const int RequestedPartyRole = 1509;
     const int EventTime = 1145;
     const int RootPartySubIDType = 1122;
     const int ShortSaleReason = 853;
     const int XmlData = 213;
-    const int RelationshipRiskSeniority = 1605;
     const int NoTargetPartyIDs = 1461;
     const int NoRootPartyIDs = 1116;
     const int EventDate = 866;
@@ -1138,13 +1058,11 @@ namespace FIX
     const int ExerciseStyle = 1194;
     const int HaltReasonChar = 327;
     const int ExDestination = 100;
-    const int NoPartyRelationships = 1514;
     const int DerivativeInstrmtAssignmentMethod = 1255;
     const int UnderlyingIDSource = 305;
     const int AdvId = 2;
     const int TransBkdTime = 483;
     const int LegLastPx = 637;
-    const int NoRiskWarningLevels = 1559;
     const int AllocReportType = 794;
     const int RegistDtls = 509;
     const int AllocType = 626;
@@ -1154,10 +1072,8 @@ namespace FIX
     const int LegOfferPx = 684;
     const int LiquidityIndType = 409;
     const int HopSendingTime = 629;
-    const int RelationshipRiskLimitAmount = 1584;
     const int ApplResendFlag = 1352;
     const int DerivativeCapPrice = 1321;
-    const int RiskSecurityID = 1538;
     const int ComplexOptPayoutAmount = 1485;
     const int LanguageCode = 1474;
     const int SettlObligRefID = 1163;
@@ -1170,7 +1086,6 @@ namespace FIX
     const int SettlDepositoryCode = 173;
     const int StreamAsgnAckType = 1503;
     const int FloorPrice = 1200;
-    const int RiskMaturityTime = 1550;
     const int UnderlyingPriceUnitOfMeasureQty = 1425;
     const int FeeMultiplier = 1329;
     const int UnderlyingMaturityTime = 1213;
@@ -1178,7 +1093,6 @@ namespace FIX
     const int LegGrossTradeAmt = 1075;
     const int MDEntryDate = 272;
     const int LegBenchmarkCurveCurrency = 676;
-    const int RiskInstrumentOperator = 1535;
     const int OptPayoutAmount = 1195;
     const int MiscFeeBasis = 891;
     const int ValidUntilTime = 62;
@@ -1214,7 +1128,6 @@ namespace FIX
     const int FundRenewWaiv = 497;
     const int SecuritySettlAgentName = 176;
     const int BidDescriptor = 400;
-    const int RelationshipRiskSecurityAltIDSource = 1595;
     const int MDStreamID = 1500;
     const int NoAsgnReqs = 1499;
     const int NotionalPercentageOutstanding = 1451;
@@ -1237,7 +1150,6 @@ namespace FIX
     const int DiscretionOffsetValue = 389;
     const int BookingRefID = 466;
     const int LegBidPx = 681;
-    const int ContextPartyRole = 1525;
     const int TradSesEvent = 1368;
     const int DerivativeProduct = 1246;
     const int RootPartyRole = 1119;
@@ -1261,8 +1173,6 @@ namespace FIX
     const int SpreadToBenchmark = 218;
     const int CommType = 13;
     const int RegistRejReasonCode = 507;
-    const int RelationshipRiskEncodedSecurityDesc = 1619;
-    const int RelationshipRiskRestructuringType = 1604;
     const int SideTimeInForce = 962;
     const int TrdRegTimestamp = 769;
     const int FinancialStatus = 291;
@@ -1291,7 +1201,6 @@ namespace FIX
     const int AllocLinkType = 197;
     const int UnderlyingAllocationPercent = 972;
     const int AllocAccruedInterestAmt = 742;
-    const int RiskSecuritySubType = 1548;
     const int EncodedSecurityListDesc = 1469;
     const int EncryptedPasswordLen = 1401;
     const int LegDividendYield = 1381;
@@ -1300,7 +1209,6 @@ namespace FIX
     const int UnderlyingSettlementType = 975;
     const int OrderCapacityQty = 863;
     const int LongQty = 704;
-    const int NoPartyAltIDs = 1516;
     const int DerivativeSettlMethod = 1317;
     const int TriggerTradingSessionID = 1113;
     const int DisplayMethod = 1084;
@@ -1331,7 +1239,6 @@ namespace FIX
     const int AllocPositionEffect = 1047;
     const int PartyIDSource = 447;
     const int EncodedUnderlyingIssuer = 363;
-    const int NoRequestedPartyRoles = 1508;
     const int EncryptedPassword = 1402;
     const int TriggerNewQty = 1112;
     const int LegLastForwardPoints = 1073;
@@ -1341,8 +1248,6 @@ namespace FIX
     const int Price = 44;
     const int UnderlyingSecurityIDSource = 305;
     const int TotNoSecurityTypes = 557;
-    const int RelationshipRiskInstrumentMultiplier = 1612;
-    const int NoRiskInstruments = 1534;
     const int ReportedPx = 861;
     const int LegSymbol = 600;
     const int LegIssuer = 617;
@@ -1372,7 +1277,6 @@ namespace FIX
     const int DerivativeSymbolSfx = 1215;
     const int NestedInstrAttribType = 1210;
     const int ContraTrader = 337;
-    const int RiskInstrumentSettlType = 1557;
     const int MDSecSize = 1179;
     const int NoOfSecSizes = 1177;
     const int CollAction = 944;
@@ -1392,15 +1296,12 @@ namespace FIX
     const int TargetStrategyParameters = 848;
     const int LastForwardPoints = 195;
     const int YieldRedemptionDate = 696;
-    const int RelationshipRiskSecurityID = 1591;
     const int NoSettlDetails = 1158;
     const int TradeHandlingInstr = 1123;
     const int CashSettlAgentCode = 183;
     const int LegPriceType = 686;
     const int EncodedListExecInstLen = 352;
     const int TradSesMethod = 338;
-    const int RiskLimitCurrency = 1532;
-    const int PartyDetailsListRequestID = 1505;
     const int AgreementID = 914;
     const int CashDistribCurr = 478;
     const int BidPx = 132;
@@ -1423,7 +1324,6 @@ namespace FIX
     const int DeskOrderHandlingInst = 1035;
     const int SettlPartyIDSource = 783;
     const int PriorSettlPrice = 734;
-    const int RelationshipRiskSecurityType = 1600;
     const int NotAffOrigClOrdID = 1372;
     const int TradingSessionDesc = 1326;
     const int DerivativeFloorPrice = 1322;
@@ -1445,7 +1345,6 @@ namespace FIX
     const int UnderlyingTradingSessionID = 822;
     const int TotNoRelatedSym = 393;
     const int StateOrProvinceOfIssue = 471;
-    const int RelatedPartyAltSubID = 1573;
     const int DerivativeInstrRegistry = 1257;
     const int LegBidForwardPoints = 1067;
     const int ManualOrderIndicator = 1028;
@@ -1464,7 +1363,6 @@ namespace FIX
     const int NoRelatedSym = 146;
     const int AllocRejCode = 88;
     const int UnderlyingSecurityAltID = 458;
-    const int NoRelationshipRiskSecurityAltID = 1593;
     const int RefOrdIDReason = 1431;
     const int DerivativeInstrumentPartyID = 1293;
     const int SecurityXMLSchema = 1186;
@@ -1473,7 +1371,6 @@ namespace FIX
     const int EndAccruedInterestAmt = 920;
     const int AccruedInterestRate = 158;
     const int LastCapacity = 29;
-    const int RelationshipRiskLimitCurrency = 1585;
     const int UnderlyingInstrumentPartySubID = 1063;
     const int NoFills = 1362;
     const int NoOrdTypeRules = 1237;
@@ -1488,7 +1385,6 @@ namespace FIX
     const int Product = 460;
     const int AllocShares = 80;
     const int NoQuoteEntries = 295;
-    const int RelationshipRiskWarningLevelName = 1615;
     const int DefaultCstmApplVerID = 1408;
     const int DerivativeListMethod = 1320;
     const int DerivativeSecurityXMLLen = 1282;
@@ -1525,15 +1421,12 @@ namespace FIX
     const int IncTaxInd = 416;
     const int NoBidDescriptors = 398;
     const int LegCouponPaymentDate = 248;
-    const int TotNoPartyList = 1512;
-    const int PartyListResponseType = 1507;
     const int NoUnderlyingLegSecurityAltID = 1334;
     const int ReversalIndicator = 700;
     const int CheckSum = 10;
     const int TargetSubID = 57;
     const int PosReqStatus = 729;
     const int PriorityIndicator = 638;
-    const int ContextPartySubIDType = 1528;
     const int UnderlyingLegCFICode = 1344;
     const int DerivativeTimeUnit = 1271;
     const int NoNested3PartyIDs = 948;
@@ -1552,14 +1445,11 @@ namespace FIX
     const int TriggerSymbol = 1103;
     const int UnderlyingLocaleOfIssue = 594;
     const int SendingTime = 52;
-    const int RelationshipRiskMaturityMonthYear = 1602;
-    const int RelatedPartyAltIDSource = 1571;
     const int ComplexEventStartDate = 1492;
     const int UnderlyingRestructuringType = 1453;
     const int LegUnitOfMeasureQty = 1224;
     const int NoTrdRegTimestamps = 768;
     const int SendingDate = 51;
-    const int PartyRelationship = 1515;
     const int TimeToExpiration = 1189;
     const int LegAllocQty = 673;
     const int SettlLocation = 166;
@@ -1577,7 +1467,6 @@ namespace FIX
     const int Shares = 53;
     const int Yield = 236;
     const int QuoteRespID = 693;
-    const int RiskMaturityMonthYear = 1549;
     const int Nested3PartySubID = 953;
     const int ApplQueueResolution = 814;
     const int TrdRegTimestampOrigin = 771;
@@ -1603,40 +1492,31 @@ namespace FIX
     const int ReceivedDeptID = 1030;
     const int MaturityNetMoney = 890;
     const int BidDescriptorType = 399;
-    const int RiskEncodedSecurityDescLen = 1620;
-    const int RelationshipRiskSymbol = 1589;
-    const int NoRelatedContextPartyIDs = 1575;
     const int DerivativeInstrumentPartySubID = 1297;
     const int NetworkStatusResponseType = 937;
     const int DateOfBirth = 486;
-    const int RelatedContextPartySubIDType = 1581;
     const int StartStrikePxRange = 1202;
     const int UndlyInstrumentPartySubID = 1063;
     const int SecondaryTradeReportRefID = 881;
     const int UnderlyingCPRegType = 878;
     const int SignatureLength = 93;
     const int OrderQty = 38;
-    const int RelationshipRiskWarningLevelPercent = 1614;
     const int OriginalNotionalPercentageOutstanding = 1452;
     const int UnderlyingTimeUnit = 1000;
     const int EncodedHeadlineLen = 358;
     const int NoRegistDtls = 473;
     const int StrategyParameterValue = 960;
-    const int RiskSecurityDesc = 1556;
     const int NoInstrumentParties = 1018;
     const int QuoteType = 537;
-    const int NoRiskSecurityAltID = 1540;
     const int NoStrategyParameters = 957;
     const int IndividualAllocRejCode = 776;
     const int DiscretionInst = 388;
-    const int RiskSecurityAltID = 1541;
     const int TargetPartyRole = 1464;
     const int CrossPrioritization = 550;
     const int EncodedListStatusText = 446;
     const int IOIOthSvc = 24;
     const int LegIssueDate = 249;
     const int MDReqRejReason = 281;
-    const int RelationshipRiskPutOrCall = 1606;
     const int ApplReqType = 1347;
     const int Country = 421;
     const int UnderlyingLegSecurityIDSource = 1333;
@@ -1646,7 +1526,6 @@ namespace FIX
     const int BusinessRejectReason = 380;
     const int TradeDate = 75;
     const int UnderlyingPutOrCall = 315;
-    const int RelationshipRiskSymbolSfx = 1590;
     const int UnderlyingInstrumentPartyRole = 1061;
     const int DerivativePositionLimit = 1273;
     const int TierCode = 994;

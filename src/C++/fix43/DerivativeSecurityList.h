@@ -38,6 +38,7 @@ namespace FIX43
     FIELD_SET(*this, FIX::UnderlyingSecurityType);
     FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
     FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+    FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
     FIELD_SET(*this, FIX::UnderlyingIssueDate);
     FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);

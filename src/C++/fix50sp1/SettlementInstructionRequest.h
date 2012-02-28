@@ -49,13 +49,13 @@ namespace FIX50SP1
     FIELD_SET(*this, FIX::Product);
     FIELD_SET(*this, FIX::SecurityType);
     FIELD_SET(*this, FIX::CFICode);
+    FIELD_SET(*this, FIX::SettlCurrency);
     FIELD_SET(*this, FIX::EffectiveTime);
     FIELD_SET(*this, FIX::ExpireTime);
     FIELD_SET(*this, FIX::LastUpdateTime);
     FIELD_SET(*this, FIX::StandInstDbType);
     FIELD_SET(*this, FIX::StandInstDbName);
     FIELD_SET(*this, FIX::StandInstDbID);
-    FIELD_SET(*this, FIX::SettlCurrency);
   };
 
 }

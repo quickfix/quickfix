@@ -35,15 +35,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::XmlData);
     FIELD_SET(*this, FIX::MessageEncoding);
     FIELD_SET(*this, FIX::LastMsgSeqNumProcessed);
-    FIELD_SET(*this, FIX::NoHops);
-    class NoHops: public FIX::Group
-    {
-    public:
-    NoHops() : FIX::Group(627,628,FIX::message_order(628,629,630,0)) {}
-      FIELD_SET(*this, FIX::HopCompID);
-      FIELD_SET(*this, FIX::HopSendingTime);
-      FIELD_SET(*this, FIX::HopRefID);
-    };
   };
 
   class Trailer : public FIX::Trailer

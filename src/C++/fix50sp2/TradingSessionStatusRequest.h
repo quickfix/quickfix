@@ -25,14 +25,14 @@ namespace FIX50SP2
     }
 
     FIELD_SET(*this, FIX::TradSesReqID);
+    FIELD_SET(*this, FIX::MarketID);
+    FIELD_SET(*this, FIX::MarketSegmentID);
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);
     FIELD_SET(*this, FIX::TradSesMethod);
     FIELD_SET(*this, FIX::TradSesMode);
     FIELD_SET(*this, FIX::SubscriptionRequestType);
     FIELD_SET(*this, FIX::SecurityExchange);
-    FIELD_SET(*this, FIX::MarketID);
-    FIELD_SET(*this, FIX::MarketSegmentID);
   };
 
 }

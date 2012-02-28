@@ -1,12 +1,12 @@
 namespace QuickFix40
 {
 
-  public class IndicationofInterest : Message
+  public class IOI : Message
   {
-    public IndicationofInterest() : base(MsgType()) {}
+    public IOI() : base(MsgType()) {}
     static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("6"); }
 
-    public IndicationofInterest(
+    public IOI(
       QuickFix.IOIid aIOIid,
       QuickFix.IOITransType aIOITransType,
       QuickFix.Symbol aSymbol,

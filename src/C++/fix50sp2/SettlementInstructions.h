@@ -39,7 +39,7 @@ namespace FIX50SP2
     class NoSettlInst: public FIX::Group
     {
     public:
-    NoSettlInst() : FIX::Group(778,162,FIX::message_order(162,163,214,453,54,460,167,461,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,120,0)) {}
+    NoSettlInst() : FIX::Group(778,162,FIX::message_order(162,163,214,453,54,460,167,461,120,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0)) {}
       FIELD_SET(*this, FIX::SettlInstID);
       FIELD_SET(*this, FIX::SettlInstTransType);
       FIELD_SET(*this, FIX::SettlInstRefID);
@@ -64,6 +64,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::Product);
       FIELD_SET(*this, FIX::SecurityType);
       FIELD_SET(*this, FIX::CFICode);
+      FIELD_SET(*this, FIX::SettlCurrency);
       FIELD_SET(*this, FIX::EffectiveTime);
       FIELD_SET(*this, FIX::ExpireTime);
       FIELD_SET(*this, FIX::LastUpdateTime);
@@ -80,7 +81,6 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::CardIssNum);
       FIELD_SET(*this, FIX::PaymentDate);
       FIELD_SET(*this, FIX::PaymentRemitterID);
-      FIELD_SET(*this, FIX::SettlCurrency);
     };
   };
 

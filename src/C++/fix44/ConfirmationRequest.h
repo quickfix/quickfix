@@ -28,16 +28,6 @@ namespace FIX44
 
     FIELD_SET(*this, FIX::ConfirmReqID);
     FIELD_SET(*this, FIX::ConfirmType);
-    FIELD_SET(*this, FIX::AllocID);
-    FIELD_SET(*this, FIX::SecondaryAllocID);
-    FIELD_SET(*this, FIX::IndividualAllocID);
-    FIELD_SET(*this, FIX::TransactTime);
-    FIELD_SET(*this, FIX::AllocAccount);
-    FIELD_SET(*this, FIX::AllocAcctIDSource);
-    FIELD_SET(*this, FIX::AllocAccountType);
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoOrders);
     class NoOrders: public FIX::Group
     {
@@ -69,6 +59,16 @@ namespace FIX44
       FIELD_SET(*this, FIX::OrderAvgPx);
       FIELD_SET(*this, FIX::OrderBookingQty);
     };
+    FIELD_SET(*this, FIX::AllocID);
+    FIELD_SET(*this, FIX::SecondaryAllocID);
+    FIELD_SET(*this, FIX::IndividualAllocID);
+    FIELD_SET(*this, FIX::TransactTime);
+    FIELD_SET(*this, FIX::AllocAccount);
+    FIELD_SET(*this, FIX::AllocAcctIDSource);
+    FIELD_SET(*this, FIX::AllocAccountType);
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

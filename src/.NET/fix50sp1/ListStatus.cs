@@ -70,6 +70,30 @@ namespace QuickFix50Sp1
     public bool isSetListOrderStatus()
     { return isSetField(431); }
 
+    public void set(QuickFix.ContingencyType value)
+    { setField(value); }
+    public QuickFix.ContingencyType get(QuickFix.ContingencyType  value)
+    { getField(value); return value; }
+    public QuickFix.ContingencyType getContingencyType()
+    { QuickFix.ContingencyType value = new QuickFix.ContingencyType();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ContingencyType field)
+    { return isSetField(field); }
+    public bool isSetContingencyType()
+    { return isSetField(1385); }
+
+    public void set(QuickFix.ListRejectReason value)
+    { setField(value); }
+    public QuickFix.ListRejectReason get(QuickFix.ListRejectReason  value)
+    { getField(value); return value; }
+    public QuickFix.ListRejectReason getListRejectReason()
+    { QuickFix.ListRejectReason value = new QuickFix.ListRejectReason();
+      getField(value); return value; }
+    public bool isSet(QuickFix.ListRejectReason field)
+    { return isSetField(field); }
+    public bool isSetListRejectReason()
+    { return isSetField(1386); }
+
     public void set(QuickFix.RptSeq value)
     { setField(value); }
     public QuickFix.RptSeq get(QuickFix.RptSeq  value)
@@ -169,7 +193,7 @@ namespace QuickFix50Sp1
     public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
-    static int[] message_order = new int[] {11,526,14,39,636,151,84,6,103,58,354,355,37,0};
+    static int[] message_order = new int[] {11,37,526,14,39,636,151,84,6,103,58,354,355,0};
       public void set(QuickFix.ClOrdID value)
       { setField(value); }
       public QuickFix.ClOrdID get(QuickFix.ClOrdID  value)
@@ -181,6 +205,18 @@ namespace QuickFix50Sp1
       { return isSetField(field); }
       public bool isSetClOrdID()
       { return isSetField(11); }
+
+      public void set(QuickFix.OrderID value)
+      { setField(value); }
+      public QuickFix.OrderID get(QuickFix.OrderID  value)
+      { getField(value); return value; }
+      public QuickFix.OrderID getOrderID()
+      { QuickFix.OrderID value = new QuickFix.OrderID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.OrderID field)
+      { return isSetField(field); }
+      public bool isSetOrderID()
+      { return isSetField(37); }
 
       public void set(QuickFix.SecondaryClOrdID value)
       { setField(value); }
@@ -314,43 +350,7 @@ namespace QuickFix50Sp1
       public bool isSetEncodedText()
       { return isSetField(355); }
 
-      public void set(QuickFix.OrderID value)
-      { setField(value); }
-      public QuickFix.OrderID get(QuickFix.OrderID  value)
-      { getField(value); return value; }
-      public QuickFix.OrderID getOrderID()
-      { QuickFix.OrderID value = new QuickFix.OrderID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.OrderID field)
-      { return isSetField(field); }
-      public bool isSetOrderID()
-      { return isSetField(37); }
-
     };
-    public void set(QuickFix.ContingencyType value)
-    { setField(value); }
-    public QuickFix.ContingencyType get(QuickFix.ContingencyType  value)
-    { getField(value); return value; }
-    public QuickFix.ContingencyType getContingencyType()
-    { QuickFix.ContingencyType value = new QuickFix.ContingencyType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ContingencyType field)
-    { return isSetField(field); }
-    public bool isSetContingencyType()
-    { return isSetField(1385); }
-
-    public void set(QuickFix.ListRejectReason value)
-    { setField(value); }
-    public QuickFix.ListRejectReason get(QuickFix.ListRejectReason  value)
-    { getField(value); return value; }
-    public QuickFix.ListRejectReason getListRejectReason()
-    { QuickFix.ListRejectReason value = new QuickFix.ListRejectReason();
-      getField(value); return value; }
-    public bool isSet(QuickFix.ListRejectReason field)
-    { return isSetField(field); }
-    public bool isSetListRejectReason()
-    { return isSetField(1386); }
-
   };
 
 }

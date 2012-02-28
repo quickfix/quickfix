@@ -59,19 +59,13 @@ namespace FIX50
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,366,467,776,161,360,361,989,993,992,80,539,1047,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,366,1047,467,776,539,161,360,361,989,993,992,80,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocAcctIDSource);
       FIELD_SET(*this, FIX::AllocPrice);
+      FIELD_SET(*this, FIX::AllocPositionEffect);
       FIELD_SET(*this, FIX::IndividualAllocID);
       FIELD_SET(*this, FIX::IndividualAllocRejCode);
-      FIELD_SET(*this, FIX::AllocText);
-      FIELD_SET(*this, FIX::EncodedAllocTextLen);
-      FIELD_SET(*this, FIX::EncodedAllocText);
-      FIELD_SET(*this, FIX::SecondaryIndividualAllocID);
-      FIELD_SET(*this, FIX::AllocCustomerCapacity);
-      FIELD_SET(*this, FIX::IndividualAllocType);
-      FIELD_SET(*this, FIX::AllocQty);
       FIELD_SET(*this, FIX::NoNestedPartyIDs);
       class NoNestedPartyIDs: public FIX::Group
       {
@@ -89,7 +83,13 @@ namespace FIX50
           FIELD_SET(*this, FIX::NestedPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::AllocPositionEffect);
+      FIELD_SET(*this, FIX::AllocText);
+      FIELD_SET(*this, FIX::EncodedAllocTextLen);
+      FIELD_SET(*this, FIX::EncodedAllocText);
+      FIELD_SET(*this, FIX::SecondaryIndividualAllocID);
+      FIELD_SET(*this, FIX::AllocCustomerCapacity);
+      FIELD_SET(*this, FIX::IndividualAllocType);
+      FIELD_SET(*this, FIX::AllocQty);
     };
   };
 

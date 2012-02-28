@@ -139,7 +139,7 @@ namespace QuickFix50
     public class NoSettlInst: QuickFix.Group
     {
     public NoSettlInst() : base(778,162,message_order ) {}
-    static int[] message_order = new int[] {162,163,214,453,54,460,167,461,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,120,0};
+    static int[] message_order = new int[] {162,163,214,453,54,460,167,461,120,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0};
       public void set(QuickFix.SettlInstID value)
       { setField(value); }
       public QuickFix.SettlInstID get(QuickFix.SettlInstID  value)
@@ -317,6 +317,18 @@ namespace QuickFix50
       { return isSetField(field); }
       public bool isSetCFICode()
       { return isSetField(461); }
+
+      public void set(QuickFix.SettlCurrency value)
+      { setField(value); }
+      public QuickFix.SettlCurrency get(QuickFix.SettlCurrency  value)
+      { getField(value); return value; }
+      public QuickFix.SettlCurrency getSettlCurrency()
+      { QuickFix.SettlCurrency value = new QuickFix.SettlCurrency();
+        getField(value); return value; }
+      public bool isSet(QuickFix.SettlCurrency field)
+      { return isSetField(field); }
+      public bool isSetSettlCurrency()
+      { return isSetField(120); }
 
       public void set(QuickFix.EffectiveTime value)
       { setField(value); }
@@ -509,18 +521,6 @@ namespace QuickFix50
       { return isSetField(field); }
       public bool isSetPaymentRemitterID()
       { return isSetField(505); }
-
-      public void set(QuickFix.SettlCurrency value)
-      { setField(value); }
-      public QuickFix.SettlCurrency get(QuickFix.SettlCurrency  value)
-      { getField(value); return value; }
-      public QuickFix.SettlCurrency getSettlCurrency()
-      { QuickFix.SettlCurrency value = new QuickFix.SettlCurrency();
-        getField(value); return value; }
-      public bool isSet(QuickFix.SettlCurrency field)
-      { return isSetField(field); }
-      public bool isSetSettlCurrency()
-      { return isSetField(120); }
 
     };
   };

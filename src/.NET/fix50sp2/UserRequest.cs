@@ -76,30 +76,6 @@ namespace QuickFix50Sp2
     public bool isSetNewPassword()
     { return isSetField(925); }
 
-    public void set(QuickFix.RawDataLength value)
-    { setField(value); }
-    public QuickFix.RawDataLength get(QuickFix.RawDataLength  value)
-    { getField(value); return value; }
-    public QuickFix.RawDataLength getRawDataLength()
-    { QuickFix.RawDataLength value = new QuickFix.RawDataLength();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RawDataLength field)
-    { return isSetField(field); }
-    public bool isSetRawDataLength()
-    { return isSetField(95); }
-
-    public void set(QuickFix.RawData value)
-    { setField(value); }
-    public QuickFix.RawData get(QuickFix.RawData  value)
-    { getField(value); return value; }
-    public QuickFix.RawData getRawData()
-    { QuickFix.RawData value = new QuickFix.RawData();
-      getField(value); return value; }
-    public bool isSet(QuickFix.RawData field)
-    { return isSetField(field); }
-    public bool isSetRawData()
-    { return isSetField(96); }
-
     public void set(QuickFix.EncryptedPasswordMethod value)
     { setField(value); }
     public QuickFix.EncryptedPasswordMethod get(QuickFix.EncryptedPasswordMethod  value)
@@ -159,6 +135,30 @@ namespace QuickFix50Sp2
     { return isSetField(field); }
     public bool isSetEncryptedNewPassword()
     { return isSetField(1404); }
+
+    public void set(QuickFix.RawDataLength value)
+    { setField(value); }
+    public QuickFix.RawDataLength get(QuickFix.RawDataLength  value)
+    { getField(value); return value; }
+    public QuickFix.RawDataLength getRawDataLength()
+    { QuickFix.RawDataLength value = new QuickFix.RawDataLength();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RawDataLength field)
+    { return isSetField(field); }
+    public bool isSetRawDataLength()
+    { return isSetField(95); }
+
+    public void set(QuickFix.RawData value)
+    { setField(value); }
+    public QuickFix.RawData get(QuickFix.RawData  value)
+    { getField(value); return value; }
+    public QuickFix.RawData getRawData()
+    { QuickFix.RawData value = new QuickFix.RawData();
+      getField(value); return value; }
+    public bool isSet(QuickFix.RawData field)
+    { return isSetField(field); }
+    public bool isSetRawData()
+    { return isSetField(96); }
 
   };
 

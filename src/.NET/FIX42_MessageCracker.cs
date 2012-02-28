@@ -42,7 +42,7 @@ namespace QuickFix42
     {}
   public virtual void onMessage( Logout message, QuickFix.SessionID session ) 
     {}
-  public virtual void onMessage( IndicationofInterest message, QuickFix.SessionID session ) 
+  public virtual void onMessage( IOI message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
@@ -76,7 +76,7 @@ namespace QuickFix42
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListStatus message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
-  public virtual void onMessage( AllocationACK message, QuickFix.SessionID session ) 
+  public virtual void onMessage( AllocationInstructionAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( DontKnowTrade message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
@@ -144,8 +144,8 @@ namespace QuickFix42
     if( message is Logout )
       onMessage( (Logout)(message), sessionID );
     else
-    if( message is IndicationofInterest )
-      onMessage( (IndicationofInterest)(message), sessionID );
+    if( message is IOI )
+      onMessage( (IOI)(message), sessionID );
     else
     if( message is Advertisement )
       onMessage( (Advertisement)(message), sessionID );
@@ -195,8 +195,8 @@ namespace QuickFix42
     if( message is ListStatus )
       onMessage( (ListStatus)(message), sessionID );
     else
-    if( message is AllocationACK )
-      onMessage( (AllocationACK)(message), sessionID );
+    if( message is AllocationInstructionAck )
+      onMessage( (AllocationInstructionAck)(message), sessionID );
     else
     if( message is DontKnowTrade )
       onMessage( (DontKnowTrade)(message), sessionID );

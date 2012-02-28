@@ -305,6 +305,12 @@ namespace QuickFix43
       
      }
    
+     if(msgType.Equals("n")) {
+      
+      return new QuickFix43.XMLnonFIX();
+      
+     }
+   
      if(msgType.Equals("o")) {
       
       return new QuickFix43.RegistrationInstructions();

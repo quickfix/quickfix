@@ -1,12 +1,5 @@
 import quickfix
 
-class RelatedPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1563)
-		else:
-			quickfix.StringField.__init__(self, 1563, data)
-
 class MaxPriceLevels(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -56,20 +49,6 @@ class LateIndicator(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 978, data)
 
-class RiskEncodedSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1621)
-		else:
-			quickfix.StringField.__init__(self, 1621, data)
-
-class RelationshipRiskSecuritySubType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1601)
-		else:
-			quickfix.StringField.__init__(self, 1601, data)
-
 class SecurityListID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -83,13 +62,6 @@ class DerivativeFlowScheduleType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 1442)
 		else:
 			quickfix.IntField.__init__(self, 1442, data)
-
-class EncodedSymbolLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1359)
-		else:
-			quickfix.IntField.__init__(self, 1359, data)
 
 class FlexibleIndicator(quickfix.BoolField):
 	def __init__(self, data = None):
@@ -140,19 +112,19 @@ class ContractMultiplier(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 231, data)
 
-class PartyAltIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1518)
-		else:
-			quickfix.CharField.__init__(self, 1518, data)
-
 class CcyAmt(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.DoubleField.__init__(self, 1157)
 		else:
 			quickfix.DoubleField.__init__(self, 1157, data)
+
+class LegOrderQty(quickfix.DoubleField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.DoubleField.__init__(self, 685)
+		else:
+			quickfix.DoubleField.__init__(self, 685, data)
 
 class AllocIntermedReqType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -161,13 +133,6 @@ class AllocIntermedReqType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 808, data)
 
-class NoNested2PartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 756)
-		else:
-			quickfix.IntField.__init__(self, 756, data)
-
 class UnderlyingIssuer(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -175,12 +140,12 @@ class UnderlyingIssuer(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 306, data)
 
-class LegOrderQty(quickfix.DoubleField):
+class NoNested2PartyIDs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.DoubleField.__init__(self, 685)
+			quickfix.IntField.__init__(self, 756)
 		else:
-			quickfix.DoubleField.__init__(self, 685, data)
+			quickfix.IntField.__init__(self, 756, data)
 
 class MinTradeVol(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -238,12 +203,12 @@ class DerivativeFuturesValuationMethod(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1319, data)
 
-class NoLegSecurityAltID(quickfix.StringField):
+class NoLegSecurityAltID(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.StringField.__init__(self, 604)
+			quickfix.IntField.__init__(self, 604)
 		else:
-			quickfix.StringField.__init__(self, 604, data)
+			quickfix.IntField.__init__(self, 604, data)
 
 class DerivativeSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
@@ -385,13 +350,6 @@ class CardNumber(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 489, data)
 
-class NoRelatedPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1562)
-		else:
-			quickfix.IntField.__init__(self, 1562, data)
-
 class NoLegStipulations(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -433,13 +391,6 @@ class LegPrice(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 566)
 		else:
 			quickfix.DoubleField.__init__(self, 566, data)
-
-class RelationshipRiskMaturityTime(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1603)
-		else:
-			quickfix.StringField.__init__(self, 1603, data)
 
 class DeliverToCompID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -707,13 +658,6 @@ class UnderlyingMaturityMonthYear(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 313, data)
 
-class RiskWarningLevelPercent(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1560)
-		else:
-			quickfix.DoubleField.__init__(self, 1560, data)
-
 class UnderlyingOriginalNotionalPercentageOutstanding(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -748,13 +692,6 @@ class UnderlyingRepurchaseTerm(quickfix.IntField):
 			quickfix.IntField.__init__(self, 244)
 		else:
 			quickfix.IntField.__init__(self, 244, data)
-
-class RiskWarningLevelName(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1561)
-		else:
-			quickfix.StringField.__init__(self, 1561, data)
 
 class DerivativeCountryOfIssue(quickfix.StringField):
 	def __init__(self, data = None):
@@ -819,13 +756,6 @@ class ClearingBusinessDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 715, data)
 
-class NoRelationshipRiskLimits(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1582)
-		else:
-			quickfix.IntField.__init__(self, 1582, data)
-
 class LocationID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -860,13 +790,6 @@ class BidTradeType(quickfix.CharField):
 			quickfix.CharField.__init__(self, 418)
 		else:
 			quickfix.CharField.__init__(self, 418, data)
-
-class RelationshipRiskInstrumentOperator(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1588)
-		else:
-			quickfix.IntField.__init__(self, 1588, data)
 
 class UnderlyingAttachmentPoint(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -1050,13 +973,6 @@ class SettlCurrFxRate(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 155, data)
 
-class RelatedPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1565)
-		else:
-			quickfix.IntField.__init__(self, 1565, data)
-
 class LegContractMultiplierUnit(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -1105,20 +1021,6 @@ class RoutingID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 217)
 		else:
 			quickfix.StringField.__init__(self, 217, data)
-
-class RelationshipRiskSecurityAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1594)
-		else:
-			quickfix.StringField.__init__(self, 1594, data)
-
-class RelatedPartyAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1570)
-		else:
-			quickfix.StringField.__init__(self, 1570, data)
 
 class StrategyParameterType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -1358,13 +1260,6 @@ class AdvSide(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 4, data)
 
-class RelatedContextPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1580)
-		else:
-			quickfix.StringField.__init__(self, 1580, data)
-
 class DerivativeSecuritySubType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -1413,20 +1308,6 @@ class TradeRequestID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 568)
 		else:
 			quickfix.StringField.__init__(self, 568, data)
-
-class RelationshipRiskLimitType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1583)
-		else:
-			quickfix.IntField.__init__(self, 1583, data)
-
-class RiskSecurityIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1539)
-		else:
-			quickfix.StringField.__init__(self, 1539, data)
 
 class LegFlowScheduleType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -1595,13 +1476,6 @@ class MDEntryBuyer(quickfix.StringField):
 			quickfix.StringField.__init__(self, 288)
 		else:
 			quickfix.StringField.__init__(self, 288, data)
-
-class RelationshipRiskCouponRate(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1608)
-		else:
-			quickfix.DoubleField.__init__(self, 1608, data)
 
 class NoDerivativeInstrumentPartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -1785,13 +1659,6 @@ class EncodedUnderlyingSecurityDesc(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 365, data)
 
-class RelatedPartyAltSubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1574)
-		else:
-			quickfix.IntField.__init__(self, 1574, data)
-
 class MarketReportID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -1904,13 +1771,6 @@ class ExecBroker(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 76, data)
 
-class RelationshipRiskEncodedSecurityDescLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1618)
-		else:
-			quickfix.IntField.__init__(self, 1618, data)
-
 class SecurityXMLLen(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -2022,13 +1882,6 @@ class LegSecurityType(quickfix.StringField):
 			quickfix.StringField.__init__(self, 609)
 		else:
 			quickfix.StringField.__init__(self, 609, data)
-
-class RiskLimitPlatform(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1533)
-		else:
-			quickfix.StringField.__init__(self, 1533, data)
 
 class OrigCustOrderCapacity(quickfix.IntField):
 	def __init__(self, data = None):
@@ -2226,13 +2079,6 @@ class EncodedLegSecurityDesc(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 622, data)
 
-class RelatedContextPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1578)
-		else:
-			quickfix.IntField.__init__(self, 1578, data)
-
 class UnderlyingSettlementStatus(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -2254,26 +2100,12 @@ class RegistRefID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 508, data)
 
-class RelationshipRiskFlexibleIndicator(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 1607)
-		else:
-			quickfix.BoolField.__init__(self, 1607, data)
-
 class DerivativePriceQuoteMethod(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
 			quickfix.StringField.__init__(self, 1318)
 		else:
 			quickfix.StringField.__init__(self, 1318, data)
-
-class RelationshipRiskProductComplex(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1597)
-		else:
-			quickfix.StringField.__init__(self, 1597, data)
 
 class OrderDelay(quickfix.IntField):
 	def __init__(self, data = None):
@@ -2471,20 +2303,6 @@ class OnBehalfOfSubID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 116, data)
 
-class RelationshipRiskLimitPlatform(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1586)
-		else:
-			quickfix.StringField.__init__(self, 1586, data)
-
-class RelatedPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1567)
-		else:
-			quickfix.StringField.__init__(self, 1567, data)
-
 class ComplexEventEndTime(quickfix.UtcTimeOnlyField):
 	def __init__(self, data = None):
 		if data == None:
@@ -2576,13 +2394,6 @@ class TotQuoteEntries(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 304, data)
 
-class PartyAltSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1520)
-		else:
-			quickfix.StringField.__init__(self, 1520, data)
-
 class TotNoCxldQuotes(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -2624,13 +2435,6 @@ class PosQtyStatus(quickfix.IntField):
 			quickfix.IntField.__init__(self, 706)
 		else:
 			quickfix.IntField.__init__(self, 706, data)
-
-class RiskRestructuringType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1551)
-		else:
-			quickfix.StringField.__init__(self, 1551, data)
 
 class NoNested4PartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -2778,13 +2582,6 @@ class AdjustmentType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 718)
 		else:
 			quickfix.IntField.__init__(self, 718, data)
-
-class NoPartyAltSubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1519)
-		else:
-			quickfix.IntField.__init__(self, 1519, data)
 
 class UnderlyingInstrumentPartyID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -2968,13 +2765,6 @@ class OfferYield(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 634, data)
 
-class RelatedContextPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1576)
-		else:
-			quickfix.StringField.__init__(self, 1576, data)
-
 class TargetPartyIDSource(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3087,12 +2877,12 @@ class MaturityRuleID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1222, data)
 
-class UnderlyingRepoCollateralSecurityType(quickfix.IntField):
+class UnderlyingRepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 243)
+			quickfix.StringField.__init__(self, 243)
 		else:
-			quickfix.IntField.__init__(self, 243, data)
+			quickfix.StringField.__init__(self, 243, data)
 
 class NoTimeInForceRules(quickfix.IntField):
 	def __init__(self, data = None):
@@ -3171,13 +2961,6 @@ class RFQReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 644, data)
 
-class RelationshipRiskSecurityExchange(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1609)
-		else:
-			quickfix.StringField.__init__(self, 1609, data)
-
 class UnderlyingLegSymbolSfx(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3226,13 +3009,6 @@ class PegMoveType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 835)
 		else:
 			quickfix.IntField.__init__(self, 835, data)
-
-class AsgnReqID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 831)
-		else:
-			quickfix.StringField.__init__(self, 831, data)
 
 class PegDifference(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -3304,13 +3080,6 @@ class CardIssNum(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 491, data)
 
-class RiskCFICode(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1546)
-		else:
-			quickfix.StringField.__init__(self, 1546, data)
-
 class EncodedMktSegmDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3345,13 +3114,6 @@ class NoQuoteSets(quickfix.IntField):
 			quickfix.IntField.__init__(self, 296)
 		else:
 			quickfix.IntField.__init__(self, 296, data)
-
-class RelationshipRiskSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1610)
-		else:
-			quickfix.StringField.__init__(self, 1610, data)
 
 class Nested4PartySubIDType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -3521,13 +3283,6 @@ class SettlInstSource(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 165, data)
 
-class PartyAltSubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1521)
-		else:
-			quickfix.IntField.__init__(self, 1521, data)
-
 class UnderlyingLegSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3640,13 +3395,6 @@ class TestMessageIndicator(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 464, data)
 
-class ContextPartySubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1527)
-		else:
-			quickfix.StringField.__init__(self, 1527, data)
-
 class DerivativeEventDate(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3702,20 +3450,6 @@ class DeliverToSubID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 129)
 		else:
 			quickfix.StringField.__init__(self, 129, data)
-
-class NoRelatedPartyAltIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1569)
-		else:
-			quickfix.IntField.__init__(self, 1569, data)
-
-class RiskProductComplex(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1544)
-		else:
-			quickfix.StringField.__init__(self, 1544, data)
 
 class LegPriceUnitOfMeasureQty(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -3822,13 +3556,6 @@ class PositionEffect(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 77, data)
 
-class RelatedPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1568)
-		else:
-			quickfix.IntField.__init__(self, 1568, data)
-
 class TriggerAction(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -3905,13 +3632,6 @@ class ListNoOrds(quickfix.IntField):
 			quickfix.IntField.__init__(self, 68)
 		else:
 			quickfix.IntField.__init__(self, 68, data)
-
-class RelatedPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1564)
-		else:
-			quickfix.CharField.__init__(self, 1564, data)
 
 class PegSymbol(quickfix.StringField):
 	def __init__(self, data = None):
@@ -4137,13 +3857,6 @@ class BidID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 390, data)
 
-class PartyDetailsRequestResult(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1511)
-		else:
-			quickfix.IntField.__init__(self, 1511, data)
-
 class ExerciseMethod(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -4326,13 +4039,6 @@ class RelatdSym(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 46, data)
 
-class RiskLimitAmount(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1531)
-		else:
-			quickfix.DoubleField.__init__(self, 1531, data)
-
 class UnderlyingLegSecuritySubType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -4346,27 +4052,6 @@ class NoUnderlyingSecurityAltID(quickfix.IntField):
 			quickfix.IntField.__init__(self, 457)
 		else:
 			quickfix.IntField.__init__(self, 457, data)
-
-class RelationshipRiskCFICode(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1599)
-		else:
-			quickfix.StringField.__init__(self, 1599, data)
-
-class NoRelatedPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1566)
-		else:
-			quickfix.IntField.__init__(self, 1566, data)
-
-class RiskSymbolSfx(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1537)
-		else:
-			quickfix.StringField.__init__(self, 1537, data)
 
 class MDQuoteType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -4620,13 +4305,6 @@ class CashDistribAgentAcctName(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 502, data)
 
-class NoContextPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1526)
-		else:
-			quickfix.IntField.__init__(self, 1526, data)
-
 class UndlyInstrumentPartyIDSource(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -4689,13 +4367,6 @@ class SecuritySettlAgentAcctName(quickfix.StringField):
 			quickfix.StringField.__init__(self, 179)
 		else:
 			quickfix.StringField.__init__(self, 179, data)
-
-class RiskInstrumentMultiplier(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1558)
-		else:
-			quickfix.DoubleField.__init__(self, 1558, data)
 
 class NoDerivativeEvents(quickfix.IntField):
 	def __init__(self, data = None):
@@ -4928,13 +4599,6 @@ class NoMDEntries(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 268, data)
 
-class NoPartyListResponseTypes(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1506)
-		else:
-			quickfix.IntField.__init__(self, 1506, data)
-
 class StrikePriceDeterminationMethod(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -4969,13 +4633,6 @@ class IOIRefID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 26)
 		else:
 			quickfix.StringField.__init__(self, 26, data)
-
-class NoContextPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1522)
-		else:
-			quickfix.IntField.__init__(self, 1522, data)
 
 class TargetStrategy(quickfix.IntField):
 	def __init__(self, data = None):
@@ -5075,13 +4732,6 @@ class CustOrderCapacity(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 582, data)
 
-class RiskSecurityExchange(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1616)
-		else:
-			quickfix.StringField.__init__(self, 1616, data)
-
 class LegAllocSettlCurrency(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5117,13 +4767,6 @@ class LegSecurityID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 602, data)
 
-class EncodedSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1360)
-		else:
-			quickfix.StringField.__init__(self, 1360, data)
-
 class DerivativeSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5137,13 +4780,6 @@ class UnitOfMeasure(quickfix.StringField):
 			quickfix.StringField.__init__(self, 996)
 		else:
 			quickfix.StringField.__init__(self, 996, data)
-
-class SecDefStatus(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 653)
-		else:
-			quickfix.IntField.__init__(self, 653, data)
 
 class Quantity(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -5292,13 +4928,6 @@ class StandInstDbType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 169, data)
 
-class RelatedContextPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1577)
-		else:
-			quickfix.CharField.__init__(self, 1577, data)
-
 class QuoteEntryStatus(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5369,13 +4998,6 @@ class AllocID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 70, data)
 
-class NoPartyList(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1513)
-		else:
-			quickfix.IntField.__init__(self, 1513, data)
-
 class UnderlyingDeliveryAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5424,13 +5046,6 @@ class PaymentMethod(quickfix.IntField):
 			quickfix.IntField.__init__(self, 492)
 		else:
 			quickfix.IntField.__init__(self, 492, data)
-
-class RiskCouponRate(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1555)
-		else:
-			quickfix.DoubleField.__init__(self, 1555, data)
 
 class UnderlyingLegOptAttribute(quickfix.CharField):
 	def __init__(self, data = None):
@@ -5550,13 +5165,6 @@ class MiscFeeCurr(quickfix.StringField):
 			quickfix.StringField.__init__(self, 138)
 		else:
 			quickfix.StringField.__init__(self, 138, data)
-
-class NoRiskLimits(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1529)
-		else:
-			quickfix.IntField.__init__(self, 1529, data)
 
 class AttachmentPoint(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -5698,13 +5306,6 @@ class ClearingFirm(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 439, data)
 
-class RelationshipRiskSecurityIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1592)
-		else:
-			quickfix.StringField.__init__(self, 1592, data)
-
 class SessionStatus(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5803,27 +5404,6 @@ class QuoteReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 131, data)
 
-class NoRelatedPartyAltSubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1572)
-		else:
-			quickfix.IntField.__init__(self, 1572, data)
-
-class RiskProduct(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1543)
-		else:
-			quickfix.IntField.__init__(self, 1543, data)
-
-class RiskSecurityAltIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1542)
-		else:
-			quickfix.StringField.__init__(self, 1542, data)
-
 class PriceUnitOfMeasure(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5915,20 +5495,6 @@ class MessageEncoding(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 347, data)
 
-class RiskPutOrCall(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1553)
-		else:
-			quickfix.IntField.__init__(self, 1553, data)
-
-class RiskSecurityGroup(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1545)
-		else:
-			quickfix.StringField.__init__(self, 1545, data)
-
 class NoPartySubIDs(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -5943,12 +5509,12 @@ class SettlInstReqID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 791, data)
 
-class LegRepoCollateralSecurityType(quickfix.IntField):
+class LegRepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 250)
+			quickfix.StringField.__init__(self, 250)
 		else:
-			quickfix.IntField.__init__(self, 250, data)
+			quickfix.StringField.__init__(self, 250, data)
 
 class AffectedSecondaryOrderID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -5956,13 +5522,6 @@ class AffectedSecondaryOrderID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 536)
 		else:
 			quickfix.StringField.__init__(self, 536, data)
-
-class RiskSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1536)
-		else:
-			quickfix.StringField.__init__(self, 1536, data)
 
 class DerivativeMaturityTime(quickfix.StringField):
 	def __init__(self, data = None):
@@ -6034,13 +5593,6 @@ class ExpireDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 432, data)
 
-class RiskSecurityType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1547)
-		else:
-			quickfix.StringField.__init__(self, 1547, data)
-
 class NoMatchRules(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6097,13 +5649,6 @@ class WaveNo(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 105, data)
 
-class RiskSeniority(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1552)
-		else:
-			quickfix.StringField.__init__(self, 1552, data)
-
 class StrikePriceBoundaryMethod(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6131,13 +5676,6 @@ class QuoteID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 117)
 		else:
 			quickfix.StringField.__init__(self, 117, data)
-
-class RiskFlexibleIndicator(quickfix.BoolField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.BoolField.__init__(self, 1554)
-		else:
-			quickfix.BoolField.__init__(self, 1554, data)
 
 class DerivativeInstrumentPartyIDSource(quickfix.StringField):
 	def __init__(self, data = None):
@@ -6216,12 +5754,12 @@ class CrossType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 549, data)
 
-class RepoCollateralSecurityType(quickfix.IntField):
+class RepoCollateralSecurityType(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 239)
+			quickfix.StringField.__init__(self, 239)
 		else:
-			quickfix.IntField.__init__(self, 239, data)
+			quickfix.StringField.__init__(self, 239, data)
 
 class Password(quickfix.StringField):
 	def __init__(self, data = None):
@@ -6327,13 +5865,6 @@ class ContAmtCurr(quickfix.StringField):
 			quickfix.StringField.__init__(self, 521)
 		else:
 			quickfix.StringField.__init__(self, 521, data)
-
-class RelationshipRiskSecurityGroup(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1598)
-		else:
-			quickfix.StringField.__init__(self, 1598, data)
 
 class ComplexEventType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -6580,13 +6111,6 @@ class UnderlyingLegMaturityMonthYear(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1339, data)
 
-class DerivativeSecurityListRequestType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1307)
-		else:
-			quickfix.IntField.__init__(self, 1307, data)
-
 class NoLotTypeRules(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6622,13 +6146,6 @@ class GrossTradeAmt(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 381, data)
 
-class ContextPartyID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1523)
-		else:
-			quickfix.StringField.__init__(self, 1523, data)
-
 class SecurityListDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6663,13 +6180,6 @@ class LegCreditRating(quickfix.StringField):
 			quickfix.StringField.__init__(self, 257)
 		else:
 			quickfix.StringField.__init__(self, 257, data)
-
-class RelationshipRiskInstrumentSettlType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1611)
-		else:
-			quickfix.StringField.__init__(self, 1611, data)
 
 class BidForwardPoints2(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -6720,13 +6230,6 @@ class LegSettlmntTyp(quickfix.CharField):
 		else:
 			quickfix.CharField.__init__(self, 587, data)
 
-class NoRelationshipRiskInstruments(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1587)
-		else:
-			quickfix.IntField.__init__(self, 1587, data)
-
 class DerivativeNTPositionLimit(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6761,13 +6264,6 @@ class SessionRejectReason(quickfix.IntField):
 			quickfix.IntField.__init__(self, 373)
 		else:
 			quickfix.IntField.__init__(self, 373, data)
-
-class PartyDetailsListReportID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1510)
-		else:
-			quickfix.StringField.__init__(self, 1510, data)
 
 class DeliveryType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -6881,20 +6377,6 @@ class LegAllocAccount(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 671, data)
 
-class NoRelationshipRiskWarningLevels(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1613)
-		else:
-			quickfix.IntField.__init__(self, 1613, data)
-
-class RelationshipRiskProduct(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1596)
-		else:
-			quickfix.IntField.__init__(self, 1596, data)
-
 class LegSecurityDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -6999,13 +6481,6 @@ class TotNoOrders(quickfix.IntField):
 			quickfix.IntField.__init__(self, 68)
 		else:
 			quickfix.IntField.__init__(self, 68, data)
-
-class PartyAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1517)
-		else:
-			quickfix.StringField.__init__(self, 1517, data)
 
 class LegSwapType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -7189,13 +6664,6 @@ class PreviouslyReported(quickfix.BoolField):
 		else:
 			quickfix.BoolField.__init__(self, 570, data)
 
-class ContextPartyIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1524)
-		else:
-			quickfix.CharField.__init__(self, 1524, data)
-
 class RptSys(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7342,13 +6810,6 @@ class ExecType(quickfix.CharField):
 			quickfix.CharField.__init__(self, 150)
 		else:
 			quickfix.CharField.__init__(self, 150, data)
-
-class NoRelatedContextPartySubIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1579)
-		else:
-			quickfix.IntField.__init__(self, 1579, data)
 
 class Nested4PartyRole(quickfix.IntField):
 	def __init__(self, data = None):
@@ -7595,13 +7056,6 @@ class TransactTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 60, data)
 
-class RiskLimitType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1530)
-		else:
-			quickfix.IntField.__init__(self, 1530, data)
-
 class UnderlyingFlowScheduleType(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7651,13 +7105,6 @@ class LastShares(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 32, data)
 
-class RequestedPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1509)
-		else:
-			quickfix.IntField.__init__(self, 1509, data)
-
 class EventTime(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7685,13 +7132,6 @@ class XmlData(quickfix.StringField):
 			quickfix.StringField.__init__(self, 213)
 		else:
 			quickfix.StringField.__init__(self, 213, data)
-
-class RelationshipRiskSeniority(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1605)
-		else:
-			quickfix.StringField.__init__(self, 1605, data)
 
 class NoTargetPartyIDs(quickfix.IntField):
 	def __init__(self, data = None):
@@ -7931,13 +7371,6 @@ class ExDestination(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 100, data)
 
-class NoPartyRelationships(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1514)
-		else:
-			quickfix.IntField.__init__(self, 1514, data)
-
 class DerivativeInstrmtAssignmentMethod(quickfix.CharField):
 	def __init__(self, data = None):
 		if data == None:
@@ -7972,13 +7405,6 @@ class LegLastPx(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 637)
 		else:
 			quickfix.DoubleField.__init__(self, 637, data)
-
-class NoRiskWarningLevels(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1559)
-		else:
-			quickfix.IntField.__init__(self, 1559, data)
 
 class AllocReportType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -8043,13 +7469,6 @@ class HopSendingTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 629, data)
 
-class RelationshipRiskLimitAmount(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1584)
-		else:
-			quickfix.DoubleField.__init__(self, 1584, data)
-
 class ApplResendFlag(quickfix.BoolField):
 	def __init__(self, data = None):
 		if data == None:
@@ -8063,13 +7482,6 @@ class DerivativeCapPrice(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 1321)
 		else:
 			quickfix.DoubleField.__init__(self, 1321, data)
-
-class RiskSecurityID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1538)
-		else:
-			quickfix.StringField.__init__(self, 1538, data)
 
 class ComplexOptPayoutAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -8155,13 +7567,6 @@ class FloorPrice(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 1200, data)
 
-class RiskMaturityTime(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1550)
-		else:
-			quickfix.StringField.__init__(self, 1550, data)
-
 class UnderlyingPriceUnitOfMeasureQty(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -8210,13 +7615,6 @@ class LegBenchmarkCurveCurrency(quickfix.StringField):
 			quickfix.StringField.__init__(self, 676)
 		else:
 			quickfix.StringField.__init__(self, 676, data)
-
-class RiskInstrumentOperator(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1535)
-		else:
-			quickfix.IntField.__init__(self, 1535, data)
 
 class OptPayoutAmount(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -8463,13 +7861,6 @@ class BidDescriptor(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 400, data)
 
-class RelationshipRiskSecurityAltIDSource(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1595)
-		else:
-			quickfix.StringField.__init__(self, 1595, data)
-
 class MDStreamID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -8623,13 +8014,6 @@ class LegBidPx(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 681)
 		else:
 			quickfix.DoubleField.__init__(self, 681, data)
-
-class ContextPartyRole(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1525)
-		else:
-			quickfix.IntField.__init__(self, 1525, data)
 
 class TradSesEvent(quickfix.IntField):
 	def __init__(self, data = None):
@@ -8791,20 +8175,6 @@ class RegistRejReasonCode(quickfix.IntField):
 			quickfix.IntField.__init__(self, 507)
 		else:
 			quickfix.IntField.__init__(self, 507, data)
-
-class RelationshipRiskEncodedSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1619)
-		else:
-			quickfix.StringField.__init__(self, 1619, data)
-
-class RelationshipRiskRestructuringType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1604)
-		else:
-			quickfix.StringField.__init__(self, 1604, data)
 
 class SideTimeInForce(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
@@ -9002,13 +8372,6 @@ class AllocAccruedInterestAmt(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 742, data)
 
-class RiskSecuritySubType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1548)
-		else:
-			quickfix.StringField.__init__(self, 1548, data)
-
 class EncodedSecurityListDesc(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -9064,13 +8427,6 @@ class LongQty(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 704)
 		else:
 			quickfix.DoubleField.__init__(self, 704, data)
-
-class NoPartyAltIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1516)
-		else:
-			quickfix.IntField.__init__(self, 1516, data)
 
 class DerivativeSettlMethod(quickfix.CharField):
 	def __init__(self, data = None):
@@ -9282,13 +8638,6 @@ class EncodedUnderlyingIssuer(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 363, data)
 
-class NoRequestedPartyRoles(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1508)
-		else:
-			quickfix.IntField.__init__(self, 1508, data)
-
 class EncryptedPassword(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -9351,20 +8700,6 @@ class TotNoSecurityTypes(quickfix.IntField):
 			quickfix.IntField.__init__(self, 557)
 		else:
 			quickfix.IntField.__init__(self, 557, data)
-
-class RelationshipRiskInstrumentMultiplier(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1612)
-		else:
-			quickfix.DoubleField.__init__(self, 1612, data)
-
-class NoRiskInstruments(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1534)
-		else:
-			quickfix.IntField.__init__(self, 1534, data)
 
 class ReportedPx(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -9569,13 +8904,6 @@ class ContraTrader(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 337, data)
 
-class RiskInstrumentSettlType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1557)
-		else:
-			quickfix.StringField.__init__(self, 1557, data)
-
 class MDSecSize(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -9709,13 +9037,6 @@ class YieldRedemptionDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 696, data)
 
-class RelationshipRiskSecurityID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1591)
-		else:
-			quickfix.StringField.__init__(self, 1591, data)
-
 class NoSettlDetails(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -9757,20 +9078,6 @@ class TradSesMethod(quickfix.IntField):
 			quickfix.IntField.__init__(self, 338)
 		else:
 			quickfix.IntField.__init__(self, 338, data)
-
-class RiskLimitCurrency(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1532)
-		else:
-			quickfix.StringField.__init__(self, 1532, data)
-
-class PartyDetailsListRequestID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1505)
-		else:
-			quickfix.StringField.__init__(self, 1505, data)
 
 class AgreementID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -9926,13 +9233,6 @@ class PriorSettlPrice(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 734, data)
 
-class RelationshipRiskSecurityType(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1600)
-		else:
-			quickfix.StringField.__init__(self, 1600, data)
-
 class NotAffOrigClOrdID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -10080,13 +9380,6 @@ class StateOrProvinceOfIssue(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 471, data)
 
-class RelatedPartyAltSubID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1573)
-		else:
-			quickfix.StringField.__init__(self, 1573, data)
-
 class DerivativeInstrRegistry(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -10213,13 +9506,6 @@ class UnderlyingSecurityAltID(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 458, data)
 
-class NoRelationshipRiskSecurityAltID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1593)
-		else:
-			quickfix.IntField.__init__(self, 1593, data)
-
 class RefOrdIDReason(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -10275,13 +9561,6 @@ class LastCapacity(quickfix.CharField):
 			quickfix.CharField.__init__(self, 29)
 		else:
 			quickfix.CharField.__init__(self, 29, data)
-
-class RelationshipRiskLimitCurrency(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1585)
-		else:
-			quickfix.StringField.__init__(self, 1585, data)
 
 class UnderlyingInstrumentPartySubID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -10380,13 +9659,6 @@ class NoQuoteEntries(quickfix.IntField):
 			quickfix.IntField.__init__(self, 295)
 		else:
 			quickfix.IntField.__init__(self, 295, data)
-
-class RelationshipRiskWarningLevelName(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1615)
-		else:
-			quickfix.StringField.__init__(self, 1615, data)
 
 class DefaultCstmApplVerID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -10640,20 +9912,6 @@ class LegCouponPaymentDate(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 248, data)
 
-class TotNoPartyList(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1512)
-		else:
-			quickfix.IntField.__init__(self, 1512, data)
-
-class PartyListResponseType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1507)
-		else:
-			quickfix.IntField.__init__(self, 1507, data)
-
 class NoUnderlyingLegSecurityAltID(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -10695,13 +9953,6 @@ class PriorityIndicator(quickfix.IntField):
 			quickfix.IntField.__init__(self, 638)
 		else:
 			quickfix.IntField.__init__(self, 638, data)
-
-class ContextPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1528)
-		else:
-			quickfix.IntField.__init__(self, 1528, data)
 
 class UnderlyingLegCFICode(quickfix.StringField):
 	def __init__(self, data = None):
@@ -10829,20 +10080,6 @@ class SendingTime(quickfix.UtcTimeStampField):
 		else:
 			quickfix.UtcTimeStampField.__init__(self, 52, data)
 
-class RelationshipRiskMaturityMonthYear(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1602)
-		else:
-			quickfix.StringField.__init__(self, 1602, data)
-
-class RelatedPartyAltIDSource(quickfix.CharField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.CharField.__init__(self, 1571)
-		else:
-			quickfix.CharField.__init__(self, 1571, data)
-
 class ComplexEventStartDate(quickfix.UtcTimeStampField):
 	def __init__(self, data = None):
 		if data == None:
@@ -10877,13 +10114,6 @@ class SendingDate(quickfix.StringField):
 			quickfix.StringField.__init__(self, 51)
 		else:
 			quickfix.StringField.__init__(self, 51, data)
-
-class PartyRelationship(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1515)
-		else:
-			quickfix.IntField.__init__(self, 1515, data)
 
 class TimeToExpiration(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -11003,13 +10233,6 @@ class QuoteRespID(quickfix.StringField):
 			quickfix.StringField.__init__(self, 693)
 		else:
 			quickfix.StringField.__init__(self, 693, data)
-
-class RiskMaturityMonthYear(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1549)
-		else:
-			quickfix.StringField.__init__(self, 1549, data)
 
 class Nested3PartySubID(quickfix.StringField):
 	def __init__(self, data = None):
@@ -11186,27 +10409,6 @@ class BidDescriptorType(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 399, data)
 
-class RiskEncodedSecurityDescLen(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1620)
-		else:
-			quickfix.IntField.__init__(self, 1620, data)
-
-class RelationshipRiskSymbol(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1589)
-		else:
-			quickfix.StringField.__init__(self, 1589, data)
-
-class NoRelatedContextPartyIDs(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1575)
-		else:
-			quickfix.IntField.__init__(self, 1575, data)
-
 class DerivativeInstrumentPartySubID(quickfix.StringField):
 	def __init__(self, data = None):
 		if data == None:
@@ -11227,13 +10429,6 @@ class DateOfBirth(quickfix.StringField):
 			quickfix.StringField.__init__(self, 486)
 		else:
 			quickfix.StringField.__init__(self, 486, data)
-
-class RelatedContextPartySubIDType(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1581)
-		else:
-			quickfix.IntField.__init__(self, 1581, data)
 
 class StartStrikePxRange(quickfix.DoubleField):
 	def __init__(self, data = None):
@@ -11277,13 +10472,6 @@ class OrderQty(quickfix.DoubleField):
 		else:
 			quickfix.DoubleField.__init__(self, 38, data)
 
-class RelationshipRiskWarningLevelPercent(quickfix.DoubleField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.DoubleField.__init__(self, 1614)
-		else:
-			quickfix.DoubleField.__init__(self, 1614, data)
-
 class OriginalNotionalPercentageOutstanding(quickfix.DoubleField):
 	def __init__(self, data = None):
 		if data == None:
@@ -11319,13 +10507,6 @@ class StrategyParameterValue(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 960, data)
 
-class RiskSecurityDesc(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1556)
-		else:
-			quickfix.StringField.__init__(self, 1556, data)
-
 class NoInstrumentParties(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
@@ -11339,13 +10520,6 @@ class QuoteType(quickfix.IntField):
 			quickfix.IntField.__init__(self, 537)
 		else:
 			quickfix.IntField.__init__(self, 537, data)
-
-class NoRiskSecurityAltID(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1540)
-		else:
-			quickfix.IntField.__init__(self, 1540, data)
 
 class NoStrategyParameters(quickfix.IntField):
 	def __init__(self, data = None):
@@ -11367,13 +10541,6 @@ class DiscretionInst(quickfix.CharField):
 			quickfix.CharField.__init__(self, 388)
 		else:
 			quickfix.CharField.__init__(self, 388, data)
-
-class RiskSecurityAltID(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1541)
-		else:
-			quickfix.StringField.__init__(self, 1541, data)
 
 class TargetPartyRole(quickfix.IntField):
 	def __init__(self, data = None):
@@ -11416,13 +10583,6 @@ class MDReqRejReason(quickfix.CharField):
 			quickfix.CharField.__init__(self, 281)
 		else:
 			quickfix.CharField.__init__(self, 281, data)
-
-class RelationshipRiskPutOrCall(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 1606)
-		else:
-			quickfix.IntField.__init__(self, 1606, data)
 
 class ApplReqType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -11486,13 +10646,6 @@ class UnderlyingPutOrCall(quickfix.IntField):
 			quickfix.IntField.__init__(self, 315)
 		else:
 			quickfix.IntField.__init__(self, 315, data)
-
-class RelationshipRiskSymbolSfx(quickfix.StringField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.StringField.__init__(self, 1590)
-		else:
-			quickfix.StringField.__init__(self, 1590, data)
 
 class UnderlyingInstrumentPartyRole(quickfix.IntField):
 	def __init__(self, data = None):

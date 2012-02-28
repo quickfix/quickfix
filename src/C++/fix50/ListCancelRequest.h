@@ -25,12 +25,6 @@ namespace FIX50
     }
 
     FIELD_SET(*this, FIX::ListID);
-    FIELD_SET(*this, FIX::TransactTime);
-    FIELD_SET(*this, FIX::TradeOriginationDate);
-    FIELD_SET(*this, FIX::TradeDate);
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoPartyIDs);
     class NoPartyIDs: public FIX::Group
     {
@@ -48,6 +42,12 @@ namespace FIX50
         FIELD_SET(*this, FIX::PartySubIDType);
       };
     };
+    FIELD_SET(*this, FIX::TransactTime);
+    FIELD_SET(*this, FIX::TradeOriginationDate);
+    FIELD_SET(*this, FIX::TradeDate);
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

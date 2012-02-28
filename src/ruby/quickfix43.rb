@@ -1508,7 +1508,7 @@ class MassQuoteAcknowledgement < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix::IntArray.new(37)
+			order = Quickfix::IntArray.new(38)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -1520,32 +1520,33 @@ class MassQuoteAcknowledgement < Message
 			order[8] = 310
 			order[9] = 313
 			order[10] = 542
-			order[11] = 241
-			order[12] = 242
-			order[13] = 243
-			order[14] = 244
-			order[15] = 245
-			order[16] = 246
-			order[17] = 256
-			order[18] = 595
-			order[19] = 592
-			order[20] = 593
-			order[21] = 594
-			order[22] = 247
-			order[23] = 316
-			order[24] = 317
-			order[25] = 436
-			order[26] = 435
-			order[27] = 308
-			order[28] = 306
-			order[29] = 362
-			order[30] = 363
-			order[31] = 307
-			order[32] = 364
-			order[33] = 365
-			order[34] = 304
-			order[35] = 295
-			order[36] = 0
+			order[11] = 315
+			order[12] = 241
+			order[13] = 242
+			order[14] = 243
+			order[15] = 244
+			order[16] = 245
+			order[17] = 246
+			order[18] = 256
+			order[19] = 595
+			order[20] = 592
+			order[21] = 593
+			order[22] = 594
+			order[23] = 247
+			order[24] = 316
+			order[25] = 317
+			order[26] = 436
+			order[27] = 435
+			order[28] = 308
+			order[29] = 306
+			order[30] = 362
+			order[31] = 363
+			order[32] = 307
+			order[33] = 364
+			order[34] = 365
+			order[35] = 304
+			order[36] = 295
+			order[37] = 0
 			super(296, 302, order)
 		end
 
@@ -1847,7 +1848,7 @@ class MassQuote < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix::IntArray.new(38)
+			order = Quickfix::IntArray.new(39)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -1859,33 +1860,34 @@ class MassQuote < Message
 			order[8] = 310
 			order[9] = 313
 			order[10] = 542
-			order[11] = 241
-			order[12] = 242
-			order[13] = 243
-			order[14] = 244
-			order[15] = 245
-			order[16] = 246
-			order[17] = 256
-			order[18] = 595
-			order[19] = 592
-			order[20] = 593
-			order[21] = 594
-			order[22] = 247
-			order[23] = 316
-			order[24] = 317
-			order[25] = 436
-			order[26] = 435
-			order[27] = 308
-			order[28] = 306
-			order[29] = 362
-			order[30] = 363
-			order[31] = 307
-			order[32] = 364
-			order[33] = 365
-			order[34] = 367
-			order[35] = 304
-			order[36] = 295
-			order[37] = 0
+			order[11] = 315
+			order[12] = 241
+			order[13] = 242
+			order[14] = 243
+			order[15] = 244
+			order[16] = 245
+			order[17] = 246
+			order[18] = 256
+			order[19] = 595
+			order[20] = 592
+			order[21] = 593
+			order[22] = 594
+			order[23] = 247
+			order[24] = 316
+			order[25] = 317
+			order[26] = 436
+			order[27] = 435
+			order[28] = 308
+			order[29] = 306
+			order[30] = 362
+			order[31] = 363
+			order[32] = 307
+			order[33] = 364
+			order[34] = 365
+			order[35] = 367
+			order[36] = 304
+			order[37] = 295
+			order[38] = 0
 			super(296, 302, order)
 		end
 
@@ -2122,6 +2124,13 @@ class ListStrikePrice < Message
 				super(454, 455, order)
 			end
 		end
+	end
+end
+
+class XMLnonFIX < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("n") )
 	end
 end
 

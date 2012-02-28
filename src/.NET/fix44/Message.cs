@@ -316,59 +316,6 @@ namespace QuickFix44
       public bool isSetLastMsgSeqNumProcessed()
       { return isSetField(369); }
 
-      public void set(QuickFix.NoHops value)
-      { setField(value); }
-      public QuickFix.NoHops get(QuickFix.NoHops  value)
-      { getField(value); return value; }
-      public QuickFix.NoHops getNoHops()
-      { QuickFix.NoHops value = new QuickFix.NoHops();
-        getField(value); return value; }
-      public bool isSet(QuickFix.NoHops field)
-      { return isSetField(field); }
-      public bool isSetNoHops()
-      { return isSetField(627); }
-
-      public class NoHops: QuickFix.Group
-      {
-      public NoHops() : base(627,628,message_order ) {}
-      static int[] message_order = new int[] {628,629,630,0};
-        public void set(QuickFix.HopCompID value)
-        { setField(value); }
-        public QuickFix.HopCompID get(QuickFix.HopCompID  value)
-        { getField(value); return value; }
-        public QuickFix.HopCompID getHopCompID()
-        { QuickFix.HopCompID value = new QuickFix.HopCompID();
-          getField(value); return value; }
-        public bool isSet(QuickFix.HopCompID field)
-        { return isSetField(field); }
-        public bool isSetHopCompID()
-        { return isSetField(628); }
-
-        public void set(QuickFix.HopSendingTime value)
-        { setField(value); }
-        public QuickFix.HopSendingTime get(QuickFix.HopSendingTime  value)
-        { getField(value); return value; }
-        public QuickFix.HopSendingTime getHopSendingTime()
-        { QuickFix.HopSendingTime value = new QuickFix.HopSendingTime();
-          getField(value); return value; }
-        public bool isSet(QuickFix.HopSendingTime field)
-        { return isSetField(field); }
-        public bool isSetHopSendingTime()
-        { return isSetField(629); }
-
-        public void set(QuickFix.HopRefID value)
-        { setField(value); }
-        public QuickFix.HopRefID get(QuickFix.HopRefID  value)
-        { getField(value); return value; }
-        public QuickFix.HopRefID getHopRefID()
-        { QuickFix.HopRefID value = new QuickFix.HopRefID();
-          getField(value); return value; }
-        public bool isSet(QuickFix.HopRefID field)
-        { return isSetField(field); }
-        public bool isSetHopRefID()
-        { return isSetField(630); }
-
-      };
   };
 
   public class Trailer : QuickFix.Message.Trailer

@@ -36,6 +36,35 @@ namespace QuickFix44
     public bool isSetMDReqRejReason()
     { return isSetField(281); }
 
+    public void set(QuickFix.NoAltMDSource value)
+    { setField(value); }
+    public QuickFix.NoAltMDSource get(QuickFix.NoAltMDSource  value)
+    { getField(value); return value; }
+    public QuickFix.NoAltMDSource getNoAltMDSource()
+    { QuickFix.NoAltMDSource value = new QuickFix.NoAltMDSource();
+      getField(value); return value; }
+    public bool isSet(QuickFix.NoAltMDSource field)
+    { return isSetField(field); }
+    public bool isSetNoAltMDSource()
+    { return isSetField(816); }
+
+    public class NoAltMDSource: QuickFix.Group
+    {
+    public NoAltMDSource() : base(816,817,message_order ) {}
+    static int[] message_order = new int[] {817,0};
+      public void set(QuickFix.AltMDSourceID value)
+      { setField(value); }
+      public QuickFix.AltMDSourceID get(QuickFix.AltMDSourceID  value)
+      { getField(value); return value; }
+      public QuickFix.AltMDSourceID getAltMDSourceID()
+      { QuickFix.AltMDSourceID value = new QuickFix.AltMDSourceID();
+        getField(value); return value; }
+      public bool isSet(QuickFix.AltMDSourceID field)
+      { return isSetField(field); }
+      public bool isSetAltMDSourceID()
+      { return isSetField(817); }
+
+    };
     public void set(QuickFix.Text value)
     { setField(value); }
     public QuickFix.Text get(QuickFix.Text  value)
@@ -72,35 +101,6 @@ namespace QuickFix44
     public bool isSetEncodedText()
     { return isSetField(355); }
 
-    public void set(QuickFix.NoAltMDSource value)
-    { setField(value); }
-    public QuickFix.NoAltMDSource get(QuickFix.NoAltMDSource  value)
-    { getField(value); return value; }
-    public QuickFix.NoAltMDSource getNoAltMDSource()
-    { QuickFix.NoAltMDSource value = new QuickFix.NoAltMDSource();
-      getField(value); return value; }
-    public bool isSet(QuickFix.NoAltMDSource field)
-    { return isSetField(field); }
-    public bool isSetNoAltMDSource()
-    { return isSetField(816); }
-
-    public class NoAltMDSource: QuickFix.Group
-    {
-    public NoAltMDSource() : base(816,817,message_order ) {}
-    static int[] message_order = new int[] {817,0};
-      public void set(QuickFix.AltMDSourceID value)
-      { setField(value); }
-      public QuickFix.AltMDSourceID get(QuickFix.AltMDSourceID  value)
-      { getField(value); return value; }
-      public QuickFix.AltMDSourceID getAltMDSourceID()
-      { QuickFix.AltMDSourceID value = new QuickFix.AltMDSourceID();
-        getField(value); return value; }
-      public bool isSet(QuickFix.AltMDSourceID field)
-      { return isSetField(field); }
-      public bool isSetAltMDSourceID()
-      { return isSetField(817); }
-
-    };
   };
 
 }

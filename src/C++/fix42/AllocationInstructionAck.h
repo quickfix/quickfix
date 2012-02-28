@@ -1,21 +1,21 @@
-#ifndef FIX41_ALLOCATIONACK_H
-#define FIX41_ALLOCATIONACK_H
+#ifndef FIX42_ALLOCATIONINSTRUCTIONACK_H
+#define FIX42_ALLOCATIONINSTRUCTIONACK_H
 
 #include "Message.h"
 
-namespace FIX41
+namespace FIX42
 {
 
-  class AllocationACK : public Message
+  class AllocationInstructionAck : public Message
   {
   public:
-    AllocationACK() : Message(MsgType()) {}
-    AllocationACK(const FIX::Message& m) : Message(m) {}
-    AllocationACK(const Message& m) : Message(m) {}
-    AllocationACK(const AllocationACK& m) : Message(m) {}
+    AllocationInstructionAck() : Message(MsgType()) {}
+    AllocationInstructionAck(const FIX::Message& m) : Message(m) {}
+    AllocationInstructionAck(const Message& m) : Message(m) {}
+    AllocationInstructionAck(const AllocationInstructionAck& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("P"); }
 
-    AllocationACK(
+    AllocationInstructionAck(
       const FIX::AllocID& aAllocID,
       const FIX::TradeDate& aTradeDate,
       const FIX::AllocStatus& aAllocStatus )
@@ -34,6 +34,8 @@ namespace FIX41
     FIELD_SET(*this, FIX::AllocStatus);
     FIELD_SET(*this, FIX::AllocRejCode);
     FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

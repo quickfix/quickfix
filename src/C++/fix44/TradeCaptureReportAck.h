@@ -52,6 +52,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::SecuritySubType);
     FIELD_SET(*this, FIX::MaturityMonthYear);
     FIELD_SET(*this, FIX::MaturityDate);
+    FIELD_SET(*this, FIX::PutOrCall);
     FIELD_SET(*this, FIX::CouponPaymentDate);
     FIELD_SET(*this, FIX::IssueDate);
     FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -82,24 +83,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::CPRegType);
     FIELD_SET(*this, FIX::DatedDate);
     FIELD_SET(*this, FIX::InterestAccrualDate);
-    FIELD_SET(*this, FIX::NoSecurityAltID);
-    class NoSecurityAltID: public FIX::Group
-    {
-    public:
-    NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
-      FIELD_SET(*this, FIX::SecurityAltID);
-      FIELD_SET(*this, FIX::SecurityAltIDSource);
-    };
-    FIELD_SET(*this, FIX::NoEvents);
-    class NoEvents: public FIX::Group
-    {
-    public:
-    NoEvents() : FIX::Group(864,865,FIX::message_order(865,866,867,868,0)) {}
-      FIELD_SET(*this, FIX::EventType);
-      FIELD_SET(*this, FIX::EventDate);
-      FIELD_SET(*this, FIX::EventPx);
-      FIELD_SET(*this, FIX::EventText);
-    };
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::NoTrdRegTimestamps);
     class NoTrdRegTimestamps: public FIX::Group
@@ -115,20 +98,11 @@ namespace FIX44
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::ClearingFeeIndicator);
-    FIELD_SET(*this, FIX::OrderCapacity);
-    FIELD_SET(*this, FIX::OrderRestrictions);
-    FIELD_SET(*this, FIX::CustOrderCapacity);
-    FIELD_SET(*this, FIX::Account);
-    FIELD_SET(*this, FIX::AcctIDSource);
-    FIELD_SET(*this, FIX::AccountType);
-    FIELD_SET(*this, FIX::PositionEffect);
-    FIELD_SET(*this, FIX::PreallocMethod);
     FIELD_SET(*this, FIX::NoLegs);
     class NoLegs: public FIX::Group
     {
     public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,687,690,683,564,565,539,654,566,587,588,637,0)) {}
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,687,690,683,564,565,539,654,566,587,588,637,0)) {}
       FIELD_SET(*this, FIX::LegSymbol);
       FIELD_SET(*this, FIX::LegSymbolSfx);
       FIELD_SET(*this, FIX::LegSecurityID);
@@ -170,14 +144,6 @@ namespace FIX44
       FIELD_SET(*this, FIX::LegDatedDate);
       FIELD_SET(*this, FIX::LegContractSettlMonth);
       FIELD_SET(*this, FIX::LegInterestAccrualDate);
-      FIELD_SET(*this, FIX::NoLegSecurityAltID);
-      class NoLegSecurityAltID: public FIX::Group
-      {
-      public:
-      NoLegSecurityAltID() : FIX::Group(604,605,FIX::message_order(605,606,0)) {}
-        FIELD_SET(*this, FIX::LegSecurityAltID);
-        FIELD_SET(*this, FIX::LegSecurityAltIDSource);
-      };
       FIELD_SET(*this, FIX::LegQty);
       FIELD_SET(*this, FIX::LegSwapType);
       FIELD_SET(*this, FIX::NoLegStipulations);
@@ -213,6 +179,15 @@ namespace FIX44
       FIELD_SET(*this, FIX::LegSettlDate);
       FIELD_SET(*this, FIX::LegLastPx);
     };
+    FIELD_SET(*this, FIX::ClearingFeeIndicator);
+    FIELD_SET(*this, FIX::OrderCapacity);
+    FIELD_SET(*this, FIX::OrderRestrictions);
+    FIELD_SET(*this, FIX::CustOrderCapacity);
+    FIELD_SET(*this, FIX::Account);
+    FIELD_SET(*this, FIX::AcctIDSource);
+    FIELD_SET(*this, FIX::AccountType);
+    FIELD_SET(*this, FIX::PositionEffect);
+    FIELD_SET(*this, FIX::PreallocMethod);
     FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs: public FIX::Group
     {

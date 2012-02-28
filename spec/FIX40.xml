@@ -41,7 +41,7 @@
   <message name='Logout' msgcat='admin' msgtype='5'>
    <field name='Text' required='N' />
   </message>
-  <message name='IndicationofInterest' msgcat='app' msgtype='6'>
+  <message name='IOI' msgcat='app' msgtype='6'>
    <field name='IOIid' required='Y' />
    <field name='IOITransType' required='Y' />
    <field name='IOIRefID' required='N' />
@@ -390,7 +390,7 @@
     <field name='AvgPx' required='Y' />
    </group>
   </message>
-  <message name='AllocationACK' msgcat='app' msgtype='P'>
+  <message name='AllocationInstructionAck' msgcat='app' msgtype='P'>
    <field name='ClientID' required='N' />
    <field name='ExecBroker' required='N' />
    <field name='AllocID' required='Y' />
@@ -643,7 +643,6 @@
   <field number='48' name='SecurityID' type='CHAR' />
   <field number='49' name='SenderCompID' type='CHAR' />
   <field number='50' name='SenderSubID' type='CHAR' />
-  <field number='51' name='SendingDate' type='DATE' />
   <field number='52' name='SendingTime' type='TIME' />
   <field number='53' name='Shares' type='INT' />
   <field number='54' name='Side' type='CHAR'>

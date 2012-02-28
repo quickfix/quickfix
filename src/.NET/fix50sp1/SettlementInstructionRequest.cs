@@ -204,6 +204,18 @@ namespace QuickFix50Sp1
     public bool isSetCFICode()
     { return isSetField(461); }
 
+    public void set(QuickFix.SettlCurrency value)
+    { setField(value); }
+    public QuickFix.SettlCurrency get(QuickFix.SettlCurrency  value)
+    { getField(value); return value; }
+    public QuickFix.SettlCurrency getSettlCurrency()
+    { QuickFix.SettlCurrency value = new QuickFix.SettlCurrency();
+      getField(value); return value; }
+    public bool isSet(QuickFix.SettlCurrency field)
+    { return isSetField(field); }
+    public bool isSetSettlCurrency()
+    { return isSetField(120); }
+
     public void set(QuickFix.EffectiveTime value)
     { setField(value); }
     public QuickFix.EffectiveTime get(QuickFix.EffectiveTime  value)
@@ -275,18 +287,6 @@ namespace QuickFix50Sp1
     { return isSetField(field); }
     public bool isSetStandInstDbID()
     { return isSetField(171); }
-
-    public void set(QuickFix.SettlCurrency value)
-    { setField(value); }
-    public QuickFix.SettlCurrency get(QuickFix.SettlCurrency  value)
-    { getField(value); return value; }
-    public QuickFix.SettlCurrency getSettlCurrency()
-    { QuickFix.SettlCurrency value = new QuickFix.SettlCurrency();
-      getField(value); return value; }
-    public bool isSet(QuickFix.SettlCurrency field)
-    { return isSetField(field); }
-    public bool isSetSettlCurrency()
-    { return isSetField(120); }
 
   };
 

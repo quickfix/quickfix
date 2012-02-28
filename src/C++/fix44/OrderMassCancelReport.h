@@ -34,6 +34,15 @@ namespace FIX44
     FIELD_SET(*this, FIX::MassCancelResponse);
     FIELD_SET(*this, FIX::MassCancelRejectReason);
     FIELD_SET(*this, FIX::TotalAffectedOrders);
+    FIELD_SET(*this, FIX::NoAffectedOrders);
+    class NoAffectedOrders: public FIX::Group
+    {
+    public:
+    NoAffectedOrders() : FIX::Group(534,41,FIX::message_order(41,535,536,0)) {}
+      FIELD_SET(*this, FIX::OrigClOrdID);
+      FIELD_SET(*this, FIX::AffectedOrderID);
+      FIELD_SET(*this, FIX::AffectedSecondaryOrderID);
+    };
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);
     FIELD_SET(*this, FIX::Symbol);
@@ -46,6 +55,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::SecuritySubType);
     FIELD_SET(*this, FIX::MaturityMonthYear);
     FIELD_SET(*this, FIX::MaturityDate);
+    FIELD_SET(*this, FIX::PutOrCall);
     FIELD_SET(*this, FIX::CouponPaymentDate);
     FIELD_SET(*this, FIX::IssueDate);
     FIELD_SET(*this, FIX::RepoCollateralSecurityType);
@@ -76,24 +86,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::CPRegType);
     FIELD_SET(*this, FIX::DatedDate);
     FIELD_SET(*this, FIX::InterestAccrualDate);
-    FIELD_SET(*this, FIX::NoSecurityAltID);
-    class NoSecurityAltID: public FIX::Group
-    {
-    public:
-    NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
-      FIELD_SET(*this, FIX::SecurityAltID);
-      FIELD_SET(*this, FIX::SecurityAltIDSource);
-    };
-    FIELD_SET(*this, FIX::NoEvents);
-    class NoEvents: public FIX::Group
-    {
-    public:
-    NoEvents() : FIX::Group(864,865,FIX::message_order(865,866,867,868,0)) {}
-      FIELD_SET(*this, FIX::EventType);
-      FIELD_SET(*this, FIX::EventDate);
-      FIELD_SET(*this, FIX::EventPx);
-      FIELD_SET(*this, FIX::EventText);
-    };
     FIELD_SET(*this, FIX::UnderlyingSymbol);
     FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
     FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -104,6 +96,7 @@ namespace FIX44
     FIELD_SET(*this, FIX::UnderlyingSecuritySubType);
     FIELD_SET(*this, FIX::UnderlyingMaturityMonthYear);
     FIELD_SET(*this, FIX::UnderlyingMaturityDate);
+    FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
     FIELD_SET(*this, FIX::UnderlyingIssueDate);
     FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
@@ -138,28 +131,11 @@ namespace FIX44
     FIELD_SET(*this, FIX::UnderlyingStartValue);
     FIELD_SET(*this, FIX::UnderlyingCurrentValue);
     FIELD_SET(*this, FIX::UnderlyingEndValue);
-    FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
-    class NoUnderlyingSecurityAltID: public FIX::Group
-    {
-    public:
-    NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
-      FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
-      FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
-    };
     FIELD_SET(*this, FIX::Side);
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::NoAffectedOrders);
-    class NoAffectedOrders: public FIX::Group
-    {
-    public:
-    NoAffectedOrders() : FIX::Group(534,41,FIX::message_order(41,535,536,0)) {}
-      FIELD_SET(*this, FIX::OrigClOrdID);
-      FIELD_SET(*this, FIX::AffectedOrderID);
-      FIELD_SET(*this, FIX::AffectedSecondaryOrderID);
-    };
   };
 
 }

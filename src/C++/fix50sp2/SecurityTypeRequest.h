@@ -26,13 +26,13 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
+    FIELD_SET(*this, FIX::MarketID);
+    FIELD_SET(*this, FIX::MarketSegmentID);
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::TradingSessionSubID);
     FIELD_SET(*this, FIX::Product);
     FIELD_SET(*this, FIX::SecurityType);
     FIELD_SET(*this, FIX::SecuritySubType);
-    FIELD_SET(*this, FIX::MarketID);
-    FIELD_SET(*this, FIX::MarketSegmentID);
   };
 
 }

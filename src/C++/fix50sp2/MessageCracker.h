@@ -137,9 +137,7 @@ namespace FIX50SP2
   class UserNotification; 
   class StreamAssignmentRequest; 
   class StreamAssignmentReport; 
-  class StreamAssignmentReportACK; 
-  class PartyDetailsListRequest; 
-  class PartyDetailsListReport;
+  class StreamAssignmentReportACK;
 
   class MessageCracker
   {
@@ -365,10 +363,6 @@ namespace FIX50SP2
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const StreamAssignmentReportACK&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const PartyDetailsListRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const PartyDetailsListReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( IOI&, const FIX::SessionID& ) {} 
  virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
  virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
@@ -477,8 +471,6 @@ namespace FIX50SP2
  virtual void onMessage( StreamAssignmentRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReportACK&, const FIX::SessionID& ) {} 
- virtual void onMessage( PartyDetailsListRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( PartyDetailsListReport&, const FIX::SessionID& ) {} 
 
 public:
   void crack( const Message& message, 
@@ -810,12 +802,6 @@ public:
     else
     if( msgTypeValue == "CE" )
       onMessage( (const StreamAssignmentReportACK&)message, sessionID );
-    else
-    if( msgTypeValue == "CF" )
-      onMessage( (const PartyDetailsListRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "CG" )
-      onMessage( (const PartyDetailsListReport&)message, sessionID );
     else onMessage( message, sessionID );
   }
   
@@ -1149,12 +1135,6 @@ void crack( Message& message,
     else
     if( msgTypeValue == "CE" )
       onMessage( (StreamAssignmentReportACK&)message, sessionID );
-    else
-    if( msgTypeValue == "CF" )
-      onMessage( (PartyDetailsListRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "CG" )
-      onMessage( (PartyDetailsListReport&)message, sessionID );
     else onMessage( message, sessionID );
   }
 

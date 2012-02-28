@@ -57,7 +57,7 @@
    <field name='EncodedTextLen' required='N' />
    <field name='EncodedText' required='N' />
   </message>
-  <message name='IndicationofInterest' msgcat='app' msgtype='6'>
+  <message name='IOI' msgcat='app' msgtype='6'>
    <field name='IOIid' required='Y' />
    <field name='IOITransType' required='Y' />
    <field name='IOIRefID' required='N' />
@@ -794,7 +794,7 @@
     <field name='EncodedText' required='N' />
    </group>
   </message>
-  <message name='AllocationACK' msgcat='app' msgtype='P'>
+  <message name='AllocationInstructionAck' msgcat='app' msgtype='P'>
    <field name='ClientID' required='N' />
    <field name='ExecBroker' required='N' />
    <field name='AllocID' required='Y' />
@@ -2037,7 +2037,7 @@
    <value enum='Y' description='YES' />
   </field>
   <field number='124' name='NoExecs' type='INT' />
-  <field number='125' name='CxlType' type=' CHAR' />
+  <field number='125' name='CxlType' type='CHAR' />
   <field number='126' name='ExpireTime' type='UTCTIMESTAMP' />
   <field number='127' name='DKReason' type='CHAR'>
    <value enum='A' description='UNKNOWN_SYMBOL' />
@@ -2435,7 +2435,7 @@
   <field number='316' name='UnderlyingStrikePrice' type='PRICE' />
   <field number='317' name='UnderlyingOptAttribute' type='CHAR' />
   <field number='318' name='UnderlyingCurrency' type='CURRENCY' />
-  <field number='319' name='RatioQty' type='QUANTITY' />
+  <field number='319' name='RatioQty' type='QTY' />
   <field number='320' name='SecurityReqID' type='STRING' />
   <field number='321' name='SecurityRequestType' type='INT'>
    <value enum='0' description='REQUEST_SECURITY_IDENTITY_AND_SPECIFICATIONS' />
@@ -2460,7 +2460,6 @@
   <field number='326' name='SecurityTradingStatus' type='INT'>
    <value enum='1' description='OPENING_DELAY' />
    <value enum='10' description='MARKET_ON_CLOSE_IMBALANCE_SELL' />
-   <value enum='11' description='11' />
    <value enum='12' description='NO_MARKET_IMBALANCE' />
    <value enum='13' description='NO_MARKET_ON_CLOSE_IMBALANCE' />
    <value enum='14' description='ITS_PRE_OPENING' />

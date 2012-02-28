@@ -67,7 +67,7 @@ namespace QuickFix42
    
      if(msgType.Equals("6")) {
       
-      return new QuickFix42.IndicationofInterest();
+      return new QuickFix42.IOI();
       
      }
    
@@ -169,7 +169,7 @@ namespace QuickFix42
    
      if(msgType.Equals("P")) {
       
-      return new QuickFix42.AllocationACK();
+      return new QuickFix42.AllocationInstructionAck();
       
      }
    

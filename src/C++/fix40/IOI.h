@@ -1,21 +1,21 @@
-#ifndef FIX40_INDICATIONOFINTEREST_H
-#define FIX40_INDICATIONOFINTEREST_H
+#ifndef FIX40_IOI_H
+#define FIX40_IOI_H
 
 #include "Message.h"
 
 namespace FIX40
 {
 
-  class IndicationofInterest : public Message
+  class IOI : public Message
   {
   public:
-    IndicationofInterest() : Message(MsgType()) {}
-    IndicationofInterest(const FIX::Message& m) : Message(m) {}
-    IndicationofInterest(const Message& m) : Message(m) {}
-    IndicationofInterest(const IndicationofInterest& m) : Message(m) {}
+    IOI() : Message(MsgType()) {}
+    IOI(const FIX::Message& m) : Message(m) {}
+    IOI(const Message& m) : Message(m) {}
+    IOI(const IOI& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("6"); }
 
-    IndicationofInterest(
+    IOI(
       const FIX::IOIid& aIOIid,
       const FIX::IOITransType& aIOITransType,
       const FIX::Symbol& aSymbol,

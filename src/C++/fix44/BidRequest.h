@@ -42,23 +42,6 @@ namespace FIX44
     FIELD_SET(*this, FIX::Currency);
     FIELD_SET(*this, FIX::SideValue1);
     FIELD_SET(*this, FIX::SideValue2);
-    FIELD_SET(*this, FIX::LiquidityIndType);
-    FIELD_SET(*this, FIX::WtAverageLiquidity);
-    FIELD_SET(*this, FIX::ExchangeForPhysical);
-    FIELD_SET(*this, FIX::OutMainCntryUIndex);
-    FIELD_SET(*this, FIX::CrossPercent);
-    FIELD_SET(*this, FIX::ProgRptReqs);
-    FIELD_SET(*this, FIX::ProgPeriodInterval);
-    FIELD_SET(*this, FIX::IncTaxInd);
-    FIELD_SET(*this, FIX::ForexReq);
-    FIELD_SET(*this, FIX::NumBidders);
-    FIELD_SET(*this, FIX::TradeDate);
-    FIELD_SET(*this, FIX::BidTradeType);
-    FIELD_SET(*this, FIX::BasisPxType);
-    FIELD_SET(*this, FIX::StrikeTime);
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoBidDescriptors);
     class NoBidDescriptors: public FIX::Group
     {
@@ -91,6 +74,23 @@ namespace FIX44
       FIELD_SET(*this, FIX::Account);
       FIELD_SET(*this, FIX::AcctIDSource);
     };
+    FIELD_SET(*this, FIX::LiquidityIndType);
+    FIELD_SET(*this, FIX::WtAverageLiquidity);
+    FIELD_SET(*this, FIX::ExchangeForPhysical);
+    FIELD_SET(*this, FIX::OutMainCntryUIndex);
+    FIELD_SET(*this, FIX::CrossPercent);
+    FIELD_SET(*this, FIX::ProgRptReqs);
+    FIELD_SET(*this, FIX::ProgPeriodInterval);
+    FIELD_SET(*this, FIX::IncTaxInd);
+    FIELD_SET(*this, FIX::ForexReq);
+    FIELD_SET(*this, FIX::NumBidders);
+    FIELD_SET(*this, FIX::TradeDate);
+    FIELD_SET(*this, FIX::BidTradeType);
+    FIELD_SET(*this, FIX::BasisPxType);
+    FIELD_SET(*this, FIX::StrikeTime);
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

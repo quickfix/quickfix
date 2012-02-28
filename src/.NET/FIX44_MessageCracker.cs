@@ -122,6 +122,8 @@ namespace QuickFix44
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListStrikePrice message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( XMLnonFIX message, QuickFix.SessionID session ) 
+    {}
   public virtual void onMessage( RegistrationInstructions message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( RegistrationInstructionsResponse message, QuickFix.SessionID session ) 
@@ -355,6 +357,9 @@ namespace QuickFix44
     else
     if( message is ListStrikePrice )
       onMessage( (ListStrikePrice)(message), sessionID );
+    else
+    if( message is XMLnonFIX )
+      onMessage( (XMLnonFIX)(message), sessionID );
     else
     if( message is RegistrationInstructions )
       onMessage( (RegistrationInstructions)(message), sessionID );
