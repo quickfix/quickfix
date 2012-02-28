@@ -273,8 +273,8 @@ void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
   std::string hostString = hostStream.str();
 
   std::stringstream portStream;
-  std::string portString = portStream.str();
   portStream << SOCKET_CONNECT_PORT << num;
+  std::string portString = portStream.str();
 
   if( d.has(hostString) && d.has(portString) )
   {
