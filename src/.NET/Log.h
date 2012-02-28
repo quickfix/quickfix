@@ -56,7 +56,7 @@ public:
   void clear()
   { m_log->clear(); }
   void backup()
-  { m_log->clear(); }
+  { m_log->backup(); }
   void onIncoming( const std::string& string )
   { m_log->onIncoming( string.c_str() ); }
   void onOutgoing( const std::string& string )
