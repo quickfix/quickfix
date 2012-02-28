@@ -55,9 +55,9 @@ public:
     return m_queue.size();
   }
 
-  void wait()
+  void wait( double s )
   {
-    m_event.wait();
+    m_event.wait( s );
   }
 
   void signal()
