@@ -16,21 +16,6 @@ AM_PROG_LIBTOOL
 AM_PROG_LEX
 
 ########################################
-# ALLOCATOR
-########################################
-AC_ARG_ENABLE(new_allocator,
-    [  --enable-new_allocator      use new_allocator],
-    [use_new_allocator=$enableval],
-    use_new_allocator=no
-)
-
-if test $use_new_allocator = yes
-then
-    AC_DEFINE(ENABLE_NEW_ALLOCATOR, 1, 
-	Define if you want to use new_allocator)
-fi
-
-########################################
 # CALLSTACK
 ########################################
 use_callstack=no
@@ -45,6 +30,64 @@ then
     AC_DEFINE(ENABLE_CALLSTACK, 1, 
 	Define if you want a C++ callstack to be displayed after crashing)
 fi
+########################################
+
+########################################
+# TBB 
+########################################
+has_tbb=false
+AC_ARG_WITH(tbb,
+    [  --with-tbb=<path>       prefix of Intel Thread Building Blocks (TBB) installation. e.g. /opt/intel/tbb/3.0], 
+    [if test $withval == "no"
+     then
+       has_tbb=false
+     else
+       has_tbb=true
+     fi],
+    has_tbb=false
+)
+TBB_PREFIX=$with_tbb
+AC_SUBST(TBB_PREFIX)
+
+has_tbb_arch=false
+AC_ARG_WITH(tbb-arch,
+    [  --with-tbb-arch=<arch>  TBB arch subdir, e.g. intel64/cc4.1.0_libc2.4_kernel2.6.16.21 ], 
+    [if test $withval == "no"
+     then
+       has_tbb_arch=false
+     else
+       has_tbb_arch=true
+     fi],
+    has_tbb_arch=false
+)
+TBB_ARCH=$with_tbb_arch
+AC_SUBST(TBB_ARCH)
+
+if test $has_tbb = true
+then
+    TBB_CFLAGS="-I${TBB_PREFIX}"
+    AC_SUBST(TBB_CFLAGS)
+    TBB_LIBS="-L${TBB_PREFIX}/${TBB_ARCH} -ltbbmalloc"
+    AC_SUBST(TBB_LIBS)
+    AC_DEFINE(HAVE_TBB, 1, Define if you have Intel TBB framework)
+fi
+########################################
+
+########################################
+# Allocator
+########################################
+has_tbb=false
+AC_ARG_WITH(allocator,
+    [  --with-allocator=<type> selected allocator, one of 'std' (default),'new','debug','mt','pool','bitmap','boost_fast','boost','tbb'], 
+    [if test $withval == "no"
+     then
+       has_allocator=false
+     else
+       has_allocator=true
+     fi],
+    has_allocator=false
+)
+ALLOCATOR=$with_allocator
 ########################################
 
 ########################################
@@ -104,7 +147,7 @@ fi
 ########################################
 has_postgresql=false
 AC_ARG_WITH(postgresql,
-    [  --with-postgresql=<path>     prefix of PostgreSQL installation. e.g. /usr/local/pgsql or /usr/pgsql],
+    [  --with-postgresql=<path> prefix of PostgreSQL installation. e.g. /usr/local/pgsql or /usr/pgsql],
     [if test $withval == "no"
      then
        has_postgresql=false
@@ -131,7 +174,7 @@ fi
 ########################################
 has_python=false
 AC_ARG_WITH(python,
-    [  --with-python=<path>     directory containing python headers e.g. /usr/local/include/python2.3], 
+    [  --with-python=<path>    directory containing python headers e.g. /usr/local/include/python2.3], 
     [if test $withval == "no"
      then
        has_python=false
@@ -188,7 +231,7 @@ AM_CONDITIONAL(HAVE_RUBY, $has_ruby)
 ########################################
 has_java=false
 AC_ARG_WITH(java,
-    [  --with-java     will use JAVA_HOME settings to find javac],
+    [  --with-java             will use JAVA_HOME settings to find javac],
     [if test $withval == "no"
      then
        has_java=false
@@ -251,13 +294,19 @@ AM_PATH_XML2('2.0.0', , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
-LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS $LIBS"
+LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS $TBB_LIBS $LIBS"
 # gcc flags
-SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+if test `uname` == SunOS; then
+   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+else
+	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+fi
+
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
 AC_SUBST(CXXFLAGS)
+
 
 # Checks for libraries.
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
@@ -390,60 +439,126 @@ AC_TRY_COMPILE(
 	 The system has gethostbyname_r which takes a result as a pass-in param),
 	 AC_MSG_RESULT(no))
 
+# check for debug allocator
+if test "x$with_allocator" == "xdebug"
+then
+	AC_MSG_CHECKING(for __gnu_cxx::debug_allocator)
+	AC_TRY_COMPILE(
+		[#include <ext/debug_allocator.h>
+		 #include<vector>],
+		[std::vector<int, __gnu_cxx::debug_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_DEBUG_ALLOCATOR, 1,
+		__gnu_cxx::debug_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1,
+		custom allocator configured),
+		AC_MSG_ERROR(no))
+fi
+
+# check for new allocator
+if test "x$with_allocator" == "xnew"
+then
+	AC_MSG_CHECKING(for __gnu_cxx::new_allocator)
+	AC_TRY_COMPILE(
+		[#include <ext/new_allocator.h>
+		 #include<vector>],
+		[std::vector<int, __gnu_cxx::new_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_NEW_ALLOCATOR, 1,
+		__gnu_cxx::new_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
+
 # check for boost::pool_allocator
-AC_MSG_CHECKING(for boost::pool_allocator)
-AC_TRY_COMPILE(
-	[#include <boost/pool/pool_alloc.hpp>
-	 #include<vector>],
-	[std::vector<int, boost::pool_allocator<int> > x;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_BOOST_POOL_ALLOCATOR, 1,
-	boost::pool_allocator exists),
-	AC_MSG_RESULT(no))
+if test "x$with_allocator" == "xboost"
+then
+	AC_MSG_CHECKING(for boost::pool_allocator)
+	AC_TRY_COMPILE(
+		[#include <boost/pool/pool_alloc.hpp>
+		 #include<vector>],
+		[std::vector<int, boost::pool_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_BOOST_POOL_ALLOCATOR, 1,
+		boost::pool_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
 
 # check for boost::fast_pool_allocator
-AC_MSG_CHECKING(for boost::fast_pool_allocator)
-AC_TRY_COMPILE(
-	[#include <boost/pool/pool_alloc.hpp>
-	 #include<vector>],
-	[std::vector<int, boost::fast_pool_allocator<int> > x;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_BOOST_FAST_POOL_ALLOCATOR, 1,
-	boost::fast_pool_allocator exists),
-	AC_MSG_RESULT(no))
+if test "x$with_allocator" == "xboost_fast"
+then
+	AC_MSG_CHECKING(for boost::fast_pool_allocator)
+	AC_TRY_COMPILE(
+		[#include <boost/pool/pool_alloc.hpp>
+		 #include<vector>],
+		[std::vector<int, boost::fast_pool_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_BOOST_FAST_POOL_ALLOCATOR, 1,
+		boost::fast_pool_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))	
+fi
 
 # check for __gnu_cxx::__pool_alloc
-AC_MSG_CHECKING(__gnu_cxx::__pool_alloc)
-AC_TRY_COMPILE(
-	[#include <ext/pool_allocator.h>
-	 #include<vector>],
-	[std::vector<int, __gnu_cxx::__pool_alloc<int> > x;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_POOL_ALLOCATOR, 1,
-	__gnu_cxx::pool_allocator exists),
-	AC_MSG_RESULT(no))
+if test "x$with_allocator" == "xpool"
+then
+	AC_MSG_CHECKING(for __gnu_cxx::__pool_alloc)
+	AC_TRY_COMPILE(
+		[#include <ext/pool_allocator.h>
+		 #include<vector>],
+		[std::vector<int, __gnu_cxx::__pool_alloc<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_POOL_ALLOCATOR, 1,
+		__gnu_cxx::pool_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
 
 # check for __gnu_cxx::__mt_alloc
-AC_MSG_CHECKING(__gnu_cxx::__mt_alloc)
-AC_TRY_COMPILE(
-	[#include <ext/mt_allocator.h>
-	 #include<vector>],
-	[std::vector<int, __gnu_cxx::__mt_alloc<int> > x;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_MT_ALLOCATOR, 1,
-	__gnu_cxx::mt_allocator exists),
-	AC_MSG_RESULT(no))
+if test "x$with_allocator" == "xmt"
+then
+	AC_MSG_CHECKING(for __gnu_cxx::__mt_alloc)
+	AC_TRY_COMPILE(
+		[#include <ext/mt_allocator.h>
+		 #include<vector>],
+		[std::vector<int, __gnu_cxx::__mt_alloc<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_MT_ALLOCATOR, 1,
+		__gnu_cxx::mt_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
 
 # check for __gnu_cxx::bitmap_allocator
-AC_MSG_CHECKING(__gnu_cxx::bitmap_allocator)
-AC_TRY_COMPILE(
-	[#include <ext/bitmap_allocator.h>
-	 #include<vector>],
-	[std::vector<int, __gnu_cxx::bitmap_allocator<int> > x;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_BITMAP_ALLOCATOR, 1,
-	__gnu_cxx::bitmap_allocator exists),
-	AC_MSG_RESULT(no))
+if test "x$with_allocator" == "xbitmap"
+then
+	AC_MSG_CHECKING(for __gnu_cxx::bitmap_allocator)
+	AC_TRY_COMPILE(
+		[#include <ext/bitmap_allocator.h>
+		 #include<vector>],
+		[std::vector<int, __gnu_cxx::bitmap_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_BITMAP_ALLOCATOR, 1,
+		__gnu_cxx::bitmap_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
+
+# check for tbb::scalable_allocator
+if test "x$with_allocator" == "xtbb"
+then
+	AC_MSG_CHECKING(for tbb::scalable_allocator)
+	AC_TRY_COMPILE(
+		[#include <tbb/scalable_allocator.h>
+		 #include<vector>],
+		[std::vector<int, tbb::scalable_allocator<int> > x;],
+		AC_MSG_RESULT(yes)
+		AC_DEFINE(ENABLE_TBB_ALLOCATOR, 1,
+		tbb::scalable_allocator exists)
+		AC_DEFINE(HAVE_ALLOCATOR_CONFIG, 1),
+		AC_MSG_ERROR(no))
+fi
 
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 
