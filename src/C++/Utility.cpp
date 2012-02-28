@@ -30,6 +30,7 @@
 #include <stropts.h>
 #include <sys/conf.h>
 #endif
+#include <string.h>
 #include <math.h>
 #include <stdio.h>
 #include <algorithm>
