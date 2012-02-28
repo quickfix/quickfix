@@ -47,14 +47,13 @@ namespace FIX
 {
 DataDictionary::DataDictionary()
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
-  m_orderedFieldsArray(0) {}
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true )
+{}
 
 DataDictionary::DataDictionary( std::istream& stream )
 throw( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
-  m_orderedFieldsArray(0)
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true )
 {
   readFromStream( stream );
 }
@@ -78,8 +77,6 @@ DataDictionary::~DataDictionary()
   FieldToGroup::iterator i;
   for ( i = m_groups.begin(); i != m_groups.end(); ++i )
     delete i->second.second;
-  if( m_orderedFieldsArray )
-    delete [] m_orderedFieldsArray;
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
@@ -95,7 +92,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_messages = rhs.m_messages;
   m_fields = rhs.m_fields;
   m_orderedFields = rhs.m_orderedFields;
-  m_orderedFieldsArray = 0;
+  m_orderedFieldsArray = rhs.m_orderedFieldsArray;
   m_headerFields = rhs.m_headerFields;
   m_trailerFields = rhs.m_trailerFields;
   m_fieldTypes = rhs.m_fieldTypes;
@@ -450,16 +447,21 @@ throw( ConfigError )
   QF_STACK_POP
 }
 
-int* DataDictionary::getOrderedFields() const
+message_order const& DataDictionary::getOrderedFields() const
 { QF_STACK_PUSH(DataDictionary::getOrderedFields)
 
   if( m_orderedFieldsArray ) return m_orderedFieldsArray;
-  m_orderedFieldsArray = new int[m_orderedFields.size() + 1];
 
-  int* i = m_orderedFieldsArray;
+  int * tmp = new int[m_orderedFields.size() + 1];
+  int * i = tmp;
+
   OrderedFields::const_iterator iter;
   for( iter = m_orderedFields.begin(); iter != m_orderedFields.end(); *(i++) = *(iter++) ) {}
   *i = 0;
+
+  m_orderedFieldsArray = message_order(tmp);
+  delete [] tmp;
+
   return m_orderedFieldsArray;
 
   QF_STACK_POP

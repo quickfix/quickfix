@@ -66,9 +66,6 @@ public:
             message_order( message_order::normal ) )
   : m_fields( order ) {}
 
-  FieldMap( const int order[] )
-  : m_fields( message_order(order) ) {}
-
   FieldMap( const FieldMap& copy )
   { *this = copy; }
 
@@ -80,16 +77,16 @@ public:
   void setField( const FieldBase& field, bool overwrite = true )
   throw( RepeatedTag )
   {
-    Fields::iterator i = m_fields.find( field.getField() );
-    if( i == m_fields.end() )
-      m_fields.insert( Fields::value_type( field.getField(), field ) );
-    else
-    {
-      if( overwrite )
-        i->second = field;
+      if(!overwrite)
+          m_fields.insert( Fields::value_type( field.getField(), field ) );
       else
-        m_fields.insert( Fields::value_type( field.getField(), field ) );
-    }
+      {
+          Fields::iterator i = m_fields.find( field.getField() );
+          if( i == m_fields.end() )
+              m_fields.insert( Fields::value_type( field.getField(), field ) );
+          else
+              i->second = field;
+      }
   }
   /// Set a field without a field class
   void setField( int field, const std::string& value )

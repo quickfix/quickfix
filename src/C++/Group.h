@@ -44,9 +44,6 @@ public:
   : FieldMap( message_order( delim, 0 ) ),
     m_field( field ), m_delim( delim ) {}
 
-  Group( int field, int delim, const int order[] )
-  : FieldMap( order ), m_field( field ), m_delim( delim ) {}
-
   Group( int field, int delim, const message_order& order )
   : FieldMap( order ), m_field( field ), m_delim( delim ) {}
 

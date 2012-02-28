@@ -33,22 +33,39 @@ message_order::message_order( int first, ... )
 {
   int field = first;
   int size = 0;
+  m_largest = m_delim = first;
 
   va_list arguments;
   va_start( arguments, first );
   while( field != 0 )
   {
-    size++;
-    field = va_arg( arguments, int );
+      m_largest = m_largest > field ? m_largest : field;
+      
+      size++;
+      field = va_arg( arguments, int );
   }
 
-  va_start( arguments, first );
-  int* order = new int[size];
-  order[0] = first;
-  for ( int i = 1; i < size; ++i )
-    order[ i ] = va_arg( arguments, int );
-  setOrder(size, order);
-  delete [] order;
+  if(size)
+  {
+      m_groupOrder = new int[ m_largest + 2 ];
+      memset( m_groupOrder, 0, ( m_largest + 2 ) * sizeof( int ) );
+
+      va_start( arguments, first );
+      field = first;
+      int i = 0;
+      while( field != 0 )
+      {
+          get()[ field ] = ++i;
+          field = va_arg( arguments, int );
+      }
+
+      attach();
+  }
+  else
+  {
+      m_largest = 0;
+      m_delim = 0;
+  }
 
   va_end( arguments );
 }
@@ -67,13 +84,14 @@ message_order& message_order::operator=( const message_order& rhs )
   m_mode = rhs.m_mode;
   m_delim = rhs.m_delim;
   m_largest = rhs.m_largest;
-  if ( rhs.m_groupOrder )
-  {
-    if ( m_groupOrder ) delete [] m_groupOrder;
-    m_groupOrder = new int[ m_largest + 1 ];
-    memcpy( m_groupOrder, rhs.m_groupOrder,
-            ( m_largest + 1 ) * sizeof( int ) );
-  }
+
+  release();
+
+  message_order& tmp = const_cast<message_order&>(rhs);
+  tmp.attach();
+
+  m_groupOrder = rhs.m_groupOrder;
+
   return *this;
 
   QF_STACK_POP
@@ -85,23 +103,19 @@ void message_order::setOrder( int size, const int order[] )
   if(size < 1) return;
   m_largest = m_delim = order[0];
 
-  int* fields = new int[ size + 1 ];
-  fields[ 1 ] = m_delim;
   // collect all fields and find the largest field number
-  int i;
-  for ( i = 2; i <= size; ++i )
+  for (int i = 1; i < size; ++i )
   {
-    int field = order[i-1];
-    m_largest = m_largest > field ? m_largest : field;
-    fields[ i ] = field;
+      int field = order[i];
+      m_largest = m_largest > field ? m_largest : field;
   }
 
-  // populate array with field number as key and position as value
-  m_groupOrder = new int[ m_largest + 1 ];
-  memset( m_groupOrder, 0, ( m_largest + 1 ) * sizeof( int ) );
-  for ( i = 1; i <= size; ++i )
-    m_groupOrder[ fields[ i ] ] = i;
-  delete [] fields;
+  m_groupOrder = new int[ m_largest + 2 ];
+  memset( m_groupOrder, 0, ( m_largest + 2 ) * sizeof( int ) );
+  for (int i = 0; i < size; ++i )
+      get()[ order[ i ] ] = i + 1;
+
+  attach();
 
   QF_STACK_POP
 }

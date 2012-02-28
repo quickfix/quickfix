@@ -54,7 +54,7 @@ class DataDictionary
   typedef std::set < int > Fields;
   typedef std::map < int, bool > NonBodyFields;
   typedef std::vector< int > OrderedFields;
-  typedef int* OrderedFieldsArray;
+  typedef message_order OrderedFieldsArray;
   typedef std::map < int, TYPE::Type > FieldTypes;
   typedef std::set < std::string > Values;
   typedef std::map < int, Values > FieldToValue;
@@ -76,7 +76,7 @@ public:
   void readFromDocument( DOMDocumentPtr pDoc ) throw( ConfigError );
   void readFromStream( std::istream& stream ) throw( ConfigError );
 
-  int* getOrderedFields() const;
+  message_order const& getOrderedFields() const;
 
   // storage functions
   void setVersion( const std::string& beginString )

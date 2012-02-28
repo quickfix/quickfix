@@ -39,19 +39,19 @@ FieldMap::~FieldMap()
 FieldMap& FieldMap::operator=( const FieldMap& rhs )
 { QF_STACK_PUSH(FieldMap::operator=)
 
-  m_fields = rhs.m_fields;
-
   clear();
 
-  std::copy( rhs.m_fields.begin (), rhs.m_fields.end(),
-             std::inserter(m_fields, m_fields.begin()) );
+  m_fields = rhs.m_fields;
 
   Groups::const_iterator i;
   for ( i = rhs.m_groups.begin(); i != rhs.m_groups.end(); ++i )
   {
     std::vector < FieldMap* > ::const_iterator j;
     for ( j = i->second.begin(); j != i->second.end(); ++j )
-      addGroup( i->first, **j );
+    {
+        FieldMap * pGroup = new FieldMap( **j );
+        m_groups[ i->first ].push_back( pGroup );
+    }
   }
 
   return *this;
@@ -62,12 +62,13 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
 void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 { QF_STACK_PUSH(FieldMap::addGroup)
 
-  FieldMap * pGroup = new FieldMap( group.m_fields.key_comp() );
-  *pGroup = group;
-  m_groups[ field ].push_back( pGroup );
-  Groups::iterator i = m_groups.find( field );
+  FieldMap * pGroup = new FieldMap( group );
+
+  std::vector< FieldMap*>& vec = m_groups[ field ];
+  vec.push_back( pGroup );
+
   if( setCount )
-    setField( IntField( field, i->second.size() ) );
+    setField( IntField( field, vec.size() ) );
 
   QF_STACK_POP
 }

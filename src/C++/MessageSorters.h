@@ -122,10 +122,9 @@ public:
     : m_groupOrder( 0 )
   { *this = copy; }
 
-  virtual ~message_order()
+  ~message_order()
   {
-    if ( m_groupOrder )
-      delete [] m_groupOrder;
+      release();
   }
 
   bool operator() ( const int& x, const int& y ) const
@@ -137,7 +136,7 @@ public:
       case trailer:
       return trailer_order::compare( x, y );
       case group:
-      return group_order::compare( x, y, m_groupOrder, m_largest );
+      return group_order::compare( x, y, get(), m_largest );
       case normal: default:
       return x < y;
     }
@@ -145,8 +144,34 @@ public:
 
   message_order& operator=( const message_order& rhs );
 
+  operator bool() const { return m_groupOrder != 0; }
+
 private:
   void setOrder( int size, const int order[] );
+
+  void attach()
+  {
+      if(m_groupOrder)
+      {
+          int& val = m_groupOrder[0];
+          val += 1;
+      }
+  }
+
+  void release()
+  {
+      if(!m_groupOrder)
+          return;
+
+       int& val = m_groupOrder[0];
+       if(--val == 0)
+       {
+           delete [] m_groupOrder;
+           m_groupOrder = 0;
+       }
+  }
+
+  int * get() const { return m_groupOrder ? &m_groupOrder[1] : 0; }
 
   cmp_mode m_mode;
   int m_delim;

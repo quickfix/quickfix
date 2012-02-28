@@ -337,7 +337,6 @@ private:
 
     if ( (pSessionDD && pSessionDD->isDataField(field)) || (pAppDD && pAppDD->isDataField(field)) )
     {
-      std::string fieldLength;
       // Assume length field is 1 less.
       int lenField = field - 1;
       // Special case for Signature which violates above assumption.
@@ -345,12 +344,12 @@ private:
 
       if ( pGroup && pGroup->isSetField( lenField ) )
       {
-        fieldLength = pGroup->getField( lenField );
+        const std::string& fieldLength = pGroup->getField( lenField );
         soh = equalSign + 1 + atol( fieldLength.c_str() );
       }
       else if ( isSetField( lenField ) )
       {
-        fieldLength = getField( lenField );
+        const std::string& fieldLength = getField( lenField );
         soh = equalSign + 1 + atol( fieldLength.c_str() );
       }
     }
