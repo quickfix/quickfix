@@ -1,6 +1,11 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/ut.cpp)
+
+AC_CONFIG_MACRO_DIR([m4])
+m4_include([m4/ax_lib_mysql.m4])
+m4_include([m4/ax_lib_postgresql.m4])
+
 AC_CONFIG_AUX_DIR(config)
 AM_INIT_AUTOMAKE(quickfix, 1.13.3)
 AM_CONFIG_HEADER(config.h)
@@ -14,6 +19,9 @@ AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 AM_PROG_LEX
+
+AX_LIB_MYSQL()
+AX_LIB_POSTGRESQL()
 
 ########################################
 # CALLSTACK
@@ -112,60 +120,6 @@ then
     BOOST_CFLAGS="-I${BOOST_PREFIX}"
     AC_SUBST(BOOST_CFLAGS)
     AC_DEFINE(HAVE_BOOST, 1, Define if you have boost framework)
-fi
-########################################
-
-########################################
-# MYSQL
-########################################
-has_mysql=false
-AC_ARG_WITH(mysql,
-    [  --with-mysql=<path>     prefix of MySQL installation. e.g. /usr/local or /usr], 
-    [if test $withval == "no"
-     then
-       has_mysql=false
-     else
-       has_mysql=true
-     fi],
-    has_mysql=false
-)
-MYSQL_PREFIX=$with_mysql
-AC_SUBST(MYSQL_PREFIX)
-
-if test $has_mysql = true
-then
-    MYSQL_CFLAGS="-I${MYSQL_PREFIX}/include/mysql -I${MYSQL_PREFIX}/mysql/include"
-    AC_SUBST(MYSQL_CFLAGS)
-    MYSQL_LIBS="-L${MYSQL_PREFIX}/lib/mysql -L${MYSQL_PREFIX}/mysql/lib -lmysqlclient"
-    AC_SUBST(MYSQL_LIBS)
-    AC_DEFINE(HAVE_MYSQL, 1, Define if you have sql library (-lmysqlclient))
-fi
-########################################
-
-########################################
-# POSTGRESQL
-########################################
-has_postgresql=false
-AC_ARG_WITH(postgresql,
-    [  --with-postgresql=<path> prefix of PostgreSQL installation. e.g. /usr/local/pgsql or /usr/pgsql],
-    [if test $withval == "no"
-     then
-       has_postgresql=false
-     else
-       has_postgresql=true
-     fi],
-    has_postgresql=false
-)
-POSTGRESQL_PREFIX=$with_postgresql
-AC_SUBST(POSTGRESQL_PREFIX)
-
-if test $has_postgresql = true
-then
-    POSTGRESQL_CFLAGS="-I${POSTGRESQL_PREFIX}/include -I${POSTGRESQL_PREFIX}/include/postgresql"
-    AC_SUBST(POSTGRESQL_CFLAGS)
-    POSTGRESQL_LIBS="-L${POSTGRESQL_PREFIX}/lib -lpq"
-    AC_SUBST(POSTGRESQL_LIBS)
-    AC_DEFINE(HAVE_POSTGRESQL, 1, Define if you have sql library (-lpq))
 fi
 ########################################
 
@@ -299,7 +253,7 @@ AM_PATH_XML2('2.0.0', , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
-LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS $TBB_LIBS $LIBS"
+LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LDFLAGS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 # gcc flags
 if test `uname` == SunOS; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
