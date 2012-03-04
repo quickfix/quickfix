@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -108,9 +108,7 @@
     <Compile Include="fix40\Allocation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix40\AllocationACK.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix40\AllocationInstructionAck.cs" />
     <Compile Include="fix40\DontKnowTrade.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -123,9 +121,7 @@
     <Compile Include="fix40\Heartbeat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix40\IndicationofInterest.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix40\IOI.cs" />
     <Compile Include="fix40\ListCancelRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -198,9 +194,7 @@
     <Compile Include="fix41\Allocation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix41\AllocationACK.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix41\AllocationInstructionAck.cs" />
     <Compile Include="fix41\DontKnowTrade.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -213,9 +207,7 @@
     <Compile Include="fix41\Heartbeat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix41\IndicationofInterest.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix41\IOI.cs" />
     <Compile Include="fix41\ListCancelRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -291,9 +283,7 @@
     <Compile Include="fix42\Allocation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix42\AllocationACK.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix42\AllocationInstructionAck.cs" />
     <Compile Include="fix42\BidRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -315,9 +305,7 @@
     <Compile Include="fix42\Heartbeat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix42\IndicationofInterest.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="fix42\IOI.cs" />
     <Compile Include="fix42\ListCancelRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -474,7 +462,9 @@
     <Compile Include="fix43\Heartbeat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix43\IOI.cs" />
+    <Compile Include="fix43\IOI.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="fix43\ListCancelRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -634,6 +624,7 @@
     <Compile Include="fix43\TradingSessionStatusRequest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="fix43\XMLnonFIX.cs" />
     <Compile Include="FIX43_MessageCracker.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -718,7 +709,9 @@
     <Compile Include="fix44\Heartbeat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix44\IOI.cs" />
+    <Compile Include="fix44\IOI.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="fix44\ListCancelRequest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -761,9 +754,15 @@
     <Compile Include="fix44\Message.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix44\MultilegOrderCancelReplace.cs" />
-    <Compile Include="fix44\NetworkCounterpartySystemStatusRequest.cs" />
-    <Compile Include="fix44\NetworkCounterpartySystemStatusResponse.cs" />
+    <Compile Include="fix44\MultilegOrderCancelReplace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix44\NetworkCounterpartySystemStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix44\NetworkCounterpartySystemStatusResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="fix44\NewOrderCross.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -911,233 +910,660 @@
     <Compile Include="fix44\UserResponse.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="fix44\XMLnonFIX.cs" />
     <Compile Include="FIX44_MessageCracker.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FIX44_MessageFactory.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix50sp1\AdjustedPositionReport.cs" />
-    <Compile Include="fix50sp1\Advertisement.cs" />
-    <Compile Include="fix50sp1\AllocationInstruction.cs" />
-    <Compile Include="fix50sp1\AllocationInstructionAck.cs" />
-    <Compile Include="fix50sp1\AllocationInstructionAlert.cs" />
-    <Compile Include="fix50sp1\AllocationReport.cs" />
-    <Compile Include="fix50sp1\AllocationReportAck.cs" />
-    <Compile Include="fix50sp1\ApplicationMessageReport.cs" />
-    <Compile Include="fix50sp1\ApplicationMessageRequest.cs" />
-    <Compile Include="fix50sp1\ApplicationMessageRequestAck.cs" />
-    <Compile Include="fix50sp1\AssignmentReport.cs" />
-    <Compile Include="fix50sp1\BidRequest.cs" />
-    <Compile Include="fix50sp1\BidResponse.cs" />
-    <Compile Include="fix50sp1\BusinessMessageReject.cs" />
-    <Compile Include="fix50sp1\CollateralAssignment.cs" />
-    <Compile Include="fix50sp1\CollateralInquiry.cs" />
-    <Compile Include="fix50sp1\CollateralInquiryAck.cs" />
-    <Compile Include="fix50sp1\CollateralReport.cs" />
-    <Compile Include="fix50sp1\CollateralRequest.cs" />
-    <Compile Include="fix50sp1\CollateralResponse.cs" />
-    <Compile Include="fix50sp1\Confirmation.cs" />
-    <Compile Include="fix50sp1\ConfirmationAck.cs" />
-    <Compile Include="fix50sp1\ConfirmationRequest.cs" />
-    <Compile Include="fix50sp1\Confirmation_Ack.cs" />
-    <Compile Include="fix50sp1\ContraryIntentionReport.cs" />
-    <Compile Include="fix50sp1\CrossOrderCancelReplaceRequest.cs" />
-    <Compile Include="fix50sp1\CrossOrderCancelRequest.cs" />
-    <Compile Include="fix50sp1\DerivativeSecurityList.cs" />
-    <Compile Include="fix50sp1\DerivativeSecurityListRequest.cs" />
-    <Compile Include="fix50sp1\DerivativeSecurityListUpdateReport.cs" />
-    <Compile Include="fix50sp1\DontKnowTrade.cs" />
-    <Compile Include="fix50sp1\DontKnowTradeDK.cs" />
-    <Compile Include="fix50sp1\Email.cs" />
-    <Compile Include="fix50sp1\ExecutionAcknowledgement.cs" />
-    <Compile Include="fix50sp1\ExecutionReport.cs" />
-    <Compile Include="fix50sp1\IOI.cs" />
-    <Compile Include="fix50sp1\ListCancelRequest.cs" />
-    <Compile Include="fix50sp1\ListExecute.cs" />
-    <Compile Include="fix50sp1\ListStatus.cs" />
-    <Compile Include="fix50sp1\ListStatusRequest.cs" />
-    <Compile Include="fix50sp1\ListStrikePrice.cs" />
-    <Compile Include="fix50sp1\MarketDataIncrementalRefresh.cs" />
-    <Compile Include="fix50sp1\MarketDataRequest.cs" />
-    <Compile Include="fix50sp1\MarketDataRequestReject.cs" />
-    <Compile Include="fix50sp1\MarketDataSnapshotFullRefresh.cs" />
-    <Compile Include="fix50sp1\MarketDefinition.cs" />
-    <Compile Include="fix50sp1\MarketDefinitionRequest.cs" />
-    <Compile Include="fix50sp1\MarketDefinitionUpdateReport.cs" />
-    <Compile Include="fix50sp1\MassQuote.cs" />
-    <Compile Include="fix50sp1\MassQuoteAcknowledgement.cs" />
-    <Compile Include="fix50sp1\Message.cs" />
-    <Compile Include="fix50sp1\MultilegOrderCancelReplace.cs" />
-    <Compile Include="fix50sp1\NetworkCounterpartySystemStatusRequest.cs" />
-    <Compile Include="fix50sp1\NetworkCounterpartySystemStatusResponse.cs" />
-    <Compile Include="fix50sp1\NewOrderCross.cs" />
-    <Compile Include="fix50sp1\NewOrderList.cs" />
-    <Compile Include="fix50sp1\NewOrderMultileg.cs" />
-    <Compile Include="fix50sp1\NewOrderSingle.cs" />
-    <Compile Include="fix50sp1\News.cs" />
-    <Compile Include="fix50sp1\OrderCancelReject.cs" />
-    <Compile Include="fix50sp1\OrderCancelReplaceRequest.cs" />
-    <Compile Include="fix50sp1\OrderCancelRequest.cs" />
-    <Compile Include="fix50sp1\OrderMassActionReport.cs" />
-    <Compile Include="fix50sp1\OrderMassActionRequest.cs" />
-    <Compile Include="fix50sp1\OrderMassCancelReport.cs" />
-    <Compile Include="fix50sp1\OrderMassCancelRequest.cs" />
-    <Compile Include="fix50sp1\OrderMassStatusRequest.cs" />
-    <Compile Include="fix50sp1\OrderStatusRequest.cs" />
-    <Compile Include="fix50sp1\PositionMaintenanceReport.cs" />
-    <Compile Include="fix50sp1\PositionMaintenanceRequest.cs" />
-    <Compile Include="fix50sp1\PositionReport.cs" />
-    <Compile Include="fix50sp1\Quote.cs" />
-    <Compile Include="fix50sp1\QuoteCancel.cs" />
-    <Compile Include="fix50sp1\QuoteRequest.cs" />
-    <Compile Include="fix50sp1\QuoteRequestReject.cs" />
-    <Compile Include="fix50sp1\QuoteResponse.cs" />
-    <Compile Include="fix50sp1\QuoteStatusReport.cs" />
-    <Compile Include="fix50sp1\QuoteStatusRequest.cs" />
-    <Compile Include="fix50sp1\RegistrationInstructions.cs" />
-    <Compile Include="fix50sp1\RegistrationInstructionsResponse.cs" />
-    <Compile Include="fix50sp1\RequestForPositions.cs" />
-    <Compile Include="fix50sp1\RequestForPositionsAck.cs" />
-    <Compile Include="fix50sp1\RFQRequest.cs" />
-    <Compile Include="fix50sp1\SecurityDefinition.cs" />
-    <Compile Include="fix50sp1\SecurityDefinitionRequest.cs" />
-    <Compile Include="fix50sp1\SecurityDefinitionUpdateReport.cs" />
-    <Compile Include="fix50sp1\SecurityList.cs" />
-    <Compile Include="fix50sp1\SecurityListRequest.cs" />
-    <Compile Include="fix50sp1\SecurityListUpdateReport.cs" />
-    <Compile Include="fix50sp1\SecurityStatus.cs" />
-    <Compile Include="fix50sp1\SecurityStatusRequest.cs" />
-    <Compile Include="fix50sp1\SecurityTypeRequest.cs" />
-    <Compile Include="fix50sp1\SecurityTypes.cs" />
-    <Compile Include="fix50sp1\SettlementInstructionRequest.cs" />
-    <Compile Include="fix50sp1\SettlementInstructions.cs" />
-    <Compile Include="fix50sp1\SettlementObligationReport.cs" />
-    <Compile Include="fix50sp1\TradeCaptureReport.cs" />
-    <Compile Include="fix50sp1\TradeCaptureReportAck.cs" />
-    <Compile Include="fix50sp1\TradeCaptureReportRequest.cs" />
-    <Compile Include="fix50sp1\TradeCaptureReportRequestAck.cs" />
-    <Compile Include="fix50sp1\TradingSessionList.cs" />
-    <Compile Include="fix50sp1\TradingSessionListRequest.cs" />
-    <Compile Include="fix50sp1\TradingSessionListUpdateReport.cs" />
-    <Compile Include="fix50sp1\TradingSessionStatus.cs" />
-    <Compile Include="fix50sp1\TradingSessionStatusRequest.cs" />
-    <Compile Include="fix50sp1\UserNotification.cs" />
-    <Compile Include="fix50sp1\UserRequest.cs" />
-    <Compile Include="fix50sp1\UserResponse.cs" />
+    <Compile Include="fix50sp1\AdjustedPositionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\Advertisement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AllocationInstruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AllocationInstructionAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AllocationInstructionAlert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AllocationReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AllocationReportAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ApplicationMessageReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ApplicationMessageRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ApplicationMessageRequestAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\AssignmentReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\BidRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\BidResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\BusinessMessageReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralAssignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralInquiry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralInquiryAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CollateralResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\Confirmation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ConfirmationAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ConfirmationRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ContraryIntentionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CrossOrderCancelReplaceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\CrossOrderCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\DerivativeSecurityList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\DerivativeSecurityListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\DerivativeSecurityListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\DontKnowTrade.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\Email.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ExecutionAcknowledgement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ExecutionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\IOI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ListCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ListExecute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ListStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ListStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\ListStrikePrice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDataIncrementalRefresh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDataRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDataRequestReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDataSnapshotFullRefresh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDefinitionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MarketDefinitionUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MassQuote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MassQuoteAcknowledgement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\MultilegOrderCancelReplace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NetworkCounterpartySystemStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NetworkCounterpartySystemStatusResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NewOrderCross.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NewOrderList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NewOrderMultileg.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\NewOrderSingle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\News.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderCancelReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderCancelReplaceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderMassActionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderMassActionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderMassCancelReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderMassCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderMassStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\OrderStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\PositionMaintenanceReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\PositionMaintenanceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\PositionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\Quote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteCancel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteRequestReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteStatusReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\QuoteStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\RegistrationInstructions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\RegistrationInstructionsResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\RequestForPositions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\RequestForPositionsAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\RFQRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityDefinitionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityDefinitionUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityTypeRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SecurityTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SettlementInstructionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SettlementInstructions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\SettlementObligationReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradeCaptureReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradeCaptureReportAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradeCaptureReportRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradeCaptureReportRequestAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradingSessionList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradingSessionListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradingSessionListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradingSessionStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\TradingSessionStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\UserNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\UserRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp1\UserResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FIX50SP1_MessageCracker.cs" />
     <Compile Include="FIX50SP1_MessageFactory.cs" />
-    <Compile Include="fix50sp2\AdjustedPositionReport.cs" />
-    <Compile Include="fix50sp2\Advertisement.cs" />
-    <Compile Include="fix50sp2\AllocationInstruction.cs" />
-    <Compile Include="fix50sp2\AllocationInstructionAck.cs" />
-    <Compile Include="fix50sp2\AllocationInstructionAlert.cs" />
-    <Compile Include="fix50sp2\AllocationReport.cs" />
-    <Compile Include="fix50sp2\AllocationReportAck.cs" />
-    <Compile Include="fix50sp2\ApplicationMessageReport.cs" />
-    <Compile Include="fix50sp2\ApplicationMessageRequest.cs" />
-    <Compile Include="fix50sp2\ApplicationMessageRequestAck.cs" />
-    <Compile Include="fix50sp2\AssignmentReport.cs" />
-    <Compile Include="fix50sp2\BidRequest.cs" />
-    <Compile Include="fix50sp2\BidResponse.cs" />
-    <Compile Include="fix50sp2\BusinessMessageReject.cs" />
-    <Compile Include="fix50sp2\CollateralAssignment.cs" />
-    <Compile Include="fix50sp2\CollateralInquiry.cs" />
-    <Compile Include="fix50sp2\CollateralInquiryAck.cs" />
-    <Compile Include="fix50sp2\CollateralReport.cs" />
-    <Compile Include="fix50sp2\CollateralRequest.cs" />
-    <Compile Include="fix50sp2\CollateralResponse.cs" />
-    <Compile Include="fix50sp2\Confirmation.cs" />
-    <Compile Include="fix50sp2\ConfirmationAck.cs" />
-    <Compile Include="fix50sp2\ConfirmationRequest.cs" />
-    <Compile Include="fix50sp2\ContraryIntentionReport.cs" />
-    <Compile Include="fix50sp2\CrossOrderCancelReplaceRequest.cs" />
-    <Compile Include="fix50sp2\CrossOrderCancelRequest.cs" />
-    <Compile Include="fix50sp2\DerivativeSecurityList.cs" />
-    <Compile Include="fix50sp2\DerivativeSecurityListRequest.cs" />
-    <Compile Include="fix50sp2\DerivativeSecurityListUpdateReport.cs" />
-    <Compile Include="fix50sp2\DontKnowTrade.cs" />
-    <Compile Include="fix50sp2\Email.cs" />
-    <Compile Include="fix50sp2\ExecutionAcknowledgement.cs" />
-    <Compile Include="fix50sp2\ExecutionReport.cs" />
-    <Compile Include="fix50sp2\IOI.cs" />
-    <Compile Include="fix50sp2\ListCancelRequest.cs" />
-    <Compile Include="fix50sp2\ListExecute.cs" />
-    <Compile Include="fix50sp2\ListStatus.cs" />
-    <Compile Include="fix50sp2\ListStatusRequest.cs" />
-    <Compile Include="fix50sp2\ListStrikePrice.cs" />
-    <Compile Include="fix50sp2\MarketDataIncrementalRefresh.cs" />
-    <Compile Include="fix50sp2\MarketDataRequest.cs" />
-    <Compile Include="fix50sp2\MarketDataRequestReject.cs" />
-    <Compile Include="fix50sp2\MarketDataSnapshotFullRefresh.cs" />
-    <Compile Include="fix50sp2\MarketDefinition.cs" />
-    <Compile Include="fix50sp2\MarketDefinitionRequest.cs" />
-    <Compile Include="fix50sp2\MarketDefinitionUpdateReport.cs" />
-    <Compile Include="fix50sp2\MassQuote.cs" />
-    <Compile Include="fix50sp2\MassQuoteAcknowledgement.cs" />
-    <Compile Include="fix50sp2\Message.cs" />
-    <Compile Include="fix50sp2\MultilegOrderCancelReplace.cs" />
-    <Compile Include="fix50sp2\NetworkCounterpartySystemStatusRequest.cs" />
-    <Compile Include="fix50sp2\NetworkCounterpartySystemStatusResponse.cs" />
-    <Compile Include="fix50sp2\NewOrderCross.cs" />
-    <Compile Include="fix50sp2\NewOrderList.cs" />
-    <Compile Include="fix50sp2\NewOrderMultileg.cs" />
-    <Compile Include="fix50sp2\NewOrderSingle.cs" />
-    <Compile Include="fix50sp2\News.cs" />
-    <Compile Include="fix50sp2\OrderCancelReject.cs" />
-    <Compile Include="fix50sp2\OrderCancelReplaceRequest.cs" />
-    <Compile Include="fix50sp2\OrderCancelRequest.cs" />
-    <Compile Include="fix50sp2\OrderMassActionReport.cs" />
-    <Compile Include="fix50sp2\OrderMassActionRequest.cs" />
-    <Compile Include="fix50sp2\OrderMassCancelReport.cs" />
-    <Compile Include="fix50sp2\OrderMassCancelRequest.cs" />
-    <Compile Include="fix50sp2\OrderMassStatusRequest.cs" />
-    <Compile Include="fix50sp2\OrderStatusRequest.cs" />
-    <Compile Include="fix50sp2\PartyDetailsListReport.cs" />
-    <Compile Include="fix50sp2\PartyDetailsListRequest.cs" />
-    <Compile Include="fix50sp2\PositionMaintenanceReport.cs" />
-    <Compile Include="fix50sp2\PositionMaintenanceRequest.cs" />
-    <Compile Include="fix50sp2\PositionReport.cs" />
-    <Compile Include="fix50sp2\Quote.cs" />
-    <Compile Include="fix50sp2\QuoteCancel.cs" />
-    <Compile Include="fix50sp2\QuoteRequest.cs" />
-    <Compile Include="fix50sp2\QuoteRequestReject.cs" />
-    <Compile Include="fix50sp2\QuoteResponse.cs" />
-    <Compile Include="fix50sp2\QuoteStatusReport.cs" />
-    <Compile Include="fix50sp2\QuoteStatusRequest.cs" />
-    <Compile Include="fix50sp2\RegistrationInstructions.cs" />
-    <Compile Include="fix50sp2\RegistrationInstructionsResponse.cs" />
-    <Compile Include="fix50sp2\RequestForPositions.cs" />
-    <Compile Include="fix50sp2\RequestForPositionsAck.cs" />
-    <Compile Include="fix50sp2\RFQRequest.cs" />
-    <Compile Include="fix50sp2\SecurityDefinition.cs" />
-    <Compile Include="fix50sp2\SecurityDefinitionRequest.cs" />
-    <Compile Include="fix50sp2\SecurityDefinitionUpdateReport.cs" />
-    <Compile Include="fix50sp2\SecurityList.cs" />
-    <Compile Include="fix50sp2\SecurityListRequest.cs" />
-    <Compile Include="fix50sp2\SecurityListUpdateReport.cs" />
-    <Compile Include="fix50sp2\SecurityStatus.cs" />
-    <Compile Include="fix50sp2\SecurityStatusRequest.cs" />
-    <Compile Include="fix50sp2\SecurityTypeRequest.cs" />
-    <Compile Include="fix50sp2\SecurityTypes.cs" />
-    <Compile Include="fix50sp2\SettlementInstructionRequest.cs" />
-    <Compile Include="fix50sp2\SettlementInstructions.cs" />
-    <Compile Include="fix50sp2\SettlementObligationReport.cs" />
-    <Compile Include="fix50sp2\StreamAssignmentReport.cs" />
-    <Compile Include="fix50sp2\StreamAssignmentReportACK.cs" />
-    <Compile Include="fix50sp2\StreamAssignmentRequest.cs" />
-    <Compile Include="fix50sp2\TradeCaptureReport.cs" />
-    <Compile Include="fix50sp2\TradeCaptureReportAck.cs" />
-    <Compile Include="fix50sp2\TradeCaptureReportRequest.cs" />
-    <Compile Include="fix50sp2\TradeCaptureReportRequestAck.cs" />
-    <Compile Include="fix50sp2\TradingSessionList.cs" />
-    <Compile Include="fix50sp2\TradingSessionListRequest.cs" />
-    <Compile Include="fix50sp2\TradingSessionListUpdateReport.cs" />
-    <Compile Include="fix50sp2\TradingSessionStatus.cs" />
-    <Compile Include="fix50sp2\TradingSessionStatusRequest.cs" />
-    <Compile Include="fix50sp2\UserNotification.cs" />
-    <Compile Include="fix50sp2\UserRequest.cs" />
-    <Compile Include="fix50sp2\UserResponse.cs" />
+    <Compile Include="fix50sp2\AdjustedPositionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\Advertisement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AllocationInstruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AllocationInstructionAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AllocationInstructionAlert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AllocationReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AllocationReportAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ApplicationMessageReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ApplicationMessageRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ApplicationMessageRequestAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\AssignmentReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\BidRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\BidResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\BusinessMessageReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralAssignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralInquiry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralInquiryAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CollateralResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\Confirmation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ConfirmationAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ConfirmationRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ContraryIntentionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CrossOrderCancelReplaceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\CrossOrderCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\DerivativeSecurityList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\DerivativeSecurityListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\DerivativeSecurityListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\DontKnowTrade.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\Email.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ExecutionAcknowledgement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ExecutionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\IOI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ListCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ListExecute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ListStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ListStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\ListStrikePrice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDataIncrementalRefresh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDataRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDataRequestReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDataSnapshotFullRefresh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDefinitionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MarketDefinitionUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MassQuote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MassQuoteAcknowledgement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\MultilegOrderCancelReplace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NetworkCounterpartySystemStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NetworkCounterpartySystemStatusResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NewOrderCross.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NewOrderList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NewOrderMultileg.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\NewOrderSingle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\News.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderCancelReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderCancelReplaceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderMassActionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderMassActionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderMassCancelReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderMassCancelRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderMassStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\OrderStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\PositionMaintenanceReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\PositionMaintenanceRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\PositionReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\Quote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteCancel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteRequestReject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteStatusReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\QuoteStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\RegistrationInstructions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\RegistrationInstructionsResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\RequestForPositions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\RequestForPositionsAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\RFQRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityDefinitionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityDefinitionUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityTypeRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SecurityTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SettlementInstructionRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SettlementInstructions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\SettlementObligationReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\StreamAssignmentReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\StreamAssignmentReportACK.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\StreamAssignmentRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradeCaptureReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradeCaptureReportAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradeCaptureReportRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradeCaptureReportRequestAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradingSessionList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradingSessionListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradingSessionListUpdateReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradingSessionStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\TradingSessionStatusRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\UserNotification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\UserRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fix50sp2\UserResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FIX50SP2_MessageCracker.cs" />
     <Compile Include="FIX50SP2_MessageFactory.cs" />
     <Compile Include="fix50\AdjustedPositionReport.cs">
@@ -1194,7 +1620,9 @@
     <Compile Include="fix50\Confirmation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fix50\ConfirmationAck.cs" />
+    <Compile Include="fix50\ConfirmationAck.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="fix50\ConfirmationRequest.cs">
       <SubType>Code</SubType>
     </Compile>

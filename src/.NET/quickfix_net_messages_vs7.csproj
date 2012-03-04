@@ -205,7 +205,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix40\AllocationACK.cs"
+                    RelPath = "fix40\AllocationInstructionAck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -230,7 +230,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix40\IndicationofInterest.cs"
+                    RelPath = "fix40\IOI.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -345,7 +345,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix41\AllocationACK.cs"
+                    RelPath = "fix41\AllocationInstructionAck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -370,7 +370,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix41\IndicationofInterest.cs"
+                    RelPath = "fix41\IOI.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -490,7 +490,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix42\AllocationACK.cs"
+                    RelPath = "fix42\AllocationInstructionAck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -530,7 +530,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix42\IndicationofInterest.cs"
+                    RelPath = "fix42\IOI.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -1055,6 +1055,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "fix43\XMLnonFIX.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "fix44\Advertisement.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -1517,6 +1522,10 @@
                 <File
                     RelPath = "fix44\UserResponse.cs"
                     SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "fix44\XMLnonFIX.cs"
                     BuildAction = "Compile"
                 />
                 <File
@@ -2095,11 +2104,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "fix50sp1\Confirmation_Ack.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "fix50sp1\ConfirmationAck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -2141,11 +2145,6 @@
                 />
                 <File
                     RelPath = "fix50sp1\DontKnowTrade.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50sp1\DontKnowTradeDK.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -2856,16 +2855,6 @@
                 />
                 <File
                     RelPath = "fix50sp2\OrderStatusRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50sp2\PartyDetailsListReport.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "fix50sp2\PartyDetailsListRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
