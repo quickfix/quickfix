@@ -105,9 +105,9 @@ public:
 
   static int numSessions();
 
-  bool isSessionTime(const DateTime& time)
+  bool isSessionTime(const UtcTimeStamp& time)
     { return m_sessionTime.isInRange(time); }
-  bool isLogonTime(const DateTime& time)
+  bool isLogonTime(const UtcTimeStamp& time)
     { return m_logonTime.isInRange(time); }
   bool isInitiator()
     { return m_state.initiate(); }

@@ -34,7 +34,8 @@ namespace FIX
                         int startDay,
                         int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay )
+    m_startDay( startDay ), m_endDay( endDay ),
+    m_useLocalTime( false )
   {
     if( startDay > 0
         && endDay > 0
@@ -48,7 +49,8 @@ namespace FIX
                         int startDay,
                         int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay )
+    m_startDay( startDay ), m_endDay( endDay ),
+    m_useLocalTime( true )
   {
     if( startDay > 0
         && endDay > 0

@@ -191,18 +191,49 @@ public:
         ( m_startTime, m_endTime, m_startDay, m_endDay, dateTime, day );
   }
 
-  bool isInRange( const DateTime& dateTime )
+  bool isInRange( const UtcTimeStamp& dateTime )
   {
-	  return isInRange( dateTime, dateTime.getWeekDay() );
+    if( m_useLocalTime )
+    {
+      LocalTimeStamp localDateTime( dateTime.getTimeT() );
+      return isInRange( localDateTime, localDateTime.getWeekDay() );
+    }
+
+    return isInRange( dateTime, dateTime.getWeekDay() );
+  }
+
+  bool isInRange( const LocalTimeStamp& dateTime )
+  {
+    if( !m_useLocalTime )
+    {
+      LocalTimeStamp utcDateTime( dateTime.getTimeT() );
+      return isInRange( utcDateTime, utcDateTime.getWeekDay() );
+    }
+
+    return isInRange( dateTime, dateTime.getWeekDay() );
   }
 
   bool isInSameRange( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
   {
+    if( m_useLocalTime )
+    {
+      LocalTimeStamp localTime1( time1.getTimeT() );
+      LocalTimeStamp localTime2( time2.getTimeT() );
+      return isInSameRange( (DateTime)localTime1, (DateTime)localTime2 );
+    }
+
     return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
   bool isInSameRange( const LocalTimeStamp& time1, const LocalTimeStamp& time2 )
   {
+    if( !m_useLocalTime )
+    {
+      UtcTimeStamp utcTime1( time1.getTimeT() );
+      UtcTimeStamp utcTime2( time2.getTimeT() );
+      return isInSameRange( (DateTime)utcTime1, (DateTime)utcTime2 );
+    }
+
     return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
@@ -220,6 +251,7 @@ private:
   UtcTimeOnly m_endTime;
   int m_startDay;
   int m_endDay;
+  bool m_useLocalTime;
 };
 }
 
