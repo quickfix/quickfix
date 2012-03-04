@@ -2444,7 +2444,7 @@ class QuoteRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(60)
+				order = fix.IntArray(59)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -2489,22 +2489,21 @@ class QuoteRequest(Message):
 				order[41] = 955
 				order[42] = 956
 				order[43] = 1017
-				order[44] = 1017
-				order[45] = 566
-				order[46] = 687
-				order[47] = 685
-				order[48] = 690
-				order[49] = 587
-				order[50] = 588
-				order[51] = 683
-				order[52] = 539
-				order[53] = 676
-				order[54] = 677
-				order[55] = 678
-				order[56] = 679
-				order[57] = 680
-				order[58] = 654
-				order[59] = 0
+				order[44] = 566
+				order[45] = 687
+				order[46] = 685
+				order[47] = 690
+				order[48] = 587
+				order[49] = 588
+				order[50] = 683
+				order[51] = 539
+				order[52] = 676
+				order[53] = 677
+				order[54] = 678
+				order[55] = 679
+				order[56] = 680
+				order[57] = 654
+				order[58] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):
@@ -6403,7 +6402,7 @@ class NewOrderMultileg(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(58)
+			order = fix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6448,20 +6447,19 @@ class NewOrderMultileg(Message):
 			order[41] = 955
 			order[42] = 956
 			order[43] = 1017
-			order[44] = 1017
-			order[45] = 687
-			order[46] = 690
-			order[47] = 683
-			order[48] = 670
-			order[49] = 564
-			order[50] = 565
-			order[51] = 539
-			order[52] = 654
-			order[53] = 566
-			order[54] = 587
-			order[55] = 588
-			order[56] = 685
-			order[57] = 0
+			order[44] = 687
+			order[45] = 690
+			order[46] = 683
+			order[47] = 670
+			order[48] = 564
+			order[49] = 565
+			order[50] = 539
+			order[51] = 654
+			order[52] = 566
+			order[53] = 587
+			order[54] = 588
+			order[55] = 685
+			order[56] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -6654,7 +6652,7 @@ class MultilegOrderCancelReplace(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(58)
+			order = fix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6699,20 +6697,19 @@ class MultilegOrderCancelReplace(Message):
 			order[41] = 955
 			order[42] = 956
 			order[43] = 1017
-			order[44] = 1017
-			order[45] = 687
-			order[46] = 690
-			order[47] = 683
-			order[48] = 670
-			order[49] = 564
-			order[50] = 565
-			order[51] = 539
-			order[52] = 654
-			order[53] = 566
-			order[54] = 587
-			order[55] = 588
-			order[56] = 685
-			order[57] = 0
+			order[44] = 687
+			order[45] = 690
+			order[46] = 683
+			order[47] = 670
+			order[48] = 564
+			order[49] = 565
+			order[50] = 539
+			order[51] = 654
+			order[52] = 566
+			order[53] = 587
+			order[54] = 588
+			order[55] = 685
+			order[56] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -7509,7 +7506,7 @@ class QuoteRequestReject(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(60)
+				order = fix.IntArray(59)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -7554,22 +7551,21 @@ class QuoteRequestReject(Message):
 				order[41] = 955
 				order[42] = 956
 				order[43] = 1017
-				order[44] = 1017
-				order[45] = 566
-				order[46] = 687
-				order[47] = 685
-				order[48] = 690
-				order[49] = 587
-				order[50] = 588
-				order[51] = 683
-				order[52] = 539
-				order[53] = 676
-				order[54] = 677
-				order[55] = 678
-				order[56] = 679
-				order[57] = 680
-				order[58] = 654
-				order[59] = 0
+				order[44] = 566
+				order[45] = 687
+				order[46] = 685
+				order[47] = 690
+				order[48] = 587
+				order[49] = 588
+				order[50] = 683
+				order[51] = 539
+				order[52] = 676
+				order[53] = 677
+				order[54] = 678
+				order[55] = 679
+				order[56] = 680
+				order[57] = 654
+				order[58] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):

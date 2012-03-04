@@ -33,6 +33,7 @@ class DataDictionary
     @tagToEnum = Hash.new
     @msgIdToMsgType = Hash.new
     @msgIdToMsgContents = Hash.new
+    @msgIdToTags = Hash.new
     @componentNameToMsgId = Hash.new
 
     puts filename
@@ -195,6 +196,7 @@ class DataDictionary
 
   def parseMsgContents
     @msgContentsDoc.elements["dataroot"].elements.each("MsgContents") { |msgContentsElement|
+      tagsInMsg = []
       msgId = msgContentsElement.elements["MsgID"].text.to_i
       tagText = msgContentsElement.elements["TagText"].text
       next if tagText == "StandardHeader"
@@ -204,7 +206,12 @@ class DataDictionary
       required = msgContentsElement.elements["Reqd"].text.to_i == 1 ? "Y" : "N"
       position = msgContentsElement.elements["Position"].text.to_i
       
+      if( tag == 1017 && msgId != 1005 )
+        next
+      end
+
       if( !@msgIdToMsgContents.has_key?(msgId) )
+        @msgIdToTags[ msgId ] = Hash.new
         @msgIdToMsgContents[msgId] = Array.new
       end
       
@@ -215,11 +222,15 @@ class DataDictionary
         @msgIdToMsgContents[ msgId ] = msgContentsArray
         next
       end
-      
+
       next if !@tagToField.has_key?(tag)
       name = @tagToField[ tag ]["fieldName"]
-      
-      msgContentsArray.push( [tag,name,indent,required] )
+
+      if( !@msgIdToTags[ msgId ].has_key?(tag) )
+        @msgIdToTags[ msgId ][ tag ] = tag
+        msgContentsArray.push( [tag,name,indent,required] )
+      end
+
       @msgIdToMsgContents[ msgId ] = msgContentsArray
     }
   end

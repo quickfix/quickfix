@@ -106,7 +106,7 @@ class IOI(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(54)
+			order = fix.IntArray(53)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -157,10 +157,9 @@ class IOI(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 682
-			order[52] = 683
-			order[53] = 0
+			order[50] = 682
+			order[51] = 683
+			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -193,7 +192,7 @@ class Advertisement(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -244,8 +243,7 @@ class Advertisement(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -502,7 +500,7 @@ class ExecutionReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(74)
+			order = fix.IntArray(73)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -553,30 +551,29 @@ class ExecutionReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 685
-			order[53] = 690
-			order[54] = 683
-			order[55] = 1366
-			order[56] = 670
-			order[57] = 564
-			order[58] = 565
-			order[59] = 948
-			order[60] = 654
-			order[61] = 587
-			order[62] = 588
-			order[63] = 637
-			order[64] = 675
-			order[65] = 1073
-			order[66] = 1074
-			order[67] = 1075
-			order[68] = 1379
-			order[69] = 1381
-			order[70] = 1383
-			order[71] = 1384
-			order[72] = 1418
-			order[73] = 0
+			order[50] = 687
+			order[51] = 685
+			order[52] = 690
+			order[53] = 683
+			order[54] = 1366
+			order[55] = 670
+			order[56] = 564
+			order[57] = 565
+			order[58] = 948
+			order[59] = 654
+			order[60] = 587
+			order[61] = 588
+			order[62] = 637
+			order[63] = 675
+			order[64] = 1073
+			order[65] = 1074
+			order[66] = 1075
+			order[67] = 1379
+			order[68] = 1381
+			order[69] = 1383
+			order[70] = 1384
+			order[71] = 1418
+			order[72] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -751,7 +748,7 @@ class News(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -802,8 +799,7 @@ class News(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -1038,7 +1034,7 @@ class Email(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -1089,8 +1085,7 @@ class Email(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoLinesOfText(fix.Group):
@@ -2086,7 +2081,7 @@ class AllocationInstruction(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2137,8 +2132,7 @@ class AllocationInstruction(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoPartyIDs(fix.Group):
@@ -2449,7 +2443,7 @@ class DontKnowTrade(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2500,8 +2494,7 @@ class DontKnowTrade(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class QuoteRequest(Message):
@@ -2736,7 +2729,7 @@ class QuoteRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(65)
+				order = fix.IntArray(64)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -2787,21 +2780,20 @@ class QuoteRequest(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 687
-				order[52] = 685
-				order[53] = 690
-				order[54] = 587
-				order[55] = 588
-				order[56] = 683
-				order[57] = 539
-				order[58] = 676
-				order[59] = 677
-				order[60] = 678
-				order[61] = 679
-				order[62] = 680
-				order[63] = 654
-				order[64] = 0
+				order[50] = 687
+				order[51] = 685
+				order[52] = 690
+				order[53] = 587
+				order[54] = 588
+				order[55] = 683
+				order[56] = 539
+				order[57] = 676
+				order[58] = 677
+				order[59] = 678
+				order[60] = 679
+				order[61] = 680
+				order[62] = 654
+				order[63] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):
@@ -2962,7 +2954,7 @@ class Quote(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(70)
+			order = fix.IntArray(69)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3013,26 +3005,25 @@ class Quote(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 685
-			order[53] = 690
-			order[54] = 587
-			order[55] = 588
-			order[56] = 683
-			order[57] = 539
-			order[58] = 686
-			order[59] = 681
-			order[60] = 684
-			order[61] = 676
-			order[62] = 677
-			order[63] = 678
-			order[64] = 679
-			order[65] = 680
-			order[66] = 654
-			order[67] = 1067
-			order[68] = 1068
-			order[69] = 0
+			order[50] = 687
+			order[51] = 685
+			order[52] = 690
+			order[53] = 587
+			order[54] = 588
+			order[55] = 683
+			order[56] = 539
+			order[57] = 686
+			order[58] = 681
+			order[59] = 684
+			order[60] = 676
+			order[61] = 677
+			order[62] = 678
+			order[63] = 679
+			order[64] = 680
+			order[65] = 654
+			order[66] = 1067
+			order[67] = 1068
+			order[68] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -3295,7 +3286,7 @@ class MarketDataRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -3346,8 +3337,7 @@ class MarketDataRequest(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 	class NoTradingSessions(fix.Group):
@@ -3432,7 +3422,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3483,8 +3473,7 @@ class MarketDataSnapshotFullRefresh(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoMDEntries(fix.Group):
@@ -3829,7 +3818,7 @@ class MarketDataIncrementalRefresh(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -3880,8 +3869,7 @@ class MarketDataIncrementalRefresh(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 		class NoOfSecSizes(fix.Group):
@@ -4132,7 +4120,7 @@ class QuoteCancel(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -4183,8 +4171,7 @@ class QuoteCancel(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 class QuoteStatusRequest(Message):
@@ -4261,7 +4248,7 @@ class QuoteStatusRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4312,8 +4299,7 @@ class QuoteStatusRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoPartyIDs(fix.Group):
@@ -4534,7 +4520,7 @@ class MassQuoteAcknowledgement(Message):
 
 			class NoLegs(fix.Group):
 				def __init__(self):
-					order = fix.IntArray(52)
+					order = fix.IntArray(51)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -4585,8 +4571,7 @@ class MassQuoteAcknowledgement(Message):
 					order[47] = 956
 					order[48] = 1358
 					order[49] = 1017
-					order[50] = 566
-					order[51] = 0
+					order[50] = 0
 					fix.Group.__init__(self, 555, 600, order)
 
 class SecurityDefinitionRequest(Message):
@@ -4671,7 +4656,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4722,8 +4707,7 @@ class SecurityDefinitionRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class SecurityDefinition(Message):
@@ -4808,7 +4792,7 @@ class SecurityDefinition(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4859,8 +4843,7 @@ class SecurityDefinition(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoMarketSegments(fix.Group):
@@ -4970,7 +4953,7 @@ class SecurityStatusRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5021,8 +5004,7 @@ class SecurityStatusRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class SecurityStatus(Message):
@@ -5099,7 +5081,7 @@ class SecurityStatus(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5150,8 +5132,7 @@ class SecurityStatus(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class TradingSessionStatusRequest(Message):
@@ -5360,7 +5341,7 @@ class MassQuote(Message):
 
 			class NoLegs(fix.Group):
 				def __init__(self):
-					order = fix.IntArray(52)
+					order = fix.IntArray(51)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -5411,8 +5392,7 @@ class MassQuote(Message):
 					order[47] = 956
 					order[48] = 1358
 					order[49] = 1017
-					order[50] = 566
-					order[51] = 0
+					order[50] = 0
 					fix.Group.__init__(self, 555, 600, order)
 
 class BusinessMessageReject(Message):
@@ -5986,7 +5966,7 @@ class NewOrderCross(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6037,8 +6017,7 @@ class NewOrderCross(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoTradingSessions(fix.Group):
@@ -6255,7 +6234,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6306,8 +6285,7 @@ class CrossOrderCancelReplaceRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoTradingSessions(fix.Group):
@@ -6469,7 +6447,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6520,8 +6498,7 @@ class CrossOrderCancelRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class SecurityTypeRequest(Message):
@@ -6618,7 +6595,7 @@ class SecurityListRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6669,8 +6646,7 @@ class SecurityListRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class SecurityList(Message):
@@ -6886,7 +6862,7 @@ class SecurityList(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(60)
+				order = fix.IntArray(59)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -6937,16 +6913,15 @@ class SecurityList(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 690
-				order[52] = 587
-				order[53] = 683
-				order[54] = 676
-				order[55] = 677
-				order[56] = 678
-				order[57] = 679
-				order[58] = 680
-				order[59] = 0
+				order[50] = 690
+				order[51] = 587
+				order[52] = 683
+				order[53] = 676
+				order[54] = 677
+				order[55] = 678
+				order[56] = 679
+				order[57] = 680
+				order[58] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):
@@ -7055,7 +7030,7 @@ class DerivativeSecurityList(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -7106,8 +7081,7 @@ class DerivativeSecurityList(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 class NewOrderMultileg(Message):
@@ -7240,7 +7214,7 @@ class NewOrderMultileg(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(69)
+			order = fix.IntArray(68)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7291,25 +7265,24 @@ class NewOrderMultileg(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 690
-			order[53] = 683
-			order[54] = 1366
-			order[55] = 670
-			order[56] = 564
-			order[57] = 565
-			order[58] = 539
-			order[59] = 654
-			order[60] = 587
-			order[61] = 588
-			order[62] = 675
-			order[63] = 685
-			order[64] = 1379
-			order[65] = 1381
-			order[66] = 1383
-			order[67] = 1384
-			order[68] = 0
+			order[50] = 687
+			order[51] = 690
+			order[52] = 683
+			order[53] = 1366
+			order[54] = 670
+			order[55] = 564
+			order[56] = 565
+			order[57] = 539
+			order[58] = 654
+			order[59] = 587
+			order[60] = 588
+			order[61] = 675
+			order[62] = 685
+			order[63] = 1379
+			order[64] = 1381
+			order[65] = 1383
+			order[66] = 1384
+			order[67] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -7507,7 +7480,7 @@ class MultilegOrderCancelReplace(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(69)
+			order = fix.IntArray(68)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7558,25 +7531,24 @@ class MultilegOrderCancelReplace(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 690
-			order[53] = 683
-			order[54] = 1366
-			order[55] = 670
-			order[56] = 564
-			order[57] = 565
-			order[58] = 539
-			order[59] = 654
-			order[60] = 587
-			order[61] = 588
-			order[62] = 675
-			order[63] = 685
-			order[64] = 1379
-			order[65] = 1381
-			order[66] = 1383
-			order[67] = 1384
-			order[68] = 0
+			order[50] = 687
+			order[51] = 690
+			order[52] = 683
+			order[53] = 1366
+			order[54] = 670
+			order[55] = 564
+			order[56] = 565
+			order[57] = 539
+			order[58] = 654
+			order[59] = 587
+			order[60] = 588
+			order[61] = 675
+			order[62] = 685
+			order[63] = 1379
+			order[64] = 1381
+			order[65] = 1383
+			order[66] = 1384
+			order[67] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -7736,7 +7708,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7787,8 +7759,7 @@ class TradeCaptureReportRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoDates(fix.Group):
@@ -7901,7 +7872,7 @@ class TradeCaptureReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(74)
+			order = fix.IntArray(73)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7952,30 +7923,29 @@ class TradeCaptureReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 690
-			order[53] = 990
-			order[54] = 1152
-			order[55] = 683
-			order[56] = 564
-			order[57] = 565
-			order[58] = 539
-			order[59] = 654
-			order[60] = 587
-			order[61] = 588
-			order[62] = 637
-			order[63] = 675
-			order[64] = 1073
-			order[65] = 1074
-			order[66] = 1075
-			order[67] = 1379
-			order[68] = 1381
-			order[69] = 1383
-			order[70] = 1384
-			order[71] = 1418
-			order[72] = 1342
-			order[73] = 0
+			order[50] = 687
+			order[51] = 690
+			order[52] = 990
+			order[53] = 1152
+			order[54] = 683
+			order[55] = 564
+			order[56] = 565
+			order[57] = 539
+			order[58] = 654
+			order[59] = 587
+			order[60] = 588
+			order[61] = 637
+			order[62] = 675
+			order[63] = 1073
+			order[64] = 1074
+			order[65] = 1075
+			order[66] = 1379
+			order[67] = 1381
+			order[68] = 1383
+			order[69] = 1384
+			order[70] = 1418
+			order[71] = 1342
+			order[72] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -8499,7 +8469,7 @@ class QuoteRequestReject(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(65)
+				order = fix.IntArray(64)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -8550,21 +8520,20 @@ class QuoteRequestReject(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 687
-				order[52] = 685
-				order[53] = 690
-				order[54] = 587
-				order[55] = 588
-				order[56] = 683
-				order[57] = 539
-				order[58] = 676
-				order[59] = 677
-				order[60] = 678
-				order[61] = 679
-				order[62] = 680
-				order[63] = 654
-				order[64] = 0
+				order[50] = 687
+				order[51] = 685
+				order[52] = 690
+				order[53] = 587
+				order[54] = 588
+				order[55] = 683
+				order[56] = 539
+				order[57] = 676
+				order[58] = 677
+				order[59] = 678
+				order[60] = 679
+				order[61] = 680
+				order[62] = 654
+				order[63] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):
@@ -8791,7 +8760,7 @@ class RFQRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -8842,8 +8811,7 @@ class RFQRequest(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 class QuoteStatusReport(Message):
@@ -8946,7 +8914,7 @@ class QuoteStatusReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(59)
+			order = fix.IntArray(58)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8997,15 +8965,14 @@ class QuoteStatusReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 685
-			order[53] = 690
-			order[54] = 587
-			order[55] = 588
-			order[56] = 683
-			order[57] = 539
-			order[58] = 0
+			order[50] = 687
+			order[51] = 685
+			order[52] = 690
+			order[53] = 587
+			order[54] = 588
+			order[55] = 683
+			order[56] = 539
+			order[57] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -9148,7 +9115,7 @@ class QuoteResponse(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(70)
+			order = fix.IntArray(69)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9199,26 +9166,25 @@ class QuoteResponse(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 685
-			order[53] = 690
-			order[54] = 587
-			order[55] = 588
-			order[56] = 683
-			order[57] = 539
-			order[58] = 686
-			order[59] = 681
-			order[60] = 684
-			order[61] = 676
-			order[62] = 677
-			order[63] = 678
-			order[64] = 679
-			order[65] = 680
-			order[66] = 654
-			order[67] = 1067
-			order[68] = 1068
-			order[69] = 0
+			order[50] = 687
+			order[51] = 685
+			order[52] = 690
+			order[53] = 587
+			order[54] = 588
+			order[55] = 683
+			order[56] = 539
+			order[57] = 686
+			order[58] = 681
+			order[59] = 684
+			order[60] = 676
+			order[61] = 677
+			order[62] = 678
+			order[63] = 679
+			order[64] = 680
+			order[65] = 654
+			order[66] = 1067
+			order[67] = 1068
+			order[68] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -9384,7 +9350,7 @@ class Confirmation(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9435,8 +9401,7 @@ class Confirmation(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoCapacities(fix.Group):
@@ -9491,7 +9456,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9542,8 +9507,7 @@ class PositionMaintenanceRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -9685,7 +9649,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9736,8 +9700,7 @@ class PositionMaintenanceReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -9879,7 +9842,7 @@ class RequestForPositions(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9930,8 +9893,7 @@ class RequestForPositions(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -10034,7 +9996,7 @@ class RequestForPositionsAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10085,8 +10047,7 @@ class RequestForPositionsAck(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -10181,7 +10142,7 @@ class PositionReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10232,8 +10193,7 @@ class PositionReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -10430,7 +10390,7 @@ class TradeCaptureReportRequestAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10481,8 +10441,7 @@ class TradeCaptureReportRequestAck(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class TradeCaptureReportAck(Message):
@@ -10585,7 +10544,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(74)
+			order = fix.IntArray(73)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10636,30 +10595,29 @@ class TradeCaptureReportAck(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 687
-			order[52] = 690
-			order[53] = 990
-			order[54] = 1152
-			order[55] = 683
-			order[56] = 564
-			order[57] = 565
-			order[58] = 539
-			order[59] = 654
-			order[60] = 587
-			order[61] = 588
-			order[62] = 637
-			order[63] = 675
-			order[64] = 1073
-			order[65] = 1074
-			order[66] = 1075
-			order[67] = 1379
-			order[68] = 1381
-			order[69] = 1383
-			order[70] = 1384
-			order[71] = 1418
-			order[72] = 1342
-			order[73] = 0
+			order[50] = 687
+			order[51] = 690
+			order[52] = 990
+			order[53] = 1152
+			order[54] = 683
+			order[55] = 564
+			order[56] = 565
+			order[57] = 539
+			order[58] = 654
+			order[59] = 587
+			order[60] = 588
+			order[61] = 637
+			order[62] = 675
+			order[63] = 1073
+			order[64] = 1074
+			order[65] = 1075
+			order[66] = 1379
+			order[67] = 1381
+			order[68] = 1383
+			order[69] = 1384
+			order[70] = 1418
+			order[71] = 1342
+			order[72] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 		class NoLegStipulations(fix.Group):
@@ -11047,7 +11005,7 @@ class AllocationReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11098,8 +11056,7 @@ class AllocationReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoPartyIDs(fix.Group):
@@ -11332,7 +11289,7 @@ class AssignmentReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11383,8 +11340,7 @@ class AssignmentReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -11533,7 +11489,7 @@ class CollateralRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11584,8 +11540,7 @@ class CollateralRequest(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -11726,7 +11681,7 @@ class CollateralAssignment(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11777,8 +11732,7 @@ class CollateralAssignment(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -11919,7 +11873,7 @@ class CollateralResponse(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11970,8 +11924,7 @@ class CollateralResponse(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -12112,7 +12065,7 @@ class CollateralReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -12163,8 +12116,7 @@ class CollateralReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -12311,7 +12263,7 @@ class CollateralInquiry(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -12362,8 +12314,7 @@ class CollateralInquiry(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -12542,7 +12493,7 @@ class CollateralInquiryAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -12593,8 +12544,7 @@ class CollateralInquiryAck(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoUnderlyings(fix.Group):
@@ -12882,7 +12832,7 @@ class SecurityDefinitionUpdateReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -12933,8 +12883,7 @@ class SecurityDefinitionUpdateReport(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoMarketSegments(fix.Group):
@@ -13184,7 +13133,7 @@ class SecurityListUpdateReport(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(60)
+				order = fix.IntArray(59)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -13235,16 +13184,15 @@ class SecurityListUpdateReport(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 690
-				order[52] = 587
-				order[53] = 683
-				order[54] = 676
-				order[55] = 677
-				order[56] = 678
-				order[57] = 679
-				order[58] = 680
-				order[59] = 0
+				order[50] = 690
+				order[51] = 587
+				order[52] = 683
+				order[53] = 676
+				order[54] = 677
+				order[55] = 678
+				order[56] = 679
+				order[57] = 680
+				order[58] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 			class NoLegStipulations(fix.Group):
@@ -13503,7 +13451,7 @@ class AllocationInstructionAlert(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -13554,8 +13502,7 @@ class AllocationInstructionAlert(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 	class NoPartyIDs(fix.Group):
@@ -13748,7 +13695,7 @@ class ExecutionAcknowledgement(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.IntArray(52)
+			order = fix.IntArray(51)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -13799,8 +13746,7 @@ class ExecutionAcknowledgement(Message):
 			order[47] = 956
 			order[48] = 1358
 			order[49] = 1017
-			order[50] = 566
-			order[51] = 0
+			order[50] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
 class TradingSessionList(Message):
@@ -14071,7 +14017,7 @@ class DerivativeSecurityListUpdateReport(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.IntArray(52)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -14122,8 +14068,7 @@ class DerivativeSecurityListUpdateReport(Message):
 				order[47] = 956
 				order[48] = 1358
 				order[49] = 1017
-				order[50] = 566
-				order[51] = 0
+				order[50] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
 class TradingSessionListUpdateReport(Message):

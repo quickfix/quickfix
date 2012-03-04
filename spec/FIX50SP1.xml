@@ -3032,7 +3032,6 @@
    <field name='LegInterestAccrualDate' required='N' />
    <field name='LegPutOrCall' required='N' />
    <field name='LegOptionRatio' required='N' />
-   <field name='LegPrice' required='N' />
   </component>
   <component name='InstrmtLegExecGrp'>
    <group name='NoLegs' required='N'>

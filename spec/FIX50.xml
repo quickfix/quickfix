@@ -3221,7 +3221,6 @@
   <component name='QuotReqLegsGrp'>
    <group name='NoLegs' required='N'>
     <component name='InstrumentLeg' required='N' />
-    <field name='LegOptionRatio' required='N' />
     <field name='LegPrice' required='N' />
     <field name='LegQty' required='N' />
     <field name='LegOrderQty' required='N' />
@@ -3573,7 +3572,6 @@
   <component name='LegOrdGrp'>
    <group name='NoLegs' required='Y'>
     <component name='InstrumentLeg' required='N' />
-    <field name='LegOptionRatio' required='N' />
     <field name='LegQty' required='N' />
     <field name='LegSwapType' required='N' />
     <component name='LegStipulations' required='N' />

@@ -1805,7 +1805,7 @@ namespace QuickFix50
       public class NoLegs: QuickFix.Group
       {
       public NoLegs() : base(555,600,message_order ) {}
-      static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1001,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1017,1017,566,687,685,690,587,588,683,539,676,677,678,679,680,654,0};
+      static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1001,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1017,566,687,685,690,587,588,683,539,676,677,678,679,680,654,0};
         public void set(QuickFix.LegSymbol value)
         { setField(value); }
         public QuickFix.LegSymbol get(QuickFix.LegSymbol  value)
@@ -2321,18 +2321,6 @@ namespace QuickFix50
         { return isSetField(field); }
         public bool isSetLegInterestAccrualDate()
         { return isSetField(956); }
-
-        public void set(QuickFix.LegOptionRatio value)
-        { setField(value); }
-        public QuickFix.LegOptionRatio get(QuickFix.LegOptionRatio  value)
-        { getField(value); return value; }
-        public QuickFix.LegOptionRatio getLegOptionRatio()
-        { QuickFix.LegOptionRatio value = new QuickFix.LegOptionRatio();
-          getField(value); return value; }
-        public bool isSet(QuickFix.LegOptionRatio field)
-        { return isSetField(field); }
-        public bool isSetLegOptionRatio()
-        { return isSetField(1017); }
 
         public void set(QuickFix.LegOptionRatio value)
         { setField(value); }

@@ -1357,7 +1357,6 @@
     <field name='CashDistribAgentAcctNumber' required='N' />
     <field name='CashDistribPayRef' required='N' />
    </group>
-   <field name='OwnershipType' required='N' />
   </message>
   <message name='RegistrationInstructionsResponse' msgcat='app' msgtype='p'>
    <field name='RegistID' required='Y' />

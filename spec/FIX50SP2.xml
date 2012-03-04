@@ -3112,7 +3112,6 @@
    <field name='LegInterestAccrualDate' required='N' />
    <field name='LegPutOrCall' required='N' />
    <field name='LegOptionRatio' required='N' />
-   <field name='LegPrice' required='N' />
    <field name='LegContractMultiplierUnit' required='N' />
    <field name='LegFlowScheduleType' required='N' />
   </component>

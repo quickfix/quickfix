@@ -2336,7 +2336,7 @@ namespace QuickFix50Sp1
     public class NoLegs: QuickFix.Group
     {
     public NoLegs() : base(555,600,message_order ) {}
-    static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,566,687,690,683,1366,670,564,565,539,654,587,588,675,685,1379,1381,1383,1384,0};
+    static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,687,690,683,1366,670,564,565,539,654,587,588,675,685,1379,1381,1383,1384,0};
       public void set(QuickFix.LegSymbol value)
       { setField(value); }
       public QuickFix.LegSymbol get(QuickFix.LegSymbol  value)
@@ -2936,18 +2936,6 @@ namespace QuickFix50Sp1
       { return isSetField(field); }
       public bool isSetLegOptionRatio()
       { return isSetField(1017); }
-
-      public void set(QuickFix.LegPrice value)
-      { setField(value); }
-      public QuickFix.LegPrice get(QuickFix.LegPrice  value)
-      { getField(value); return value; }
-      public QuickFix.LegPrice getLegPrice()
-      { QuickFix.LegPrice value = new QuickFix.LegPrice();
-        getField(value); return value; }
-      public bool isSet(QuickFix.LegPrice field)
-      { return isSetField(field); }
-      public bool isSetLegPrice()
-      { return isSetField(566); }
 
       public void set(QuickFix.LegQty value)
       { setField(value); }
