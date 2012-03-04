@@ -7,7 +7,7 @@ m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
 
 AC_CONFIG_AUX_DIR(config)
-AM_INIT_AUTOMAKE(quickfix, 1.13.3)
+AM_INIT_AUTOMAKE(quickfix, 1.14.0)
 AM_CONFIG_HEADER(config.h)
 AM_DISABLE_STATIC
 

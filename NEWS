@@ -1,3 +1,76 @@
+1.14.0
+------
+Major performance improvement sending/receiving messages.  Thanks to 
+Viktor Pogrebnyak for a great patch.
+
+Improvement in how DataDictionaries are initialized makes starting up with
+a large number of sessions much faster.
+
+Generator will generate a message defined in the spec even if it has no fields.
+This was preventing the XMLnonFIX message from being generated in the various
+APIs.
+
+Added ValidateLengthAndChecksum. Allows you to ignore the length and checksum
+fields on incoming messages. Accept the message anyway. A wild free for all.
+
+Added FIX 5.0 sp1 and sp2 support to MessageCracker.
+
+SocketConnection would block other sessions if it was unable to connect
+immediately.  Brian Crowell submitted a patch that makes the connection
+call non-blocking.
+
+Initiator started before StartTime was doing an unecessary logout and 
+disconnect.
+
+MessageCracker will not cast non-const messages to const.
+
+Polling was kind of broken.  Fixed.
+
+Fixed bug where LogonTime does not fall between StartTime and EndTime when
+days are used.
+
+Fixed bug where port was not being correctly scoped in the DEFAULT section
+of the config file.
+
+All data is read from the socket before the engine begins to parse messages.
+
+Socket will make a better attempt to determine if a full message is available
+on the socket before determining if a logon failed.  Before it could potentially
+fail on a partial message that was in the middle of transmission.
+
+Header and Trailer are now distinct objects, instead of typedefs to FieldMap.
+
+Ambigous and confusing name getValue on the Field class has been renamed to 
+getFixString. This return a value such as 55=AAPL.
+
+Message groups can be parsed even if there is no delimiter present.  A new
+group is detected if the parser encounters any duplicate field.
+
+Fixed potential crash when stopping an initiator that has not yet started.
+
+When calling backup() on a .NET log, it was instead invoking clear() in the
+underlying C++ class. Fixed.
+
+Fallback ports were not being parsed correctly for fallback connections. Fixed.
+
+Not all constructors in the ThreadedSocketConnection were properly initializing
+the log object.  Fixed.
+
+Generate XML (and source) files from latest publicly available FIX repository.
+
+Alternate C++ allocators will no longer be automatically chose. They can be
+manually selected with configure --with-allocator.
+
+MySQL and PostgreSQL are detected using standard m4 when running configure.
+
+Environment variables RUBY and PYTHON are used to find which version of
+instance to use when running configure.
+
+Fixed/standardized various issues with python library deployment.
+
+If session is disabled, it will immediately disconnect without sending any
+messages.
+
 1.13.3
 ------
 Added support for FIX 5.0 sp1 and sp2
