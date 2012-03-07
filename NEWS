@@ -3,6 +3,8 @@
 Major performance improvement sending/receiving messages.  Thanks to 
 Viktor Pogrebnyak for a great patch.
 
+UseLocalTime=Y works again.
+
 Improvement in how DataDictionaries are initialized makes starting up with
 a large number of sessions much faster.
 
