@@ -1349,6 +1349,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
 
     const MsgType& msgType = FIELD_GET_REF( header, MsgType );
     const BeginString& beginString = FIELD_GET_REF( header, BeginString );
+    // make sure these fields are present
     FIELD_GET_REF( header, SenderCompID );
     FIELD_GET_REF( header, TargetCompID );
 
