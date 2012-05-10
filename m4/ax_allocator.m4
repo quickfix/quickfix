@@ -1,5 +1,17 @@
-AC_DEFUN([AX_BOOST],
+AC_DEFUN([AX_ALLOCATOR],
 [
+AC_ARG_WITH(allocator,
+    [  --with-allocator=<type> selected allocator, one of 'std' (default),'new','debug','mt','pool','bitmap','boost_fast','boost','tbb'], 
+    [if test $withval == "no"
+     then
+       has_allocator=false
+     else
+       has_allocator=true
+     fi],
+    has_allocator=false
+)
+ALLOCATOR=$with_allocator
+
 # check for debug allocator
 if test "x$with_allocator" == "xdebug"
 then
