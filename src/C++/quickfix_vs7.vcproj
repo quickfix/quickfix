@@ -146,9 +146,6 @@ del /F EXCLUDE
 				RelativePath=".\Acceptor.cpp">
 			</File>
 			<File
-				RelativePath="CallStack.cpp">
-			</File>
-			<File
 				RelativePath=".\Dictionary.cpp">
 			</File>
 			<File
@@ -207,23 +204,6 @@ del /F EXCLUDE
 			</File>
 			<File
 				RelativePath=".\Application.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="CallStack.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
