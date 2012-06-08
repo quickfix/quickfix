@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketAcceptor.h"
 #include "Session.h"
@@ -56,8 +55,7 @@ SocketAcceptor::~SocketAcceptor()
 
 void SocketAcceptor::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
-{ QF_STACK_PUSH(SocketAcceptor::onConfigure)
-
+{
   std::set<SessionID> sessions = s.getSessions();
   std::set<SessionID>::iterator i;
   for( i = sessions.begin(); i != sessions.end(); ++i )
@@ -69,14 +67,11 @@ throw ( ConfigError )
     if( settings.has(SOCKET_NODELAY) )
       settings.getBool( SOCKET_NODELAY );
   }
-
-  QF_STACK_POP
 }
 
 void SocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
-{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
-
+{
   short port = 0;
 
   try
@@ -111,13 +106,10 @@ throw ( RuntimeError )
     throw RuntimeError( "Unable to create, bind, or listen to port "
                        + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
-
-  QF_STACK_POP
 }
 
 void SocketAcceptor::onStart()
-{ QF_STACK_PUSH(SocketAcceptor::onStart)
-
+{
   while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
 
   if( !m_pServer )
@@ -137,13 +129,10 @@ void SocketAcceptor::onStart()
   m_pServer->close();
   delete m_pServer;
   m_pServer = 0;
-
-  QF_STACK_POP
 }
 
 bool SocketAcceptor::onPoll( double timeout )
-{ QF_STACK_PUSH(SocketAcceptor::onPoll)
-
+{
   if( !m_pServer )
     return false;
 
@@ -168,18 +157,14 @@ bool SocketAcceptor::onPoll( double timeout )
 
   m_pServer->block( *this, true, timeout );
   return true;
-
-  QF_STACK_POP
 }
 
 void SocketAcceptor::onStop()
-{ QF_STACK_PUSH(SocketAcceptor::onStop)
-  QF_STACK_POP
+{
 }
 
 void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
-{ QF_STACK_PUSH(SocketAcceptor::onConnect)
-
+{
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
   if ( i != m_connections.end() ) return;
@@ -192,36 +177,27 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
 
   if( getLog() )
     getLog()->onEvent( stream.str() );
-
-  QF_STACK_POP
 }
 
 void SocketAcceptor::onWrite( SocketServer& server, int s )
-{ QF_STACK_PUSH(SocketAcceptor::onWrite)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
   if( pSocketConnection->processQueue() )
     pSocketConnection->unsignal();
-
-  QF_STACK_POP
 }
 
 bool SocketAcceptor::onData( SocketServer& server, int s )
-{ QF_STACK_PUSH(SocketAcceptor::onData)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
   SocketConnection* pSocketConnection = i->second;
   return pSocketConnection->read( *this, server );
-
-  QF_STACK_POP
 }
 
 void SocketAcceptor::onDisconnect( SocketServer&, int s )
-{ QF_STACK_PUSH(SocketAcceptor::onDisconnect)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
@@ -231,19 +207,16 @@ void SocketAcceptor::onDisconnect( SocketServer&, int s )
 
   delete pSocketConnection;
   m_connections.erase( s );
-
-  QF_STACK_POP
 }
 
-void SocketAcceptor::onError( SocketServer& ) {}
+void SocketAcceptor::onError( SocketServer& ) 
+{
+}
 
 void SocketAcceptor::onTimeout( SocketServer& )
-{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
-
+{
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
     i->second->onTimeout();
-
-  QF_STACK_POP
 }
 }

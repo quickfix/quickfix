@@ -32,7 +32,6 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/PostgreSQLStore.h"
 #include "quickfix/Settings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -58,17 +57,15 @@ public __gc class PostgreSQLStoreFactory : public MessageStoreFactory
 {
 public:
   PostgreSQLStoreFactory( SessionSettings* settings )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::PostgreSQLStoreFactory(settings->unmanaged());
-    QF_STACK_CATCH
   }
 
   ~PostgreSQLStoreFactory() { delete m_pUnmanaged; }
 
   MessageStore* create( SessionID* sessionID )
-  { QF_STACK_TRY
+  {
     return new PostgreSQLStore(m_pUnmanaged->create(sessionID->unmanaged()));
-    QF_STACK_CATCH
   }
 
 private:

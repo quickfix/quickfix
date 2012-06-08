@@ -29,7 +29,6 @@ using namespace System;
 #include "LogFactory.h"
 #include "quickfix/Log.h"
 #include "quickfix/SessionSettings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -38,17 +37,15 @@ public __gc class ScreenLog : public CPPLog
 {
 public:
   ScreenLog( bool incoming, bool outgoing, bool event )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::ScreenLog
                    ( incoming, outgoing, event );
-    QF_STACK_CATCH
   }
 
   ScreenLog( SessionID* sessionID, bool incoming, bool outgoing, bool event )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::ScreenLog
                    ( sessionID->unmanaged(), incoming, outgoing, event );
-    QF_STACK_CATCH
   }
 };
 
@@ -63,8 +60,7 @@ public:
     m_settings( 0 ) {}
 
   Log* create()
-  { QF_STACK_TRY
-
+  {
     if( m_settings )
     {
       bool incoming = true;
@@ -85,13 +81,10 @@ public:
     {
       return new ScreenLog( m_incoming, m_outgoing, m_event );
     }
-
-    QF_STACK_CATCH
   }
 
   Log* create( SessionID* sessionID )
-  { QF_STACK_TRY
-    
+  {    
     if( m_settings )
     {
       bool incoming = true;
@@ -112,8 +105,6 @@ public:
     {
       return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
     }
-
-    QF_STACK_CATCH
   }
 
 private:

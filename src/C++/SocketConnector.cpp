@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketConnector.h"
 #include "Utility.h"
@@ -46,48 +45,34 @@ public:
 
 private:
   void onConnect( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ConnectorWrapper::onConnect)
-    
+  {    
     m_strategy.onConnect( m_connector, socket );
-
-    QF_STACK_POP
   }
 
   void onWrite( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ConnectorWrapper::onWrite)
-
+  {
     m_strategy.onWrite( m_connector, socket );
-    
-    QF_STACK_POP
   }
 
   void onEvent( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ConnectorWrapper::onEvent)
-
+  {
     if( !m_strategy.onData( m_connector, socket ) )
       m_strategy.onDisconnect( m_connector, socket );
-
-    QF_STACK_POP
   }
 
   void onError( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ConnectorWrapper::onError)
-
+  {
     m_strategy.onDisconnect( m_connector, socket );
-
-    QF_STACK_POP
   }
 
   void onError( SocketMonitor& )
-  { QF_STACK_PUSH(ConnectorWrapper::onError)
+  {
     m_strategy.onError( m_connector );
-    QF_STACK_POP
   }
 
   void onTimeout( SocketMonitor& )
-  { QF_STACK_PUSH(ConnectorWrapper::onTimeout)
+  {
     m_strategy.onTimeout( m_connector );
-    QF_STACK_POP
   };
 
   SocketConnector& m_connector;
@@ -99,8 +84,7 @@ SocketConnector::SocketConnector( int timeout )
 
 int SocketConnector::connect( const std::string& address, int port, bool noDelay,
                               int sendBufSize, int rcvBufSize )
-{ QF_STACK_PUSH(SocketConnector::connect)
-
+{
   int socket = socket_createConnector();
 
   if ( socket != -1 )
@@ -115,26 +99,18 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
     socket_connect( socket, address.c_str(), port );
   }
   return socket;
-
-  QF_STACK_POP
 }
 
 int SocketConnector::connect( const std::string& address, int port, bool noDelay, 
                               int sendBufSize, int rcvBufSize, Strategy& strategy )
-{ QF_STACK_PUSH(SocketConnector::connect)
-
+{
   int socket = connect( address, port, noDelay, sendBufSize, rcvBufSize );
   return socket;
-
-  QF_STACK_POP
 }
 
 void SocketConnector::block( Strategy& strategy, bool poll, double timeout )
-{ QF_STACK_PUSH(SocketConnector::block)
-
+{
   ConnectorWrapper wrapper( *this, strategy );
   m_monitor.block( wrapper, poll, timeout );
-
-  QF_STACK_POP
 }
 }

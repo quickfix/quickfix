@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_MYSQL
 
@@ -70,8 +69,7 @@ MySQLStore::~MySQLStore()
 }
 
 void MySQLStore::populateCache()
-{ QF_STACK_PUSH(MySQLStore::populateCache)
-
+{
   std::stringstream queryString;
 
   queryString << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
@@ -121,13 +119,10 @@ void MySQLStore::populateCache()
     if( !m_pConnection->execute(query2) )
       throw ConfigError( "Unable to create session in database" );
   }
-
-  QF_STACK_POP
 }
 
 MessageStore* MySQLStoreFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(MySQLStoreFactory::create)
-
+{
   if( m_useSettings )
     return create( s, m_settings.get(s) );
   else if( m_useDictionary )
@@ -137,13 +132,10 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
     DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
     return new MySQLStore( s, id, m_connectionPoolPtr.get() );
   }
-
-  QF_STACK_POP
 }
 
 MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
-{ QF_STACK_PUSH(MySQLStoreFactory::create)
-
+{
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
@@ -167,20 +159,16 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& s
 
   DatabaseConnectionID id( database, user, password, host, port );
   return new MySQLStore( s, id, m_connectionPoolPtr.get() );
-
-  QF_STACK_POP
 }
 
 void MySQLStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(MySQLStoreFactory::destroy)
+{
   delete pStore;
-  QF_STACK_POP
 }
 
 bool MySQLStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::set)
-
+{
   char* msgCopy = new char[ (msg.size() * 2) + 1 ];
   mysql_escape_string( msgCopy, msg.c_str(), msg.size() );
 
@@ -212,15 +200,12 @@ throw ( IOException )
       query2.throwException();
   }
   return true;
-
-  QF_STACK_POP
 }
 
 void MySQLStore::get( int begin, int end,
                       std::vector < std::string > & result ) const
 throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::get)
-
+{
   result.clear();
   std::stringstream queryString;
   queryString << "SELECT message FROM messages WHERE "
@@ -238,25 +223,20 @@ throw ( IOException )
   int rows = query.rows();
   for( int row = 0; row < rows; row++ )
     result.push_back( query.getValue( row, 0 ) );
-
-  QF_STACK_POP
 }
 
 int MySQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getNextSenderMsgSeqNum)
+{
   return m_cache.getNextSenderMsgSeqNum();
-  QF_STACK_POP
 }
 
 int MySQLStore::getNextTargetMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getNextTargetMsgSeqNum)
+{
   return m_cache.getNextTargetMsgSeqNum();
-  QF_STACK_POP
 }
 
 void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::setNextSenderMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
@@ -267,13 +247,10 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   if( !m_pConnection->execute(query) )
     query.throwException();
   m_cache.setNextSenderMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::setNextTargetMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
@@ -286,33 +263,27 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
     query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void MySQLStore::incrNextSenderMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::incrNextSenderMsgSeqNum)
+{
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
-  QF_STACK_POP
 }
 
 void MySQLStore::incrNextTargetMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::incrNextTargetMsgSeqNum)
+{
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
-  QF_STACK_POP
 }
 
 UtcTimeStamp MySQLStore::getCreationTime() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getCreationTime)
+{
   return m_cache.getCreationTime();
-  QF_STACK_POP
 }
 
 void MySQLStore::reset() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::reset)
-
+{
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
@@ -347,17 +318,12 @@ void MySQLStore::reset() throw ( IOException )
   MySQLQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
     query2.throwException();
-
-  QF_STACK_POP
 }
 
 void MySQLStore::refresh() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::refresh)
-
+{
   m_cache.reset();
   populateCache(); 
-
-  QF_STACK_POP
 }
 
 }

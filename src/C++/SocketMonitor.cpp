@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketMonitor.h"
 #include "Utility.h"
@@ -64,34 +63,27 @@ SocketMonitor::~SocketMonitor()
 }
 
 bool SocketMonitor::addConnect( int s )
-{ QF_STACK_PUSH(SocketMonitor::addConnect)
-
+{
   socket_setnonblock( s );
   Sockets::iterator i = m_connectSockets.find( s );
   if( i != m_connectSockets.end() ) return false;
 
   m_connectSockets.insert( s );
   return true;
-
-  QF_STACK_POP
 }
 
 bool SocketMonitor::addRead( int s )
-{ QF_STACK_PUSH(SocketMonitor::addRead)
-
+{
   socket_setnonblock( s );
   Sockets::iterator i = m_readSockets.find( s );
   if( i != m_readSockets.end() ) return false;
 
   m_readSockets.insert( s );
   return true;
-
-  QF_STACK_POP
 }
 
 bool SocketMonitor::addWrite( int s )
-{ QF_STACK_PUSH(SocketMonitor::addWrite)
-
+{
   if( m_readSockets.find(s) == m_readSockets.end() )
     return false;
 
@@ -101,13 +93,10 @@ bool SocketMonitor::addWrite( int s )
 
   m_writeSockets.insert( s );
   return true;
-
-  QF_STACK_POP
 }
 
 bool SocketMonitor::drop( int s )
-{ QF_STACK_PUSH(SocketMonitor::drop)
-
+{
   Sockets::iterator i = m_readSockets.find( s );
   Sockets::iterator j = m_writeSockets.find( s );
   Sockets::iterator k = m_connectSockets.find( s );
@@ -124,13 +113,10 @@ bool SocketMonitor::drop( int s )
     return true;
   }
   return false;
-
-  QF_STACK_POP
 }
 
 inline timeval* SocketMonitor::getTimeval( bool poll, double timeout )
-{ QF_STACK_PUSH(SocketMonitor::getTimeval)
-
+{
   if ( poll )
   {
     m_timeval.tv_sec = 0;
@@ -161,13 +147,10 @@ double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   }
   return &m_timeval;
 #endif
-
-  QF_STACK_POP
 }
 
 bool SocketMonitor::sleepIfEmpty( bool poll )
-{ QF_STACK_PUSH(SocketMonitor::sleepIfEmpty)
-
+{
   if( poll )
     return false;
 
@@ -180,30 +163,23 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
   }
   else
     return false;
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::signal( int socket )
-{ QF_STACK_PUSH(SocketMonitor::signal)
+{
   socket_send( m_signal, (char*)&socket, sizeof(socket) );
-  QF_STACK_POP
 }
 
 void SocketMonitor::unsignal( int s )
-{ QF_STACK_PUSH(SocketMonitor::unsignal)
-
+{
   Sockets::iterator i = m_writeSockets.find( s );
   if( i == m_writeSockets.end() ) return;
 
   m_writeSockets.erase( s );
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
-{ QF_STACK_PUSH(SocketMonitor::block)
-
+{
   while ( m_dropped.size() )
   {
     strategy.onError( *this, m_dropped.front() );
@@ -246,13 +222,10 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
   {
     strategy.onError( *this );
   }
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
-{ QF_STACK_PUSH(SocketMonitor::processReadSet)
-
+{
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < readSet.fd_count; ++i )
   {
@@ -288,13 +261,10 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
       }
     }
 #endif
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
-{ QF_STACK_PUSH(SocketMonitor::processWriteSet)
-
+{
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < writeSet.fd_count; ++i )
   {
@@ -332,13 +302,10 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
     strategy.onWrite( *this, s );
   }
 #endif
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
-{ QF_STACK_PUSH(SocketMonitor::processExceptSet)
-
+{
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < exceptSet.fd_count; ++i )
   {
@@ -356,17 +323,13 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
       strategy.onError( *this, s );
     }
 #endif
-
-  QF_STACK_POP
 }
 
 void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
-{ QF_STACK_PUSH(SocketMonitor::buildSet)
-
+{
   Sockets::const_iterator iter;
   for ( iter = sockets.begin(); iter != sockets.end(); ++iter ) {
     FD_SET( *iter, &watchSet );
   }
-  QF_STACK_POP
 }
 }

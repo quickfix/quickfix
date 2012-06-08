@@ -22,15 +22,13 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "FileLog.h"
 
 namespace FIX
 {
 Log* FileLogFactory::create()
-{ QF_STACK_PUSH(FileLogFactory::create)
-
+{
   m_globalLogCount++;
   if( m_globalLogCount > 1 ) return m_globalLog;
 
@@ -53,13 +51,10 @@ Log* FileLogFactory::create()
 	m_globalLogCount--;
 	throw;	
   }
-
-  QF_STACK_POP
 }
 
 Log* FileLogFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(FileLogFactory::create)
-
+{
   if ( m_path.size() && m_backupPath.size() )
     return new FileLog( m_path, m_backupPath, s );
   if ( m_path.size() ) 
@@ -69,13 +64,10 @@ Log* FileLogFactory::create( const SessionID& s )
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_LOG_PATH );
   return new FileLog( path, s );
-
-  QF_STACK_POP
 }
 
 void FileLogFactory::destroy( Log* pLog )
-{ QF_STACK_PUSH(FileLogFactory::destroy)
- 
+{
   if( pLog == m_globalLog )
   {
     m_globalLogCount--;
@@ -89,8 +81,6 @@ void FileLogFactory::destroy( Log* pLog )
   {
   	delete pLog;
   }
-
-  QF_STACK_POP
 }
 
 FileLog::FileLog( const std::string& path )
@@ -130,8 +120,7 @@ std::string FileLog::generatePrefix( const SessionID& s )
 }
 
 void FileLog::init( std::string path, std::string backupPath, const std::string& prefix )
-{ QF_STACK_PUSH(FileLog::init)
-	
+{	
   file_mkdir( path.c_str() );
   file_mkdir( backupPath.c_str() );
 
@@ -150,8 +139,6 @@ void FileLog::init( std::string path, std::string backupPath, const std::string&
   if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file: " + m_messagesFileName );
   m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_event.is_open() ) throw ConfigError( "Could not open event file: " + m_eventFileName );
-
-  QF_STACK_POP
 }
 
 FileLog::~FileLog()

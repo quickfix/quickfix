@@ -23,7 +23,6 @@
 #define FIX_EVENT_H
 
 #include "Utility.h"
-#include "CallStack.h"
 #include <math.h>
 
 #ifndef _MSC_VER

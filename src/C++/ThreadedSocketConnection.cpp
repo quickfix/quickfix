@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "ThreadedSocketConnection.h"
 #include "ThreadedSocketAcceptor.h"
@@ -66,7 +65,7 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 }
 
 bool ThreadedSocketConnection::send( const std::string& msg )
-{ QF_STACK_PUSH(ThreadedSocketConnection::send)
+{
   unsigned totalSent = 0;
   while(totalSent < msg.length())
   {
@@ -76,27 +75,21 @@ bool ThreadedSocketConnection::send( const std::string& msg )
   }
 
   return true;
-  QF_STACK_POP
 }
 
 bool ThreadedSocketConnection::connect()
-{ QF_STACK_PUSH(ThreadedSocketConnection::connect)
+{
   return socket_connect(getSocket(), m_address.c_str(), m_port) >= 0;
-  QF_STACK_POP
 }
 
 void ThreadedSocketConnection::disconnect()
-{ QF_STACK_PUSH(ThreadedSocketConnection::disconnect)
-  
+{  
   m_disconnect = true;
   socket_close( m_socket );
-
-  QF_STACK_POP
 }
 
 bool ThreadedSocketConnection::read()
-{ QF_STACK_PUSH(ThreadedSocketConnection::read)
-
+{
   struct timeval timeout = { 1, 0 };
   fd_set readset = m_fds;
 
@@ -141,27 +134,21 @@ bool ThreadedSocketConnection::read()
 
     return false;
   }
-
-  QF_STACK_POP
 }
 
 bool ThreadedSocketConnection::readMessage( std::string& msg )
 throw( SocketRecvFailed )
-{ QF_STACK_PUSH(ThreadedSocketConnection::readMessage)
-
+{
   try
   {
     return m_parser.readFixMessage( msg );
   }
   catch ( MessageParseError& ) {}
   return true;
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketConnection::processStream()
-{ QF_STACK_PUSH(ThreadedSocketConnection::processStream)
-
+{
   std::string msg;
   while( readMessage(msg) )
   {
@@ -183,13 +170,10 @@ void ThreadedSocketConnection::processStream()
       }
     }
   }
-
-  QF_STACK_POP
 }
 
 bool ThreadedSocketConnection::setSession( const std::string& msg )
-{ QF_STACK_PUSH(ThreadedSocketConnection::setSession)
-
+{
   m_pSession = Session::lookupSession( msg, true );
   if ( !m_pSession ) 
   {
@@ -220,8 +204,6 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
 
   m_pSession->setResponder( this );
   return true;
-
-  QF_STACK_POP
 }
 
 } // namespace FIX

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_ODBC
 
@@ -62,8 +61,7 @@ OdbcStore::~OdbcStore()
 }
 
 void OdbcStore::populateCache()
-{ QF_STACK_PUSH(OdbcStore::populateCache)
-
+{
   std::stringstream queryString;
 
   queryString << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
@@ -128,32 +126,25 @@ void OdbcStore::populateCache()
     if( !m_pConnection->execute(query2) )
       throw ConfigError( "Unable to create session in database" );
   }
-
-  QF_STACK_POP
 }
 
 MessageStore* OdbcStoreFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(OdbcStoreFactory::create)
-
+{
   if( m_useSettings )
     return create( s, m_settings.get(s) );
   else if( m_useDictionary )
     return create( s, m_dictionary );
   else
     return new OdbcStore( s, m_user, m_password, m_connectionString );
-
-  QF_STACK_POP
 }
 
 void OdbcStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(OdbcStoreFactory::destroy)
+{
   delete pStore;
-  QF_STACK_POP
 }
 
 MessageStore* OdbcStoreFactory::create( const SessionID& s, const Dictionary& settings )
-{ QF_STACK_PUSH(OdbcStoreFactory::create)
-
+{
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
   std::string connectionString = DEFAULT_CONNECTION_STRING;
@@ -168,14 +159,11 @@ MessageStore* OdbcStoreFactory::create( const SessionID& s, const Dictionary& se
   catch( ConfigError& ) {}
 
   return new OdbcStore( s, user, password, connectionString );
-
-  QF_STACK_POP
 }
 
 bool OdbcStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::set)
-
+{
   std::string msgCopy = msg;
   string_replace( "'", "''", msgCopy );
 
@@ -206,15 +194,12 @@ throw ( IOException )
       query2.throwException();
   }
   return true;
-
-  QF_STACK_POP
 }
 
 void OdbcStore::get( int begin, int end,
                     std::vector < std::string > & result ) const
 throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::get)
-
+{
   result.clear();
   std::stringstream queryString;
   queryString << "SELECT message FROM messages WHERE "
@@ -244,25 +229,20 @@ throw ( IOException )
 
     result.push_back( message );
   }
-
-  QF_STACK_POP
 }
 
 int OdbcStore::getNextSenderMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::getNextSenderMsgSeqNum)
+{
   return m_cache.getNextSenderMsgSeqNum();
-  QF_STACK_POP
 }
 
 int OdbcStore::getNextTargetMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::getNextTargetMsgSeqNum)
+{
   return m_cache.getNextTargetMsgSeqNum();
-  QF_STACK_POP
 }
 
 void OdbcStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::setNextSenderMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -273,13 +253,10 @@ void OdbcStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   if( !m_pConnection->execute(query) )
     query.throwException();
   m_cache.setNextSenderMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void OdbcStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::setNextTargetMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -292,33 +269,27 @@ void OdbcStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
     query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void OdbcStore::incrNextSenderMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::incrNextSenderMsgSeqNum)
+{
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
-  QF_STACK_POP
 }
 
 void OdbcStore::incrNextTargetMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::incrNextTargetMsgSeqNum)
+{
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
-  QF_STACK_POP
 }
 
 UtcTimeStamp OdbcStore::getCreationTime() const throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::getCreationTime)
+{
   return m_cache.getCreationTime();
-  QF_STACK_POP
 }
 
 void OdbcStore::reset() throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::reset)
-
+{
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -354,17 +325,12 @@ void OdbcStore::reset() throw ( IOException )
   OdbcQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
     query2.throwException();
-
-  QF_STACK_POP
 }
 
 void OdbcStore::refresh() throw ( IOException )
-{ QF_STACK_PUSH(OdbcStore::refresh)
-
+{
   m_cache.reset();
   populateCache(); 
-
-  QF_STACK_POP
 }
 
 }

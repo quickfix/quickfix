@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "HttpServer.h"
 #include "HttpConnection.h"
@@ -69,15 +68,13 @@ HttpServer::HttpServer( const SessionSettings& settings ) throw( ConfigError )
 
 void HttpServer::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
-{ QF_STACK_PUSH(HttpServer::onConfigure)
+{  
   m_port = s.get().getLong( HTTP_ACCEPT_PORT );
-  QF_STACK_POP
 }
 
 void HttpServer::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
-{ QF_STACK_PUSH(HttpServer::onInitialize)
-
+{
   try
   {
     m_pServer = new SocketServer( 1 );
@@ -87,26 +84,20 @@ throw ( RuntimeError )
   {
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
   }
-
-  QF_STACK_POP
 }
 
 void HttpServer::start() throw ( ConfigError, RuntimeError )
-{ QF_STACK_PUSH( HttpServer::start )
-
+{
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
     throw RuntimeError("Unable to spawn thread");
-
-  QF_STACK_POP
 }
 
 void HttpServer::stop()
-{ QF_STACK_PUSH( HttpServer::stop )
-
+{
   if( m_stop ) return;
   m_stop = true;
   onStop();
@@ -114,13 +105,10 @@ void HttpServer::stop()
   if( m_threadid )
     thread_join( m_threadid );
   m_threadid = 0;
-
-  QF_STACK_POP
 }
 
 void HttpServer::onStart()
-{ QF_STACK_PUSH(HttpServer::onStart)
-
+{
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
 
   if( !m_pServer )
@@ -129,73 +117,53 @@ void HttpServer::onStart()
   m_pServer->close();
   delete m_pServer;
   m_pServer = 0;
-
-  QF_STACK_POP
 }
 
 bool HttpServer::onPoll()
-{ QF_STACK_PUSH(HttpServer::onPoll)
-
+{
   if( !m_pServer || m_stop )
     return false;
 
   m_pServer->block( *this, true );
   return true;
-
-  QF_STACK_POP
 }
 
-void HttpServer::onStop()
-{ QF_STACK_PUSH(HttpServer::onStop)
-  QF_STACK_POP
+void HttpServer::onStop() 
+{
 }
 
 void HttpServer::onConnect( SocketServer& server, int a, int s )
-{ QF_STACK_PUSH(HttpServer::onConnect)
-
+{
   if ( !socket_isValid( s ) ) return;
   HttpConnection connection( s );
   while( connection.read() ) {}
   m_pServer->getMonitor().drop( s );
-
-  QF_STACK_POP
 }
 
-void HttpServer::onWrite( SocketServer& server, int s )
-{ QF_STACK_PUSH(HttpServer::onWrite)
-  QF_STACK_POP
+void HttpServer::onWrite( SocketServer& server, int s ) 
+{
 }
 
 bool HttpServer::onData( SocketServer& server, int s )
-{ QF_STACK_PUSH(HttpServer::onData)
-
+{
   return true;
-
-  QF_STACK_POP
 }
 
-void HttpServer::onDisconnect( SocketServer&, int s )
-{ QF_STACK_PUSH(HttpServer::onDisconnect)
-  QF_STACK_POP
+void HttpServer::onDisconnect( SocketServer&, int s ) 
+{
 }
 
 void HttpServer::onError( SocketServer& ) {}
 
 void HttpServer::onTimeout( SocketServer& )
-{ QF_STACK_PUSH(HttpServer::onInitialize)
-  QF_STACK_POP
+{
 }
 
 THREAD_PROC HttpServer::startThread( void* p )
-{ QF_STACK_TRY
-  QF_STACK_PUSH( HttpServer::startThread )
-
+{
   HttpServer * pServer = static_cast < HttpServer* > ( p );
   pServer->onStart();
   return 0;
-
-  QF_STACK_POP
-  QF_STACK_CATCH
 }
 
 }

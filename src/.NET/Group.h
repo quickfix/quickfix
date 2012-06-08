@@ -30,7 +30,6 @@ using namespace System::Collections;
 #include "Exceptions.h"
 
 #include "quickfix/Group.h"
-#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {
@@ -38,14 +37,12 @@ public __gc class Group : public FieldMap, public IDisposable
 {
 public:
   Group( int field, int delim ) : disposed( false )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::Group( field, delim );
-    QF_STACK_CATCH
   }
 
   Group( int field, int delim, int message_order __gc[] ) : disposed( false )
-  { QF_STACK_TRY
-
+  {
     int size = message_order->get_Length();
     int* order = new int[ size + 1 ];
     order[ size ] = 0;
@@ -56,15 +53,12 @@ public:
 
     m_pUnmanaged = new FIX::Group( field, delim, order );
     delete [] order;
-
-    QF_STACK_CATCH
   }
 
   Group( const FIX::Group& group ) : disposed( false )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::Group( group.field(), group.delim() );
     *m_pUnmanaged = group;
-    QF_STACK_CATCH
   }
 
   ~Group()
@@ -159,27 +153,23 @@ public:
   bool isSetField( int field );
 
   void addGroup( int field, FieldMap* group )
-  { QF_STACK_TRY
+  {
     checkDisposed(); pUnmanaged()->addGroup( field, *group->pUnmanaged() );
-    QF_STACK_CATCH
   }
 
   void addGroup( Group* group )
-  { QF_STACK_TRY
+  {
     checkDisposed(); unmanaged().addGroup( group->unmanaged() );
-    QF_STACK_CATCH
   }
 
   void replaceGroup( unsigned num, int field, FieldMap* group )
-  { QF_STACK_TRY
+  {
     checkDisposed(); pUnmanaged()->replaceGroup( num, field, *group->pUnmanaged() );
-    QF_STACK_CATCH
   }
  
   void replaceGroup( unsigned num, Group* group )
-  { QF_STACK_TRY
+  {
     checkDisposed(); unmanaged().replaceGroup( num, group->unmanaged() );
-    QF_STACK_CATCH
   }
 
   FieldMap* getGroup( unsigned num, int field, FieldMap* group )
@@ -196,8 +186,7 @@ public:
   }
 
   Group* getGroup( unsigned num, Group* group )
-  { QF_STACK_TRY
-
+  {
     try
     {
       checkDisposed(); unmanaged().getGroup( num, group->unmanaged() );
@@ -207,8 +196,6 @@ public:
     {
       throw new FieldNotFound( e.field );
     }
-
-    QF_STACK_CATCH
   }
 
   IEnumerator* GetEnumerator()

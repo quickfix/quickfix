@@ -31,7 +31,6 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/FileStore.h"
 #include "quickfix/Settings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -54,16 +53,13 @@ public:
   : m_path( path ), m_settings( 0 ) {}
 
   MessageStore* create( SessionID* sessionID )
-  { QF_STACK_TRY
-
+  {
     if ( m_path ) return new FileStore( m_path, sessionID );
 
     FIX::SessionSettings& s = m_settings->unmanaged();
     FIX::Dictionary settings = s.get( sessionID->unmanaged() );
     m_path = settings.getString( FIX::FILE_STORE_PATH ).c_str();
     return new FileStore( m_path, sessionID );
-
-    QF_STACK_CATCH
   }
 
 private:

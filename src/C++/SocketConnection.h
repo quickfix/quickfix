@@ -31,6 +31,7 @@
 #include "SessionID.h"
 #include "SocketMonitor.h"
 #include "Utility.h"
+#include "Mutex.h"
 #include <set>
 
 namespace FIX

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SessionSettings.h"
 #include "Settings.h"
@@ -119,28 +118,23 @@ std::ostream& operator<<( std::ostream& stream, const SessionSettings& s )
 }
 
 const bool SessionSettings::has( const SessionID& sessionID ) const
-{ QF_STACK_PUSH(SessionSettings::has)
+{
   return m_settings.find( sessionID ) != m_settings.end();
-  QF_STACK_POP
 }
 
 const Dictionary& SessionSettings::get( const SessionID& sessionID ) const
 throw( ConfigError )
-{ QF_STACK_PUSH(SessionSettings::get)
-
+{
   Dictionaries::const_iterator i;
   i = m_settings.find( sessionID );
   if ( i == m_settings.end() ) throw ConfigError( "Session not found" );
   return i->second;
-
-  QF_STACK_POP
 }
 
 void SessionSettings::set( const SessionID& sessionID,
                            Dictionary settings )
 throw( ConfigError )
-{ QF_STACK_PUSH(SessionSettings::set)
-
+{
   if( has(sessionID) )
     throw ConfigError( "Duplicate Session " + sessionID.toString() );
 
@@ -151,8 +145,6 @@ throw( ConfigError )
   settings.merge( m_defaults );
   validate( settings );
   m_settings[ sessionID ] = settings;
-
-  QF_STACK_POP
 }
 
 void SessionSettings::set( const Dictionary& defaults ) throw( ConfigError ) 
@@ -164,15 +156,12 @@ void SessionSettings::set( const Dictionary& defaults ) throw( ConfigError )
 }
 
 std::set < SessionID > SessionSettings::getSessions() const
-{ QF_STACK_PUSH(SessionSettings::getSessions)
-
+{
   std::set < SessionID > result;
   Dictionaries::const_iterator i;
   for ( i = m_settings.begin(); i != m_settings.end(); ++i )
     result.insert( i->first );
   return result;
-
-  QF_STACK_POP
 }
 
 void SessionSettings::validate( const Dictionary& dictionary ) const

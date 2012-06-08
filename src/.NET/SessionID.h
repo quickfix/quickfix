@@ -26,7 +26,6 @@ using namespace System;
 #include "quickfix_net.h"
 
 #include "quickfix/SessionID.h"
-#include "quickfix/CallStack.h"
 
 #include "Fields.h"
 
@@ -36,69 +35,53 @@ public __gc class SessionID
 {
 public:
   SessionID()
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::SessionID();
-    QF_STACK_CATCH
   }
 
   SessionID( BeginString* beginString, SenderCompID* senderCompID, TargetCompID* targetCompID )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::SessionID(
                        FIX::BeginString( convertString(beginString->getValue())),
                        FIX::SenderCompID( convertString(senderCompID->getValue())),
                        FIX::TargetCompID( convertString(targetCompID->getValue())) );
-
-    QF_STACK_CATCH
   }
 
   SessionID( BeginString* beginString, SenderCompID* senderCompID, 
 	         TargetCompID* targetCompID, String* sessionQualifier )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::SessionID(
                        FIX::BeginString( convertString(beginString->getValue())),
                        FIX::SenderCompID( convertString(senderCompID->getValue())),
                        FIX::TargetCompID( convertString(targetCompID->getValue())),
                        convertString(sessionQualifier) );
-
-    QF_STACK_CATCH
   }
 
   SessionID( String* beginString, String* senderCompID, String* targetCompID )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::SessionID(
                        FIX::BeginString( convertString( beginString ) ),
                        FIX::SenderCompID( convertString( senderCompID ) ),
                        FIX::TargetCompID( convertString( targetCompID ) ) );
-
-    QF_STACK_CATCH
   }
 
   SessionID( String* beginString, String* senderCompID,
              String* targetCompID, String* sessionQualifier )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::SessionID(
                        FIX::BeginString( convertString( beginString ) ),
                        FIX::SenderCompID( convertString( senderCompID ) ),
                        FIX::TargetCompID( convertString( targetCompID ) ),
                        convertString( sessionQualifier ) );
-
-    QF_STACK_CATCH
   }
 
   SessionID( const FIX::SessionID& sessionID )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::SessionID(
                      sessionID.getBeginString(),
                      sessionID.getSenderCompID(),
                      sessionID.getTargetCompID(),
                      sessionID.getSessionQualifier() );
-
-    QF_STACK_CATCH
   }
 
   ~SessionID()
@@ -122,9 +105,8 @@ public:
   }
 
   String* ToString()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->toString().c_str();
-    QF_STACK_CATCH
   }
 
   virtual int GetHashCode()
@@ -133,33 +115,28 @@ public:
   }
 
   void fromString( String* str )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged->fromString( convertString(str) );
-    QF_STACK_CATCH
   }
 
   String* getBeginString()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->getBeginString().getValue().c_str();
-    QF_STACK_CATCH
   }
 
   String* getSenderCompID()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->getSenderCompID().getValue().c_str();
-    QF_STACK_CATCH
   }
 
   String* getTargetCompID()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->getTargetCompID().getValue().c_str();
-    QF_STACK_CATCH
   }
 
   String* getSessionQualifier() 
-  { QF_STACK_TRY 
+  {
     return m_pUnmanaged->getSessionQualifier().c_str(); 
-    QF_STACK_CATCH 
   } 
 
 private:

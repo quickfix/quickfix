@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "Log.h"
 
@@ -31,18 +30,14 @@ namespace FIX
 Mutex ScreenLog::s_mutex;
 
 Log* ScreenLogFactory::create()
-{ QF_STACK_PUSH(ScreenLogFactory::create)
-
+{
   bool incoming, outgoing, event;
   init( m_settings.get(), incoming, outgoing, event );
   return new ScreenLog( incoming, outgoing, event );
-
-  QF_STACK_POP
 }
 
 Log* ScreenLogFactory::create( const SessionID& sessionID )
-{ QF_STACK_PUSH(ScreenLogFactory::create)
-
+{
   Dictionary settings;
   if( m_settings.has(sessionID) ) 
 	  settings = m_settings.get( sessionID );
@@ -50,13 +45,10 @@ Log* ScreenLogFactory::create( const SessionID& sessionID )
   bool incoming, outgoing, event;
   init( settings, incoming, outgoing, event );
   return new ScreenLog( sessionID, incoming, outgoing, event );
-
-  QF_STACK_POP
 }
 
 void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event )
-{ QF_STACK_PUSH(ScreenLogFactory::init)
-	
+{	
   if( m_useSettings )
   {
     incoming = true;
@@ -76,13 +68,10 @@ void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& o
 	outgoing = m_outgoing;
 	event = m_event;
   }
-
-  QF_STACK_POP
 }
 
 void ScreenLogFactory::destroy( Log* pLog )
-{ QF_STACK_PUSH(ScreenLogFactory::destroy)
+{
   delete pLog;
-  QF_STACK_POP
 }
 } //namespace FIX

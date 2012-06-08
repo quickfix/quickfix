@@ -33,7 +33,6 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/PostgreSQLLog.h"
 #include "quickfix/Settings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -51,23 +50,20 @@ public __gc class PostgreSQLLogFactory : public LogFactory
 {
 public:
   PostgreSQLLogFactory( SessionSettings* settings )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::PostgreSQLLogFactory(settings->unmanaged());
-    QF_STACK_CATCH
   }
 
   ~PostgreSQLLogFactory() { delete m_pUnmanaged; }
 
   Log* create()
-  { QF_STACK_TRY
+  {
     return new PostgreSQLLog(m_pUnmanaged->create());
-    QF_STACK_CATCH
   }
 
   Log* create( SessionID* sessionID )
-  { QF_STACK_TRY
+  {
     return new PostgreSQLLog(m_pUnmanaged->create(sessionID->unmanaged()));
-    QF_STACK_CATCH
   }
 
 private:

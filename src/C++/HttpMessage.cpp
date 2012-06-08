@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "HttpMessage.h"
 #include "Utility.h"
@@ -41,27 +40,20 @@ throw( InvalidMessage )
 }
 
 std::string HttpMessage::toString() const
-{ QF_STACK_PUSH(HttpMessage::toString)
-
+{
   std::string str;
   return toString( str );
-
-  QF_STACK_POP
 }
 
 std::string& HttpMessage::toString( std::string& str ) const
-{ QF_STACK_PUSH(HttpMessage::toString)
-
+{
   str = m_root + getParameterString();
   return str;
-
-  QF_STACK_POP
 }
 
 void HttpMessage::setString( const std::string& string )
 throw( InvalidMessage )
-{ QF_STACK_PUSH(HttpMessage::setString)
-
+{
   clear();
 
   std::string::size_type eolPos = string.find( "\r\n" );
@@ -89,13 +81,10 @@ throw( InvalidMessage )
     std::string value = parameters.substr(sepPos + 1, paramPos - sepPos - 1);
     m_parameters[key] = value;
   }
-
-  QF_STACK_POP
 }
 
 std::string HttpMessage::createResponse( int error, const std::string& text )
-{ QF_STACK_PUSH(HttpMessage::createResponse)
-
+{
   std::string errorString;
   switch( error )
   {
@@ -155,8 +144,6 @@ std::string HttpMessage::createResponse( int error, const std::string& text )
     response << text;
 
   return response.str();
-
-  QF_STACK_POP
 }
 
 }

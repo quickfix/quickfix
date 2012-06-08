@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "DataDictionary.h"
 #include "Message.h"
@@ -80,8 +79,7 @@ DataDictionary::~DataDictionary()
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
-{ QF_STACK_PUSH(DataDictionary::operator=)
-
+{
   m_hasVersion = rhs.m_hasVersion;
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
   m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
@@ -108,16 +106,13 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
               i->second.first, *i->second.second );
   }
   return *this;
-
-  QF_STACK_POP
 }
 
 void DataDictionary::validate( const Message& message,
                                const DataDictionary* const pSessionDD,
                                const DataDictionary* const pAppDD )
 throw( FIX::Exception )
-{ QF_STACK_PUSH( DataDictionary::validate )
-  
+{  
   const bool bodyOnly = pSessionDD == 0;
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
@@ -151,13 +146,10 @@ throw( FIX::Exception )
   }
 
   pAppDD->iterate( message, msgType );
-
-  QF_STACK_POP
 }
 
 void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) const
-{ QF_STACK_PUSH(DataDictionary::iterate)
-
+{
   int lastField = 0;
 
   FieldMap::iterator i;
@@ -186,14 +178,11 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
     }
     lastField = field.getField();
   }
-
-  QF_STACK_POP
 }
 
 void DataDictionary::readFromURL( const std::string& url )
 throw( ConfigError )
-{ QF_STACK_PUSH(DataDictionary::readFromURL)
-
+{
 #ifdef HAVE_LIBXML
   DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
 #elif _MSC_VER
@@ -213,14 +202,11 @@ throw( ConfigError )
   {
     throw ConfigError( url + ": " + e.what() );
   }
-
-  QF_STACK_POP
 }
 
 void DataDictionary::readFromStream( std::istream& stream )
 throw( ConfigError )
-{ QF_STACK_PUSH(DataDictionary::readFromStream)
-
+{
 #ifdef HAVE_LIBXML
   DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
 #elif _MSC_VER
@@ -233,14 +219,11 @@ throw( ConfigError )
     throw ConfigError("Could not parse data dictionary stream");
 
   readFromDocument( pDoc );
-
-  QF_STACK_POP
 }
 
 void DataDictionary::readFromDocument( DOMDocumentPtr pDoc )
 throw( ConfigError )
-{ QF_STACK_PUSH(DataDictionary::readFromDocument)
-
+{
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");
   if(!pFixNode.get())
@@ -443,13 +426,10 @@ throw( ConfigError )
     }
     RESET_AUTO_PTR(pMessageNode, pMessageNode->getNextSiblingNode());
   }
-
-  QF_STACK_POP
 }
 
 message_order const& DataDictionary::getOrderedFields() const
-{ QF_STACK_PUSH(DataDictionary::getOrderedFields)
-
+{
   if( m_orderedFieldsArray ) return m_orderedFieldsArray;
 
   int * tmp = new int[m_orderedFields.size() + 1];
@@ -463,40 +443,31 @@ message_order const& DataDictionary::getOrderedFields() const
   delete [] tmp;
 
   return m_orderedFieldsArray;
-
-  QF_STACK_POP
 }
 
 int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode ) const
-{ QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
-
+{
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
   if(!attrs->get("name", name))
     throw ConfigError("No name given to field");
   return lookupXMLFieldNumber( pDoc, name );
-
-  QF_STACK_POP
 }
 
 int DataDictionary::lookupXMLFieldNumber
 ( DOMDocument* pDoc, const std::string& name ) const
-{ QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
-
+{
   NameToField::const_iterator i = m_names.find(name);
   if( i == m_names.end() )
     throw ConfigError("Field " + name + " not defined in fields section");
   return i->second;
-
-  QF_STACK_POP
 }
 
 int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
                                             const std::string& msgtype,
                                             DataDictionary& DD,
                                             bool componentRequired )
-{ QF_STACK_PUSH(DataDictionary::addXMLComponentFields)
-
+{
   int firstField = 0;
 
   DOMAttributesPtr attrs = pNode->getAttributes();
@@ -554,15 +525,12 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       pComponentFieldNode->getNextSiblingNode());
   }
   return firstField;
-
-  QF_STACK_POP
 }
 
 void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
                                   const std::string& msgtype,
                                   DataDictionary& DD, bool groupRequired  )
-{ QF_STACK_PUSH(DataDictionary::addXMLGroup)
-
+{
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
   if(!attrs->get("name", name))
@@ -614,13 +582,10 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
   }
 
   if( delim ) DD.addGroup( msgtype, group, delim, groupDD );
-
-  QF_STACK_POP
 }
 
 TYPE::Type DataDictionary::XMLTypeToType( const std::string& type ) const
-{ QF_STACK_PUSH(DataDictionary::XMLTypeToType)
-
+{
   if ( m_beginString < "FIX.4.2" && type == "CHAR" )
     return TYPE::String;
 
@@ -653,7 +618,5 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type ) const
   if ( type == "COUNTRY" ) return TYPE::Country;
   if ( type == "TIME" ) return TYPE::UtcTimeStamp;
   return TYPE::Unknown;
-
-  QF_STACK_POP
 }
 }

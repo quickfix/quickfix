@@ -31,7 +31,6 @@ using namespace System;
 #include "LogFactory.h"
 #include "Acceptor.h"
 #include "quickfix/ThreadedSocketAcceptor.h"
-#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {
@@ -43,8 +42,7 @@ public:
                           SessionSettings* settings,
                           MessageFactory* messageFactory )
   : m_settings( settings ), m_logFactory( 0 )
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_application = new ::Application( application, messageFactory );
@@ -53,8 +51,6 @@ public:
                      ( *m_application, *m_factory, m_settings->unmanaged() );
     }
     catch ( FIX::ConfigError e ) { throw new ConfigError( e.what() ); }
-
-    QF_STACK_CATCH
   }
 
   ThreadedSocketAcceptor( Application* application,
@@ -63,8 +59,7 @@ public:
                           LogFactory* logFactory,
                           MessageFactory* messageFactory )
   : m_settings( settings )
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_application = new ::Application( application, messageFactory );
@@ -75,8 +70,6 @@ public:
                        m_settings->unmanaged(), *m_logFactory );
     }
     catch ( FIX::ConfigError e ) { throw new ConfigError( e.what() ); }
-
-    QF_STACK_CATCH
   }
 
   void Dispose( bool dispose )
@@ -106,8 +99,7 @@ public:
   }
 
   void start()
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_pUnmanaged->start();
@@ -120,13 +112,10 @@ public:
     {
       throw new RuntimeError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   void block()
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_pUnmanaged->block();
@@ -139,19 +128,15 @@ public:
     {
       throw new RuntimeError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   bool poll()
-  { QF_STACK_TRY
+  {
     return poll( 0.0 );
-    QF_STACK_CATCH
   }
 
   bool poll( double timeout )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return m_pUnmanaged->poll( timeout );
@@ -164,31 +149,25 @@ public:
     {
       throw new RuntimeError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   void stop()
-  { QF_STACK_TRY
+  {
     m_pUnmanaged->stop();
-    QF_STACK_CATCH
   }
 
   void stop( bool force )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged->stop( force );
-    QF_STACK_CATCH
   }
 
   bool isLoggedOn()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->isLoggedOn();
-    QF_STACK_CATCH
   }
 
   ArrayList* getSessions()
-  { QF_STACK_TRY
-
+  {
     std::set< FIX::SessionID > sessions = m_pUnmanaged->getSessions();
     ArrayList* result = new ArrayList();
     std::set<FIX::SessionID>::iterator i;
@@ -198,8 +177,6 @@ public:
       result->Add( sessionID );
     }
     return result;
-
-    QF_STACK_CATCH
   }
 
 private:

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "HttpConnection.h"
 #include "HttpMessage.h"
@@ -42,25 +41,20 @@ HttpConnection::HttpConnection( int s )
 }
 
 bool HttpConnection::send( const std::string& msg )
-{ QF_STACK_PUSH(HttpConnection::send)
+{
   return socket_send( m_socket, msg.c_str(), msg.length() ) >= 0;
-  QF_STACK_POP
 }
 
 void HttpConnection::disconnect( int error )
-{ QF_STACK_PUSH(HttpConnection::disconnect)
-  
+{ 
   if( error > 0 )
     send( HttpMessage::createResponse(error) );
 
   socket_close( m_socket );
-
-  QF_STACK_POP
 }
 
 bool HttpConnection::read()
-{ QF_STACK_PUSH(HttpConnection::read)
-
+{
   struct timeval timeout = { 2, 0 };
   fd_set readset = m_fds;
 
@@ -94,14 +88,11 @@ bool HttpConnection::read()
     disconnect();
     return false;
   }
-
-  QF_STACK_POP
 }
 
 bool HttpConnection::readMessage( std::string& msg )
 throw( SocketRecvFailed )
-{ QF_STACK_PUSH(HttpConnection::readMessage)
-
+{
   try
   {
     return m_parser.readHttpMessage( msg );
@@ -111,13 +102,10 @@ throw( SocketRecvFailed )
     disconnect( 400 );
   }
   return true;
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processStream()
-{ QF_STACK_PUSH(HttpConnection::processStream)
-
+{
   std::string msg;
   try
   {
@@ -133,13 +121,10 @@ void HttpConnection::processStream()
   }
 
   return;
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processRequest( const HttpMessage& request )
-{ QF_STACK_PUSH(HttpConnection::processRequest)
-
+{
   int error = 200;
   std::stringstream h;
   std::stringstream b;
@@ -191,14 +176,11 @@ void HttpConnection::processRequest( const HttpMessage& request )
   send( HttpMessage::createResponse(error, error == 200 ? response : "") );
 
   disconnect();
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processRoot
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processRoot)
-
+{
   TABLE table(b); table.border(1).cellspacing(2).width(100).text();
 
   { CAPTION caption(b); caption.text();
@@ -246,14 +228,11 @@ void HttpConnection::processRoot
       { TD td(b); td.text(pSession->getExpectedSenderNum()); }
     }
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processResetSessions
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processResetSessions)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -296,14 +275,11 @@ void HttpConnection::processResetSessions
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processRefreshSessions
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processRefreshSessions)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -346,14 +322,11 @@ void HttpConnection::processRefreshSessions
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processEnableSessions
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processEnableSessions)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -396,14 +369,11 @@ void HttpConnection::processEnableSessions
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processDisableSessions
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processDisableSessions)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -446,14 +416,11 @@ void HttpConnection::processDisableSessions
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processSession
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processSession)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -586,14 +553,11 @@ void HttpConnection::processSession
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processResetSession
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processResetSession)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -647,14 +611,11 @@ void HttpConnection::processResetSession
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::processRefreshSession
 ( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
-{ QF_STACK_PUSH(HttpConnection::processRefreshSession)
-
+{
   try
   {
     HttpMessage copy = request;
@@ -708,14 +669,11 @@ void HttpConnection::processRefreshSession
   {
     b << e.what();
   }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::showRow
 ( std::stringstream& s, const std::string& name, bool value, const std::string& url )
-{ QF_STACK_PUSH(HttpConnection::showRow)
-
+{
     { TR tr(s); tr.text();
       { TD td(s); td.text(name); }
       { TD td(s); td.text(value ? "yes" : "no"); }
@@ -729,14 +687,11 @@ void HttpConnection::showRow
         }
       }
     }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::showRow
 ( std::stringstream& s, const std::string& name, const std::string& value, const std::string& url )
-{ QF_STACK_PUSH(HttpConnection::showRow)
-
+{
     { TR tr(s); tr.text();
       { TD td(s); td.text(name); }
       { TD td(s); td.text(value); }
@@ -744,14 +699,11 @@ void HttpConnection::showRow
         CENTER center(s); center.text();
       }
     }
-
-  QF_STACK_POP
 }
 
 void HttpConnection::showRow
 ( std::stringstream& s, const std::string& name, int value, const std::string& url )
-{ QF_STACK_PUSH(HttpConnection::showRow)
-
+{
     { TR tr(s); tr.text();
       { TD td(s); td.text(name); }
       { TD td(s); td.text(value); }
@@ -782,8 +734,6 @@ void HttpConnection::showRow
         }
       }
     }
-
-  QF_STACK_POP
 }
 
 } // namespace FIX

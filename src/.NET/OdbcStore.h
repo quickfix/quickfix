@@ -32,7 +32,6 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/OdbcStore.h"
 #include "quickfix/Settings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -56,17 +55,15 @@ public __gc class OdbcStoreFactory : public MessageStoreFactory
 {
 public:
   OdbcStoreFactory( SessionSettings* settings )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::OdbcStoreFactory(settings->unmanaged());
-    QF_STACK_CATCH
   }
 
   ~OdbcStoreFactory() { delete m_pUnmanaged; }
 
   MessageStore* create( SessionID* sessionID )
-  { QF_STACK_TRY
+  {
     return new OdbcStore(m_pUnmanaged->create(sessionID->unmanaged()));
-    QF_STACK_CATCH
   }
 
 private:

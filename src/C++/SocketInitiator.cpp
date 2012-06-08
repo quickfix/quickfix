@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketInitiator.h"
 #include "Session.h"
@@ -67,8 +66,7 @@ SocketInitiator::~SocketInitiator()
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
-{ QF_STACK_PUSH(SocketInitiator::onConfigure)
-
+{
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
   catch ( std::exception& ) {}
   if( s.get().has( SOCKET_NODELAY ) )
@@ -77,19 +75,15 @@ throw ( ConfigError )
     m_sendBufSize = s.get().getLong( SOCKET_SEND_BUFFER_SIZE );
   if( s.get().has( SOCKET_RECEIVE_BUFFER_SIZE ) )
     m_rcvBufSize = s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE );
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
-{ QF_STACK_PUSH(SocketInitiator::onInitialize)
-  QF_STACK_POP
+{
 }
 
 void SocketInitiator::onStart()
-{ QF_STACK_PUSH(SocketInitiator::onStart)
-
+{
   connect();
 
   while ( !isStopped() ) {
@@ -107,13 +101,10 @@ void SocketInitiator::onStart()
     if( ::time(&now) -5 >= start )
       break;
   }
-
-  QF_STACK_POP
 }
 
 bool SocketInitiator::onPoll( double timeout )
-{ QF_STACK_PUSH(SocketInitiator::onPoll)
-
+{
   time_t start = 0;
   time_t now = 0;
 
@@ -129,18 +120,14 @@ bool SocketInitiator::onPoll( double timeout )
 
   m_connector.block( *this, true, timeout );
   return true;
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onStop()
-{ QF_STACK_PUSH(SocketInitiator::onStop)
-  QF_STACK_POP
+{
 }
 
 void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
-{ QF_STACK_PUSH(SocketInitiator::doConnect)
-
+{
   try
   {
     std::string address;
@@ -160,13 +147,10 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
       = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
   }
   catch ( std::exception& ) {}
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onConnect( SocketConnector&, int s )
-{ QF_STACK_PUSH(SocketInitiator::onConnect)
-
+{
   SocketConnections::iterator i = m_pendingConnections.find( s );
   if( i == m_pendingConnections.end() ) return;
   SocketConnection* pSocketConnection = i->second;
@@ -175,36 +159,27 @@ void SocketInitiator::onConnect( SocketConnector&, int s )
   m_pendingConnections.erase( i );
   setConnected( pSocketConnection->getSession()->getSessionID() );
   pSocketConnection->onTimeout();
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onWrite( SocketConnector& connector, int s )
-{ QF_STACK_PUSH(SocketInitiator::onWrite)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
   if( pSocketConnection->processQueue() )
     pSocketConnection->unsignal();
-  
-  QF_STACK_POP
 }
 
 bool SocketInitiator::onData( SocketConnector& connector, int s )
-{ QF_STACK_PUSH(SocketInitiator::onData)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
   SocketConnection* pSocketConnection = i->second;
   return pSocketConnection->read( connector );
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onDisconnect( SocketConnector&, int s )
-{ QF_STACK_PUSH(SocketInitiator::onDisconnect)
-
+{
   SocketConnections::iterator i = m_connections.find( s );
   SocketConnections::iterator j = m_pendingConnections.find( s );
 
@@ -228,19 +203,15 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
   delete pSocketConnection;
   m_connections.erase( s );
   m_pendingConnections.erase( s );
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::onError( SocketConnector& connector )
-{ QF_STACK_PUSH(SocketInitiator::onError)
+{
   onTimeout( connector );
-  QF_STACK_POP
 }
 
 void SocketInitiator::onTimeout( SocketConnector& )
-{ QF_STACK_PUSH(SocketInitiator::onTimeout)
-
+{
   time_t now;
   ::time( &now );
 
@@ -253,14 +224,11 @@ void SocketInitiator::onTimeout( SocketConnector& )
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
     i->second->onTimeout();
-
-  QF_STACK_POP
 }
 
 void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
                                std::string& address, short& port )
-{ QF_STACK_PUSH(SocketInitiator::getHost)
-
+{
   int num = 0;
   SessionToHostNum::iterator i = m_sessionToHostNum.find( s );
   if ( i != m_sessionToHostNum.end() ) num = i->second;
@@ -286,7 +254,5 @@ void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
   }
 
   m_sessionToHostNum[ s ] = ++num;
-
-  QF_STACK_POP
 }
 }

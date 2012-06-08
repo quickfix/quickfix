@@ -39,10 +39,9 @@ public __gc class CPPMessageStore : public MessageStore, public IDisposable
 public:
   CPPMessageStore() {}
   CPPMessageStore( FIX::MessageStore* pUnmanaged )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = pUnmanaged;
     System::GC::SuppressFinalize( this );
-    QF_STACK_CATCH
   }
 
   void Dispose( bool dispose )
@@ -60,8 +59,7 @@ public:
   { Dispose( false ); }
 
   bool set( int sequence, String* message )
-  { QF_STACK_TRY
-
+  {
     try
     { char* umessage = createUnmanagedString( message );
       bool result = m_pUnmanaged->set( sequence, umessage );
@@ -70,13 +68,10 @@ public:
     }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void get( int begin, int end, ArrayList* list )
-  { QF_STACK_TRY
-
+  {
     try
     {
       std::vector < std::string > messages;
@@ -87,79 +82,58 @@ public:
     }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   int getNextSenderMsgSeqNum()
-  { QF_STACK_TRY
-
+  {
     try
     { return m_pUnmanaged->getNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   int getNextTargetMsgSeqNum()
-  { QF_STACK_TRY
-
+  {
     try
     { return m_pUnmanaged->getNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void setNextSenderMsgSeqNum( int next )
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->setNextSenderMsgSeqNum( next ); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void setNextTargetMsgSeqNum( int next )
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->setNextTargetMsgSeqNum( next ); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void incrNextSenderMsgSeqNum()
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->incrNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void incrNextTargetMsgSeqNum()
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->incrNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   DateTime getCreationTime()
-  { QF_STACK_TRY
-
+  {
     try
     {
       FIX::UtcTimeStamp d = m_pUnmanaged->getCreationTime();
@@ -168,30 +142,22 @@ public:
     }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void reset()
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->reset(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
   void refresh()
-  { QF_STACK_TRY
-
+  {
     try
     { m_pUnmanaged->refresh(); }
     catch ( FIX::IOException& e )
     { throw new IOException(e.what()); }
-
-    QF_STACK_CATCH
   }
 
 protected:

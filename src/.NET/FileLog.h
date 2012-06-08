@@ -30,7 +30,6 @@ using namespace System;
 #include "LogFactory.h"
 #include "SessionSettings.h"
 #include "quickfix/FileLog.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -48,31 +47,25 @@ public __gc class FileLogFactory : public LogFactory
 {
 public:
   FileLogFactory( SessionSettings* settings )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::FileLogFactory( settings->unmanaged() );
-    QF_STACK_CATCH
   }
 
   FileLogFactory( String* path )
-  { QF_STACK_TRY
-
+  {
     char* upath = createUnmanagedString( path );
     m_pUnmanaged = new FIX::FileLogFactory( upath );
     destroyUnmanagedString( upath );
-
-	QF_STACK_CATCH
   }
 
   Log* create()
-  { QF_STACK_TRY
+  {
     return new FileLog(m_pUnmanaged->create());
-    QF_STACK_CATCH
   }
 
   Log* create( SessionID* sessionID )
-  { QF_STACK_TRY
+  {
     return new FileLog(m_pUnmanaged->create(sessionID->unmanaged()));
-    QF_STACK_CATCH
   }
 
 private:

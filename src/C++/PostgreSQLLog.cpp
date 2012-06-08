@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_POSTGRESQL
 
@@ -95,8 +94,7 @@ PostgreSQLLog::~PostgreSQLLog()
 }
 
 Log* PostgreSQLLogFactory::create()
-{ QF_STACK_PUSH(PostgreSQLLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string password;
@@ -108,13 +106,10 @@ Log* PostgreSQLLogFactory::create()
   PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
   initLog( m_settings.get(), *result );
   return result;
- 
-  QF_STACK_POP
 }
 
 Log* PostgreSQLLogFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(PostgreSQLLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string password;
@@ -130,8 +125,6 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
   PostgreSQLLog* result = new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
   initLog( settings, *result );
   return result;
-
-  QF_STACK_POP
 }
 
 void PostgreSQLLogFactory::init( const Dictionary& settings, 
@@ -140,8 +133,7 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
            std::string& password,
            std::string& host,
            short &port )
-{ QF_STACK_PUSH(PostgreSQLLogFactory::init)
-
+{
   database = DEFAULT_DATABASE;
   user = DEFAULT_USER;
   password = DEFAULT_PASSWORD;
@@ -173,31 +165,27 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
     host = m_host;
     port = m_port;
   }
-
-  QF_STACK_POP
 }
 
 void PostgreSQLLogFactory::initLog( const Dictionary& settings, PostgreSQLLog& log )
 {
-    try { log.setIncomingTable( settings.getString( POSTGRESQL_LOG_INCOMING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setIncomingTable( settings.getString( POSTGRESQL_LOG_INCOMING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setOutgoingTable( settings.getString( POSTGRESQL_LOG_OUTGOING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setOutgoingTable( settings.getString( POSTGRESQL_LOG_OUTGOING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setEventTable( settings.getString( POSTGRESQL_LOG_EVENT_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setEventTable( settings.getString( POSTGRESQL_LOG_EVENT_TABLE ) ); }
+  catch( ConfigError& ) {}
 }
 
 void PostgreSQLLogFactory::destroy( Log* pLog )
-{ QF_STACK_PUSH(PostgreSQLLogFactory::destroy)
+{
   delete pLog;
-  QF_STACK_POP
 }
 
 void PostgreSQLLog::clear()
-{ QF_STACK_PUSH(PostgreSQLLog::clear)
-
+{
   std::stringstream whereClause;
 
   whereClause << "WHERE ";
@@ -234,18 +222,14 @@ void PostgreSQLLog::clear()
   m_pConnection->execute( incoming );
   m_pConnection->execute( outgoing );
   m_pConnection->execute( event );
-
-  QF_STACK_POP
 }
 
 void PostgreSQLLog::backup()
-{ QF_STACK_PUSH(PostgreSQLLog::backup)
-  QF_STACK_POP
+{
 }
 
 void PostgreSQLLog::insert( const std::string& table, const std::string value )
-{ QF_STACK_PUSH(PostgreSQLLog::insert)
-
+{
   UtcTimeStamp time;
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
@@ -285,8 +269,6 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
 
   PostgreSQLQuery query( queryString.str() );
   m_pConnection->execute( query );
-
-  QF_STACK_POP
 }
 
 } // namespace FIX

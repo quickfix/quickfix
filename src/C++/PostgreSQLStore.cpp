@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_POSTGRESQL
 
@@ -70,8 +69,7 @@ PostgreSQLStore::~PostgreSQLStore()
 }
 
 void PostgreSQLStore::populateCache()
-{ QF_STACK_PUSH(PostgreSQLStore::populateCache)
-
+{
   std::stringstream queryString;
 
   queryString << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
@@ -121,13 +119,10 @@ void PostgreSQLStore::populateCache()
     if( !m_pConnection->execute(query2) )
       throw ConfigError( "Unable to create session in database" );
   }
-
-  QF_STACK_POP
 }
 
 MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(PostgreSQLStoreFactory::create)
-
+{
   if( m_useSettings )
     return create( s, m_settings.get(s) );
   else if( m_useDictionary )
@@ -137,13 +132,10 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
     DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
     return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
   }
-
-  QF_STACK_POP
 }
 
 MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
-{ QF_STACK_PUSH(PostgreSQLStoreFactory::create)
-
+{
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
@@ -167,20 +159,16 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictiona
 
   DatabaseConnectionID id( database, user, password, host, port );
   return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
-
-  QF_STACK_POP
 }
 
 void PostgreSQLStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(PostgreSQLStoreFactory::destroy)
+{
   delete pStore;
-  QF_STACK_POP
 }
 
 bool PostgreSQLStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::set)
-
+{
   char* msgCopy = new char[ (msg.size() * 2) + 1 ];
   PQescapeString( msgCopy, msg.c_str(), msg.size() );
 
@@ -213,15 +201,12 @@ throw ( IOException )
   }
 
   return true;
-
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::get( int begin, int end,
                       std::vector < std::string > & result ) const
 throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::get)
-
+{
   result.clear();
   std::stringstream queryString;
   queryString << "SELECT message FROM messages WHERE "
@@ -239,25 +224,20 @@ throw ( IOException )
   int rows = query.rows();
   for( int row = 0; row < rows; row++ )
     result.push_back( query.getValue( row, 0 ) );
-
-  QF_STACK_POP
-}
+]}
 
 int PostgreSQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::getNextSenderMsgSeqNum)
+{
   return m_cache.getNextSenderMsgSeqNum();
-  QF_STACK_POP
 }
 
 int PostgreSQLStore::getNextTargetMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::getNextTargetMsgSeqNum)
+{
   return m_cache.getNextTargetMsgSeqNum();
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::setNextSenderMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -270,13 +250,10 @@ void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
     query.throwException();
 
   m_cache.setNextSenderMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::setNextTargetMsgSeqNum)
-
+{
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -289,33 +266,27 @@ void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
     query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
-
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::incrNextSenderMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::incrNextSenderMsgSeqNum)
+{
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::incrNextTargetMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::incrNextTargetMsgSeqNum)
+{
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
-  QF_STACK_POP
 }
 
 UtcTimeStamp PostgreSQLStore::getCreationTime() const throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::getCreationTime)
+{
   return m_cache.getCreationTime();
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::reset() throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::reset)
-
+{
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -350,17 +321,12 @@ void PostgreSQLStore::reset() throw ( IOException )
   PostgreSQLQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
     query2.throwException();
-
-  QF_STACK_POP
 }
 
 void PostgreSQLStore::refresh() throw ( IOException )
-{ QF_STACK_PUSH(PostgreSQLStore::refresh)
-
+{
   m_cache.reset();
   populateCache(); 
-
-  QF_STACK_POP
 }
 
 }

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "Dictionary.h"
 #include "FieldConvertors.h"
@@ -32,8 +31,7 @@ namespace FIX
 {
 std::string Dictionary::getString( const std::string& key, bool capitalize ) const
 throw( ConfigError, FieldConvertError )
-{ QF_STACK_PUSH(Dictionary::getString)
-
+{
   Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
 
@@ -42,14 +40,11 @@ throw( ConfigError, FieldConvertError )
      std::transform(result.begin(), result.end(), result.begin(), toupper);
 
   return result;
-
-  QF_STACK_POP
 }
 
 long Dictionary::getLong( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
-{ QF_STACK_PUSH(Dictionary::getLong)
-
+{
   try
   {
     return IntConvertor::convert( getString(key) );
@@ -58,14 +53,11 @@ throw( ConfigError, FieldConvertError )
   {
     throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
-
-  QF_STACK_POP
 }
 
 double Dictionary::getDouble( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
-{ QF_STACK_PUSH(Dictionary::getDouble)
-
+{
   try
   {
     return DoubleConvertor::convert( getString(key) );
@@ -74,14 +66,11 @@ throw( ConfigError, FieldConvertError )
   {
     throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
-
-  QF_STACK_POP
 }
 
 bool Dictionary::getBool( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
-{ QF_STACK_PUSH(Dictionary::getBool)
-
+{
   try
   {
     return BoolConvertor::convert( getString(key) );
@@ -90,14 +79,11 @@ throw( ConfigError, FieldConvertError )
   {
     throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
-
-  QF_STACK_POP
 }
 
 int Dictionary::getDay( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
-{ QF_STACK_PUSH(Dictionary::getDay)
-
+{
   try
   {
     std::string value = getString(key);
@@ -118,37 +104,30 @@ throw( ConfigError, FieldConvertError )
     throw ConfigError( "Illegal value " + getString(key) + " for " + key );
   }
   return -1;
-
-  QF_STACK_POP
 }
 
 void Dictionary::setString( const std::string& key, const std::string& value )
-{ QF_STACK_PUSH(Dictionary::setString)
+{
   m_data[ string_strip(string_toUpper(key)) ] = string_strip(value);
-  QF_STACK_POP
 }
 
 void Dictionary::setLong( const std::string& key, long value )
-{ QF_STACK_PUSH(Dictionary::setString)
+{
   m_data[ string_strip(string_toUpper(key)) ] = IntConvertor::convert( value );
-  QF_STACK_POP
 }
 
 void Dictionary::setDouble( const std::string& key, double value )
-{ QF_STACK_PUSH(Dictionary::setDouble)
+{
   m_data[ string_strip(string_toUpper(key)) ] = DoubleConvertor::convert( value );
-  QF_STACK_POP
 }
 
 void Dictionary::setBool( const std::string& key, bool value )
-{ QF_STACK_PUSH(Dictionary::setBool)
+{
   m_data[ string_strip(string_toUpper(key)) ] = BoolConvertor::convert( value );
-  QF_STACK_POP
 }
 
 void Dictionary::setDay( const std::string& key, int value )
-{ QF_STACK_PUSH(Dictionary::setDay)
-  
+{  
     switch( value )
     {
     case 1:
@@ -166,24 +145,18 @@ void Dictionary::setDay( const std::string& key, int value )
     case 7:
       setString( key, "SA" ); break;
     }
-
-  QF_STACK_POP
 }
 
 bool Dictionary::has( const std::string& key ) const
-{ QF_STACK_PUSH(Dictionary::has)
+{
   return m_data.find( string_toUpper(key) ) != m_data.end();
-  QF_STACK_POP
 }
 
 void Dictionary::merge( const Dictionary& toMerge )
-{ QF_STACK_PUSH(Dictionary::merge)
-
+{
   Data::const_iterator i = toMerge.m_data.begin();
   for ( ; i != toMerge.m_data.end(); ++i )
     if ( m_data.find( i->first ) == m_data.end() )
       m_data[ i->first ] = i->second;
-
-  QF_STACK_POP
 }
 }

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "ThreadedSocketAcceptor.h"
 #include "Settings.h"
@@ -54,8 +53,7 @@ ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 
 void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onConfigure)
-
+{
   std::set<SessionID> sessions = s.getSessions();
   std::set<SessionID>::iterator i;
   for( i = sessions.begin(); i != sessions.end(); ++i )
@@ -67,14 +65,11 @@ throw ( ConfigError )
     if( settings.has(SOCKET_NODELAY) )
       settings.getBool( SOCKET_NODELAY );
   }
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
-
+{
   short port = 0;
   std::set<int> ports;
 
@@ -121,13 +116,10 @@ throw ( RuntimeError )
     m_socketToPort[socket] = port;
     m_sockets.insert( socket );
   }    
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::onStart()
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onStart)
-
+{
   Sockets::iterator i;
   for( i = m_sockets.begin(); i != m_sockets.end(); ++i )
   {
@@ -138,21 +130,15 @@ void ThreadedSocketAcceptor::onStart()
     thread_spawn( &socketAcceptorThread, info, thread );
     addThread( *i, thread );
   }
-
-  QF_STACK_POP
 }
 
 bool ThreadedSocketAcceptor::onPoll( double timeout )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onPoll)
-
+{
   return false;
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::onStop()
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onStop)
-  
+{ 
   SocketToThread threads;
   SocketToThread::iterator i;
 
@@ -177,23 +163,17 @@ void ThreadedSocketAcceptor::onStop()
     socket_close( i->first );
   for ( i = threads.begin(); i != threads.end(); ++i )
     thread_join( i->second );
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::addThread( int s, thread_id t )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
-
+{
   Locker l(m_mutex);
 
   m_threads[ s ] = t;
-
-  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::removeThread( int s )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::removeThread)
-
+{
   Locker l(m_mutex);
   SocketToThread::iterator i = m_threads.find( s );
   if ( i != m_threads.end() )
@@ -201,14 +181,10 @@ void ThreadedSocketAcceptor::removeThread( int s )
     thread_detach( i->second );
     m_threads.erase( i );
   }
-
-  QF_STACK_POP
 }
 
 THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
-{ QF_STACK_TRY
-  QF_STACK_PUSH(ThreadedSocketAcceptor::socketAcceptorThread)
-
+{
   AcceptorThreadInfo * info = reinterpret_cast < AcceptorThreadInfo* > ( p );
 
   ThreadedSocketAcceptor* pAcceptor = info->m_pAcceptor;
@@ -261,15 +237,10 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
     pAcceptor->removeThread( s );
 
   return 0;
-
-  QF_STACK_POP
-  QF_STACK_CATCH
 }
 
 THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
-{ QF_STACK_TRY
-  QF_STACK_PUSH(ThreadedSocketAcceptor::socketConnectionThread)
-
+{
   ConnectionThreadInfo * info = reinterpret_cast < ConnectionThreadInfo* > ( p );
 
   ThreadedSocketAcceptor* pAcceptor = info->m_pAcceptor;
@@ -283,8 +254,5 @@ THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
   if( !pAcceptor->isStopped() )
     pAcceptor->removeThread( socket );
   return 0;
-
-  QF_STACK_POP
-  QF_STACK_CATCH
 }
 }

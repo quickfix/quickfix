@@ -31,7 +31,6 @@
 #include "Group.h"
 #include "SessionID.h"
 #include "DataDictionary.h"
-#include "CallStack.h"
 #include "Values.h"
 #include <vector>
 #include <memory>
@@ -256,8 +255,7 @@ public:
   }
 
   static ApplVerID toApplVerID(const BeginString& value)
-  { QF_STACK_PUSH(SessionFactory::toApplVerID)
-
+  {
     if( value == BeginString_FIX40 )
       return ApplVerID(ApplVerID_FIX40);
     if( value == BeginString_FIX41 )
@@ -275,8 +273,6 @@ public:
     if( value == "FIX.5.0SP2" )
       return ApplVerID(ApplVerID_FIX50SP2);
     return ApplVerID(ApplVerID(value));
-
-    QF_STACK_POP
   }
 
   static BeginString toBeginString( const ApplVerID& applVerID )
@@ -320,8 +316,7 @@ private:
   ( const std::string& string, std::string::size_type& pos,
     const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
     const Group* pGroup = 0)
-  { QF_STACK_PUSH(extractField)
-
+  {
     std::string::size_type equalSign
       = string.find_first_of( '=', pos );
     if( equalSign == std::string::npos )
@@ -358,8 +353,6 @@ private:
     return FieldBase (
       field,
       string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
-
-    QF_STACK_POP
   }
 
   void validate();

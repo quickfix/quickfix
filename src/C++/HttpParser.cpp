@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "HttpParser.h"
 #include "Utility.h"
@@ -32,8 +31,7 @@ namespace FIX
 {
 bool HttpParser::readHttpMessage( std::string& str )
 throw( MessageParseError )
-{ QF_STACK_PUSH(HttpParser::readFixMessage)
-
+{
   std::string::size_type pos = 0;
 
   if( m_buffer.length() < 4 ) 
@@ -47,7 +45,5 @@ throw( MessageParseError )
   m_buffer.erase( 0, pos + 4 );
 
   return true;
-
-  QF_STACK_POP
 }
 }

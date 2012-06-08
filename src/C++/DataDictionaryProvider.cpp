@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "DataDictionaryProvider.h"
 #include "Fields.h"

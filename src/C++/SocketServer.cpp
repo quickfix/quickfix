@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketServer.h"
 #include "Utility.h"
@@ -47,13 +46,11 @@ public:
 
 private:
   void onConnect( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ServerWrapper::onConnect)
-    QF_STACK_POP
+  {
   }
 
   void onEvent( SocketMonitor& monitor, int socket )
-  { QF_STACK_PUSH(ServerWrapper::onEvent)
-
+  {
     if( m_sockets.find(socket) != m_sockets.end() )
     {
       m_strategy.onConnect( m_server, socket, m_server.accept(socket) );
@@ -63,37 +60,27 @@ private:
       if( !m_strategy.onData( m_server, socket ) )
         onError( monitor, socket );
     }
-
-    QF_STACK_POP
   }
 
   void onWrite( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ServerWrapper::onWrite)
-
+  {
     m_strategy.onWrite( m_server, socket );
-
-    QF_STACK_POP
   }
 
   void onError( SocketMonitor& monitor, int socket )
-  { QF_STACK_PUSH(ServerWrapper::onError)
-
+  {
     m_strategy.onDisconnect( m_server, socket );
     monitor.drop( socket );
-
-    QF_STACK_POP
   }
 
   void onError( SocketMonitor& )
-  { QF_STACK_PUSH(ServerWrapper::onError)
+  {
     m_strategy.onError( m_server );
-    QF_STACK_POP
   }
 
   void onTimeout( SocketMonitor& )
-  { QF_STACK_PUSH(ServerWrapper::onTimeout)
+  {
     m_strategy.onTimeout( m_server );
-    QF_STACK_POP
   };
 
   typedef std::set<int>
@@ -132,8 +119,7 @@ int SocketServer::add( int port, bool reuse, bool noDelay,
 }
 
 int SocketServer::accept( int socket )
-{ QF_STACK_PUSH(SocketServer::accept)
-
+{
   SocketInfo info = m_socketToInfo[socket];
 
   int result = socket_accept( socket );
@@ -146,13 +132,10 @@ int SocketServer::accept( int socket )
   if ( result >= 0 )
     m_monitor.addConnect( result );
   return result;
-
-  QF_STACK_POP
 }
 
 void SocketServer::close()
-{ QF_STACK_PUSH(SocketServer::close)
-
+{
   SocketToInfo::iterator i = m_socketToInfo.begin();
   for( ; i != m_socketToInfo.end(); ++i )
   {
@@ -160,13 +143,10 @@ void SocketServer::close()
     socket_close( s );
     socket_invalidate( s );
   }
-
-  QF_STACK_POP
 }
 
 bool SocketServer::block( Strategy& strategy, bool poll, double timeout )
-{ QF_STACK_PUSH(SocketServer::block)
-
+{
   std::set<int> sockets;
   SocketToInfo::iterator i = m_socketToInfo.begin();
   for( ; i != m_socketToInfo.end(); ++i )
@@ -179,8 +159,6 @@ bool SocketServer::block( Strategy& strategy, bool poll, double timeout )
   ServerWrapper wrapper( sockets, *this, strategy );
   m_monitor.block( wrapper, poll, timeout );
   return true;
-
-  QF_STACK_POP
 }
 
 int SocketServer::socketToPort( int socket )

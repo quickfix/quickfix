@@ -27,7 +27,6 @@ using namespace System::IO;
 #include "quickfix_net.h"
 
 #include "quickfix/Dictionary.h"
-#include "quickfix/CallStack.h"
 #include "Exceptions.h"
 
 namespace QuickFix
@@ -36,19 +35,13 @@ public __gc class Dictionary
 {
 public:
   Dictionary( String* name )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::Dictionary( convertString(name) );
-  
-    QF_STACK_CATCH
   }
 
   Dictionary()
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::Dictionary();
-
-    QF_STACK_CATCH
   }
 
   Dictionary( const FIX::Dictionary& dictionary )
@@ -63,15 +56,13 @@ public:
   }
 
   String* getName()
-  { QF_STACK_TRY
+  {
     return unmanaged().getName().c_str();
-    QF_STACK_CATCH
   }
 
   int size()
-  { QF_STACK_TRY
+  {
     return unmanaged().size();
-    QF_STACK_CATCH
   }
 
   String* getString( String* key )
@@ -80,8 +71,7 @@ public:
   }
 
   String* getString( String* key, bool capitalize )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return unmanaged().getString( convertString(key), capitalize ).c_str();
@@ -94,13 +84,10 @@ public:
     {
       throw new FieldConvertError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   long getLong( String* key )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return unmanaged().getLong( convertString(key) );
@@ -113,13 +100,10 @@ public:
     {
       throw new FieldConvertError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   double getDouble( String* key )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return unmanaged().getDouble( convertString(key) );
@@ -132,13 +116,10 @@ public:
     {
       throw new FieldConvertError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   bool getBool( String* key )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return unmanaged().getBool( convertString(key) );
@@ -151,13 +132,10 @@ public:
     {
       throw new FieldConvertError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   int getDay( String* key )
-  { QF_STACK_TRY
-
+  {
     try
     {
       return unmanaged().getDay( convertString(key) );
@@ -170,50 +148,41 @@ public:
     {
       throw new FieldConvertError( e.what() );
     }
-
-    QF_STACK_CATCH
   }
 
   void setString( String* key, String* value )
-  { QF_STACK_TRY
+  {
     unmanaged().setString( convertString(key), convertString(value) );
-    QF_STACK_CATCH
   }
 
   void setLong( String* key, int value )
-  { QF_STACK_TRY
+  {
     unmanaged().setLong( convertString(key), value );
-    QF_STACK_CATCH
   }
 
   void setDouble( String* key, double value )
-  { QF_STACK_TRY
+  {
     unmanaged().setDouble( convertString(key), value );
-    QF_STACK_CATCH
   }
 
   void setBool( String* key, bool value )
-  { QF_STACK_TRY
+  {
     unmanaged().setBool( convertString(key), value );
-    QF_STACK_CATCH
   }
 
   void setDay( String* key, int value )
-  { QF_STACK_TRY
+  {
     unmanaged().setDay( convertString(key), value );
-    QF_STACK_CATCH
   }
 
   bool has( String* key )
-  { QF_STACK_TRY
+  {
     return unmanaged().has( convertString(key) );
-    QF_STACK_CATCH
   }
 
   void merge( Dictionary* toMerge )
-  { QF_STACK_TRY
+  {
     unmanaged().merge( toMerge->unmanaged() );
-    QF_STACK_CATCH
   }
 
   FIX::Dictionary& unmanaged()

@@ -32,7 +32,6 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/MySQLStore.h"
 #include "quickfix/Settings.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -58,17 +57,15 @@ public __gc class MySQLStoreFactory : public MessageStoreFactory
 {
 public:
   MySQLStoreFactory( SessionSettings* settings )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = new FIX::MySQLStoreFactory(settings->unmanaged());
-    QF_STACK_CATCH
   }
 
   ~MySQLStoreFactory() { delete m_pUnmanaged; }
 
   MessageStore* create( SessionID* sessionID )
-  { QF_STACK_TRY
+  {
     return new MySQLStore(m_pUnmanaged->create(sessionID->unmanaged()));
-    QF_STACK_CATCH
   }
 
 private:

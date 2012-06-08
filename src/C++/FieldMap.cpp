@@ -22,23 +22,21 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "FieldMap.h"
 #include <algorithm>
 #include <iterator>
+#include <deque>
 
 namespace FIX
 {
 FieldMap::~FieldMap()
-{ QF_STACK_IGNORE_BEGIN
+{
   clear();
-  QF_STACK_IGNORE_END
 }
 
 FieldMap& FieldMap::operator=( const FieldMap& rhs )
-{ QF_STACK_PUSH(FieldMap::operator=)
-
+{
   clear();
 
   m_fields = rhs.m_fields;
@@ -55,13 +53,10 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
   }
 
   return *this;
-
-  QF_STACK_POP
 }
 
 void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
-{ QF_STACK_PUSH(FieldMap::addGroup)
-
+{
   FieldMap * pGroup = new FieldMap( group );
 
   std::vector< FieldMap*>& vec = m_groups[ field ];
@@ -69,20 +64,15 @@ void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 
   if( setCount )
     setField( IntField( field, vec.size() ) );
-
-  QF_STACK_POP
 }
 
 void FieldMap::replaceGroup( int num, int field, FieldMap& group )
-{ QF_STACK_PUSH(FieldMap::replaceGroup)
-
+{
   Groups::const_iterator i = m_groups.find( field );
   if ( i == m_groups.end() ) return;
   if ( num <= 0 ) return;
   if ( i->second.size() < ( unsigned ) num ) return;
   *( *( i->second.begin() + ( num - 1 ) ) ) = group;
-
-  QF_STACK_POP
 }
 
 void FieldMap::removeGroup( int num, int field )
@@ -119,52 +109,38 @@ void FieldMap::removeGroup( int num, int field )
 }
 
 void FieldMap::removeGroup( int field )
-{ QF_STACK_PUSH(FieldMap::removeGroup)
+{
   removeGroup( groupCount(field), field );
-  QF_STACK_POP
 }
 
 void FieldMap::removeField( int field )
-{ QF_STACK_PUSH(FieldMap::removeField)
-
+{
   Fields::iterator i = m_fields.find( field );
   if ( i != m_fields.end() )
     m_fields.erase( i );
-
-  QF_STACK_POP
 }
 
 bool FieldMap::hasGroup( int num, int field ) const
-{ QF_STACK_PUSH(FieldMap::hasGroup)
-
+{
   return groupCount(field) >= num;
-
-  QF_STACK_POP
 }
 
 bool FieldMap::hasGroup( int field ) const
-{ QF_STACK_PUSH(FieldMap::hasGroup)
-
+{
   Groups::const_iterator i = m_groups.find( field );
   return i != m_groups.end();
-
-  QF_STACK_POP
 }
 
 int FieldMap::groupCount( int field ) const
-{ QF_STACK_PUSH(FieldMap::groupCount)
-
+{
   Groups::const_iterator i = m_groups.find( field );
   if( i == m_groups.end() )
     return 0;
   return i->second.size();
-
-  QF_STACK_POP
 }
 
 void FieldMap::clear()
-{ QF_STACK_PUSH(FieldMap::clear)
-
+{
   m_fields.clear();
 
   Groups::iterator i;
@@ -175,14 +151,11 @@ void FieldMap::clear()
       delete *j;
   }
   m_groups.clear();
-
-  QF_STACK_POP
 }
 
 bool FieldMap::isEmpty()
-{ QF_STACK_PUSH(FieldMap::isEmpty)
+{
   return m_fields.size() == 0;
-  QF_STACK_POP
 }
 
 int FieldMap::totalFields() const
@@ -200,8 +173,7 @@ int FieldMap::totalFields() const
 }
 
 std::string& FieldMap::calculateString( std::string& result, bool clear ) const
-{ QF_STACK_PUSH(FieldMap::calculateString)
-
+{
 #if defined(_MSC_VER) && _MSC_VER < 1300
   if( clear ) result = "";
 #else
@@ -225,8 +197,6 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
       ( *k ) ->calculateString( result, false );
   }
   return result;
-
-  QF_STACK_POP
 }
 
 int FieldMap::calculateLength( int beginStringField,
@@ -254,8 +224,7 @@ int FieldMap::calculateLength( int beginStringField,
 }
 
 int FieldMap::calculateTotal( int checkSumField ) const
-{ QF_STACK_PUSH(FieldMap::calculateTotal)
-
+{
   int result = 0;
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
@@ -272,7 +241,5 @@ int FieldMap::calculateTotal( int checkSumField ) const
       result += ( *k ) ->calculateTotal();
   }
   return result;
-
-  QF_STACK_POP
 }
 }

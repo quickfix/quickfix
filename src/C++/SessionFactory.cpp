@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "Utility.h"
 #include "Values.h"
@@ -34,17 +33,15 @@
 namespace FIX
 {
 SessionFactory::~SessionFactory()
-{ QF_STACK_IGNORE_BEGIN
+{
   Dictionaries::iterator i = m_dictionaries.begin();
   for ( ; i != m_dictionaries.end(); ++i )
     delete i->second;
-  QF_STACK_IGNORE_END
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
                                  const Dictionary& settings ) throw( ConfigError )
-{ QF_STACK_PUSH(SessionFactory::create)
-
+{
   std::string connectionType = settings.getString( CONNECTION_TYPE );
   if ( connectionType != "acceptor" && connectionType != "initiator" )
     throw ConfigError( "Invalid ConnectionType" );
@@ -200,15 +197,12 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
    
   return pSession;
-
-  QF_STACK_POP
 }
 
 const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                     const Dictionary& settings, 
                                                     const std::string& settingsKey) throw(ConfigError)
-{ QF_STACK_PUSH(SessionFactory::createDataDictionary)
-
+{
   DataDictionary * pDD = 0;
   std::string path = settings.getString( settingsKey );
   Dictionaries::iterator i = m_dictionaries.find( path );
@@ -232,15 +226,12 @@ const DataDictionary * SessionFactory::createDataDictionary(const SessionID& ses
     pCopyOfDD->checkUserDefinedFields( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
 
   return pCopyOfDD;
-
-  QF_STACK_POP
 }
 
 void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID, 
                                                  const Dictionary& settings, 
                                                  DataDictionaryProvider& provider) throw(ConfigError)
-{ QF_STACK_PUSH(SessionFactory::processFixtDataDictionaries)
-
+{
   const DataDictionary * pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   
@@ -266,18 +257,14 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
       }
     }
   }
-
-  QF_STACK_POP
 }
 
 void SessionFactory::processFixDataDictionary(const SessionID& sessionID, 
                                               const Dictionary& settings, 
                                               DataDictionaryProvider& provider) throw(ConfigError)
-{ QF_STACK_PUSH(SessionFactory::processFixDataDictionary)
-
+{
   const DataDictionary * pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), pDataDictionary);
-  QF_STACK_POP
 }
 }

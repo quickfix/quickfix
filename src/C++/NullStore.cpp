@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "NullStore.h"
 
@@ -30,30 +29,26 @@ namespace FIX
 {
 
 MessageStore* NullStoreFactory::create( const SessionID& )
-{ QF_STACK_PUSH(NullStoreFactory::create)
+{
   return new NullStore();
-  QF_STACK_POP
 }
 
 void NullStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(NullStoreFactory::destroy)
+{
   delete pStore;
-  QF_STACK_POP
 }
 
 bool NullStore::set( int msgSeqNum, const std::string& msg )
 throw( IOException )
-{ QF_STACK_PUSH(NullStore::set)
+{
   return true;
-  QF_STACK_POP
 }
 
 void NullStore::get( int begin, int end,
                        std::vector < std::string > & messages ) const
 throw( IOException )
-{ QF_STACK_PUSH(NullStore::get)
+{
   messages.clear();
-  QF_STACK_POP
 }
 
 } //namespace FIX

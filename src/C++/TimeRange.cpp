@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "TimeRange.h"
 #include "Utility.h"
@@ -62,16 +61,13 @@ namespace FIX
   bool TimeRange::isInRange( const DateTime& start,
                              const DateTime& end,
                              const DateTime& time )
-  { QF_STACK_PUSH(TimeRange::isInRange)
-
+  {
     UtcTimeOnly timeOnly (time);
 
     if( start < end )
       return( timeOnly >= start && timeOnly <= end );
     else
       return( timeOnly >= start || timeOnly <= end );
-
-    QF_STACK_POP
   }
 
   bool TimeRange::isInRange( const DateTime& startTime,
@@ -80,8 +76,7 @@ namespace FIX
                              int endDay,
                              const DateTime& time,
                              int day )
-  { QF_STACK_PUSH(TimeRange::isInRange)
-
+  {
     UtcTimeOnly timeOnly (time);
 
     if( startDay == endDay )
@@ -109,7 +104,6 @@ namespace FIX
         return false;
     }
     return true;
-    QF_STACK_POP
   }
 
   bool TimeRange::isInRange( const DateTime& startTime,
@@ -117,17 +111,15 @@ namespace FIX
                              int startDay,
                              int endDay,
 							 const DateTime& time ) 
-  { QF_STACK_PUSH(TimeRange::isInRange)
+  {
     return isInRange( startTime, endTime, startDay, endDay, time, time.getWeekDay() );
-    QF_STACK_POP
   }
 
   bool TimeRange::isInSameRange( const DateTime& start,
                                  const DateTime& end,
                                  const DateTime& time1,
                                  const DateTime& time2 )
-  { QF_STACK_PUSH(TimeRange::isInSameRange)
-
+  {
     if( !isInRange( start, end, time1 ) ) return false;
     if( !isInRange( start, end, time2 ) ) return false;
 
@@ -159,8 +151,6 @@ namespace FIX
         return (time2 - time1) < sessionLength;
       }
     }
-	
-    QF_STACK_POP
   }
 
   bool TimeRange::isInSameRange( const DateTime& startTime,
@@ -169,8 +159,7 @@ namespace FIX
                                  int endDay,
                                  const DateTime& time1,
                                  const DateTime& time2 )
-  { QF_STACK_PUSH(TimeRange::isInSameRange)
-
+  {
     if( !isInRange( startTime, endTime, startDay, endDay, time1, time1.getWeekDay() ) )
       return false;
 
@@ -180,7 +169,5 @@ namespace FIX
     int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();
     int absoluteDay2 = time2.getJulianDate() - time2.getWeekDay();
     return absoluteDay1 == absoluteDay2;
-
-    QF_STACK_POP
   }
 }

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "Settings.h"
 
@@ -91,14 +90,11 @@ std::istream& operator>>( std::istream& stream, Settings& s )
 }
 
 Settings::Sections Settings::get( std::string name ) const
-{ QF_STACK_PUSH(Settings::get)
-
+{
   Sections sections;
   for ( Sections::size_type i = 0; i < m_sections.size(); ++i )
     if ( m_sections[ i ].getName() == name )
       sections.push_back( m_sections[ i ] );
   return sections;
-
-  QF_STACK_POP
 }
 }

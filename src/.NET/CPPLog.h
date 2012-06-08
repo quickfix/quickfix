@@ -30,7 +30,6 @@ using namespace System::Threading;
 #include "LogFactory.h"
 #include "SessionSettings.h"
 #include "quickfix/FileLog.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -40,10 +39,9 @@ public __gc class CPPLog : public Log, public IDisposable
 public:
   CPPLog() {}
   CPPLog( FIX::Log* pUnmanaged )
-  { QF_STACK_TRY
+  {
     m_pUnmanaged = pUnmanaged;
     System::GC::SuppressFinalize( this );
-    QF_STACK_CATCH
   }
 
   void Dispose( bool dispose )
@@ -62,45 +60,34 @@ public:
   { Dispose( false ); }
 
   void clear()
-  { QF_STACK_TRY
+  {
     m_pUnmanaged->clear();
-    QF_STACK_CATCH
   }
 
   void backup()
-  { QF_STACK_TRY
+  {
     m_pUnmanaged->backup();
-    QF_STACK_CATCH
   }
 
   void onIncoming( String* s )
-  { QF_STACK_TRY
-
+  {
     char* us = createUnmanagedString( s );
     m_pUnmanaged->onIncoming( us );
     destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
   }
 
   void onOutgoing( String* s )
-  { QF_STACK_TRY
-
+  {
     char* us = createUnmanagedString( s );
     m_pUnmanaged->onOutgoing( us );
     destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
   }
 
   void onEvent( String* s )
-  { QF_STACK_TRY
-
+  {
     char* us = createUnmanagedString( s );
     m_pUnmanaged->onEvent( us );
     destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
   }
 
 protected:

@@ -24,7 +24,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #if (HAVE_LIBXML == 0 && _MSC_VER > 0)
 #include "MSXML_DOMDocument.h"
@@ -33,14 +32,12 @@
 namespace FIX
 {
   MSXML_DOMAttributes::~MSXML_DOMAttributes()
-  { QF_STACK_IGNORE_BEGIN
+  {
     if(m_pNodeMap) m_pNodeMap->Release();
-    QF_STACK_IGNORE_END
   }
 
   bool MSXML_DOMAttributes::get( const std::string& name, std::string& value )
-  { QF_STACK_PUSH(MSXML_DOMAttributes::get)
-
+  {
     if(!m_pNodeMap) return false;
     MSXML2::IXMLDOMNode* pNode = NULL;
     m_pNodeMap->getNamedItem(_bstr_t(name.c_str()), &pNode);
@@ -51,8 +48,6 @@ namespace FIX
     value = (char*)_bstr_t(result);
     pNode->Release();
     return true;
-
-    QF_STACK_POP
   }
 
   DOMAttributes::map MSXML_DOMAttributes::toMap()
@@ -61,57 +56,43 @@ namespace FIX
   }
 
   MSXML_DOMNode::~MSXML_DOMNode()
-  { QF_STACK_IGNORE_BEGIN
+  {
     m_pNode->Release();
-    QF_STACK_IGNORE_END
   }
 
   DOMNodePtr MSXML_DOMNode::getFirstChildNode()
-  { QF_STACK_PUSH(MSXML_DOMNode::getFirstChildNode)
-
+  {
     MSXML2::IXMLDOMNode* pNode = NULL;
     m_pNode->get_firstChild(&pNode);
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new MSXML_DOMNode(pNode));
-
-    QF_STACK_POP
   }
 
   DOMNodePtr MSXML_DOMNode::getNextSiblingNode()
-  { QF_STACK_PUSH(MSXML_DOMNode::getNextSiblingNode)
-
+  {
     MSXML2::IXMLDOMNode* pNode = NULL;
     m_pNode->get_nextSibling(&pNode);
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new MSXML_DOMNode(pNode));
-
-    QF_STACK_POP
   }
 
   DOMAttributesPtr MSXML_DOMNode::getAttributes()
-  { QF_STACK_PUSH(MSXML_DOMNode::getAttributes)
+  {
     return DOMAttributesPtr(new MSXML_DOMAttributes(m_pNode));
-    QF_STACK_POP
   }
 
   std::string MSXML_DOMNode::getName()
-  { QF_STACK_PUSH(MSXML_DOMNode::getName)
-
+  {
     CComBSTR result;
     m_pNode->get_nodeName(&result);
     return (char*)_bstr_t(result);
-
-    QF_STACK_POP
   }
 
   std::string MSXML_DOMNode::getText()
-  { QF_STACK_PUSH(MSXML_DOMNode::getText)
-
+  {
     CComBSTR result;
     m_pNode->get_text(&result);
     return (char*)_bstr_t(result);
-
-    QF_STACK_POP
   }
 
   MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError )
@@ -130,18 +111,14 @@ namespace FIX
   }
 
   MSXML_DOMDocument::~MSXML_DOMDocument()
-  { QF_STACK_IGNORE_BEGIN
-
+  {
     if(m_pDoc != NULL)
       m_pDoc->Release();
     CoUninitialize();
-
-    QF_STACK_IGNORE_END
   }
 
   bool MSXML_DOMDocument::load( std::istream& stream )
-  { QF_STACK_PUSH(MSXML_DOMDocument::load)
-
+  {
     try
     {
       m_pDoc->put_async(VARIANT_FALSE);
@@ -156,13 +133,10 @@ namespace FIX
       return success != FALSE;
     }
     catch( ... ) { return false; }
-
-    QF_STACK_POP
   }
 
   bool MSXML_DOMDocument::load( const std::string& url )
-  { QF_STACK_PUSH(MSXML_DOMDocument::load)
-
+  {
     try
     {
       m_pDoc->put_async(VARIANT_FALSE);
@@ -174,13 +148,10 @@ namespace FIX
       return success != FALSE;
     }
     catch( ... ) { return false; }
-
-    QF_STACK_POP
   }
 
   bool MSXML_DOMDocument::xml( std::ostream& out )
-  { QF_STACK_PUSH(MSXML_DOMDocument::xml)
-
+  {
     try
     {
       CComBSTR result;
@@ -190,21 +161,16 @@ namespace FIX
       return true;
     }
     catch( ... ) { return false; }
-
-    QF_STACK_POP
   }
 
   DOMNodePtr MSXML_DOMDocument::getNode( const std::string& XPath )
-  { QF_STACK_PUSH(MSXML_DOMDocument::getNode)
-
+  {
     HRESULT hr;
 
     MSXML2::IXMLDOMNode* pNode = NULL;
     hr = m_pDoc->selectSingleNode(_bstr_t(XPath.c_str()), &pNode);
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new MSXML_DOMNode(pNode));
-
-    QF_STACK_POP
   }
 }
 

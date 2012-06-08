@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "MessageSorters.h"
 
@@ -79,8 +78,7 @@ message_order::message_order( const int order[] )
 }
 
 message_order& message_order::operator=( const message_order& rhs )
-{ QF_STACK_PUSH(message_order::operator=)
-
+{
   m_mode = rhs.m_mode;
   m_delim = rhs.m_delim;
   m_largest = rhs.m_largest;
@@ -93,13 +91,10 @@ message_order& message_order::operator=( const message_order& rhs )
   m_groupOrder = rhs.m_groupOrder;
 
   return *this;
-
-  QF_STACK_POP
 }
 
 void message_order::setOrder( int size, const int order[] )
-{ QF_STACK_PUSH(message_order::operator=)
-
+{
   if(size < 1) return;
   m_largest = m_delim = order[0];
 
@@ -116,7 +111,5 @@ void message_order::setOrder( int size, const int order[] )
       get()[ order[ i ] ] = i + 1;
 
   attach();
-
-  QF_STACK_POP
 }
 }

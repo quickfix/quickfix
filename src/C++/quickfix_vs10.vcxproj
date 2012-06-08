@@ -678,7 +678,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
-    <ClCompile Include="CallStack.cpp" />
     <ClCompile Include="DataDictionary.cpp" />
     <ClCompile Include="DataDictionaryProvider.cpp" />
     <ClCompile Include="Dictionary.cpp" />

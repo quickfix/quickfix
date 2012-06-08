@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "Acceptor.h"
 #include "Utility.h"
@@ -68,8 +67,7 @@ throw( ConfigError )
 }
 
 void Acceptor::initialize() throw ( ConfigError )
-{ QF_STACK_PUSH( Acceptor::initialize )
-
+{
   std::set < SessionID > sessions = m_settings.getSessions();
   std::set < SessionID > ::iterator i;
 
@@ -90,27 +88,21 @@ void Acceptor::initialize() throw ( ConfigError )
 
   if ( !m_sessions.size() )
     throw ConfigError( "No sessions defined for acceptor" );
-
-  QF_STACK_POP
 }
 
 Acceptor::~Acceptor()
-{ QF_STACK_IGNORE_BEGIN
-
+{
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
 
   if( m_pLogFactory && m_pLog )
     m_pLogFactory->destroy( m_pLog );
-  
-  QF_STACK_IGNORE_END
 }
 
 Session* Acceptor::getSession
 ( const std::string& msg, Responder& responder )
-{ QF_STACK_PUSH( Acceptor::getSession )
-
+{
   Message message;
   if ( !message.setStringHeader( msg ) )
     return 0;
@@ -140,25 +132,19 @@ Session* Acceptor::getSession
   }
   catch ( FieldNotFound& ) {}
   return 0;
-
-  QF_STACK_POP
 }
 
 Session* Acceptor::getSession( const SessionID& sessionID ) const
-{ QF_STACK_PUSH(Initiator::getSession)
-
+{
   Sessions::const_iterator i = m_sessions.find( sessionID );
   if( i != m_sessions.end() )
     return i->second;
   else
     return 0;
-
-  QF_STACK_POP
 }
 
 const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID ) const
-{ QF_STACK_PUSH(Initiator::getSessionSettings)
-
+{
   try
   {
     return &m_settings.get( sessionID );
@@ -167,13 +153,10 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
   {
     return 0;
   }
-
-  QF_STACK_POP
 }
 
 void Acceptor::start() throw ( ConfigError, RuntimeError )
-{ QF_STACK_PUSH( Acceptor::start )
-
+{
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -182,25 +165,19 @@ void Acceptor::start() throw ( ConfigError, RuntimeError )
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
     throw RuntimeError("Unable to spawn thread");
-
-  QF_STACK_POP
 }
 
 void Acceptor::block() throw ( ConfigError, RuntimeError )
-{ QF_STACK_PUSH( Acceptor::start )
-
+{
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 
   startThread(this);
-
-  QF_STACK_POP
 }
 
 bool Acceptor::poll( double timeout ) throw ( ConfigError, RuntimeError )
-{ QF_STACK_PUSH( Acceptor::poll )
-
+{
   if( m_firstPoll )
   {
     m_stop = false;
@@ -210,13 +187,10 @@ bool Acceptor::poll( double timeout ) throw ( ConfigError, RuntimeError )
   }
 
   return onPoll( timeout );
-
-  QF_STACK_POP
 }
 
 void Acceptor::stop( bool force )
-{ QF_STACK_PUSH( Acceptor::stop )
-
+{
   if( isStopped() ) return;
 
   HttpServer::stopGlobal();
@@ -251,13 +225,10 @@ void Acceptor::stop( bool force )
   std::vector<Session*>::iterator session = enabledSessions.begin();
   for( ; session != enabledSessions.end(); ++session )
     (*session)->logon();
-
-  QF_STACK_POP
 }
 
 bool Acceptor::isLoggedOn()
-{ QF_STACK_PUSH(Acceptor::isLoggedOn)
-
+{
   Sessions sessions = m_sessions;
   Sessions::iterator i = sessions.begin();
   for ( ; i != sessions.end(); ++i )
@@ -266,19 +237,12 @@ bool Acceptor::isLoggedOn()
       return true;
   }
   return false;
-
-  QF_STACK_POP
 }
 
 THREAD_PROC Acceptor::startThread( void* p )
-{ QF_STACK_TRY
-  QF_STACK_PUSH( Acceptor::startThread )
-
+{
   Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
   pAcceptor->onStart();
   return 0;
-
-  QF_STACK_POP
-  QF_STACK_CATCH
 }
 }

@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #include "SocketConnection.h"
 #include "SocketAcceptor.h"
@@ -61,21 +60,17 @@ SocketConnection::~SocketConnection()
 }
 
 bool SocketConnection::send( const std::string& msg )
-{ QF_STACK_PUSH(SocketConnection::send)
-
+{
   Locker l( m_mutex );
 
   m_sendQueue.push_back( msg );
   processQueue();
   signal();
   return true;
-
-  QF_STACK_POP
 }
 
 bool SocketConnection::processQueue()
-{ QF_STACK_PUSH(SocketConnection::processQueue)
-
+{
   Locker l( m_mutex );
 
   if( !m_sendQueue.size() ) return true;
@@ -100,22 +95,16 @@ bool SocketConnection::processQueue()
   }
 
   return !m_sendQueue.size();
-
-  QF_STACK_POP
 }
 
 void SocketConnection::disconnect()
-{ QF_STACK_PUSH(SocketConnection::disconnect)
-
+{
   if ( m_pMonitor )
     m_pMonitor->drop( m_socket );
-
-  QF_STACK_POP
 }
 
 bool SocketConnection::read( SocketConnector& s )
-{ QF_STACK_PUSH(SocketConnection::read)
-
+{
   if ( !m_pSession ) return false;
 
   try
@@ -129,13 +118,10 @@ bool SocketConnection::read( SocketConnector& s )
     return false;
   }
   return true;
-
-  QF_STACK_POP
 }
 
 bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
-{ QF_STACK_PUSH(SocketConnection::read)
-
+{
   std::string msg;
   try
   {
@@ -196,45 +182,34 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
     s.getMonitor().drop( m_socket );
   }
   return false;
-
-  QF_STACK_POP
 }
 
 bool SocketConnection::isValidSession()
-{ QF_STACK_PUSH(SocketConnection::isValidSession)
-
+{
   if( m_pSession == 0 )
     return false;
   SessionID sessionID = m_pSession->getSessionID();
   if( Session::isSessionRegistered(sessionID) )
     return false;
   return !( m_sessions.find(sessionID) == m_sessions.end() );
-
-  QF_STACK_POP
 }
 
 void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
-{ QF_STACK_PUSH(SocketConnection::readFromSocket)
-
+{
   int size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
   if( size <= 0 ) throw SocketRecvFailed( size );
   m_parser.addToStream( m_buffer, size );
-
-  QF_STACK_POP
 }
 
 bool SocketConnection::readMessage( std::string& msg )
-{ QF_STACK_PUSH(SocketConnection::readMessage)
-
+{
   try
   {
     return m_parser.readFixMessage( msg );
   }
   catch ( MessageParseError& ) {}
   return true;
-
-  QF_STACK_POP
 }
 
 void SocketConnection::readMessages( SocketMonitor& s )
@@ -257,8 +232,7 @@ void SocketConnection::readMessages( SocketMonitor& s )
 }
 
 void SocketConnection::onTimeout()
-{ QF_STACK_PUSH(SocketConnection::onTimeout)
+{
   if ( m_pSession ) m_pSession->next();
-  QF_STACK_POP
 }
 } // namespace FIX

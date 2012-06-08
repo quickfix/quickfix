@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_MYSQL
 
@@ -94,8 +93,7 @@ MySQLLog::~MySQLLog()
 }
 
 Log* MySQLLogFactory::create()
-{ QF_STACK_PUSH(MySQLLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string password;
@@ -107,13 +105,10 @@ Log* MySQLLogFactory::create()
   MySQLLog* result = new MySQLLog( id, m_connectionPoolPtr.get() );
   initLog( m_settings.get(), *result );
   return result;
-
-  QF_STACK_POP
 }
 
 Log* MySQLLogFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(MySQLLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string password;
@@ -129,8 +124,6 @@ Log* MySQLLogFactory::create( const SessionID& s )
   MySQLLog* result = new MySQLLog( s, id, m_connectionPoolPtr.get() );
   initLog( settings, *result );
   return result;
-
-  QF_STACK_POP
 }
 
 void MySQLLogFactory::init( const Dictionary& settings, 
@@ -139,8 +132,7 @@ void MySQLLogFactory::init( const Dictionary& settings,
                             std::string& password,
                             std::string& host,
                             short &port )
-{ QF_STACK_PUSH(MySQLLogFactory::init)
-
+{
   database = DEFAULT_DATABASE;
   user = DEFAULT_USER;
   password = DEFAULT_PASSWORD;
@@ -172,31 +164,27 @@ void MySQLLogFactory::init( const Dictionary& settings,
     host = m_host;
     port = m_port;
   }
-
-  QF_STACK_POP
 }
 
 void MySQLLogFactory::initLog( const Dictionary& settings, MySQLLog& log )
 {
-    try { log.setIncomingTable( settings.getString( MYSQL_LOG_INCOMING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setIncomingTable( settings.getString( MYSQL_LOG_INCOMING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setOutgoingTable( settings.getString( MYSQL_LOG_OUTGOING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setOutgoingTable( settings.getString( MYSQL_LOG_OUTGOING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setEventTable( settings.getString( MYSQL_LOG_EVENT_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setEventTable( settings.getString( MYSQL_LOG_EVENT_TABLE ) ); }
+  catch( ConfigError& ) {}
 }
 
 void MySQLLogFactory::destroy( Log* pLog )
-{ QF_STACK_PUSH(MySQLLogFactory::destroy)
+{
   delete pLog;
-  QF_STACK_POP
 }
 
 void MySQLLog::clear()
-{ QF_STACK_PUSH(MySQLLog::clear)
-
+{
   std::stringstream whereClause;
 
   whereClause << "WHERE ";
@@ -233,18 +221,14 @@ void MySQLLog::clear()
   m_pConnection->execute( incoming );
   m_pConnection->execute( outgoing );
   m_pConnection->execute( event );
-
-  QF_STACK_POP
 }
 
 void MySQLLog::backup()
-{ QF_STACK_PUSH(MySQLLog::backup)
-  QF_STACK_POP
+{
 }
 
 void MySQLLog::insert( const std::string& table, const std::string value )
-{ QF_STACK_PUSH(MySQLLog::insert)
-
+{
   UtcTimeStamp time;
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
@@ -284,8 +268,6 @@ void MySQLLog::insert( const std::string& table, const std::string value )
 
   MySQLQuery query( queryString.str() );
   m_pConnection->execute( query );
-
-  QF_STACK_POP
 }
 
 } //namespace FIX

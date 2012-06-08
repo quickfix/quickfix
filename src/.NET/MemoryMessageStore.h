@@ -28,7 +28,6 @@ using namespace System;
 #include "CPPMessageStore.h"
 #include "MessageStoreFactory.h"
 #include "quickfix/MessageStore.h"
-#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -43,9 +42,8 @@ public __gc class MemoryStoreFactory : public MessageStoreFactory
 {
 public:
   MessageStore* create( SessionID* )
-  { QF_STACK_TRY
+  {
 	return new MemoryStore();
-	QF_STACK_CATCH
   }
 };
 }

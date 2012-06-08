@@ -22,7 +22,6 @@
 #else
 #include "config.h"
 #endif
-#include "CallStack.h"
 
 #ifdef HAVE_ODBC
 
@@ -90,8 +89,7 @@ OdbcLogFactory::~OdbcLogFactory()
 }
 
 Log* OdbcLogFactory::create()
-{ QF_STACK_PUSH(OdbcLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string connectionString;
@@ -100,13 +98,10 @@ Log* OdbcLogFactory::create()
   OdbcLog* result = new OdbcLog( database, user, connectionString );
   initLog( m_settings.get(), *result );
   return result;
-
-  QF_STACK_POP
 }
 
 Log* OdbcLogFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(OdbcLogFactory::create)
-
+{
   std::string database;
   std::string user;
   std::string connectionString;
@@ -119,16 +114,13 @@ Log* OdbcLogFactory::create( const SessionID& s )
   OdbcLog* result = new OdbcLog( s, database, user, connectionString );
   initLog( settings, *result );
   return result;
-
-  QF_STACK_POP
 }
 
 void OdbcLogFactory::init( const Dictionary& settings, 
                            std::string& user,
                            std::string& password, 
                            std::string& connectionString )
-{ QF_STACK_PUSH(OdbcLogFactory::init)
-
+{
   user = DEFAULT_USER;
   password = DEFAULT_PASSWORD;
   connectionString = DEFAULT_CONNECTION_STRING;
@@ -150,33 +142,27 @@ void OdbcLogFactory::init( const Dictionary& settings,
     password = m_password;
     connectionString = m_connectionString;
   }
-
-  QF_STACK_POP
 }
 
 void OdbcLogFactory::initLog( const Dictionary& settings, OdbcLog& log )
 {
-    try { log.setIncomingTable( settings.getString( ODBC_LOG_INCOMING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setIncomingTable( settings.getString( ODBC_LOG_INCOMING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setOutgoingTable( settings.getString( ODBC_LOG_OUTGOING_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setOutgoingTable( settings.getString( ODBC_LOG_OUTGOING_TABLE ) ); }
+  catch( ConfigError& ) {}
 
-    try { log.setEventTable( settings.getString( ODBC_LOG_EVENT_TABLE ) ); }
-    catch( ConfigError& ) {}
+  try { log.setEventTable( settings.getString( ODBC_LOG_EVENT_TABLE ) ); }
+  catch( ConfigError& ) {}
 }
 
 void OdbcLogFactory::destroy( Log* pLog )
-{ QF_STACK_PUSH(OdbcLogFactory::destroy)
-
+{
   delete pLog;
-
-  QF_STACK_POP
 }
 
 void OdbcLog::clear()
-{ QF_STACK_PUSH(OdbcLog::clear)
-
+{
   std::stringstream whereClause;
 
   whereClause << "WHERE ";
@@ -213,18 +199,14 @@ void OdbcLog::clear()
   m_pConnection->execute( incoming );
   m_pConnection->execute( outgoing );
   m_pConnection->execute( event );
-  
-  QF_STACK_POP
 }
 
 void OdbcLog::backup()
-{ QF_STACK_PUSH(OdbcLog::backup)
-  QF_STACK_POP
+{
 }
 
 void OdbcLog::insert( const std::string& table, const std::string value )
-{ QF_STACK_PUSH(OdbcLog::insert)
-
+{
   UtcTimeStamp time;
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
@@ -263,8 +245,6 @@ void OdbcLog::insert( const std::string& table, const std::string value )
 
   OdbcQuery query( queryString.str() );
   m_pConnection->execute( query );
-
-  QF_STACK_POP
 }
 
 }

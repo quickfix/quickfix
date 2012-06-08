@@ -33,7 +33,6 @@ using namespace System::Collections;
 #include "DataDictionary.h"
 
 #include "quickfix/Message.h"
-#include "quickfix/CallStack.h"
 
 #include <vcclr.h>
 
@@ -61,19 +60,15 @@ private:
 
 public:
   Message() : disposed( false )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
     m_trailer = new Trailer( this );
     addMemoryPressure();
-
-    QF_STACK_CATCH
   }
 
   Message( String* string ) : disposed( false )
-  { QF_STACK_TRY
-
+  {
     try
     {
       if ( !String::Compare( string, String::Empty ) )
@@ -87,13 +82,10 @@ public:
     { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
-
-    QF_STACK_CATCH
   }
 
   Message( String* string, DataDictionary* dataDictionary ) : disposed( false )
-  { QF_STACK_TRY
-
+  {
     try
     {
       if ( !String::Compare( string, String::Empty ) )
@@ -107,13 +99,10 @@ public:
     { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
-
-    QF_STACK_CATCH
   }
 
   Message( String* string, DataDictionary* dataDictionary, bool validate ) : disposed( false )
-  { QF_STACK_TRY
-
+  {
     try
     {
       if ( !String::Compare( string, String::Empty ) )
@@ -127,30 +116,24 @@ public:
     { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
-
-    QF_STACK_CATCH
   }
 
   Message( const FIX::Message& message ) : disposed( false )
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::Message();
     *m_pUnmanaged = message;
     m_header = new Header( this );
     m_trailer = new Trailer( this );
 
     addMemoryPressure();
-
-    QF_STACK_CATCH
   }
 
   Message( BeginString* beginString );
   Message( BeginString* beginString, MsgType* msgType );
 
   static bool Message::InitializeXML( String* url )
-  { QF_STACK_TRY
+  {
     return FIX::Message::InitializeXML(convertString(url));
-    QF_STACK_CATCH
   }
 
   ~Message()
@@ -208,60 +191,48 @@ public:
   DateTime getUtcTimeOnly(int field);
 
   String* ToString()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->toString().c_str();
-    QF_STACK_CATCH
   }
 
   String* ToString( int beginStringField, int bodyLengthField, int checkSumField )
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->toString(beginStringField, bodyLengthField, checkSumField).c_str();
-    QF_STACK_CATCH
   }
 
   String* ToXML()
-  { QF_STACK_TRY
+  {
     return m_pUnmanaged->toXML().c_str();
-    QF_STACK_CATCH
   }
 
   void setString( String* string )
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_pUnmanaged->setString( convertString(string) );
     }
     catch( FIX::InvalidMessage& e )
     { throw new InvalidMessage( e.what() ); }
-
-    QF_STACK_CATCH
   }
 
   void setString( String* string, bool validate )
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_pUnmanaged->setString( convertString(string), validate );
     }
     catch( FIX::InvalidMessage& e )
     { throw new InvalidMessage( e.what() ); }
-
-    QF_STACK_CATCH
   }
 
   void setString( String* string, bool validate, DataDictionary* dataDictionary )
-  { QF_STACK_TRY
-
+  {
     try
     {
       m_pUnmanaged->setString( convertString(string), validate, &dataDictionary->unmanaged() );
     }
     catch( FIX::InvalidMessage& e )
     { throw new InvalidMessage( e.what() ); }
-
-    QF_STACK_CATCH
   }
 
   void setField( StringField* field );
@@ -302,27 +273,23 @@ public:
   bool isSetField( int field );
 
   void addGroup( int field, FieldMap* group )
-  { QF_STACK_TRY
+  {
     pUnmanaged()->addGroup( field, *group->pUnmanaged() );
-    QF_STACK_CATCH
   }
 
   void addGroup( Group* group )
-  { QF_STACK_TRY
+  {
     unmanaged().addGroup( group->unmanaged() );
-    QF_STACK_CATCH
   }
 
   void replaceGroup( unsigned num, int field, FieldMap* group )
-  { QF_STACK_TRY
+  {
     pUnmanaged()->replaceGroup( num, field, *group->pUnmanaged() );
-    QF_STACK_CATCH
   }
 
   void replaceGroup( unsigned num, Group* group )
-  { QF_STACK_TRY
+  {
     unmanaged().replaceGroup( num, group->unmanaged() );
-    QF_STACK_CATCH
   }
 
   FieldMap* getGroup( unsigned num, int field, FieldMap* group )
@@ -339,8 +306,7 @@ public:
   }
 
   Group* getGroup( unsigned num, Group* group )
-  { QF_STACK_TRY
-
+  {
     try
     {
       unmanaged().getGroup( num, group->unmanaged() );
@@ -350,8 +316,6 @@ public:
     {
       throw new FieldNotFound( e.field );
     }
-
-    QF_STACK_CATCH
   }
 
   static MsgType* identifyType( String* message )
@@ -440,27 +404,23 @@ public:
     bool isSetField( int field );
 
     void addGroup( int field, FieldMap* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getHeader().addGroup( field, *group->pUnmanaged() );
-      QF_STACK_CATCH
     }
 
     void addGroup( Group* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getHeader().addGroup( group->unmanaged().field(), group->unmanaged() );
-      QF_STACK_CATCH
     }
 
     void replaceGroup( unsigned num, int field, FieldMap* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getHeader().replaceGroup( num, field, *group->pUnmanaged() );
-      QF_STACK_CATCH
     }
 
     void replaceGroup( unsigned num, Group* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getHeader().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
-      QF_STACK_CATCH
     }
 
 	FieldMap* getGroup( unsigned num, int field, FieldMap* group )
@@ -477,8 +437,7 @@ public:
     }
 
     Group* getGroup( unsigned num, Group* group )
-    { QF_STACK_TRY
-
+    {
       try
       {
         m_message->m_pUnmanaged->getHeader().getGroup( num, group->unmanaged().field(), group->unmanaged() );
@@ -488,8 +447,6 @@ public:
       {
         throw new FieldNotFound( e.field );
       }
-
-      QF_STACK_CATCH
     }
 
     void Dispose()
@@ -639,27 +596,23 @@ public:
     bool isSetField( int field );
 
     void addGroup( int field, FieldMap* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getTrailer().addGroup( field, *group->pUnmanaged() );
-      QF_STACK_CATCH
     }
 
     void addGroup( Group* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getTrailer().addGroup( group->unmanaged().field(), group->unmanaged() );
-      QF_STACK_CATCH
     }
 
     void replaceGroup( unsigned num, int field, FieldMap* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getTrailer().replaceGroup( num, field, *group->pUnmanaged() );
-      QF_STACK_CATCH
     }
 
     void replaceGroup( unsigned num, Group* group )
-    { QF_STACK_TRY
+    {
       m_message->m_pUnmanaged->getTrailer().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
-      QF_STACK_CATCH
     }
 
     FieldMap* getGroup( unsigned num, int field, FieldMap* group )
@@ -676,8 +629,7 @@ public:
     }
 
     Group* getGroup( unsigned num, Group* group )
-    { QF_STACK_TRY
-
+    {
       try
       {
         m_message->m_pUnmanaged->getTrailer().getGroup( num, group->unmanaged().field(), group->unmanaged() );
@@ -687,8 +639,6 @@ public:
       {
         throw new FieldNotFound( e.field );
       }
-
-      QF_STACK_CATCH
     }
 
     void Dispose()
