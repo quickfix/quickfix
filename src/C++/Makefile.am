@@ -107,9 +107,7 @@ libquickfix_la_SOURCES = \
 	LIBXML_DOMDocument.cpp \
 	LIBXML_DOMDocument.h \
 	MessageCracker.h \
-	Responder.h \
-	CallStack.h \
-	CallStack.cpp
+	Responder.h
 
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
