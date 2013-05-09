@@ -224,7 +224,7 @@ throw ( IOException )
   int rows = query.rows();
   for( int row = 0; row < rows; row++ )
     result.push_back( query.getValue( row, 0 ) );
-]}
+}
 
 int PostgreSQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
 {
