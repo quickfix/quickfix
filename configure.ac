@@ -1,6 +1,7 @@
+#                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(src/ut.cpp)
+AC_PREREQ([2.64])
 
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
@@ -12,15 +13,16 @@ m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
 m4_include([m4/ax_java.m4])
 
-AC_CONFIG_AUX_DIR(config)
-AM_INIT_AUTOMAKE(quickfix, 1.14.0)
-AM_CONFIG_HEADER(config.h)
-AM_DISABLE_STATIC
+AC_INIT([QuickFIX], [1.14.0], [ask@quickfixengine.org])
+AC_CONFIG_SRCDIR([src/ut.cpp])
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_AUX_DIR([config])
+AM_INIT_AUTOMAKE
 
 # Checks for programs.
-AC_PROG_CXX()
-AC_PROG_CC()
-# AC_PROG_RANLIB
+AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_CPP
 AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
@@ -100,7 +102,7 @@ AM_PATH_XML2('2.0.0', , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
-LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LDFLAGS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $POSTGRESQL_LIBS $TBB_LIBS $LIBS"
+LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS $TBB_LIBS $LIBS"
 # gcc flags
 if test `uname` == SunOS; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
@@ -143,10 +145,10 @@ case $build_os in
 esac
 
 # Checks for header files.
-AC_CHECK_HEADERS(stdio.h)
+AC_CHECK_HEADERS([stdio.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-# AC_CHECK_BROKENSOEXCEPT
+
 
 AC_LANG_SAVE
 AC_LANG_CPLUSPLUS
@@ -276,35 +278,36 @@ select statement decrements timeval parameter if interupted),
 AC_MSG_RESULT(no),
 AC_MSG_RESULT(unable to determine, assuming no...))
 
-AC_OUTPUT( 
-	quickfix.pc
-	Makefile
-	src/Makefile
-	src/C++/Makefile
-	src/C++/test/Makefile
-	src/python/Makefile
-	src/ruby/Makefile
-	bin/Makefile
-	bin/cfg/Makefile
-	spec/Makefile
-	test/Makefile
-	test/atrun/Makefile
-	test/cfg/Makefile
-	test/definitions/Makefile
-	test/definitions/server/Makefile
-	test/definitions/server/future/Makefile
-	examples/Makefile
-	examples/executor/Makefile
-	examples/executor/C++/Makefile
-	examples/ordermatch/Makefile
-	examples/ordermatch/test/Makefile
-	examples/tradeclient/Makefile
-	examples/tradeclientgui/Makefile
-	examples/tradeclientgui/banzai/Makefile
-	examples/tradeclientgui/banzai/test/Makefile
-	examples/tradeclientgui/banzai/src/Makefile
-	examples/tradeclientgui/banzai/src/quickfix/Makefile
-	examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
-	examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
-	doc/Makefile
-	doc/html/Makefile)
+AC_CONFIG_FILES([
+    quickfix.pc
+    Makefile
+    src/Makefile
+    src/C++/Makefile
+    src/C++/test/Makefile
+    src/python/Makefile
+    src/ruby/Makefile
+    bin/Makefile
+    bin/cfg/Makefile
+    spec/Makefile
+    test/Makefile
+    test/atrun/Makefile
+    test/cfg/Makefile
+    test/definitions/Makefile
+    test/definitions/server/Makefile
+    test/definitions/server/future/Makefile
+    examples/Makefile
+    examples/executor/Makefile
+    examples/executor/C++/Makefile
+    examples/ordermatch/Makefile
+    examples/ordermatch/test/Makefile
+    examples/tradeclient/Makefile
+    examples/tradeclientgui/Makefile
+    examples/tradeclientgui/banzai/Makefile
+    examples/tradeclientgui/banzai/test/Makefile
+    examples/tradeclientgui/banzai/src/Makefile
+    examples/tradeclientgui/banzai/src/quickfix/Makefile
+    examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
+    examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
+    doc/Makefile
+    doc/html/Makefile ])
+AC_OUTPUT

@@ -1,25 +1,36 @@
-AC_DEFUN([AX_LIB_MYSQL],
-[
-has_mysql=false
-AC_ARG_WITH(mysql,
-    [  --with-mysql=<path>     prefix of MySQL installation. e.g. /usr/local or /usr], 
-    [if test $withval == "no"
-     then
-       has_mysql=false
-     else
-       has_mysql=true
-     fi],
-    has_mysql=false
-)
-MYSQL_PREFIX=$with_mysql
-AC_SUBST(MYSQL_PREFIX)
-
-if test $has_mysql = true
-then
-    MYSQL_CFLAGS="-I${MYSQL_PREFIX}/include/mysql -I${MYSQL_PREFIX}/mysql/include"
-    AC_SUBST(MYSQL_CFLAGS)
-    MYSQL_LIBS="-L${MYSQL_PREFIX}/lib/mysql -L${MYSQL_PREFIX}/mysql/lib -lmysqlclient"
-    AC_SUBST(MYSQL_LIBS)
-    AC_DEFINE(HAVE_MYSQL, 1, Define if you have sql library (-lmysqlclient))
-fi
+AC_DEFUN([_MYSQL_CONFIG],[
+  AC_ARG_WITH([mysql-config],
+  AS_HELP_STRING([--with-mysql-config=PATH], [Path to mysql_config program]),
+                 [mysql_config="$withval"], [mysql_config=mysql_config])
 ])
+
+AC_DEFUN([_MYSQL_CHECK],[
+    AC_REQUIRE([_MYSQL_CONFIG])
+    MYSQL_CFLAGS=`$mysql_config --cflags`
+    MYSQL_LIBS=`$mysql_config --libs`
+    AC_SUBST(MYSQL_CFLAGS)
+    AC_SUBST(MYSQL_LIBS)
+])
+
+
+AC_DEFUN([AX_LIB_MYSQL], [
+    has_mysql=false
+    AC_ARG_WITH(mysql,
+        [  --with-mysql           will use mysql_config to find mysql], 
+        [if test $withval == "no"
+         then
+           has_mysql=false
+         else
+           has_mysql=true
+         fi],
+        has_mysql=false
+    )
+
+    if test $has_mysql = true
+    then
+        AC_REQUIRE([_MYSQL_CHECK])
+        AC_DEFINE(HAVE_MYSQL, 1, Define if you have sql library (-lmysqlclient))
+    fi
+    AM_CONDITIONAL(HAVE_MYSQL, $has_mysql)
+])
+

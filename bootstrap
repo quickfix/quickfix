@@ -1,20 +1,12 @@
 #!/bin/sh
-rm -rf *.cache
-rm -rf config
+
+rm -rf *.cache config
 mkdir config
-echo aclocal...
-aclocal
-echo autoheader...
-autoheader
-echo libtoolize...
-`which glibtoolize`
-if [ $? = 0 ]; then
-    glibtoolize --force --copy --automake
-else
-    libtoolize --force --copy --automake
-fi
-echo automake...
-automake --foreign --add-missing --copy
-echo autoconf...
-autoconf
+touch README NEWS AUTHORS INSTALL ChangeLog
+
+set -ex
+autoreconf -i -Wall,no-obsolete #autoreconf -f -i -Wall,no-obsolete
+rm -rf autom4te.cache config.h.in~
+set +ex
+
 echo "Now run configure with any arguments necessary"
