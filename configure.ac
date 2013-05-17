@@ -1,8 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.64])
+AC_PREREQ([2.59])
 
+AC_INIT([QuickFIX], [1.14.0], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
@@ -12,8 +13,6 @@ m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
 m4_include([m4/ax_java.m4])
-
-AC_INIT([QuickFIX], [1.14.0], [ask@quickfixengine.org])
 AC_CONFIG_SRCDIR([src/ut.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([config])

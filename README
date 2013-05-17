@@ -12,10 +12,10 @@ BUILDING AND INSTALLING
 
 SYSTEM REQUIREMENTS
 
-    REDHAT/CENTOS
+    REDHAT/CENTOS 5.x
 
         Required: sudo yum install gcc-c++ automake autoconf libtool libxml2 libxml2-devel
-        Optional: sudo yum install mysql-devel postgresql-devel ruby-devel mysql-server postgresql-server
+        Optional: sudo yum install postgresql-devel ruby-devel postgresql-server mysql-server mysql-client mysql-devel 
 
     UBUNTU
 
