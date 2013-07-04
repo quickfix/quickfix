@@ -26,6 +26,7 @@
 #include <map>
 #include <queue>
 #include <string>
+#include <functional>
 
 class Market
 {

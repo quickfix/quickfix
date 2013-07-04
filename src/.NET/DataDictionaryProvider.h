@@ -30,7 +30,6 @@ using namespace System::Runtime::InteropServices;
 #include "Exceptions.h"
 #include "Fields.h"
 #include "quickfix/DataDictionaryProvider.h"
-#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {
@@ -38,11 +37,8 @@ public __gc class DataDictionaryProvider
 {
 public:
   DataDictionaryProvider()
-  { QF_STACK_TRY
-
+  {
     m_pUnmanaged = new FIX::DataDictionaryProvider();
-
-    QF_STACK_CATCH
   }
 
   DataDictionaryProvider(const FIX::DataDictionaryProvider& dataDictionaryProvider)
@@ -56,7 +52,7 @@ public:
   }
 
   DataDictionary* getSessionDataDictionary(BeginString* beginString)
-  { QF_STACK_TRY
+  {
     try
     {
       const FIX::DataDictionary& dataDictionary = 
@@ -67,12 +63,10 @@ public:
     {
       throw new DataDictionaryNotFound(e.version.c_str(), e.what());
     }
-
-    QF_STACK_CATCH
   }
 
   DataDictionary* getApplicationDataDictionary(ApplVerID* applVerID)
-  { QF_STACK_TRY
+  {
     try
     {
       const FIX::DataDictionary& dataDictionary = 
@@ -83,8 +77,6 @@ public:
     {
       throw new DataDictionaryNotFound(e.version.c_str(), e.what());
     }
-
-    QF_STACK_CATCH
   }
 
   FIX::DataDictionaryProvider& unmanaged()
