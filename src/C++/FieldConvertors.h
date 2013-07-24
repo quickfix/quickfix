@@ -33,6 +33,21 @@
 
 namespace FIX
 {
+
+template<class T>
+inline int number_of_symbols_in( T value )
+{
+	int symbols = value > 0 ? 0 : 1;
+
+	while ( value )
+	{
+		++symbols;
+		value /= 10;
+	}
+
+	return symbols;
+}
+
 template<class T>
 inline char* integer_to_string( char* buf, const size_t len, T t )
 {

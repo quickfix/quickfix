@@ -59,11 +59,19 @@ void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 {
   FieldMap * pGroup = new FieldMap( group );
 
-  std::vector< FieldMap*>& vec = m_groups[ field ];
-  vec.push_back( pGroup );
+  addGroupPtr( field, pGroup, setCount );
+}
 
-  if( setCount )
-    setField( IntField( field, vec.size() ) );
+void FieldMap::addGroupPtr( int field, FieldMap * group, bool setCount )
+{
+    if( group == 0 )
+        return;
+
+    std::vector< FieldMap* >& vec = m_groups[ field ];
+    vec.push_back( group );
+
+    if( setCount )
+        setField( IntField( field, vec.size() ) );
 }
 
 void FieldMap::replaceGroup( int num, int field, FieldMap& group )
@@ -83,23 +91,16 @@ void FieldMap::removeGroup( int num, int field )
   std::vector< FieldMap* >& vector = i->second;
   if ( vector.size() < ( unsigned ) num ) return;
 
-  std::deque< FieldMap* > queue;
-  while( vector.size() > (unsigned)num )
-  {
-    queue.push_back( vector.back() );
-    vector.pop_back();
-  }
-  delete vector.back();
-  vector.pop_back();
-  while( queue.size() )
-  {
-    vector.push_back( queue.front() );
-    queue.pop_front();
-  }
+  std::vector< FieldMap* >::iterator iter = vector.begin();
+  std::advance( iter, ( num - 1 ) );
+
+  delete (*iter);
+  vector.erase( iter );
 
   if( vector.size() == 0 )
   {
     m_groups.erase( field );
+	removeField( field );
   }
   else
   {
@@ -242,4 +243,5 @@ int FieldMap::calculateTotal( int checkSumField ) const
   }
   return result;
 }
+
 }
