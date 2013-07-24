@@ -513,7 +513,7 @@ TEST(addRemoveGroup)
   CHECK( !object.hasGroup(2, group) );
   CHECK( !object.hasGroup(3, group) );
   CHECK_EQUAL( 0, object.groupCount(FIX::FIELD::NoOrders) );
-  !object.isSetField( noOrders );
+  CHECK( !object.isSetField( noOrders ) );
 }
 
 TEST(replaceGroup)
