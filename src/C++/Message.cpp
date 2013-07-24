@@ -342,40 +342,38 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   int delim;
   const DataDictionary* pDD = 0;
   if ( !dataDictionary.getGroup( msg, group, delim, pDD ) ) return ;
-  Group* pGroup = 0;
+  std::auto_ptr<Group> pGroup;
 
   while ( pos < string.size() )
   {
     std::string::size_type oldPos = pos;
-    FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup );
+    FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup.get() );
        
     // Start a new group because...
     if (// found delimiter
 	(field.getField() == delim)
         // no delimiter, but field belongs to group
-        || (pGroup == 0 && pDD->isField(field.getField()))
+        || (pGroup.get() == 0 && pDD->isField(field.getField()))
 	// no delimiter, but field already processed
-	|| (pDD->isField(field.getField())) && (pGroup == 0 || pGroup->isSetField(field.getField())) )
+	|| (pDD->isField(field.getField())) && (pGroup.get() == 0 || pGroup->isSetField(field.getField())) )
     {
-      if ( pGroup )
+      if ( pGroup.get() )
       {
-        map.addGroup( group, *pGroup, false );
-        delete pGroup; pGroup = 0;
+        map.addGroupPtr( group, pGroup.release(), false );
       }
-      pGroup = new Group( field.getField(), delim, pDD->getOrderedFields()  );
+      pGroup.reset( new Group( field.getField(), delim, pDD->getOrderedFields() ) );
     }
     else if ( !pDD->isField( field.getField() ) )
     {
-      if ( pGroup )
+      if ( pGroup.get() )
       {
-        map.addGroup( group, *pGroup, false );
-        delete pGroup; pGroup = 0;
+        map.addGroupPtr( group, pGroup.release(), false );
       }
       pos = oldPos;
       return ;
     }
 
-    if ( !pGroup ) return ;
+    if ( !pGroup.get() ) return ;
     pGroup->setField( field, false );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }

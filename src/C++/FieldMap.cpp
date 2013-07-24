@@ -59,11 +59,19 @@ void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 {
   FieldMap * pGroup = new FieldMap( group );
 
-  std::vector< FieldMap*>& vec = m_groups[ field ];
-  vec.push_back( pGroup );
+  addGroupPtr( field, pGroup, setCount );
+}
 
-  if( setCount )
-    setField( IntField( field, vec.size() ) );
+void FieldMap::addGroupPtr( int field, FieldMap * group, bool setCount )
+{
+    if( group == 0 )
+        return;
+
+    std::vector< FieldMap* >& vec = m_groups[ field ];
+    vec.push_back( group );
+
+    if( setCount )
+        setField( IntField( field, vec.size() ) );
 }
 
 void FieldMap::replaceGroup( int num, int field, FieldMap& group )

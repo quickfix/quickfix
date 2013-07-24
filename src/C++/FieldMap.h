@@ -146,6 +146,9 @@ public:
   /// Add a group.
   void addGroup( int field, const FieldMap& group, bool setCount = true );
 
+  /// Acquire ownership of Group object
+  void addGroupPtr( int field, FieldMap * group, bool setCount = true );
+
   /// Replace a specific instanct of a group.
   void replaceGroup( int num, int field, FieldMap& group );
 
