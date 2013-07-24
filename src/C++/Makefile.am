@@ -5,6 +5,7 @@ LEX += -+ -olex.yy.c
 lib_LTLIBRARIES = libquickfix.la
 libquickfix_la_SOURCES = \
 	Allocator.h \
+	AtomicCount.h \
 	Session.cpp \
 	Session.h \
 	TimeRange.cpp \
@@ -97,6 +98,7 @@ libquickfix_la_SOURCES = \
 	Mutex.h \
 	Event.h \
 	Queue.h \
+	SharedArray.h \
 	Exceptions.h \
 	Utility.cpp \
 	Utility.h \

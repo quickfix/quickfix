@@ -30,7 +30,7 @@
 namespace FIX
 {
 message_order::message_order( int first, ... )
-: m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
+: m_mode( group ), m_delim( 0 ), m_largest( 0 )
 {
   int field = first;
   int size = 0;
@@ -48,19 +48,16 @@ message_order::message_order( int first, ... )
 
   if(size)
   {
-      m_groupOrder = new int[ m_largest + 2 ];
-      memset( m_groupOrder, 0, ( m_largest + 2 ) * sizeof( int ) );
+      m_groupOrder = shared_array<int>::create(m_largest + 1);
 
       va_start( arguments, first );
       field = first;
       int i = 0;
       while( field != 0 )
       {
-          get()[ field ] = ++i;
+          m_groupOrder[ field ] = ++i;
           field = va_arg( arguments, int );
       }
-
-      attach();
   }
   else
   {
@@ -72,7 +69,7 @@ message_order::message_order( int first, ... )
 }
 
 message_order::message_order( const int order[] )
-: m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
+: m_mode( group ), m_delim( 0 ), m_largest( 0 )
 {
   int size = 0;
   while( order[size] != 0 ) { ++size; }
@@ -84,12 +81,6 @@ message_order& message_order::operator=( const message_order& rhs )
   m_mode = rhs.m_mode;
   m_delim = rhs.m_delim;
   m_largest = rhs.m_largest;
-
-  release();
-
-  message_order& tmp = const_cast<message_order&>(rhs);
-  tmp.attach();
-
   m_groupOrder = rhs.m_groupOrder;
 
   return *this;
@@ -107,11 +98,8 @@ void message_order::setOrder( int size, const int order[] )
       m_largest = m_largest > field ? m_largest : field;
   }
 
-  m_groupOrder = new int[ m_largest + 2 ];
-  memset( m_groupOrder, 0, ( m_largest + 2 ) * sizeof( int ) );
+  m_groupOrder = shared_array<int>::create(m_largest + 1);
   for (int i = 0; i < size; ++i )
-      get()[ order[ i ] ] = i + 1;
-
-  attach();
+      m_groupOrder[ order[ i ] ] = i + 1;
 }
 }
