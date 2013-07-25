@@ -330,7 +330,8 @@ private:
     if ( soh == std::string::npos )
       throw InvalidMessage("SOH not found at end of field");
 
-    if ( (pSessionDD && pSessionDD->isDataField(field)) || (pAppDD && pAppDD->isDataField(field)) )
+    if ( (pSessionDD && pSessionDD->isDataField(field)) || 
+		 (pAppDD && pAppDD != pSessionDD && pAppDD->isDataField(field)) )
     {
       // Assume length field is 1 less.
       int lenField = field - 1;

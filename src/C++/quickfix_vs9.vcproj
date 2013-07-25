@@ -681,6 +681,51 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\SharedArray.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+			<File
+				RelativePath=".\AtomicCount.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\strptime.h"
 				>
 				<FileConfiguration

@@ -27,6 +27,7 @@
 #endif
 
 #include "FieldNumbers.h"
+#include "SharedArray.h"
 #include <stdarg.h>
 #include <functional>
 #include <map>
@@ -115,17 +116,11 @@ public:
   enum cmp_mode { header, trailer, normal, group };
 
   message_order( cmp_mode mode = normal ) 
-    : m_mode( mode ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 ) {}
+    : m_mode( mode ), m_delim( 0 ), m_largest( 0 ) {}
   message_order( int first, ... );
   message_order( const int order[] );
   message_order( const message_order& copy ) 
-    : m_groupOrder( 0 )
   { *this = copy; }
-
-  ~message_order()
-  {
-      release();
-  }
 
   bool operator() ( const int& x, const int& y ) const
   {
@@ -136,7 +131,7 @@ public:
       case trailer:
       return trailer_order::compare( x, y );
       case group:
-      return group_order::compare( x, y, get(), m_largest );
+      return group_order::compare( x, y, m_groupOrder, m_largest );
       case normal: default:
       return x < y;
     }
@@ -144,38 +139,15 @@ public:
 
   message_order& operator=( const message_order& rhs );
 
-  operator bool() const { return m_groupOrder != 0; }
+  operator bool() const
+  { return !m_groupOrder.empty(); }
 
 private:
   void setOrder( int size, const int order[] );
 
-  void attach()
-  {
-      if(m_groupOrder)
-      {
-          int& val = m_groupOrder[0];
-          val += 1;
-      }
-  }
-
-  void release()
-  {
-      if(!m_groupOrder)
-          return;
-
-       int& val = m_groupOrder[0];
-       if(--val == 0)
-       {
-           delete [] m_groupOrder;
-           m_groupOrder = 0;
-       }
-  }
-
-  int * get() const { return m_groupOrder ? &m_groupOrder[1] : 0; }
-
   cmp_mode m_mode;
   int m_delim;
-  int* m_groupOrder;
+  shared_array<int> m_groupOrder;
   int m_largest;
 };
 }

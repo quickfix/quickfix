@@ -2060,6 +2060,8 @@
     </ClInclude>
     <ClInclude Include="..\stdafx.h" />
     <ClInclude Include="..\config_windows.h" />
+    <ClInclude Include="SharedArray.h" />
+    <ClInclude Include="AtomicCount.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FieldTypes.cpp">

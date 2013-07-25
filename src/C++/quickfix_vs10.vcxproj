@@ -15,6 +15,7 @@
     <ClInclude Include="..\stdafx.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="AtomicCount.h" />
     <ClInclude Include="CallStack.h" />
     <ClInclude Include="DatabaseConnectionID.h" />
     <ClInclude Include="DatabaseConnectionPool.h" />
@@ -662,6 +663,7 @@
     <ClInclude Include="SessionSettings.h" />
     <ClInclude Include="SessionState.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="SharedArray.h" />
     <ClInclude Include="SocketAcceptor.h" />
     <ClInclude Include="SocketConnection.h" />
     <ClInclude Include="SocketConnector.h" />
