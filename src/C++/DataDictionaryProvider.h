@@ -51,7 +51,7 @@ public:
   throw( DataDictionaryNotFound );
 
   void addTransportDataDictionary(const BeginString& beginString, const DataDictionary*);
-  void addApplicationDataDictionary(const ApplVerID applVerID, const DataDictionary*);
+  void addApplicationDataDictionary(const ApplVerID& applVerID, const DataDictionary*);
 
 private:
   std::map<std::string, const DataDictionary*> m_transportDictionaries;

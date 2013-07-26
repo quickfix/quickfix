@@ -63,7 +63,7 @@ void DataDictionaryProvider::addTransportDataDictionary
 }
 
 void DataDictionaryProvider::addApplicationDataDictionary
-(const ApplVerID applVerID, const DataDictionary * pDD)
+(const ApplVerID& applVerID, const DataDictionary * pDD)
 {
   m_applicationDictionaries[applVerID.getValue()] = pDD;
 }
