@@ -702,7 +702,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-			<File
 				RelativePath=".\AtomicCount.h"
 				>
 				<FileConfiguration

@@ -125,11 +125,7 @@ void FileStore::open( bool deleteFile )
 
 void FileStore::populateCache()
 {
-  std::string msg;
-  Message message;
-
-  FILE* headerFile;
-  headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
+  FILE* headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( headerFile )
   {
     int num, offset, size;
@@ -138,8 +134,7 @@ void FileStore::populateCache()
     fclose( headerFile );
   }
 
-  FILE* seqNumsFile;
-  seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
+  FILE* seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
   if ( seqNumsFile )
   {
     int sender, target;
@@ -151,8 +146,7 @@ void FileStore::populateCache()
     fclose( seqNumsFile );
   }
 
-  FILE* sessionFile;
-  sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
+  FILE* sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
   if ( sessionFile )
   {
     char time[ 22 ];

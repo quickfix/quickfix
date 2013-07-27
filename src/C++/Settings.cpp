@@ -89,7 +89,7 @@ std::istream& operator>>( std::istream& stream, Settings& s )
   return stream;
 }
 
-Settings::Sections Settings::get( std::string name ) const
+Settings::Sections Settings::get( const std::string& name ) const
 {
   Sections sections;
   for ( Sections::size_type i = 0; i < m_sections.size(); ++i )
