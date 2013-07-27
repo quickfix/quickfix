@@ -82,20 +82,20 @@ throw ( RuntimeError )
     std::set<SessionID>::iterator i = sessions.begin();
     for( ; i != sessions.end(); ++i )
     {
-      Dictionary settings = s.get( *i );
+      const Dictionary& settings = s.get( *i );
       port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
-        s.get().getBool( SOCKET_REUSE_ADDRESS ) : true;
+        settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
 
       const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
-        s.get().getBool( SOCKET_NODELAY ) : false;
+        settings.getBool( SOCKET_NODELAY ) : false;
 
       const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
-        s.get().getLong( SOCKET_SEND_BUFFER_SIZE ) : 0;
+        settings.getLong( SOCKET_SEND_BUFFER_SIZE ) : 0;
 
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
-        s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+        settings.getLong( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
       m_portToSessions[port].insert( *i );
       m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
