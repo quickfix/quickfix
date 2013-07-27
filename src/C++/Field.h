@@ -334,7 +334,7 @@ public:
   UtcTimeStampField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) ) {}
 
-  void setValue( UtcTimeStamp& value )
+  void setValue( const UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
   UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
     { try
@@ -361,7 +361,7 @@ public:
   UtcDateField( int field )
 : FieldBase( field, UtcDateConvertor::convert( UtcDate() ) ) {}
 
-  void setValue( UtcDate& value )
+  void setValue( const UtcDate& value )
     { setString( UtcDateConvertor::convert( value ) ); }
   UtcDate getValue() const throw ( IncorrectDataFormat )
     { try
@@ -388,7 +388,7 @@ public:
   UtcTimeOnlyField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), showMilliseconds ) ) {}
 
-  void setValue( UtcTimeOnly& value )
+  void setValue( const UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
   UtcTimeOnly getValue() const throw ( IncorrectDataFormat )
     { try
