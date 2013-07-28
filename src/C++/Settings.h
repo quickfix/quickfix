@@ -40,7 +40,7 @@ class Settings
 public:
   typedef std::vector < Dictionary > Sections;
 
-  Sections get( std::string name ) const;
+  Sections get( const std::string& name ) const;
 
   friend std::istream& operator>>( std::istream&, Settings& );
 private:

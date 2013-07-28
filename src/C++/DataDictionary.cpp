@@ -113,7 +113,6 @@ void DataDictionary::validate( const Message& message,
                                const DataDictionary* const pAppDD )
 throw( FIX::Exception )
 {  
-  const bool bodyOnly = pSessionDD == 0;
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
   const MsgType& msgType = FIELD_GET_REF( header, MsgType );
@@ -126,8 +125,8 @@ throw( FIX::Exception )
   }
 
   int field = 0;
-  if( (pSessionDD !=0 && pSessionDD->m_checkFieldsOutOfOrder) 
-      || (pAppDD != 0 && pAppDD->m_checkFieldsOutOfOrder) )
+  if( (pSessionDD !=0 && pSessionDD->m_checkFieldsOutOfOrder) || 
+      (pAppDD != 0 && pAppDD->m_checkFieldsOutOfOrder) )
   {
     if ( !message.hasValidStructure(field) )
       throw TagOutOfOrder(field);
@@ -139,13 +138,16 @@ throw( FIX::Exception )
     pAppDD->checkHasRequired( message.getHeader(), message, message.getTrailer(), msgType );
   }
 
-  if( !bodyOnly )
+  if( pSessionDD != 0 )
   {
     pSessionDD->iterate( message.getHeader(), msgType );
     pSessionDD->iterate( message.getTrailer(), msgType );
   }
 
-  pAppDD->iterate( message, msgType );
+  if( pAppDD != 0 )
+  {
+    pAppDD->iterate( message, msgType );
+  }
 }
 
 void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) const

@@ -30,6 +30,8 @@
 #include "SessionSettings.h"
 #include "Session.h"
 
+#include <memory>
+
 namespace FIX
 {
 SessionFactory::~SessionFactory()
@@ -121,10 +123,10 @@ Session* SessionFactory::create( const SessionID& sessionID,
     if ( heartBtInt <= 0 ) throw ConfigError( "Heartbeat must be greater than zero" );
   }
 
-  Session* pSession = 0;
-  pSession = new Session( m_application, m_messageStoreFactory,
-                          sessionID, dataDictionaryProvider, sessionTimeRange,
-                          heartBtInt, m_pLogFactory );
+  std::auto_ptr<Session> pSession;
+  pSession.reset( new Session( m_application, m_messageStoreFactory,
+    sessionID, dataDictionaryProvider, sessionTimeRange,
+    heartBtInt, m_pLogFactory ) );
 
   pSession->setSenderDefaultApplVerID(defaultApplVerID);
 
@@ -196,7 +198,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( settings.has( VALIDATE_LENGTH_AND_CHECKSUM ) )
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
    
-  return pSession;
+  return pSession.release();
 }
 
 const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 

@@ -27,12 +27,12 @@
 
 namespace FIX
 {
-void Group::addGroup( Group& group )
+void Group::addGroup( const Group& group )
 {
   FieldMap::addGroup( group.field(), group );
 }
 
-void Group::replaceGroup( unsigned num, FIX::Group& group )
+void Group::replaceGroup( unsigned num, const FIX::Group& group )
 {
   FieldMap::replaceGroup( num, group.field(), group ); 
 }
@@ -42,17 +42,17 @@ Group& Group::getGroup( unsigned num, Group& group ) const throw( FieldNotFound 
   return static_cast < Group& > ( FieldMap::getGroup( num, group.field(), group ) );
 }
 
-void Group::removeGroup( unsigned num, Group& group )
+void Group::removeGroup( unsigned num, const Group& group )
 {
   FieldMap::removeGroup( num, group.field() );
 }
 
-void Group::removeGroup( Group& group )
+void Group::removeGroup( const Group& group )
 {
   FieldMap::removeGroup( group.field() );
 }
 
-bool Group::hasGroup( unsigned num, Group& group )
+bool Group::hasGroup( unsigned num, const Group& group )
 {
   return FieldMap::hasGroup( num, group.field() );
 }

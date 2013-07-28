@@ -67,14 +67,16 @@ SocketInitiator::~SocketInitiator()
 void SocketInitiator::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
 {
-  try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
-  catch ( std::exception& ) {}
-  if( s.get().has( SOCKET_NODELAY ) )
-    m_noDelay = s.get().getBool( SOCKET_NODELAY );
-  if( s.get().has( SOCKET_SEND_BUFFER_SIZE ) )
-    m_sendBufSize = s.get().getLong( SOCKET_SEND_BUFFER_SIZE );
-  if( s.get().has( SOCKET_RECEIVE_BUFFER_SIZE ) )
-    m_rcvBufSize = s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE );
+  const Dictionary& dict = s.get();
+
+  if( dict.has( RECONNECT_INTERVAL ) )
+    m_reconnectInterval = dict.getLong( RECONNECT_INTERVAL );
+  if( dict.has( SOCKET_NODELAY ) )
+    m_noDelay = dict.getBool( SOCKET_NODELAY );
+  if( dict.has( SOCKET_SEND_BUFFER_SIZE ) )
+    m_sendBufSize = dict.getLong( SOCKET_SEND_BUFFER_SIZE );
+  if( dict.has( SOCKET_RECEIVE_BUFFER_SIZE ) )
+    m_rcvBufSize = dict.getLong( SOCKET_RECEIVE_BUFFER_SIZE );
 }
 
 void SocketInitiator::onInitialize( const SessionSettings& s )

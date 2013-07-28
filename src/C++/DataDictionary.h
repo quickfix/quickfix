@@ -110,7 +110,7 @@ public:
     return true;
   }
 
-  bool getFieldTag( std::string name, int& field ) const
+  bool getFieldTag( const std::string& name, int& field ) const
   {
     NameToField::const_iterator i = m_names.find( name );
     if(i == m_names.end()) return false;

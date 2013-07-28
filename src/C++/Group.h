@@ -56,13 +56,13 @@ public:
   int field() const { return m_field; }
   int delim() const { return m_delim; }
 
-  void addGroup( Group& group );
-  void replaceGroup( unsigned num, Group& group );
+  void addGroup( const Group& group );
+  void replaceGroup( unsigned num, const Group& group );
   Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound );
-  void removeGroup( unsigned num, Group& group );
-  void removeGroup( Group& group );
+  void removeGroup( unsigned num, const Group& group );
+  void removeGroup( const Group& group );
   bool hasGroup( const Group& group );
-  bool hasGroup( unsigned num, Group& group );
+  bool hasGroup( unsigned num, const Group& group );
 
 private:
   int m_field;

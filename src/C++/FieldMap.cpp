@@ -74,7 +74,7 @@ void FieldMap::addGroupPtr( int field, FieldMap * group, bool setCount )
         setField( IntField( field, vec.size() ) );
 }
 
-void FieldMap::replaceGroup( int num, int field, FieldMap& group )
+void FieldMap::replaceGroup( int num, int field, const FieldMap& group )
 {
   Groups::const_iterator i = m_groups.find( field );
   if ( i == m_groups.end() ) return;
