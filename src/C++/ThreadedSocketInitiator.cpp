@@ -235,6 +235,15 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   return 0;
 }
 
+int ThreadedSocketInitiator::currentHostIndex(const SessionID &s) const
+{
+    SessionToHostNum::const_iterator i = m_sessionToHostNum.find( s );
+    if ( i != m_sessionToHostNum.end() )
+        return i->second-1;
+    else
+        return 0;
+}
+
 void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
                                        std::string& address, short& port )
 {

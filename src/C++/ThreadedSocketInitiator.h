@@ -45,6 +45,7 @@ public:
                            const SessionSettings&,
                            LogFactory& ) throw( ConfigError );
 
+  int currentHostIndex(const SessionID& s) const;
   virtual ~ThreadedSocketInitiator();
 
 private:

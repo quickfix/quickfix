@@ -40,7 +40,7 @@ public:
                    const SessionSettings& ) throw( ConfigError );
   SocketInitiator( Application&, MessageStoreFactory&,
                    const SessionSettings&, LogFactory& ) throw( ConfigError );
-
+  int currentHostIndex(const SessionID& s) const;
   virtual ~SocketInitiator();
 
 private:

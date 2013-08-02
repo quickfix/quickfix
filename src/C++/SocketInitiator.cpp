@@ -228,6 +228,15 @@ void SocketInitiator::onTimeout( SocketConnector& )
     i->second->onTimeout();
 }
 
+int SocketInitiator::currentHostIndex(const SessionID &s) const
+{
+  SessionToHostNum::const_iterator i = m_sessionToHostNum.find( s );
+  if ( i != m_sessionToHostNum.end() )
+    return i->second-1;
+  else
+    return 0;
+}
+
 void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
                                std::string& address, short& port )
 {
