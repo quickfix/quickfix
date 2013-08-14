@@ -4,8 +4,15 @@ rm -rf *.cache config
 mkdir config
 touch README NEWS AUTHORS INSTALL ChangeLog
 
+`which glibtoolize`
+if [ $? = 0 ]; then
+    LIBTOOLIZE=glibtoolize
+else
+    LIBTOOLIZE=libtoolize
+fi
+
 set -ex
-libtoolize # work around issue where autoreconf on rhel/centos 5.7 does not always run this
+$LIBTOOLIZE # work around issue where autoreconf on rhel/centos 5.7 does not always run this
 autoreconf -i -Wall,no-obsolete
 rm -rf autom4te.cache config.h.in~
 set +ex
