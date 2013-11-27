@@ -291,6 +291,7 @@ class Processor
       field.elements.each("value") { |value|
         enum = value.attributes["enum"]
         description = value.attributes["description"]
+        description = description.gsub(/[^0-9A-Z]/i, '_')
         values[description] = enum
       }
 
