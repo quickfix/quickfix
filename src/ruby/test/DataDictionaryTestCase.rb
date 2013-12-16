@@ -100,11 +100,11 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		assert( result[1].isMsgType( "1" ) )
 
 		result = @object.getGroup( "A", 200 )
-		assert( 201, result[0] )
+		assert_equal( 201, result[0] )
 		assert( result[1].isMsgType( "2" ) )
 
 		result = @object.getGroup( "A", 300 )
-		assert( 301, result[0] )
+		assert_equal( 301, result[0] )
 		assert( result[1].isMsgType( "3" ) )
 	end
 
