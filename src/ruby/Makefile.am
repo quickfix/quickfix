@@ -14,8 +14,8 @@ clean-local:
 
 install-exec-local:
 	cp -f $(top_builddir)/lib/ruby/*.rb $(RUBY_SITE_PACKAGES)
-	cp -f $(top_builddir)/lib/ruby/quickfix.so $(RUBY_SITE_PACKAGES)
-	cp -f $(top_builddir)/lib/ruby/quickfix.bundle $(RUBY_SITE_PACKAGES)
+	cp -f $(top_builddir)/lib/ruby/quickfix.so $(RUBY_SITE_PACKAGES) || :
+	cp -f $(top_builddir)/lib/ruby/quickfix.bundle $(RUBY_SITE_PACKAGES) || :
 
 uninstall-local:
 	rm -rf $(RUBY_SITE_PACKAGES)/quickfix*.rb
