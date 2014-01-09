@@ -49,7 +49,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
             PG_CONFIG="$withval"
         fi
         ],
-        [want_postgresql="yes"]
+        [want_postgresql="no"]
     )
 
     POSTGRESQL_CFLAGS=""
