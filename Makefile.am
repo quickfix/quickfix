@@ -6,3 +6,7 @@ ACLOCAL_AMFLAGS = -I m4
 
 pkgconfdir=$(libdir)/pkgconfig
 pkgconf_DATA = quickfix.pc
+
+generate:
+	cd spec && bash generate.sh
+
