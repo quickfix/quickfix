@@ -98,14 +98,21 @@ public:
     setField( fieldBase );
   }
 
+  /// Get a field if set
+  bool getFieldIfSet( FieldBase& field ) const
+  {
+    Fields::const_iterator iter = m_fields.find( field.getField() );
+    if ( iter == m_fields.end() )
+      return false;
+    field = iter->second;
+    return true;
+  }
+
   /// Get a field without type checking
   FieldBase& getField( FieldBase& field )
   const throw( FieldNotFound )
   {
-    Fields::const_iterator iter = m_fields.find( field.getField() );
-    if ( iter == m_fields.end() )
-      throw FieldNotFound( field.getField() );
-    field = iter->second;
+    field = getFieldRef( field.getField() );
     return field;
   }
 
@@ -135,7 +142,7 @@ public:
 
   /// Check to see if a field is set
   bool isSetField( const FieldBase& field ) const
-  { return m_fields.find( field.getField() ) != m_fields.end(); }
+  { return isSetField( field.getField() ); }
   /// Check to see if a field is set by referencing its number
   bool isSetField( int field ) const
   { return m_fields.find( field ) != m_fields.end(); }

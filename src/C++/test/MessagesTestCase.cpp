@@ -112,6 +112,19 @@ TEST(isEmpty)
   CHECK( message.isEmpty() );
 }
 
+TEST(getFieldIfPresent)
+{
+  FIX::Message message;
+  FIX::MsgType initial("A");
+  CHECK( !message.getFieldIfSet( initial ) );
+  CHECK( initial == FIX::MsgType("A") );
+
+  message.setField( initial );
+  FIX::MsgType stored;
+  CHECK( message.getFieldIfSet( stored ) );
+  CHECK( stored == initial );
+}
+
 TEST(setString)
 {
   static const char* strGood =
