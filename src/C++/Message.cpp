@@ -190,9 +190,18 @@ std::string& Message::toString( std::string& str,
   m_header.setField( IntField(bodyLengthField, length) );
   m_trailer.setField( CheckSumField(checkSumField, checkSum(checkSumField)) );
 
-  m_header.calculateString( str, true );
-  FieldMap::calculateString( str, false );
-  m_trailer.calculateString( str, false );
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  str = "";
+#else
+  str.clear();
+#endif
+
+  /*small speculation about the space needed for FIX string*/
+  str.reserve( length + 64 );
+
+  m_header.calculateString( str );
+  FieldMap::calculateString( str );
+  m_trailer.calculateString( str );
 
   return str;
 }
