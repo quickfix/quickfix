@@ -141,8 +141,8 @@ namespace FIX
       }
     }
 
-    T * m_buffer;
     std::size_t m_size;
+    T * m_buffer;
   };
 }
 
