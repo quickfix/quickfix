@@ -203,7 +203,7 @@ public:
 
   int totalFields() const;
 
-  std::string& calculateString( std::string&, bool clear = true ) const;
+  std::string& calculateString( std::string& ) const;
 
   int calculateLength( int beginStringField = FIELD::BeginString,
                        int bodyLengthField = FIELD::BodyLength,
