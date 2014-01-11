@@ -312,48 +312,23 @@ public:
   void setSessionID( const SessionID& sessionID );
 
 private:
-  FieldBase extractField
-  ( const std::string& string, std::string::size_type& pos,
+  FieldBase extractField( 
+    const std::string& string, std::string::size_type& pos,
     const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
-    const Group* pGroup = 0)
+    const Group* pGroup = 0);
+
+  static bool IsDataField( 
+    int field, 
+    const DataDictionary* pSessionDD, 
+    const DataDictionary* pAppDD )
   {
-    std::string::size_type equalSign
-      = string.find_first_of( '=', pos );
-    if( equalSign == std::string::npos )
-      throw InvalidMessage("Equal sign not found in field");
-
-    char* pEnd = 0;
-    int field = strtol( string.c_str() + pos, &pEnd, 0 );
-
-    std::string::size_type soh =
-      string.find_first_of( '\001', equalSign + 1 );
-    if ( soh == std::string::npos )
-      throw InvalidMessage("SOH not found at end of field");
-
-    if ( (pSessionDD && pSessionDD->isDataField(field)) || 
-		 (pAppDD && pAppDD != pSessionDD && pAppDD->isDataField(field)) )
+    if( (pSessionDD && pSessionDD->isDataField( field )) ||
+        (pAppDD && pAppDD != pSessionDD && pAppDD->isDataField( field )) )
     {
-      // Assume length field is 1 less.
-      int lenField = field - 1;
-      // Special case for Signature which violates above assumption.
-      if ( field == 89 ) lenField = 93;
-
-      if ( pGroup && pGroup->isSetField( lenField ) )
-      {
-        const std::string& fieldLength = pGroup->getField( lenField );
-        soh = equalSign + 1 + atol( fieldLength.c_str() );
-      }
-      else if ( isSetField( lenField ) )
-      {
-        const std::string& fieldLength = getField( lenField );
-        soh = equalSign + 1 + atol( fieldLength.c_str() );
-      }
+      return true;
     }
 
-    pos = soh + 1;
-    return FieldBase (
-      field,
-      string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
+    return false;
   }
 
   void validate();
@@ -380,7 +355,7 @@ inline std::ostream& operator <<
 inline MsgType identifyType( const std::string& message )
 throw( MessageParseError )
 {
-  std::string::size_type pos = message.find( "\00135=" );
+  std::string::size_type pos = message.find( "\001" "35=" );
   if ( pos == std::string::npos ) throw MessageParseError();
 
   std::string::size_type startValue = pos + 4;
