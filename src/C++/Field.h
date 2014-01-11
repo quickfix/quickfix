@@ -44,10 +44,16 @@ namespace FIX
  */
 class FieldBase
 {
-  friend class Message;
 public:
   FieldBase( int field, const std::string& string )
     : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 ),
+      m_calculated( false )
+  {}
+
+  FieldBase( int field, const std::string& string,
+             std::string::size_type valueOffset, 
+             std::string::size_type valueLength )
+    : m_field( field ), m_string(string, valueOffset, valueLength), m_length( 0 ), m_total( 0 ),
       m_calculated( false )
   {}
 
