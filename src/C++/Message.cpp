@@ -524,16 +524,14 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
                                       const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
                                       const Group* pGroup /*= 0*/ )
 {
-  std::string::size_type equalSign
-    = string.find_first_of( '=', pos );
+  std::string::size_type equalSign = string.find_first_of( '=', pos );
   if( equalSign == std::string::npos )
     throw InvalidMessage("Equal sign not found in field");
 
   char* pEnd = 0;
   int field = strtol( string.c_str() + pos, &pEnd, 0 );
 
-  std::string::size_type soh =
-    string.find_first_of( '\001', equalSign + 1 );
+  std::string::size_type soh = string.find_first_of( '\001', equalSign + 1 );
   if ( soh == std::string::npos )
     throw InvalidMessage("SOH not found at end of field");
 
@@ -559,6 +557,8 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   pos = soh + 1;
   return FieldBase (
     field,
-    string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
+    string,
+    equalSign + 1, 
+    soh - ( equalSign + 1 ) );
 }
 }
