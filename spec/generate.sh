@@ -9,5 +9,5 @@ fi
 set -e
 ./generate_c++.sh
 ./generate_net.sh
-$RUBY_CMD Generator.rb
+$RUBY_CMD -I. Generator.rb
 
