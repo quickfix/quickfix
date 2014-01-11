@@ -26,6 +26,7 @@
 #include "config.h"
 #endif
 
+#include <memory>
 #include "getopt-repl.h"
 #include <iostream>
 #include "Application.h"
@@ -53,13 +54,16 @@ int testCreateHeartbeat( int );
 int testIdentifyType( int );
 int testSerializeToStringHeartbeat( int );
 int testSerializeFromStringHeartbeat( int );
+int testSerializeFromStringAndValidateHeartbeat( int );
 int testCreateNewOrderSingle( int );
 int testSerializeToStringNewOrderSingle( int );
 int testSerializeFromStringNewOrderSingle( int );
+int testSerializeFromStringAndValidateNewOrderSingle( int );
 int testCreateQuoteRequest( int );
 int testReadFromQuoteRequest( int );
 int testSerializeToStringQuoteRequest( int );
 int testSerializeFromStringQuoteRequest( int );
+int testSerializeFromStringAndValidateQuoteRequest( int );
 int testFileStoreNewOrderSingle( int );
 int testValidateNewOrderSingle( int );
 int testValidateDictNewOrderSingle( int );
@@ -81,6 +85,10 @@ long GetTickCount()
   return ( long ) millsec;
 }
 #endif
+
+std::auto_ptr<FIX::DataDictionary> s_dataDictionary;
+const bool VALIDATE = true;
+const bool DONT_VALIDATE = false;
 
 int main( int argc, char** argv )
 {
@@ -106,6 +114,8 @@ int main( int argc, char** argv )
     }
   }
 
+  s_dataDictionary.reset( new FIX::DataDictionary( "../spec/FIX42.xml" ) );
+
   std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );
 
@@ -130,6 +140,9 @@ int main( int argc, char** argv )
   std::cout << "Serializing Heartbeat messages from strings: ";
   report( testSerializeFromStringHeartbeat( count ), count );
 
+  std::cout << "Serializing Heartbeat messages from strings and validation: ";
+  report( testSerializeFromStringAndValidateHeartbeat( count ), count );
+
   std::cout << "Creating NewOrderSingle messages: ";
   report( testCreateNewOrderSingle( count ), count );
 
@@ -139,6 +152,9 @@ int main( int argc, char** argv )
   std::cout << "Serializing NewOrderSingle messages from strings: ";
   report( testSerializeFromStringNewOrderSingle( count ), count );
 
+  std::cout << "Serializing NewOrderSingle messages from strings and validation: ";
+  report( testSerializeFromStringAndValidateNewOrderSingle( count ), count );
+
   std::cout << "Creating QuoteRequest messages: ";
   report( testCreateQuoteRequest( count ), count );
 
@@ -147,6 +163,9 @@ int main( int argc, char** argv )
 
   std::cout << "Serializing QuoteRequest messages from strings: ";
   report( testSerializeFromStringQuoteRequest( count ), count );
+
+  std::cout << "Serializing QuoteRequest messages from strings and validation: ";
+  report( testSerializeFromStringAndValidateQuoteRequest( count ), count );
 
   std::cout << "Reading fields from QuoteRequest message: ";
   report( testReadFromQuoteRequest( count ), count );
@@ -285,7 +304,21 @@ int testSerializeFromStringHeartbeat( int count )
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    message.setString( string );
+    message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
+  }
+  return GetTickCount() - start;
+}
+
+int testSerializeFromStringAndValidateHeartbeat( int count )
+{
+  FIX42::Heartbeat message;
+  std::string string = message.toString();
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+  {
+    message.setString( string, VALIDATE, s_dataDictionary.get() );
   }
   return GetTickCount() - start;
 }
@@ -345,7 +378,29 @@ int testSerializeFromStringNewOrderSingle( int count )
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    message.setString( string );
+    message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
+  }
+  return GetTickCount() - start;
+}
+
+int testSerializeFromStringAndValidateNewOrderSingle( int count )
+{
+  FIX::ClOrdID clOrdID( "ORDERID" );
+  FIX::HandlInst handlInst( '1' );
+  FIX::Symbol symbol( "LNUX" );
+  FIX::Side side( FIX::Side_BUY );
+  FIX::TransactTime transactTime;
+  FIX::OrdType ordType( FIX::OrdType_MARKET );
+  FIX42::NewOrderSingle message
+    ( clOrdID, handlInst, symbol, side, transactTime, ordType );
+  std::string string = message.toString();
+
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+  {
+    message.setString( string, VALIDATE, s_dataDictionary.get() );
   }
   return GetTickCount() - start;
 }
@@ -447,7 +502,36 @@ int testSerializeFromStringQuoteRequest( int count )
   int start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
-    message.setString( string );
+    message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
+  }
+  return GetTickCount() - start;
+}
+
+int testSerializeFromStringAndValidateQuoteRequest( int count )
+{
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    noRelatedSym.set( FIX::Symbol("IBM") );
+    noRelatedSym.set( FIX::MaturityMonthYear() );
+    noRelatedSym.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    noRelatedSym.set( FIX::StrikePrice(120) );
+    noRelatedSym.set( FIX::Side(FIX::Side_BUY) );
+    noRelatedSym.set( FIX::OrderQty(100) );
+    noRelatedSym.set( FIX::Currency("USD") );
+    noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( noRelatedSym );
+  }
+  std::string string = message.toString();
+
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int j = 0; j <= count; ++j )
+  {
+    message.setString( string, VALIDATE, s_dataDictionary.get() );
   }
   return GetTickCount() - start;
 }
@@ -584,13 +668,12 @@ int testValidateDictNewOrderSingle( int count )
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
 
-  FIX::DataDictionary dataDictionary( "../spec/FIX42.xml" );
   count = count - 1;
 
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    dataDictionary.validate( message );
+    s_dataDictionary->validate( message );
   }
   return GetTickCount() - start;
 }
@@ -642,13 +725,12 @@ int testValidateDictQuoteRequest( int count )
     message.addGroup( noRelatedSym );
   }
 
-  FIX::DataDictionary dataDictionary( "../spec/FIX42.xml" );
   count = count - 1;
 
   int start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
-    dataDictionary.validate( message );
+    s_dataDictionary->validate( message );
   }
   return GetTickCount() - start;
 }
