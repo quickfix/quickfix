@@ -208,8 +208,8 @@ public:
   void next( const Message&, const UtcTimeStamp& timeStamp, bool queued = false );
   void disconnect();
 
-  long getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
-  long getExpectedTargetNum() { return m_state.getNextTargetMsgSeqNum(); }
+  int getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
+  int getExpectedTargetNum() { return m_state.getNextTargetMsgSeqNum(); }
 
   Log* getLog() { return &m_state; }
   const MessageStore* getStore() { return &m_state; }

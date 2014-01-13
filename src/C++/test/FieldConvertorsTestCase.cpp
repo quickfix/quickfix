@@ -29,6 +29,9 @@
 
 using namespace FIX;
 
+const int MAX_INT = 2147483647;
+const int MIN_INT = -2147483647 - 1;
+
 SUITE(FieldConvertorsTests)
 {
 
@@ -54,9 +57,28 @@ USER_DEFINE_UTCTIMEONLY( TestField19, 19 );
 
 TEST(countIntegerSymbols)
 {
-	CHECK_EQUAL(1, FIX::number_of_symbols_in( 0 ));
-	CHECK_EQUAL(2, FIX::number_of_symbols_in( -1 ));
-	CHECK_EQUAL(3, FIX::number_of_symbols_in( 926 ));
+  CHECK_EQUAL(1, FIX::number_of_symbols_in( 0 ));
+  CHECK_EQUAL(1, FIX::number_of_symbols_in( 9 ));
+  CHECK_EQUAL(2, FIX::number_of_symbols_in( 92 ));
+  CHECK_EQUAL(3, FIX::number_of_symbols_in( 926 ));
+  CHECK_EQUAL(4, FIX::number_of_symbols_in( 1926 ));
+  CHECK_EQUAL(5, FIX::number_of_symbols_in( 11926 ));
+  CHECK_EQUAL(6, FIX::number_of_symbols_in( 111926 ));
+  CHECK_EQUAL(7, FIX::number_of_symbols_in( 1111926 ));
+  CHECK_EQUAL(8, FIX::number_of_symbols_in( 11111926 ));
+  CHECK_EQUAL(9, FIX::number_of_symbols_in( 111111926 ));
+  CHECK_EQUAL(10, FIX::number_of_symbols_in( MAX_INT ));
+
+  CHECK_EQUAL(2, FIX::number_of_symbols_in( -9 ));
+  CHECK_EQUAL(3, FIX::number_of_symbols_in( -92 ));
+  CHECK_EQUAL(4, FIX::number_of_symbols_in( -926 ));
+  CHECK_EQUAL(5, FIX::number_of_symbols_in( -1926 ));
+  CHECK_EQUAL(6, FIX::number_of_symbols_in( -11926 ));
+  CHECK_EQUAL(7, FIX::number_of_symbols_in( -111926 ));
+  CHECK_EQUAL(8, FIX::number_of_symbols_in( -1111926 ));
+  CHECK_EQUAL(9, FIX::number_of_symbols_in( -11111926 ));
+  CHECK_EQUAL(10, FIX::number_of_symbols_in( -111111926 ));
+  CHECK_EQUAL(11, FIX::number_of_symbols_in( MIN_INT) );
 }
 
 TEST(emptyConvert)
@@ -66,12 +88,47 @@ TEST(emptyConvert)
 
 TEST(integerConvertTo)
 {
-  CHECK_EQUAL( "123", IntConvertor::convert( 123 ) );
+  CHECK_EQUAL( "0", IntConvertor::convert( 0 ) );
+  CHECK_EQUAL( "1", IntConvertor::convert( 1 ) );
+  CHECK_EQUAL( "12", IntConvertor::convert( 12 ) );
+  CHECK_EQUAL( "100", IntConvertor::convert( 100 ) );
+  CHECK_EQUAL( "1234", IntConvertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", IntConvertor::convert( 12345 ) );
+  CHECK_EQUAL( "123456", IntConvertor::convert( 123456 ) );
+  CHECK_EQUAL( "1234567", IntConvertor::convert( 1234567 ) );
+  CHECK_EQUAL( "12345678", IntConvertor::convert( 12345678 ) );
+  CHECK_EQUAL( "123456789", IntConvertor::convert( 123456789 ) );
+  CHECK_EQUAL( "2147483647", IntConvertor::convert( MAX_INT ) );
+
+  CHECK_EQUAL( "-1", IntConvertor::convert( -1 ) );
+  CHECK_EQUAL( "-12", IntConvertor::convert( -12 ) );
+  CHECK_EQUAL( "-100", IntConvertor::convert( -100 ) );
+  CHECK_EQUAL( "-1234", IntConvertor::convert( -1234 ) );
+  CHECK_EQUAL( "-12345", IntConvertor::convert( -12345 ) );
+  CHECK_EQUAL( "-123456", IntConvertor::convert( -123456 ) );
+  CHECK_EQUAL( "-1234567", IntConvertor::convert( -1234567 ) );
+  CHECK_EQUAL( "-12345678", IntConvertor::convert( -12345678 ) );
+  CHECK_EQUAL( "-123456789", IntConvertor::convert( -123456789 ) );
+  CHECK_EQUAL( "-2147483647", IntConvertor::convert( -2147483647 ) );
+  CHECK_EQUAL( "-2147483648", IntConvertor::convert( MIN_INT ) );
 }
 
 TEST(integerConvertFrom)
 {
-  CHECK_EQUAL( 123, IntConvertor::convert( "123" ) );
+  CHECK_EQUAL( 0, IntConvertor::convert( "0" ) );
+  CHECK_EQUAL( 1, IntConvertor::convert( "1" ) );
+  CHECK_EQUAL( 12, IntConvertor::convert( "12" ) );
+  CHECK_EQUAL( 100, IntConvertor::convert( "100" ) );
+  CHECK_EQUAL( 1234, IntConvertor::convert( "1234" ) );
+  CHECK_EQUAL( MAX_INT, IntConvertor::convert( "2147483647" ) );
+
+  CHECK_EQUAL( -1, IntConvertor::convert( "-1" ) );
+  CHECK_EQUAL( -12, IntConvertor::convert( "-12" ) );
+  CHECK_EQUAL( -100, IntConvertor::convert( "-100" ) );
+  CHECK_EQUAL( -1234, IntConvertor::convert( "-1234" ) );
+  CHECK_EQUAL( -2147483647, IntConvertor::convert( "-2147483647" ) );
+  CHECK_EQUAL( MIN_INT, IntConvertor::convert( "-2147483648" ) );
+
   CHECK_THROW( IntConvertor::convert( "abc" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "123.4" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "+200" ), FieldConvertError );
