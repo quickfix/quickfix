@@ -545,8 +545,9 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   if( equalSign == std::string::npos )
     throw InvalidMessage("Equal sign not found in field");
 
-  char* pEnd = 0;
-  int field = strtol( string.c_str() + pos, &pEnd, 0 );
+  int field = 0;
+  if( !IntConvertor::convertPositive( string.c_str() + pos, equalSign - pos, field ) )
+    throw InvalidMessage( std::string("Field tag is invalid: ") + string.substr( pos, equalSign - pos ) );
 
   std::string::size_type soh = string.find_first_of( '\001', equalSign + 1 );
   if ( soh == std::string::npos )
