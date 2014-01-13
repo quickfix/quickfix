@@ -501,31 +501,39 @@ void Message::validate()
   {
     const BodyLength& aBodyLength = FIELD_GET_REF( m_header, BodyLength );
 
-    if ( aBodyLength != bodyLength() )
+    const int expectedLength = (int)aBodyLength;
+    const int actualLength = bodyLength();
+
+    if ( expectedLength != actualLength )
     {
       std::stringstream text;
-      text << "Expected BodyLength=" << bodyLength()
-           << ", Recieved BodyLength=" << (int)aBodyLength;
+      text << "Expected BodyLength=" << actualLength
+           << ", Received BodyLength=" << expectedLength;
       throw InvalidMessage(text.str());
     }
 
     const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
 
-    if ( aCheckSum != checkSum() )
+    const int expectedChecksum = (int)aCheckSum;
+    const int actualChecksum = checkSum();
+
+    if ( expectedChecksum != actualChecksum )
     {
       std::stringstream text;
-      text << "Expected CheckSum=" << checkSum()
-           << ", Recieved CheckSum=" << (int)aCheckSum;
+      text << "Expected CheckSum=" << actualChecksum
+           << ", Received CheckSum=" << expectedChecksum;
       throw InvalidMessage(text.str());
     }
   }
-  catch ( FieldNotFound& )
+  catch ( FieldNotFound& e )
   {
-    throw InvalidMessage("BodyLength or CheckSum missing");
+    const std::string fieldName = ( e.field == FIX::FIELD::BodyLength ) ? "BodyLength" : "CheckSum";
+    throw InvalidMessage( fieldName + std::string(" is missing") );
   }
-  catch ( IncorrectDataFormat& )
+  catch ( IncorrectDataFormat& e )
   {
-    throw InvalidMessage("BodyLength or Checksum has wrong format");
+    const std::string fieldName = ( e.field == FIX::FIELD::BodyLength ) ? "BodyLength" : "CheckSum";
+    throw InvalidMessage( fieldName + std::string(" has wrong format: ") + e.detail );
   }
 }
 
@@ -549,17 +557,24 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Assume length field is 1 less.
     int lenField = field - 1;
     // Special case for Signature which violates above assumption.
-    if ( field == 89 ) lenField = 93;
+    if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    try
     {
-      const std::string& fieldLength = pGroup->getField( lenField );
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
+      if ( pGroup && pGroup->isSetField( lenField ) )
+      {
+        const std::string& fieldLength = pGroup->getField( lenField );
+        soh = equalSign + 1 + IntConvertor::convert( fieldLength );
+      }
+      else if ( isSetField( lenField ) )
+      {
+        const std::string& fieldLength = getField( lenField );
+        soh = equalSign + 1 + IntConvertor::convert( fieldLength );
+      }
     }
-    else if ( isSetField( lenField ) )
+    catch( FieldConvertError& e )
     {
-      const std::string& fieldLength = getField( lenField );
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
+      throw InvalidMessage( std::string( "Unable to determine SOH for data field " ) + IntConvertor::convert( field ) + std::string( ": " ) + e.what() );
     }
   }
 
