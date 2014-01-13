@@ -28,6 +28,27 @@
 #include "Values.h"
 #include <iomanip>
 
+namespace
+{
+  // this function was introduced because
+  // memchr is too heavy to get inlined
+  inline const char * find_symbol( 
+    const char * str, 
+    const char * const end, 
+    const char ch )
+  {
+    while( str < end )
+    {
+      if( *str == ch )
+        return str;
+
+      ++str;
+    }
+
+    return 0;
+  }
+}
+
 namespace FIX
 {
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
@@ -541,16 +562,21 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
                                       const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
                                       const Group* pGroup /*= 0*/ )
 {
-  std::string::size_type equalSign = string.find_first_of( '=', pos );
-  if( equalSign == std::string::npos )
+  const char * const tagStart = string.c_str() + pos;
+  const char * const strEnd = string.c_str() + string.length();
+
+  const char * const equalSign = find_symbol( tagStart, strEnd, '=' );
+  if( equalSign == 0 )
     throw InvalidMessage("Equal sign not found in field");
 
   int field = 0;
-  if( !IntConvertor::convertPositive( string.c_str() + pos, equalSign - pos, field ) )
-    throw InvalidMessage( std::string("Field tag is invalid: ") + string.substr( pos, equalSign - pos ) );
+  if( !IntConvertor::convertPositive( tagStart, equalSign - tagStart, field ) )
+    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign - tagStart ) );
 
-  std::string::size_type soh = string.find_first_of( '\001', equalSign + 1 );
-  if ( soh == std::string::npos )
+  const char * const valueStart = equalSign + 1;
+
+  const char * soh = find_symbol( valueStart, strEnd, '\001' );
+  if ( soh == 0 )
     throw InvalidMessage("SOH not found at end of field");
 
   if ( IsDataField( field, pSessionDD, pAppDD ) )
@@ -565,12 +591,12 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
       if ( pGroup && pGroup->isSetField( lenField ) )
       {
         const std::string& fieldLength = pGroup->getField( lenField );
-        soh = equalSign + 1 + IntConvertor::convert( fieldLength );
+        soh = valueStart + IntConvertor::convert( fieldLength );
       }
       else if ( isSetField( lenField ) )
       {
         const std::string& fieldLength = getField( lenField );
-        soh = equalSign + 1 + IntConvertor::convert( fieldLength );
+        soh = valueStart + IntConvertor::convert( fieldLength );
       }
     }
     catch( FieldConvertError& e )
@@ -579,11 +605,11 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     }
   }
 
-  pos = soh + 1;
+  pos = soh + 1 - string.c_str();
   return FieldBase (
     field,
     string,
-    equalSign + 1, 
-    soh - ( equalSign + 1 ) );
+    valueStart - string.c_str(), 
+    soh - valueStart );
 }
 }
