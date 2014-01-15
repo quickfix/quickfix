@@ -606,10 +606,15 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   }
 
   pos = soh + 1 - string.c_str();
+
+  const std::size_t tagLength = soh + 1 - tagStart;
+  const std::size_t valueLength = tagLength - ( valueStart - tagStart ) - 1;
+
   return FieldBase (
     field,
-    string,
-    valueStart - string.c_str(), 
-    soh - valueStart );
+    valueStart,
+    valueLength,
+    tagStart, 
+    tagLength );
 }
 }
