@@ -44,17 +44,48 @@ namespace FIX
  */
 class FieldBase
 {
-public:
-  FieldBase( int field, const std::string& string )
-    : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 ),
-      m_calculated( false )
+
+  /// Class used to store field metrics like total length and checksum
+  class field_metrics
+  {
+  public:
+
+    field_metrics( const int length, const int checksum )
+      : m_length( length )
+      , m_checksum( checksum )
+    {}
+
+    int getLength() const
+    { return m_length; }
+
+    int getCheckSum() const
+    { return m_checksum; }
+
+    bool isValid() const
+    { return m_length > 0; }
+
+  private:
+
+    int m_length;
+    int m_checksum;
+  };
+
+  friend class Message;
+
+  /// Constructor which also calculates field metrics
+  FieldBase( int field, 
+             const char * value, 
+             const std::size_t valueLength,
+             const char * tag, 
+             const std::size_t fieldLength )
+    : m_field( field )
+    , m_string( value, valueLength )
+    , m_metrics( calculateMetrics( tag, fieldLength ) )
   {}
 
-  FieldBase( int field, const std::string& string,
-             std::string::size_type valueOffset, 
-             std::string::size_type valueLength )
-    : m_field( field ), m_string(string, valueOffset, valueLength), m_length( 0 ), m_total( 0 ),
-      m_calculated( false )
+public:
+  FieldBase( int field, const std::string& string )
+    : m_field( field ), m_string(string), m_metrics( no_metrics() )
   {}
 
   virtual ~FieldBase() {}
@@ -62,27 +93,31 @@ public:
   void setField( int field )
   {
     m_field = field;
-    m_calculated = false;
+    m_metrics = no_metrics();
+    m_data.clear();
   }
 
   void setString( const std::string& string )
   {
     m_string = string;
-    m_calculated = false;
+    m_metrics = no_metrics();
+    m_data.clear();
   }
 
   /// Get the fields integer tag.
   int getField() const
-    { return m_field; }
+  { return m_field; }
 
   /// Get the string representation of the fields value.
   const std::string& getString() const
-    { return m_string; }
+  { return m_string; }
 
   /// Get the string representation of the Field (i.e.) 55=MSFT[SOH]
   const std::string& getFixString() const
   {
-    calculate();
+    if( m_data.empty() )
+      encodeTo( m_data );
+
     return m_data;
   }
 
@@ -90,49 +125,70 @@ public:
   int getLength() const
   {
     calculate();
-    return m_length;
+    return m_metrics.getLength();
   }
 
   /// Get the total value the fields characters added together
   int getTotal() const
   {
     calculate();
-    return m_total;
+    return m_metrics.getCheckSum();
   }
 
-  /// Compares fields based on thier tag numbers
+  /// Compares fields based on their tag numbers
   bool operator < ( const FieldBase& field ) const
-    { return m_field < field.m_field; }
+  { return m_field < field.m_field; }
 
 private:
+
   void calculate() const
   {
-    if( m_calculated ) return;
+    if( m_metrics.isValid() ) return;
 
+    m_metrics = calculateMetrics( getFixString() );
+  }
+
+  /// Serializes string representation of the Field to input string
+  void encodeTo( std::string& result ) const
+  {
     int tagLength = FIX::number_of_symbols_in( m_field ) + 1;
-    m_length = tagLength + m_string.length() + 1;
+    int totalLength = tagLength + m_string.length() + 1;
 
-    m_data.resize( m_length );
+    result.resize( totalLength );
 
-    char * buf = (char*)m_data.c_str();
-    FIX::integer_to_string(buf, tagLength, m_field);
+    char * buf = (char*)result.c_str();
+    FIX::integer_to_string( buf, tagLength, m_field );
 
     buf[tagLength - 1] = '=';
     memcpy( buf + tagLength, m_string.data(), m_string.length() );
-    buf[m_length - 1] = '\001';
+    buf[totalLength - 1] = '\001';
+  }
 
-    const unsigned char* iter = reinterpret_cast<const unsigned char*>( m_data.c_str() );
-    m_total = std::accumulate( iter, iter + m_length, 0 );
+  static field_metrics no_metrics()
+  {
+    return field_metrics( 0, 0 );
+  }
 
-    m_calculated = true;
+  /// Calculate metrics for any input string
+  static field_metrics calculateMetrics( 
+    const char * field,
+    const std::size_t length )
+  {
+    const unsigned char* iter = reinterpret_cast<const unsigned char*>( field );
+    int checksum = std::accumulate( iter, iter + length, 0 );
+
+    return field_metrics( length, checksum );
+  }
+
+  static field_metrics calculateMetrics( const std::string& field )
+  {
+    return calculateMetrics( field.c_str(), field.length() );
   }
 
   int m_field;
   std::string m_string;
   mutable std::string m_data;
-  mutable int m_length;
-  mutable int m_total;
-  mutable bool m_calculated;
+  mutable field_metrics m_metrics;
 };
 /*! @} */
 
