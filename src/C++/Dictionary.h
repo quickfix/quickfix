@@ -52,8 +52,8 @@ public:
   /// Get a value as a string.
   std::string getString( const std::string&, bool capitalize = false ) const
   throw( ConfigError, FieldConvertError );
-  /// Get a value as a long.
-  long getLong( const std::string& ) const
+  /// Get a value as a int.
+  int getLong( const std::string& ) const
   throw( ConfigError, FieldConvertError );
   /// Get a value as a double.
   double getDouble( const std::string& ) const
@@ -67,8 +67,8 @@ public:
 
   /// Set a value from a string.
   void setString( const std::string&, const std::string& );
-  /// Set a value from a long.
-  void setLong( const std::string&, long );
+  /// Set a value from a int.
+  void setLong( const std::string&, int );
   /// Set a value from a double.
   void setDouble( const std::string&, double );
   /// Set a value from a bool

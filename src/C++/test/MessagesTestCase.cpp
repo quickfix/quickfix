@@ -112,6 +112,19 @@ TEST(isEmpty)
   CHECK( message.isEmpty() );
 }
 
+TEST(getFieldIfPresent)
+{
+  FIX::Message message;
+  FIX::MsgType initial("A");
+  CHECK( !message.getFieldIfSet( initial ) );
+  CHECK( initial == FIX::MsgType("A") );
+
+  message.setField( initial );
+  FIX::MsgType stored;
+  CHECK( message.getFieldIfSet( stored ) );
+  CHECK( stored == initial );
+}
+
 TEST(setString)
 {
   static const char* strGood =
@@ -250,6 +263,30 @@ TEST(setStringWithHighBit)
 
   object.setString( str, true, &dataDictionary );
   CHECK_EQUAL( str, object.toString() );
+}
+
+TEST(setStringWithInvalidDataFieldLength)
+{
+  FIX::Headline headline( "client" );
+  FIX42::News msg( headline );
+
+  FIX::RawDataLength data_len = rand() % 100;
+  FIX::RawData data;
+
+  std::string s;
+  char cc = -92;
+  s.assign(data_len, cc);
+
+  data.setValue(s);
+  data_len.setString("invalid_length");
+
+  msg.set(data_len);
+  msg.set(data);
+  std::string str = msg.toString();
+
+  FIX::Message object;
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
+  CHECK_THROW( object.setString( str, true, &dataDictionary ), InvalidMessage );
 }
 
 TEST(copy)
