@@ -83,7 +83,7 @@ throw( MessageParseError )
       if( pos == std::string::npos ) return false;
       pos += 1;
 
-      str = m_buffer.substr( 0, pos );
+      str.assign( m_buffer, 0, pos );
       m_buffer.erase( 0, pos );
       return true;
     }
