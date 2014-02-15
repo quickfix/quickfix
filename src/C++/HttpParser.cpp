@@ -41,7 +41,7 @@ throw( MessageParseError )
     throw MessageParseError();
   if( pos == std::string::npos ) 
     return false;
-  str = m_buffer.substr( 0, pos + 4 );
+  str.assign( m_buffer, 0, pos + 4 );
   m_buffer.erase( 0, pos + 4 );
 
   return true;
