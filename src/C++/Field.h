@@ -74,13 +74,13 @@ class FieldBase
 
   /// Constructor which also calculates field metrics
   FieldBase( int field, 
-             const char * value, 
-             const std::size_t valueLength,
-             const char * tag, 
-             const std::size_t fieldLength )
+             std::string::const_iterator valueStart, 
+             std::string::const_iterator valueEnd,
+             std::string::const_iterator tagStart, 
+             std::string::const_iterator tagEnd )
     : m_field( field )
-    , m_string( value, valueLength )
-    , m_metrics( calculateMetrics( tag, fieldLength ) )
+    , m_string( valueStart, valueEnd )
+    , m_metrics( calculateMetrics( tagStart, tagEnd ) )
   {}
 
 public:
@@ -171,18 +171,19 @@ private:
 
   /// Calculate metrics for any input string
   static field_metrics calculateMetrics( 
-    const char * field,
-    const std::size_t length )
+    std::string::const_iterator const start,
+    std::string::const_iterator const end )
   {
-    const unsigned char* iter = reinterpret_cast<const unsigned char*>( field );
-    int checksum = std::accumulate( iter, iter + length, 0 );
+    int checksum = 0;
+    for ( std::string::const_iterator str = start; str != end; ++str )
+      checksum += unsigned char( *str );
 
-    return field_metrics( length, checksum );
+    return field_metrics( std::distance( start, end ), checksum );
   }
 
   static field_metrics calculateMetrics( const std::string& field )
   {
-    return calculateMetrics( field.c_str(), field.length() );
+    return calculateMetrics( field.begin(), field.end() );
   }
 
   int m_field;

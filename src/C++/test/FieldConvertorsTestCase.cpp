@@ -129,6 +129,7 @@ TEST(integerConvertFrom)
   CHECK_EQUAL( -2147483647, IntConvertor::convert( "-2147483647" ) );
   CHECK_EQUAL( MIN_INT, IntConvertor::convert( "-2147483648" ) );
 
+  CHECK_THROW( IntConvertor::convert( "" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "abc" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "123.4" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "+200" ), FieldConvertError );

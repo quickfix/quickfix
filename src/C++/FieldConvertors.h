@@ -197,22 +197,29 @@ struct IntConvertor
   /// Converts only positive number e.g. FIX field ID: [1 ... 2147483647]
   /// No leading whitespace/zero/plus/sign symbols allowed
   /// Value is fixed to not make difference between 32bit and 64bit code
-  static bool convertPositive( const char * str, const size_t length, signed_int& result )
+  static bool convertPositive( 
+    std::string::const_iterator str, 
+    std::string::const_iterator end, 
+    signed_int& result )
   {
     const int MAX_VALUE = 2147483647; // max value for 32-bit signed integer
     const int HIGH_MARK = MAX_VALUE / 10;
     const unsigned_int STOP_SYMBOL = MAX_VALUE % 10;
     const std::size_t MAX_DIGITS = 10;     // integer can hold up to 10 digits
 
+    const std::size_t length = std::distance( str, end );
     if( length < 1 || length > MAX_DIGITS)
       return false;
+
+    if( length == MAX_DIGITS )
+    {
+      end = str;
+      std::advance( end, length - 1 );
+    }
 
     const unsigned_int ch = *str - '1';
     if( ch > 8 )
       return false;
-
-    const std::size_t symbols_to_check = ( length == MAX_DIGITS ) ? ( length - 1 ) : length; 
-    const char * const end = str + symbols_to_check;
 
     unsigned_int x = 0;
 
@@ -221,7 +228,7 @@ struct IntConvertor
       const unsigned_int c = *str - '0';
       if( c > 9 ) return false;
       x = 10 * x + c;
-    } while ( ++str < end );
+    } while( ++str < end );
 
     // complete overflow condition check and value calculation
     // this saves about 25% of speed when executed out of the main loop
@@ -245,7 +252,7 @@ struct IntConvertor
   throw( FieldConvertError )
   {
     signed_int result = 0;
-    if( !convertPositive( value.c_str(), value.length(), result ) )
+    if( !convertPositive( value.begin(), value.end(), result ) )
       throw FieldConvertError(value);
     else
       return result;

@@ -28,27 +28,6 @@
 #include "Values.h"
 #include <iomanip>
 
-namespace
-{
-  // this function was introduced because
-  // memchr is too heavy to get inlined
-  inline const char * find_symbol( 
-    const char * str, 
-    const char * const end, 
-    const char ch )
-  {
-    while( str < end )
-    {
-      if( *str == ch )
-        return str;
-
-      ++str;
-    }
-
-    return 0;
-  }
-}
-
 namespace FIX
 {
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
@@ -562,21 +541,21 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
                                       const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
                                       const Group* pGroup /*= 0*/ )
 {
-  const char * const tagStart = string.c_str() + pos;
-  const char * const strEnd = string.c_str() + string.length();
+  std::string::const_iterator const tagStart = string.begin() + pos;
+  std::string::const_iterator const strEnd = string.end();
 
-  const char * const equalSign = find_symbol( tagStart, strEnd, '=' );
-  if( equalSign == 0 )
+  std::string::const_iterator const equalSign = std::find( tagStart, strEnd, '=' );
+  if( equalSign == strEnd )
     throw InvalidMessage("Equal sign not found in field");
 
   int field = 0;
-  if( !IntConvertor::convertPositive( tagStart, equalSign - tagStart, field ) )
-    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign - tagStart ) );
+  if( !IntConvertor::convertPositive( tagStart, equalSign, field ) )
+    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign ) );
 
-  const char * const valueStart = equalSign + 1;
+  std::string::const_iterator const valueStart = equalSign + 1;
 
-  const char * soh = find_symbol( valueStart, strEnd, '\001' );
-  if ( soh == 0 )
+  std::string::const_iterator soh = std::find( valueStart, strEnd, '\001' );
+  if ( soh == strEnd )
     throw InvalidMessage("SOH not found at end of field");
 
   if ( IsDataField( field, pSessionDD, pAppDD ) )
@@ -605,16 +584,14 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     }
   }
 
-  pos = soh + 1 - string.c_str();
-
-  const std::size_t tagLength = soh + 1 - tagStart;
-  const std::size_t valueLength = tagLength - ( valueStart - tagStart ) - 1;
+  std::string::const_iterator const tagEnd = soh + 1;
+  pos = std::distance( string.begin(), tagEnd );
 
   return FieldBase (
     field,
     valueStart,
-    valueLength,
+    soh,
     tagStart, 
-    tagLength );
+    tagEnd );
 }
 }
