@@ -7,7 +7,7 @@
 
 #ifdef SWIGRUBY 	 
 %typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)STR2CSTR($input));
+  temp = std::string((char*)StringValuePtr($input));
   $1 = &temp;
 } 	 
 	  	 
@@ -55,7 +55,7 @@
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
-    printf( "%s\n", RSTRING(message)->ptr );
+    printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
 #endif
@@ -65,7 +65,7 @@
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
-    printf( "%s\n", RSTRING(message)->ptr );
+    printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
 #endif
@@ -75,7 +75,7 @@
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
-    printf( "%s\n", RSTRING(message)->ptr );
+    printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
 #endif
@@ -85,7 +85,7 @@
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
-    printf( "%s\n", RSTRING(message)->ptr );
+    printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
 #endif
@@ -102,7 +102,7 @@
       throw *((FIX::DoNotSend*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
-      printf( "%s\n", RSTRING(message)->ptr );
+      printf( "%s\n", RSTRING_PTR(message) );
       exit(1);
     }
   }
@@ -126,7 +126,7 @@
       throw *((FIX::RejectLogon*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
-      printf( "%s\n", RSTRING(message)->ptr );
+      printf( "%s\n", RSTRING_PTR(message) );
       exit(1);
     }
   }
@@ -150,7 +150,7 @@
       throw *((FIX::UnsupportedMessageType*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
-      printf( "%s\n", RSTRING(message)->ptr );
+      printf( "%s\n", RSTRING_PTR(message) );
       exit(1);
     }
   }
