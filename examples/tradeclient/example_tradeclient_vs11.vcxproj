@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>example_tradeclient_vs11</ProjectName>
+    <ProjectName>example_tradeclient_vs12</ProjectName>
     <ProjectGuid>{760375AB-01FD-4E38-A778-FAA2A27F8C41}</ProjectGuid>
     <RootNamespace>example_tradeclient_vs11</RootNamespace>
   </PropertyGroup>

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>example_executor_cpp_vs11</ProjectName>
+    <ProjectName>example_executor_cpp_vs12</ProjectName>
     <ProjectGuid>{AC97D259-3231-4575-8CA5-BF9EF79B5A87}</ProjectGuid>
     <RootNamespace>example_executor_cpp_vs11</RootNamespace>
   </PropertyGroup>

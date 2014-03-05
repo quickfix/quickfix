@@ -15,7 +15,7 @@
     <ClInclude Include="..\stdafx.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="AtomicCount.h" />
+	<ClInclude Include="AtomicCount.h" />
     <ClInclude Include="CallStack.h" />
     <ClInclude Include="DatabaseConnectionID.h" />
     <ClInclude Include="DatabaseConnectionPool.h" />
@@ -663,7 +663,7 @@
     <ClInclude Include="SessionSettings.h" />
     <ClInclude Include="SessionState.h" />
     <ClInclude Include="Settings.h" />
-    <ClInclude Include="SharedArray.h" />
+	<ClInclude Include="SharedArray.h" />
     <ClInclude Include="SocketAcceptor.h" />
     <ClInclude Include="SocketConnection.h" />
     <ClInclude Include="SocketConnector.h" />
@@ -725,7 +725,7 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>quickfix_vs12</ProjectName>
+    <ProjectName>quickfix_vs11</ProjectName>
     <ProjectGuid>{D5D558EA-BBAC-4862-A946-D3881BACE3B7}</ProjectGuid>
     <RootNamespace>quickfix_vc10</RootNamespace>
   </PropertyGroup>
