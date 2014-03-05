@@ -201,6 +201,11 @@ Session* SessionFactory::create( const SessionID& sessionID,
   return pSession.release();
 }
 
+void SessionFactory::destroy( Session* pSession )
+{
+	delete pSession;
+}
+
 const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                     const Dictionary& settings, 
                                                     const std::string& settingsKey) throw(ConfigError)

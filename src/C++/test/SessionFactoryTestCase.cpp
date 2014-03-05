@@ -47,7 +47,7 @@ TEST(validConfiguration)
   settings.setString(START_TIME, "12:00:00");
   settings.setString(END_TIME, "12:00:00");
   settings.setString(HEARTBTINT, "30");
-  object.create(sessionID, settings);
+  object.destroy(object.create(sessionID, settings));
 }
 
 TEST(startDayAndEndDayAreDifferent)
@@ -65,7 +65,7 @@ TEST(startDayAndEndDayAreDifferent)
   settings.setString(START_DAY, "Sun");
   settings.setString(END_DAY, "Mon");
   settings.setString(HEARTBTINT, "30");
-  object.create(sessionID, settings);
+  object.destroy(object.create(sessionID, settings));
 }
 
 }

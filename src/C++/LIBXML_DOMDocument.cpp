@@ -19,8 +19,6 @@
 
 #ifdef _MSC_VER
 #include "stdafx.h"
-#include <atlbase.h>
-#include <atlconv.h>
 #else
 #include "config.h"
 #endif

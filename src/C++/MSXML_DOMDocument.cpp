@@ -19,8 +19,6 @@
 
 #ifdef _MSC_VER
 #include "stdafx.h"
-#include <atlbase.h>
-#include <atlconv.h>
 #else
 #include "config.h"
 #endif
@@ -43,9 +41,10 @@ namespace FIX
     m_pNodeMap->getNamedItem(_bstr_t(name.c_str()), &pNode);
     if( pNode == NULL ) return false;
 
-    CComBSTR result;
+    BSTR result;
     pNode->get_text(&result);
     value = (char*)_bstr_t(result);
+	::SysFreeString(result);
     pNode->Release();
     return true;
   }
@@ -83,16 +82,20 @@ namespace FIX
 
   std::string MSXML_DOMNode::getName()
   {
-    CComBSTR result;
+    BSTR result;
     m_pNode->get_nodeName(&result);
-    return (char*)_bstr_t(result);
+    std::string name = (char*)_bstr_t(result);
+	::SysFreeString(result);
+	return name;
   }
 
   std::string MSXML_DOMNode::getText()
   {
-    CComBSTR result;
+    BSTR result;
     m_pNode->get_text(&result);
-    return (char*)_bstr_t(result);
+    std::string text = (char*)_bstr_t(result);
+	::SysFreeString(result);
+	return text;
   }
 
   MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError )
@@ -154,10 +157,11 @@ namespace FIX
   {
     try
     {
-      CComBSTR result;
+      BSTR result;
       HRESULT hr = m_pDoc->get_xml(&result);
       if( hr != S_OK ) return false;
       out << (char*)_bstr_t(result);
+	  ::SysFreeString(result);
       return true;
     }
     catch( ... ) { return false; }

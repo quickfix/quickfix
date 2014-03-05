@@ -1,6 +1,6 @@
-require 'ReflectorClient'
+require './ReflectorClient'
 require 'runit/testcase'
-require 'ReflectorServer'
+require './ReflectorServer'
 require "thread"
 
 class ReflectorClientTestCase < RUNIT::TestCase

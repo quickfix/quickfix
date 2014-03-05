@@ -1,4 +1,11 @@
+debug
+release
+*.user
+*.sdf
+*.opensdf
+*.suo
 *~
+*.lib
 *.lo
 *.in
 Makefile
@@ -52,4 +59,6 @@ test/at
 test/pt
 test/ut
 test/ut_debug
+test/cfg
+test/store
 autom4te.cache/

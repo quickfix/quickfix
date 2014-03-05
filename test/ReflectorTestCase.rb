@@ -1,4 +1,4 @@
-require 'Reflector'
+require './Reflector'
 
 class MockReflector < Reflector
   def getTime

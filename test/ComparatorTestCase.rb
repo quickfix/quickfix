@@ -1,4 +1,4 @@
-require 'Comparator'
+require './Comparator'
 require 'runit/testcase'
 
 class ComparatorTestCase < RUNIT::TestCase

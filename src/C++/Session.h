@@ -50,7 +50,7 @@ public:
            const DataDictionaryProvider&,
            const TimeRange&,
            int heartBtInt, LogFactory* pLogFactory );
-  ~Session();
+  virtual ~Session();
 
   void logon() 
   { m_state.enabled( true ); m_state.logoutReason( "" ); }

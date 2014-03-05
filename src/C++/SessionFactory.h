@@ -57,6 +57,7 @@ public:
 
   Session* create( const SessionID& sessionID,
                    const Dictionary& settings ) throw( ConfigError );
+  void destroy( Session* pSession );
 
 private:
   typedef std::map < std::string, DataDictionary* > Dictionaries;

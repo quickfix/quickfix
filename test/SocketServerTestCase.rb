@@ -1,4 +1,4 @@
-require 'SocketServer'
+require './SocketServer'
 require 'runit/testcase'
 require "thread"
 

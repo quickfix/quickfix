@@ -16,8 +16,8 @@
 # not clear to you.
 #****************************************************************************
 
-require 'ReflectorClient'
-require 'Comparator'
+require './ReflectorClient'
+require './Comparator'
 
 def extendProcess(c)
 

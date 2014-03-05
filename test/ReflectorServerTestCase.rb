@@ -1,4 +1,4 @@
-require 'ReflectorServer'
+require './ReflectorServer'
 require 'runit/testcase'
 require "thread"
 
