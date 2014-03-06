@@ -153,7 +153,7 @@ void MySQLLogFactory::init( const Dictionary& settings,
     try { host = settings.getString( MYSQL_LOG_HOST ); }
     catch( ConfigError& ) {}
 
-    try { port = ( short ) settings.getLong( MYSQL_LOG_PORT ); }
+    try { port = ( short ) settings.getInt( MYSQL_LOG_PORT ); }
     catch( ConfigError& ) {}
   }
   else

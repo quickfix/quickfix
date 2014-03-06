@@ -154,7 +154,7 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictiona
   try { host = settings.getString( POSTGRESQL_STORE_HOST ); }
   catch( ConfigError& ) {}
 
-  try { port = ( short ) settings.getLong( POSTGRESQL_STORE_PORT ); }
+  try { port = ( short ) settings.getInt( POSTGRESQL_STORE_PORT ); }
   catch( ConfigError& ) {}
 
   DatabaseConnectionID id( database, user, password, host, port );

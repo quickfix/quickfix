@@ -57,7 +57,7 @@ TEST(readFromIstream)
 
   Settings::Sections foo = object.get( "FOO" );
   CHECK_EQUAL( 1, foo.size() );
-  CHECK_EQUAL( 24, foo[ 0 ].getLong( "bar" ) );
+  CHECK_EQUAL( 24, foo[ 0 ].getInt( "bar" ) );
   CHECK_EQUAL( "moo", foo[ 0 ].getString( "baz" ) );
   CHECK_EQUAL( 2, foo[ 0 ].size() );
 

@@ -70,13 +70,13 @@ throw ( ConfigError )
   const Dictionary& dict = s.get();
 
   if( dict.has( RECONNECT_INTERVAL ) )
-    m_reconnectInterval = dict.getLong( RECONNECT_INTERVAL );
+    m_reconnectInterval = dict.getInt( RECONNECT_INTERVAL );
   if( dict.has( SOCKET_NODELAY ) )
     m_noDelay = dict.getBool( SOCKET_NODELAY );
   if( dict.has( SOCKET_SEND_BUFFER_SIZE ) )
-    m_sendBufSize = dict.getLong( SOCKET_SEND_BUFFER_SIZE );
+    m_sendBufSize = dict.getInt( SOCKET_SEND_BUFFER_SIZE );
   if( dict.has( SOCKET_RECEIVE_BUFFER_SIZE ) )
-    m_rcvBufSize = dict.getLong( SOCKET_RECEIVE_BUFFER_SIZE );
+    m_rcvBufSize = dict.getInt( SOCKET_RECEIVE_BUFFER_SIZE );
 }
 
 void SocketInitiator::onInitialize( const SessionSettings& s )
@@ -246,13 +246,13 @@ void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
   if( d.has(hostString) && d.has(portString) )
   {
     address = d.getString( hostString );
-    port = ( short ) d.getLong( portString );
+    port = ( short ) d.getInt( portString );
   }
   else
   {
     num = 0;
     address = d.getString( SOCKET_CONNECT_HOST );
-    port = ( short ) d.getLong( SOCKET_CONNECT_PORT );
+    port = ( short ) d.getInt( SOCKET_CONNECT_PORT );
   }
 
   m_sessionToHostNum[ s ] = ++num;

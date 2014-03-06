@@ -102,30 +102,30 @@ TEST(readFromIstream)
 
   CHECK_EQUAL( "", object.get().getString( "Empty" ) );
 
-  CHECK_EQUAL( 4, object.get().getLong( "Value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "Value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "Value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "Value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "Value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "Value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "Value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "Value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "Value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "Value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "Value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "Value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "Value" ) );
 
   // case insensitivity
-  CHECK_EQUAL( 4, object.get().getLong( "value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "value" ) );
 
-  CHECK_EQUAL( 4, object.get().getLong( "VALUE" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "VALUE" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "VALUE" ) );
 }
 
 TEST(readFromIstreamDefaultLast)
@@ -193,30 +193,30 @@ TEST(readFromIstreamDefaultLast)
 
   CHECK_EQUAL( "", object.get().getString( "Empty" ) );
 
-  CHECK_EQUAL( 4, object.get().getLong( "Value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "Value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "Value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "Value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "Value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "Value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "Value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "Value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "Value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "Value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "Value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "Value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "Value" ) );
 
   // case insensitivity
-  CHECK_EQUAL( 4, object.get().getLong( "value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "value" ) );
 
-  CHECK_EQUAL( 4, object.get().getLong( "VALUE" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getLong( "VALUE" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "VALUE" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getInt( "VALUE" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getInt( "VALUE" ) );
 }
 
 TEST(readFromIstreamDuplicateSession)
@@ -284,12 +284,12 @@ TEST(stripSpaces)
   CHECK_EQUAL( "StringValue5", object.get().getString( "StringValue5" ) );
   CHECK_EQUAL( "StringValue6", object.get().getString( "StringValue6" ) );
 
-  CHECK_EQUAL( 1, object.get().getLong( "IntegerValue1" ) );
-  CHECK_EQUAL( 2, object.get().getLong( "IntegerValue2" ) );
-  CHECK_EQUAL( 3, object.get().getLong( "IntegerValue3" ) );
-  CHECK_EQUAL( 4, object.get().getLong( "IntegerValue4" ) );
-  CHECK_EQUAL( 5, object.get().getLong( "IntegerValue5" ) );
-  CHECK_EQUAL( 6, object.get().getLong( "IntegerValue6" ) );
+  CHECK_EQUAL( 1, object.get().getInt( "IntegerValue1" ) );
+  CHECK_EQUAL( 2, object.get().getInt( "IntegerValue2" ) );
+  CHECK_EQUAL( 3, object.get().getInt( "IntegerValue3" ) );
+  CHECK_EQUAL( 4, object.get().getInt( "IntegerValue4" ) );
+  CHECK_EQUAL( 5, object.get().getInt( "IntegerValue5" ) );
+  CHECK_EQUAL( 6, object.get().getInt( "IntegerValue6" ) );
 
   CHECK_EQUAL( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
   CHECK_EQUAL( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );

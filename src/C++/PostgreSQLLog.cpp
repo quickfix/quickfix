@@ -154,7 +154,7 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
     try { host = settings.getString( POSTGRESQL_LOG_HOST ); }
     catch( ConfigError& ) {}
 
-    try { port = ( short ) settings.getLong( POSTGRESQL_LOG_PORT ); }
+    try { port = ( short ) settings.getInt( POSTGRESQL_LOG_PORT ); }
     catch( ConfigError& ) {}
   }
   else

@@ -119,7 +119,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   HeartBtInt heartBtInt( 0 );
   if ( connectionType == "initiator" )
   {
-    heartBtInt = HeartBtInt( settings.getLong( HEARTBTINT ) );
+    heartBtInt = HeartBtInt( settings.getInt( HEARTBTINT ) );
     if ( heartBtInt <= 0 ) throw ConfigError( "Heartbeat must be greater than zero" );
   }
 
@@ -178,11 +178,11 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( settings.has( CHECK_LATENCY ) )
     pSession->setCheckLatency( settings.getBool( CHECK_LATENCY ) );
   if ( settings.has( MAX_LATENCY ) )
-    pSession->setMaxLatency( settings.getLong( MAX_LATENCY ) );
+    pSession->setMaxLatency( settings.getInt( MAX_LATENCY ) );
   if ( settings.has( LOGON_TIMEOUT ) )
-    pSession->setLogonTimeout( settings.getLong( LOGON_TIMEOUT ) );
+    pSession->setLogonTimeout( settings.getInt( LOGON_TIMEOUT ) );
   if ( settings.has( LOGOUT_TIMEOUT ) )
-    pSession->setLogoutTimeout( settings.getLong( LOGOUT_TIMEOUT ) );
+    pSession->setLogoutTimeout( settings.getInt( LOGOUT_TIMEOUT ) );
   if ( settings.has( RESET_ON_LOGON ) )
     pSession->setResetOnLogon( settings.getBool( RESET_ON_LOGON ) );
   if ( settings.has( RESET_ON_LOGOUT ) )
