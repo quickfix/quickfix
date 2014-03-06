@@ -44,7 +44,7 @@ Log* FileLogFactory::create()
     if( settings.has( FILE_LOG_BACKUP_PATH ) )
       backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
 
-    return m_globalLog = new FileLog( path );
+    return m_globalLog = new FileLog( path, backupPath );
   }
   catch( ConfigError& )
   {
@@ -61,9 +61,14 @@ Log* FileLogFactory::create( const SessionID& s )
     return new FileLog( m_path, s );
 
   std::string path;
+  std::string backupPath;
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_LOG_PATH );
-  return new FileLog( path, s );
+  backupPath = path;
+  if( settings.has( FILE_LOG_BACKUP_PATH ) )
+    backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
+
+  return new FileLog( path, backupPath, s );
 }
 
 void FileLogFactory::destroy( Log* pLog )
@@ -87,6 +92,12 @@ FileLog::FileLog( const std::string& path )
 : m_millisecondsInTimeStamp( true )
 {
   init( path, path, "GLOBAL" );
+}
+
+FileLog::FileLog( const std::string& path, const std::string& backupPath )
+: m_millisecondsInTimeStamp( true )
+{
+  init( path, backupPath, "GLOBAL" );
 }
 
 FileLog::FileLog( const std::string& path, const SessionID& s )

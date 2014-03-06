@@ -71,6 +71,7 @@ class FileLog : public Log
 {
 public:
   FileLog( const std::string& path );
+  FileLog( const std::string& path, const std::string& backupPath );
   FileLog( const std::string& path, const SessionID& sessionID );
   FileLog( const std::string& path, const std::string& backupPath, const SessionID& sessionID );
   virtual ~FileLog();
