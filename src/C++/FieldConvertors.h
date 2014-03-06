@@ -37,15 +37,15 @@ namespace FIX
 template<class T>
 inline int number_of_symbols_in( T value )
 {
-	int symbols = value > 0 ? 0 : 1;
+  int symbols = value > 0 ? 0 : 1;
 
-	while ( value )
-	{
-		++symbols;
-		value /= 10;
-	}
+  while ( value )
+  {
+    ++symbols;
+    value /= 10;
+  }
 
-	return symbols;
+  return symbols;
 }
 
 template<class T>
@@ -443,7 +443,7 @@ struct UtcTimeStampConvertor
     {
       if( value[i++] != '.' ) throw FieldConvertError(value);
       for( c = 0; c < 3; ++c )
-	      if( !isdigit(value[i++]) ) throw FieldConvertError(value);
+        if( !isdigit(value[i++]) ) throw FieldConvertError(value);
     }
 
     int year, mon, mday, hour, min, sec, millis;
@@ -555,7 +555,7 @@ struct UtcTimeOnlyConvertor
     {
       // ++i instead of i++ skips the '.' separator
       for( c = 0; c < 3; ++c )
-	      if( !isdigit(value[++i]) ) throw FieldConvertError(value);
+        if( !isdigit(value[++i]) ) throw FieldConvertError(value);
     }
 
     int hour, min, sec, millis;

@@ -54,9 +54,9 @@ USER_DEFINE_UTCTIMEONLY( TestField19, 19 );
 
 TEST(countIntegerSymbols)
 {
-	CHECK_EQUAL(1, FIX::number_of_symbols_in( 0 ));
-	CHECK_EQUAL(2, FIX::number_of_symbols_in( -1 ));
-	CHECK_EQUAL(3, FIX::number_of_symbols_in( 926 ));
+  CHECK_EQUAL(1, FIX::number_of_symbols_in( 0 ));
+  CHECK_EQUAL(2, FIX::number_of_symbols_in( -1 ));
+  CHECK_EQUAL(3, FIX::number_of_symbols_in( 926 ));
 }
 
 TEST(emptyConvert)

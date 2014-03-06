@@ -38,8 +38,8 @@
 namespace FIX
 {
 void string_replace( const std::string& oldValue,
-		             const std::string& newValue,
-		             std::string& value )
+                     const std::string& newValue,
+                     std::string& value )
 {
   for( std::string::size_type pos = value.find(oldValue);
        pos != std::string::npos;

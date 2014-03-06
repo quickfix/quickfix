@@ -103,17 +103,17 @@ private:
   {
     if( m_calculated ) return;
 
-	int tagLength = FIX::number_of_symbols_in( m_field ) + 1;
-	m_length = tagLength + m_string.length() + 1;
+    int tagLength = FIX::number_of_symbols_in( m_field ) + 1;
+    m_length = tagLength + m_string.length() + 1;
 
-	m_data.resize( m_length );
+    m_data.resize( m_length );
 
-	char * buf = (char*)m_data.c_str();
-	FIX::integer_to_string(buf, tagLength, m_field);
+    char * buf = (char*)m_data.c_str();
+    FIX::integer_to_string(buf, tagLength, m_field);
 
-	buf[tagLength - 1] = '=';
-	memcpy( buf + tagLength, m_string.data(), m_string.length() );
-	buf[m_length - 1] = '\001';
+    buf[tagLength - 1] = '=';
+    memcpy( buf + tagLength, m_string.data(), m_string.length() );
+    buf[m_length - 1] = '\001';
 
     const unsigned char* iter = reinterpret_cast<const unsigned char*>( m_data.c_str() );
     m_total = std::accumulate( iter, iter + m_length, 0 );

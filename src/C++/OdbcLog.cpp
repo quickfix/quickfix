@@ -108,7 +108,7 @@ Log* OdbcLogFactory::create( const SessionID& s )
 
   Dictionary settings;
   if( m_settings.has(s) ) 
-	  settings = m_settings.get( s );
+    settings = m_settings.get( s );
 
   init( settings, database, user, connectionString );
   OdbcLog* result = new OdbcLog( s, database, user, connectionString );

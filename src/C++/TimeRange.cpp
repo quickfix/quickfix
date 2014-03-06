@@ -110,7 +110,7 @@ namespace FIX
                              const DateTime& endTime,
                              int startDay,
                              int endDay,
-							 const DateTime& time ) 
+               const DateTime& time ) 
   {
     return isInRange( startTime, endTime, startDay, endDay, time, time.getWeekDay() );
   }
@@ -139,7 +139,7 @@ namespace FIX
       if( time1 > time2 )
       {
         UtcTimeOnly time2TimeOnly = UtcTimeOnly(time2);
-	  	  
+
         long delta = time2TimeOnly - start;
         if( delta < 0 )
           delta = DateTime::SECONDS_PER_DAY - labs(delta);

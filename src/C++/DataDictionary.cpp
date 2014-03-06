@@ -574,9 +574,9 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
       {
         groupDD.addRequiredField(msgtype, field);
       }
-	    bool isRequired = false;
-	    if( attrs->get("required", required) )
-		  isRequired = (required == "Y" || required == "y");
+      bool isRequired = false;
+      if( attrs->get("required", required) )
+      isRequired = (required == "Y" || required == "y");
       addXMLGroup( pDoc, node.get(), msgtype, groupDD, isRequired );
     }
     if( delim == 0 ) delim = field;

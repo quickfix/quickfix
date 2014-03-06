@@ -187,11 +187,11 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
 
   SocketConnection* pSocketConnection = 0;
   if( i != m_connections.end() ) 
-	  pSocketConnection = i->second;
+    pSocketConnection = i->second;
   if( j != m_pendingConnections.end() )
-	  pSocketConnection = j->second;
+    pSocketConnection = j->second;
   if( !pSocketConnection )
-	  return;
+    return;
 
   setDisconnected( pSocketConnection->getSession()->getSessionID() );
 

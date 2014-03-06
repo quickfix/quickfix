@@ -367,27 +367,27 @@ TEST(getXML)
           << "  <header>" << std::endl
           << "    <field name=\"BeginString\" number=\"8\"><![CDATA[FIX.4.2]]></field>" << std::endl
           << "    <field name=\"MsgType\" number=\"35\" enum=\"Logon\"><![CDATA[A]]></field>" << std::endl
-	  << "    <field name=\"SenderCompID\" number=\"49\"><![CDATA[SENDER]]></field>" << std::endl
-	  << "    <field name=\"TargetCompID\" number=\"56\"><![CDATA[TARGET]]></field>" << std::endl
-	  << "  </header>" << std::endl
+          << "    <field name=\"SenderCompID\" number=\"49\"><![CDATA[SENDER]]></field>" << std::endl
+          << "    <field name=\"TargetCompID\" number=\"56\"><![CDATA[TARGET]]></field>" << std::endl
+          << "  </header>" << std::endl
           << "  <body>" << std::endl
-	  << "    <field name=\"Account\" number=\"1\"><![CDATA[ACCOUNT]]></field>" << std::endl
-	  << "    <field name=\"ClOrdID\" number=\"11\"><![CDATA[CLORDID]]></field>" << std::endl
-	  << "    <field name=\"IDSource\" number=\"22\" enum=\"CUSIP\"><![CDATA[1]]></field>" << std::endl
-	  << "    <field name=\"NoMsgTypes\" number=\"384\"><![CDATA[2]]></field>" << std::endl
-	  << "    <group>" << std::endl
-	  << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[A]]></field>" << std::endl
-	  << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[0]]></field>" << std::endl
-	  << "    </group>" << std::endl
-	  << "    <group>" << std::endl
-	  << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[0]]></field>" << std::endl
-	  << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[1]]></field>" << std::endl
-	  << "    </group>" << std::endl
-	  << "  </body>" << std::endl
-	  << "  <trailer>" << std::endl
-	  << "    <field name=\"CheckSum\" number=\"10\"><![CDATA[132]]></field>" << std::endl
-	  << "  </trailer>" << std::endl
-	  << "</message>";
+          << "    <field name=\"Account\" number=\"1\"><![CDATA[ACCOUNT]]></field>" << std::endl
+          << "    <field name=\"ClOrdID\" number=\"11\"><![CDATA[CLORDID]]></field>" << std::endl
+          << "    <field name=\"IDSource\" number=\"22\" enum=\"CUSIP\"><![CDATA[1]]></field>" << std::endl
+          << "    <field name=\"NoMsgTypes\" number=\"384\"><![CDATA[2]]></field>" << std::endl
+          << "    <group>" << std::endl
+          << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[A]]></field>" << std::endl
+          << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[0]]></field>" << std::endl
+          << "    </group>" << std::endl
+          << "    <group>" << std::endl
+          << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[0]]></field>" << std::endl
+          << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[1]]></field>" << std::endl
+          << "    </group>" << std::endl
+          << "  </body>" << std::endl
+          << "  <trailer>" << std::endl
+          << "    <field name=\"CheckSum\" number=\"10\"><![CDATA[132]]></field>" << std::endl
+          << "  </trailer>" << std::endl
+          << "</message>";
 
   CHECK_EQUAL( stream.str(), message.toXML() );
 }
@@ -597,7 +597,7 @@ TEST(testRequestGetString)
   object.set( TestReqID( "23" ) );
 
   CHECK_EQUAL( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001",
-	       object.toString() );
+               object.toString() );
 }
 
 TEST(testRequestSetString)

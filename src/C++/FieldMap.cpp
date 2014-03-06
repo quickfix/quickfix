@@ -100,7 +100,7 @@ void FieldMap::removeGroup( int num, int field )
   if( vector.size() == 0 )
   {
     m_groups.erase( field );
-	removeField( field );
+    removeField( field );
   }
   else
   {

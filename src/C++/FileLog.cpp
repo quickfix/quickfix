@@ -48,8 +48,8 @@ Log* FileLogFactory::create()
   }
   catch( ConfigError& )
   {
-	m_globalLogCount--;
-	throw;	
+  m_globalLogCount--;
+  throw;  
   }
 }
 
@@ -73,13 +73,13 @@ void FileLogFactory::destroy( Log* pLog )
     m_globalLogCount--;
     if( m_globalLogCount == 0 )
     {
-	    delete pLog;
-	    m_globalLogCount = 0;
-    }	
+      delete pLog;
+      m_globalLogCount = 0;
+    }  
   }
   else
   {
-  	delete pLog;
+    delete pLog;
   }
 }
 
@@ -120,7 +120,7 @@ std::string FileLog::generatePrefix( const SessionID& s )
 }
 
 void FileLog::init( std::string path, std::string backupPath, const std::string& prefix )
-{	
+{  
   file_mkdir( path.c_str() );
   file_mkdir( backupPath.c_str() );
 

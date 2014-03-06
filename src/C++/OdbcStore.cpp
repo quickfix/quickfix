@@ -118,7 +118,7 @@ void OdbcStore::populateCache()
     << "'" << m_sessionID.getSenderCompID().getValue() << "',"
     << "'" << m_sessionID.getTargetCompID().getValue() << "',"
     << "'" << m_sessionID.getSessionQualifier() << "',"
-	<< "{ts '" << sqlTime << "'},"
+    << "{ts '" << sqlTime << "'},"
     << m_cache.getNextTargetMsgSeqNum() << ","
     << m_cache.getNextSenderMsgSeqNum() << ")";
 

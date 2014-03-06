@@ -44,7 +44,7 @@ namespace FIX
     BSTR result;
     pNode->get_text(&result);
     value = (char*)_bstr_t(result);
-	::SysFreeString(result);
+    ::SysFreeString(result);
     pNode->Release();
     return true;
   }
@@ -85,8 +85,8 @@ namespace FIX
     BSTR result;
     m_pNode->get_nodeName(&result);
     std::string name = (char*)_bstr_t(result);
-	::SysFreeString(result);
-	return name;
+    ::SysFreeString(result);
+    return name;
   }
 
   std::string MSXML_DOMNode::getText()
@@ -94,8 +94,8 @@ namespace FIX
     BSTR result;
     m_pNode->get_text(&result);
     std::string text = (char*)_bstr_t(result);
-	::SysFreeString(result);
-	return text;
+    ::SysFreeString(result);
+    return text;
   }
 
   MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError )
@@ -161,7 +161,7 @@ namespace FIX
       HRESULT hr = m_pDoc->get_xml(&result);
       if( hr != S_OK ) return false;
       out << (char*)_bstr_t(result);
-	  ::SysFreeString(result);
+      ::SysFreeString(result);
       return true;
     }
     catch( ... ) { return false; }

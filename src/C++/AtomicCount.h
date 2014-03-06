@@ -26,7 +26,7 @@
 
 namespace FIX
 {
-	/// Atomic count class - consider using interlocked functions
+  /// Atomic count class - consider using interlocked functions
 
 #ifdef ENABLE_BOOST_ATOMIC_COUNT
 
@@ -35,71 +35,71 @@ typedef boost::detail::atomic_count atomic_count;
 
 #elif _MSC_VER 
 
-	//atomic counter based on interlocked functions for Win32
-	class atomic_count
-	{
-	public:
-		explicit atomic_count( long v ): m_counter( v )
-		{
-		}
+  //atomic counter based on interlocked functions for Win32
+  class atomic_count
+  {
+  public:
+    explicit atomic_count( long v ): m_counter( v )
+    {
+    }
 
-		long operator++()
-		{
-			return ::InterlockedIncrement( &m_counter );
-		}
+    long operator++()
+    {
+      return ::InterlockedIncrement( &m_counter );
+    }
 
-		long operator--()
-		{
-			return ::InterlockedDecrement( &m_counter );
-		}
+    long operator--()
+    {
+      return ::InterlockedDecrement( &m_counter );
+    }
 
-		operator long() const
-		{
-			return static_cast<long const volatile &>( m_counter );
-		}
+    operator long() const
+    {
+      return static_cast<long const volatile &>( m_counter );
+    }
 
-	private:
+  private:
 
-		atomic_count( atomic_count const & );
-		atomic_count & operator=( atomic_count const & );
+    atomic_count( atomic_count const & );
+    atomic_count & operator=( atomic_count const & );
 
-		long volatile m_counter;
-	};
+    long volatile m_counter;
+  };
 
 #else
-	// general purpose atomic counter using mutexes
-	class atomic_count
-	{
-	public:
-		explicit atomic_count( long v ): m_counter( v )
-		{
-		}
+  // general purpose atomic counter using mutexes
+  class atomic_count
+  {
+  public:
+    explicit atomic_count( long v ): m_counter( v )
+    {
+    }
 
-		long operator++()
-		{
-			Locker _lock(m_mutex);
-			return ++m_counter;
-		}
+    long operator++()
+    {
+      Locker _lock(m_mutex);
+      return ++m_counter;
+    }
 
-		long operator--()
-		{
-			Locker _lock(m_mutex);
-			return --m_counter;
-		}
+    long operator--()
+    {
+      Locker _lock(m_mutex);
+      return --m_counter;
+    }
 
-		operator long() const
-		{
-			return static_cast<long const volatile &>( m_counter );
-		}
+    operator long() const
+    {
+      return static_cast<long const volatile &>( m_counter );
+    }
 
-	private:
+  private:
 
-		atomic_count( atomic_count const & );
-		atomic_count & operator=( atomic_count const & );
+    atomic_count( atomic_count const & );
+    atomic_count & operator=( atomic_count const & );
 
-		Mutex m_mutex;
-		long m_counter;
-	};
+    Mutex m_mutex;
+    long m_counter;
+  };
 
 #endif
 

@@ -203,7 +203,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
 void SessionFactory::destroy( Session* pSession )
 {
-	delete pSession;
+  delete pSession;
 }
 
 const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 
