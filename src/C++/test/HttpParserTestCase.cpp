@@ -53,17 +53,15 @@ struct readHttpMessageFixture
 
 TEST_FIXTURE(readHttpMessageFixture, readHttpMessage)
 {
-  std::string readHttpMsg1;
-  CHECK( object.readHttpMessage( readHttpMsg1 ) );
-  CHECK_EQUAL( httpMsg1, readHttpMsg1 );
+  std::string readHttpMsg;
+  CHECK( object.readHttpMessage( readHttpMsg ) );
+  CHECK_EQUAL( httpMsg1, readHttpMsg );
 
-  std::string readHttpMsg2;
-  CHECK( object.readHttpMessage( readHttpMsg2 ) );
-  CHECK_EQUAL( httpMsg2, readHttpMsg2 );
+  CHECK( object.readHttpMessage( readHttpMsg ) );
+  CHECK_EQUAL( httpMsg2, readHttpMsg );
 
-  std::string readHttpMsg3;
-  CHECK( object.readHttpMessage( readHttpMsg3 ) );
-  CHECK_EQUAL( httpMsg3, readHttpMsg3 );
+  CHECK( object.readHttpMessage( readHttpMsg ) );
+  CHECK_EQUAL( httpMsg3, readHttpMsg );
 }
 
 struct readPartialHttpMessageFixture

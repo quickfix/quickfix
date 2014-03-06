@@ -36,8 +36,7 @@ namespace FIX
 class HttpParser
 {
 public:
-  HttpParser()
-  : m_bufferSize( 0 ) {}
+  HttpParser() {}
   ~HttpParser() {}
 
   bool readHttpMessage( std::string& str )
@@ -50,7 +49,6 @@ public:
 
 private:
   std::string m_buffer;
-  int m_bufferSize;
 };
 }
 #endif //FIX_HTTPPARSER_H
