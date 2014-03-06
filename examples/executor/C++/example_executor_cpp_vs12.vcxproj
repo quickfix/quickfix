@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>example_executor_cpp_vs11</ProjectName>
+    <ProjectName>example_executor_cpp_vs12</ProjectName>
     <ProjectGuid>{AC97D259-3231-4575-8CA5-BF9EF79B5A87}</ProjectGuid>
-    <RootNamespace>example_executor_cpp_vs11</RootNamespace>
+    <RootNamespace>example_executor_cpp_vs12</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -43,10 +43,10 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)bin\debug\executor_cpp\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs11\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs12\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)bin\release\executor_cpp\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs11\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs12\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">executor_cpp</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">executor_cpp</TargetName>
@@ -130,7 +130,7 @@
     <ClInclude Include="Application.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\C++\quickfix_vs11.vcxproj">
+    <ProjectReference Include="..\..\..\src\C++\quickfix_vs12.vcxproj">
       <Project>{d5d558ea-bbac-4862-a946-d3881bace3b7}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

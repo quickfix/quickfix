@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>test_acceptance_runner_vs12</ProjectName>
+    <ProjectName>test_acceptance_runner_vs11</ProjectName>
     <ProjectGuid>{A58C8BD5-3602-4886-80A0-CD4FFED42144}</ProjectGuid>
     <RootNamespace>atrun_vs11</RootNamespace>
   </PropertyGroup>

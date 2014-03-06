@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>test_performance_vs12</ProjectName>
+    <ProjectName>test_performance_vs11</ProjectName>
     <ProjectGuid>{4E6CE474-47A1-4AC8-8161-9CD214664EBB}</ProjectGuid>
     <RootNamespace>test_performance_vs11</RootNamespace>
   </PropertyGroup>
