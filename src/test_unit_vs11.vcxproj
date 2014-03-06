@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>test_unit_vs11</ProjectName>
+    <ProjectName>test_unit</ProjectName>
     <ProjectGuid>{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}</ProjectGuid>
-    <RootNamespace>ut_vs11</RootNamespace>
+    <RootNamespace>ut</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

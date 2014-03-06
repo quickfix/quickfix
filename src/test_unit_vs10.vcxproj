@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>test_unit_vs10</ProjectName>
+    <ProjectName>test_unit</ProjectName>
     <ProjectGuid>{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}</ProjectGuid>
     <RootNamespace>ut_vc10</RootNamespace>
   </PropertyGroup>

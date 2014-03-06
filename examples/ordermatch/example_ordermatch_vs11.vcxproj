@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>example_ordermatch_vs11</ProjectName>
+    <ProjectName>example_ordermatch</ProjectName>
     <ProjectGuid>{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}</ProjectGuid>
-    <RootNamespace>example_ordermatch_vs11</RootNamespace>
+    <RootNamespace>example_ordermatch</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

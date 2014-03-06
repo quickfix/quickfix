@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>test_acceptance_runner_vs11</ProjectName>
+    <ProjectName>test_acceptance_runner</ProjectName>
     <ProjectGuid>{A58C8BD5-3602-4886-80A0-CD4FFED42144}</ProjectGuid>
-    <RootNamespace>atrun_vs11</RootNamespace>
+    <RootNamespace>atrun</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

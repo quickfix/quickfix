@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>example_executor_cpp_vs11</ProjectName>
+    <ProjectName>example_executor_cpp</ProjectName>
     <ProjectGuid>{AC97D259-3231-4575-8CA5-BF9EF79B5A87}</ProjectGuid>
-    <RootNamespace>example_executor_cpp_vs11</RootNamespace>
+    <RootNamespace>example_executor_cpp</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
