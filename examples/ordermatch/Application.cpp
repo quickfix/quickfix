@@ -60,8 +60,7 @@ void Application::onMessage( const FIX42::NewOrderSingle& message, const FIX::Se
   if ( ordType == FIX::OrdType_LIMIT )
     message.get( price );
   message.get( orderQty );
-  if ( message.isSetField( timeInForce ) )
-    message.get( timeInForce );
+  message.getFieldIfSet( timeInForce );
 
   try
   {

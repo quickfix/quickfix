@@ -89,9 +89,8 @@ void Message::reverseRoute( const Header& header )
   m_header.removeField( senderCompID.getField() );
   m_header.removeField( targetCompID.getField() );
 
-  if( header.isSetField( beginString ) )
+  if( header.getFieldIfSet( beginString ) )
   {
-    header.getField( beginString );
     if( beginString.getValue().size() )
       m_header.setField( beginString );
 
@@ -103,32 +102,28 @@ void Message::reverseRoute( const Header& header )
 
     if( beginString >= BeginString_FIX41 )
     {
-      if( header.isSetField( onBehalfOfLocationID ) )
+      if( header.getFieldIfSet( onBehalfOfLocationID ) )
       {
-        header.getField( onBehalfOfLocationID );
         if( onBehalfOfLocationID.getValue().size() )
           m_header.setField( DeliverToLocationID( onBehalfOfLocationID ) );
       }
 
-      if( header.isSetField( deliverToLocationID ) )
+      if( header.getFieldIfSet( deliverToLocationID ) )
       {
-        header.getField( deliverToLocationID );
         if( deliverToLocationID.getValue().size() )
           m_header.setField( OnBehalfOfLocationID( deliverToLocationID ) );
       }
     }
   }
 
-  if( header.isSetField( senderCompID ) )
+  if( header.getFieldIfSet( senderCompID ) )
   {
-    header.getField( senderCompID );
     if( senderCompID.getValue().size() )
       m_header.setField( TargetCompID( senderCompID ) );
   }
 
-  if( header.isSetField( targetCompID ) )
+  if( header.getFieldIfSet( targetCompID ) )
   {
-    header.getField( targetCompID );
     if( targetCompID.getValue().size() )
       m_header.setField( SenderCompID( targetCompID ) );
   }
@@ -144,30 +139,26 @@ void Message::reverseRoute( const Header& header )
   m_header.removeField( deliverToCompID.getField() );
   m_header.removeField( deliverToSubID.getField() );
 
-  if( header.isSetField( onBehalfOfCompID ) )
+  if( header.getFieldIfSet( onBehalfOfCompID ) )
   {
-    header.getField( onBehalfOfCompID );
     if( onBehalfOfCompID.getValue().size() )
       m_header.setField( DeliverToCompID( onBehalfOfCompID ) );
   }
 
-  if( header.isSetField( onBehalfOfSubID ) )
+  if( header.getFieldIfSet( onBehalfOfSubID ) )
   {
-    header.getField( onBehalfOfSubID );
     if( onBehalfOfSubID.getValue().size() )
       m_header.setField( DeliverToSubID( onBehalfOfSubID ) );
   }
 
-  if( header.isSetField( deliverToCompID ) )
+  if( header.getFieldIfSet( deliverToCompID ) )
   {
-    header.getField( deliverToCompID );
     if( deliverToCompID.getValue().size() )
       m_header.setField( OnBehalfOfCompID( deliverToCompID ) );
   }
 
-  if( header.isSetField( deliverToSubID ) )
+  if( header.getFieldIfSet( deliverToSubID ) )
   {
-    header.getField( deliverToSubID );
     if( deliverToSubID.getValue().size() )
       m_header.setField( OnBehalfOfSubID( deliverToSubID ) );
   }

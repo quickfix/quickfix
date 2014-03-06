@@ -45,8 +45,7 @@ public:
   {
     FIX::Message echo = message;
     FIX::PossResend possResend( false );
-    if ( message.getHeader().isSetField( possResend ) )
-      message.getHeader().getField( possResend );
+    message.getHeader().getFieldIfSet( possResend );
 
     FIX::ClOrdID clOrdID;
     message.getField( clOrdID );

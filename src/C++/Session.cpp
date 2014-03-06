@@ -224,8 +224,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   }
 
   ResetSeqNumFlag resetSeqNumFlag(false);
-  if( logon.isSetField(resetSeqNumFlag) )
-    logon.getField( resetSeqNumFlag );
+  logon.getFieldIfSet(resetSeqNumFlag);
   m_state.receivedReset( resetSeqNumFlag );
 
   if( m_state.receivedReset() )
@@ -251,8 +250,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   if ( !m_state.initiate() 
        || (m_state.receivedReset() && !m_state.sentReset()) )
   {
-    if( logon.isSetField(m_state.heartBtInt()) )
-      logon.getField( m_state.heartBtInt() );
+    logon.getFieldIfSet(m_state.heartBtInt());
     m_state.onEvent( "Received logon request" );
     generateLogon( logon );
     m_state.onEvent( "Responding to logon request" );
@@ -322,19 +320,16 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
 {
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
-  if ( sequenceReset.isSetField( gapFillFlag ) )
+  if ( sequenceReset.getFieldIfSet( gapFillFlag ) )
   {
-    sequenceReset.getField( gapFillFlag );
     isGapFill = gapFillFlag;
   }
 
   if ( !verify( sequenceReset, isGapFill, isGapFill ) ) return ;
 
   NewSeqNo newSeqNo;
-  if ( sequenceReset.isSetField( newSeqNo ) )
+  if ( sequenceReset.getFieldIfSet( newSeqNo ) )
   {
-    sequenceReset.getField( newSeqNo );
-
     m_state.onEvent( "Received SequenceReset FROM: "
                      + IntConvertor::convert( getExpectedTargetNum() ) +
                      " TO: " + IntConvertor::convert( newSeqNo ) );
@@ -397,9 +392,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     {
       msg.setStringHeader(*i);
       ApplVerID applVerID;
-      if( msg.getHeader().isSetField(applVerID) )
-        msg.getHeader().getField(applVerID);
-      else
+      if( !msg.getHeader().getFieldIfSet(applVerID) )
         applVerID = m_senderDefaultApplVerID;
 
       const DataDictionary& applicationDD =
@@ -472,8 +465,7 @@ bool Session::sendRaw( Message& message, int num )
     Header& header = message.getHeader();
 
     MsgType msgType;
-    if( header.isSetField(msgType) )
-      header.getField( msgType );
+    header.getFieldIfSet(msgType);
 
     fill( header );
     std::string messageString;
@@ -488,8 +480,8 @@ bool Session::sendRaw( Message& message, int num )
       if( msgType == "A" && !m_state.receivedReset() )
       {
         ResetSeqNumFlag resetSeqNumFlag( false );
-        if( message.isSetField(resetSeqNumFlag) )
-          message.getField( resetSeqNumFlag );
+        message.getFieldIfSet(resetSeqNumFlag);
+
         if( resetSeqNumFlag )
         {
           m_state.reset();
@@ -738,9 +730,8 @@ void Session::generateReject( const Message& message, int err, int field )
   MsgType msgType;
 
   message.getHeader().getField( msgType );
-  if( message.getHeader().isSetField( msgSeqNum ) )
+  if( message.getHeader().getFieldIfSet( msgSeqNum ) )
   {
-    message.getHeader().getField( msgSeqNum );
     if( msgSeqNum.getString() != "" )
       reject.setField( RefSeqNum( msgSeqNum ) );
   }
@@ -1083,12 +1074,11 @@ bool Session::doPossDup( const Message& msg )
 
   if ( msgType != MsgType_SequenceReset )
   {
-    if ( !header.isSetField( origSendingTime ) )
+    if ( !header.getFieldIfSet( origSendingTime ) )
     {
       generateReject( msg, SessionRejectReason_REQUIRED_TAG_MISSING, origSendingTime.getField() );
       return false;
     }
-    header.getField( origSendingTime );
 
     if ( origSendingTime > sendingTime )
     {
@@ -1105,8 +1095,7 @@ bool Session::doTargetTooLow( const Message& msg )
   const Header & header = msg.getHeader();
   PossDupFlag possDupFlag(false);
   MsgSeqNum msgSeqNum;
-  if( header.isSetField(possDupFlag) )
-    header.getField( possDupFlag );
+  header.getFieldIfSet(possDupFlag);
   header.getField( msgSeqNum );
 
   if ( !possDupFlag )
@@ -1253,8 +1242,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
     if( m_sessionID.isFIXT() && message.isApp() )
     {
       ApplVerID applVerID = m_targetDefaultApplVerID;
-      if( header.isSetField(FIELD::ApplVerID) )
-        header.getField(applVerID);
+      header.getFieldIfSet(applVerID);
       const DataDictionary& applicationDataDictionary = 
         m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
       DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );

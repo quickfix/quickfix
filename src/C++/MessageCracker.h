@@ -84,14 +84,10 @@ public:
       else
       {
         ApplVerID applVerID;
-        if(!message.getHeader().isSetField(applVerID))
+        if(!message.getHeader().getFieldIfSet(applVerID))
         {
           Session* pSession = Session::lookupSession( sessionID );
           applVerID = pSession->getSenderDefaultApplVerID();
-        }
-        else
-        {
-          message.getHeader().getField( applVerID );
         }
 
         crack( message, sessionID, applVerID );
@@ -153,14 +149,10 @@ public:
       else
       {
         ApplVerID applVerID;
-        if(!message.getHeader().isSetField(applVerID))
+        if(!message.getHeader().getFieldIfSet(applVerID))
         {
           Session* pSession = Session::lookupSession( sessionID );
           applVerID = pSession->getSenderDefaultApplVerID();
-        }
-        else
-        {
-          message.getHeader().getField( applVerID );
         }
 
         crack( message, sessionID, applVerID );
