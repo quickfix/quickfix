@@ -351,9 +351,9 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
        
     // Start a new group because...
     if (// found delimiter
-		(field.getField() == delim) ||
-		// no delimiter, but field belongs to group OR field already processed
-		(pDD->isField( field.getField() ) && (pGroup.get() == 0 || pGroup->isSetField( field.getField() )) ))
+    (field.getField() == delim) ||
+    // no delimiter, but field belongs to group OR field already processed
+    (pDD->isField( field.getField() ) && (pGroup.get() == 0 || pGroup->isSetField( field.getField() )) ))
     {
       if ( pGroup.get() )
       {

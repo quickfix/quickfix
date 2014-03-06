@@ -15,7 +15,7 @@ set DIR=release\pt
 goto start
 
 :start
-%DIR%\pt.exe -p %2 -c 50000
+%DIR%\pt.exe -p %2 -c 500000
 goto quit
 
 :usage
