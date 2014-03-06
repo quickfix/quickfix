@@ -1,15 +1,13 @@
 echo off
-set COMMAND=%1
 
-set PROFILE=%2
+set TARGET=%1
+set CONFIGURATION=%2
+set NET_VERSION=%3
 
-set VSPATH=%3
+if "%1" == "" set TARGET=Rebuild
+if "%2" == "" set CONFIGURATION=Release
+if "%3" == "" set NET_VERSION=v4.5
 
-if "%1" == "" set COMMAND=build
-
-if "%2" == "" set PROFILE=Release
-
-devenv quickfix_vs10.sln /%COMMAND% %PROFILE%
-
-if ERRORLEVEL 1 goto quit
-:quit
+set BUILD_CMD=MSBuild.exe quickfix_vs10.sln /t:%TARGET% /p:Configuration=%CONFIGURATION%;TargetFrameworkVersion=%NET_VERSION%
+echo Build command: %BUILD_CMD%
+%BUILD_CMD%
