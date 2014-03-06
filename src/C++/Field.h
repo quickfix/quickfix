@@ -176,7 +176,7 @@ private:
   {
     int checksum = 0;
     for ( std::string::const_iterator str = start; str != end; ++str )
-      checksum += unsigned char( *str );
+      checksum += (unsigned char)( *str );
 
     return field_metrics( std::distance( start, end ), checksum );
   }
