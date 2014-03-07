@@ -66,10 +66,10 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 
 bool ThreadedSocketConnection::send( const std::string& msg )
 {
-  unsigned totalSent = 0;
+  int totalSent = 0;
   while(totalSent < msg.length())
   {
-    unsigned sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
+    int sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
     if(sent < 0) return false;
     totalSent += sent;
   }
