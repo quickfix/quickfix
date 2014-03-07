@@ -9,9 +9,9 @@
 * <tr>
 * <td valign='top'>
 * <a href="dependencies.html">Dependencies</a><br>
-* <a href="building.html">Building QuickFIX</a><br>
+* <a href="building.html">Building</a><br>
 * <a href="generating_databases.html">Generating Databases</a><br>
-* <a href="testing.html">Testing QuickFIX</a><br>
+* <a href="testing.html">Testing</a><br>
 * </td>
 * <td valign='top'>
 * <a href="project.html">Setting Up Your Project</a><br>

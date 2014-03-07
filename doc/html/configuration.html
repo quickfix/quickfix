@@ -2,10 +2,18 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Configuring QuickFIX</title>
-    <H1>Configuring QuickFIX</H1>
   </head>
+
   <body>
+    <div class='header'>
+      <div class='headerTitle'>
+        Configuring QuickFIX
+      </div>
+    </div>
+
+  <div class='contents'>
   <p>
   A quickfix acceptor or initiator can maintain as many FIX sessions as you would like. A FIX
   session is defined in QuickFIX as a unique combination of a <B>BeginString</B> (the FIX version number),
@@ -62,7 +70,7 @@
     <TD> <I>BeginString</I> </TD>
     <TD> Version of FIX this session should use </TD>
     <TD> FIXT.1.1 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
-    <TD> </TD
+    <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SenderCompID</I> </TD>
@@ -86,7 +94,8 @@
     <TD> <I>DefaultApplVerID</I> </TD>
     <TD> Required only for FIXT 1.1 (and newer). Ignored for earlier transport versions. Specifies the default application version ID for the session. This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version. </TD>
     <TD> FIX.5.0SP2 <br> FIX.5.0SP1 <br> FIX.5.0 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 <br> 9 <br> 8 <br> 7 <br> 6 <br> 5 <br> 4 <br> 3 <br> 2 </TD>
-    <TD>
+    <TD> </TD>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ConnectionType</I> </TD>
     <TD> Defines if session will act as an acceptor or an initiator </TD>
@@ -185,6 +194,7 @@
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>AppDataDictionary</I> </TD>
     <TD> XML definition file for validating application messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information. <br><br>This setting supports the possibility of a custom application data dictionary for each session. This setting would only be used with FIXT 1.1 and new transport protocols. This setting can be used as a prefix to specify multiple application dictionaries for the FIXT transport. For example:
+<div class='fragment'>
 <pre><code>
 DefaultApplVerID=FIX.4.2
 # For default application version ID
@@ -192,7 +202,8 @@ AppDataDictionary=FIX42.xml
 # For nondefault application version ID
 # Use BeginString suffix for app version
 AppDataDictionary.FIX.4.4=FIX44.xml
-</code></pre></TD>
+</code></pre>
+</div></TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory</br><br>FIX50SP2.xml <br>FIX50SP1.xml <br>FIX50.xml <br>FIX44.xml <br> FIX43.xml <br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
     <TD> </TD>
   </TR>
@@ -295,7 +306,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
              and have a matching SocketConnectHost[n]</TD>
     <TD> positive integer </TD>
     <TD> </TD>
-    </TR>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketConnectHost&lt;n&gt;</I> </TD>
     <TD> Alternate socket hosts for connecting to a session for failover, where <B>n</B> is a
@@ -362,6 +373,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> Name of MySQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreUser</I> </TD>
     <TD> User name logging in to MySQL database. </TD>
@@ -402,6 +414,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> Name of PostgreSQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStoreUser</I> </TD>
     <TD> User name logging in to PostgreSQL database. </TD>
@@ -481,6 +494,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> Name of MySQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogUser</I> </TD>
     <TD> User name logging in to MySQL database. </TD>
@@ -539,6 +553,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> Name of PostgreSQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
+  </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogUser</I> </TD>
     <TD> User name logging in to PostgreSQL database. </TD>
@@ -636,16 +651,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     Here is a typical settings file you might find in a firm that wants to connect to several ECNs.
   </p>
 
-  <B><CODE><PRE>
-  </B># default settings for sessions<B>
+  <div class='fragment'>
+  <CODE><PRE>
+  # default settings for sessions
   [DEFAULT]
   ConnectionType=initiator
   ReconnectInterval=60
   SenderCompID=TW
 
-  </B># session definition<B>
+  # session definition
   [SESSION]
-  </B># inherit ConnectionType, ReconnectInterval and SenderCompID from default<B>
+  # inherit ConnectionType, ReconnectInterval and SenderCompID from default
   BeginString=FIX.4.1
   TargetCompID=ARCA
   StartTime=12:30:00
@@ -670,17 +686,19 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   TargetCompID=INCA
   StartTime=12:30:00
   EndTime=21:30:00
-  </B># overide default setting for RecconnectInterval<B>
+  # overide default setting for RecconnectInterval
   ReconnectInterval=30
   HeartBtInt=30
   SocketConnectPort=6523
   SocketConnectHost=3.3.3.3
-  </B># (optional) alternate connection ports and hosts to cycle through on failover<B>
+  # (optional) alternate connection ports and hosts to cycle through on failover
   SocketConnectPort1=8392
   SocketConnectHost1=8.8.8.8
   SocketConnectPort2=2932
   SocketConnectHost2=12.12.12.12
   DataDictionary=somewhere/FIX42.xml
-  </PRE></CODE></B>
-  </head>
+  </PRE></CODE>
+  </div>
+  </div>
+  </body>
 </html>

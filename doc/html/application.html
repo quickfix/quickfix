@@ -1,16 +1,24 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
 	<head>
+		<link href="doxygen.css" rel="stylesheet" type="text/css">
 		<title>Creating Your Application</title>
 	</head>
 	<BODY>
-		<H1>Creating Your Application</H1>
+		<div class='header'>
+      		<div class='headerTitle'>
+       			Setting Up Your Project
+      		</div>
+    	</div>
+
+    	<div class='contents'>
 		<p>
 			Creating a FIX application is as easy as implementing the QuickFIX Application
 			interface. The C++ interface is defined in the following code segment:
 		</p>
 		See this code in <a href="python/application_1.html">PYTHON</a>, <a href="ruby/application_1.html">RUBY</a>
-  <B><CODE><PRE>
+  <div class='fragment'>
+  <code><pre>
   namespace FIX
   {
     class Application
@@ -29,7 +37,8 @@
         throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
     };
   }
-  </PRE></CODE></B>
+  </pre></code>
+  </div>
 		<p>
 			By implementing these functions in your derived class, you are requesting to be
 			notified of events that occur on the FIX engine. The function you that you
@@ -97,6 +106,7 @@
 				can also be thrown if a field contains a value that is out of range or you do
 				not support.
 			</UL>
+		</p>
 		<P></P>
 		<p>
 			The sample code below shows how you might start up a FIX acceptor which listens
@@ -104,7 +114,8 @@
 			in this code fragment with a <i>SocketInitiator</i>.
 		</p>
 		See this code in <a href="python/application_2.html">PYTHON</a>, <a href="ruby/application_2.html">RUBY</a>
-  <B><CODE><PRE>
+  <div class='fragment'>
+  <CODE><PRE>
   #include "quickfix/FileStore.h"
   #include "quickfix/FileLog.h"
   #include "quickfix/SocketAcceptor.h"
@@ -137,6 +148,8 @@
       return 1;
     }
   }
-  </PRE></CODE></B>
+  </PRE></CODE>
+  </div>
+  </div>
   </BODY>
 </html>

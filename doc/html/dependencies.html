@@ -2,17 +2,24 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>QuickFIX Dependencies</title>
-    <H1>QuickFIX Dependencies</H1>
   </head>
 
-  <UL>
-    <LI><A HREF="#Required Dependencies">Required Dependencies</A></LI>
-    <LI><A HREF="#Optional Dependencies">Optional Dependencies</A></LI>
-  </UL>
-
   <body>
-    <A NAME="Required Dependencies"/>
+    <div class='header'>
+      <div class='headerTitle'>
+        QuickFIX Dependencies
+      </div>
+    </div>
+
+    <div class='contents'>
+    <UL>
+      <LI><A HREF="#Required Dependencies">Required Dependencies</A></LI>
+      <LI><A HREF="#Optional Dependencies">Optional Dependencies</A></LI>
+    </UL>
+
+    <A NAME="Required Dependencies"></A>
     <H2>Required Dependencies</H2>
     <p>
       Below is a list of tools that QuickFIX is dependent on for various uses.  The uses
@@ -27,7 +34,7 @@
       library. All three should be installed for a developer intent on modifying the QuickFIX
       library code itself. The testing framework, however, should be useful in any configuration.
     </p>
-    <table border=5 cellspacing=5 cellpadding=5 width="100%">
+    <table border=5 cellspacing=1 cellpadding=5 width="100%">
       <tbody>
         <tr>
           <td align=center><B>Windows</B></td>
@@ -125,7 +132,7 @@
       </tbody>
     </table>
 
-    <A NAME="Optional Dependencies"/>
+    <A NAME="Optional Dependencies"></A>
     <H2>Optional Dependencies</H2>
     <p>
     In addition to the required dependencies listed above, there are some dependencies if you would
@@ -136,5 +143,6 @@
     <A HREF="http://www.postgresql.org/download/">PostgreSQL</A>
     <A HREF="http://www.stlport.org/download.html">STLport</A>
     </p>
+  </div>
   </body>
 </html>

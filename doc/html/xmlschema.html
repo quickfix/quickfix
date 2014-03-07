@@ -2,10 +2,18 @@
 
 <html>
   <head>
+   <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Validation</title>
-    <H1>Validation</H1>
   </head>
+
   <body>
+    <div class='header'>
+      <div class='headerTitle'>
+        Validation
+      </div>
+    </div>
+
+  <div class='contents'>
   <p>
   QuickFIX will validate and reject any messages that do not conform to the FIX specifications.
   This means that it will reject any poorly formed messages without bothering you at the application
@@ -18,7 +26,7 @@
   QuickFIX comes with several definition files. These are <B>FIX40.xml</B>, <B>FIX41.xml</B>,
   <B>FIX42.xml</B>, <B>FIX43.xml</B> and <B>FIX44.xml</B>. These are directly generated off their respected fix specification documents.
   But the power comes in modifying these documents or creating new ones for your specific needs.
-  <p>
+  </p>
   <p>
   If, for instance, you need to define a FIX spec for a sell side application.  Why not define the
   spec in XML and then just publish the XML file to your clients! Not only is your FIX spec fully documented
@@ -34,7 +42,8 @@
   <p>
   The skeleton of a definition file looks like this.
   </p>
-  <PRE><B>
+  <div class='fragment'>
+  <PRE>
   &lt;fix type="FIX" major="4" minor="1">
     &lt;header>
       &lt;field name="BeginString" required="Y"/>
@@ -67,11 +76,14 @@
      ...
     &lt;/fields>
   &lt;/fix>
-  </PRE></B>
+  </PRE>
+  </div>
 
   <p>
   The validator will not reject conditionally required fields because the rules for them are not
   clearly defined and are often debatable. QuickFIX will reject a conditonally required field when
   you try to pull it out in your <B>fromApp</B> function if you try to get a field that is not there.
+  </p>
+  </div>
   </body>
 </html>

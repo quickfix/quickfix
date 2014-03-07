@@ -2,17 +2,23 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Building QuickFIX</title>
-    <H1>Building QuickFIX</H1>
   </head>
 
-  <UL>
-    <LI><A HREF="#Windows (C++)">Windows (C++)</A></LI>
-    <LI><A HREF="#Linux / Solaris / FreeBSD / Mac OS X (C++/Java)">Linux / Solaris / FreeBSD / Mac OS X  (C++/Java)</A></LI>
-  </UL>
-
   <body>
-    <A NAME="Windows (C++)"/>
+     <div class='header'>
+      <div class='headerTitle'>
+        Building QuickFIX
+      </div>
+    </div>
+
+    <div class='contents'>
+    <UL>
+      <LI><A HREF="#Windows (C++)">Windows (C++)</A></LI>
+      <LI><A HREF="#Linux / Solaris / FreeBSD / Mac OS X (C++/Java)">Linux / Solaris / FreeBSD / Mac OS X  (C++/Java)</A></LI>
+    </UL>
+    <A NAME="Windows (C++)"></A>
     <H3>Windows (C++)</H3>
     <p>
       Solution and project files are provided for building under Visual Studio.  QuickFIX supports Visual Studio 10 (2010), 
@@ -50,6 +56,7 @@
       <FONT color="#0000FF">#define ENABLE_CALLSTACK 1</FONT>
       Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of a the process crashing.  Only use this when trying to track down a repeatable problem.<br/>
     </p>
+    <A NAME="Linux / Solaris / FreeBSD / Mac OS X (C++/Java)"></A>
     <H3>Linux / Solaris / FreeBSD / Mac OS X (C++/Java)</H3>
     <p>
       QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
@@ -95,8 +102,9 @@
       have root access, you can also run configure with the
       <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
       is some directory which your account has write
-      access. <B>note: </b> under Mac OS X, the library is named
+      access. <B>note: </B> under Mac OS X, the library is named
       called <B>libquickfix.dylib</B>
     </p>
+  </div>
   </body>
 </html>

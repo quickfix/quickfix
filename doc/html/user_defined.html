@@ -2,20 +2,31 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>User Defined Fields</title>
-    <H1>User Defined Fields</H1>
   </head>
+
   <body>
+  <div class='header'>
+    <div class='headerTitle'>
+      User Defined Fields
+    </div>
+  </div>
+
+  <div class='contents'>
   <p>
     FIX allows for users to define their own fields that do not belong to the spec. How can QuickFIX
     be used to set and get user defined fields? Well one answer would be to use the non-type safe
     set and get fields like so:
   </p>
   See this code in <a href="python/user_defined_1.html">PYTHON</a>, <a href="ruby/user_defined_1.html">RUBY</a>
-  <PRE><B>
+
+  <div class='fragment'>
+  <PRE>
   message.setField(6123, "value");
   message.getField(6123);
-  </PRE></B>
+  </PRE>
+  </div>
 
   <p>
     But there is a better way. Instead of using this non type safe method, why not bring your own
@@ -23,7 +34,9 @@
     that. Now you can define your user defined fields in a separate file like this.
   </p>
   See this code in <a href="python/user_defined_2.html">PYTHON</a>, <a href="ruby/user_defined_2.html">RUBY</a>
-  <PRE><B>
+
+  <div class='fragment'>
+  <PRE>
   #include "quickfix/Field.h"
 
   namespace FIX
@@ -31,14 +44,16 @@
     USER_DEFINE_STRING(MyStringField, 6123);
     USER_DEFINE_PRICE(MyPriceField, 8756);
   }
-  </PRE></B>
+  </PRE>
+  </div>
 
   <p>
   User defined fields must be declared within the <B>FIX</B> namespace.
   Now, elsewhere in your application, you can write code like this:
   </p>
   See this code in <a href="python/user_defined_3.html">PYTHON</a>, <a href="ruby/user_defined_3.html">RUBY</a>
-  <PRE><B>
+  <div class='fragment'>
+  <PRE>
   MyStringField stringField("string");
   MyPriceField priceField(14.54);
 
@@ -47,14 +62,17 @@
 
   message.getField(stringField);
   message.getField(priceField);
-  </PRE></B>
+  </PRE>
+  </div>
 
   <p>
   Here is a list of macros that allow you to define fields of all supported FIX types, but keep
   in mind you can write fields of wildly different types if you supply a new macro and convertor
   that can convert your type to and from a string. Here is the list of macros:
   </p>
-  <PRE><B>
+
+  <div class='fragment'>
+  <PRE>
   USER_DEFINE_STRING( NAME, NUM )
   USER_DEFINE_CHAR( NAME, NUM )
   USER_DEFINE_PRICE( NAME, NUM )
@@ -79,6 +97,9 @@
   USER_DEFINE_LENGTH( NAME, NUM )
   USER_DEFINE_PERCENTAGE( NAME, NUM )
   USER_DEFINE_COUNTRY( NAME, NUM )
-  </PRE></B>
+  </PRE>
+  </div>
+
+  </div>
   </body>
 </html>

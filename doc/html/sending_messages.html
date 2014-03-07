@@ -2,15 +2,24 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Sending Messages</title>
-    <H1>Sending Messages</H1>
   </head>
+
   <body>
+   <div class='header'>
+    <div class='headerTitle'>
+      Sending Messages
+    </div>
+  </div>
+ 
+  <div class='contents'>
     <p>
     Messages can be sent to a counter party with the static <B>Session::sendToTarget</B> methods.
     This method has several signatures. They are:
     </p>
 	See this code in <a href="python/sending_messages_1.html">PYTHON</a>, <a href="ruby/sending_messages_1.html">RUBY</a>
+    <div class='fragment'>
     <PRE>
     // send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
     <B>static bool sendToTarget( Message&, const std::string& qualifier = "" )
@@ -30,6 +39,7 @@
     <B>static bool sendToTarget( Message&, const std::string&, const std::string&, const std::string& qualifier = "" )
       throw(SessionNotFound&);</B>
     </PRE>
+    </div>
 
     <H1>Creating Messages</H1>
     As for creating messages, just like reading them, there are several levels of type safety. And
@@ -42,7 +52,8 @@
     <B>do not</B> use this for writing applications.
     </p>
     See this code in <a href="python/sending_messages_2.html">PYTHON</a>, <a href="ruby/sending_messages_2.html">RUBY</a>
-    <B><PRE>
+    <div class='fragment'>
+    <PRE>
     void sendOrderCancelRequest()
     {
       FIX::Message message;
@@ -67,7 +78,8 @@
 
       FIX::Session::sendToTarget(message);
     }
-    </PRE></B>
+    </PRE>
+    </div>
 
     <H2>More Type Safe</H2>
     <p>
@@ -76,7 +88,8 @@
     FIX versions.
     </p>
     See this code in <a href="python/sending_messages_3.html">PYTHON</a>, <a href="ruby/sending_messages_3.html">RUBY</a>
-    <PRE><B>
+    <div class='fragment'>
+    <PRE>
     void sendOrderCancelRequest()
     {
       FIX::Message message;
@@ -94,19 +107,21 @@
 
       FIX::Session::sendToTarget(message);
     }
-    </PRE></B>
+    </PRE>
+    </div>
 
 	<H2>Most Type Safe... DO THIS!</H2>
 	<p>
 	Finally, the <B>highly recommended</B> method is to use the type safe message classes. This
 	should typically be the only way you should ever have to create messages. Here the constructor
 	takes in all the required fields and adds the correct <I>MsgType</I> and <I>BeginString</I> for you.
-	What's more, by using the <B>set</B> method instead of </B>setField</B>, the compiler will not let
+	What's more, by using the <B>set</B> method instead of <B>setField</B>, the compiler will not let
 	you add a field that is not a part of a <I>OrderCancelRequest</I> based on the FIX4.1 specs. Keep in
 	mind you can still use <B>setField</B> if you want to force any field you want into the message.
 	</p>
 	See this code in PYTHON(not supported), RUBY(not supported)
-	<B><PRE>
+  <div class='fragment'>
+	<PRE>
     void sendOrderCancelRequest()
     {
       FIX41::OrderCancelRequest message(
@@ -119,6 +134,8 @@
 
       FIX::Session::sendToTarget(message, SenderCompID("TW"), TargetCompID("TARGET"));
     }
-    </PRE></B>
+    </PRE>
+    </div>
+  </div>
   </body>
 </html>

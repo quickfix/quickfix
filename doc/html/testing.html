@@ -2,11 +2,18 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Testing QuickFIX</title>
-    <H1>Testing QuickFIX</H1>
   </head>
 
   <body>
+    <div class='header'>
+      <div class='headerTitle'>
+        Testing QuickFIX
+      </div>
+    </div>
+
+    <div class='contents'>
     <p>
       The development of QuickFIX has been driven by a suite of functional acceptance tests
       and unit tests.  We have been working incrementally, functional test by functional test,
@@ -17,7 +24,7 @@
       The developer unit tests are written in C++ and make direct calls into the code.  The
       functional acceptance tests are scripted FIX messages that are pumped into a running
       FIX server.  Most of these tests are based off of the
-      <a href="http://www.fixprotocol.org/ORGANIZATIONS/928202077/FIX_TestCase_SessionLevel20010710.doc">
+      <a href="http://www.fixtradingcommunity.org/mod/file/view.php?file_guid=30489">
       FIX Session-level Test Cases and Expected Behaviors document</a>
     </p>
     <p>
@@ -48,7 +55,7 @@
     <A NAME="Windows"/>
     <H3>Windows</H3>
     <table border=1 cellspacing=1 cellpadding=5 width="100%">
-	<tbody><tr><td align=left>
+	  <tbody><tr><td align=left>
       <H4>Unit Tests</H4>
       <p>
         Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
@@ -65,12 +72,12 @@
         This should be a port that is not already in use on your system. <B>runat_threaded.bat</B> is
         also provided if you want to test using threaded socket code. The parameters are the same.
       </p>
-    </td></tr></td></table>
+    </td></tr></td></tbody></table>
 
     <A NAME="Linux / Solaris / FreeBSD / Mac OS X"/>
     <H3>Linux / Solaris / FreeBSD / Mac OS X</H3>
     <table border=1 cellspacing=1 cellpadding=5 width="100%">
-	<tbody><tr><td align=left>
+	  <tbody><tr><td align=left>
       <H4>Unit Tests</H4>
 	  <p>
 	    Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
@@ -86,6 +93,6 @@
         also provided if you want to test using threaded socket code. The parameters are the same.
 	  </p>
     </td></tr></tbody></table>
-
+  </div>
   </body>
 </html>

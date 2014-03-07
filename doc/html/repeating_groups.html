@@ -2,10 +2,17 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Repeating Groups</title>
-    <H1>Repeating Groups</H1>
   </head>
+
   <body>
+   <div class='header'>
+    <div class='headerTitle'>
+      Repeating Groups
+    </div>
+  </div>
+  <div class='contents'>
     QuickFIX has the ability to send messages containing repeating groups and even recursive
     repeating groups. All repeating groups begin with a field that indicates how many repeating
     groups are in a set. A group can be created by referencing a class named after this field
@@ -21,25 +28,28 @@
     </p>
 
     See this code in <a href="python/repeating_groups_1.html">PYTHON</a>, <a href="ruby/repeating_groups_1.html">RUBY</a>
+
+    <div class="fragment">
     <PRE>
     // create a market data message
-    <B>FIX42::MarketDataSnapshotFullRefresh message(FIX::Symbol("QF"));</B>
+    FIX42::MarketDataSnapshotFullRefresh message(FIX::Symbol("QF"));
 
     // repeating group in the form of MessageName::NoField
-    <B>FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
+    FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
     group.set(FIX::MDEntryType('0'));
     group.set(FIX::MDEntryPx(12.32));
     group.set(FIX::MDEntrySize(100));
     group.set(FIX::OrderID("ORDERID"));
-    message.addGroup(group);</B>
+    message.addGroup(group);
 
     // no need to create a new group class if we are reusing the fields
-    <B>group.set(FIX::MDEntryType('1'));
+    group.set(FIX::MDEntryType('1'));
     group.set(FIX::MDEntryPx(12.32));
     group.set(FIX::MDEntrySize(100));
     group.set(FIX::OrderID("ORDERID"));
-    message.addGroup(group);</B>
+    message.addGroup(group);
     </PRE>
+    </div>
 
     <H2>Reading Messages With Repeating Groups</H2>
 
@@ -50,9 +60,11 @@
     </p>
 
     See this code in <a href="python/repeating_groups_2.html">PYTHON</a>, <a href="ruby/repeating_groups_2.html">RUBY</a>
+
+    <div class="fragment">
     <PRE>
     // should be 2
-    <B>FIX::NoMDEntries noMDEntries;
+    FIX::NoMDEntries noMDEntries;
     message.get(noMDEntries);
 
     FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
@@ -71,8 +83,10 @@
     group.get(MDEntryType);
     group.get(MDEntryPx);
     group.get(MDEntrySize);
-    group.get(orderID);</B>
+    group.get(orderID);
     </PRE>
+    </div>
 
+</div>
   </body>
 </html>

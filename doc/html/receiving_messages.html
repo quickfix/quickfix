@@ -2,10 +2,18 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Receiving Messages</title>
-    <H1>Receiving Messages</H1>
   </head>
+
   <body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Receiving Messages
+    </div>
+  </div>
+
+  <div class='contents'>
     <p>
     Most of the messages you will be interested in looking at will be arriving in your overloaded
     <B>fromApp</B> function of your application. You can get fields out of messages with different
@@ -26,22 +34,24 @@
     Here is a sample code segment for this type of retrieval:
     </p>
     See this code in <a href="python/receiving_messages_1.html">PYTHON</a>, <a href="ruby/receiving_messages_1.html">RUBY</a>
-    <B><PRE>
+    <div class='fragment'>
+    <PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
-      </B>// retreive value into string with integer field ID<B>
+      // retreive value into string with integer field ID
       std::string value;
       value = message.getField(44);
 
-      </B>// retrieve value into a field base with integer field ID<B>
+      // retrieve value into a field base with integer field ID
       FIX::FieldBase field(44, "");
       message.getField(field);
 
-      </B>// retreive value with an enumeration, a little better<B>
+      // retreive value with an enumeration, a little better
       message.getField(FIX::FIELD::Price);
     }
-    </PRE></B>
+    </PRE>
+    </div>
 
     <H2>More Type Safe</H2>
     <p>
@@ -52,19 +62,21 @@
     applications. This will also get fields as their appropriate type, not just as strings.
     </p>
     See this code in <a href="python/receiving_messages_2.html">PYTHON</a>, <a href="ruby/receiving_messages_2.html">RUBY</a>
-    <B><PRE>
+    <div class='fragment'>
+    <PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
-      </B>// retreive value into field class<B>
+      // retrieve value into field class
       FIX::Price price;
       message.getField(price);
 
-      </B>// another field...<B>
+      // another field...
       FIX::ClOrdID clOrdID;
       message.getField(clOrdID);
     }
-	</PRE></B>
+	</PRE>
+  </div>
 
 	<H2>Most Type Safe... DO THIS!</H2>
 	<p>
@@ -76,7 +88,8 @@
 	in mind you can still use <B>getField</B> as all of these classes derive from <B>Message</B>
 	</p>
     See this code in PYTHON(not supported), RUBY(not supported)
-    <B><PRE>
+    <div class='fragment'>
+    <PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
@@ -97,7 +110,7 @@
       FIX::ClOrdID clOrdID;
       message.get(clOrdID);
 
-      </B>// compile time error!! field not defined in FIX41<B>
+      // compile time error!! field not defined in FIX41
       FIX::ClearingAccount clearingAccount;
       message.get(clearingAccount);
     }
@@ -107,11 +120,12 @@
       FIX::ClOrdID clOrdID;
       message.get(clOrdID);
 
-      </B>// compile time error!! field not defined for OrderCancelRequest<B>
+      // compile time error!! field not defined for OrderCancelRequest
       FIX::Price price;
       message.get(price);
     }
-    </PRE></B>
+    </PRE>
+    </div>
 
     <p>
     In order to use this you must use the <B>MessageCracker</B> as a mixin to your application.
@@ -121,13 +135,16 @@
     Define your application like this:
     </p>
     See this code in PYTHON(not supported), RUBY(not supported)
-    <B><PRE>
+    <div class='fragment'>
+    <PRE>
     #include "quickfix/Application.h"
     #include "quickfix/MessageCracker.h"
 
     class MyApplication
     : public FIX::Application,
       public FIX::MessageCracker
-    <PRE></B>
+    </PRE>
+    </div>
+  </div>
   </body>
 </html>

@@ -2,11 +2,18 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Setting Up Your Project</title>
-    <H1>Setting Up Your Project</H1>
   </head>
 
   <body>
+    <div class='header'>
+      <div class='headerTitle'>
+       Setting Up Your Project
+      </div>
+    </div>
+
+    <div class='contents'>
     <p>
       Before using quickfix, you must make sure that your project has build settings that
       are compatible. Being a portable piece of code, some tradeoffs needed to be made concerning
@@ -30,7 +37,7 @@
     </UL>
     </p>
 
-    <A NAME="Windows (C++)"/>
+    <A NAME="Windows (C++)"></A>
     <H3>Windows (C++)</H3>
     <p>
       The following settings concerning quickfix can all be found under the <B>project | properties</B>
@@ -42,35 +49,35 @@
       <UL>
         <LI><B>C/C++ | Optimization | Optimization</B>, can be set to whatever you prefer. The quickfix
                library by default is built with <I>Maximize Speed</I> but your project does not need
-               to use the same setting.
-        <LI><B>C/C++ | Code Generation | Enable C++ Exceptions</B>, should be Yes.
-        <LI><B>C/C++ | Code Generation | Runtime Library</B>, should be set to <I>Multithreaded DLL</I>
+               to use the same setting.</LI>
+        <LI><B>C/C++ | Code Generation | Enable C++ Exceptions</B>, should be Yes.</LI>
+        <LI><B>C/C++ | Code Generation | Runtime Library</B>, should be set to <I>Multithreaded DLL</I><
                or <I>Debug Multithreaded DLL</I>. If you want to use a different setting, you must rebuild QuickFIX with
-               the same setting.  QuickFIX cannot currently be built single threaded.
+               the same setting.  QuickFIX cannot currently be built single threaded.</LI>
         <LI><B>C/C++ | General | Additional Include Directories</B>, must have a directory
                for accessing the QuickFIX header files. We reccomend setting this to a couple
                directories above the header files so your includes can look like <B>#include
                &lt;quickfix/Application.h&gt;</B>. This helps resolves ambiguities between your
-               application and other third party libraries.
+               application and other third party libraries.</LI>
         <LI><B>Linker | Input | Additional Dependencies</B>, must contain the <I>quickfix.lib</I>
                file. It must also have <I>ws2_32.lib</I>. This library links the winsock library into your
-               application.
-        <LI><B>Linker | General | Additional Library Directories</B>, must have the directory where <I>quickfix.lib</I> resides.
+               application.</LI>
+        <LI><B>Linker | General | Additional Library Directories</B>, must have the directory where <I>quickfix.lib</I> resides.</LI>
       </UL>
     </p>
 
-    <A NAME="Windows (.NET)"/>
+    <A NAME="Windows (.NET)"></A>
     <H3>Windows (.NET)</H3>
     <p>
     This couldn't be simpler.
     </p>
       <UL>
         <LI>Add the <B>quickfix_net.dll</B> and <B>quickfix_net_message.dll</B> to the references
-        section of your projects.
+        section of your projects.</LI>
      </UL>
     </p>
 
-    <A NAME="Linux/Solaris (C++)"/>
+    <A NAME="Linux/Solaris (C++)"></A>
     <H3>Linux/Solaris</H3>
     <p>
       Linux/Solaris have several caveats. Using GCC you have to keep a couple things in mind. Support
@@ -83,11 +90,11 @@
         <LI>Because GCC isn't particularly optimized for C++ code, GCC compiled code tends to be slower than code compiled
         by some of the commercially available compilers. If you feel you need more performance, you may
         want to try one of these compilers. If you do this, please run the unit tests and acceptance
-        tests to verify everything works as it should. We only currently do our testing with GCC.
+        tests to verify everything works as it should. We only currently do our testing with GCC.</LI>
         <LI>STL implementations that come with Versions of GCC 2.95.x, are not safe for use on
         multi-processor machines.  Use STLport or upgrade to a version
         3.x.x.  STLport also tends to be faster then the
-        implementation that comes with GCC.
+        implementation that comes with GCC.</LI>
       </UL>
     </p>
     <p>
@@ -98,16 +105,16 @@
     </p>
     <p>
       <UL>
-        <LI>Exceptions must be enabled with <B>-fexceptions</B>
+        <LI>Exceptions must be enabled with <B>-fexceptions</B></LI>
         <LI>The <B>-finline-functions</B> optimization is recommended. Much of quickfix is in templates
             declared in header files. Allowing the compiler to inline some of these functions can
-            help to optimize many frequent calls.
-        <LI>Quickfix library must be linked in with <B>-lquickfix</B>
+            help to optimize many frequent calls.</LI>
+        <LI>Quickfix library must be linked in with <B>-lquickfix</B></LI>
         <LI>Quickfix makes use of pthreads and libxml.  These must be linked in with <B>-lpthread</B>,
-            <B>-lxml2</B> and <B>-lz</B>
+            <B>-lxml2</B> and <B>-lz</B></LI>
         <LI>In addition to the above, on Solaris you must link with <B>-lnsl</B> and <B>-lsocket</B>
-        <BR><B>NB</B>: GNU <TT>ld</TT> is a one-pass linker, so order is important.  Put more generally
-        useful libraries (libsocket) last on the command line.
+        <BR></BR><B>NB</B>: GNU <TT>ld</TT> is a one-pass linker, so order is important.  Put more generally
+        useful libraries (libsocket) last on the command line.</LI>
       </UL>
 
       The actual placement of the quickfix library and header files should have been done for you
@@ -115,7 +122,7 @@
     </p>
   </body>
 
-  <A NAME="Java"/>
+  <A NAME="Java"></A>
   <H3>Java</H3>
     <p>
       The QuickFIX/J jar file has been provided for your convenience. It is recommended you
@@ -123,7 +130,9 @@
     </p>
     <p>
       <UL>
-	    <LI>When compiling, make sure <B>quickfixj.jar</B> is in your classpath.
+	    <LI>When compiling, make sure <B>quickfixj.jar</B> is in your classpath.</LI>
 	  </UL>
 	</p>
+</div>
+</body>
 </html>

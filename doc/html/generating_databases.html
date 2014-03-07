@@ -2,20 +2,26 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css">
     <title>Generating QuickFIX Databases</title>
-    <H1>Generating QuickFIX Databases</H1>
   </head>
 
-  <UL>
-    <LI><A HREF="#MySQL Database">MySQL Database</A></LI>
-    <LI><A HREF="#MSSQL Database">MSSQL Database</A></LI>
-    <LI><A HREF="#PostgreSQL Database">PostgreSQL Database</A></LI>
-  </UL>
-
   <body>
+    <div class='header'>
+      <div class='headerTitle'>
+        Generating QuickFIX Databases
+      </div>
+    </div>
+
+    <div class='contents'>
+    <UL>
+      <LI><A HREF="#MySQL">MySQL</A></LI>
+      <LI><A HREF="#MSSQL">MSSQL</A></LI>
+      <LI><A HREF="#PostgreSQL">PostgreSQL</A></LI>
+    </UL>
     <hr>
-    <A NAME="MySQL Database">
-    <H3>MySQL Database</H3>
+    <A NAME="MySQL"></A>
+    <H3>MySQL</H3>
     <p>
       First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this,
       go back to the build instructions for your system and follow the instructions.  Also, make
@@ -32,8 +38,8 @@
     <p>
       <code>create.bat mysql</code>
     </p>
-    <A NAME="MSSQL Database">
-    <H3>MSSQL Database</H3>
+    <A NAME="MSSQL"></A>
+    <H3>MSSQL</H3>
     <p>
       First, make sure you have compiled QuickFIX with MSSQL support.  If you have not done this,
       go back to the build instructions for your system and follow the instructions.  Also, make
@@ -46,8 +52,8 @@
     <p>
       <code>create.bat sa</code>
     </p>
-    <A NAME="PostgreSQL Database">
-    <H3>PostgreSQL Database</H3>
+    <A NAME="PostgreSQL"></A>
+    <H3>PostgreSQL</H3>
     <p>
       First, make sure you have compiled QuickFIX with PostgreSQL support.  If you have not done this,
       go back to the build instructions for your system and follow the instructions.  Also, make
@@ -64,5 +70,6 @@
     <p>
       <code>create.bat postgres</code>
     </p>
+  </div>
   </body>
 </html>

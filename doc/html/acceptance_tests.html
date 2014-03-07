@@ -2,11 +2,18 @@
 
 <html>
   <head>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"> 
     <title>Acceptance Tests</title>
-    <H1>Acceptance Tests</H1>
   </head>
-  <body>
 
+  <body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Acceptance Tests
+    </div>
+  </div> 
+   
+  <div class='contents'>
   <p>
   QuickFIX also has a scriptable test runner that comes with a series of automated acceptance test.
   The basic tests that come with QuickFIX are based off of the <a href="http://www.fixprotocol.org/ORGANIZATIONS/928202077/FIX_TestCase_SessionLevel20010710.doc">
@@ -24,26 +31,29 @@
   Below is an example of a test script that tests the engines behavior when it receives a NewSeqNo value
   that is less than the expected MsgSeqNum.
   </p>
+
+  <div class='fragment'>
   <PRE>
   <B>iCONNECT
-  I8=FIX.4.235=A34=149=TW52=<TIME>56=ISLD98=0108=30
+  I8=FIX.4.235=A34=149=TW52=&gt;TIME>56=ISLD98=0108=30
   E8=FIX.4.29=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0</B>
 
   # sequence reset without gap fill flag (default to N)
-  <B>I8=FIX.4.235=434=049=TW52=<TIME>56=ISLD36=1
+  <B>I8=FIX.4.235=434=049=TW52=&gt;TIME>56=ISLD36=1
   E8=FIX.4.29=11235=334=249=ISLD52=00000000-00:00:0056=TW45=058=Value is incorrect (out of range) for this tag372=4373=510=0
 
-  I8=FIX.4.235=134=249=TW52=<TIME>56=ISLD112=HELLO
+  I8=FIX.4.235=134=249=TW52=&gt;TIME>56=ISLD112=HELLO
   E8=FIX.4.29=5535=034=349=ISLD52=00000000-00:00:0056=TW112=HELLO10=0</B>
 
   # sequence reset without gap fill flag (default to N)
-  <B>I8=FIX.4.235=434=049=TW52=<TIME>56=ISLD36=1123=N
+  <B>I8=FIX.4.235=434=049=TW52=&gt;TIME>56=ISLD36=1123=N
   E8=FIX.4.29=11235=334=449=ISLD52=00000000-00:00:0056=TW45=058=Value is incorrect (out of range) for this tag372=4373=510=0
 
-  I8=FIX.4.235=134=349=TW52=<TIME>56=ISLD112=HELLO
+  I8=FIX.4.235=134=349=TW52=&gt;TIME>56=ISLD112=HELLO
   E8=FIX.4.29=5535=034=549=ISLD52=00000000-00:00:0056=TW112=HELLO10=0
   iDISCONNECT</B>
   </PRE>
+  </div>
 
   In these script there are two types of commands, action commands and messages commands. Action commands
   begin with lowercase letters while message command begin with uppercase letters.
@@ -70,7 +80,7 @@
   </p>
   <p>
   The <B>I</B> command also provides a TIME macro for fields. By setting a field equal to &lt;TIME&gt;,
-  the current system time will be placed in the field. (i.e. 52=<TIME>). You can also use offsets such as
+  the current system time will be placed in the field. (i.e. 52=&gt;TIME>). You can also use offsets such as
   52=&lt;TIME-120> or 52=&lt;TIME+15> in order to set the time plus or minus some seconds from the current time.
   </p>
   <p>The <B>E</B> command verifies that you have received the correct message. This command will compare
@@ -83,5 +93,6 @@
   <p> 
   Either command can contain a FILE macro which puts the contents of a file into a field (i.e. 58=&lt;FILE:test.txt&gt;)
   </p>
+  </div>
   </body>
 </html>
