@@ -60,10 +60,14 @@ class DataDictionary
   typedef std::map < int, Values > FieldToValue;
   typedef std::map < int, std::string > FieldToName;
   typedef std::map < std::string, int > NameToField;
-  typedef std::map < std::pair < int, std::string > ,
-  std::string  > ValueToName;
-  typedef std::map < std::pair < std::string, int > ,
-  std::pair < int, DataDictionary* > > FieldToGroup;
+  typedef std::map < std::pair < int, std::string > , std::string  > ValueToName;
+  // while FieldToGroup structure seems to be overcomplicated
+  // in reality it yields a lot of performance because:
+  // 1) avoids memory copying;
+  // 2) first lookup is done by comparing integers and not string objects
+  // TODO: use hash_map with good hashing algorithm
+  typedef std::map < std::string, std::pair < int, DataDictionary* > > FieldPresenceMap;
+  typedef std::map < int, FieldPresenceMap > FieldToGroup;
 
 public:
   DataDictionary();
@@ -181,6 +185,9 @@ public:
   void addFieldType( int field, FIX::TYPE::Type type )
   {
     m_fieldTypes[ field ] = type;
+
+    if( type == FIX::TYPE::Data )
+      m_dataFields.insert( field );
   }
 
   bool getFieldType( int field, FIX::TYPE::Type& type ) const
@@ -240,24 +247,36 @@ public:
   void addGroup( const std::string& msg, int field, int delim,
                  const DataDictionary& dataDictionary )
   {
-    DataDictionary * pDD = new DataDictionary;
-    *pDD = dataDictionary;
+    DataDictionary * pDD = new DataDictionary( dataDictionary );
     pDD->setVersion( getVersion() );
-    m_groups[ std::make_pair( msg, field ) ] = std::make_pair( delim, pDD );
+
+    FieldPresenceMap& presenceMap = m_groups[ field ];
+    presenceMap[ msg ] = std::make_pair( delim, pDD );
   }
 
   bool isGroup( const std::string& msg, int field ) const
   {
-    return m_groups.find( std::make_pair( msg, field ) ) != m_groups.end();
+    FieldToGroup::const_iterator i = m_groups.find( field );
+    if ( i == m_groups.end() ) return false;
+
+    const FieldPresenceMap& presenceMap = i->second;
+
+    FieldPresenceMap::const_iterator iter = presenceMap.find( msg );
+    return ( iter != presenceMap.end() );
   }
 
   bool getGroup( const std::string& msg, int field, int& delim,
                  const DataDictionary*& pDataDictionary ) const
   {
-    FieldToGroup::const_iterator i =
-      m_groups.find( std::make_pair( msg, field ) );
+    FieldToGroup::const_iterator i = m_groups.find( field );
     if ( i == m_groups.end() ) return false;
-    std::pair < int, DataDictionary* > pair = i->second;
+
+    const FieldPresenceMap& presenceMap = i->second;
+
+    FieldPresenceMap::const_iterator iter = presenceMap.find( msg );
+    if( iter == presenceMap.end() ) return false;
+
+    std::pair < int, DataDictionary* > pair = iter->second;
     delim = pair.first;
     pDataDictionary = pair.second;
     return true;
@@ -265,8 +284,8 @@ public:
 
   bool isDataField( int field ) const
   {
-    FieldTypes::const_iterator i = m_fieldTypes.find( field );
-    return i != m_fieldTypes.end() && i->second == TYPE::Data;
+    MsgFields::const_iterator iter = m_dataFields.find( field );
+    return iter != m_dataFields.end();
   }
 
   bool isMultipleValueField( int field ) const
@@ -519,6 +538,7 @@ private:
   NameToField m_names;
   ValueToName m_valueNames;
   FieldToGroup m_groups;
+  MsgFields m_dataFields;
 };
 }
 

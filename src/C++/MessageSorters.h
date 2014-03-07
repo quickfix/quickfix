@@ -37,7 +37,7 @@ namespace FIX
 /// Sorts fields in correct header order.
 struct header_order
 {
-  static bool compare( const int& x, const int& y )
+  static bool compare( const int x, const int y )
   {
     int orderedX = getOrderedPosition( x );
     int orderedY = getOrderedPosition( y );
@@ -54,7 +54,7 @@ struct header_order
           return x < y;
   }
 
-  static int getOrderedPosition( const int& field )
+  static int getOrderedPosition( const int field )
   {
     switch ( field )
     {
@@ -122,7 +122,7 @@ public:
   message_order( const message_order& copy ) 
   { *this = copy; }
 
-  bool operator() ( const int& x, const int& y ) const
+  bool operator() ( const int x, const int y ) const
   {
     switch ( m_mode )
     {

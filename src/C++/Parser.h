@@ -36,8 +36,7 @@ namespace FIX
 class Parser
 {
 public:
-  Parser()
-  : m_bufferSize( 0 ) {}
+  Parser() {}
   ~Parser() {}
 
   bool extractLength( int& length, std::string::size_type& pos,
@@ -53,7 +52,6 @@ public:
 
 private:
   std::string m_buffer;
-  int m_bufferSize;
 };
 }
 #endif //FIX_PARSER_H
