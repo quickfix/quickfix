@@ -12,6 +12,8 @@ AC_ARG_WITH(allocator,
 )
 ALLOCATOR=$with_allocator
 
+AC_LANG_CPLUSPLUS
+
 # check for debug allocator
 if test "x$with_allocator" == "xdebug"
 then
