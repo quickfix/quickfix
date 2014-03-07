@@ -1,17 +1,12 @@
 /*! \mainpage QuickFIX Documentation
 * <table width="100%">
 * <tr>
-* <td><b>About</b></td>
 * <td><b>Installation</b></td>
 * <td><b>Getting Started</b></td>
 * <td><b>Working With Messages</b></td>
 * <td><b>Testing</b></td>
 * </tr>
 * <tr>
-* <td valign='top'>
-* <a href="about.html">About Quickfix</a><br>
-* <a href="license.html">License</a><br>
-* </td>
 * <td valign='top'>
 * <a href="dependencies.html">Dependencies</a><br>
 * <a href="building.html">Building QuickFIX</a><br>
@@ -37,6 +32,12 @@
 * </td>
 * </tr>
 * </table>
+*
+*The Financial Information Exchange (<a href="http://www.fixprotocol.org">FIX</a>) Protocol is a message standard developed
+*to facilitate the electronic exchange of information related to securities transactions.
+*It is intended for use between trading partners wishing to automate communications.</B>
+*
+*<I>QuickFIX is a free and open source implementation of the <a href="http://www.fixprotocol.org">FIX</a> protocol.</I>
 *
 * \author Oren Miller oren@quickfixengine.org
 */
