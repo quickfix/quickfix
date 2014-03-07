@@ -11,8 +11,6 @@
 * <td valign='top'>
 * <a href="about.html">About Quickfix</a><br>
 * <a href="license.html">License</a><br>
-* <a href="http://sourceforge.net/mail/?group_id=37535">Mailing Lists</a><br>
-* <a href="FAQ.html">FAQ</a><br>
 * </td>
 * <td valign='top'>
 * <a href="dependencies.html">Dependencies</a><br>
