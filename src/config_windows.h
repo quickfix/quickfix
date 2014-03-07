@@ -1,8 +1,5 @@
 #pragma once
 
-// Define if you want a C++ callstack to be displayed after crashing
-// #define ENABLE_CALLSTACK 1
-
 // Define if you are using stlport
 // #define HAVE_STLPORT
 

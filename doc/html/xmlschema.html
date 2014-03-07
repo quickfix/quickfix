@@ -15,23 +15,20 @@
 
   <div class='contents'>
   <p>
-  QuickFIX will validate and reject any messages that do not conform to the FIX specifications.
-  This means that it will reject any poorly formed messages without bothering you at the application
-  level. But there is an extra piece to validation. QuickFIX can also dynamically load an XML
-  definition file for each session which it will use to validate if a message is of the right type,
-  if it contains unsupported fields, if required fields are missing etc... And it will do this all without
-  you needing to do any extra work at the application level.
+  QuickFIX will validate and reject any poorly formed messages before they can reach your application.
+  QuickFIX can also dynamically load an XML
+  definition file for each session which will further validate that each message is a supported type,
+  that they don't contain unsupported fields, that no required fields are missing etc.
   </p>
   <p>
-  QuickFIX comes with several definition files. These are <B>FIX40.xml</B>, <B>FIX41.xml</B>,
-  <B>FIX42.xml</B>, <B>FIX43.xml</B> and <B>FIX44.xml</B>. These are directly generated off their respected fix specification documents.
-  But the power comes in modifying these documents or creating new ones for your specific needs.
+  QuickFIX comes with several standard files in the <i>spec</i> directory.
+  These can be cloned and modified to fit your messaging requirements.
   </p>
   <p>
   If, for instance, you need to define a FIX spec for a sell side application.  Why not define the
   spec in XML and then just publish the XML file to your clients! Not only is your FIX spec fully documented
   in a machine and human readable format, but you can guarantee that the documentation is 100%
-  accurate because it is actually <B>defining</B> and not just reflecting reality.
+  accurate because it is actually <B>defining</B> not describing your FIX messages.
   </p>
   <p>
   And if XYZ corp needs some special fields added to their session but you don't want to expose

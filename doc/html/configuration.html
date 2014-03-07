@@ -15,46 +15,75 @@
 
   <div class='contents'>
   <p>
-  A quickfix acceptor or initiator can maintain as many FIX sessions as you would like. A FIX
+  A quickfix acceptor or initiator can maintain multiple FIX sessions. A FIX
   session is defined in QuickFIX as a unique combination of a <B>BeginString</B> (the FIX version number),
   a <B>SenderCompID</B> (your ID), and a <B>TargetCompID</B> (the ID of your counterparty). A <B>SessionQualifier</B>
   can also be use to disambiguate otherwise identical sessions.
   </p>
   <p>
-  Each of the sessions can have several settings associated with them. Some of these settings may
-  not be known at compile time and are therefore passed around in a class called SessionSettings
-  which acts as a data dictionary that can be queried.
-  </p>
-  <p>
   The SessionSettings class has the ability to pull settings out of any c++ stream such as a file
-  stream. You can also simply pass it a filename. If you decide to write your own  components,
-  (storage for a particular database, a new kind of connector etc...), you may also use this to
-  store settings.
+  stream. You can also pass it a filename. If you decide to write your own components,
+  (storage for a particular database, a new kind of connector etc...), you can also use this pass in
+  settings.
   </p>
-
   <p>
-  A settings file is set up with two types of heading, a [DEFAULT] and a [SESSION] heading. [SESSION]
-  tells QuickFIX that a new Session is being defined. [DEFAULT] is a place that you can define settings
-  which will be associated with sessions that don't explicitly define them. QuickFIX itself will not
-  define any default settings for you. If you do not provide a setting that QuickFIX needs, it will
+  A settings file is set up with two types of headings, a <b>[DEFAULT]</b> and a <b>[SESSION]</b> heading. <b>[SESSION]</b>
+  tells QuickFIX that a new Session is being defined. <b>[DEFAULT]</b> is a where you can define settings
+  that all sessions use by default. If you do not provide a setting that QuickFIX needs, it will
   throw a ConfigError telling you what setting is missing or improperly formatted.
   </p>
-  <p>
-  These are the settings you can associate with a session based on the default
-  components provided with QuickFIX, followed by an example.
-  </p>
+
+  <H2>Sample Settings File</H2>
+  <div class='fragment'>
+  <CODE><PRE>
+  # default settings for sessions
+  [DEFAULT]
+  ConnectionType=initiator
+  ReconnectInterval=60
+  SenderCompID=TW
+
+  # session definition
+  [SESSION]
+  # inherit ConnectionType, ReconnectInterval and SenderCompID from default
+  BeginString=FIX.4.1
+  TargetCompID=ARCA
+  StartTime=12:30:00
+  EndTime=23:30:00
+  HeartBtInt=20
+  SocketConnectPort=9823
+  SocketConnectHost=123.123.123.123
+  DataDictionary=somewhere/FIX41.xml
+
+  [SESSION]
+  BeginString=FIX.4.0
+  TargetCompID=ISLD
+  StartTime=12:00:00
+  EndTime=23:00:00
+  HeartBtInt=30
+  SocketConnectPort=8323
+  SocketConnectHost=23.23.23.23
+  DataDictionary=somewhere/FIX40.xml
+
+  [SESSION]
+  BeginString=FIX.4.2
+  TargetCompID=INCA
+  StartTime=12:30:00
+  EndTime=21:30:00
+  # overide default setting for RecconnectInterval
+  ReconnectInterval=30
+  HeartBtInt=30
+  SocketConnectPort=6523
+  SocketConnectHost=3.3.3.3
+  # (optional) alternate connection ports and hosts to cycle through on failover
+  SocketConnectPort1=8392
+  SocketConnectHost1=8.8.8.8
+  SocketConnectPort2=2932
+  SocketConnectHost2=12.12.12.12
+  DataDictionary=somewhere/FIX42.xml
+  </PRE></CODE>
+  </div>
 
   <H2>QuickFIX Settings</H2>
-  <UL>
-    <LI><A HREF="#Session">Session</A></LI>
-    <LI><A HREF="#Validation">Validation</A></LI>
-    <LI><A HREF="#Miscellaneous">Miscellaneous</A></LI>
-    <LI><A HREF="#Initiator">Initiator</A></LI>
-    <LI><A HREF="#Acceptor">Acceptor</A></LI>
-    <LI><A HREF="#Storage">Storage</A></LI>
-    <LI><A HREF="#Logging">Logging</A></LI>
-    <LI><A HREF="#Sample Settings File">Sample Settings File</A></LI>
-  </UL>
   <TABLE BORDER=1 CELLSPACING=2 CELLPADDING=3 WIDTH="100%">
   <tbody>
   <TR ALIGN="left" VALIGN="middle">
@@ -251,7 +280,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Miscellaneous</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>HttpAcceptPort</I> </TD>
@@ -261,7 +290,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Initiator">Initiator</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Initiator</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ReconnectInterval</I> </TD>
@@ -324,7 +353,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Acceptor">Acceptor</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Acceptor</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketAcceptPort</I> </TD>
@@ -348,7 +377,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Storage">Storage</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Storage</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PersistMessages</I> </TD>
@@ -469,7 +498,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Logging">Logging</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Logging</TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4">FILE</TD>
@@ -646,59 +675,6 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </tbody>
   </TABLE>
 
-  <H2><A NAME="Sample Settings File">Sample Settings File</A></H2>
-  <p>
-    Here is a typical settings file you might find in a firm that wants to connect to several ECNs.
-  </p>
-
-  <div class='fragment'>
-  <CODE><PRE>
-  # default settings for sessions
-  [DEFAULT]
-  ConnectionType=initiator
-  ReconnectInterval=60
-  SenderCompID=TW
-
-  # session definition
-  [SESSION]
-  # inherit ConnectionType, ReconnectInterval and SenderCompID from default
-  BeginString=FIX.4.1
-  TargetCompID=ARCA
-  StartTime=12:30:00
-  EndTime=23:30:00
-  HeartBtInt=20
-  SocketConnectPort=9823
-  SocketConnectHost=123.123.123.123
-  DataDictionary=somewhere/FIX41.xml
-
-  [SESSION]
-  BeginString=FIX.4.0
-  TargetCompID=ISLD
-  StartTime=12:00:00
-  EndTime=23:00:00
-  HeartBtInt=30
-  SocketConnectPort=8323
-  SocketConnectHost=23.23.23.23
-  DataDictionary=somewhere/FIX40.xml
-
-  [SESSION]
-  BeginString=FIX.4.2
-  TargetCompID=INCA
-  StartTime=12:30:00
-  EndTime=21:30:00
-  # overide default setting for RecconnectInterval
-  ReconnectInterval=30
-  HeartBtInt=30
-  SocketConnectPort=6523
-  SocketConnectHost=3.3.3.3
-  # (optional) alternate connection ports and hosts to cycle through on failover
-  SocketConnectPort1=8392
-  SocketConnectHost1=8.8.8.8
-  SocketConnectPort2=2932
-  SocketConnectHost2=12.12.12.12
-  DataDictionary=somewhere/FIX42.xml
-  </PRE></CODE>
-  </div>
   </div>
   </body>
 </html>

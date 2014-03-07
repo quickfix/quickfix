@@ -40,14 +40,8 @@
   </pre></code>
   </div>
 		<p>
-			By implementing these functions in your derived class, you are requesting to be
-			notified of events that occur on the FIX engine. The function you that you
-			should be most aware of is <I>fromApp</I>. Also remember that everything is in
-			the <B>FIX</B> namespace, so when overloading your class, you must refer to
-			classes as <B>FIX::Session</B>, and <B>FIX::Message</B> etc...
+			These methods act as callbacks from your FIX sessions. 
 			<br>
-			<br>
-			Here are explanations of what these functions provide for you.
 			<UL>
 				<U><B>onCreate</B></U> gets called when quickfix creates a new session. A
 				session comes into and remains in existence for the life of the application.
@@ -72,7 +66,7 @@
 				that are being sent from your FIX engine to the counter party. This is normally
 				not useful for an application however it is provided for any logging you may
 				wish to do. Notice that the FIX::Message is not const. This allows you to add
-				fields before an adminstrative message before it is sent out.
+				fields to an adminstrative message before it is sent out.
 				<br>
 				<br>
 				<U><B>toApp</B></U> is a callback for application messages that you are being
@@ -84,12 +78,12 @@
 				exception is thrown and the flag is set to true, a sequence reset will be sent
 				in place of the message. If it is set to false, the message will simply not be
 				sent. Notice that the FIX::Message is not const. This allows you to add fields
-				before an application message before it is sent out.
+				to an application message before it is sent out.
 				<br>
 				<br>
 				<U><B>fromAdmin</B></U> notifies you when an administrative message is sent
 				from a counterparty to your FIX engine. This can be usefull for doing extra
-				validation on logon messages such as for checking passwords. Throwing a <I>RejectLogon</I>
+				validation on logon messages like validating passwords. Throwing a <I>RejectLogon</I>
 				exception will disconnect the counterparty.
 				<br>
 				<br>
@@ -110,7 +104,7 @@
 		<P></P>
 		<p>
 			The sample code below shows how you might start up a FIX acceptor which listens
-			on a socket. If you wanted an initiator, you would simply replace the acceptor
+			on a socket. If you wanted an initiator, you would replace the acceptor
 			in this code fragment with a <i>SocketInitiator</i>.
 		</p>
 		See this code in <a href="python/application_2.html">PYTHON</a>, <a href="ruby/application_2.html">RUBY</a>

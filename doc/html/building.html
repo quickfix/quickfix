@@ -14,79 +14,63 @@
     </div>
 
     <div class='contents'>
-    <UL>
-      <LI><A HREF="#Windows (C++)">Windows (C++)</A></LI>
-      <LI><A HREF="#Linux / Solaris / FreeBSD / Mac OS X (C++/Java)">Linux / Solaris / FreeBSD / Mac OS X  (C++/Java)</A></LI>
-    </UL>
-    <A NAME="Windows (C++)"></A>
-    <H3>Windows (C++)</H3>
+    <H3>Windows</H3>
     <p>
-      Solution and project files are provided for building under Visual Studio.  QuickFIX supports Visual Studio 10 (2010), 
-      Visual Studio 11 (2012), and Visual Studio 12 (2013). The solution files
-      provided for these versions are <B>quickfix_vs10.sln</B>, <B>quickfix_vs11.sln</B>, and <B>quickfix_vs12.sln</B>
-      respectively.
+      Open <B>quickfix_vs10.sln</B>, <B>quickfix_vs11.sln</B>, or <B>quickfix_vs12.sln</B>
     </p>
     <p>
-      Simply open the appropriate solution file and do a batch build of all the projects.  This will create
-      <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> which can be linked into your
-      applications. The header files will also be copied to the <I>include</I> directory.
-    </p>
-    <p>
-      Since windows does not have a standard system for storing header and library files, you
-      should organize them however best suits your build environment. Leaving them in the <I>lib</I>
-      and <I>include</I> directories they are placed into by the build is one option.
+      Batch build all projects.
+      <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> can be linked into your
+      application. Header files are copied to the <I>include</I> directory.
     </p>
     <p>
       Compile time options are controlled from the <B>config_windows.h</B> file in the <I>src</I>
       directory. The following options are supported:<br><br>
-      <FONT color="#0000FF">#define HAVE_STLPORT 1</FONT>
-      Compile with stlport instead of standard visual c++ STL implementation.<br/>
-      <FONT color="#0000FF">#define HAVE_JAVA 1</FONT>
-      Compiles JNI wrappers for QuickFIX library, allowing you to access QuickFIX from java.<br/>
-      <FONT color="#0000FF">#define HAVE_ODBC 1</FONT>
-      Compiles ODBC support into QuickFIX.<br/>
-      <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
-      Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
-      library directories must be in the Visual Studio search paths.<br/>
-      <FONT color="#0000FF">#define HAVE_POSTGRESQL 1</FONT>
-      Compiles PostgreSQL support into QuickFIX. If you enable this option, the postgres include and
-      library directories must be in the Visual Studio search paths.<br/>
-      <FONT color="#0000FF">#define HAVE_LIBXML 1</FONT>
-      Compile and link XML parsing code against the libxml library instead of the default MSXML3.<br/>
-      <FONT color="#0000FF">#define ENABLE_CALLSTACK 1</FONT>
-      Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of a the process crashing.  Only use this when trying to track down a repeatable problem.<br/>
+      <table>
+      <tr><td><FONT color="#0000FF">#define HAVE_STLPORT 1</FONT></td></tr>
+      <tr><td>Compile with stlport instead of standard visual c++ STL implementation.</td></tr>
+      <tr><td><FONT color="#0000FF">#define HAVE_ODBC 1</FONT></td></tr>
+      <tr><td>Compiles ODBC support into QuickFIX.</td></tr>
+      <tr><td><FONT color="#0000FF">#define HAVE_MYSQL 1</FONT></td></tr>
+      <tr><td>Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
+      library directories must be in the Visual Studio search paths.</td></tr>
+      <tr><td><FONT color="#0000FF">#define HAVE_POSTGRESQL 1</FONT></td></tr>
+      <tr><td>Compiles PostgreSQL support into QuickFIX. If you enable this option, the postgres include and
+      library directories must be in the Visual Studio search paths.</td></tr>
+      <tr><td><FONT color="#0000FF">#define HAVE_LIBXML 1</FONT></td></tr>
+      <tr><td>Compile and link XML parsing code against the libxml library instead of the default MSXML3.</td></tr>
+      </table>
     </p>
-    <A NAME="Linux / Solaris / FreeBSD / Mac OS X (C++/Java)"></A>
-    <H3>Linux / Solaris / FreeBSD / Mac OS X (C++/Java)</H3>
+    <H3>Linux / Solaris / FreeBSD / Mac OS X</H3>
     <p>
-      QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
-      build on unix systems. If you also want to reuse our makefiles for developing your own application,
-      you will find it useful. Also note
-      that if your version of gcc does not come with sstream, you will need to download it from
-      the link above and put it in the correct include directory. Also please note for Solaris
-      you must use GNU make, the make that comes with Solaris will not work.
+      <div class='fragment'>
+      ./configure && ./make
+      </div>
     </p>
     <p>
-      Building under *nix requires two steps.  First, in the root quickfix directory, type
-      <B>./configure</B>  This will probe your system to find out what functionality it supports
-      for use in determining how to build QuickFIX.  After ./configure completes succesfully,
-      simply type <B>make</B> to build.  If you run into problems running configure, you may
-      need to run the <B>./bootstrap</B> script first.
+      <div class='fragment'>
+      sudo make install
+      </div>
+      You can also run configure with the
+      <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option to install to a custom location.
     </p>
     <p>
-      There are some options you can pass to <I>./configure</I> to enable compile time features.
-      These are:<br><br>
-      <FONT color="#0000FF">--with-java</FONT> - Build the Java examples against QuickFIX/J.  JAVA_HOME will be used to find Java.<br>
-      <FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT> - Build the Python API.  Use directory which contains python headers.<br>
-      <FONT color="#0000FF">--with-ruby</FONT> - Build the Ruby API.  Ruby interpreter in your path will be used.<br>
-      <FONT color="#0000FF">--with-mysql=&lt;base directory&gt;</FONT> - Compile in mysql support<br>
-      <FONT color="#0000FF">--with-postgresql=&lt;base directory&gt;</FONT> - Compile in postgresql support<br>
-      <FONT color="#0000FF">--with-stlport=&lt;base directory&gt;</FONT> - Compile with stlport instead of
-      standard gcc STL implementation (recommended for multiprocessor machines running gcc 2.95.x)<br>
-      <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination. Only use this when trying to track down a repeatable problem.<br>
+      <I>./configure</I> options.
+      <table>
+      <tr><td><FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT></td></tr>
+      <tr><td>Build the Python API</td></tr>
+      <tr><td><FONT color="#0000FF">--with-ruby</FONT></td></tr>
+      <tr><td>Build the Ruby API</td></tr>
+      <tr><td><FONT color="#0000FF">--with-mysql</FONT></td></tr>
+      <tr><td>Compile in mysql support</td></tr>
+      <tr><td><FONT color="#0000FF">--with-postgresql</FONT></td></tr>
+      <tr><td>Compile in postgresql support</td></tr>
+      <tr><td><FONT color="#0000FF">--with-stlport=&lt;base directory&gt;</td></tr>
+      <tr><td>Compile with stlport instead of standard gcc STL implementation</td></tr>
+      </table>
     </p>
     <p>
-      If you are using the SUNPro compiler, you will need to set the following environment variables:<br/><br/>
+      When using the SUNPro compiler:<br/><br/>
       <b>CC</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
       <b>CFLAGS</b>=<i>-g -xs</i><br/>
       <b>CXX</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
@@ -95,15 +79,6 @@
       <b>LDFLAGS</b>=<i>-g -xs -lCstd</i><br/>
       <b>AR</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
       <b>AR_FLAGS</b>=<i>-g -xs -xar -o</i><br/>
-    </p>
-    <p>
-      After succesfully building QuickFIX, you should run <B>make install</B> as root.
-      This will place the library <B>libquickfix.so</B> and the quickfix header files into the appropriate directories.  If you do not
-      have root access, you can also run configure with the
-      <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
-      is some directory which your account has write
-      access. <B>note: </B> under Mac OS X, the library is named
-      called <B>libquickfix.dylib</B>
     </p>
   </div>
   </body>

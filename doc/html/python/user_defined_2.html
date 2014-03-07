@@ -1,4 +1,10 @@
-<PRE><B>
+<html>
+  <header>
+  	<link href="../doxygen.css" rel="stylesheet" type="text/css">
+  </header>
+
+  <div class='fragment'>
+  <PRE>
 from quickfix import *
 
 class MyStringField(quickfix.StringField):
@@ -14,4 +20,5 @@ class MyPriceField(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 8756)
 		else:
 			quickfix.DoubleField.__init__(self, 8756, data)
-</B></PRE>
+  </PRE>
+</html>
