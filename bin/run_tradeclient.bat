@@ -1,1 +1,1 @@
-release\tradeclient\tradeclient.exe cfg\tradeclient.cfg
+tradeclient.exe cfg\tradeclient.cfg

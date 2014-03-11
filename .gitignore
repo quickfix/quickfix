@@ -6,6 +6,8 @@ release
 *.suo
 *~
 *.lib
+*.pdb
+*.exe
 *.lo
 *.in
 Makefile
