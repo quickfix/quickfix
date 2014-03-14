@@ -316,7 +316,10 @@ throw ( IOException )
   char* buffer = new char[ offset.second + 1 ];
   fread( buffer, sizeof( char ), offset.second, m_msgFile );
   if ( ferror( m_msgFile ) ) 
+  {
+    delete [] buffer;
     throw IOException( "Unable to read from file " + m_msgFileName );
+  }
   buffer[ offset.second ] = 0;
   msg = buffer;
   delete [] buffer;
