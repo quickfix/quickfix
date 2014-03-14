@@ -1,1 +1,1 @@
-debug\tradeclient\tradeclient.exe cfg\tradeclient.cfg
+debug\tradeclient.exe cfg\tradeclient.cfg
