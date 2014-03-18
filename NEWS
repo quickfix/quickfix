@@ -3,6 +3,9 @@
 Major performance improvement sending/receiving messages.  Thanks to 
 Viktor Pogrebnyak for a great patch.
 
+Added getFieldIfSet and getIfSet methods.  No longer need to check for a
+field and pull it out in two steps.
+
 UseLocalTime=Y works again.
 
 Improvement in how DataDictionaries are initialized makes starting up with
@@ -16,6 +19,12 @@ Added ValidateLengthAndChecksum. Allows you to ignore the length and checksum
 fields on incoming messages. Accept the message anyway. A wild free for all.
 
 Added FIX 5.0 sp1 and sp2 support to MessageCracker.
+
+SocketReuseAddress, SocketNoDelay, SocketSendBufferSize, and SocketReceiveBufferSize
+config settings can be overriden on a per session basis.
+
+Field containing number of groups will be removed if all instances of 
+a group are removed from the message.
 
 SocketConnection would block other sessions if it was unable to connect
 immediately.  Brian Crowell submitted a patch that makes the connection
@@ -72,6 +81,12 @@ Fixed/standardized various issues with python library deployment.
 
 If session is disabled, it will immediately disconnect without sending any
 messages.
+
+Added support for visual studio 11 and 12.
+
+Removed C# library.  Use QuickFIX/n.
+
+Ruby API works with ruby 1.9.x
 
 1.13.3
 ------
