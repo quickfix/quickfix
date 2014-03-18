@@ -33,58 +33,55 @@
   throw a ConfigError telling you what setting is missing or improperly formatted.
   </p>
 
-  <H2>Sample Settings File</H2>
-  <div class='fragment'>
-  <CODE><PRE>
-  # default settings for sessions
-  [DEFAULT]
-  ConnectionType=initiator
-  ReconnectInterval=60
-  SenderCompID=TW
+  <H1>Sample Settings File</H1>
+<pre class='fragment'>
+# default settings for sessions
+[DEFAULT]
+ConnectionType=initiator
+ReconnectInterval=60
+SenderCompID=TW
 
-  # session definition
-  [SESSION]
-  # inherit ConnectionType, ReconnectInterval and SenderCompID from default
-  BeginString=FIX.4.1
-  TargetCompID=ARCA
-  StartTime=12:30:00
-  EndTime=23:30:00
-  HeartBtInt=20
-  SocketConnectPort=9823
-  SocketConnectHost=123.123.123.123
-  DataDictionary=somewhere/FIX41.xml
+# session definition
+[SESSION]
+# inherit ConnectionType, ReconnectInterval and SenderCompID from default
+BeginString=FIX.4.1
+TargetCompID=ARCA
+StartTime=12:30:00
+EndTime=23:30:00
+HeartBtInt=20
+SocketConnectPort=9823
+SocketConnectHost=123.123.123.123
+DataDictionary=somewhere/FIX41.xml
 
-  [SESSION]
-  BeginString=FIX.4.0
-  TargetCompID=ISLD
-  StartTime=12:00:00
-  EndTime=23:00:00
-  HeartBtInt=30
-  SocketConnectPort=8323
-  SocketConnectHost=23.23.23.23
-  DataDictionary=somewhere/FIX40.xml
+[SESSION]
+BeginString=FIX.4.0
+TargetCompID=ISLD
+StartTime=12:00:00
+EndTime=23:00:00
+HeartBtInt=30
+SocketConnectPort=8323
+SocketConnectHost=23.23.23.23
+DataDictionary=somewhere/FIX40.xml
 
-  [SESSION]
-  BeginString=FIX.4.2
-  TargetCompID=INCA
-  StartTime=12:30:00
-  EndTime=21:30:00
-  # overide default setting for RecconnectInterval
-  ReconnectInterval=30
-  HeartBtInt=30
-  SocketConnectPort=6523
-  SocketConnectHost=3.3.3.3
-  # (optional) alternate connection ports and hosts to cycle through on failover
-  SocketConnectPort1=8392
-  SocketConnectHost1=8.8.8.8
-  SocketConnectPort2=2932
-  SocketConnectHost2=12.12.12.12
-  DataDictionary=somewhere/FIX42.xml
-  </PRE></CODE>
-  </div>
+[SESSION]
+BeginString=FIX.4.2
+TargetCompID=INCA
+StartTime=12:30:00
+EndTime=21:30:00
+# overide default setting for RecconnectInterval
+ReconnectInterval=30
+HeartBtInt=30
+SocketConnectPort=6523
+SocketConnectHost=3.3.3.3
+# (optional) alternate connection ports and hosts to cycle through on failover
+SocketConnectPort1=8392
+SocketConnectHost1=8.8.8.8
+SocketConnectPort2=2932
+SocketConnectHost2=12.12.12.12
+DataDictionary=somewhere/FIX42.xml</pre>
 
-  <H2>QuickFIX Settings</H2>
-  <TABLE BORDER=1 CELLSPACING=2 CELLPADDING=3 WIDTH="100%">
+  <H1>QuickFIX Settings</H1>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3 WIDTH="100%">
   <tbody>
   <TR ALIGN="left" VALIGN="middle">
     <TH>ID</TH>
@@ -93,7 +90,7 @@
     <TH>Default</TH>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Session">Session</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Session</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>BeginString</I> </TD>
@@ -200,7 +197,7 @@
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Validation">Validation</A></TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Validation</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>UseDataDictionary</I> </TD>
@@ -223,16 +220,15 @@
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>AppDataDictionary</I> </TD>
     <TD> XML definition file for validating application messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information. <br><br>This setting supports the possibility of a custom application data dictionary for each session. This setting would only be used with FIXT 1.1 and new transport protocols. This setting can be used as a prefix to specify multiple application dictionaries for the FIXT transport. For example:
-<div class='fragment'>
-<pre><code>
+<pre class='fragment'>
 DefaultApplVerID=FIX.4.2
 # For default application version ID
 AppDataDictionary=FIX42.xml
 # For nondefault application version ID
 # Use BeginString suffix for app version
 AppDataDictionary.FIX.4.4=FIX44.xml
-</code></pre>
-</div></TD>
+</pre>
+</TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory</br><br>FIX50SP2.xml <br>FIX50SP1.xml <br>FIX50.xml <br>FIX44.xml <br> FIX43.xml <br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
     <TD> </TD>
   </TR>
@@ -280,7 +276,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Miscellaneous</TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Miscellaneous</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>HttpAcceptPort</I> </TD>
@@ -290,7 +286,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Initiator</TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Initiator</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ReconnectInterval</I> </TD>
@@ -353,7 +349,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Acceptor</TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Acceptor</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketAcceptPort</I> </TD>
@@ -377,7 +373,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Storage</TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Storage</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PersistMessages</I> </TD>
@@ -498,7 +494,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD">Logging</TD>
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Logging</b></TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4">FILE</TD>

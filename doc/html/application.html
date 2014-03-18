@@ -17,33 +17,30 @@
 			interface. The C++ interface is defined in the following code segment:
 		</p>
 		See this code in <a href="python/application_1.html">PYTHON</a>, <a href="ruby/application_1.html">RUBY</a>
-  <div class='fragment'>
-  <code><pre>
-  namespace FIX
+<pre class='fragment'>
+namespace FIX
+{
+  class Application
   {
-    class Application
-    {
-    public:
-      virtual ~Application() {};
-      virtual void onCreate( const SessionID&amp; ) = 0;
-      virtual void onLogon( const SessionID&amp; ) = 0;
-      virtual void onLogout( const SessionID&amp; ) = 0;
-      virtual void toAdmin( Message&amp;, const SessionID&amp; ) = 0;
-      virtual void toApp( Message&amp;, const SessionID&amp; )
-        throw( DoNotSend ) = 0;
-      virtual void fromAdmin( const Message&amp;, const SessionID&amp; )
-        throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon ) = 0;
-      virtual void fromApp( const Message&amp;, const SessionID&amp; )
-        throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
-    };
-  }
-  </pre></code>
-  </div>
+  public:
+    virtual ~Application() {};
+    virtual void onCreate( const SessionID&amp; ) = 0;
+    virtual void onLogon( const SessionID&amp; ) = 0;
+    virtual void onLogout( const SessionID&amp; ) = 0;
+    virtual void toAdmin( Message&amp;, const SessionID&amp; ) = 0;
+    virtual void toApp( Message&amp;, const SessionID&amp; )
+      throw( DoNotSend ) = 0;
+    virtual void fromAdmin( const Message&amp;, const SessionID&amp; )
+      throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon ) = 0;
+    virtual void fromApp( const Message&amp;, const SessionID&amp; )
+      throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
+  };
+}</pre>
 		<p>
 			These methods act as callbacks from your FIX sessions. 
 			<br>
 			<UL>
-				<U><B>onCreate</B></U> gets called when quickfix creates a new session. A
+				<U><B>onCreate</B></U> is called when quickfix creates a new session. A
 				session comes into and remains in existence for the life of the application.
 				Sessions exist whether or not a counter party is connected to it. As soon as a
 				session is created, you can begin sending messages to it. If no one is logged
@@ -87,8 +84,8 @@
 				exception will disconnect the counterparty.
 				<br>
 				<br>
-				<U><B>fromApp</B></U> is one of the core entry points for your FIX application.
-				Every application level request will come through here. If, for example, your
+				<U><B>fromApp</B></U> 
+				receives application level request. If your
 				application is a sell-side OMS, this is where you will get your new order
 				requests. If you were a buy side, you would get your execution reports here. If
 				a <I>FieldNotFound</I> exception is thrown, the counterparty will receive a
@@ -97,7 +94,7 @@
 				rarely need the throw this explicitly. You can also throw an <I>UnsupportedMessageType</I>
 				exception. This will result in the counterparty getting a reject informing them
 				your application cannot process those types of messages. An <I>IncorrectTagValue</I>
-				can also be thrown if a field contains a value that is out of range or you do
+				can also be thrown if a field contains a value you do
 				not support.
 			</UL>
 		</p>
@@ -108,42 +105,39 @@
 			in this code fragment with a <i>SocketInitiator</i>.
 		</p>
 		See this code in <a href="python/application_2.html">PYTHON</a>, <a href="ruby/application_2.html">RUBY</a>
-  <div class='fragment'>
-  <CODE><PRE>
-  #include "quickfix/FileStore.h"
-  #include "quickfix/FileLog.h"
-  #include "quickfix/SocketAcceptor.h"
-  #include "quickfix/Session.h"
-  #include "quickfix/SessionSettings.h"
-  #include "quickfix/Application.h"
+<pre class='fragment'>
+#include "quickfix/FileStore.h"
+#include "quickfix/FileLog.h"
+#include "quickfix/SocketAcceptor.h"
+#include "quickfix/Session.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/Application.h"
 
-  int main( int argc, char** argv )
+int main( int argc, char** argv )
+{
+  try
   {
-    try
-    {
-      if(argc &lt; 2) return 1;
-      std::string fileName = argv[1];
+    if(argc &lt; 2) return 1;
+    std::string fileName = argv[1];
 
-      FIX::SessionSettings settings(fileName);
+    FIX::SessionSettings settings(fileName);
 
-      MyApplication application;
-      FIX::FileStoreFactory storeFactory(settings);
-      FIX::FileLogFactory logFactory(settings);
-      FIX::SocketAcceptor acceptor
-        (application, storeFactory, settings, logFactory /*optional*/);
-      acceptor.start();
-      // while( condition == true ) { do something; }
-      acceptor.stop();
-      return 0;
-    }
-    catch(FIX::ConfigError&amp; e)
-    {
-      std::cout &lt;&lt; e.what();
-      return 1;
-    }
+    MyApplication application;
+    FIX::FileStoreFactory storeFactory(settings);
+    FIX::FileLogFactory logFactory(settings);
+    FIX::SocketAcceptor acceptor
+      (application, storeFactory, settings, logFactory /*optional*/);
+    acceptor.start();
+    // while( condition == true ) { do something; }
+    acceptor.stop();
+    return 0;
   }
-  </PRE></CODE>
-  </div>
+  catch(FIX::ConfigError&amp; e)
+  {
+    std::cout &lt;&lt; e.what();
+    return 1;
+  }
+}</pre>
   </div>
   </BODY>
 </html>

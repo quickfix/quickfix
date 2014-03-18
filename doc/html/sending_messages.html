@@ -19,27 +19,24 @@
     This method has several signatures. They are:
     </p>
 	See this code in <a href="python/sending_messages_1.html">PYTHON</a>, <a href="ruby/sending_messages_1.html">RUBY</a>
-    <div class='fragment'>
-    <PRE>
-    // send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
-    <B>static bool sendToTarget( Message&, const std::string& qualifier = "" )
-        throw(SessionNotFound&);</B>
+<pre class='fragment'>
+// send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
+static bool sendToTarget( Message&, const std::string& qualifier = "" )
+  throw(SessionNotFound&);
 
-    // send a message based on the sessionID, convenient for use
-    // in <I>fromApp</I> since it provides a session ID for incoming
-    // messages
-    <B>static bool sendToTarget( Message&, const SessionID& )
-      throw(SessionNotFound&);</B>
+// send a message based on the sessionID, convenient for use
+// in <I>fromApp</I> since it provides a session ID for incoming
+// messages
+static bool sendToTarget( Message&, const SessionID& )
+  throw(SessionNotFound&);
 
-    // append a <I>SenderCompID</I> and <I>TargetCompID</I> before sending
-    <B>static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID&, const std::string& qualifier = "" )
-      throw(SessionNotFound&);</B>
+// append a <I>SenderCompID</I> and <I>TargetCompID</I> before sending
+static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID&, const std::string& qualifier = "" )
+  throw(SessionNotFound&);
 
-    // pass SenderCompID and TargetCompID in as strings
-    <B>static bool sendToTarget( Message&, const std::string&, const std::string&, const std::string& qualifier = "" )
-      throw(SessionNotFound&);</B>
-    </PRE>
-    </div>
+// pass SenderCompID and TargetCompID in as strings
+static bool sendToTarget( Message&, const std::string&, const std::string&, const std::string& qualifier = "" )
+  throw(SessionNotFound&);</pre>
 
     <H1>Creating Messages</H1>
     As for creating messages, just like reading them, there are several levels of type safety. And
@@ -52,34 +49,31 @@
     <B>do not</B> use this for writing applications.
     </p>
     See this code in <a href="python/sending_messages_2.html">PYTHON</a>, <a href="ruby/sending_messages_2.html">RUBY</a>
-    <div class='fragment'>
-    <PRE>
-    void sendOrderCancelRequest()
-    {
-      FIX::Message message;
-      // BeginString
-      message.getHeader().setField(8, "FIX.4.2");
-      // SenderCompID
-      message.getHeader().setField(49, "TW");
-      // TargetCompID, with enumeration
-      message.getHeader().setField(FIX::FIELD::TargetCompID, "TARGET");
-      // MsgType
-      message.getHeader().setField(35, 'F');
-      // OrigClOrdID
-      message.setField(41, "123");
-      // ClOrdID
-      message.setField(11, "321");
-      // Symbol
-      message.setField(55, "LNUX");
-      // Side, with value enumeration
-      message.setField(54, FIX::Side_BUY);
-      // Text
-      message.setField(58, "Cancel My Order!");
+<pre class='fragment'>
+void sendOrderCancelRequest()
+{
+  FIX::Message message;
+  // BeginString
+  message.getHeader().setField(8, "FIX.4.2");
+  // SenderCompID
+  message.getHeader().setField(49, "TW");
+  // TargetCompID, with enumeration
+  message.getHeader().setField(FIX::FIELD::TargetCompID, "TARGET");
+  // MsgType
+  message.getHeader().setField(35, 'F');
+  // OrigClOrdID
+  message.setField(41, "123");
+  // ClOrdID
+  message.setField(11, "321");
+  // Symbol
+  message.setField(55, "LNUX");
+  // Side, with value enumeration
+  message.setField(54, FIX::Side_BUY);
+  // Text
+  message.setField(58, "Cancel My Order!");
 
-      FIX::Session::sendToTarget(message);
-    }
-    </PRE>
-    </div>
+  FIX::Session::sendToTarget(message);
+}</pre>
 
     <H2>More Type Safe</H2>
     <p>
@@ -88,27 +82,24 @@
     FIX versions.
     </p>
     See this code in <a href="python/sending_messages_3.html">PYTHON</a>, <a href="ruby/sending_messages_3.html">RUBY</a>
-    <div class='fragment'>
-    <PRE>
-    void sendOrderCancelRequest()
-    {
-      FIX::Message message;
-      FIX::Header header& = message.getHeader();
+<pre class='fragment'>
+void sendOrderCancelRequest()
+{
+  FIX::Message message;
+  FIX::Header header& = message.getHeader();
 
-      header.setField(FIX::BeginString("FIX.4.2"));
-      header.setField(FIX::SenderCompID(TW));
-      header.setField(FIX::TargetCompID("TARGET"));
-      header.setField(FIX::MsgType(FIX::MsgType_OrderCancelRequest));
-      message.setField(FIX::OrigClOrdID("123"));
-      message.setField(FIX::ClOrdID("321"));
-      message.setField(FIX::Symbol("LNUX"));
-      message.setField(FIX::Side(FIX::Side_BUY));
-      message.setField(FIX::Text("Cancel My Order!"));
+  header.setField(FIX::BeginString("FIX.4.2"));
+  header.setField(FIX::SenderCompID(TW));
+  header.setField(FIX::TargetCompID("TARGET"));
+  header.setField(FIX::MsgType(FIX::MsgType_OrderCancelRequest));
+  message.setField(FIX::OrigClOrdID("123"));
+  message.setField(FIX::ClOrdID("321"));
+  message.setField(FIX::Symbol("LNUX"));
+  message.setField(FIX::Side(FIX::Side_BUY));
+  message.setField(FIX::Text("Cancel My Order!"));
 
-      FIX::Session::sendToTarget(message);
-    }
-    </PRE>
-    </div>
+  FIX::Session::sendToTarget(message);
+}</pre>
 
 	<H2>Most Type Safe... DO THIS!</H2>
 	<p>
@@ -120,22 +111,19 @@
 	mind you can still use <B>setField</B> if you want to force any field you want into the message.
 	</p>
 	See this code in PYTHON(not supported), RUBY(not supported)
-  <div class='fragment'>
-	<PRE>
-    void sendOrderCancelRequest()
-    {
-      FIX41::OrderCancelRequest message(
-        FIX::OrigClOrdID("123"),
-        FIX::ClOrdID("321"),
-        FIX::Symbol("LNUX"),
-        FIX::Side(FIX::Side_BUY));
+<pre class='fragment'>
+void sendOrderCancelRequest()
+{
+  FIX41::OrderCancelRequest message(
+    FIX::OrigClOrdID("123"),
+    FIX::ClOrdID("321"),
+    FIX::Symbol("LNUX"),
+    FIX::Side(FIX::Side_BUY));
 
-      message.set(FIX::Text("Cancel My Order!"));
+  message.set(FIX::Text("Cancel My Order!"));
 
-      FIX::Session::sendToTarget(message, SenderCompID("TW"), TargetCompID("TARGET"));
-    }
-    </PRE>
-    </div>
+  FIX::Session::sendToTarget(message, SenderCompID("TW"), TargetCompID("TARGET"));
+}</pre>
   </div>
   </body>
 </html>

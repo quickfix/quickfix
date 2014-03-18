@@ -15,25 +15,22 @@
 
     <div class='contents'>
 
-    <H3>Windows</H3>
+    <H1>Windows</H1>
     <p>
-      The following settings concerning quickfix can all be found under the <B>project | properties</B>
-      dialog box in Microsoft Visual Studio. All pages in this dialog box are organized by tabs
-      and catagories.  When refering to a setting, the format <B>tab | catagory | setting</B> will be
-      used.
+      Open <B>project | properties</B> in Microsoft Visual Studio.
     </p>
     <p>
       <UL>
-        <LI><B>C/C++ | Code Generation | Enable C++ Exceptions</B>, should be Yes.</LI>
-        <LI><B>C/C++ | Code Generation | Runtime Library</B>, should be set to <I>Multithreaded DLL</I>
+        <LI><B>C/C++</B> | <B>Code Generation</B> | <B>Enable C++ Exceptions</B>, should be Yes.</LI>
+        <LI><B>C/C++</B> | <B>Code Generation</B> | <B>Runtime Library</B>, should be set to <I>Multithreaded DLL</I>
                or <I>Debug Multithreaded DLL</I>.</LI>
-        <LI><B>C/C++ | General | Additional Include Directories</B> Add the root quickfix directory.
-        <LI><B>Linker | Input | Additional Dependencies</B>, must contain <I>quickfix.lib</I> and <I>ws2_32.lib</I>.</LI>
-        <LI><B>Linker | General | Additional Library Directories</B>, add the quickfix/lib directory where <I>quickfix.lib</I> resides.</LI>
+        <LI><B>C/C++</B> | <B>General</B> | <B>Additional Include Directories</B> add the root <I>quickfix</I> directory.
+        <LI><B>Linker</B> | <B>Input</B> | <B>Additional Dependencies</B>, must contain <I>quickfix.lib</I> and <I>ws2_32.lib</I>.</LI>
+        <LI><B>Linker</B> | <B>General</B> | <B>Additional Library Directories</B>, add the <I>quickfix/lib</I> directory.</LI>
       </UL>
     </p>
 
-    <H3>Linux/Solaris</H3>
+    <H1>Linux/Solaris</H1>
     <p>
       <UL>
         <LI>Exceptions must be enabled with <B>-fexceptions</B></LI>

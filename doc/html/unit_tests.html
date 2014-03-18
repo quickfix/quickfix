@@ -23,45 +23,42 @@
   </p>
 
   <p>
-  An example of one of the unit tests is provided below. This sample shows the setup and
-  execution of the test that verifies our Parser object can correctly extract messages from a stream.
+  This sample shows the setup and
+  execution of the test that verifies the Parser object can correctly extract messages from a stream.
   </p>
 
-  <div class='fragment'>
-  <PRE>
-  struct readFixMessageFixture
+<pre class='fragment'>
+struct readFixMessageFixture
+{
+  readFixMessageFixture()
   {
-    readFixMessageFixture()
-    {
-      fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
-      fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-      fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+    fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+    fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+    fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
 
-      object.addToStream( fixMsg1 + fixMsg2 + fixMsg3 );
-    }
-
-    std::string fixMsg1;
-    std::string fixMsg2;
-    std::string fixMsg3;
-    Parser object;
-  };
-
-  TEST_FIXTURE(readFixMessageFixture, readFixMessage)
-  {
-    std::string readFixMsg1;
-    CHECK( object.readFixMessage( readFixMsg1 ) );
-    CHECK_EQUAL( fixMsg1, readFixMsg1 );
-
-    std::string readFixMsg2;
-    CHECK( object.readFixMessage( readFixMsg2 ) );
-    CHECK_EQUAL( fixMsg2, readFixMsg2 );
-
-    std::string readFixMsg3;
-    CHECK( object.readFixMessage( readFixMsg3 ) );
-    CHECK_EQUAL( fixMsg3, readFixMsg3 );
+    object.addToStream( fixMsg1 + fixMsg2 + fixMsg3 );
   }
-  </PRE>
-  </div>
+
+  std::string fixMsg1;
+  std::string fixMsg2;
+  std::string fixMsg3;
+  Parser object;
+};
+
+TEST_FIXTURE(readFixMessageFixture, readFixMessage)
+{
+  std::string readFixMsg1;
+  CHECK( object.readFixMessage( readFixMsg1 ) );
+  CHECK_EQUAL( fixMsg1, readFixMsg1 );
+
+  std::string readFixMsg2;
+  CHECK( object.readFixMessage( readFixMsg2 ) );
+  CHECK_EQUAL( fixMsg2, readFixMsg2 );
+
+  std::string readFixMsg3;
+  CHECK( object.readFixMessage( readFixMsg3 ) );
+  CHECK_EQUAL( fixMsg3, readFixMsg3 );
+}</pre>
   </div>
   </body>
 </html>

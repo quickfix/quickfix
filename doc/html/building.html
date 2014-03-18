@@ -14,14 +14,14 @@
     </div>
 
     <div class='contents'>
-    <H3>Windows</H3>
+    <H1>Windows</H1>
     <p>
       Open <B>quickfix_vs10.sln</B>, <B>quickfix_vs11.sln</B>, or <B>quickfix_vs12.sln</B>
     </p>
     <p>
       Batch build all projects.
       <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> can be linked into your
-      application. Header files are copied to the <I>include</I> directory.
+      application. Header files are copied to the <B>include</B> directory.
     </p>
     <p>
       Compile time options are controlled from the <B>config_windows.h</B> file in the <I>src</I>
@@ -41,21 +41,20 @@
       <tr><td>Compile and link XML parsing code against the libxml library instead of the default MSXML3.</td></tr>
       </table>
     </p>
-    <H3>Linux / Solaris / FreeBSD / Mac OS X</H3>
+
+    <H1>Linux / Solaris / FreeBSD / Mac OS X</H1>
     <p>
-      <div class='fragment'>
-      ./configure && ./make
-      </div>
+      <pre class='fragment'>
+./configure && ./make
+
+sudo make install</pre>
     </p>
     <p>
-      <div class='fragment'>
-      sudo make install
-      </div>
       You can also run configure with the
       <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option to install to a custom location.
     </p>
     <p>
-      <I>./configure</I> options.
+      <B>./configure</B> options:
       <table>
       <tr><td><FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT></td></tr>
       <tr><td>Build the Python API</td></tr>

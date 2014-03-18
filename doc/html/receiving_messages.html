@@ -34,24 +34,21 @@
     Here is a sample code segment for this type of retrieval:
     </p>
     See this code in <a href="python/receiving_messages_1.html">PYTHON</a>, <a href="ruby/receiving_messages_1.html">RUBY</a>
-    <div class='fragment'>
-    <PRE>
-    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
-    {
-      // retreive value into string with integer field ID
-      std::string value;
-      value = message.getField(44);
+<pre class='fragment'>
+void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
+{
+  // retreive value into string with integer field ID
+  std::string value;
+  value = message.getField(44);
 
-      // retrieve value into a field base with integer field ID
-      FIX::FieldBase field(44, "");
-      message.getField(field);
+  // retrieve value into a field base with integer field ID
+  FIX::FieldBase field(44, "");
+  message.getField(field);
 
-      // retreive value with an enumeration, a little better
-      message.getField(FIX::FIELD::Price);
-    }
-    </PRE>
-    </div>
+  // retreive value with an enumeration, a little better
+  message.getField(FIX::FIELD::Price);
+}</pre>
 
     <H2>More Type Safe</H2>
     <p>
@@ -62,21 +59,18 @@
     applications. This will also get fields as their appropriate type, not just as strings.
     </p>
     See this code in <a href="python/receiving_messages_2.html">PYTHON</a>, <a href="ruby/receiving_messages_2.html">RUBY</a>
-    <div class='fragment'>
-    <PRE>
-    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
-    {
-      // retrieve value into field class
-      FIX::Price price;
-      message.getField(price);
+<pre class='fragment'>
+void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
+{
+  // retrieve value into field class
+  FIX::Price price;
+  message.getField(price);
 
-      // another field...
-      FIX::ClOrdID clOrdID;
-      message.getField(clOrdID);
-    }
-	</PRE>
-  </div>
+  // another field...
+  FIX::ClOrdID clOrdID;
+  message.getField(clOrdID);
+}</pre>
 
 	<H2>Most Type Safe... DO THIS!</H2>
 	<p>
@@ -88,44 +82,42 @@
 	in mind you can still use <B>getField</B> as all of these classes derive from <B>Message</B>
 	</p>
     See this code in PYTHON(not supported), RUBY(not supported)
-    <div class='fragment'>
-    <PRE>
-    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
-    {
-      crack(message, sessionID);
-    }
+<pre class='fragment'>
+void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
+{
+  crack(message, sessionID);
+}
 
-    void onMessage( const FIX42::NewOrderSingle& message, const FIX::SessionID& )
-    {
-      FIX::ClOrdID clOrdID;
-      message.get(clOrdID);
+void onMessage( const FIX42::NewOrderSingle& message, const FIX::SessionID& )
+{
+  FIX::ClOrdID clOrdID;
+  message.get(clOrdID);
 
-      FIX::ClearingAccount clearingAccount;
-      message.get(clearingAccount);
-    }
+  FIX::ClearingAccount clearingAccount;
+  message.get(clearingAccount);
+}
 
-    void onMessage( const FIX41::NewOrderSingle& message, const FIX::SessionID& )
-    {
-      FIX::ClOrdID clOrdID;
-      message.get(clOrdID);
+void onMessage( const FIX41::NewOrderSingle& message, const FIX::SessionID& )
+{
+  FIX::ClOrdID clOrdID;
+  message.get(clOrdID);
 
-      // compile time error!! field not defined in FIX41
-      FIX::ClearingAccount clearingAccount;
-      message.get(clearingAccount);
-    }
+  // compile time error!! field not defined in FIX41
+  FIX::ClearingAccount clearingAccount;
+  message.get(clearingAccount);
+}
 
-    void onMessage( const FIX42::OrderCancelRequest& message, const FIX::SessionID& )
-    {
-      FIX::ClOrdID clOrdID;
-      message.get(clOrdID);
+void onMessage( const FIX42::OrderCancelRequest& message, const FIX::SessionID& )
+{
+  FIX::ClOrdID clOrdID;
+  message.get(clOrdID);
 
-      // compile time error!! field not defined for OrderCancelRequest
-      FIX::Price price;
-      message.get(price);
-    }
-    </PRE>
-    </div>
+  // compile time error!! field not defined for OrderCancelRequest
+  FIX::Price price;
+  message.get(price);
+}
+</pre>
 
     <p>
     In order to use this you must use the <B>MessageCracker</B> as a mixin to your application.
@@ -135,16 +127,13 @@
     Define your application like this:
     </p>
     See this code in PYTHON(not supported), RUBY(not supported)
-    <div class='fragment'>
-    <PRE>
-    #include "quickfix/Application.h"
-    #include "quickfix/MessageCracker.h"
+<pre class='fragment'>
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
 
-    class MyApplication
-    : public FIX::Application,
-      public FIX::MessageCracker
-    </PRE>
-    </div>
+class MyApplication
+: public FIX::Application,
+  public FIX::MessageCracker</pre>
   </div>
   </body>
 </html>
