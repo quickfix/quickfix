@@ -1,37 +1,31 @@
 /*! \mainpage QuickFIX Documentation
-* <table width="100%">
-* <tr>
-* <td><b>Installation</b></td>
-* <td><b>Getting Started</b></td>
-* <td><b>Working With Messages</b></td>
-* <td><b>Testing</b></td>
-* </tr>
-* <tr>
-* <td valign='top'>
-* <a href="dependencies.html">Dependencies</a><br>
-* <a href="building.html">Building</a><br>
-* <a href="generating_databases.html">Generating Databases</a><br>
-* <a href="testing.html">Testing</a><br>
-* </td>
-* <td valign='top'>
-* <a href="project.html">Setting Up Your Project</a><br>
-* <a href="application.html">Creating Your Application</a><br>
-* <a href="configuration.html">Configuration</a><br>
-* <a href="xmlschema.html">Validation</a><br>
-* </td>
-* <td valign='top'>
-* <a href="receiving_messages.html">Receiving Messages</a><br>
-* <a href="sending_messages.html">Sending Messages</a><br>
-* <a href="repeating_groups.html">Repeating Groups</a><br>
-* <a href="user_defined.html">User Defined Fields</a><br>
-* <a href="examples.html">Example Applications</a><br>
-* </td>
-* <td valign='top'>
-* <a href="unit_tests.html">Unit Tests</a><br>
-* <a href="acceptance_tests.html">Acceptance Tests</a><br>
-* </td>
-* </tr>
-* </table>
+* <b>Installation</b>
+* <ul>
+* <li><a href="dependencies.html">Dependencies</a></li>
+* <li><a href="building.html">Building</a></li>
+* <li><a href="generating_databases.html">Generating Databases</a></li>
+* <li><a href="testing.html">Testing</a></li>
+* </ul>
+* <b>Getting Started</b>
+* <ul>
+* <li><a href="project.html">Setting Up Your Project</a></li>
+* <li><a href="application.html">Creating Your Application</a></li>
+* <li><a href="configuration.html">Configuration</a></li>
+* <li><a href="xmlschema.html">Validation</a></li>
+* </ul>
+* <b>Working With Messages</b>
+* <ul>
+* <li><a href="receiving_messages.html">Receiving Messages</a></li>
+* <li><a href="sending_messages.html">Sending Messages</a></li>
+* <li><a href="repeating_groups.html">Repeating Groups</a></li>
+* <li><a href="user_defined.html">User Defined Fields</a></li>
+* <li><a href="examples.html">Example Applications</a></li>
+* </ul>
+* <b>Testing</b>
+* <ul>
+* <li><a href="unit_tests.html">Unit Tests</a></li>
+* <li><a href="acceptance_tests.html">Acceptance Tests</a></li>
+* </ul>
 *
 *The Financial Information Exchange (<a href="http://www.fixprotocol.org">FIX</a>) Protocol is a message standard developed
 *to facilitate the electronic exchange of information related to securities transactions.
