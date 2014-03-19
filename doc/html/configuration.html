@@ -80,9 +80,9 @@ SocketConnectPort2=2932
 SocketConnectHost2=12.12.12.12
 DataDictionary=somewhere/FIX42.xml</pre>
 
+<div>
   <H1>QuickFIX Settings</H1>
-  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3 WIDTH="100%">
-  <tbody>
+  <TABLE class='doxtable'>
   <TR ALIGN="left" VALIGN="middle">
     <TH>ID</TH>
     <TH>Description</TH>
@@ -93,104 +93,104 @@ DataDictionary=somewhere/FIX42.xml</pre>
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Session</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>BeginString</I> </TD>
+    <TD> <B>BeginString</B> </TD>
     <TD> Version of FIX this session should use </TD>
     <TD> FIXT.1.1 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SenderCompID</I> </TD>
+    <TD> <B>SenderCompID</B> </TD>
     <TD> Your ID as associated with this FIX session </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>TargetCompID</I> </TD>
+    <TD> <B>TargetCompID</B> </TD>
     <TD> Counter parties ID as associated with this FIX session </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SessionQualifier</I> </TD>
+    <TD> <B>SessionQualifier</B> </TD>
     <TD> Additional qualifier to disambiguate otherwise identical sessions </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>DefaultApplVerID</I> </TD>
+    <TD> <B>DefaultApplVerID</B> </TD>
     <TD> Required only for FIXT 1.1 (and newer). Ignored for earlier transport versions. Specifies the default application version ID for the session. This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version. </TD>
     <TD> FIX.5.0SP2 <br> FIX.5.0SP1 <br> FIX.5.0 <br> FIX.4.4 <br> FIX.4.3 <br> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 <br> 9 <br> 8 <br> 7 <br> 6 <br> 5 <br> 4 <br> 3 <br> 2 </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ConnectionType</I> </TD>
+    <TD> <B>ConnectionType</B> </TD>
     <TD> Defines if session will act as an acceptor or an initiator </TD>
     <TD> initiator <br> acceptor </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>StartTime</I> </TD>
+    <TD> <B>StartTime</B> </TD>
     <TD> Time of day that this FIX session becomes activated </TD>
     <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>EndTime</I> </TD>
+    <TD> <B>EndTime</B> </TD>
     <TD> Time of day that this FIX session becomes deactivated </TD>
     <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>StartDay</I> </TD>
+    <TD> <B>StartDay</B> </TD>
     <TD> For week long sessions, the starting day of week for the session. Use in combination with StartTime. </TD>
     <TD> Day of week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid) </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>EndDay</I> </TD>
+    <TD> <B>EndDay</B> </TD>
     <TD> For week long sessions, the ending day of week for the session. Use in combination with EndTime. </TD>
     <TD> Day of week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid) </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>UseLocalTime</I> </TD>
+    <TD> <B>UseLocalTime</B> </TD>
     <TD> Indicates StartTime and EndTime are expressed in localtime instead of UTC. Times in messages will still be set to UTC as this is required by the FIX specifications. </TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MillisecondsInTimeStamp</I> </TD>
+    <TD> <B>MillisecondsInTimeStamp</B> </TD>
     <TD> Determines if milliseconds should be added to
     timestamps. Only available for FIX.4.2 and greater. </TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SendRedundantResendRequests</I> </TD>
+    <TD> <B>SendRedundantResendRequests</B> </TD>
     <TD> If set to Y, QuickFIX will send all necessary resend requests, even if they appear redundant. Some systems will not certify the engine unless it does this. When set to N, QuickFIX will attempt to minimize resend requests. This is particularly useful on high volume systems.</TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnLogon</I> </TD>
+    <TD> <B>ResetOnLogon</B> </TD>
     <TD> Determines if sequence numbers should be reset when recieving a logon request.  Acceptors only.</TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnLogout</I> </TD>
+    <TD> <B>ResetOnLogout</B> </TD>
     <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnDisconnect</I> </TD>
+    <TD> <B>ResetOnDisconnect</B> </TD>
     <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>RefreshOnLogon</I> </TD>
+    <TD> <B>RefreshOnLogon</B> </TD>
     <TD> Determines if session state should be restored from persistence layer when logging on. Useful for creating hot failover sessions. </TD>
     <TD> Y<br>N</TD>
     <TD> N </TD>
@@ -200,25 +200,25 @@ DataDictionary=somewhere/FIX42.xml</pre>
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Validation</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>UseDataDictionary</I> </TD>
+    <TD> <B>UseDataDictionary</B> </TD>
     <TD> Tell session whether or not to expect a data dictionary. You should always use a DataDictionary if you are using repeating groups.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>DataDictionary</I> </TD>
+    <TD> <B>DataDictionary</B> </TD>
     <TD> XML definition file for validating incoming FIX messages. If no DataDictionary is supplied, only basic message validation will be done <br><br>This setting should only be used with FIX transport versions older than FIXT.1.1. See TransportDataDictionary and AppDataDictionary for FIXT.1.1 settings.</TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory<br><br>FIX44.xml <br> FIX43.xml <br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>TransportDataDictionary</I> </TD>
+    <TD> <B>TransportDataDictionary</B> </TD>
     <TD> XML definition file for validating admin (transport) messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information.</TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory</br><br>FIXT1.1.xml </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>AppDataDictionary</I> </TD>
+    <TD> <B>AppDataDictionary</B> </TD>
     <TD> XML definition file for validating application messages. This setting is only valid for FIXT.1.1 (or newer) sessions. <br><br> See DataDictionary for older transport versions (FIX.4.0 - FIX.4.4) for additional information. <br><br>This setting supports the possibility of a custom application data dictionary for each session. This setting would only be used with FIXT 1.1 and new transport protocols. This setting can be used as a prefix to specify multiple application dictionaries for the FIXT transport. For example:
 <pre class='fragment'>
 DefaultApplVerID=FIX.4.2
@@ -233,43 +233,43 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ValidateLengthAndChecksum</I> </TD>
+    <TD> <B>ValidateLengthAndChecksum</B> </TD>
     <TD> If set to N, messages with incorrect length or checksum fields will not be rejected.  You can also use this to force acceptance of repeating groups without a data dictionary.  In this scenario you will not be able to access all repeating groups.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ValidateFieldsOutOfOrder</I> </TD>
+    <TD> <B>ValidateFieldsOutOfOrder</B> </TD>
     <TD> If set to N, fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ValidateFieldsHaveValues</I> </TD>
+    <TD> <B>ValidateFieldsHaveValues</B> </TD>
     <TD> If set to N, fields without values (empty) will not be rejected. Useful for connecting to systems which improperly send empty tags.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ValidateUserDefinedFields</I> </TD>
+    <TD> <B>ValidateUserDefinedFields</B> </TD>
     <TD> If set to N, user defined fields will not be rejected if they are not defined in the data dictionary, or are present in messages they do not belong to.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>CheckCompID</I> </TD>
+    <TD> <B>CheckCompID</B> </TD>
     <TD> If set to Y, messages must be received from the counterparty with the correct SenderCompID and TargetCompID. Some systems will send you different CompIDs by design, so you must set this to N. </TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>CheckLatency</I> </TD>
+    <TD> <B>CheckLatency</B> </TD>
     <TD> If set to Y, messages must be received from the counterparty within a defined number of seconds (see MaxLatency). It is useful to turn this off if a system uses localtime for it's timestamps instead of GMT.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MaxLatency</I> </TD>
+    <TD> <B>MaxLatency</B> </TD>
     <TD> If CheckLatency is set to Y, this defines the number of seconds latency allowed for a message to be processed. Default is 120.</TD>
     <TD> positive integer</TD>
     <TD> 120 </TD>
@@ -279,7 +279,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Miscellaneous</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>HttpAcceptPort</I> </TD>
+    <TD> <B>HttpAcceptPort</B> </TD>
     <TD> Port to listen to HTTP requests. Pointing a browser to this port will bring up a control panel.  Must be in DEFAULT section.</TD>
     <TD> positive integer</TD>
     <TD> </TD>
@@ -289,43 +289,43 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Initiator</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ReconnectInterval</I> </TD>
+    <TD> <B>ReconnectInterval</B> </TD>
     <TD> Time between reconnection attempts in seconds. Only used for initiators </TD>
     <TD> positive integer </TD>
     <TD> 30 </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>HeartBtInt</I> </TD>
+    <TD> <B>HeartBtInt</B> </TD>
     <TD> Heartbeat interval in seconds. Only used for initiators. </TD>
     <TD> positive integer </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>LogonTimeout</I> </TD>
+    <TD> <B>LogonTimeout</B> </TD>
     <TD> Number of seconds to wait for a logon response before disconnecting.</TD>
     <TD> positive integer </TD>
     <TD> 10 </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>LogoutTimeout</I> </TD>
+    <TD> <B>LogoutTimeout</B> </TD>
     <TD> Number of seconds to wait for a logout response before disconnecting.</TD>
     <TD> positive integer </TD>
     <TD> 2 </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketConnectPort</I> </TD>
+    <TD> <B>SocketConnectPort</B> </TD>
     <TD> Socket port for connecting to a session. Only used with a SocketInitiator </TD>
     <TD> positive integer </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketConnectHost</I> </TD>
+    <TD> <B>SocketConnectHost</B> </TD>
     <TD> Host to connect to. Only used with a SocketInitiator </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketConnectPort&lt;n&gt;</I> </TD>
+    <TD> <B>SocketConnectPort&lt;n&gt;</B> </TD>
     <TD> Alternate socket ports for connecting to a session for failover, where <B>n</B> is a
   	     positive integer. (i.e.) SocketConnectPort1, SocketConnectPort2... must be consecutive
              and have a matching SocketConnectHost[n]</TD>
@@ -333,7 +333,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketConnectHost&lt;n&gt;</I> </TD>
+    <TD> <B>SocketConnectHost&lt;n&gt;</B> </TD>
     <TD> Alternate socket hosts for connecting to a session for failover, where <B>n</B> is a
          positive integer. (i.e.) SocketConnectHost1, SocketConnectHost2... must be consecutive
          and have a matching SocketConnectPort[n]</TD>
@@ -341,7 +341,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketNodelay</I> </TD>
+    <TD> <B>SocketNodelay</B> </TD>
     <TD> Indicates a socket should be created with TCP_NODELAY. Currently, this must be defined in the [DEFAULT]
          section. </TD>
     <TD> Y<br>N</TD>
@@ -352,20 +352,20 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Acceptor</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketAcceptPort</I> </TD>
+    <TD> <B>SocketAcceptPort</B> </TD>
     <TD> Socket port for listening to incoming connections, Only used with a SocketAcceptor </TD>
     <TD> positive integer, valid open socket port. Currently, this must be defined in the [DEFAULT]
          section.</TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketReuseAddress</I> </TD>
+    <TD> <B>SocketReuseAddress</B> </TD>
     <TD> Indicates a socket should be created with SO_REUSADDR, Only used with a SocketAcceptor </TD>
     <TD> Y<br>N</TD>
     <TD> Y</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SocketNodelay</I> </TD>
+    <TD> <B>SocketNodelay</B> </TD>
     <TD> Indicates a socket should be created with TCP_NODELAY. Currently, this must be defined in the [DEFAULT]
          section. </TD>
     <TD> Y<br>N</TD>
@@ -376,7 +376,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><b>Storage</b></TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PersistMessages</I> </TD>
+    <TD> <B>PersistMessages</B> </TD>
     <TD> If set to N, no messages will be persisted. This will force QuickFIX to always send GapFills instead of resending messages. Use this if you know you never want to resend a message. Useful for market data streams.</TD>
     <TD> Y<br>Y</TD>
     <TD> N</TD>
@@ -385,7 +385,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">FILE</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>FileStorePath</I> </TD>
+    <TD> <B>FileStorePath</B> </TD>
     <TD> Directory to store sequence number and message files. </TD>
     <TD> valid directory for storing files, must have write access </TD>
     <TD> </TD>
@@ -394,37 +394,37 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">MYSQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStoreDatabase</I> </TD>
+    <TD> <B>MySQLStoreDatabase</B> </TD>
     <TD> Name of MySQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStoreUser</I> </TD>
+    <TD> <B>MySQLStoreUser</B> </TD>
     <TD> User name logging in to MySQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStorePassword</I> </TD>
+    <TD> <B>MySQLStorePassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct MySQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStoreHost</I> </TD>
+    <TD> <B>MySQLStoreHost</B> </TD>
     <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStorePort</I> </TD>
+    <TD> <B>MySQLStorePort</B> </TD>
     <TD> Port of MySQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLStoreUseConnectionPool</I> </TD>
+    <TD> <B>MySQLStoreUseConnectionPool</B> </TD>
     <TD> Use database connection pools.
          When possible, sessions will share a single database connection.  Otherwise each session
          gets its own connection. </TD>
@@ -435,37 +435,37 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">POSTGRESQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStoreDatabase</I> </TD>
+    <TD> <B>PostgreSQLStoreDatabase</B> </TD>
     <TD> Name of PostgreSQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStoreUser</I> </TD>
+    <TD> <B>PostgreSQLStoreUser</B> </TD>
     <TD> User name logging in to PostgreSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> postgres </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStorePassword</I> </TD>
+    <TD> <B>PostgreSQLStorePassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct PostgreSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStoreHost</I> </TD>
+    <TD> <B>PostgreSQLStoreHost</B> </TD>
     <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStorePort</I> </TD>
+    <TD> <B>PostgreSQLStorePort</B> </TD>
     <TD> Port of PostgreSQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard PostgreSQL port </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLStoreUseConnectionPool</I> </TD>
+    <TD> <B>PostgreSQLStoreUseConnectionPool</B> </TD>
     <TD> Use database connection pools.
          When possible, sessions will share a single database connection.  Otherwise each session
          gets its own connection. </TD>
@@ -476,19 +476,19 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">ODBC</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcStoreUser</I> </TD>
+    <TD> <B>OdbcStoreUser</B> </TD>
     <TD> User name logging in to ODBC database. </TD>
     <TD> valid user with read/write access to appropriate tables in database. Ignored if UID is in the OdbcStoreConnectionString. </TD>
     <TD> sa </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcStorePassword</I> </TD>
+    <TD> <B>OdbcStorePassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct ODBC password for user. Ignored if PWD is in the OdbcStoreConnectionString. </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcStoreConnectionString</I> </TD>
+    <TD> <B>OdbcStoreConnectionString</B> </TD>
     <TD> ODBC connection string for database </TD>
     <TD> Valid ODBC connection string </TD>
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
@@ -500,13 +500,13 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">FILE</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>FileLogPath</I> </TD>
+    <TD> <B>FileLogPath</B> </TD>
     <TD> Directory to store logs. </TD>
     <TD> valid directory for storing files, must have write access </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>FileLogBackupPath</I> </TD>
+    <TD> <B>FileLogBackupPath</B> </TD>
     <TD> Directory to store backup logs. </TD>
     <TD> valid directory for storing backup files, must have write access </TD>
     <TD> </TD>
@@ -515,37 +515,37 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">MYSQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogDatabase</I> </TD>
+    <TD> <B>MySQLLogDatabase</B> </TD>
     <TD> Name of MySQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogUser</I> </TD>
+    <TD> <B>MySQLLogUser</B> </TD>
     <TD> User name logging in to MySQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogPassword</I> </TD>
+    <TD> <B>MySQLLogPassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct MySQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogHost</I> </TD>
+    <TD> <B>MySQLLogHost</B> </TD>
     <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogPort</I> </TD>
+    <TD> <B>MySQLLogPort</B> </TD>
     <TD> Port of MySQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogUseConnectionPool</I> </TD>
+    <TD> <B>MySQLLogUseConnectionPool</B> </TD>
     <TD> Use database connection pools.
          When possible, sessions will share a single database connection.  Otherwise each session
          gets its own connection. </TD>
@@ -553,19 +553,19 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogIncomingTable</I> </TD>
+    <TD> <B>MySQLLogIncomingTable</B> </TD>
     <TD> Name of table where incoming messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogOutgoingTable</I> </TD>
+    <TD> <B>MySQLLogOutgoingTable</B> </TD>
     <TD> Name of table where outgoing messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>MySQLLogEventTable</I> </TD>
+    <TD> <B>MySQLLogEventTable</B> </TD>
     <TD> Name of table where events will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> event_log </TD>
@@ -574,37 +574,37 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">POSTGRESQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogDatabase</I> </TD>
+    <TD> <B>PostgreSQLLogDatabase</B> </TD>
     <TD> Name of PostgreSQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogUser</I> </TD>
+    <TD> <B>PostgreSQLLogUser</B> </TD>
     <TD> User name logging in to PostgreSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> postgres </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogPassword</I> </TD>
+    <TD> <B>PostgreSQLLogPassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct PostgreSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogHost</I> </TD>
+    <TD> <B>PostgreSQLLogHost</B> </TD>
     <TD> Address of PostgreSQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogPort</I> </TD>
+    <TD> <B>PostgreSQLLogPort</B> </TD>
     <TD> Port of PostgreSQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard PostgreSQL port </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgreSQLLogUseConnectionPool</I> </TD>
+    <TD> <B>PostgreSQLLogUseConnectionPool</B> </TD>
     <TD> Use database connection pools.
          When possible, sessions will share a single database connection.  Otherwise each session
          gets its own connection. </TD>
@@ -612,19 +612,19 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD> N </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgresSQLLogIncomingTable</I> </TD>
+    <TD> <B>PostgresSQLLogIncomingTable</B> </TD>
     <TD> Name of table where incoming messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgresSQLLogOutgoingTable</I> </TD>
+    <TD> <B>PostgresSQLLogOutgoingTable</B> </TD>
     <TD> Name of table where outgoing messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>PostgresSQLLogEventTable</I> </TD>
+    <TD> <B>PostgresSQLLogEventTable</B> </TD>
     <TD> Name of table where events will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> event_log </TD>
@@ -633,43 +633,43 @@ AppDataDictionary.FIX.4.4=FIX44.xml
     <TD COLSPAN="4">ODBC</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogUser</I> </TD>
+    <TD> <B>OdbcLogUser</B> </TD>
     <TD> User name logging in to ODBC database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> sa </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogPassword</I> </TD>
+    <TD> <B>OdbcLogPassword</B> </TD>
     <TD> Users password. </TD>
     <TD> correct ODBC password for user. Ignored if UID is in the OdbcLogConnectionString. </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogConnectionString</I> </TD>
+    <TD> <B>OdbcLogConnectionString</B> </TD>
     <TD> ODBC connection string for database </TD>
     <TD> Valid ODBC connection string. Ignored if PWD is in the OdbcStoreConnectionString. </TD>
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogIncomingTable</I> </TD>
+    <TD> <B>OdbcLogIncomingTable</B> </TD>
     <TD> Name of table where incoming messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogOutgoingTable</I> </TD>
+    <TD> <B>OdbcLogOutgoingTable</B> </TD>
     <TD> Name of table where outgoing messages will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> messages_log </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>OdbcLogEventTable</I> </TD>
+    <TD> <B>OdbcLogEventTable</B> </TD>
     <TD> Name of table where events will be logged. </TD>
     <TD> Valid table with correct schema. </TD>
     <TD> event_log </TD>
   </TR>
-  </tbody>
   </TABLE>
+</div>
 
   </div>
   </body>
