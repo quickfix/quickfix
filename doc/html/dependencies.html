@@ -15,45 +15,33 @@
 
     <div class='contents'>
     <H1>Required Dependencies</H1>
-    <p>
-      Dependencies
-      are split into <I>Run</I>, <I>Build</I>, and <I>Test</I> catagories.  These
-      refer to what is necessary to run a QuickFIX application, what is required to
-      compile QuickFIX from the source, and the tools needed to use the automated testing
-      framework.
-    </p>
-    <p>
-      The <I>Run</I> category details what might be the setup of a deployment machine.  The
-      <I>Build</I> category might be the setup of a development machine that uses the QuickFIX
-      library. All three should be installed for a developer intent on modifying the QuickFIX
-      library code itself.
-    </p>
     <table border=1 cellspacing=0 cellpadding=5 width="100%">
       <tbody>
-        <tr>
+	<tr BGCOLOR="#DDDDDD">
+	  <th></th>
+	  <th>Run</th>
+	  <th>Build</th>
+	  <th>Test</th>
+	</tr>
+        <tr BGCOLOR="#FFFFFF">
           <td align=center><B>Windows</B></td>
-          <td align=center>Run</td>
           <td>
             MSXML3 or libxml2
           </td>
-          <td align=center>Build</td>
           <td>
             <a href="http://msdn.microsoft.com/visualc/">Microsoft Visual C++</a><br>
             MSXML3 or libxml2
           </td>
-          <td align=center>Test</td>
           <td>
             <a href"https://www.ruby-lang.org/en/">Ruby</a><br>
           </td>
         </tr>
         <tr>
           <td align=center><B>Linux</B></td>
-          <td align=center>Run</td>
           <td>
             <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=glibc">glibc</a><br>
             <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=libxml">libxml2</a><br>
           </td>
-          <td align=center>Build</td>
           <td>
             <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc">gcc</a><br>
             <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc-c%2B%2B">gcc-c++</a><br>
@@ -62,18 +50,15 @@
             <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu make</a><br>
             <a href="http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">sstream</a><br>
           </td>
-          <td align=center>Test</td>
           <td>
             <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=ruby">Ruby</a><br>
           </td>
           <tr>
             <td align=center><B>Solaris</B></td>
-            <td align=center>Run</td>
             <td>
               <a href="http://www.gnu.org/software/libc/#Availability">glibc</a><br>
               <a href="http://xmlsoft.org/downloads.html">libxml2</a><br>
             </td>
-            <td align=center>Build</td>
             <td>
               <a href="http://www.gnu.org/software/gcc/releases.html">gcc</a> or SunPRO<br>
               gcc-c++<br>
@@ -82,38 +67,31 @@
               <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu make</a><br>
               <a href="http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">sstream</a><br>
             </td>
-            <td align=center>Test</td>
             <td>
               <a href="http://www.ruby-lang.org/en/download.html">Ruby</a><br>
             </td>
         </tr>
         <tr>
             <td align=center><B>FreeBSD</B></td>
-            <td align=center>Run</td>
             <td>
               <a href="http://www.freebsd.org/ports/">libxml2</a><br>
             </td>
-            <td align=center>Build</td>
             <td>
               <a href="http://www.freebsd.org/ports/">libxml2<br>
             </td>
-            <td align=center>Test</td>
             <td>
               <a href="http://www.freebsd.org/ports/">Ruby<br>
             </td>
         </tr>
         <tr>
             <td align=center><B>Mac OS X</B></td>
-            <td align=center>Run</td>
             <td>
               <a href="http://www.macports.org/ports.php?by=library&substr=libxml2">libxml2</a><br>
             </td>
-            <td align=center>Build</td>
             <td>
               <a href="http://developer.apple.com/tools/download/">Xcode Tools</a><br>
               <a href="http://www.macports.org/ports.php?by=library&substr=libxml2">libxml2</a><br>
             </td>
-            <td align=center>Test</td>
             <td>
             </td>
         </tr>
@@ -122,13 +100,12 @@
 
     <H1>Optional Dependencies</H1>
     <p>
-    In addition to the required dependencies listed above, there are some dependencies if you would
-    like to take advantage of additional features.  QuickFIX supports the following:
-
-    <A HREF="http://www.mysql.com/downloads/">MySQL</A>
-    <A HREF="http://www.microsoft.com/sql/default.mspx">MSSQL</A>
-    <A HREF="http://www.postgresql.org/download/">PostgreSQL</A>
-    <A HREF="http://www.stlport.org/download.html">STLport</A>
+    <ul>
+    <li><A HREF="http://www.mysql.com/downloads/">MySQL</A></li>
+    <li><A HREF="http://www.microsoft.com/sql/default.mspx">MSSQL</A></li>
+    <li><A HREF="http://www.postgresql.org/download/">PostgreSQL</A></li>
+    <li><A HREF="http://www.stlport.org/download.html">STLport</A></li>
+    </ul>
     </p>
   </div>
   </body>
