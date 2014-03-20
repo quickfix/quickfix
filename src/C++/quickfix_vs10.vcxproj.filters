@@ -111,9 +111,6 @@
     <ClInclude Include="Application.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="CallStack.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Dictionary.h">
       <Filter>Headers</Filter>
     </ClInclude>
