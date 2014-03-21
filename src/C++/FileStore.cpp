@@ -314,8 +314,8 @@ throw ( IOException )
   if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) 
     throw IOException( "Unable to seek in file " + m_msgFileName );
   char* buffer = new char[ offset.second + 1 ];
-  fread( buffer, sizeof( char ), offset.second, m_msgFile );
-  if ( ferror( m_msgFile ) ) 
+  size_t result = fread( buffer, sizeof( char ), offset.second, m_msgFile );
+  if ( ferror( m_msgFile ) || result != (size_t)offset.second ) 
   {
     delete [] buffer;
     throw IOException( "Unable to read from file " + m_msgFileName );

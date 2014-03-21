@@ -67,7 +67,7 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 bool ThreadedSocketConnection::send( const std::string& msg )
 {
   int totalSent = 0;
-  while(totalSent < msg.length())
+  while(totalSent < (int)msg.length())
   {
     int sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
     if(sent < 0) return false;

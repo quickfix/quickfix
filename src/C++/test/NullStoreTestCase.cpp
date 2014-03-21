@@ -63,13 +63,13 @@ TEST( setGet )
 
   std::vector < std::string > messages;
   object.get( 1, 3, messages );
-  CHECK_EQUAL( 0, messages.size() );
+  CHECK_EQUAL( 0U, messages.size() );
 
   object.get( 4, 6, messages );
-  CHECK_EQUAL( 0, messages.size() );
+  CHECK_EQUAL( 0U, messages.size() );
 
   object.get( 2, 6, messages );
-  CHECK_EQUAL( 0, messages.size() );
+  CHECK_EQUAL( 0U, messages.size() );
 }
 
 TEST( setGetWithQuote )
@@ -94,7 +94,7 @@ TEST( setGetWithQuote )
 
   std::vector < std::string > messages;
   object.get( 1, 4, messages );
-  CHECK_EQUAL( 0, messages.size() );
+  CHECK_EQUAL( 0U, messages.size() );
 }
 
 TEST_FIXTURE( sharedObjectFixture, other )

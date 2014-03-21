@@ -237,11 +237,11 @@ struct IntConvertor
     // this saves about 25% of speed when executed out of the main loop
     if( length == MAX_DIGITS )
     {
-      if( x > HIGH_MARK )
+      if( x > (unsigned int)HIGH_MARK )
         return false;
 
       const unsigned_int c = *str - '0';
-      if( x == HIGH_MARK && c > STOP_SYMBOL )
+      if( x == (unsigned int)HIGH_MARK && c > STOP_SYMBOL )
         return false;
 
       x = 10 * x + c;

@@ -121,7 +121,7 @@ TEST_FIXTURE(socketServerFixture, block)
   object.block( *this );
   object.block( *this );
   CHECK_EQUAL( 1, data );
-  CHECK_EQUAL( 1, bufLen );
+  CHECK_EQUAL( 1U, bufLen );
   CHECK_EQUAL( '1', *buf );
   CHECK( dataSocket > 0 );
 

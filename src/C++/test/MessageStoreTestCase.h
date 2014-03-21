@@ -39,16 +39,16 @@
                                                             \
   std::vector < std::string > messages;                     \
   object->get( 1, 3, messages );                            \
-  CHECK_EQUAL( 3, messages.size() );                        \
+  CHECK_EQUAL( 3U, messages.size() );                        \
   CHECK_EQUAL( logon.toString(), messages[ 0 ] );           \
   CHECK_EQUAL( heartbeat.toString(), messages[ 1 ] );       \
   CHECK_EQUAL( newOrderSingle.toString(), messages[ 2 ] );  \
                                                             \
   object->get( 4, 6, messages );                            \
-  CHECK_EQUAL( 0, messages.size() );                        \
+  CHECK_EQUAL( 0U, messages.size() );                        \
                                                             \
   object->get( 2, 6, messages );                            \
-  CHECK_EQUAL( 2, messages.size() );                        \
+  CHECK_EQUAL( 2U, messages.size() );                        \
   CHECK_EQUAL( heartbeat.toString(), messages[ 0 ] );       \
   CHECK_EQUAL( newOrderSingle.toString(), messages[ 1 ] );
 
@@ -71,7 +71,7 @@
                                                       \
   std::vector < std::string > messages;               \
   object->get( 1, 4, messages );                      \
-  CHECK_EQUAL( 4, messages.size() );                  \
+  CHECK_EQUAL( 4U, messages.size() );                  \
   CHECK_EQUAL( singleQuote.toString(), messages[0] ); \
   CHECK_EQUAL( doubleQuote.toString(), messages[1] ); \
   CHECK_EQUAL( bothQuote.toString(), messages[2] );   \
