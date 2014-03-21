@@ -4,7 +4,7 @@ set TARGET=%1
 set CONFIGURATION=%2
 set NET_VERSION=%3
 
-if "%1" == "" set TARGET=Rebuild
+if "%1" == "" set TARGET=Build
 if "%2" == "" set CONFIGURATION=Release
 if "%3" == "" set NET_VERSION=v4.5
 

@@ -54,22 +54,22 @@ TEST(setString)
 
   object.setString( strGood1 );
   CHECK_EQUAL( "/", object.getRootString() );
-  CHECK_EQUAL( 0, object.getParameters().size() );
+  CHECK_EQUAL( 0U, object.getParameters().size() );
 
   object.setString( strGood2 );
   CHECK_EQUAL( "/another/url", object.getRootString() );
-  CHECK_EQUAL( 0, object.getParameters().size() );
+  CHECK_EQUAL( 0U, object.getParameters().size() );
 
   object.setString( strGoodWithParameters );
   CHECK_EQUAL( "/some/url", object.getRootString() );
-  CHECK_EQUAL( 3, object.getParameters().size() );
+  CHECK_EQUAL( 3U, object.getParameters().size() );
   CHECK_EQUAL( "one", object.getParameters().find("p1")->second );
   CHECK_EQUAL( "two", object.getParameters().find("p2")->second );
   CHECK_EQUAL( "three", object.getParameters().find("p3")->second );
 
   object.setString( strGoodWithEmptyParameters );
   CHECK_EQUAL( "/some/url", object.getRootString() );
-  CHECK_EQUAL( 3, object.getParameters().size() );
+  CHECK_EQUAL( 3U, object.getParameters().size() );
   CHECK_EQUAL( "", object.getParameters().find("p1")->second );
   CHECK_EQUAL( "", object.getParameters().find("p2")->second );
   CHECK_EQUAL( "", object.getParameters().find("p3")->second );
