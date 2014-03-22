@@ -1,5 +1,7 @@
 #!/bin/sh
 
+killall ut at
+
 DIR=`pwd`
 PORT=$1
 ./setup.sh $PORT

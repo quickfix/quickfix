@@ -32,8 +32,8 @@
 namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection
-( int s, Sessions sessions, Application& application, Log* pLog )
-: m_socket( s ), m_application( application ), m_pLog( pLog ),
+( int s, Sessions sessions, Log* pLog )
+: m_socket( s ), m_pLog( pLog ),
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
 {
@@ -44,9 +44,9 @@ ThreadedSocketConnection::ThreadedSocketConnection
 ThreadedSocketConnection::ThreadedSocketConnection
 ( const SessionID& sessionID, int s,
   const std::string& address, short port, 
-  Application& application, Log* pLog )
+  Log* pLog )
   : m_socket( s ), m_address( address ), m_port( port ),
-    m_application( application ), m_pLog( pLog ),
+    m_pLog( pLog ),
     m_pSession( Session::lookupSession( sessionID ) ),
     m_disconnect( false )
 {

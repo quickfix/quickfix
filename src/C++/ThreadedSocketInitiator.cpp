@@ -155,7 +155,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
 
     ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( s, socket, address, port, getApplication(), getLog() );
+      new ThreadedSocketConnection( s, socket, address, port, getLog() );
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 

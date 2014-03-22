@@ -213,7 +213,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
     ThreadedSocketConnection * pConnection =
       new ThreadedSocketConnection
-        ( socket, sessions, pAcceptor->getApplication(), pAcceptor->getLog() );
+        ( socket, sessions, pAcceptor->getLog() );
 
     ConnectionThreadInfo* info = new ConnectionThreadInfo( pAcceptor, pConnection );
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+killall ut at
+
 RUBY="ruby -I."
 DIR=`pwd`
 PORT=$1
