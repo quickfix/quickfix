@@ -173,8 +173,17 @@ int FieldMap::totalFields() const
   return result;
 }
 
-std::string& FieldMap::calculateString( std::string& result ) const
-{  
+std::string& FieldMap::calculateString( std::string& result, bool clear ) const
+{
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  if( clear ) result = "";
+#else
+  if( clear ) result.clear();
+#endif
+
+  if( !result.size() )
+    result.reserve( totalFields() * 32 );
+    
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
@@ -186,7 +195,7 @@ std::string& FieldMap::calculateString( std::string& result ) const
     if ( j == m_groups.end() ) continue;
     std::vector < FieldMap* > ::const_iterator k;
     for ( k = j->second.begin(); k != j->second.end(); ++k )
-      ( *k ) ->calculateString( result );
+      ( *k ) ->calculateString( result, false );
   }
   return result;
 }
