@@ -85,6 +85,7 @@ namespace FIX
       // create the counter object at the end of the storage
       // with initial reference count set to 1
       atomic_count * counter = new (&storage[nSize]) atomic_count( 1 );
+      counter;  // fixes unused variable warning
 
       return shared_array(storage, nSize);
     }
@@ -137,6 +138,8 @@ namespace FIX
 
         //explicitly call destructor for the counter object
         tmpCounter->~atomic_count();
+        tmpCounter; // fixes unused variable warning
+
         delete [] tmpBuff;
       }
     }
