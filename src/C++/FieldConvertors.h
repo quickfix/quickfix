@@ -161,16 +161,22 @@ struct IntConvertor
     return std::string( start, buffer + sizeof (buffer) - start - 1 );
   }
 
-  static bool convert( const std::string& value, signed_int& result )
+  static bool convert(     
+    std::string::const_iterator str, 
+    std::string::const_iterator end, 
+    signed_int& result )
   {
-    const char* str = value.c_str();
     bool isNegative = false;
     signed_int x = 0;
+
+    if( str == end )
+      return false;
 
     if( *str == '-' )
     {
       isNegative = true;
-      ++str;
+      if( ++str == end )
+        return false;
     }
 
     do
@@ -178,7 +184,7 @@ struct IntConvertor
       const unsigned_int c = *str - '0';
       if( c > 9 ) return false;
       x = 10 * x + c;
-    } while (*++str);
+    } while ( ++str != end );
 
     if( isNegative )
       x = -x;
@@ -187,11 +193,16 @@ struct IntConvertor
     return true;
   }
 
+  static bool convert( const std::string& value, signed_int& result )
+  {
+    return convert( value.begin(), value.end(), result );
+  }
+
   static signed_int convert( const std::string& value )
   throw( FieldConvertError )
   {
     signed_int result = 0;
-    if( !convert( value, result ) )
+    if( !convert( value.begin(), value.end(), result ) )
       throw FieldConvertError(value);
     else
       return result;

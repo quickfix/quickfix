@@ -540,8 +540,7 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     throw InvalidMessage("Equal sign not found in field");
 
   int field = 0;
-  if( !IntConvertor::convertPositive( tagStart, equalSign, field ) )
-    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign ) );
+  IntConvertor::convert( tagStart, equalSign, field );
 
   std::string::const_iterator const valueStart = equalSign + 1;
 
@@ -556,22 +555,15 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Special case for Signature which violates above assumption.
     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    try
+    if ( pGroup && pGroup->isSetField( lenField ) )
     {
-      if ( pGroup && pGroup->isSetField( lenField ) )
-      {
-        const std::string& fieldLength = pGroup->getField( lenField );
-        soh = valueStart + IntConvertor::convert( fieldLength );
-      }
-      else if ( isSetField( lenField ) )
-      {
-        const std::string& fieldLength = getField( lenField );
-        soh = valueStart + IntConvertor::convert( fieldLength );
-      }
+      const std::string& fieldLength = pGroup->getField( lenField );
+      soh = valueStart + atol( fieldLength.c_str() );
     }
-    catch( FieldConvertError& e )
+    else if ( isSetField( lenField ) )
     {
-      throw InvalidMessage( std::string( "Unable to determine SOH for data field " ) + IntConvertor::convert( field ) + std::string( ": " ) + e.what() );
+      const std::string& fieldLength = getField( lenField );
+      soh = valueStart + atol( fieldLength.c_str() );
     }
   }
 
