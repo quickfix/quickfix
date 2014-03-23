@@ -1,57 +1,59 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Generating QuickFIX Databases</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-    <div class='header'>
-      <div class='headerTitle'>
-        Generating QuickFIX Databases
-      </div>
+  <title>Generating QuickFIX Databases</title>
+</head>
+
+<body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Generating QuickFIX Databases
     </div>
-
-    <div class='contents'>
-    <H1>MySQL</H1>
-    <p>
-      You must have MySQL installed with the deamon running.
-    </p>
-    <p>
-      Run the create script in <B>src/sql/mysql</B>. You must pass in a mysql user with permissions authorized to create a new database.
-    </p>
-    <p>
-      <pre class='fragment'>./create.sh mysql</pre>
-    </p>
-    <p>
-      <pre class='fragment'>create.bat mysql</pre>
-    </p>
-
-    <H1>MSSQL</H1>
-    <p>
-      You must have MySQL installed with the deamon running.
-    </p>
-    <p>
-      Run the create script in <B>src/sql/mssql</B>. You must pass in a mssql user with permissions authorized to create a new database.
-    </p>
-    <p>
-      <pre class='fragment'>create.bat sa</pre>
-    </p>
-
-    <H1>PostgreSQL</H1>
-    <p>
-      You must have PostgreSQL installed with the deamon running.
-    </p>
-    <p>
-      Run the create script in <B>src/sql/postgresql</B>. You must pass in a postgresql user with permissions authorized to create a new database.
-    </p>
-    <p>
-      <pre class='fragment'>./create.sh postgres</pre>
-    </p>
-    <p>
-      <pre class='fragment'>create.bat postgres</pre>
-    </p>
   </div>
-  </body>
+
+  <div class='contents'>
+    <h1>MySQL</h1>
+
+    <p>You must have MySQL installed with the deamon running.</p>
+
+    <p>Run the create script in <b>src/sql/mysql</b>. You must pass
+    in a mysql user with permissions authorized to create a new
+    database.</p>
+    <pre class='fragment'>
+./create.sh mysql
+</pre>
+    <pre class='fragment'>
+create.bat mysql
+</pre>
+
+    <h1>MSSQL</h1>
+
+    <p>You must have MySQL installed with the deamon running.</p>
+
+    <p>Run the create script in <b>src/sql/mssql</b>. You must pass
+    in a mssql user with permissions authorized to create a new
+    database.</p>
+    <pre class='fragment'>
+create.bat sa
+</pre>
+
+    <h1>PostgreSQL</h1>
+
+    <p>You must have PostgreSQL installed with the deamon
+    running.</p>
+
+    <p>Run the create script in <b>src/sql/postgresql</b>. You must
+    pass in a postgresql user with permissions authorized to create
+    a new database.</p>
+    <pre class='fragment'>
+./create.sh postgres
+</pre>
+    <pre class='fragment'>
+create.bat postgres
+</pre>
+  </div>
+</body>
 </html>

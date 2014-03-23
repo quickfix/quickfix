@@ -1,18 +1,29 @@
-<B><CODE><PRE>
-import quickfix
+<!DOCTYPE html>
 
-if len(sys.argv) < 2: return
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>import quickfix
+
+if len(sys.argv) &lt; 2: return
 fileName = sys.argv[1]
 
 try:
-	settings = quickfix.SessionSettings(fileName)
-	application = quickfix.MyApplication()
-	storeFactory = quickfix.FileStoreFactory(settings)
-	logFactory = quickfix.FileLogFactory(settings)
-	acceptor = quickfix.SocketAcceptor(application, storeFactory, settings, logFactory)
-	acceptor.start()
-	# while condition == true: do something
-	acceptor.stop()
+        settings = quickfix.SessionSettings(fileName)
+        application = quickfix.MyApplication()
+        storeFactory = quickfix.FileStoreFactory(settings)
+        logFactory = quickfix.FileLogFactory(settings)
+        acceptor = quickfix.SocketAcceptor(application, storeFactory, settings, logFactory)
+        acceptor.start()
+        # while condition == true: do something
+        acceptor.stop()
 except quickfix.ConfigError, e:
-	print e
-</PRE></CODE></B>
+        print e
+</code></b>
+</pre>
+</body>
+</html>

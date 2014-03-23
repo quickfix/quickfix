@@ -1,67 +1,28 @@
-a:link {
-  color: rgb(144, 136, 206);
-  font-weight: bold;
-  font-family: arial;
-  font-size: 12;
-}
-a:visited {
-  color: rgb(144, 136, 206);
-  font-weight: bold;
-  font-family: arial;
-  font-size: 12;
-}
-a:hover {
-  color: black;
-  font-weight: bold;
-  font-family: arial;
-  font-size: 12;
-}
-hr {
-  color: rgb(144, 136, 206);
-  size: 2;
-}
-font {
-  color: black;
-  font-family: arial;
-  font-size: 12;
-}
-font.title {
-  color: white;
-  font-family: arial;
-  font-weight: bold;
-  font-size: 14;
-}
-font.header {
-  font-weight: bold;
-  font-size: 11;
-}
-font.header2 {
-  font-weight: bold;
-  font-size: 10;
-}
-font.hi {
-  color: black;
-  font-family: arial;
-  font-weight: bold;
-  font-size: 12;
-}
-td.outsideLeft {
-  background: url("images/outsideLeft.gif");
-  background-repeat: repeat;
-}
-td.outsideRight {
-  background: url("images/outsideRight.gif");
-  background-repeat: repeat;
-}
-td.outsideTop {
-  background: url("images/outsideTop.gif");
-  background-repeat: repeat;
-}
-td.outsideBottom {
-  background: url("images/outsideBottom.gif");
-  background-repeat: repeat;
-}
-td.titleTop {
-  background: url("images/titleTabTop.gif");
-  background-repeat: repeat;
-}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  a:link { color: rgb(144, 136, 206); font-weight: bold;
+  font-family: arial; font-size: 12; } a:visited { color: rgb(144,
+  136, 206); font-weight: bold; font-family: arial; font-size: 12;
+  } a:hover { color: black; font-weight: bold; font-family: arial;
+  font-size: 12; } hr { color: rgb(144, 136, 206); size: 2; } font
+  { color: black; font-family: arial; font-size: 12; } font.title {
+  color: white; font-family: arial; font-weight: bold; font-size:
+  14; } font.header { font-weight: bold; font-size: 11; }
+  font.header2 { font-weight: bold; font-size: 10; } font.hi {
+  color: black; font-family: arial; font-weight: bold; font-size:
+  12; } td.outsideLeft { background: url("images/outsideLeft.gif");
+  background-repeat: repeat; } td.outsideRight { background:
+  url("images/outsideRight.gif"); background-repeat: repeat; }
+  td.outsideTop { background: url("images/outsideTop.gif");
+  background-repeat: repeat; } td.outsideBottom { background:
+  url("images/outsideBottom.gif"); background-repeat: repeat; }
+  td.titleTop { background: url("images/titleTabTop.gif");
+  background-repeat: repeat; }
+</body>
+</html>

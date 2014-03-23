@@ -1,24 +1,34 @@
+<!DOCTYPE html>
+
 <html>
+<head>
+  <title></title>
+</head>
+
+<body>
   <header>
-  	<link href="../doxygen.css" rel="stylesheet" type="text/css">
+    <link href="../doxygen.css" rel="stylesheet" type="text/css">
   </header>
 
   <div class='fragment'>
-  <PRE>
+    <pre>
 from quickfix import *
 
 class MyStringField(quickfix.StringField):
-	def __init__(self, data = None)
-		if data == None:
-			quickfix.StringField.__init__(self, 6123)
-		else:
-			quickfix.StringField.__init__(self, 6123, data)
+        def __init__(self, data = None)
+                if data == None:
+                        quickfix.StringField.__init__(self, 6123)
+                else:
+                        quickfix.StringField.__init__(self, 6123, data)
 
 class MyPriceField(quickfix.DoubleField):
-	def __init__(self, data = None)
-		if data == None:
-			quickfix.DoubleField.__init__(self, 8756)
-		else:
-			quickfix.DoubleField.__init__(self, 8756, data)
-  </PRE>
+        def __init__(self, data = None)
+                if data == None:
+                        quickfix.DoubleField.__init__(self, 8756)
+                else:
+                        quickfix.DoubleField.__init__(self, 8756, data)
+  
+</pre>
+  </div>
+</body>
 </html>

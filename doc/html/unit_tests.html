@@ -1,33 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css"> 
-    <title>Unit Tests</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
+  <title>Unit Tests</title>
+</head>
+
+<body>
   <div class='header'>
     <div class='headerTitle'>
       Unit Tests
     </div>
-  </div> 
+  </div>
 
   <div class='contents'>
-  <p>
-  QuickFIX comes with a comprehensive suite of automated unit tests. These tests are run by a
-  framework called <a href="http://unittest-cpp.sourceforge.net">UnitTest++</a>. UnitTest++ allows developers to test
-  C++ code by writing code that calls functions on objects and asserting correct behavior. These
-  test verifies not only that the code works correctly, but also that it works the same on all
-  platforms.
-  </p>
+    <p>QuickFIX comes with a comprehensive suite of automated unit
+    tests. These tests are run by a framework called <a href=
+    "http://unittest-cpp.sourceforge.net">UnitTest++</a>.
+    UnitTest++ allows developers to test C++ code by writing code
+    that calls functions on objects and asserting correct behavior.
+    These test verifies not only that the code works correctly, but
+    also that it works the same on all platforms.</p>
 
-  <p>
-  This sample shows the setup and
-  execution of the test that verifies the Parser object can correctly extract messages from a stream.
-  </p>
-
-<pre class='fragment'>
+    <p>This sample shows the setup and execution of the test that
+    verifies the Parser object can correctly extract messages from
+    a stream.</p>
+    <pre class='fragment'>
 struct readFixMessageFixture
 {
   readFixMessageFixture()
@@ -58,7 +57,8 @@ TEST_FIXTURE(readFixMessageFixture, readFixMessage)
   std::string readFixMsg3;
   CHECK( object.readFixMessage( readFixMsg3 ) );
   CHECK_EQUAL( fixMsg3, readFixMsg3 );
-}</pre>
+}
+</pre>
   </div>
-  </body>
+</body>
 </html>

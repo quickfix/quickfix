@@ -1,23 +1,35 @@
-<PRE><B>
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b>
 require 'quickfix_ruby'
 
-class MyStringField < Quickfix::StringField
-	def initialize( data = nil )
-		if( data == nil )
-			super(6123)
-		else
-			super(6123, data)
-		end
-	end
+class MyStringField &lt; Quickfix::StringField
+        def initialize( data = nil )
+                if( data == nil )
+                        super(6123)
+                else
+                        super(6123, data)
+                end
+        end
 end
 
-class MyDoubleField < Quickfix::DoubleField
-	def initialize( data = nil )
-		if( data == nil )
-			super(8756)
-		else
-			super(8756, data)
-		end
-	end
+class MyDoubleField &lt; Quickfix::DoubleField
+        def initialize( data = nil )
+                if( data == nil )
+                        super(8756)
+                else
+                        super(8756, data)
+                end
+        end
 end
-</B></PRE>
+</b>
+</pre>
+</body>
+</html>

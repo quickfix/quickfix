@@ -1,68 +1,68 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-   <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Validation</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-    <div class='header'>
-      <div class='headerTitle'>
-        Validation
-      </div>
+  <title>Validation</title>
+</head>
+
+<body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Validation
     </div>
+  </div>
 
   <div class='contents'>
-  <p>
-  QuickFIX will validate and reject any poorly formed messages before they can reach your application.
-  An XML file defines what messages, fields, and values a session supports.
-  </p>
-  <p>
-  QuickFIX comes with several standard files in the <b>spec</b> directory.
-  These can be modified to fit your messaging requirements.
-  </p>
-  <p>
-  The skeleton of a definition file looks like this.
-  </p>
-<pre class='fragment'>
-&lt;fix type="FIX" major="4" minor="1">
-  &lt;header>
-    &lt;field name="BeginString" required="Y"/>
-    ...
-  &lt;/header>
-  &lt;trailer>
-    &lt;field name="CheckSum" required="Y"/>
-    ...
-  &lt;/trailer>
-  &lt;messages>
-    &lt;message name="Heartbeat" msgtype="0" msgcat="admin">
-      &lt;field name="TestReqID" required="N"/>
-    &lt;/message>
-    ...
-    &lt;message name="NewOrderSingle" msgtype="D" msgcat="app">
-      &lt;field name="ClOrdID" required="Y"/>
-      ...
-    &lt;/message>
-    ...
-  &lt;/messages>
-  &lt;fields>
-    &lt;field number="1" name="Account" type="CHAR" />
-    ...
-    &lt;field number="4" name="AdvSide" type="CHAR">
-     &lt;value enum="B" description="BUY" />
-     &lt;value enum="S" description="SELL" />
-     &lt;value enum="X" description="CROSS" />
-     &lt;value enum="T" description="TRADE" />
-   &lt;/field>
-   ...
-  &lt;/fields>
-&lt;/fix></pre>
+    <p>QuickFIX will validate and reject any poorly formed messages
+    before they can reach your application. An XML file defines
+    what messages, fields, and values a session supports.</p>
 
-  <p>
-  The validator will not reject conditionally required fields because the rules for them are not
-  clearly defined. Using a conditionally required field that is not preset will cause a message  to be rejected.
-  </p>
+    <p>QuickFIX comes with several standard files in the
+    <b>spec</b> directory. These can be modified to fit your
+    messaging requirements.</p>
+
+    <p>The skeleton of a definition file looks like this.</p>
+    <pre class='fragment'>
+&lt;fix type="FIX" major="4" minor="1"&gt;
+  &lt;header&gt;
+    &lt;field name="BeginString" required="Y"/&gt;
+    ...
+  &lt;/header&gt;
+  &lt;trailer&gt;
+    &lt;field name="CheckSum" required="Y"/&gt;
+    ...
+  &lt;/trailer&gt;
+  &lt;messages&gt;
+    &lt;message name="Heartbeat" msgtype="0" msgcat="admin"&gt;
+      &lt;field name="TestReqID" required="N"/&gt;
+    &lt;/message&gt;
+    ...
+    &lt;message name="NewOrderSingle" msgtype="D" msgcat="app"&gt;
+      &lt;field name="ClOrdID" required="Y"/&gt;
+      ...
+    &lt;/message&gt;
+    ...
+  &lt;/messages&gt;
+  &lt;fields&gt;
+    &lt;field number="1" name="Account" type="CHAR" /&gt;
+    ...
+    &lt;field number="4" name="AdvSide" type="CHAR"&gt;
+     &lt;value enum="B" description="BUY" /&gt;
+     &lt;value enum="S" description="SELL" /&gt;
+     &lt;value enum="X" description="CROSS" /&gt;
+     &lt;value enum="T" description="TRADE" /&gt;
+   &lt;/field&gt;
+   ...
+  &lt;/fields&gt;
+&lt;/fix&gt;
+</pre>
+
+    <p>The validator will not reject conditionally required fields
+    because the rules for them are not clearly defined. Using a
+    conditionally required field that is not preset will cause a
+    message to be rejected.</p>
   </div>
-  </body>
+</body>
 </html>

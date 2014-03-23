@@ -1,26 +1,37 @@
-<B><CODE><PRE>
-from quickfix import *
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>from quickfix import *
 
 def sendOrderCancelRequest:
-	message = quickfix.Message()
-	# BeginString
-	message.getHeader().setField(quickfix.StringField(8, "FIX.4.2"))
-	# SenderCompID
-	message.getHeader().setField(quickfix.StringField(49, "TW"))
-	# TargetCompID, with enumeration
-	message.getHeader().setField(quickfix.StringField(56, "TARGET"))
-	# MsgType
-	message.getHeader().setField(quickfix.CharField(35, 'F'))
-	# OrigClOrdID
-	message.setField(quickfix.StringField(41, "123"))
-	# ClOrdID
-	message.setField(quickfix.StringField(11, "321"))
-	# Symbol
-	message.setField(quickfix.StringField(55, "LNUX"))
-	# Side, with value enumeration
-	message.setField(quickfix.CharField(54, quickfix.Side_BUY))
-	# Text
-	message.setField(quickfix.StringField(58, "Cancel My Order!"))
+        message = quickfix.Message()
+        # BeginString
+        message.getHeader().setField(quickfix.StringField(8, "FIX.4.2"))
+        # SenderCompID
+        message.getHeader().setField(quickfix.StringField(49, "TW"))
+        # TargetCompID, with enumeration
+        message.getHeader().setField(quickfix.StringField(56, "TARGET"))
+        # MsgType
+        message.getHeader().setField(quickfix.CharField(35, 'F'))
+        # OrigClOrdID
+        message.setField(quickfix.StringField(41, "123"))
+        # ClOrdID
+        message.setField(quickfix.StringField(11, "321"))
+        # Symbol
+        message.setField(quickfix.StringField(55, "LNUX"))
+        # Side, with value enumeration
+        message.setField(quickfix.CharField(54, quickfix.Side_BUY))
+        # Text
+        message.setField(quickfix.StringField(58, "Cancel My Order!"))
 
-	Session.sendToTarget(message);
-</PRE></CODE></B>
+        Session.sendToTarget(message);
+</code></b>
+</pre>
+</body>
+</html>

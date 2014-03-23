@@ -1,55 +1,57 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Sending Messages</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-   <div class='header'>
+  <title>Sending Messages</title>
+</head>
+
+<body>
+  <div class='header'>
     <div class='headerTitle'>
       Sending Messages
     </div>
   </div>
- 
+
   <div class='contents'>
-    <p>
-    Messages can be sent to a counter party with the static <B>Session::sendToTarget</B> methods.
-    This method has several signatures. They are:
-    </p>
-	See this code in <a href="python/sending_messages_1.html">PYTHON</a>, <a href="ruby/sending_messages_1.html">RUBY</a>
-<pre class='fragment'>
-// send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
-static bool sendToTarget( Message&, const std::string& qualifier = "" )
-  throw(SessionNotFound&);
+    <p>Messages can be sent to a counter party with the static
+    <b>Session::sendToTarget</b> methods. This method has several
+    signatures. They are:</p>See this code in <a href=
+    "python/sending_messages_1.html">PYTHON</a>, <a href=
+    "ruby/sending_messages_1.html">RUBY</a>
+    <pre class='fragment'>
+// send a message that already contains a <i>BeginString</i>, <i>SenderCompID</i>, and a <i>TargetCompID</i>
+static bool sendToTarget( Message&amp;, const std::string&amp; qualifier = "" )
+  throw(SessionNotFound&amp;);
 
 // send a message based on the sessionID, convenient for use
-// in <I>fromApp</I> since it provides a session ID for incoming
+// in <i>fromApp</i> since it provides a session ID for incoming
 // messages
-static bool sendToTarget( Message&, const SessionID& )
-  throw(SessionNotFound&);
+static bool sendToTarget( Message&amp;, const SessionID&amp; )
+  throw(SessionNotFound&amp;);
 
-// append a <I>SenderCompID</I> and <I>TargetCompID</I> before sending
-static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID&, const std::string& qualifier = "" )
-  throw(SessionNotFound&);
+// append a <i>SenderCompID</i> and <i>TargetCompID</i> before sending
+static bool sendToTarget( Message&amp;, const SenderCompID&amp;, const TargetCompID&amp;, const std::string&amp; qualifier = "" )
+  throw(SessionNotFound&amp;);
 
 // pass SenderCompID and TargetCompID in as strings
-static bool sendToTarget( Message&, const std::string&, const std::string&, const std::string& qualifier = "" )
-  throw(SessionNotFound&);</pre>
+static bool sendToTarget( Message&amp;, const std::string&amp;, const std::string&amp;, const std::string&amp; qualifier = "" )
+  throw(SessionNotFound&amp;);
+</pre>
 
-    <H1>Creating Messages</H1>
-    As for creating messages, just like reading them, there are several levels of type safety. And
-    just like before, the recommended usage is the type safe method.
-    </p>
+    <h1>Creating Messages</h1>As for creating messages, just like
+    reading them, there are several levels of type safety. And just
+    like before, the recommended usage is the type safe method.
 
-    <H2>Least Type Safe</H2>
-    <p>
-    Once again. This should only be used for low level interface to other languages and middleware.
-    <B>do not</B> use this for writing applications.
-    </p>
-    See this code in <a href="python/sending_messages_2.html">PYTHON</a>, <a href="ruby/sending_messages_2.html">RUBY</a>
-<pre class='fragment'>
+    <h2>Least Type Safe</h2>
+
+    <p>Once again. This should only be used for low level interface
+    to other languages and middleware. <b>do not</b> use this for
+    writing applications.</p>See this code in <a href=
+    "python/sending_messages_2.html">PYTHON</a>, <a href=
+    "ruby/sending_messages_2.html">RUBY</a>
+    <pre class='fragment'>
 void sendOrderCancelRequest()
 {
   FIX::Message message;
@@ -73,20 +75,22 @@ void sendOrderCancelRequest()
   message.setField(58, "Cancel My Order!");
 
   FIX::Session::sendToTarget(message);
-}</pre>
+}
+</pre>
 
-    <H2>More Type Safe</H2>
-    <p>
-    And here, by using field classes, we can clearify our code and add some type safety. Once again, this
-    is something you usually use for code that needs to work with multiple messages types or multiple
-    FIX versions.
-    </p>
-    See this code in <a href="python/sending_messages_3.html">PYTHON</a>, <a href="ruby/sending_messages_3.html">RUBY</a>
-<pre class='fragment'>
+    <h2>More Type Safe</h2>
+
+    <p>And here, by using field classes, we can clearify our code
+    and add some type safety. Once again, this is something you
+    usually use for code that needs to work with multiple messages
+    types or multiple FIX versions.</p>See this code in <a href=
+    "python/sending_messages_3.html">PYTHON</a>, <a href=
+    "ruby/sending_messages_3.html">RUBY</a>
+    <pre class='fragment'>
 void sendOrderCancelRequest()
 {
   FIX::Message message;
-  FIX::Header header& = message.getHeader();
+  FIX::Header header&amp; = message.getHeader();
 
   header.setField(FIX::BeginString("FIX.4.2"));
   header.setField(FIX::SenderCompID(TW));
@@ -99,19 +103,23 @@ void sendOrderCancelRequest()
   message.setField(FIX::Text("Cancel My Order!"));
 
   FIX::Session::sendToTarget(message);
-}</pre>
+}
+</pre>
 
-	<H2>Most Type Safe... DO THIS!</H2>
-	<p>
-	Finally, the <B>highly recommended</B> method is to use the type safe message classes. This
-	should typically be the only way you should ever have to create messages. Here the constructor
-	takes in all the required fields and adds the correct <I>MsgType</I> and <I>BeginString</I> for you.
-	What's more, by using the <B>set</B> method instead of <B>setField</B>, the compiler will not let
-	you add a field that is not a part of a <I>OrderCancelRequest</I> based on the FIX4.1 specs. Keep in
-	mind you can still use <B>setField</B> if you want to force any field you want into the message.
-	</p>
-	See this code in PYTHON(not supported), RUBY(not supported)
-<pre class='fragment'>
+    <h2>Most Type Safe... DO THIS!</h2>
+
+    <p>Finally, the <b>highly recommended</b> method is to use the
+    type safe message classes. This should typically be the only
+    way you should ever have to create messages. Here the
+    constructor takes in all the required fields and adds the
+    correct <i>MsgType</i> and <i>BeginString</i> for you. What's
+    more, by using the <b>set</b> method instead of
+    <b>setField</b>, the compiler will not let you add a field that
+    is not a part of a <i>OrderCancelRequest</i> based on the
+    FIX4.1 specs. Keep in mind you can still use <b>setField</b> if
+    you want to force any field you want into the message.</p>See
+    this code in PYTHON(not supported), RUBY(not supported)
+    <pre class='fragment'>
 void sendOrderCancelRequest()
 {
   FIX41::OrderCancelRequest message(
@@ -123,7 +131,8 @@ void sendOrderCancelRequest()
   message.set(FIX::Text("Cancel My Order!"));
 
   FIX::Session::sendToTarget(message, SenderCompID("TW"), TargetCompID("TARGET"));
-}</pre>
+}
+</pre>
   </div>
-  </body>
+</body>
 </html>

@@ -1,20 +1,31 @@
-<B><CODE><PRE>
-require 'quickfix_ruby'
+<!DOCTYPE html>
 
-return if ARGV.length < 2
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>require 'quickfix_ruby'
+
+return if ARGV.length &lt; 2
 
 fileName = ARGV[0]
 
 begin
-	settings = Quickfix::SessionSettings.new( fileName )
-	application = MyApplication.new
-	storeFactory = Quickfix::FileStoreFactory.new( settings )
-	logFactory = Quickfix::ScreenLogFactory.new( settings )
-	acceptor = Quickfix::SocketAcceptor.new( application, storeFactory, settings, logFactory )
-	acceptor.start()
-	# while condition == true: do something
-	acceptor.stop()
-rescue Quickfix::ConfigError => e
-	print e
+        settings = Quickfix::SessionSettings.new( fileName )
+        application = MyApplication.new
+        storeFactory = Quickfix::FileStoreFactory.new( settings )
+        logFactory = Quickfix::ScreenLogFactory.new( settings )
+        acceptor = Quickfix::SocketAcceptor.new( application, storeFactory, settings, logFactory )
+        acceptor.start()
+        # while condition == true: do something
+        acceptor.stop()
+rescue Quickfix::ConfigError =&gt; e
+        print e
 end
-</PRE></CODE></B>
+</code></b>
+</pre>
+</body>
+</html>

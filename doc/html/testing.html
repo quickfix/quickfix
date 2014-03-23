@@ -1,66 +1,74 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Testing QuickFIX</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-    <div class='header'>
-      <div class='headerTitle'>
-        Testing QuickFIX
-      </div>
+  <title>Testing QuickFIX</title>
+</head>
+
+<body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Testing QuickFIX
     </div>
-
-    <div class='contents'>
-    <p>
-      The development of QuickFIX has been driven by a suite of functional acceptance tests
-      and unit tests.
-    </p>
-
-    <H1>Windows</H1>
-      <H2>Unit Tests</H2>
-      <p>
-	  <p>
-	    From the <B>test</B> directory:
-<pre class='fragment'>runut release [port]</pre>
-	  </p>
-	  <p>
-	    The port is used to test socket functionality.  If you built QuickFIX with one of its supporting databases, you will
-	    need to update <I>cfg/ut.cfg</I> to reflect your database settings.
-	  </p>
-      <H2>Acceptance Tests</H2>
-      <p>
-        From the <B>test</B> directory:
-
-<pre class='fragment'>runat release [port]</pre>
-<pre class='fragment'>runat_threaded release [port]</pre>
-      </p>
-      <p>
-        The port is used to listen for connections on a socket server.
-      </p>
-
-    <H1>Linux / Solaris / FreeBSD / Mac OS X</H1>
-      <H2>Unit Tests</H2>
-	  <p>
-	    From the <B>test</B> directory:
-<pre class='fragment'>./runut.sh [port]</pre>
-	  </p>
-	  <p>
-	    The port is used to test socket functionality.  If you built QuickFIX with one of its supporting databases, you will
-	    need to update <I>cfg/ut.cfg</I> to reflect your database settings.
-	  </p>
-	  <H2>Acceptance Tests</H2>
-      <p>
-        From the <B>test</B> directory:
-
-<pre class='fragment'>./runat.sh [port]</pre>
-<pre class='fragment'>./runat_threaded.sh [port]</pre>
-      </p>
-      <p>
-        The port is used to listen for connections on a socket server.
-      </p>
   </div>
-  </body>
+
+  <div class='contents'>
+    <p>The development of QuickFIX has been driven by a suite of
+    functional acceptance tests and unit tests.</p>
+
+    <h1>Windows</h1>
+
+    <h2>Unit Tests</h2>
+
+    <p>From the <b>test</b> directory:</p>
+    <pre class='fragment'>
+runut release [port]
+</pre>
+
+    <p>The port is used to test socket functionality. If you built
+    QuickFIX with one of its supporting databases, you will need to
+    update <i>cfg/ut.cfg</i> to reflect your database settings.</p>
+
+    <h2>Acceptance Tests</h2>
+
+    <p>From the <b>test</b> directory:</p>
+    <pre class='fragment'>
+runat release [port]
+</pre>
+    <pre class='fragment'>
+runat_threaded release [port]
+</pre>
+
+    <p>The port is used to listen for connections on a socket
+    server.</p>
+
+    <h1>Linux / Solaris / FreeBSD / Mac OS X</h1>
+
+    <h2>Unit Tests</h2>
+
+    <p>From the <b>test</b> directory:</p>
+    <pre class='fragment'>
+./runut.sh [port]
+</pre>
+
+    <p>The port is used to test socket functionality. If you built
+    QuickFIX with one of its supporting databases, you will need to
+    update <i>cfg/ut.cfg</i> to reflect your database settings.</p>
+
+    <h2>Acceptance Tests</h2>
+
+    <p>From the <b>test</b> directory:</p>
+    <pre class='fragment'>
+./runat.sh [port]
+</pre>
+    <pre class='fragment'>
+./runat_threaded.sh [port]
+</pre>
+
+    <p>The port is used to listen for connections on a socket
+    server.</p>
+  </div>
+</body>
 </html>

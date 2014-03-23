@@ -1,27 +1,38 @@
-<B><CODE><PRE>
-require 'quickfix_ruby'
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>require 'quickfix_ruby'
 
 def sendOrderCancelRequest
-	message = Quickfix::Message.new()
-	# BeginString
-	message.getHeader().setField(Quickfix::StringField.new(8, "FIX.4.2"))
-	# SenderCompID
-	message.getHeader().setField(Quickfix::StringField.new(49, "TW"))
-	# TargetCompID, with enumeration
-	message.getHeader().setField(Quickfix::StringField.new(56, "TARGET"))
-	# MsgType
-	message.getHeader().setField(Quickfix::CharField.new(35, 'F'))
-	# OrigClOrdID
-	message.setField(Quickfix::StringField.new(41, "123"))
-	# ClOrdID
-	message.setField(Quickfix::StringField.new(11, "321"))
-	# Symbol
-	message.setField(Quickfix::StringField.new(55, "LNUX"))
-	# Side, with value enumeration
-	message.setField(Quickfix::CharField.new(54, quickfix.Side_BUY))
-	# Text
-	message.setField(Quickfix::StringField.new(58, "Cancel My Order!"))
+        message = Quickfix::Message.new()
+        # BeginString
+        message.getHeader().setField(Quickfix::StringField.new(8, "FIX.4.2"))
+        # SenderCompID
+        message.getHeader().setField(Quickfix::StringField.new(49, "TW"))
+        # TargetCompID, with enumeration
+        message.getHeader().setField(Quickfix::StringField.new(56, "TARGET"))
+        # MsgType
+        message.getHeader().setField(Quickfix::CharField.new(35, 'F'))
+        # OrigClOrdID
+        message.setField(Quickfix::StringField.new(41, "123"))
+        # ClOrdID
+        message.setField(Quickfix::StringField.new(11, "321"))
+        # Symbol
+        message.setField(Quickfix::StringField.new(55, "LNUX"))
+        # Side, with value enumeration
+        message.setField(Quickfix::CharField.new(54, quickfix.Side_BUY))
+        # Text
+        message.setField(Quickfix::StringField.new(58, "Cancel My Order!"))
 
-	Quickfix::Session.sendToTarget(message)
+        Quickfix::Session.sendToTarget(message)
 end
-</PRE></CODE></B>
+</code></b>
+</pre>
+</body>
+</html>

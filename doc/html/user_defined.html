@@ -1,12 +1,13 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>User Defined Fields</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
+  <title>User Defined Fields</title>
+</head>
+
+<body>
   <div class='header'>
     <div class='headerTitle'>
       User Defined Fields
@@ -14,37 +15,37 @@
   </div>
 
   <div class='contents'>
-  <p>
-    FIX allows users to define fields not defined in the specifications. How can QuickFIX
-    be used to set and get user defined fields? Well one answer would be to use the non-type safe
-    set and get fields like so:
-  </p>
-  See this code in <a href="python/user_defined_1.html">PYTHON</a>, <a href="ruby/user_defined_1.html">RUBY</a>
-
-<pre class='fragment'>
+    <p>FIX allows users to define fields not defined in the
+    specifications. How can QuickFIX be used to set and get user
+    defined fields? Well one answer would be to use the non-type
+    safe set and get fields like so:</p>See this code in <a href=
+    "python/user_defined_1.html">PYTHON</a>, <a href=
+    "ruby/user_defined_1.html">RUBY</a>
+    <pre class='fragment'>
 message.setField(6123, "value");
-message.getField(6123);</pre>
+message.getField(6123);
+</pre>
 
-  <p>
-    QuickFIX also provides supplies macros for creating typesafe field objects.
-  </p>
-  See this code in <a href="python/user_defined_2.html">PYTHON</a>, <a href="ruby/user_defined_2.html">RUBY</a>
-
-<pre class='fragment'>
+    <p>QuickFIX also provides supplies macros for creating typesafe
+    field objects.</p>See this code in <a href=
+    "python/user_defined_2.html">PYTHON</a>, <a href=
+    "ruby/user_defined_2.html">RUBY</a>
+    <pre class='fragment'>
 #include "quickfix/Field.h"
 
 namespace FIX
 {
   USER_DEFINE_STRING(MyStringField, 6123);
   USER_DEFINE_PRICE(MyPriceField, 8756);
-}</pre>
+}
+</pre>
 
-  <p>
-  User defined fields must be declared within the <B>FIX</B> namespace.
-  Now, elsewhere in your application, you can write code like this:
-  </p>
-  See this code in <a href="python/user_defined_3.html">PYTHON</a>, <a href="ruby/user_defined_3.html">RUBY</a>
-<pre class='fragment'>
+    <p>User defined fields must be declared within the <b>FIX</b>
+    namespace. Now, elsewhere in your application, you can write
+    code like this:</p>See this code in <a href=
+    "python/user_defined_3.html">PYTHON</a>, <a href=
+    "ruby/user_defined_3.html">RUBY</a>
+    <pre class='fragment'>
 MyStringField stringField("string");
 MyPriceField priceField(14.54);
 
@@ -52,15 +53,14 @@ message.setField(stringField);
 message.setField(priceField);
 
 message.getField(stringField);
-message.getField(priceField);</pre>
+message.getField(priceField);
+</pre>
 
-  <p>
-  These macros that allow you to define fields of all supported FIX types. Keep
-  in mind you can write fields of any type types as long as you supply a new macro and convertor
-  that can convert your type to and from a string.
-  </p>
-
-  <pre class='fragment'>
+    <p>These macros that allow you to define fields of all
+    supported FIX types. Keep in mind you can write fields of any
+    type types as long as you supply a new macro and convertor that
+    can convert your type to and from a string.</p>
+    <pre class='fragment'>
 USER_DEFINE_STRING( NAME, NUM )
 USER_DEFINE_CHAR( NAME, NUM )
 USER_DEFINE_PRICE( NAME, NUM )
@@ -84,8 +84,8 @@ USER_DEFINE_NUMINGROUP( NAME, NUM )
 USER_DEFINE_SEQNUM( NAME, NUM )
 USER_DEFINE_LENGTH( NAME, NUM )
 USER_DEFINE_PERCENTAGE( NAME, NUM )
-USER_DEFINE_COUNTRY( NAME, NUM )</pre>
-
+USER_DEFINE_COUNTRY( NAME, NUM )
+</pre>
   </div>
-  </body>
+</body>
 </html>

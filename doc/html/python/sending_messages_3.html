@@ -1,19 +1,30 @@
-<B><CODE><PRE>
-from quickfix import *
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>from quickfix import *
 
 def sendOrderCancelRequest:
-	message = quickfix.Message();
-	header = message.getHeader();
+        message = quickfix.Message();
+        header = message.getHeader();
 
-	header.setField(quickfix.BeginString("FIX.4.2"))
-	header.setField(quickfix.SenderCompID(TW))
-	header.setField(quickfix.TargetCompID("TARGET"))
-	header.setField(quickfix.MsgType("D"))
-	message.setField(quickfix.OrigClOrdID("123"))
-	message.setField(quickfix.ClOrdID("321"))
-	message.setField(quickfix.Symbol("LNUX"))
-	message.setField(quickfix.Side(Side_BUY))
-	message.setField(quickfix.Text("Cancel My Order!"))
+        header.setField(quickfix.BeginString("FIX.4.2"))
+        header.setField(quickfix.SenderCompID(TW))
+        header.setField(quickfix.TargetCompID("TARGET"))
+        header.setField(quickfix.MsgType("D"))
+        message.setField(quickfix.OrigClOrdID("123"))
+        message.setField(quickfix.ClOrdID("321"))
+        message.setField(quickfix.Symbol("LNUX"))
+        message.setField(quickfix.Side(Side_BUY))
+        message.setField(quickfix.Text("Cancel My Order!"))
 
-	Session.sendToTarget(message)
-</PRE></CODE></B>
+        Session.sendToTarget(message)
+</code></b>
+</pre>
+</body>
+</html>

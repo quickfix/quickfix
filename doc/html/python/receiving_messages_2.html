@@ -1,10 +1,21 @@
-<B><CODE><PRE>
-import quickfix
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>import quickfix
 
 def fromApp(self, message, sessionID):
-	price = quickfix.Price()
-	message.getField(price)
+        price = quickfix.Price()
+        message.getField(price)
 
-	clOrdID = quickfix.ClOrdID()
-	message.getField(clOrdID)
-</PRE></CODE></B>
+        clOrdID = quickfix.ClOrdID()
+        message.getField(clOrdID)
+</code></b>
+</pre>
+</body>
+</html>

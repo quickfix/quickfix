@@ -1,32 +1,35 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Repeating Groups</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-   <div class='header'>
+  <title>Repeating Groups</title>
+</head>
+
+<body>
+  <div class='header'>
     <div class='headerTitle'>
       Repeating Groups
     </div>
   </div>
+
   <div class='contents'>
-    QuickFIX has the ability to send messages containing repeating groups and even recursive
-    repeating groups. All repeating groups begin with a field that indicates how many repeating
-    groups are in a set. A group can be created by referencing a class named after this field
-    scoped within the parent message or group.
+    QuickFIX has the ability to send messages containing repeating
+    groups and even recursive repeating groups. All repeating
+    groups begin with a field that indicates how many repeating
+    groups are in a set. A group can be created by referencing a
+    class named after this field scoped within the parent message
+    or group.
 
-    <H1>Creating Messages With Repeating Groups</H1>
+    <h1>Creating Messages With Repeating Groups</h1>
 
-    <p>
-    When a message is created
-    the required field declaring the number of repeating groups is set to zero. QuickFIX will automatically increment field for you as you add groups.
-    </p>
-
-    See this code in <a href="python/repeating_groups_1.html">PYTHON</a>, <a href="ruby/repeating_groups_1.html">RUBY</a>
-
+    <p>When a message is created the required field declaring the
+    number of repeating groups is set to zero. QuickFIX will
+    automatically increment field for you as you add groups.</p>See
+    this code in <a href=
+    "python/repeating_groups_1.html">PYTHON</a>, <a href=
+    "ruby/repeating_groups_1.html">RUBY</a>
     <pre class="fragment">
     // create a market data message
     FIX42::MarketDataSnapshotFullRefresh message(FIX::Symbol("QF"));
@@ -44,18 +47,18 @@
     group.set(FIX::MDEntryPx(12.32));
     group.set(FIX::MDEntrySize(100));
     group.set(FIX::OrderID("ORDERID"));
-    message.addGroup(group);</pre>
+    message.addGroup(group);
+</pre>
 
-    <H1>Reading Messages With Repeating Groups</H1>
+    <h1>Reading Messages With Repeating Groups</h1>
 
-    <p>
-    To pull a group out of a message you need to supply the group object you wish to pull out. You should
-    first inspect the number of entries field (which the group is named after) to get the total number
-    of groups. The message that was created above is now parsed in this example.
-    </p>
-
-    See this code in <a href="python/repeating_groups_2.html">PYTHON</a>, <a href="ruby/repeating_groups_2.html">RUBY</a>
-
+    <p>To pull a group out of a message you need to supply the
+    group object you wish to pull out. You should first inspect the
+    number of entries field (which the group is named after) to get
+    the total number of groups. The message that was created above
+    is now parsed in this example.</p>See this code in <a href=
+    "python/repeating_groups_2.html">PYTHON</a>, <a href=
+    "ruby/repeating_groups_2.html">RUBY</a>
     <pre class="fragment">
     // should be 2
     FIX::NoMDEntries noMDEntries;
@@ -77,9 +80,8 @@
     group.get(MDEntryType);
     group.get(MDEntryPx);
     group.get(MDEntrySize);
-    group.get(orderID);</pre>
-    </div>
-
-</div>
-  </body>
+    group.get(orderID);
+</pre>
+  </div>
+</body>
 </html>

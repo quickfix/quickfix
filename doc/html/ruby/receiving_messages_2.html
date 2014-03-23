@@ -1,11 +1,22 @@
-<B><CODE><PRE>
-require 'quickfix_ruby'
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <pre>
+<b><code>require 'quickfix_ruby'
 
 def fromApp(message, sessionID):
-	price = Quickfix::Price.new()
-	message.getField(price)
+        price = Quickfix::Price.new()
+        message.getField(price)
 
-	clOrdID = Quickfix::ClOrdID.new()
-	message.getField(clOrdID)
+        clOrdID = Quickfix::ClOrdID.new()
+        message.getField(clOrdID)
 end
-</PRE></CODE></B>
+</code></b>
+</pre>
+</body>
+</html>

@@ -1,49 +1,65 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
-  <head>
-    <link href="doxygen.css" rel="stylesheet" type="text/css">
-    <title>Setting Up Your Project</title>
-  </head>
+<head>
+  <link href="doxygen.css" rel="stylesheet" type="text/css">
 
-  <body>
-    <div class='header'>
-      <div class='headerTitle'>
-       Setting Up Your Project
-      </div>
+  <title>Setting Up Your Project</title>
+</head>
+
+<body>
+  <div class='header'>
+    <div class='headerTitle'>
+      Setting Up Your Project
     </div>
+  </div>
 
-    <div class='contents'>
+  <div class='contents'>
+    <h1>Windows</h1>
 
-    <H1>Windows</H1>
-    <p>
-      Open <B>project | properties</B> in Microsoft Visual Studio.
-    </p>
-    <p>
-      <UL>
-        <LI><B>C/C++</B> | <B>Code Generation</B> | <B>Enable C++ Exceptions</B>, should be Yes.</LI>
-        <LI><B>C/C++</B> | <B>Code Generation</B> | <B>Runtime Library</B>, should be set to <I>Multithreaded DLL</I>
-               or <I>Debug Multithreaded DLL</I>.</LI>
-        <LI><B>C/C++</B> | <B>General</B> | <B>Additional Include Directories</B> add the root <I>quickfix</I> directory.
-        <LI><B>Linker</B> | <B>Input</B> | <B>Additional Dependencies</B>, must contain <I>quickfix.lib</I> and <I>ws2_32.lib</I>.</LI>
-        <LI><B>Linker</B> | <B>General</B> | <B>Additional Library Directories</B>, add the <I>quickfix/lib</I> directory.</LI>
-      </UL>
-    </p>
+    <p>Open <b>project | properties</b> in Microsoft Visual
+    Studio.</p>
 
-    <H1>Linux/Solaris</H1>
-    <p>
-      <UL>
-        <LI>Exceptions must be enabled with <B>-fexceptions</B></LI>
-        <LI>The <B>-finline-functions</B> optimization is recommended.</LI>
-        <LI>Quickfix library must be linked in with <B>-lquickfix</B></LI>
-        <LI>Quickfix makes use of pthreads and libxml.  These must be linked in with <B>-lpthread</B>,
-            <B>-lxml2</B> and <B>-lz</B></LI>
-        <LI>On Solaris you must link with <B>-lnsl</B> and <B>-lsocket</B>
-        <LI>GNU <TT>ld</TT> is a one-pass linker.  Put more generally
-        useful libraries (libsocket) last on the command line.</LI>
-      </UL>
-  </body>
+    <ul>
+      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Enable C++
+      Exceptions</b>, should be Yes.</li>
 
-</div>
+      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Runtime
+      Library</b>, should be set to <i>Multithreaded DLL</i> or
+      <i>Debug Multithreaded DLL</i>.</li>
+
+      <li><b>C/C++</b> | <b>General</b> | <b>Additional Include
+      Directories</b> add the root <i>quickfix</i> directory.</li>
+
+      <li><b>Linker</b> | <b>Input</b> | <b>Additional
+      Dependencies</b>, must contain <i>quickfix.lib</i> and
+      <i>ws2_32.lib</i>.</li>
+
+      <li><b>Linker</b> | <b>General</b> | <b>Additional Library
+      Directories</b>, add the <i>quickfix/lib</i> directory.</li>
+    </ul>
+
+    <h1>Linux/Solaris</h1>
+
+    <ul>
+      <li>Exceptions must be enabled with <b>-fexceptions</b></li>
+
+      <li>The <b>-finline-functions</b> optimization is
+      recommended.</li>
+
+      <li>Quickfix library must be linked in with
+      <b>-lquickfix</b></li>
+
+      <li>Quickfix makes use of pthreads and libxml. These must be
+      linked in with <b>-lpthread</b>, <b>-lxml2</b> and
+      <b>-lz</b></li>
+
+      <li>On Solaris you must link with <b>-lnsl</b> and
+      <b>-lsocket</b></li>
+
+      <li>GNU <tt>ld</tt> is a one-pass linker. Put more generally
+      useful libraries (libsocket) last on the command line.</li>
+    </ul>
+  </div>
 </body>
 </html>
