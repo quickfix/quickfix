@@ -1185,6 +1185,8 @@ TEST_FIXTURE(acceptorFixture, doNotRespondToLogonWhenDisabled)
 
 struct resetOnEndTimeFixture : public acceptorFixture
 {
+  using acceptorFixture::createSession;
+
   void createSession()
   {
     startTimeStamp.setCurrent();

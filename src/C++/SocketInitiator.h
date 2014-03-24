@@ -74,7 +74,6 @@ private:
   bool m_noDelay;
   int m_sendBufSize;
   int m_rcvBufSize;
-  bool m_stop;
 };
 /*! @} */
 }
