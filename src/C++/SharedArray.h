@@ -66,7 +66,7 @@ namespace FIX
     bool empty() const
     { return m_buffer == 0; }
 
-    operator T * () const
+    operator T* () const
     { return m_buffer; }
 
     //optimized function to allocate storage for buffer and counter object at once
@@ -79,13 +79,12 @@ namespace FIX
       const std::size_t sizeToAllocate = nSize + ( sizeof(atomic_count) / sizeof(T) + 1 );
 
       //allocate and zero-fill the buffer
-      T * storage = new T[ sizeToAllocate ];
+      T* storage = new T[ sizeToAllocate ];
       memset(storage, 0, sizeToAllocate * sizeof(T));
 
       // create the counter object at the end of the storage
       // with initial reference count set to 1
-      atomic_count * counter = new (&storage[nSize]) atomic_count( 1 );
-      counter;  // fixes unused variable warning
+      new (&storage[nSize]) atomic_count( 1 );
 
       return shared_array(storage, nSize);
     }
@@ -99,20 +98,20 @@ namespace FIX
 
     }
 
-    atomic_count * get_counter() const
+    atomic_count* get_counter() const
     {
       return reinterpret_cast<atomic_count*>( &m_buffer[ size() ] );
     }
 
     void increment_reference_count() const
     {
-      atomic_count * counter = get_counter();
+      atomic_count* counter = get_counter();
       ++(*counter);
     }
 
     long decrement_reference_count() 
     {
-      atomic_count * counter = get_counter();
+      atomic_count* counter = get_counter();
       return --(*counter);
     }
 
@@ -131,14 +130,13 @@ namespace FIX
       if( decrement_reference_count() == 0)
       {
         T * tmpBuff = m_buffer;
-        atomic_count * tmpCounter = get_counter();
+        atomic_count* tmpCounter = get_counter();
 
         m_buffer = 0;
         m_size = 0;
 
         //explicitly call destructor for the counter object
         tmpCounter->~atomic_count();
-        tmpCounter; // fixes unused variable warning
 
         delete [] tmpBuff;
       }
