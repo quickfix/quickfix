@@ -39,7 +39,7 @@ TEST( matchFull )
 
   std::queue<Order> orders;
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(1, orders.size());
+  CHECK_EQUAL(1U, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
@@ -80,7 +80,7 @@ TEST( matchPartial )
 
   std::queue<Order> orders;
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
@@ -107,7 +107,7 @@ TEST( matchPartial )
 
   CHECK(object.insert(order3));
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   matchedOrder1 = orders.front();
   orders.pop();
@@ -148,12 +148,12 @@ TEST( matchTimePriority )
 
   std::queue<Order> orders;
   CHECK(!object.match("LNUX", orders));
-  CHECK_EQUAL(0, orders.size());
+  CHECK_EQUAL(0U, orders.size());
 
   CHECK(object.insert(order3));
 
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();
@@ -179,12 +179,12 @@ TEST( matchPricePriority )
 
   std::queue<Order> orders;
   CHECK(!object.match("LNUX", orders));
-  CHECK_EQUAL(0, orders.size());
+  CHECK_EQUAL(0U, orders.size());
 
   CHECK(object.insert(order3));
 
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();
@@ -211,7 +211,7 @@ TEST( matchMultiple )
 
   std::queue<Order> orders;
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(4, orders.size());
+  CHECK_EQUAL(4U, orders.size());
 
   Order matchedOrder3_1 = orders.front();
   orders.pop();
@@ -274,7 +274,7 @@ TEST( overMatch )
 
   std::queue<Order> orders;
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   Order matchedOrder1 = orders.front();
   orders.pop();
@@ -301,7 +301,7 @@ TEST( overMatch )
 
   CHECK(object.insert(order3));
   CHECK(object.match("LNUX", orders));
-  CHECK_EQUAL(2, orders.size());
+  CHECK_EQUAL(2U, orders.size());
 
   Order matchedOrder3 = orders.front();
   orders.pop();

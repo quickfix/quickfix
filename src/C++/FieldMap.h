@@ -235,6 +235,8 @@ FIELD& get( FIELD& field ) const          \
 (const FIX::FLD*)MAP.getFieldPtr( FIX::FIELD::FLD )
 #define FIELD_GET_REF( MAP, FLD ) \
 (const FIX::FLD&)MAP.getFieldRef( FIX::FIELD::FLD )
-
+#define FIELD_THROW_IF_NOT_FOUND( MAP, FLD ) \
+if( !(MAP).isSetField( FIX::FIELD::FLD) ) \
+  throw FieldNotFound( FIX::FIELD::FLD )
 #endif //FIX_FIELDMAP
 
