@@ -5,8 +5,6 @@ compiler:
  - clang
 
 before_script:
- - sudo apt-get install doxygen
- - sudo apt-get install graphviz
  - sudo apt-get install libxml2-dev
  - ./bootstrap
 
