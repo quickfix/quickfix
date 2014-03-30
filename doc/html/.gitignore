@@ -1,5 +1,6 @@
+*.js
 *.map
-_*.html
+*_*.html
 index*.html
 struct_*.html
 class_*.html
