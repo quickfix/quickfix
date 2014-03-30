@@ -29,7 +29,7 @@
 *
 *The Financial Information Exchange (<a href="http://www.fixprotocol.org">FIX</a>) Protocol is a message standard developed
 *to facilitate the electronic exchange of information related to securities transactions.
-*It is intended for use between trading partners wishing to automate communications.</B>
+*It is intended for use between trading partners wishing to automate communications.
 *
 *<I>QuickFIX is a free and open source implementation of the <a href="http://www.fixprotocol.org">FIX</a> protocol.</I>
 *
