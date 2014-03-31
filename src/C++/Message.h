@@ -312,23 +312,23 @@ public:
   void setSessionID( const SessionID& sessionID );
 
 private:
-  FieldBase extractField
-  ( const std::string& string, std::string::size_type& pos,
+  FieldBase extractField( 
+    const std::string& string, std::string::size_type& pos,
     const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
     const Group* pGroup = 0);
 
-  static bool IsDataField
-  ( int field, 
+  static bool IsDataField( 
+    int field, 
     const DataDictionary* pSessionDD, 
     const DataDictionary* pAppDD )
+  {
+    if( (pSessionDD && pSessionDD->isDataField( field )) ||
+        (pAppDD && pAppDD != pSessionDD && pAppDD->isDataField( field )) )
     {
-      if( (pSessionDD && pSessionDD->isDataField( field )) ||
-          (pAppDD && pAppDD != pSessionDD && pAppDD->isDataField( field )) )
-      {
-        return true;
-      }
+      return true;
+    }
 
-      return false;
+    return false;
   }
 
   void validate();

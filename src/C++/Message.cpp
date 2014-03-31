@@ -181,9 +181,18 @@ std::string& Message::toString( std::string& str,
   m_header.setField( IntField(bodyLengthField, length) );
   m_trailer.setField( CheckSumField(checkSumField, checkSum(checkSumField)) );
 
-  m_header.calculateString( str, true );
-  FieldMap::calculateString( str, false );
-  m_trailer.calculateString( str, false );
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  str = "";
+#else
+  str.clear();
+#endif
+
+  /*small speculation about the space needed for FIX string*/
+  str.reserve( length + 64 );
+
+  m_header.calculateString( str );
+  FieldMap::calculateString( str );
+  m_trailer.calculateString( str );
 
   return str;
 }
@@ -489,85 +498,83 @@ void Message::validate()
     if ( expectedLength != actualLength )
     {
       std::stringstream text;
-      text << "Expected BodyLength=" << expectedLength
-           << ", Actual BodyLength=" << actualLength;
+      text << "Expected BodyLength=" << actualLength
+           << ", Received BodyLength=" << expectedLength;
       throw InvalidMessage(text.str());
     }
-  }
-  catch ( FieldNotFound& )
-  {
-    throw InvalidMessage("BodyLength missing");
-  }
-  catch ( IncorrectDataFormat& )
-  {
-    throw InvalidMessage("BodyLength has invalid format");
-  }
 
-  try
-  {
     const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
 
-    const int expectedCheckSum = (int)aCheckSum;
-    const int actualCheckSum = checkSum();
+    const int expectedChecksum = (int)aCheckSum;
+    const int actualChecksum = checkSum();
 
-    if ( expectedCheckSum != actualCheckSum )
+    if ( expectedChecksum != actualChecksum )
     {
       std::stringstream text;
-      text << "Expected CheckSum=" << expectedCheckSum
-           << ", Actual CheckSum=" << actualCheckSum;
+      text << "Expected CheckSum=" << actualChecksum
+           << ", Received CheckSum=" << expectedChecksum;
       throw InvalidMessage(text.str());
     }
   }
-  catch ( FieldNotFound& )
+  catch ( FieldNotFound& e )
   {
-    throw InvalidMessage("CheckSum missing");
+    const std::string fieldName = ( e.field == FIX::FIELD::BodyLength ) ? "BodyLength" : "CheckSum";
+    throw InvalidMessage( fieldName + std::string(" is missing") );
   }
-  catch ( IncorrectDataFormat& )
+  catch ( IncorrectDataFormat& e )
   {
-    throw InvalidMessage("CheckSum has invalid format");
+    const std::string fieldName = ( e.field == FIX::FIELD::BodyLength ) ? "BodyLength" : "CheckSum";
+    throw InvalidMessage( fieldName + std::string(" has wrong format: ") + e.detail );
   }
 }
 
-FieldBase Message::extractField
- ( const std::string& string, std::string::size_type& pos,
-   const DataDictionary* pSessionDD, const DataDictionary* pAppDD,
-   const Group* pGroup)
- {
-   std::string::size_type equalSign
-     = string.find_first_of( '=', pos );
-   if( equalSign == std::string::npos )
-     throw InvalidMessage("Equal sign not found in field");
+FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos, 
+                                      const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
+                                      const Group* pGroup /*= 0*/ )
+{
+  std::string::const_iterator const tagStart = string.begin() + pos;
+  std::string::const_iterator const strEnd = string.end();
 
-   char* pEnd = 0;
-   int field = strtol( string.c_str() + pos, &pEnd, 0 );
+  std::string::const_iterator const equalSign = std::find( tagStart, strEnd, '=' );
+  if( equalSign == strEnd )
+    throw InvalidMessage("Equal sign not found in field");
 
-   std::string::size_type soh =
-     string.find_first_of( '\001', equalSign + 1 );
-   if ( soh == std::string::npos )
-     throw InvalidMessage("SOH not found at end of field");
+  int field = 0;
+  IntConvertor::convert( tagStart, equalSign, field );
 
-   if ( IsDataField( field, pSessionDD, pAppDD ) )
-   {
-     // Assume length field is 1 less.
-     int lenField = field - 1;
-     // Special case for Signature which violates above assumption.
-     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
+  std::string::const_iterator const valueStart = equalSign + 1;
 
-     if ( pGroup && pGroup->isSetField( lenField ) )
-     {
-       const std::string& fieldLength = pGroup->getField( lenField );
-       soh = equalSign + 1 + atol( fieldLength.c_str() );
-     }
-     else if ( isSetField( lenField ) )
-     {
-       const std::string& fieldLength = getField( lenField );
-       soh = equalSign + 1 + atol( fieldLength.c_str() );
-     }
-   }
+  std::string::const_iterator soh = std::find( valueStart, strEnd, '\001' );
+  if ( soh == strEnd )
+    throw InvalidMessage("SOH not found at end of field");
 
-   pos = soh + 1;
-   return FieldBase (
-     field,
-     string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
- }
+  if ( IsDataField( field, pSessionDD, pAppDD ) )
+  {
+    // Assume length field is 1 less.
+    int lenField = field - 1;
+    // Special case for Signature which violates above assumption.
+    if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
+
+    if ( pGroup && pGroup->isSetField( lenField ) )
+    {
+      const std::string& fieldLength = pGroup->getField( lenField );
+      soh = valueStart + atol( fieldLength.c_str() );
+    }
+    else if ( isSetField( lenField ) )
+    {
+      const std::string& fieldLength = getField( lenField );
+      soh = valueStart + atol( fieldLength.c_str() );
+    }
+  }
+
+  std::string::const_iterator const tagEnd = soh + 1;
+  pos = std::distance( string.begin(), tagEnd );
+
+  return FieldBase (
+    field,
+    valueStart,
+    soh,
+    tagStart, 
+    tagEnd );
+}
 }

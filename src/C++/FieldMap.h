@@ -203,7 +203,7 @@ public:
 
   int totalFields() const;
 
-  std::string& calculateString( std::string&, bool clear = true ) const;
+  std::string& calculateString( std::string& ) const;
 
   int calculateLength( int beginStringField = FIELD::BeginString,
                        int bodyLengthField = FIELD::BodyLength,
@@ -229,7 +229,9 @@ bool isSet( const FIELD& field ) const    \
 void set( const FIELD& field )            \
 { (MAP).setField(field); }                \
 FIELD& get( FIELD& field ) const          \
-{ return (FIELD&)(MAP).getField(field); }
+{ return (FIELD&)(MAP).getField(field); } \
+bool getIfSet( FIELD& field ) const       \
+{ return (MAP).getFieldIfSet(field); }
 
 #define FIELD_GET_PTR( MAP, FLD ) \
 (const FIX::FLD*)MAP.getFieldPtr( FIX::FIELD::FLD )
