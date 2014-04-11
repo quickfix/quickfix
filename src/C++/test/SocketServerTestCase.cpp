@@ -72,6 +72,7 @@ TEST_FIXTURE(socketServerFixture, accept)
   int serverS1 = object.add( TestSettings::port, true, true );
   int clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS1 > 0 );
+  process_sleep(0.1);
   int s1 = object.accept( serverS1 );
   CHECK( s1 >= 0 );
   object.block( *this );
@@ -79,6 +80,7 @@ TEST_FIXTURE(socketServerFixture, accept)
 
   int clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS2 > 0 );
+  process_sleep(0.1);
   int s2 = object.accept( serverS1 );
   CHECK( s2 >= 0 );
   object.block( *this );
@@ -86,6 +88,7 @@ TEST_FIXTURE(socketServerFixture, accept)
 
   int clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS3 > 0 );
+  process_sleep(0.1);
   int s3 = object.accept( serverS1 );
   CHECK( s3 >= 0 );
   object.block( *this );
