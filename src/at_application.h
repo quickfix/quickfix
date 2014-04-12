@@ -177,11 +177,27 @@ class Application : public FIX::Application
 
   void toAdmin( FIX::Message& message, const FIX::SessionID& )
   {}
+
   void toApp( FIX::Message& message, const FIX::SessionID& )
   throw( FIX::DoNotSend )
   {}
-  void fromAdmin( const FIX::Message& message, const FIX::SessionID& )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}
+
+  void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) 
+  {
+    FIX::MsgType msgType;
+    message.getHeader().getField( msgType );
+    if(msgType == FIX::MsgType_Logon)
+    {
+      FIX::DefaultApplVerID defaultApplVerID;
+      if(message.isSetField(defaultApplVerID))
+      {
+        message.getField(defaultApplVerID);
+        FIX::Session::lookupSession(sessionID)->setSenderDefaultApplVerID(defaultApplVerID);
+      }
+    }
+  }
+
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {
