@@ -255,7 +255,7 @@ struct SocketException : public Exception
 #ifdef _MSC_VER
     error = WSAGetLastError();
     char buffer[2048];
-    FormatMessage( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
+    FormatMessageA( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    buffer, 2048, NULL );
     return buffer;
