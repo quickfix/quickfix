@@ -135,7 +135,9 @@ private:
   thread_id m_threadid;
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
+protected:
   SessionSettings m_settings;
+private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;
   NullLog m_nullLog;

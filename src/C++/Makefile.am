@@ -3,6 +3,7 @@ SUBDIRS = test
 LEX += -+ -olex.yy.c
 
 lib_LTLIBRARIES = libquickfix.la
+
 libquickfix_la_SOURCES = \
 	Allocator.h \
 	AtomicCount.h \
@@ -110,6 +111,21 @@ libquickfix_la_SOURCES = \
 	LIBXML_DOMDocument.h \
 	MessageCracker.h \
 	Responder.h
+	
+if HAVE_SSL
+libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
+	ThreadedSSLSocketAcceptor.h \
+	ThreadedSSLSocketInitiator.cpp \
+	ThreadedSSLSocketInitiator.h \
+	ThreadedSSLSocketConnection.cpp \
+	ThreadedSSLSocketConnection.h \
+	UtilitySSL.cpp \
+	UtilitySSL.h
+else
+libquickfix_la_ssl_SOURCES =
+endif
+
+libquickfix_la_SOURCES += $(libquickfix_la_ssl_SOURCES)
 
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
