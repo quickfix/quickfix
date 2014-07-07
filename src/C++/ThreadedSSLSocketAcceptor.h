@@ -207,6 +207,7 @@ private:
   int newConnection(ThreadedSSLSocketConnection *pConnection);
   SSL_CTX *sslContext() { return m_ctx; }
   X509_STORE *revocationStore() { return m_revocationStore; }
+  int doAccept(SSL *ssl, int & result);
 
   Sockets m_sockets;
   PortToSessions m_portToSessions;
@@ -217,6 +218,8 @@ private:
   int m_verify;
   SSL_CTX *m_ctx;
   X509_STORE *m_revocationStore;
+
+  static Mutex m_acceptMutex;
 };
 /*! @} */
 }

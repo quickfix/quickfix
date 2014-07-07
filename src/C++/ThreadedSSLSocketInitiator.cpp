@@ -185,11 +185,13 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
                               SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
   std::string errStr;
   if (!loadSSLCertificate(errStr)) {
-    throw RuntimeError(errStr);
+    getLog()->onEvent(errStr);
+    throw RuntimeError("Failed to load SSL cert. Please check log for details");
   }
 
   if (!loadCAInfo(errStr)) {
-    throw RuntimeError(errStr);
+    getLog()->onEvent(errStr);
+    throw RuntimeError("Failed to load CRL info. Please check log for details");
   }
 
   m_sslInit = true;

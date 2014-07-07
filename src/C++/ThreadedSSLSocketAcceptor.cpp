@@ -126,6 +126,8 @@
 
 namespace FIX {
 
+Mutex ThreadedSSLSocketAcceptor::m_acceptMutex = Mutex();
+
 // TODO
 int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job) {
   return 0;
@@ -189,12 +191,16 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
     std::string errStr;
     if (!loadSSLCertificate(errStr)) {
       ssl_term();
-      throw RuntimeError(errStr);
+      getLog()->onEvent(errStr);
+      throw RuntimeError(
+          "Failed to load SSL cert. Please check log for details");
     }
 
     if (!loadCRLInfo(errStr)) {
       ssl_term();
-      throw RuntimeError(errStr);
+      getLog()->onEvent(errStr);
+      throw RuntimeError(
+          "Failed to load CRL info. Please check log for details");
     }
 
     SSL_CTX_set_options(m_ctx, SSL_OP_SINGLE_DH_USE);
@@ -682,6 +688,20 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p) {
   return 0;
 }
 
+int ThreadedSSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
+
+  //Not sure if a lock is required here anymore. But there used to
+  //be a bug and boost asio still has a lock as well.
+  Locker l(m_acceptMutex);
+
+  int rc = SSL_accept(ssl);
+  if (rc <= 0) {
+    result = SSL_get_error(ssl, rc);
+  }
+
+  return rc;
+}
+
 int ThreadedSSLSocketAcceptor::newConnection(
     ThreadedSSLSocketConnection *pConnection) {
 
@@ -698,8 +718,8 @@ int ThreadedSSLSocketAcceptor::newConnection(
    */
   while (!SSL_is_init_finished(ssl)) {
     ERR_clear_error();
-    while ((rc = SSL_accept(ssl)) <= 0) {
-      result = SSL_get_error(ssl, rc);
+    while ((rc = doAccept(ssl, result)) <= 0) {
+
       if (result == SSL_ERROR_WANT_READ)
         ;
       else if (result == SSL_ERROR_WANT_WRITE)

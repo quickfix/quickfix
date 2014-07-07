@@ -121,7 +121,11 @@ static Mutex ssl_mutex;
 static int ssl_users = 0;
 static int ssl_initialized = 0;
 /* This array will store all of the mutexes available to OpenSSL. */
-std::vector<Mutex> mutexBuf;
+#ifdef _MSC_VER
+static HANDLE *lock_cs = 0;
+#else
+static pthread_mutex_t *lock_cs = 0;
+#endif
 
 static void thread_setup(void); // For thread safety.
 static void thread_cleanup(void);
@@ -178,10 +182,17 @@ void ssl_socket_close(int socket, SSL *ssl) {
 }
 
 static void locking_callback(int mode, int type, const char *file, int line) {
+#ifdef _MSC_VER
   if (mode & CRYPTO_LOCK)
-    mutexBuf[type].lock();
+    WaitForSingleObject(lock_cs[type], INFINITE);
   else
-    mutexBuf[type].unlock();
+    ReleaseMutex(lock_cs[type]);
+#else
+  if (mode & CRYPTO_LOCK)
+    pthread_mutex_lock(&(lock_cs[type]));
+  else
+    pthread_mutex_unlock(&(lock_cs[type]));
+#endif
 }
 
 static unsigned long thread_id_func() {
@@ -194,12 +205,20 @@ static unsigned long thread_id_func() {
 
 static void thread_setup(void) {
 
-  if (mutexBuf.size() != 0)
+  if (lock_cs != 0)
     return;
 
-  mutexBuf.resize(CRYPTO_num_locks());
-  for (int i = 0; i < CRYPTO_num_locks(); ++i)
-    mutexBuf.push_back(Mutex());
+  int i;
+#ifdef _MSC_VER
+  lock_cs = (HANDLE *) OPENSSL_malloc(CRYPTO_num_locks() * sizeof(HANDLE));
+  for (i = 0; i < CRYPTO_num_locks(); i++)
+    lock_cs[i] = CreateMutex(0, FALSE, 0);
+#else
+  lock_cs = (pthread_mutex_t *) OPENSSL_malloc(CRYPTO_num_locks() * sizeof(pthread_mutex_t));
+  for (i = 0; i < CRYPTO_num_locks(); i++) {
+    pthread_mutex_init(&(lock_cs[i]), 0);
+  }
+#endif
 
 #ifndef _MSC_VER
   CRYPTO_set_id_callback((unsigned long (*)(void))thread_id_func);
@@ -210,7 +229,7 @@ static void thread_setup(void) {
 
 static void thread_cleanup(void) {
 
-  if (mutexBuf.size() == 0)
+  if (lock_cs == 0)
     return;
 
 #ifndef _MSC_VER
@@ -218,7 +237,16 @@ static void thread_cleanup(void) {
 #endif
   CRYPTO_set_locking_callback(0);
 
-  mutexBuf.clear();
+  int i;
+#ifdef _MSC_VER
+  for (i = 0; i < CRYPTO_num_locks(); i++)
+    CloseHandle(lock_cs[i]);
+  OPENSSL_free(lock_cs);
+#else
+  for (i = 0; i < CRYPTO_num_locks(); i++)
+    pthread_mutex_destroy(&(lock_cs[i]));
+  OPENSSL_free(lock_cs);
+#endif
 }
 
 static int ssl_rand_choose_num(int l, int h) {
