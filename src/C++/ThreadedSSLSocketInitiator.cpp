@@ -256,7 +256,7 @@ bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
 
   errStr.erase();
 
-  if (!SSL_CTX_load_verify_locations(m_ctx, caFile.c_str(),
+  if (!SSL_CTX_load_verify_locations(m_ctx, caFile.empty() ? 0 : caFile.c_str(),
                                      caDir.empty() ? 0 : caDir.c_str()) ||
       !SSL_CTX_set_default_verify_paths(m_ctx)) {
     errStr.assign("Unable to configure verify locations for authentication");
@@ -264,7 +264,7 @@ bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
   }
 
   STACK_OF(X509_NAME) * caList;
-  if ((caList = findCAList(caFile.c_str(),
+  if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(),
                            caDir.empty() ? 0 : caDir.c_str())) == 0) {
     errStr.assign("Unable to determine list of available CA certificates "
                   "for authentication");
