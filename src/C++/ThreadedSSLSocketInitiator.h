@@ -148,6 +148,12 @@ public:
 
   virtual ~ThreadedSSLSocketInitiator();
 
+  void setPassword(const std::string & pwd) {
+    m_password.assign(pwd);
+  }
+
+  int passwordHandleCallback(char *buf, int bufsize, int verify, void *job);
+
 private:
   typedef std::pair<int, SSL *> SocketKey;
   typedef std::map<SocketKey, thread_id> SocketToThread;
@@ -184,6 +190,7 @@ private:
   Mutex m_mutex;
   bool m_sslInit;
   SSL_CTX *m_ctx;
+  std::string m_password;
 };
 /*! @} */
 }

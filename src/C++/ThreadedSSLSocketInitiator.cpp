@@ -125,6 +125,13 @@
 #include "Session.h"
 #include "Settings.h"
 
+namespace {
+FIX::ThreadedSSLSocketInitiator *initObj = 0;
+int passwordHandleCB(char *buf, int bufsize, int verify, void *job) {
+  return initObj->passwordHandleCallback(buf, bufsize, verify, job);
+}
+}
+
 namespace FIX {
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
@@ -215,6 +222,8 @@ bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
     key.assign(m_settings.get().getString(CLIENT_CERT_KEY_FILE));
   else
     key.assign(cert);
+
+  SSL_CTX_set_default_passwd_cb(m_ctx, ::passwordHandleCB);
 
   if (SSL_CTX_use_certificate_file(m_ctx, cert.c_str(), SSL_FILETYPE_PEM) <=
       0) {
@@ -479,6 +488,15 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
   }
 
   m_sessionToHostNum[s] = ++num;
+}
+
+int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, int bufsize,
+                                                   int verify, void *job) {
+  if (m_password.length() > bufsize)
+    return -1;
+
+  std::strcpy(buf, m_password.c_str());
+  return m_password.length();
 }
 }
 

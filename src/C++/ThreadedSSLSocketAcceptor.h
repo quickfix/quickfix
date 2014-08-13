@@ -155,6 +155,12 @@ public:
 
   virtual ~ThreadedSSLSocketAcceptor();
 
+  void setPassword(const std::string & pwd) {
+    m_password.assign(pwd);
+  }
+
+  int passwordHandleCallback(char *buf, int bufsize, int verify, void *job);
+
 private:
   struct AcceptorThreadInfo {
     AcceptorThreadInfo(ThreadedSSLSocketAcceptor *pAcceptor, int socket,
@@ -218,6 +224,7 @@ private:
   int m_verify;
   SSL_CTX *m_ctx;
   X509_STORE *m_revocationStore;
+  std::string m_password;
 
   static Mutex m_acceptMutex;
 };

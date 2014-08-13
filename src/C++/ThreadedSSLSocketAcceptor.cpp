@@ -124,14 +124,16 @@
 #include "Settings.h"
 #include "Utility.h"
 
+namespace {
+FIX::ThreadedSSLSocketAcceptor *acceptObj = 0;
+int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job) {
+  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
+}
+}
+
 namespace FIX {
 
 Mutex ThreadedSSLSocketAcceptor::m_acceptMutex = Mutex();
-
-// TODO
-int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job) {
-  return 0;
-}
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
     Application &application, MessageStoreFactory &factory,
@@ -339,7 +341,7 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
     return false;
   }
 
-  EVP_PKEY *privateKey = readPrivateKey(fp, 0, passPhraseHandleCB);
+  EVP_PKEY *privateKey = readPrivateKey(fp, 0, ::passPhraseHandleCB);
 
   fclose(fp);
 
@@ -384,7 +386,7 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
   if (caFile.empty() && caDir.empty())
     return true;
 
-  if (!SSL_CTX_load_verify_locations(m_ctx,caFile.empty() ? 0 : caFile.c_str(),
+  if (!SSL_CTX_load_verify_locations(m_ctx, caFile.empty() ? 0 : caFile.c_str(),
                                      caDir.empty() ? 0 : caDir.c_str()) ||
       !SSL_CTX_set_default_verify_paths(m_ctx)) {
     errStr.assign(
@@ -690,8 +692,8 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p) {
 
 int ThreadedSSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
 
-  //Not sure if a lock is required here anymore. But there used to
-  //be a bug and boost asio still has a lock as well.
+  // Not sure if a lock is required here anymore. But there used to
+  // be a bug and boost asio still has a lock as well.
   Locker l(m_acceptMutex);
 
   int rc = SSL_accept(ssl);
@@ -873,6 +875,15 @@ int ThreadedSSLSocketAcceptor::newConnection(
     free(subjName);
 
   return result;
+}
+
+int ThreadedSSLSocketAcceptor::passwordHandleCallback(char *buf, int bufsize,
+                                                  int verify, void *job) {
+  if (m_password.length() > bufsize)
+    return -1;
+
+  std::strcpy(buf, m_password.c_str());
+  return m_password.length();
 }
 }
 
