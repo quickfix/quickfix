@@ -305,7 +305,7 @@ const char *socket_error(char *tempbuf, int buflen) {
   return tempbuf;
 }
 
-int caListX509NameCmp(const X509_NAME **a, const X509_NAME **b) {
+int caListX509NameCmp(const X509_NAME * const *a, const X509_NAME * const *b) {
   return (X509_NAME_cmp(*a, *b));
 }
 

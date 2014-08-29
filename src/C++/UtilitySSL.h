@@ -198,10 +198,7 @@ static const char *WSAErrString(int code)
 extern "C" {
 typedef int (*passPhraseHandleCallbackType)(char *, int, int, void *);
 
-// TODO - implement
-int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
-
-int caListX509NameCmp(const X509_NAME **a, const X509_NAME **b);
+int caListX509NameCmp(const X509_NAME * const *a, const X509_NAME * const *b);
 STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath);
 int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
                     X509_OBJECT *pObj);
