@@ -247,6 +247,8 @@ static void thread_cleanup(void) {
     pthread_mutex_destroy(&(lock_cs[i]));
   OPENSSL_free(lock_cs);
 #endif
+
+  lock_cs = 0;
 }
 
 static int ssl_rand_choose_num(int l, int h) {

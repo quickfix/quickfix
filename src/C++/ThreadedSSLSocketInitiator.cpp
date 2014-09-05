@@ -140,6 +140,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0) {
   socket_init();
+  initObj = this;
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -149,6 +150,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0) {
   socket_init();
+  initObj = this;
 }
 
 ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
