@@ -8,7 +8,7 @@ python_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.p
 _quickfix_la_LDFLAGS = -version-info 11:0:0 -module
 _quickfix_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
-INCLUDES =-I. -I.. -I../..
+INCLUDES =-I. -I.. -I../.. -I../C++
 
 local_python_src=$(top_builddir)/src/python
 local_python_lib=$(top_builddir)/lib/python
