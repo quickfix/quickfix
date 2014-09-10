@@ -106,8 +106,11 @@ libquickfix_la_SOURCES = \
 	DeprecatedValues.h \
 	FlexLexer.h \
 	DOMDocument.h \
-	LIBXML_DOMDocument.cpp \
-	LIBXML_DOMDocument.h \
+	PUGIXML_DOMDocument.cpp \
+	PUGIXML_DOMDocument.h \
+	pugixml.cpp \
+	pugixml.hpp \
+	pugiconfig.hpp \
 	MessageCracker.h \
 	Responder.h
 

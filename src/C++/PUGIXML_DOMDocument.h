@@ -19,44 +19,36 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_MSXMLDOMDOCUMENT_H
-#define FIX_MSXMLDOMDOCUMENT_H
-
-#ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
-#endif
+#ifndef FIX_PUGIXMLDOMDOCUMENT_H
+#define FIX_PUGIXMLDOMDOCUMENT_H
 
 #include "DOMDocument.h"
 #include "Exceptions.h"
+#include "pugixml.hpp"
 
 namespace FIX
 {
-  /// XML attribute as represented by msxml.
-  class MSXML_DOMAttributes : public DOMAttributes
+  /// XML attribute as represented by pugixml.
+  class PUGIXML_DOMAttributes : public DOMAttributes
   {
   public:
-    MSXML_DOMAttributes( MSXML2::IXMLDOMNode* pNode )
-    {
-      pNode->get_attributes(&m_pNodeMap);
-    }
-
-    ~MSXML_DOMAttributes();
+    PUGIXML_DOMAttributes( pugi::xml_node pNode )
+    : m_pNode(pNode) {}
 
     bool get( const std::string&, std::string& );
     DOMAttributes::map toMap();
 
   private:
-    MSXML2::IXMLDOMNamedNodeMap* m_pNodeMap;
+    pugi::xml_node m_pNode;
   };
 
-  /// XML node as represented by msxml.
-  class MSXML_DOMNode : public DOMNode
+  /// XML node as represented by pugixml.
+  class PUGIXML_DOMNode : public DOMNode
   {
   public:
-    MSXML_DOMNode( MSXML2::IXMLDOMNode* pNode )
-    : m_pNode( pNode ) {}
-
-    ~MSXML_DOMNode();
+    PUGIXML_DOMNode( pugi::xml_node pNode )
+    : m_pNode(pNode) {}
+    ~PUGIXML_DOMNode() {}
 
     DOMNodePtr getFirstChildNode();
     DOMNodePtr getNextSiblingNode();
@@ -65,15 +57,15 @@ namespace FIX
     std::string getText();
 
   private:
-    MSXML2::IXMLDOMNode* m_pNode;
+    pugi::xml_node m_pNode;
   };
 
-  /// XML document as represented by msxml.
-  class MSXML_DOMDocument : public DOMDocument
+  /// XML document as represented by pugixml.
+  class PUGIXML_DOMDocument : public DOMDocument
   {
   public:
-    MSXML_DOMDocument() throw( ConfigError );
-    ~MSXML_DOMDocument();
+    PUGIXML_DOMDocument() throw( ConfigError );
+    ~PUGIXML_DOMDocument();
 
     bool load( std::istream& );
     bool load( const std::string& );
@@ -82,7 +74,7 @@ namespace FIX
     DOMNodePtr getNode( const std::string& );
 
   private:
-    MSXML2::IXMLDOMDocument2* m_pDoc;
+    pugi::xml_document m_pDoc;
   };
 }
 

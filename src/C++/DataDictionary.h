@@ -507,12 +507,6 @@ private:
     }
   }
 
-  /// Read XML file using MSXML.
-  void readMSXMLDOM( const std::string& );
-  void readMSXML( const std::string& );
-  /// Read XML file using libXML.
-  void readLibXml( const std::string& );
-
   int lookupXMLFieldNumber( DOMDocument*, DOMNode* ) const;
   int lookupXMLFieldNumber( DOMDocument*, const std::string& name ) const;
   int addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary&, bool );
