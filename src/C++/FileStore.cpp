@@ -29,6 +29,12 @@
 #include "Utility.h"
 #include <fstream>
 
+#ifdef _MSC_VER
+  #define I64FMT "%I64d"
+#else
+  #define I64FMT "%lld"
+#endif
+
 namespace FIX
 {
 FileStore::FileStore( std::string path, const SessionID& s )
@@ -129,10 +135,10 @@ void FileStore::populateCache()
   if ( headerFile )
   {
     int num;
-    long offset;
-    size_t size;
-
-    while ( FILE_FSCANF( headerFile, "%d,%ld,%lu ", &num, &offset, &size ) == 3 )
+    fpos_t offset;
+	  size_t size;
+    
+    while ( FILE_FSCANF( headerFile, "%d," I64FMT ",%lu ", &num, &offset, &size ) == 3 )
       m_offsets[ num ] = std::make_pair( offset, size );
     fclose( headerFile );
   }
@@ -189,12 +195,12 @@ throw ( IOException )
   if ( fseek( m_headerFile, 0, SEEK_END ) ) 
     throw IOException( "Cannot seek to end of " + m_headerFileName );
 
-  long offset = ftell( m_msgFile );
-  if ( offset < 0 ) 
+  fpos_t offset = 0; 
+  if ( fgetpos( m_msgFile, &offset ) != 0 ) 
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
   size_t size = msg.size();
 
-  if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, size ) < 0 )
+  if ( fprintf( m_headerFile, "%d," I64FMT ",%lu ", msgSeqNum, offset, size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
   m_offsets[ msgSeqNum ] = std::make_pair( offset, size );
   fwrite( msg.c_str(), sizeof( char ), msg.size(), m_msgFile );
@@ -314,7 +320,7 @@ throw ( IOException )
   NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
   if ( find == m_offsets.end() ) return false;
   const OffsetSize& offset = find->second;
-  if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) 
+  if ( fsetpos( m_msgFile, &offset.first ) != 0 ) 
     throw IOException( "Unable to seek in file " + m_msgFileName );
   char* buffer = new char[ offset.second + 1 ];
   size_t result = fread( buffer, sizeof( char ), offset.second, m_msgFile );
