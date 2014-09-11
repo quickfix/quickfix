@@ -123,7 +123,7 @@ void FieldMap::removeField( int field )
 
 bool FieldMap::hasGroup( int num, int field ) const
 {
-  return groupCount(field) >= num;
+  return (int)groupCount(field) >= num;
 }
 
 bool FieldMap::hasGroup( int field ) const

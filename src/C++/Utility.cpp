@@ -72,10 +72,10 @@ std::string string_strip( const std::string& value )
   size_t startPos = value.find_first_not_of(" \t\r\n");
   size_t endPos = value.find_last_not_of(" \t\r\n");
 
-  if( startPos == -1 )
+  if( startPos == std::string::npos )
    return value;
 
-   return std::string( value, startPos, endPos - startPos + 1 );
+  return std::string( value, startPos, endPos - startPos + 1 );
 }
 
 void socket_init()
@@ -465,13 +465,13 @@ std::string file_separator()
 
 void file_mkdir( const char* path )
 {
-  size_t length = strlen( path );
+  int length = (int)strlen( path );
   std::string createPath = "";
 
-  for( const char* pos = path; pos - path <= length; ++pos )
+  for( const char* pos = path; (pos - path) <= length; ++pos )
   {
     createPath += *pos;
-    if( *pos == '/' || *pos == '\\' || pos - path == length )
+    if( *pos == '/' || *pos == '\\' || (pos - path) == length )
     {
     #ifdef _MSC_VER
       _mkdir( createPath.c_str() );

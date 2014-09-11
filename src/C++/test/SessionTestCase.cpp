@@ -657,25 +657,25 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
 
-  CHECK_EQUAL( 4, Session::numSessions() );
+  CHECK_EQUAL( 4lu, Session::numSessions() );
 
   delete pSession1;
 
   CHECK( !Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( 3, Session::numSessions() );
+  CHECK_EQUAL( 3lu, Session::numSessions() );
 
   delete pSession2;
   delete pSession3;
 
-  CHECK_EQUAL( 1, Session::numSessions() );
+  CHECK_EQUAL( 1lu, Session::numSessions() );
   CHECK( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
 
   delete pSession4;
-  CHECK_EQUAL( 0, Session::numSessions() );
+  CHECK_EQUAL( 0lu, Session::numSessions() );
   CHECK( !Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
