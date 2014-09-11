@@ -55,7 +55,7 @@ bool isKeyValue( const std::string& line )
 
 std::pair<std::string, std::string> splitKeyValue( const std::string& line )
 {
-  int equals = line.find( '=' );
+  size_t equals = line.find( '=' );
   std::string key = std::string( line, 0, equals );
   std::string value = std::string( line, equals + 1, std::string::npos );
   return std::pair<std::string, std::string>( key, value );

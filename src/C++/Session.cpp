@@ -1457,7 +1457,7 @@ void Session::unregisterSession( const SessionID& sessionID )
   s_registered.erase( sessionID );
 }
 
-int Session::numSessions()
+size_t Session::numSessions()
 {
   Locker locker( s_mutex );
   return s_sessions.size();

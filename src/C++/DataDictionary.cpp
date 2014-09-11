@@ -259,7 +259,7 @@ throw( ConfigError )
       std::string number;
       if(!attrs->get("number", number))
         throw ConfigError("<field> " + name + " does not have a number attribute");
-      int num = atol(number.c_str());
+      int num = atoi(number.c_str());
       std::string type;
       if(!attrs->get("type", type))
         throw ConfigError("<field> " + name + " does not have a type attribute");

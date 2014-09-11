@@ -194,14 +194,14 @@ public:
   /// Check to see if a specific instance of a group exists
   bool hasGroup( int num, int field ) const;
   /// Count the number of instance of a group
-  int groupCount( int field ) const;
+  size_t groupCount( int field ) const;
 
   /// Clear all fields from the map
   void clear();
   /// Check if map contains any fields
   bool isEmpty();
 
-  int totalFields() const;
+  size_t totalFields() const;
 
   std::string& calculateString( std::string& ) const;
 

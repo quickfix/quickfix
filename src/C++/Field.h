@@ -50,12 +50,12 @@ class FieldBase
   {
   public:
 
-    field_metrics( const int length, const int checksum )
+    field_metrics( const size_t length, const int checksum )
       : m_length( length )
       , m_checksum( checksum )
     {}
 
-    int getLength() const
+    size_t getLength() const
     { return m_length; }
 
     int getCheckSum() const
@@ -66,7 +66,7 @@ class FieldBase
 
   private:
 
-    int m_length;
+    size_t m_length;
     int m_checksum;
   };
 
@@ -122,7 +122,7 @@ public:
   }
 
   /// Get the length of the fields string representation
-  int getLength() const
+  size_t getLength() const
   {
     calculate();
     return m_metrics.getLength();
@@ -151,8 +151,8 @@ private:
   /// Serializes string representation of the Field to input string
   void encodeTo( std::string& result ) const
   {
-    int tagLength = FIX::number_of_symbols_in( m_field ) + 1;
-    int totalLength = tagLength + m_string.length() + 1;
+    size_t tagLength = FIX::number_of_symbols_in( m_field ) + 1;
+    size_t totalLength = tagLength + m_string.length() + 1;
 
     result.resize( totalLength );
 

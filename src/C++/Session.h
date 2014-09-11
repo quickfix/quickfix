@@ -103,7 +103,7 @@ public:
   static Session* registerSession( const SessionID& );
   static void unregisterSession( const SessionID& );
 
-  static int numSessions();
+  static size_t numSessions();
 
   bool isSessionTime(const UtcTimeStamp& time)
     { return m_sessionTime.isInRange(time); }

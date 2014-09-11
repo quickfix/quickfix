@@ -69,8 +69,8 @@ std::string string_strip( const std::string& value )
   if( !value.size() )
     return value;
 
-  int startPos = value.find_first_not_of(" \t\r\n");
-  int endPos = value.find_last_not_of(" \t\r\n");
+  size_t startPos = value.find_first_not_of(" \t\r\n");
+  size_t endPos = value.find_last_not_of(" \t\r\n");
 
   if( startPos == -1 )
    return value;
@@ -150,7 +150,7 @@ int socket_accept( int s )
   return accept( s, 0, 0 );
 }
 
-int socket_send( int s, const char* msg, int length )
+ssize_t socket_send( int s, const char* msg, size_t length )
 {
   return send( s, msg, length, 0 );
 }
@@ -465,7 +465,7 @@ std::string file_separator()
 
 void file_mkdir( const char* path )
 {
-  int length = strlen( path );
+  size_t length = strlen( path );
   std::string createPath = "";
 
   for( const char* pos = path; pos - path <= length; ++pos )

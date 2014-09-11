@@ -47,7 +47,7 @@ public:
   /// Get the name of the dictionary.
   std::string getName() const { return m_name; }
   /// Return the number of key/value pairs.
-  int size() const { return m_data.size(); }
+  size_t size() const { return m_data.size(); }
 
   /// Get a value as a string.
   std::string getString( const std::string&, bool capitalize = false ) const
