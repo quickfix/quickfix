@@ -49,7 +49,10 @@
 
 %pythoncode %{
 #ifdef SWIGPYTHON
-import thread
+try:
+  import thread
+except ImportError:
+  import _thread as thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()

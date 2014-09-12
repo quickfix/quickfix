@@ -455,7 +455,7 @@ private:
     int fieldNum = field.getField();
     if( isGroup(msgType, fieldNum) )
     {
-      if( fieldMap.groupCount(fieldNum)
+      if( (int)fieldMap.groupCount(fieldNum)
         != IntConvertor::convert(field.getString()) )
       throw RepeatingGroupCountMismatch(fieldNum);
     }

@@ -1,3 +1,11 @@
+1.14.1
+------
+Replaced libxml2 and MSXML dependencies with embedded pugixml.
+
+Fixed all warnings from -Wshorten-64-to-32.
+
+Added python api to PyPi.  Can be installed with 'pip install quickfix'.
+
 1.14.0
 ------
 Major performance improvement sending/receiving messages.  Thanks to 

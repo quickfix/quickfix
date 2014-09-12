@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.59])
 
-AC_INIT([QuickFIX], [1.14.0], [ask@quickfixengine.org])
+AC_INIT([QuickFIX], [1.14.1], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
@@ -35,23 +35,6 @@ AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
 AX_JAVA()
-
-########################################
-# CALLSTACK
-########################################
-use_callstack=no
-AC_ARG_ENABLE(callstack,
-    [  --enable-callstack      display c++ call stack after crashing],
-    [use_callstack=$enableval],
-    use_callstack=no
-)
-
-if test $use_callstack = yes
-then
-    AC_DEFINE(ENABLE_CALLSTACK, 1, 
-	Define if you want a C++ callstack to be displayed after crashing)
-fi
-########################################
 
 ########################################
 # TBB 
@@ -100,7 +83,7 @@ LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 if test `uname` == SunOS; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 else
-	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wshorten-64-to-32 $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
