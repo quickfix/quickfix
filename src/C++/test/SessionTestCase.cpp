@@ -352,7 +352,7 @@ struct sessionFixture : public TestCallback
     TimeRange sessionTime( startTime, endTime );
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIX42.xml") );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX42.xml" );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setResponder( this );
@@ -391,9 +391,9 @@ struct sessionT11Fixture : public TestCallback
     TimeRange sessionTime( startTime, endTime );
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIXT11.xml") );
-    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), new DataDictionary("../spec/FIX50.xml") );
-    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), new DataDictionary("../spec/FIX42.xml") );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIXT11.xml" );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), "../spec/FIX50.xml" );
+    provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), "../spec/FIX42.xml" );
     object = new Session( *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setSenderDefaultApplVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
@@ -615,7 +615,7 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
 TEST_FIXTURE(sessionFixture, doesSessionExist)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session * pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -686,7 +686,7 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
 TEST_FIXTURE(sessionFixture, lookupSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session* pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -741,7 +741,7 @@ TEST_FIXTURE(sessionFixture, lookupSession)
 TEST_FIXTURE(sessionFixture, registerSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), new DataDictionary() );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session* pSession = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -1355,7 +1355,7 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
     SessionID sessionID( BeginString( "FIX.4.2" ), SenderCompID( "MJKG" ), TargetCompID( "IZZY" ) );
     
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), new DataDictionary("../spec/FIX42.xml") );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX42.xml" );
     object = new Session( *this, memStoreFactory, sessionID, provider, sessionTime, HEARTBTINT, 0 );
   }
 
