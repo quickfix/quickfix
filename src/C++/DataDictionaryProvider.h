@@ -29,6 +29,8 @@
 #include "DataDictionary.h"
 #include "Exceptions.h"
 
+#include <memory>
+
 namespace FIX
 {
 class BeginString;
