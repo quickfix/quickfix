@@ -38,7 +38,7 @@ SessionFactory::~SessionFactory()
 {
   Dictionaries::iterator i = m_dictionaries.begin();
   for ( ; i != m_dictionaries.end(); ++i )
-    delete i->second;
+    delete *i;
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
@@ -207,23 +207,24 @@ void SessionFactory::destroy( Session* pSession )
 }
 
 const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 
-                                                    const Dictionary& settings, 
-                                                    const std::string& settingsKey) throw(ConfigError)
+                                                            const Dictionary& settings, 
+                                                            const std::string& settingsKey) throw(ConfigError)
 {
   DataDictionary * pDD = 0;
   std::string path = settings.getString( settingsKey );
-  Dictionaries::iterator i = m_dictionaries.find( path );
-  if ( i != m_dictionaries.end() )
+  PathToDictionary::iterator i = m_pathToDictionary.find( path );
+  if ( i != m_pathToDictionary.end() )
   {
     pDD = i->second;
   }
   else
   {
     pDD = new DataDictionary( path );
-    m_dictionaries[ path ] = pDD;
+    m_pathToDictionary[ path ] = pDD;
   }
 
   DataDictionary * pCopyOfDD = new DataDictionary(*pDD);
+  m_dictionaries.push_back(pCopyOfDD);
 
   if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
     pCopyOfDD->checkFieldsOutOfOrder( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );

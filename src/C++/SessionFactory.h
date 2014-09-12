@@ -60,7 +60,8 @@ public:
   void destroy( Session* pSession );
 
 private:
-  typedef std::map < std::string, DataDictionary* > Dictionaries;
+  typedef std::map < std::string, DataDictionary* > PathToDictionary;
+  typedef std::vector<DataDictionary*> Dictionaries;
 
   const DataDictionary * createDataDictionary(const SessionID& sessionID, 
                                               const Dictionary& settings, 
@@ -79,6 +80,7 @@ private:
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
   LogFactory* m_pLogFactory;
+  PathToDictionary m_pathToDictionary;
   Dictionaries m_dictionaries;
 };
 }
