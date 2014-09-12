@@ -350,6 +350,7 @@ std::pair<int, int> socket_createpair()
   int client = socket_createConnector();
   socket_connect( client, "localhost", port );
   int server = socket_accept( acceptor );
+  socket_close(acceptor);
   return std::pair<int, int>( client, server );
 #else
   int pair[2];
