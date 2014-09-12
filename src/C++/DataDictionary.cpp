@@ -75,7 +75,7 @@ DataDictionary::~DataDictionary()
     FieldPresenceMap::const_iterator iter = presenceMap.begin();
     for ( ; iter != presenceMap.end(); ++iter )
       delete iter->second.second;
-}
+  }
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
