@@ -220,11 +220,12 @@ const DataDictionary * SessionFactory::createDataDictionary(const SessionID& ses
   else
   {
     pDD = new DataDictionary( path );
+    m_dictionaries.push_back( pDD );
     m_pathToDictionary[ path ] = pDD;
   }
 
   DataDictionary * pCopyOfDD = new DataDictionary(*pDD);
-  m_dictionaries.push_back(pCopyOfDD);
+  m_dictionaries.push_back( pCopyOfDD );
 
   if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
     pCopyOfDD->checkFieldsOutOfOrder( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
