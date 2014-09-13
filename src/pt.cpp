@@ -46,32 +46,32 @@
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
 
-int testIntegerToString( int );
-int testStringToInteger( int );
-int testDoubleToString( int );
-int testStringToDouble( int );
-int testCreateHeartbeat( int );
-int testIdentifyType( int );
-int testSerializeToStringHeartbeat( int );
-int testSerializeFromStringHeartbeat( int );
-int testSerializeFromStringAndValidateHeartbeat( int );
-int testCreateNewOrderSingle( int );
-int testSerializeToStringNewOrderSingle( int );
-int testSerializeFromStringNewOrderSingle( int );
-int testSerializeFromStringAndValidateNewOrderSingle( int );
-int testCreateQuoteRequest( int );
-int testReadFromQuoteRequest( int );
-int testSerializeToStringQuoteRequest( int );
-int testSerializeFromStringQuoteRequest( int );
-int testSerializeFromStringAndValidateQuoteRequest( int );
-int testFileStoreNewOrderSingle( int );
-int testValidateNewOrderSingle( int );
-int testValidateDictNewOrderSingle( int );
-int testValidateQuoteRequest( int );
-int testValidateDictQuoteRequest( int );
-int testSendOnSocket( int, short );
-int testSendOnThreadedSocket( int, short );
-void report( int, int );
+long testIntegerToString( int );
+long testStringToInteger( int );
+long testDoubleToString( int );
+long testStringToDouble( int );
+long testCreateHeartbeat( int );
+long testIdentifyType( int );
+long testSerializeToStringHeartbeat( int );
+long testSerializeFromStringHeartbeat( int );
+long testSerializeFromStringAndValidateHeartbeat( int );
+long testCreateNewOrderSingle( int );
+long testSerializeToStringNewOrderSingle( int );
+long testSerializeFromStringNewOrderSingle( int );
+long testSerializeFromStringAndValidateNewOrderSingle( int );
+long testCreateQuoteRequest( int );
+long testReadFromQuoteRequest( int );
+long testSerializeToStringQuoteRequest( int );
+long testSerializeFromStringQuoteRequest( int );
+long testSerializeFromStringAndValidateQuoteRequest( int );
+long testFileStoreNewOrderSingle( int );
+long testValidateNewOrderSingle( int );
+long testValidateDictNewOrderSingle( int );
+long testValidateQuoteRequest( int );
+long testValidateDictQuoteRequest( int );
+long testSendOnSocket( int, short );
+long testSendOnThreadedSocket( int, short );
+void report( long, int );
 
 #ifndef _MSC_VER
 #include <sys/time.h>
@@ -104,7 +104,7 @@ int main( int argc, char** argv )
       port = (short)atol( optarg );
       break;
     case 'c':
-      count = atol( optarg );
+      count = atoi( optarg );
       break;
     default:
       std::cout << "usage: "
@@ -194,7 +194,7 @@ int main( int argc, char** argv )
   return 0;
 }
 
-void report( int time, int count )
+void report( long time, int count )
 {
   double seconds = ( double ) time / 1000;
   double num_per_second = count / seconds;
@@ -203,11 +203,11 @@ void report( int time, int count )
   << ", num_per_second: " << num_per_second << std::endl;
 }
 
-int testIntegerToString( int count )
+long testIntegerToString( int count )
 {
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::IntConvertor::convert( 1234 );
@@ -215,12 +215,12 @@ int testIntegerToString( int count )
   return GetTickCount() - start;
 }
 
-int testStringToInteger( int count )
+long testStringToInteger( int count )
 {
   std::string value( "1234" );
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::IntConvertor::convert( value );
@@ -228,11 +228,11 @@ int testStringToInteger( int count )
   return GetTickCount() - start;
 }
 
-int testDoubleToString( int count )
+long testDoubleToString( int count )
 {
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::DoubleConvertor::convert( 123.45 );
@@ -240,12 +240,12 @@ int testDoubleToString( int count )
   return GetTickCount() - start;
 }
 
-int testStringToDouble( int count )
+long testStringToDouble( int count )
 {
   std::string value( "123.45" );
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::DoubleConvertor::convert( value );
@@ -253,11 +253,11 @@ int testStringToDouble( int count )
   return GetTickCount() - start;
 }
 
-int testCreateHeartbeat( int count )
+long testCreateHeartbeat( int count )
 {
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX42::Heartbeat();
@@ -266,14 +266,14 @@ int testCreateHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-int testIdentifyType( int count )
+long testIdentifyType( int count )
 {
   FIX42::Heartbeat message;
   std::string messageString = message.toString();
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::identifyType( messageString );
@@ -282,12 +282,12 @@ int testIdentifyType( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeToStringHeartbeat( int count )
+long testSerializeToStringHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.toString();
@@ -295,13 +295,13 @@ int testSerializeToStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringHeartbeat( int count )
+long testSerializeFromStringHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
@@ -309,13 +309,13 @@ int testSerializeFromStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringAndValidateHeartbeat( int count )
+long testSerializeFromStringAndValidateHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.setString( string, VALIDATE, s_dataDictionary.get() );
@@ -323,9 +323,9 @@ int testSerializeFromStringAndValidateHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-int testCreateNewOrderSingle( int count )
+long testCreateNewOrderSingle( int count )
 {
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     FIX::ClOrdID clOrdID( "ORDERID" );
@@ -340,7 +340,7 @@ int testCreateNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeToStringNewOrderSingle( int count )
+long testSerializeToStringNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -353,7 +353,7 @@ int testSerializeToStringNewOrderSingle( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.toString();
@@ -361,7 +361,7 @@ int testSerializeToStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringNewOrderSingle( int count )
+long testSerializeFromStringNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -375,7 +375,7 @@ int testSerializeFromStringNewOrderSingle( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
@@ -383,7 +383,7 @@ int testSerializeFromStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringAndValidateNewOrderSingle( int count )
+long testSerializeFromStringAndValidateNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -397,7 +397,7 @@ int testSerializeFromStringAndValidateNewOrderSingle( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     message.setString( string, VALIDATE, s_dataDictionary.get() );
@@ -405,11 +405,11 @@ int testSerializeFromStringAndValidateNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testCreateQuoteRequest( int count )
+long testCreateQuoteRequest( int count )
 {
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   FIX::Symbol symbol;
   FIX::MaturityMonthYear maturityMonthYear;
   FIX::PutOrCall putOrCall;
@@ -450,7 +450,7 @@ int testCreateQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeToStringQuoteRequest( int count )
+long testSerializeToStringQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -470,7 +470,7 @@ int testSerializeToStringQuoteRequest( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     message.toString();
@@ -478,7 +478,7 @@ int testSerializeToStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringQuoteRequest( int count )
+long testSerializeFromStringQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -499,7 +499,7 @@ int testSerializeFromStringQuoteRequest( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     message.setString( string, DONT_VALIDATE, s_dataDictionary.get() );
@@ -507,7 +507,7 @@ int testSerializeFromStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testSerializeFromStringAndValidateQuoteRequest( int count )
+long testSerializeFromStringAndValidateQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -528,7 +528,7 @@ int testSerializeFromStringAndValidateQuoteRequest( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     message.setString( string, VALIDATE, s_dataDictionary.get() );
@@ -536,7 +536,7 @@ int testSerializeFromStringAndValidateQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testReadFromQuoteRequest( int count )
+long testReadFromQuoteRequest( int count )
 {
   count = count - 1;
 
@@ -557,7 +557,7 @@ int testReadFromQuoteRequest( int count )
   }
   group.clear();
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     FIX::QuoteReqID quoteReqID;
@@ -597,7 +597,7 @@ int testReadFromQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testFileStoreNewOrderSingle( int count )
+long testFileStoreNewOrderSingle( int count )
 {
   FIX::BeginString beginString( FIX::BeginString_FIX42 );
   FIX::SenderCompID senderCompID( "SENDER" );
@@ -619,17 +619,17 @@ int testFileStoreNewOrderSingle( int count )
   store.reset();
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     store.set( ++i, messageString );
   }
-  int end = GetTickCount();
+  long end = GetTickCount();
   store.reset();
   return end - start;
 }
 
-int testValidateNewOrderSingle( int count )
+long testValidateNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -646,7 +646,7 @@ int testValidateNewOrderSingle( int count )
   FIX::DataDictionary dataDictionary;
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     dataDictionary.validate( message );
@@ -654,7 +654,7 @@ int testValidateNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testValidateDictNewOrderSingle( int count )
+long testValidateDictNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -670,7 +670,7 @@ int testValidateDictNewOrderSingle( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
     s_dataDictionary->validate( message );
@@ -678,7 +678,7 @@ int testValidateDictNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-int testValidateQuoteRequest( int count )
+long testValidateQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -699,7 +699,7 @@ int testValidateQuoteRequest( int count )
   FIX::DataDictionary dataDictionary;
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     dataDictionary.validate( message );
@@ -707,7 +707,7 @@ int testValidateQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-int testValidateDictQuoteRequest( int count )
+long testValidateDictQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -727,7 +727,7 @@ int testValidateDictQuoteRequest( int count )
 
   count = count - 1;
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int j = 0; j <= count; ++j )
   {
     s_dataDictionary->validate( message );
@@ -752,7 +752,7 @@ private:
   int m_count;
 };
 
-int testSendOnSocket( int count, short port )
+long testSendOnSocket( int count, short port )
 {
   std::stringstream stream;
   stream
@@ -799,7 +799,7 @@ int testSendOnSocket( int count, short port )
 
   FIX::process_sleep( 1 );
 
-  int start = GetTickCount();
+  long start = GetTickCount();
 
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
@@ -807,7 +807,7 @@ int testSendOnSocket( int count, short port )
   while( application.getCount() < count )
     FIX::process_sleep( 0.1 );
 
-  int ticks = GetTickCount() - start;
+  long ticks = GetTickCount() - start;
 
   initiator.stop();
   acceptor.stop();
@@ -815,7 +815,7 @@ int testSendOnSocket( int count, short port )
   return ticks;
 }
 
-int testSendOnThreadedSocket( int count, short port )
+long testSendOnThreadedSocket( int count, short port )
 {
   std::stringstream stream;
   stream
@@ -861,14 +861,14 @@ int testSendOnThreadedSocket( int count, short port )
 
   FIX::process_sleep( 1 );
 
-  int start = GetTickCount();
+  long start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
 
   while( application.getCount() < count )
     FIX::process_sleep( 0.1 );
 
-  int ticks = GetTickCount() - start;
+  long ticks = GetTickCount() - start;
 
   initiator.stop();
   acceptor.stop();

@@ -28,13 +28,7 @@
 #include <fstream>
 #include <memory>
 
-#ifdef HAVE_LIBXML
-#include "LIBXML_DOMDocument.h"
-#elif _MSC_VER
-#include "MSXML_DOMDocument.h"
-#else
-#include "LIBXML_DOMDocument.h"
-#endif
+#include "PUGIXML_DOMDocument.h"
 
 #ifdef _MSC_VER
 #define RESET_AUTO_PTR(OLD, NEW) OLD = NEW;
@@ -81,7 +75,7 @@ DataDictionary::~DataDictionary()
     FieldPresenceMap::const_iterator iter = presenceMap.begin();
     for ( ; iter != presenceMap.end(); ++iter )
       delete iter->second.second;
-}
+  }
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
@@ -197,13 +191,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
 void DataDictionary::readFromURL( const std::string& url )
 throw( ConfigError )
 {
-#ifdef HAVE_LIBXML
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
-#elif _MSC_VER
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
-#else
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
-#endif
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new PUGIXML_DOMDocument());
 
   if(!pDoc->load(url))
     throw ConfigError(url + ": Could not parse data dictionary file");
@@ -221,13 +209,7 @@ throw( ConfigError )
 void DataDictionary::readFromStream( std::istream& stream )
 throw( ConfigError )
 {
-#ifdef HAVE_LIBXML
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
-#elif _MSC_VER
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
-#else
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
-#endif
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new PUGIXML_DOMDocument());
 
   if(!pDoc->load(stream))
     throw ConfigError("Could not parse data dictionary stream");
@@ -277,7 +259,7 @@ throw( ConfigError )
       std::string number;
       if(!attrs->get("number", number))
         throw ConfigError("<field> " + name + " does not have a number attribute");
-      int num = atol(number.c_str());
+      int num = atoi(number.c_str());
       std::string type;
       if(!attrs->get("type", type))
         throw ConfigError("<field> " + name + " does not have a type attribute");

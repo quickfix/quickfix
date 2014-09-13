@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.59])
 
-AC_INIT([QuickFIX], [1.14.0], [ask@quickfixengine.org])
+AC_INIT([QuickFIX], [1.14.1], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
@@ -35,23 +35,6 @@ AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
 AX_JAVA()
-
-########################################
-# CALLSTACK
-########################################
-use_callstack=no
-AC_ARG_ENABLE(callstack,
-    [  --enable-callstack      display c++ call stack after crashing],
-    [use_callstack=$enableval],
-    use_callstack=no
-)
-
-if test $use_callstack = yes
-then
-    AC_DEFINE(ENABLE_CALLSTACK, 1, 
-	Define if you want a C++ callstack to be displayed after crashing)
-fi
-########################################
 
 ########################################
 # TBB 
@@ -94,12 +77,6 @@ then
 fi
 ########################################
 
-########################################
-# LIBXML
-########################################
-AM_PATH_XML2('2.0.0', , AC_MSG_ERROR(libxml2 must be installed.))
-########################################
-
 # libs
 LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 # gcc flags
@@ -111,7 +88,7 @@ fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
+CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
 AC_SUBST(CXXFLAGS)
 
 

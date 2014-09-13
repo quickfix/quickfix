@@ -1,6 +1,5 @@
 import sys
 import time
-import thread
 import quickfix as fix
 
 class Application(fix.Application):
@@ -27,7 +26,6 @@ class Application(fix.Application):
 		clOrdID = fix.ClOrdID()
 
 		message.getField( ordType )
-		print ordType
 		if ordType.getValue() != fix.OrdType_LIMIT:
 			raise fix.IncorrectTagValue( ordType.getField() )
 
@@ -62,15 +60,15 @@ class Application(fix.Application):
 
 		try:
 			fix.Session.sendToTarget( executionReport, sessionID )
-		except SessionNotFound, e:
+		except SessionNotFound as e:
 			return
 
 	def genOrderID(self):
 		self.orderID = self.orderID+1
-		return `self.orderID`
+		return self.orderID
 	def genExecID(self):
 		self.execID = self.execID+1
-		return `self.execID`
+		return self.execID
 
 try:
 	file = sys.argv[1]
@@ -83,5 +81,5 @@ try:
 
 	while 1:
 	      time.sleep(1)
-except (fix.ConfigError, fix.RuntimeError), e:
-	print e
+except (fix.ConfigError, fix.RuntimeError) as e:
+	print(e)

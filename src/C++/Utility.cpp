@@ -69,13 +69,13 @@ std::string string_strip( const std::string& value )
   if( !value.size() )
     return value;
 
-  int startPos = value.find_first_not_of(" \t\r\n");
-  int endPos = value.find_last_not_of(" \t\r\n");
+  size_t startPos = value.find_first_not_of(" \t\r\n");
+  size_t endPos = value.find_last_not_of(" \t\r\n");
 
-  if( startPos == -1 )
+  if( startPos == std::string::npos )
    return value;
 
-   return std::string( value, startPos, endPos - startPos + 1 );
+  return std::string( value, startPos, endPos - startPos + 1 );
 }
 
 void socket_init()
@@ -150,7 +150,7 @@ int socket_accept( int s )
   return accept( s, 0, 0 );
 }
 
-int socket_send( int s, const char* msg, int length )
+ssize_t socket_send( int s, const char* msg, size_t length )
 {
   return send( s, msg, length, 0 );
 }
@@ -350,6 +350,7 @@ std::pair<int, int> socket_createpair()
   int client = socket_createConnector();
   socket_connect( client, "localhost", port );
   int server = socket_accept( acceptor );
+  socket_close(acceptor);
   return std::pair<int, int>( client, server );
 #else
   int pair[2];
@@ -465,13 +466,13 @@ std::string file_separator()
 
 void file_mkdir( const char* path )
 {
-  int length = strlen( path );
+  int length = (int)strlen( path );
   std::string createPath = "";
 
-  for( const char* pos = path; pos - path <= length; ++pos )
+  for( const char* pos = path; (pos - path) <= length; ++pos )
   {
     createPath += *pos;
-    if( *pos == '/' || *pos == '\\' || pos - path == length )
+    if( *pos == '/' || *pos == '\\' || (pos - path) == length )
     {
     #ifdef _MSC_VER
       _mkdir( createPath.c_str() );

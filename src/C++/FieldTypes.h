@@ -566,7 +566,7 @@ public:
   UtcDate( int date, int month, int year )
   : DateTime(year, month, date, 0, 0, 0, 0) {}
 
-  UtcDate( long sec )
+  UtcDate( int sec )
   : DateTime( sec / DateTime::SECONDS_PER_DAY, 0 ) {}
 
   UtcDate( const tm* time )
@@ -602,7 +602,7 @@ public:
   LocalDate( int date, int month, int year )
   : DateTime(year, month, date, 0, 0, 0, 0) {}
 
-  LocalDate( long sec )
+  LocalDate( int sec )
   : DateTime( sec / DateTime::SECONDS_PER_DAY, 0 ) {}
 
   LocalDate( const tm* time )

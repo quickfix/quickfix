@@ -1,5 +1,7 @@
 pkgdata_DATA = quickfix_ruby.rb quickfix_fields.rb quickfix40.rb quickfix41.rb quickfix42.rb quickfix43.rb quickfix44.rb quickfix50.rb quickfix50sp1.rb quickfix50sp2.rb quickfixt11.rb
 
+INCLUDES =-I. -I.. -I../.. -I../C++
+
 local_ruby_src=$(top_builddir)/src/ruby
 local_ruby_lib=$(top_builddir)/lib/ruby
 

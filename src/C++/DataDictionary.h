@@ -455,7 +455,7 @@ private:
     int fieldNum = field.getField();
     if( isGroup(msgType, fieldNum) )
     {
-      if( fieldMap.groupCount(fieldNum)
+      if( (int)fieldMap.groupCount(fieldNum)
         != IntConvertor::convert(field.getString()) )
       throw RepeatingGroupCountMismatch(fieldNum);
     }
@@ -506,12 +506,6 @@ private:
       }
     }
   }
-
-  /// Read XML file using MSXML.
-  void readMSXMLDOM( const std::string& );
-  void readMSXML( const std::string& );
-  /// Read XML file using libXML.
-  void readLibXml( const std::string& );
 
   int lookupXMLFieldNumber( DOMDocument*, DOMNode* ) const;
   int lookupXMLFieldNumber( DOMDocument*, const std::string& name ) const;

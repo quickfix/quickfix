@@ -36,9 +36,6 @@ namespace FIX
 {
 SessionFactory::~SessionFactory()
 {
-  Dictionaries::iterator i = m_dictionaries.begin();
-  for ( ; i != m_dictionaries.end(); ++i )
-    delete i->second;
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
@@ -206,11 +203,11 @@ void SessionFactory::destroy( Session* pSession )
   delete pSession;
 }
 
-const DataDictionary * SessionFactory::createDataDictionary(const SessionID& sessionID, 
-                                                    const Dictionary& settings, 
-                                                    const std::string& settingsKey) throw(ConfigError)
+std::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID& sessionID, 
+                                                                     const Dictionary& settings, 
+                                                                     const std::string& settingsKey) throw(ConfigError)
 {
-  DataDictionary * pDD = 0;
+  std::shared_ptr<DataDictionary> pDD;
   std::string path = settings.getString( settingsKey );
   Dictionaries::iterator i = m_dictionaries.find( path );
   if ( i != m_dictionaries.end() )
@@ -219,11 +216,11 @@ const DataDictionary * SessionFactory::createDataDictionary(const SessionID& ses
   }
   else
   {
-    pDD = new DataDictionary( path );
+    pDD = std::shared_ptr<DataDictionary>(new DataDictionary( path ));
     m_dictionaries[ path ] = pDD;
   }
 
-  DataDictionary * pCopyOfDD = new DataDictionary(*pDD);
+  std::shared_ptr<DataDictionary> pCopyOfDD = std::shared_ptr<DataDictionary>(new DataDictionary(*pDD));
 
   if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
     pCopyOfDD->checkFieldsOutOfOrder( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
@@ -239,7 +236,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
                                                  const Dictionary& settings, 
                                                  DataDictionaryProvider& provider) throw(ConfigError)
 {
-  const DataDictionary * pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
+  std::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
@@ -270,7 +267,7 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
                                               const Dictionary& settings, 
                                               DataDictionaryProvider& provider) throw(ConfigError)
 {
-  const DataDictionary * pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
+  std::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), pDataDictionary);
 }

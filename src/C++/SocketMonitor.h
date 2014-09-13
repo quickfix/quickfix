@@ -60,7 +60,7 @@ public:
   void unsignal( int socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
-  int numSockets() 
+  size_t numSockets() 
   { return m_readSockets.size() - 1; }
 
 private:
