@@ -6,6 +6,9 @@ Fixed all warnings from -Wshorten-64-to-32.
 
 Added python api to PyPi.  Can be installed with 'pip install quickfix'.
 
+Fixed memory leak in SessionFactory when creating DataDictionaries.
+shared_ptr is used to track the objects so we don't have to.
+
 1.14.0
 ------
 Major performance improvement sending/receiving messages.  Thanks to 
