@@ -193,6 +193,24 @@ AC_TRY_COMPILE(
 	[const typeinfo& ty = typeid(typeinfo);],
 	typeinfo_is_global=true, typeinfo_is_global=false)
 
+AC_MSG_CHECKING(for std::tr1::shared_ptr)
+AC_TRY_COMPILE(
+	[#include <tr1/memory>],
+	[std::tr1::shared_ptr<int> ptr;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_STD_TR1_SHARED_PTR, 1,
+	The system supports std::tr1::shared_ptr),
+	AC_MSG_RESULT(no))
+
+AC_MSG_CHECKING(for std::shared_ptr)
+AC_TRY_COMPILE(
+	[#include <memory>],
+	[std::shared_ptr<int> ptr;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_STD_SHARED_PTR, 1,
+	The system supports std::shared_ptr),
+	AC_MSG_RESULT(no))
+
 if test $typeinfo_is_global = true
 then AC_MSG_RESULT(yes)
 else AC_MSG_RESULT(no)

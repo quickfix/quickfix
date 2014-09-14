@@ -96,6 +96,16 @@ typedef int ssize_t;
 #include <ctime>
 #include <cstdio>
 #include <cstdlib>
+#include <memory>
+
+#if defined(HAVE_STD_SHARED_PTR)
+  namespace ptr = std;
+#elif defined(HAVE_STD_TR1_SHARED_PTR)
+  #include <tr1/memory>
+  namespace ptr = std::tr1;
+#else
+  namespace ptr = std;
+#endif
 
 namespace FIX
 {
