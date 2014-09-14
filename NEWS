@@ -1,3 +1,12 @@
+1.14.2
+------
+Test for std::shared_ptr and std::tr1::shared_ptr.  Allows us to compile on
+gcc 4.1-4.2, and with anaconda python.
+
+Distribute FIX specs with pip package.
+
+Use all detected compiler flags when building ruby native library.
+
 1.14.1
 ------
 Replaced libxml2 and MSXML dependencies with embedded pugixml.
