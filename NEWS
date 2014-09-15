@@ -1,3 +1,11 @@
+1.14.3
+------
+Fixed buck in SocketConnection where recv result stored in signed value.
+
+Added ruby api to RubyGems.
+
+All Python and Ruby tests pass again.
+
 1.14.2
 ------
 Test for std::shared_ptr and std::tr1::shared_ptr.  Allows us to compile on
