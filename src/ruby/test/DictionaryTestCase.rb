@@ -22,22 +22,22 @@ class DictionaryTestCase < Test::Unit::TestCase
 		end
 	end
 
-	def test_setGetLong
-		@object.setLong( "LONGKEY1", 12 )
-		@object.setLong( "LONGKEY2", 9827362 )
+	def test_setGetInt
+		@object.setInt( "LONGKEY1", 12 )
+		@object.setInt( "LONGKEY2", 9827362 )
 		@object.setString( "BADLONGKEY", "AB12" )
 
-		assert_equal( 12, @object.getLong("LONGKEY1") )
-		assert_equal( 9827362, @object.getLong("LONGKEY2") )
+		assert_equal( 12, @object.getInt("LONGKEY1") )
+		assert_equal( 9827362, @object.getInt("LONGKEY2") )
 		
 		begin
-			@object.getLong( "LONGKEY3" )
+			@object.getInt( "LONGKEY3" )
 			assert( false )
 		rescue Quickfix::ConfigError
 		end
 
 		begin
-			@object.getLong( "BADLONGKEY" )
+			@object.getInt( "BADLONGKEY" )
 			assert( false )
 		rescue Quickfix::ConfigError
 		end

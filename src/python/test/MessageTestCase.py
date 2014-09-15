@@ -53,7 +53,7 @@ class MessageTestCase(unittest.TestCase):
 		try:
 			self.object.setString( strGood )
 			self.object.setString( strNull )
-			self.object.setString( strNoLengthAndChk, 0 )
+			self.object.setString( strNoLengthAndChk, False )
 		except fix.InvalidMessage, e:
 			self.failUnless( 0 )
 
@@ -106,15 +106,15 @@ class MessageTestCase(unittest.TestCase):
 			self.failUnless(1)
 
 		dataDictionary = fix.DataDictionary()
-		dataDictionary.addHeaderField( 11, 0 )
-		dataDictionary.addTrailerField( 60, 0 )
+		dataDictionary.addHeaderField( 11, False )
+		dataDictionary.addTrailerField( 60, False )
 
 		clOrdID = fix.ClOrdID()
 		transactTime = fix.TransactTime()
 		symbol = fix.Symbol()
 
 		try:
-			self.object.setString( strBodyFields, 1, dataDictionary )
+			self.object.setString( strBodyFields, True, dataDictionary )
 		except fix.InvalidMessage, e:
 			self.failUnless( 0 )
 
@@ -123,21 +123,21 @@ class MessageTestCase(unittest.TestCase):
 		assert( self.object.isSetField( symbol ) )
 
 	def test_setStringWithGroup(self):
-		dataDictionary = fix.DataDictionary( "../../spec/FIX43.xml" )
+		dataDictionary = fix.DataDictionary( "spec/FIX43.xml" )
 		str = "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111=1095350459\00167=1\0011=00303\00155=fred\00154=1\00140=1\00159=3\00111=1095350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110=138\001"
 
 		try:
-			self.object.setString( str, 1, dataDictionary )
+			self.object.setString( str, True, dataDictionary )
 			self.assertEquals( str, self.object.toString() )
 		except fix.InvalidMessage, e:
 			assert( 0 )
 
 	def test_setStringWithHeaderGroup(self):
-		dataDictionary = fix.DataDictionary( "../../spec/FIX43.xml" )
+		dataDictionary = fix.DataDictionary( "spec/FIX43.xml" )
 		str = "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\00152=20040916-16:19:18.328\00156=SELLSIDE\001627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001628=HOP2\001629=20040916-16:19:18.328\001630=ID2\00110=079\001"
 
 		try:
-			self.object.setString( str, 1, dataDictionary )
+			self.object.setString( str, True, dataDictionary )
 			self.assertEquals( str, self.object.toString() )
 		except fix.InvalidMessage, e:
 			assert( 0 )
@@ -148,7 +148,7 @@ class MessageTestCase(unittest.TestCase):
 		expected = "8=FIX.4.2\0019=171\00135=8\00134=2\00149=MEK\00156=KEM\0011=acct1\0016=109.03125\00111=ID1\00114=3000\00115=USD\00117=2\00120=0\00122=1\00131=109.03125\00137=1\00138=3000\00139=2\00148=123ABC789\00154=1\00155=ABCD\00160=00000000-00:00:00\001150=2\001151=0\00110=225\001"
 
 		try:
-			self.object.setString( str, 0 )
+			self.object.setString( str, False )
 			self.assertEquals( expected, self.object.toString() )
 		except fix.InvalidMessage, e:
 			self.failUnless(0)

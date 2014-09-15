@@ -60,9 +60,9 @@ public:
   void destroy( Session* pSession );
 
 private:
-  typedef std::map < std::string, std::shared_ptr<DataDictionary> > Dictionaries;
+  typedef std::map < std::string, ptr::shared_ptr<DataDictionary> > Dictionaries;
 
-  std::shared_ptr<DataDictionary> createDataDictionary(const SessionID& sessionID, 
+  ptr::shared_ptr<DataDictionary> createDataDictionary(const SessionID& sessionID, 
                                                        const Dictionary& settings, 
                                                        const std::string& settingsKey) throw(ConfigError);
 

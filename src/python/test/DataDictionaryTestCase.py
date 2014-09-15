@@ -32,14 +32,14 @@ class DataDictionaryTestCase(unittest.TestCase):
 	def test_addHeaderField(self):
 		self.failUnless( self.object.isHeaderField( 56 ) == 0 )
 		self.failUnless( self.object.isHeaderField( 49 ) == 0 )
-		self.object.addHeaderField( 56, 1 )
-		self.object.addHeaderField( 49, 1 )
+		self.object.addHeaderField( 56, True )
+		self.object.addHeaderField( 49, True )
 		self.failUnless( self.object.isHeaderField( 56 ) )
 		self.failUnless( self.object.isHeaderField( 49 ) )
 
 	def test_addTrailerField(self):
 		self.failUnless( self.object.isTrailerField( 10 ) == 0 )
-		self.object.addTrailerField( 10, 1 )
+		self.object.addTrailerField( 10, True )
 		self.failUnless( self.object.isTrailerField( 10 ) )
 
 	def test_addRequiredField(self):
@@ -161,7 +161,7 @@ class DataDictionaryTestCase(unittest.TestCase):
 		except fix.Exception, e:
 			self.failUnless( 1 )
 
-		self.object.checkUserDefinedFields( 0 )
+		self.object.checkUserDefinedFields( False )
 		try:
 			self.object.validate( message )
 			self.failUnless( 1 )
@@ -213,8 +213,8 @@ class DataDictionaryTestCase(unittest.TestCase):
 		self.object.addField( fix.MsgType().getField() )
 		self.object.addField( fix.SenderCompID().getField() )
 		self.object.addField( fix.TargetCompID().getField() )
-		self.object.addHeaderField( fix.SenderCompID().getField(), 1 )
-		self.object.addHeaderField( fix.TargetCompID().getField(), 0 )
+		self.object.addHeaderField( fix.SenderCompID().getField(), True )
+		self.object.addHeaderField( fix.TargetCompID().getField(), False )
 		self.object.addField( fix.CheckSum().getField() )
 		self.object.addField( fix.TestReqID().getField() )
 		self.object.addMsgType( fix.MsgType_TestRequest )
