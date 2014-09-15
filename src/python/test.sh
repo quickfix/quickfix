@@ -1,4 +1,6 @@
 #!/bin/sh
+export LD_LIBRARY_PATH=../../src/C++/.libs
+export DYLD_LIBRARY_PATH=../../src/C++/.libs
 export PYTHONPATH=../../lib/python
 
 python test/DataDictionaryTestCase.py
