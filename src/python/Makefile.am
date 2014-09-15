@@ -17,6 +17,7 @@ all-local:
 	mkdir -p $(local_python_lib)
 	ln -sf $(local_python_src)/.libs/_quickfix* $(local_python_lib)
 	ln -sf $(local_python_src)/*.py $(local_python_lib)
+	ln -sf $(top_builddir)/spec spec
 
 clean-local:
 	rm -rf $(local_python_lib)
