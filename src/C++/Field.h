@@ -97,6 +97,12 @@ public:
     m_data.clear();
   }
 
+  /// @deprecated Use setTag
+  void setField( int field )
+  {
+    setTag( field );
+  }
+
   void setString( const std::string& string )
   {
     m_string = string;
@@ -107,6 +113,10 @@ public:
   /// Get the fields integer tag.
   int getTag() const
   { return m_tag; }
+
+  /// @deprecated Use getTag
+  int getField() const
+  { return getTag(); }
 
   /// Get the string representation of the fields value.
   const std::string& getString() const

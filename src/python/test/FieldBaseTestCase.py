@@ -15,7 +15,7 @@ class FieldBaseTestCase(unittest.TestCase):
 		self.failUnless(self.object.getFixString() == "12=VALUF\001")
 		self.failUnless(self.object.getTotal() == 543)
 		self.failUnless(self.object.getLength() == 9)
-		self.object.setField(13)
+		self.object.setTag(13)
 		self.failUnless(self.object.getFixString() == "13=VALUF\001")
 		self.failUnless(self.object.getTotal() == 544)
 		self.failUnless(self.object.getLength() == 9)
