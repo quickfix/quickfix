@@ -1076,7 +1076,7 @@ bool Session::doPossDup( const Message& msg )
   {
     if ( !header.getFieldIfSet( origSendingTime ) )
     {
-      generateReject( msg, SessionRejectReason_REQUIRED_TAG_MISSING, origSendingTime.getField() );
+      generateReject( msg, SessionRejectReason_REQUIRED_TAG_MISSING, origSendingTime.getTag() );
       return false;
     }
 

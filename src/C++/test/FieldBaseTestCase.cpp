@@ -43,7 +43,7 @@ TEST(set)
   CHECK_EQUAL( "12=VALUF\001", object.getFixString() );
   CHECK_EQUAL( 543, object.getTotal() );
   CHECK_EQUAL( 9lu, object.getLength() );
-  object.setField( 13 );
+  object.setTag( 13 );
   CHECK_EQUAL( "13=VALUF\001", object.getFixString() );
   CHECK_EQUAL( 544, object.getTotal() );
   CHECK_EQUAL( 9lu, object.getLength() );

@@ -164,7 +164,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
   for ( i = map.begin(); i != map.end(); ++i )
   {
     const FieldBase& field = i->second;
-    if( i != map.begin() && (field.getField() == lastField) )
+    if( i != map.begin() && (field.getTag() == lastField) )
       throw RepeatedTag( lastField );
     checkHasValue( field );
 
@@ -184,7 +184,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
         checkGroupCount( field, map, msgType );
       }
     }
-    lastField = field.getField();
+    lastField = field.getTag();
   }
 }
 

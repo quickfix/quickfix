@@ -330,7 +330,7 @@ private:
   /// If we need to check for the tag in the dictionary
   bool shouldCheckTag( const FieldBase& field ) const
   {
-    if( !m_checkUserDefinedFields && field.getField() >= FIELD::UserMin )
+    if( !m_checkUserDefinedFields && field.getTag() >= FIELD::UserMin )
       return false;
     else
       return true;
@@ -340,8 +340,8 @@ private:
   void checkValidTagNumber( const FieldBase& field ) const
   throw( InvalidTagNumber )
   {
-    if( m_fields.find( field.getField() ) == m_fields.end() )
-      throw InvalidTagNumber( field.getField() );
+    if( m_fields.find( field.getTag() ) == m_fields.end() )
+      throw InvalidTagNumber( field.getTag() );
   }
 
   void checkValidFormat( const FieldBase& field ) const
@@ -350,7 +350,7 @@ private:
     try
     {
       TYPE::Type type = TYPE::Unknown;
-      getFieldType( field.getField(), type );
+      getFieldType( field.getTag(), type );
       switch ( type )
       {
       case TYPE::String:
@@ -417,17 +417,17 @@ private:
       }
     }
     catch ( FieldConvertError& )
-    { throw IncorrectDataFormat( field.getField(), field.getString() ); }
+    { throw IncorrectDataFormat( field.getTag(), field.getString() ); }
   }
 
   void checkValue( const FieldBase& field ) const
   throw( IncorrectTagValue )
   {
-    if ( !hasFieldValue( field.getField() ) ) return ;
+    if ( !hasFieldValue( field.getTag() ) ) return ;
 
     const std::string& value = field.getString();
-    if ( !isFieldValue( field.getField(), value ) )
-      throw IncorrectTagValue( field.getField() );
+    if ( !isFieldValue( field.getTag(), value ) )
+      throw IncorrectTagValue( field.getTag() );
   }
 
   /// Check if a field has a value.
@@ -435,7 +435,7 @@ private:
   throw( NoTagValue )
   {
     if ( m_checkFieldsHaveValues && !field.getString().length() )
-      throw NoTagValue( field.getField() );
+      throw NoTagValue( field.getTag() );
   }
 
   /// Check if a field is in this message type.
@@ -443,8 +443,8 @@ private:
   ( const FieldBase& field, const MsgType& msgType ) const
   throw( TagNotDefinedForMessage )
   {
-    if ( !isMsgField( msgType, field.getField() ) )
-      throw TagNotDefinedForMessage( field.getField() );
+    if ( !isMsgField( msgType, field.getTag() ) )
+      throw TagNotDefinedForMessage( field.getTag() );
   }
 
   /// Check if group count matches number of groups in
@@ -452,7 +452,7 @@ private:
   ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType ) const
   throw( RepeatingGroupCountMismatch )
   {
-    int fieldNum = field.getField();
+    int fieldNum = field.getTag();
     if( isGroup(msgType, fieldNum) )
     {
       if( (int)fieldMap.groupCount(fieldNum)
