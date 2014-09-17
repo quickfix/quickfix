@@ -31,7 +31,9 @@ class PrintFile
   end
 
   def printInline(*values)
-    @file.print values
+    values.each do |value|
+      @file.print(value)
+    end
   end
 
   def putsInline(*values)
@@ -44,7 +46,9 @@ class PrintFile
     end
 
     @file.print tabs
-    @file.print values
+    values.each do |value|
+      @file.print(value)
+    end
   end
 
   def puts(*values)
