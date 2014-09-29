@@ -94,13 +94,13 @@ BOOST_CFLAGS =
 BOOST_PREFIX = 
 CC = CC
 CCDEPMODE = depmode=none
-CFLAGS = -g -xs          
+CFLAGS = -g          
 CPP = CC -E
 CPPFLAGS = 
 CXX = CC
 CXXCPP = CC -E
 CXXDEPMODE = depmode=none
-CXXFLAGS = -g -xs           #-std=c++0x
+CXXFLAGS = -g           #-std=c++0x
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -121,7 +121,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 JAVA_CFLAGS = 
 LD = CC
-LDFLAGS = -g -xs -lCstd
+LDFLAGS = 
 LEX = lex
 LEXLIB = 
 LEX_OUTPUT_ROOT = lex.yy
