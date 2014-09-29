@@ -17,5 +17,5 @@ ordermatch_LDADD = $(top_builddir)/src/C++/libquickfix.la
 INCLUDES = -I$(top_builddir)/include
 
 all-local:
-	rm -f ../../bin/ordermatch
-	ln -s ../examples/ordermatch/ordermatch ../../bin/ordermatch
+	rm -f $(top_builddir)/bin/ordermatch
+	ln -s ../examples/ordermatch/ordermatch $(top_builddir)/bin/ordermatch

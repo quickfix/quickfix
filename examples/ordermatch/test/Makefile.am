@@ -1,5 +1,5 @@
-CFLAGS += -O0 -g
-CXXFLAGS += -O0 -g
+AM_CFLAGS = -O0 -g
+AM_CXXFLAGS = -O0 -g
 
 noinst_PROGRAMS = ordermatch_ut
 
@@ -8,7 +8,7 @@ ordermatch_ut_SOURCES = \
 	TestSuite.h \
 	Market.cpp
 
-ordermatch_ut_LDADD = -L$(top_builddir)/src/C++ -lquickfix 
+ordermatch_ut_LDADD = $(top_builddir)/src/C++/libquickfix.la $(top_builddir)/UnitTest++/libunittest.la
 
-INCLUDES = -I$(top_builddir)/include -I.. -I../../../UnitTest++/src
-LDFLAGS = -L../../../UnitTest++ -lUnitTest++
+INCLUDES = -I$(top_builddir)/include -I.. -I$(top_builddir)/UnitTest++/src
+

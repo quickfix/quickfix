@@ -188,7 +188,7 @@ private:
     for ( std::string::const_iterator str = start; str != end; ++str )
       checksum += (unsigned char)( *str );
 
-    return field_metrics( std::distance( start, end ), checksum );
+    return field_metrics( end - start, checksum );
   }
 
   static field_metrics calculateMetrics( const std::string& field )

@@ -568,7 +568,7 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   }
 
   std::string::const_iterator const tagEnd = soh + 1;
-  pos = std::distance( string.begin(), tagEnd );
+  pos = tagEnd - string.begin();
 
   return FieldBase (
     field,

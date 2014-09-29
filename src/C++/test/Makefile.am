@@ -1,5 +1,5 @@
-CFLAGS += -O0 -g
-CXXFLAGS += -O0 -g
+AM_CFLAGS = -O0 -g
+AM_CXXFLAGS = -O0 -g
 
 noinst_LTLIBRARIES = libquickfixcpptest.la
 
@@ -38,4 +38,4 @@ libquickfixcpptest_la_SOURCES = \
 	UtcTimeOnlyTestCase.cpp \
 	UtcTimeStampTestCase.cpp
 
-INCLUDES = -I.. -I../../../UnitTest++/src
+INCLUDES = -I.. -I$(top_builddir)/UnitTest++/src

@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2014
+** Copyrigh (c) 2001-2014
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -203,11 +203,11 @@ void SessionFactory::destroy( Session* pSession )
   delete pSession;
 }
 
-ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID& sessionID, 
+DataDictionary* SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                                      const Dictionary& settings, 
                                                                      const std::string& settingsKey) throw(ConfigError)
 {
-  ptr::shared_ptr<DataDictionary> pDD;
+  DataDictionary* pDD;
   std::string path = settings.getString( settingsKey );
   Dictionaries::iterator i = m_dictionaries.find( path );
   if ( i != m_dictionaries.end() )
@@ -216,11 +216,11 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
   }
   else
   {
-    pDD = ptr::shared_ptr<DataDictionary>(new DataDictionary( path ));
+    pDD = new DataDictionary( path );
     m_dictionaries[ path ] = pDD;
   }
 
-  ptr::shared_ptr<DataDictionary> pCopyOfDD = ptr::shared_ptr<DataDictionary>(new DataDictionary(*pDD));
+  DataDictionary* pCopyOfDD = new DataDictionary(*pDD);
 
   if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
     pCopyOfDD->checkFieldsOutOfOrder( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
@@ -236,7 +236,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
                                                  const Dictionary& settings, 
                                                  DataDictionaryProvider& provider) throw(ConfigError)
 {
-  ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
+  DataDictionary* pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   
   for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
@@ -267,7 +267,7 @@ void SessionFactory::processFixDataDictionary(const SessionID& sessionID,
                                               const Dictionary& settings, 
                                               DataDictionaryProvider& provider) throw(ConfigError)
 {
-  ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
+  DataDictionary* pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), pDataDictionary);
 }

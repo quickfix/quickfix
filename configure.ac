@@ -88,7 +88,7 @@ fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+CXXFLAGS="$CXXFLAGS $SHAREDFLAGS #-std=c++0x"
 AC_SUBST(CXXFLAGS)
 
 
@@ -110,6 +110,7 @@ case $build_os in
 		AC_CHECK_LIB(pthread, pthread_create)
 		;;
 	solaris*) 
+		LIBS="-lsocket -lnsl $LIBS"
 		AC_MSG_RESULT([-lpthread])
 		AC_CHECK_LIB(pthread, pthread_create)
 		;;
@@ -275,6 +276,7 @@ AC_MSG_RESULT(unable to determine, assuming no...))
 AC_CONFIG_FILES([
     quickfix.pc
     Makefile
+    UnitTest++/Makefile
     src/Makefile
     src/C++/Makefile
     src/C++/test/Makefile

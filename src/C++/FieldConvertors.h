@@ -221,7 +221,7 @@ struct IntConvertor
     const unsigned_int STOP_SYMBOL = MAX_VALUE % 10;
     const std::size_t MAX_DIGITS = 10;     // integer can hold up to 10 digits
 
-    const std::size_t length = std::distance( str, end );
+    const std::size_t length = end - str;
     if( length < 1 || length > MAX_DIGITS)
       return false;
 

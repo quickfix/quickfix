@@ -51,17 +51,17 @@ public:
   const DataDictionary& getApplicationDataDictionary(const ApplVerID& applVerID) const
   throw( DataDictionaryNotFound );
 
-  void addTransportDataDictionary(const BeginString& beginString, ptr::shared_ptr<DataDictionary>);
-  void addApplicationDataDictionary(const ApplVerID& applVerID, ptr::shared_ptr<DataDictionary>);
+  void addTransportDataDictionary(const BeginString& beginString, DataDictionary*);
+  void addApplicationDataDictionary(const ApplVerID& applVerID, DataDictionary*);
 
   void addTransportDataDictionary(const BeginString& beginString, const std::string& path)
-  { addTransportDataDictionary(beginString, ptr::shared_ptr<DataDictionary>( new DataDictionary(path) )); }
+  { addTransportDataDictionary(beginString, new DataDictionary(path) ); }
   void addApplicationDataDictionary(const ApplVerID& applVerID, const std::string& path)
-  { addApplicationDataDictionary(applVerID, ptr::shared_ptr<DataDictionary>( new DataDictionary(path) )); }
+  { addApplicationDataDictionary(applVerID, new DataDictionary(path) ); }
 
 private:
-  std::map<std::string, ptr::shared_ptr<DataDictionary> > m_transportDictionaries;
-  std::map<std::string, ptr::shared_ptr<DataDictionary> > m_applicationDictionaries;
+  std::map<std::string, DataDictionary* > m_transportDictionaries;
+  std::map<std::string, DataDictionary* > m_applicationDictionaries;
   DataDictionary emptyDataDictionary;
 };
 }

@@ -10,5 +10,5 @@ tradeclient_LDADD = $(top_builddir)/src/C++/libquickfix.la
 INCLUDES = -I$(top_builddir)/include -I..
 
 all-local:
-	rm -f ../../bin/tradeclient
-	ln -s ../examples/tradeclient/tradeclient ../../bin/tradeclient
+	rm -f $(top_builddir)/bin/tradeclient
+	ln -s ../examples/tradeclient/tradeclient $(top_builddir)/bin/tradeclient
