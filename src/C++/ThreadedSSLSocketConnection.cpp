@@ -216,42 +216,56 @@ bool ThreadedSSLSocketConnection::read() {
 
     if (result > 0) // Something to read
     {
-      errno = 0;
-      int size = 0;
-      int errCodeSSL = 0;
-      ERR_clear_error();
+      bool pending = false;
 
-      // Cannot do concurrent SSL write and read as ssl context has to be
-      // protected.
-      {
-        Locker locker(m_mutex);
+      do {
+        pending = false;
+        errno = 0;
+        int size = 0;
+        int errCodeSSL = 0;
+        ERR_clear_error();
 
-        size = SSL_read(m_ssl, m_buffer, sizeof(m_buffer));
-        if (size <= 0)
-          errCodeSSL = SSL_get_error(m_ssl, size);
-      }
+        // Cannot do concurrent SSL write and read as ssl context has to be
+        // protected.
+        {
+          Locker locker(m_mutex);
 
-      if (size <= 0) {
-        if ((errCodeSSL == SSL_ERROR_WANT_READ) ||
-            (errCodeSSL == SSL_ERROR_WANT_WRITE)) {
-          errno = EINTR;
-          size = 0;
-
-          return true;
-        } else {
-          char errbuf[200];
-
-          socket_error(errbuf, sizeof(errbuf));
-
-          m_pSession->getLog()->onEvent("SSL read error <" +
-                                        IntConvertor::convert(errCodeSSL) +
-                                        "> " + errbuf);
-
-          throw SocketRecvFailed(size);
+          size = SSL_read(m_ssl, m_buffer, sizeof(m_buffer));
+          if (size <= 0)
+            errCodeSSL = SSL_get_error(m_ssl, size);
+          else if (SSL_pending(m_ssl) > 0)
+            pending = true;
         }
-      }
 
-      m_parser.addToStream(m_buffer, size);
+        if (size <= 0) {
+          if ((errCodeSSL == SSL_ERROR_WANT_READ) ||
+              (errCodeSSL == SSL_ERROR_WANT_WRITE)) {
+            errno = EINTR;
+            size = 0;
+
+            return true;
+          } else {
+            char errbuf[200];
+
+            socket_error(errbuf, sizeof(errbuf));
+
+            if (m_pSession)
+              m_pSession->getLog()->onEvent("SSL read error <" +
+                                            IntConvertor::convert(errCodeSSL) +
+                                            "> " + errbuf);
+            else {
+              std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp())
+                        << "SSL read error <"
+                        << IntConvertor::convert(errCodeSSL) << "> " << errbuf
+                        << std::endl;
+            }
+
+            throw SocketRecvFailed(size);
+          }
+        }
+
+        m_parser.addToStream(m_buffer, size);
+      } while (pending);
     } else if (result == 0 && m_pSession) // Timeout
     {
       m_pSession->next();
