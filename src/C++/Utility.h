@@ -67,6 +67,7 @@
 #include <direct.h>
 #include <time.h>
 typedef int socklen_t;
+typedef int ssize_t;
 /////////////////////////////////////////////
 #else
 /////////////////////////////////////////////
@@ -95,6 +96,16 @@ typedef int socklen_t;
 #include <ctime>
 #include <cstdio>
 #include <cstdlib>
+#include <memory>
+
+#if defined(HAVE_STD_SHARED_PTR)
+  namespace ptr = std;
+#elif defined(HAVE_STD_TR1_SHARED_PTR)
+  #include <tr1/memory>
+  namespace ptr = std::tr1;
+#else
+  namespace ptr = std;
+#endif
 
 namespace FIX
 {
@@ -112,7 +123,7 @@ int socket_createAcceptor( int port, bool reuse = false );
 int socket_createConnector();
 int socket_connect( int s, const char* address, int port );
 int socket_accept( int s );
-int socket_send( int s, const char* msg, int length );
+ssize_t socket_send( int s, const char* msg, size_t length );
 void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );

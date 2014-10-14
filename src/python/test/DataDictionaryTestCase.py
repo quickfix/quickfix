@@ -32,14 +32,14 @@ class DataDictionaryTestCase(unittest.TestCase):
 	def test_addHeaderField(self):
 		self.failUnless( self.object.isHeaderField( 56 ) == 0 )
 		self.failUnless( self.object.isHeaderField( 49 ) == 0 )
-		self.object.addHeaderField( 56, 1 )
-		self.object.addHeaderField( 49, 1 )
+		self.object.addHeaderField( 56, True )
+		self.object.addHeaderField( 49, True )
 		self.failUnless( self.object.isHeaderField( 56 ) )
 		self.failUnless( self.object.isHeaderField( 49 ) )
 
 	def test_addTrailerField(self):
 		self.failUnless( self.object.isTrailerField( 10 ) == 0 )
-		self.object.addTrailerField( 10, 1 )
+		self.object.addTrailerField( 10, True )
 		self.failUnless( self.object.isTrailerField( 10 ) )
 
 	def test_addRequiredField(self):
@@ -127,13 +127,13 @@ class DataDictionaryTestCase(unittest.TestCase):
 
 	def test_checkValidTagNumber(self):
 		self.object.setVersion( fix.BeginString_FIX40 )
-		self.object.addField( fix.BeginString().getField() )
-		self.object.addField( fix.BodyLength().getField() )
-		self.object.addField( fix.MsgType().getField() )
-		self.object.addField( fix.CheckSum().getField() )
-		self.object.addField( fix.TestReqID().getField() )
+		self.object.addField( fix.BeginString().getTag() )
+		self.object.addField( fix.BodyLength().getTag() )
+		self.object.addField( fix.MsgType().getTag() )
+		self.object.addField( fix.CheckSum().getTag() )
+		self.object.addField( fix.TestReqID().getTag() )
 		self.object.addMsgType( fix.MsgType_TestRequest )
-		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getField() )
+		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getTag() )
 
 		testReqID = fix.TestReqID( "1" )
 		message = fix40.TestRequest()
@@ -161,7 +161,7 @@ class DataDictionaryTestCase(unittest.TestCase):
 		except fix.Exception, e:
 			self.failUnless( 1 )
 
-		self.object.checkUserDefinedFields( 0 )
+		self.object.checkUserDefinedFields( False )
 		try:
 			self.object.validate( message )
 			self.failUnless( 1 )
@@ -180,14 +180,14 @@ class DataDictionaryTestCase(unittest.TestCase):
 
 	def test_checkIsInMessage(self):
 		self.object.setVersion( fix.BeginString_FIX40 )
-		self.object.addField( fix.BeginString().getField() )
-		self.object.addField( fix.BodyLength().getField() )
-		self.object.addField( fix.MsgType().getField() )
-		self.object.addField( fix.CheckSum().getField() )
-		self.object.addField( fix.TestReqID().getField() )
-		self.object.addField( fix.Symbol().getField() )
+		self.object.addField( fix.BeginString().getTag() )
+		self.object.addField( fix.BodyLength().getTag() )
+		self.object.addField( fix.MsgType().getTag() )
+		self.object.addField( fix.CheckSum().getTag() )
+		self.object.addField( fix.TestReqID().getTag() )
+		self.object.addField( fix.Symbol().getTag() )
 		self.object.addMsgType( fix.MsgType_TestRequest )
-		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getField() )
+		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getTag() )
 
 		testReqID = fix.TestReqID( "1" )
 
@@ -208,18 +208,18 @@ class DataDictionaryTestCase(unittest.TestCase):
 
 	def test_checkHasRequired(self):
 		self.object.setVersion( fix.BeginString_FIX40 )
-		self.object.addField( fix.BeginString().getField() )
-		self.object.addField( fix.BodyLength().getField() )
-		self.object.addField( fix.MsgType().getField() )
-		self.object.addField( fix.SenderCompID().getField() )
-		self.object.addField( fix.TargetCompID().getField() )
-		self.object.addHeaderField( fix.SenderCompID().getField(), 1 )
-		self.object.addHeaderField( fix.TargetCompID().getField(), 0 )
-		self.object.addField( fix.CheckSum().getField() )
-		self.object.addField( fix.TestReqID().getField() )
+		self.object.addField( fix.BeginString().getTag() )
+		self.object.addField( fix.BodyLength().getTag() )
+		self.object.addField( fix.MsgType().getTag() )
+		self.object.addField( fix.SenderCompID().getTag() )
+		self.object.addField( fix.TargetCompID().getTag() )
+		self.object.addHeaderField( fix.SenderCompID().getTag(), True )
+		self.object.addHeaderField( fix.TargetCompID().getTag(), False )
+		self.object.addField( fix.CheckSum().getTag() )
+		self.object.addField( fix.TestReqID().getTag() )
 		self.object.addMsgType( fix.MsgType_TestRequest )
-		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getField() )
-		self.object.addRequiredField( fix.MsgType_TestRequest, fix.TestReqID().getField() )
+		self.object.addMsgField( fix.MsgType_TestRequest, fix.TestReqID().getTag() )
+		self.object.addRequiredField( fix.MsgType_TestRequest, fix.TestReqID().getTag() )
 
 		message = fix40.TestRequest()
 		try:
@@ -242,7 +242,7 @@ class DataDictionaryTestCase(unittest.TestCase):
 		except fix.Exception, e:
 			self.failUnless( 0 )
 
-		message.getHeader().removeField( fix.SenderCompID().getField() )
+		message.getHeader().removeField( fix.SenderCompID().getTag() )
 		message.setField( fix.SenderCompID("SENDER") )
 		try:
 			self.object.validate( message )

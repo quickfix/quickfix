@@ -1948,12 +1948,6 @@
     <ClInclude Include="Initiator.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="LIBXML_DOMDocument.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="MSXML_DOMDocument.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Mutex.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -1998,6 +1992,15 @@
     </ClInclude>
     <ClInclude Include="..\config_windows.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="pugiconfig.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="pugixml.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PUGIXML_DOMDocument.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Field">
@@ -2173,12 +2176,6 @@
     <ClCompile Include="Initiator.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="LIBXML_DOMDocument.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MSXML_DOMDocument.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Parser.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -2201,6 +2198,12 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Utility.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="pugixml.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PUGIXML_DOMDocument.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,7 @@ class DictionaryTestCase(unittest.TestCase):
 
 		self.assertEquals( "STRINGVALUE1", self.object.getString("STRINGKEY1") )
 		self.assertEquals( "stringvalue2", self.object.getString("STRINGKEY2") )
-		self.assertEquals( "STRINGVALUE2", self.object.getString("STRINGKEY2", 1) )
+		self.assertEquals( "STRINGVALUE2", self.object.getString("STRINGKEY2", True) )
 
 		try:
 			self.object.getString( "STRINGKEY3" )
@@ -20,22 +20,22 @@ class DictionaryTestCase(unittest.TestCase):
 		except fix.ConfigError, e:
 			self.failUnless( 1 )
 
-	def test_setGetLong(self):
-		self.object.setLong( "LONGKEY1", 12 )
-		self.object.setLong( "LONGKEY2", 9827362 )
+	def test_setGetInt(self):
+		self.object.setInt( "LONGKEY1", 12 )
+		self.object.setInt( "LONGKEY2", 9827362 )
 		self.object.setString( "BADLONGKEY", "AB12" )
 
-		self.assertEquals( 12, self.object.getLong("LONGKEY1") )
-		self.assertEquals( 9827362, self.object.getLong("LONGKEY2") )
+		self.assertEquals( 12, self.object.getInt("LONGKEY1") )
+		self.assertEquals( 9827362, self.object.getInt("LONGKEY2") )
 		
 		try:
-			self.object.getLong( "LONGKEY3" )
+			self.object.getInt( "LONGKEY3" )
 			self.failUnless( 0 )
 		except fix.ConfigError, e:
 			self.failUnless( 1 )
 
 		try:
-			self.object.getLong( "BADLONGKEY" )
+			self.object.getInt( "BADLONGKEY" )
 			self.failUnless( 0 )
 		except fix.ConfigError, e:
 			self.failUnless( 1 )

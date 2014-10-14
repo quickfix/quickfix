@@ -128,8 +128,11 @@ void FileStore::populateCache()
   FILE* headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( headerFile )
   {
-    int num, offset, size;
-    while ( FILE_FSCANF( headerFile, "%d,%d,%d ", &num, &offset, &size ) == 3 )
+    int num;
+    long offset;
+    size_t size;
+
+    while ( FILE_FSCANF( headerFile, "%d,%ld,%lu ", &num, &offset, &size ) == 3 )
       m_offsets[ num ] = std::make_pair( offset, size );
     fclose( headerFile );
   }
@@ -186,12 +189,12 @@ throw ( IOException )
   if ( fseek( m_headerFile, 0, SEEK_END ) ) 
     throw IOException( "Cannot seek to end of " + m_headerFileName );
 
-  int offset = ftell( m_msgFile );
+  long offset = ftell( m_msgFile );
   if ( offset < 0 ) 
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
-  int size = msg.size();
+  size_t size = msg.size();
 
-  if ( fprintf( m_headerFile, "%d,%d,%d ", msgSeqNum, offset, size ) < 0 )
+  if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
   m_offsets[ msgSeqNum ] = std::make_pair( offset, size );
   fwrite( msg.c_str(), sizeof( char ), msg.size(), m_msgFile );

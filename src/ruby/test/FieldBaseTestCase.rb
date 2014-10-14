@@ -16,7 +16,7 @@ class FieldBaseTestCase < Test::Unit::TestCase
 		assert(@object.getFixString() == "12=VALUF\001")
 		assert(@object.getTotal() == 543)
 		assert(@object.getLength() == 9)
-		@object.setField(13)
+		@object.setTag(13)
 		assert(@object.getFixString() == "13=VALUF\001")
 		assert(@object.getTotal() == 544)
 		assert(@object.getLength() == 9)

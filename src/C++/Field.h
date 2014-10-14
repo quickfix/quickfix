@@ -50,12 +50,12 @@ class FieldBase
   {
   public:
 
-    field_metrics( const int length, const int checksum )
+    field_metrics( const size_t length, const int checksum )
       : m_length( length )
       , m_checksum( checksum )
     {}
 
-    int getLength() const
+    size_t getLength() const
     { return m_length; }
 
     int getCheckSum() const
@@ -66,35 +66,41 @@ class FieldBase
 
   private:
 
-    int m_length;
+    size_t m_length;
     int m_checksum;
   };
 
   friend class Message;
 
   /// Constructor which also calculates field metrics
-  FieldBase( int field, 
+  FieldBase( int tag, 
              std::string::const_iterator valueStart, 
              std::string::const_iterator valueEnd,
              std::string::const_iterator tagStart, 
              std::string::const_iterator tagEnd )
-    : m_field( field )
+    : m_tag( tag )
     , m_string( valueStart, valueEnd )
     , m_metrics( calculateMetrics( tagStart, tagEnd ) )
   {}
 
 public:
-  FieldBase( int field, const std::string& string )
-    : m_field( field ), m_string(string), m_metrics( no_metrics() )
+  FieldBase( int tag, const std::string& string )
+    : m_tag( tag ), m_string(string), m_metrics( no_metrics() )
   {}
 
   virtual ~FieldBase() {}
 
-  void setField( int field )
+  void setTag( int tag )
   {
-    m_field = field;
+    m_tag = tag;
     m_metrics = no_metrics();
     m_data.clear();
+  }
+
+  /// @deprecated Use setTag
+  void setField( int field )
+  {
+    setTag( field );
   }
 
   void setString( const std::string& string )
@@ -105,8 +111,12 @@ public:
   }
 
   /// Get the fields integer tag.
+  int getTag() const
+  { return m_tag; }
+
+  /// @deprecated Use getTag
   int getField() const
-  { return m_field; }
+  { return getTag(); }
 
   /// Get the string representation of the fields value.
   const std::string& getString() const
@@ -122,7 +132,7 @@ public:
   }
 
   /// Get the length of the fields string representation
-  int getLength() const
+  size_t getLength() const
   {
     calculate();
     return m_metrics.getLength();
@@ -137,7 +147,7 @@ public:
 
   /// Compares fields based on their tag numbers
   bool operator < ( const FieldBase& field ) const
-  { return m_field < field.m_field; }
+  { return m_tag < field.m_tag; }
 
 private:
 
@@ -151,13 +161,13 @@ private:
   /// Serializes string representation of the Field to input string
   void encodeTo( std::string& result ) const
   {
-    int tagLength = FIX::number_of_symbols_in( m_field ) + 1;
-    int totalLength = tagLength + m_string.length() + 1;
+    size_t tagLength = FIX::number_of_symbols_in( m_tag ) + 1;
+    size_t totalLength = tagLength + m_string.length() + 1;
 
     result.resize( totalLength );
 
     char * buf = (char*)result.c_str();
-    FIX::integer_to_string( buf, tagLength, m_field );
+    FIX::integer_to_string( buf, tagLength, m_tag );
 
     buf[tagLength - 1] = '=';
     memcpy( buf + tagLength, m_string.data(), m_string.length() );
@@ -186,7 +196,7 @@ private:
     return calculateMetrics( field.begin(), field.end() );
   }
 
-  int m_field;
+  int m_tag;
   std::string m_string;
   mutable std::string m_data;
   mutable field_metrics m_metrics;
@@ -323,7 +333,7 @@ public:
     { try
       { return CharConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator char() const
     { return getValue(); }
 };
@@ -343,7 +353,7 @@ public:
     { try
       { return DoubleConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator double() const
     { return getValue(); }
 };
@@ -363,7 +373,7 @@ public:
     { try
       { return IntConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator const int() const
     { return getValue(); }
 };
@@ -383,7 +393,7 @@ public:
     { try
       { return BoolConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator bool() const
     { return getValue(); }
 };
@@ -403,7 +413,7 @@ public:
     { try
       { return UtcTimeStampConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator UtcTimeStamp() const
     { return getValue(); }
 
@@ -430,7 +440,7 @@ public:
     { try
       { return UtcDateConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator UtcDate() const
     { return getValue(); }
 
@@ -457,7 +467,7 @@ public:
     { try
       { return UtcTimeOnlyConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator UtcTimeOnly() const
     { return getValue(); }
 
@@ -484,7 +494,7 @@ public:
     { try
       { return CheckSumConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField(), getString() ); } }
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
   operator const int() const
     { return getValue(); }
 };

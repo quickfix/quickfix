@@ -66,7 +66,7 @@ bool HttpConnection::read()
     if( result > 0 ) // Something to read
     {
       // We can read without blocking
-      int size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
+      ssize_t size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
       if ( size <= 0 ) { throw SocketRecvFailed( size ); }
       m_parser.addToStream( m_buffer, size );
     }

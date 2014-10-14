@@ -94,7 +94,7 @@ public:
     m_header = copy.m_header;
     m_trailer = copy.m_trailer;
     m_validStructure = copy.m_validStructure;
-    m_field = copy.m_field;
+    m_tag = copy.m_tag;
   }
 
   /// Set global data dictionary for encoding messages into XML
@@ -197,8 +197,8 @@ public:
   /// Mutable getter for the message trailer
   Trailer& getTrailer() { return m_trailer; }
 
-  bool hasValidStructure(int& field) const
-  { field = m_field;
+  bool hasValidStructure(int& tag) const
+  { tag = m_tag;
     return m_validStructure;
   }
 
@@ -241,7 +241,7 @@ public:
 
   void clear()
   { 
-    m_field = 0;
+    m_tag = 0;
     m_header.clear();
     FieldMap::clear();
     m_trailer.clear();
@@ -338,7 +338,7 @@ protected:
   mutable Header m_header;
   mutable Trailer m_trailer;
   bool m_validStructure;
-  int m_field;
+  int m_tag;
   static std::auto_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */

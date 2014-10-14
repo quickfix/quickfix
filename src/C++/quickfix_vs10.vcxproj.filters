@@ -129,12 +129,6 @@
     <ClInclude Include="Initiator.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="LIBXML_DOMDocument.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="MSXML_DOMDocument.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Mutex.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -2063,6 +2057,15 @@
     <ClInclude Include="AtomicCount.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="PUGIXML_DOMDocument.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="pugiconfig.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="pugixml.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FieldTypes.cpp">
@@ -2137,12 +2140,6 @@
     <ClCompile Include="Initiator.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="LIBXML_DOMDocument.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MSXML_DOMDocument.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Parser.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -2196,6 +2193,12 @@
     </ClCompile>
     <ClCompile Include="PostgreSQLStore.cpp">
       <Filter>Storage\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PUGIXML_DOMDocument.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="pugixml.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

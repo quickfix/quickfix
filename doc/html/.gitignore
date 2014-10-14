@@ -2,7 +2,7 @@
 *.map
 *_*.html
 index*.html
-struct_*.html
+struct*.html
 class_*.html
 namespace*.html
 functions*.html

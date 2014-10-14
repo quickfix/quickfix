@@ -1,3 +1,31 @@
+1.14.3
+------
+Fixed buck in SocketConnection where recv result stored in signed value.
+
+Added ruby api to RubyGems.
+
+All Python and Ruby tests pass again.
+
+1.14.2
+------
+Test for std::shared_ptr and std::tr1::shared_ptr.  Allows us to compile on
+gcc 4.1-4.2, and with anaconda python.
+
+Distribute FIX specs with pip package.
+
+Use all detected compiler flags when building ruby native library.
+
+1.14.1
+------
+Replaced libxml2 and MSXML dependencies with embedded pugixml.
+
+Fixed all warnings from -Wshorten-64-to-32.
+
+Added python api to PyPi.  Can be installed with 'pip install quickfix'.
+
+Fixed memory leak in SessionFactory when creating DataDictionaries.
+shared_ptr is used to track the objects so we don't have to.
+
 1.14.0
 ------
 Major performance improvement sending/receiving messages.  Thanks to 

@@ -66,7 +66,7 @@ public:
   void close();
   bool block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
-  int numConnections() { return m_monitor.numSockets() - 1; }
+  size_t numConnections() { return m_monitor.numSockets() - 1; }
   SocketMonitor& getMonitor() { return m_monitor; }
 
   int socketToPort( int socket );

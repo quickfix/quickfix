@@ -158,7 +158,7 @@ public:
   void set( const Dictionary& defaults ) throw( ConfigError );
 
   /// Number of session settings
-  int size() const { return m_settings.size(); }
+  size_t size() const { return m_settings.size(); }
 
   typedef std::map < SessionID, Dictionary > Dictionaries;
   std::set < SessionID > getSessions() const;

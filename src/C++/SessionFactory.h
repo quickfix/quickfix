@@ -60,11 +60,11 @@ public:
   void destroy( Session* pSession );
 
 private:
-  typedef std::map < std::string, DataDictionary* > Dictionaries;
+  typedef std::map < std::string, ptr::shared_ptr<DataDictionary> > Dictionaries;
 
-  const DataDictionary * createDataDictionary(const SessionID& sessionID, 
-                                              const Dictionary& settings, 
-                                              const std::string& settingsKey) throw(ConfigError);
+  ptr::shared_ptr<DataDictionary> createDataDictionary(const SessionID& sessionID, 
+                                                       const Dictionary& settings, 
+                                                       const std::string& settingsKey) throw(ConfigError);
 
   void processFixtDataDictionaries(const SessionID& sessionID, 
                                    const Dictionary& settings, 

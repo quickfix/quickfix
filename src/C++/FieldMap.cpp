@@ -71,7 +71,7 @@ void FieldMap::addGroupPtr( int field, FieldMap * group, bool setCount )
     vec.push_back( group );
 
     if( setCount )
-        setField( IntField( field, vec.size() ) );
+        setField( IntField( field, (int)vec.size() ) );
 }
 
 void FieldMap::replaceGroup( int num, int field, const FieldMap& group )
@@ -104,14 +104,14 @@ void FieldMap::removeGroup( int num, int field )
   }
   else
   {
-    IntField groupCount( field, vector.size() );
+    IntField groupCount( field, (int)vector.size() );
     setField( groupCount, true );
   }
 }
 
 void FieldMap::removeGroup( int field )
 {
-  removeGroup( groupCount(field), field );
+  removeGroup( (int)groupCount(field), field );
 }
 
 void FieldMap::removeField( int field )
@@ -123,7 +123,7 @@ void FieldMap::removeField( int field )
 
 bool FieldMap::hasGroup( int num, int field ) const
 {
-  return groupCount(field) >= num;
+  return (int)groupCount(field) >= num;
 }
 
 bool FieldMap::hasGroup( int field ) const
@@ -132,7 +132,7 @@ bool FieldMap::hasGroup( int field ) const
   return i != m_groups.end();
 }
 
-int FieldMap::groupCount( int field ) const
+size_t FieldMap::groupCount( int field ) const
 {
   Groups::const_iterator i = m_groups.find( field );
   if( i == m_groups.end() )
@@ -159,9 +159,9 @@ bool FieldMap::isEmpty()
   return m_fields.size() == 0;
 }
 
-int FieldMap::totalFields() const
+size_t FieldMap::totalFields() const
 {
-  int result = m_fields.size();
+  size_t result = m_fields.size();
     
   Groups::const_iterator i;
   for ( i = m_groups.begin(); i != m_groups.end(); ++i )

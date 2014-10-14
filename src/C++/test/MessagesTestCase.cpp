@@ -501,7 +501,7 @@ TEST(addRemoveGroup)
   CHECK( object.hasGroup(1, group) );
   CHECK( object.hasGroup(2, group) );
   CHECK( object.hasGroup(3, group) );
-  CHECK_EQUAL( 3, object.groupCount(FIX::FIELD::NoOrders) );
+  CHECK_EQUAL( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
   CHECK_EQUAL( 3, noOrders );
 
@@ -509,7 +509,7 @@ TEST(addRemoveGroup)
   CHECK( object.hasGroup(1, group) );
   CHECK( object.hasGroup(2, group) );
   CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 2, object.groupCount(FIX::FIELD::NoOrders) );
+  CHECK_EQUAL( 2lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
   CHECK_EQUAL( 2, noOrders );
 
@@ -517,7 +517,7 @@ TEST(addRemoveGroup)
   CHECK( object.hasGroup(1, group) );
   CHECK( !object.hasGroup(2, group) );
   CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 1, object.groupCount(FIX::FIELD::NoOrders) );
+  CHECK_EQUAL( 1lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
   CHECK_EQUAL( 1, noOrders );
 
@@ -525,7 +525,7 @@ TEST(addRemoveGroup)
   CHECK( !object.hasGroup(1, group) );
   CHECK( !object.hasGroup(2, group) );
   CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 0, object.groupCount(FIX::FIELD::NoOrders) );
+  CHECK_EQUAL( 0lu, object.groupCount(FIX::FIELD::NoOrders) );
   CHECK( !object.isSetField( noOrders ) );
 }
 
@@ -566,7 +566,7 @@ TEST(replaceGroup)
   CHECK( object.hasGroup(1, group) );
   CHECK( object.hasGroup(2, group) );
   CHECK( object.hasGroup(3, group) );
-  CHECK_EQUAL( 3, object.groupCount(FIX::FIELD::NoOrders) );
+  CHECK_EQUAL( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
   CHECK_EQUAL( 3, noOrders );
 
