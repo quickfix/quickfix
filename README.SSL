@@ -1,0 +1,195 @@
+------------
+INTRODUCTION
+------------
+
+This document describes the rudimentary SSL functionality available in QuickFIX. OpenSSL (https://www.openssl.org/) has been used to provide the SSL functionality. The QuickFIX library can be built with OpenSSL or it can be built without OpenSSL support and the classes (files) related to the SSL functionality used directly in the user project.
+
+--------------------------------------
+BUILDING QUICKFIX WITH OPENSSL SUPPORT
+--------------------------------------
+
+1. Unix
+
+$ ./configure --with-openssl="path to openssl install"
+
+"path to openssl install" dir should have include/openssl and lib directories with appropriate files.
+
+$ make
+
+2. Windows
+
+The Visual Studio project will have to be configured to find the OpenSSL headers and libs.
+
+#define HAVE_SSL 1
+
+will be required in src/config_windows.h
+
+--------------------------------------------------------------
+USING SSL FILES WITHOUT BUILDING QUICKFIX WITH OPENSSL SUPPORT
+--------------------------------------------------------------
+
+The SSL functionality is contained in the files
+
+ThreadedSSLSocketAcceptor.h
+ThreadedSSLSocketAcceptor.cpp
+ThreadedSSLSocketInitiator.h
+ThreadedSSLSocketInitiator.cpp
+ThreadedSSLSocketConnection.h
+ThreadedSSLSocketConnection.cpp
+UtilitySSL.h
+UtilitySSL.cpp
+
+These files can be directly incorporated in the a project. HAVE_SSL will have to be defined in addition to other OpenSSL related configuration.
+
+--------------
+SSL PARAMETERS
+--------------
+
+Parameters have to be defined in the DEFAULT section of the ini file.
+
+SSL config for acceptor:
+
+[DEFAULT]
+
+#This directive points to the PEM-encoded Certificate file and
+#optionally also to the corresponding RSA or DSA Private Key file for it
+#(contained in the same file).
+
+ServerCertificateFile=
+
+#This directive points to the PEM-encoded Private Key file. If
+#the Private Key is not combined with the Certificate in the
+#server certificate file, use this additional directive to point to the file with
+#the stand-alone Private Key.
+
+ServerCertificateKeyFile=
+
+#This directive sets the Certificate verification level. It applies to the authentication process used in the
+#standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.
+
+VerifyLevel=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificates of Certification Authorities (CA) whose clients you deal with.
+
+CertificationAuthoritiesFile=
+
+#This directive sets the directory where you keep the Certificates of
+#Certification Authorities (CAs) whose clients you deal with.
+
+CertificationAuthoritiesDirectory=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+#clients you deal with.
+
+CertificateRevocationListFile=
+
+#This directive sets the directory where you keep the Certificate Revocation
+#Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.
+
+CertificateRevocationListDirectory=
+
+
+SSL config for initiator:
+
+[DEFAULT]
+
+#This directive points to the PEM-encoded Certificate file and
+#optionally also to the corresponding RSA or DSA Private Key file for it
+#(contained in the same file).
+
+ClientCertificateFile=
+
+#This directive points to the PEM-encoded Private Key file. If
+#the Private Key is not combined with the Certificate in the
+#server certificate file, use this additional directive to point to the file with
+#the stand-alone Private Key.
+
+ClientCertificateKeyFile=
+
+#This directive sets the Certificate verification level. It applies to the authentication process used in the
+#standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.
+
+VerifyLevel=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificates of Certification Authorities (CA) whose clients you deal with.
+
+CertificationAuthoritiesFile=
+
+#This directive sets the directory where you keep the Certificates of
+#Certification Authorities (CAs) whose clients you deal with.
+
+CertificationAuthoritiesDirectory=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+#clients you deal with.
+
+CertificateRevocationListFile=
+
+#This directive sets the directory where you keep the Certificate Revocation
+#Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.
+
+CertificateRevocationListDirectory=
+
+-------------
+EXAMPLE USAGE
+-------------
+
+Acceptor:
+
+  try
+  {
+    FIX::SessionSettings settings( file );
+
+    Application application;
+    FIX::FileStoreFactory storeFactory( settings );
+    FIX::ScreenLogFactory logFactory( settings );
+    FIX::ThreadedSSLSocketAcceptor acceptor( application, storeFactory, settings, logFactory );
+
+    acceptor.start();
+    wait();
+    acceptor.stop();
+    return 0;
+  }
+  catch (const std::exception & e )
+  {
+    std::cout << e.what() << std::endl;
+    return 1;
+  }
+  
+Initiator:
+
+  try
+  {
+    FIX::SessionSettings settings( file );
+
+    Application application;
+    FIX::FileStoreFactory storeFactory( settings );
+    FIX::ScreenLogFactory logFactory( settings );
+    FIX::ThreadedSSLSocketInitiator initiator( application, storeFactory, settings, logFactory );
+
+    initiator.start();
+    application.run();
+    initiator.stop();
+    
+    return 0;
+  }
+  catch ( std::exception & e )
+  {
+    std::cout << e.what();
+    return 1;
+  }
+  
+
+If the server or client certficate key is password protected, than the password can be set by the method
+
+  void setPassword(const std::string & pwd);
+  
+----------
+CONCLUSION
+----------
+
+Since this is the first implementation of OpenSSL support the users are requested to let the developer know about bugs/problems and missing implementation.
