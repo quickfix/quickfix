@@ -96,7 +96,6 @@ private:
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
   Mutex m_mutex;
-  fd_set m_fds;
 };
 }
 

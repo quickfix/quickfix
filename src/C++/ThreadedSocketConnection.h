@@ -47,8 +47,8 @@ public:
   typedef std::set<SessionID> Sessions;
 
   ThreadedSocketConnection( int s, Sessions sessions, Application& application, Log* pLog );
-  ThreadedSocketConnection( const SessionID&, int s, 
-                            const std::string& address, short port, 
+  ThreadedSocketConnection( const SessionID&, int s,
+                            const std::string& address, short port,
                             Application&, Log* pLog );
   virtual ~ThreadedSocketConnection() ;
 
@@ -76,7 +76,6 @@ private:
   Sessions m_sessions;
   Session* m_pSession;
   bool m_disconnect;
-  fd_set m_fds;
 };
 }
 

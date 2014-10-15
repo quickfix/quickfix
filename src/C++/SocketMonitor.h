@@ -40,6 +40,7 @@ typedef int socklen_t;
 #include <set>
 #include <queue>
 #include <time.h>
+#include <poll.h>
 
 namespace FIX
 {
@@ -60,7 +61,7 @@ public:
   void unsignal( int socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
-  int numSockets() 
+  int numSockets()
   { return m_readSockets.size() - 1; }
 
 private:
@@ -70,19 +71,17 @@ private:
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( const Sockets&, fd_set& );
-  inline timeval* getTimeval( bool poll, double timeout );
+  void buildSet( const Sockets&, struct pollfd *pfds, short events );
+  inline int getTimeval( bool poll, double timeout );
   inline bool sleepIfEmpty( bool poll );
 
-  void processReadSet( Strategy&, fd_set& );
-  void processWriteSet( Strategy&, fd_set& );
-  void processExceptSet( Strategy&, fd_set& );
+  void processRead( Strategy&, int socket_fd );
+  void processWrite( Strategy&, int socket_fd );
+  void processError( Strategy&, int socket_fd );
+  void processPollList( Strategy& strategy, struct pollfd *pfds,
+                        unsigned pfds_size );
 
   int m_timeout;
-  timeval m_timeval;
-#ifndef SELECT_DECREMENTS_TIME
-  clock_t m_ticks;
-#endif
 
   int m_signal;
   int m_interrupt;

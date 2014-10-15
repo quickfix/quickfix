@@ -54,7 +54,7 @@ private:
   void processSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
   void processResetSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
   void processRefreshSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
- 
+
  void showToggle
     ( std::stringstream& s, const std::string& name, bool value, const std::string& url );
   void showRow
@@ -71,7 +71,6 @@ private:
   char m_buffer[BUFSIZ];
 
   HttpParser m_parser;
-  fd_set m_fds;
 };
 }
 
