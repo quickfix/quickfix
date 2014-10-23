@@ -43,6 +43,8 @@ SocketMonitor::SocketMonitor( int timeout )
   socket_setnonblock( m_signal );
   socket_setnonblock( m_interrupt );
   m_readSockets.insert( m_interrupt );
+
+  m_ticks = clock();
 }
 
 SocketMonitor::~SocketMonitor()
@@ -121,7 +123,18 @@ inline int SocketMonitor::getTimeval( bool poll, double timeout )
   if ( !timeout )
     return 0;
 
-  return timeout;
+  double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
+  if ( elapsed >= timeout || elapsed == 0.0 )
+  {
+    m_ticks = clock();
+    return ( timeout * 1000 );
+  }
+  else
+  {
+    return ( ( timeout - elapsed ) * 1000 );
+  }
+
+  return ( timeout * 1000 );
 }
 
 bool SocketMonitor::sleepIfEmpty( bool poll )
@@ -171,7 +184,7 @@ void SocketMonitor::block( Strategy& strategy, bool should_poll, double timeout 
 
   buildSet( m_readSockets, pfds, POLLPRI | POLLIN );
   buildSet( m_connectSockets, pfds + m_readSockets.size(), POLLOUT | POLLERR );
-  buildSet( m_writeSockets, pfds + m_readSockets.size() + m_writeSockets.size(),
+  buildSet( m_writeSockets, pfds + m_readSockets.size() + m_connectSockets.size(),
             POLLOUT );
 
   if ( sleepIfEmpty( should_poll ) )
@@ -246,7 +259,7 @@ void SocketMonitor::processPollList( Strategy& strategy, struct pollfd *pfds, un
       processWrite( strategy, pfds[i].fd );
     }
 
-    if ( ( pfds[i].revents & POLLOUT ) )
+    if ( ( pfds[i].revents & POLLERR ) )
     {
       processError( strategy, pfds[i].fd );
     }

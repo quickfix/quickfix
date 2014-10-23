@@ -82,6 +82,7 @@ private:
                         unsigned pfds_size );
 
   int m_timeout;
+  clock_t m_ticks;
 
   int m_signal;
   int m_interrupt;
