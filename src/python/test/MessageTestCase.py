@@ -10,34 +10,34 @@ class MessageTestCase(unittest.TestCase):
         self.object = fix.Message()
 
     def test_isAdmin(self):
-        self.failUnless(self.object.isAdmin() == 0)
+        self.assertEqual(self.object.isAdmin(), 0)
         self.object.getHeader().setField(fix.MsgType("A"))
-        assert(self.object.isAdmin())
+        self.assertTrue(self.object.isAdmin())
         self.object.getHeader().setField(fix.MsgType("D"))
-        assert(self.object.isAdmin() == 0)
+        self.assertEqual(self.object.isAdmin(), 0)
 
     def test_isApp(self):
-        self.failUnless(self.object.isApp() == 0)
+        self.assertEqual(self.object.isApp(), 0)
         self.object.getHeader().setField(fix.MsgType("A"))
-        self.failUnless(self.object.isApp() == 0)
+        self.assertEqual(self.object.isApp(), 0)
         self.object.getHeader().setField(fix.MsgType("D"))
-        assert(self.object.isApp())
+        self.assertTrue(self.object.isApp())
 
     def test_isEmpty(self):
         message = fix.Message()
-        self.failUnless(message.isEmpty())
+        self.assertTrue(message.isEmpty())
         message.getHeader().setField(fix.BeginString("FIX.4.2"))
-        self.failUnless(message.isEmpty() == 0)
+        self.assertEqual(message.isEmpty(), 0)
         message.clear()
-        self.failUnless(message.isEmpty())
+        self.assertTrue(message.isEmpty())
         message.setField(fix.Symbol("MSFT"))
-        self.failUnless(message.isEmpty() == 0)
+        self.assertEqual(message.isEmpty(), 0)
         message.clear()
-        self.failUnless(message.isEmpty())
+        self.assertTrue(message.isEmpty())
         message.getTrailer().setField(fix.CheckSum(10))
-        self.failUnless(message.isEmpty() == 0)
+        self.assertEqual(message.isEmpty(), 0)
         message.clear()
-        self.failUnless(message.isEmpty())
+        self.assertTrue(message.isEmpty())
 
     def test_setString(self):
         strGood = "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\00152=20000426-12:05:06\00156=ISLD\00110=218\001"
@@ -59,53 +59,21 @@ class MessageTestCase(unittest.TestCase):
         except fix.InvalidMessage:
             self.failUnless(0)
 
-        try:
-            self.object.setString(strTrailingCharacter)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strTrailingCharacter)
 
-        try:
-            self.object.setString(strNoChk)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strNoChk)
 
-        try:
-            self.object.setString(strBadChk)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strBadChk)
 
-        try:
-            self.object.setString(strBad)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strBad)
 
-        try:
-            self.object.setString(strBadHeaderOrder)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strBadHeaderOrder)
 
-        try:
-            self.object.setString(strNoLengthAndChk)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strNoLengthAndChk)
 
-        try:
-            self.object.setString(strJunk)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strJunk)
 
-        try:
-            self.object.setString(strEmpty)
-            self.failUnless(0)
-        except fix.InvalidMessage:
-            self.failUnless(1)
+        self.assertRaises(fix.InvalidMessage, self.object.setString, strEmpty)
 
         dataDictionary = fix.DataDictionary()
         dataDictionary.addHeaderField(11, False)
@@ -258,20 +226,20 @@ class MessageTestCase(unittest.TestCase):
 
         noOrders = fix.NoOrders()
 
-        assert(self.object.hasGroup(1, group))
-        assert(self.object.hasGroup(2, group))
-        assert(self.object.hasGroup(3, group))
-        self.assertEquals(3, self.object.groupCount(fix.NoOrders().getTag()))
+        self.assertTrue(self.object.hasGroup(1, group))
+        self.assertTrue(self.object.hasGroup(2, group))
+        self.assertTrue(self.object.hasGroup(3, group))
+        self.assertEqual(3, self.object.groupCount(fix.NoOrders().getTag()))
         self.object.getField(noOrders)
-        self.assertEquals(3, noOrders.getValue())
+        self.assertEqual(3, noOrders.getValue())
 
         clOrdID = fix.ClOrdID()
         self.object.getGroup(1, group)
-        self.assertEquals("A", group.getField(clOrdID).getString())
+        self.assertEqual("A", group.getField(clOrdID).getString())
         self.object.getGroup(2, group)
-        self.assertEquals("D", group.getField(clOrdID).getString())
+        self.assertEqual("D", group.getField(clOrdID).getString())
         self.object.getGroup(3, group)
-        self.assertEquals("C", group.getField(clOrdID).getString())
+        self.assertEqual("C", group.getField(clOrdID).getString())
 
 if __name__ == '__main__':
     unittest.main()
