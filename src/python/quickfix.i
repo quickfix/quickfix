@@ -2,8 +2,8 @@
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)PyString_AsString($input));
   $1 = &temp;
-} 	 
-	  	 
+}    
+       
 %typemap(argout) std::string& {
   if( std::string("$1_type") == "std::string &" )
   {
@@ -11,32 +11,32 @@
       resultobj = PyDict_New();
     PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
   }
-} 	 
-	  	 	
+}    
+        
 %typemap(in) int& (int temp) {
-  SWIG_AsVal_int($input, &temp); 	 
+  SWIG_AsVal_int($input, &temp);   
   $1 = &temp;
-} 	 
-  	 
+}    
+     
 %typemap(argout) int& {
   if( std::string("$1_type") == "int &" )
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) ); 	 
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );    
   }
 }
-#endif 	 
+#endif
 
 %typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
   $1 = new FIX::DataDictionary*[1];
   *$1 = temp;
-} 	 
+}
 
 %typemap(free) FIX::DataDictionary const *& {
-  delete[] temp; 	 
-} 	 
-	  	 
+  delete[] temp;
+}
+
 %typemap(argout) FIX::DataDictionary const *& {
   void* argp;
   FIX::DataDictionary* pDD = 0;
@@ -55,18 +55,18 @@ except ImportError:
   import _thread as thread
 
 def _quickfix_start_thread(i_or_a):
-	i_or_a.block()
+  i_or_a.block()
 #endif
 %}
 
 %feature("shadow") FIX::Initiator::start() %{
 def start(self):
-	thread.start_new_thread(_quickfix_start_thread, (self,))
+  thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
 
 %feature("shadow") FIX::Acceptor::start() %{
 def start(self):
-	thread.start_new_thread(_quickfix_start_thread, (self,))
+  thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
 
 %feature("director:except") FIX::Application::onCreate {
@@ -126,7 +126,7 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
-	throw *((FIX::DoNotSend*)result);
+  throw *((FIX::DoNotSend*)result);
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();
@@ -158,7 +158,7 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-	throw *((FIX::FieldNotFound*)result);
+  throw *((FIX::FieldNotFound*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
         throw *((FIX::IncorrectDataFormat*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
@@ -196,7 +196,7 @@ def start(self):
 
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-	throw *((FIX::FieldNotFound*)result);
+  throw *((FIX::FieldNotFound*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
         throw *((FIX::IncorrectDataFormat*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
@@ -253,38 +253,38 @@ def start(self):
 %pythoncode %{
 #ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
-	application = 0
-	storeFactory = 0
-	setting = 0
-	logFactory = 0
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
 
-	def __init__(self, application, storeFactory, settings, logFactory=None):
-		if logFactory == None:
-			SocketInitiatorBase.__init__(self, application, storeFactory, settings)
-		else:
-			SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      SocketInitiatorBase.__init__(self, application, storeFactory, settings)
+    else:
+      SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
-		self.logFactory = logFactory
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
 
 class SocketAcceptor(SocketAcceptorBase):
-	application = 0
-	storeFactory = 0
-	setting = 0
-	logFactory = 0
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
 
-	def __init__(self, application, storeFactory, settings, logFactory=None):
-		if logFactory == None:
-			SocketAcceptorBase.__init__(self, application, storeFactory, settings)
-		else:
-			SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+    else:
+      SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
-		self.logFactory = logFactory
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
 #endif
 %}
 

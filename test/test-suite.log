@@ -1,0 +1,27 @@
+==========================================
+   QuickFIX 1.14.3: test/test-suite.log
+==========================================
+
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: check.sh
+==============
+
+ut: no process found
+at: no process found
+<ut>
+  <output>
+C++/test/FieldConvertorsTestCase.cpp:114: error: Failure in integerConvertTo: Expected -2147483648 but was -00
+FAILURE: 1 out of 186 tests failed (1 failures).
+Test time: 10.73 seconds.
+  </output>
+</ut>
+

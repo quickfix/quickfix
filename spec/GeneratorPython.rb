@@ -27,7 +27,7 @@ class GeneratorPython
     count = 0
     result = ""
     while (count != @depth)
-      result += "\t" 
+      result += "    "
       count += 1
     end
     return result
@@ -75,7 +75,7 @@ class GeneratorPython
 
     @f.puts
 
-    @depth += 1    
+    @depth += 1
     @f.puts tabs + "class " + name + "(fix.Group):"
     @depth += 1
     @f.puts tabs + "def __init__(self):"
@@ -115,6 +115,7 @@ class GeneratorPython
     @f = createFile("quickfix_fields.py")
     @f.puts tabs + "import quickfix"
     @f.puts
+    @f.puts
   end
   
   def fieldType( name, type )
@@ -141,9 +142,9 @@ class GeneratorPython
   def fields(name, number, type, values)
     @f.puts tabs + "class #{name}(quickfix.#{fieldType(name, type)}Field):"
     @depth += 1
-    @f.puts tabs + "def __init__(self, data = None):"
+    @f.puts tabs + "def __init__(self, data=None):"
     @depth += 1
-    @f.puts tabs + "if data == None:"
+    @f.puts tabs + "if data is None:"
     @depth += 1
     @f.puts tabs + "quickfix.#{fieldType(name, type)}Field.__init__(self, #{number})"
     @depth -= 1
@@ -153,6 +154,7 @@ class GeneratorPython
     @depth -= 1
     @depth -= 1
     @depth -= 1
+    @f.puts
     @f.puts
   end
 
