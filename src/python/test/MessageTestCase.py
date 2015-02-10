@@ -52,12 +52,9 @@ class MessageTestCase(unittest.TestCase):
         strJunk = "paste your FIX message here, then hit ENTER"
         strEmpty = ""
 
-        try:
-            self.object.setString(strGood)
-            self.object.setString(strNull)
-            self.object.setString(strNoLengthAndChk, False)
-        except fix.InvalidMessage:
-            self.assertTrue(0)
+        self.object.setString(strGood)
+        self.object.setString(strNull)
+        self.object.setString(strNoLengthAndChk, False)
 
         self.assertRaises(fix.InvalidMessage, self.object.setString, strTrailingCharacter)
 
@@ -83,44 +80,32 @@ class MessageTestCase(unittest.TestCase):
         transactTime = fix.TransactTime()
         symbol = fix.Symbol()
 
-        try:
-            self.object.setString(strBodyFields, True, dataDictionary)
-        except fix.InvalidMessage:
-            self.assertTrue(0)
+        self.object.setString(strBodyFields, True, dataDictionary)
 
-        assert(self.object.getHeader().isSetField(clOrdID))
-        assert(self.object.getTrailer().isSetField(transactTime))
-        assert(self.object.isSetField(symbol))
+        self.assertTrue(self.object.getHeader().isSetField(clOrdID))
+        self.assertTrue(self.object.getTrailer().isSetField(transactTime))
+        self.assertTrue(self.object.isSetField(symbol))
 
     def test_setStringWithGroup(self):
         dataDictionary = fix.DataDictionary("spec/FIX43.xml")
         str = "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111=1095350459\00167=1\0011=00303\00155=fred\00154=1\00140=1\00159=3\00111=1095350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110=138\001"
 
-        try:
-            self.object.setString(str, True, dataDictionary)
-            self.assertEqual(str, self.object.toString())
-        except fix.InvalidMessage:
-            assert(0)
+        self.object.setString(str, True, dataDictionary)
+        self.assertEqual(str, self.object.toString())
 
     def test_setStringWithHeaderGroup(self):
         dataDictionary = fix.DataDictionary("spec/FIX43.xml")
         str = "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\00152=20040916-16:19:18.328\00156=SELLSIDE\001627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001628=HOP2\001629=20040916-16:19:18.328\001630=ID2\00110=079\001"
 
-        try:
-            self.object.setString(str, True, dataDictionary)
-            self.assertEqual(str, self.object.toString())
-        except fix.InvalidMessage:
-            assert(0)
+        self.object.setString(str, True, dataDictionary)
+        self.assertEqual(str, self.object.toString())
 
     def test_outOfOrder(self):
         str = "54=1\00120=0\00131=109.03125\00160=00000000-00:00:00\0018=FIX.4.2\0016=109.03125\0011=acct1\001151=0\001150=2\00117=2\00139=2\00138=3000\00149=MEK\00115=USD\00137=1\00148=123ABC789\00114=3000\00135=8\00156=KEM\00134=2\00155=ABCD\00111=ID1\00122=1\001"
         expected = "8=FIX.4.2\0019=171\00135=8\00134=2\00149=MEK\00156=KEM\0011=acct1\0016=109.03125\00111=ID1\00114=3000\00115=USD\00117=2\00120=0\00122=1\00131=109.03125\00137=1\00138=3000\00139=2\00148=123ABC789\00154=1\00155=ABCD\00160=00000000-00:00:00\001150=2\001151=0\00110=225\001"
 
-        try:
-            self.object.setString(str, False)
-            self.assertEqual(expected, self.object.toString())
-        except fix.InvalidMessage:
-            self.assertTrue(0)
+        self.object.setString(str, False)
+        self.assertEqual(expected, self.object.toString())
 
     def test_reverseRoute(self):
         header = fix.Header()
@@ -148,51 +133,51 @@ class MessageTestCase(unittest.TestCase):
         header.setField(deliverToLocationID)
 
         reversedMessage.reverseRoute(header)
-        self.assertTrue(
-            reversedHeader.getField(beginString).getString() == "FIX.4.2")
-        self.assertTrue(
-            reversedHeader.getField(senderCompID).getString() == "TargetCompID")
-        self.assertTrue(
-            reversedHeader.getField(targetCompID).getString() == "SenderCompID")
-        self.assertTrue(
-            reversedHeader.getField(onBehalfOfCompID).getString() == "DeliverToCompID")
-        self.assertTrue(
-            reversedHeader.getField(onBehalfOfSubID).getString() == "DeliverToSubID")
-        self.assertTrue(reversedHeader.getField(
-            onBehalfOfLocationID).getString() == "DeliverToLocationID")
-        self.assertTrue(
-            reversedHeader.getField(deliverToCompID).getString() == "OnBehalfOfCompID")
-        self.assertTrue(
-            reversedHeader.getField(deliverToSubID).getString() == "OnBehalfOfSubID")
-        self.assertTrue(reversedHeader.getField(
-            deliverToLocationID).getString() == "OnBehalfOfLocationID")
+        self.assertEqual(
+            reversedHeader.getField(beginString).getString(), "FIX.4.2")
+        self.assertEqual(
+            reversedHeader.getField(senderCompID).getString(), "TargetCompID")
+        self.assertEqual(
+            reversedHeader.getField(targetCompID).getString(), "SenderCompID")
+        self.assertEqual(
+            reversedHeader.getField(onBehalfOfCompID).getString(), "DeliverToCompID")
+        self.assertEqual(
+            reversedHeader.getField(onBehalfOfSubID).getString(), "DeliverToSubID")
+        self.assertEqual(reversedHeader.getField(
+            onBehalfOfLocationID).getString(), "DeliverToLocationID")
+        self.assertEqual(
+            reversedHeader.getField(deliverToCompID).getString(), "OnBehalfOfCompID")
+        self.assertEqual(
+            reversedHeader.getField(deliverToSubID).getString(), "OnBehalfOfSubID")
+        self.assertEqual(reversedHeader.getField(
+            deliverToLocationID).getString(), "OnBehalfOfLocationID")
 
         header.setField(fix.BeginString("FIX.4.0"))
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
-        self.assertTrue(reversedHeader.isSetField(deliverToLocationID) == 0)
+        self.assertEqual(reversedHeader.isSetField(onBehalfOfLocationID), 0)
+        self.assertEqual(reversedHeader.isSetField(deliverToLocationID), 0)
 
         header.setField(beginString)
         reversedMessage.reverseRoute(header)
 
         header.removeField(fix.OnBehalfOfCompID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(deliverToCompID) == 0)
+        self.assertEqual(reversedHeader.isSetField(deliverToCompID), 0)
         header.removeField(fix.DeliverToCompID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(onBehalfOfCompID) == 0)
+        self.assertEqual(reversedHeader.isSetField(onBehalfOfCompID), 0)
         header.removeField(fix.OnBehalfOfSubID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(deliverToSubID) == 0)
+        self.assertEqual(reversedHeader.isSetField(deliverToSubID), 0)
         header.removeField(fix.DeliverToSubID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(onBehalfOfSubID) == 0)
+        self.assertEqual(reversedHeader.isSetField(onBehalfOfSubID), 0)
         header.removeField(fix.OnBehalfOfLocationID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(deliverToLocationID) == 0)
+        self.assertEqual(reversedHeader.isSetField(deliverToLocationID), 0)
         header.removeField(fix.DeliverToLocationID().getTag())
         reversedMessage.reverseRoute(header)
-        self.assertTrue(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
+        self.assertEqual(reversedHeader.isSetField(onBehalfOfLocationID), 0)
 
     def test_replaceGroup(self):
         self.object.setField(fix.ListID("1"))
