@@ -57,7 +57,7 @@ class MessageTestCase(unittest.TestCase):
             self.object.setString(strNull)
             self.object.setString(strNoLengthAndChk, False)
         except fix.InvalidMessage:
-            self.failUnless(0)
+            self.assertTrue(0)
 
         self.assertRaises(fix.InvalidMessage, self.object.setString, strTrailingCharacter)
 
@@ -86,7 +86,7 @@ class MessageTestCase(unittest.TestCase):
         try:
             self.object.setString(strBodyFields, True, dataDictionary)
         except fix.InvalidMessage:
-            self.failUnless(0)
+            self.assertTrue(0)
 
         assert(self.object.getHeader().isSetField(clOrdID))
         assert(self.object.getTrailer().isSetField(transactTime))
@@ -98,7 +98,7 @@ class MessageTestCase(unittest.TestCase):
 
         try:
             self.object.setString(str, True, dataDictionary)
-            self.assertEquals(str, self.object.toString())
+            self.assertEqual(str, self.object.toString())
         except fix.InvalidMessage:
             assert(0)
 
@@ -108,7 +108,7 @@ class MessageTestCase(unittest.TestCase):
 
         try:
             self.object.setString(str, True, dataDictionary)
-            self.assertEquals(str, self.object.toString())
+            self.assertEqual(str, self.object.toString())
         except fix.InvalidMessage:
             assert(0)
 
@@ -118,9 +118,9 @@ class MessageTestCase(unittest.TestCase):
 
         try:
             self.object.setString(str, False)
-            self.assertEquals(expected, self.object.toString())
+            self.assertEqual(expected, self.object.toString())
         except fix.InvalidMessage:
-            self.failUnless(0)
+            self.assertTrue(0)
 
     def test_reverseRoute(self):
         header = fix.Header()
@@ -148,51 +148,51 @@ class MessageTestCase(unittest.TestCase):
         header.setField(deliverToLocationID)
 
         reversedMessage.reverseRoute(header)
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(beginString).getString() == "FIX.4.2")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(senderCompID).getString() == "TargetCompID")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(targetCompID).getString() == "SenderCompID")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(onBehalfOfCompID).getString() == "DeliverToCompID")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(onBehalfOfSubID).getString() == "DeliverToSubID")
-        self.failUnless(reversedHeader.getField(
+        self.assertTrue(reversedHeader.getField(
             onBehalfOfLocationID).getString() == "DeliverToLocationID")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(deliverToCompID).getString() == "OnBehalfOfCompID")
-        self.failUnless(
+        self.assertTrue(
             reversedHeader.getField(deliverToSubID).getString() == "OnBehalfOfSubID")
-        self.failUnless(reversedHeader.getField(
+        self.assertTrue(reversedHeader.getField(
             deliverToLocationID).getString() == "OnBehalfOfLocationID")
 
         header.setField(fix.BeginString("FIX.4.0"))
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
-        self.failUnless(reversedHeader.isSetField(deliverToLocationID) == 0)
+        self.assertTrue(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
+        self.assertTrue(reversedHeader.isSetField(deliverToLocationID) == 0)
 
         header.setField(beginString)
         reversedMessage.reverseRoute(header)
 
         header.removeField(fix.OnBehalfOfCompID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(deliverToCompID) == 0)
+        self.assertTrue(reversedHeader.isSetField(deliverToCompID) == 0)
         header.removeField(fix.DeliverToCompID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(onBehalfOfCompID) == 0)
+        self.assertTrue(reversedHeader.isSetField(onBehalfOfCompID) == 0)
         header.removeField(fix.OnBehalfOfSubID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(deliverToSubID) == 0)
+        self.assertTrue(reversedHeader.isSetField(deliverToSubID) == 0)
         header.removeField(fix.DeliverToSubID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(onBehalfOfSubID) == 0)
+        self.assertTrue(reversedHeader.isSetField(onBehalfOfSubID) == 0)
         header.removeField(fix.OnBehalfOfLocationID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(deliverToLocationID) == 0)
+        self.assertTrue(reversedHeader.isSetField(deliverToLocationID) == 0)
         header.removeField(fix.DeliverToLocationID().getTag())
         reversedMessage.reverseRoute(header)
-        self.failUnless(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
+        self.assertTrue(reversedHeader.isSetField(onBehalfOfLocationID) == 0)
 
     def test_replaceGroup(self):
         self.object.setField(fix.ListID("1"))
