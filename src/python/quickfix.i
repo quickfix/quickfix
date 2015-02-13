@@ -1,6 +1,6 @@
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)PyString_AsString($input));
+  temp = std::string((char*)PyBytes_AsString($input));
   $1 = &temp;
 }    
        
@@ -9,7 +9,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyBytes_FromString($1->c_str()) );
   }
 }    
         
