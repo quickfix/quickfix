@@ -57,3 +57,6 @@ autom4te.cache/
 lib/python
 COPYING
 INSTALL
+
+# OS specific
+.DS_Store

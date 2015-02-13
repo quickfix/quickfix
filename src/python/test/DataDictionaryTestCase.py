@@ -19,49 +19,49 @@ class DataDictionaryTestCase(unittest.TestCase):
         self.object = fix.DataDictionary()
 
     def test_addMsgType(self):
-        self.failUnless(self.object.isMsgType("A") == 0)
+        self.assertTrue(self.object.isMsgType("A") == 0)
         self.object.addMsgType("A")
-        self.failUnless(self.object.isMsgType("A"))
+        self.assertTrue(self.object.isMsgType("A"))
 
     def test_addMsgField(self):
-        self.failUnless(self.object.isMsgField("A", 10) == 0)
-        self.failUnless(self.object.isMsgField("Z", 50) == 0)
+        self.assertTrue(self.object.isMsgField("A", 10) == 0)
+        self.assertTrue(self.object.isMsgField("Z", 50) == 0)
         self.object.addMsgField("A", 10)
         self.object.addMsgField("Z", 50)
-        self.failUnless(self.object.isMsgField("A", 10))
-        self.failUnless(self.object.isMsgField("Z", 50))
-        self.failUnless(self.object.isMsgField("A", 50) == 0)
-        self.failUnless(self.object.isMsgField("Z", 10) == 0)
+        self.assertTrue(self.object.isMsgField("A", 10))
+        self.assertTrue(self.object.isMsgField("Z", 50))
+        self.assertTrue(self.object.isMsgField("A", 50) == 0)
+        self.assertTrue(self.object.isMsgField("Z", 10) == 0)
 
     def test_addHeaderField(self):
-        self.failUnless(self.object.isHeaderField(56) == 0)
-        self.failUnless(self.object.isHeaderField(49) == 0)
+        self.assertTrue(self.object.isHeaderField(56) == 0)
+        self.assertTrue(self.object.isHeaderField(49) == 0)
         self.object.addHeaderField(56, True)
         self.object.addHeaderField(49, True)
-        self.failUnless(self.object.isHeaderField(56))
-        self.failUnless(self.object.isHeaderField(49))
+        self.assertTrue(self.object.isHeaderField(56))
+        self.assertTrue(self.object.isHeaderField(49))
 
     def test_addTrailerField(self):
-        self.failUnless(self.object.isTrailerField(10) == 0)
+        self.assertTrue(self.object.isTrailerField(10) == 0)
         self.object.addTrailerField(10, True)
-        self.failUnless(self.object.isTrailerField(10))
+        self.assertTrue(self.object.isTrailerField(10))
 
     def test_addRequiredField(self):
-        self.failUnless(self.object.isRequiredField("A", 10) == 0)
-        self.failUnless(self.object.isRequiredField("Z", 50) == 0)
+        self.assertTrue(self.object.isRequiredField("A", 10) == 0)
+        self.assertTrue(self.object.isRequiredField("Z", 50) == 0)
         self.object.addRequiredField("A", 10)
         self.object.addRequiredField("Z", 50)
-        self.failUnless(self.object.isRequiredField("A", 10))
-        self.failUnless(self.object.isRequiredField("Z", 50))
-        self.failUnless(self.object.isRequiredField("A", 50) == 0)
-        self.failUnless(self.object.isRequiredField("Z", 10) == 0)
+        self.assertTrue(self.object.isRequiredField("A", 10))
+        self.assertTrue(self.object.isRequiredField("Z", 50))
+        self.assertTrue(self.object.isRequiredField("A", 50) == 0)
+        self.assertTrue(self.object.isRequiredField("Z", 10) == 0)
 
     def test_addFieldValue(self):
-        self.failUnless(self.object.isFieldValue(12, "f") == 0)
-        self.failUnless(self.object.isFieldValue(12, "g") == 0)
-        self.failUnless(self.object.isFieldValue(15, "1") == 0)
-        self.failUnless(self.object.isFieldValue(18, "2") == 0)
-        self.failUnless(self.object.isFieldValue(167, "FUT") == 0)
+        self.assertTrue(self.object.isFieldValue(12, "f") == 0)
+        self.assertTrue(self.object.isFieldValue(12, "g") == 0)
+        self.assertTrue(self.object.isFieldValue(15, "1") == 0)
+        self.assertTrue(self.object.isFieldValue(18, "2") == 0)
+        self.assertTrue(self.object.isFieldValue(167, "FUT") == 0)
 
         self.object.addFieldValue(12, "f")
         self.object.addFieldValue(12, "g")
@@ -69,11 +69,11 @@ class DataDictionaryTestCase(unittest.TestCase):
         self.object.addFieldValue(18, "2")
         self.object.addFieldValue(167, "FUT")
 
-        self.failUnless(self.object.isFieldValue(12, "f"))
-        self.failUnless(self.object.isFieldValue(12, "g"))
-        self.failUnless(self.object.isFieldValue(15, "1"))
-        self.failUnless(self.object.isFieldValue(18, "2"))
-        self.failUnless(self.object.isFieldValue(167, "FUT"))
+        self.assertTrue(self.object.isFieldValue(12, "f"))
+        self.assertTrue(self.object.isFieldValue(12, "g"))
+        self.assertTrue(self.object.isFieldValue(15, "1"))
+        self.assertTrue(self.object.isFieldValue(18, "2"))
+        self.assertTrue(self.object.isFieldValue(167, "FUT"))
 
     def test_addGroup(self):
         self.object.setVersion("FIX.4.2")
@@ -93,16 +93,16 @@ class DataDictionaryTestCase(unittest.TestCase):
         delim = 0
 
         result = self.object.getGroup("A", 100, delim, d)
-        self.assertEquals(101, result[0])
-        self.failUnless(d.isMsgType("1"))
+        self.assertEqual(101, result[0])
+        self.assertTrue(d.isMsgType("1"))
 
         result = self.object.getGroup("A", 200, delim, d)
-        self.assertEquals(201, result[0])
-        self.failUnless(d.isMsgType("2"))
+        self.assertEqual(201, result[0])
+        self.assertTrue(d.isMsgType("2"))
 
         result = self.object.getGroup("A", 300, delim, d)
-        self.assertEquals(301, result[0])
-        self.failUnless(d.isMsgType("3"))
+        self.assertEqual(301, result[0])
+        self.assertTrue(d.isMsgType("3"))
 
     def test_addFieldName(self):
         self.object.setVersion("FIX.4.2")
@@ -125,12 +125,12 @@ class DataDictionaryTestCase(unittest.TestCase):
         self.object.addValueName(12, "B", "VALUE_12_B")
         self.object.addValueName(23, "BOO", "VALUE_23_BOO")
 
-        # self.assertEquals(
-        #     "VALUE_12_0", self.object.getValueName(12, "0", "")[0])
-        # self.assertEquals(
-        #     "VALUE_12_B", self.object.getValueName(12, "B", "")[0])
-        # self.assertEquals(
-        #     "VALUE_23_BOO", self.object.getValueName(23, "BOO", "")[0])
+        self.assertEqual(
+            "VALUE_12_0", self.object.getValueName(12, "0", "")[0])
+        self.assertEqual(
+            "VALUE_12_B", self.object.getValueName(12, "B", "")[0])
+        self.assertEqual(
+            "VALUE_23_BOO", self.object.getValueName(23, "BOO", "")[0])
 
     def test_checkValidTagNumber(self):
         self.object.setVersion(fix.BeginString_FIX40)
@@ -150,31 +150,31 @@ class DataDictionaryTestCase(unittest.TestCase):
 
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
         self.object.addField(501)
         self.object.addMsgField(fix.MsgType_TestRequest, 501)
         try:
             self.object.validate(message)
-            self.failUnless(1)
+            self.assertTrue(1)
         except fix.Exception:
-            self.failUnless(0)
+            self.assertTrue(0)
 
         message.setField(5000, "value")
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
         self.object.checkUserDefinedFields(False)
         try:
             self.object.validate(message)
-            self.failUnless(1)
+            self.assertTrue(1)
         except fix.Exception:
-            self.failUnless(0)
+            self.assertTrue(0)
 
     def test_checkHasValue(self):
         message = fix40.TestRequest()
@@ -182,9 +182,9 @@ class DataDictionaryTestCase(unittest.TestCase):
 
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
     def test_checkIsInMessage(self):
         self.object.setVersion(fix.BeginString_FIX40)
@@ -204,16 +204,16 @@ class DataDictionaryTestCase(unittest.TestCase):
         message.setField(testReqID)
         try:
             self.object.validate(message)
-            self.failUnless(1)
+            self.assertTrue(1)
         except fix.Exception:
-            self.failUnless(0)
+            self.assertTrue(0)
 
         message.setField(fix.Symbol("MSFT"))
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
     def test_checkHasRequired(self):
         self.object.setVersion(fix.BeginString_FIX40)
@@ -235,31 +235,31 @@ class DataDictionaryTestCase(unittest.TestCase):
         message = fix40.TestRequest()
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
         message.getHeader().setField(fix.SenderCompID("SENDER"))
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
         message.setField(fix.TestReqID("1"))
         try:
             self.object.validate(message)
-            self.failUnless(1)
+            self.assertTrue(1)
         except fix.Exception:
-            self.failUnless(0)
+            self.assertTrue(0)
 
         message.getHeader().removeField(fix.SenderCompID().getTag())
         message.setField(fix.SenderCompID("SENDER"))
         try:
             self.object.validate(message)
-            self.failUnless(0)
+            self.assertTrue(0)
         except fix.Exception:
-            self.failUnless(1)
+            self.assertTrue(1)
 
 if __name__ == '__main__':
     unittest.main()
