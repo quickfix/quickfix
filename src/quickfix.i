@@ -2,10 +2,10 @@
 
 %exceptionclass FIX::Exception;
 
-%include typemaps.i
-%include std_string.i
-%include exception.i
-%include carrays.i
+%include <typemaps.i>
+%include <std_string.i>
+%include <exception.i>
+%include <carrays.i>
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
