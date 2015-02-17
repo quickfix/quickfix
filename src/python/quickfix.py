@@ -925,15 +925,15 @@ StringField_swigregister = _quickfix.StringField_swigregister
 StringField_swigregister(StringField)
 
 
-def __gt__(*args) -> "std::string &":
+def __gt__(*args) -> "bool":
     return _quickfix.__gt__(*args)
 __gt__ = _quickfix.__gt__
 
-def __le__(*args) -> "std::string &":
+def __le__(*args) -> "bool":
     return _quickfix.__le__(*args)
 __le__ = _quickfix.__le__
 
-def __ge__(*args) -> "std::string &":
+def __ge__(*args) -> "bool":
     return _quickfix.__ge__(*args)
 __ge__ = _quickfix.__ge__
 class CharField(FieldBase):
@@ -1443,7 +1443,7 @@ class Message(FieldMap):
 Message_swigregister = _quickfix.Message_swigregister
 Message_swigregister(Message)
 
-def Message_InitializeXML(string: 'std::string const &') -> "std::string &":
+def Message_InitializeXML(string: 'std::string const &') -> "bool":
     return _quickfix.Message_InitializeXML(string)
 Message_InitializeXML = _quickfix.Message_InitializeXML
 
@@ -1468,7 +1468,7 @@ def Message_isTrailerField(*args) -> "bool":
 Message_isTrailerField = _quickfix.Message_isTrailerField
 
 
-def identifyType(message: 'std::string const &') -> "std::string &":
+def identifyType(message: 'std::string const &') -> "MsgType":
     return _quickfix.identifyType(message)
 identifyType = _quickfix.identifyType
 class Group(FieldMap):
@@ -38884,7 +38884,7 @@ class Session(_object):
 Session_swigregister = _quickfix.Session_swigregister
 Session_swigregister(Session)
 
-def Session_sendToTarget(*args) -> "std::string &, std::string &":
+def Session_sendToTarget(*args) -> "bool":
     return _quickfix.Session_sendToTarget(*args)
 Session_sendToTarget = _quickfix.Session_sendToTarget
 
@@ -38896,7 +38896,7 @@ def Session_doesSessionExist(arg2: 'SessionID') -> "bool":
     return _quickfix.Session_doesSessionExist(arg2)
 Session_doesSessionExist = _quickfix.Session_doesSessionExist
 
-def Session_lookupSession(*args) -> "std::string &":
+def Session_lookupSession(*args) -> "FIX::Session *":
     return _quickfix.Session_lookupSession(*args)
 Session_lookupSession = _quickfix.Session_lookupSession
 

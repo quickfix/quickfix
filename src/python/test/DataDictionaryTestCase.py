@@ -111,11 +111,11 @@ class DataDictionaryTestCase(unittest.TestCase):
         self.object.addFieldName(11, "ClOrdID")
         self.object.addFieldName(8, "BeginString")
 
-        # self.assertEqual("Account", self.object.getFieldName(1, "")[0])
+        self.assertEqual("Account", self.object.getFieldName(1, "")[0])
         self.assertEqual(1, self.object.getFieldTag("Account", 0)[0])
-        # self.assertEqual("ClOrdID", self.object.getFieldName(11, "")[0])
+        self.assertEqual("ClOrdID", self.object.getFieldName(11, "")[0])
         self.assertEqual(11, self.object.getFieldTag("ClOrdID", 0)[0])
-        # self.assertEqual("BeginString", self.object.getFieldName(8, "")[0])
+        self.assertEqual("BeginString", self.object.getFieldName(8, "")[0])
         self.assertEqual(8, self.object.getFieldTag("BeginString", 0)[0])
 
     def test_addValueName(self):

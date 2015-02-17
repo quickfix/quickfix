@@ -1,3 +1,5 @@
+%include ../quickfix.i
+
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)PyBytes_AsString($input));
@@ -9,21 +11,21 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyBytes_FromString($1->c_str()) );
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyBytes_FromString($1->c_str()) );
   }
-}    
-        
-%typemap(in) int& (int temp) {
-  SWIG_AsVal_int($input, &temp);   
+}
+
+%typemap(in) long& (long temp) {
+  SWIG_AsVal_long($input, &temp);
   $1 = &temp;
-}    
-     
-%typemap(argout) int& {
-  if( std::string("$1_type") == "int &" )
+}
+
+%typemap(argout) long& {
+  if( std::string("$1_type") == "long &" )
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );    
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );
   }
 }
 #endif
@@ -44,8 +46,6 @@
   pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
   *pDD = *(*$1);
 }
-
-%include ../quickfix.i
 
 %pythoncode %{
 #ifdef SWIGPYTHON
