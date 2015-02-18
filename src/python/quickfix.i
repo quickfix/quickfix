@@ -1,17 +1,41 @@
 %include ../quickfix.i
+%include <Exceptions.h>
+%include <Field.h>
+%include <FieldMap.h>
+%include <Message.h>
+%include <Group.h>
+%include <Fields.h>
+%include <FixFields.h>
+%include <Values.h>
+%include <FixValues.h>
+%include <SessionID.h>
+%include <Dictionary.h>
+%include <SessionSettings.h>
+%include <Session.h>
+%include <SessionID.h>
+%include <Log.h>
+%include <FileLog.h>
+%include <MessageStore.h>
+%include <FileStore.h>
+%include <Application.h>
+%include <Initiator.h>
+%include <SocketInitiator.h>
+%include <Acceptor.h>
+%include <SocketAcceptor.h>
+%include <DataDictionary.h>
 
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)PyUnicode_AsUTF8($input));
   $1 = &temp;
-}    
-       
+}
+
 %typemap(argout) std::string& {
   if( std::string("$1_type") == "std::string &" )
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString($1->c_str()) );
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyBytes_FromString($1->c_str()) );
   }
 }
 
@@ -224,31 +248,6 @@ def start(self):
   }
 #endif
 }
-
-%include <Exceptions.h>
-%include <Field.h>
-%include <FieldMap.h>
-%include <Message.h>
-%include <Group.h>
-%include <Fields.h>
-%include <FixFields.h>
-%include <Values.h>
-%include <FixValues.h>
-%include <SessionID.h>
-%include <Dictionary.h>
-%include <SessionSettings.h>
-%include <Session.h>
-%include <SessionID.h>
-%include <Log.h>
-%include <FileLog.h>
-%include <MessageStore.h>
-%include <FileStore.h>
-%include <Application.h>
-%include <Initiator.h>
-%include <SocketInitiator.h>
-%include <Acceptor.h>
-%include <SocketAcceptor.h>
-%include <DataDictionary.h>
 
 %pythoncode %{
 #ifdef SWIGPYTHON
