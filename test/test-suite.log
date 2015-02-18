@@ -1,5 +1,5 @@
 ==========================================
-   QuickFIX 1.14.3: test/test-suite.log
+   QuickFIX 1.15.0: test/test-suite.log
 ==========================================
 
 # TOTAL: 1
@@ -20,8 +20,18 @@ at: no process found
 <ut>
   <output>
 C++/test/FieldConvertorsTestCase.cpp:114: error: Failure in integerConvertTo: Expected -2147483648 but was -00
-FAILURE: 1 out of 186 tests failed (1 failures).
-Test time: 10.73 seconds.
+Configuration failed: Unable to connect to database
+C++/test/PostgreSQLStoreTestCase.cpp:83: error: Failure in setGet: Unhandled exception: Configuration failed: Unable to connect to database
+Configuration failed: Unable to connect to database
+C++/test/PostgreSQLStoreTestCase.cpp:88: error: Failure in setGetWithQuote: Unhandled exception: Configuration failed: Unable to connect to database
+Configuration failed: Unable to connect to database
+C++/test/PostgreSQLStoreTestCase.cpp:93: error: Failure in other: Unhandled exception: Configuration failed: Unable to connect to database
+Configuration failed: Unable to connect to database
+C++/test/PostgreSQLStoreTestCase.cpp:98: error: Failure in reload: Unhandled exception: Configuration failed: Unable to connect to database
+Configuration failed: Unable to connect to database
+C++/test/PostgreSQLStoreTestCase.cpp:103: error: Failure in refresh: Unhandled exception: Configuration failed: Unable to connect to database
+FAILURE: 6 out of 191 tests failed (6 failures).
+Test time: 10.77 seconds.
   </output>
 </ut>
 

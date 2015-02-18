@@ -26,7 +26,7 @@
 
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)PyUnicode_AsUTF8($input));
+  temp = std::string((char*)PyBytes_AsString($input));
   $1 = &temp;
 }
 
@@ -35,7 +35,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyBytes_FromString($1->c_str()) );
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString($1->c_str()) );
   }
 }
 
@@ -66,7 +66,7 @@
 %typemap(argout) FIX::DataDictionary const *& {
   void* argp;
   FIX::DataDictionary* pDD = 0;
-  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+  int res = SWIG_ConvertPtr($input, &argp, $1_descriptor, 0 );
   pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
   *pDD = *(*$1);
 }
@@ -258,7 +258,7 @@ class SocketInitiator(SocketInitiatorBase):
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):
-    if logFactory == None:
+    if logFactory is None:
       SocketInitiatorBase.__init__(self, application, storeFactory, settings)
     else:
       SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
@@ -275,7 +275,7 @@ class SocketAcceptor(SocketAcceptorBase):
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):
-    if logFactory == None:
+    if logFactory is None:
       SocketAcceptorBase.__init__(self, application, storeFactory, settings)
     else:
       SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
