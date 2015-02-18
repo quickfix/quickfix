@@ -1,3 +1,5 @@
+#ifdef SWIGPYTHON
+
 %include ../quickfix.i
 %include <Exceptions.h>
 %include <Field.h>
@@ -24,7 +26,8 @@
 %include <SocketAcceptor.h>
 %include <DataDictionary.h>
 
-#ifdef SWIGPYTHON
+%apply std::string& INOUT {std::string&};
+
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)PyBytes_AsString($input));
   $1 = &temp;
@@ -296,3 +299,5 @@ class SocketAcceptor(SocketAcceptorBase):
       sigaction( SIGINT, &new_action, &old_action );
 #endif
 %}
+
+%include "quickfix.i"
