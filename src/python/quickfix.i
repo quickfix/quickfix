@@ -1,30 +1,6 @@
 #ifdef SWIGPYTHON
 
 %include ../quickfix.i
-%include <Exceptions.h>
-%include <Field.h>
-%include <FieldMap.h>
-%include <Message.h>
-%include <Group.h>
-%include <Fields.h>
-%include <FixFields.h>
-%include <Values.h>
-%include <FixValues.h>
-%include <SessionID.h>
-%include <Dictionary.h>
-%include <SessionSettings.h>
-%include <Session.h>
-%include <SessionID.h>
-%include <Log.h>
-%include <FileLog.h>
-%include <MessageStore.h>
-%include <FileStore.h>
-%include <Application.h>
-%include <Initiator.h>
-%include <SocketInitiator.h>
-%include <Acceptor.h>
-%include <SocketAcceptor.h>
-%include <DataDictionary.h>
 
 %apply std::string& INOUT {std::string&};
 
@@ -251,6 +227,31 @@ def start(self):
   }
 #endif
 }
+
+%include <Exceptions.h>
+%include <Field.h>
+%include <FieldMap.h>
+%include <Message.h>
+%include <Group.h>
+%include <Fields.h>
+%include <FixFields.h>
+%include <Values.h>
+%include <FixValues.h>
+%include <SessionID.h>
+%include <Dictionary.h>
+%include <SessionSettings.h>
+%include <Session.h>
+%include <SessionID.h>
+%include <Log.h>
+%include <FileLog.h>
+%include <MessageStore.h>
+%include <FileStore.h>
+%include <Application.h>
+%include <Initiator.h>
+%include <SocketInitiator.h>
+%include <Acceptor.h>
+%include <SocketAcceptor.h>
+%include <DataDictionary.h>
 
 %pythoncode %{
 #ifdef SWIGPYTHON
