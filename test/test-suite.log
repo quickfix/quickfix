@@ -3,10 +3,10 @@
 ==========================================
 
 # TOTAL: 1
-# PASS:  1
+# PASS:  0
 # SKIP:  0
 # XFAIL: 0
-# FAIL:  0
+# FAIL:  1
 # XPASS: 0
 # ERROR: 0
 
@@ -31,6 +31,7 @@ C++/test/PostgreSQLStoreTestCase.cpp:98: error: Failure in reload: Unhandled exc
 Configuration failed: Unable to connect to database
 C++/test/PostgreSQLStoreTestCase.cpp:103: error: Failure in refresh: Unhandled exception: Configuration failed: Unable to connect to database
 FAILURE: 6 out of 191 tests failed (6 failures).
-Test time: 10.77 seconds.
+Test time: 10.76 seconds.
   </output>
 </ut>
+

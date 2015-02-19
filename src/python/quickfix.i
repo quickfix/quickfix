@@ -1,6 +1,6 @@
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)PyUnicode_AsEncodedString($input, "ASCII", "strict"));
+  temp = std::string((char*)PyUnicode_AsEncodedString($input, "UTF-8", "Error ~"));
   $1 = &temp;
 }
 
