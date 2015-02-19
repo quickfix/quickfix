@@ -1,4 +1,4 @@
-:test-result: FAIL
-:global-test-result: FAIL
-:recheck: yes
-:copy-in-global-log: yes
+:test-result: PASS
+:global-test-result: PASS
+:recheck: no
+:copy-in-global-log: no
