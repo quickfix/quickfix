@@ -36,6 +36,7 @@ class GeneratorPython
   def front
     @f.puts "import quickfix as fix"
     @f.puts
+    @f.puts
   end
 
   def field(name, number)
@@ -58,13 +59,14 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "def __init__(self):"
     @depth += 1
-    @f.puts tabs + "fix.Message.__init__(self)"
-    @f.puts tabs + "self.getHeader().setField( fix.BeginString(" + "\"" + @beginstring + "\"" + ") )"
+    @f.puts tabs + "super(Message, self).__init__()"
+    @f.puts tabs + "self.getHeader().setField(fix.BeginString(" + "\"" + @beginstring + "\"" + "))"
     if( @verid != "0" )
-      @f.puts tabs + "self.getHeader().setField( fix.ApplVerID(" + "\"" + @verid + "\"" +") )"
+      @f.puts tabs + "self.getHeader().setField(fix.ApplVerID(" + "\"" + @verid + "\"" +"))"
     end
     @depth -= 1
     @depth -= 1
+    @f.puts
   end
 
   def baseMessageEnd
@@ -72,8 +74,6 @@ class GeneratorPython
 
   def groupStart(name, number, delim, order)
     return if @messageStarted == false
-
-    @f.puts
 
     @depth += 1
     @f.puts tabs + "class " + name + "(fix.Group):"
@@ -86,6 +86,7 @@ class GeneratorPython
     @f.puts tabs + "fix.Group.__init__(self, #{number}, #{delim}, order)"
     @depth -= 1
     @depth -= 1
+    @f.puts
   end
 
   def groupEnd
@@ -101,10 +102,11 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "def __init__(self):"
     @depth += 1
-    @f.puts tabs + "Message.__init__(self)"
-    @f.puts tabs + "self.getHeader().setField( fix.MsgType(" + "\"" + msgtype + "\") )"
+    @f.puts tabs + "super(#{name}, self).__init__()"
+    @f.puts tabs + "self.getHeader().setField(fix.MsgType(" + "\"" + msgtype + "\"))"
     @depth -= 1
     @depth -= 1
+    @f.puts
   end
 
   def messageEnd
@@ -146,11 +148,11 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "if data is None:"
     @depth += 1
-    @f.puts tabs + "quickfix.#{fieldType(name, type)}Field.__init__(self, #{number})"
+    @f.puts tabs + "super(#{name}, self).__init__(#{number})"
     @depth -= 1
     @f.puts tabs + "else:"
     @depth += 1
-    @f.puts tabs + "quickfix.#{fieldType(name, type)}Field.__init__(self, #{number}, data)"
+    @f.puts tabs + "super(#{name}, self).__init__(#{number}, data)"
     @depth -= 1
     @depth -= 1
     @depth -= 1

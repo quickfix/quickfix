@@ -1,44 +1,52 @@
 import quickfix as fix
 
+
 class Message(fix.Message):
     def __init__(self):
-        fix.Message.__init__(self)
-        self.getHeader().setField( fix.BeginString("FIX.4.2") )
+        super(Message, self).__init__()
+        self.getHeader().setField(fix.BeginString("FIX.4.2"))
+
 
 class Heartbeat(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("0") )
+        super(Heartbeat, self).__init__()
+        self.getHeader().setField(fix.MsgType("0"))
+
 
 class TestRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("1") )
+        super(TestRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("1"))
+
 
 class ResendRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("2") )
+        super(ResendRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("2"))
+
 
 class Reject(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("3") )
+        super(Reject, self).__init__()
+        self.getHeader().setField(fix.MsgType("3"))
+
 
 class SequenceReset(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("4") )
+        super(SequenceReset, self).__init__()
+        self.getHeader().setField(fix.MsgType("4"))
+
 
 class Logout(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("5") )
+        super(Logout, self).__init__()
+        self.getHeader().setField(fix.MsgType("5"))
+
 
 class IOI(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("6") )
+        super(IOI, self).__init__()
+        self.getHeader().setField(fix.MsgType("6"))
 
     class NoIOIQualifiers(fix.Group):
         def __init__(self):
@@ -55,15 +63,17 @@ class IOI(Message):
             order[2] = 0
             fix.Group.__init__(self, 215, 216, order)
 
+
 class Advertisement(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("7") )
+        super(Advertisement, self).__init__()
+        self.getHeader().setField(fix.MsgType("7"))
+
 
 class ExecutionReport(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("8") )
+        super(ExecutionReport, self).__init__()
+        self.getHeader().setField(fix.MsgType("8"))
 
     class NoContraBrokers(fix.Group):
         def __init__(self):
@@ -75,15 +85,17 @@ class ExecutionReport(Message):
             order[4] = 0
             fix.Group.__init__(self, 382, 375, order)
 
+
 class OrderCancelReject(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("9") )
+        super(OrderCancelReject, self).__init__()
+        self.getHeader().setField(fix.MsgType("9"))
+
 
 class Logon(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("A") )
+        super(Logon, self).__init__()
+        self.getHeader().setField(fix.MsgType("A"))
 
     class NoMsgTypes(fix.Group):
         def __init__(self):
@@ -93,10 +105,11 @@ class Logon(Message):
             order[2] = 0
             fix.Group.__init__(self, 384, 372, order)
 
+
 class News(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("B") )
+        super(News, self).__init__()
+        self.getHeader().setField(fix.MsgType("B"))
 
     class NoRoutingIDs(fix.Group):
         def __init__(self):
@@ -139,11 +152,12 @@ class News(Message):
             order[2] = 355
             order[3] = 0
             fix.Group.__init__(self, 33, 58, order)
+
 
 class Email(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("C") )
+        super(Email, self).__init__()
+        self.getHeader().setField(fix.MsgType("C"))
 
     class NoRoutingIDs(fix.Group):
         def __init__(self):
@@ -187,10 +201,11 @@ class Email(Message):
             order[3] = 0
             fix.Group.__init__(self, 33, 58, order)
 
+
 class NewOrderSingle(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("D") )
+        super(NewOrderSingle, self).__init__()
+        self.getHeader().setField(fix.MsgType("D"))
 
     class NoAllocs(fix.Group):
         def __init__(self):
@@ -207,10 +222,11 @@ class NewOrderSingle(Message):
             order[1] = 0
             fix.Group.__init__(self, 386, 336, order)
 
+
 class NewOrderList(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("E") )
+        super(NewOrderList, self).__init__()
+        self.getHeader().setField(fix.MsgType("E"))
 
     class NoOrders(fix.Group):
         def __init__(self):
@@ -307,15 +323,17 @@ class NewOrderList(Message):
                 order[1] = 0
                 fix.Group.__init__(self, 386, 336, order)
 
+
 class OrderCancelRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("F") )
+        super(OrderCancelRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("F"))
+
 
 class OrderCancelReplaceRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("G") )
+        super(OrderCancelReplaceRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("G"))
 
     class NoAllocs(fix.Group):
         def __init__(self):
@@ -332,15 +350,17 @@ class OrderCancelReplaceRequest(Message):
             order[1] = 0
             fix.Group.__init__(self, 386, 336, order)
 
+
 class OrderStatusRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("H") )
+        super(OrderStatusRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("H"))
+
 
 class Allocation(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("J") )
+        super(Allocation, self).__init__()
+        self.getHeader().setField(fix.MsgType("J"))
 
     class NoOrders(fix.Group):
         def __init__(self):
@@ -401,25 +421,29 @@ class Allocation(Message):
                 order[3] = 0
                 fix.Group.__init__(self, 136, 137, order)
 
+
 class ListCancelRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("K") )
+        super(ListCancelRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("K"))
+
 
 class ListExecute(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("L") )
+        super(ListExecute, self).__init__()
+        self.getHeader().setField(fix.MsgType("L"))
+
 
 class ListStatusRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("M") )
+        super(ListStatusRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("M"))
+
 
 class ListStatus(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("N") )
+        super(ListStatus, self).__init__()
+        self.getHeader().setField(fix.MsgType("N"))
 
     class NoOrders(fix.Group):
         def __init__(self):
@@ -437,20 +461,23 @@ class ListStatus(Message):
             order[10] = 0
             fix.Group.__init__(self, 73, 11, order)
 
+
 class AllocationInstructionAck(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("P") )
+        super(AllocationInstructionAck, self).__init__()
+        self.getHeader().setField(fix.MsgType("P"))
+
 
 class DontKnowTrade(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("Q") )
+        super(DontKnowTrade, self).__init__()
+        self.getHeader().setField(fix.MsgType("Q"))
+
 
 class QuoteRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("R") )
+        super(QuoteRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("R"))
 
     class NoRelatedSym(fix.Group):
         def __init__(self):
@@ -489,20 +516,23 @@ class QuoteRequest(Message):
             order[31] = 0
             fix.Group.__init__(self, 146, 55, order)
 
+
 class Quote(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("S") )
+        super(Quote, self).__init__()
+        self.getHeader().setField(fix.MsgType("S"))
+
 
 class SettlementInstructions(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("T") )
+        super(SettlementInstructions, self).__init__()
+        self.getHeader().setField(fix.MsgType("T"))
+
 
 class MarketDataRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("V") )
+        super(MarketDataRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("V"))
 
     class NoMDEntryTypes(fix.Group):
         def __init__(self):
@@ -537,10 +567,11 @@ class MarketDataRequest(Message):
             order[20] = 0
             fix.Group.__init__(self, 146, 55, order)
 
+
 class MarketDataSnapshotFullRefresh(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("W") )
+        super(MarketDataSnapshotFullRefresh, self).__init__()
+        self.getHeader().setField(fix.MsgType("W"))
 
     class NoMDEntries(fix.Group):
         def __init__(self):
@@ -578,10 +609,11 @@ class MarketDataSnapshotFullRefresh(Message):
             order[30] = 0
             fix.Group.__init__(self, 268, 269, order)
 
+
 class MarketDataIncrementalRefresh(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("X") )
+        super(MarketDataIncrementalRefresh, self).__init__()
+        self.getHeader().setField(fix.MsgType("X"))
 
     class NoMDEntries(fix.Group):
         def __init__(self):
@@ -645,15 +677,17 @@ class MarketDataIncrementalRefresh(Message):
             order[56] = 0
             fix.Group.__init__(self, 268, 279, order)
 
+
 class MarketDataRequestReject(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("Y") )
+        super(MarketDataRequestReject, self).__init__()
+        self.getHeader().setField(fix.MsgType("Y"))
+
 
 class QuoteCancel(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("Z") )
+        super(QuoteCancel, self).__init__()
+        self.getHeader().setField(fix.MsgType("Z"))
 
     class NoQuoteEntries(fix.Group):
         def __init__(self):
@@ -681,15 +715,17 @@ class QuoteCancel(Message):
             order[20] = 0
             fix.Group.__init__(self, 295, 55, order)
 
+
 class QuoteStatusRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("a") )
+        super(QuoteStatusRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("a"))
+
 
 class QuoteAcknowledgement(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("b") )
+        super(QuoteAcknowledgement, self).__init__()
+        self.getHeader().setField(fix.MsgType("b"))
 
     class NoQuoteSets(fix.Group):
         def __init__(self):
@@ -746,10 +782,11 @@ class QuoteAcknowledgement(Message):
                 order[21] = 0
                 fix.Group.__init__(self, 295, 299, order)
 
+
 class SecurityDefinitionRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("c") )
+        super(SecurityDefinitionRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("c"))
 
     class NoRelatedSym(fix.Group):
         def __init__(self):
@@ -778,11 +815,12 @@ class SecurityDefinitionRequest(Message):
             order[21] = 318
             order[22] = 0
             fix.Group.__init__(self, 146, 311, order)
+
 
 class SecurityDefinition(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("d") )
+        super(SecurityDefinition, self).__init__()
+        self.getHeader().setField(fix.MsgType("d"))
 
     class NoRelatedSym(fix.Group):
         def __init__(self):
@@ -812,30 +850,35 @@ class SecurityDefinition(Message):
             order[22] = 0
             fix.Group.__init__(self, 146, 311, order)
 
+
 class SecurityStatusRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("e") )
+        super(SecurityStatusRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("e"))
+
 
 class SecurityStatus(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("f") )
+        super(SecurityStatus, self).__init__()
+        self.getHeader().setField(fix.MsgType("f"))
+
 
 class TradingSessionStatusRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("g") )
+        super(TradingSessionStatusRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("g"))
+
 
 class TradingSessionStatus(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("h") )
+        super(TradingSessionStatus, self).__init__()
+        self.getHeader().setField(fix.MsgType("h"))
+
 
 class MassQuote(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("i") )
+        super(MassQuote, self).__init__()
+        self.getHeader().setField(fix.MsgType("i"))
 
     class NoQuoteSets(fix.Group):
         def __init__(self):
@@ -908,15 +951,17 @@ class MassQuote(Message):
                 order[36] = 0
                 fix.Group.__init__(self, 295, 299, order)
 
+
 class BusinessMessageReject(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("j") )
+        super(BusinessMessageReject, self).__init__()
+        self.getHeader().setField(fix.MsgType("j"))
+
 
 class BidRequest(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("k") )
+        super(BidRequest, self).__init__()
+        self.getHeader().setField(fix.MsgType("k"))
 
     class NoBidDescriptors(fix.Group):
         def __init__(self):
@@ -948,10 +993,11 @@ class BidRequest(Message):
             order[7] = 0
             fix.Group.__init__(self, 420, 66, order)
 
+
 class BidResponse(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("l") )
+        super(BidResponse, self).__init__()
+        self.getHeader().setField(fix.MsgType("l"))
 
     class NoBidComponents(fix.Group):
         def __init__(self):
@@ -974,10 +1020,11 @@ class BidResponse(Message):
             order[15] = 0
             fix.Group.__init__(self, 420, 12, order)
 
+
 class ListStrikePrice(Message):
     def __init__(self):
-        Message.__init__(self)
-        self.getHeader().setField( fix.MsgType("m") )
+        super(ListStrikePrice, self).__init__()
+        self.getHeader().setField(fix.MsgType("m"))
 
     class NoStrikes(fix.Group):
         def __init__(self):
