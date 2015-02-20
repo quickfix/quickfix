@@ -148,11 +148,7 @@ class DataDictionaryTestCase(unittest.TestCase):
         message.setField(testReqID)
         message.setField(TooHigh("value"))
 
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
         self.object.addField(501)
         self.object.addMsgField(fix.MsgType_TestRequest, 501)
@@ -163,11 +159,7 @@ class DataDictionaryTestCase(unittest.TestCase):
             self.assertTrue(0)
 
         message.setField(5000, "value")
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
         self.object.checkUserDefinedFields(False)
         try:
@@ -179,12 +171,7 @@ class DataDictionaryTestCase(unittest.TestCase):
     def test_checkHasValue(self):
         message = fix40.TestRequest()
         message.setField(fix.TestReqID())
-
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
     def test_checkIsInMessage(self):
         self.object.setVersion(fix.BeginString_FIX40)
@@ -209,11 +196,7 @@ class DataDictionaryTestCase(unittest.TestCase):
             self.assertTrue(0)
 
         message.setField(fix.Symbol("MSFT"))
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
     def test_checkHasRequired(self):
         self.object.setVersion(fix.BeginString_FIX40)
@@ -233,18 +216,10 @@ class DataDictionaryTestCase(unittest.TestCase):
             fix.MsgType_TestRequest, fix.TestReqID().getTag())
 
         message = fix40.TestRequest()
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
         message.getHeader().setField(fix.SenderCompID("SENDER"))
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
         message.setField(fix.TestReqID("1"))
         try:
@@ -255,11 +230,7 @@ class DataDictionaryTestCase(unittest.TestCase):
 
         message.getHeader().removeField(fix.SenderCompID().getTag())
         message.setField(fix.SenderCompID("SENDER"))
-        try:
-            self.object.validate(message)
-            self.assertTrue(0)
-        except fix.Exception:
-            self.assertTrue(1)
+        self.assertRaises(fix.Exception, self.object.validate, message)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

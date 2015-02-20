@@ -24,4 +24,4 @@ class SessionSettingsTestCase(unittest.TestCase):
         self.assertRaises(fix.ConfigError, self.object.set, sessionID, dictionary)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
