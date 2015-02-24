@@ -1,9 +1,11 @@
 #ifdef SWIGPYTHON
+%feature("autodoc", "3");
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)PyUnicode_AsEncodedString($input, "UTF-8", "Error ~"));
   $1 = &temp;
 }
 
+%feature("autodoc", "3");
 %typemap(argout) std::string& {
   if( std::string("$1_type") == "std::string &" )
   {
@@ -13,11 +15,13 @@
   }
 }
 
+%feature("autodoc", "3");
 %typemap(in) int& (int temp) {
   SWIG_AsVal_int($input, &temp);
   $1 = &temp;
 }
 
+%feature("autodoc", "3");
 %typemap(argout) int& {
   if( std::string("$1_type") == "int &" )
   {
@@ -28,15 +32,18 @@
 }
 #endif
 
+%feature("autodoc", "3");
 %typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
   $1 = new FIX::DataDictionary*[1];
   *$1 = temp;
 }
 
+%feature("autodoc", "3");
 %typemap(free) FIX::DataDictionary const *& {
   delete[] temp;
 }
 
+%feature("autodoc", "3");
 %typemap(argout) FIX::DataDictionary const *& {
   void* argp;
   FIX::DataDictionary* pDD = 0;
@@ -59,16 +66,19 @@ def _quickfix_start_thread(i_or_a):
 #endif
 %}
 
+%feature("autodoc", "3");
 %feature("shadow") FIX::Initiator::start() %{
 def start(self):
   thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
 
+%feature("autodoc", "3");
 %feature("shadow") FIX::Acceptor::start() %{
 def start(self):
   thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::onCreate {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -81,6 +91,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::onLogon {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -93,6 +104,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::onLogout {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -105,6 +117,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::toAdmin {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -117,6 +130,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::toApp {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -149,6 +163,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::fromAdmin {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
@@ -187,6 +202,7 @@ def start(self):
 #endif
 }
 
+%feature("autodoc", "3");
 %feature("director:except") FIX::Application::fromApp {
 #ifdef SWIGPYTHON
   if( $error != NULL ) {
