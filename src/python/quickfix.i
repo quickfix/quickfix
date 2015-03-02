@@ -1,7 +1,7 @@
 #ifdef SWIGPYTHON
 %feature("autodoc", "3");
 %typemap(in) std::string& (std::string temp) {
-  temp = std::string((char*)PyUnicode_AsEncodedString($input, "UTF-8", "Error ~"));
+  temp = std::string((char*)PyUnicode_AsEncodedString($input, "ASCII", "strict"));
   $1 = &temp;
 }
 
