@@ -95,8 +95,6 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
   const bool isNegative = t < 0;
   char* p = buf + len;
 
-  *--p = '\0';
-  
   unsigned_int number = UNSIGNED_VALUE_OF( t );
 
   while( number > 99 )
@@ -125,16 +123,10 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
 
 inline char* integer_to_string_padded
 ( char* buf, const size_t len, signed_int t,
-  const size_t width = 0,
   const char paddingChar = '0')
 {
   char* p = integer_to_string( buf, len, t );
-  if( !width ) 
-    return p;
-
-  const char* stop_p = buf + len - width - 1;
-  if( stop_p < buf ) stop_p = buf;
-  while( p > stop_p )
+  while( p > buf )
     *--p = paddingChar;
   return p;
 }
@@ -155,10 +147,10 @@ struct IntConvertor
   {
     // buffer is big enough for significant digits and extra digit,
     // minus and null
-    char buffer[std::numeric_limits<signed_int>::digits10 + 3];
+    char buffer[std::numeric_limits<signed_int>::digits10 + 2];
     const char* const start
       = integer_to_string( buffer, sizeof (buffer), value );
-    return std::string( start, buffer + sizeof (buffer) - start - 1 );
+    return std::string( start, buffer + sizeof (buffer) - start );
   }
 
   static bool convert(     
@@ -217,12 +209,12 @@ struct CheckSumConvertor
   throw( FieldConvertError )
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
-    char result[4];
-    if( integer_to_string_padded(result, sizeof(result), value, 3) != result )
+    char result[3];
+    if( integer_to_string_padded(result, sizeof(result), value) != result )
     {
       throw FieldConvertError();
     }
-    return std::string( result, 3 );
+    return std::string( result, sizeof( result ) );
   }
 
   static bool convert( const std::string& value, int& result )
@@ -504,33 +496,34 @@ struct UtcTimeStampConvertor
                               bool showMilliseconds = false )
   throw( FieldConvertError )
   {
-    char result[ 18+4 ];
     int year, month, day, hour, minute, second, millis;
 
     value.getYMD( year, month, day );
     value.getHMS( hour, minute, second, millis );
 
-    integer_to_string_padded( result, 5, year, 4 );
-    integer_to_string_padded( result + 4, 3, month, 2 );
-    integer_to_string_padded( result + 6, 3, day, 2 );
+    char result[ 17+4 ];
+
+    integer_to_string_padded( result, 4, year );
+    integer_to_string_padded( result + 4, 2, month );
+    integer_to_string_padded( result + 6, 2, day );
     result[8]  = '-';
-    integer_to_string_padded( result + 9, 3, hour, 2 );
+    integer_to_string_padded( result + 9, 2, hour );
     result[11] = ':';
-    integer_to_string_padded( result + 12, 3, minute, 2 );
+    integer_to_string_padded( result + 12, 2, minute );
     result[14] = ':';
-    integer_to_string_padded( result + 15, 3, second, 2 );
+    integer_to_string_padded( result + 15, 2, second );
 
     if( showMilliseconds )
     {
       result[17] = '.';
-      if( integer_to_string_padded ( result + 18, 4, millis, 3 )
+      if( integer_to_string_padded ( result + 18, 3, millis )
           != result + 18 )
       {
         throw FieldConvertError();
       }
     }
 
-    return result;
+    return std::string( result, showMilliseconds ? sizeof( result ) : 17 );
   }
 
   static UtcTimeStamp convert( const std::string& value,
@@ -627,26 +620,26 @@ struct UtcTimeOnlyConvertor
                               bool showMilliseconds = false)
   throw( FieldConvertError )
   {
-    char result[ 9+4 ];
     int hour, minute, second, millis;
-
     value.getHMS( hour, minute, second, millis );
 
-    integer_to_string_padded ( result, 3, hour, 2 );
+    char result[ 8+4 ];
+
+    integer_to_string_padded ( result, 2, hour );
     result[2] = ':';
-    integer_to_string_padded ( result + 3, 3, minute,  2 );
+    integer_to_string_padded ( result + 3, 2, minute );
     result[5] = ':';
-    integer_to_string_padded ( result + 6, 3, second,  2 );
+    integer_to_string_padded ( result + 6, 2, second );
 
     if( showMilliseconds )
     {
       result[8] = '.';
-      if( integer_to_string_padded ( result + 9, 4, millis, 3 )
+      if( integer_to_string_padded ( result + 9, 3, millis )
           != result + 9 )
           throw FieldConvertError();
     }
 
-    return result;
+    return std::string( result, showMilliseconds ? sizeof( result ) : 8 );
   }
 
   static UtcTimeOnly convert( const std::string& value )
@@ -719,15 +712,16 @@ struct UtcDateConvertor
   static std::string convert( const UtcDate& value )
   throw( FieldConvertError )
   {
-    char result[ 9 ];
     int year, month, day;
-
     value.getYMD( year, month, day );
 
-    integer_to_string_padded( result, 5, year, 4 );
-    integer_to_string_padded( result + 4, 3, month, 2 );
-    integer_to_string_padded( result + 6, 3, day, 2 );
-    return result;
+    char result[ 8 ];
+
+    integer_to_string_padded( result, 4, year );
+    integer_to_string_padded( result + 4, 2, month );
+    integer_to_string_padded( result + 6, 2, day );
+
+    return std::string( result, sizeof( result ) );
   }
 
   static UtcDate convert( const std::string& value )
