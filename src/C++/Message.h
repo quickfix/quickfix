@@ -37,12 +37,6 @@
 
 namespace FIX
 {
-static int const headerOrder[] =
-  {
-    FIELD::BeginString,
-    FIELD::BodyLength,
-    FIELD::MsgType
-  };
 
 class Header : public FieldMap 
 {

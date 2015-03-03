@@ -30,6 +30,14 @@
 
 namespace FIX
 {
+
+int const headerOrder[] =
+{
+  FIELD::BeginString,
+  FIELD::BodyLength,
+  FIELD::MsgType
+};
+
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
@@ -273,13 +281,6 @@ throw( InvalidMessage )
   std::string::size_type pos = 0;
   int count = 0;
   std::string msg;
-
-  static int const headerOrder[] =
-  {
-    FIELD::BeginString,
-    FIELD::BodyLength,
-    FIELD::MsgType
-  };
 
   field_type type = header;
 
