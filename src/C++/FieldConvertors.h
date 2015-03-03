@@ -101,14 +101,15 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
   {
     unsigned_int pos = number % 100;
     number /= 100;
-    p -= 2;
-    *(short*)(p) = *(short*)(digit_pairs + 2 * pos);
+
+    *--p = digit_pairs[2 * pos + 1];
+    *--p = digit_pairs[2 * pos];
   }
 
   if( number > 9 )
   {
-    p -= 2;
-    *(short*)(p) = *(short*)(digit_pairs + 2 * number);
+    *--p = digit_pairs[2 * number + 1];
+    *--p = digit_pairs[2 * number];
   }
   else
   {
