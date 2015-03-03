@@ -556,14 +556,20 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Special case for Signature which violates above assumption.
     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    // identify part of the message that should contain length field
+    const FieldMap * lengthFieldLocation = pGroup;
+    if( !lengthFieldLocation )
     {
-      const std::string& fieldLength = pGroup->getField( lenField );
-      soh = valueStart + atol( fieldLength.c_str() );
+      lengthFieldLocation = this;
+      if( isHeaderField( field ) )
+        lengthFieldLocation = &getHeader();
+      else if( isTrailerField( field ) )
+        lengthFieldLocation = &getTrailer();
     }
-    else if ( isSetField( lenField ) )
+
+    if ( lengthFieldLocation->isSetField( lenField ) )
     {
-      const std::string& fieldLength = getField( lenField );
+      const std::string& fieldLength = lengthFieldLocation->getField( lenField );
       soh = valueStart + atol( fieldLength.c_str() );
     }
   }
