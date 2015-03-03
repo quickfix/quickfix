@@ -514,14 +514,6 @@ TEST(addRemoveGroup)
   CHECK_EQUAL( 2, noOrders );
 
   object.removeGroup( group );
-  CHECK( object.hasGroup(1, group) );
-  CHECK( !object.hasGroup(2, group) );
-  CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 1lu, object.groupCount(FIX::FIELD::NoOrders) );
-  object.getField( noOrders );
-  CHECK_EQUAL( 1, noOrders );
-
-  object.removeGroup( group );
   CHECK( !object.hasGroup(1, group) );
   CHECK( !object.hasGroup(2, group) );
   CHECK( !object.hasGroup(3, group) );
