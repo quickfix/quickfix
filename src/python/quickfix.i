@@ -269,38 +269,28 @@ def start(self):
 %pythoncode %{
 #ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
-  application = 0
-  storeFactory = 0
-  setting = 0
-  logFactory = 0
+    def __init__(self, application, storeFactory, settings, logFactory=None):
+        if logFactory is None:
+            super(SocketInitiator, self).__init__(application, storeFactory, settings)
+        else:
+            super(SocketInitiator, self).__init__(application, storeFactory, settings, logFactory)
 
-  def __init__(self, application, storeFactory, settings, logFactory=None):
-    if logFactory is None:
-      SocketInitiatorBase.__init__(self, application, storeFactory, settings)
-    else:
-      SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
-
-    self.application = application
-    self.storeFactory = storeFactory
-    self.settings = settings
-    self.logFactory = logFactory
+        self.application = application
+        self.storeFactory = storeFactory
+        self.settings = settings
+        self.logFactory = logFactory
 
 class SocketAcceptor(SocketAcceptorBase):
-  application = 0
-  storeFactory = 0
-  setting = 0
-  logFactory = 0
+    def __init__(self, application, storeFactory, settings, logFactory=None):
+        if logFactory is None:
+            super(SocketAcceptor, self).__init__(application, storeFactory, settings)
+        else:
+            super(SocketAcceptor, self).__init__(application, storeFactory, settings, logFactory)
 
-  def __init__(self, application, storeFactory, settings, logFactory=None):
-    if logFactory is None:
-      SocketAcceptorBase.__init__(self, application, storeFactory, settings)
-    else:
-      SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
-
-    self.application = application
-    self.storeFactory = storeFactory
-    self.settings = settings
-    self.logFactory = logFactory
+        self.application = application
+        self.storeFactory = storeFactory
+        self.settings = settings
+        self.logFactory = logFactory
 #endif
 %}
 
