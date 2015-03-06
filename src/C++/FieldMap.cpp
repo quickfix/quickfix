@@ -99,7 +99,7 @@ void FieldMap::removeGroup( int num, int field )
 
   if( vector.size() == 0 )
   {
-    m_groups.erase( field );
+    m_groups.erase( i );
     removeField( field );
   }
   else
@@ -111,7 +111,21 @@ void FieldMap::removeGroup( int num, int field )
 
 void FieldMap::removeGroup( int field )
 {
-  removeGroup( (int)groupCount(field), field );
+  Groups::iterator i = m_groups.find( field );
+  if ( i == m_groups.end() ) return;
+
+  removeField( field );
+
+  std::vector< FieldMap* > tmp;
+  tmp.swap( i->second );
+
+  m_groups.erase( i );
+
+  while ( !tmp.empty() )
+  {
+    delete tmp.back();
+    tmp.pop_back();
+  }
 }
 
 void FieldMap::removeField( int field )
