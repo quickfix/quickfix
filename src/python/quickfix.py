@@ -2472,8 +2472,6 @@ class Header(FieldMap):
     __del__ = lambda self: None
 Header_swigregister = _quickfix.Header_swigregister
 Header_swigregister(Header)
-cvar = _quickfix.cvar
-headerOrder = cvar.headerOrder
 
 class Trailer(FieldMap):
     """Proxy of C++ FIX::Trailer class"""
@@ -40350,6 +40348,7 @@ class SessionID(object):
     __del__ = lambda self: None
 SessionID_swigregister = _quickfix.SessionID_swigregister
 SessionID_swigregister(SessionID)
+cvar = _quickfix.cvar
 BeginString_FIXT11 = cvar.BeginString_FIXT11
 BeginString_FIX50 = cvar.BeginString_FIX50
 BeginString_FIX44 = cvar.BeginString_FIX44
@@ -47599,7 +47598,7 @@ class SocketAcceptor(SocketAcceptorBase):
         if logFactory is None:
             super(SocketAcceptor, self).__init__(application, storeFactory, settings)
         else:
-            super(SocketAcceptor, self).__init__(application, storeFactory, settings logFactory)
+            super(SocketAcceptor, self).__init__(application, storeFactory, settings, logFactory)
 
         self.application = application
         self.storeFactory = storeFactory
