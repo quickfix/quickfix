@@ -103,14 +103,25 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
   {
     unsigned_int pos = number % 100;
     number /= 100;
+#if defined(__x86_64) || defined(_M_X64) || defined(__i386) || defined(_M_IX86)
     p -= 2;
     *(short*)(p) = *(short*)(digit_pairs + 2 * pos);
+#else
+    *--p = digit_pairs[2 * pos + 1];
+    *--p = digit_pairs[2 * pos];
+#endif
   }
 
   if( number > 9 )
   {
+#if defined(__x86_64) || defined(_M_X64) || defined(__i386) || defined(_M_IX86)
     p -= 2;
     *(short*)(p) = *(short*)(digit_pairs + 2 * number);
+#else
+    unsigned_int pos = 2 * number;
+    *--p = digit_pairs[pos + 1];
+    *--p = digit_pairs[pos];
+#endif
   }
   else
   {
