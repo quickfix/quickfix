@@ -22,12 +22,13 @@
 #ifndef SHARED_ARRAY
 #define SHARED_ARRAY
 
+#include "config-all.h"
 #include "AtomicCount.h"
 
 namespace FIX
 {
   /// Shared array with atomic reference count
-#if defined(__x86_64) || defined(_M_X64) || defined(__i386) || defined(_M_IX86)
+#ifndef NO_UNALIGNED_ACCESS
   template<typename T>
   class shared_array
   {

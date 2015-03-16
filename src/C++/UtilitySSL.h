@@ -93,6 +93,9 @@
  * ====================================================================
  */
 
+#ifndef FIX_UTILITY_SSL_H
+#define FIX_UTILITY_SSL_H
+
 #ifdef _MSC_VER
 #include "stdafx.h"
 #else
@@ -111,9 +114,6 @@
 
 #include "openssl/err.h"
 #include "openssl/ssl.h" // SSL and SSL_CTX for SSL connections
-
-#ifndef FIX_UTILITY_SSL_H
-#define FIX_UTILITY_SSL_H
 
 namespace FIX {
 

@@ -114,6 +114,9 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_THREADEDSSLSOCKETINITIATOR_H
+#define FIX_THREADEDSSLSOCKETINITIATOR_H
+
 #ifdef _MSC_VER
 #include "stdafx.h"
 #else
@@ -121,9 +124,6 @@
 #endif
 
 #if (HAVE_SSL > 0)
-
-#ifndef FIX_THREADEDSSLSOCKETINITIATOR_H
-#define FIX_THREADEDSSLSOCKETINITIATOR_H
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4503 4355 4786 4290)

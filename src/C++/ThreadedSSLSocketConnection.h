@@ -113,6 +113,10 @@
 ** not clear to you.
 **
 ****************************************************************************/
+
+#ifndef FIX_THREADEDSSLSOCKETCONNECTION_H
+#define FIX_THREADEDSSLSOCKETCONNECTION_H
+
 #ifdef _MSC_VER
 #include "stdafx.h"
 #else
@@ -120,9 +124,6 @@
 #endif
 
 #if (HAVE_SSL > 0)
-
-#ifndef FIX_THREADEDSSLSOCKETCONNECTION_H
-#define FIX_THREADEDSSLSOCKETCONNECTION_H
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4503 4355 4786 4290)
