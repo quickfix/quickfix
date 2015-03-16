@@ -101,6 +101,7 @@
 
 #if (HAVE_SSL > 0)
 
+#include <iostream>
 #include <vector>
 
 #include "UtilitySSL.h"
@@ -600,11 +601,11 @@ char *strCat(const char *a, ...) {
 }
 
 long  protocolOptions(const char *opt) {
-  long options = SSL_PROTOCOL_NONE, thisopt, protoptions;
+  long options = SSL_PROTOCOL_NONE, thisopt;
   char action;
   const char *w, *e;
 
-  if (opt) {
+  if (*opt) {
     w = opt;
     e = w + strlen(w);
     while (w && (w < e)) {
@@ -645,7 +646,8 @@ long  protocolOptions(const char *opt) {
     }
   } else { /* default all except SSLv2 */
     options = SSL_PROTOCOL_ALL;
-    options &= ~SSL_PROTOCOL_SSLV2;
+    thisopt = SSL_PROTOCOL_SSLV2;
+    options &= ~thisopt;
   }
 
   return options;
