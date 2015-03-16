@@ -12,7 +12,7 @@ BUILDING QUICKFIX WITH OPENSSL SUPPORT
 
 $ ./configure --with-openssl="path to openssl install"
 
-"path to openssl install" dir should have include/openssl and lib directories with appropriate files.
+"path to openssl install" dir should have include/openssl and lib directories with appropriate files. If no path is specified, then the default openssl installation is used.
 
 $ make
 
@@ -172,7 +172,7 @@ CertificateRevocationListDirectory=
 # Example:
 #
 #  enable all but not SSLv2
-#  SSL_PROTOCOL = all -SSLv2
+#  SSLProtocol = all -SSLv2
 #
 # `all -SSLv2` is the default value when the parameter is not specified.
 
@@ -261,6 +261,8 @@ Initiator:
 If the server or client certficate key is password protected, than the password can be set by the method
 
   void setPassword(const std::string & pwd);
+  
+There are sample SSL certificates in the sub-directory bin/cfg/certs/.
   
 ----------
 CONCLUSION

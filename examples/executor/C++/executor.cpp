@@ -24,7 +24,10 @@
 #endif
 
 #include "quickfix/FileStore.h"
-#include "quickfix/ThreadedSocketAcceptor.h"
+#include "quickfix/SocketAcceptor.h"
+#ifdef HAVE_SSL
+#include "quickfix/ThreadedSSLSocketAcceptor.h"
+#endif
 #include "quickfix/Log.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
@@ -43,14 +46,22 @@ void wait()
 
 int main( int argc, char** argv )
 {
-  if ( argc != 2 )
+  if ( argc < 2 )
   {
     std::cout << "usage: " << argv[ 0 ]
     << " FILE." << std::endl;
     return 0;
   }
   std::string file = argv[ 1 ];
+#ifdef HAVE_SSL
+  std::string isSSL;
+  if (argc > 2)
+  {
+    isSSL.assign(argv[2]);
+  }
+#endif
 
+  FIX::Acceptor * acceptor = 0;
   try
   {
     FIX::SessionSettings settings( file );
@@ -58,16 +69,24 @@ int main( int argc, char** argv )
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
     FIX::ScreenLogFactory logFactory( settings );
-    FIX::ThreadedSocketAcceptor acceptor( application, storeFactory, settings, logFactory );
 
-    acceptor.start();
+#ifdef HAVE_SSL
+    if (isSSL.compare("SSL") == 0)
+      acceptor = new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+    else
+#endif
+    acceptor = new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory );
+
+    acceptor->start();
     wait();
-    acceptor.stop();
+    acceptor->stop();
+    delete acceptor;
     return 0;
   }
   catch ( std::exception & e )
   {
     std::cout << e.what() << std::endl;
+    delete acceptor;
     return 1;
   }
 }
