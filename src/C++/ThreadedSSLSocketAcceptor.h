@@ -159,7 +159,7 @@ public:
     m_password.assign(pwd);
   }
 
-  int passwordHandleCallback(char *buf, int bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
 
 private:
   struct AcceptorThreadInfo {

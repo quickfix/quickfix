@@ -185,13 +185,27 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
   ssl_init();
 
   /* set up the application context */
-  if ((m_ctx = SSL_CTX_new(SSLv23_client_method())) == 0) {
+  m_ctx = SSL_CTX_new(SSLv23_client_method());
+  if (m_ctx == 0) {
     throw RuntimeError("Unable to get context");
   }
 
-  SSL_CTX_set_options(m_ctx, SSL_OP_ALL);
+  std::string strOptions;
+  if (m_settings.get().has(SSL_PROTOCOL)) {
+    strOptions.assign(m_settings.get().getString(SSL_PROTOCOL));
+  }
+  setCtxOptions(m_ctx, strOptions.c_str());
+
   SSL_CTX_set_mode(m_ctx, SSL_MODE_ENABLE_PARTIAL_WRITE |
                               SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
+
+  if (m_settings.get().has(SSL_CIPHER_SUITE)) {
+    std::string strCipherSuite = m_settings.get().getString(SSL_CIPHER_SUITE);
+
+    if (!strCipherSuite.empty() && !SSL_CTX_set_cipher_list(m_ctx, strCipherSuite.c_str()))
+      throw RuntimeError("Unable to configure permitted SSL ciphers");
+  }
+
   std::string errStr;
   if (!loadSSLCertificate(errStr)) {
     getLog()->onEvent(errStr);
@@ -389,8 +403,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
         setDisconnected(s);
       }
     }
-  }
-  catch (std::exception &) {
+  } catch (std::exception &) {
   }
 }
 
@@ -492,8 +505,8 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
   m_sessionToHostNum[s] = ++num;
 }
 
-int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, int bufsize,
-                                                   int verify, void *job) {
+int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
+                                                       int verify, void *job) {
   if (m_password.length() > bufsize)
     return -1;
 

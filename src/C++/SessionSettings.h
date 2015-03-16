@@ -135,6 +135,82 @@ const char CERT_AUTH_DIR[] = "CertificationAuthoritiesDirectory";
 const char CRL_FILE[] = "CertificateRevocationListFile";
 const char CRL_DIR[] = "CertificateRevocationListDirectory";
 const char VERIFY_LEVEL[] = "VerifyLevel";
+/*
+# This directive can be used to control the SSL protocol flavors the application
+# should use when establishing its environment.
+#
+# The available (case-insensitive) protocols are:
+#
+# SSLv2
+#
+#  This is the Secure Sockets Layer (SSL) protocol, version 2.0. It is the
+#  original SSL protocol as designed by Netscape Corporation.
+#
+# SSLv3
+#
+#  This is the Secure Sockets Layer (SSL) protocol, version 3.0. It is the
+#  successor to SSLv2 and the currently (as of February 1999) de-facto
+#  standardized SSL protocol from Netscape Corporation. It's supported by
+#  almost all popular browsers.
+#
+# TLSv1
+#
+#  This is the Transport Layer Security (TLS) protocol, version 1.0.
+#
+# TLSv1_1
+#
+#  This is the Transport Layer Security (TLS) protocol, version 1.1.
+#
+# TLSv1_2
+#
+#  This is the Transport Layer Security (TLS) protocol, version 1.2.
+#
+# all
+#
+#  This is a shortcut for `+SSLv2 +SSLv3 +TLSv1 +TLSv1_1 +TLSv1_2' and a convenient way for
+#  enabling all protocols except one when used in combination with the minus
+#  sign on a protocol as the example above shows.
+#
+# Example:
+#
+#  enable all but not SSLv2
+#  SSL_PROTOCOL = all -SSLv2
+#
+# `all -SSLv2` is the default value when the parameter is not specified.
+
+*/
+const char SSL_PROTOCOL[] = "SSLProtocol";
+/*
+# This complex directive uses a colon-separated cipher-spec string consisting
+# of OpenSSL cipher specifications to configure the Cipher Suite the client is
+# permitted to negotiate in the SSL handshake phase. Notice that this directive
+# can be used both in per-server and per-directory context. In per-server
+# context it applies to the standard SSL handshake when a connection is
+# established. In per-directory context it forces a SSL renegotation with the
+# reconfigured Cipher Suite after the HTTP request was read but before the HTTP
+# response is sent.
+#
+# An SSL cipher specification in cipher-spec is composed of 4 major attributes
+# plus a few extra minor ones:
+#
+# Key Exchange Algorithm:
+#  RSA or Diffie-Hellman variants.
+#
+# Authentication Algorithm:
+#  RSA, Diffie-Hellman, DSS or none.
+#
+# Cipher/Encryption Algorithm:
+#  DES, Triple-DES, RC4, RC2, IDEA or none.
+#
+# MAC Digest Algorithm:
+#  MD5, SHA or SHA1.
+#
+# For more details refer to mod_ssl documentation.
+#
+# Example: RC4+RSA:+HIGH:
+*/
+const char SSL_CIPHER_SUITE[] = "SSLCipherSuite";
+
 
 /// Container for setting dictionaries mapped to sessions.
 class SessionSettings

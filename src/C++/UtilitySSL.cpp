@@ -210,11 +210,12 @@ static void thread_setup(void) {
 
   int i;
 #ifdef _MSC_VER
-  lock_cs = (HANDLE *) OPENSSL_malloc(CRYPTO_num_locks() * sizeof(HANDLE));
+  lock_cs = (HANDLE *)OPENSSL_malloc(CRYPTO_num_locks() * sizeof(HANDLE));
   for (i = 0; i < CRYPTO_num_locks(); i++)
     lock_cs[i] = CreateMutex(0, FALSE, 0);
 #else
-  lock_cs = (pthread_mutex_t *) OPENSSL_malloc(CRYPTO_num_locks() * sizeof(pthread_mutex_t));
+  lock_cs = (pthread_mutex_t *)OPENSSL_malloc(CRYPTO_num_locks() *
+                                              sizeof(pthread_mutex_t));
   for (i = 0; i < CRYPTO_num_locks(); i++) {
     pthread_mutex_init(&(lock_cs[i]), 0);
   }
@@ -307,7 +308,7 @@ const char *socket_error(char *tempbuf, int buflen) {
   return tempbuf;
 }
 
-int caListX509NameCmp(const X509_NAME * const *a, const X509_NAME * const *b) {
+int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b) {
   return (X509_NAME_cmp(*a, *b));
 }
 
@@ -596,6 +597,74 @@ char *strCat(const char *a, ...) {
   /* Return the result string */
 
   return res;
+}
+
+long  protocolOptions(const char *opt) {
+  long options = SSL_PROTOCOL_NONE, thisopt, protoptions;
+  char action;
+  const char *w, *e;
+
+  if (opt) {
+    w = opt;
+    e = w + strlen(w);
+    while (w && (w < e)) {
+      action = '\0';
+      while ((*w == ' ') || (*w == '\t'))
+        w++;
+      if (*w == '+' || *w == '-')
+        action = *(w++);
+
+      if (!strncasecmp(w, "SSLv2", 5 /* strlen("SSLv2") */)) {
+        thisopt = SSL_PROTOCOL_SSLV2;
+        w += 5 /* strlen("SSLv2")*/;
+      } else if (!strncasecmp(w, "SSLv3", 5 /* strlen("SSLv3") */)) {
+        thisopt = SSL_PROTOCOL_SSLV3;
+        w += 5 /*strlen("SSLv3") */;
+      } else if (!strncasecmp(w, "TLSv1", 5 /* strlen("TLSv1") */)) {
+        thisopt = SSL_PROTOCOL_TLSV1;
+        w += 5 /* strlen("TLSv1") */;
+      }  else if (!strncasecmp(w, "TLSv1_1", 5 /* strlen("TLSv1_1") */)) {
+        thisopt = SSL_PROTOCOL_TLSV1_1;
+        w += 7 /* strlen("TLSv1_1") */;
+      }  else if (!strncasecmp(w, "TLSv1_2", 5 /* strlen("TLSv1_2") */)) {
+        thisopt = SSL_PROTOCOL_TLSV1_2;
+        w += 7 /* strlen("TLSv1_2") */;
+      }
+      else if (!strncasecmp(w, "all", 3 /* strlen("all") */)) {
+        thisopt = SSL_PROTOCOL_ALL;
+        w += 3 /* strlen("all") */;
+      } else
+        return -1;
+
+      if (action == '-')
+        options &= ~thisopt;
+      else if (action == '+')
+        options |= thisopt;
+      else
+        options = thisopt;
+    }
+  } else { /* default all except SSLv2 */
+    options = SSL_PROTOCOL_ALL;
+    options &= ~SSL_PROTOCOL_SSLV2;
+  }
+
+  return options;
+}
+
+void setCtxOptions(SSL_CTX * ctx, const char *opt) {
+  long options = protocolOptions(opt);
+
+  SSL_CTX_set_options(ctx, SSL_OP_ALL);
+  if (!(options & SSL_PROTOCOL_SSLV2))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
+  if (!(options & SSL_PROTOCOL_SSLV3))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv3);
+  if (!(options & SSL_PROTOCOL_TLSV1))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1);
+  if (!(options & SSL_PROTOCOL_TLSV1_1))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_1);
+  if (!(options & SSL_PROTOCOL_TLSV1_2))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_2);
 }
 }
 

@@ -132,50 +132,50 @@ static const char *WSAErrString(int code)
   static struct {
     int code;
     const char *s;
-  } tab[] = { expand(WSAEINTR),
-              expand(WSAEBADF),
-              expand(WSAEACCES),
-              expand(WSAEFAULT),
-              expand(WSAEINVAL),
-              expand(WSAEMFILE),
-              expand(WSAEWOULDBLOCK),
-              expand(WSAEINPROGRESS),
-              expand(WSAEALREADY),
-              expand(WSAENOTSOCK),
-              expand(WSAEDESTADDRREQ),
-              expand(WSAEMSGSIZE),
-              expand(WSAEPROTOTYPE),
-              expand(WSAENOPROTOOPT),
-              expand(WSAEPROTONOSUPPORT),
-              expand(WSAESOCKTNOSUPPORT),
-              expand(WSAEOPNOTSUPP),
-              expand(WSAEPFNOSUPPORT),
-              expand(WSAEAFNOSUPPORT),
-              expand(WSAEADDRINUSE),
-              expand(WSAEADDRNOTAVAIL),
-              expand(WSAENETDOWN),
-              expand(WSAENETUNREACH),
-              expand(WSAENETRESET),
-              expand(WSAECONNABORTED),
-              expand(WSAECONNRESET),
-              expand(WSAENOBUFS),
-              expand(WSAEISCONN),
-              expand(WSAENOTCONN),
-              expand(WSAESHUTDOWN),
-              expand(WSAETOOMANYREFS),
-              expand(WSAETIMEDOUT),
-              expand(WSAECONNREFUSED),
-              expand(WSAELOOP),
-              expand(WSAENAMETOOLONG),
-              expand(WSAEHOSTDOWN),
-              expand(WSAEHOSTUNREACH),
-              expand(WSAENOTEMPTY),
-              expand(WSAEPROCLIM),
-              expand(WSAEUSERS),
-              expand(WSAEDQUOT),
-              expand(WSAESTALE),
-              expand(WSAEREMOTE),
-              { -1, "" } };
+  } tab[] = {expand(WSAEINTR),
+             expand(WSAEBADF),
+             expand(WSAEACCES),
+             expand(WSAEFAULT),
+             expand(WSAEINVAL),
+             expand(WSAEMFILE),
+             expand(WSAEWOULDBLOCK),
+             expand(WSAEINPROGRESS),
+             expand(WSAEALREADY),
+             expand(WSAENOTSOCK),
+             expand(WSAEDESTADDRREQ),
+             expand(WSAEMSGSIZE),
+             expand(WSAEPROTOTYPE),
+             expand(WSAENOPROTOOPT),
+             expand(WSAEPROTONOSUPPORT),
+             expand(WSAESOCKTNOSUPPORT),
+             expand(WSAEOPNOTSUPP),
+             expand(WSAEPFNOSUPPORT),
+             expand(WSAEAFNOSUPPORT),
+             expand(WSAEADDRINUSE),
+             expand(WSAEADDRNOTAVAIL),
+             expand(WSAENETDOWN),
+             expand(WSAENETUNREACH),
+             expand(WSAENETRESET),
+             expand(WSAECONNABORTED),
+             expand(WSAECONNRESET),
+             expand(WSAENOBUFS),
+             expand(WSAEISCONN),
+             expand(WSAENOTCONN),
+             expand(WSAESHUTDOWN),
+             expand(WSAETOOMANYREFS),
+             expand(WSAETIMEDOUT),
+             expand(WSAECONNREFUSED),
+             expand(WSAELOOP),
+             expand(WSAENAMETOOLONG),
+             expand(WSAEHOSTDOWN),
+             expand(WSAEHOSTUNREACH),
+             expand(WSAENOTEMPTY),
+             expand(WSAEPROCLIM),
+             expand(WSAEUSERS),
+             expand(WSAEDQUOT),
+             expand(WSAESTALE),
+             expand(WSAEREMOTE),
+             {-1, ""}};
   int i;
 
   for (i = 0; tab[i].code > 0; i++)
@@ -198,7 +198,7 @@ static const char *WSAErrString(int code)
 extern "C" {
 typedef int (*passPhraseHandleCallbackType)(char *, int, int, void *);
 
-int caListX509NameCmp(const X509_NAME * const *a, const X509_NAME * const *b);
+int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b);
 STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath);
 int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
                     X509_OBJECT *pObj);
@@ -214,6 +214,19 @@ char *strCat(const char *a, ...);
 #define SSL_ALGO_DSA 2
 #define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA)
 
+/*
+ * Define the SSL Protocol options
+ */
+#define SSL_PROTOCOL_NONE (0)
+#define SSL_PROTOCOL_SSLV2 (1 << 0)
+#define SSL_PROTOCOL_SSLV3 (1 << 1)
+#define SSL_PROTOCOL_TLSV1 (1 << 2)
+#define SSL_PROTOCOL_TLSV1_1 (1 << 3)
+#define SSL_PROTOCOL_TLSV1_2 (1 << 4)
+#define SSL_PROTOCOL_ALL                                                       \
+  (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
+   SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
+
 // Should always call ssl_init/ssl_term.
 
 void ssl_init();
@@ -225,6 +238,10 @@ void ssl_socket_close(int socket, SSL *ssl);
 const char *socket_error(char *tempbuf, int buflen);
 
 int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey);
+
+long protocolOptions(const char * opt);
+
+void setCtxOptions(SSL_CTX * ctx, const char * opt);
 }
 
 #endif
