@@ -267,9 +267,12 @@ Acceptor:
     std::cout << e.what() << std::endl;
     return 1;
   }
-  
+```
+
+
 Initiator:
 
+```cpp
   try
   {
     FIX::SessionSettings settings( file );
