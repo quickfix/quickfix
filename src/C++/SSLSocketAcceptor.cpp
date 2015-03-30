@@ -180,15 +180,25 @@ void SSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
 }
 
 void SSLSocketAcceptor::onStart() {
-  Sockets::iterator i;
-  for (i = m_sockets.begin(); i != m_sockets.end(); ++i) {
-    Locker l(m_mutex);
-    int port = m_socketToPort[*i];
-    AcceptorThreadInfo *info = new AcceptorThreadInfo(this, *i, port);
-    thread_id thread;
-    thread_spawn(&socketAcceptorThread, info, thread);
-    addThread(SocketKey(*i, 0), thread);
+  while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
+
+  if( !m_pServer )
+    return;
+
+  time_t start = 0;
+  time_t now = 0;
+
+  ::time( &start );
+  while ( isLoggedOn() )
+  {
+    m_pServer->block( *this );
+    if( ::time(&now) -5 >= start )
+      break;
   }
+
+  m_pServer->close();
+  delete m_pServer;
+  m_pServer = 0;
 }
 
 bool SSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
@@ -467,35 +477,34 @@ X509_STORE *SSLSocketAcceptor::createX509Store(const char *cpFile,
   return pStore;
 }
 
-bool SSLSocketAcceptor::onPoll(double timeout) { return false; }
+bool SSLSocketAcceptor::onPoll(double timeout) {
+  if( !m_pServer )
+    return false;
+
+  time_t start = 0;
+  time_t now = 0;
+
+  if( isStopped() )
+  {
+    if( start == 0 )
+      ::time( &start );
+    if( !isLoggedOn() )
+    {
+      start = 0;
+      return false;
+    }
+    if( ::time(&now) - 5 >= start )
+    {
+      start = 0;
+      return false;
+    }
+  }
+
+  m_pServer->block( *this, true, timeout );
+  return true;
+}
 
 void SSLSocketAcceptor::onStop() {
-  SocketToThread threads;
-  SocketToThread::iterator i;
-
-  {
-    Locker l(m_mutex);
-
-    time_t start = 0;
-    time_t now = 0;
-
-    ::time(&start);
-    while (isLoggedOn()) {
-      if (::time(&now) - 5 >= start)
-        break;
-    }
-
-    threads = m_threads;
-    m_threads.clear();
-  }
-
-  for (i = threads.begin(); i != threads.end(); ++i)
-    ssl_socket_close(i->first.first, i->first.second);
-  for (i = threads.begin(); i != threads.end(); ++i) {
-    thread_join(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-  }
 }
 
 

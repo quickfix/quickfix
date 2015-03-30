@@ -15,6 +15,8 @@
 %ignore _REENTRANT;
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
+%rename(SSLSocketInitiatorBase) FIX::SSLSocketInitiator;
+%rename(SSLSocketAcceptorBase) FIX::SSLSocketAcceptor;
 
 %{
 #include <config.h>
@@ -36,8 +38,10 @@
 #include <Application.h>
 #include <Initiator.h>
 #include <SocketInitiator.h>
+#include <SSLSocketInitiator.h>
 #include <Acceptor.h>
 #include <SocketAcceptor.h>
+#include <SSLSocketAcceptor.h>
 #include <DataDictionary.h>
 typedef FIX::UtcTimeStamp UtcTimeStamp;
 typedef FIX::UtcDate UtcDate;

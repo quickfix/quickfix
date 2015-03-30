@@ -95,6 +95,8 @@ private:
   Sockets m_sockets;
   PortToSessions m_portToSessions;
   SocketToPort m_socketToPort;
+  SocketServer* m_pServer;
+  SocketConnections m_connections;
   Mutex m_mutex;
   bool m_sslInit;
   int m_verify;

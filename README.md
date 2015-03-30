@@ -61,14 +61,14 @@ USING SSL FILES WITHOUT BUILDING QUICKFIX WITH OPENSSL SUPPORT
 
 The SSL functionality is contained in the files
 
-ThreadedSSLSocketAcceptor.h
-ThreadedSSLSocketAcceptor.cpp
-ThreadedSSLSocketInitiator.h
-ThreadedSSLSocketInitiator.cpp
-ThreadedSSLSocketConnection.h
-ThreadedSSLSocketConnection.cpp
-UtilitySSL.h
-UtilitySSL.cpp
+* ThreadedSSLSocketAcceptor.h
+* ThreadedSSLSocketAcceptor.cpp
+* ThreadedSSLSocketInitiator.h
+* ThreadedSSLSocketInitiator.cpp
+* ThreadedSSLSocketConnection.h
+* ThreadedSSLSocketConnection.cpp
+* UtilitySSL.h
+* UtilitySSL.cpp
 
 These files can be directly incorporated in the a project. HAVE_SSL will have to be defined in addition to other OpenSSL related configuration.
 

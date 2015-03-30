@@ -296,7 +296,7 @@ class SocketAcceptor(SocketAcceptorBase):
         self.logFactory = logFactory
 
 
-class SSLSocketInitiator(SocketInitiatorBase):
+class SSLSocketInitiator(SSLSocketInitiatorBase):
     def __init__(self, application, storeFactory, settings, logFactory=None):
         if logFactory is None:
             super(SSLSocketInitiator, self).__init__(application, storeFactory, settings)
@@ -308,7 +308,7 @@ class SSLSocketInitiator(SocketInitiatorBase):
         self.settings = settings
         self.logFactory = logFactory
 
-class SSLSocketAcceptor(SocketAcceptorBase):
+class SSLSocketAcceptor(SSLSocketAcceptorBase):
     def __init__(self, application, storeFactory, settings, logFactory=None):
         if logFactory is None:
             super(SSLSocketAcceptor, self).__init__(application, storeFactory, settings)
