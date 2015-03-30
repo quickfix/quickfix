@@ -247,7 +247,7 @@ EXAMPLE USAGE
 
 Acceptor:
 
-```
+```cpp
   try
   {
     FIX::SessionSettings settings( file );
