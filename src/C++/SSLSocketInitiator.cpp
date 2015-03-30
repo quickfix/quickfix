@@ -26,19 +26,19 @@
 #if (HAVE_SSL > 0)
 
 #include "UtilitySSL.h"
-#include "ThreadedSSLSocketInitiator.h"
+#include "SSLSocketInitiator.h"
 #include "Session.h"
 #include "Settings.h"
 
 namespace {
-FIX::ThreadedSSLSocketInitiator *initObj = 0;
+FIX::SSLSocketInitiator *initObj = 0;
 int passwordHandleCB(char *buf, int bufsize, int verify, void *job) {
   return initObj->passwordHandleCallback(buf, bufsize, verify, job);
 }
 }
 
 namespace FIX {
-ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
+SSLSocketInitiator::SSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
     const SessionSettings &settings) throw(ConfigError)
     : Initiator(application, factory, settings), m_lastConnect(0),
@@ -48,7 +48,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
   initObj = this;
 }
 
-ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
+SSLSocketInitiator::SSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
     const SessionSettings &settings, LogFactory &logFactory) throw(ConfigError)
     : Initiator(application, factory, settings, logFactory), m_lastConnect(0),
@@ -58,7 +58,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
   initObj = this;
 }
 
-ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
+SSLSocketInitiator::~SSLSocketInitiator() {
   if (m_sslInit) {
     SSL_CTX_free(m_ctx);
     m_ctx = 0;
@@ -68,7 +68,7 @@ ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
   socket_term();
 }
 
-void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
+void SSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
     ConfigError) {
   const Dictionary &dict = s.get();
 
@@ -82,7 +82,7 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
     m_rcvBufSize = dict.getInt(SOCKET_RECEIVE_BUFFER_SIZE);
 }
 
-void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
+void SSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
     RuntimeError) {
   if (m_sslInit)
     return;
@@ -125,7 +125,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
   m_sslInit = true;
 }
 
-bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
+bool SSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
 
   std::string cert;
   if (m_settings.get().has(CLIENT_CERT_FILE))
@@ -169,7 +169,7 @@ bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
   return true;
 }
 
-bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
+bool SSLSocketInitiator::loadCAInfo(std::string &errStr) {
 
   std::string caFile;
   if (m_settings.get().has(CERT_AUTH_FILE))
@@ -208,7 +208,7 @@ bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
   return true;
 }
 
-void ThreadedSSLSocketInitiator::onStart() {
+void SSLSocketInitiator::onStart() {
   while (!isStopped()) {
     time_t now;
     ::time(&now);
@@ -223,9 +223,9 @@ void ThreadedSSLSocketInitiator::onStart() {
   }
 }
 
-bool ThreadedSSLSocketInitiator::onPoll(double timeout) { return false; }
+bool SSLSocketInitiator::onPoll(double timeout) { return false; }
 
-void ThreadedSSLSocketInitiator::onStop() {
+void SSLSocketInitiator::onStop() {
   SocketToThread threads;
   SocketToThread::iterator i;
 
@@ -256,7 +256,7 @@ void ThreadedSSLSocketInitiator::onStop() {
   threads.clear();
 }
 
-void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
+void SSLSocketInitiator::doConnect(const SessionID &s,
                                            const Dictionary &d) {
   try {
     Session *session = Session::lookupSession(s);
@@ -290,7 +290,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     BIO *sbio = BIO_new_socket(socket, BIO_CLOSE);
     SSL_set_bio(ssl, sbio, sbio);
 
-    ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
+    SSLSocketConnection *pConnection = new SSLSocketConnection(
         s, socket, ssl, address, port, getLog());
 
     ThreadPair *pair = new ThreadPair(this, pConnection);
@@ -312,77 +312,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
   }
 }
 
-void ThreadedSSLSocketInitiator::addThread(SocketKey s, thread_id t) {
-  Locker l(m_mutex);
-
-  m_threads[s] = t;
-}
-
-void ThreadedSSLSocketInitiator::removeThread(SocketKey s) {
-  Locker l(m_mutex);
-  SocketToThread::iterator i = m_threads.find(s);
-
-  if (i != m_threads.end()) {
-    thread_detach(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-    m_threads.erase(i);
-  }
-}
-
-THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
-  ThreadPair *pair = reinterpret_cast<ThreadPair *>(p);
-
-  ThreadedSSLSocketInitiator *pInitiator = pair->first;
-  ThreadedSSLSocketConnection *pConnection = pair->second;
-  FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
-  FIX::Session *pSession = FIX::Session::lookupSession(sessionID);
-  int socket = pConnection->getSocket();
-  delete pair;
-
-  pInitiator->lock();
-
-  if (!pConnection->connect()) {
-    pInitiator->getLog()->onEvent("Connection failed");
-    pConnection->disconnect();
-    SSL *ssl = pConnection->sslObject();
-    delete pConnection;
-    pInitiator->removeThread(SocketKey(socket, ssl));
-    pInitiator->setDisconnected(sessionID);
-    return 0;
-  }
-
-  // Do the SSL handshake.
-  int rc = SSL_connect(pConnection->sslObject());
-  if (rc == -1) {
-    int err = SSL_get_error(pConnection->sslObject(), rc);
-    pInitiator->getLog()->onEvent("SSL_connect failed with SSL error " + err);
-    pConnection->disconnect();
-    SSL *ssl = pConnection->sslObject();
-    delete pConnection;
-    pInitiator->removeThread(SocketKey(socket, ssl));
-    pInitiator->setDisconnected(sessionID);
-    return 0;
-  }
-
-  pInitiator->setConnected(sessionID);
-  pInitiator->getLog()->onEvent("Connection succeeded");
-
-  pSession->next();
-
-  while (pConnection->read()) {
-  }
-
-  SSL *ssl = pConnection->sslObject();
-  delete pConnection;
-  if (!pInitiator->isStopped())
-    pInitiator->removeThread(SocketKey(socket, ssl));
-
-  pInitiator->setDisconnected(sessionID);
-  return 0;
-}
-
-void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
+void SSLSocketInitiator::getHost(const SessionID &s,
                                          const Dictionary &d,
                                          std::string &address, short &port) {
   int num = 0;
@@ -410,7 +340,7 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
   m_sessionToHostNum[s] = ++num;
 }
 
-int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
+int SSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
                                                        int verify, void *job) {
   if (m_password.length() > bufsize)
     return -1;

@@ -262,8 +262,10 @@ def start(self):
 %include <Application.h>
 %include <Initiator.h>
 %include <SocketInitiator.h>
+%include <SSLSocketInitiator.h>
 %include <Acceptor.h>
 %include <SocketAcceptor.h>
+%include <SSLSocketAcceptor.h>
 %include <DataDictionary.h>
 
 %pythoncode %{

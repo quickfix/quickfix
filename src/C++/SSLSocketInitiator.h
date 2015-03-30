@@ -17,8 +17,8 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_THREADEDSSLSOCKETINITIATOR_H
-#define FIX_THREADEDSSLSOCKETINITIATOR_H
+#ifndef FIX_SSLSOCKETINITIATOR_H
+#define FIX_SSLSOCKETINITIATOR_H
 
 #ifdef _MSC_VER
 #include "stdafx.h"
@@ -33,23 +33,22 @@
 #endif
 
 #include "Initiator.h"
-#include "ThreadedSSLSocketConnection.h"
+#include "SSLSocketConnection.h"
 #include <map>
 
 namespace FIX {
 /*! \addtogroup user
  *  @{
  */
-/// Threaded Socket implementation of Initiator.
-class ThreadedSSLSocketInitiator : public Initiator {
+class SSLSocketInitiator : public Initiator {
 public:
-  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
+  SSLSocketInitiator(Application &, MessageStoreFactory &,
                              const SessionSettings &) throw(ConfigError);
-  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
+  SSLSocketInitiator(Application &, MessageStoreFactory &,
                              const SessionSettings &,
                              LogFactory &) throw(ConfigError);
 
-  virtual ~ThreadedSSLSocketInitiator();
+  virtual ~SSLSocketInitiator();
 
   void setPassword(const std::string & pwd) {
     m_password.assign(pwd);
@@ -61,8 +60,6 @@ private:
   typedef std::pair<int, SSL *> SocketKey;
   typedef std::map<SocketKey, thread_id> SocketToThread;
   typedef std::map<SessionID, int> SessionToHostNum;
-  typedef std::pair<ThreadedSSLSocketInitiator *, ThreadedSSLSocketConnection *>
-  ThreadPair;
 
   void onConfigure(const SessionSettings &) throw(ConfigError);
   void onInitialize(const SessionSettings &) throw(RuntimeError);
@@ -72,11 +69,6 @@ private:
   void onStop();
 
   void doConnect(const SessionID &s, const Dictionary &d);
-
-  void addThread(SocketKey s, thread_id t);
-  void removeThread(SocketKey s);
-  void lock() { Locker l(m_mutex); }
-  static THREAD_PROC socketThread(void *p);
 
   void getHost(const SessionID &, const Dictionary &, std::string &, short &);
 
@@ -89,8 +81,6 @@ private:
   bool m_noDelay;
   int m_sendBufSize;
   int m_rcvBufSize;
-  SocketToThread m_threads;
-  Mutex m_mutex;
   bool m_sslInit;
   SSL_CTX *m_ctx;
   std::string m_password;
@@ -98,6 +88,6 @@ private:
 /*! @} */
 }
 
-#endif // FIX_THREADEDSOCKETINITIATOR_H
+#endif // FIX_SOCKETINITIATOR_H
 
 #endif

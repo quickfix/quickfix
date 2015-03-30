@@ -66,7 +66,7 @@ SSLSocketAcceptor::~SSLSocketAcceptor() {
   socket_term();
 }
 
-void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) throw(
+void SSLSocketAcceptor::onConfigure(const SessionSettings &s) throw(
     ConfigError) {
   std::set<SessionID> sessions = s.getSessions();
   std::set<SessionID>::iterator i;
@@ -80,7 +80,7 @@ void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) throw(
   }
 }
 
-void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
+void SSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
     RuntimeError) {
   if (!m_sslInit) {
 
@@ -179,7 +179,7 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
   }
 }
 
-void ThreadedSSLSocketAcceptor::onStart() {
+void SSLSocketAcceptor::onStart() {
   Sockets::iterator i;
   for (i = m_sockets.begin(); i != m_sockets.end(); ++i) {
     Locker l(m_mutex);
@@ -191,7 +191,7 @@ void ThreadedSSLSocketAcceptor::onStart() {
   }
 }
 
-bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
+bool SSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
 
   getLog()->onEvent("Loading SSL certificate");
 
@@ -338,7 +338,7 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
   return true;
 }
 
-bool ThreadedSSLSocketAcceptor::loadCRLInfo(std::string &errStr) {
+bool SSLSocketAcceptor::loadCRLInfo(std::string &errStr) {
   getLog()->onEvent("Loading CRL information");
 
   errStr.erase();
@@ -364,7 +364,7 @@ bool ThreadedSSLSocketAcceptor::loadCRLInfo(std::string &errStr) {
   return true;
 }
 
-X509 *ThreadedSSLSocketAcceptor::readX509(FILE *fp, X509 **x509,
+X509 *SSLSocketAcceptor::readX509(FILE *fp, X509 **x509,
                                           passPhraseHandleCallbackType cb) {
   X509 *rc;
   BIO *bioS;
@@ -403,7 +403,7 @@ X509 *ThreadedSSLSocketAcceptor::readX509(FILE *fp, X509 **x509,
 }
 
 EVP_PKEY *
-ThreadedSSLSocketAcceptor::readPrivateKey(FILE *fp, EVP_PKEY **key,
+SSLSocketAcceptor::readPrivateKey(FILE *fp, EVP_PKEY **key,
                                           passPhraseHandleCallbackType cb) {
   EVP_PKEY *rc;
   BIO *bioS;
@@ -440,7 +440,7 @@ ThreadedSSLSocketAcceptor::readPrivateKey(FILE *fp, EVP_PKEY **key,
   return rc;
 }
 
-X509_STORE *ThreadedSSLSocketAcceptor::createX509Store(const char *cpFile,
+X509_STORE *SSLSocketAcceptor::createX509Store(const char *cpFile,
                                                        const char *cpPath) {
   X509_STORE *pStore;
   X509_LOOKUP *pLookup;
@@ -467,9 +467,9 @@ X509_STORE *ThreadedSSLSocketAcceptor::createX509Store(const char *cpFile,
   return pStore;
 }
 
-bool ThreadedSSLSocketAcceptor::onPoll(double timeout) { return false; }
+bool SSLSocketAcceptor::onPoll(double timeout) { return false; }
 
-void ThreadedSSLSocketAcceptor::onStop() {
+void SSLSocketAcceptor::onStop() {
   SocketToThread threads;
   SocketToThread::iterator i;
 
@@ -498,117 +498,8 @@ void ThreadedSSLSocketAcceptor::onStop() {
   }
 }
 
-void ThreadedSSLSocketAcceptor::addThread(SocketKey s, thread_id t) {
-  Locker l(m_mutex);
 
-  m_threads[s] = t;
-}
-
-void ThreadedSSLSocketAcceptor::removeThread(SocketKey s) {
-  Locker l(m_mutex);
-  SocketToThread::iterator i = m_threads.find(s);
-  if (i != m_threads.end()) {
-    thread_detach(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-    m_threads.erase(i);
-  }
-}
-
-THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p) {
-  AcceptorThreadInfo *info = reinterpret_cast<AcceptorThreadInfo *>(p);
-
-  ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  int s = info->m_socket;
-  int port = info->m_port;
-  delete info;
-
-  int noDelay = 0;
-  int sendBufSize = 0;
-  int rcvBufSize = 0;
-  socket_getsockopt(s, TCP_NODELAY, noDelay);
-  socket_getsockopt(s, SO_SNDBUF, sendBufSize);
-  socket_getsockopt(s, SO_RCVBUF, rcvBufSize);
-
-  int socket = 0;
-  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) >= 0)) {
-    if (noDelay)
-      socket_setsockopt(socket, TCP_NODELAY);
-    if (sendBufSize)
-      socket_setsockopt(socket, SO_SNDBUF, sendBufSize);
-    if (rcvBufSize)
-      socket_setsockopt(socket, SO_RCVBUF, rcvBufSize);
-
-    Sessions sessions = pAcceptor->m_portToSessions[port];
-
-    SSL *ssl = SSL_new(pAcceptor->sslContext());
-    ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
-        socket, ssl, sessions, pAcceptor->getLog());
-    SSL_clear(ssl);
-    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE);
-    SSL_set_bio(ssl, sBio, sBio);
-    // TODO - check this
-    SSL_set_app_data(ssl, pAcceptor->revocationStore());
-    SSL_set_verify_result(ssl, X509_V_OK);
-
-    ConnectionThreadInfo *info =
-        new ConnectionThreadInfo(pAcceptor, pConnection);
-
-    {
-      Locker l(pAcceptor->m_mutex);
-
-      std::stringstream stream;
-      stream << "Accepted connection from " << socket_peername(socket)
-             << " on port " << port;
-
-      if (pAcceptor->getLog())
-        pAcceptor->getLog()->onEvent(stream.str());
-
-      thread_id thread;
-      if (!thread_spawn(&socketConnectionThread, info, thread)) {
-        delete info;
-        delete pConnection;
-        SSL_free(ssl);
-      } else
-        pAcceptor->addThread(SocketKey(socket, ssl), thread);
-    }
-  }
-
-  if (!pAcceptor->isStopped())
-    pAcceptor->removeThread(SocketKey(s, 0));
-
-  return 0;
-}
-
-THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p) {
-  ConnectionThreadInfo *info = reinterpret_cast<ConnectionThreadInfo *>(p);
-
-  ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  ThreadedSSLSocketConnection *pConnection = info->m_pConnection;
-  delete info;
-
-  int socket = pConnection->getSocket();
-
-  if (pAcceptor->newConnection(pConnection) != 0) {
-    if (pAcceptor->getLog())
-      pAcceptor->getLog()->onEvent("Failed to accept new SSL connection");
-    SSL *ssl = pConnection->sslObject();
-    delete pConnection;
-    if (!pAcceptor->isStopped())
-      pAcceptor->removeThread(SocketKey(socket, ssl));
-    return 0;
-  }
-
-  while (pConnection->read()) {
-  }
-  SSL *ssl = pConnection->sslObject();
-  delete pConnection;
-  if (!pAcceptor->isStopped())
-    pAcceptor->removeThread(SocketKey(socket, ssl));
-  return 0;
-}
-
-int ThreadedSSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
+int SSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
 
   // Not sure if a lock is required here anymore. But there used to
   // be a bug and boost asio still has a lock as well.
@@ -622,8 +513,8 @@ int ThreadedSSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
   return rc;
 }
 
-int ThreadedSSLSocketAcceptor::newConnection(
-    ThreadedSSLSocketConnection *pConnection) {
+int SSLSocketAcceptor::newConnection(
+    SSLSocketConnection *pConnection) {
 
   int rc;
   int result = -1;
@@ -795,7 +686,7 @@ int ThreadedSSLSocketAcceptor::newConnection(
   return result;
 }
 
-int ThreadedSSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
+int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
                                                       int verify, void *job) {
   if (m_password.length() > bufsize)
     return -1;
