@@ -80,6 +80,7 @@ Parameters have to be defined in the DEFAULT section of the ini file.
 
 SSL config for acceptor:
 
+```
 [DEFAULT]
 
 #This directive points to the PEM-encoded Certificate file and
@@ -238,6 +239,7 @@ SSLProtocol=
 # Example: RC4+RSA:+HIGH:
 
 SSLCipherSuite=
+```
 
 -------------
 EXAMPLE USAGE
@@ -245,6 +247,7 @@ EXAMPLE USAGE
 
 Acceptor:
 
+```
   try
   {
     FIX::SessionSettings settings( file );
@@ -287,14 +290,14 @@ Initiator:
     std::cout << e.what();
     return 1;
   }
-  
+```
 
 If the server or client certficate key is password protected, than the password can be set by the method
 
-  void setPassword(const std::string & pwd);
-  
+`void setPassword(const std::string & pwd);`
+
 There are sample SSL certificates in the sub-directory bin/cfg/certs/.
-  
+
 ----------
 CONCLUSION
 ----------
