@@ -9800,3 +9800,4 @@ class ConfirmationRequest(Message):
                     order[1] = 807
                     order[2] = 0
                     fix.Group.__init__(self, 806, 760, order)
+

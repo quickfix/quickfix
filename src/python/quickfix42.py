@@ -1058,3 +1058,4 @@ class ListStrikePrice(Message):
             order[26] = 355
             order[27] = 0
             fix.Group.__init__(self, 428, 55, order)
+

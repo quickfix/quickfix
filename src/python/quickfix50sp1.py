@@ -14376,3 +14376,4 @@ class UserNotification(Message):
     def __init__(self):
         super(UserNotification, self).__init__()
         self.getHeader().setField(fix.MsgType("CB"))
+

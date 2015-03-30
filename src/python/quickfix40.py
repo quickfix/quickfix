@@ -231,3 +231,4 @@ class Quote(Message):
     def __init__(self):
         super(Quote, self).__init__()
         self.getHeader().setField(fix.MsgType("S"))
+

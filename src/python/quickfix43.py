@@ -3098,3 +3098,4 @@ class QuoteStatusReport(Message):
             order[1] = 456
             order[2] = 0
             fix.Group.__init__(self, 454, 455, order)
+

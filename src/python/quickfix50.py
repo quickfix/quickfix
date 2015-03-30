@@ -12331,3 +12331,4 @@ class TradingSessionListRequest(Message):
     def __init__(self):
         super(TradingSessionListRequest, self).__init__()
         self.getHeader().setField(fix.MsgType("BI"))
+

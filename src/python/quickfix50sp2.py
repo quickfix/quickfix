@@ -15746,3 +15746,4 @@ class StreamAssignmentReportACK(Message):
     def __init__(self):
         super(StreamAssignmentReportACK, self).__init__()
         self.getHeader().setField(fix.MsgType("CE"))
+

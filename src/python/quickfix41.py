@@ -299,3 +299,4 @@ class SettlementInstructions(Message):
     def __init__(self):
         super(SettlementInstructions, self).__init__()
         self.getHeader().setField(fix.MsgType("T"))
+

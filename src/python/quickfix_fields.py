@@ -12215,3 +12215,5 @@ class StreamAsgnType(quickfix.IntField):
             super(StreamAsgnType, self).__init__(1617)
         else:
             super(StreamAsgnType, self).__init__(1617, data)
+
+

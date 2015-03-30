@@ -57,3 +57,4 @@ class Logon(Message):
             order[3] = 1131
             order[4] = 0
             fix.Group.__init__(self, 384, 372, order)
+
