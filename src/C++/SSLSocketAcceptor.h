@@ -32,8 +32,8 @@
 #endif
 
 #include "Acceptor.h"
+#include "SocketServer.h"
 #include "SSLSocketConnection.h"
-#include "Mutex.h"
 
 namespace FIX {
 
@@ -45,7 +45,7 @@ typedef enum {
 } SSLVerifyClient;
 
 /// Threaded Socket implementation of Acceptor.
-class SSLSocketAcceptor : public Acceptor {
+class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy {
   friend class SocketConnection;
 
 public:
@@ -96,15 +96,12 @@ private:
   PortToSessions m_portToSessions;
   SocketToPort m_socketToPort;
   SocketServer* m_pServer;
-  SocketConnections m_connections;
-  Mutex m_mutex;
   bool m_sslInit;
   int m_verify;
   SSL_CTX *m_ctx;
   X509_STORE *m_revocationStore;
   std::string m_password;
 
-  static Mutex m_acceptMutex;
 };
 /*! @} */
 }

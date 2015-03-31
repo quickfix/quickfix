@@ -38,13 +38,11 @@ int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job) {
 
 namespace FIX {
 
-Mutex SSLSocketAcceptor::m_acceptMutex = Mutex();
-
 SSLSocketAcceptor::SSLSocketAcceptor(
     Application &application, MessageStoreFactory &factory,
     const SessionSettings &settings) throw(ConfigError)
     : Acceptor(application, factory, settings), m_sslInit(false),
-      m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0) {
+      m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0), m_pServer(0) {
   socket_init();
 }
 
@@ -509,10 +507,6 @@ void SSLSocketAcceptor::onStop() {
 
 
 int SSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
-
-  // Not sure if a lock is required here anymore. But there used to
-  // be a bug and boost asio still has a lock as well.
-  Locker l(m_acceptMutex);
 
   int rc = SSL_accept(ssl);
   if (rc <= 0) {

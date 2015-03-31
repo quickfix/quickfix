@@ -60,3 +60,5 @@ INSTALL
 
 # OS specific
 .DS_Store
+# added by GitSavvy
+__pycache__

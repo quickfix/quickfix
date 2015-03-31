@@ -331,5 +331,3 @@ class SSLSocketAcceptor(SSLSocketAcceptorBase):
       sigaction( SIGINT, &new_action, &old_action );
 #endif
 %}
-
-%include "quickfix.i"

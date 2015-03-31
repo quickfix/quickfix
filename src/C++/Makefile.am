@@ -114,6 +114,19 @@ libquickfix_la_SOURCES = \
 	pugiconfig.hpp \
 	MessageCracker.h \
 	Responder.h
+	ThreadedSSLSocketAcceptor.h \
+	ThreadedSSLSocketInitiator.cpp \
+	ThreadedSSLSocketInitiator.h \
+	ThreadedSSLSocketConnection.cpp \
+	ThreadedSSLSocketConnection.h \
+	SSLSocketAcceptor.cpp \
+	SSLSocketAcceptor.h \
+	SSLSocketInitiator.cpp \
+	SSLSocketInitiator.h \
+	SSLSocketConnection.cpp \
+	SSLSocketConnection.h \
+	UtilitySSL.cpp \
+	UtilitySSL.h
 	
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \

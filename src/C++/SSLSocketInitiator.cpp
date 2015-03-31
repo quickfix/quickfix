@@ -214,7 +214,6 @@ void SSLSocketInitiator::onStart() {
     ::time(&now);
 
     if ((now - m_lastConnect) >= m_reconnectInterval) {
-      Locker l(m_mutex);
       connect();
       m_lastConnect = now;
     }
@@ -226,38 +225,9 @@ void SSLSocketInitiator::onStart() {
 bool SSLSocketInitiator::onPoll(double timeout) { return false; }
 
 void SSLSocketInitiator::onStop() {
-  SocketToThread threads;
-  SocketToThread::iterator i;
-
-  {
-    Locker l(m_mutex);
-
-    time_t start = 0;
-    time_t now = 0;
-
-    ::time(&start);
-    while (isLoggedOn()) {
-      if (::time(&now) - 5 >= start)
-        break;
-    }
-
-    threads = m_threads;
-    m_threads.clear();
-  }
-
-  for (i = threads.begin(); i != threads.end(); ++i)
-    ssl_socket_close(i->first.first, i->first.second);
-
-  for (i = threads.begin(); i != threads.end(); ++i) {
-    thread_join(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-  }
-  threads.clear();
 }
 
-void SSLSocketInitiator::doConnect(const SessionID &s,
-                                           const Dictionary &d) {
+void SSLSocketInitiator::doConnect(const SessionID &s, const Dictionary &d) {
   try {
     Session *session = Session::lookupSession(s);
     if (!session->isSessionTime(UtcTimeStamp()))
@@ -293,21 +263,6 @@ void SSLSocketInitiator::doConnect(const SessionID &s,
     SSLSocketConnection *pConnection = new SSLSocketConnection(
         s, socket, ssl, address, port, getLog());
 
-    ThreadPair *pair = new ThreadPair(this, pConnection);
-
-    {
-      Locker l(m_mutex);
-      thread_id thread;
-      if (thread_spawn(&socketThread, pair, thread)) {
-        addThread(SocketKey(socket, ssl), thread);
-      } else {
-        delete pair;
-        pConnection->disconnect();
-        delete pConnection;
-        SSL_free(ssl);
-        setDisconnected(s);
-      }
-    }
   } catch (std::exception &) {
   }
 }
