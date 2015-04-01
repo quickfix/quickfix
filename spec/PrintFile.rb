@@ -15,7 +15,7 @@ class PrintFile
     count = 0
     result = ""
     while (count != @depth)
-      result += "  " 
+      result += "  "
       count += 1
     end
     return result

@@ -2,7 +2,7 @@
 
 rm -rf *.cache config
 mkdir config
-touch README NEWS AUTHORS INSTALL ChangeLog
+touch NEWS AUTHORS INSTALL ChangeLog
 
 set -ex
 case `uname` in Darwin*) glibtoolize --copy ;;

@@ -30,6 +30,14 @@
 
 namespace FIX
 {
+
+int const headerOrder[] =
+{
+  FIELD::BeginString,
+  FIELD::BodyLength,
+  FIELD::MsgType
+};
+
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
@@ -273,13 +281,6 @@ throw( InvalidMessage )
   std::string::size_type pos = 0;
   int count = 0;
   std::string msg;
-
-  static int const headerOrder[] =
-  {
-    FIELD::BeginString,
-    FIELD::BodyLength,
-    FIELD::MsgType
-  };
 
   field_type type = header;
 
@@ -540,7 +541,8 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     throw InvalidMessage("Equal sign not found in field");
 
   int field = 0;
-  IntConvertor::convert( tagStart, equalSign, field );
+  if( !IntConvertor::convert( tagStart, equalSign, field ) )
+    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign ));
 
   std::string::const_iterator const valueStart = equalSign + 1;
 
@@ -555,15 +557,29 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Special case for Signature which violates above assumption.
     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    // identify part of the message that should contain length field
+    const FieldMap * location = pGroup;
+    if( !location )
     {
-      const std::string& fieldLength = pGroup->getField( lenField );
-      soh = valueStart + atol( fieldLength.c_str() );
+      if( isHeaderField( field ) )
+        location = &getHeader();
+      else if( isTrailerField( field ) )
+        location = &getTrailer();
+      else
+        location = this;
     }
-    else if ( isSetField( lenField ) )
+
+    if ( location->isSetField( lenField ) )
     {
-      const std::string& fieldLength = getField( lenField );
-      soh = valueStart + atol( fieldLength.c_str() );
+      try
+      {
+        const std::string& fieldLength = location->getField( lenField );
+        soh = valueStart + IntConvertor::convert( fieldLength );
+      }
+      catch( FieldConvertError& e )
+      {
+        throw InvalidMessage( std::string( "Unable to determine SOH for data field " ) + IntConvertor::convert( field ) + std::string( ": " ) + e.what() );
+      }
     }
   }
 

@@ -19,12 +19,12 @@ class Processor
     @fieldsT = @docT.elements["fix/fields"]
     @components = @doc.elements["fix/components"]
     populateFieldHash()
-    @generators = generators    
+    @generators = generators
   end
 
   def populateFieldHash
     @fieldHash = Hash.new
-    if( @major == "5" )
+    if(@major == "5")
       @fieldsT.elements.each("field") { |field|
         name = field.attributes["name"]
         number = field.attributes["number"]

@@ -3951,7 +3951,7 @@
   <field number='533' name='TotalAffectedOrders' type='INT' />
   <field number='534' name='NoAffectedOrders' type='NUMINGROUP' />
   <field number='535' name='AffectedOrderID' type='STRING' />
-  <field number='536' name='AffectedSecondaryOrderID' type='STIRNG' />
+  <field number='536' name='AffectedSecondaryOrderID' type='STRING' />
   <field number='537' name='QuoteType' type='INT'>
    <value enum='0' description='INDICATIVE' />
    <value enum='1' description='TRADEABLE' />

@@ -3,14 +3,16 @@
 
 AC_PREREQ([2.59])
 
-AC_INIT([QuickFIX], [1.14.3], [ask@quickfixengine.org])
+AC_INIT([QuickFIX], [1.15.0], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
 m4_include([m4/ax_lib_boost.m4])
 m4_include([m4/ax_lib_stlport.m4])
+m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
+m4_include([m4/ax_python3.m4])
 m4_include([m4/ax_ruby.m4])
 m4_include([m4/ax_java.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
@@ -31,6 +33,7 @@ AX_LIB_MYSQL()
 AX_LIB_POSTGRESQL()
 AX_LIB_BOOST()
 AX_LIB_STLPORT()
+AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
@@ -78,12 +81,12 @@ fi
 ########################################
 
 # libs
-LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
+LIBS="$OPENSSL_LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 # gcc flags
 if test `uname` == SunOS; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 else
-	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual $OPENSSL_CFLAGS $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"

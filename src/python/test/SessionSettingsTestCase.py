@@ -1,41 +1,27 @@
-import quickfix as fix
 import unittest
+
+import quickfix as fix
+
 
 class SessionSettingsTestCase(unittest.TestCase):
 
-	def setUp(self):
-		self.object = fix.SessionSettings()
+    def setUp(self):
+        self.object = fix.SessionSettings()
 
-	def test_validate(self):
-		sessionID = fix.SessionID( "FIX.4.2", "SenderCompID", "TargetCompID" )
-		
-		dictionary = fix.Dictionary()
-		try:
-			self.object.set( sessionID, dictionary )
-			self.failUnless( 0 )
-		except fix.ConfigError, e:
-			self.failUnless( 1 )
+    def test_validate(self):
+        sessionID = fix.SessionID("FIX.4.2", "SenderCompID", "TargetCompID")
 
-		dictionary.setString( fix.CONNECTION_TYPE, "badvalue" )
-		try:
-			self.object.set( sessionID, dictionary );
-			self.failUnless( 0 );
-		except fix.ConfigError, e:
-			self.failUnless( 1 )
+        dictionary = fix.Dictionary()
+        self.assertRaises(fix.ConfigError, self.object.set, sessionID, dictionary)
 
-		dictionary.setString( fix.CONNECTION_TYPE, "initiator" )
-		try:
-			self.object.set( sessionID, dictionary );
-			self.failUnless( 1 );
-		except fix.ConfigError, e:
-			self.failUnless( 0 )
+        dictionary.setString(fix.CONNECTION_TYPE, "badvalue")
+        self.assertRaises(fix.ConfigError, self.object.set, sessionID, dictionary)
 
-		sessionID = fix.SessionID( "FIX4.2", "SenderCompID", "TargetCompID" )
-		try:
-			self.object.set( sessionID, dictionary );
-			self.failUnless( 0 );
-		except fix.ConfigError, e:
-			self.failUnless( 1 )
+        dictionary.setString(fix.CONNECTION_TYPE, "initiator")
+        self.assertIsNone(self.object.set(sessionID, dictionary))
+
+        sessionID = fix.SessionID("FIX4.2", "SenderCompID", "TargetCompID")
+        self.assertRaises(fix.ConfigError, self.object.set, sessionID, dictionary)
 
 if __name__ == '__main__':
-	unittest.main()
+    unittest.main(verbosity=2)
