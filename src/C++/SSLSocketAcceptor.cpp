@@ -23,9 +23,9 @@
 #include "config.h"
 #endif
 
-#if (HAVE_SSL > 0)
 
 #include "SSLSocketAcceptor.h"
+#include "Session.h"
 #include "Settings.h"
 #include "Utility.h"
 
@@ -505,6 +505,56 @@ bool SSLSocketAcceptor::onPoll(double timeout) {
 void SSLSocketAcceptor::onStop() {
 }
 
+void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
+{
+  if ( !socket_isValid( s ) ) return;
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i != m_connections.end() ) return;
+  int port = server.socketToPort( a );
+  Sessions sessions = m_portToSessions[port];
+  m_connections[ s ] = new SocketConnection( s, sessions, &server.getMonitor() );
+
+  std::stringstream stream;
+  stream << "Accepted connection from " << socket_peername( s ) << " on port " << port;
+
+  if( getLog() )
+    getLog()->onEvent( stream.str() );
+}
+
+void SSLSocketAcceptor::onWrite( SocketServer& server, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SocketConnection* pSocketConnection = i->second;
+  if( pSocketConnection->processQueue() )
+    pSocketConnection->unsignal();
+}
+
+bool SSLSocketAcceptor::onData( SocketServer& server, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return false;
+  SocketConnection* pSocketConnection = i->second;
+  return pSocketConnection->read( *this, server );
+}
+
+void SSLSocketAcceptor::onDisconnect( SocketServer&, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SocketConnection* pSocketConnection = i->second;
+
+  Session* pSession = pSocketConnection->getSession();
+  if ( pSession ) pSession->disconnect();
+
+  delete pSocketConnection;
+  m_connections.erase( s );
+}
+
+void SSLSocketAcceptor::onError( SocketServer& ) 
+{
+}
+
 
 int SSLSocketAcceptor::doAccept(SSL *ssl, int &result) {
 
@@ -698,5 +748,3 @@ int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
   return m_password.length();
 }
 }
-
-#endif

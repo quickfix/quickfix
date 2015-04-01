@@ -102,7 +102,6 @@
 #include "config.h"
 #endif
 
-#if (HAVE_SSL > 0)
 
 #include "Utility.h"
 
@@ -246,4 +245,3 @@ void setCtxOptions(SSL_CTX * ctx, const char * opt);
 
 #endif
 
-#endif

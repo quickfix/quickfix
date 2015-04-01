@@ -25,8 +25,6 @@
 #include "config.h"
 #endif
 
-#if (HAVE_SSL > 0)
-
 #ifdef _MSC_VER
 #pragma warning(disable : 4503 4355 4786 4290)
 #endif
@@ -44,7 +42,6 @@ typedef enum {
   SSL_CLIENT_VERIFY_NOTSET = 3
 } SSLVerifyClient;
 
-/// Threaded Socket implementation of Acceptor.
 class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy {
   friend class SocketConnection;
 
@@ -79,6 +76,13 @@ private:
   bool onPoll(double timeout);
   void onStop();
 
+  void onConnect( SocketServer&, int, int );
+  void onWrite( SocketServer&, int );
+  bool onData( SocketServer&, int );
+  void onDisconnect( SocketServer&, int );
+  void onError( SocketServer& );
+  void onTimeout( SocketServer& );
+
   bool loadSSLCertificate(std::string &errStr);
   bool loadCRLInfo(std::string &errStr);
   X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb);
@@ -96,6 +100,7 @@ private:
   PortToSessions m_portToSessions;
   SocketToPort m_socketToPort;
   SocketServer* m_pServer;
+  SocketConnections m_connections;
   bool m_sslInit;
   int m_verify;
   SSL_CTX *m_ctx;
@@ -108,4 +113,3 @@ private:
 
 #endif // FIX_SOCKETACCEPTOR_H
 
-#endif

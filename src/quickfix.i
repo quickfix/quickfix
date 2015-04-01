@@ -17,7 +17,6 @@
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
 %rename(SSLSocketInitiatorBase) FIX::SSLSocketInitiator;
 %rename(SSLSocketAcceptorBase) FIX::SSLSocketAcceptor;
-
 %{
 #include <config.h>
 #include <Exceptions.h>

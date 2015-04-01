@@ -23,7 +23,6 @@
 #include "config.h"
 #endif
 
-#if (HAVE_SSL > 0)
 
 #include "UtilitySSL.h"
 #include "SSLSocketInitiator.h"
@@ -305,4 +304,3 @@ int SSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
 }
 }
 
-#endif

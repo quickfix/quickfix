@@ -23,7 +23,6 @@
 #include "config.h"
 #endif
 
-#if (HAVE_SSL > 0)
 
 #include "SSLSocketConnection.h"
 #include "SSLSocketAcceptor.h"
@@ -265,4 +264,3 @@ bool SSLSocketConnection::setSession(const std::string &msg) {
 
 } // namespace FIX
 
-#endif
