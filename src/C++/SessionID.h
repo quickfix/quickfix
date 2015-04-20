@@ -58,7 +58,7 @@ public:
     { return m_targetCompID; }
   const std::string& getSessionQualifier() const
     { return m_sessionQualifier; }
-  const bool isFIXT() const
+  bool isFIXT() const
     { return m_isFIXT; }
 
   /// Get a string representation of the SessionID

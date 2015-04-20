@@ -117,7 +117,7 @@ std::ostream& operator<<( std::ostream& stream, const SessionSettings& s )
   return stream;
 }
 
-const bool SessionSettings::has( const SessionID& sessionID ) const
+bool SessionSettings::has( const SessionID& sessionID ) const
 {
   return m_settings.find( sessionID ) != m_settings.end();
 }

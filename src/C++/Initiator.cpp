@@ -116,7 +116,7 @@ Session* Initiator::getSession( const SessionID& sessionID ) const
     return 0;
 }
 
-const Dictionary* const Initiator::getSessionSettings( const SessionID& sessionID ) const
+const Dictionary* Initiator::getSessionSettings( const SessionID& sessionID ) const
 {
   try
   {

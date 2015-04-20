@@ -134,7 +134,7 @@ public:
   }
 
   /// Get direct access to a field through a pointer
-  const FieldBase* const getFieldPtr( int tag )
+  const FieldBase* getFieldPtr( int tag )
   const throw( FieldNotFound )
   {
     return &getFieldRef( tag );
