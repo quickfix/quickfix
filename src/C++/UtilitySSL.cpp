@@ -600,7 +600,7 @@ char *strCat(const char *a, ...) {
   return res;
 }
 
-long  protocolOptions(const char *opt) {
+long protocolOptions(const char *opt) {
   long options = SSL_PROTOCOL_NONE, thisopt;
   char action;
   const char *w, *e;
@@ -621,17 +621,16 @@ long  protocolOptions(const char *opt) {
       } else if (!strncasecmp(w, "SSLv3", 5 /* strlen("SSLv3") */)) {
         thisopt = SSL_PROTOCOL_SSLV3;
         w += 5 /*strlen("SSLv3") */;
+      } else if (!strncasecmp(w, "TLSv1_1", 7 /* strlen("TLSv1_1") */)) {
+        thisopt = SSL_PROTOCOL_TLSV1_1;
+        w += 7 /* strlen("TLSv1_1") */;
+      } else if (!strncasecmp(w, "TLSv1_2", 7 /* strlen("TLSv1_2") */)) {
+        thisopt = SSL_PROTOCOL_TLSV1_2;
+        w += 7 /* strlen("TLSv1_2") */;
       } else if (!strncasecmp(w, "TLSv1", 5 /* strlen("TLSv1") */)) {
         thisopt = SSL_PROTOCOL_TLSV1;
         w += 5 /* strlen("TLSv1") */;
-      }  else if (!strncasecmp(w, "TLSv1_1", 5 /* strlen("TLSv1_1") */)) {
-        thisopt = SSL_PROTOCOL_TLSV1_1;
-        w += 7 /* strlen("TLSv1_1") */;
-      }  else if (!strncasecmp(w, "TLSv1_2", 5 /* strlen("TLSv1_2") */)) {
-        thisopt = SSL_PROTOCOL_TLSV1_2;
-        w += 7 /* strlen("TLSv1_2") */;
-      }
-      else if (!strncasecmp(w, "all", 3 /* strlen("all") */)) {
+      } else if (!strncasecmp(w, "all", 3 /* strlen("all") */)) {
         thisopt = SSL_PROTOCOL_ALL;
         w += 3 /* strlen("all") */;
       } else
@@ -653,7 +652,7 @@ long  protocolOptions(const char *opt) {
   return options;
 }
 
-void setCtxOptions(SSL_CTX * ctx, const char *opt) {
+void setCtxOptions(SSL_CTX *ctx, const char *opt) {
   long options = protocolOptions(opt);
 
   SSL_CTX_set_options(ctx, SSL_OP_ALL);
