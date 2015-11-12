@@ -57,6 +57,14 @@ namespace FIX44
     FIELD_SET(*this, FIX::CPRegType);
     FIELD_SET(*this, FIX::DatedDate);
     FIELD_SET(*this, FIX::InterestAccrualDate);
+    FIELD_SET(*this, FIX::NoSecurityAltID);
+    class NoSecurityAltID: public FIX::Group
+    {
+    public:
+    NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
+      FIELD_SET(*this, FIX::SecurityAltID);
+      FIELD_SET(*this, FIX::SecurityAltIDSource);
+    };
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group
     {
