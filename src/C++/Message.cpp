@@ -236,8 +236,8 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
   {
-    int field = i->first;
-    std::string value = i->second.getString();
+    int field = i->getTag();
+    std::string value = i->getString();
 
     stream << std::setw(space) << " " << "<field ";
     if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
@@ -301,7 +301,7 @@ throw( InvalidMessage )
       if ( field.getTag() == FIELD::MsgType )
         msg = field.getString();
 
-      m_header.setField( field, false );
+      m_header.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
@@ -309,7 +309,7 @@ throw( InvalidMessage )
     else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
       type = trailer;
-      m_trailer.setField( field, false );
+      m_trailer.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
@@ -323,7 +323,7 @@ throw( InvalidMessage )
       }
 
       type = body;
-      setField( field, false );
+      addField( field );
 
       if ( pApplicationDataDictionary )
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
@@ -373,7 +373,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     }
 
     if ( !pGroup.get() ) return ;
-    pGroup->setField( field, false );
+    pGroup->addField( field );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }
 }
@@ -392,7 +392,7 @@ bool Message::setStringHeader( const std::string& string )
       return false;
 
     if ( isHeaderField( field ) )
-      m_header.setField( field, false );
+      m_header.addField( field );
     else break;
   }
   return true;
@@ -591,4 +591,5 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     tagStart, 
     tagEnd );
 }
+
 }

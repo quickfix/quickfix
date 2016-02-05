@@ -40,6 +40,7 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
   clear();
 
   m_fields = rhs.m_fields;
+  m_order = rhs.m_order;
 
   Groups::const_iterator i;
   for ( i = rhs.m_groups.begin(); i != rhs.m_groups.end(); ++i )
@@ -105,7 +106,7 @@ void FieldMap::removeGroup( int num, int field )
   else
   {
     IntField groupCount( field, (int)vector.size() );
-    setField( groupCount, true );
+    setField( groupCount );
   }
 }
 
@@ -130,7 +131,7 @@ void FieldMap::removeGroup( int field )
 
 void FieldMap::removeField( int field )
 {
-  Fields::iterator i = m_fields.find( field );
+  Fields::iterator i = findTag( field );
   if ( i != m_fields.end() )
     m_fields.erase( i );
 }
@@ -170,7 +171,7 @@ void FieldMap::clear()
 
 bool FieldMap::isEmpty()
 {
-  return m_fields.size() == 0;
+  return m_fields.empty();
 }
 
 size_t FieldMap::totalFields() const
@@ -192,11 +193,11 @@ std::string& FieldMap::calculateString( std::string& result ) const
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    result += i->second.getFixString();
+    result += i->getFixString();
 
     // add groups if they exist
     if( !m_groups.size() ) continue;
-    Groups::const_iterator j = m_groups.find( i->first );
+    Groups::const_iterator j = m_groups.find( i->getTag() );
     if ( j == m_groups.end() ) continue;
     std::vector < FieldMap* > ::const_iterator k;
     for ( k = j->second.begin(); k != j->second.end(); ++k )
@@ -213,10 +214,11 @@ int FieldMap::calculateLength( int beginStringField,
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    if ( i->first != beginStringField
-         && i->first != bodyLengthField
-         && i->first != checkSumField )
-    { result += i->second.getLength(); }
+    int tag = i->getTag();
+    if ( tag != beginStringField
+         && tag != bodyLengthField
+         && tag != checkSumField )
+    { result += i->getLength(); }
   }
 
   Groups::const_iterator j;
@@ -235,8 +237,8 @@ int FieldMap::calculateTotal( int checkSumField ) const
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    if ( i->first != checkSumField )
-      result += i->second.getTotal();
+    if ( i->getTag() != checkSumField )
+      result += i->getTotal();
   }
 
   Groups::const_iterator j;

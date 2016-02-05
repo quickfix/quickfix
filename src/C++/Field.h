@@ -90,6 +90,24 @@ public:
 
   virtual ~FieldBase() {}
 
+  FieldBase( const FieldBase& rhs )
+  : m_tag( rhs.getTag() )
+  , m_string( rhs.m_string )
+  , m_metrics( rhs.m_metrics )
+  {
+
+  }
+
+  FieldBase& operator=( const FieldBase& rhs)
+  {
+    m_tag = rhs.getTag();
+    m_string = rhs.m_string;
+    m_metrics = rhs.m_metrics;
+    m_data.clear();
+
+    return *this;
+  }
+
   void setTag( int tag )
   {
     m_tag = tag;

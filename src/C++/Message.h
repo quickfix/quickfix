@@ -40,15 +40,19 @@ namespace FIX
 
 class Header : public FieldMap 
 {
+  static const int REQUIRED_FIELDS = 7;
+
 public:
-  Header() : FieldMap(message_order( message_order::header ) )
+  Header() : FieldMap( message_order( message_order::header ), REQUIRED_FIELDS )
   {}
 };
 
 class Trailer : public FieldMap 
 {
+  static const int REQUIRED_FIELDS = 1;
+
 public:
-  Trailer() : FieldMap(message_order( message_order::trailer ) )
+  Trailer() : FieldMap( message_order( message_order::trailer ), REQUIRED_FIELDS )
   {}
 };
 
