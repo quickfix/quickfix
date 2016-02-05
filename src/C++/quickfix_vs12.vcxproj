@@ -675,6 +675,7 @@
     <ClCompile Include="DataDictionary.cpp" />
     <ClCompile Include="DataDictionaryProvider.cpp" />
     <ClCompile Include="Dictionary.cpp" />
+    <ClCompile Include="FieldConvertors.cpp" />
     <ClCompile Include="FieldMap.cpp" />
     <ClCompile Include="FieldTypes.cpp" />
     <ClCompile Include="FileLog.cpp" />

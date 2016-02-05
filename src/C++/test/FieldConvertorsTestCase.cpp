@@ -172,6 +172,7 @@ TEST(doubleConvertFrom)
   CHECK_EQUAL( 0.00001, DoubleConvertor::convert( "0.00001" ) );
   CHECK_EQUAL( -0.00001, DoubleConvertor::convert( "-0.00001" ) );
   CHECK_EQUAL( -1050, DoubleConvertor::convert( "-1050" ) );
+  CHECK_EQUAL( 1.233, DoubleConvertor::convert( "1.233" ));
 
   CHECK_THROW( DoubleConvertor::convert( "abc" ), FieldConvertError );
   CHECK_THROW( DoubleConvertor::convert( "123.A" ), FieldConvertError );
