@@ -615,7 +615,7 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
 TEST_FIXTURE(sessionFixture, doesSessionExist)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session * pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -686,7 +686,7 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
 TEST_FIXTURE(sessionFixture, lookupSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session* pSession1 = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -741,7 +741,7 @@ TEST_FIXTURE(sessionFixture, lookupSession)
 TEST_FIXTURE(sessionFixture, registerSession)
 {
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
+  provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session* pSession = new Session
     ( *this, factory, SessionID( BeginString( "FIX.4.2" ),
