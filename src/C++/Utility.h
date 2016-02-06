@@ -152,7 +152,7 @@ tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t );
 
 #ifdef _MSC_VER
-typedef unsigned int (_stdcall THREAD_START_ROUTINE)(void *);
+typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
 #define  THREAD_PROC unsigned int _stdcall
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
