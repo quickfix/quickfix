@@ -265,6 +265,28 @@ TEST(setStringWithHighBit)
   CHECK_EQUAL( str, object.toString() );
 }
 
+TEST(setStringWithDataFieldWithoutDataLength)
+{
+  FIX::Message object;
+  DataDictionary dataDictionary("../spec/FIX42.xml");
+
+  FIX::Headline headline("client");
+  FIX42::News msg(headline);
+
+  std::string s;
+  char cc = -92;
+  int data_len = rand() % 100;
+  s.assign(data_len, cc);
+
+  FIX::RawData data;
+  data.setValue(s);
+
+  msg.set(data);
+  std::string str = msg.toString();
+
+  CHECK_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
+}
+
 TEST(copy)
 {
   FIX::Message object;
@@ -910,6 +932,37 @@ TEST(orderCancelRequestSetString)
   CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
   CHECK_EQUAL( "MSFT", object.get( symbol ) );
   CHECK_EQUAL( '1', object.get( side ) );
+}
+
+TEST(XMLNonFIXSetString)
+{
+  // XMLnonFIX message
+  FIX::Message object;
+
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
+
+  std::string encodedFIXmessage = "8=FIX.4.2\0019=390\001"
+    "35=8\00134=136\001369=131\00152=20150220-14:40:24.991\00149=CME\00150=G\001"
+    "56=GGGGGGN\00157=GGG\001143=IL\0011=TEST\0016=0\00111=00000000000000000003\001"
+    "14=1\00117=64485:M:412850TN0031303\00120=0\00131=208700\00132=1\00137=64227619161\001"
+    "38=1\00139=2\00140=2\00141=0\00144=208700\00148=147403\00154=1\00155=ES\00159=0\001"
+    "60=20150220-14:40:24.970\00175=20150220\001107=ESH5\001150=2\001151=0\001167=FUT\001"
+    "337=TRADE\001375=CME000A\001432=20150220\001442=1\001527=642276191612015022031303\001"
+    "1028=N\0011057=N\00110=000\001";
+
+  std::string xmlNonFIXMessage = std::string("8=FIX.4.2\0019=501\00135=n\00134=158\001369=130\00152=20150220-14:40:24.991\001"
+    "49=CME\00150=G\00156=QQQQQQN\00157=QQQ\001212=413\001213=") + encodedFIXmessage + std::string("\00110=129\001");
+
+  object.setString( xmlNonFIXMessage, true, &dataDictionary );
+
+  XmlDataLen dataLen;
+  XmlData xmlData;
+
+  object.getHeader().getField( dataLen );
+  object.getHeader().getField( xmlData );
+
+  CHECK_EQUAL( 413, dataLen.getValue() );
+  CHECK_EQUAL( encodedFIXmessage, xmlData.getValue() );
 }
 
 TEST(orderCancelRejectGetString)

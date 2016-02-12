@@ -556,27 +556,26 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Special case for Signature which violates above assumption.
     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    // identify part of the message that should contain length field
+    const FieldMap * location = pGroup;
+    if ( !location )
     {
-      const std::string& fieldLength = pGroup->getField( lenField );
+      if ( isHeaderField( lenField ) )
+        location = &m_header;
+      else if ( isTrailerField( lenField ) )
+        location = &m_trailer;
+      else
+        location = this;
+    }
+
+    try
+    {
+      const std::string& fieldLength = location->getField( lenField );
       soh = valueStart + atol( fieldLength.c_str() );
     }
-    else
+    catch( FieldNotFound& )
     {
-      FIX::FieldMap *lenMap;
-      if ( isHeaderField( lenField ) )
-      {
-          lenMap = &m_header;
-      }
-      else
-      {
-          lenMap = this;
-      }
-      if ( lenMap->isSetField( lenField ) )
-      {
-        const std::string& fieldLength = lenMap->getField( lenField );
-        soh = valueStart + atol( fieldLength.c_str() );
-      }
+      throw InvalidMessage( std::string( "Data length field " ) + IntConvertor::convert( lenField ) + std::string( " was not found for data field " ) + IntConvertor::convert( field ) );
     }
   }
 
