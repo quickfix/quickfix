@@ -287,6 +287,32 @@ TEST(setStringWithDataFieldWithoutDataLength)
   CHECK_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
 }
 
+TEST(setStringWithDataFieldAndGarbageAsDataLength)
+{
+  FIX::Message object;
+  DataDictionary dataDictionary("../spec/FIX42.xml");
+
+  FIX::Headline headline("client");
+  FIX42::News msg(headline);
+
+  FIX::RawDataLength data_len;
+  data_len.setString("garbage");
+
+  std::string s;
+  char cc = -92;
+  int length = rand() % 100;
+  s.assign(length, cc);
+
+  FIX::RawData data;
+  data.setValue(s);
+
+  msg.set(data_len);
+  msg.set(data);
+  std::string str = msg.toString();
+
+  CHECK_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
+}
+
 TEST(copy)
 {
   FIX::Message object;
