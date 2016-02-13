@@ -41,11 +41,16 @@ int const headerOrder[] =
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
-: m_validStructure( true ) {}
+: m_validStructure( true )
+, m_tag( 0 )
+{
+  
+}
 
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
+, m_tag( 0 )
 {
   setString( string, validate );
 }
@@ -55,6 +60,7 @@ Message::Message( const std::string& string,
                   bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
+, m_tag( 0 )
 {
   setString( string, validate, &dataDictionary, &dataDictionary );
 }
@@ -65,12 +71,36 @@ Message::Message( const std::string& string,
                   bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
+, m_tag( 0 )
 {
   setStringHeader( string );
   if( isAdmin() )
     setString( string, validate, &sessionDataDictionary, &sessionDataDictionary );
   else
     setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
+}
+
+Message::Message( const BeginString& beginString, const MsgType& msgType )
+: m_validStructure(true)
+, m_tag( 0 )
+{
+  m_header.setField(beginString);
+  m_header.setField(msgType);
+}
+
+Message::Message(const Message& copy)
+: FieldMap(copy)
+, m_header(copy.m_header)
+, m_trailer(copy.m_trailer)
+, m_validStructure(copy.m_validStructure)
+, m_tag(copy.m_tag)
+{
+
+}
+
+Message::~Message()
+{
+  
 }
 
 bool Message::InitializeXML( const std::string& url )
@@ -236,8 +266,8 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
   {
-    int field = i->first;
-    std::string value = i->second.getString();
+    int field = i->getTag();
+    std::string value = i->getString();
 
     stream << std::setw(space) << " " << "<field ";
     if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
@@ -301,7 +331,7 @@ throw( InvalidMessage )
       if ( field.getTag() == FIELD::MsgType )
         msg = field.getString();
 
-      m_header.setField( field, false );
+      m_header.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
@@ -309,7 +339,7 @@ throw( InvalidMessage )
     else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
       type = trailer;
-      m_trailer.setField( field, false );
+      m_trailer.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
@@ -323,7 +353,7 @@ throw( InvalidMessage )
       }
 
       type = body;
-      setField( field, false );
+      addField( field );
 
       if ( pApplicationDataDictionary )
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
@@ -373,7 +403,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     }
 
     if ( !pGroup.get() ) return ;
-    pGroup->setField( field, false );
+    pGroup->addField( field );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }
 }
@@ -392,7 +422,7 @@ bool Message::setStringHeader( const std::string& string )
       return false;
 
     if ( isHeaderField( field ) )
-      m_header.setField( field, false );
+      m_header.addField( field );
     else break;
   }
   return true;
@@ -487,7 +517,7 @@ void Message::setSessionID( const SessionID& sessionID )
   getHeader().setField( sessionID.getTargetCompID() );
 }
 
-void Message::validate()
+void Message::validate() const
 {
   try
   {
@@ -531,7 +561,7 @@ void Message::validate()
 
 FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos, 
                                       const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
-                                      const Group* pGroup /*= 0*/ )
+                                      const Group* pGroup /*= 0*/ ) const
 {
   std::string::const_iterator const tagStart = string.begin() + pos;
   std::string::const_iterator const strEnd = string.end();
@@ -594,4 +624,5 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     tagStart, 
     tagEnd );
 }
+
 }
