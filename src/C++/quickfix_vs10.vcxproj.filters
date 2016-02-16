@@ -2200,5 +2200,8 @@
     <ClCompile Include="pugixml.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="FieldConvertors.cpp">
+      <Filter>Field\Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

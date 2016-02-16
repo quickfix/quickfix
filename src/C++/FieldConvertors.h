@@ -236,107 +236,28 @@ struct DoubleConvertor
 
 private:
 
-  /*Simple and fast atof (ascii to float) function.
-  Executes about 5x faster than standard MSCRT library atof().
-  An attractive alternative if the number of calls is in the millions.
-  Assumes input is a proper integer, fraction, or scientific format.
-  Matches library atof() to 15 digits (except at extreme exponents).
-  Follows atof() precedent of essentially no error checking.
-  09-May-2009 Tom Van Baak (tvb) www.LeapSecond.com */
-  static double fast_atof (const char *p)
-  {
-    bool frac(false);
-    double sign(1.), value(0.), scale(1.);
+  static double fast_strtod( const char * buffer, int size, int * processed_chars );
 
-    while (IS_SPACE(*p))
-      ++p;
+  static int fast_dtoa( char * buffer, int size, double value );
 
-    // Get sign, if any.
-    if (*p == '-')
-    {
-      sign = -1.;
-      ++p;
-    }
-    else if (*p == '+')
-      ++p;
-
-    // Get digits before decimal point or exponent, if any.
-    while (IS_DIGIT(*p))
-    {
-      value = value * 10. + (*p - '0');
-      ++p;
-    }
-
-    // Get digits after decimal point, if any.
-    if (*p == '.')
-    {
-      ++p;
-      double pow10(10.);
-      while (IS_DIGIT(*p))
-      {
-        value += (*p - '0') / pow10;
-        pow10 *= 10.;
-        ++p;
-      }
-    }
-
-    // Handle exponent, if any.
-    if (toupper(*p) == 'E')
-    {
-      unsigned int expon(0);
-      ++p;
-
-      // Get sign of exponent, if any.
-      if (*p == '-')
-      {
-        frac = true;
-        ++p;
-      }
-      else if (*p == '+')
-        ++p;
-
-      // Get digits of exponent, if any.
-      while (IS_DIGIT(*p))
-      {
-        expon = expon * 10 + (*p - '0');
-        ++p;
-      }
-      if (expon > 308)
-        expon = 308;
-
-      // Calculate scaling factor.
-      while (expon >= 50)
-      {
-        scale *= 1E50;
-        expon -= 50;
-      }
-      while (expon >= 8)
-      {
-        scale *= 1E8;
-        expon -=  8;
-      }
-      while (expon > 0)
-      {
-        scale *= 10.0;
-        expon -=  1;
-      }
-    }
-
-    // Return signed and scaled floating point result.
-    return sign * (frac ? (value / scale) : (value * scale));
-  }
+  static int fast_fixed_dtoa( char * buffer, int size, double value ); 
 
 public:
 
+  static const int SIGNIFICANT_DIGITS = 15;
+  static const int BUFFFER_SIZE = 32;
+
   static std::string convert( double value, int padding = 0 )
   {
-    char result[32];
+    char result[BUFFFER_SIZE];
     char *end = 0;
 
     int size;
-    if( value == 0 || value > 0.0001 || value <= -0.0001 )
+    if( value == 0 || value > 0.0001 || value < -0.0001 )
     {
-      size = STRING_SPRINTF( result, "%.15g", value );
+      size = fast_dtoa( result, BUFFFER_SIZE, value ); 
+      if( size == 0 )
+        return std::string();
 
       if( padding > 0 )
       {
@@ -349,42 +270,44 @@ public:
         {
           end = point;
           *point = '.';
-          size++;
+          ++size;
         }
         int needed = padding - (int)(end - point);
 
-        while( needed-- > 0 )
+        if( needed > 0 )
         {
-          *(++end) = '0';
-          size++;
+          memset( ++end, '0', needed );
+          size += needed;
         }
-        *(end+1) = 0;
       }
     }
     else
     {
-      size = STRING_SPRINTF( result, "%.15f", value );
+      size = fast_fixed_dtoa( result, BUFFFER_SIZE, value );
+      if( size == 0 )
+        return std::string();
+
       // strip trailing 0's
       end = result + size - 1;
 
       if( padding > 0 )
       {
-        int discard = 15 - padding;
+        int discard = SIGNIFICANT_DIGITS - padding;
 
         while( (*end == '0') && (discard-- > 0) )
         {
-          *(end--) = 0;
-          size--;
+          --end;
+          --size;
         }
-     }
-     else
-     {
-       while( *end == '0' )
-       {
-         *(end--) = 0;
-         size--;
-       }
-     }
+      }
+      else
+      {
+        while( *end == '0' )
+        {
+          --end;
+          --size;
+        }
+      }
    }
 
    return std::string( result, size );
@@ -415,9 +338,19 @@ static bool convert( const std::string& value, double& result )
 
   if( *i || !haveDigit ) return false;
     
-  result = fast_atof( value.c_str() );
-  return true;
+  int processed_chars;
+  const int total_length = value.length();
+  const double val = fast_strtod( value.c_str(), total_length, &processed_chars);
+
+  if ( processed_chars != total_length ||
+	   val != val /*test for quite NaN*/ )
+  {
+	  return false;
   }
+
+  result = val;
+  return true;
+}
 
   static double convert( const std::string& value )
   throw( FieldConvertError )
