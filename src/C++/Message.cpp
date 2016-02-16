@@ -73,10 +73,6 @@ throw( InvalidMessage )
 : m_validStructure( true )
 , m_tag( 0 )
 {
-  setStringHeader( string );
-  if( isAdmin() )
-    setString( string, validate, &sessionDataDictionary, &sessionDataDictionary );
-  else
     setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
 }
 
@@ -310,7 +306,7 @@ throw( InvalidMessage )
 
   std::string::size_type pos = 0;
   int count = 0;
-  std::string msg;
+  FIX::MsgType msg;
 
   field_type type = header;
 
@@ -329,7 +325,11 @@ throw( InvalidMessage )
       }
 
       if ( field.getTag() == FIELD::MsgType )
-        msg = field.getString();
+      {
+        msg.setString( field.getString() );
+        if ( isAdminMsgType( msg ) )
+          pApplicationDataDictionary = pSessionDataDictionary;
+      }
 
       m_header.addField( field );
 
