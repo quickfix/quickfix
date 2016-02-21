@@ -111,7 +111,7 @@ TEST(integerConvertTo)
   CHECK_EQUAL( "-12345678", IntConvertor::convert( -12345678 ) );
   CHECK_EQUAL( "-123456789", IntConvertor::convert( -123456789 ) );
   CHECK_EQUAL( "-2147483647", IntConvertor::convert( -2147483647 ) );
-  //CHECK_EQUAL( "-2147483648", IntConvertor::convert( MIN_INT ) );
+  CHECK_EQUAL( "-2147483648", IntConvertor::convert( MIN_INT ) );
 }
 
 TEST(integerConvertFrom)
