@@ -241,29 +241,43 @@ struct IOException : public Exception
     : Exception( "IO Error", what ) {}
 };
 
+
+namespace {
+
+std::string errorToWhat()
+{
+#ifdef _MSC_VER
+  int error = WSAGetLastError();
+  char buffer[2048];
+  FormatMessageA( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
+                 MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                 buffer, 2048, NULL );
+  return buffer;
+#else
+  int error = errno;
+  return strerror( error );
+#endif
+}
+
+int getLastError()
+{
+#ifdef _MSC_VER
+  return WSAGetLastError();
+#else
+  return errno;
+#endif
+}
+
+} // namespace
+
 /// Socket Error
 struct SocketException : public Exception
 {
   SocketException()
-    : Exception( "Socket Error", errorToWhat() ) {}
+    : Exception( "Socket Error", errorToWhat() ), error(getLastError()) {}
 
   SocketException( const std::string& what )
-    : Exception( "Socket Error", what ) {}
-
-  std::string errorToWhat()
-  {
-#ifdef _MSC_VER
-    error = WSAGetLastError();
-    char buffer[2048];
-    FormatMessageA( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
-                   MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                   buffer, 2048, NULL );
-    return buffer;
-#else
-    error = errno;
-    return strerror( error );
-#endif
-  }
+    : Exception( "Socket Error", what ), error(getLastError()) {}
 
   int error;
 };
