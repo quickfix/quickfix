@@ -37,7 +37,7 @@ namespace FIX
  */
 
 /// Date and Time stored as a Julian day number and number of
-/// milliseconds since midnight.  Does not perform any timezone
+/// nanoseconds since midnight.  Does not perform any timezone
 /// calculations.  All magic numbers and related calculations
 /// have been taken from:
 ///
@@ -50,37 +50,45 @@ namespace FIX
 struct DateTime 
 {
   int m_date;
-  int m_time;
+  long long m_time;
 
   /// Magic numbers
-  enum 
+  enum : int
   {
-    SECONDS_PER_DAY = 86400,
-    SECONDS_PER_HOUR = 3600,
-    SECONDS_PER_MIN = 60,
-    MINUTES_PER_HOUR = 60,
+    NANOSECONDS_PER_MICROSECOND  = 1000,
+    NANOSECONDS_PER_MILLISECOND  = 1000000,
+    NANOSECONDS_PER_SECOND       = 1000000000,
 
-    MILLIS_PER_DAY = 86400000,
-    MILLIS_PER_HOUR = 3600000,
-    MILLIS_PER_MIN = 60000,
-    MILLIS_PER_SEC = 1000,
+    SECONDS_PER_MINUTE           = 60,
+    MINUTES_PER_HOUR             = 60,
+    HOURS_PER_DAY                = 24,
+    SECONDS_PER_HOUR             = SECONDS_PER_MINUTE * MINUTES_PER_HOUR,
+    SECONDS_PER_DAY              = SECONDS_PER_HOUR * HOURS_PER_DAY,
 
     // time_t epoch (1970-01-01) as a Julian date
     JULIAN_19700101 = 2440588
   };
 
+  enum : long long
+  {
+    NANOSECONDS_PER_DAY          = static_cast<long long>(SECONDS_PER_DAY) * static_cast<long long>(NANOSECONDS_PER_SECOND),
+    NANOSECONDS_PER_HOUR         = static_cast<long long>(SECONDS_PER_HOUR) * static_cast<long long>(NANOSECONDS_PER_SECOND),
+    NANOSECONDS_PER_MINUTE       = static_cast<long long>(SECONDS_PER_MINUTE) * static_cast<long long>(NANOSECONDS_PER_SECOND)
+  };
+
   /// Default constructor - initializes to zero
   DateTime () : m_date (0), m_time (0) {}
 
-  /// Construct from a Julian day number and time in millis
-  DateTime (int date, int time) : m_date (date), m_time (time) {}
+  /// Construct from a Julian day number and time in nanosecond
+  DateTime (int date, long long time) : m_date (date), m_time (time) {}
 
   /// Construct from the specified components
   DateTime( int year, int month, int day,
-            int hour, int minute, int second, int millis ) 
+            int hour, int minute, int second, 
+            int nanosecond ) 
   {
     m_date = julianDate( year, month, day );
-    m_time = makeHMS( hour, minute, second, millis );
+    m_time = makeHMS( hour, minute, second, nanosecond );
   }
 
   virtual ~DateTime() {}
@@ -119,25 +127,39 @@ struct DateTime
   /// Return the hour portion of the time (0-23)
   inline int getHour() const 
   {
-    return m_time / MILLIS_PER_HOUR;
+    return static_cast<int>(m_time / NANOSECONDS_PER_HOUR);
   }
 
   /// Return the minute portion of the time (0-59)
   inline int getMinute() const 
   {
-    return (m_time / MILLIS_PER_MIN) % MINUTES_PER_HOUR;
+    return (static_cast<int>(m_time / NANOSECONDS_PER_MINUTE) % MINUTES_PER_HOUR);
   }
 
   /// Return the second portion of the time (0-59)
   inline int getSecond() const 
   {
-    return (m_time / MILLIS_PER_SEC) % SECONDS_PER_MIN;
+    return (static_cast<int>(m_time / NANOSECONDS_PER_SECOND) % SECONDS_PER_MINUTE);
   }
 
-  /// Return the millisecond portion of the time
-  inline int getMillisecond() const 
+  /// Return the nanosecond portion of the time
+  inline int getMillisecond() const
   {
-    return m_time % MILLIS_PER_SEC;
+    return static_cast<int>((m_time % static_cast<long long>(NANOSECONDS_PER_SECOND)) / 
+                                      static_cast<long long>(NANOSECONDS_PER_MILLISECOND)) ;
+  }
+
+  /// Return the microsecond portion of the time
+  inline int getMicrosecond() const
+  {
+    return static_cast<int>((m_time % static_cast<long long>(NANOSECONDS_PER_SECOND)) / 
+                                      static_cast<long long>(NANOSECONDS_PER_MICROSECOND));
+  }
+
+  /// Return the microsecond portion of the time
+  inline int getNanosecond() const
+  {
+    return static_cast<int>((m_time % static_cast<long long>(NANOSECONDS_PER_SECOND)));
   }
 
   /// Load the referenced values with the year, month and day
@@ -148,14 +170,21 @@ struct DateTime
   }
 
   /// Load the referenced values with the hour, minute, second and
-  /// millisecond portions of the time in a single operation
-  inline void getHMS( int& hour, int& minute, int& second, int& millis ) const 
+  /// nanosecond portions of the time in a single operation
+  inline void getHMS( int& hour, int& minute, int& second, int& nanosecond ) const 
   {
+    int secondFromMidnight = static_cast<int>(m_time / static_cast<long long>(NANOSECONDS_PER_SECOND));
+    hour = secondFromMidnight / SECONDS_PER_HOUR;
+    minute = (secondFromMidnight / SECONDS_PER_MINUTE) % MINUTES_PER_HOUR;
+    second = secondFromMidnight % SECONDS_PER_MINUTE;
+    nanosecond = static_cast<int>(m_time % static_cast<long long>(NANOSECONDS_PER_SECOND));
+    /*
     int ticks = m_time / MILLIS_PER_SEC;
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
-    millis = m_time % MILLIS_PER_SEC;
+    nanosecond = m_time % MILLIS_PER_SEC;
+    */
   }
 
   /// Calculate the weekday of the date (Sunday is 1, Saturday is 7)
@@ -177,18 +206,18 @@ struct DateTime
   inline time_t getTimeT() const 
   {
     return (SECONDS_PER_DAY * (m_date - JULIAN_19700101) +
-            m_time / MILLIS_PER_SEC);
+            static_cast<int>(m_time / static_cast<long long>(NANOSECONDS_PER_SECOND)));
   }
 
   /// Convert the DateTime to a struct tm which is in UTC
   tm getTmUtc() const 
   {
     int year, month, day;
-    int hour, minute, second, millis;
+    int hour, minute, second, nanosecond;
     tm result = { 0 };
 
     getYMD( year, month, day );
-    getHMS( hour, minute, second, millis );
+    getHMS( hour, minute, second, nanosecond );
 
     result.tm_year = year - 1900;
     result.tm_mon = month - 1;
@@ -208,41 +237,41 @@ struct DateTime
   }
 
   /// Set the time portion of the DateTime
-  void setHMS( int hour, int minute, int second, int millis )
+  void setHMS( int hour, int minute, int second, int nanosecond )
   {
-    m_time = makeHMS( hour, minute, second, millis );
+    m_time = makeHMS( hour, minute, second, nanosecond );
   }
 
   /// Set the hour portion of the time
   void setHour( int hour )
   {
-    int old_hour, min, sec, millis;
-    getHMS( old_hour, min, sec, millis );
-    setHMS( hour, min, sec, millis );
+    int old_hour, min, sec, nanosecond;
+    getHMS( old_hour, min, sec, nanosecond );
+    setHMS( hour, min, sec, nanosecond );
   }
 
   /// Set the minute portion of the time
   void setMinute( int min )
   {
-    int hour, old_min, sec, millis;
-    getHMS( hour, old_min, sec, millis );
-    setHMS( hour, min, sec, millis );
+    int hour, old_min, sec, nanosecond;
+    getHMS( hour, old_min, sec, nanosecond );
+    setHMS( hour, min, sec, nanosecond );
   }
 
   /// Set the seconds portion of the time
   void setSecond( int sec )
   {
-    int hour, min, old_sec, millis;
-    getHMS( hour, min, old_sec, millis );
-    setHMS( hour, min, sec, millis );
+    int hour, min, old_sec, nanosecond;
+    getHMS( hour, min, old_sec, nanosecond );
+    setHMS( hour, min, sec, nanosecond );
   }
 
-  /// Set the millisecond portion of the time
-  void setMillisecond( int millis )
+  /// Set the nanosecond portion of the time
+  void setMillisecond( int nanosecond )
   {
-    int hour, min, sec, old_millis;
-    getHMS( hour, min, sec, old_millis );
-    setHMS( hour, min, sec, millis );
+    int hour, min, sec, old_nanosecond;
+    getHMS( hour, min, sec, old_nanosecond );
+    setHMS( hour, min, sec, nanosecond );
   }
 
   /// Clear the date portion of the DateTime
@@ -258,7 +287,7 @@ struct DateTime
   }
 
   /// Set the internal date and time members
-  void set( int date, int time ) { m_date = date; m_time = time; }
+  void set( int date, long long time ) { m_date = date; m_time = time; }
 
   /// Initialize from another DateTime
   void set( const DateTime& other ) 
@@ -274,27 +303,29 @@ struct DateTime
     int s = seconds % SECONDS_PER_DAY;
 
     m_date += d;
-    m_time += s * MILLIS_PER_SEC;
+    m_time += s * NANOSECONDS_PER_SECOND;
 
-    if( m_time > MILLIS_PER_DAY )
+    if( m_time > NANOSECONDS_PER_DAY )
     {
       m_date++;
-      m_time %= MILLIS_PER_DAY;
+      m_time %= NANOSECONDS_PER_DAY;
     }
     else if( m_time < 0 )
     {
       m_date--;
-      m_time += MILLIS_PER_DAY;
+      m_time += NANOSECONDS_PER_DAY;
     }
   }
 
   /// Helper method to convert a broken down time to a number of
-  /// milliseconds since midnight
-  static int makeHMS( int hour, int minute, int second, int millis )
+  /// nanoseconds since midnight
+  static long long makeHMS( int hour, int minute, int second, int nanosecond )
   {
-    return MILLIS_PER_SEC * (SECONDS_PER_HOUR * hour +
-                             SECONDS_PER_MIN * minute +
-                             second) + millis;
+    return static_cast<long long>(NANOSECONDS_PER_SECOND) *
+           static_cast<long long>((SECONDS_PER_HOUR   * hour +
+                                   SECONDS_PER_MINUTE * minute +
+                                   second))
+           + static_cast<long long>(nanosecond);
   }
 
   /// Return the current wall-clock time as a utc DateTime
@@ -303,26 +334,26 @@ struct DateTime
   /// Return the current wall-clock time as a local DateTime
   static DateTime nowLocal();
 
-  /// Convert a time_t and optional milliseconds to a DateTime
-  static DateTime fromUtcTimeT( time_t t, int millis = 0 ) 
+  /// Convert a time_t and optional nanoseconds to a DateTime
+  static DateTime fromUtcTimeT( time_t t, int nanosecond = 0 ) 
   {
     struct tm tm = time_gmtime( &t );
-    return fromTm( tm, millis );
+    return fromTm( tm, nanosecond );
   }
 
-  static DateTime fromLocalTimeT( time_t t, int millis = 0 )
+  static DateTime fromLocalTimeT( time_t t, int nanosecond = 0 )
   {
     struct tm tm = time_localtime( &t );
-    return fromTm( tm, millis );
+    return fromTm( tm, nanosecond );
   }
 
-  /// Convert a tm and optional milliseconds to a DateTime.  \note
+  /// Convert a tm and optional nanoseconds to a DateTime.  \note
   /// the tm structure is assumed to contain a date specified in UTC
-  static DateTime fromTm( const tm& tm, int millis = 0 )
+  static DateTime fromTm( const tm& tm, int nanosecond = 0 )
   {
     return DateTime ( julianDate(tm.tm_year + 1900, tm.tm_mon + 1,
                                  tm.tm_mday),
-                     makeHMS(tm.tm_hour, tm.tm_min, tm.tm_sec, millis) );
+                     makeHMS(tm.tm_hour, tm.tm_min, tm.tm_sec, nanosecond) );
   }
 
   /// Helper method to calculate a Julian day number.
@@ -391,8 +422,9 @@ inline bool operator>=( const DateTime& lhs, const DateTime& rhs )
 inline int operator-( const DateTime& lhs, const DateTime& rhs )
 {
   return (DateTime::SECONDS_PER_DAY * (lhs.m_date - rhs.m_date) +
-          // Truncate the millis before subtracting
-          lhs.m_time / 1000 - rhs.m_time / 1000);
+          // Truncate the nanosecond before subtracting
+          static_cast<int>(lhs.m_time / static_cast<long long>(DateTime::NANOSECONDS_PER_SECOND) -
+          rhs.m_time / static_cast<long long>(DateTime::NANOSECONDS_PER_SECOND)));
 }
 
 /// Date and Time represented in UTC.
@@ -404,25 +436,25 @@ public:
   : DateTime( DateTime::nowUtc() ) {}
 
   /// Defaults to the current date
-  UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )
+  UtcTimeStamp( int hour, int minute, int second, int nanosecond = 0 )
   : DateTime( DateTime::nowUtc() )
   {
-    setHMS( hour, minute, second, millisecond );
+    setHMS( hour, minute, second, nanosecond );
   }
 
   UtcTimeStamp( int hour, int minute, int second,
                 int date, int month, int year )
   : DateTime( year, month, date, hour, minute, second, 0 ) {}
 
-  UtcTimeStamp( int hour, int minute, int second, int millisecond,
+  UtcTimeStamp( int hour, int minute, int second, int nanosecond,
                 int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, millisecond ) {}
+  : DateTime( year, month, date, hour, minute, second, nanosecond ) {}
 
-  explicit UtcTimeStamp( time_t time, int millisecond = 0 )
-  : DateTime( fromUtcTimeT (time, millisecond) ) {}
+  explicit UtcTimeStamp( time_t time, int nanosecond = 0 )
+  : DateTime( fromUtcTimeT (time, nanosecond) ) {}
 
-  UtcTimeStamp( const tm* time, int millisecond = 0 )
-  : DateTime( fromTm (*time, millisecond) ) {}
+  UtcTimeStamp( const tm* time, int nanosecond = 0 )
+  : DateTime( fromTm (*time, nanosecond) ) {}
 
   void setCurrent() 
   {
@@ -439,25 +471,25 @@ public:
   : DateTime( DateTime::nowLocal() ) {}
 
   /// Defaults to the current date
-  LocalTimeStamp( int hour, int minute, int second, int millisecond = 0 )
+  LocalTimeStamp( int hour, int minute, int second, int nanosecond = 0 )
   : DateTime( DateTime::nowLocal() )
   {
-    setHMS( hour, minute, second, millisecond );
+    setHMS( hour, minute, second, nanosecond );
   }
 
   LocalTimeStamp( int hour, int minute, int second,
                 int date, int month, int year )
   : DateTime( year, month, date, hour, minute, second, 0 ) {}
 
-  LocalTimeStamp( int hour, int minute, int second, int millisecond,
+  LocalTimeStamp( int hour, int minute, int second, int nanosecond,
                 int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, millisecond ) {}
+  : DateTime( year, month, date, hour, minute, second, nanosecond ) {}
 
-  explicit LocalTimeStamp( time_t time, int millisecond = 0 )
-  : DateTime( fromLocalTimeT (time, millisecond) ) {}
+  explicit LocalTimeStamp( time_t time, int nanosecond = 0 )
+  : DateTime( fromLocalTimeT (time, nanosecond) ) {}
 
-  LocalTimeStamp( const tm* time, int millisecond = 0 )
-  : DateTime( fromTm (*time, millisecond) ) {}
+  LocalTimeStamp( const tm* time, int nanosecond = 0 )
+  : DateTime( fromTm (*time, nanosecond) ) {}
 
   void setCurrent() 
   {
@@ -481,19 +513,19 @@ public:
     clearDate();
   }
 
-  UtcTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  UtcTimeOnly( int hour, int minute, int second, int nanosecond = 0 )
   {
-    setHMS( hour, minute, second, millisecond );
+    setHMS( hour, minute, second, nanosecond );
   }
 
-  explicit UtcTimeOnly( time_t time, int millisecond = 0 )
-  : DateTime( fromUtcTimeT (time, millisecond) )
+  explicit UtcTimeOnly( time_t time, int nanosecond = 0 )
+  : DateTime( fromUtcTimeT (time, nanosecond) )
   {
     clearDate();
   }
 
-  UtcTimeOnly( const tm* time, int millisecond = 0 )
-  : DateTime( fromTm (*time, millisecond) )
+  UtcTimeOnly( const tm* time, int nanosecond = 0 )
+  : DateTime( fromTm (*time, nanosecond) )
   {
     clearDate();
   }
@@ -522,19 +554,19 @@ public:
     clearDate();
   }
 
-  LocalTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  LocalTimeOnly( int hour, int minute, int second, int nanosecond = 0 )
   {
-    setHMS( hour, minute, second, millisecond );
+    setHMS( hour, minute, second, nanosecond );
   }
 
-  explicit LocalTimeOnly( time_t time, int millisecond = 0 )
-  : DateTime( fromLocalTimeT (time, millisecond) )
+  explicit LocalTimeOnly( time_t time, int nanosecond = 0 )
+  : DateTime( fromLocalTimeT (time, nanosecond) )
   {
     clearDate();
   }
 
-  LocalTimeOnly( const tm* time, int millisecond = 0 )
-  : DateTime( fromTm (*time, millisecond) )
+  LocalTimeOnly( const tm* time, int nanosecond = 0 )
+  : DateTime( fromTm (*time, nanosecond) )
   {
     clearDate();
   }

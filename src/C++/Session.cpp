@@ -98,6 +98,7 @@ void Session::insertSendingTime( Header& header )
     showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
 
   header.setField( SendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
+  //header.setField( SendingTime(now, UtcTimeStampConvertor::PRECISION::NANOSECONDS) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
@@ -109,6 +110,9 @@ void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
     showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
 
   header.setField( OrigSendingTime(when, showMilliseconds && m_millisecondsInTimeStamp) );
+  //header.setField( OrigSendingTime(when, m_precision) );
+  //header.setField( OrigSendingTime(when, UtcTimeStampConvertor::PRECISION::NANOSECONDS) );
+
 }
 
 void Session::fill( Header& header )

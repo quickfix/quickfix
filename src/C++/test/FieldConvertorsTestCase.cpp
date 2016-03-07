@@ -233,10 +233,18 @@ TEST(booleanConvertFrom)
 TEST(utcTimeStampConvertTo)
 {
   UtcTimeStamp input;
-  input.setHMS( 12, 5, 6, 555 );
+  input.setHMS( 12, 5, 6, 555123456 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
   CHECK_EQUAL( "20000426-12:05:06.555", UtcTimeStampConvertor::convert( input,true ) );
+  CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convertWithPrecision( input, 
+                                    UtcTimeStampConvertor::PRECISION::SECONDS ) );
+  CHECK_EQUAL( "20000426-12:05:06.555", UtcTimeStampConvertor::convertWithPrecision( input, 
+                                        UtcTimeStampConvertor::PRECISION::MILLISECONDS ) );
+  CHECK_EQUAL( "20000426-12:05:06.555123", UtcTimeStampConvertor::convertWithPrecision( input, 
+                                           UtcTimeStampConvertor::PRECISION::MICROSECONDS ) );
+  CHECK_EQUAL( "20000426-12:05:06.555123456", UtcTimeStampConvertor::convertWithPrecision( input, 
+                                              UtcTimeStampConvertor::PRECISION::NANOSECONDS ) );
 }
 
 TEST(utcTimeStampConvertFrom)
@@ -266,9 +274,17 @@ TEST(utcTimeStampConvertFrom)
 TEST(utcTimeOnlyConvertTo)
 {
   UtcTimeOnly input;
-  input.setHMS( 12, 5, 6, 555 );
+  input.setHMS( 12, 5, 6, 555123456 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
   CHECK_EQUAL( "12:05:06.555", UtcTimeOnlyConvertor::convert( input,true ) );
+  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convertWithPrecision( input, 
+                                    UtcTimeStampConvertor::PRECISION::SECONDS ) );
+  CHECK_EQUAL( "12:05:06.555", UtcTimeOnlyConvertor::convertWithPrecision( input, 
+                               UtcTimeStampConvertor::PRECISION::MILLISECONDS ) );
+  CHECK_EQUAL( "12:05:06.555123", UtcTimeOnlyConvertor::convertWithPrecision( input, 
+                                  UtcTimeStampConvertor::PRECISION::MICROSECONDS ) );
+  CHECK_EQUAL( "12:05:06.555123456", UtcTimeOnlyConvertor::convertWithPrecision( input, 
+                                     UtcTimeStampConvertor::PRECISION::NANOSECONDS ) );
 }
 
 TEST(utcTimeOnlyConvertFrom)

@@ -97,6 +97,10 @@ AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
 AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
 AC_CHECK_LIB(c,nanosleep,true,AC_CHECK_LIB(rt,nanosleep))
 AC_CHECK_LIB(compat,ftime)
+AC_CHECK_FUNC([clock_gettime], [AC_DEFINE([HAVE_CLOCK_GETTIME], [1],
+                               [Define if clock_gettime exists.])])
+AC_CHECK_FUNC([clock_get_time], [AC_DEFINE([__MACH__], [1],
+                               [Define if clock_get_time exists.])])
 
 AC_MSG_CHECKING([which threading environment to use])
 # each host OS needs special threading flags
