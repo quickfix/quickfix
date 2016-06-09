@@ -37,18 +37,14 @@ namespace FIX
 typedef int signed_int;
 typedef unsigned int unsigned_int;
 
-inline unsigned_int unsigned_value_of( signed int x )
-{
-  auto y = static_cast<unsigned_int>( x );
-  return x < 0 ? -y : y;
-}
+#define UNSIGNED_VALUE_OF( x ) ( ( x < 0 ) ? -unsigned_int(x) : unsigned_int(x) )
 
 #define IS_SPACE( x ) ( x == ' ' )
 #define IS_DIGIT( x ) ( unsigned_int( x - '0' ) < 10 )
 
 inline int number_of_symbols_in( const signed_int value )
 {
-  unsigned_int number = unsigned_value_of( value );
+  unsigned_int number = UNSIGNED_VALUE_OF( value );
 
   int symbols = 0;
 
@@ -101,7 +97,7 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
 
   *--p = '\0';
   
-  unsigned_int number = unsigned_value_of( t );
+  unsigned_int number = UNSIGNED_VALUE_OF( t );
 
   while( number > 99 )
   {
@@ -191,7 +187,7 @@ struct IntConvertor
     } while ( ++str != end );
 
     if( isNegative )
-      x = -x;
+      x = -unsigned_int(x);
 
     result = x;
     return true;
