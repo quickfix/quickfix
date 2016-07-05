@@ -53,7 +53,7 @@ struct DateTime
   long long m_time;
 
   /// Magic numbers
-  enum : int
+  enum 
   {
     NANOSECONDS_PER_MICROSECOND  = 1000,
     NANOSECONDS_PER_MILLISECOND  = 1000000,
@@ -69,12 +69,9 @@ struct DateTime
     JULIAN_19700101 = 2440588
   };
 
-  enum : long long
-  {
-    NANOSECONDS_PER_DAY          = static_cast<long long>(SECONDS_PER_DAY) * static_cast<long long>(NANOSECONDS_PER_SECOND),
-    NANOSECONDS_PER_HOUR         = static_cast<long long>(SECONDS_PER_HOUR) * static_cast<long long>(NANOSECONDS_PER_SECOND),
-    NANOSECONDS_PER_MINUTE       = static_cast<long long>(SECONDS_PER_MINUTE) * static_cast<long long>(NANOSECONDS_PER_SECOND)
-  };
+  long long NANOSECONDS_PER_DAY = static_cast<long long>(SECONDS_PER_DAY) * static_cast<long long>(NANOSECONDS_PER_SECOND);
+  long long NANOSECONDS_PER_HOUR = static_cast<long long>(SECONDS_PER_HOUR) * static_cast<long long>(NANOSECONDS_PER_SECOND);
+  long long NANOSECONDS_PER_MINUTE = static_cast<long long>(SECONDS_PER_MINUTE) * static_cast<long long>(NANOSECONDS_PER_SECOND);
 
   /// Default constructor - initializes to zero
   DateTime () : m_date (0), m_time (0) {}
@@ -142,7 +139,7 @@ struct DateTime
     return (static_cast<int>(m_time / NANOSECONDS_PER_SECOND) % SECONDS_PER_MINUTE);
   }
 
-  /// Return the nanosecond portion of the time
+  /// Return the millisecond portion of the time
   inline int getMillisecond() const
   {
     return static_cast<int>((m_time % static_cast<long long>(NANOSECONDS_PER_SECOND)) / 
@@ -156,7 +153,7 @@ struct DateTime
                                       static_cast<long long>(NANOSECONDS_PER_MICROSECOND));
   }
 
-  /// Return the microsecond portion of the time
+  /// Return the nanosecond portion of the time
   inline int getNanosecond() const
   {
     return static_cast<int>((m_time % static_cast<long long>(NANOSECONDS_PER_SECOND)));
@@ -178,13 +175,6 @@ struct DateTime
     minute = (secondFromMidnight / SECONDS_PER_MINUTE) % MINUTES_PER_HOUR;
     second = secondFromMidnight % SECONDS_PER_MINUTE;
     nanosecond = static_cast<int>(m_time % static_cast<long long>(NANOSECONDS_PER_SECOND));
-    /*
-    int ticks = m_time / MILLIS_PER_SEC;
-    hour = ticks / SECONDS_PER_HOUR;
-    minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
-    second = ticks % SECONDS_PER_MIN;
-    nanosecond = m_time % MILLIS_PER_SEC;
-    */
   }
 
   /// Calculate the weekday of the date (Sunday is 1, Saturday is 7)

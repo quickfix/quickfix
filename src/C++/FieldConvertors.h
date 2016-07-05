@@ -122,7 +122,6 @@ inline char* integer_to_string( char* buf, const size_t len, signed_int t )
 
   return p;
 }
-//  integer_to_string_padded( result, 5, year, 4 );
 
 inline char* integer_to_string_padded
 ( char* buf, const size_t len, signed_int t,
