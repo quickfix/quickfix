@@ -610,18 +610,11 @@ struct UtcTimeStampConvertor
 
       if (minortimePrecision == MILLISECONDS)
         integer_to_string_padded(result + 18, 4, value.getMillisecond(), 3);
-      if (minortimePrecision == MICROSECONDS)
+      else if (minortimePrecision == MICROSECONDS)
         integer_to_string_padded(result + 18, 7, value.getMicrosecond(), 6);
-      if (minortimePrecision == NANOSECONDS)
+      else if (minortimePrecision == NANOSECONDS)
         integer_to_string_padded(result + 18, 10, value.getNanosecond(), 9);
     }
-
-      /*
-      if( integer_to_string_padded ( result + 18, 4, millis, 3 )
-          != result + 18 )
-      {
-        throw FieldConvertError();
-      }*/
 
     return std::string(result);
   }
@@ -793,9 +786,9 @@ struct UtcTimeOnlyConvertor
 
       if (minortimePrecision == UtcTimeStampConvertor::PRECISION::MILLISECONDS)
         integer_to_string_padded(result + 9, 4, value.getMillisecond(), 3);
-      if (minortimePrecision == UtcTimeStampConvertor::PRECISION::MICROSECONDS)
+      else if (minortimePrecision == UtcTimeStampConvertor::PRECISION::MICROSECONDS)
         integer_to_string_padded(result + 9, 7, value.getMicrosecond(), 6);
-      if (minortimePrecision == UtcTimeStampConvertor::PRECISION::NANOSECONDS)
+      else if (minortimePrecision == UtcTimeStampConvertor::PRECISION::NANOSECONDS)
         integer_to_string_padded(result + 9, 10, value.getNanosecond(), 9);
     }
 
