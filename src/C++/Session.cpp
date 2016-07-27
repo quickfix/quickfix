@@ -292,7 +292,7 @@ void Session::nextTestRequest( const Message& testRequest, const UtcTimeStamp& t
   nextQueued( timeStamp );
 }
 
-void Session::nextLogout( const Message& logout, const UtcTimeStamp& timeStamp )
+void Session::nextLogout( const Message& logout, const UtcTimeStamp& )
 {
   if ( !verify( logout, false, false ) ) return ;
   if ( !m_state.sentLogout() )
@@ -316,7 +316,7 @@ void Session::nextReject( const Message& reject, const UtcTimeStamp& timeStamp )
   nextQueued( timeStamp );
 }
 
-void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& timeStamp )
+void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& )
 {
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
@@ -341,7 +341,7 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
   }
 }
 
-void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStamp& timeStamp )
+void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStamp& )
 {
   if ( !verify( resendRequest, false, false ) ) return ;
 
@@ -1042,7 +1042,7 @@ bool Session::validLogonState( const MsgType& msgType )
 }
 
 void Session::fromCallback( const MsgType& msgType, const Message& msg,
-                            const SessionID& sessionID )
+                            const SessionID& )
 {
   if ( Message::isAdminMsgType( msgType ) )
     m_application.fromAdmin( msg, m_sessionID );

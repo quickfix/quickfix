@@ -166,19 +166,19 @@ class Application : public FIX::Application
     if ( pSession ) pSession->reset();
   }
 
-  void onLogon( const FIX::SessionID& sessionID )
+  void onLogon( const FIX::SessionID& )
   throw( FIX::RejectLogon )
 {}
 
-  void onLogout( const FIX::SessionID& sessionID )
+  void onLogout( const FIX::SessionID& )
   {
     m_cracker.reset();
   }
 
-  void toAdmin( FIX::Message& message, const FIX::SessionID& )
+  void toAdmin( FIX::Message&, const FIX::SessionID& )
   {}
 
-  void toApp( FIX::Message& message, const FIX::SessionID& )
+  void toApp( FIX::Message&, const FIX::SessionID& )
   throw( FIX::DoNotSend )
   {}
 

@@ -132,7 +132,7 @@ void ThreadedSocketAcceptor::onStart()
   }
 }
 
-bool ThreadedSocketAcceptor::onPoll( double timeout )
+bool ThreadedSocketAcceptor::onPoll( double )
 {
   return false;
 }

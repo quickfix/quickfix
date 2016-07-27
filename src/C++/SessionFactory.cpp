@@ -203,7 +203,7 @@ void SessionFactory::destroy( Session* pSession )
   delete pSession;
 }
 
-ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID& sessionID, 
+ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID&,
                                                                      const Dictionary& settings, 
                                                                      const std::string& settingsKey) throw(ConfigError)
 {

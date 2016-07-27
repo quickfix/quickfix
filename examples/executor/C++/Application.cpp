@@ -33,17 +33,17 @@
 #include "quickfix/fix44/ExecutionReport.h"
 #include "quickfix/fix50/ExecutionReport.h"
 
-void Application::onCreate( const FIX::SessionID& sessionID ) {}
-void Application::onLogon( const FIX::SessionID& sessionID ) {}
-void Application::onLogout( const FIX::SessionID& sessionID ) {}
-void Application::toAdmin( FIX::Message& message,
-                           const FIX::SessionID& sessionID ) {}
-void Application::toApp( FIX::Message& message,
-                         const FIX::SessionID& sessionID )
+void Application::onCreate( const FIX::SessionID& ) {}
+void Application::onLogon( const FIX::SessionID& ) {}
+void Application::onLogout( const FIX::SessionID& ) {}
+void Application::toAdmin( FIX::Message&,
+                           const FIX::SessionID& ) {}
+void Application::toApp( FIX::Message&,
+                         const FIX::SessionID& )
 throw( FIX::DoNotSend ) {}
 
-void Application::fromAdmin( const FIX::Message& message,
-                             const FIX::SessionID& sessionID )
+void Application::fromAdmin( const FIX::Message&,
+                             const FIX::SessionID& )
 throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}
 
 void Application::fromApp( const FIX::Message& message,

@@ -451,7 +451,7 @@ int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode ) co
 }
 
 int DataDictionary::lookupXMLFieldNumber
-( DOMDocument* pDoc, const std::string& name ) const
+( DOMDocument*, const std::string& name ) const
 {
   NameToField::const_iterator i = m_names.find(name);
   if( i == m_names.end() )

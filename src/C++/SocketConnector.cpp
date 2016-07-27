@@ -102,7 +102,7 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
 }
 
 int SocketConnector::connect( const std::string& address, int port, bool noDelay, 
-                              int sendBufSize, int rcvBufSize, Strategy& strategy )
+                              int sendBufSize, int rcvBufSize, Strategy& )
 {
   int socket = connect( address, port, noDelay, sendBufSize, rcvBufSize );
   return socket;

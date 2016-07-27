@@ -179,7 +179,7 @@ void HttpConnection::processRequest( const HttpMessage& request )
 }
 
 void HttpConnection::processRoot
-( const HttpMessage& request, std::stringstream& h, std::stringstream& b )
+( const HttpMessage& request, std::stringstream&, std::stringstream& b )
 {
   TABLE table(b); table.border(1).cellspacing(2).width(100).text();
 
@@ -690,7 +690,7 @@ void HttpConnection::showRow
 }
 
 void HttpConnection::showRow
-( std::stringstream& s, const std::string& name, const std::string& value, const std::string& url )
+( std::stringstream& s, const std::string& name, const std::string& value, const std::string& )
 {
     { TR tr(s); tr.text();
       { TD td(s); td.text(name); }

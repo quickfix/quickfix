@@ -72,7 +72,7 @@ throw ( ConfigError )
     m_rcvBufSize = dict.getInt( SOCKET_RECEIVE_BUFFER_SIZE );
 }
 
-void ThreadedSocketInitiator::onInitialize( const SessionSettings& s )
+void ThreadedSocketInitiator::onInitialize( const SessionSettings& )
 throw ( RuntimeError )
 {
 }
@@ -95,7 +95,7 @@ void ThreadedSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSocketInitiator::onPoll( double timeout )
+bool ThreadedSocketInitiator::onPoll( double )
 {
   return false;
 }

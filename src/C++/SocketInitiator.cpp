@@ -79,7 +79,7 @@ throw ( ConfigError )
     m_rcvBufSize = dict.getInt( SOCKET_RECEIVE_BUFFER_SIZE );
 }
 
-void SocketInitiator::onInitialize( const SessionSettings& s )
+void SocketInitiator::onInitialize( const SessionSettings& )
 throw ( RuntimeError )
 {
 }
@@ -163,7 +163,7 @@ void SocketInitiator::onConnect( SocketConnector&, int s )
   pSocketConnection->onTimeout();
 }
 
-void SocketInitiator::onWrite( SocketConnector& connector, int s )
+void SocketInitiator::onWrite( SocketConnector&, int s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
