@@ -331,7 +331,7 @@ throw( InvalidMessage )
           pApplicationDataDictionary = pSessionDataDictionary;
       }
 
-      m_header.addField( field );
+      m_header.appendField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
@@ -339,7 +339,7 @@ throw( InvalidMessage )
     else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
       type = trailer;
-      m_trailer.addField( field );
+      m_trailer.appendField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
@@ -353,12 +353,17 @@ throw( InvalidMessage )
       }
 
       type = body;
-      addField( field );
+      appendField( field );
 
       if ( pApplicationDataDictionary )
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
     }
   }
+
+  // sort fields
+  m_header.sortFields();
+  sortFields();
+  m_trailer.sortFields();
 
   if ( doValidation )
     validate();
@@ -422,9 +427,11 @@ bool Message::setStringHeader( const std::string& string )
       return false;
 
     if ( isHeaderField( field ) )
-      m_header.addField( field );
+      m_header.appendField( field );
     else break;
   }
+
+  m_header.sortFields();
   return true;
 }
 

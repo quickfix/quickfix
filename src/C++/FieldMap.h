@@ -61,6 +61,11 @@ class FieldMap
       return m_order( left.getTag(), tag );
     }
 
+    bool operator()( const FieldBase& left, const FieldBase& right ) const
+    {
+      return m_order( left.getTag(), right.getTag() );
+    }
+
   private:
     const message_order& m_order;
   };
@@ -270,6 +275,19 @@ protected:
     {
       m_fields.insert( iter, field );
     }
+  }
+
+  // append field to message without sorting
+  // only applicable during message decoding
+  void appendField( const FieldBase& field )
+  {
+    m_fields.push_back( field );
+  }
+
+  // sort fields after message decoding
+  void sortFields()
+  {
+    std::sort( m_fields.begin(), m_fields.end(), sorter(m_order) );
   }
 
 private:
