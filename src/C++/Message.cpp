@@ -203,7 +203,8 @@ std::string Message::toString( int beginStringField,
                                int checkSumField ) const
 {
   std::string str;
-  return toString( str, beginStringField, bodyLengthField, checkSumField );
+  toString( str, beginStringField, bodyLengthField, checkSumField );
+  return str;
 }
 
 std::string& Message::toString( std::string& str, 
@@ -234,7 +235,8 @@ std::string& Message::toString( std::string& str,
 std::string Message::toXML() const
 {
   std::string str;
-  return toXML( str );
+  toXML( str );
+  return str;
 }
 
 std::string& Message::toXML( std::string& str ) const
