@@ -108,6 +108,14 @@ public:
     return *this;
   }
 
+  void swap( FieldBase& rhs )
+  {
+    std::swap( m_tag, rhs.m_tag );
+    std::swap( m_metrics, rhs.m_metrics );
+    m_string.swap( rhs.m_string );
+    m_data.swap( rhs.m_data );
+  }
+
   void setTag( int tag )
   {
     m_tag = tag;
@@ -226,6 +234,11 @@ inline std::ostream& operator <<
 {
   stream << field.getString();
   return stream;
+}
+
+inline void swap( FieldBase& lhs, FieldBase& rhs )
+{
+  lhs.swap( rhs );
 }
 
 /**
