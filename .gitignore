@@ -39,6 +39,7 @@ stamp-h1
 bin/executor
 bin/ordermatch
 bin/tradeclient
+bin/store
 examples/executor/C++/executor
 examples/ordermatch/ordermatch
 examples/ordermatch/test/ordermatch_ut
@@ -47,6 +48,9 @@ include/
 src/at
 src/pt
 src/ut
+src/python/spec
+src/ruby/spec
+spec/spec
 test/at
 test/pt
 test/ut
@@ -55,5 +59,6 @@ test/cfg
 test/store
 autom4te.cache/
 lib/python
+lib/ruby
 COPYING
 INSTALL
