@@ -8,4 +8,4 @@ before_script:
  - sudo apt-get install libxml2-dev
  - ./bootstrap
 
-script: ./configure && make && make check
+script: ./configure --with-python && make && make check
