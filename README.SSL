@@ -134,6 +134,8 @@ CertificateRevocationListFile=
 
 CertificateRevocationListDirectory=
 
+Common options:
+
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.
 #
