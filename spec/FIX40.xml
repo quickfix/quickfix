@@ -1,4 +1,4 @@
-<fix major='4' type='FIX' servicepack='0' minor='0'>
+<fix type='FIX' major='4' minor='0' servicepack='0'>
  <header>
   <field name='BeginString' required='Y' />
   <field name='BodyLength' required='Y' />
@@ -20,28 +20,28 @@
   <field name='OrigSendingTime' required='N' />
  </header>
  <messages>
-  <message name='Heartbeat' msgcat='admin' msgtype='0'>
+  <message name='Heartbeat' msgtype='0' msgcat='admin'>
    <field name='TestReqID' required='N' />
   </message>
-  <message name='TestRequest' msgcat='admin' msgtype='1'>
+  <message name='TestRequest' msgtype='1' msgcat='admin'>
    <field name='TestReqID' required='Y' />
   </message>
-  <message name='ResendRequest' msgcat='admin' msgtype='2'>
+  <message name='ResendRequest' msgtype='2' msgcat='admin'>
    <field name='BeginSeqNo' required='Y' />
    <field name='EndSeqNo' required='Y' />
   </message>
-  <message name='Reject' msgcat='admin' msgtype='3'>
+  <message name='Reject' msgtype='3' msgcat='admin'>
    <field name='RefSeqNum' required='Y' />
    <field name='Text' required='N' />
   </message>
-  <message name='SequenceReset' msgcat='admin' msgtype='4'>
+  <message name='SequenceReset' msgtype='4' msgcat='admin'>
    <field name='GapFillFlag' required='N' />
    <field name='NewSeqNo' required='Y' />
   </message>
-  <message name='Logout' msgcat='admin' msgtype='5'>
+  <message name='Logout' msgtype='5' msgcat='admin'>
    <field name='Text' required='N' />
   </message>
-  <message name='IOI' msgcat='app' msgtype='6'>
+  <message name='IOI' msgtype='6' msgcat='app'>
    <field name='IOIid' required='Y' />
    <field name='IOITransType' required='Y' />
    <field name='IOIRefID' required='N' />
@@ -62,7 +62,7 @@
    <field name='IOIQualifier' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='Advertisement' msgcat='app' msgtype='7'>
+  <message name='Advertisement' msgtype='7' msgcat='app'>
    <field name='AdvId' required='Y' />
    <field name='AdvTransType' required='Y' />
    <field name='AdvRefID' required='N' />
@@ -79,7 +79,7 @@
    <field name='TransactTime' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='ExecutionReport' msgcat='app' msgtype='8'>
+  <message name='ExecutionReport' msgtype='8' msgcat='app'>
    <field name='OrderID' required='Y' />
    <field name='ClOrdID' required='N' />
    <field name='ClientID' required='N' />
@@ -130,7 +130,7 @@
    <field name='SettlCurrency' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='OrderCancelReject' msgcat='app' msgtype='9'>
+  <message name='OrderCancelReject' msgtype='9' msgcat='app'>
    <field name='OrderID' required='Y' />
    <field name='ClOrdID' required='Y' />
    <field name='ClientID' required='N' />
@@ -139,13 +139,13 @@
    <field name='CxlRejReason' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='Logon' msgcat='admin' msgtype='A'>
+  <message name='Logon' msgtype='A' msgcat='admin'>
    <field name='EncryptMethod' required='Y' />
    <field name='HeartBtInt' required='Y' />
    <field name='RawDataLength' required='N' />
    <field name='RawData' required='N' />
   </message>
-  <message name='News' msgcat='app' msgtype='B'>
+  <message name='News' msgtype='B' msgcat='app'>
    <field name='OrigTime' required='N' />
    <field name='Urgency' required='N' />
    <field name='RelatdSym' required='N' />
@@ -154,7 +154,7 @@
    <field name='RawDataLength' required='N' />
    <field name='RawData' required='N' />
   </message>
-  <message name='Email' msgcat='app' msgtype='C'>
+  <message name='Email' msgtype='C' msgcat='app'>
    <field name='EmailType' required='Y' />
    <field name='OrigTime' required='N' />
    <field name='RelatdSym' required='N' />
@@ -165,7 +165,7 @@
    <field name='RawDataLength' required='N' />
    <field name='RawData' required='N' />
   </message>
-  <message name='NewOrderSingle' msgcat='app' msgtype='D'>
+  <message name='NewOrderSingle' msgtype='D' msgcat='app'>
    <field name='ClOrdID' required='Y' />
    <field name='ClientID' required='N' />
    <field name='ExecBroker' required='N' />
@@ -203,7 +203,7 @@
    <field name='SettlCurrency' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='NewOrderList' msgcat='app' msgtype='E'>
+  <message name='NewOrderList' msgtype='E' msgcat='app'>
    <field name='ListID' required='Y' />
    <field name='WaveNo' required='N' />
    <field name='ListSeqNo' required='Y' />
@@ -244,7 +244,7 @@
    <field name='SettlCurrency' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='OrderCancelRequest' msgcat='app' msgtype='F'>
+  <message name='OrderCancelRequest' msgtype='F' msgcat='app'>
    <field name='OrigClOrdID' required='Y' />
    <field name='OrderID' required='N' />
    <field name='ClOrdID' required='Y' />
@@ -262,7 +262,7 @@
    <field name='OrderQty' required='Y' />
    <field name='Text' required='N' />
   </message>
-  <message name='OrderCancelReplaceRequest' msgcat='app' msgtype='G'>
+  <message name='OrderCancelReplaceRequest' msgtype='G' msgcat='app'>
    <field name='OrderID' required='N' />
    <field name='ClientID' required='N' />
    <field name='ExecBroker' required='N' />
@@ -298,7 +298,7 @@
    <field name='SettlCurrency' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='OrderStatusRequest' msgcat='app' msgtype='H'>
+  <message name='OrderStatusRequest' msgtype='H' msgcat='app'>
    <field name='OrderID' required='N' />
    <field name='ClOrdID' required='Y' />
    <field name='ClientID' required='N' />
@@ -309,7 +309,7 @@
    <field name='SecurityDesc' required='N' />
    <field name='Side' required='Y' />
   </message>
-  <message name='Allocation' msgcat='app' msgtype='J'>
+  <message name='Allocation' msgtype='J' msgcat='app'>
    <field name='AllocID' required='Y' />
    <field name='AllocTransType' required='Y' />
    <field name='RefAllocID' required='N' />
@@ -363,22 +363,22 @@
     <field name='DlvyInst' required='N' />
    </group>
   </message>
-  <message name='ListCancelRequest' msgcat='app' msgtype='K'>
+  <message name='ListCancelRequest' msgtype='K' msgcat='app'>
    <field name='ListID' required='Y' />
    <field name='WaveNo' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='ListExecute' msgcat='app' msgtype='L'>
+  <message name='ListExecute' msgtype='L' msgcat='app'>
    <field name='ListID' required='Y' />
    <field name='WaveNo' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='ListStatusRequest' msgcat='app' msgtype='M'>
+  <message name='ListStatusRequest' msgtype='M' msgcat='app'>
    <field name='ListID' required='Y' />
    <field name='WaveNo' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='ListStatus' msgcat='app' msgtype='N'>
+  <message name='ListStatus' msgtype='N' msgcat='app'>
    <field name='ListID' required='Y' />
    <field name='WaveNo' required='N' />
    <field name='NoRpts' required='Y' />
@@ -390,7 +390,7 @@
     <field name='AvgPx' required='Y' />
    </group>
   </message>
-  <message name='AllocationInstructionAck' msgcat='app' msgtype='P'>
+  <message name='AllocationInstructionAck' msgtype='P' msgcat='app'>
    <field name='ClientID' required='N' />
    <field name='ExecBroker' required='N' />
    <field name='AllocID' required='Y' />
@@ -400,7 +400,7 @@
    <field name='AllocRejCode' required='N' />
    <field name='Text' required='N' />
   </message>
-  <message name='DontKnowTrade' msgcat='app' msgtype='Q'>
+  <message name='DontKnowTrade' msgtype='Q' msgcat='app'>
    <field name='OrderID' required='N' />
    <field name='ExecID' required='N' />
    <field name='DKReason' required='Y' />
@@ -411,7 +411,7 @@
    <field name='LastPx' required='Y' />
    <field name='Text' required='N' />
   </message>
-  <message name='QuoteRequest' msgcat='app' msgtype='R'>
+  <message name='QuoteRequest' msgtype='R' msgcat='app'>
    <field name='QuoteReqID' required='Y' />
    <field name='Symbol' required='Y' />
    <field name='SymbolSfx' required='N' />
@@ -423,7 +423,7 @@
    <field name='Side' required='N' />
    <field name='OrderQty' required='N' />
   </message>
-  <message name='Quote' msgcat='app' msgtype='S'>
+  <message name='Quote' msgtype='S' msgcat='app'>
    <field name='QuoteReqID' required='N' />
    <field name='QuoteID' required='Y' />
    <field name='Symbol' required='Y' />

@@ -1269,8 +1269,6 @@ namespace FIX
   const int GTBookingInst_BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION = 0;
   const int GTBookingInst_ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES = 1;
   const int GTBookingInst_ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE = 2;
-  const int GTBookingInst_ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES = 1;
-  const int GTBookingInst_ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE = 2;
   const int ListStatusType_ALERT = 6;
   const int ListStatusType_EXECSTARTED = 4;
   const int ListStatusType_TIMED = 3;
@@ -2919,6 +2917,9 @@ namespace FIX
   const char DealingCapacity_AGENT = 'A';
   const char DealingCapacity_PRINCIPAL = 'P';
   const char DealingCapacity_RISKLESS_PRINCIPAL = 'R';
+  const char InstrmtAssignmentMethod_RANDOM = 'R';
+  const char InstrmtAssignmentMethod_PRORATA = 'P';
+  const char InstrmtAssignmentMethod_PRO_RATA = 'P';
   const char AggressorIndicator_YES = 'Y';
   const char AggressorIndicator_NO = 'N';
   const int MDQuoteType_INDICATIVE = 0;
@@ -3026,6 +3027,8 @@ namespace FIX
   const int QuoteEntryStatus_CANCELED_DUE_TO_LOCK_MARKET = 14;
   const int QuoteEntryStatus_CANCELED_DUE_TO_CROSS_MARKET = 15;
   const int QuoteEntryStatus_ACTIVE = 16;
+  const char PrivateQuote_YES = 'Y';
+  const char PrivateQuote_NO = 'N';
   const int RespondentType_ALL_MARKET_PARTICIPANTS = 1;
   const int RespondentType_SPECIFIED_MARKET_PARTICIPANTS = 2;
   const int RespondentType_ALL_MARKET_MAKERS = 3;
