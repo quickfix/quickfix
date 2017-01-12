@@ -5092,7 +5092,9 @@
    </group>
   </component>
   <component name='UsernameGrp'>
-   <field name='Username' required='N' />
+   <group name='NoUsernames' required='N'>
+    <field name='Username' required='N' />
+   </group>
   </component>
   <component name='NotAffectedOrdersGrp'>
    <group name='NoNotAffectedOrders' required='N'>
@@ -8069,6 +8071,7 @@
    <value enum='5' description='BLOCK_LEVEL_REJECT' />
    <value enum='6' description='ACCOUNT_LEVEL_REJECT' />
   </field>
+  <field number='809' name='NoUsernames' type='NUMINGROUP' />
   <field number='810' name='UnderlyingPx' type='PRICE' />
   <field number='811' name='PriceDelta' type='FLOAT' />
   <field number='812' name='ApplQueueMax' type='INT' />

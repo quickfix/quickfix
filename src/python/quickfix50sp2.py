@@ -15387,6 +15387,13 @@ class UserNotification(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("CB") )
 
+	class NoUsernames(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(2)
+			order[0] = 553
+			order[1] = 0
+			fix.Group.__init__(self, 809, 553, order)
+
 class StreamAssignmentRequest(Message):
 	def __init__(self):
 		Message.__init__(self)

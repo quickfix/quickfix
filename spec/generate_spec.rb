@@ -60,9 +60,9 @@ class DataDictionary
   end
 
   def tagShouldBeSkipped( tag )
-    return true if tag == 101
-    return true if tag == 261
-    return true if tag == 809
+    #return true if tag == 101
+    #return true if tag == 261
+    #return true if tag == 809
   end
 
   def tagShouldNotPrint( tag )
@@ -419,4 +419,4 @@ end
 
 (0..4).each { |i| DataDictionary.new( 4, i, 0 ) }
 (0..2).each { |i| DataDictionary.new( 5, 0, i ) }
-DataDictionary.new( 5, 0, 0 )
+

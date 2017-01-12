@@ -15625,5 +15625,14 @@ class UserNotification < Message
 		super
 		getHeader().setField( Quickfix::MsgType.new("CB") )
 	end
+
+	class NoUsernames < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(2)
+			order[0] = 553
+			order[1] = 0
+			super(809, 553, order)
+		end
+	end
 end
 end
