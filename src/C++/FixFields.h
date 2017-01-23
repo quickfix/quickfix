@@ -1162,6 +1162,7 @@ namespace FIX
   DEFINE_STRING(AllocClearingFeeIndicator);
   DEFINE_QTY(DisplayQty);
   DEFINE_STRING(ExchangeSpecialInstructions);
+  DEFINE_NUMINGROUP(NoUsernames);
   DEFINE_INT(ExpirationQtyType);
   DEFINE_QTY(MaxTradeVol);
   DEFINE_NUMINGROUP(NoMDFeedTypes);

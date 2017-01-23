@@ -38,7 +38,7 @@ namespace FIX
 typedef int signed_int;
 typedef unsigned int unsigned_int;
 
-#define UNSIGNED_VALUE_OF( x ) unsigned_int( x < 0 ? -x : x )
+#define UNSIGNED_VALUE_OF( x ) ( ( x < 0 ) ? -unsigned_int(x) : unsigned_int(x) )
 
 #define IS_SPACE( x ) ( x == ' ' )
 #define IS_DIGIT( x ) ( unsigned_int( x - '0' ) < 10 )
@@ -199,7 +199,7 @@ struct IntConvertor
     } while ( ++str != end );
 
     if( isNegative )
-      x = -x;
+      x = -unsigned_int(x);
 
     result = x;
     return true;

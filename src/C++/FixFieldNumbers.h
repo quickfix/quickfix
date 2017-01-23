@@ -1160,6 +1160,7 @@ namespace FIX
     const int AllocClearingFeeIndicator = 1136;
     const int DisplayQty = 1138;
     const int ExchangeSpecialInstructions = 1139;
+    const int NoUsernames = 809;
     const int ExpirationQtyType = 982;
     const int MaxTradeVol = 1140;
     const int NoMDFeedTypes = 1141;

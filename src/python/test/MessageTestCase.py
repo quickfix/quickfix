@@ -153,6 +153,24 @@ class MessageTestCase(unittest.TestCase):
 		except fix.InvalidMessage, e:
 			self.failUnless(0)
 
+        def test_embeddedXml(self):
+		dataDictionary = fix.DataDictionary( "spec/FIX42.xml" )
+                encodedFIXmessage = "8=FIX.4.2\0019=390\00135=8\00134=136\001369=131\00152=20150220-14:40:24.991\00149=CME\00150=G\00156=GGGGGGN\00157=GGG\001143=IL\0011=TEST\0016=0\00111=00000000000000000003\00114=1\00117=64485:M:412850TN0031303\00120=0\00131=208700\00132=1\00137=64227619161\00138=1\00139=2\00140=2\00141=0\00144=208700\00148=147403\00154=1\00155=ES\00159=0\00160=20150220-14:40:24.970\00175=20150220\001107=ESH5\001150=2\001151=0\001167=FUT\001337=TRADE\001375=CME000A\001432=20150220\001442=1\001527=642276191612015022031303\0011028=N\0011057=N\00110=000\001"
+
+                str = "8=FIX.4.2\0019=501\00135=n\00134=158\001369=130\00152=20150220-14:40:24.991\00149=CME\00150=G\00156=QQQQQQN\00157=QQQ\001212=413\001213=" + encodedFIXmessage + "\00110=129\001"
+
+                xmlDataLen = fix.XmlDataLen()
+                xmlData = fix.XmlData()
+		try:
+			self.object.setString( str, True, dataDictionary )
+                        self.object.getHeader().getField(xmlDataLen)
+                        self.object.getHeader().getField(xmlData)
+			self.assertEquals( 413, xmlDataLen.getValue() )
+			self.assertEquals( encodedFIXmessage, xmlData.getValue() )
+		except fix.InvalidMessage, e:
+                        print e
+			assert( 0 )
+
 	def test_reverseRoute(self):
 		header = fix.Header()
 		beginString = fix.BeginString( "FIX.4.2" )

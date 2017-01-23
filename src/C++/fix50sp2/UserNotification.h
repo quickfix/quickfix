@@ -22,7 +22,13 @@ namespace FIX50SP2
       set(aUserStatus);
     }
 
-    FIELD_SET(*this, FIX::Username);
+    FIELD_SET(*this, FIX::NoUsernames);
+    class NoUsernames: public FIX::Group
+    {
+    public:
+    NoUsernames() : FIX::Group(809,553,FIX::message_order(553,0)) {}
+      FIELD_SET(*this, FIX::Username);
+    };
     FIELD_SET(*this, FIX::UserStatus);
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);

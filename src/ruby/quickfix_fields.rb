@@ -15014,6 +15014,19 @@ module Quickfix
 		end
 	end
 
+	class NoUsernames < Quickfix::IntField
+		def NoUsernames.field
+			return 809
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(809)
+			else
+				super(809, data)
+			end
+		end
+	end
+
 	class ExpirationQtyType < Quickfix::IntField
 		def ExpirationQtyType.field
 			return 982

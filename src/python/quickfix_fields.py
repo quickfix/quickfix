@@ -8085,6 +8085,13 @@ class ExchangeSpecialInstructions(quickfix.StringField):
 		else:
 			quickfix.StringField.__init__(self, 1139, data)
 
+class NoUsernames(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 809)
+		else:
+			quickfix.IntField.__init__(self, 809, data)
+
 class ExpirationQtyType(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:

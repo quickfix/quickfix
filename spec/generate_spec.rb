@@ -1,6 +1,24 @@
 # -*- coding: utf-8 -*-
 require "rexml/document"
 
+class OrderedAttributes < REXML::Formatters::Pretty
+    def write_element(elm, out)
+        att = elm.attributes
+
+        class <<att
+            alias _each_attribute each_attribute
+
+            def each_attribute(&b)
+                order = []                
+                to_enum(:_each_attribute).each {|x| order.push(x.name)}
+                to_enum(:_each_attribute).sort_by {|x| order.find_index(x)}.each(&b)
+            end
+        end
+
+        super(elm, out)
+    end
+end
+
 class DataDictionary
   def initialize( major, minor, sp )
     filesp = ""
@@ -24,7 +42,7 @@ class DataDictionary
     @fieldsDoc = REXML::Document.new( File.new( "#{directory}/Fields.xml" ) )
     @enumsDoc = REXML::Document.new( File.new( "#{directory}/Enums.xml" ) )
     @msgContentsDoc = REXML::Document.new( File.new("#{directory}/MsgContents.xml") )
-    @msgTypeDoc = REXML::Document.new( File.new("#{directory}/MsgType.xml") )
+    @msgTypeDoc = REXML::Document.new( File.new("#{directory}/Messages.xml") )
     @componentsDoc =  REXML::Document.new( File.new("#{directory}/Components.xml") )
     
     @specDoc = REXML::Document.new()
@@ -42,9 +60,9 @@ class DataDictionary
   end
 
   def tagShouldBeSkipped( tag )
-    return true if tag == 101
-    return true if tag == 261
-    return true if tag == 809
+    #return true if tag == 101
+    #return true if tag == 261
+    #return true if tag == 809
   end
 
   def tagShouldNotPrint( tag )
@@ -133,7 +151,7 @@ class DataDictionary
   end
   
   def parseFields
-    @fieldsDoc.elements["dataroot"].elements.each("Fields") { |fieldsElement|
+    @fieldsDoc.elements["Fields"].elements.each("Field") { |fieldsElement|
       tag = fieldsElement.elements["Tag"].text.to_i
       type = fieldsElement.elements["Type"].text
       next if type == nil
@@ -141,10 +159,10 @@ class DataDictionary
       
       next if tagShouldBeSkipped( tag )
       addEnumsToTag( tag )
-      
+
       fieldHash = Hash.new
       fieldHash[ "type" ] = toType( type )
-      fieldName = toFieldName(fieldsElement.elements["FieldName"].text, type)
+      fieldName = toFieldName(fieldsElement.elements["Name"].text, type)
       fieldHash[ "fieldName" ] = fieldName
       
       @tagToField[ tag ] = fieldHash
@@ -153,11 +171,11 @@ class DataDictionary
 
   def parseEnums
     enums = Hash.new
-    @enumsDoc.elements["dataroot"].elements.each("Enums") { |enumsElement|
+    @enumsDoc.elements["Enums"].elements.each("Enum") { |enumsElement|
       tag = enumsElement.elements["Tag"].text.to_i
       next if enumsShouldBeSkipped( tag )
       
-      enum = enumsElement.elements["Enum"].text
+      enum = enumsElement.elements["Value"].text
       next if enum.upcase == "(NOT SPECIFIED)"
       
       description = toDescription(enumsElement.elements["Description"].text)
@@ -177,12 +195,12 @@ class DataDictionary
   end
 
   def parseMsgType
-    @msgTypeDoc.elements["dataroot"].elements.each("MsgType") { |msgTypeElement|
-      msgId = msgTypeElement.elements["MsgID"].text.to_i
+    @msgTypeDoc.elements["Messages"].elements.each("Message") { |msgTypeElement|
+      msgId = msgTypeElement.elements["ComponentID"].text.to_i
       msgType = msgTypeElement.elements["MsgType"].text
-      messageName = toMessageName(msgTypeElement.elements["MessageName"].text)
-      componentType = msgTypeElement.elements["ComponentType"].text
-      category = msgTypeElement.elements["Category"].text
+      messageName = toMessageName(msgTypeElement.elements["Name"].text)
+      componentID = msgTypeElement.elements["ComponentID"].text
+      category = msgTypeElement.elements["CategoryID"].text
       
       category = category == "Session" ? "admin" : "app"
       
@@ -195,9 +213,9 @@ class DataDictionary
   end
 
   def parseMsgContents
-    @msgContentsDoc.elements["dataroot"].elements.each("MsgContents") { |msgContentsElement|
+    @msgContentsDoc.elements["MsgContents"].elements.each("MsgContent") { |msgContentsElement|
       tagsInMsg = []
-      msgId = msgContentsElement.elements["MsgID"].text.to_i
+      msgId = msgContentsElement.elements["ComponentID"].text.to_i
       tagText = msgContentsElement.elements["TagText"].text
       next if tagText == "StandardHeader"
       next if tagText == "StandardTrailer"
@@ -236,9 +254,9 @@ class DataDictionary
   end
   
   def parseComponents
-    @componentsDoc.elements["dataroot"].elements.each("Components") { |componentsElement|
-      msgId = componentsElement.elements["MsgID"].text.to_i
-      name = componentsElement.elements["ComponentName"].text
+    @componentsDoc.elements["Components"].elements.each("Component") { |componentsElement|
+      msgId = componentsElement.elements["ComponentID"].text.to_i
+      name = componentsElement.elements["Name"].text
       @componentNameToMsgId[ name ] = msgId
     }	
   end
@@ -392,10 +410,13 @@ class DataDictionary
     printTrailer
     printComponents
     printFields
-    @specDoc.write( @f, 1, false, true )
+
+    fmt = OrderedAttributes.new(indentation=1, true)
+    fmt.write(@specDoc, @f)
+    #@specDoc.write( @f, 1, false, true )
   end
 end
 
 (0..4).each { |i| DataDictionary.new( 4, i, 0 ) }
 (0..2).each { |i| DataDictionary.new( 5, 0, i ) }
-DataDictionary.new( 5, 0, 0 )
+
