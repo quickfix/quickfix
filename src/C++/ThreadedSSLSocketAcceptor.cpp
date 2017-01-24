@@ -430,6 +430,18 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
     SSL_CTX_set_verify(m_ctx, cVerify, callbackVerify);
   }
 
+  int ret = enable_DH_ECDH(m_ctx, cert.c_str());
+  if (ret != 0) {
+    if (ret == 1)
+      errStr.assign("Could not enable DH");
+    else if (ret == 2)
+      errStr.assign("Could not enable ECDH");
+    else
+      errStr.assign("Unknown error enabling DH, ECDH");
+
+    return false;
+  }
+
   return true;
 }
 

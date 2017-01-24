@@ -242,6 +242,8 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey);
 long protocolOptions(const char * opt);
 
 void setCtxOptions(SSL_CTX * ctx, const char * opt);
+
+int enable_DH_ECDH(SSL_CTX * ctx, const char * certFile);
 }
 
 #endif

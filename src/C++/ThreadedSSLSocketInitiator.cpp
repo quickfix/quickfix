@@ -226,6 +226,18 @@ bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
   if (m_settings.get().has(CLIENT_CERT_FILE))
     cert.assign(m_settings.get().getString(CLIENT_CERT_FILE));
 
+  int ret = enable_DH_ECDH(m_ctx, cert.empty() ? 0 : cert.c_str());
+  if (ret != 0) {
+    if (ret == 1)
+      errStr.assign("Could not enable DH");
+    else if (ret == 2)
+      errStr.assign("Could not enable ECDH");
+    else
+      errStr.assign("Unknown error enabling DH, ECDH");
+
+    return false;
+  }
+
   if (cert.empty())
     return true;
 
