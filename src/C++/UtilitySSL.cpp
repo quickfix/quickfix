@@ -113,6 +113,21 @@
 #include "openssl/err.h" // Error reporting
 #include "openssl/crypto.h"
 #include "openssl/rand.h"
+#ifndef OPENSSL_NO_DH
+# include <openssl/dh.h>
+#endif
+
+#ifdef _MSC_VER
+
+#if !defined(strcasecmp )
+#define strcasecmp  _stricmp
+#endif
+
+# if !defined(strncasecmp)
+#define strncasecmp  _strnicmp
+#endif
+
+#endif
 
 namespace FIX {
 
