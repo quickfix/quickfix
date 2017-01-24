@@ -388,6 +388,18 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
   }
   EVP_PKEY_free(privateKey);
 
+  int ret = enable_DH_ECDH(m_ctx, cert.c_str());
+  if (ret != 0) {
+    if (ret == 1)
+      errStr.assign("Could not enable DH");
+    else if (ret == 2)
+      errStr.assign("Could not enable ECDH");
+    else
+      errStr.assign("Unknown error enabling DH, ECDH");
+
+    return false;
+  }
+
   std::string caFile;
   if (m_settings.get().has(CERT_AUTH_FILE))
     caFile.assign(m_settings.get().getString(CERT_AUTH_FILE));
@@ -428,18 +440,6 @@ bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr) {
       cVerify |= SSL_VERIFY_PEER;
 
     SSL_CTX_set_verify(m_ctx, cVerify, callbackVerify);
-  }
-
-  int ret = enable_DH_ECDH(m_ctx, cert.c_str());
-  if (ret != 0) {
-    if (ret == 1)
-      errStr.assign("Could not enable DH");
-    else if (ret == 2)
-      errStr.assign("Could not enable ECDH");
-    else
-      errStr.assign("Unknown error enabling DH, ECDH");
-
-    return false;
   }
 
   return true;
