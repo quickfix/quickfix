@@ -31,6 +31,7 @@
 #include <iomanip>
 #include <cstdio>
 #include <limits>
+#include <iterator>
 
 namespace FIX
 {
@@ -233,7 +234,12 @@ struct IntConvertor
     const unsigned_int STOP_SYMBOL = MAX_VALUE % 10;
     const std::size_t MAX_DIGITS = 10;     // integer can hold up to 10 digits
 
+#if defined(__SUNPRO_CC)
+    std::ptrdiff_t length;
+    std::distance( str, end, length );
+#else
     const std::size_t length = std::distance( str, end );
+#endif
     if( length < 1 || length > MAX_DIGITS)
       return false;
 

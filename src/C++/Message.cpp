@@ -35,6 +35,10 @@ std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 Message::Message()
 : m_validStructure( true ) {}
 
+Message::Message(const message_order &hdrOrder, const message_order &trlOrder, const message_order& order)
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true ) {}
+
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
@@ -57,6 +61,37 @@ Message::Message( const std::string& string,
                   bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
+{
+  setStringHeader( string );
+  if( isAdmin() )
+    setString( string, validate, &sessionDataDictionary, &sessionDataDictionary );
+  else
+    setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
+}
+
+Message::Message( const message_order &hdrOrder,
+                  const message_order &trlOrder,
+                  const message_order& order,
+                  const std::string& string,
+                  const DataDictionary& dataDictionary,
+                  bool validate )
+throw( InvalidMessage )
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true )
+{
+  setString( string, validate, &dataDictionary, &dataDictionary );
+}
+
+Message::Message( const message_order &hdrOrder,
+                  const message_order &trlOrder,
+                  const message_order& order,
+                  const std::string& string,
+                  const DataDictionary& sessionDataDictionary,
+                  const DataDictionary& applicationDataDictionary,
+                  bool validate )
+throw( InvalidMessage )
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true )
 {
   setStringHeader( string );
   if( isAdmin() )
@@ -580,7 +615,11 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   }
 
   std::string::const_iterator const tagEnd = soh + 1;
+#if defined(__SUNPRO_CC)
+  std::distance( string.begin(), tagEnd, pos );
+#else
   pos = std::distance( string.begin(), tagEnd );
+#endif
 
   return FieldBase (
     field,

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# https://help.ubuntu.com/10.04/serverguide/certificates-and-security.html
+# https://help.ubuntu.com/lts/serverguide/certificates-and-security.html
 
 base_name="server";
 

@@ -188,7 +188,13 @@ private:
     for ( std::string::const_iterator str = start; str != end; ++str )
       checksum += (unsigned char)( *str );
 
+#if defined(__SUNPRO_CC)
+    std::ptrdiff_t d;
+    std::distance(start, end, d);
+    return field_metrics( d, checksum );
+#else
     return field_metrics( std::distance( start, end ), checksum );
+#endif
   }
 
   static field_metrics calculateMetrics( const std::string& field )

@@ -381,29 +381,55 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   int begin = 0;
   int current = beginSeqNo;
   std::string messageString;
-  Message msg;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
-    const DataDictionary& sessionDD = 
+    std::auto_ptr<FIX::Message> pMsg;
+    std::string strMsgType;
+    const DataDictionary& sessionDD =
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+    if (sessionDD.isMessageFieldsOrderPreserved())
+    {
+      std::string::size_type equalSign = (*i).find( "35=");
+      equalSign += 2;
+      std::string::size_type soh = (*i).find_first_of( '\001', equalSign + 1 );
+      strMsgType = (*i).substr( equalSign + 1, soh - ( equalSign + 1 ) );
+    }
 
     if( m_sessionID.isFIXT() )
     {
+      Message msg;
       msg.setStringHeader(*i);
       ApplVerID applVerID;
       if( !msg.getHeader().getFieldIfSet(applVerID) )
         applVerID = m_senderDefaultApplVerID;
 
       const DataDictionary& applicationDD =
-        m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
-      msg = Message( *i, sessionDD, applicationDD, m_validateLengthAndChecksum );
+          m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
+      if (strMsgType.empty())
+        pMsg.reset( new Message( *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
+      else
+      {
+        const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
+        const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
+        const message_order & msgOrder = applicationDD.getMessageOrderedFields(strMsgType);
+        pMsg.reset( new Message( hdrOrder, trlOrder, msgOrder, *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
+      }
     }
     else
     {
-      msg = Message( *i, sessionDD, m_validateLengthAndChecksum );
+      if (strMsgType.empty())
+        pMsg.reset( new Message( *i, sessionDD, m_validateLengthAndChecksum ));
+      else
+      {
+        const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
+        const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
+        const message_order & msgOrder = sessionDD.getMessageOrderedFields(strMsgType);
+        pMsg.reset(new Message(hdrOrder, trlOrder, msgOrder, *i, sessionDD, m_validateLengthAndChecksum ));
+      }
     }
 
+    Message & msg = *pMsg;
 
     msg.getHeader().getField( msgSeqNum );
     msg.getHeader().getField( msgType );
@@ -447,6 +473,37 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   resendRequest.getHeader().getField( msgSeqNum );
   if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
     m_state.incrNextTargetMsgSeqNum();
+}
+
+Message * Session::newMessage(const std::string & msgType) const
+{
+  Message * msg = 0;
+
+  const DataDictionary& sessionDD =
+    m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+  if (!sessionDD.isMessageFieldsOrderPreserved())
+  {
+    msg = new Message();
+  }
+  else
+  {
+    const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
+    const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
+    if (!m_sessionID.isFIXT() || Message::isAdminMsgType(msgType) )
+    {
+      const message_order & msgOrder = sessionDD.getMessageOrderedFields(msgType);
+      msg = new Message(hdrOrder, trlOrder, msgOrder);
+    }
+    else
+    {
+      const DataDictionary& applicationDD =
+        m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
+      const message_order & msgOrder = applicationDD.getMessageOrderedFields(msgType);
+      msg = new Message(hdrOrder, trlOrder, msgOrder);
+    }
+  }
+
+  return msg;
 }
 
 bool Session::send( Message& message )
@@ -601,7 +658,9 @@ throw ( IOException )
 
 void Session::generateLogon()
 {
-  Message logon;
+  std::auto_ptr<Message> pMsg(newMessage("A"));
+  Message & logon = *pMsg;
+
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
@@ -624,7 +683,9 @@ void Session::generateLogon()
 
 void Session::generateLogon( const Message& aLogon )
 {
-  Message logon;
+  std::auto_ptr<Message> pMsg(newMessage("A"));
+  Message & logon = *pMsg;
+
   EncryptMethod encryptMethod;
   HeartBtInt heartBtInt;
   logon.setField( EncryptMethod( 0 ) );
@@ -642,7 +703,9 @@ void Session::generateLogon( const Message& aLogon )
 
 void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
 {
-  Message resendRequest;
+  std::auto_ptr<Message> pMsg(newMessage("2"));
+  Message & resendRequest = *pMsg;
+
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
   EndSeqNo endSeqNo( msgSeqNum - 1 );
   if ( beginString >= FIX::BeginString_FIX42 )
@@ -665,7 +728,9 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
 void Session::generateSequenceReset
 ( int beginSeqNo, int endSeqNo )
 {
-  Message sequenceReset;
+  std::auto_ptr<Message> pMsg(newMessage("4"));
+  Message & sequenceReset = *pMsg;
+
   NewSeqNo newSeqNo( endSeqNo );
   sequenceReset.getHeader().setField( MsgType( "4" ) );
   sequenceReset.getHeader().setField( PossDupFlag( true ) );
@@ -684,7 +749,9 @@ void Session::generateSequenceReset
 
 void Session::generateHeartbeat()
 {
-  Message heartbeat;
+  std::auto_ptr<Message> pMsg(newMessage("0"));
+  Message & heartbeat = *pMsg;
+
   heartbeat.getHeader().setField( MsgType( "0" ) );
   fill( heartbeat.getHeader() );
   sendRaw( heartbeat );
@@ -692,7 +759,9 @@ void Session::generateHeartbeat()
 
 void Session::generateHeartbeat( const Message& testRequest )
 {
-  Message heartbeat;
+  std::auto_ptr<Message> pMsg(newMessage("0"));
+  Message & heartbeat = *pMsg;
+
   heartbeat.getHeader().setField( MsgType( "0" ) );
   fill( heartbeat.getHeader() );
   try
@@ -708,7 +777,9 @@ void Session::generateHeartbeat( const Message& testRequest )
 
 void Session::generateTestRequest( const std::string& id )
 {
-  Message testRequest;
+  std::auto_ptr<Message> pMsg(newMessage("1"));
+  Message & testRequest = *pMsg;
+
   testRequest.getHeader().setField( MsgType( "1" ) );
   fill( testRequest.getHeader() );
   TestReqID testReqID( id );
@@ -721,7 +792,9 @@ void Session::generateReject( const Message& message, int err, int field )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  Message reject;
+  std::auto_ptr<Message> pMsg(newMessage("3"));
+  Message & reject = *pMsg;
+
   reject.getHeader().setField( MsgType( "3" ) );
   reject.reverseRoute( message.getHeader() );
   fill( reject.getHeader() );
@@ -816,7 +889,9 @@ void Session::generateReject( const Message& message, const std::string& str )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  Message reject;
+  std::auto_ptr<Message> pMsg(newMessage("3"));
+  Message & reject = *pMsg;
+
   reject.getHeader().setField( MsgType( "3" ) );
   reject.reverseRoute( message.getHeader() );
   fill( reject.getHeader() );
@@ -841,7 +916,9 @@ void Session::generateReject( const Message& message, const std::string& str )
 
 void Session::generateBusinessReject( const Message& message, int err, int field )
 {
-  Message reject;
+  std::auto_ptr<Message> pMsg(newMessage("j"));
+  Message & reject = *pMsg;
+
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
   if( m_sessionID.isFIXT() )
     reject.setField( DefaultApplVerID(m_senderDefaultApplVerID) );  
@@ -904,7 +981,9 @@ void Session::generateBusinessReject( const Message& message, int err, int field
 
 void Session::generateLogout( const std::string& text )
 {
-  Message logout;
+  std::auto_ptr<Message> pMsg(newMessage("5"));
+  Message & logout = *pMsg;
+
   logout.getHeader().setField( MsgType( MsgType_Logout ) );
   fill( logout.getHeader() );
   if ( text.length() )

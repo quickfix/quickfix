@@ -216,7 +216,10 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
   }
   else
   {
-    pDD = ptr::shared_ptr<DataDictionary>(new DataDictionary( path ));
+    bool preserveMsgFldsOrder = false;
+    if( settings.has( PRESERVE_MESSAGE_FIELDS_ORDER ) )
+      preserveMsgFldsOrder = settings.getBool( PRESERVE_MESSAGE_FIELDS_ORDER );
+    pDD = ptr::shared_ptr<DataDictionary>(new DataDictionary( path, preserveMsgFldsOrder ));
     m_dictionaries[ path ] = pDD;
   }
 

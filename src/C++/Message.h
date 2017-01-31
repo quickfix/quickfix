@@ -49,12 +49,18 @@ class Header : public FieldMap
 public:
   Header() : FieldMap(message_order( message_order::header ) )
   {}
+
+  Header(const message_order & order) : FieldMap(order)
+  {}
 };
 
 class Trailer : public FieldMap 
 {
 public:
   Trailer() : FieldMap(message_order( message_order::trailer ) )
+  {}
+
+  Trailer(const message_order & order) : FieldMap(order)
   {}
 };
 
@@ -74,6 +80,9 @@ class Message : public FieldMap
 public:
   Message();
 
+  /// Construct message with a specified order of fields
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order);
+
   /// Construct a message from a string
   Message( const std::string& string, bool validate = true )
   throw( InvalidMessage );
@@ -85,6 +94,16 @@ public:
 
   /// Construct a message from a string using a session and application data dictionary
   Message( const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
+           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
+  throw( InvalidMessage );
+
+  /// Construct a message from a string using a data dictionary
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& dataDictionary,
+           bool validate = true )
+  throw( InvalidMessage );
+
+  /// Construct a message from a string using a session and application data dictionary
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
            const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
   throw( InvalidMessage );
 
