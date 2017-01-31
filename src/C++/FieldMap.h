@@ -56,9 +56,9 @@ public:
                      ALLOCATOR<std::pair<const int, std::vector< FieldMap* > > > > Groups;
 #endif
 
-  typedef Fields::const_iterator iterator;
-  typedef iterator const_iterator;
-  typedef Groups::const_iterator g_iterator;
+  typedef Fields::iterator iterator;
+  typedef Fields::const_iterator const_iterator;
+  typedef Groups::iterator g_iterator;
   typedef Groups::const_iterator g_const_iterator;
 
   FieldMap( const message_order& order =
@@ -211,10 +211,14 @@ public:
 
   int calculateTotal( int checkSumField = FIELD::CheckSum ) const;
 
-  iterator begin() const { return m_fields.begin(); }
-  iterator end() const { return m_fields.end(); }
-  g_iterator g_begin() const { return m_groups.begin(); }
-  g_iterator g_end() const { return m_groups.end(); }
+  iterator begin() { return m_fields.begin(); }
+  iterator end() { return m_fields.end(); }
+  const_iterator begin() const { return m_fields.begin(); }
+  const_iterator end() const { return m_fields.end(); }
+  g_iterator g_begin() { return m_groups.begin(); }
+  g_iterator g_end() { return m_groups.end(); }
+  g_const_iterator g_begin() const { return m_groups.begin(); }
+  g_const_iterator g_end() const { return m_groups.end(); }
 
 private:
   Fields m_fields;
