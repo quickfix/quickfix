@@ -101,13 +101,20 @@ typedef int ssize_t;
 #if defined(HAVE_STD_SHARED_PTR)
   namespace ptr = std;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
-  #include <tr1/memory>
+  #if defined(__TOS_AIX__)
+    #include <memory>
+  #else
+    #include <tr1/memory>
+  #endif
   namespace ptr = std::tr1;
 #elif defined(__SUNPRO_CC)
   #if (__SUNPRO_CC <= 0x5140)
   #include "./wx/sharedptr.h"
   namespace ptr = wxWidgets;
   #endif
+#elif defined(__TOS_AIX__)
+  #include <memory>
+  namespace ptr = std::tr1;
 #else
   namespace ptr = std;
 #endif

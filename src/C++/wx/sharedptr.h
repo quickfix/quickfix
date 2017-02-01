@@ -18,6 +18,7 @@ namespace wxWidgets
 #include <atomic.h>
 #include <assert.h>
 
+// TODO
 typedef uint32_t wxAtomicInt;
 typedef uint32_t wxUint32;
 
