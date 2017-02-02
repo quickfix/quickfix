@@ -43,24 +43,26 @@ AX_JAVA()
 
 AC_CANONICAL_HOST
 
-build_sunos=no
-build_aix=no
+build_no_unit_test = no
 
 # Detect the target system
 case "${host_os}" in
-    sunos*)
-        build_sunos=yes
+    *sunos*)
+        build_no_unit_test=yes
         ;;
-    aix*)
-        build_aix=yes
+    *solaris*)
+        build_no_unit_test=yes
+        ;;
+    *aix*)
+        build_no_unit_test=yes
         ;;
     *)
         ;;
 esac
 
 # Pass the conditionals to automake
-AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_sunos" = "yes"])
-AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_aix" = "yes"])
+AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_no_unit_test" = "yes"])
+
 ########################################
 
 ########################################
