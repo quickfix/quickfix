@@ -39,6 +39,31 @@ AX_RUBY()
 AX_JAVA()
 
 ########################################
+# Disable unit tests on Solaris, AIX
+
+AC_CANONICAL_HOST
+
+build_sunos=no
+build_aix=no
+
+# Detect the target system
+case "${host_os}" in
+    sunos*)
+        build_sunos=yes
+        ;;
+    aix*)
+        build_aix=yes
+        ;;
+    *)
+        ;;
+esac
+
+# Pass the conditionals to automake
+AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_sunos" = "yes"])
+AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_aix" = "yes"])
+########################################
+
+########################################
 # TBB 
 ########################################
 has_tbb=false
