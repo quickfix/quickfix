@@ -113,7 +113,8 @@ libquickfix_la_SOURCES = \
 	pugixml.hpp \
 	pugiconfig.hpp \
 	MessageCracker.h \
-	Responder.h
+	Responder.h \
+	wx/sharedptr.h
 	
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
@@ -146,6 +147,7 @@ all-local:
 	ln -s ../src/C++/.libs/libquickfix.dylib $(top_builddir)/lib/libquickfix.dylib
 	bash ./copy.sh $(top_builddir)/include/quickfix *.h
 	bash ./copy.sh $(top_builddir)/include/quickfix fix*/*.h
+	bash ./copy.sh $(top_builddir)/include/quickfix wx/*.h
 
 clean-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
@@ -164,6 +166,7 @@ install-exec-local: *.h
 	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp1
 	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp2
 	mkdir $(DESTDIR)$(pkgincludedir)/fixt11
+	mkdir $(DESTDIR)$(pkgincludedir)/wx
 	cp *.h $(DESTDIR)$(pkgincludedir)
 	cp fix40/*.h $(DESTDIR)$(pkgincludedir)/fix40
 	cp fix41/*.h $(DESTDIR)$(pkgincludedir)/fix41
@@ -174,6 +177,7 @@ install-exec-local: *.h
 	cp fix50sp1/*.h $(DESTDIR)$(pkgincludedir)/fix50sp1
 	cp fix50sp2/*.h $(DESTDIR)$(pkgincludedir)/fix50sp2
 	cp fixt11/*.h $(DESTDIR)$(pkgincludedir)/fixt11
+	cp wx/*.h $(DESTDIR)$(pkgincludedir)/wx
 
 uninstall-local:
 	rm -rf $(DESTDIR)$(pkgincludedir)
