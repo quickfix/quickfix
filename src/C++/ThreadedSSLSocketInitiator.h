@@ -133,12 +133,14 @@
 #include "ThreadedSSLSocketConnection.h"
 #include <map>
 
-namespace FIX {
+namespace FIX
+{
 /*! \addtogroup user
  *  @{
  */
 /// Threaded Socket implementation of Initiator.
-class ThreadedSSLSocketInitiator : public Initiator {
+class ThreadedSSLSocketInitiator : public Initiator
+{
 public:
   ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
                              const SessionSettings &) throw(ConfigError);
@@ -148,18 +150,22 @@ public:
 
   virtual ~ThreadedSSLSocketInitiator();
 
-  void setPassword(const std::string & pwd) {
-    m_password.assign(pwd);
+  void setPassword(const std::string &pwd) { m_password.assign(pwd); }
+
+  void setCertAndKey(X509 *cert, RSA *key)
+  {
+    m_cert = cert;
+    m_key = key;
   }
 
   int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
 
 private:
-  typedef std::pair<int, SSL *> SocketKey;
-  typedef std::map<SocketKey, thread_id> SocketToThread;
-  typedef std::map<SessionID, int> SessionToHostNum;
-  typedef std::pair<ThreadedSSLSocketInitiator *, ThreadedSSLSocketConnection *>
-  ThreadPair;
+  typedef std::pair< int, SSL * > SocketKey;
+  typedef std::map< SocketKey, thread_id > SocketToThread;
+  typedef std::map< SessionID, int > SessionToHostNum;
+  typedef std::pair< ThreadedSSLSocketInitiator *,
+                     ThreadedSSLSocketConnection * > ThreadPair;
 
   void onConfigure(const SessionSettings &) throw(ConfigError);
   void onInitialize(const SessionSettings &) throw(RuntimeError);
@@ -191,6 +197,8 @@ private:
   bool m_sslInit;
   SSL_CTX *m_ctx;
   std::string m_password;
+  X509 *m_cert;
+  RSA *m_key;
 };
 /*! @} */
 }

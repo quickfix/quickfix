@@ -101,7 +101,6 @@
 
 #if (HAVE_SSL > 0)
 
-#include <iostream>
 #include <vector>
 
 #include "UtilitySSL.h"
@@ -583,8 +582,13 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey) {
 STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
   STACK_OF(X509_NAME) * skCAList;
   STACK_OF(X509_NAME) * sk;
+#ifndef HAVE_ACE_DIRENT
   DIR *dir;
   struct dirent *direntry;
+#else
+  ACE_DIR *dir;
+  struct ACE_DIRENT *direntry;
+#endif
   char *cp;
   int n;
 
@@ -611,8 +615,17 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
    * Process CA certificate path files
    */
   if (cpCApath != 0) {
+#ifndef HAVE_ACE_DIRENT
     dir = opendir(cpCApath);
+#else
+    dir = ACE_OS::opendir(cpCApath);
+#endif
+
+#ifndef HAVE_ACE_DIRENT
     while ((direntry = readdir(dir)) != 0) {
+#else
+    while ((direntry = ACE_OS::readdir(dir)) != 0) {
+#endif
       cp = strCat(cpCApath, SLASH, direntry->d_name, 0);
       sk = SSL_load_client_CA_file(cp);
       for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++) {
@@ -622,7 +635,11 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
           sk_X509_NAME_push(skCAList, sk_X509_NAME_value(sk, n));
       }
     }
+#ifndef HAVE_ACE_DIRENT
     closedir(dir);
+#else
+    ACE_OS::closedir(dir);
+#endif
   }
 
   /*
@@ -630,6 +647,105 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
    */
   sk_X509_NAME_set_cmp_func(skCAList, 0);
   return skCAList;
+}
+
+X509_STORE *createX509Store(const char *cpFile, const char *cpPath) {
+  X509_STORE *pStore;
+  X509_LOOKUP *pLookup;
+
+  if (cpFile == 0 && cpPath == 0)
+    return 0;
+  if ((pStore = X509_STORE_new()) == 0)
+    return 0;
+  if (cpFile != 0) {
+    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_file())) == 0) {
+      X509_STORE_free(pStore);
+      return 0;
+    }
+    X509_LOOKUP_load_file(pLookup, cpFile, X509_FILETYPE_PEM);
+  }
+  if (cpPath != 0) {
+    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_hash_dir())) ==
+        0) {
+      X509_STORE_free(pStore);
+      return 0;
+    }
+    X509_LOOKUP_add_dir(pLookup, cpPath, X509_FILETYPE_PEM);
+  }
+  return pStore;
+}
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb) {
+  X509 *rc;
+  BIO *bioS;
+  BIO *bioF;
+
+  rc = PEM_read_X509(fp, x509, cb, 0);
+  if (rc == 0) {
+    /* 2. try DER+Base64 */
+    fseek(fp, 0L, SEEK_SET);
+    if ((bioS = BIO_new(BIO_s_fd())) == 0)
+      return 0;
+    BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
+    if ((bioF = BIO_new(BIO_f_base64())) == 0) {
+      BIO_free(bioS);
+      return 0;
+    }
+    bioS = BIO_push(bioF, bioS);
+    rc = d2i_X509_bio(bioS, 0);
+    BIO_free_all(bioS);
+    if (rc == 0) {
+      /* 3. try plain DER */
+      fseek(fp, 0L, SEEK_SET);
+      if ((bioS = BIO_new(BIO_s_fd())) == 0)
+        return 0;
+      BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
+      rc = d2i_X509_bio(bioS, 0);
+      BIO_free(bioS);
+    }
+  }
+  if (rc != 0 && x509 != 0) {
+    if (*x509 != 0)
+      X509_free(*x509);
+    *x509 = rc;
+  }
+  return rc;
+}
+
+EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
+                         passPhraseHandleCallbackType cb) {
+  EVP_PKEY *rc;
+  BIO *bioS;
+  BIO *bioF;
+
+  rc = PEM_read_PrivateKey(fp, key, cb, 0);
+  if (rc == 0) {
+    /* 2. try DER+Base64 */
+    fseek(fp, 0L, SEEK_SET);
+    if ((bioS = BIO_new(BIO_s_fd())) == 0)
+      return 0;
+    BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
+    if ((bioF = BIO_new(BIO_f_base64())) == 0) {
+      BIO_free(bioS);
+      return 0;
+    }
+    bioS = BIO_push(bioF, bioS);
+    rc = d2i_PrivateKey_bio(bioS, 0);
+    BIO_free_all(bioS);
+    if (rc == 0) {
+      fseek(fp, 0L, SEEK_SET);
+      if ((bioS = BIO_new(BIO_s_fd())) == 0)
+        return 0;
+      BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
+      rc = d2i_PrivateKey_bio(bioS, 0);
+      BIO_free(bioS);
+    }
+  }
+  if (rc != 0 && key != 0) {
+    if (*key != 0)
+      EVP_PKEY_free(*key);
+    *key = rc;
+  }
+  return rc;
 }
 
 char *strCat(const char *a, ...) {
@@ -673,6 +789,55 @@ char *strCat(const char *a, ...) {
   /* Return the result string */
 
   return res;
+}
+
+int setSocketNonBlocking(int pSocket)
+/********************************************************************************
+* switch socket to non-blocking mode
+* Returns: 0 in the case of success, -1 in the case of error
+*
+*/
+{
+#ifdef _MSC_VER
+  {
+    unsigned long arg = 1; /* ie enable non-blocking mode */
+
+    if (ioctlsocket(pSocket, FIONBIO, &arg) == SOCKET_ERROR) {
+      int ecode = WSAGetLastError();
+
+      /* EINVAL returned when an attempt is made to set non-blocking a socket
+       * accepted on a non-blocking listen socket.  dont know why */
+
+      if (ecode != WSAEINVAL) {
+        // TODO LogEvent(
+          //  ERROR_ID,
+            //"SetSocketNonBlocking:ioctlsocket(%d,FIONBIO,0) failed: %s(%d)",
+            //pSocket, WSAErrString(ecode), ecode);
+        return -1;
+      }
+    }
+    return 0;
+  }
+
+#else /* unix */
+  {
+    int f = fcntl(pSocket, F_GETFL);
+
+    if (f == -1)
+      // TODO LogEvent(ERROR_ID,
+        //       "SetSocketNonBlocking: fcntl(%d,F_GETFL) failed: %s(errno=%d)",
+          //     pSocket, strerror(errno), errno);
+
+    f |= O_NONBLOCK;
+    if (fcntl(pSocket, F_SETFL, f) == -1) {
+      // TODO LogEvent(ERROR_ID,
+               //"SetSocketNonBlocking: fcntl(%d,F_SETFL) failed: %s(errno=%d)",
+               //pSocket, strerror(errno), errno);
+      return -1;
+    }
+    return 0;
+  }
+#endif
 }
 
 long protocolOptions(const char *opt) {

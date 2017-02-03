@@ -92,7 +92,6 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * ====================================================================
  */
-
 /****************************************************************************
 ** Copyright (c) 2001-2014
 **
@@ -125,20 +124,24 @@
 #include "Session.h"
 #include "Settings.h"
 
-namespace {
+namespace
+{
 FIX::ThreadedSSLSocketInitiator *initObj = 0;
-int passwordHandleCB(char *buf, int bufsize, int verify, void *job) {
+int passwordHandleCB(char *buf, int bufsize, int verify, void *job)
+{
   return initObj->passwordHandleCallback(buf, bufsize, verify, job);
 }
 }
 
-namespace FIX {
+namespace FIX
+{
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
     const SessionSettings &settings) throw(ConfigError)
     : Initiator(application, factory, settings), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
-      m_rcvBufSize(0), m_sslInit(false), m_ctx(0) {
+      m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
+{
   socket_init();
   initObj = this;
 }
@@ -148,13 +151,16 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     const SessionSettings &settings, LogFactory &logFactory) throw(ConfigError)
     : Initiator(application, factory, settings, logFactory), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
-      m_rcvBufSize(0), m_sslInit(false), m_ctx(0) {
+      m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
+{
   socket_init();
   initObj = this;
 }
 
-ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
-  if (m_sslInit) {
+ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator()
+{
+  if (m_sslInit)
+  {
     SSL_CTX_free(m_ctx);
     m_ctx = 0;
     ssl_term();
@@ -164,7 +170,8 @@ ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
 }
 
 void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
-    ConfigError) {
+    ConfigError)
+{
   const Dictionary &dict = s.get();
 
   if (dict.has(RECONNECT_INTERVAL))
@@ -178,20 +185,22 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
 }
 
 void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
-    RuntimeError) {
+    RuntimeError)
+{
   if (m_sslInit)
     return;
 
   ssl_init();
 
   /* set up the application context */
-  m_ctx = SSL_CTX_new(SSLv23_client_method());
-  if (m_ctx == 0) {
+  if ((m_ctx = SSL_CTX_new(SSLv23_client_method())) == 0)
+  {
     throw RuntimeError("Unable to get context");
   }
 
   std::string strOptions;
-  if (m_settings.get().has(SSL_PROTOCOL)) {
+  if (m_settings.get().has(SSL_PROTOCOL))
+  {
     strOptions.assign(m_settings.get().getString(SSL_PROTOCOL));
   }
   setCtxOptions(m_ctx, strOptions.c_str());
@@ -199,35 +208,53 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
   SSL_CTX_set_mode(m_ctx, SSL_MODE_ENABLE_PARTIAL_WRITE |
                               SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
 
-  if (m_settings.get().has(SSL_CIPHER_SUITE)) {
+  if (m_settings.get().has(SSL_CIPHER_SUITE))
+  {
     std::string strCipherSuite = m_settings.get().getString(SSL_CIPHER_SUITE);
 
-    if (!strCipherSuite.empty() && !SSL_CTX_set_cipher_list(m_ctx, strCipherSuite.c_str()))
+    if (!strCipherSuite.empty() &&
+        !SSL_CTX_set_cipher_list(m_ctx, strCipherSuite.c_str()))
       throw RuntimeError("Unable to configure permitted SSL ciphers");
   }
 
   std::string errStr;
-  if (!loadSSLCertificate(errStr)) {
-    getLog()->onEvent(errStr);
-    throw RuntimeError("Failed to load SSL cert. Please check log for details");
+  if (m_cert && m_key)
+  {
+    if (SSL_CTX_use_certificate(m_ctx, m_cert) < 1)
+    {
+      errStr.assign("Failed to set certificate");
+      throw RuntimeError(errStr);
+    }
+
+    if (SSL_CTX_use_RSAPrivateKey(m_ctx, m_key) <= 0)
+    {
+      errStr.assign("Failed to set key");
+      throw RuntimeError(errStr);
+    }
+  }
+  else if (!loadSSLCertificate(errStr))
+  {
+    throw RuntimeError(errStr);
   }
 
-  if (!loadCAInfo(errStr)) {
-    getLog()->onEvent(errStr);
-    throw RuntimeError("Failed to load CRL info. Please check log for details");
+  if (!loadCAInfo(errStr))
+  {
+    throw RuntimeError(errStr);
   }
 
   m_sslInit = true;
 }
 
-bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
+bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr)
+{
 
   std::string cert;
   if (m_settings.get().has(CLIENT_CERT_FILE))
     cert.assign(m_settings.get().getString(CLIENT_CERT_FILE));
 
   int ret = enable_DH_ECDH(m_ctx, cert.empty() ? 0 : cert.c_str());
-  if (ret != 0) {
+  if (ret != 0)
+  {
     if (ret == 1)
       errStr.assign("Could not enable DH");
     else if (ret == 2)
@@ -253,22 +280,103 @@ bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
 
   SSL_CTX_set_default_passwd_cb(m_ctx, ::passwordHandleCB);
 
-  if (SSL_CTX_use_certificate_file(m_ctx, cert.c_str(), SSL_FILETYPE_PEM) <=
-      0) {
-    errStr.assign("Could not get certificate from file ");
-    errStr.append(cert);
+  FILE *fp;
+
+  if ((fp = fopen(cert.c_str(), "r")) == 0)
+  {
+    errStr.assign(cert);
+    errStr.append(" file could not be opened");
     return false;
   }
 
-  if (SSL_CTX_use_PrivateKey_file(m_ctx, key.c_str(), SSL_FILETYPE_PEM) <= 0) {
-    errStr.assign("Could not get key from file ");
-    errStr.append(key);
+  X509 *X509Cert = readX509(fp, 0, 0);
+
+  fclose(fp);
+
+  if (X509Cert == 0)
+  {
+    errStr.assign(cert);
+    errStr.append(" readX509 failed");
     return false;
   }
+
+  switch (typeofSSLAlgo(X509Cert, 0))
+  {
+  case SSL_ALGO_RSA:
+    getLog()->onEvent("Configuring RSA client certificate");
+
+    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
+    {
+      errStr.assign("Unable to configure RSA client certificate");
+      return false;
+    }
+    break;
+
+  case SSL_ALGO_DSA:
+    getLog()->onEvent("Configuring DSA client certificate");
+    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
+    {
+      errStr.assign("Unable to configure DSA client certificate");
+      return false;
+    }
+    break;
+
+  default:
+    errStr.assign("Unable to configure client certificate");
+    return false;
+    break;
+  }
+  X509_free(X509Cert);
+
+  if ((fp = fopen(key.c_str(), "r")) == 0)
+  {
+    errStr.assign(key);
+    errStr.append(" file could not be opened");
+    return false;
+  }
+
+  EVP_PKEY *privateKey = readPrivateKey(fp, 0, ::passwordHandleCB);
+
+  fclose(fp);
+
+  if (privateKey == 0)
+  {
+    errStr.assign(key);
+    errStr.append(" readPrivateKey failed");
+    return false;
+  }
+
+  switch (typeofSSLAlgo(0, privateKey))
+  {
+  case SSL_ALGO_RSA:
+    getLog()->onEvent("Configuring RSA client private key");
+    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
+    {
+      errStr.assign("Unable to configure RSA server private key");
+      return false;
+    }
+    break;
+
+  case SSL_ALGO_DSA:
+    getLog()->onEvent("Configuring DSA client private key");
+    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
+    {
+      errStr.assign("Unable to configure DSA server private key");
+      return false;
+    }
+    break;
+  default:
+
+    errStr.assign("Unable to configure client certificate");
+    return false;
+    break;
+  }
+  EVP_PKEY_free(privateKey);
 
   /* Now we know that a key and cert have been set against
    * the SSL context */
-  if (!SSL_CTX_check_private_key(m_ctx)) {
+  if (!SSL_CTX_check_private_key(m_ctx))
+  {
     errStr.assign("Private key does not match the certificate public key");
     return false;
   }
@@ -276,7 +384,8 @@ bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr) {
   return true;
 }
 
-bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
+bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr)
+{
 
   std::string caFile;
   if (m_settings.get().has(CERT_AUTH_FILE))
@@ -295,14 +404,16 @@ bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
 
   if (!SSL_CTX_load_verify_locations(m_ctx, caFile.empty() ? 0 : caFile.c_str(),
                                      caDir.empty() ? 0 : caDir.c_str()) ||
-      !SSL_CTX_set_default_verify_paths(m_ctx)) {
+      !SSL_CTX_set_default_verify_paths(m_ctx))
+  {
     errStr.assign("Unable to configure verify locations for authentication");
     return false;
   }
 
   STACK_OF(X509_NAME) * caList;
   if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(),
-                           caDir.empty() ? 0 : caDir.c_str())) == 0) {
+                           caDir.empty() ? 0 : caDir.c_str())) == 0)
+  {
     errStr.assign("Unable to determine list of available CA certificates "
                   "for authentication");
     return false;
@@ -315,12 +426,15 @@ bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr) {
   return true;
 }
 
-void ThreadedSSLSocketInitiator::onStart() {
-  while (!isStopped()) {
+void ThreadedSSLSocketInitiator::onStart()
+{
+  while (!isStopped())
+  {
     time_t now;
     ::time(&now);
 
-    if ((now - m_lastConnect) >= m_reconnectInterval) {
+    if ((now - m_lastConnect) >= m_reconnectInterval)
+    {
       Locker l(m_mutex);
       connect();
       m_lastConnect = now;
@@ -332,7 +446,8 @@ void ThreadedSSLSocketInitiator::onStart() {
 
 bool ThreadedSSLSocketInitiator::onPoll(double timeout) { return false; }
 
-void ThreadedSSLSocketInitiator::onStop() {
+void ThreadedSSLSocketInitiator::onStop()
+{
   SocketToThread threads;
   SocketToThread::iterator i;
 
@@ -343,7 +458,8 @@ void ThreadedSSLSocketInitiator::onStop() {
     time_t now = 0;
 
     ::time(&start);
-    while (isLoggedOn()) {
+    while (isLoggedOn())
+    {
       if (::time(&now) - 5 >= start)
         break;
     }
@@ -355,7 +471,8 @@ void ThreadedSSLSocketInitiator::onStop() {
   for (i = threads.begin(); i != threads.end(); ++i)
     ssl_socket_close(i->first.first, i->first.second);
 
-  for (i = threads.begin(); i != threads.end(); ++i) {
+  for (i = threads.begin(); i != threads.end(); ++i)
+  {
     thread_join(i->second);
     if (i->first.second != 0)
       SSL_free(i->first.second);
@@ -364,8 +481,10 @@ void ThreadedSSLSocketInitiator::onStop() {
 }
 
 void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
-                                           const Dictionary &d) {
-  try {
+                                           const Dictionary &d)
+{
+  try
+  {
     Session *session = Session::lookupSession(s);
     if (!session->isSessionTime(UtcTimeStamp()))
       return;
@@ -389,7 +508,8 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
                  IntConvertor::convert((unsigned short)port));
 
     SSL *ssl = SSL_new(m_ctx);
-    if (ssl == 0) {
+    if (ssl == 0)
+    {
       log->onEvent("Failed to create ssl object");
       return;
     }
@@ -405,9 +525,12 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     {
       Locker l(m_mutex);
       thread_id thread;
-      if (thread_spawn(&socketThread, pair, thread)) {
+      if (thread_spawn(&socketThread, pair, thread))
+      {
         addThread(SocketKey(socket, ssl), thread);
-      } else {
+      }
+      else
+      {
         delete pair;
         pConnection->disconnect();
         delete pConnection;
@@ -415,21 +538,26 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
         setDisconnected(s);
       }
     }
-  } catch (std::exception &) {
+  }
+  catch (std::exception &)
+  {
   }
 }
 
-void ThreadedSSLSocketInitiator::addThread(SocketKey s, thread_id t) {
+void ThreadedSSLSocketInitiator::addThread(SocketKey s, thread_id t)
+{
   Locker l(m_mutex);
 
   m_threads[s] = t;
 }
 
-void ThreadedSSLSocketInitiator::removeThread(SocketKey s) {
+void ThreadedSSLSocketInitiator::removeThread(SocketKey s)
+{
   Locker l(m_mutex);
   SocketToThread::iterator i = m_threads.find(s);
 
-  if (i != m_threads.end()) {
+  if (i != m_threads.end())
+  {
     thread_detach(i->second);
     if (i->first.second != 0)
       SSL_free(i->first.second);
@@ -437,8 +565,9 @@ void ThreadedSSLSocketInitiator::removeThread(SocketKey s) {
   }
 }
 
-THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
-  ThreadPair *pair = reinterpret_cast<ThreadPair *>(p);
+THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
+{
+  ThreadPair *pair = reinterpret_cast< ThreadPair * >(p);
 
   ThreadedSSLSocketInitiator *pInitiator = pair->first;
   ThreadedSSLSocketConnection *pConnection = pair->second;
@@ -449,7 +578,8 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
 
   pInitiator->lock();
 
-  if (!pConnection->connect()) {
+  if (!pConnection->connect())
+  {
     pInitiator->getLog()->onEvent("Connection failed");
     pConnection->disconnect();
     SSL *ssl = pConnection->sslObject();
@@ -461,7 +591,8 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
 
   // Do the SSL handshake.
   int rc = SSL_connect(pConnection->sslObject());
-  if (rc == -1) {
+  if (rc == -1)
+  {
     int err = SSL_get_error(pConnection->sslObject(), rc);
     pInitiator->getLog()->onEvent("SSL_connect failed with SSL error " + err);
     pConnection->disconnect();
@@ -477,7 +608,8 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
 
   pSession->next();
 
-  while (pConnection->read()) {
+  while (pConnection->read())
+  {
   }
 
   SSL *ssl = pConnection->sslObject();
@@ -491,7 +623,8 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p) {
 
 void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
                                          const Dictionary &d,
-                                         std::string &address, short &port) {
+                                         std::string &address, short &port)
+{
   int num = 0;
   SessionToHostNum::iterator i = m_sessionToHostNum.find(s);
   if (i != m_sessionToHostNum.end())
@@ -505,10 +638,13 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
   portStream << SOCKET_CONNECT_PORT << num;
   std::string portString = portStream.str();
 
-  if (d.has(hostString) && d.has(portString)) {
+  if (d.has(hostString) && d.has(portString))
+  {
     address = d.getString(hostString);
     port = (short)d.getInt(portString);
-  } else {
+  }
+  else
+  {
     num = 0;
     address = d.getString(SOCKET_CONNECT_HOST);
     port = (short)d.getInt(SOCKET_CONNECT_PORT);
@@ -518,7 +654,8 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
 }
 
 int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
-                                                       int verify, void *job) {
+                                                       int verify, void *job)
+{
   if (m_password.length() > bufsize)
     return -1;
 

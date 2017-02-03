@@ -109,7 +109,11 @@
 #ifndef _MSC_VER
 #include <dirent.h>
 #else
+#ifndef HAVE_ACE_DIRENT
 #include "dirent_windows.h"
+#else
+#include "ace/OS_NS_dirent.h"
+#endif
 #endif
 
 #include "openssl/err.h"
@@ -198,15 +202,24 @@ static const char *WSAErrString(int code)
 extern "C" {
 typedef int (*passPhraseHandleCallbackType)(char *, int, int, void *);
 
+// TODO - implement
+int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
+
 int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b);
 STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath);
 int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
                     X509_OBJECT *pObj);
 int callbackVerify(int ok, X509_STORE_CTX *ctx);
 int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore);
+X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb);
+EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
+                         passPhraseHandleCallbackType cb);
 
 char *strCat(const char *a, ...);
 }
+
+int setSocketNonBlocking(int pSocket);
 
 // define certificate algorithm type
 #define SSL_ALGO_UNKNOWN 0

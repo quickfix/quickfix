@@ -132,9 +132,11 @@
 #include "ThreadedSSLSocketConnection.h"
 #include "Mutex.h"
 
-namespace FIX {
+namespace FIX
+{
 
-typedef enum {
+typedef enum
+{
   SSL_CLIENT_VERIFY_NONE = 0,
   SSL_CLIENT_VERIFY_REQUIRE = 1,
   SSL_CLIENT_VERIFY_OPTIONAL = 2,
@@ -142,7 +144,8 @@ typedef enum {
 } SSLVerifyClient;
 
 /// Threaded Socket implementation of Acceptor.
-class ThreadedSSLSocketAcceptor : public Acceptor {
+class ThreadedSSLSocketAcceptor : public Acceptor
+{
   friend class SocketConnection;
 
 public:
@@ -154,27 +157,31 @@ public:
 
   virtual ~ThreadedSSLSocketAcceptor();
 
-  void setPassword(const std::string & pwd) {
-    m_password.assign(pwd);
-  }
+  void setPassword(const std::string &pwd) { m_password.assign(pwd); }
 
   int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
 
 private:
-  struct AcceptorThreadInfo {
+  struct AcceptorThreadInfo
+  {
     AcceptorThreadInfo(ThreadedSSLSocketAcceptor *pAcceptor, int socket,
                        int port)
-        : m_pAcceptor(pAcceptor), m_socket(socket), m_port(port) {}
+        : m_pAcceptor(pAcceptor), m_socket(socket), m_port(port)
+    {
+    }
 
     ThreadedSSLSocketAcceptor *m_pAcceptor;
     int m_socket;
     int m_port;
   };
 
-  struct ConnectionThreadInfo {
+  struct ConnectionThreadInfo
+  {
     ConnectionThreadInfo(ThreadedSSLSocketAcceptor *pAcceptor,
                          ThreadedSSLSocketConnection *pConnection)
-        : m_pAcceptor(pAcceptor), m_pConnection(pConnection) {}
+        : m_pAcceptor(pAcceptor), m_pConnection(pConnection)
+    {
+    }
 
     ThreadedSSLSocketAcceptor *m_pAcceptor;
     ThreadedSSLSocketConnection *m_pConnection;
@@ -182,12 +189,12 @@ private:
 
   bool readSettings(const SessionSettings &);
 
-  typedef std::set<int> Sockets;
-  typedef std::set<SessionID> Sessions;
-  typedef std::map<int, Sessions> PortToSessions;
-  typedef std::map<int, int> SocketToPort;
-  typedef std::pair<int, SSL *> SocketKey;
-  typedef std::map<SocketKey, thread_id> SocketToThread;
+  typedef std::set< int > Sockets;
+  typedef std::set< SessionID > Sessions;
+  typedef std::map< int, Sessions > PortToSessions;
+  typedef std::map< int, int > SocketToPort;
+  typedef std::pair< int, SSL * > SocketKey;
+  typedef std::map< SocketKey, thread_id > SocketToThread;
 
   void onConfigure(const SessionSettings &) throw(ConfigError);
   void onInitialize(const SessionSettings &) throw(RuntimeError);
@@ -203,16 +210,10 @@ private:
 
   bool loadSSLCertificate(std::string &errStr);
   bool loadCRLInfo(std::string &errStr);
-  X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb);
-  EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                           passPhraseHandleCallbackType cb);
-  int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
-                      X509_OBJECT *pObj);
-  X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
   int newConnection(ThreadedSSLSocketConnection *pConnection);
   SSL_CTX *sslContext() { return m_ctx; }
   X509_STORE *revocationStore() { return m_revocationStore; }
-  int doAccept(SSL *ssl, int & result);
+  int doAccept(SSL *ssl, int &result);
 
   Sockets m_sockets;
   PortToSessions m_portToSessions;

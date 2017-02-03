@@ -137,7 +137,8 @@
 #include <set>
 #include <map>
 
-namespace FIX {
+namespace FIX
+{
 class ThreadedSSLSocketAcceptor;
 class ThreadedSSLSocketInitiator;
 class Session;
@@ -145,9 +146,10 @@ class Application;
 class Log;
 
 /// Encapsulates a socket file descriptor (multi-threaded).
-class ThreadedSSLSocketConnection : Responder {
+class ThreadedSSLSocketConnection : Responder
+{
 public:
-  typedef std::set<SessionID> Sessions;
+  typedef std::set< SessionID > Sessions;
 
   ThreadedSSLSocketConnection(int s, SSL *ssl, Sessions sessions, Log *pLog);
   ThreadedSSLSocketConnection(const SessionID &, int s, SSL *ssl,
@@ -163,7 +165,7 @@ public:
   SSL *sslObject() { return m_ssl; }
 
 private:
-  typedef std::pair<int, SSL *> SocketKey;
+  typedef std::pair< int, SSL * > SocketKey;
 
   bool readMessage(std::string &msg) throw(SocketRecvFailed);
   void processStream();
