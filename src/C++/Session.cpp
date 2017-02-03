@@ -390,10 +390,24 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
     if (sessionDD.isMessageFieldsOrderPreserved())
     {
-      std::string::size_type equalSign = (*i).find( "35=");
-      equalSign += 2;
-      std::string::size_type soh = (*i).find_first_of( '\001', equalSign + 1 );
-      strMsgType = (*i).substr( equalSign + 1, soh - ( equalSign + 1 ) );
+      std::string::size_type equalSign = (*i).find("\00135=");
+      equalSign += 4;
+      std::string::size_type soh = (*i).find_first_of('\001', equalSign);
+      std::string strMsgType = (*i).substr(equalSign, soh - equalSign);
+#ifdef HAVE_EMX
+      if (FIX::Message::isAdminMsgType(strMsgType) == false)
+      {
+        equalSign = (*i).find("\0019426=", soh);
+        if (equalSign == std::string::npos)
+          throw FIX::IOException("EMX message type (9426) not found");
+
+        equalSign += 6;
+        soh = (*i).find_first_of('\001', equalSign);
+        if (soh == std::string::npos)
+          throw FIX::IOException("EMX message type (9426) soh char not found");
+        strMsgType.assign((*i).substr(equalSign, soh - equalSign));
+      }
+#endif
     }
 
     if( m_sessionID.isFIXT() )

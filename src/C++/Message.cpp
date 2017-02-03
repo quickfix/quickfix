@@ -308,6 +308,9 @@ throw( InvalidMessage )
   std::string::size_type pos = 0;
   int count = 0;
   std::string msg;
+#ifdef HAVE_EMX
+  std::string subMsg;
+#endif
 
   static int const headerOrder[] =
   {
@@ -333,7 +336,25 @@ throw( InvalidMessage )
       }
 
       if ( field.getTag() == FIELD::MsgType )
+      {
         msg = field.getString();
+#ifdef HAVE_EMX
+        if (!isAdminMsg(msg))
+        {
+          std::string::size_type equalSign = string.find("\0019426=", pos);
+          if (equalSign == std::string::npos)
+            throw InvalidMessage("EMX message type (9426) not found");
+
+          equalSign += 6;
+          std::string::size_type soh = string.find_first_of('\001', equalSign);
+          if (soh == std::string::npos)
+            throw InvalidMessage("EMX message type (9426) soh char not found");
+          m_subMsgType.assign(string.substr(equalSign, soh - equalSign ));
+        }
+        else
+          m_subMsgType.assign(msg);
+#endif
+      }
 
       m_header.setField( field, false );
 
