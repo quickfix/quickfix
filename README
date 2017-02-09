@@ -1,3 +1,15 @@
+This is a fork to meet my requirements. If you have no specific requirements fulfilled by this fork, 
+then it would be better to use the original. It may be of interest when:
+
+1. SSL connections are required.
+
+2. SunOS or AIX are platforms of interest.
+
+3. Order of fields/tags for outgoing messages is important (configurable, not on by default).
+
+4. There is also some EMX platform related functionality which can be enabled through
+a compile flag.
+
 BUILDING AND INSTALLING
 
     Full instructions:
