@@ -139,7 +139,7 @@ void FileStore::populateCache()
       //std::cout << it.first->second.first << " --- " << it.first->second.second << '\n';
       if (it.second == false)
       {
-        throw RuntimeError("Unable to update offsets.");
+        it.first->second = std::make_pair(offset, size);
       }
     }
     fclose( headerFile );
@@ -208,7 +208,7 @@ throw ( IOException )
     m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
   if (it.second == false)
   {
-    throw RuntimeError("Unable to update offsets in set.");
+    it.first->second = std::make_pair(offset, size);
   }
   fwrite( msg.c_str(), sizeof( char ), msg.size(), m_msgFile );
   if ( ferror( m_msgFile ) ) 
