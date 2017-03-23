@@ -45,6 +45,7 @@
 #include <fix42/OrderStatusRequest.h>
 #include <fix42/MassQuote.h>
 #include <fix44/NewOrderCross.h>
+#include <fix44/AllocationInstruction.h>
 
 using namespace FIX;
 using namespace FIX42;
@@ -235,6 +236,21 @@ TEST(setStringWithHeaderGroup)
     "627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001"
     "628=HOP2\001629=20040916-16:19:18.328\001630=ID2\001"
     "10=079\001";
+
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
+}
+
+TEST(setStringWithHeaderGroupDefinedInComponent)
+{
+  FIX::Message object;
+  DataDictionary dataDictionary( "../spec/FIX44.xml" );
+  static const char* str =
+    "8=FIX.4.4\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
+    "52=20040916-16:19:18.328\00156=SELLSIDE\001"
+    "627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001"
+    "628=HOP2\001629=20040916-16:19:18.328\001630=ID2\001"
+    "10=080\001";
 
   object.setString( str, true, &dataDictionary );
   CHECK_EQUAL( str, object.toString() );
@@ -1024,7 +1040,7 @@ TEST(newOrderListSetString)
   FIX42::NewOrderList object;
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
-  
+
   object.setString
     ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
       "11=A\00154=1\00155=DELL\00167=1\001"
@@ -1152,7 +1168,7 @@ TEST(newOrderCrossGetString)
   noPartyIDs.set( FIX::PartyID("PARTY2") );
   noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY) );
   noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
-  
+
   noSides.addGroup( noPartyIDs );
 
   noSides.set( FIX::OrderQty(100) );
@@ -1206,6 +1222,89 @@ TEST(newOrderCrossSetString)
   FIX::OrderQty orderQty;
   noSides.get( orderQty );
   CHECK_EQUAL( 100, orderQty );
+}
+
+TEST(allocationInstructionParseGetString)
+{
+  AllocationInstruction object;
+
+  object.getHeader().setField(SenderCompID("SENDER"));
+  object.getHeader().setField(TargetCompID("TARGET"));
+  object.getHeader().setField(MsgSeqNum(1));
+  FIX44::Header::NoHops hops;
+  hops.setField(HopCompID("HOP1"));
+  hops.setField(HopRefID(1));
+  object.getHeader().addGroup(hops);
+  hops.setField(HopCompID("HOP2"));
+  hops.setField(HopRefID(2));
+  object.getHeader().addGroup(hops);
+  object.setField(AllocID("Alloc001"));
+  object.setField(AllocTransType(AllocTransType_NEW));
+  object.setField(AllocType(AllocType_CALCULATED));
+  object.setField(AllocNoOrdersType(AllocNoOrdersType_NOT_SPECIFIED));
+  object.setField(Quantity(100));
+  object.setField(AvgPx(23.1));
+  object.setField(TradeDate("20170317"));
+
+  CHECK_EQUAL(
+          "8=FIX.4.4\0019=121\00135=J\00134=1\00149=SENDER\00156=TARGET\001627=2\001"
+          "628=HOP1\001630=1\001628=HOP2\001630=2\0016=23.1\00153=100\00170=Alloc001\001"
+          "71=0\00175=20170317\001626=1\001857=0\00110=159\001", object.toString() );
+}
+
+TEST(allocationInstructionString)
+{
+  AllocationInstruction object;
+  DataDictionary dataDictionary( "../spec/FIX44.xml" );
+
+  object.setString
+    ( "8=FIX.4.4\0019=198\00135=J\00134=1\00149=SENDER\00152=20170317-15:55:23.685\001"
+      "56=TARGET\001627=2\001628=HOP1\001629=20170317-15:55:23.685\001630=1\001"
+      "628=HOP2\001629=20170317-15:55:23.685\001630=2\0016=23.1\00153=100\001"
+      "70=Alloc001\00171=0\00175=20170317\001626=1\001857=0\00110=196\001",
+      true, &dataDictionary );
+
+  FIX::SenderCompID senderCompID;
+  FIX::TargetCompID targetCompID;
+  FIX::SendingTime sendingTime;
+  FIX::MsgSeqNum msgSeqNum;
+  FIX::HopCompID hopCompID;
+  FIX::HopSendingTime hopSendingTime;
+  FIX::HopRefID hopRefID;
+
+  CHECK_EQUAL( "SENDER", object.getHeader().get(senderCompID));
+  CHECK_EQUAL( "TARGET", object.getHeader().get(targetCompID));
+  CHECK_EQUAL( "20170317-15:55:23.685", object.getHeader().get(sendingTime).getString());
+  CHECK_EQUAL( 1, object.getHeader().get(msgSeqNum));
+
+  FIX44::Header::NoHops noHops;
+  object.getHeader().getGroup( 1, noHops );
+  CHECK_EQUAL( "HOP1", noHops.get(hopCompID) );
+  CHECK_EQUAL( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
+  CHECK_EQUAL( 1, noHops.get(hopRefID) );
+
+  object.getHeader().getGroup( 2, noHops );
+  CHECK_EQUAL( "HOP2", noHops.get(hopCompID) );
+  CHECK_EQUAL( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
+  CHECK_EQUAL( 2, noHops.get(hopRefID) );
+
+  FIX::AllocID allocID;
+  FIX::AllocTransType allocTransType;
+  FIX::AllocType allocType;
+  FIX::AllocNoOrdersType allocNoOrdersType;
+  FIX::Quantity quantity;
+  FIX::AvgPx avgPx;
+  FIX::TradeDate tradeDate;
+  CHECK_EQUAL( "Alloc001", object.get(allocID) );
+  CHECK_EQUAL( AllocTransType_NEW, object.get(allocTransType) );
+  CHECK_EQUAL( AllocType_CALCULATED, object.get(allocType) );
+  CHECK_EQUAL( AllocNoOrdersType_NOT_SPECIFIED, object.get(allocNoOrdersType) );
+  CHECK_EQUAL( 100, object.get(quantity) );
+  CHECK_EQUAL( 23.1, object.get(avgPx) );
+  CHECK_EQUAL( "20170317", object.get(tradeDate) );
+
+  FIX::CheckSum checkSum;
+  CHECK_EQUAL( 196, object.getTrailer().get(checkSum) );
 }
 
 }
