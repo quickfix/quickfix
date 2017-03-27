@@ -33,7 +33,7 @@
 #include "DataDictionary.h"
 #include "Values.h"
 #include <vector>
-#include <memory>
+#include "Utility.h"
 
 namespace FIX
 {

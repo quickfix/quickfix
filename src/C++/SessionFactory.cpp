@@ -30,8 +30,6 @@
 #include "SessionSettings.h"
 #include "Session.h"
 
-#include <memory>
-
 namespace FIX
 {
 SessionFactory::~SessionFactory()

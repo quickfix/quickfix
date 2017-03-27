@@ -26,7 +26,7 @@
 #include "DataDictionary.h"
 #include "Message.h"
 #include <fstream>
-#include <memory>
+#include "Utility.h"
 
 #include "PUGIXML_DOMDocument.h"
 

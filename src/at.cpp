@@ -17,6 +17,13 @@
 **
 ****************************************************************************/
 
+#ifdef _MSC_VER
+#pragma warning( disable : 4503 )
+#include "stdafx.h"
+#else
+#include "config.h"
+#endif
+
 #include "ThreadedSocketAcceptor.h"
 #include "SocketAcceptor.h"
 #include "SessionSettings.h"
@@ -24,13 +31,8 @@
 #include "Utility.h"
 #include <iostream>
 #include <fstream>
-#include <memory>
 #include "getopt-repl.h"
 #include "at_application.h"
-
-#ifdef _MSC_VER
-#pragma warning( disable : 4503 )
-#endif
 
 typedef std::auto_ptr < FIX::Acceptor > AcceptorPtr;
 

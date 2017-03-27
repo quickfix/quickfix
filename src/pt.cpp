@@ -26,7 +26,6 @@
 #include "config.h"
 #endif
 
-#include <memory>
 #include "getopt-repl.h"
 #include <iostream>
 #include "Application.h"

@@ -25,7 +25,7 @@
 #include <string>
 #include <map>
 #include <iostream>
-#include <memory>
+#include "Utility.h"
 
 namespace FIX
 {
