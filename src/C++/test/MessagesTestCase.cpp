@@ -1249,7 +1249,7 @@ TEST(allocationInstructionParseGetString)
   CHECK_EQUAL(
           "8=FIX.4.4\0019=121\00135=J\00134=1\00149=SENDER\00156=TARGET\001627=2\001"
           "628=HOP1\001630=1\001628=HOP2\001630=2\0016=23.1\00153=100\00170=Alloc001\001"
-          "71=0\00175=20170317\001626=1\001857=0\00110=159\001", object.toString() );
+          "71=0\00175=20170317\001626=1\001857=0\00110=159\001", object.toString());
 }
 
 TEST(allocationInstructionString)
