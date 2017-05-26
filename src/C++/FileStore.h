@@ -100,7 +100,7 @@ public:
   void refresh() throw ( IOException );
 
 private:
-  typedef std::pair < int, int > OffsetSize;
+  typedef std::pair < fpos_t, int > OffsetSize;
   typedef std::map < int, OffsetSize > NumToOffset;
 
   void open( bool deleteFile );
