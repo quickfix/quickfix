@@ -30,6 +30,14 @@
 
 namespace FIX
 {
+
+int const headerOrder[] =
+{
+  FIELD::BeginString,
+  FIELD::BodyLength,
+  FIELD::MsgType
+};
+
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
@@ -228,8 +236,8 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
   {
-    int field = i->first;
-    std::string value = i->second.getString();
+    int field = i->getTag();
+    std::string value = i->getString();
 
     stream << std::setw(space) << " " << "<field ";
     if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
@@ -274,13 +282,6 @@ throw( InvalidMessage )
   int count = 0;
   std::string msg;
 
-  static int const headerOrder[] =
-  {
-    FIELD::BeginString,
-    FIELD::BodyLength,
-    FIELD::MsgType
-  };
-
   field_type type = header;
 
   while ( pos < string.size() )
@@ -300,7 +301,7 @@ throw( InvalidMessage )
       if ( field.getTag() == FIELD::MsgType )
         msg = field.getString();
 
-      m_header.setField( field, false );
+      m_header.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
@@ -308,7 +309,7 @@ throw( InvalidMessage )
     else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
       type = trailer;
-      m_trailer.setField( field, false );
+      m_trailer.addField( field );
 
       if ( pSessionDataDictionary )
         setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
@@ -322,7 +323,7 @@ throw( InvalidMessage )
       }
 
       type = body;
-      setField( field, false );
+      addField( field );
 
       if ( pApplicationDataDictionary )
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
@@ -372,7 +373,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     }
 
     if ( !pGroup.get() ) return ;
-    pGroup->setField( field, false );
+    pGroup->addField( field );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }
 }
@@ -391,7 +392,7 @@ bool Message::setStringHeader( const std::string& string )
       return false;
 
     if ( isHeaderField( field ) )
-      m_header.setField( field, false );
+      m_header.addField( field );
     else break;
   }
   return true;
@@ -540,7 +541,8 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     throw InvalidMessage("Equal sign not found in field");
 
   int field = 0;
-  IntConvertor::convert( tagStart, equalSign, field );
+  if( !IntConvertor::convert( tagStart, equalSign, field ) )
+    throw InvalidMessage( std::string("Field tag is invalid: ") + std::string( tagStart, equalSign ));
 
   std::string::const_iterator const valueStart = equalSign + 1;
 
@@ -555,26 +557,26 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     // Special case for Signature which violates above assumption.
     if ( field == FIELD::Signature ) lenField = FIELD::SignatureLength;
 
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    // identify part of the message that should contain length field
+    const FieldMap * location = pGroup;
+    if( !location )
     {
-      const std::string& fieldLength = pGroup->getField( lenField );
-      soh = valueStart + atol( fieldLength.c_str() );
-    }
-    else
-    {
-      FIX::FieldMap *lenMap;
-      if ( isHeaderField( lenField ) )
-      {
-          lenMap = &m_header;
-      }
+      if( isHeaderField( field ) )
+        location = &getHeader();
       else
+        location = this;
+    }
+
+    if ( location->isSetField( lenField ) )
+    {
+      try
       {
-          lenMap = this;
+        const std::string& fieldLength = location->getField( lenField );
+        soh = valueStart + IntConvertor::convert( fieldLength );
       }
-      if ( lenMap->isSetField( lenField ) )
+      catch( FieldConvertError& e )
       {
-        const std::string& fieldLength = lenMap->getField( lenField );
-        soh = valueStart + atol( fieldLength.c_str() );
+        throw InvalidMessage( std::string( "Unable to determine SOH for data field " ) + IntConvertor::convert( field ) + std::string( ": " ) + e.what() );
       }
     }
   }
@@ -589,4 +591,5 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     tagStart, 
     tagEnd );
 }
+
 }

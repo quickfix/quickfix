@@ -90,6 +90,24 @@ public:
 
   virtual ~FieldBase() {}
 
+  FieldBase( const FieldBase& rhs )
+  : m_tag( rhs.getTag() )
+  , m_string( rhs.m_string )
+  , m_metrics( rhs.m_metrics )
+  {
+
+  }
+
+  FieldBase& operator=( const FieldBase& rhs)
+  {
+    m_tag = rhs.getTag();
+    m_string = rhs.m_string;
+    m_metrics = rhs.m_metrics;
+    m_data.clear();
+
+    return *this;
+  }
+
   void setTag( int tag )
   {
     m_tag = tag;
@@ -161,16 +179,16 @@ private:
   /// Serializes string representation of the Field to input string
   void encodeTo( std::string& result ) const
   {
-    size_t tagLength = FIX::number_of_symbols_in( m_tag ) + 1;
-    size_t totalLength = tagLength + m_string.length() + 1;
+    size_t tagLength = FIX::number_of_symbols_in( m_tag );
+    size_t totalLength = tagLength + m_string.length() + 2;
 
     result.resize( totalLength );
 
     char * buf = (char*)result.c_str();
     FIX::integer_to_string( buf, tagLength, m_tag );
 
-    buf[tagLength - 1] = '=';
-    memcpy( buf + tagLength, m_string.data(), m_string.length() );
+    buf[tagLength] = '=';
+    memcpy( buf + tagLength + 1, m_string.data(), m_string.length() );
     buf[totalLength - 1] = '\001';
   }
 

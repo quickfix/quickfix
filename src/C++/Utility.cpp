@@ -150,6 +150,11 @@ int socket_accept( int s )
   return accept( s, 0, 0 );
 }
 
+ssize_t socket_recv( int s, char* buf, size_t length )
+{
+  return recv( s, buf, length, 0 );
+}
+
 ssize_t socket_send( int s, const char* msg, size_t length )
 {
   return send( s, msg, length, 0 );
@@ -396,7 +401,7 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
 #ifdef _MSC_VER
   thread_id result = 0;
   unsigned int id = 0;
-  result = _beginthreadex( NULL, 0, &func, var, 0, &id );
+  result = _beginthreadex( NULL, 0, func, var, 0, &id );
   if ( result == 0 ) return false;
 #else
   thread_id result = 0;

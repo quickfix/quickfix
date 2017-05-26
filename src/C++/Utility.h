@@ -123,6 +123,7 @@ int socket_createAcceptor( int port, bool reuse = false );
 int socket_createConnector();
 int socket_connect( int s, const char* address, int port );
 int socket_accept( int s );
+ssize_t socket_recv( int s, char* buf, size_t length );
 ssize_t socket_send( int s, const char* msg, size_t length );
 void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
@@ -151,7 +152,7 @@ tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t );
 
 #ifdef _MSC_VER
-typedef unsigned int (_stdcall THREAD_START_ROUTINE)(void *);
+typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
 #define  THREAD_PROC unsigned int _stdcall
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
