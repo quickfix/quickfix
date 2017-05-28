@@ -231,7 +231,13 @@ void Initiator::stop( bool force )
 
   std::vector<Session*> enabledSessions;
 
-  SessionIDs connected = m_connected;
+  SessionIDs connected;
+
+  {
+    Locker l(m_mutex);
+    connected = m_connected;
+  }
+
   SessionIDs::iterator i = connected.begin();
   for ( ; i != connected.end(); ++i )
   {
