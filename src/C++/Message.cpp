@@ -339,7 +339,7 @@ throw( InvalidMessage )
       {
         msg = field.getString();
 #ifdef HAVE_EMX
-        if (!isAdminMsg(msg))
+        if (!isAdmin())
         {
           std::string::size_type equalSign = string.find("\0019426=", pos);
           if (equalSign == std::string::npos)
