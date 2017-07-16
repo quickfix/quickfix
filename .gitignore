@@ -58,3 +58,4 @@ lib/python
 COPYING
 INSTALL
 *.db
+.vs
