@@ -37,8 +37,16 @@ namespace FIX
 typedef int signed_int;
 typedef unsigned int unsigned_int;
 
-//#define UNSIGNED_VALUE_OF( x ) ( ( x < 0 ) ? -unsigned_int(x) : unsigned_int(x) )
-#define UNSIGNED_VALUE_OF( x ) ( ( x < 0 ) ? (unsigned_int(x*-1)) : unsigned_int(x) )
+#ifdef _MSC_VER
+inline unsigned_int UNSIGNED_VALUE_OF(signed_int x)
+{
+    #pragma warning(disable: 4146)
+    return x < 0  ? -unsigned_int(x) : unsigned_int(x);
+    #pragma warning(default : 4146)
+}
+#else
+#define UNSIGNED_VALUE_OF( x ) ( ( x < 0 ) ? -unsigned_int(x) : unsigned_int(x) )
+#endif
 
 #define IS_SPACE( x ) ( x == ' ' )
 #define IS_DIGIT( x ) ( unsigned_int( x - '0' ) < 10 )
