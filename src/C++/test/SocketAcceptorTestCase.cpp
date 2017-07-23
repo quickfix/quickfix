@@ -79,7 +79,7 @@ struct receivePartialMessageFixture
   TestApplication application;
   MemoryStoreFactory factory;
   SocketAcceptor* object;
-  int s;
+  socket_handle s;
 };
 
 TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)

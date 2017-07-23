@@ -117,35 +117,45 @@ std::string string_toLower( const std::string& value );
 std::string string_toUpper( const std::string& value );
 std::string string_strip( const std::string& value );
 
+#ifdef _MSC_VER
+	typedef SOCKET socket_handle;
+    #define INVALID_SOCKET_HANDLE INVALID_SOCKET
+
+#else
+	typedef int socket_handle;
+    #define INVALID_SOCKET_HANDLE -1
+
+#endif
+
 void socket_init();
 void socket_term();
-int socket_createAcceptor( int port, bool reuse = false );
-int socket_createConnector();
-int socket_connect( int s, const char* address, int port );
-int socket_accept( int s );
-ssize_t socket_send( int s, const char* msg, size_t length );
-void socket_close( int s );
-bool socket_fionread( int s, int& bytes );
-bool socket_disconnected( int s );
-int socket_setsockopt( int s, int opt );
-int socket_setsockopt( int s, int opt, int optval );
-int socket_getsockopt( int s, int opt, int& optval );
+socket_handle socket_createAcceptor( int port, bool reuse = false );
+socket_handle socket_createConnector();
+int socket_connect( socket_handle s, const char* address, int port );
+socket_handle socket_accept( socket_handle s );
+ssize_t socket_send( socket_handle s, const char* msg, size_t length );
+void socket_close( socket_handle s );
+bool socket_fionread( socket_handle s, int& bytes );
+bool socket_disconnected( socket_handle s );
+int socket_setsockopt( socket_handle s, int opt );
+int socket_setsockopt( socket_handle s, int opt, int optval );
+int socket_getsockopt( socket_handle s, int opt, int& optval );
 #ifndef _MSC_VER
 int socket_fcntl( int s, int opt, int arg );
 int socket_getfcntlflag( int s, int arg );
 int socket_setfcntlflag( int s, int arg );
 #endif
-void socket_setnonblock( int s );
-bool socket_isValid( int socket );
+void socket_setnonblock( socket_handle s );
+bool socket_isValid( socket_handle socket );
 #ifndef _MSC_VER
 bool socket_isBad( int s );
 #endif
-void socket_invalidate( int& socket );
-short socket_hostport( int socket );
-const char* socket_hostname( int socket );
+void socket_invalidate( socket_handle& socket );
+short socket_hostport( socket_handle socket );
+const char* socket_hostname( socket_handle socket );
 const char* socket_hostname( const char* name );
-const char* socket_peername( int socket );
-std::pair<int, int> socket_createpair();
+const char* socket_peername( socket_handle socket );
+std::pair<socket_handle, socket_handle> socket_createpair();
 
 tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t );
@@ -162,7 +172,7 @@ extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #endif
 
 #ifdef _MSC_VER
-typedef unsigned thread_id;
+typedef uintptr_t thread_id;
 #else
 typedef pthread_t thread_id;
 #endif

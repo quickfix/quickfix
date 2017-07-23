@@ -32,7 +32,7 @@
 
 namespace FIX
 {
-SocketConnection::SocketConnection( int s, Sessions sessions,
+SocketConnection::SocketConnection( socket_handle s, Sessions sessions,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
@@ -42,7 +42,7 @@ SocketConnection::SocketConnection( int s, Sessions sessions,
 }
 
 SocketConnection::SocketConnection( SocketInitiator& i,
-                                    const SessionID& sessionID, int s,
+                                    const SessionID& sessionID, socket_handle s,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),
@@ -77,8 +77,14 @@ bool SocketConnection::processQueue()
 
   struct timeval timeout = { 0, 0 };
   fd_set writeset = m_fds;
+
+#ifdef _MSC_VER
+    if( select( 1, 0, &writeset, 0, &timeout ) <= 0 )
+    return false;
+#else
   if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
     return false;
+#endif
     
   const std::string& msg = m_sendQueue.front();
 
@@ -86,7 +92,7 @@ bool SocketConnection::processQueue()
     ( m_socket, msg.c_str() + m_sendLength, msg.length() - m_sendLength );
 
   if( result > 0 )
-    m_sendLength += result;
+    m_sendLength += (unsigned)result;
 
   if( m_sendLength == msg.length() )
   {
@@ -132,7 +138,11 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
 
       while( !readMessage( msg ) )
       {
+#ifdef _MSC_VER
+    int result = select( 1, &readset, 0, 0, &timeout );
+#else
         int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+#endif
         if( result > 0 )
           readFromSocket();
         else if( result == 0 )

@@ -48,7 +48,7 @@ public:
   virtual ~ThreadedSocketInitiator();
 
 private:
-  typedef std::map < int, thread_id > SocketToThread;
+  typedef std::map < socket_handle, thread_id > SocketToThread;
   typedef std::map < SessionID, int > SessionToHostNum;
   typedef std::pair < ThreadedSocketInitiator*, ThreadedSocketConnection* > ThreadPair;
 
@@ -61,8 +61,8 @@ private:
 
   void doConnect( const SessionID& s, const Dictionary& d );
 
-  void addThread( int s, thread_id t );
-  void removeThread( int s );
+  void addThread( socket_handle s, thread_id t );
+  void removeThread( socket_handle s );
   void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread( void* p );
 

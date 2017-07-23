@@ -39,9 +39,9 @@ public:
 
   SocketConnector( int timeout = 0 );
 
-  int connect( const std::string& address, int port, bool noDelay, 
+  socket_handle connect( const std::string& address, int port, bool noDelay, 
                int sendBufSize, int rcvBufSize );
-  int connect( const std::string& address, int port, bool noDelay, 
+  socket_handle connect( const std::string& address, int port, bool noDelay, 
                int sendBufSize, int rcvBufSize, Strategy& );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
   SocketMonitor& getMonitor() { return m_monitor; }
@@ -54,10 +54,10 @@ public:
   {
   public:
     virtual ~Strategy() {}
-    virtual void onConnect( SocketConnector&, int socket ) = 0;
-    virtual void onWrite( SocketConnector&, int socket ) = 0;
-    virtual bool onData( SocketConnector&, int socket ) = 0;
-    virtual void onDisconnect( SocketConnector&, int socket ) = 0;
+    virtual void onConnect( SocketConnector&, socket_handle socket ) = 0;
+    virtual void onWrite( SocketConnector&, socket_handle socket ) = 0;
+    virtual bool onData( SocketConnector&, socket_handle socket ) = 0;
+    virtual void onDisconnect( SocketConnector&, socket_handle socket ) = 0;
     virtual void onError( SocketConnector& ) = 0;
     virtual void onTimeout( SocketConnector& ) {};
   };

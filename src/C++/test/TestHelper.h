@@ -28,15 +28,15 @@ inline void deleteSession( std::string sender, std::string target )
   file_unlink( ( "store/FIX.4.2-" + sender + "-" + target + ".session" ).c_str() );
 }
 
-inline void destroySocket( int s )
+inline void destroySocket( socket_handle s )
 {
   socket_close( s );
   socket_invalidate( s );
 }
 
-int inline createSocket( int port, const char* address )
+socket_handle inline createSocket( int port, const char* address )
 {
-  int sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
+  socket_handle sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 
   sockaddr_in addr;
   addr.sin_family = PF_INET;

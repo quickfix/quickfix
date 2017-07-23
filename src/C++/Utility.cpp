@@ -100,9 +100,9 @@ void socket_term()
 #endif
 }
 
-int socket_createAcceptor(int port, bool reuse)
+socket_handle socket_createAcceptor(int port, bool reuse)
 {
-  int socket = ::socket( PF_INET, SOCK_STREAM, 0 );
+  socket_handle socket = ::socket( PF_INET, SOCK_STREAM, 0 );
   if ( socket < 0 ) return -1;
 
   sockaddr_in address;
@@ -117,18 +117,18 @@ int socket_createAcceptor(int port, bool reuse)
 
   int result = bind( socket, reinterpret_cast < sockaddr* > ( &address ),
                      socklen );
-  if ( result < 0 ) return -1;
+  if ( result < 0 ) return INVALID_SOCKET;
   result = listen( socket, SOMAXCONN );
-  if ( result < 0 ) return -1;
+  if ( result < 0 ) return INVALID_SOCKET;
   return socket;
 }
 
-int socket_createConnector()
+socket_handle socket_createConnector()
 {
   return ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 }
 
-int socket_connect( int socket, const char* address, int port )
+int socket_connect( socket_handle socket, const char* address, int port )
 {
   const char* hostname = socket_hostname( address );
   if( hostname == 0 ) return -1;
@@ -144,18 +144,27 @@ int socket_connect( int socket, const char* address, int port )
   return result;
 }
 
-int socket_accept( int s )
+socket_handle socket_accept( socket_handle s )
 {
-  if ( !socket_isValid( s ) ) return -1;
+  if ( !socket_isValid( s ) ) 
+  {
+    socket_handle invalid;
+    socket_invalidate( invalid );
+    return invalid;
+  }
   return accept( s, 0, 0 );
 }
 
-ssize_t socket_send( int s, const char* msg, size_t length )
+ssize_t socket_send( socket_handle s, const char* msg, size_t length )
 {
+#ifdef _MSC_VER
+  return send( s, msg, (int)length, 0 );
+#else
   return send( s, msg, length, 0 );
+#endif
 }
 
-void socket_close( int s )
+void socket_close( socket_handle s )
 {
   shutdown( s, 2 );
 #ifdef _MSC_VER
@@ -165,7 +174,7 @@ void socket_close( int s )
 #endif
 }
 
-bool socket_fionread( int s, int& bytes )
+bool socket_fionread( socket_handle s, int& bytes )
 {
   bytes = 0;
 #if defined(_MSC_VER)
@@ -177,13 +186,13 @@ bool socket_fionread( int s, int& bytes )
 #endif
 }
 
-bool socket_disconnected( int s )
+bool socket_disconnected( socket_handle s )
 {
   char byte;
   return ::recv (s, &byte, sizeof (byte), MSG_PEEK) <= 0;
 }
 
-int socket_setsockopt( int s, int opt )
+int socket_setsockopt( socket_handle s, int opt )
 {
 #ifdef _MSC_VER
   BOOL optval = TRUE;
@@ -193,7 +202,7 @@ int socket_setsockopt( int s, int opt )
   return socket_setsockopt( s, opt, optval );
 }
 
-int socket_setsockopt( int s, int opt, int optval )
+int socket_setsockopt( socket_handle s, int opt, int optval )
 {
   int level = SOL_SOCKET;
   if( opt == TCP_NODELAY )
@@ -208,7 +217,7 @@ int socket_setsockopt( int s, int opt, int optval )
 #endif
 }
 
-int socket_getsockopt( int s, int opt, int& optval )
+int socket_getsockopt( socket_handle s, int opt, int& optval )
 {
   int level = SOL_SOCKET;
   if( opt == TCP_NODELAY )
@@ -243,7 +252,7 @@ int socket_setfcntlflag( int s, int arg )
 }
 #endif
 
-void socket_setnonblock( int socket )
+void socket_setnonblock( socket_handle socket )
 {
 #ifdef _MSC_VER
   u_long opt = 1;
@@ -252,7 +261,7 @@ void socket_setnonblock( int socket )
   socket_setfcntlflag( socket, O_NONBLOCK );
 #endif
 }
-bool socket_isValid( int socket )
+bool socket_isValid( socket_handle socket )
 {
 #ifdef _MSC_VER
   return socket != INVALID_SOCKET;
@@ -270,7 +279,7 @@ bool socket_isBad( int s )
 }
 #endif
 
-void socket_invalidate( int& socket )
+void socket_invalidate( socket_handle& socket )
 {
 #ifdef _MSC_VER
   socket = INVALID_SOCKET;
@@ -279,7 +288,7 @@ void socket_invalidate( int& socket )
 #endif
 }
 
-short socket_hostport( int socket )
+short socket_hostport( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
@@ -289,7 +298,7 @@ short socket_hostport( int socket )
   return ntohs( addr.sin_port );
 }
 
-const char* socket_hostname( int socket )
+const char* socket_hostname( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
@@ -328,7 +337,7 @@ const char* socket_hostname( const char* name )
   return inet_ntoa( **paddr );
 }
 
-const char* socket_peername( int socket )
+const char* socket_peername( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
@@ -341,17 +350,17 @@ const char* socket_peername( int socket )
     return "UNKNOWN";
 }
 
-std::pair<int, int> socket_createpair()
+std::pair<socket_handle, socket_handle> socket_createpair()
 {
 #ifdef _MSC_VER
-  int acceptor = socket_createAcceptor(0, true);
+  socket_handle acceptor = socket_createAcceptor(0, true);
   const char* host = socket_hostname( acceptor );
   short port = socket_hostport( acceptor );
-  int client = socket_createConnector();
+  socket_handle client = socket_createConnector();
   socket_connect( client, "localhost", port );
-  int server = socket_accept( acceptor );
+  socket_handle server = socket_accept( acceptor );
   socket_close(acceptor);
-  return std::pair<int, int>( client, server );
+  return std::pair<socket_handle, socket_handle>( client, server );
 #else
   int pair[2];
   socketpair( AF_UNIX, SOCK_STREAM, 0, pair );
@@ -435,7 +444,7 @@ void thread_detach( thread_id thread )
 thread_id thread_self()
 {
 #ifdef _MSC_VER
-  return (unsigned)GetCurrentThread();
+  return (thread_id)GetCurrentThread();
 #else
   return pthread_self();
 #endif

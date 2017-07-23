@@ -32,7 +32,7 @@
 namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection
-( int s, Sessions sessions, Log* pLog )
+( socket_handle s, Sessions sessions, Log* pLog )
 : m_socket( s ), m_pLog( pLog ),
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
@@ -42,7 +42,7 @@ ThreadedSocketConnection::ThreadedSocketConnection
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection
-( const SessionID& sessionID, int s,
+( const SessionID& sessionID, socket_handle s,
   const std::string& address, short port, 
   Log* pLog )
   : m_socket( s ), m_address( address ), m_port( port ),
@@ -96,7 +96,11 @@ bool ThreadedSocketConnection::read()
   try
   {
     // Wait for input (1 second timeout)
+#ifdef _MSC_VER
+    int result = select( 1, &readset, 0, 0, &timeout );
+#else
     int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+#endif
 
     if( result > 0 ) // Something to read
     {

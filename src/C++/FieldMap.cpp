@@ -202,7 +202,7 @@ int FieldMap::calculateLength( int beginStringField,
     if ( i->first != beginStringField
          && i->first != bodyLengthField
          && i->first != checkSumField )
-    { result += i->second.getLength(); }
+    { result += (int)i->second.getLength(); }
   }
 
   Groups::const_iterator j;
