@@ -200,7 +200,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   socket_getsockopt( s, SO_RCVBUF, rcvBufSize );
 
   socket_handle socket = 0;
-  while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) >= 0 ) )
+  while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) != INVALID_SOCKET ) )
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );

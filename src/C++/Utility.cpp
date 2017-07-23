@@ -103,7 +103,7 @@ void socket_term()
 socket_handle socket_createAcceptor(int port, bool reuse)
 {
   socket_handle socket = ::socket( PF_INET, SOCK_STREAM, 0 );
-  if ( socket < 0 ) return -1;
+  if ( socket == INVALID_SOCKET ) return INVALID_SOCKET;
 
   sockaddr_in address;
   socklen_t socklen;
