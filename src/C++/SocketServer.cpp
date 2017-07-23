@@ -129,7 +129,7 @@ socket_handle SocketServer::accept( socket_handle socket )
     socket_setsockopt( result, SO_SNDBUF, info.m_sendBufSize );
   if( info.m_rcvBufSize )
     socket_setsockopt( result, SO_RCVBUF, info.m_rcvBufSize );
-  if ( result != INVALID_SOCKET )
+  if ( result != INVALID_SOCKET_HANDLE )
     m_monitor.addConnect( result );
   return result;
 }

@@ -99,7 +99,7 @@ throw ( RuntimeError )
       settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
     socket_handle socket = socket_createAcceptor( port, reuseAddress );
-    if( socket == INVALID_SOCKET )
+    if( socket == INVALID_SOCKET_HANDLE )
     {
       SocketException e;
       socket_close( socket );
@@ -200,7 +200,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   socket_getsockopt( s, SO_RCVBUF, rcvBufSize );
 
   socket_handle socket = 0;
-  while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) != INVALID_SOCKET ) )
+  while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) != INVALID_SOCKET_HANDLE ) )
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );

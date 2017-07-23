@@ -38,7 +38,7 @@ namespace FIX
 struct SocketInfo
 {
   SocketInfo()
-  : m_socket( INVALID_SOCKET ), m_port( 0 ), m_noDelay( false ),
+  : m_socket( INVALID_SOCKET_HANDLE ), m_port( 0 ), m_noDelay( false ),
     m_sendBufSize( 0 ), m_rcvBufSize( 0 ) {}
   
   SocketInfo( socket_handle socket, short port, bool noDelay, int sendBufSize, int rcvBufSize )

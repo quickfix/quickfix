@@ -103,7 +103,7 @@ void socket_term()
 socket_handle socket_createAcceptor(int port, bool reuse)
 {
   socket_handle socket = ::socket( PF_INET, SOCK_STREAM, 0 );
-  if ( socket == INVALID_SOCKET ) return INVALID_SOCKET;
+  if ( socket == INVALID_SOCKET_HANDLE ) return INVALID_SOCKET_HANDLE;
 
   sockaddr_in address;
   socklen_t socklen;
@@ -117,9 +117,9 @@ socket_handle socket_createAcceptor(int port, bool reuse)
 
   int result = bind( socket, reinterpret_cast < sockaddr* > ( &address ),
                      socklen );
-  if ( result < 0 ) return INVALID_SOCKET;
+  if ( result < 0 ) return INVALID_SOCKET_HANDLE;
   result = listen( socket, SOMAXCONN );
-  if ( result < 0 ) return INVALID_SOCKET;
+  if ( result < 0 ) return INVALID_SOCKET_HANDLE;
   return socket;
 }
 
@@ -264,7 +264,7 @@ void socket_setnonblock( socket_handle socket )
 bool socket_isValid( socket_handle socket )
 {
 #ifdef _MSC_VER
-  return socket != INVALID_SOCKET;
+  return socket != INVALID_SOCKET_HANDLE;
 #else
   return socket >= 0;
 #endif
@@ -282,7 +282,7 @@ bool socket_isBad( int s )
 void socket_invalidate( socket_handle& socket )
 {
 #ifdef _MSC_VER
-  socket = INVALID_SOCKET;
+  socket = INVALID_SOCKET_HANDLE;
 #else
   socket = -1;
 #endif
