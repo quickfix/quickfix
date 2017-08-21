@@ -1,5 +1,4 @@
-This is a fork to meet my requirements. If you have no specific requirements fulfilled by this fork, 
-then it would be better to use the original. It may be of interest when:
+This is a fork to meet my requirements. If you have no specific requirements fulfilled by this fork, then it would be better to use the original. It may be of interest when:
 
 1. SSL connections are required.
 
@@ -9,6 +8,8 @@ then it would be better to use the original. It may be of interest when:
 
 4. There is also some EMX platform related functionality which can be enabled through
 a compile flag.
+
+5. Arbitrary precision (upto nanoseconds) timestamps need to be handled.
 
 BUILDING AND INSTALLING
 
