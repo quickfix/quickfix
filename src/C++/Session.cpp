@@ -58,7 +58,7 @@ Session::Session( Application& application,
   m_resetOnLogout( false ), 
   m_resetOnDisconnect( false ),
   m_refreshOnLogon( false ),
-  m_millisecondsInTimeStamp( true ),
+  m_timestampPrecision( 3 ),
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
@@ -97,7 +97,7 @@ void Session::insertSendingTime( Header& header )
   else
     showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
 
-  header.setField( SendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
+  header.setField( SendingTime(now, showMilliseconds ? m_timestampPrecision : 0) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
@@ -108,7 +108,7 @@ void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
   else
     showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
 
-  header.setField( OrigSendingTime(when, showMilliseconds && m_millisecondsInTimeStamp) );
+  header.setField( OrigSendingTime(when, showMilliseconds ? m_timestampPrecision : 0) );
 }
 
 void Session::fill( Header& header )

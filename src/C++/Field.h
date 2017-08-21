@@ -412,6 +412,10 @@ public:
 : FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) ) {}
   UtcTimeStampField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) ) {}
+  UtcTimeStampField( int field, const UtcTimeStamp& data, int precision )
+: FieldBase( field, UtcTimeStampConvertor::convert( data, precision ) ) {}
+    UtcTimeStampField( int field, int precision )
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
 
   void setValue( const UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
@@ -466,6 +470,10 @@ public:
 : FieldBase( field, UtcTimeOnlyConvertor::convert( data, showMilliseconds ) ) {}
   UtcTimeOnlyField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), showMilliseconds ) ) {}
+  UtcTimeOnlyField( int field, const UtcTimeOnly& data, int precision )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( data, precision ) ) {}
+    UtcTimeOnlyField( int field, int precision )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), precision ) ) {}
 
   void setValue( const UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
@@ -546,8 +554,10 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 class NAME : public TOK##Field { public: \
 NAME() : TOK##Field(NUM, false) {} \
 NAME(bool showMilliseconds) : TOK##Field(NUM, showMilliseconds) {} \
+NAME(int precision) : TOK##Field(NUM, precision) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 NAME(const TYPE& value, bool showMilliseconds) : TOK##Field(NUM, value, showMilliseconds) {} \
+NAME(const TYPE& value, int precision) : TOK##Field(NUM, value, precision) {} \
 }
 
 #define DEFINE_FIELD_TIMECLASS( NAME, TOK, TYPE ) \

@@ -614,18 +614,45 @@ struct UtcTimeStampConvertor
     return result;
   }
 
+  static std::string convert( const UtcTimeStamp& value,
+                              int precision )
+  throw( FieldConvertError )
+  {
+    char result[ 18+10 ]; // Maximum
+    int year, month, day, hour, minute, second, fraction;
+
+    value.getYMD( year, month, day );
+    value.getHMS( hour, minute, second, fraction, precision );
+
+    integer_to_string_padded( result, 5, year, 4 );
+    integer_to_string_padded( result + 4, 3, month, 2 );
+    integer_to_string_padded( result + 6, 3, day, 2 );
+    result[8]  = '-';
+    integer_to_string_padded( result + 9, 3, hour, 2 );
+    result[11] = ':';
+    integer_to_string_padded( result + 12, 3, minute, 2 );
+    result[14] = ':';
+    integer_to_string_padded( result + 15, 3, second, 2 );
+
+    if( precision )
+    {
+      result[17] = '.';
+      if( integer_to_string_padded ( result + 18, precision + 1, fraction, precision )
+          != result + 18 )
+      {
+        throw FieldConvertError();
+      }
+    }
+
+    return result;
+  }
+
   static UtcTimeStamp convert( const std::string& value,
                                bool calculateDays = false )
   throw( FieldConvertError )
   {
-    bool haveMilliseconds = false;
-
-    switch( value.size() )
-    {
-      case 21: haveMilliseconds = true;
-      case 17: break;
-      default: throw FieldConvertError(value);
-    }
+    size_t len = value.size();
+    if (len < 17 or len > 27) throw FieldConvertError(value);
 
     int i = 0;
     int c = 0;
@@ -641,14 +668,7 @@ struct UtcTimeStampConvertor
     for( c = 0; c < 2; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      if( value[i++] != '.' ) throw FieldConvertError(value);
-      for( c = 0; c < 3; ++c )
-        if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
-    }
-
-    int year, mon, mday, hour, min, sec, millis;
+    int year, mon, mday, hour, min, sec;
 
     i = 0;
 
@@ -687,17 +707,22 @@ struct UtcTimeStampConvertor
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      millis = (100 * (value[i+1] - '0')
-                + 10 * (value[i+2] - '0')
-                + (value[i+3] - '0'));
-    }
-    else
-      millis = 0;
+    if (len == 17)
+      return UtcTimeStamp (hour, min, sec, 0,
+                           mday, mon, year);
 
-    return UtcTimeStamp (hour, min, sec, millis,
-                         mday, mon, year);
+    if( value[i++] != '.' ) throw FieldConvertError(value);
+
+    int fraction = 0;
+    for (; i < len; ++i)
+    {
+      char ch = value[i];
+      if( !IS_DIGIT(ch)) throw FieldConvertError(value);
+      fraction = (fraction * 10) + ch - '0';
+    }
+
+    return UtcTimeStamp (hour, min, sec, fraction,
+                         mday, mon, year, len - 17 - 1);
   }
 };
 
@@ -730,17 +755,37 @@ struct UtcTimeOnlyConvertor
     return result;
   }
 
-  static UtcTimeOnly convert( const std::string& value )
+  static std::string convert( const UtcTimeOnly& value,
+                              int precision)
   throw( FieldConvertError )
   {
-    bool haveMilliseconds = false;
+    char result[ 9+10 ]; // Maximum
+    int hour, minute, second, fraction;
 
-    switch( value.size() )
+    value.getHMS( hour, minute, second, fraction, precision );
+
+    integer_to_string_padded ( result, 3, hour, 2 );
+    result[2] = ':';
+    integer_to_string_padded ( result + 3, 3, minute,  2 );
+    result[5] = ':';
+    integer_to_string_padded ( result + 6, 3, second,  2 );
+
+    if( precision )
     {
-      case 12: haveMilliseconds = true;
-      case 8: break;
-      default: throw FieldConvertError(value);
+      result[8] = '.';
+      if( integer_to_string_padded ( result + 9, precision + 1, fraction, precision )
+          != result + 9 )
+          throw FieldConvertError();
     }
+
+    return result;
+  }
+
+  static UtcTimeOnly convert( const std::string& value)
+  throw( FieldConvertError )
+  {
+    size_t len = value.size();
+    if (len < 8 or len > 18) throw FieldConvertError(value);
 
     int i = 0;
     int c = 0;
@@ -753,44 +798,44 @@ struct UtcTimeOnlyConvertor
     for( c = 0; c < 2; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      // ++i instead of i++ skips the '.' separator
-      for( c = 0; c < 3; ++c )
-        if( !IS_DIGIT(value[++i]) ) throw FieldConvertError(value);
-    }
+    int hour, min, sec;
 
-    int hour, min, sec, millis;
- 
     i = 0;
 
     hour = value[i++] - '0';
     hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
     if( 23 < hour ) throw FieldConvertError(value);
+
     ++i; // skip ':'
 
     min = value[i++] - '0';
     min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
     if( 59 < min ) throw FieldConvertError(value);
+
     ++i; // skip ':'
 
     sec = value[i++] - '0';
     sec = 10 * sec + value[i++] - '0';
+
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      millis = (100 * (value[i+1] - '0')
-                + 10 * (value[i+2] - '0')
-                + (value[i+3] - '0'));
-    }
-    else
-      millis = 0;
+    if (len == 8)
+      return UtcTimeOnly (hour, min, sec, 0);
 
-    return UtcTimeOnly( hour, min, sec, millis );
+    if( value[i++] != '.' ) throw FieldConvertError(value);
+
+    int fraction = 0;
+    for (; i < len; ++i)
+    {
+      char ch = value[i];
+      if( !IS_DIGIT(ch)) throw FieldConvertError(value);
+      fraction = (fraction * 10) + ch - '0';
+    }
+
+    return UtcTimeOnly (hour, min, sec, fraction, len - 8 - 1);
   }
 };
 

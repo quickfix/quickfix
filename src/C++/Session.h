@@ -180,9 +180,22 @@ public:
     { m_refreshOnLogon = value; } 
 
   bool getMillisecondsInTimeStamp()
-    { return m_millisecondsInTimeStamp; }
+    { return (m_timestampPrecision == 3); }
   void setMillisecondsInTimeStamp ( bool value )
-    { m_millisecondsInTimeStamp = value; }
+    { if (value)
+        m_timestampPrecision = 3;
+      else
+        m_timestampPrecision = 0;
+    }
+  int getTimestampPrecision()
+    { return m_timestampPrecision; }
+  void setTimestampPrecision(int precision)
+    {
+      if (precision < 0 || precision > 9)
+        return;
+
+      m_timestampPrecision = precision;
+    }
 
   bool getPersistMessages()
     { return m_persistMessages; }
@@ -315,7 +328,7 @@ private:
   bool m_resetOnLogout;
   bool m_resetOnDisconnect;
   bool m_refreshOnLogon;
-  bool m_millisecondsInTimeStamp;
+  int m_timestampPrecision;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
 
