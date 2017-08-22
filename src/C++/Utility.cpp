@@ -100,6 +100,23 @@ void socket_term()
 #endif
 }
 
+int socket_bind( int socket, const char* hostname, int port )
+{
+  sockaddr_in address;
+  socklen_t socklen;
+
+  address.sin_family = PF_INET;
+  address.sin_port = htons( port );
+  if ( !hostname || !*hostname )
+    address.sin_addr.s_addr = INADDR_ANY;
+  else
+    address.sin_addr.s_addr = inet_addr( hostname );
+  socklen = sizeof( address );
+
+  return  bind( socket, reinterpret_cast < sockaddr* > ( &address ),
+                     socklen );
+}
+
 int socket_createAcceptor(int port, bool reuse)
 {
   int socket = ::socket( PF_INET, SOCK_STREAM, 0 );

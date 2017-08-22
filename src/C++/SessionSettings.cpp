@@ -30,14 +30,16 @@
 
 namespace FIX
 {
-SessionSettings::SessionSettings( std::istream& stream )
+SessionSettings::SessionSettings( std::istream& stream, bool resolveEnvVars )
 throw( ConfigError )
+: m_resolveEnvVars( resolveEnvVars )
 {
   stream >> *this;
 }
 
-SessionSettings::SessionSettings( const std::string& file )
+SessionSettings::SessionSettings( const std::string& file, bool resolveEnvVars )
 throw( ConfigError )
+: m_resolveEnvVars( resolveEnvVars )
 {
   std::ifstream fstream( file.c_str() );
   if ( !fstream.is_open() )
@@ -48,7 +50,7 @@ throw( ConfigError )
 std::istream& operator>>( std::istream& stream, SessionSettings& s )
 throw( ConfigError )
 {
-  Settings settings;
+  Settings settings(s.m_resolveEnvVars);
   stream >> settings;
 
   Settings::Sections section;

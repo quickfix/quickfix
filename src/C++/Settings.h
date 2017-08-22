@@ -38,6 +38,8 @@ namespace FIX
 class Settings
 {
 public:
+  Settings( bool resolveEnvVars = false ) : m_resolveEnvVars(resolveEnvVars) {}
+
   typedef std::vector < Dictionary > Sections;
 
   Sections get( const std::string& name ) const;
@@ -45,6 +47,7 @@ public:
   friend std::istream& operator>>( std::istream&, Settings& );
 private:
   Sections m_sections;
+  bool m_resolveEnvVars;
 };
 
 std::istream& operator>>( std::istream&, Settings& );

@@ -63,6 +63,8 @@ const char SOCKET_ACCEPT_PORT[] = "SocketAcceptPort";
 const char SOCKET_REUSE_ADDRESS[] = "SocketReuseAddress";
 const char SOCKET_CONNECT_HOST[] = "SocketConnectHost";
 const char SOCKET_CONNECT_PORT[] = "SocketConnectPort";
+const char SOCKET_CONNECT_SOURCE_HOST[] = "SocketConnectSourceHost";
+const char SOCKET_CONNECT_SOURCE_PORT[] = "SocketConnectSourcePort";
 const char SOCKET_NODELAY[] = "SocketNodelay";
 const char SOCKET_SEND_BUFFER_SIZE[] = "SendBufferSize";
 const char SOCKET_RECEIVE_BUFFER_SIZE[] = "ReceiveBufferSize";
@@ -217,9 +219,9 @@ const char SSL_CIPHER_SUITE[] = "SSLCipherSuite";
 class SessionSettings
 {
 public:
-  SessionSettings() {}
-  SessionSettings( std::istream& stream ) throw( ConfigError );
-  SessionSettings( const std::string& file ) throw( ConfigError );
+  SessionSettings() { m_resolveEnvVars = false; }
+  SessionSettings( std::istream& stream, bool resolveEnvVars = false ) throw( ConfigError );
+  SessionSettings( const std::string& file, bool resolveEnvVars = false ) throw( ConfigError );
 
   /// Check if session setings are present
   const bool has( const SessionID& ) const;
@@ -245,7 +247,9 @@ private:
 
   Dictionaries m_settings;
   Dictionary m_defaults;
+  bool m_resolveEnvVars;  // while reading, replace $var, $(var) and ${var} by environment variable var
 
+  friend std::istream& operator>>( std::istream&, SessionSettings& ) throw( ConfigError );
   friend std::ostream& operator<<( std::ostream&, const SessionSettings& );
 };
 /*! @} */

@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#include <cstring>
 #include "Settings.h"
 
 namespace FIX
@@ -61,13 +62,82 @@ std::pair<std::string, std::string> splitKeyValue( const std::string& line )
   return std::pair<std::string, std::string>( key, value );
 }
 
+std::string resolveEnvVars(const std::string& str)
+{
+  std::string resultStr;
+  size_t      actPos = 0;
+  size_t      sourceLen = str.length();
+
+  while (actPos < sourceLen)
+  {
+    char c = str[actPos++];
+    if (actPos < sourceLen)
+    {
+      // escape character
+      if (c == '\\')
+      {
+        c = str[actPos++];
+        switch (c)
+        {
+          case 't' : resultStr.append(1, '\t'); break;
+          case 'r' : resultStr.append(1, '\r'); break;
+          case 'n' : resultStr.append(1, '\n'); break;
+          default :
+            resultStr.append(1, c);
+            break;
+        }
+        continue;
+      }
+
+      // variable substitution
+      if (c == '$')
+      {
+        bool inBraces = false;
+        c = str[actPos++];
+        if ((c == '(') || (c == '{'))
+        {
+          c = str[actPos++];
+          inBraces = true;
+        }
+
+        // actPos now points at start of var name
+        if (actPos >= sourceLen)
+          break;
+        std::string varName;
+        while (  (actPos <= sourceLen) )
+        {
+          varName.append(1, c);  // this must be done before overwriting c
+          c = str[actPos++];
+          if (std::strchr(" /:;,.=\"'?#+*()[]{}$&%\t\n", c))
+            break;
+        }
+        if (inBraces && (actPos <= sourceLen) && ((c == ')') || (c == '}')))
+          ;
+        else
+          --actPos;
+        // varName contains the name of the variable,
+        // actPos points to first char _after_ variable
+        const char *varValue = 0;
+        if (!varName.empty() && (0 != (varValue = getenv(varName.c_str()))))
+          resultStr.append(varValue);
+        continue;
+      }
+    }
+
+    // nothing special, just copy
+    resultStr.append(1, c);
+  }
+
+  return resultStr;
+}
+
 std::istream& operator>>( std::istream& stream, Settings& s )
 {
   char buffer[1024];
   std::string line;
   Settings::Sections::iterator section = s.m_sections.end();;
 
-  while( stream.getline(buffer, 1024) )
+  while( stream.getline(buffer, sizeof(buffer)) )
   {
     line = string_strip( buffer );
     if( isComment(line) )
@@ -83,7 +153,7 @@ std::istream& operator>>( std::istream& stream, Settings& s )
       std::pair<std::string, std::string> keyValue = splitKeyValue( line );
       if( section == s.m_sections.end() )
         continue;
-      (*section).setString( keyValue.first, keyValue.second );
+      (*section).setString( keyValue.first, s.m_resolveEnvVars ? resolveEnvVars(keyValue.second) : keyValue.second );
     }
   }
   return stream;
