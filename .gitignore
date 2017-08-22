@@ -57,3 +57,5 @@ autom4te.cache/
 lib/python
 COPYING
 INSTALL
+*.db
+.vs
