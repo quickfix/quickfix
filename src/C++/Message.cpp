@@ -164,17 +164,17 @@ void Message::reverseRoute( const Header& header )
   }
 }
 
-std::string Message::toString( int beginStringField, 
-                               int bodyLengthField, 
+std::string Message::toString( int beginStringField,
+                               int bodyLengthField,
                                int checkSumField ) const
 {
   std::string str;
   return toString( str, beginStringField, bodyLengthField, checkSumField );
 }
 
-std::string& Message::toString( std::string& str, 
+std::string& Message::toString( std::string& str,
                                 int beginStringField,
-                                int bodyLengthField, 
+                                int bodyLengthField,
                                 int checkSumField ) const
 {
   int length = bodyLength( beginStringField, bodyLengthField, checkSumField );
@@ -303,7 +303,7 @@ throw( InvalidMessage )
       m_header.setField( field, false );
 
       if ( pSessionDataDictionary )
-        setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary );
+        setGroup( "_header_", field, string, pos, getHeader(), *pSessionDataDictionary, type );
     }
     else if ( isTrailerField( field, pSessionDataDictionary ) )
     {
@@ -311,7 +311,7 @@ throw( InvalidMessage )
       m_trailer.setField( field, false );
 
       if ( pSessionDataDictionary )
-        setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary );
+        setGroup( "_trailer_", field, string, pos, getTrailer(), *pSessionDataDictionary, type );
     }
     else
     {
@@ -325,7 +325,7 @@ throw( InvalidMessage )
       setField( field, false );
 
       if ( pApplicationDataDictionary )
-        setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
+        setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary, type );
     }
   }
 
@@ -336,7 +336,8 @@ throw( InvalidMessage )
 void Message::setGroup( const std::string& msg, const FieldBase& field,
                         const std::string& string,
                         std::string::size_type& pos, FieldMap& map,
-                        const DataDictionary& dataDictionary )
+                        const DataDictionary& dataDictionary,
+                        const field_type type  )
 {
   int group = field.getTag();
   int delim;
@@ -348,7 +349,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup.get() );
-       
+
     // Start a new group because...
     if (// found delimiter
     (field.getTag() == delim) ||
@@ -361,7 +362,10 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
       }
       pGroup.reset( new Group( field.getTag(), delim, pDD->getOrderedFields() ) );
     }
-    else if ( !pDD->isField( field.getTag() ) )
+    else if ( !pDD->isField( field.getTag() ) &&
+              ( ( type == field_type::body && ( dataDictionary.isMsgField( msg, field.getTag() ) || Message::isTrailerField( field.getTag() ) ) ) || 
+                ( type == field_type::header ) ||
+                ( type == field_type::trailer ) ) )
     {
       if ( pGroup.get() )
       {
@@ -373,7 +377,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
 
     if ( !pGroup.get() ) return ;
     pGroup->setField( field, false );
-    setGroup( msg, field, string, pos, *pGroup, *pDD );
+    setGroup( msg, field, string, pos, *pGroup, *pDD, type );
   }
 }
 
@@ -528,8 +532,8 @@ void Message::validate()
   }
 }
 
-FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos, 
-                                      const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
+FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos,
+                                      const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/,
                                       const Group* pGroup /*= 0*/ )
 {
   std::string::const_iterator const tagStart = string.begin() + pos;
@@ -586,7 +590,7 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     field,
     valueStart,
     soh,
-    tagStart, 
+    tagStart,
     tagEnd );
 }
 }

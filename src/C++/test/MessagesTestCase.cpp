@@ -1024,7 +1024,7 @@ TEST(newOrderListSetString)
   FIX42::NewOrderList object;
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
-  
+
   object.setString
     ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
       "11=A\00154=1\00155=DELL\00167=1\001"
@@ -1152,7 +1152,7 @@ TEST(newOrderCrossGetString)
   noPartyIDs.set( FIX::PartyID("PARTY2") );
   noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY) );
   noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
-  
+
   noSides.addGroup( noPartyIDs );
 
   noSides.set( FIX::OrderQty(100) );
@@ -1206,6 +1206,65 @@ TEST(newOrderCrossSetString)
   FIX::OrderQty orderQty;
   noSides.get( orderQty );
   CHECK_EQUAL( 100, orderQty );
+}
+
+TEST(unknownFieldInsideGroup)
+{
+    FIX::Message object;
+    DataDictionary dataDictionary("../spec/FIX42.xml");
+
+    object.setString
+        ("8=FIX.4.2\0019=223\00135=8\00149=Sender\00156=Target\00134=12\00152=20161028-08:54:14\001"
+        "37=Order1\001382=2\001375=Broker1\0015000=UserField1\001337=Trader1\001375=Broker2\001"
+        "5000=UserField1\001337=Trader2\00117=1\00120=0\001150=8\00139=0\00155=Stock1\00154=1\001"
+        "151=1000.000000\00114=0.000000\0016=0.000000\00110=140\001",
+        true, &dataDictionary);
+
+
+    FIX::MsgType msgType;
+    FIX::SenderCompID senderCompID;
+    FIX::TargetCompID targetCompID;
+    FIX::SendingTime sendingTime;
+
+    CHECK_EQUAL(FIX::MsgType_ExecutionReport, object.getHeader().getField(msgType).getString());
+    CHECK_EQUAL("Sender", object.getHeader().getField(senderCompID).getString());
+    CHECK_EQUAL("Target", object.getHeader().getField(targetCompID).getString());
+    CHECK_EQUAL("20161028-08:54:14", object.getHeader().getField(sendingTime).getString());
+
+    FIX::OrderID orderID;
+    FIX::NoContraBrokers noContraBrokers;
+    FIX::ContraBroker contraBroker;
+    FIX::ContraTrader contraTrader;
+    FIX::ExecID execID;
+    FIX::ExecTransType execTransType;
+    FIX::ExecType execType;
+    FIX::OrdStatus ordStatus;
+    FIX::Symbol symbol;
+    FIX::Side side;
+    FIX::LeavesQty leavesQty;
+    FIX::CumQty cumQty;
+    FIX::AvgPx avgPx;
+
+    CHECK_EQUAL("Order1", object.getField(orderID).getString());
+    CHECK_EQUAL("2", object.getField(noContraBrokers).getString());
+
+    FIX42::ExecutionReport::NoContraBrokers contactBroker;
+    object.getGroup(1, contactBroker);
+    CHECK_EQUAL("Broker1", contactBroker.getField(contraBroker).getString());
+    CHECK_EQUAL("Trader1", contactBroker.getField(contraTrader).getString());
+    object.getGroup(2, contactBroker);
+    CHECK_EQUAL("Broker2", contactBroker.getField(contraBroker).getString());
+    CHECK_EQUAL("Trader2", contactBroker.getField(contraTrader).getString());
+
+    CHECK_EQUAL("1", object.getField(execID).getString());
+    CHECK_EQUAL("0", object.getField(execTransType).getString());
+    CHECK_EQUAL("8", object.getField(execType).getString());
+    CHECK_EQUAL("0", object.getField(ordStatus).getString());
+    CHECK_EQUAL("Stock1", object.getField(symbol).getString());
+    CHECK_EQUAL("1", object.getField(side).getString());
+    CHECK_EQUAL("1000.000000", object.getField(leavesQty).getString());
+    CHECK_EQUAL("0.000000", object.getField(cumQty).getString());
+    CHECK_EQUAL("0.000000", object.getField(avgPx).getString());
 }
 
 }

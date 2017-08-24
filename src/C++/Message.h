@@ -179,7 +179,8 @@ public:
 
   void setGroup( const std::string& msg, const FieldBase& field,
                  const std::string& string, std::string::size_type& pos,
-                 FieldMap& map, const DataDictionary& dataDictionary );
+                 FieldMap& map, const DataDictionary& dataDictionary,
+                 const field_type type );
 
   /**
    * Set a messages header from a string
