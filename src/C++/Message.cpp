@@ -381,7 +381,11 @@ throw( InvalidMessage )
       setField( field, false );
 
       if ( pApplicationDataDictionary )
+#ifdef HAVE_EMX
+        setGroup(m_subMsgType, field, string, pos, *this, *pApplicationDataDictionary);
+#else
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
+#endif
     }
   }
 

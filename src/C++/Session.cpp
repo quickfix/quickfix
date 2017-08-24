@@ -393,7 +393,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
       std::string::size_type equalSign = (*i).find("\00135=");
       equalSign += 4;
       std::string::size_type soh = (*i).find_first_of('\001', equalSign);
-      std::string strMsgType = (*i).substr(equalSign, soh - equalSign);
+      strMsgType = (*i).substr(equalSign, soh - equalSign);
 #ifdef HAVE_EMX
       if (FIX::Message::isAdminMsgType(strMsgType) == false)
       {
