@@ -64,33 +64,6 @@ ServerCertificateFile=
 
 ServerCertificateKeyFile=
 
-#This directive sets the Certificate verification level. It applies to the authentication process used in the
-#standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.
-
-VerifyLevel=
-
-#This directive sets the all-in-one file where you can assemble the
-#Certificates of Certification Authorities (CA) whose clients you deal with.
-
-CertificationAuthoritiesFile=
-
-#This directive sets the directory where you keep the Certificates of
-#Certification Authorities (CAs) whose clients you deal with.
-
-CertificationAuthoritiesDirectory=
-
-#This directive sets the all-in-one file where you can assemble the
-#Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
-#clients you deal with.
-
-CertificateRevocationListFile=
-
-#This directive sets the directory where you keep the Certificate Revocation
-#Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.
-
-CertificateRevocationListDirectory=
-
-
 SSL config for initiator:
 
 [DEFAULT]
@@ -107,32 +80,6 @@ ClientCertificateFile=
 #the stand-alone Private Key.
 
 ClientCertificateKeyFile=
-
-#This directive sets the Certificate verification level. It applies to the authentication process used in the
-#standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.
-
-VerifyLevel=
-
-#This directive sets the all-in-one file where you can assemble the
-#Certificates of Certification Authorities (CA) whose clients you deal with.
-
-CertificationAuthoritiesFile=
-
-#This directive sets the directory where you keep the Certificates of
-#Certification Authorities (CAs) whose clients you deal with.
-
-CertificationAuthoritiesDirectory=
-
-#This directive sets the all-in-one file where you can assemble the
-#Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
-#clients you deal with.
-
-CertificateRevocationListFile=
-
-#This directive sets the directory where you keep the Certificate Revocation
-#Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.
-
-CertificateRevocationListDirectory=
 
 Common options:
 
@@ -209,6 +156,32 @@ SSLProtocol=
 # Example: RC4+RSA:+HIGH:
 
 SSLCipherSuite=
+
+#This directive sets the Certificate verification level. It applies to the authentication process used in the
+#standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.
+
+VerifyLevel=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificates of Certification Authorities (CA) whose clients you deal with.
+
+CertificationAuthoritiesFile=
+
+#This directive sets the directory where you keep the Certificates of
+#Certification Authorities (CAs) whose clients you deal with.
+
+CertificationAuthoritiesDirectory=
+
+#This directive sets the all-in-one file where you can assemble the
+#Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+#clients you deal with.
+
+CertificateRevocationListFile=
+
+#This directive sets the directory where you keep the Certificate Revocation
+#Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.
+
+CertificateRevocationListDirectory=
 
 -------------
 EXAMPLE USAGE
