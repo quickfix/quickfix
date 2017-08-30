@@ -124,19 +124,17 @@
 #include "Settings.h"
 #include "Utility.h"
 
-namespace
-{
-FIX::ThreadedSSLSocketAcceptor *acceptObj = 0;
-int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
-{
-  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
-}
-}
-
 namespace FIX
 {
 
+FIX::ThreadedSSLSocketAcceptor *acceptObj = 0;
+
 Mutex ThreadedSSLSocketAcceptor::m_acceptMutex = Mutex();
+
+int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+{
+  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
+}
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
     Application &application, MessageStoreFactory &factory,
@@ -194,46 +192,33 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
 
     ssl_init();
 
-    /* set up the application context */
-    if ((m_ctx = SSL_CTX_new(SSLv23_server_method())) == 0)
-    {
-      throw RuntimeError("Unable to get context");
-    }
-
-    std::string strOptions;
-    if (m_settings.get().has(SSL_PROTOCOL))
-    {
-      strOptions = m_settings.get().getString(SSL_PROTOCOL);
-    }
-    setCtxOptions(m_ctx, strOptions.c_str());
-
-    SSL_CTX_set_mode(m_ctx, SSL_MODE_ENABLE_PARTIAL_WRITE |
-                                SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
-
-    if (m_settings.get().has(SSL_CIPHER_SUITE))
-    {
-      std::string strCipherSuite = m_settings.get().getString(SSL_CIPHER_SUITE);
-
-      if (!strCipherSuite.empty() &&
-          !SSL_CTX_set_cipher_list(m_ctx, strCipherSuite.c_str()))
-        throw RuntimeError("Unable to configure permitted SSL ciphers");
-    }
-
     std::string errStr;
-    if (!loadSSLCertificate(errStr))
+
+    /* set up the application context */
+    if ((m_ctx = createSSLContext(true, m_settings, errStr)) == 0)
     {
       ssl_term();
       throw RuntimeError(errStr);
     }
 
-    if (!loadCRLInfo(errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
     }
 
-    SSL_CTX_set_options(m_ctx, SSL_OP_SINGLE_DH_USE);
-    SSL_CTX_set_session_cache_mode(m_ctx, SSL_SESS_CACHE_SERVER);
+    if (!loadCAInfo(m_ctx, true, m_settings, getLog(), errStr, m_verify))
+    {
+      ssl_term();
+      throw RuntimeError(errStr);
+    }
+
+    m_revocationStore = loadCRLInfo(m_settings, getLog(), errStr);
+    if (!m_revocationStore && !errStr.empty())
+    {
+      ssl_term();
+      throw RuntimeError(errStr);
+    }
 
     m_sslInit = true;
   }
@@ -302,209 +287,6 @@ void ThreadedSSLSocketAcceptor::onStart()
     thread_spawn(&socketAcceptorThread, info, thread);
     addThread(SocketKey(*i, 0), thread);
   }
-}
-
-bool ThreadedSSLSocketAcceptor::loadSSLCertificate(std::string &errStr)
-{
-
-  getLog()->onEvent("Loading SSL certificate");
-
-  errStr.erase();
-
-  if (!m_settings.get().has(SERVER_CERT_FILE))
-  {
-    errStr.assign(SERVER_CERT_FILE);
-    errStr.append(" parameter not found");
-    return false;
-  }
-
-  std::string cert(m_settings.get().getString(SERVER_CERT_FILE));
-  std::string key;
-  if (m_settings.get().has(SERVER_CERT_KEY_FILE))
-    key.assign(m_settings.get().getString(SERVER_CERT_KEY_FILE));
-  else
-    key.assign(cert);
-
-  FILE *fp;
-
-  if ((fp = fopen(cert.c_str(), "r")) == 0)
-  {
-    errStr.assign(cert);
-    errStr.append(" file could not be opened");
-    return false;
-  }
-
-  X509 *X509Cert = readX509(fp, 0, 0);
-
-  fclose(fp);
-
-  if (X509Cert == 0)
-  {
-    errStr.assign(cert);
-    errStr.append(" readX509 failed");
-    return false;
-  }
-
-  switch (typeofSSLAlgo(X509Cert, 0))
-  {
-  case SSL_ALGO_RSA:
-    getLog()->onEvent("Configuring RSA server certificate");
-
-    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
-    {
-      errStr.assign("Unable to configure RSA server certificate");
-      return false;
-    }
-    break;
-
-  case SSL_ALGO_DSA:
-    getLog()->onEvent("Configuring DSA server certificate");
-    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
-    {
-      errStr.assign("Unable to configure DSA server certificate");
-      return false;
-    }
-    break;
-
-  default:
-    errStr.assign("Unable to configure server certificate");
-    return false;
-    break;
-  }
-  X509_free(X509Cert);
-
-  if ((fp = fopen(key.c_str(), "r")) == 0)
-  {
-    errStr.assign(key);
-    errStr.append(" file could not be opened");
-    return false;
-  }
-
-  EVP_PKEY *privateKey = readPrivateKey(fp, 0, ::passPhraseHandleCB);
-
-  fclose(fp);
-
-  if (privateKey == 0)
-  {
-    errStr.assign(key);
-    errStr.append(" readPrivateKey failed");
-    return false;
-  }
-
-  switch (typeofSSLAlgo(0, privateKey))
-  {
-  case SSL_ALGO_RSA:
-    getLog()->onEvent("Configuring RSA server private key");
-    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
-    {
-      errStr.assign("Unable to configure RSA server private key");
-      return false;
-    }
-    break;
-
-  case SSL_ALGO_DSA:
-    getLog()->onEvent("Configuring DSA server private key");
-    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
-    {
-      errStr.assign("Unable to configure DSA server private key");
-      return false;
-    }
-    break;
-  default:
-
-    errStr.assign("Unable to configure server certificate");
-    return false;
-    break;
-  }
-  EVP_PKEY_free(privateKey);
-
-  int ret = enable_DH_ECDH(m_ctx, cert.c_str());
-  if (ret != 0)
-  {
-    if (ret == 1)
-      errStr.assign("Could not enable DH");
-    else if (ret == 2)
-      errStr.assign("Could not enable ECDH");
-    else
-      errStr.assign("Unknown error enabling DH, ECDH");
-
-    return false;
-  }
-
-  std::string caFile;
-  if (m_settings.get().has(CERT_AUTH_FILE))
-    caFile.assign(m_settings.get().getString(CERT_AUTH_FILE));
-
-  std::string caDir;
-  if (m_settings.get().has(CERT_AUTH_DIR))
-    caDir.assign(m_settings.get().getString(CERT_AUTH_DIR));
-
-  if (caFile.empty() && caDir.empty())
-    return true;
-
-  if (!SSL_CTX_load_verify_locations(m_ctx, caFile.empty() ? 0 : caFile.c_str(),
-                                     caDir.empty() ? 0 : caDir.c_str()) ||
-      !SSL_CTX_set_default_verify_paths(m_ctx))
-  {
-    errStr.assign(
-        "Unable to configure verify locations for client authentication");
-    return false;
-  }
-
-  STACK_OF(X509_NAME) * caList;
-  if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(),
-                           caDir.empty() ? 0 : caDir.c_str())) == 0)
-  {
-    errStr.assign("Unable to determine list of available CA certificates "
-                  "for client authentication");
-    return false;
-  }
-  SSL_CTX_set_client_CA_list(m_ctx, caList);
-
-  if (m_settings.get().has(VERIFY_LEVEL))
-    m_verify = (m_settings.get().getInt(VERIFY_LEVEL));
-
-  if (m_verify != SSL_CLIENT_VERIFY_NOTSET)
-  {
-    /* configure new state */
-    int cVerify = SSL_VERIFY_NONE;
-    if (m_verify == SSL_CLIENT_VERIFY_REQUIRE)
-      cVerify |= SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT;
-    else if (m_verify == SSL_CLIENT_VERIFY_OPTIONAL)
-      cVerify |= SSL_VERIFY_PEER;
-
-    SSL_CTX_set_verify(m_ctx, cVerify, callbackVerify);
-  }
-
-  return true;
-}
-
-bool ThreadedSSLSocketAcceptor::loadCRLInfo(std::string &errStr)
-{
-  getLog()->onEvent("Loading CRL information");
-
-  errStr.erase();
-
-  std::string crlFile;
-  if (m_settings.get().has(CRL_FILE))
-    crlFile.assign(m_settings.get().getString(CRL_FILE));
-
-  std::string crlDir;
-  if (m_settings.get().has(CRL_DIR))
-    crlDir.assign(m_settings.get().getString(CRL_DIR));
-
-  if (crlFile.empty() && crlDir.empty())
-    return true;
-
-  m_revocationStore =
-      createX509Store(crlFile.c_str(), crlDir.empty() ? 0 : crlDir.c_str());
-  if (m_revocationStore == 0)
-  {
-    errStr.assign("Unable to create revocation store");
-    return false;
-  }
-
-  return true;
 }
 
 bool ThreadedSSLSocketAcceptor::onPoll(double timeout) { return false; }

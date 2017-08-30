@@ -160,6 +160,8 @@ public:
 
   int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
 
+  static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
+
 private:
   typedef std::pair< int, SSL * > SocketKey;
   typedef std::map< SocketKey, thread_id > SocketToThread;
@@ -182,9 +184,6 @@ private:
   static THREAD_PROC socketThread(void *p);
 
   void getHost(const SessionID &, const Dictionary &, std::string &, short &);
-
-  bool loadSSLCertificate(std::string &errStr);
-  bool loadCAInfo(std::string &errStr);
 
   SessionToHostNum m_sessionToHostNum;
   time_t m_lastConnect;

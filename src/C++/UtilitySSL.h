@@ -104,6 +104,8 @@
 
 #if (HAVE_SSL > 0)
 
+#include "Log.h"
+#include "SessionSettings.h"
 #include "Utility.h"
 
 #ifndef _MSC_VER
@@ -119,7 +121,8 @@
 #include "openssl/err.h"
 #include "openssl/ssl.h" // SSL and SSL_CTX for SSL connections
 
-namespace FIX {
+namespace FIX
+{
 
 #if defined(_MSC_VER)
 
@@ -132,54 +135,35 @@ static const char *WSAErrString(int code)
 */
 {
 #define expand(x)                                                              \
-  { x, #x }
-  static struct {
+  {                                                                            \
+    x, #x                                                                      \
+  }
+  static struct
+  {
     int code;
     const char *s;
-  } tab[] = {expand(WSAEINTR),
-             expand(WSAEBADF),
-             expand(WSAEACCES),
-             expand(WSAEFAULT),
-             expand(WSAEINVAL),
-             expand(WSAEMFILE),
-             expand(WSAEWOULDBLOCK),
-             expand(WSAEINPROGRESS),
-             expand(WSAEALREADY),
-             expand(WSAENOTSOCK),
-             expand(WSAEDESTADDRREQ),
-             expand(WSAEMSGSIZE),
-             expand(WSAEPROTOTYPE),
-             expand(WSAENOPROTOOPT),
-             expand(WSAEPROTONOSUPPORT),
-             expand(WSAESOCKTNOSUPPORT),
-             expand(WSAEOPNOTSUPP),
-             expand(WSAEPFNOSUPPORT),
-             expand(WSAEAFNOSUPPORT),
-             expand(WSAEADDRINUSE),
-             expand(WSAEADDRNOTAVAIL),
-             expand(WSAENETDOWN),
-             expand(WSAENETUNREACH),
-             expand(WSAENETRESET),
-             expand(WSAECONNABORTED),
-             expand(WSAECONNRESET),
-             expand(WSAENOBUFS),
-             expand(WSAEISCONN),
-             expand(WSAENOTCONN),
-             expand(WSAESHUTDOWN),
-             expand(WSAETOOMANYREFS),
-             expand(WSAETIMEDOUT),
-             expand(WSAECONNREFUSED),
-             expand(WSAELOOP),
-             expand(WSAENAMETOOLONG),
-             expand(WSAEHOSTDOWN),
-             expand(WSAEHOSTUNREACH),
-             expand(WSAENOTEMPTY),
-             expand(WSAEPROCLIM),
-             expand(WSAEUSERS),
-             expand(WSAEDQUOT),
-             expand(WSAESTALE),
-             expand(WSAEREMOTE),
-             {-1, ""}};
+  } tab[] = {expand(WSAEINTR),           expand(WSAEBADF),
+             expand(WSAEACCES),          expand(WSAEFAULT),
+             expand(WSAEINVAL),          expand(WSAEMFILE),
+             expand(WSAEWOULDBLOCK),     expand(WSAEINPROGRESS),
+             expand(WSAEALREADY),        expand(WSAENOTSOCK),
+             expand(WSAEDESTADDRREQ),    expand(WSAEMSGSIZE),
+             expand(WSAEPROTOTYPE),      expand(WSAENOPROTOOPT),
+             expand(WSAEPROTONOSUPPORT), expand(WSAESOCKTNOSUPPORT),
+             expand(WSAEOPNOTSUPP),      expand(WSAEPFNOSUPPORT),
+             expand(WSAEAFNOSUPPORT),    expand(WSAEADDRINUSE),
+             expand(WSAEADDRNOTAVAIL),   expand(WSAENETDOWN),
+             expand(WSAENETUNREACH),     expand(WSAENETRESET),
+             expand(WSAECONNABORTED),    expand(WSAECONNRESET),
+             expand(WSAENOBUFS),         expand(WSAEISCONN),
+             expand(WSAENOTCONN),        expand(WSAESHUTDOWN),
+             expand(WSAETOOMANYREFS),    expand(WSAETIMEDOUT),
+             expand(WSAECONNREFUSED),    expand(WSAELOOP),
+             expand(WSAENAMETOOLONG),    expand(WSAEHOSTDOWN),
+             expand(WSAEHOSTUNREACH),    expand(WSAENOTEMPTY),
+             expand(WSAEPROCLIM),        expand(WSAEUSERS),
+             expand(WSAEDQUOT),          expand(WSAESTALE),
+             expand(WSAEREMOTE),         {-1, ""}};
   int i;
 
   for (i = 0; tab[i].code > 0; i++)
@@ -201,9 +185,6 @@ static const char *WSAErrString(int code)
 // Callback functions
 extern "C" {
 typedef int (*passPhraseHandleCallbackType)(char *, int, int, void *);
-
-// TODO - implement
-int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
 
 int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b);
 STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath);
@@ -240,6 +221,13 @@ int setSocketNonBlocking(int pSocket);
   (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
    SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
 
+typedef enum {
+  SSL_CLIENT_VERIFY_NONE = 0,
+  SSL_CLIENT_VERIFY_REQUIRE = 1,
+  SSL_CLIENT_VERIFY_OPTIONAL = 2,
+  SSL_CLIENT_VERIFY_NOTSET = 3
+} SSLVerifyClient;
+
 // Should always call ssl_init/ssl_term.
 
 void ssl_init();
@@ -252,11 +240,24 @@ const char *socket_error(char *tempbuf, int buflen);
 
 int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey);
 
-long protocolOptions(const char * opt);
+long protocolOptions(const char *opt);
 
-void setCtxOptions(SSL_CTX * ctx, const char * opt);
+void setCtxOptions(SSL_CTX *ctx, const char *opt);
 
-int enable_DH_ECDH(SSL_CTX * ctx, const char * certFile);
+int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile);
+
+SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
+                          std::string &errStr);
+
+bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
+                 Log *log, passPhraseHandleCallbackType cb,
+                 std::string &errStr);
+
+bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
+                Log *log, std::string &errStr, int &verifyLevel);
+
+X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
+                        std::string &errStr);
 }
 
 #endif

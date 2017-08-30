@@ -134,15 +134,6 @@
 
 namespace FIX
 {
-
-typedef enum
-{
-  SSL_CLIENT_VERIFY_NONE = 0,
-  SSL_CLIENT_VERIFY_REQUIRE = 1,
-  SSL_CLIENT_VERIFY_OPTIONAL = 2,
-  SSL_CLIENT_VERIFY_NOTSET = 3
-} SSLVerifyClient;
-
 /// Threaded Socket implementation of Acceptor.
 class ThreadedSSLSocketAcceptor : public Acceptor
 {
@@ -160,6 +151,8 @@ public:
   void setPassword(const std::string &pwd) { m_password.assign(pwd); }
 
   int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+
+  static int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
 
 private:
   struct AcceptorThreadInfo
@@ -208,8 +201,6 @@ private:
   static THREAD_PROC socketAcceptorThread(void *p);
   static THREAD_PROC socketConnectionThread(void *p);
 
-  bool loadSSLCertificate(std::string &errStr);
-  bool loadCRLInfo(std::string &errStr);
   int newConnection(ThreadedSSLSocketConnection *pConnection);
   SSL_CTX *sslContext() { return m_ctx; }
   X509_STORE *revocationStore() { return m_revocationStore; }

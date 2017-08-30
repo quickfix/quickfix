@@ -1324,16 +1324,6 @@ Example: RC4+RSA:+HIGH:</td>
           <td>HIGH:!RC4</td>
         </tr>
         <tr align="left" valign="middle">
-          <td><b>VerifyLevel</b></td>
-
-          <td>This directive sets the Certificate verification level. It applies to the authentication process used in the
-standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.</td>
-
-          <td></td>
-
-          <td></td>
-        </tr>
-        <tr align="left" valign="middle">
           <td><b>CertificationAuthoritiesFile</b></td>
 
           <td>This directive sets the all-in-one file where you can assemble the
@@ -1347,27 +1337,6 @@ Certificates of Certification Authorities (CA) whose clients you deal with.
 
           <td>This directive sets the directory where you keep the Certificates of
 Certification Authorities (CAs) whose clients you deal with.</td>
-
-          <td></td>
-
-          <td></td>
-        </tr>
-        <tr align="left" valign="middle">
-          <td><b>CertificateRevocationListFile</b></td>
-
-          <td>This directive sets the all-in-one file where you can assemble the
-Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
-clients you deal with.</td>
-
-          <td></td>
-
-          <td></td>
-        </tr>
-        <tr align="left" valign="middle">
-          <td><b>CertificateRevocationListDirectory</b></td>
-
-          <td>This directive sets the directory where you keep the Certificate Revocation
-Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
 
           <td></td>
 
@@ -1394,6 +1363,37 @@ optionally also to the corresponding RSA or DSA Private Key file for it
 the Private Key is not combined with the Certificate in the
 server certificate file, use this additional directive to point to the file with
 the stand-alone Private Key.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>VerifyLevel</b></td>
+
+          <td>This directive sets the Certificate verification level. It applies to the authentication process used in the
+standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificateRevocationListFile</b></td>
+
+          <td>This directive sets the all-in-one file where you can assemble the
+Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+clients you deal with.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificateRevocationListDirectory</b></td>
+
+          <td>This directive sets the directory where you keep the Certificate Revocation
+Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
 
           <td></td>
 

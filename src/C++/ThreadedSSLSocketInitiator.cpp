@@ -124,17 +124,15 @@
 #include "Session.h"
 #include "Settings.h"
 
-namespace
+namespace FIX
 {
 FIX::ThreadedSSLSocketInitiator *initObj = 0;
-int passwordHandleCB(char *buf, int bufsize, int verify, void *job)
+
+int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *job)
 {
   return initObj->passwordHandleCallback(buf, bufsize, verify, job);
 }
-}
 
-namespace FIX
-{
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
     const SessionSettings &settings) throw(ConfigError)
@@ -192,238 +190,42 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
 
   ssl_init();
 
-  /* set up the application context */
-  if ((m_ctx = SSL_CTX_new(SSLv23_client_method())) == 0)
-  {
-    throw RuntimeError("Unable to get context");
-  }
-
-  std::string strOptions;
-  if (m_settings.get().has(SSL_PROTOCOL))
-  {
-    strOptions.assign(m_settings.get().getString(SSL_PROTOCOL));
-  }
-  setCtxOptions(m_ctx, strOptions.c_str());
-
-  SSL_CTX_set_mode(m_ctx, SSL_MODE_ENABLE_PARTIAL_WRITE |
-                              SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
-
-  if (m_settings.get().has(SSL_CIPHER_SUITE))
-  {
-    std::string strCipherSuite = m_settings.get().getString(SSL_CIPHER_SUITE);
-
-    if (!strCipherSuite.empty() &&
-        !SSL_CTX_set_cipher_list(m_ctx, strCipherSuite.c_str()))
-      throw RuntimeError("Unable to configure permitted SSL ciphers");
-  }
-
   std::string errStr;
+
+  /* set up the application context */
+  if ((m_ctx = createSSLContext(false, m_settings, errStr)) == 0)
+  {
+    throw RuntimeError(errStr);
+  }
+
   if (m_cert && m_key)
   {
     if (SSL_CTX_use_certificate(m_ctx, m_cert) < 1)
     {
-      errStr.assign("Failed to set certificate");
-      throw RuntimeError(errStr);
+      ssl_term();
+      throw RuntimeError("Failed to set certificate");
     }
 
     if (SSL_CTX_use_RSAPrivateKey(m_ctx, m_key) <= 0)
     {
-      errStr.assign("Failed to set key");
-      throw RuntimeError(errStr);
+      ssl_term();
+      throw RuntimeError("Failed to set key");
     }
   }
-  else if (!loadSSLCertificate(errStr))
+  else if (!loadSSLCert(m_ctx, false, m_settings, getLog(), ThreadedSSLSocketInitiator::passwordHandleCB, errStr))
   {
+    ssl_term();
     throw RuntimeError(errStr);
   }
 
-  if (!loadCAInfo(errStr))
+  int verifyLevel;
+  if (!loadCAInfo(m_ctx, false, m_settings, getLog(), errStr, verifyLevel))
   {
+    ssl_term();
     throw RuntimeError(errStr);
   }
 
   m_sslInit = true;
-}
-
-bool ThreadedSSLSocketInitiator::loadSSLCertificate(std::string &errStr)
-{
-
-  std::string cert;
-  if (m_settings.get().has(CLIENT_CERT_FILE))
-    cert.assign(m_settings.get().getString(CLIENT_CERT_FILE));
-
-  int ret = enable_DH_ECDH(m_ctx, cert.empty() ? 0 : cert.c_str());
-  if (ret != 0)
-  {
-    if (ret == 1)
-      errStr.assign("Could not enable DH");
-    else if (ret == 2)
-      errStr.assign("Could not enable ECDH");
-    else
-      errStr.assign("Unknown error enabling DH, ECDH");
-
-    return false;
-  }
-
-  if (cert.empty())
-    return true;
-
-  getLog()->onEvent("Loading SSL certificate");
-
-  errStr.erase();
-
-  std::string key;
-  if (m_settings.get().has(CLIENT_CERT_KEY_FILE))
-    key.assign(m_settings.get().getString(CLIENT_CERT_KEY_FILE));
-  else
-    key.assign(cert);
-
-  SSL_CTX_set_default_passwd_cb(m_ctx, ::passwordHandleCB);
-
-  FILE *fp;
-
-  if ((fp = fopen(cert.c_str(), "r")) == 0)
-  {
-    errStr.assign(cert);
-    errStr.append(" file could not be opened");
-    return false;
-  }
-
-  X509 *X509Cert = readX509(fp, 0, 0);
-
-  fclose(fp);
-
-  if (X509Cert == 0)
-  {
-    errStr.assign(cert);
-    errStr.append(" readX509 failed");
-    return false;
-  }
-
-  switch (typeofSSLAlgo(X509Cert, 0))
-  {
-  case SSL_ALGO_RSA:
-    getLog()->onEvent("Configuring RSA client certificate");
-
-    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
-    {
-      errStr.assign("Unable to configure RSA client certificate");
-      return false;
-    }
-    break;
-
-  case SSL_ALGO_DSA:
-    getLog()->onEvent("Configuring DSA client certificate");
-    if (SSL_CTX_use_certificate(m_ctx, X509Cert) <= 0)
-    {
-      errStr.assign("Unable to configure DSA client certificate");
-      return false;
-    }
-    break;
-
-  default:
-    errStr.assign("Unable to configure client certificate");
-    return false;
-    break;
-  }
-  X509_free(X509Cert);
-
-  if ((fp = fopen(key.c_str(), "r")) == 0)
-  {
-    errStr.assign(key);
-    errStr.append(" file could not be opened");
-    return false;
-  }
-
-  EVP_PKEY *privateKey = readPrivateKey(fp, 0, ::passwordHandleCB);
-
-  fclose(fp);
-
-  if (privateKey == 0)
-  {
-    errStr.assign(key);
-    errStr.append(" readPrivateKey failed");
-    return false;
-  }
-
-  switch (typeofSSLAlgo(0, privateKey))
-  {
-  case SSL_ALGO_RSA:
-    getLog()->onEvent("Configuring RSA client private key");
-    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
-    {
-      errStr.assign("Unable to configure RSA server private key");
-      return false;
-    }
-    break;
-
-  case SSL_ALGO_DSA:
-    getLog()->onEvent("Configuring DSA client private key");
-    if (SSL_CTX_use_PrivateKey(m_ctx, privateKey) <= 0)
-    {
-      errStr.assign("Unable to configure DSA server private key");
-      return false;
-    }
-    break;
-  default:
-
-    errStr.assign("Unable to configure client certificate");
-    return false;
-    break;
-  }
-  EVP_PKEY_free(privateKey);
-
-  /* Now we know that a key and cert have been set against
-   * the SSL context */
-  if (!SSL_CTX_check_private_key(m_ctx))
-  {
-    errStr.assign("Private key does not match the certificate public key");
-    return false;
-  }
-
-  return true;
-}
-
-bool ThreadedSSLSocketInitiator::loadCAInfo(std::string &errStr)
-{
-
-  std::string caFile;
-  if (m_settings.get().has(CERT_AUTH_FILE))
-    caFile.assign(m_settings.get().getString(CERT_AUTH_FILE));
-
-  std::string caDir;
-  if (m_settings.get().has(CERT_AUTH_DIR))
-    caDir.assign(m_settings.get().getString(CERT_AUTH_DIR));
-
-  if (caFile.empty() && caDir.empty())
-    return true;
-
-  getLog()->onEvent("Loading CA info");
-
-  errStr.erase();
-
-  if (!SSL_CTX_load_verify_locations(m_ctx, caFile.empty() ? 0 : caFile.c_str(),
-                                     caDir.empty() ? 0 : caDir.c_str()) ||
-      !SSL_CTX_set_default_verify_paths(m_ctx))
-  {
-    errStr.assign("Unable to configure verify locations for authentication");
-    return false;
-  }
-
-  STACK_OF(X509_NAME) * caList;
-  if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(),
-                           caDir.empty() ? 0 : caDir.c_str())) == 0)
-  {
-    errStr.assign("Unable to determine list of available CA certificates "
-                  "for authentication");
-    return false;
-  }
-  SSL_CTX_set_client_CA_list(m_ctx, caList);
-
-  /* Set the certificate verification callback */
-  SSL_CTX_set_verify(m_ctx, SSL_VERIFY_PEER, callbackVerify);
-
-  return true;
 }
 
 void ThreadedSSLSocketInitiator::onStart()
