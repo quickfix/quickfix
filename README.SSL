@@ -30,6 +30,12 @@ USING SSL FILES WITHOUT BUILDING QUICKFIX WITH OPENSSL SUPPORT
 
 The SSL functionality is contained in the files
 
+SSLSocketAcceptor.h
+SSLSocketAcceptor.cpp
+SSLSocketInitiator.h
+SSLSocketInitiator.cpp
+SSLSocketConnection.h
+SSLSocketConnection.cpp
 ThreadedSSLSocketAcceptor.h
 ThreadedSSLSocketAcceptor.cpp
 ThreadedSSLSocketInitiator.h
