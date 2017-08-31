@@ -120,72 +120,77 @@
 
 #if (HAVE_SSL > 0)
 
-#include "ThreadedSSLSocketAcceptor.h"
+#include "SSLSocketAcceptor.h"
+#include "Session.h"
 #include "Settings.h"
 #include "Utility.h"
+#include "Exceptions.h"
 
 namespace FIX
 {
 
-FIX::ThreadedSSLSocketAcceptor *acceptObjT = 0;
+FIX::SSLSocketAcceptor *acceptObj = 0;
 
-Mutex ThreadedSSLSocketAcceptor::m_acceptMutex = Mutex();
+Mutex SSLSocketAcceptor::m_acceptMutex = Mutex();
 
-int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
 {
-  return acceptObjT->passwordHandleCallback(buf, bufsize, verify, job);
+  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
 }
 
-ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
-    Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings) throw(ConfigError)
-    : Acceptor(application, factory, settings), m_sslInit(false),
-      m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
+SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
+                                MessageStoreFactory& factory,
+                                const SessionSettings& settings ) throw( ConfigError )
+: Acceptor( application, factory, settings ),
+  m_pServer( 0 ), m_sslInit(false),
+  m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  socket_init();
-  acceptObjT = this;
+  acceptObj = this;
 }
 
-ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
-    Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings, LogFactory &logFactory) throw(ConfigError)
-    : Acceptor(application, factory, settings, logFactory), m_sslInit(false),
-      m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
+SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
+                                MessageStoreFactory& factory,
+                                const SessionSettings& settings,
+                                LogFactory& logFactory ) throw( ConfigError )
+: Acceptor( application, factory, settings, logFactory ),
+  m_pServer( 0 ), m_sslInit(false),
+  m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  socket_init();
-  acceptObjT = this;
+  acceptObj = this;
 }
 
-ThreadedSSLSocketAcceptor::~ThreadedSSLSocketAcceptor()
+SSLSocketAcceptor::~SSLSocketAcceptor()
 {
+  SocketConnections::iterator iter;
+  for ( iter = m_connections.begin(); iter != m_connections.end(); ++iter )
+    delete iter->second;
+
   if (m_sslInit)
   {
     SSL_CTX_free(m_ctx);
     m_ctx = 0;
     ssl_term();
   }
-
-  socket_term();
 }
 
-void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) throw(
-    ConfigError)
+void SSLSocketAcceptor::onConfigure( const SessionSettings& s )
+throw ( ConfigError )
 {
-  std::set< SessionID > sessions = s.getSessions();
-  std::set< SessionID >::iterator i;
-  for (i = sessions.begin(); i != sessions.end(); ++i)
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i;
+  for( i = sessions.begin(); i != sessions.end(); ++i )
   {
-    const Dictionary &settings = s.get(*i);
-    settings.getInt(SOCKET_ACCEPT_PORT);
-    if (settings.has(SOCKET_REUSE_ADDRESS))
-      settings.getBool(SOCKET_REUSE_ADDRESS);
-    if (settings.has(SOCKET_NODELAY))
-      settings.getBool(SOCKET_NODELAY);
+    const Dictionary& settings = s.get( *i );
+    settings.getInt( SOCKET_ACCEPT_PORT );
+    if( settings.has(SOCKET_REUSE_ADDRESS) )
+      settings.getBool( SOCKET_REUSE_ADDRESS );
+    if( settings.has(SOCKET_NODELAY) )
+      settings.getBool( SOCKET_NODELAY );
   }
 }
 
-void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
-    RuntimeError)
+void SSLSocketAcceptor::onInitialize( const SessionSettings& s )
+throw ( RuntimeError )
 {
   if (!m_sslInit)
   {
@@ -201,7 +206,7 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
@@ -224,243 +229,135 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
   }
 
   short port = 0;
-  std::set< int > ports;
 
-  std::set< SessionID > sessions = s.getSessions();
-  std::set< SessionID >::iterator i = sessions.begin();
-  for (; i != sessions.end(); ++i)
+  try
   {
-    const Dictionary &settings = s.get(*i);
-    port = (short)settings.getInt(SOCKET_ACCEPT_PORT);
+    m_pServer = new SocketServer( 1 );
 
-    m_portToSessions[port].insert(*i);
-
-    if (ports.find(port) != ports.end())
-      continue;
-    ports.insert(port);
-
-    const bool reuseAddress = settings.has(SOCKET_REUSE_ADDRESS)
-                                  ? settings.getBool(SOCKET_REUSE_ADDRESS)
-                                  : true;
-
-    const bool noDelay =
-        settings.has(SOCKET_NODELAY) ? settings.getBool(SOCKET_NODELAY) : false;
-
-    const int sendBufSize = settings.has(SOCKET_SEND_BUFFER_SIZE)
-                                ? settings.getInt(SOCKET_SEND_BUFFER_SIZE)
-                                : 0;
-
-    const int rcvBufSize = settings.has(SOCKET_RECEIVE_BUFFER_SIZE)
-                               ? settings.getInt(SOCKET_RECEIVE_BUFFER_SIZE)
-                               : 0;
-
-    int socket = socket_createAcceptor(port, reuseAddress);
-    if (socket < 0)
+    std::set<SessionID> sessions = s.getSessions();
+    std::set<SessionID>::iterator i = sessions.begin();
+    for( ; i != sessions.end(); ++i )
     {
-      SocketException e;
-      socket_close(socket);
-      throw RuntimeError("Unable to create, bind, or listen to port " +
-                         IntConvertor::convert((unsigned short)port) + " (" +
-                         e.what() + ")");
+      const Dictionary& settings = s.get( *i );
+      port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
+
+      const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
+        settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+      const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
+        settings.getBool( SOCKET_NODELAY ) : false;
+
+      const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+        settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+      const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+        settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+
+      m_portToSessions[port].insert( *i );
+      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
+    }    
+  }
+  catch( SocketException& e )
+  {
+    throw RuntimeError( "Unable to create, bind, or listen to port "
+                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+  }
+}
+
+void SSLSocketAcceptor::onStart()
+{
+  while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
+
+  if( !m_pServer )
+    return;
+
+  time_t start = 0;
+  time_t now = 0;
+
+  ::time( &start );
+  while ( isLoggedOn() )
+  {
+    m_pServer->block( *this );
+    if( ::time(&now) -5 >= start )
+      break;
+  }
+
+  m_pServer->close();
+  delete m_pServer;
+  m_pServer = 0;
+}
+
+bool SSLSocketAcceptor::onPoll( double timeout )
+{
+  if( !m_pServer )
+    return false;
+
+  time_t start = 0;
+  time_t now = 0;
+
+  if( isStopped() )
+  {
+    if( start == 0 )
+      ::time( &start );
+    if( !isLoggedOn() )
+    {
+      start = 0;
+      return false;
     }
-    if (noDelay)
-      socket_setsockopt(socket, TCP_NODELAY);
-    if (sendBufSize)
-      socket_setsockopt(socket, SO_SNDBUF, sendBufSize);
-    if (rcvBufSize)
-      socket_setsockopt(socket, SO_RCVBUF, rcvBufSize);
-
-    m_socketToPort[socket] = port;
-    m_sockets.insert(socket);
-  }
-}
-
-void ThreadedSSLSocketAcceptor::onStart()
-{
-  Sockets::iterator i;
-  for (i = m_sockets.begin(); i != m_sockets.end(); ++i)
-  {
-    Locker l(m_mutex);
-    int port = m_socketToPort[*i];
-    AcceptorThreadInfo *info = new AcceptorThreadInfo(this, *i, port);
-    thread_id thread;
-    thread_spawn(&socketAcceptorThread, info, thread);
-    addThread(SocketKey(*i, 0), thread);
-  }
-}
-
-bool ThreadedSSLSocketAcceptor::onPoll(double timeout) { return false; }
-
-void ThreadedSSLSocketAcceptor::onStop()
-{
-  SocketToThread threads;
-  SocketToThread::iterator i;
-
-  {
-    Locker l(m_mutex);
-
-    time_t start = 0;
-    time_t now = 0;
-
-    ::time(&start);
-    while (isLoggedOn())
+    if( ::time(&now) - 5 >= start )
     {
-      if (::time(&now) - 5 >= start)
-        break;
-    }
-
-    threads = m_threads;
-    m_threads.clear();
-  }
-
-  for (i = threads.begin(); i != threads.end(); ++i)
-    ssl_socket_close(i->first.first, i->first.second);
-  for (i = threads.begin(); i != threads.end(); ++i)
-  {
-    thread_join(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-  }
-}
-
-void ThreadedSSLSocketAcceptor::addThread(SocketKey s, thread_id t)
-{
-  Locker l(m_mutex);
-
-  m_threads[s] = t;
-}
-
-void ThreadedSSLSocketAcceptor::removeThread(SocketKey s)
-{
-  Locker l(m_mutex);
-  SocketToThread::iterator i = m_threads.find(s);
-  if (i != m_threads.end())
-  {
-    thread_detach(i->second);
-    if (i->first.second != 0)
-      SSL_free(i->first.second);
-    m_threads.erase(i);
-  }
-}
-
-THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
-{
-  AcceptorThreadInfo *info = reinterpret_cast< AcceptorThreadInfo * >(p);
-
-  ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  int s = info->m_socket;
-  int port = info->m_port;
-  delete info;
-
-  int noDelay = 0;
-  int sendBufSize = 0;
-  int rcvBufSize = 0;
-  socket_getsockopt(s, TCP_NODELAY, noDelay);
-  socket_getsockopt(s, SO_SNDBUF, sendBufSize);
-  socket_getsockopt(s, SO_RCVBUF, rcvBufSize);
-
-  int socket = 0;
-  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) >= 0))
-  {
-    if (noDelay)
-      socket_setsockopt(socket, TCP_NODELAY);
-    if (sendBufSize)
-      socket_setsockopt(socket, SO_SNDBUF, sendBufSize);
-    if (rcvBufSize)
-      socket_setsockopt(socket, SO_RCVBUF, rcvBufSize);
-
-    Sessions sessions = pAcceptor->m_portToSessions[port];
-
-    SSL *ssl = SSL_new(pAcceptor->sslContext());
-    ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
-        socket, ssl, sessions, pAcceptor->getLog());
-    SSL_clear(ssl);
-    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE);
-    SSL_set_bio(ssl, sBio, sBio);
-    // TODO - check this
-    SSL_set_app_data(ssl, pAcceptor->revocationStore());
-    SSL_set_verify_result(ssl, X509_V_OK);
-
-    ConnectionThreadInfo *info =
-        new ConnectionThreadInfo(pAcceptor, pConnection);
-
-    {
-      Locker l(pAcceptor->m_mutex);
-
-      std::stringstream stream;
-      stream << "Accepted connection from " << socket_peername(socket)
-             << " on port " << port;
-
-      if (pAcceptor->getLog())
-        pAcceptor->getLog()->onEvent(stream.str());
-
-      thread_id thread;
-      if (!thread_spawn(&socketConnectionThread, info, thread))
-      {
-        delete info;
-        delete pConnection;
-        SSL_free(ssl);
-      }
-      else
-        pAcceptor->addThread(SocketKey(socket, ssl), thread);
+      start = 0;
+      return false;
     }
   }
 
-  if (!pAcceptor->isStopped())
-    pAcceptor->removeThread(SocketKey(s, 0));
-
-  return 0;
+  m_pServer->block( *this, true, timeout );
+  return true;
 }
 
-THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
+void SSLSocketAcceptor::onStop()
 {
-  ConnectionThreadInfo *info = reinterpret_cast< ConnectionThreadInfo * >(p);
-
-  ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  ThreadedSSLSocketConnection *pConnection = info->m_pConnection;
-  delete info;
-
-  int socket = pConnection->getSocket();
-
-  if (pAcceptor->newConnection(pConnection) != 0)
-  {
-    if (pAcceptor->getLog())
-      pAcceptor->getLog()->onEvent("Failed to accept new SSL connection");
-    SSL *ssl = pConnection->sslObject();
-    delete pConnection;
-    if (!pAcceptor->isStopped())
-      pAcceptor->removeThread(SocketKey(socket, ssl));
-    return 0;
-  }
-
-  while (pConnection->read())
-  {
-  }
-  SSL *ssl = pConnection->sslObject();
-  delete pConnection;
-  if (!pAcceptor->isStopped())
-    pAcceptor->removeThread(SocketKey(socket, ssl));
-  return 0;
 }
 
-int ThreadedSSLSocketAcceptor::doAccept(SSL *ssl, int &result)
+void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
 {
+  if ( !socket_isValid( s ) ) return;
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i != m_connections.end() ) return;
+  int port = server.socketToPort( a );
+  Sessions sessions = m_portToSessions[port];
 
-  // Not sure if a lock is required here anymore. But there used to
-  // be a bug and boost asio still has a lock as well.
-  Locker l(m_acceptMutex);
+  SSL *ssl = SSL_new(m_ctx);
+  SSL_clear(ssl);
+  BIO *sBio = BIO_new_socket(s, BIO_CLOSE);
+  SSL_set_bio(ssl, sBio, sBio);
+  // TODO - check this
+  SSL_set_app_data(ssl, m_revocationStore);
+  SSL_set_verify_result(ssl, X509_V_OK);
 
-  int rc = SSL_accept(ssl);
-  if (rc <= 0)
+  SSLSocketConnection * sconn = new SSLSocketConnection( s, ssl, sessions, &server.getMonitor() );
+  // SSL accept
+  if (newConnection(sconn) != 0)
   {
-    result = SSL_get_error(ssl, rc);
+    std::stringstream stream;
+    stream << "Failed to accept SSL connection from " << socket_peername( s ) << " on port " << port;
+    if( getLog() )
+      getLog()->onEvent( stream.str() );
+
+    delete sconn;
+    return;
   }
 
-  return rc;
+  m_connections[ s ] = sconn;
+
+  std::stringstream stream;
+  stream << "Accepted SSL connection from " << socket_peername( s ) << " on port " << port;
+
+  if( getLog() )
+    getLog()->onEvent( stream.str() );
 }
 
-int ThreadedSSLSocketAcceptor::newConnection(
-    ThreadedSSLSocketConnection *pConnection)
+int SSLSocketAcceptor::newConnection(SSLSocketConnection *pConnection)
 {
 
   int rc;
@@ -658,7 +555,64 @@ int ThreadedSSLSocketAcceptor::newConnection(
   return result;
 }
 
-int ThreadedSSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
+int SSLSocketAcceptor::doAccept(SSL *ssl, int &result)
+{
+
+  // Not sure if a lock is required here anymore. But there used to
+  // be a bug and boost asio still has a lock as well.
+  Locker l(m_acceptMutex);
+
+  int rc = SSL_accept(ssl);
+  if (rc <= 0)
+  {
+    result = SSL_get_error(ssl, rc);
+  }
+
+  return rc;
+}
+
+void SSLSocketAcceptor::onWrite( SocketServer& server, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SSLSocketConnection* pSocketConnection = i->second;
+  if( pSocketConnection->processQueue() )
+    pSocketConnection->unsignal();
+}
+
+bool SSLSocketAcceptor::onData( SocketServer& server, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return false;
+  SSLSocketConnection* pSocketConnection = i->second;
+  return pSocketConnection->read( *this, server );
+}
+
+void SSLSocketAcceptor::onDisconnect( SocketServer&, int s )
+{
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SSLSocketConnection* pSocketConnection = i->second;
+
+  Session* pSession = pSocketConnection->getSession();
+  if ( pSession ) pSession->disconnect();
+
+  delete pSocketConnection;
+  m_connections.erase( s );
+}
+
+void SSLSocketAcceptor::onError( SocketServer& )
+{
+}
+
+void SSLSocketAcceptor::onTimeout( SocketServer& )
+{
+  SocketConnections::iterator i;
+  for ( i = m_connections.begin(); i != m_connections.end(); ++i )
+    i->second->onTimeout();
+}
+
+int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
                                                       int verify, void *job)
 {
   if (m_password.length() > bufsize)

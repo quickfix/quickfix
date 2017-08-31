@@ -123,6 +123,12 @@ libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
 	ThreadedSSLSocketInitiator.h \
 	ThreadedSSLSocketConnection.cpp \
 	ThreadedSSLSocketConnection.h \
+	SSLSocketAcceptor.cpp \
+	SSLSocketAcceptor.h \
+	SSLSocketInitiator.cpp \
+	SSLSocketInitiator.h \
+	SSLSocketConnection.cpp \
+	SSLSocketConnection.h \
 	UtilitySSL.cpp \
 	UtilitySSL.h
 else

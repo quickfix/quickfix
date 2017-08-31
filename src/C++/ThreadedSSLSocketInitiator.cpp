@@ -393,10 +393,10 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
 
   // Do the SSL handshake.
   int rc = SSL_connect(pConnection->sslObject());
-  if (rc == -1)
+  if (rc <= 0)
   {
     int err = SSL_get_error(pConnection->sslObject(), rc);
-    pInitiator->getLog()->onEvent("SSL_connect failed with SSL error " + err);
+    pInitiator->getLog()->onEvent("SSL_connect failed with SSL error " + IntConvertor::convert(err));
     pConnection->disconnect();
     SSL *ssl = pConnection->sslObject();
     delete pConnection;

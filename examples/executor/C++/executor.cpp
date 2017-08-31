@@ -27,6 +27,7 @@
 #include "quickfix/SocketAcceptor.h"
 #ifdef HAVE_SSL
 #include "quickfix/ThreadedSSLSocketAcceptor.h"
+#include "quickfix/SSLSocketAcceptor.h"
 #endif
 #include "quickfix/Log.h"
 #include "quickfix/SessionSettings.h"
@@ -73,6 +74,8 @@ int main( int argc, char** argv )
 #ifdef HAVE_SSL
     if (isSSL.compare("SSL") == 0)
       acceptor = new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+    else if (isSSL.compare("SSL-ST") == 0)
+      acceptor = new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory );
     else
 #endif
     acceptor = new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory );

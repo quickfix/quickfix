@@ -27,6 +27,7 @@
 #include "quickfix/SocketInitiator.h"
 #ifdef HAVE_SSL
 #include "quickfix/ThreadedSSLSocketInitiator.h"
+#include "quickfix/SSLSocketInitiator.h"
 #endif
 #include "quickfix/SessionSettings.h"
 #include "quickfix/Log.h"
@@ -66,6 +67,8 @@ int main( int argc, char** argv )
 #ifdef HAVE_SSL
     if (isSSL.compare("SSL") == 0)
       initiator = new FIX::ThreadedSSLSocketInitiator ( application, storeFactory, settings, logFactory );
+    else if (isSSL.compare("SSL-ST") == 0)
+      initiator = new FIX::SSLSocketInitiator ( application, storeFactory, settings, logFactory );
     else
 #endif
     initiator = new FIX::SocketInitiator( application, storeFactory, settings, logFactory );
