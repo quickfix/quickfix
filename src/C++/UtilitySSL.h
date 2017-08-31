@@ -252,6 +252,8 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
 X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
                         std::string &errStr);
+
+int acceptSSLConnection(int socket, SSL * ssl, Log * log, int verify);
 }
 
 #endif

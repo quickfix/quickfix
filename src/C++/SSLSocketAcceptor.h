@@ -168,9 +168,6 @@ private:
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
 
-  int newConnection(SSLSocketConnection *pConnection);
-  int doAccept(SSL *ssl, int &result);
-
   SocketServer* m_pServer;
   PortToSessions m_portToSessions;
   SocketConnections m_connections;
@@ -180,8 +177,6 @@ private:
   SSL_CTX *m_ctx;
   X509_STORE *m_revocationStore;
   std::string m_password;
-
-  static Mutex m_acceptMutex;
 };
 /*! @} */
 }

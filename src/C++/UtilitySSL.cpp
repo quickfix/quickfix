@@ -1353,6 +1353,221 @@ X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
 
   return revocationStore;
 }
+
+int doAccept(SSL *ssl, int &result)
+{
+  int rc = SSL_accept(ssl);
+  if (rc <= 0)
+  {
+    result = SSL_get_error(ssl, rc);
+  }
+
+  return rc;
+}
+
+int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
+{
+  int rc;
+  int result = -1;
+  char *subjName = 0;
+  time_t timeout = time(0) + 10;
+  /*
+   * Now enter the SSL Handshake Phase
+   */
+  while (!SSL_is_init_finished(ssl))
+  {
+    ERR_clear_error();
+    while ((rc = doAccept(ssl, result)) <= 0)
+    {
+
+      if (result == SSL_ERROR_WANT_READ)
+        ;
+      else if (result == SSL_ERROR_WANT_WRITE)
+        ;
+      else if (result == SSL_ERROR_ZERO_RETURN)
+      {
+        /*
+         * The case where the connection was closed before any data
+         * was transferred. That's not a real error and can occur
+         * sporadically with some clients.
+         */
+        if (log)
+          log->onEvent("SSL handshake stopped: connection was closed");
+        SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+        ssl_socket_close(socket, ssl);
+        return result;
+      }
+      else if (ERR_GET_REASON(ERR_peek_error()) == SSL_R_HTTP_REQUEST)
+      {
+        /*
+         * The case where OpenSSL has recognized a HTTP request:
+         * This means the client speaks plain HTTP on our HTTPS
+         * port. Hmmmm...  At least for this error we can be more friendly
+         * and try to provide him with a HTML error page. We have only one
+         * problem: OpenSSL has already read some bytes from the HTTP
+         * request. So we have to skip the request line manually and
+         * instead provide a faked one in order to continue the internal
+         * Apache processing.
+         *
+         */
+        char ca[2];
+        int rv;
+
+        /* log the situation */
+        if (log)
+          log->onEvent("SSL handshake failed: HTTP spoken on HTTPS port");
+
+        /* first: skip the remaining bytes of the request line */
+        do
+        {
+#ifndef _MSC_VER // Unix
+          do
+          {
+            rv = read(socket, ca, 1);
+          } while (rv == -1 && errno == EINTR);
+#else // Windows
+          do
+          {
+            rv = recv(socket, ca, 1, 0);
+          } while (rv == -1 && errno == EINTR);
+#endif
+        } while (rv > 0 && ca[0] != '\012' /*LF*/);
+
+        SSL_set_shutdown(ssl, SSL_SENT_SHUTDOWN | SSL_RECEIVED_SHUTDOWN);
+        ssl_socket_close(socket, ssl);
+        ;
+        return result;
+      }
+      else if (result == SSL_ERROR_SYSCALL)
+      {
+#ifdef AIX
+        if (errno == EINTR)
+          continue;
+        else if (errno == EAGAIN)
+        {
+          // Please refer:
+          // http://community.emailogy.com/scripts/wa-COMMUNITY.exe?A2=ind0303&L=lstsrv-l&O=A&P=19558
+          // http://mirt.net/pipermail/stunnel-users/2007-May/001570.html
+          ++retries;
+          if (retries <= 100)
+          {
+            if (log)
+              log->onEvent(
+                  "EAGAIN received during SSL handshake, trying again");
+            process_sleep(0.005);
+            continue;
+          }
+        }
+        if (errno > 0)
+        {
+          if (log) log->onEvent(std::string("SSL handshake interrupted by system, errno " + IntConvertor::convert(errno));
+        }
+        else if (log)
+          log->onEvent("Spurious SSL handshake interrupt");
+#elif defined(_MSC_VER)
+        // MS Windows will not set errno, but WSEGetLastError() must be queried
+        int lastSocketError = WSAGetLastError();
+        if ((lastSocketError == WSAEINTR) ||
+            (lastSocketError == WSAEWOULDBLOCK))
+          continue;
+        if (log)
+          log->onEvent(
+              std::string(
+                  "SSL handshake interrupted by system, system error ") +
+              IntConvertor::convert(lastSocketError) + " socket " +
+              IntConvertor::convert(socket));
+
+#else
+        if (errno == EINTR)
+          continue;
+        if (errno > 0)
+        {
+          if (log)
+            log->onEvent(
+                std::string("SSL handshake interrupted by system, errno ") +
+                IntConvertor::convert(errno));
+        }
+        else if (log)
+          log->onEvent("Spurious SSL handshake interrupt");
+#endif
+        SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+        ssl_socket_close(socket, ssl);
+        return result;
+      }
+      else
+      {
+        /*
+         * Ok, anything else is a fatal error
+         */
+        unsigned long err = ERR_get_error();
+        if (log)
+          log->onEvent("SSL handshake failed");
+
+        while (err)
+        {
+          if (log)
+            log->onEvent(std::string("SSL failure reason: ") +
+                         ERR_reason_error_string(err));
+          err = ERR_get_error();
+        }
+
+        /*
+         * try to gracefully shutdown the connection:
+         * - send an own shutdown message (be gracefully)
+         * - don't wait for peer's shutdown message (deadloop)
+         * - kick away the SSL stuff immediately
+         */
+        SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+        ssl_socket_close(socket, ssl);
+        return result;
+      }
+      if (time(0) > timeout)
+      {
+        if (log)
+          log->onEvent("SSL handshake stopped: connection was closed");
+        SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+        ssl_socket_close(socket, ssl);
+        return result;
+      }
+      process_sleep(0.01);
+    }
+
+    X509 *xs = 0;
+
+    /*
+     * Check for failed client authentication
+     */
+    if ((result = SSL_get_verify_result(ssl)) != X509_V_OK)
+    {
+      if (log)
+        log->onEvent("SSL client authentication failed: ");
+      SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+      ssl_socket_close(socket, ssl);
+      return result;
+    }
+    else
+    {
+      if ((xs = SSL_get_peer_certificate(ssl)) != 0)
+      {
+        subjName = X509_NAME_oneline(X509_get_subject_name(xs), 0, 0);
+      }
+    }
+  }
+
+  if ((verify == SSL_CLIENT_VERIFY_REQUIRE) && subjName == 0)
+  {
+    if (log)
+      log->onEvent("No acceptable peer certificate available");
+    SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
+    ssl_socket_close(socket, ssl);
+    result = 2;
+  }
+
+  if (subjName)
+    free(subjName);
+
+  return result;
+}
 }
 
 #endif

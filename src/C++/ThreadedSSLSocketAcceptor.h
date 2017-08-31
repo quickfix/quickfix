@@ -195,10 +195,8 @@ private:
   static THREAD_PROC socketAcceptorThread(void *p);
   static THREAD_PROC socketConnectionThread(void *p);
 
-  int newConnection(ThreadedSSLSocketConnection *pConnection);
   SSL_CTX *sslContext() { return m_ctx; }
   X509_STORE *revocationStore() { return m_revocationStore; }
-  int doAccept(SSL *ssl, int &result);
 
   Sockets m_sockets;
   PortToSessions m_portToSessions;
@@ -210,8 +208,6 @@ private:
   SSL_CTX *m_ctx;
   X509_STORE *m_revocationStore;
   std::string m_password;
-
-  static Mutex m_acceptMutex;
 };
 /*! @} */
 }
