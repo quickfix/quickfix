@@ -175,7 +175,7 @@ bool ThreadedSSLSocketConnection::send(const std::string &msg)
     {
       Locker locker(m_mutex);
 
-      sent = SSL_write(m_ssl, msg.c_str(), totalSent + msg.length());
+      sent = SSL_write(m_ssl, msg.c_str() + totalSent, msg.length() - totalSent);
       if (sent <= 0)
         errCodeSSL = SSL_get_error(m_ssl, sent);
     }

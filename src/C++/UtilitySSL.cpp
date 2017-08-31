@@ -1088,6 +1088,8 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 {
   errStr.erase();
 
+  log->onEvent("Loading SSL certificate");
+
   std::string cert;
   std::string key;
 
@@ -1111,6 +1113,8 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   {
     if (!settings.get().has(CLIENT_CERT_FILE))
     {
+      log->onEvent("No SSL certificate configured for client.");
+
       int ret = enable_DH_ECDH(ctx, 0);
       if (ret != 0)
       {
@@ -1134,8 +1138,6 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     else
       key.assign(cert);
   }
-
-  log->onEvent("Loading SSL certificate");
 
   SSL_CTX_set_default_passwd_cb(ctx, cb);
 

@@ -126,11 +126,11 @@
 
 namespace FIX
 {
-FIX::ThreadedSSLSocketInitiator *initObj = 0;
+FIX::ThreadedSSLSocketInitiator *initObjT = 0;
 
 int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *job)
 {
-  return initObj->passwordHandleCallback(buf, bufsize, verify, job);
+  return initObjT->passwordHandleCallback(buf, bufsize, verify, job);
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -141,7 +141,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObj = this;
+  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -152,7 +152,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObj = this;
+  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator()
