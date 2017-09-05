@@ -628,7 +628,11 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
    * Start with a empty stack/list where new
    * entries get added in sorted order.
    */
+#ifndef __SUNPRO_CC
   skCAList = sk_X509_NAME_new(caListX509NameCmp);
+#else
+  skCAList = sk_X509_NAME_new((int(*)(const X509_name_st*const*,const X509_name_st*const*))caListX509NameCmp);
+#endif
 
   /*
    * Process CA certificate bundle file
@@ -1371,6 +1375,9 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
   int result = -1;
   char *subjName = 0;
   time_t timeout = time(0) + 10;
+#ifdef __TOS_AIX__
+  int retries = 0;
+#endif
   /*
    * Now enter the SSL Handshake Phase
    */
@@ -1440,7 +1447,7 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
       }
       else if (result == SSL_ERROR_SYSCALL)
       {
-#ifdef AIX
+#ifdef __TOS_AIX__
         if (errno == EINTR)
           continue;
         else if (errno == EAGAIN)
@@ -1460,7 +1467,7 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
         }
         if (errno > 0)
         {
-          if (log) log->onEvent(std::string("SSL handshake interrupted by system, errno " + IntConvertor::convert(errno));
+          if (log) log->onEvent(std::string("SSL handshake interrupted by system, errno " + IntConvertor::convert(errno)));
         }
         else if (log)
           log->onEvent("Spurious SSL handshake interrupt");
