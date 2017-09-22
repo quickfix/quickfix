@@ -22,3 +22,11 @@ SYSTEM REQUIREMENTS
         Required: sudo apt-get install g++ automake libtool libxml2 libxml2-dev
         Optional: sudo apt-get install ruby ruby-dev libmysqlclient-dev libpq-dev mysql-server postgresql xsltproc
 
+
+NEW INSTRUCTIONS:
+	./bootstrap
+	./configure --prefix=/Users/master/.pyenv/versions/fix --with-postgresql --with-python
+	[Note: replace the above --prefix with your path to your virtualenv. In this example, the virtualenv under pyenv is named "fix"]
+	[Note: --with-postgresql and --with-python, compiles it with the postgresql libraries and into python]
+	make
+	make install
