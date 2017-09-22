@@ -32,6 +32,7 @@
 #include <Log.h>
 #include <FileLog.h>
 #include <MessageStore.h>
+#include <PostgreSQLStore.h>
 #include <FileStore.h>
 #include <Application.h>
 #include <Initiator.h>
@@ -59,6 +60,8 @@ typedef FIX::Log Log;
 typedef FIX::LogFactory LogFactory;
 typedef FIX::MessageStore MessageStore;
 typedef FIX::MessageStoreFactory MessageStoreFactory;
+typedef FIX::PostgreSQLStore PostgreSQLStore;
+typedef FIX::PostgreSQLStoreFactory PostgreSQLStoreFactory;
 typedef FIX::Mutex Mutex;
 typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %}
@@ -158,6 +161,7 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
 %include "../C++/MessageStore.h"
+%include "../C++/PostgreSQLStore.h"
 %include "../C++/FileStore.h"
 %include "../C++/Application.h"
 %include "../C++/Initiator.h"
