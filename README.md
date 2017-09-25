@@ -32,3 +32,6 @@
 `make`
 
 `make install`
+
+## Other Notes
+When modifying swig file, see /src/python/swig.sh as the script to run to recompile before running the build and install again

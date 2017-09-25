@@ -39507,6 +39507,85 @@ class PostgreSQLStore(MessageStore):
 PostgreSQLStore_swigregister = _quickfix.PostgreSQLStore_swigregister
 PostgreSQLStore_swigregister(PostgreSQLStore)
 
+class PostgreSQLLog(Log):
+    __swig_setmethods__ = {}
+    for _s in [Log]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLLog, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Log]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLLog, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_PostgreSQLLog(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _quickfix.delete_PostgreSQLLog
+    __del__ = lambda self: None
+
+    def clear(self):
+        return _quickfix.PostgreSQLLog_clear(self)
+
+    def backup(self):
+        return _quickfix.PostgreSQLLog_backup(self)
+
+    def setIncomingTable(self, incomingTable):
+        return _quickfix.PostgreSQLLog_setIncomingTable(self, incomingTable)
+
+    def setOutgoingTable(self, outgoingTable):
+        return _quickfix.PostgreSQLLog_setOutgoingTable(self, outgoingTable)
+
+    def setEventTable(self, eventTable):
+        return _quickfix.PostgreSQLLog_setEventTable(self, eventTable)
+
+    def onIncoming(self, value):
+        return _quickfix.PostgreSQLLog_onIncoming(self, value)
+
+    def onOutgoing(self, value):
+        return _quickfix.PostgreSQLLog_onOutgoing(self, value)
+
+    def onEvent(self, value):
+        return _quickfix.PostgreSQLLog_onEvent(self, value)
+PostgreSQLLog_swigregister = _quickfix.PostgreSQLLog_swigregister
+PostgreSQLLog_swigregister(PostgreSQLLog)
+
+class PostgreSQLLogFactory(LogFactory):
+    __swig_setmethods__ = {}
+    for _s in [LogFactory]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLLogFactory, name, value)
+    __swig_getmethods__ = {}
+    for _s in [LogFactory]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLLogFactory, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_PostgreSQLLogFactory(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def create(self, *args):
+        return _quickfix.PostgreSQLLogFactory_create(self, *args)
+
+    def destroy(self, arg2):
+        return _quickfix.PostgreSQLLogFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_PostgreSQLLogFactory
+    __del__ = lambda self: None
+PostgreSQLLogFactory_swigregister = _quickfix.PostgreSQLLogFactory_swigregister
+PostgreSQLLogFactory_swigregister(PostgreSQLLogFactory)
+PostgreSQLLogFactory.DEFAULT_DATABASE = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_DATABASE
+PostgreSQLLogFactory.DEFAULT_USER = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_USER
+PostgreSQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PASSWORD
+PostgreSQLLogFactory.DEFAULT_HOST = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_HOST
+PostgreSQLLogFactory.DEFAULT_PORT = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PORT
+
 class FileStoreFactory(MessageStoreFactory):
     __swig_setmethods__ = {}
     for _s in [MessageStoreFactory]:
