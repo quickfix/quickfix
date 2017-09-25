@@ -8,6 +8,13 @@ BUILDING AND INSTALLING
 	make check
         make install
 
+SETTING UP DATABASE
+        cd quickfix/src/sql/postgresql
+        ./create.sh eshares
+        [Note, 'eshares' is the username for the database]
+        A database called 'quickfix' with the tables will now be created
+
+
 SYSTEM REQUIREMENTS
 
     REDHAT/CENTOS 5.x
