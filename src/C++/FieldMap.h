@@ -83,9 +83,9 @@ public:
           m_fields.insert( Fields::value_type( field.getTag(), field ) );
       else
       {
-          Fields::iterator i = m_fields.find( field.getTag() );
-          if( i == m_fields.end() )
-              m_fields.insert( Fields::value_type( field.getTag(), field ) );
+          Fields::iterator i = m_fields.lower_bound( field.getTag() );
+          if( i == m_fields.end() || m_fields.key_comp()( field.getTag(), i->first ) )
+              m_fields.insert( i, Fields::value_type( field.getTag(), field ) );
           else
               i->second = field;
       }

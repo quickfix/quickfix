@@ -218,21 +218,17 @@ public:
 
   bool isAdmin() const
   { 
-    if( m_header.isSetField(FIELD::MsgType) )
-    {
-      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
+    MsgType msgType;
+    if( m_header.getFieldIfSet( msgType ) )
       return isAdminMsgType( msgType );
-    }
     return false;
   }
 
   bool isApp() const
   { 
-    if( m_header.isSetField(FIELD::MsgType) )
-    {
-      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
+    MsgType msgType;
+    if( m_header.getFieldIfSet( msgType ) )
       return !isAdminMsgType( msgType );
-    }
     return false;
   }
 
