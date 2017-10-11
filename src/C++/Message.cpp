@@ -224,7 +224,7 @@ std::string& Message::toXML( std::string& str ) const
 std::string Message::toXMLFields(const FieldMap& fields, int space) const
 {
   std::stringstream stream;
-  FieldMap::iterator i;
+  FieldMap::const_iterator i;
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
   {
@@ -247,7 +247,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     stream << "</field>" << std::endl;
   }
 
-  FieldMap::g_iterator j;
+  FieldMap::g_const_iterator j;
   for(j = fields.g_begin(); j != fields.g_end(); ++j)
   {
     std::vector<FieldMap*>::const_iterator k;

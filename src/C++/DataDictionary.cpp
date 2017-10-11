@@ -160,7 +160,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
 {
   int lastField = 0;
 
-  FieldMap::iterator i;
+  FieldMap::const_iterator i;
   for ( i = map.begin(); i != map.end(); ++i )
   {
     const FieldBase& field = i->second;
