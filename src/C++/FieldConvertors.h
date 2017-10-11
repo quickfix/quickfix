@@ -22,6 +22,10 @@
 #ifndef FIX_FIELDCONVERTORS_H
 #define FIX_FIELDCONVERTORS_H
 
+#ifdef _MSC_VER
+#pragma warning( disable: 4146 )
+#endif
+
 #include "FieldTypes.h"
 #include "Exceptions.h"
 #include "Utility.h"
