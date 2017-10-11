@@ -11,6 +11,74 @@ class IOI(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("6") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(5)
@@ -103,6 +171,40 @@ class IOI(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -172,6 +274,14 @@ class IOI(Message):
 			order[54] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -199,6 +309,74 @@ class Advertisement(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("7") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoLegs(fix.Group):
 		def __init__(self):
@@ -257,6 +435,14 @@ class Advertisement(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -332,6 +518,40 @@ class Advertisement(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 class ExecutionReport(Message):
 	def __init__(self):
@@ -397,6 +617,74 @@ class ExecutionReport(Message):
 					order[2] = 0
 					fix.Group.__init__(self, 804, 545, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -471,6 +759,40 @@ class ExecutionReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -606,6 +928,14 @@ class ExecutionReport(Message):
 			order[73] = 1418
 			order[74] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
@@ -799,6 +1129,74 @@ class News(Message):
 			order[81] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -856,6 +1254,14 @@ class News(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -931,6 +1337,40 @@ class News(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoLinesOfText(fix.Group):
 		def __init__(self):
@@ -1049,6 +1489,74 @@ class Email(Message):
 			order[81] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -1124,6 +1632,40 @@ class Email(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -1181,6 +1723,14 @@ class Email(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoLinesOfText(fix.Group):
 		def __init__(self):
@@ -1252,6 +1802,74 @@ class NewOrderSingle(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -1326,6 +1944,40 @@ class NewOrderSingle(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -1662,6 +2314,74 @@ class NewOrderList(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 386, 336, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -1737,6 +2457,40 @@ class NewOrderList(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -1776,6 +2530,74 @@ class OrderCancelRequest(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -1851,6 +2673,40 @@ class OrderCancelRequest(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 class OrderCancelReplaceRequest(Message):
 	def __init__(self):
@@ -1913,6 +2769,74 @@ class OrderCancelReplaceRequest(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -1987,6 +2911,40 @@ class OrderCancelReplaceRequest(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStrategyParameters(fix.Group):
 		def __init__(self):
@@ -2032,6 +2990,74 @@ class OrderStatusRequest(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -2106,6 +3132,40 @@ class OrderStatusRequest(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 class AllocationInstruction(Message):
 	def __init__(self):
@@ -2159,6 +3219,82 @@ class AllocationInstruction(Message):
 			order[8] = 0
 			fix.Group.__init__(self, 124, 32, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -2233,6 +3369,40 @@ class AllocationInstruction(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoLegs(fix.Group):
 		def __init__(self):
@@ -2291,6 +3461,14 @@ class AllocationInstruction(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
@@ -2407,6 +3585,33 @@ class AllocationInstruction(Message):
 				order[0] = 577
 				order[1] = 0
 				fix.Group.__init__(self, 576, 577, order)
+
+		class NoDlvyInst(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				fix.Group.__init__(self, 85, 165, order)
+
+			class NoSettlPartyIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					fix.Group.__init__(self, 781, 782, order)
+
+				class NoSettlPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						fix.Group.__init__(self, 801, 785, order)
 
 	class NoRateSources(fix.Group):
 		def __init__(self):
@@ -2540,6 +3745,74 @@ class DontKnowTrade(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("Q") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -2615,6 +3888,40 @@ class DontKnowTrade(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -2672,6 +3979,14 @@ class DontKnowTrade(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class QuoteRequest(Message):
 	def __init__(self):
@@ -2843,6 +4158,74 @@ class QuoteRequest(Message):
 			order[141] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -2917,6 +4300,40 @@ class QuoteRequest(Message):
 				order[68] = 1460
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
+
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
@@ -2996,6 +4413,14 @@ class QuoteRequest(Message):
 				order[64] = 654
 				order[65] = 0
 				fix.Group.__init__(self, 555, 600, order)
+
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
@@ -3087,6 +4512,74 @@ class Quote(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -3161,6 +4654,40 @@ class Quote(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -3245,6 +4772,14 @@ class Quote(Message):
 			order[69] = 1068
 			order[70] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
@@ -3334,6 +4869,33 @@ class SettlementInstructions(Message):
 					order[1] = 803
 					order[2] = 0
 					fix.Group.__init__(self, 802, 523, order)
+
+		class NoDlvyInst(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				fix.Group.__init__(self, 85, 165, order)
+
+			class NoSettlPartyIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					fix.Group.__init__(self, 781, 782, order)
+
+				class NoSettlPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						fix.Group.__init__(self, 801, 785, order)
 
 class MarketDataRequest(Message):
 	def __init__(self):
@@ -3460,6 +5022,74 @@ class MarketDataRequest(Message):
 			order[89] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -3535,6 +5165,40 @@ class MarketDataRequest(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -3593,6 +5257,14 @@ class MarketDataRequest(Message):
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
+
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(3)
@@ -3605,6 +5277,74 @@ class MarketDataSnapshotFullRefresh(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("W") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -3681,6 +5421,40 @@ class MarketDataSnapshotFullRefresh(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -3738,6 +5512,14 @@ class MarketDataSnapshotFullRefresh(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoMDEntries(fix.Group):
 		def __init__(self):
@@ -4044,6 +5826,74 @@ class MarketDataIncrementalRefresh(Message):
 			order[171] = 0
 			fix.Group.__init__(self, 268, 279, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -4119,6 +5969,40 @@ class MarketDataIncrementalRefresh(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -4176,6 +6060,14 @@ class MarketDataIncrementalRefresh(Message):
 				order[51] = 1440
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
+
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
 
 		class NoOfSecSizes(fix.Group):
 			def __init__(self):
@@ -4378,6 +6270,74 @@ class QuoteCancel(Message):
 			order[92] = 0
 			fix.Group.__init__(self, 295, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -4453,6 +6413,40 @@ class QuoteCancel(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -4511,6 +6505,14 @@ class QuoteCancel(Message):
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
+
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -4524,6 +6526,74 @@ class QuoteStatusRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("a") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -4600,6 +6670,40 @@ class QuoteStatusRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -4657,6 +6761,14 @@ class QuoteStatusRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
@@ -4791,6 +6903,40 @@ class MassQuoteAcknowledgement(Message):
 			order[77] = 0
 			fix.Group.__init__(self, 296, 302, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoQuoteEntries(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(112)
@@ -4908,6 +7054,74 @@ class MassQuoteAcknowledgement(Message):
 				order[111] = 0
 				fix.Group.__init__(self, 295, 299, order)
 
+			class NoSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					fix.Group.__init__(self, 454, 455, order)
+
+			class NoEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(6)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 1145
+					order[3] = 867
+					order[4] = 868
+					order[5] = 0
+					fix.Group.__init__(self, 864, 865, order)
+
+			class NoInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					fix.Group.__init__(self, 1018, 1019, order)
+
+				class NoInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						fix.Group.__init__(self, 1052, 1053, order)
+
+			class NoComplexEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(9)
+					order[0] = 1484
+					order[1] = 1485
+					order[2] = 1486
+					order[3] = 1487
+					order[4] = 1488
+					order[5] = 1489
+					order[6] = 1490
+					order[7] = 1491
+					order[8] = 0
+					fix.Group.__init__(self, 1483, 1484, order)
+
+				class NoComplexEventDates(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(4)
+						order[0] = 1492
+						order[1] = 1493
+						order[2] = 1494
+						order[3] = 0
+						fix.Group.__init__(self, 1491, 1492, order)
+
+					class NoComplexEventTimes(fix.Group):
+						def __init__(self):
+							order = fix.IntArray(3)
+							order[0] = 1495
+							order[1] = 1496
+							order[2] = 0
+							fix.Group.__init__(self, 1494, 1495, order)
+
 			class NoLegs(fix.Group):
 				def __init__(self):
 					order = fix.IntArray(53)
@@ -4966,6 +7180,14 @@ class MassQuoteAcknowledgement(Message):
 					order[52] = 0
 					fix.Group.__init__(self, 555, 600, order)
 
+				class NoLegSecurityAltID(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 605
+						order[1] = 606
+						order[2] = 0
+						fix.Group.__init__(self, 604, 605, order)
+
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -4980,6 +7202,82 @@ class SecurityDefinitionRequest(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("c") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -5055,6 +7353,40 @@ class SecurityDefinitionRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoStipulations(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(3)
@@ -5120,12 +7452,96 @@ class SecurityDefinitionRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class SecurityDefinition(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("d") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -5201,6 +7617,40 @@ class SecurityDefinition(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoStipulations(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(3)
@@ -5266,6 +7716,14 @@ class SecurityDefinition(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoMarketSegments(fix.Group):
 		def __init__(self):
@@ -5275,6 +7733,78 @@ class SecurityDefinition(Message):
 			order[2] = 1201
 			order[3] = 0
 			fix.Group.__init__(self, 1310, 1301, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
 
 		class NoStrikeRules(fix.Group):
 			def __init__(self):
@@ -5305,6 +7835,82 @@ class SecurityStatusRequest(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("e") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -5380,6 +7986,40 @@ class SecurityStatusRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -5437,12 +8077,96 @@ class SecurityStatusRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class SecurityStatus(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("f") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -5518,6 +8242,40 @@ class SecurityStatus(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -5575,6 +8333,14 @@ class SecurityStatus(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class TradingSessionStatusRequest(Message):
 	def __init__(self):
@@ -5585,6 +8351,74 @@ class TradingSessionStatus(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("h") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 class MassQuote(Message):
 	def __init__(self):
@@ -5688,6 +8522,40 @@ class MassQuote(Message):
 			order[73] = 295
 			order[74] = 0
 			fix.Group.__init__(self, 296, 302, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 		class NoQuoteEntries(fix.Group):
 			def __init__(self):
@@ -5804,6 +8672,74 @@ class MassQuote(Message):
 				order[109] = 0
 				fix.Group.__init__(self, 295, 299, order)
 
+			class NoSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					fix.Group.__init__(self, 454, 455, order)
+
+			class NoEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(6)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 1145
+					order[3] = 867
+					order[4] = 868
+					order[5] = 0
+					fix.Group.__init__(self, 864, 865, order)
+
+			class NoInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					fix.Group.__init__(self, 1018, 1019, order)
+
+				class NoInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						fix.Group.__init__(self, 1052, 1053, order)
+
+			class NoComplexEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(9)
+					order[0] = 1484
+					order[1] = 1485
+					order[2] = 1486
+					order[3] = 1487
+					order[4] = 1488
+					order[5] = 1489
+					order[6] = 1490
+					order[7] = 1491
+					order[8] = 0
+					fix.Group.__init__(self, 1483, 1484, order)
+
+				class NoComplexEventDates(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(4)
+						order[0] = 1492
+						order[1] = 1493
+						order[2] = 1494
+						order[3] = 0
+						fix.Group.__init__(self, 1491, 1492, order)
+
+					class NoComplexEventTimes(fix.Group):
+						def __init__(self):
+							order = fix.IntArray(3)
+							order[0] = 1495
+							order[1] = 1496
+							order[2] = 0
+							fix.Group.__init__(self, 1494, 1495, order)
+
 			class NoLegs(fix.Group):
 				def __init__(self):
 					order = fix.IntArray(53)
@@ -5861,6 +8797,14 @@ class MassQuote(Message):
 					order[51] = 1440
 					order[52] = 0
 					fix.Group.__init__(self, 555, 600, order)
+
+				class NoLegSecurityAltID(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 605
+						order[1] = 606
+						order[2] = 0
+						fix.Group.__init__(self, 604, 605, order)
 
 class BusinessMessageReject(Message):
 	def __init__(self):
@@ -6035,6 +8979,74 @@ class ListStrikePrice(Message):
 			order[91] = 0
 			fix.Group.__init__(self, 428, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -6109,6 +9121,40 @@ class ListStrikePrice(Message):
 				order[68] = 1460
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
+
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
 
 class RegistrationInstructions(Message):
 	def __init__(self):
@@ -6225,6 +9271,108 @@ class OrderMassCancelRequest(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -6273,6 +9421,108 @@ class OrderMassCancelReport(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
@@ -6403,6 +9653,74 @@ class NewOrderCross(Message):
 						order[2] = 0
 						fix.Group.__init__(self, 804, 545, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -6478,6 +9796,40 @@ class NewOrderCross(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -6535,6 +9887,14 @@ class NewOrderCross(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
@@ -6681,6 +10041,74 @@ class CrossOrderCancelReplaceRequest(Message):
 						order[2] = 0
 						fix.Group.__init__(self, 804, 545, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -6756,6 +10184,40 @@ class CrossOrderCancelReplaceRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -6813,6 +10275,14 @@ class CrossOrderCancelReplaceRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
@@ -6904,6 +10374,74 @@ class CrossOrderCancelRequest(Message):
 					order[2] = 0
 					fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -6979,6 +10517,40 @@ class CrossOrderCancelRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -7036,6 +10608,14 @@ class CrossOrderCancelRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class SecurityTypeRequest(Message):
 	def __init__(self):
@@ -7063,6 +10643,82 @@ class SecurityListRequest(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("x") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -7138,6 +10794,40 @@ class SecurityListRequest(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -7195,6 +10885,14 @@ class SecurityListRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 class SecurityList(Message):
 	def __init__(self):
@@ -7322,6 +11020,154 @@ class SecurityList(Message):
 			order[115] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
+		class NoInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				fix.Group.__init__(self, 870, 871, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
+
 		class NoStrikeRules(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(7)
@@ -7421,6 +11267,40 @@ class SecurityList(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -7495,6 +11375,14 @@ class SecurityList(Message):
 				order[60] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
+
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
 					order = fix.IntArray(3)
@@ -7508,10 +11396,265 @@ class DerivativeSecurityListRequest(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("z") )
 
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
+	class NoDerivativeSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1219
+			order[1] = 1220
+			order[2] = 0
+			fix.Group.__init__(self, 1218, 1219, order)
+
+	class NoDerivativeEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 1287
+			order[1] = 1288
+			order[2] = 1289
+			order[3] = 1290
+			order[4] = 1291
+			order[5] = 0
+			fix.Group.__init__(self, 1286, 1287, order)
+
+	class NoDerivativeInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1293
+			order[1] = 1294
+			order[2] = 1295
+			order[3] = 1296
+			order[4] = 0
+			fix.Group.__init__(self, 1292, 1293, order)
+
+		class NoDerivativeInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1297
+				order[1] = 1298
+				order[2] = 0
+				fix.Group.__init__(self, 1296, 1297, order)
+
 class DerivativeSecurityList(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("AA") )
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
+	class NoDerivativeSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1219
+			order[1] = 1220
+			order[2] = 0
+			fix.Group.__init__(self, 1218, 1219, order)
+
+	class NoDerivativeEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 1287
+			order[1] = 1288
+			order[2] = 1289
+			order[3] = 1290
+			order[4] = 1291
+			order[5] = 0
+			fix.Group.__init__(self, 1286, 1287, order)
+
+	class NoDerivativeInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1293
+			order[1] = 1294
+			order[2] = 1295
+			order[3] = 1296
+			order[4] = 0
+			fix.Group.__init__(self, 1292, 1293, order)
+
+		class NoDerivativeInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1297
+				order[1] = 1298
+				order[2] = 0
+				fix.Group.__init__(self, 1296, 1297, order)
+
+	class NoDerivativeInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1313
+			order[1] = 1314
+			order[2] = 0
+			fix.Group.__init__(self, 1311, 1313, order)
+
+	class NoMarketSegments(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 1301
+			order[1] = 1300
+			order[2] = 1201
+			order[3] = 0
+			fix.Group.__init__(self, 1310, 1301, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
+
+		class NoStrikeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(7)
+				order[0] = 1223
+				order[1] = 1202
+				order[2] = 1203
+				order[3] = 1204
+				order[4] = 1304
+				order[5] = 1236
+				order[6] = 0
+				fix.Group.__init__(self, 1201, 1223, order)
+
+			class NoMaturityRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(7)
+					order[0] = 1222
+					order[1] = 1303
+					order[2] = 1302
+					order[3] = 1241
+					order[4] = 1226
+					order[5] = 1229
+					order[6] = 0
+					fix.Group.__init__(self, 1236, 1222, order)
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
@@ -7613,6 +11756,82 @@ class DerivativeSecurityList(Message):
 			order[94] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
+		class NoInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				fix.Group.__init__(self, 870, 871, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -7670,6 +11889,14 @@ class DerivativeSecurityList(Message):
 				order[51] = 1440
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
+
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
 
 class NewOrderMultileg(Message):
 	def __init__(self):
@@ -7731,6 +11958,74 @@ class NewOrderMultileg(Message):
 			order[1] = 625
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -7807,6 +12102,40 @@ class NewOrderMultileg(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -7881,6 +12210,14 @@ class NewOrderMultileg(Message):
 			order[68] = 1384
 			order[69] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
@@ -8008,6 +12345,74 @@ class MultilegOrderCancelReplace(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -8083,6 +12488,40 @@ class MultilegOrderCancelReplace(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -8157,6 +12596,14 @@ class MultilegOrderCancelReplace(Message):
 			order[68] = 1384
 			order[69] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
@@ -8246,6 +12693,82 @@ class TradeCaptureReportRequest(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -8320,6 +12843,40 @@ class TradeCaptureReportRequest(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoLegs(fix.Group):
 		def __init__(self):
@@ -8379,6 +12936,14 @@ class TradeCaptureReportRequest(Message):
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 	class NoDates(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -8410,6 +12975,74 @@ class TradeCaptureReport(Message):
 				order[1] = 1122
 				order[2] = 0
 				fix.Group.__init__(self, 1120, 1121, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -8485,6 +13118,40 @@ class TradeCaptureReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoPosAmt(fix.Group):
 		def __init__(self):
@@ -8575,6 +13242,14 @@ class TradeCaptureReport(Message):
 			order[74] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -8621,6 +13296,14 @@ class TradeCaptureReport(Message):
 				order[14] = 1392
 				order[15] = 0
 				fix.Group.__init__(self, 1342, 1330, order)
+
+			class NoUnderlyingLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1335
+					order[1] = 1336
+					order[2] = 0
+					fix.Group.__init__(self, 1334, 1335, order)
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
@@ -8883,6 +13566,108 @@ class OrderMassStatusRequest(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -9058,6 +13843,74 @@ class QuoteRequestReject(Message):
 			order[137] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -9132,6 +13985,40 @@ class QuoteRequestReject(Message):
 				order[68] = 1460
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
+
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
@@ -9211,6 +14098,14 @@ class QuoteRequestReject(Message):
 				order[64] = 654
 				order[65] = 0
 				fix.Group.__init__(self, 555, 600, order)
+
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
@@ -9380,6 +14275,74 @@ class RFQRequest(Message):
 			order[88] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(70)
@@ -9455,6 +14418,40 @@ class RFQRequest(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -9513,6 +14510,14 @@ class RFQRequest(Message):
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
+
 class QuoteStatusReport(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -9535,6 +14540,74 @@ class QuoteStatusReport(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -9610,6 +14683,40 @@ class QuoteStatusReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -9684,6 +14791,14 @@ class QuoteStatusReport(Message):
 			order[59] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -9755,6 +14870,74 @@ class QuoteResponse(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -9830,6 +15013,40 @@ class QuoteResponse(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -9914,6 +15131,14 @@ class QuoteResponse(Message):
 			order[69] = 1068
 			order[70] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
@@ -10009,6 +15234,82 @@ class Confirmation(Message):
 			order[6] = 0
 			fix.Group.__init__(self, 768, 769, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -10084,6 +15385,40 @@ class Confirmation(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -10142,6 +15477,14 @@ class Confirmation(Message):
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 	class NoCapacities(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -10150,6 +15493,33 @@ class Confirmation(Message):
 			order[2] = 863
 			order[3] = 0
 			fix.Group.__init__(self, 862, 528, order)
+
+	class NoDlvyInst(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			fix.Group.__init__(self, 85, 165, order)
+
+		class NoSettlPartyIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				fix.Group.__init__(self, 781, 782, order)
+
+			class NoSettlPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					fix.Group.__init__(self, 801, 785, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -10192,6 +15562,74 @@ class PositionMaintenanceRequest(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -10249,6 +15687,14 @@ class PositionMaintenanceRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -10324,6 +15770,40 @@ class PositionMaintenanceRequest(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
@@ -10395,6 +15875,74 @@ class PositionMaintenanceReport(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -10452,6 +16000,14 @@ class PositionMaintenanceReport(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -10527,6 +16083,40 @@ class PositionMaintenanceReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
@@ -10598,6 +16188,74 @@ class RequestForPositions(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -10655,6 +16313,14 @@ class RequestForPositions(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -10730,6 +16396,40 @@ class RequestForPositions(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
@@ -10762,6 +16462,74 @@ class RequestForPositionsAck(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -10819,6 +16587,14 @@ class RequestForPositionsAck(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -10895,6 +16671,40 @@ class RequestForPositionsAck(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 class PositionReport(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -10917,6 +16727,74 @@ class PositionReport(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoLegs(fix.Group):
 		def __init__(self):
@@ -10975,6 +16853,14 @@ class PositionReport(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -11055,6 +16941,40 @@ class PositionReport(Message):
 			order[73] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoUnderlyingAmounts(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(5)
@@ -11108,6 +17028,74 @@ class TradeCaptureReportRequestAck(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("AQ") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -11183,6 +17171,40 @@ class TradeCaptureReportRequestAck(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoLegs(fix.Group):
 		def __init__(self):
@@ -11242,6 +17264,14 @@ class TradeCaptureReportRequestAck(Message):
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 class TradeCaptureReportAck(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -11264,6 +17294,74 @@ class TradeCaptureReportAck(Message):
 				order[1] = 1122
 				order[2] = 0
 				fix.Group.__init__(self, 1120, 1121, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -11339,6 +17437,40 @@ class TradeCaptureReportAck(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTrdRepIndicators(fix.Group):
 		def __init__(self):
@@ -11428,6 +17560,14 @@ class TradeCaptureReportAck(Message):
 			order[74] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -11474,6 +17614,14 @@ class TradeCaptureReportAck(Message):
 				order[14] = 1392
 				order[15] = 0
 				fix.Group.__init__(self, 1342, 1330, order)
+
+			class NoUnderlyingLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1335
+					order[1] = 1336
+					order[2] = 0
+					fix.Group.__init__(self, 1334, 1335, order)
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
@@ -11761,6 +17909,82 @@ class AllocationReport(Message):
 			order[8] = 0
 			fix.Group.__init__(self, 124, 32, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -11836,6 +18060,40 @@ class AllocationReport(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -11893,6 +18151,14 @@ class AllocationReport(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
@@ -12009,6 +18275,33 @@ class AllocationReport(Message):
 				order[0] = 577
 				order[1] = 0
 				fix.Group.__init__(self, 576, 577, order)
+
+		class NoDlvyInst(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				fix.Group.__init__(self, 85, 165, order)
+
+			class NoSettlPartyIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					fix.Group.__init__(self, 781, 782, order)
+
+				class NoSettlPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						fix.Group.__init__(self, 801, 785, order)
 
 	class NoRateSources(fix.Group):
 		def __init__(self):
@@ -12131,6 +18424,74 @@ class AssignmentReport(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -12188,6 +18549,14 @@ class AssignmentReport(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -12263,6 +18632,40 @@ class AssignmentReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoPositions(fix.Group):
 		def __init__(self):
@@ -12341,6 +18744,74 @@ class CollateralRequest(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -12398,6 +18869,14 @@ class CollateralRequest(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -12474,6 +18953,40 @@ class CollateralRequest(Message):
 			order[69] = 944
 			order[70] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
@@ -12543,6 +19056,74 @@ class CollateralAssignment(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -12600,6 +19181,14 @@ class CollateralAssignment(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -12677,6 +19266,40 @@ class CollateralAssignment(Message):
 			order[70] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(7)
@@ -12706,6 +19329,33 @@ class CollateralAssignment(Message):
 			order[1] = 234
 			order[2] = 0
 			fix.Group.__init__(self, 232, 233, order)
+
+	class NoDlvyInst(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			fix.Group.__init__(self, 85, 165, order)
+
+		class NoSettlPartyIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				fix.Group.__init__(self, 781, 782, order)
+
+			class NoSettlPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					fix.Group.__init__(self, 801, 785, order)
 
 class CollateralResponse(Message):
 	def __init__(self):
@@ -12745,6 +19395,74 @@ class CollateralResponse(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -12802,6 +19520,14 @@ class CollateralResponse(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -12878,6 +19604,40 @@ class CollateralResponse(Message):
 			order[69] = 944
 			order[70] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
@@ -12947,6 +19707,74 @@ class CollateralReport(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -13004,6 +19832,14 @@ class CollateralReport(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -13080,6 +19916,40 @@ class CollateralReport(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(7)
@@ -13109,6 +19979,33 @@ class CollateralReport(Message):
 			order[1] = 234
 			order[2] = 0
 			fix.Group.__init__(self, 232, 233, order)
+
+	class NoDlvyInst(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			fix.Group.__init__(self, 85, 165, order)
+
+		class NoSettlPartyIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				fix.Group.__init__(self, 781, 782, order)
+
+			class NoSettlPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					fix.Group.__init__(self, 801, 785, order)
 
 class CollateralInquiry(Message):
 	def __init__(self):
@@ -13155,6 +20052,74 @@ class CollateralInquiry(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -13212,6 +20177,14 @@ class CollateralInquiry(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -13288,6 +20261,40 @@ class CollateralInquiry(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(7)
@@ -13307,6 +20314,33 @@ class CollateralInquiry(Message):
 			order[1] = 234
 			order[2] = 0
 			fix.Group.__init__(self, 232, 233, order)
+
+	class NoDlvyInst(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			fix.Group.__init__(self, 85, 165, order)
+
+		class NoSettlPartyIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				fix.Group.__init__(self, 781, 782, order)
+
+			class NoSettlPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					fix.Group.__init__(self, 801, 785, order)
 
 class NetworkCounterpartySystemStatusRequest(Message):
 	def __init__(self):
@@ -13395,6 +20429,74 @@ class CollateralInquiryAck(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 897, 571, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -13452,6 +20554,14 @@ class CollateralInquiryAck(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -13527,6 +20637,40 @@ class CollateralInquiryAck(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 class ConfirmationRequest(Message):
 	def __init__(self):
@@ -13597,6 +20741,74 @@ class ContraryIntentionReport(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 981, 982, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -13671,12 +20883,122 @@ class ContraryIntentionReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 class SecurityDefinitionUpdateReport(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BP") )
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
+
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(70)
@@ -13751,6 +21073,40 @@ class SecurityDefinitionUpdateReport(Message):
 			order[68] = 1460
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
+
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
@@ -13818,6 +21174,14 @@ class SecurityDefinitionUpdateReport(Message):
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 	class NoMarketSegments(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -13826,6 +21190,78 @@ class SecurityDefinitionUpdateReport(Message):
 			order[2] = 1201
 			order[3] = 0
 			fix.Group.__init__(self, 1310, 1301, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
 
 		class NoStrikeRules(fix.Group):
 			def __init__(self):
@@ -13978,6 +21414,154 @@ class SecurityListUpdateReport(Message):
 			order[116] = 0
 			fix.Group.__init__(self, 146, 1324, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
+		class NoInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				fix.Group.__init__(self, 870, 871, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
+
 		class NoStrikeRules(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(7)
@@ -14077,6 +21661,40 @@ class SecurityListUpdateReport(Message):
 				order[69] = 0
 				fix.Group.__init__(self, 711, 311, order)
 
+			class NoUnderlyingSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					fix.Group.__init__(self, 457, 458, order)
+
+			class NoUnderlyingStips(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					fix.Group.__init__(self, 887, 888, order)
+
+			class NoUndlyInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					fix.Group.__init__(self, 1058, 1059, order)
+
+				class NoUndlyInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						fix.Group.__init__(self, 1062, 1063, order)
+
 		class NoStipulations(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(3)
@@ -14150,6 +21768,14 @@ class SecurityListUpdateReport(Message):
 				order[59] = 680
 				order[60] = 0
 				fix.Group.__init__(self, 555, 600, order)
+
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
@@ -14299,6 +21925,74 @@ class AdjustedPositionReport(Message):
 			order[81] = 0
 			fix.Group.__init__(self, 146, 55, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 class AllocationInstructionAlert(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -14350,6 +22044,82 @@ class AllocationInstructionAlert(Message):
 			order[7] = 1041
 			order[8] = 0
 			fix.Group.__init__(self, 124, 32, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			fix.Group.__init__(self, 870, 871, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -14426,6 +22196,40 @@ class AllocationInstructionAlert(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -14483,6 +22287,14 @@ class AllocationInstructionAlert(Message):
 			order[51] = 1440
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
+
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
@@ -14600,10 +22412,105 @@ class AllocationInstructionAlert(Message):
 				order[1] = 0
 				fix.Group.__init__(self, 576, 577, order)
 
+		class NoDlvyInst(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				fix.Group.__init__(self, 85, 165, order)
+
+			class NoSettlPartyIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					fix.Group.__init__(self, 781, 782, order)
+
+				class NoSettlPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						fix.Group.__init__(self, 801, 785, order)
+
 class ExecutionAcknowledgement(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BN") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
@@ -14680,6 +22587,40 @@ class ExecutionAcknowledgement(Message):
 			order[69] = 0
 			fix.Group.__init__(self, 711, 311, order)
 
+		class NoUnderlyingSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				fix.Group.__init__(self, 457, 458, order)
+
+		class NoUnderlyingStips(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				fix.Group.__init__(self, 887, 888, order)
+
+		class NoUndlyInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				fix.Group.__init__(self, 1058, 1059, order)
+
+			class NoUndlyInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoLegs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(53)
@@ -14738,6 +22679,14 @@ class ExecutionAcknowledgement(Message):
 			order[52] = 0
 			fix.Group.__init__(self, 555, 600, order)
 
+		class NoLegSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				fix.Group.__init__(self, 604, 605, order)
+
 class TradingSessionList(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -14770,6 +22719,44 @@ class TradingSessionList(Message):
 			order[21] = 1327
 			order[22] = 0
 			fix.Group.__init__(self, 386, 336, order)
+
+		class NoOrdTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 40
+				order[1] = 0
+				fix.Group.__init__(self, 1237, 40, order)
+
+		class NoTimeInForceRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 59
+				order[1] = 0
+				fix.Group.__init__(self, 1239, 59, order)
+
+		class NoExecInstRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 1308
+				order[1] = 0
+				fix.Group.__init__(self, 1232, 1308, order)
+
+		class NoMatchRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1142
+				order[1] = 574
+				order[2] = 0
+				fix.Group.__init__(self, 1235, 1142, order)
+
+		class NoMDFeedTypes(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1022
+				order[1] = 264
+				order[2] = 1021
+				order[3] = 0
+				fix.Group.__init__(self, 1141, 1022, order)
 
 class TradingSessionListRequest(Message):
 	def __init__(self):
@@ -14883,6 +22870,74 @@ class SettlementObligationReport(Message):
 			order[96] = 0
 			fix.Group.__init__(self, 1165, 430, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(5)
@@ -14931,6 +22986,190 @@ class DerivativeSecurityListUpdateReport(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BR") )
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
+	class NoDerivativeSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1219
+			order[1] = 1220
+			order[2] = 0
+			fix.Group.__init__(self, 1218, 1219, order)
+
+	class NoDerivativeEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 1287
+			order[1] = 1288
+			order[2] = 1289
+			order[3] = 1290
+			order[4] = 1291
+			order[5] = 0
+			fix.Group.__init__(self, 1286, 1287, order)
+
+	class NoDerivativeInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1293
+			order[1] = 1294
+			order[2] = 1295
+			order[3] = 1296
+			order[4] = 0
+			fix.Group.__init__(self, 1292, 1293, order)
+
+		class NoDerivativeInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1297
+				order[1] = 1298
+				order[2] = 0
+				fix.Group.__init__(self, 1296, 1297, order)
+
+	class NoDerivativeInstrAttrib(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1313
+			order[1] = 1314
+			order[2] = 0
+			fix.Group.__init__(self, 1311, 1313, order)
+
+	class NoMarketSegments(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(4)
+			order[0] = 1301
+			order[1] = 1300
+			order[2] = 1201
+			order[3] = 0
+			fix.Group.__init__(self, 1310, 1301, order)
+
+		class NoTickRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1206
+				order[1] = 1207
+				order[2] = 1208
+				order[3] = 1209
+				order[4] = 0
+				fix.Group.__init__(self, 1205, 1206, order)
+
+		class NoLotTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1093
+				order[1] = 1231
+				order[2] = 0
+				fix.Group.__init__(self, 1234, 1093, order)
+
+		class NoTradingSessionRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 336
+				order[1] = 625
+				order[2] = 0
+				fix.Group.__init__(self, 1309, 336, order)
+
+			class NoOrdTypeRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 40
+					order[1] = 0
+					fix.Group.__init__(self, 1237, 40, order)
+
+			class NoTimeInForceRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 59
+					order[1] = 0
+					fix.Group.__init__(self, 1239, 59, order)
+
+			class NoExecInstRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(2)
+					order[0] = 1308
+					order[1] = 0
+					fix.Group.__init__(self, 1232, 1308, order)
+
+			class NoMatchRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1142
+					order[1] = 574
+					order[2] = 0
+					fix.Group.__init__(self, 1235, 1142, order)
+
+			class NoMDFeedTypes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1022
+					order[1] = 264
+					order[2] = 1021
+					order[3] = 0
+					fix.Group.__init__(self, 1141, 1022, order)
+
+		class NoNestedInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1210
+				order[1] = 1211
+				order[2] = 0
+				fix.Group.__init__(self, 1312, 1210, order)
+
+		class NoStrikeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(7)
+				order[0] = 1223
+				order[1] = 1202
+				order[2] = 1203
+				order[3] = 1204
+				order[4] = 1304
+				order[5] = 1236
+				order[6] = 0
+				fix.Group.__init__(self, 1201, 1223, order)
+
+			class NoMaturityRules(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(7)
+					order[0] = 1222
+					order[1] = 1303
+					order[2] = 1302
+					order[3] = 1241
+					order[4] = 1226
+					order[5] = 1229
+					order[6] = 0
+					fix.Group.__init__(self, 1236, 1222, order)
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
@@ -15033,6 +23272,82 @@ class DerivativeSecurityListUpdateReport(Message):
 			order[95] = 0
 			fix.Group.__init__(self, 146, 1324, order)
 
+		class NoSecurityAltID(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				fix.Group.__init__(self, 454, 455, order)
+
+		class NoEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(6)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 1145
+				order[3] = 867
+				order[4] = 868
+				order[5] = 0
+				fix.Group.__init__(self, 864, 865, order)
+
+		class NoInstrumentParties(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				fix.Group.__init__(self, 1018, 1019, order)
+
+			class NoInstrumentPartySubIDs(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					fix.Group.__init__(self, 1052, 1053, order)
+
+		class NoComplexEvents(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(9)
+				order[0] = 1484
+				order[1] = 1485
+				order[2] = 1486
+				order[3] = 1487
+				order[4] = 1488
+				order[5] = 1489
+				order[6] = 1490
+				order[7] = 1491
+				order[8] = 0
+				fix.Group.__init__(self, 1483, 1484, order)
+
+			class NoComplexEventDates(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(4)
+					order[0] = 1492
+					order[1] = 1493
+					order[2] = 1494
+					order[3] = 0
+					fix.Group.__init__(self, 1491, 1492, order)
+
+				class NoComplexEventTimes(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1495
+						order[1] = 1496
+						order[2] = 0
+						fix.Group.__init__(self, 1494, 1495, order)
+
+		class NoInstrAttrib(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				fix.Group.__init__(self, 870, 871, order)
+
 		class NoLegs(fix.Group):
 			def __init__(self):
 				order = fix.IntArray(53)
@@ -15091,6 +23406,14 @@ class DerivativeSecurityListUpdateReport(Message):
 				order[52] = 0
 				fix.Group.__init__(self, 555, 600, order)
 
+			class NoLegSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					fix.Group.__init__(self, 604, 605, order)
+
 class TradingSessionListUpdateReport(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -15124,6 +23447,44 @@ class TradingSessionListUpdateReport(Message):
 			order[22] = 0
 			fix.Group.__init__(self, 386, 336, order)
 
+		class NoOrdTypeRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 40
+				order[1] = 0
+				fix.Group.__init__(self, 1237, 40, order)
+
+		class NoTimeInForceRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 59
+				order[1] = 0
+				fix.Group.__init__(self, 1239, 59, order)
+
+		class NoExecInstRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(2)
+				order[0] = 1308
+				order[1] = 0
+				fix.Group.__init__(self, 1232, 1308, order)
+
+		class NoMatchRules(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1142
+				order[1] = 574
+				order[2] = 0
+				fix.Group.__init__(self, 1235, 1142, order)
+
+		class NoMDFeedTypes(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1022
+				order[1] = 264
+				order[2] = 1021
+				order[3] = 0
+				fix.Group.__init__(self, 1141, 1022, order)
+
 class MarketDefinitionRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -15133,6 +23494,24 @@ class MarketDefinition(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BU") )
+
+	class NoTickRules(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1206
+			order[1] = 1207
+			order[2] = 1208
+			order[3] = 1209
+			order[4] = 0
+			fix.Group.__init__(self, 1205, 1206, order)
+
+	class NoLotTypeRules(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1093
+			order[1] = 1231
+			order[2] = 0
+			fix.Group.__init__(self, 1234, 1093, order)
 
 	class NoOrdTypeRules(fix.Group):
 		def __init__(self):
@@ -15159,6 +23538,24 @@ class MarketDefinitionUpdateReport(Message):
 	def __init__(self):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("BV") )
+
+	class NoTickRules(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1206
+			order[1] = 1207
+			order[2] = 1208
+			order[3] = 1209
+			order[4] = 0
+			fix.Group.__init__(self, 1205, 1206, order)
+
+	class NoLotTypeRules(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 1093
+			order[1] = 1231
+			order[2] = 0
+			fix.Group.__init__(self, 1234, 1093, order)
 
 	class NoOrdTypeRules(fix.Group):
 		def __init__(self):
@@ -15341,6 +23738,108 @@ class OrderMassActionReport(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
 
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
+
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
@@ -15372,6 +23871,108 @@ class OrderMassActionRequest(Message):
 				order[1] = 803
 				order[2] = 0
 				fix.Group.__init__(self, 802, 523, order)
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(6)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 1145
+			order[3] = 867
+			order[4] = 868
+			order[5] = 0
+			fix.Group.__init__(self, 864, 865, order)
+
+	class NoInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			fix.Group.__init__(self, 1018, 1019, order)
+
+		class NoInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				fix.Group.__init__(self, 1052, 1053, order)
+
+	class NoComplexEvents(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(9)
+			order[0] = 1484
+			order[1] = 1485
+			order[2] = 1486
+			order[3] = 1487
+			order[4] = 1488
+			order[5] = 1489
+			order[6] = 1490
+			order[7] = 1491
+			order[8] = 0
+			fix.Group.__init__(self, 1483, 1484, order)
+
+		class NoComplexEventDates(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(4)
+				order[0] = 1492
+				order[1] = 1493
+				order[2] = 1494
+				order[3] = 0
+				fix.Group.__init__(self, 1491, 1492, order)
+
+			class NoComplexEventTimes(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 1495
+					order[1] = 1496
+					order[2] = 0
+					fix.Group.__init__(self, 1494, 1495, order)
+
+	class NoUnderlyingSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			fix.Group.__init__(self, 457, 458, order)
+
+	class NoUnderlyingStips(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			fix.Group.__init__(self, 887, 888, order)
+
+	class NoUndlyInstrumentParties(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			fix.Group.__init__(self, 1058, 1059, order)
+
+		class NoUndlyInstrumentPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				fix.Group.__init__(self, 1062, 1063, order)
 
 	class NoTargetPartyIDs(fix.Group):
 		def __init__(self):
@@ -15515,6 +24116,74 @@ class StreamAssignmentRequest(Message):
 				order[84] = 0
 				fix.Group.__init__(self, 146, 55, order)
 
+			class NoSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					fix.Group.__init__(self, 454, 455, order)
+
+			class NoEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(6)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 1145
+					order[3] = 867
+					order[4] = 868
+					order[5] = 0
+					fix.Group.__init__(self, 864, 865, order)
+
+			class NoInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					fix.Group.__init__(self, 1018, 1019, order)
+
+				class NoInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						fix.Group.__init__(self, 1052, 1053, order)
+
+			class NoComplexEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(9)
+					order[0] = 1484
+					order[1] = 1485
+					order[2] = 1486
+					order[3] = 1487
+					order[4] = 1488
+					order[5] = 1489
+					order[6] = 1490
+					order[7] = 1491
+					order[8] = 0
+					fix.Group.__init__(self, 1483, 1484, order)
+
+				class NoComplexEventDates(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(4)
+						order[0] = 1492
+						order[1] = 1493
+						order[2] = 1494
+						order[3] = 0
+						fix.Group.__init__(self, 1491, 1492, order)
+
+					class NoComplexEventTimes(fix.Group):
+						def __init__(self):
+							order = fix.IntArray(3)
+							order[0] = 1495
+							order[1] = 1496
+							order[2] = 0
+							fix.Group.__init__(self, 1494, 1495, order)
+
 class StreamAssignmentReport(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -15639,6 +24308,74 @@ class StreamAssignmentReport(Message):
 				order[87] = 355
 				order[88] = 0
 				fix.Group.__init__(self, 146, 55, order)
+
+			class NoSecurityAltID(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					fix.Group.__init__(self, 454, 455, order)
+
+			class NoEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(6)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 1145
+					order[3] = 867
+					order[4] = 868
+					order[5] = 0
+					fix.Group.__init__(self, 864, 865, order)
+
+			class NoInstrumentParties(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					fix.Group.__init__(self, 1018, 1019, order)
+
+				class NoInstrumentPartySubIDs(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						fix.Group.__init__(self, 1052, 1053, order)
+
+			class NoComplexEvents(fix.Group):
+				def __init__(self):
+					order = fix.IntArray(9)
+					order[0] = 1484
+					order[1] = 1485
+					order[2] = 1486
+					order[3] = 1487
+					order[4] = 1488
+					order[5] = 1489
+					order[6] = 1490
+					order[7] = 1491
+					order[8] = 0
+					fix.Group.__init__(self, 1483, 1484, order)
+
+				class NoComplexEventDates(fix.Group):
+					def __init__(self):
+						order = fix.IntArray(4)
+						order[0] = 1492
+						order[1] = 1493
+						order[2] = 1494
+						order[3] = 0
+						fix.Group.__init__(self, 1491, 1492, order)
+
+					class NoComplexEventTimes(fix.Group):
+						def __init__(self):
+							order = fix.IntArray(3)
+							order[0] = 1495
+							order[1] = 1496
+							order[2] = 0
+							fix.Group.__init__(self, 1494, 1495, order)
 
 class StreamAssignmentReportACK(Message):
 	def __init__(self):

@@ -14,6 +14,50 @@ class IOI < Message
 		getHeader().setField( Quickfix::MsgType.new("6") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoPartyIDs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(5)
@@ -97,6 +141,48 @@ class IOI < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -163,6 +249,16 @@ class IOI < Message
 			super(555, 600, order)
 		end
 
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
+
 		class NoLegStipulations < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(3)
@@ -198,6 +294,50 @@ class Advertisement < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("7") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -250,6 +390,16 @@ class Advertisement < Message
 			order[44] = 0
 			super(555, 600, order)
 		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -313,6 +463,48 @@ class Advertisement < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 end
@@ -358,6 +550,50 @@ class ExecutionReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -419,6 +655,48 @@ class ExecutionReport < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -519,6 +797,16 @@ class ExecutionReport < Message
 			order[59] = 1075
 			order[60] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -662,6 +950,50 @@ class News < Message
 			order[52] = 0
 			super(146, 55, order)
 		end
+
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -713,6 +1045,16 @@ class News < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -777,6 +1119,48 @@ class News < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -866,6 +1250,50 @@ class Email < Message
 			order[52] = 0
 			super(146, 55, order)
 		end
+
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -930,6 +1358,48 @@ class Email < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -981,6 +1451,16 @@ class Email < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -1070,6 +1550,50 @@ class NewOrderSingle < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -1131,6 +1655,48 @@ class NewOrderSingle < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -1465,6 +2031,50 @@ class NewOrderList < Message
 			end
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -1527,6 +2137,48 @@ class NewOrderList < Message
 				order[56] = 0
 				super(711, 311, order)
 			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
+			end
 		end
 
 		class NoStipulations < Quickfix::Group
@@ -1576,6 +2228,50 @@ class OrderCancelRequest < Message
 				order[1] = 803
 				order[2] = 0
 				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -1641,6 +2337,48 @@ class OrderCancelRequest < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 end
@@ -1719,120 +2457,46 @@ class OrderCancelReplaceRequest < Message
 		end
 	end
 
-	class NoUnderlyings < Quickfix::Group
+	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix::IntArray.new(57)
-			order[0] = 311
-			order[1] = 312
-			order[2] = 309
-			order[3] = 305
-			order[4] = 462
-			order[5] = 463
-			order[6] = 310
-			order[7] = 763
-			order[8] = 313
-			order[9] = 542
-			order[10] = 315
-			order[11] = 241
-			order[12] = 242
-			order[13] = 243
-			order[14] = 244
-			order[15] = 245
-			order[16] = 246
-			order[17] = 256
-			order[18] = 595
-			order[19] = 592
-			order[20] = 593
-			order[21] = 594
-			order[22] = 247
-			order[23] = 316
-			order[24] = 941
-			order[25] = 317
-			order[26] = 436
-			order[27] = 998
-			order[28] = 1000
-			order[29] = 435
-			order[30] = 308
-			order[31] = 306
-			order[32] = 362
-			order[33] = 363
-			order[34] = 307
-			order[35] = 364
-			order[36] = 365
-			order[37] = 877
-			order[38] = 878
-			order[39] = 972
-			order[40] = 318
-			order[41] = 879
-			order[42] = 975
-			order[43] = 973
-			order[44] = 974
-			order[45] = 810
-			order[46] = 882
-			order[47] = 883
-			order[48] = 884
-			order[49] = 885
-			order[50] = 886
-			order[51] = 1044
-			order[52] = 1045
-			order[53] = 1046
-			order[54] = 1038
-			order[55] = 1039
-			order[56] = 0
-			super(711, 311, order)
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
 		end
 	end
 
-	class NoStrategyParameters < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(4)
-			order[0] = 958
-			order[1] = 959
-			order[2] = 960
-			order[3] = 0
-			super(957, 958, order)
-		end
-	end
-
-	class NoTrdRegTimestamps < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(7)
-			order[0] = 769
-			order[1] = 770
-			order[2] = 771
-			order[3] = 1033
-			order[4] = 1034
-			order[5] = 1035
-			order[6] = 0
-			super(768, 769, order)
-		end
-	end
-end
-
-class OrderStatusRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("H") )
-	end
-
-	class NoPartyIDs < Quickfix::Group
+	class NoEvents < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(5)
-			order[0] = 448
-			order[1] = 447
-			order[2] = 452
-			order[3] = 802
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
 			order[4] = 0
-			super(453, 448, order)
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
 		end
 
-		class NoPartySubIDs < Quickfix::Group
+		class NoInstrumentPartySubIDs < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(3)
-				order[0] = 523
-				order[1] = 803
+				order[0] = 1053
+				order[1] = 1054
 				order[2] = 0
-				super(802, 523, order)
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -1898,6 +2562,252 @@ class OrderStatusRequest < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+	end
+
+	class NoStrategyParameters < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 958
+			order[1] = 959
+			order[2] = 960
+			order[3] = 0
+			super(957, 958, order)
+		end
+	end
+
+	class NoTrdRegTimestamps < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(7)
+			order[0] = 769
+			order[1] = 770
+			order[2] = 771
+			order[3] = 1033
+			order[4] = 1034
+			order[5] = 1035
+			order[6] = 0
+			super(768, 769, order)
+		end
+	end
+end
+
+class OrderStatusRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("H") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(57)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 315
+			order[11] = 241
+			order[12] = 242
+			order[13] = 243
+			order[14] = 244
+			order[15] = 245
+			order[16] = 246
+			order[17] = 256
+			order[18] = 595
+			order[19] = 592
+			order[20] = 593
+			order[21] = 594
+			order[22] = 247
+			order[23] = 316
+			order[24] = 941
+			order[25] = 317
+			order[26] = 436
+			order[27] = 998
+			order[28] = 1000
+			order[29] = 435
+			order[30] = 308
+			order[31] = 306
+			order[32] = 362
+			order[33] = 363
+			order[34] = 307
+			order[35] = 364
+			order[36] = 365
+			order[37] = 877
+			order[38] = 878
+			order[39] = 972
+			order[40] = 318
+			order[41] = 879
+			order[42] = 975
+			order[43] = 973
+			order[44] = 974
+			order[45] = 810
+			order[46] = 882
+			order[47] = 883
+			order[48] = 884
+			order[49] = 885
+			order[50] = 886
+			order[51] = 1044
+			order[52] = 1045
+			order[53] = 1046
+			order[54] = 1038
+			order[55] = 1039
+			order[56] = 0
+			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 end
@@ -1963,6 +2873,60 @@ class AllocationInstruction < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -2025,6 +2989,48 @@ class AllocationInstruction < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -2076,6 +3082,16 @@ class AllocationInstruction < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -2209,6 +3225,39 @@ class AllocationInstruction < Message
 				order[0] = 577
 				order[1] = 0
 				super(576, 577, order)
+			end
+		end
+
+		class NoDlvyInst < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				super(85, 165, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
 			end
 		end
 	end
@@ -2363,6 +3412,50 @@ class DontKnowTrade < Message
 		getHeader().setField( Quickfix::MsgType.new("Q") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -2425,6 +3518,48 @@ class DontKnowTrade < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -2476,6 +3611,16 @@ class DontKnowTrade < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -2602,6 +3747,50 @@ class QuoteRequest < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -2663,6 +3852,48 @@ class QuoteRequest < Message
 				order[55] = 1039
 				order[56] = 0
 				super(711, 311, order)
+			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
 			end
 		end
 
@@ -2739,6 +3970,16 @@ class QuoteRequest < Message
 				order[57] = 654
 				order[58] = 0
 				super(555, 600, order)
+			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
 			end
 
 			class NoLegStipulations < Quickfix::Group
@@ -2844,6 +4085,50 @@ class Quote < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -2905,6 +4190,48 @@ class Quote < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -2985,6 +4312,16 @@ class Quote < Message
 			order[61] = 1068
 			order[62] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -3080,6 +4417,39 @@ class SettlementInstructions < Message
 				end
 			end
 		end
+
+		class NoDlvyInst < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				super(85, 165, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -3164,6 +4534,50 @@ class MarketDataRequest < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -3226,6 +4640,48 @@ class MarketDataRequest < Message
 				order[56] = 0
 				super(711, 311, order)
 			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
+			end
 		end
 
 		class NoLegs < Quickfix::Group
@@ -3278,6 +4734,16 @@ class MarketDataRequest < Message
 				order[44] = 0
 				super(555, 600, order)
 			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
+			end
 		end
 	end
 
@@ -3296,6 +4762,50 @@ class MarketDataSnapshotFullRefresh < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("W") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -3360,6 +4870,48 @@ class MarketDataSnapshotFullRefresh < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -3411,6 +4963,16 @@ class MarketDataSnapshotFullRefresh < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -3628,6 +5190,50 @@ class MarketDataIncrementalRefresh < Message
 			super(268, 279, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -3690,6 +5296,48 @@ class MarketDataIncrementalRefresh < Message
 				order[56] = 0
 				super(711, 311, order)
 			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
+			end
 		end
 
 		class NoLegs < Quickfix::Group
@@ -3741,6 +5389,16 @@ class MarketDataIncrementalRefresh < Message
 				order[43] = 1017
 				order[44] = 0
 				super(555, 600, order)
+			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
 			end
 		end
 
@@ -3892,6 +5550,50 @@ class QuoteCancel < Message
 			super(295, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -3954,6 +5656,48 @@ class QuoteCancel < Message
 				order[56] = 0
 				super(711, 311, order)
 			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
+			end
 		end
 
 		class NoLegs < Quickfix::Group
@@ -4006,6 +5750,16 @@ class QuoteCancel < Message
 				order[44] = 0
 				super(555, 600, order)
 			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
+			end
 		end
 	end
 end
@@ -4014,6 +5768,50 @@ class QuoteStatusRequest < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("a") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -4078,6 +5876,48 @@ class QuoteStatusRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -4129,6 +5969,16 @@ class QuoteStatusRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -4250,6 +6100,48 @@ class MassQuoteAcknowledgement < Message
 			super(296, 302, order)
 		end
 
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(79)
@@ -4335,6 +6227,50 @@ class MassQuoteAcknowledgement < Message
 				super(295, 299, order)
 			end
 
+			class NoSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					super(454, 455, order)
+				end
+			end
+
+			class NoEvents < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 867
+					order[3] = 868
+					order[4] = 0
+					super(864, 865, order)
+				end
+			end
+
+			class NoInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					super(1018, 1019, order)
+				end
+
+				class NoInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						super(1052, 1053, order)
+					end
+				end
+			end
+
 			class NoLegs < Quickfix::Group
 				def initialize
 					order = Quickfix::IntArray.new(45)
@@ -4385,6 +6321,16 @@ class MassQuoteAcknowledgement < Message
 					order[44] = 0
 					super(555, 600, order)
 				end
+
+				class NoLegSecurityAltID < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 605
+						order[1] = 606
+						order[2] = 0
+						super(604, 605, order)
+					end
+				end
 			end
 		end
 	end
@@ -4396,6 +6342,60 @@ class SecurityDefinitionRequest < Message
 		getHeader().setField( Quickfix::MsgType.new("c") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -4458,6 +6458,48 @@ class SecurityDefinitionRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -4509,6 +6551,16 @@ class SecurityDefinitionRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -4519,6 +6571,60 @@ class SecurityDefinition < Message
 		getHeader().setField( Quickfix::MsgType.new("d") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -4581,6 +6687,48 @@ class SecurityDefinition < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -4632,6 +6780,16 @@ class SecurityDefinition < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -4642,6 +6800,60 @@ class SecurityStatusRequest < Message
 		getHeader().setField( Quickfix::MsgType.new("e") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -4704,6 +6916,48 @@ class SecurityStatusRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -4755,6 +7009,16 @@ class SecurityStatusRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -4765,6 +7029,60 @@ class SecurityStatus < Message
 		getHeader().setField( Quickfix::MsgType.new("f") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -4827,6 +7145,48 @@ class SecurityStatus < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -4878,6 +7238,16 @@ class SecurityStatus < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -4893,6 +7263,50 @@ class TradingSessionStatus < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("h") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
 	end
 end
 
@@ -4992,6 +7406,48 @@ class MassQuote < Message
 			super(296, 302, order)
 		end
 
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(78)
@@ -5076,6 +7532,50 @@ class MassQuote < Message
 				super(295, 299, order)
 			end
 
+			class NoSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 455
+					order[1] = 456
+					order[2] = 0
+					super(454, 455, order)
+				end
+			end
+
+			class NoEvents < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 865
+					order[1] = 866
+					order[2] = 867
+					order[3] = 868
+					order[4] = 0
+					super(864, 865, order)
+				end
+			end
+
+			class NoInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1019
+					order[1] = 1050
+					order[2] = 1051
+					order[3] = 1052
+					order[4] = 0
+					super(1018, 1019, order)
+				end
+
+				class NoInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1053
+						order[1] = 1054
+						order[2] = 0
+						super(1052, 1053, order)
+					end
+				end
+			end
+
 			class NoLegs < Quickfix::Group
 				def initialize
 					order = Quickfix::IntArray.new(45)
@@ -5125,6 +7625,16 @@ class MassQuote < Message
 					order[43] = 1017
 					order[44] = 0
 					super(555, 600, order)
+				end
+
+				class NoLegSecurityAltID < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 605
+						order[1] = 606
+						order[2] = 0
+						super(604, 605, order)
+					end
 				end
 			end
 		end
@@ -5278,6 +7788,50 @@ class ListStrikePrice < Message
 			order[52] = 0
 			super(428, 55, order)
 		end
+
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -5350,6 +7904,48 @@ class ListStrikePrice < Message
 			order[64] = 355
 			order[65] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 end
@@ -5493,6 +8089,92 @@ class OrderMassCancelRequest < Message
 			end
 		end
 	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
+			end
+		end
+	end
 end
 
 class OrderMassCancelReport < Message
@@ -5530,6 +8212,92 @@ class OrderMassCancelReport < Message
 				order[1] = 803
 				order[2] = 0
 				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
 			end
 		end
 	end
@@ -5671,6 +8439,50 @@ class NewOrderCross < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -5733,6 +8545,48 @@ class NewOrderCross < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -5784,6 +8638,16 @@ class NewOrderCross < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -5955,6 +8819,50 @@ class CrossOrderCancelReplaceRequest < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -6017,6 +8925,48 @@ class CrossOrderCancelReplaceRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -6068,6 +9018,16 @@ class CrossOrderCancelReplaceRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -6179,6 +9139,50 @@ class CrossOrderCancelRequest < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -6241,6 +9245,48 @@ class CrossOrderCancelRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -6292,6 +9338,16 @@ class CrossOrderCancelRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -6328,6 +9384,60 @@ class SecurityListRequest < Message
 		getHeader().setField( Quickfix::MsgType.new("x") )
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -6390,6 +9500,48 @@ class SecurityListRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -6441,6 +9593,16 @@ class SecurityListRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -6547,6 +9709,60 @@ class SecurityList < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
+		class NoInstrAttrib < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				super(870, 871, order)
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -6608,6 +9824,48 @@ class SecurityList < Message
 				order[55] = 1039
 				order[56] = 0
 				super(711, 311, order)
+			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
 			end
 		end
 
@@ -6680,6 +9938,16 @@ class SecurityList < Message
 				super(555, 600, order)
 			end
 
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
+			end
+
 			class NoLegStipulations < Quickfix::Group
 				def initialize
 					order = Quickfix::IntArray.new(3)
@@ -6698,12 +9966,96 @@ class DerivativeSecurityListRequest < Message
 		super
 		getHeader().setField( Quickfix::MsgType.new("z") )
 	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
+			end
+		end
+	end
 end
 
 class DerivativeSecurityList < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("AA") )
+	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
+			end
+		end
 	end
 
 	class NoRelatedSym < Quickfix::Group
@@ -6775,6 +10127,60 @@ class DerivativeSecurityList < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
+		class NoInstrAttrib < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				super(870, 871, order)
+			end
+		end
+
 		class NoLegs < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(45)
@@ -6824,6 +10230,16 @@ class DerivativeSecurityList < Message
 				order[43] = 1017
 				order[44] = 0
 				super(555, 600, order)
+			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
 			end
 		end
 	end
@@ -6903,6 +10319,50 @@ class NewOrderMultileg < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -6964,6 +10424,48 @@ class NewOrderMultileg < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -7028,6 +10530,16 @@ class NewOrderMultileg < Message
 			order[55] = 685
 			order[56] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -7185,6 +10697,50 @@ class MultilegOrderCancelReplace < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -7246,6 +10802,48 @@ class MultilegOrderCancelReplace < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -7310,6 +10908,16 @@ class MultilegOrderCancelReplace < Message
 			order[55] = 685
 			order[56] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -7421,6 +11029,60 @@ class TradeCaptureReportRequest < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -7483,6 +11145,48 @@ class TradeCaptureReportRequest < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -7535,6 +11239,16 @@ class TradeCaptureReportRequest < Message
 			order[44] = 0
 			super(555, 600, order)
 		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
 	end
 
 	class NoDates < Quickfix::Group
@@ -7573,6 +11287,50 @@ class TradeCaptureReport < Message
 				order[1] = 1122
 				order[2] = 0
 				super(1120, 1121, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -7638,6 +11396,48 @@ class TradeCaptureReport < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -7717,6 +11517,16 @@ class TradeCaptureReport < Message
 			order[59] = 1075
 			order[60] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -7989,6 +11799,92 @@ class OrderMassStatusRequest < Message
 			end
 		end
 	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
+			end
+		end
+	end
 end
 
 class QuoteRequestReject < Message
@@ -8112,6 +12008,50 @@ class QuoteRequestReject < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -8173,6 +12113,48 @@ class QuoteRequestReject < Message
 				order[55] = 1039
 				order[56] = 0
 				super(711, 311, order)
+			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
 			end
 		end
 
@@ -8249,6 +12231,16 @@ class QuoteRequestReject < Message
 				order[57] = 654
 				order[58] = 0
 				super(555, 600, order)
+			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
 			end
 
 			class NoLegStipulations < Quickfix::Group
@@ -8389,6 +12381,50 @@ class RFQRequest < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
 		class NoUnderlyings < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(57)
@@ -8451,6 +12487,48 @@ class RFQRequest < Message
 				order[56] = 0
 				super(711, 311, order)
 			end
+
+			class NoUnderlyingSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 458
+					order[1] = 459
+					order[2] = 0
+					super(457, 458, order)
+				end
+			end
+
+			class NoUnderlyingStips < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 888
+					order[1] = 889
+					order[2] = 0
+					super(887, 888, order)
+				end
+			end
+
+			class NoUndlyInstrumentParties < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 1059
+					order[1] = 1060
+					order[2] = 1061
+					order[3] = 1062
+					order[4] = 0
+					super(1058, 1059, order)
+				end
+
+				class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 1063
+						order[1] = 1064
+						order[2] = 0
+						super(1062, 1063, order)
+					end
+				end
+			end
 		end
 
 		class NoLegs < Quickfix::Group
@@ -8503,6 +12581,16 @@ class RFQRequest < Message
 				order[44] = 0
 				super(555, 600, order)
 			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
+			end
 		end
 	end
 end
@@ -8531,6 +12619,50 @@ class QuoteStatusReport < Message
 				order[1] = 803
 				order[2] = 0
 				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -8596,6 +12728,48 @@ class QuoteStatusReport < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -8665,6 +12839,16 @@ class QuoteStatusReport < Message
 			order[50] = 539
 			order[51] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -8747,6 +12931,50 @@ class QuoteResponse < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -8808,6 +13036,48 @@ class QuoteResponse < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -8888,6 +13158,16 @@ class QuoteResponse < Message
 			order[61] = 1068
 			order[62] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -9005,6 +13285,60 @@ class Confirmation < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -9067,118 +13401,46 @@ class Confirmation < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
-	end
 
-	class NoLegs < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(45)
-			order[0] = 600
-			order[1] = 601
-			order[2] = 602
-			order[3] = 603
-			order[4] = 607
-			order[5] = 608
-			order[6] = 609
-			order[7] = 764
-			order[8] = 610
-			order[9] = 611
-			order[10] = 248
-			order[11] = 249
-			order[12] = 250
-			order[13] = 251
-			order[14] = 252
-			order[15] = 253
-			order[16] = 257
-			order[17] = 599
-			order[18] = 596
-			order[19] = 597
-			order[20] = 598
-			order[21] = 254
-			order[22] = 612
-			order[23] = 942
-			order[24] = 613
-			order[25] = 614
-			order[26] = 999
-			order[27] = 1001
-			order[28] = 615
-			order[29] = 616
-			order[30] = 617
-			order[31] = 618
-			order[32] = 619
-			order[33] = 620
-			order[34] = 621
-			order[35] = 622
-			order[36] = 623
-			order[37] = 624
-			order[38] = 556
-			order[39] = 740
-			order[40] = 739
-			order[41] = 955
-			order[42] = 956
-			order[43] = 1017
-			order[44] = 0
-			super(555, 600, order)
-		end
-	end
-
-	class NoCapacities < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(4)
-			order[0] = 528
-			order[1] = 529
-			order[2] = 863
-			order[3] = 0
-			super(862, 528, order)
-		end
-	end
-
-	class NoStipulations < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(3)
-			order[0] = 233
-			order[1] = 234
-			order[2] = 0
-			super(232, 233, order)
-		end
-	end
-
-	class NoMiscFees < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(5)
-			order[0] = 137
-			order[1] = 138
-			order[2] = 139
-			order[3] = 891
-			order[4] = 0
-			super(136, 137, order)
-		end
-	end
-end
-
-class PositionMaintenanceRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("AL") )
-	end
-
-	class NoPartyIDs < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(5)
-			order[0] = 448
-			order[1] = 447
-			order[2] = 452
-			order[3] = 802
-			order[4] = 0
-			super(453, 448, order)
-		end
-
-		class NoPartySubIDs < Quickfix::Group
+		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(3)
-				order[0] = 523
-				order[1] = 803
+				order[0] = 458
+				order[1] = 459
 				order[2] = 0
-				super(802, 523, order)
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
 			end
 		end
 	end
@@ -9233,6 +13495,217 @@ class PositionMaintenanceRequest < Message
 			order[44] = 0
 			super(555, 600, order)
 		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
+	end
+
+	class NoCapacities < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 528
+			order[1] = 529
+			order[2] = 863
+			order[3] = 0
+			super(862, 528, order)
+		end
+	end
+
+	class NoDlvyInst < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			super(85, 165, order)
+		end
+
+		class NoSettlPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				super(781, 782, order)
+			end
+
+			class NoSettlPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					super(801, 785, order)
+				end
+			end
+		end
+	end
+
+	class NoStipulations < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 233
+			order[1] = 234
+			order[2] = 0
+			super(232, 233, order)
+		end
+	end
+
+	class NoMiscFees < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 137
+			order[1] = 138
+			order[2] = 139
+			order[3] = 891
+			order[4] = 0
+			super(136, 137, order)
+		end
+	end
+end
+
+class PositionMaintenanceRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AL") )
+	end
+
+	class NoPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			super(453, 448, order)
+		end
+
+		class NoPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(45)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 999
+			order[27] = 1001
+			order[28] = 615
+			order[29] = 616
+			order[30] = 617
+			order[31] = 618
+			order[32] = 619
+			order[33] = 620
+			order[34] = 621
+			order[35] = 622
+			order[36] = 623
+			order[37] = 624
+			order[38] = 556
+			order[39] = 740
+			order[40] = 739
+			order[41] = 955
+			order[42] = 956
+			order[43] = 1017
+			order[44] = 0
+			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -9296,6 +13769,48 @@ class PositionMaintenanceRequest < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -9385,6 +13900,50 @@ class PositionMaintenanceReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -9434,6 +13993,16 @@ class PositionMaintenanceReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -9498,6 +14067,48 @@ class PositionMaintenanceReport < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -9587,6 +14198,50 @@ class RequestForPositions < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -9636,6 +14291,16 @@ class RequestForPositions < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -9700,6 +14365,48 @@ class RequestForPositions < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -9742,6 +14449,50 @@ class RequestForPositionsAck < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -9791,6 +14542,16 @@ class RequestForPositionsAck < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -9856,6 +14617,48 @@ class RequestForPositionsAck < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 end
 
@@ -9883,6 +14686,50 @@ class PositionReport < Message
 				order[1] = 803
 				order[2] = 0
 				super(802, 523, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -9936,6 +14783,16 @@ class PositionReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -10006,6 +14863,48 @@ class PositionReport < Message
 			super(711, 311, order)
 		end
 
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+
 		class NoUnderlyingAmounts < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(5)
@@ -10073,147 +14972,46 @@ class TradeCaptureReportRequestAck < Message
 		getHeader().setField( Quickfix::MsgType.new("AQ") )
 	end
 
-	class NoUnderlyings < Quickfix::Group
+	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix::IntArray.new(57)
-			order[0] = 311
-			order[1] = 312
-			order[2] = 309
-			order[3] = 305
-			order[4] = 462
-			order[5] = 463
-			order[6] = 310
-			order[7] = 763
-			order[8] = 313
-			order[9] = 542
-			order[10] = 315
-			order[11] = 241
-			order[12] = 242
-			order[13] = 243
-			order[14] = 244
-			order[15] = 245
-			order[16] = 246
-			order[17] = 256
-			order[18] = 595
-			order[19] = 592
-			order[20] = 593
-			order[21] = 594
-			order[22] = 247
-			order[23] = 316
-			order[24] = 941
-			order[25] = 317
-			order[26] = 436
-			order[27] = 998
-			order[28] = 1000
-			order[29] = 435
-			order[30] = 308
-			order[31] = 306
-			order[32] = 362
-			order[33] = 363
-			order[34] = 307
-			order[35] = 364
-			order[36] = 365
-			order[37] = 877
-			order[38] = 878
-			order[39] = 972
-			order[40] = 318
-			order[41] = 879
-			order[42] = 975
-			order[43] = 973
-			order[44] = 974
-			order[45] = 810
-			order[46] = 882
-			order[47] = 883
-			order[48] = 884
-			order[49] = 885
-			order[50] = 886
-			order[51] = 1044
-			order[52] = 1045
-			order[53] = 1046
-			order[54] = 1038
-			order[55] = 1039
-			order[56] = 0
-			super(711, 311, order)
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
 		end
 	end
 
-	class NoLegs < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(45)
-			order[0] = 600
-			order[1] = 601
-			order[2] = 602
-			order[3] = 603
-			order[4] = 607
-			order[5] = 608
-			order[6] = 609
-			order[7] = 764
-			order[8] = 610
-			order[9] = 611
-			order[10] = 248
-			order[11] = 249
-			order[12] = 250
-			order[13] = 251
-			order[14] = 252
-			order[15] = 253
-			order[16] = 257
-			order[17] = 599
-			order[18] = 596
-			order[19] = 597
-			order[20] = 598
-			order[21] = 254
-			order[22] = 612
-			order[23] = 942
-			order[24] = 613
-			order[25] = 614
-			order[26] = 999
-			order[27] = 1001
-			order[28] = 615
-			order[29] = 616
-			order[30] = 617
-			order[31] = 618
-			order[32] = 619
-			order[33] = 620
-			order[34] = 621
-			order[35] = 622
-			order[36] = 623
-			order[37] = 624
-			order[38] = 556
-			order[39] = 740
-			order[40] = 739
-			order[41] = 955
-			order[42] = 956
-			order[43] = 1017
-			order[44] = 0
-			super(555, 600, order)
-		end
-	end
-end
-
-class TradeCaptureReportAck < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("AR") )
-	end
-
-	class NoRootPartyIDs < Quickfix::Group
+	class NoEvents < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(5)
-			order[0] = 1117
-			order[1] = 1118
-			order[2] = 1119
-			order[3] = 1120
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
 			order[4] = 0
-			super(1116, 1117, order)
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
 		end
 
-		class NoRootPartySubIDs < Quickfix::Group
+		class NoInstrumentPartySubIDs < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(3)
-				order[0] = 1121
-				order[1] = 1122
+				order[0] = 1053
+				order[1] = 1054
 				order[2] = 0
-				super(1120, 1121, order)
+				super(1052, 1053, order)
 			end
 		end
 	end
@@ -10279,6 +15077,289 @@ class TradeCaptureReportAck < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+	end
+
+	class NoLegs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(45)
+			order[0] = 600
+			order[1] = 601
+			order[2] = 602
+			order[3] = 603
+			order[4] = 607
+			order[5] = 608
+			order[6] = 609
+			order[7] = 764
+			order[8] = 610
+			order[9] = 611
+			order[10] = 248
+			order[11] = 249
+			order[12] = 250
+			order[13] = 251
+			order[14] = 252
+			order[15] = 253
+			order[16] = 257
+			order[17] = 599
+			order[18] = 596
+			order[19] = 597
+			order[20] = 598
+			order[21] = 254
+			order[22] = 612
+			order[23] = 942
+			order[24] = 613
+			order[25] = 614
+			order[26] = 999
+			order[27] = 1001
+			order[28] = 615
+			order[29] = 616
+			order[30] = 617
+			order[31] = 618
+			order[32] = 619
+			order[33] = 620
+			order[34] = 621
+			order[35] = 622
+			order[36] = 623
+			order[37] = 624
+			order[38] = 556
+			order[39] = 740
+			order[40] = 739
+			order[41] = 955
+			order[42] = 956
+			order[43] = 1017
+			order[44] = 0
+			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
+		end
+	end
+end
+
+class TradeCaptureReportAck < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("AR") )
+	end
+
+	class NoRootPartyIDs < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1117
+			order[1] = 1118
+			order[2] = 1119
+			order[3] = 1120
+			order[4] = 0
+			super(1116, 1117, order)
+		end
+
+		class NoRootPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1121
+				order[1] = 1122
+				order[2] = 0
+				super(1120, 1121, order)
+			end
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyings < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(57)
+			order[0] = 311
+			order[1] = 312
+			order[2] = 309
+			order[3] = 305
+			order[4] = 462
+			order[5] = 463
+			order[6] = 310
+			order[7] = 763
+			order[8] = 313
+			order[9] = 542
+			order[10] = 315
+			order[11] = 241
+			order[12] = 242
+			order[13] = 243
+			order[14] = 244
+			order[15] = 245
+			order[16] = 246
+			order[17] = 256
+			order[18] = 595
+			order[19] = 592
+			order[20] = 593
+			order[21] = 594
+			order[22] = 247
+			order[23] = 316
+			order[24] = 941
+			order[25] = 317
+			order[26] = 436
+			order[27] = 998
+			order[28] = 1000
+			order[29] = 435
+			order[30] = 308
+			order[31] = 306
+			order[32] = 362
+			order[33] = 363
+			order[34] = 307
+			order[35] = 364
+			order[36] = 365
+			order[37] = 877
+			order[38] = 878
+			order[39] = 972
+			order[40] = 318
+			order[41] = 879
+			order[42] = 975
+			order[43] = 973
+			order[44] = 974
+			order[45] = 810
+			order[46] = 882
+			order[47] = 883
+			order[48] = 884
+			order[49] = 885
+			order[50] = 886
+			order[51] = 1044
+			order[52] = 1045
+			order[53] = 1046
+			order[54] = 1038
+			order[55] = 1039
+			order[56] = 0
+			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -10347,6 +15428,16 @@ class TradeCaptureReportAck < Message
 			order[59] = 1075
 			order[60] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 
 		class NoLegStipulations < Quickfix::Group
@@ -10659,6 +15750,60 @@ class AllocationReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -10721,6 +15866,48 @@ class AllocationReport < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -10772,6 +15959,16 @@ class AllocationReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -10905,6 +16102,39 @@ class AllocationReport < Message
 				order[0] = 577
 				order[1] = 0
 				super(576, 577, order)
+			end
+		end
+
+		class NoDlvyInst < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				super(85, 165, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
 			end
 		end
 	end
@@ -11047,6 +16277,50 @@ class AssignmentReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -11096,6 +16370,16 @@ class AssignmentReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -11160,6 +16444,48 @@ class AssignmentReport < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -11258,6 +16584,50 @@ class CollateralRequest < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -11307,6 +16677,16 @@ class CollateralRequest < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -11372,6 +16752,48 @@ class CollateralRequest < Message
 			order[56] = 944
 			order[57] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -11459,6 +16881,50 @@ class CollateralAssignment < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -11508,6 +16974,16 @@ class CollateralAssignment < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -11574,6 +17050,48 @@ class CollateralAssignment < Message
 			order[57] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoTrdRegTimestamps < Quickfix::Group
@@ -11609,6 +17127,39 @@ class CollateralAssignment < Message
 			order[1] = 234
 			order[2] = 0
 			super(232, 233, order)
+		end
+	end
+
+	class NoDlvyInst < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			super(85, 165, order)
+		end
+
+		class NoSettlPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				super(781, 782, order)
+			end
+
+			class NoSettlPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					super(801, 785, order)
+				end
+			end
 		end
 	end
 end
@@ -11660,6 +17211,50 @@ class CollateralResponse < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -11709,6 +17304,16 @@ class CollateralResponse < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -11774,6 +17379,48 @@ class CollateralResponse < Message
 			order[56] = 944
 			order[57] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 
@@ -11861,6 +17508,50 @@ class CollateralReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -11910,6 +17601,16 @@ class CollateralReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -11975,6 +17676,48 @@ class CollateralReport < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoTrdRegTimestamps < Quickfix::Group
@@ -12010,6 +17753,39 @@ class CollateralReport < Message
 			order[1] = 234
 			order[2] = 0
 			super(232, 233, order)
+		end
+	end
+
+	class NoDlvyInst < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			super(85, 165, order)
+		end
+
+		class NoSettlPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				super(781, 782, order)
+			end
+
+			class NoSettlPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					super(801, 785, order)
+				end
+			end
 		end
 	end
 end
@@ -12070,6 +17846,50 @@ class CollateralInquiry < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -12119,6 +17939,16 @@ class CollateralInquiry < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -12184,6 +18014,48 @@ class CollateralInquiry < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoTrdRegTimestamps < Quickfix::Group
@@ -12207,6 +18079,39 @@ class CollateralInquiry < Message
 			order[1] = 234
 			order[2] = 0
 			super(232, 233, order)
+		end
+	end
+
+	class NoDlvyInst < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(4)
+			order[0] = 165
+			order[1] = 787
+			order[2] = 781
+			order[3] = 0
+			super(85, 165, order)
+		end
+
+		class NoSettlPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 782
+				order[1] = 783
+				order[2] = 784
+				order[3] = 801
+				order[4] = 0
+				super(781, 782, order)
+			end
+
+			class NoSettlPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 785
+					order[1] = 786
+					order[2] = 0
+					super(801, 785, order)
+				end
+			end
 		end
 	end
 end
@@ -12321,6 +18226,50 @@ class CollateralInquiryAck < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoLegs < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(45)
@@ -12370,6 +18319,16 @@ class CollateralInquiryAck < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -12434,6 +18393,48 @@ class CollateralInquiryAck < Message
 			order[55] = 1039
 			order[56] = 0
 			super(711, 311, order)
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
 		end
 	end
 end
@@ -12522,6 +18523,50 @@ class ContraryIntentionReport < Message
 		end
 	end
 
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
 	class NoUnderlyings < Quickfix::Group
 		def initialize
 			order = Quickfix::IntArray.new(57)
@@ -12584,6 +18629,48 @@ class ContraryIntentionReport < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 end
 
@@ -12591,6 +18678,92 @@ class SecurityDefinitionUpdateReport < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("BP") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoUnderlyingSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 458
+			order[1] = 459
+			order[2] = 0
+			super(457, 458, order)
+		end
+	end
+
+	class NoUnderlyingStips < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 888
+			order[1] = 889
+			order[2] = 0
+			super(887, 888, order)
+		end
+	end
+
+	class NoUndlyInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1059
+			order[1] = 1060
+			order[2] = 1061
+			order[3] = 1062
+			order[4] = 0
+			super(1058, 1059, order)
+		end
+
+		class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1063
+				order[1] = 1064
+				order[2] = 0
+				super(1062, 1063, order)
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -12642,6 +18815,16 @@ class SecurityDefinitionUpdateReport < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end
@@ -12803,6 +18986,102 @@ class SecurityListUpdateReport < Message
 			super(146, 55, order)
 		end
 
+		class NoSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 455
+				order[1] = 456
+				order[2] = 0
+				super(454, 455, order)
+			end
+		end
+
+		class NoEvents < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 865
+				order[1] = 866
+				order[2] = 867
+				order[3] = 868
+				order[4] = 0
+				super(864, 865, order)
+			end
+		end
+
+		class NoInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1019
+				order[1] = 1050
+				order[2] = 1051
+				order[3] = 1052
+				order[4] = 0
+				super(1018, 1019, order)
+			end
+
+			class NoInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1053
+					order[1] = 1054
+					order[2] = 0
+					super(1052, 1053, order)
+				end
+			end
+		end
+
+		class NoInstrAttrib < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 871
+				order[1] = 872
+				order[2] = 0
+				super(870, 871, order)
+			end
+		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
+
 		class NoStipulations < Quickfix::Group
 			def initialize
 				order = Quickfix::IntArray.new(3)
@@ -12870,6 +19149,16 @@ class SecurityListUpdateReport < Message
 				order[51] = 680
 				order[52] = 0
 				super(555, 600, order)
+			end
+
+			class NoLegSecurityAltID < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 605
+					order[1] = 606
+					order[2] = 0
+					super(604, 605, order)
+				end
 			end
 
 			class NoLegStipulations < Quickfix::Group
@@ -12948,6 +19237,50 @@ class AdjustedPositionReport < Message
 			end
 		end
 	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
 end
 
 class AllocationInstructionAlert < Message
@@ -13008,6 +19341,60 @@ class AllocationInstructionAlert < Message
 			order[7] = 1041
 			order[8] = 0
 			super(124, 32, order)
+		end
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
+	end
+
+	class NoInstrAttrib < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 871
+			order[1] = 872
+			order[2] = 0
+			super(870, 871, order)
 		end
 	end
 
@@ -13073,6 +19460,48 @@ class AllocationInstructionAlert < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -13124,6 +19553,16 @@ class AllocationInstructionAlert < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 
@@ -13259,6 +19698,39 @@ class AllocationInstructionAlert < Message
 				super(576, 577, order)
 			end
 		end
+
+		class NoDlvyInst < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(4)
+				order[0] = 165
+				order[1] = 787
+				order[2] = 781
+				order[3] = 0
+				super(85, 165, order)
+			end
+
+			class NoSettlPartyIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(5)
+					order[0] = 782
+					order[1] = 783
+					order[2] = 784
+					order[3] = 801
+					order[4] = 0
+					super(781, 782, order)
+				end
+
+				class NoSettlPartySubIDs < Quickfix::Group
+					def initialize
+						order = Quickfix::IntArray.new(3)
+						order[0] = 785
+						order[1] = 786
+						order[2] = 0
+						super(801, 785, order)
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -13266,6 +19738,50 @@ class ExecutionAcknowledgement < Message
 	def initialize
 		super
 		getHeader().setField( Quickfix::MsgType.new("BN") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoEvents < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 865
+			order[1] = 866
+			order[2] = 867
+			order[3] = 868
+			order[4] = 0
+			super(864, 865, order)
+		end
+	end
+
+	class NoInstrumentParties < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(5)
+			order[0] = 1019
+			order[1] = 1050
+			order[2] = 1051
+			order[3] = 1052
+			order[4] = 0
+			super(1018, 1019, order)
+		end
+
+		class NoInstrumentPartySubIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 1053
+				order[1] = 1054
+				order[2] = 0
+				super(1052, 1053, order)
+			end
+		end
 	end
 
 	class NoUnderlyings < Quickfix::Group
@@ -13330,6 +19846,48 @@ class ExecutionAcknowledgement < Message
 			order[56] = 0
 			super(711, 311, order)
 		end
+
+		class NoUnderlyingSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 458
+				order[1] = 459
+				order[2] = 0
+				super(457, 458, order)
+			end
+		end
+
+		class NoUnderlyingStips < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 888
+				order[1] = 889
+				order[2] = 0
+				super(887, 888, order)
+			end
+		end
+
+		class NoUndlyInstrumentParties < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 1059
+				order[1] = 1060
+				order[2] = 1061
+				order[3] = 1062
+				order[4] = 0
+				super(1058, 1059, order)
+			end
+
+			class NoUndlyInstrumentPartySubIDs < Quickfix::Group
+				def initialize
+					order = Quickfix::IntArray.new(3)
+					order[0] = 1063
+					order[1] = 1064
+					order[2] = 0
+					super(1062, 1063, order)
+				end
+			end
+		end
 	end
 
 	class NoLegs < Quickfix::Group
@@ -13381,6 +19939,16 @@ class ExecutionAcknowledgement < Message
 			order[43] = 1017
 			order[44] = 0
 			super(555, 600, order)
+		end
+
+		class NoLegSecurityAltID < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(3)
+				order[0] = 605
+				order[1] = 606
+				order[2] = 0
+				super(604, 605, order)
+			end
 		end
 	end
 end

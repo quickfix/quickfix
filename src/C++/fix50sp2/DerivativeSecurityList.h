@@ -26,6 +26,14 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
     FIELD_SET(*this, FIX::UnderlyingSecurityID);
     FIELD_SET(*this, FIX::UnderlyingSecurityIDSource);
+    FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
+    class NoUnderlyingSecurityAltID: public FIX::Group
+    {
+    public:
+    NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
+      FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
+    };
     FIELD_SET(*this, FIX::UnderlyingProduct);
     FIELD_SET(*this, FIX::UnderlyingCFICode);
     FIELD_SET(*this, FIX::UnderlyingSecurityType);
@@ -77,10 +85,35 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::UnderlyingStartValue);
     FIELD_SET(*this, FIX::UnderlyingCurrentValue);
     FIELD_SET(*this, FIX::UnderlyingEndValue);
+    FIELD_SET(*this, FIX::NoUnderlyingStips);
+    class NoUnderlyingStips: public FIX::Group
+    {
+    public:
+    NoUnderlyingStips() : FIX::Group(887,888,FIX::message_order(888,889,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingStipType);
+      FIELD_SET(*this, FIX::UnderlyingStipValue);
+    };
     FIELD_SET(*this, FIX::UnderlyingAdjustedQuantity);
     FIELD_SET(*this, FIX::UnderlyingFXRate);
     FIELD_SET(*this, FIX::UnderlyingFXRateCalc);
     FIELD_SET(*this, FIX::UnderlyingCapValue);
+    FIELD_SET(*this, FIX::NoUndlyInstrumentParties);
+    class NoUndlyInstrumentParties: public FIX::Group
+    {
+    public:
+    NoUndlyInstrumentParties() : FIX::Group(1058,1059,FIX::message_order(1059,1060,1061,1062,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyID);
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyIDSource);
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyRole);
+      FIELD_SET(*this, FIX::NoUndlyInstrumentPartySubIDs);
+      class NoUndlyInstrumentPartySubIDs: public FIX::Group
+      {
+      public:
+      NoUndlyInstrumentPartySubIDs() : FIX::Group(1062,1063,FIX::message_order(1063,1064,0)) {}
+        FIELD_SET(*this, FIX::UnderlyingInstrumentPartySubID);
+        FIELD_SET(*this, FIX::UnderlyingInstrumentPartySubIDType);
+      };
+    };
     FIELD_SET(*this, FIX::UnderlyingSettlMethod);
     FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingContractMultiplierUnit);
@@ -91,6 +124,226 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::UnderlyingOriginalNotionalPercentageOutstanding);
     FIELD_SET(*this, FIX::UnderlyingAttachmentPoint);
     FIELD_SET(*this, FIX::UnderlyingDetachmentPoint);
+    FIELD_SET(*this, FIX::DerivativeSymbol);
+    FIELD_SET(*this, FIX::DerivativeSymbolSfx);
+    FIELD_SET(*this, FIX::DerivativeSecurityID);
+    FIELD_SET(*this, FIX::DerivativeSecurityIDSource);
+    FIELD_SET(*this, FIX::NoDerivativeSecurityAltID);
+    class NoDerivativeSecurityAltID: public FIX::Group
+    {
+    public:
+    NoDerivativeSecurityAltID() : FIX::Group(1218,1219,FIX::message_order(1219,1220,0)) {}
+      FIELD_SET(*this, FIX::DerivativeSecurityAltID);
+      FIELD_SET(*this, FIX::DerivativeSecurityAltIDSource);
+    };
+    FIELD_SET(*this, FIX::DerivativeProduct);
+    FIELD_SET(*this, FIX::DerivativeProductComplex);
+    FIELD_SET(*this, FIX::DerivFlexProductEligibilityIndicator);
+    FIELD_SET(*this, FIX::DerivativeSecurityGroup);
+    FIELD_SET(*this, FIX::DerivativeCFICode);
+    FIELD_SET(*this, FIX::DerivativeSecurityType);
+    FIELD_SET(*this, FIX::DerivativeSecuritySubType);
+    FIELD_SET(*this, FIX::DerivativeMaturityMonthYear);
+    FIELD_SET(*this, FIX::DerivativeMaturityDate);
+    FIELD_SET(*this, FIX::DerivativeMaturityTime);
+    FIELD_SET(*this, FIX::DerivativeSettleOnOpenFlag);
+    FIELD_SET(*this, FIX::DerivativeInstrmtAssignmentMethod);
+    FIELD_SET(*this, FIX::DerivativeSecurityStatus);
+    FIELD_SET(*this, FIX::DerivativeIssueDate);
+    FIELD_SET(*this, FIX::DerivativeInstrRegistry);
+    FIELD_SET(*this, FIX::DerivativeCountryOfIssue);
+    FIELD_SET(*this, FIX::DerivativeStateOrProvinceOfIssue);
+    FIELD_SET(*this, FIX::DerivativeLocaleOfIssue);
+    FIELD_SET(*this, FIX::DerivativeStrikePrice);
+    FIELD_SET(*this, FIX::DerivativeStrikeCurrency);
+    FIELD_SET(*this, FIX::DerivativeStrikeMultiplier);
+    FIELD_SET(*this, FIX::DerivativeStrikeValue);
+    FIELD_SET(*this, FIX::DerivativeOptAttribute);
+    FIELD_SET(*this, FIX::DerivativeContractMultiplier);
+    FIELD_SET(*this, FIX::DerivativeMinPriceIncrement);
+    FIELD_SET(*this, FIX::DerivativeMinPriceIncrementAmount);
+    FIELD_SET(*this, FIX::DerivativeUnitOfMeasure);
+    FIELD_SET(*this, FIX::DerivativeUnitOfMeasureQty);
+    FIELD_SET(*this, FIX::DerivativePriceUnitOfMeasure);
+    FIELD_SET(*this, FIX::DerivativePriceUnitOfMeasureQty);
+    FIELD_SET(*this, FIX::DerivativeSettlMethod);
+    FIELD_SET(*this, FIX::DerivativePriceQuoteMethod);
+    FIELD_SET(*this, FIX::DerivativeValuationMethod);
+    FIELD_SET(*this, FIX::DerivativeListMethod);
+    FIELD_SET(*this, FIX::DerivativeCapPrice);
+    FIELD_SET(*this, FIX::DerivativeFloorPrice);
+    FIELD_SET(*this, FIX::DerivativePutOrCall);
+    FIELD_SET(*this, FIX::DerivativeExerciseStyle);
+    FIELD_SET(*this, FIX::DerivativeOptPayAmount);
+    FIELD_SET(*this, FIX::DerivativeTimeUnit);
+    FIELD_SET(*this, FIX::DerivativeSecurityExchange);
+    FIELD_SET(*this, FIX::DerivativePositionLimit);
+    FIELD_SET(*this, FIX::DerivativeNTPositionLimit);
+    FIELD_SET(*this, FIX::DerivativeIssuer);
+    FIELD_SET(*this, FIX::DerivativeEncodedIssuerLen);
+    FIELD_SET(*this, FIX::DerivativeEncodedIssuer);
+    FIELD_SET(*this, FIX::DerivativeSecurityDesc);
+    FIELD_SET(*this, FIX::DerivativeEncodedSecurityDescLen);
+    FIELD_SET(*this, FIX::DerivativeEncodedSecurityDesc);
+    FIELD_SET(*this, FIX::DerivativeSecurityXMLLen);
+    FIELD_SET(*this, FIX::DerivativeSecurityXML);
+    FIELD_SET(*this, FIX::DerivativeSecurityXMLSchema);
+    FIELD_SET(*this, FIX::DerivativeContractSettlMonth);
+    FIELD_SET(*this, FIX::NoDerivativeEvents);
+    class NoDerivativeEvents: public FIX::Group
+    {
+    public:
+    NoDerivativeEvents() : FIX::Group(1286,1287,FIX::message_order(1287,1288,1289,1290,1291,0)) {}
+      FIELD_SET(*this, FIX::DerivativeEventType);
+      FIELD_SET(*this, FIX::DerivativeEventDate);
+      FIELD_SET(*this, FIX::DerivativeEventTime);
+      FIELD_SET(*this, FIX::DerivativeEventPx);
+      FIELD_SET(*this, FIX::DerivativeEventText);
+    };
+    FIELD_SET(*this, FIX::NoDerivativeInstrumentParties);
+    class NoDerivativeInstrumentParties: public FIX::Group
+    {
+    public:
+    NoDerivativeInstrumentParties() : FIX::Group(1292,1293,FIX::message_order(1293,1294,1295,1296,0)) {}
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyID);
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyIDSource);
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyRole);
+      FIELD_SET(*this, FIX::NoDerivativeInstrumentPartySubIDs);
+      class NoDerivativeInstrumentPartySubIDs: public FIX::Group
+      {
+      public:
+      NoDerivativeInstrumentPartySubIDs() : FIX::Group(1296,1297,FIX::message_order(1297,1298,0)) {}
+        FIELD_SET(*this, FIX::DerivativeInstrumentPartySubID);
+        FIELD_SET(*this, FIX::DerivativeInstrumentPartySubIDType);
+      };
+    };
+    FIELD_SET(*this, FIX::DerivativeContractMultiplierUnit);
+    FIELD_SET(*this, FIX::DerivativeFlowScheduleType);
+    FIELD_SET(*this, FIX::NoDerivativeInstrAttrib);
+    class NoDerivativeInstrAttrib: public FIX::Group
+    {
+    public:
+    NoDerivativeInstrAttrib() : FIX::Group(1311,1313,FIX::message_order(1313,1314,0)) {}
+      FIELD_SET(*this, FIX::DerivativeInstrAttribType);
+      FIELD_SET(*this, FIX::DerivativeInstrAttribValue);
+    };
+    FIELD_SET(*this, FIX::NoMarketSegments);
+    class NoMarketSegments: public FIX::Group
+    {
+    public:
+    NoMarketSegments() : FIX::Group(1310,1301,FIX::message_order(1301,1300,1201,0)) {}
+      FIELD_SET(*this, FIX::MarketID);
+      FIELD_SET(*this, FIX::MarketSegmentID);
+      FIELD_SET(*this, FIX::NoTickRules);
+      class NoTickRules: public FIX::Group
+      {
+      public:
+      NoTickRules() : FIX::Group(1205,1206,FIX::message_order(1206,1207,1208,1209,0)) {}
+        FIELD_SET(*this, FIX::StartTickPriceRange);
+        FIELD_SET(*this, FIX::EndTickPriceRange);
+        FIELD_SET(*this, FIX::TickIncrement);
+        FIELD_SET(*this, FIX::TickRuleType);
+      };
+      FIELD_SET(*this, FIX::NoLotTypeRules);
+      class NoLotTypeRules: public FIX::Group
+      {
+      public:
+      NoLotTypeRules() : FIX::Group(1234,1093,FIX::message_order(1093,1231,0)) {}
+        FIELD_SET(*this, FIX::LotType);
+        FIELD_SET(*this, FIX::MinLotSize);
+      };
+      FIELD_SET(*this, FIX::PriceLimitType);
+      FIELD_SET(*this, FIX::LowLimitPrice);
+      FIELD_SET(*this, FIX::HighLimitPrice);
+      FIELD_SET(*this, FIX::TradingReferencePrice);
+      FIELD_SET(*this, FIX::ExpirationCycle);
+      FIELD_SET(*this, FIX::MinTradeVol);
+      FIELD_SET(*this, FIX::MaxTradeVol);
+      FIELD_SET(*this, FIX::MaxPriceVariation);
+      FIELD_SET(*this, FIX::ImpliedMarketIndicator);
+      FIELD_SET(*this, FIX::TradingCurrency);
+      FIELD_SET(*this, FIX::RoundLot);
+      FIELD_SET(*this, FIX::MultilegModel);
+      FIELD_SET(*this, FIX::MultilegPriceMethod);
+      FIELD_SET(*this, FIX::PriceType);
+      FIELD_SET(*this, FIX::NoTradingSessionRules);
+      class NoTradingSessionRules: public FIX::Group
+      {
+      public:
+      NoTradingSessionRules() : FIX::Group(1309,336,FIX::message_order(336,625,0)) {}
+        FIELD_SET(*this, FIX::TradingSessionID);
+        FIELD_SET(*this, FIX::TradingSessionSubID);
+        FIELD_SET(*this, FIX::NoOrdTypeRules);
+        class NoOrdTypeRules: public FIX::Group
+        {
+        public:
+        NoOrdTypeRules() : FIX::Group(1237,40,FIX::message_order(40,0)) {}
+          FIELD_SET(*this, FIX::OrdType);
+        };
+        FIELD_SET(*this, FIX::NoTimeInForceRules);
+        class NoTimeInForceRules: public FIX::Group
+        {
+        public:
+        NoTimeInForceRules() : FIX::Group(1239,59,FIX::message_order(59,0)) {}
+          FIELD_SET(*this, FIX::TimeInForce);
+        };
+        FIELD_SET(*this, FIX::NoExecInstRules);
+        class NoExecInstRules: public FIX::Group
+        {
+        public:
+        NoExecInstRules() : FIX::Group(1232,1308,FIX::message_order(1308,0)) {}
+          FIELD_SET(*this, FIX::ExecInstValue);
+        };
+        FIELD_SET(*this, FIX::NoMatchRules);
+        class NoMatchRules: public FIX::Group
+        {
+        public:
+        NoMatchRules() : FIX::Group(1235,1142,FIX::message_order(1142,574,0)) {}
+          FIELD_SET(*this, FIX::MatchAlgorithm);
+          FIELD_SET(*this, FIX::MatchType);
+        };
+        FIELD_SET(*this, FIX::NoMDFeedTypes);
+        class NoMDFeedTypes: public FIX::Group
+        {
+        public:
+        NoMDFeedTypes() : FIX::Group(1141,1022,FIX::message_order(1022,264,1021,0)) {}
+          FIELD_SET(*this, FIX::MDFeedType);
+          FIELD_SET(*this, FIX::MarketDepth);
+          FIELD_SET(*this, FIX::MDBookType);
+        };
+      };
+      FIELD_SET(*this, FIX::NoNestedInstrAttrib);
+      class NoNestedInstrAttrib: public FIX::Group
+      {
+      public:
+      NoNestedInstrAttrib() : FIX::Group(1312,1210,FIX::message_order(1210,1211,0)) {}
+        FIELD_SET(*this, FIX::NestedInstrAttribType);
+        FIELD_SET(*this, FIX::NestedInstrAttribValue);
+      };
+      FIELD_SET(*this, FIX::NoStrikeRules);
+      class NoStrikeRules: public FIX::Group
+      {
+      public:
+      NoStrikeRules() : FIX::Group(1201,1223,FIX::message_order(1223,1202,1203,1204,1304,1236,0)) {}
+        FIELD_SET(*this, FIX::StrikeRuleID);
+        FIELD_SET(*this, FIX::StartStrikePxRange);
+        FIELD_SET(*this, FIX::EndStrikePxRange);
+        FIELD_SET(*this, FIX::StrikeIncrement);
+        FIELD_SET(*this, FIX::StrikeExerciseStyle);
+        FIELD_SET(*this, FIX::NoMaturityRules);
+        class NoMaturityRules: public FIX::Group
+        {
+        public:
+        NoMaturityRules() : FIX::Group(1236,1222,FIX::message_order(1222,1303,1302,1241,1226,1229,0)) {}
+          FIELD_SET(*this, FIX::MaturityRuleID);
+          FIELD_SET(*this, FIX::MaturityMonthYearFormat);
+          FIELD_SET(*this, FIX::MaturityMonthYearIncrementUnits);
+          FIELD_SET(*this, FIX::StartMaturityMonthYear);
+          FIELD_SET(*this, FIX::EndMaturityMonthYear);
+          FIELD_SET(*this, FIX::MaturityMonthYearIncrement);
+        };
+      };
+    };
     FIELD_SET(*this, FIX::TotNoRelatedSym);
     FIELD_SET(*this, FIX::LastFragment);
     FIELD_SET(*this, FIX::NoRelatedSym);
@@ -102,6 +355,14 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
       FIELD_SET(*this, FIX::SecurityIDSource);
+      FIELD_SET(*this, FIX::NoSecurityAltID);
+      class NoSecurityAltID: public FIX::Group
+      {
+      public:
+      NoSecurityAltID() : FIX::Group(454,455,FIX::message_order(455,456,0)) {}
+        FIELD_SET(*this, FIX::SecurityAltID);
+        FIELD_SET(*this, FIX::SecurityAltIDSource);
+      };
       FIELD_SET(*this, FIX::Product);
       FIELD_SET(*this, FIX::ProductComplex);
       FIELD_SET(*this, FIX::SecurityGroup);
@@ -160,12 +421,43 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::SecurityDesc);
       FIELD_SET(*this, FIX::EncodedSecurityDescLen);
       FIELD_SET(*this, FIX::EncodedSecurityDesc);
+      FIELD_SET(*this, FIX::SecurityXMLLen);
+      FIELD_SET(*this, FIX::SecurityXML);
+      FIELD_SET(*this, FIX::SecurityXMLSchema);
       FIELD_SET(*this, FIX::Pool);
       FIELD_SET(*this, FIX::ContractSettlMonth);
       FIELD_SET(*this, FIX::CPProgram);
       FIELD_SET(*this, FIX::CPRegType);
+      FIELD_SET(*this, FIX::NoEvents);
+      class NoEvents: public FIX::Group
+      {
+      public:
+      NoEvents() : FIX::Group(864,865,FIX::message_order(865,866,1145,867,868,0)) {}
+        FIELD_SET(*this, FIX::EventType);
+        FIELD_SET(*this, FIX::EventDate);
+        FIELD_SET(*this, FIX::EventTime);
+        FIELD_SET(*this, FIX::EventPx);
+        FIELD_SET(*this, FIX::EventText);
+      };
       FIELD_SET(*this, FIX::DatedDate);
       FIELD_SET(*this, FIX::InterestAccrualDate);
+      FIELD_SET(*this, FIX::NoInstrumentParties);
+      class NoInstrumentParties: public FIX::Group
+      {
+      public:
+      NoInstrumentParties() : FIX::Group(1018,1019,FIX::message_order(1019,1050,1051,1052,0)) {}
+        FIELD_SET(*this, FIX::InstrumentPartyID);
+        FIELD_SET(*this, FIX::InstrumentPartyIDSource);
+        FIELD_SET(*this, FIX::InstrumentPartyRole);
+        FIELD_SET(*this, FIX::NoInstrumentPartySubIDs);
+        class NoInstrumentPartySubIDs: public FIX::Group
+        {
+        public:
+        NoInstrumentPartySubIDs() : FIX::Group(1052,1053,FIX::message_order(1053,1054,0)) {}
+          FIELD_SET(*this, FIX::InstrumentPartySubID);
+          FIELD_SET(*this, FIX::InstrumentPartySubIDType);
+        };
+      };
       FIELD_SET(*this, FIX::ContractMultiplierUnit);
       FIELD_SET(*this, FIX::FlowScheduleType);
       FIELD_SET(*this, FIX::RestructuringType);
@@ -179,6 +471,35 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
       FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
       FIELD_SET(*this, FIX::OptPayoutType);
+      FIELD_SET(*this, FIX::NoComplexEvents);
+      class NoComplexEvents: public FIX::Group
+      {
+      public:
+      NoComplexEvents() : FIX::Group(1483,1484,FIX::message_order(1484,1485,1486,1487,1488,1489,1490,1491,0)) {}
+        FIELD_SET(*this, FIX::ComplexEventType);
+        FIELD_SET(*this, FIX::ComplexOptPayoutAmount);
+        FIELD_SET(*this, FIX::ComplexEventPrice);
+        FIELD_SET(*this, FIX::ComplexEventPriceBoundaryMethod);
+        FIELD_SET(*this, FIX::ComplexEventPriceBoundaryPrecision);
+        FIELD_SET(*this, FIX::ComplexEventPriceTimeType);
+        FIELD_SET(*this, FIX::ComplexEventCondition);
+        FIELD_SET(*this, FIX::NoComplexEventDates);
+        class NoComplexEventDates: public FIX::Group
+        {
+        public:
+        NoComplexEventDates() : FIX::Group(1491,1492,FIX::message_order(1492,1493,1494,0)) {}
+          FIELD_SET(*this, FIX::ComplexEventStartDate);
+          FIELD_SET(*this, FIX::ComplexEventEndDate);
+          FIELD_SET(*this, FIX::NoComplexEventTimes);
+          class NoComplexEventTimes: public FIX::Group
+          {
+          public:
+          NoComplexEventTimes() : FIX::Group(1494,1495,FIX::message_order(1495,1496,0)) {}
+            FIELD_SET(*this, FIX::ComplexEventStartTime);
+            FIELD_SET(*this, FIX::ComplexEventEndTime);
+          };
+        };
+      };
       FIELD_SET(*this, FIX::SecondaryPriceLimitType);
       FIELD_SET(*this, FIX::SecondaryLowLimitPrice);
       FIELD_SET(*this, FIX::SecondaryHighLimitPrice);
@@ -187,6 +508,14 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::CorporateAction);
       FIELD_SET(*this, FIX::DeliveryForm);
       FIELD_SET(*this, FIX::PctAtRisk);
+      FIELD_SET(*this, FIX::NoInstrAttrib);
+      class NoInstrAttrib: public FIX::Group
+      {
+      public:
+      NoInstrAttrib() : FIX::Group(870,871,FIX::message_order(871,872,0)) {}
+        FIELD_SET(*this, FIX::InstrAttribType);
+        FIELD_SET(*this, FIX::InstrAttribValue);
+      };
       FIELD_SET(*this, FIX::NoLegs);
       class NoLegs: public FIX::Group
       {
@@ -196,6 +525,14 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::LegSymbolSfx);
         FIELD_SET(*this, FIX::LegSecurityID);
         FIELD_SET(*this, FIX::LegSecurityIDSource);
+        FIELD_SET(*this, FIX::NoLegSecurityAltID);
+        class NoLegSecurityAltID: public FIX::Group
+        {
+        public:
+        NoLegSecurityAltID() : FIX::Group(604,605,FIX::message_order(605,606,0)) {}
+          FIELD_SET(*this, FIX::LegSecurityAltID);
+          FIELD_SET(*this, FIX::LegSecurityAltIDSource);
+        };
         FIELD_SET(*this, FIX::LegProduct);
         FIELD_SET(*this, FIX::LegCFICode);
         FIELD_SET(*this, FIX::LegSecurityType);
