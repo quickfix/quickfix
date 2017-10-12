@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import quickfix as fix
 import quickfix42 as fix42
 import unittest
@@ -54,55 +56,55 @@ class MessageTestCase(unittest.TestCase):
 			self.object.setString( strGood )
 			self.object.setString( strNull )
 			self.object.setString( strNoLengthAndChk, False )
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless( 0 )
 
 		try:
 			self.object.setString( strTrailingCharacter )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strNoChk )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strBadChk )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strBad )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strBadHeaderOrder )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strNoLengthAndChk )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strJunk )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		try:
 			self.object.setString( strEmpty )
 			self.failUnless(0)
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(1)
 
 		dataDictionary = fix.DataDictionary()
@@ -115,7 +117,7 @@ class MessageTestCase(unittest.TestCase):
 
 		try:
 			self.object.setString( strBodyFields, True, dataDictionary )
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless( 0 )
 
 		assert( self.object.getHeader().isSetField( clOrdID ) )
@@ -129,7 +131,7 @@ class MessageTestCase(unittest.TestCase):
 		try:
 			self.object.setString( str, True, dataDictionary )
 			self.assertEquals( str, self.object.toString() )
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			assert( 0 )
 
 	def test_setStringWithHeaderGroup(self):
@@ -139,7 +141,7 @@ class MessageTestCase(unittest.TestCase):
 		try:
 			self.object.setString( str, True, dataDictionary )
 			self.assertEquals( str, self.object.toString() )
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			assert( 0 )
 
 
@@ -150,7 +152,7 @@ class MessageTestCase(unittest.TestCase):
 		try:
 			self.object.setString( str, False )
 			self.assertEquals( expected, self.object.toString() )
-		except fix.InvalidMessage, e:
+		except fix.InvalidMessage as e:
 			self.failUnless(0)
 
         def test_embeddedXml(self):
@@ -167,8 +169,8 @@ class MessageTestCase(unittest.TestCase):
                         self.object.getHeader().getField(xmlData)
 			self.assertEquals( 413, xmlDataLen.getValue() )
 			self.assertEquals( encodedFIXmessage, xmlData.getValue() )
-		except fix.InvalidMessage, e:
-                        print e
+		except fix.InvalidMessage as e:
+                        print(e)
 			assert( 0 )
 
 	def test_reverseRoute(self):

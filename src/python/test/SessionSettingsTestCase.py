@@ -13,28 +13,28 @@ class SessionSettingsTestCase(unittest.TestCase):
 		try:
 			self.object.set( sessionID, dictionary )
 			self.failUnless( 0 )
-		except fix.ConfigError, e:
+		except fix.ConfigError as e:
 			self.failUnless( 1 )
 
 		dictionary.setString( fix.CONNECTION_TYPE, "badvalue" )
 		try:
 			self.object.set( sessionID, dictionary );
 			self.failUnless( 0 );
-		except fix.ConfigError, e:
+		except fix.ConfigError as e:
 			self.failUnless( 1 )
 
 		dictionary.setString( fix.CONNECTION_TYPE, "initiator" )
 		try:
 			self.object.set( sessionID, dictionary );
 			self.failUnless( 1 );
-		except fix.ConfigError, e:
+		except fix.ConfigError as e:
 			self.failUnless( 0 )
 
 		sessionID = fix.SessionID( "FIX4.2", "SenderCompID", "TargetCompID" )
 		try:
 			self.object.set( sessionID, dictionary );
 			self.failUnless( 0 );
-		except fix.ConfigError, e:
+		except fix.ConfigError as e:
 			self.failUnless( 1 )
 
 if __name__ == '__main__':
