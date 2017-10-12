@@ -13,6 +13,7 @@ m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
 m4_include([m4/ax_java.m4])
+m4_include([m4/ax_cxx_compile_stdcxx.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([config])
@@ -88,7 +89,8 @@ fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+AX_CXX_COMPILE_STDCXX(11, noext, optional)
+CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
 AC_SUBST(CXXFLAGS)
 
 
