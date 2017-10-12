@@ -4,6 +4,12 @@
     <ClInclude Include="Acceptor.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="fix40\AllocationInstructionAck.h">
+      <Filter>Message\Headers\fix40</Filter>
+    </ClInclude>
+    <ClInclude Include="fix40\IOI.h">
+      <Filter>Message\Headers\fix40</Filter>
+    </ClInclude>
     <ClInclude Include="fix40\Advertisement.h">
       <Filter>Message\Headers\fix40</Filter>
     </ClInclude>
@@ -91,6 +97,9 @@
     <ClInclude Include="fix41\Allocation.h">
       <Filter>Message\Headers\fix41</Filter>
     </ClInclude>
+    <ClInclude Include="fix41\AllocationInstructionAck.h">
+      <Filter>Message\Headers\fix41</Filter>
+    </ClInclude>
     <ClInclude Include="fix41\DontKnowTrade.h">
       <Filter>Message\Headers\fix41</Filter>
     </ClInclude>
@@ -101,6 +110,9 @@
       <Filter>Message\Headers\fix41</Filter>
     </ClInclude>
     <ClInclude Include="fix41\Heartbeat.h">
+      <Filter>Message\Headers\fix41</Filter>
+    </ClInclude>
+    <ClInclude Include="fix41\IOI.h">
       <Filter>Message\Headers\fix41</Filter>
     </ClInclude>
     <ClInclude Include="fix41\ListCancelRequest.h">
@@ -175,6 +187,9 @@
     <ClInclude Include="fix42\Allocation.h">
       <Filter>Message\Headers\fix42</Filter>
     </ClInclude>
+    <ClInclude Include="fix42\AllocationInstructionAck.h">
+      <Filter>Message\Headers\fix42</Filter>
+    </ClInclude>
     <ClInclude Include="fix42\BidRequest.h">
       <Filter>Message\Headers\fix42</Filter>
     </ClInclude>
@@ -194,6 +209,9 @@
       <Filter>Message\Headers\fix42</Filter>
     </ClInclude>
     <ClInclude Include="fix42\Heartbeat.h">
+      <Filter>Message\Headers\fix42</Filter>
+    </ClInclude>
+    <ClInclude Include="fix42\IOI.h">
       <Filter>Message\Headers\fix42</Filter>
     </ClInclude>
     <ClInclude Include="fix42\ListCancelRequest.h">
@@ -514,6 +532,9 @@
     <ClInclude Include="fix43\TradingSessionStatusRequest.h">
       <Filter>Message\Headers\fix43</Filter>
     </ClInclude>
+    <ClInclude Include="fix43\XMLnonFIX.h">
+      <Filter>Message\Headers\fix43</Filter>
+    </ClInclude>
     <ClInclude Include="fix44\Advertisement.h">
       <Filter>Message\Headers\fix44</Filter>
     </ClInclude>
@@ -794,6 +815,9 @@
       <Filter>Message\Headers\fix44</Filter>
     </ClInclude>
     <ClInclude Include="fix44\UserResponse.h">
+      <Filter>Message\Headers\fix44</Filter>
+    </ClInclude>
+    <ClInclude Include="fix44\XMLnonFIX.h">
       <Filter>Message\Headers\fix44</Filter>
     </ClInclude>
     <ClInclude Include="fix50\AdjustedPositionReport.h">
@@ -1894,6 +1918,9 @@
     <ClInclude Include="PostgreSQLStore.h">
       <Filter>Storage\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Allocator.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -1913,6 +1940,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="FlexLexer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="HtmlBuilder.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Initiator.h">
@@ -1961,7 +1991,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\config_windows.h" />
-    <ClInclude Include="..\stdafx.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="pugiconfig.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -2161,13 +2191,15 @@
     <ClCompile Include="Settings.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
     <ClCompile Include="TimeRange.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Utility.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="strptime.c" />
     <ClCompile Include="pugixml.cpp">
       <Filter>Source</Filter>
     </ClCompile>

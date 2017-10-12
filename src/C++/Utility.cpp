@@ -150,6 +150,11 @@ int socket_accept( int s )
   return accept( s, 0, 0 );
 }
 
+ssize_t socket_recv( int s, char* buf, size_t length )
+{
+  return recv( s, buf, length, 0 );
+}
+
 ssize_t socket_send( int s, const char* msg, size_t length )
 {
   return send( s, msg, length, 0 );
