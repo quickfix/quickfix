@@ -136,29 +136,6 @@ TEST(integerConvertFrom)
   CHECK_THROW( IntConvertor::convert( "+200" ), FieldConvertError );
 }
 
-TEST(parsePositiveNumber)
-{
-  CHECK_EQUAL( 1, IntConvertor::convertPositive( "1" ) );
-  CHECK_EQUAL( 123, IntConvertor::convertPositive( "123" ) );
-  CHECK_EQUAL( 214748364, IntConvertor::convertPositive( "214748364" ) );
-  CHECK_EQUAL( MAX_INT, IntConvertor::convertPositive( "2147483647" ) );
-
-  //invalid format checks
-  CHECK_THROW( IntConvertor::convertPositive( "abc" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "123.4" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "+200" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "-200" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "0" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "01" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "1a" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "1 abc" ), FieldConvertError );
-
-  //overflow checks
-  CHECK_THROW( IntConvertor::convertPositive( "2147483648" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "9999999997" ), FieldConvertError );
-  CHECK_THROW( IntConvertor::convertPositive( "21474836471" ), FieldConvertError );
-}
-
 TEST(doubleConvertTo)
 {
   CHECK_EQUAL( "45.32", DoubleConvertor::convert( 45.32 ) );
@@ -168,6 +145,18 @@ TEST(doubleConvertTo)
   CHECK_EQUAL( "-12.000000000001", DoubleConvertor::convert( -12.000000000001 ) );
   CHECK_EQUAL( "-0.00001", DoubleConvertor::convert( -0.00001 ) );
   CHECK_EQUAL( "-1050", DoubleConvertor::convert( -1050.0 ) );
+  CHECK_EQUAL( "1.233", DoubleConvertor::convert( 1.233 ) );
+  CHECK_EQUAL( "38.4", DoubleConvertor::convert( 38.4 ) );
+  CHECK_EQUAL( "38.4", DoubleConvertor::convert( 38.400000000000006 ) );
+  CHECK_EQUAL( "0.1", DoubleConvertor::convert( 0.1 ) );
+  CHECK_EQUAL( "0.3", DoubleConvertor::convert( 0.3 ) );
+
+  // corner cases
+  CHECK_EQUAL( "-0.000000000000001", DoubleConvertor::convert( -1e-15 ) );
+  CHECK_EQUAL( "100000000000000", DoubleConvertor::convert( 1e14 ) );
+  CHECK_EQUAL( "1e15", DoubleConvertor::convert( 1e15 ) );
+  CHECK_EQUAL( "1.23456e15", DoubleConvertor::convert( 1.23456e15 ) );
+  CHECK_EQUAL( "0.", DoubleConvertor::convert( 1e-16 ) );
 
   CHECK_EQUAL( "1.500", DoubleConvertor::convert( 1.5, 3) );
   CHECK_EQUAL( "45.00000", DoubleConvertor::convert( 45, 5) );
@@ -195,11 +184,14 @@ TEST(doubleConvertFrom)
   CHECK_EQUAL( 0.00001, DoubleConvertor::convert( "0.00001" ) );
   CHECK_EQUAL( -0.00001, DoubleConvertor::convert( "-0.00001" ) );
   CHECK_EQUAL( -1050, DoubleConvertor::convert( "-1050" ) );
+  CHECK_EQUAL( 1.233, DoubleConvertor::convert( "1.233" ) );
+  CHECK_EQUAL( 38.4, DoubleConvertor::convert( "38.4" ) );
 
   CHECK_THROW( DoubleConvertor::convert( "abc" ), FieldConvertError );
   CHECK_THROW( DoubleConvertor::convert( "123.A" ), FieldConvertError );
   CHECK_THROW( DoubleConvertor::convert( "123.45.67" ), FieldConvertError );
   CHECK_THROW( DoubleConvertor::convert( "." ), FieldConvertError );
+  CHECK_THROW( DoubleConvertor::convert( "1e5" ), FieldConvertError );
 }
 
 TEST(charConvertTo)

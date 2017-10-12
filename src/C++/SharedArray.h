@@ -30,6 +30,11 @@ namespace FIX
   template<typename T>
   class shared_array
   {
+    enum
+    {
+      data_offset = ( sizeof(atomic_count) / sizeof(T) + 1 )
+    };
+
   public:
     shared_array()
     : m_size(0)
@@ -67,16 +72,16 @@ namespace FIX
     { return m_buffer == 0; }
 
     operator T* () const
-    { return m_buffer; }
+    { return &m_buffer[data_offset]; }
 
     //optimized function to allocate storage for buffer and counter object at once
     static shared_array create(const std::size_t nSize)
     {
-      if(nSize <= 0)
+      if(nSize == 0)
         return shared_array();
 
       //verify the needed buffer size to allocate counter object and nSize elements
-      const std::size_t sizeToAllocate = nSize + ( sizeof(atomic_count) / sizeof(T) + 1 );
+      const std::size_t sizeToAllocate = data_offset + nSize;
 
       //allocate and zero-fill the buffer
       T* storage = new T[ sizeToAllocate ];
@@ -84,7 +89,7 @@ namespace FIX
 
       // create the counter object at the end of the storage
       // with initial reference count set to 1
-      new (&storage[nSize]) atomic_count( 1 );
+      new (storage) atomic_count( 1 );
 
       return shared_array(storage, nSize);
     }
@@ -100,7 +105,7 @@ namespace FIX
 
     atomic_count* get_counter() const
     {
-      return reinterpret_cast<atomic_count*>( &m_buffer[ size() ] );
+      return reinterpret_cast<atomic_count*>( m_buffer );
     }
 
     void increment_reference_count() const
@@ -109,7 +114,7 @@ namespace FIX
       ++(*counter);
     }
 
-    long decrement_reference_count() 
+    long decrement_reference_count() const
     {
       atomic_count* counter = get_counter();
       return --(*counter);
