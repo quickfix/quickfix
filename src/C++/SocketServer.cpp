@@ -45,7 +45,7 @@ public:
 : m_sockets( sockets ), m_server( server ), m_strategy( strategy ) {}
 
 private:
-  void onConnect( SocketMonitor&, int socket )
+  void onConnect( SocketMonitor&, int )
   {
   }
 

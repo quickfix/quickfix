@@ -46,7 +46,7 @@ throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX
   std::cout << std::endl << "IN: " << message << std::endl;
 }
 
-void Application::toApp( FIX::Message& message, const FIX::SessionID& sessionID )
+void Application::toApp( FIX::Message& message, const FIX::SessionID& )
 throw( FIX::DoNotSend )
 {
   try

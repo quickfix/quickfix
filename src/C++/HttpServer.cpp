@@ -72,7 +72,7 @@ throw ( ConfigError )
   m_port = s.get().getInt( HTTP_ACCEPT_PORT );
 }
 
-void HttpServer::onInitialize( const SessionSettings& s )
+void HttpServer::onInitialize( const SessionSettings& )
 throw ( RuntimeError )
 {
   try
@@ -132,7 +132,7 @@ void HttpServer::onStop()
 {
 }
 
-void HttpServer::onConnect( SocketServer& server, int a, int s )
+void HttpServer::onConnect( SocketServer&, int, int s )
 {
   if ( !socket_isValid( s ) ) return;
   HttpConnection connection( s );
@@ -140,16 +140,16 @@ void HttpServer::onConnect( SocketServer& server, int a, int s )
   m_pServer->getMonitor().drop( s );
 }
 
-void HttpServer::onWrite( SocketServer& server, int s ) 
+void HttpServer::onWrite( SocketServer&, int )
 {
 }
 
-bool HttpServer::onData( SocketServer& server, int s )
+bool HttpServer::onData( SocketServer&, int )
 {
   return true;
 }
 
-void HttpServer::onDisconnect( SocketServer&, int s ) 
+void HttpServer::onDisconnect( SocketServer&, int )
 {
 }
 

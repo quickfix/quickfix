@@ -42,11 +42,11 @@ public:
     dataSocket( 0 ), disconnectSocket( 0 ),
     bufLen( 0 ) {}
 
-  void onConnect( SocketServer&, int accept, int socket )
+  void onConnect( SocketServer&, int, int socket )
   { connect++; connectSocket = socket; }
   void onWrite( SocketServer&, int socket )
   { write++; writeSocket = socket; }
-  bool onData( SocketServer& server, int socket )
+  bool onData( SocketServer&, int socket )
   {
     data++; dataSocket = socket;
     bufLen = recv( socket, buf, 1, 0 );

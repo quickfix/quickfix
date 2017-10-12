@@ -179,7 +179,7 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
     getLog()->onEvent( stream.str() );
 }
 
-void SocketAcceptor::onWrite( SocketServer& server, int s )
+void SocketAcceptor::onWrite( SocketServer&, int s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;

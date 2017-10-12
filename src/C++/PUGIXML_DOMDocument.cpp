@@ -97,7 +97,7 @@ namespace FIX
     catch( ... ) { return false; }
   }
 
-  bool PUGIXML_DOMDocument::xml( std::ostream& out )
+  bool PUGIXML_DOMDocument::xml( std::ostream& )
   {
     return false;
   }

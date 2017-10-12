@@ -405,7 +405,7 @@ public:
       { return IntConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getTag(), getString() ); } }
-  operator const int() const
+  operator int() const
     { return getValue(); }
 };
 
@@ -526,7 +526,7 @@ public:
       { return CheckSumConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getTag(), getString() ); } }
-  operator const int() const
+  operator int() const
     { return getValue(); }
 };
 
