@@ -3,8 +3,8 @@ export LD_LIBRARY_PATH=../../src/C++/.libs
 export DYLD_LIBRARY_PATH=../../src/C++/.libs
 export PYTHONPATH=../../lib/python
 
-python test/DataDictionaryTestCase.py
-python test/DictionaryTestCase.py
-python test/FieldBaseTestCase.py
-python test/SessionSettingsTestCase.py
-python test/MessageTestCase.py
+python2 test/DataDictionaryTestCase.py
+python2 test/DictionaryTestCase.py
+python2 test/FieldBaseTestCase.py
+python2 test/SessionSettingsTestCase.py
+python2 test/MessageTestCase.py
