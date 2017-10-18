@@ -217,7 +217,7 @@ throw( ConfigError )
   readFromDocument( pDoc );
 }
 
-void DataDictionary::readFromDocument( DOMDocumentPtr pDoc )
+void DataDictionary::readFromDocument( DOMDocumentPtr& pDoc )
 throw( ConfigError )
 {
   // VERSION

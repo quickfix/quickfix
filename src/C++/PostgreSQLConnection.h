@@ -168,7 +168,7 @@ private:
 
 typedef DatabaseConnectionPool<PostgreSQLConnection>
   PostgreSQLConnectionPool;
-typedef std::auto_ptr< PostgreSQLConnectionPool >
+typedef std::unique_ptr< PostgreSQLConnectionPool >
   PostgreSQLConnectionPoolPtr;
 }
 

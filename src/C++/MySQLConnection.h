@@ -186,7 +186,7 @@ private:
 
 typedef DatabaseConnectionPool<MySQLConnection>
   MySQLConnectionPool;
-typedef std::auto_ptr< MySQLConnectionPool >
+typedef std::unique_ptr< MySQLConnectionPool >
   MySQLConnectionPoolPtr;
 }
 

@@ -120,7 +120,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     if ( heartBtInt <= 0 ) throw ConfigError( "Heartbeat must be greater than zero" );
   }
 
-  std::auto_ptr<Session> pSession;
+  std::unique_ptr<Session> pSession;
   pSession.reset( new Session( m_application, m_messageStoreFactory,
     sessionID, dataDictionaryProvider, sessionTimeRange,
     heartBtInt, m_pLogFactory ) );
