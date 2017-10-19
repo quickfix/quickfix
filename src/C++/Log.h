@@ -117,12 +117,12 @@ class ScreenLog : public Log
 public:
   ScreenLog( bool incoming, bool outgoing, bool event ) 
 : m_prefix( "GLOBAL" ),
-  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_millisecondsInTimeStamp( true ) {}
+  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_millisecondsInTimeStamp( true ), m_microsecondsInTimeStamp( false ) {}
 
   ScreenLog( const SessionID& sessionID,
              bool incoming, bool outgoing, bool event )
 : m_prefix( sessionID.toString() ),
-  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_millisecondsInTimeStamp( true ) {}
+  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_millisecondsInTimeStamp( true ), m_microsecondsInTimeStamp( false ) {}
 
   void clear() {}
   void backup() {}
@@ -132,7 +132,7 @@ public:
     if ( !m_incoming ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp)
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp, m_microsecondsInTimeStamp)
               << ", " << m_prefix
               << ", " << "incoming>" << std::endl
               << "  (" << value << ")" << std::endl;
@@ -143,7 +143,7 @@ public:
     if ( !m_outgoing ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp)
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp, m_microsecondsInTimeStamp)
               << ", " << m_prefix
               << ", " << "outgoing>" << std::endl
               << "  (" << value << ")" << std::endl;
@@ -154,7 +154,7 @@ public:
     if ( !m_event ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp)
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time, m_millisecondsInTimeStamp, m_microsecondsInTimeStamp)
               << ", " << m_prefix
               << ", " << "event>" << std::endl
               << "  (" << value << ")" << std::endl;
@@ -165,6 +165,11 @@ public:
   void setMillisecondsInTimeStamp ( bool value )
   { m_millisecondsInTimeStamp = value; }
 
+  bool getMicrosecondsInTimeStamp() const
+  { return m_microsecondsInTimeStamp; }
+  void setMicrosecondsInTimeStamp ( bool value )
+  { m_microsecondsInTimeStamp = value; }
+
 private:
   std::string m_prefix;
   UtcTimeStamp m_time;
@@ -173,6 +178,7 @@ private:
   bool m_event;
   static Mutex s_mutex;
   bool m_millisecondsInTimeStamp;
+  bool m_microsecondsInTimeStamp;
 };
 }
 
