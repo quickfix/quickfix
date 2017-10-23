@@ -13,8 +13,27 @@ AC_ARG_WITH(python,
      fi],
     has_python=false
 )
+
+has_python3=false
+AC_ARG_WITH(python3,
+    [  --with-python3           will use $PYTHON to find python], 
+    [if test $withval == "no"
+     then
+       has_python3=false
+     else
+       PYTHON=${PYTHON:-"python3"}
+       has_python3=true
+     fi],
+    has_python3=false
+)
+
 PYTHON_PREFIX=$with_python
 AC_SUBST(PYTHON_PREFIX)
+
+if test $has_python3 = true
+then
+  $has_python = true
+fi
 
 if test $has_python = true
 then
