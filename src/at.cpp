@@ -60,15 +60,17 @@ int main( int argc, char** argv )
     AcceptorPtr pAcceptor;
     if ( threaded )
     {
-      pAcceptor = std::auto_ptr < FIX::Acceptor >
+      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::ThreadedSocketAcceptor
                         ( application, factory, settings ) );
+      pAcceptor = p;
     }
     else
     {
-      pAcceptor = std::auto_ptr < FIX::Acceptor >
+      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::SocketAcceptor
                         ( application, factory, settings ) );
+      pAcceptor = p;
     }
 
     pAcceptor->start();
