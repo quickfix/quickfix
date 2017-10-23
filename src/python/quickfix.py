@@ -104,7 +104,7 @@ class IntArray(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, IntArray, name)
     __repr__ = _swig_repr
 
-    def __init__(self, nelements: 'size_t'):
+    def __init__(self, nelements):
         this = _quickfix.new_IntArray(nelements)
         try:
             self.this.append(this)
@@ -113,13 +113,13 @@ class IntArray(_object):
     __swig_destroy__ = _quickfix.delete_IntArray
     __del__ = lambda self: None
 
-    def __getitem__(self, index: 'size_t') -> "int":
+    def __getitem__(self, index):
         return _quickfix.IntArray___getitem__(self, index)
 
-    def __setitem__(self, index: 'size_t', value: 'int') -> "void":
+    def __setitem__(self, index, value):
         return _quickfix.IntArray___setitem__(self, index, value)
 
-    def cast(self) -> "int *":
+    def cast(self):
         return _quickfix.IntArray_cast(self)
     __swig_getmethods__["frompointer"] = lambda x: _quickfix.IntArray_frompointer
     if _newclass:
@@ -127,7 +127,7 @@ class IntArray(_object):
 IntArray_swigregister = _quickfix.IntArray_swigregister
 IntArray_swigregister(IntArray)
 
-def IntArray_frompointer(t: 'int *') -> "IntArray *":
+def IntArray_frompointer(t):
     return _quickfix.IntArray_frompointer(t)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
@@ -138,7 +138,7 @@ class Exception(Exception):
     __getattr__ = lambda self, name: _swig_getattr(self, Exception, name)
     __repr__ = _swig_repr
 
-    def __init__(self, t: 'std::string const &', d: 'std::string const &'):
+    def __init__(self, t, d):
         this = _quickfix.new_Exception(t, d)
         try:
             self.this.append(this)
@@ -151,7 +151,7 @@ class Exception(Exception):
     __swig_setmethods__["detail"] = _quickfix.Exception_detail_set
     __swig_getmethods__["detail"] = _quickfix.Exception_detail_get
 
-    def __str__(self) -> "std::string":
+    def __str__(self):
         return _quickfix.Exception___str__(self)
 Exception_swigregister = _quickfix.Exception_swigregister
 Exception_swigregister(Exception)
@@ -750,7 +750,7 @@ class SocketException(Exception):
         except BaseException:
             self.this = this
 
-    def errorToWhat(self) -> "std::string":
+    def errorToWhat(self):
         return _quickfix.SocketException_errorToWhat(self)
     __swig_setmethods__["error"] = _quickfix.SocketException_error_set
     __swig_getmethods__["error"] = _quickfix.SocketException_error_get
@@ -843,46 +843,46 @@ class FieldBase(_object):
         except BaseException:
             self.this = this
 
-    def swap(self, rhs: 'FieldBase') -> "void":
+    def swap(self, rhs):
         return _quickfix.FieldBase_swap(self, rhs)
 
-    def setTag(self, tag: 'int') -> "void":
+    def setTag(self, tag):
         return _quickfix.FieldBase_setTag(self, tag)
 
-    def setField(self, field: 'int') -> "void":
+    def setField(self, field):
         return _quickfix.FieldBase_setField(self, field)
 
-    def setString(self, string: 'std::string const &') -> "void":
+    def setString(self, string):
         return _quickfix.FieldBase_setString(self, string)
 
-    def getTag(self) -> "int":
+    def getTag(self):
         return _quickfix.FieldBase_getTag(self)
 
-    def getField(self) -> "int":
+    def getField(self):
         return _quickfix.FieldBase_getField(self)
 
-    def getString(self) -> "std::string const &":
+    def getString(self):
         return _quickfix.FieldBase_getString(self)
 
-    def getFixString(self) -> "std::string const &":
+    def getFixString(self):
         return _quickfix.FieldBase_getFixString(self)
 
-    def getLength(self) -> "size_t":
+    def getLength(self):
         return _quickfix.FieldBase_getLength(self)
 
-    def getTotal(self) -> "int":
+    def getTotal(self):
         return _quickfix.FieldBase_getTotal(self)
 
-    def __lt__(self, field: 'FieldBase') -> "bool":
+    def __lt__(self, field):
         return _quickfix.FieldBase___lt__(self, field)
 
-    def __str__(self) -> "std::string":
+    def __str__(self):
         return _quickfix.FieldBase___str__(self)
 FieldBase_swigregister = _quickfix.FieldBase_swigregister
 FieldBase_swigregister(FieldBase)
 
 
-def swap(lhs: 'FieldBase', rhs: 'FieldBase') -> "void":
+def swap(lhs, rhs):
     return _quickfix.swap(lhs, rhs)
 swap = _quickfix.swap
 class StringField(FieldBase):
@@ -903,28 +903,28 @@ class StringField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'std::string const &') -> "void":
+    def setValue(self, value):
         return _quickfix.StringField_setValue(self, value)
 
-    def getValue(self) -> "std::string const &":
+    def getValue(self):
         return _quickfix.StringField_getValue(self)
 
-    def __lt__(self, rhs: 'StringField') -> "bool":
+    def __lt__(self, rhs):
         return _quickfix.StringField___lt__(self, rhs)
 
-    def __gt__(self, rhs: 'StringField') -> "bool":
+    def __gt__(self, rhs):
         return _quickfix.StringField___gt__(self, rhs)
 
-    def __eq__(self, rhs: 'StringField') -> "bool":
+    def __eq__(self, rhs):
         return _quickfix.StringField___eq__(self, rhs)
 
-    def __ne__(self, rhs: 'StringField') -> "bool":
+    def __ne__(self, rhs):
         return _quickfix.StringField___ne__(self, rhs)
 
-    def __le__(self, rhs: 'StringField') -> "bool":
+    def __le__(self, rhs):
         return _quickfix.StringField___le__(self, rhs)
 
-    def __ge__(self, rhs: 'StringField') -> "bool":
+    def __ge__(self, rhs):
         return _quickfix.StringField___ge__(self, rhs)
     __swig_destroy__ = _quickfix.delete_StringField
     __del__ = lambda self: None
@@ -932,15 +932,15 @@ StringField_swigregister = _quickfix.StringField_swigregister
 StringField_swigregister(StringField)
 
 
-def __gt__(*args) -> "std::string &":
+def __gt__(*args):
     return _quickfix.__gt__(*args)
 __gt__ = _quickfix.__gt__
 
-def __le__(*args) -> "std::string &":
+def __le__(*args):
     return _quickfix.__le__(*args)
 __le__ = _quickfix.__le__
 
-def __ge__(*args) -> "std::string &":
+def __ge__(*args):
     return _quickfix.__ge__(*args)
 __ge__ = _quickfix.__ge__
 class CharField(FieldBase):
@@ -961,10 +961,10 @@ class CharField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'char') -> "void":
+    def setValue(self, value):
         return _quickfix.CharField_setValue(self, value)
 
-    def getValue(self) -> "char":
+    def getValue(self):
         return _quickfix.CharField_getValue(self)
     __swig_destroy__ = _quickfix.delete_CharField
     __del__ = lambda self: None
@@ -989,10 +989,10 @@ class DoubleField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'double', padding: 'int'=0) -> "void":
+    def setValue(self, value, padding=0):
         return _quickfix.DoubleField_setValue(self, value, padding)
 
-    def getValue(self) -> "double":
+    def getValue(self):
         return _quickfix.DoubleField_getValue(self)
     __swig_destroy__ = _quickfix.delete_DoubleField
     __del__ = lambda self: None
@@ -1017,10 +1017,10 @@ class IntField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'int') -> "void":
+    def setValue(self, value):
         return _quickfix.IntField_setValue(self, value)
 
-    def getValue(self) -> "int":
+    def getValue(self):
         return _quickfix.IntField_getValue(self)
     __swig_destroy__ = _quickfix.delete_IntField
     __del__ = lambda self: None
@@ -1045,10 +1045,10 @@ class BoolField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'bool') -> "void":
+    def setValue(self, value):
         return _quickfix.BoolField_setValue(self, value)
 
-    def getValue(self) -> "bool":
+    def getValue(self):
         return _quickfix.BoolField_getValue(self)
 
     def __nonzero__(self):
@@ -1079,19 +1079,19 @@ class UtcTimeStampField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'UtcTimeStamp const &') -> "void":
+    def setValue(self, value):
         return _quickfix.UtcTimeStampField_setValue(self, value)
 
-    def getValue(self) -> "UtcTimeStamp":
+    def getValue(self):
         return _quickfix.UtcTimeStampField_getValue(self)
 
-    def __lt__(self, rhs: 'UtcTimeStampField') -> "bool":
+    def __lt__(self, rhs):
         return _quickfix.UtcTimeStampField___lt__(self, rhs)
 
-    def __eq__(self, rhs: 'UtcTimeStampField') -> "bool":
+    def __eq__(self, rhs):
         return _quickfix.UtcTimeStampField___eq__(self, rhs)
 
-    def __ne__(self, rhs: 'UtcTimeStampField') -> "bool":
+    def __ne__(self, rhs):
         return _quickfix.UtcTimeStampField___ne__(self, rhs)
     __swig_destroy__ = _quickfix.delete_UtcTimeStampField
     __del__ = lambda self: None
@@ -1116,19 +1116,19 @@ class UtcDateField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'UtcDate const &') -> "void":
+    def setValue(self, value):
         return _quickfix.UtcDateField_setValue(self, value)
 
-    def getValue(self) -> "UtcDate":
+    def getValue(self):
         return _quickfix.UtcDateField_getValue(self)
 
-    def __lt__(self, rhs: 'UtcDateField') -> "bool":
+    def __lt__(self, rhs):
         return _quickfix.UtcDateField___lt__(self, rhs)
 
-    def __eq__(self, rhs: 'UtcDateField') -> "bool":
+    def __eq__(self, rhs):
         return _quickfix.UtcDateField___eq__(self, rhs)
 
-    def __ne__(self, rhs: 'UtcDateField') -> "bool":
+    def __ne__(self, rhs):
         return _quickfix.UtcDateField___ne__(self, rhs)
     __swig_destroy__ = _quickfix.delete_UtcDateField
     __del__ = lambda self: None
@@ -1153,19 +1153,19 @@ class UtcTimeOnlyField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'UtcTimeOnly const &') -> "void":
+    def setValue(self, value):
         return _quickfix.UtcTimeOnlyField_setValue(self, value)
 
-    def getValue(self) -> "UtcTimeOnly":
+    def getValue(self):
         return _quickfix.UtcTimeOnlyField_getValue(self)
 
-    def __lt__(self, rhs: 'UtcTimeOnlyField') -> "bool":
+    def __lt__(self, rhs):
         return _quickfix.UtcTimeOnlyField___lt__(self, rhs)
 
-    def __eq__(self, rhs: 'UtcTimeOnlyField') -> "bool":
+    def __eq__(self, rhs):
         return _quickfix.UtcTimeOnlyField___eq__(self, rhs)
 
-    def __ne__(self, rhs: 'UtcTimeOnlyField') -> "bool":
+    def __ne__(self, rhs):
         return _quickfix.UtcTimeOnlyField___ne__(self, rhs)
     __swig_destroy__ = _quickfix.delete_UtcTimeOnlyField
     __del__ = lambda self: None
@@ -1190,10 +1190,10 @@ class CheckSumField(FieldBase):
         except BaseException:
             self.this = this
 
-    def setValue(self, value: 'int') -> "void":
+    def setValue(self, value):
         return _quickfix.CheckSumField_setValue(self, value)
 
-    def getValue(self) -> "int":
+    def getValue(self):
         return _quickfix.CheckSumField_getValue(self)
     __swig_destroy__ = _quickfix.delete_CheckSumField
     __del__ = lambda self: None
@@ -1216,82 +1216,82 @@ class FieldMap(_object):
     __swig_destroy__ = _quickfix.delete_FieldMap
     __del__ = lambda self: None
 
-    def setField(self, *args) -> "void":
+    def setField(self, *args):
         return _quickfix.FieldMap_setField(self, *args)
 
-    def getFieldIfSet(self, field: 'FieldBase') -> "bool":
+    def getFieldIfSet(self, field):
         return _quickfix.FieldMap_getFieldIfSet(self, field)
 
-    def getField(self, *args) -> "std::string const &":
+    def getField(self, *args):
         return _quickfix.FieldMap_getField(self, *args)
 
-    def getFieldRef(self, tag: 'int') -> "FIX::FieldBase const &":
+    def getFieldRef(self, tag):
         return _quickfix.FieldMap_getFieldRef(self, tag)
 
-    def getFieldPtr(self, tag: 'int') -> "FIX::FieldBase const *const":
+    def getFieldPtr(self, tag):
         return _quickfix.FieldMap_getFieldPtr(self, tag)
 
-    def isSetField(self, *args) -> "bool":
+    def isSetField(self, *args):
         return _quickfix.FieldMap_isSetField(self, *args)
 
-    def removeField(self, tag: 'int') -> "void":
+    def removeField(self, tag):
         return _quickfix.FieldMap_removeField(self, tag)
 
-    def addGroup(self, tag: 'int', group: 'FieldMap', setCount: 'bool'=True) -> "void":
+    def addGroup(self, tag, group, setCount=True):
         return _quickfix.FieldMap_addGroup(self, tag, group, setCount)
 
-    def addGroupPtr(self, tag: 'int', group: 'FieldMap', setCount: 'bool'=True) -> "void":
+    def addGroupPtr(self, tag, group, setCount=True):
         return _quickfix.FieldMap_addGroupPtr(self, tag, group, setCount)
 
-    def replaceGroup(self, num: 'int', tag: 'int', group: 'FieldMap') -> "void":
+    def replaceGroup(self, num, tag, group):
         return _quickfix.FieldMap_replaceGroup(self, num, tag, group)
 
-    def getGroup(self, num: 'int', tag: 'int', group: 'FieldMap') -> "FIX::FieldMap &":
+    def getGroup(self, num, tag, group):
         return _quickfix.FieldMap_getGroup(self, num, tag, group)
 
-    def getGroupRef(self, num: 'int', tag: 'int') -> "FIX::FieldMap &":
+    def getGroupRef(self, num, tag):
         return _quickfix.FieldMap_getGroupRef(self, num, tag)
 
-    def getGroupPtr(self, num: 'int', tag: 'int') -> "FIX::FieldMap *":
+    def getGroupPtr(self, num, tag):
         return _quickfix.FieldMap_getGroupPtr(self, num, tag)
 
-    def removeGroup(self, *args) -> "void":
+    def removeGroup(self, *args):
         return _quickfix.FieldMap_removeGroup(self, *args)
 
-    def hasGroup(self, *args) -> "bool":
+    def hasGroup(self, *args):
         return _quickfix.FieldMap_hasGroup(self, *args)
 
-    def groupCount(self, tag: 'int') -> "size_t":
+    def groupCount(self, tag):
         return _quickfix.FieldMap_groupCount(self, tag)
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.FieldMap_clear(self)
 
-    def isEmpty(self) -> "bool":
+    def isEmpty(self):
         return _quickfix.FieldMap_isEmpty(self)
 
-    def totalFields(self) -> "size_t":
+    def totalFields(self):
         return _quickfix.FieldMap_totalFields(self)
 
-    def calculateString(self, arg2: 'std::string &') -> "std::string &":
+    def calculateString(self, arg2):
         return _quickfix.FieldMap_calculateString(self, arg2)
 
-    def calculateLength(self, *args) -> "int":
+    def calculateLength(self, *args):
         return _quickfix.FieldMap_calculateLength(self, *args)
 
-    def calculateTotal(self, *args) -> "int":
+    def calculateTotal(self, *args):
         return _quickfix.FieldMap_calculateTotal(self, *args)
 
-    def begin(self, *args) -> "FIX::FieldMap::const_iterator":
+    def begin(self, *args):
         return _quickfix.FieldMap_begin(self, *args)
 
-    def end(self, *args) -> "FIX::FieldMap::const_iterator":
+    def end(self, *args):
         return _quickfix.FieldMap_end(self, *args)
 
-    def g_begin(self, *args) -> "FIX::FieldMap::g_const_iterator":
+    def g_begin(self, *args):
         return _quickfix.FieldMap_g_begin(self, *args)
 
-    def g_end(self, *args) -> "FIX::FieldMap::g_const_iterator":
+    def g_end(self, *args):
         return _quickfix.FieldMap_g_end(self, *args)
 FieldMap_swigregister = _quickfix.FieldMap_swigregister
 FieldMap_swigregister(FieldMap)
@@ -1363,64 +1363,64 @@ class Message(FieldMap):
     if _newclass:
         InitializeXML = staticmethod(_quickfix.Message_InitializeXML)
 
-    def addGroup(self, group: 'Group') -> "void":
+    def addGroup(self, group):
         return _quickfix.Message_addGroup(self, group)
 
-    def replaceGroup(self, num: 'unsigned int', group: 'Group') -> "void":
+    def replaceGroup(self, num, group):
         return _quickfix.Message_replaceGroup(self, num, group)
 
-    def getGroup(self, num: 'unsigned int', group: 'Group') -> "Group &":
+    def getGroup(self, num, group):
         return _quickfix.Message_getGroup(self, num, group)
 
-    def removeGroup(self, *args) -> "void":
+    def removeGroup(self, *args):
         return _quickfix.Message_removeGroup(self, *args)
 
-    def hasGroup(self, *args) -> "bool":
+    def hasGroup(self, *args):
         return _quickfix.Message_hasGroup(self, *args)
 
-    def toString(self, *args) -> "std::string &":
+    def toString(self, *args):
         return _quickfix.Message_toString(self, *args)
 
-    def toXML(self, *args) -> "std::string &":
+    def toXML(self, *args):
         return _quickfix.Message_toXML(self, *args)
 
-    def reverseRoute(self, arg2: 'Header') -> "void":
+    def reverseRoute(self, arg2):
         return _quickfix.Message_reverseRoute(self, arg2)
 
-    def setString(self, *args) -> "void":
+    def setString(self, *args):
         return _quickfix.Message_setString(self, *args)
 
-    def setGroup(self, msg: 'std::string const &', field: 'FieldBase', string: 'std::string const &', pos: 'std::string::size_type &', map: 'FieldMap', dataDictionary: 'DataDictionary const &') -> "void":
+    def setGroup(self, msg, field, string, pos, map, dataDictionary):
         return _quickfix.Message_setGroup(self, msg, field, string, pos, map, dataDictionary)
 
-    def setStringHeader(self, string: 'std::string const &') -> "bool":
+    def setStringHeader(self, string):
         return _quickfix.Message_setStringHeader(self, string)
 
-    def getHeader(self, *args) -> "FIX::Header &":
+    def getHeader(self, *args):
         return _quickfix.Message_getHeader(self, *args)
 
-    def getTrailer(self, *args) -> "FIX::Trailer &":
+    def getTrailer(self, *args):
         return _quickfix.Message_getTrailer(self, *args)
 
-    def hasValidStructure(self, tag: 'int &') -> "bool":
+    def hasValidStructure(self, tag):
         return _quickfix.Message_hasValidStructure(self, tag)
 
-    def bodyLength(self, *args) -> "int":
+    def bodyLength(self, *args):
         return _quickfix.Message_bodyLength(self, *args)
 
-    def checkSum(self, *args) -> "int":
+    def checkSum(self, *args):
         return _quickfix.Message_checkSum(self, *args)
 
-    def isAdmin(self) -> "bool":
+    def isAdmin(self):
         return _quickfix.Message_isAdmin(self)
 
-    def isApp(self) -> "bool":
+    def isApp(self):
         return _quickfix.Message_isApp(self)
 
-    def isEmpty(self) -> "bool":
+    def isEmpty(self):
         return _quickfix.Message_isEmpty(self)
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.Message_clear(self)
     __swig_getmethods__["isAdminMsgType"] = lambda x: _quickfix.Message_isAdminMsgType
     if _newclass:
@@ -1438,43 +1438,43 @@ class Message(FieldMap):
     if _newclass:
         isTrailerField = staticmethod(_quickfix.Message_isTrailerField)
 
-    def getSessionID(self, *args) -> "SessionID":
+    def getSessionID(self, *args):
         return _quickfix.Message_getSessionID(self, *args)
 
-    def setSessionID(self, sessionID: 'SessionID const &') -> "void":
+    def setSessionID(self, sessionID):
         return _quickfix.Message_setSessionID(self, sessionID)
 
-    def __str__(self) -> "std::string":
+    def __str__(self):
         return _quickfix.Message___str__(self)
 Message_swigregister = _quickfix.Message_swigregister
 Message_swigregister(Message)
 
-def Message_InitializeXML(string: 'std::string const &') -> "std::string &":
+def Message_InitializeXML(string):
     return _quickfix.Message_InitializeXML(string)
 Message_InitializeXML = _quickfix.Message_InitializeXML
 
-def Message_isAdminMsgType(msgType: 'MsgType const &') -> "bool":
+def Message_isAdminMsgType(msgType):
     return _quickfix.Message_isAdminMsgType(msgType)
 Message_isAdminMsgType = _quickfix.Message_isAdminMsgType
 
-def Message_toApplVerID(value: 'BeginString const &') -> "ApplVerID":
+def Message_toApplVerID(value):
     return _quickfix.Message_toApplVerID(value)
 Message_toApplVerID = _quickfix.Message_toApplVerID
 
-def Message_toBeginString(applVerID: 'ApplVerID const &') -> "BeginString":
+def Message_toBeginString(applVerID):
     return _quickfix.Message_toBeginString(applVerID)
 Message_toBeginString = _quickfix.Message_toBeginString
 
-def Message_isHeaderField(*args) -> "bool":
+def Message_isHeaderField(*args):
     return _quickfix.Message_isHeaderField(*args)
 Message_isHeaderField = _quickfix.Message_isHeaderField
 
-def Message_isTrailerField(*args) -> "bool":
+def Message_isTrailerField(*args):
     return _quickfix.Message_isTrailerField(*args)
 Message_isTrailerField = _quickfix.Message_isTrailerField
 
 
-def identifyType(message: 'std::string const &') -> "std::string &":
+def identifyType(message):
     return _quickfix.identifyType(message)
 identifyType = _quickfix.identifyType
 class Group(FieldMap):
@@ -1495,25 +1495,25 @@ class Group(FieldMap):
         except BaseException:
             self.this = this
 
-    def field(self) -> "int":
+    def field(self):
         return _quickfix.Group_field(self)
 
-    def delim(self) -> "int":
+    def delim(self):
         return _quickfix.Group_delim(self)
 
-    def addGroup(self, group: 'Group') -> "void":
+    def addGroup(self, group):
         return _quickfix.Group_addGroup(self, group)
 
-    def replaceGroup(self, num: 'unsigned int', group: 'Group') -> "void":
+    def replaceGroup(self, num, group):
         return _quickfix.Group_replaceGroup(self, num, group)
 
-    def getGroup(self, num: 'unsigned int', group: 'Group') -> "FIX::Group &":
+    def getGroup(self, num, group):
         return _quickfix.Group_getGroup(self, num, group)
 
-    def removeGroup(self, *args) -> "void":
+    def removeGroup(self, *args):
         return _quickfix.Group_removeGroup(self, *args)
 
-    def hasGroup(self, *args) -> "bool":
+    def hasGroup(self, *args):
         return _quickfix.Group_hasGroup(self, *args)
     __swig_destroy__ = _quickfix.delete_Group
     __del__ = lambda self: None
@@ -35150,34 +35150,34 @@ class SessionID(_object):
         except BaseException:
             self.this = this
 
-    def getBeginString(self) -> "FIX::BeginString const &":
+    def getBeginString(self):
         return _quickfix.SessionID_getBeginString(self)
 
-    def getSenderCompID(self) -> "FIX::SenderCompID const &":
+    def getSenderCompID(self):
         return _quickfix.SessionID_getSenderCompID(self)
 
-    def getTargetCompID(self) -> "FIX::TargetCompID const &":
+    def getTargetCompID(self):
         return _quickfix.SessionID_getTargetCompID(self)
 
-    def getSessionQualifier(self) -> "std::string const &":
+    def getSessionQualifier(self):
         return _quickfix.SessionID_getSessionQualifier(self)
 
-    def isFIXT(self) -> "bool const":
+    def isFIXT(self):
         return _quickfix.SessionID_isFIXT(self)
 
-    def toStringFrozen(self) -> "std::string const &":
+    def toStringFrozen(self):
         return _quickfix.SessionID_toStringFrozen(self)
 
-    def fromString(self, str: 'std::string const &') -> "void":
+    def fromString(self, str):
         return _quickfix.SessionID_fromString(self, str)
 
-    def toString(self, *args) -> "std::string &":
+    def toString(self, *args):
         return _quickfix.SessionID_toString(self, *args)
 
-    def __invert__(self) -> "FIX::SessionID":
+    def __invert__(self):
         return _quickfix.SessionID___invert__(self)
 
-    def __str__(self) -> "std::string":
+    def __str__(self):
         return _quickfix.SessionID___str__(self)
     __swig_destroy__ = _quickfix.delete_SessionID
     __del__ = lambda self: None
@@ -38491,15 +38491,15 @@ StreamAsgnType_REJECTED = cvar.StreamAsgnType_REJECTED
 StreamAsgnType_TERMINATE_UNASSIGN = cvar.StreamAsgnType_TERMINATE_UNASSIGN
 
 
-def __lt__(*args) -> "bool":
+def __lt__(*args):
     return _quickfix.__lt__(*args)
 __lt__ = _quickfix.__lt__
 
-def __eq__(*args) -> "bool":
+def __eq__(*args):
     return _quickfix.__eq__(*args)
 __eq__ = _quickfix.__eq__
 
-def __ne__(*args) -> "bool":
+def __ne__(*args):
     return _quickfix.__ne__(*args)
 __ne__ = _quickfix.__ne__
 class Dictionary(_object):
@@ -38518,52 +38518,52 @@ class Dictionary(_object):
     __swig_destroy__ = _quickfix.delete_Dictionary
     __del__ = lambda self: None
 
-    def getName(self) -> "std::string":
+    def getName(self):
         return _quickfix.Dictionary_getName(self)
 
-    def size(self) -> "size_t":
+    def size(self):
         return _quickfix.Dictionary_size(self)
 
-    def getString(self, arg2: 'std::string const &', capitalize: 'bool'=False) -> "std::string":
+    def getString(self, arg2, capitalize=False):
         return _quickfix.Dictionary_getString(self, arg2, capitalize)
 
-    def getInt(self, arg2: 'std::string const &') -> "int":
+    def getInt(self, arg2):
         return _quickfix.Dictionary_getInt(self, arg2)
 
-    def getDouble(self, arg2: 'std::string const &') -> "double":
+    def getDouble(self, arg2):
         return _quickfix.Dictionary_getDouble(self, arg2)
 
-    def getBool(self, arg2: 'std::string const &') -> "bool":
+    def getBool(self, arg2):
         return _quickfix.Dictionary_getBool(self, arg2)
 
-    def getDay(self, arg2: 'std::string const &') -> "int":
+    def getDay(self, arg2):
         return _quickfix.Dictionary_getDay(self, arg2)
 
-    def setString(self, arg2: 'std::string const &', arg3: 'std::string const &') -> "void":
+    def setString(self, arg2, arg3):
         return _quickfix.Dictionary_setString(self, arg2, arg3)
 
-    def setInt(self, arg2: 'std::string const &', arg3: 'int') -> "void":
+    def setInt(self, arg2, arg3):
         return _quickfix.Dictionary_setInt(self, arg2, arg3)
 
-    def setDouble(self, arg2: 'std::string const &', arg3: 'double') -> "void":
+    def setDouble(self, arg2, arg3):
         return _quickfix.Dictionary_setDouble(self, arg2, arg3)
 
-    def setBool(self, arg2: 'std::string const &', arg3: 'bool') -> "void":
+    def setBool(self, arg2, arg3):
         return _quickfix.Dictionary_setBool(self, arg2, arg3)
 
-    def setDay(self, arg2: 'std::string const &', arg3: 'int') -> "void":
+    def setDay(self, arg2, arg3):
         return _quickfix.Dictionary_setDay(self, arg2, arg3)
 
-    def has(self, arg2: 'std::string const &') -> "bool":
+    def has(self, arg2):
         return _quickfix.Dictionary_has(self, arg2)
 
-    def merge(self, arg2: 'Dictionary') -> "void":
+    def merge(self, arg2):
         return _quickfix.Dictionary_merge(self, arg2)
 
-    def begin(self) -> "FIX::Dictionary::iterator":
+    def begin(self):
         return _quickfix.Dictionary_begin(self)
 
-    def end(self) -> "FIX::Dictionary::iterator":
+    def end(self):
         return _quickfix.Dictionary_end(self)
 Dictionary_swigregister = _quickfix.Dictionary_swigregister
 Dictionary_swigregister(Dictionary)
@@ -38582,19 +38582,19 @@ class SessionSettings(_object):
         except BaseException:
             self.this = this
 
-    def has(self, arg2: 'SessionID') -> "bool const":
+    def has(self, arg2):
         return _quickfix.SessionSettings_has(self, arg2)
 
-    def get(self, *args) -> "FIX::Dictionary const &":
+    def get(self, *args):
         return _quickfix.SessionSettings_get(self, *args)
 
-    def set(self, *args) -> "void":
+    def set(self, *args):
         return _quickfix.SessionSettings_set(self, *args)
 
-    def size(self) -> "size_t":
+    def size(self):
         return _quickfix.SessionSettings_size(self)
 
-    def getSessions(self) -> "std::set< FIX::SessionID >":
+    def getSessions(self):
         return _quickfix.SessionSettings_getSessions(self)
     __swig_destroy__ = _quickfix.delete_SessionSettings
     __del__ = lambda self: None
@@ -38693,11 +38693,11 @@ HTTP_ACCEPT_PORT = cvar.HTTP_ACCEPT_PORT
 PERSIST_MESSAGES = cvar.PERSIST_MESSAGES
 
 
-def __rshift__(*args) -> "std::istream &":
+def __rshift__(*args):
     return _quickfix.__rshift__(*args)
 __rshift__ = _quickfix.__rshift__
 
-def __lshift__(*args) -> "std::ostream &":
+def __lshift__(*args):
     return _quickfix.__lshift__(*args)
 __lshift__ = _quickfix.__lshift__
 class Session(_object):
@@ -38707,7 +38707,7 @@ class Session(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, Session, name)
     __repr__ = _swig_repr
 
-    def __init__(self, arg2: 'Application &', arg3: 'MessageStoreFactory &', arg4: 'SessionID', arg5: 'DataDictionaryProvider const &', arg6: 'TimeRange const &', heartBtInt: 'int', pLogFactory: 'LogFactory *'):
+    def __init__(self, arg2, arg3, arg4, arg5, arg6, heartBtInt, pLogFactory):
         this = _quickfix.new_Session(arg2, arg3, arg4, arg5, arg6, heartBtInt, pLogFactory)
         try:
             self.this.append(this)
@@ -38716,46 +38716,46 @@ class Session(_object):
     __swig_destroy__ = _quickfix.delete_Session
     __del__ = lambda self: None
 
-    def logon(self) -> "void":
+    def logon(self):
         return _quickfix.Session_logon(self)
 
-    def logout(self, *args) -> "void":
+    def logout(self, *args):
         return _quickfix.Session_logout(self, *args)
 
-    def isEnabled(self) -> "bool":
+    def isEnabled(self):
         return _quickfix.Session_isEnabled(self)
 
-    def sentLogon(self) -> "bool":
+    def sentLogon(self):
         return _quickfix.Session_sentLogon(self)
 
-    def sentLogout(self) -> "bool":
+    def sentLogout(self):
         return _quickfix.Session_sentLogout(self)
 
-    def receivedLogon(self) -> "bool":
+    def receivedLogon(self):
         return _quickfix.Session_receivedLogon(self)
 
-    def isLoggedOn(self) -> "bool":
+    def isLoggedOn(self):
         return _quickfix.Session_isLoggedOn(self)
 
-    def reset(self) -> "void":
+    def reset(self):
         return _quickfix.Session_reset(self)
 
-    def refresh(self) -> "void":
+    def refresh(self):
         return _quickfix.Session_refresh(self)
 
-    def setNextSenderMsgSeqNum(self, num: 'int') -> "void":
+    def setNextSenderMsgSeqNum(self, num):
         return _quickfix.Session_setNextSenderMsgSeqNum(self, num)
 
-    def setNextTargetMsgSeqNum(self, num: 'int') -> "void":
+    def setNextTargetMsgSeqNum(self, num):
         return _quickfix.Session_setNextTargetMsgSeqNum(self, num)
 
-    def getSessionID(self) -> "FIX::SessionID const &":
+    def getSessionID(self):
         return _quickfix.Session_getSessionID(self)
 
-    def setDataDictionaryProvider(self, dataDictionaryProvider: 'DataDictionaryProvider const &') -> "void":
+    def setDataDictionaryProvider(self, dataDictionaryProvider):
         return _quickfix.Session_setDataDictionaryProvider(self, dataDictionaryProvider)
 
-    def getDataDictionaryProvider(self) -> "DataDictionaryProvider const &":
+    def getDataDictionaryProvider(self):
         return _quickfix.Session_getDataDictionaryProvider(self)
     __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
     if _newclass:
@@ -38782,169 +38782,169 @@ class Session(_object):
     if _newclass:
         numSessions = staticmethod(_quickfix.Session_numSessions)
 
-    def isSessionTime(self, time: 'UtcTimeStamp const &') -> "bool":
+    def isSessionTime(self, time):
         return _quickfix.Session_isSessionTime(self, time)
 
-    def isLogonTime(self, time: 'UtcTimeStamp const &') -> "bool":
+    def isLogonTime(self, time):
         return _quickfix.Session_isLogonTime(self, time)
 
-    def isInitiator(self) -> "bool":
+    def isInitiator(self):
         return _quickfix.Session_isInitiator(self)
 
-    def isAcceptor(self) -> "bool":
+    def isAcceptor(self):
         return _quickfix.Session_isAcceptor(self)
 
-    def getLogonTime(self) -> "TimeRange const &":
+    def getLogonTime(self):
         return _quickfix.Session_getLogonTime(self)
 
-    def setLogonTime(self, value: 'TimeRange const &') -> "void":
+    def setLogonTime(self, value):
         return _quickfix.Session_setLogonTime(self, value)
 
-    def getSenderDefaultApplVerID(self) -> "std::string const &":
+    def getSenderDefaultApplVerID(self):
         return _quickfix.Session_getSenderDefaultApplVerID(self)
 
-    def setSenderDefaultApplVerID(self, senderDefaultApplVerID: 'std::string const &') -> "void":
+    def setSenderDefaultApplVerID(self, senderDefaultApplVerID):
         return _quickfix.Session_setSenderDefaultApplVerID(self, senderDefaultApplVerID)
 
-    def getTargetDefaultApplVerID(self) -> "std::string const &":
+    def getTargetDefaultApplVerID(self):
         return _quickfix.Session_getTargetDefaultApplVerID(self)
 
-    def setTargetDefaultApplVerID(self, targetDefaultApplVerID: 'std::string const &') -> "void":
+    def setTargetDefaultApplVerID(self, targetDefaultApplVerID):
         return _quickfix.Session_setTargetDefaultApplVerID(self, targetDefaultApplVerID)
 
-    def getSendRedundantResendRequests(self) -> "bool":
+    def getSendRedundantResendRequests(self):
         return _quickfix.Session_getSendRedundantResendRequests(self)
 
-    def setSendRedundantResendRequests(self, value: 'bool') -> "void":
+    def setSendRedundantResendRequests(self, value):
         return _quickfix.Session_setSendRedundantResendRequests(self, value)
 
-    def getCheckCompId(self) -> "bool":
+    def getCheckCompId(self):
         return _quickfix.Session_getCheckCompId(self)
 
-    def setCheckCompId(self, value: 'bool') -> "void":
+    def setCheckCompId(self, value):
         return _quickfix.Session_setCheckCompId(self, value)
 
-    def getCheckLatency(self) -> "bool":
+    def getCheckLatency(self):
         return _quickfix.Session_getCheckLatency(self)
 
-    def setCheckLatency(self, value: 'bool') -> "void":
+    def setCheckLatency(self, value):
         return _quickfix.Session_setCheckLatency(self, value)
 
-    def getMaxLatency(self) -> "int":
+    def getMaxLatency(self):
         return _quickfix.Session_getMaxLatency(self)
 
-    def setMaxLatency(self, value: 'int') -> "void":
+    def setMaxLatency(self, value):
         return _quickfix.Session_setMaxLatency(self, value)
 
-    def getLogonTimeout(self) -> "int":
+    def getLogonTimeout(self):
         return _quickfix.Session_getLogonTimeout(self)
 
-    def setLogonTimeout(self, value: 'int') -> "void":
+    def setLogonTimeout(self, value):
         return _quickfix.Session_setLogonTimeout(self, value)
 
-    def getLogoutTimeout(self) -> "int":
+    def getLogoutTimeout(self):
         return _quickfix.Session_getLogoutTimeout(self)
 
-    def setLogoutTimeout(self, value: 'int') -> "void":
+    def setLogoutTimeout(self, value):
         return _quickfix.Session_setLogoutTimeout(self, value)
 
-    def getResetOnLogon(self) -> "bool":
+    def getResetOnLogon(self):
         return _quickfix.Session_getResetOnLogon(self)
 
-    def setResetOnLogon(self, value: 'bool') -> "void":
+    def setResetOnLogon(self, value):
         return _quickfix.Session_setResetOnLogon(self, value)
 
-    def getResetOnLogout(self) -> "bool":
+    def getResetOnLogout(self):
         return _quickfix.Session_getResetOnLogout(self)
 
-    def setResetOnLogout(self, value: 'bool') -> "void":
+    def setResetOnLogout(self, value):
         return _quickfix.Session_setResetOnLogout(self, value)
 
-    def getResetOnDisconnect(self) -> "bool":
+    def getResetOnDisconnect(self):
         return _quickfix.Session_getResetOnDisconnect(self)
 
-    def setResetOnDisconnect(self, value: 'bool') -> "void":
+    def setResetOnDisconnect(self, value):
         return _quickfix.Session_setResetOnDisconnect(self, value)
 
-    def getRefreshOnLogon(self) -> "bool":
+    def getRefreshOnLogon(self):
         return _quickfix.Session_getRefreshOnLogon(self)
 
-    def setRefreshOnLogon(self, value: 'bool') -> "void":
+    def setRefreshOnLogon(self, value):
         return _quickfix.Session_setRefreshOnLogon(self, value)
 
-    def getMillisecondsInTimeStamp(self) -> "bool":
+    def getMillisecondsInTimeStamp(self):
         return _quickfix.Session_getMillisecondsInTimeStamp(self)
 
-    def setMillisecondsInTimeStamp(self, value: 'bool') -> "void":
+    def setMillisecondsInTimeStamp(self, value):
         return _quickfix.Session_setMillisecondsInTimeStamp(self, value)
 
-    def getPersistMessages(self) -> "bool":
+    def getPersistMessages(self):
         return _quickfix.Session_getPersistMessages(self)
 
-    def setPersistMessages(self, value: 'bool') -> "void":
+    def setPersistMessages(self, value):
         return _quickfix.Session_setPersistMessages(self, value)
 
-    def getValidateLengthAndChecksum(self) -> "bool":
+    def getValidateLengthAndChecksum(self):
         return _quickfix.Session_getValidateLengthAndChecksum(self)
 
-    def setValidateLengthAndChecksum(self, value: 'bool') -> "void":
+    def setValidateLengthAndChecksum(self, value):
         return _quickfix.Session_setValidateLengthAndChecksum(self, value)
 
-    def setResponder(self, pR: 'Responder *') -> "void":
+    def setResponder(self, pR):
         return _quickfix.Session_setResponder(self, pR)
 
-    def send(self, arg2: 'Message') -> "bool":
+    def send(self, arg2):
         return _quickfix.Session_send(self, arg2)
 
-    def next(self, *args) -> "void":
+    def next(self, *args):
         return _quickfix.Session_next(self, *args)
 
-    def disconnect(self) -> "void":
+    def disconnect(self):
         return _quickfix.Session_disconnect(self)
 
-    def getExpectedSenderNum(self) -> "int":
+    def getExpectedSenderNum(self):
         return _quickfix.Session_getExpectedSenderNum(self)
 
-    def getExpectedTargetNum(self) -> "int":
+    def getExpectedTargetNum(self):
         return _quickfix.Session_getExpectedTargetNum(self)
 
-    def getLog(self) -> "Log *":
+    def getLog(self):
         return _quickfix.Session_getLog(self)
 
-    def getStore(self) -> "MessageStore const *":
+    def getStore(self):
         return _quickfix.Session_getStore(self)
 Session_swigregister = _quickfix.Session_swigregister
 Session_swigregister(Session)
 
-def Session_sendToTarget(*args) -> "std::string &, std::string &":
+def Session_sendToTarget(*args):
     return _quickfix.Session_sendToTarget(*args)
 Session_sendToTarget = _quickfix.Session_sendToTarget
 
-def Session_getSessions() -> "std::set< FIX::SessionID >":
+def Session_getSessions():
     return _quickfix.Session_getSessions()
 Session_getSessions = _quickfix.Session_getSessions
 
-def Session_doesSessionExist(arg2: 'SessionID') -> "bool":
+def Session_doesSessionExist(arg2):
     return _quickfix.Session_doesSessionExist(arg2)
 Session_doesSessionExist = _quickfix.Session_doesSessionExist
 
-def Session_lookupSession(*args) -> "std::string &":
+def Session_lookupSession(*args):
     return _quickfix.Session_lookupSession(*args)
 Session_lookupSession = _quickfix.Session_lookupSession
 
-def Session_isSessionRegistered(arg2: 'SessionID') -> "bool":
+def Session_isSessionRegistered(arg2):
     return _quickfix.Session_isSessionRegistered(arg2)
 Session_isSessionRegistered = _quickfix.Session_isSessionRegistered
 
-def Session_registerSession(arg2: 'SessionID') -> "FIX::Session *":
+def Session_registerSession(arg2):
     return _quickfix.Session_registerSession(arg2)
 Session_registerSession = _quickfix.Session_registerSession
 
-def Session_unregisterSession(arg2: 'SessionID') -> "void":
+def Session_unregisterSession(arg2):
     return _quickfix.Session_unregisterSession(arg2)
 Session_unregisterSession = _quickfix.Session_unregisterSession
 
-def Session_numSessions() -> "size_t":
+def Session_numSessions():
     return _quickfix.Session_numSessions()
 Session_numSessions = _quickfix.Session_numSessions
 
@@ -38960,10 +38960,10 @@ class LogFactory(_object):
     __swig_destroy__ = _quickfix.delete_LogFactory
     __del__ = lambda self: None
 
-    def create(self, *args) -> "FIX::Log *":
+    def create(self, *args):
         return _quickfix.LogFactory_create(self, *args)
 
-    def destroy(self, arg2: 'Log') -> "void":
+    def destroy(self, arg2):
         return _quickfix.LogFactory_destroy(self, arg2)
 LogFactory_swigregister = _quickfix.LogFactory_swigregister
 LogFactory_swigregister(LogFactory)
@@ -38986,10 +38986,10 @@ class ScreenLogFactory(LogFactory):
         except BaseException:
             self.this = this
 
-    def create(self, *args) -> "FIX::Log *":
+    def create(self, *args):
         return _quickfix.ScreenLogFactory_create(self, *args)
 
-    def destroy(self, log: 'Log') -> "void":
+    def destroy(self, log):
         return _quickfix.ScreenLogFactory_destroy(self, log)
     __swig_destroy__ = _quickfix.delete_ScreenLogFactory
     __del__ = lambda self: None
@@ -39008,19 +39008,19 @@ class Log(_object):
     __swig_destroy__ = _quickfix.delete_Log
     __del__ = lambda self: None
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.Log_clear(self)
 
-    def backup(self) -> "void":
+    def backup(self):
         return _quickfix.Log_backup(self)
 
-    def onIncoming(self, arg2: 'std::string const &') -> "void":
+    def onIncoming(self, arg2):
         return _quickfix.Log_onIncoming(self, arg2)
 
-    def onOutgoing(self, arg2: 'std::string const &') -> "void":
+    def onOutgoing(self, arg2):
         return _quickfix.Log_onOutgoing(self, arg2)
 
-    def onEvent(self, arg2: 'std::string const &') -> "void":
+    def onEvent(self, arg2):
         return _quickfix.Log_onEvent(self, arg2)
 Log_swigregister = _quickfix.Log_swigregister
 Log_swigregister(Log)
@@ -39036,19 +39036,19 @@ class NullLog(Log):
     __getattr__ = lambda self, name: _swig_getattr(self, NullLog, name)
     __repr__ = _swig_repr
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.NullLog_clear(self)
 
-    def backup(self) -> "void":
+    def backup(self):
         return _quickfix.NullLog_backup(self)
 
-    def onIncoming(self, arg2: 'std::string const &') -> "void":
+    def onIncoming(self, arg2):
         return _quickfix.NullLog_onIncoming(self, arg2)
 
-    def onOutgoing(self, arg2: 'std::string const &') -> "void":
+    def onOutgoing(self, arg2):
         return _quickfix.NullLog_onOutgoing(self, arg2)
 
-    def onEvent(self, arg2: 'std::string const &') -> "void":
+    def onEvent(self, arg2):
         return _quickfix.NullLog_onEvent(self, arg2)
 
     def __init__(self):
@@ -39080,25 +39080,25 @@ class ScreenLog(Log):
         except BaseException:
             self.this = this
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.ScreenLog_clear(self)
 
-    def backup(self) -> "void":
+    def backup(self):
         return _quickfix.ScreenLog_backup(self)
 
-    def onIncoming(self, value: 'std::string const &') -> "void":
+    def onIncoming(self, value):
         return _quickfix.ScreenLog_onIncoming(self, value)
 
-    def onOutgoing(self, value: 'std::string const &') -> "void":
+    def onOutgoing(self, value):
         return _quickfix.ScreenLog_onOutgoing(self, value)
 
-    def onEvent(self, value: 'std::string const &') -> "void":
+    def onEvent(self, value):
         return _quickfix.ScreenLog_onEvent(self, value)
 
-    def getMillisecondsInTimeStamp(self) -> "bool":
+    def getMillisecondsInTimeStamp(self):
         return _quickfix.ScreenLog_getMillisecondsInTimeStamp(self)
 
-    def setMillisecondsInTimeStamp(self, value: 'bool') -> "void":
+    def setMillisecondsInTimeStamp(self, value):
         return _quickfix.ScreenLog_setMillisecondsInTimeStamp(self, value)
     __swig_destroy__ = _quickfix.delete_ScreenLog
     __del__ = lambda self: None
@@ -39123,10 +39123,10 @@ class FileLogFactory(LogFactory):
         except BaseException:
             self.this = this
 
-    def create(self, *args) -> "FIX::Log *":
+    def create(self, *args):
         return _quickfix.FileLogFactory_create(self, *args)
 
-    def destroy(self, log: 'Log') -> "void":
+    def destroy(self, log):
         return _quickfix.FileLogFactory_destroy(self, log)
     __swig_destroy__ = _quickfix.delete_FileLogFactory
     __del__ = lambda self: None
@@ -39153,25 +39153,25 @@ class FileLog(Log):
     __swig_destroy__ = _quickfix.delete_FileLog
     __del__ = lambda self: None
 
-    def clear(self) -> "void":
+    def clear(self):
         return _quickfix.FileLog_clear(self)
 
-    def backup(self) -> "void":
+    def backup(self):
         return _quickfix.FileLog_backup(self)
 
-    def onIncoming(self, value: 'std::string const &') -> "void":
+    def onIncoming(self, value):
         return _quickfix.FileLog_onIncoming(self, value)
 
-    def onOutgoing(self, value: 'std::string const &') -> "void":
+    def onOutgoing(self, value):
         return _quickfix.FileLog_onOutgoing(self, value)
 
-    def onEvent(self, value: 'std::string const &') -> "void":
+    def onEvent(self, value):
         return _quickfix.FileLog_onEvent(self, value)
 
-    def getMillisecondsInTimeStamp(self) -> "bool":
+    def getMillisecondsInTimeStamp(self):
         return _quickfix.FileLog_getMillisecondsInTimeStamp(self)
 
-    def setMillisecondsInTimeStamp(self, value: 'bool') -> "void":
+    def setMillisecondsInTimeStamp(self, value):
         return _quickfix.FileLog_setMillisecondsInTimeStamp(self, value)
 FileLog_swigregister = _quickfix.FileLog_swigregister
 FileLog_swigregister(FileLog)
@@ -39188,10 +39188,10 @@ class MessageStoreFactory(_object):
     __swig_destroy__ = _quickfix.delete_MessageStoreFactory
     __del__ = lambda self: None
 
-    def create(self, arg2: 'SessionID') -> "FIX::MessageStore *":
+    def create(self, arg2):
         return _quickfix.MessageStoreFactory_create(self, arg2)
 
-    def destroy(self, arg2: 'MessageStore') -> "void":
+    def destroy(self, arg2):
         return _quickfix.MessageStoreFactory_destroy(self, arg2)
 MessageStoreFactory_swigregister = _quickfix.MessageStoreFactory_swigregister
 MessageStoreFactory_swigregister(MessageStoreFactory)
@@ -39207,10 +39207,10 @@ class MemoryStoreFactory(MessageStoreFactory):
     __getattr__ = lambda self, name: _swig_getattr(self, MemoryStoreFactory, name)
     __repr__ = _swig_repr
 
-    def create(self, arg2: 'SessionID') -> "FIX::MessageStore *":
+    def create(self, arg2):
         return _quickfix.MemoryStoreFactory_create(self, arg2)
 
-    def destroy(self, arg2: 'MessageStore') -> "void":
+    def destroy(self, arg2):
         return _quickfix.MemoryStoreFactory_destroy(self, arg2)
 
     def __init__(self):
@@ -39236,37 +39236,37 @@ class MessageStore(_object):
     __swig_destroy__ = _quickfix.delete_MessageStore
     __del__ = lambda self: None
 
-    def set(self, arg2: 'int', arg3: 'std::string const &') -> "bool":
+    def set(self, arg2, arg3):
         return _quickfix.MessageStore_set(self, arg2, arg3)
 
-    def get(self, arg2: 'int', arg3: 'int', arg4: 'std::vector< std::string > &') -> "void":
+    def get(self, arg2, arg3, arg4):
         return _quickfix.MessageStore_get(self, arg2, arg3, arg4)
 
-    def getNextSenderMsgSeqNum(self) -> "int":
+    def getNextSenderMsgSeqNum(self):
         return _quickfix.MessageStore_getNextSenderMsgSeqNum(self)
 
-    def getNextTargetMsgSeqNum(self) -> "int":
+    def getNextTargetMsgSeqNum(self):
         return _quickfix.MessageStore_getNextTargetMsgSeqNum(self)
 
-    def setNextSenderMsgSeqNum(self, arg2: 'int') -> "void":
+    def setNextSenderMsgSeqNum(self, arg2):
         return _quickfix.MessageStore_setNextSenderMsgSeqNum(self, arg2)
 
-    def setNextTargetMsgSeqNum(self, arg2: 'int') -> "void":
+    def setNextTargetMsgSeqNum(self, arg2):
         return _quickfix.MessageStore_setNextTargetMsgSeqNum(self, arg2)
 
-    def incrNextSenderMsgSeqNum(self) -> "void":
+    def incrNextSenderMsgSeqNum(self):
         return _quickfix.MessageStore_incrNextSenderMsgSeqNum(self)
 
-    def incrNextTargetMsgSeqNum(self) -> "void":
+    def incrNextTargetMsgSeqNum(self):
         return _quickfix.MessageStore_incrNextTargetMsgSeqNum(self)
 
-    def getCreationTime(self) -> "UtcTimeStamp":
+    def getCreationTime(self):
         return _quickfix.MessageStore_getCreationTime(self)
 
-    def reset(self) -> "void":
+    def reset(self):
         return _quickfix.MessageStore_reset(self)
 
-    def refresh(self) -> "void":
+    def refresh(self):
         return _quickfix.MessageStore_refresh(self)
 MessageStore_swigregister = _quickfix.MessageStore_swigregister
 MessageStore_swigregister(MessageStore)
@@ -39289,40 +39289,40 @@ class MemoryStore(MessageStore):
         except BaseException:
             self.this = this
 
-    def set(self, arg2: 'int', arg3: 'std::string const &') -> "bool":
+    def set(self, arg2, arg3):
         return _quickfix.MemoryStore_set(self, arg2, arg3)
 
-    def get(self, arg2: 'int', arg3: 'int', arg4: 'std::vector< std::string > &') -> "void":
+    def get(self, arg2, arg3, arg4):
         return _quickfix.MemoryStore_get(self, arg2, arg3, arg4)
 
-    def getNextSenderMsgSeqNum(self) -> "int":
+    def getNextSenderMsgSeqNum(self):
         return _quickfix.MemoryStore_getNextSenderMsgSeqNum(self)
 
-    def getNextTargetMsgSeqNum(self) -> "int":
+    def getNextTargetMsgSeqNum(self):
         return _quickfix.MemoryStore_getNextTargetMsgSeqNum(self)
 
-    def setNextSenderMsgSeqNum(self, value: 'int') -> "void":
+    def setNextSenderMsgSeqNum(self, value):
         return _quickfix.MemoryStore_setNextSenderMsgSeqNum(self, value)
 
-    def setNextTargetMsgSeqNum(self, value: 'int') -> "void":
+    def setNextTargetMsgSeqNum(self, value):
         return _quickfix.MemoryStore_setNextTargetMsgSeqNum(self, value)
 
-    def incrNextSenderMsgSeqNum(self) -> "void":
+    def incrNextSenderMsgSeqNum(self):
         return _quickfix.MemoryStore_incrNextSenderMsgSeqNum(self)
 
-    def incrNextTargetMsgSeqNum(self) -> "void":
+    def incrNextTargetMsgSeqNum(self):
         return _quickfix.MemoryStore_incrNextTargetMsgSeqNum(self)
 
-    def setCreationTime(self, creationTime: 'UtcTimeStamp const &') -> "void":
+    def setCreationTime(self, creationTime):
         return _quickfix.MemoryStore_setCreationTime(self, creationTime)
 
-    def getCreationTime(self) -> "UtcTimeStamp":
+    def getCreationTime(self):
         return _quickfix.MemoryStore_getCreationTime(self)
 
-    def reset(self) -> "void":
+    def reset(self):
         return _quickfix.MemoryStore_reset(self)
 
-    def refresh(self) -> "void":
+    def refresh(self):
         return _quickfix.MemoryStore_refresh(self)
     __swig_destroy__ = _quickfix.delete_MemoryStore
     __del__ = lambda self: None
@@ -39336,17 +39336,17 @@ class MessageStoreFactoryExceptionWrapper(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreFactoryExceptionWrapper, name)
     __repr__ = _swig_repr
 
-    def __init__(self, pFactory: 'MessageStoreFactory'):
+    def __init__(self, pFactory):
         this = _quickfix.new_MessageStoreFactoryExceptionWrapper(pFactory)
         try:
             self.this.append(this)
         except BaseException:
             self.this = this
 
-    def create(self, arg2: 'SessionID', arg3: 'bool &', arg4: 'ConfigError') -> "FIX::MessageStore *":
+    def create(self, arg2, arg3, arg4):
         return _quickfix.MessageStoreFactoryExceptionWrapper_create(self, arg2, arg3, arg4)
 
-    def destroy(self, arg2: 'MessageStore') -> "void":
+    def destroy(self, arg2):
         return _quickfix.MessageStoreFactoryExceptionWrapper_destroy(self, arg2)
     __swig_destroy__ = _quickfix.delete_MessageStoreFactoryExceptionWrapper
     __del__ = lambda self: None
@@ -39360,7 +39360,7 @@ class MessageStoreExceptionWrapper(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreExceptionWrapper, name)
     __repr__ = _swig_repr
 
-    def __init__(self, pStore: 'MessageStore'):
+    def __init__(self, pStore):
         this = _quickfix.new_MessageStoreExceptionWrapper(pStore)
         try:
             self.this.append(this)
@@ -39369,37 +39369,37 @@ class MessageStoreExceptionWrapper(_object):
     __swig_destroy__ = _quickfix.delete_MessageStoreExceptionWrapper
     __del__ = lambda self: None
 
-    def set(self, arg2: 'int', arg3: 'std::string const &', arg4: 'bool &', arg5: 'IOException') -> "bool":
+    def set(self, arg2, arg3, arg4, arg5):
         return _quickfix.MessageStoreExceptionWrapper_set(self, arg2, arg3, arg4, arg5)
 
-    def get(self, arg2: 'int', arg3: 'int', arg4: 'std::vector< std::string > &', arg5: 'bool &', arg6: 'IOException') -> "void":
+    def get(self, arg2, arg3, arg4, arg5, arg6):
         return _quickfix.MessageStoreExceptionWrapper_get(self, arg2, arg3, arg4, arg5, arg6)
 
-    def getNextSenderMsgSeqNum(self, arg2: 'bool &', arg3: 'IOException') -> "int":
+    def getNextSenderMsgSeqNum(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(self, arg2, arg3)
 
-    def getNextTargetMsgSeqNum(self, arg2: 'bool &', arg3: 'IOException') -> "int":
+    def getNextTargetMsgSeqNum(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_getNextTargetMsgSeqNum(self, arg2, arg3)
 
-    def setNextSenderMsgSeqNum(self, arg2: 'int', arg3: 'bool &', arg4: 'IOException') -> "void":
+    def setNextSenderMsgSeqNum(self, arg2, arg3, arg4):
         return _quickfix.MessageStoreExceptionWrapper_setNextSenderMsgSeqNum(self, arg2, arg3, arg4)
 
-    def setNextTargetMsgSeqNum(self, arg2: 'int', arg3: 'bool &', arg4: 'IOException') -> "void":
+    def setNextTargetMsgSeqNum(self, arg2, arg3, arg4):
         return _quickfix.MessageStoreExceptionWrapper_setNextTargetMsgSeqNum(self, arg2, arg3, arg4)
 
-    def incrNextSenderMsgSeqNum(self, arg2: 'bool &', arg3: 'IOException') -> "void":
+    def incrNextSenderMsgSeqNum(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_incrNextSenderMsgSeqNum(self, arg2, arg3)
 
-    def incrNextTargetMsgSeqNum(self, arg2: 'bool &', arg3: 'IOException') -> "void":
+    def incrNextTargetMsgSeqNum(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_incrNextTargetMsgSeqNum(self, arg2, arg3)
 
-    def getCreationTime(self, arg2: 'bool &', arg3: 'IOException') -> "UtcTimeStamp":
+    def getCreationTime(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_getCreationTime(self, arg2, arg3)
 
-    def reset(self, arg2: 'bool &', arg3: 'IOException') -> "void":
+    def reset(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_reset(self, arg2, arg3)
 
-    def refresh(self, arg2: 'bool &', arg3: 'IOException') -> "void":
+    def refresh(self, arg2, arg3):
         return _quickfix.MessageStoreExceptionWrapper_refresh(self, arg2, arg3)
 MessageStoreExceptionWrapper_swigregister = _quickfix.MessageStoreExceptionWrapper_swigregister
 MessageStoreExceptionWrapper_swigregister(MessageStoreExceptionWrapper)
@@ -39422,10 +39422,10 @@ class FileStoreFactory(MessageStoreFactory):
         except BaseException:
             self.this = this
 
-    def create(self, arg2: 'SessionID') -> "FIX::MessageStore *":
+    def create(self, arg2):
         return _quickfix.FileStoreFactory_create(self, arg2)
 
-    def destroy(self, arg2: 'MessageStore') -> "void":
+    def destroy(self, arg2):
         return _quickfix.FileStoreFactory_destroy(self, arg2)
     __swig_destroy__ = _quickfix.delete_FileStoreFactory
     __del__ = lambda self: None
@@ -39443,7 +39443,7 @@ class FileStore(MessageStore):
     __getattr__ = lambda self, name: _swig_getattr(self, FileStore, name)
     __repr__ = _swig_repr
 
-    def __init__(self, arg2: 'std::string', s: 'SessionID'):
+    def __init__(self, arg2, s):
         this = _quickfix.new_FileStore(arg2, s)
         try:
             self.this.append(this)
@@ -39452,37 +39452,37 @@ class FileStore(MessageStore):
     __swig_destroy__ = _quickfix.delete_FileStore
     __del__ = lambda self: None
 
-    def set(self, arg2: 'int', arg3: 'std::string const &') -> "bool":
+    def set(self, arg2, arg3):
         return _quickfix.FileStore_set(self, arg2, arg3)
 
-    def get(self, arg2: 'int', arg3: 'int', arg4: 'std::vector< std::string > &') -> "void":
+    def get(self, arg2, arg3, arg4):
         return _quickfix.FileStore_get(self, arg2, arg3, arg4)
 
-    def getNextSenderMsgSeqNum(self) -> "int":
+    def getNextSenderMsgSeqNum(self):
         return _quickfix.FileStore_getNextSenderMsgSeqNum(self)
 
-    def getNextTargetMsgSeqNum(self) -> "int":
+    def getNextTargetMsgSeqNum(self):
         return _quickfix.FileStore_getNextTargetMsgSeqNum(self)
 
-    def setNextSenderMsgSeqNum(self, value: 'int') -> "void":
+    def setNextSenderMsgSeqNum(self, value):
         return _quickfix.FileStore_setNextSenderMsgSeqNum(self, value)
 
-    def setNextTargetMsgSeqNum(self, value: 'int') -> "void":
+    def setNextTargetMsgSeqNum(self, value):
         return _quickfix.FileStore_setNextTargetMsgSeqNum(self, value)
 
-    def incrNextSenderMsgSeqNum(self) -> "void":
+    def incrNextSenderMsgSeqNum(self):
         return _quickfix.FileStore_incrNextSenderMsgSeqNum(self)
 
-    def incrNextTargetMsgSeqNum(self) -> "void":
+    def incrNextTargetMsgSeqNum(self):
         return _quickfix.FileStore_incrNextTargetMsgSeqNum(self)
 
-    def getCreationTime(self) -> "UtcTimeStamp":
+    def getCreationTime(self):
         return _quickfix.FileStore_getCreationTime(self)
 
-    def reset(self) -> "void":
+    def reset(self):
         return _quickfix.FileStore_reset(self)
 
-    def refresh(self) -> "void":
+    def refresh(self):
         return _quickfix.FileStore_refresh(self)
 FileStore_swigregister = _quickfix.FileStore_swigregister
 FileStore_swigregister(FileStore)
@@ -39496,25 +39496,25 @@ class Application(_object):
     __swig_destroy__ = _quickfix.delete_Application
     __del__ = lambda self: None
 
-    def onCreate(self, arg0: 'SessionID') -> "void":
+    def onCreate(self, arg0):
         return _quickfix.Application_onCreate(self, arg0)
 
-    def onLogon(self, arg0: 'SessionID') -> "void":
+    def onLogon(self, arg0):
         return _quickfix.Application_onLogon(self, arg0)
 
-    def onLogout(self, arg0: 'SessionID') -> "void":
+    def onLogout(self, arg0):
         return _quickfix.Application_onLogout(self, arg0)
 
-    def toAdmin(self, arg0: 'Message', arg1: 'SessionID') -> "void":
+    def toAdmin(self, arg0, arg1):
         return _quickfix.Application_toAdmin(self, arg0, arg1)
 
-    def toApp(self, arg0: 'Message', arg1: 'SessionID') -> "void":
+    def toApp(self, arg0, arg1):
         return _quickfix.Application_toApp(self, arg0, arg1)
 
-    def fromAdmin(self, arg0: 'Message', arg1: 'SessionID') -> "void":
+    def fromAdmin(self, arg0, arg1):
         return _quickfix.Application_fromAdmin(self, arg0, arg1)
 
-    def fromApp(self, arg0: 'Message', arg1: 'SessionID') -> "void":
+    def fromApp(self, arg0, arg1):
         return _quickfix.Application_fromApp(self, arg0, arg1)
 
     def __init__(self):
@@ -39545,39 +39545,39 @@ class SynchronizedApplication(Application):
     __getattr__ = lambda self, name: _swig_getattr(self, SynchronizedApplication, name)
     __repr__ = _swig_repr
 
-    def __init__(self, app: 'Application'):
+    def __init__(self, app):
         this = _quickfix.new_SynchronizedApplication(app)
         try:
             self.this.append(this)
         except BaseException:
             self.this = this
 
-    def onCreate(self, sessionID: 'SessionID') -> "void":
+    def onCreate(self, sessionID):
         return _quickfix.SynchronizedApplication_onCreate(self, sessionID)
 
-    def onLogon(self, sessionID: 'SessionID') -> "void":
+    def onLogon(self, sessionID):
         return _quickfix.SynchronizedApplication_onLogon(self, sessionID)
 
-    def onLogout(self, sessionID: 'SessionID') -> "void":
+    def onLogout(self, sessionID):
         return _quickfix.SynchronizedApplication_onLogout(self, sessionID)
 
-    def toAdmin(self, message: 'Message', sessionID: 'SessionID') -> "void":
+    def toAdmin(self, message, sessionID):
         return _quickfix.SynchronizedApplication_toAdmin(self, message, sessionID)
 
-    def toApp(self, message: 'Message', sessionID: 'SessionID') -> "void":
+    def toApp(self, message, sessionID):
         return _quickfix.SynchronizedApplication_toApp(self, message, sessionID)
 
-    def fromAdmin(self, message: 'Message', sessionID: 'SessionID') -> "void":
+    def fromAdmin(self, message, sessionID):
         return _quickfix.SynchronizedApplication_fromAdmin(self, message, sessionID)
 
-    def fromApp(self, message: 'Message', sessionID: 'SessionID') -> "void":
+    def fromApp(self, message, sessionID):
         return _quickfix.SynchronizedApplication_fromApp(self, message, sessionID)
     __swig_setmethods__["m_mutex"] = _quickfix.SynchronizedApplication_m_mutex_set
     __swig_getmethods__["m_mutex"] = _quickfix.SynchronizedApplication_m_mutex_get
     if _newclass:
         m_mutex = _swig_property(_quickfix.SynchronizedApplication_m_mutex_get, _quickfix.SynchronizedApplication_m_mutex_set)
 
-    def app(self) -> "FIX::Application &":
+    def app(self):
         return _quickfix.SynchronizedApplication_app(self)
     __swig_setmethods__["m_app"] = _quickfix.SynchronizedApplication_m_app_set
     __swig_getmethods__["m_app"] = _quickfix.SynchronizedApplication_m_app_get
@@ -39622,43 +39622,43 @@ class Initiator(_object):
     __swig_destroy__ = _quickfix.delete_Initiator
     __del__ = lambda self: None
 
-    def start(self) -> "void":
+    def start(self):
         return _quickfix.Initiator_start(self)
 
-    def block(self) -> "void":
+    def block(self):
         return _quickfix.Initiator_block(self)
 
-    def poll(self, timeout: 'double'=0.0) -> "bool":
+    def poll(self, timeout=0.0):
         return _quickfix.Initiator_poll(self, timeout)
 
-    def stop(self, force: 'bool'=False) -> "void":
+    def stop(self, force=False):
         return _quickfix.Initiator_stop(self, force)
 
-    def isLoggedOn(self) -> "bool":
+    def isLoggedOn(self):
         return _quickfix.Initiator_isLoggedOn(self)
 
-    def getSessions(self) -> "std::set< FIX::SessionID > const &":
+    def getSessions(self):
         return _quickfix.Initiator_getSessions(self)
 
-    def getSession(self, *args) -> "FIX::Session *":
+    def getSession(self, *args):
         return _quickfix.Initiator_getSession(self, *args)
 
-    def getSessionSettings(self, sessionID: 'SessionID') -> "FIX::Dictionary const *const":
+    def getSessionSettings(self, sessionID):
         return _quickfix.Initiator_getSessionSettings(self, sessionID)
 
-    def has(self, id: 'SessionID') -> "bool":
+    def has(self, id):
         return _quickfix.Initiator_has(self, id)
 
-    def isStopped(self) -> "bool":
+    def isStopped(self):
         return _quickfix.Initiator_isStopped(self)
 
-    def getApplication(self) -> "FIX::Application &":
+    def getApplication(self):
         return _quickfix.Initiator_getApplication(self)
 
-    def getMessageStoreFactory(self) -> "FIX::MessageStoreFactory &":
+    def getMessageStoreFactory(self):
         return _quickfix.Initiator_getMessageStoreFactory(self)
 
-    def getLog(self) -> "FIX::Log *":
+    def getLog(self):
         return _quickfix.Initiator_getLog(self)
 Initiator_swigregister = _quickfix.Initiator_swigregister
 Initiator_swigregister(Initiator)
@@ -39697,43 +39697,43 @@ class Acceptor(_object):
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self: None
 
-    def getLog(self) -> "FIX::Log *":
+    def getLog(self):
         return _quickfix.Acceptor_getLog(self)
 
-    def start(self) -> "void":
+    def start(self):
         return _quickfix.Acceptor_start(self)
 
-    def block(self) -> "void":
+    def block(self):
         return _quickfix.Acceptor_block(self)
 
-    def poll(self, timeout: 'double'=0.0) -> "bool":
+    def poll(self, timeout=0.0):
         return _quickfix.Acceptor_poll(self, timeout)
 
-    def stop(self, force: 'bool'=False) -> "void":
+    def stop(self, force=False):
         return _quickfix.Acceptor_stop(self, force)
 
-    def isLoggedOn(self) -> "bool":
+    def isLoggedOn(self):
         return _quickfix.Acceptor_isLoggedOn(self)
 
-    def getSessions(self) -> "std::set< FIX::SessionID > const &":
+    def getSessions(self):
         return _quickfix.Acceptor_getSessions(self)
 
-    def getSession(self, *args) -> "FIX::Session *":
+    def getSession(self, *args):
         return _quickfix.Acceptor_getSession(self, *args)
 
-    def getSessionSettings(self, sessionID: 'SessionID') -> "FIX::Dictionary const *const":
+    def getSessionSettings(self, sessionID):
         return _quickfix.Acceptor_getSessionSettings(self, sessionID)
 
-    def has(self, id: 'SessionID') -> "bool":
+    def has(self, id):
         return _quickfix.Acceptor_has(self, id)
 
-    def isStopped(self) -> "bool":
+    def isStopped(self):
         return _quickfix.Acceptor_isStopped(self)
 
-    def getApplication(self) -> "FIX::Application &":
+    def getApplication(self):
         return _quickfix.Acceptor_getApplication(self)
 
-    def getMessageStoreFactory(self) -> "FIX::MessageStoreFactory &":
+    def getMessageStoreFactory(self):
         return _quickfix.Acceptor_getMessageStoreFactory(self)
 Acceptor_swigregister = _quickfix.Acceptor_swigregister
 Acceptor_swigregister(Acceptor)
@@ -39776,115 +39776,115 @@ class DataDictionary(_object):
     __swig_destroy__ = _quickfix.delete_DataDictionary
     __del__ = lambda self: None
 
-    def readFromURL(self, url: 'std::string const &') -> "void":
+    def readFromURL(self, url):
         return _quickfix.DataDictionary_readFromURL(self, url)
 
-    def readFromDocument(self, pDoc: 'DOMDocumentPtr &') -> "void":
+    def readFromDocument(self, pDoc):
         return _quickfix.DataDictionary_readFromDocument(self, pDoc)
 
-    def readFromStream(self, stream: 'std::istream &') -> "void":
+    def readFromStream(self, stream):
         return _quickfix.DataDictionary_readFromStream(self, stream)
 
-    def getOrderedFields(self) -> "message_order const &":
+    def getOrderedFields(self):
         return _quickfix.DataDictionary_getOrderedFields(self)
 
-    def setVersion(self, beginString: 'std::string const &') -> "void":
+    def setVersion(self, beginString):
         return _quickfix.DataDictionary_setVersion(self, beginString)
 
-    def getVersion(self) -> "std::string":
+    def getVersion(self):
         return _quickfix.DataDictionary_getVersion(self)
 
-    def addField(self, field: 'int') -> "void":
+    def addField(self, field):
         return _quickfix.DataDictionary_addField(self, field)
 
-    def addFieldName(self, field: 'int', name: 'std::string const &') -> "void":
+    def addFieldName(self, field, name):
         return _quickfix.DataDictionary_addFieldName(self, field, name)
 
-    def getFieldName(self, field: 'int', name: 'std::string &') -> "bool":
+    def getFieldName(self, field, name):
         return _quickfix.DataDictionary_getFieldName(self, field, name)
 
-    def getFieldTag(self, name: 'std::string const &', field: 'int &') -> "bool":
+    def getFieldTag(self, name, field):
         return _quickfix.DataDictionary_getFieldTag(self, name, field)
 
-    def addValueName(self, field: 'int', value: 'std::string const &', name: 'std::string const &') -> "void":
+    def addValueName(self, field, value, name):
         return _quickfix.DataDictionary_addValueName(self, field, value, name)
 
-    def getValueName(self, field: 'int', value: 'std::string const &', name: 'std::string &') -> "bool":
+    def getValueName(self, field, value, name):
         return _quickfix.DataDictionary_getValueName(self, field, value, name)
 
-    def isField(self, field: 'int') -> "bool":
+    def isField(self, field):
         return _quickfix.DataDictionary_isField(self, field)
 
-    def addMsgType(self, msgType: 'std::string const &') -> "void":
+    def addMsgType(self, msgType):
         return _quickfix.DataDictionary_addMsgType(self, msgType)
 
-    def isMsgType(self, msgType: 'std::string const &') -> "bool":
+    def isMsgType(self, msgType):
         return _quickfix.DataDictionary_isMsgType(self, msgType)
 
-    def addMsgField(self, msgType: 'std::string const &', field: 'int') -> "void":
+    def addMsgField(self, msgType, field):
         return _quickfix.DataDictionary_addMsgField(self, msgType, field)
 
-    def isMsgField(self, msgType: 'std::string const &', field: 'int') -> "bool":
+    def isMsgField(self, msgType, field):
         return _quickfix.DataDictionary_isMsgField(self, msgType, field)
 
-    def addHeaderField(self, field: 'int', required: 'bool') -> "void":
+    def addHeaderField(self, field, required):
         return _quickfix.DataDictionary_addHeaderField(self, field, required)
 
-    def isHeaderField(self, field: 'int') -> "bool":
+    def isHeaderField(self, field):
         return _quickfix.DataDictionary_isHeaderField(self, field)
 
-    def addTrailerField(self, field: 'int', required: 'bool') -> "void":
+    def addTrailerField(self, field, required):
         return _quickfix.DataDictionary_addTrailerField(self, field, required)
 
-    def isTrailerField(self, field: 'int') -> "bool":
+    def isTrailerField(self, field):
         return _quickfix.DataDictionary_isTrailerField(self, field)
 
-    def addFieldType(self, field: 'int', type: 'FIX::TYPE::Type') -> "void":
+    def addFieldType(self, field, type):
         return _quickfix.DataDictionary_addFieldType(self, field, type)
 
-    def getFieldType(self, field: 'int', type: 'FIX::TYPE::Type &') -> "bool":
+    def getFieldType(self, field, type):
         return _quickfix.DataDictionary_getFieldType(self, field, type)
 
-    def addRequiredField(self, msgType: 'std::string const &', field: 'int') -> "void":
+    def addRequiredField(self, msgType, field):
         return _quickfix.DataDictionary_addRequiredField(self, msgType, field)
 
-    def isRequiredField(self, msgType: 'std::string const &', field: 'int') -> "bool":
+    def isRequiredField(self, msgType, field):
         return _quickfix.DataDictionary_isRequiredField(self, msgType, field)
 
-    def addFieldValue(self, field: 'int', value: 'std::string const &') -> "void":
+    def addFieldValue(self, field, value):
         return _quickfix.DataDictionary_addFieldValue(self, field, value)
 
-    def hasFieldValue(self, field: 'int') -> "bool":
+    def hasFieldValue(self, field):
         return _quickfix.DataDictionary_hasFieldValue(self, field)
 
-    def isFieldValue(self, field: 'int', value: 'std::string const &') -> "bool":
+    def isFieldValue(self, field, value):
         return _quickfix.DataDictionary_isFieldValue(self, field, value)
 
-    def addGroup(self, msg: 'std::string const &', field: 'int', delim: 'int', dataDictionary: 'DataDictionary') -> "void":
+    def addGroup(self, msg, field, delim, dataDictionary):
         return _quickfix.DataDictionary_addGroup(self, msg, field, delim, dataDictionary)
 
-    def isGroup(self, msg: 'std::string const &', field: 'int') -> "bool":
+    def isGroup(self, msg, field):
         return _quickfix.DataDictionary_isGroup(self, msg, field)
 
-    def getGroup(self, msg: 'std::string const &', field: 'int', delim: 'int &', pDataDictionary: 'FIX::DataDictionary const *&') -> "bool":
+    def getGroup(self, msg, field, delim, pDataDictionary):
         return _quickfix.DataDictionary_getGroup(self, msg, field, delim, pDataDictionary)
 
-    def isDataField(self, field: 'int') -> "bool":
+    def isDataField(self, field):
         return _quickfix.DataDictionary_isDataField(self, field)
 
-    def isMultipleValueField(self, field: 'int') -> "bool":
+    def isMultipleValueField(self, field):
         return _quickfix.DataDictionary_isMultipleValueField(self, field)
 
-    def checkFieldsOutOfOrder(self, value: 'bool') -> "void":
+    def checkFieldsOutOfOrder(self, value):
         return _quickfix.DataDictionary_checkFieldsOutOfOrder(self, value)
 
-    def checkFieldsHaveValues(self, value: 'bool') -> "void":
+    def checkFieldsHaveValues(self, value):
         return _quickfix.DataDictionary_checkFieldsHaveValues(self, value)
 
-    def checkUserDefinedFields(self, value: 'bool') -> "void":
+    def checkUserDefinedFields(self, value):
         return _quickfix.DataDictionary_checkUserDefinedFields(self, value)
 
-    def validate(self, *args) -> "void":
+    def validate(self, *args):
         return _quickfix.DataDictionary_validate(self, *args)
 DataDictionary_swigregister = _quickfix.DataDictionary_swigregister
 DataDictionary_swigregister(DataDictionary)

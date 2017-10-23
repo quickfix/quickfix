@@ -1,10 +1,6 @@
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
-#if PY_VERSION_HEX >= 0x03000000
-  temp = std::string((char*)PyUnicode_AsUTF8($input));
-#else
   temp = std::string((char*)PyString_AsString($input));
-#endif
   $1 = &temp;
 }
 
@@ -13,11 +9,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-#if PY_VERSION_HEX >= 0x03000000
-    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString($1->c_str()) );
-#else
     PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
-#endif
   }
 }
 
@@ -31,11 +23,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-#if PY_VERSION_HEX >= 0x03000000
-    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );    
-#else
     PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );
-#endif
   }
 }
 #endif
