@@ -32,7 +32,7 @@
 #pragma warning( disable : 4503 )
 #endif
 
-typedef std::unique_ptr < FIX::Acceptor > AcceptorPtr;
+typedef std::auto_ptr < FIX::Acceptor > AcceptorPtr;
 
 int main( int argc, char** argv )
 {
@@ -60,13 +60,13 @@ int main( int argc, char** argv )
     AcceptorPtr pAcceptor;
     if ( threaded )
     {
-      pAcceptor = std::unique_ptr < FIX::Acceptor >
+      pAcceptor = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::ThreadedSocketAcceptor
                         ( application, factory, settings ) );
     }
     else
     {
-      pAcceptor = std::unique_ptr < FIX::Acceptor >
+      pAcceptor = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::SocketAcceptor
                         ( application, factory, settings ) );
     }

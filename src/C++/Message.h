@@ -324,7 +324,7 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
-  static std::unique_ptr<DataDictionary> s_dataDictionary;
+  static std::auto_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
 
