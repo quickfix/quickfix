@@ -88,7 +88,8 @@ fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
+AX_CHECK_COMPILE_FLAG([-std=c++0x], [CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"])
 AC_SUBST(CXXFLAGS)
 
 
@@ -187,12 +188,6 @@ else AC_MSG_RESULT(no)
     AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
 fi
 
-AC_MSG_CHECKING(for typeinfo in the global namespace)
-AC_TRY_COMPILE(
-	[#include <typeinfo>],
-	[const typeinfo& ty = typeid(typeinfo);],
-	typeinfo_is_global=true, typeinfo_is_global=false)
-
 AC_MSG_CHECKING(for std::tr1::shared_ptr)
 AC_TRY_COMPILE(
 	[#include <tr1/memory>],
@@ -210,6 +205,21 @@ AC_TRY_COMPILE(
 	AC_DEFINE(HAVE_STD_SHARED_PTR, 1,
 	The system supports std::shared_ptr),
 	AC_MSG_RESULT(no))
+
+AC_MSG_CHECKING(for boost::shared_ptr)
+AC_TRY_COMPILE(
+        [#include <boost/shared_ptr.hpp>],
+        [boost::shared_ptr<int> ptr;],
+        AC_MSG_RESULT(yes)
+        AC_DEFINE(HAVE_BOOST_SHARED_PTR, 1,
+        The system supports boost::shared_ptr),
+        AC_MSG_RESULT(no))
+
+AC_MSG_CHECKING(for typeinfo in the global namespace)
+AC_TRY_COMPILE(
+	[#include <typeinfo>],
+	[const typeinfo& ty = typeid(typeinfo);],
+	typeinfo_is_global=true, typeinfo_is_global=false)
 
 if test $typeinfo_is_global = true
 then AC_MSG_RESULT(yes)
