@@ -1,6 +1,10 @@
 #ifdef SWIGPYTHON
 %typemap(in) std::string& (std::string temp) {
+%#if PYTHON_MAJOR_VERSION >= 3
+  temp = std::string((char*)PyUnicode_AsUTF8($input));
+%#else
   temp = std::string((char*)PyString_AsString($input));
+%#endif
   $1 = &temp;
 }
 
@@ -9,7 +13,11 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
+%#if PYTHON_MAJOR_VERSION >= 3
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString($1->c_str()) );
+%#else
     PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
+%#endif
   }
 }
 
@@ -23,7 +31,11 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
+%#if PYTHON_MAJOR_VERSION >= 3
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );    
+%#else
     PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );
+%#endif
   }
 }
 #endif
@@ -44,6 +56,8 @@
   pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
   *pDD = *(*$1);
 }
+
+%rename(FIXException) FIX::Exception;
 
 %include ../quickfix.i
 

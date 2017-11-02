@@ -1,6 +1,6 @@
 AC_DEFUN([AX_PYTHON],
 [
-PYTHON=${PYTHON:-"python"}
+PYTHON=${PYTHON:-"python2"}
 
 has_python=false
 AC_ARG_WITH(python,
@@ -25,12 +25,17 @@ AC_ARG_WITH(python3,
     has_python3=false
 )
 
-PYTHON_PREFIX=$with_python
+if test $has_python = true
+then
+  PYTHON_PREFIX=$with_python
+  AC_DEFINE(PYTHON_MAJOR_VERSION, 2, Define the major version of python)
+fi
 
 if test $has_python3 = true
 then
   has_python=true
   PYTHON_PREFIX=$with_python3
+  AC_DEFINE(PYTHON_MAJOR_VERSION, 3, Define the major version of python)
 fi
 
 AC_SUBST(PYTHON_PREFIX)

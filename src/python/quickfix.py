@@ -77,7 +77,7 @@ def _swig_getattr(self, class_type, name):
 def _swig_repr(self):
     try:
         strthis = "proxy of " + self.this.__repr__()
-    except BaseException:
+    except Exception:
         strthis = ""
     return "<%s.%s; %s >" % (self.__class__.__module__, self.__class__.__name__, strthis,)
 
@@ -93,7 +93,7 @@ except AttributeError:
 try:
     import weakref
     weakref_proxy = weakref.proxy
-except BaseException:
+except Exception:
     weakref_proxy = lambda x: x
 
 
@@ -108,7 +108,7 @@ class IntArray(_object):
         this = _quickfix.new_IntArray(nelements)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IntArray
     __del__ = lambda self: None
@@ -131,38 +131,38 @@ def IntArray_frompointer(t):
     return _quickfix.IntArray_frompointer(t)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
-class Exception(Exception):
+class FIXException(Exception):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Exception, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, FIXException, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, Exception, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, FIXException, name)
     __repr__ = _swig_repr
 
     def __init__(self, t, d):
-        this = _quickfix.new_Exception(t, d)
+        this = _quickfix.new_FIXException(t, d)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
-    __swig_destroy__ = _quickfix.delete_Exception
+    __swig_destroy__ = _quickfix.delete_FIXException
     __del__ = lambda self: None
-    __swig_setmethods__["type"] = _quickfix.Exception_type_set
-    __swig_getmethods__["type"] = _quickfix.Exception_type_get
-    __swig_setmethods__["detail"] = _quickfix.Exception_detail_set
-    __swig_getmethods__["detail"] = _quickfix.Exception_detail_get
+    __swig_setmethods__["type"] = _quickfix.FIXException_type_set
+    __swig_getmethods__["type"] = _quickfix.FIXException_type_get
+    __swig_setmethods__["detail"] = _quickfix.FIXException_detail_set
+    __swig_getmethods__["detail"] = _quickfix.FIXException_detail_get
 
     def __str__(self):
-        return _quickfix.Exception___str__(self)
-Exception_swigregister = _quickfix.Exception_swigregister
-Exception_swigregister(Exception)
+        return _quickfix.FIXException___str__(self)
+FIXException_swigregister = _quickfix.FIXException_swigregister
+FIXException_swigregister(FIXException)
 
-class DataDictionaryNotFound(Exception):
+class DataDictionaryNotFound(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, DataDictionaryNotFound, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, DataDictionaryNotFound, name)
     __repr__ = _swig_repr
@@ -171,7 +171,7 @@ class DataDictionaryNotFound(Exception):
         this = _quickfix.new_DataDictionaryNotFound(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DataDictionaryNotFound
     __del__ = lambda self: None
@@ -182,13 +182,13 @@ class DataDictionaryNotFound(Exception):
 DataDictionaryNotFound_swigregister = _quickfix.DataDictionaryNotFound_swigregister
 DataDictionaryNotFound_swigregister(DataDictionaryNotFound)
 
-class FieldNotFound(Exception):
+class FieldNotFound(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldNotFound, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, FieldNotFound, name)
     __repr__ = _swig_repr
@@ -197,7 +197,7 @@ class FieldNotFound(Exception):
         this = _quickfix.new_FieldNotFound(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.FieldNotFound_field_set
     __swig_getmethods__["field"] = _quickfix.FieldNotFound_field_get
@@ -206,13 +206,13 @@ class FieldNotFound(Exception):
 FieldNotFound_swigregister = _quickfix.FieldNotFound_swigregister
 FieldNotFound_swigregister(FieldNotFound)
 
-class FieldConvertError(Exception):
+class FieldConvertError(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldConvertError, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, FieldConvertError, name)
     __repr__ = _swig_repr
@@ -221,20 +221,20 @@ class FieldConvertError(Exception):
         this = _quickfix.new_FieldConvertError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FieldConvertError
     __del__ = lambda self: None
 FieldConvertError_swigregister = _quickfix.FieldConvertError_swigregister
 FieldConvertError_swigregister(FieldConvertError)
 
-class MessageParseError(Exception):
+class MessageParseError(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageParseError, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, MessageParseError, name)
     __repr__ = _swig_repr
@@ -243,20 +243,20 @@ class MessageParseError(Exception):
         this = _quickfix.new_MessageParseError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MessageParseError
     __del__ = lambda self: None
 MessageParseError_swigregister = _quickfix.MessageParseError_swigregister
 MessageParseError_swigregister(MessageParseError)
 
-class InvalidMessage(Exception):
+class InvalidMessage(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, InvalidMessage, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessage, name)
     __repr__ = _swig_repr
@@ -265,20 +265,20 @@ class InvalidMessage(Exception):
         this = _quickfix.new_InvalidMessage(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InvalidMessage
     __del__ = lambda self: None
 InvalidMessage_swigregister = _quickfix.InvalidMessage_swigregister
 InvalidMessage_swigregister(InvalidMessage)
 
-class ConfigError(Exception):
+class ConfigError(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, ConfigError, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, ConfigError, name)
     __repr__ = _swig_repr
@@ -287,20 +287,20 @@ class ConfigError(Exception):
         this = _quickfix.new_ConfigError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfigError
     __del__ = lambda self: None
 ConfigError_swigregister = _quickfix.ConfigError_swigregister
 ConfigError_swigregister(ConfigError)
 
-class RuntimeError(Exception):
+class RuntimeError(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RuntimeError, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, RuntimeError, name)
     __repr__ = _swig_repr
@@ -309,20 +309,20 @@ class RuntimeError(Exception):
         this = _quickfix.new_RuntimeError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RuntimeError
     __del__ = lambda self: None
 RuntimeError_swigregister = _quickfix.RuntimeError_swigregister
 RuntimeError_swigregister(RuntimeError)
 
-class InvalidTagNumber(Exception):
+class InvalidTagNumber(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, InvalidTagNumber, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidTagNumber, name)
     __repr__ = _swig_repr
@@ -331,7 +331,7 @@ class InvalidTagNumber(Exception):
         this = _quickfix.new_InvalidTagNumber(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.InvalidTagNumber_field_set
     __swig_getmethods__["field"] = _quickfix.InvalidTagNumber_field_get
@@ -340,13 +340,13 @@ class InvalidTagNumber(Exception):
 InvalidTagNumber_swigregister = _quickfix.InvalidTagNumber_swigregister
 InvalidTagNumber_swigregister(InvalidTagNumber)
 
-class RequiredTagMissing(Exception):
+class RequiredTagMissing(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RequiredTagMissing, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, RequiredTagMissing, name)
     __repr__ = _swig_repr
@@ -355,7 +355,7 @@ class RequiredTagMissing(Exception):
         this = _quickfix.new_RequiredTagMissing(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RequiredTagMissing_field_set
     __swig_getmethods__["field"] = _quickfix.RequiredTagMissing_field_get
@@ -364,13 +364,13 @@ class RequiredTagMissing(Exception):
 RequiredTagMissing_swigregister = _quickfix.RequiredTagMissing_swigregister
 RequiredTagMissing_swigregister(RequiredTagMissing)
 
-class TagNotDefinedForMessage(Exception):
+class TagNotDefinedForMessage(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, TagNotDefinedForMessage, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, TagNotDefinedForMessage, name)
     __repr__ = _swig_repr
@@ -379,7 +379,7 @@ class TagNotDefinedForMessage(Exception):
         this = _quickfix.new_TagNotDefinedForMessage(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_set
     __swig_getmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_get
@@ -388,13 +388,13 @@ class TagNotDefinedForMessage(Exception):
 TagNotDefinedForMessage_swigregister = _quickfix.TagNotDefinedForMessage_swigregister
 TagNotDefinedForMessage_swigregister(TagNotDefinedForMessage)
 
-class NoTagValue(Exception):
+class NoTagValue(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, NoTagValue, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, NoTagValue, name)
     __repr__ = _swig_repr
@@ -403,7 +403,7 @@ class NoTagValue(Exception):
         this = _quickfix.new_NoTagValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.NoTagValue_field_set
     __swig_getmethods__["field"] = _quickfix.NoTagValue_field_get
@@ -412,13 +412,13 @@ class NoTagValue(Exception):
 NoTagValue_swigregister = _quickfix.NoTagValue_swigregister
 NoTagValue_swigregister(NoTagValue)
 
-class IncorrectTagValue(Exception):
+class IncorrectTagValue(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, IncorrectTagValue, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectTagValue, name)
     __repr__ = _swig_repr
@@ -427,7 +427,7 @@ class IncorrectTagValue(Exception):
         this = _quickfix.new_IncorrectTagValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectTagValue_field_set
     __swig_getmethods__["field"] = _quickfix.IncorrectTagValue_field_get
@@ -436,13 +436,13 @@ class IncorrectTagValue(Exception):
 IncorrectTagValue_swigregister = _quickfix.IncorrectTagValue_swigregister
 IncorrectTagValue_swigregister(IncorrectTagValue)
 
-class IncorrectDataFormat(Exception):
+class IncorrectDataFormat(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, IncorrectDataFormat, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectDataFormat, name)
     __repr__ = _swig_repr
@@ -451,7 +451,7 @@ class IncorrectDataFormat(Exception):
         this = _quickfix.new_IncorrectDataFormat(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectDataFormat_field_set
     __swig_getmethods__["field"] = _quickfix.IncorrectDataFormat_field_get
@@ -460,13 +460,13 @@ class IncorrectDataFormat(Exception):
 IncorrectDataFormat_swigregister = _quickfix.IncorrectDataFormat_swigregister
 IncorrectDataFormat_swigregister(IncorrectDataFormat)
 
-class IncorrectMessageStructure(Exception):
+class IncorrectMessageStructure(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, IncorrectMessageStructure, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectMessageStructure, name)
     __repr__ = _swig_repr
@@ -475,20 +475,20 @@ class IncorrectMessageStructure(Exception):
         this = _quickfix.new_IncorrectMessageStructure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IncorrectMessageStructure
     __del__ = lambda self: None
 IncorrectMessageStructure_swigregister = _quickfix.IncorrectMessageStructure_swigregister
 IncorrectMessageStructure_swigregister(IncorrectMessageStructure)
 
-class DuplicateFieldNumber(Exception):
+class DuplicateFieldNumber(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, DuplicateFieldNumber, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, DuplicateFieldNumber, name)
     __repr__ = _swig_repr
@@ -497,20 +497,20 @@ class DuplicateFieldNumber(Exception):
         this = _quickfix.new_DuplicateFieldNumber(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DuplicateFieldNumber
     __del__ = lambda self: None
 DuplicateFieldNumber_swigregister = _quickfix.DuplicateFieldNumber_swigregister
 DuplicateFieldNumber_swigregister(DuplicateFieldNumber)
 
-class InvalidMessageType(Exception):
+class InvalidMessageType(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, InvalidMessageType, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessageType, name)
     __repr__ = _swig_repr
@@ -519,20 +519,20 @@ class InvalidMessageType(Exception):
         this = _quickfix.new_InvalidMessageType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InvalidMessageType
     __del__ = lambda self: None
 InvalidMessageType_swigregister = _quickfix.InvalidMessageType_swigregister
 InvalidMessageType_swigregister(InvalidMessageType)
 
-class UnsupportedMessageType(Exception):
+class UnsupportedMessageType(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, UnsupportedMessageType, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedMessageType, name)
     __repr__ = _swig_repr
@@ -541,20 +541,20 @@ class UnsupportedMessageType(Exception):
         this = _quickfix.new_UnsupportedMessageType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnsupportedMessageType
     __del__ = lambda self: None
 UnsupportedMessageType_swigregister = _quickfix.UnsupportedMessageType_swigregister
 UnsupportedMessageType_swigregister(UnsupportedMessageType)
 
-class UnsupportedVersion(Exception):
+class UnsupportedVersion(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, UnsupportedVersion, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedVersion, name)
     __repr__ = _swig_repr
@@ -563,20 +563,20 @@ class UnsupportedVersion(Exception):
         this = _quickfix.new_UnsupportedVersion(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnsupportedVersion
     __del__ = lambda self: None
 UnsupportedVersion_swigregister = _quickfix.UnsupportedVersion_swigregister
 UnsupportedVersion_swigregister(UnsupportedVersion)
 
-class TagOutOfOrder(Exception):
+class TagOutOfOrder(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, TagOutOfOrder, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, TagOutOfOrder, name)
     __repr__ = _swig_repr
@@ -585,7 +585,7 @@ class TagOutOfOrder(Exception):
         this = _quickfix.new_TagOutOfOrder(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.TagOutOfOrder_field_set
     __swig_getmethods__["field"] = _quickfix.TagOutOfOrder_field_get
@@ -596,13 +596,13 @@ class TagOutOfOrder(Exception):
 TagOutOfOrder_swigregister = _quickfix.TagOutOfOrder_swigregister
 TagOutOfOrder_swigregister(TagOutOfOrder)
 
-class RepeatedTag(Exception):
+class RepeatedTag(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RepeatedTag, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatedTag, name)
     __repr__ = _swig_repr
@@ -611,7 +611,7 @@ class RepeatedTag(Exception):
         this = _quickfix.new_RepeatedTag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatedTag_field_set
     __swig_getmethods__["field"] = _quickfix.RepeatedTag_field_get
@@ -620,13 +620,13 @@ class RepeatedTag(Exception):
 RepeatedTag_swigregister = _quickfix.RepeatedTag_swigregister
 RepeatedTag_swigregister(RepeatedTag)
 
-class RepeatingGroupCountMismatch(Exception):
+class RepeatingGroupCountMismatch(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RepeatingGroupCountMismatch, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatingGroupCountMismatch, name)
     __repr__ = _swig_repr
@@ -635,7 +635,7 @@ class RepeatingGroupCountMismatch(Exception):
         this = _quickfix.new_RepeatingGroupCountMismatch(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_set
     __swig_getmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_get
@@ -644,13 +644,13 @@ class RepeatingGroupCountMismatch(Exception):
 RepeatingGroupCountMismatch_swigregister = _quickfix.RepeatingGroupCountMismatch_swigregister
 RepeatingGroupCountMismatch_swigregister(RepeatingGroupCountMismatch)
 
-class DoNotSend(Exception):
+class DoNotSend(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, DoNotSend, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, DoNotSend, name)
     __repr__ = _swig_repr
@@ -659,20 +659,20 @@ class DoNotSend(Exception):
         this = _quickfix.new_DoNotSend(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DoNotSend
     __del__ = lambda self: None
 DoNotSend_swigregister = _quickfix.DoNotSend_swigregister
 DoNotSend_swigregister(DoNotSend)
 
-class RejectLogon(Exception):
+class RejectLogon(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, RejectLogon, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, RejectLogon, name)
     __repr__ = _swig_repr
@@ -681,20 +681,20 @@ class RejectLogon(Exception):
         this = _quickfix.new_RejectLogon(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RejectLogon
     __del__ = lambda self: None
 RejectLogon_swigregister = _quickfix.RejectLogon_swigregister
 RejectLogon_swigregister(RejectLogon)
 
-class SessionNotFound(Exception):
+class SessionNotFound(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, SessionNotFound, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, SessionNotFound, name)
     __repr__ = _swig_repr
@@ -703,20 +703,20 @@ class SessionNotFound(Exception):
         this = _quickfix.new_SessionNotFound(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SessionNotFound
     __del__ = lambda self: None
 SessionNotFound_swigregister = _quickfix.SessionNotFound_swigregister
 SessionNotFound_swigregister(SessionNotFound)
 
-class IOException(Exception):
+class IOException(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, IOException, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, IOException, name)
     __repr__ = _swig_repr
@@ -725,20 +725,20 @@ class IOException(Exception):
         this = _quickfix.new_IOException(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOException
     __del__ = lambda self: None
 IOException_swigregister = _quickfix.IOException_swigregister
 IOException_swigregister(IOException)
 
-class SocketException(Exception):
+class SocketException(FIXException):
     __swig_setmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, SocketException, name, value)
     __swig_getmethods__ = {}
-    for _s in [Exception]:
+    for _s in [FIXException]:
         __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
     __getattr__ = lambda self, name: _swig_getattr(self, SocketException, name)
     __repr__ = _swig_repr
@@ -747,7 +747,7 @@ class SocketException(Exception):
         this = _quickfix.new_SocketException(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def errorToWhat(self):
@@ -776,7 +776,7 @@ class SocketSendFailed(SocketException):
         this = _quickfix.new_SocketSendFailed(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SocketSendFailed
     __del__ = lambda self: None
@@ -798,7 +798,7 @@ class SocketRecvFailed(SocketException):
         this = _quickfix.new_SocketRecvFailed(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SocketRecvFailed
     __del__ = lambda self: None
@@ -820,7 +820,7 @@ class SocketCloseFailed(SocketException):
         this = _quickfix.new_SocketCloseFailed(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SocketCloseFailed
     __del__ = lambda self: None
@@ -840,7 +840,7 @@ class FieldBase(_object):
         this = _quickfix.new_FieldBase(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def swap(self, rhs):
@@ -900,7 +900,7 @@ class StringField(FieldBase):
         this = _quickfix.new_StringField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -958,7 +958,7 @@ class CharField(FieldBase):
         this = _quickfix.new_CharField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -986,7 +986,7 @@ class DoubleField(FieldBase):
         this = _quickfix.new_DoubleField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value, padding=0):
@@ -1014,7 +1014,7 @@ class IntField(FieldBase):
         this = _quickfix.new_IntField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1042,7 +1042,7 @@ class BoolField(FieldBase):
         this = _quickfix.new_BoolField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1076,7 +1076,7 @@ class UtcTimeStampField(FieldBase):
         this = _quickfix.new_UtcTimeStampField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1113,7 +1113,7 @@ class UtcDateField(FieldBase):
         this = _quickfix.new_UtcDateField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1150,7 +1150,7 @@ class UtcTimeOnlyField(FieldBase):
         this = _quickfix.new_UtcTimeOnlyField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1187,7 +1187,7 @@ class CheckSumField(FieldBase):
         this = _quickfix.new_CheckSumField(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def setValue(self, value):
@@ -1211,7 +1211,7 @@ class FieldMap(_object):
         this = _quickfix.new_FieldMap(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FieldMap
     __del__ = lambda self: None
@@ -1311,7 +1311,7 @@ class Header(FieldMap):
         this = _quickfix.new_Header()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Header
     __del__ = lambda self: None
@@ -1333,7 +1333,7 @@ class Trailer(FieldMap):
         this = _quickfix.new_Trailer()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Trailer
     __del__ = lambda self: None
@@ -1355,7 +1355,7 @@ class Message(FieldMap):
         this = _quickfix.new_Message(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Message
     __del__ = lambda self: None
@@ -1492,7 +1492,7 @@ class Group(FieldMap):
         this = _quickfix.new_Group(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def field(self):
@@ -1535,7 +1535,7 @@ class BeginSeqNo(IntField):
         this = _quickfix.new_BeginSeqNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BeginSeqNo
     __del__ = lambda self: None
@@ -1557,7 +1557,7 @@ class BeginString(StringField):
         this = _quickfix.new_BeginString(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BeginString
     __del__ = lambda self: None
@@ -1579,7 +1579,7 @@ class BodyLength(IntField):
         this = _quickfix.new_BodyLength(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BodyLength
     __del__ = lambda self: None
@@ -1601,7 +1601,7 @@ class CheckSum(CheckSumField):
         this = _quickfix.new_CheckSum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CheckSum
     __del__ = lambda self: None
@@ -1623,7 +1623,7 @@ class EndSeqNo(IntField):
         this = _quickfix.new_EndSeqNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndSeqNo
     __del__ = lambda self: None
@@ -1645,7 +1645,7 @@ class MsgSeqNum(IntField):
         this = _quickfix.new_MsgSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MsgSeqNum
     __del__ = lambda self: None
@@ -1667,7 +1667,7 @@ class MsgType(StringField):
         this = _quickfix.new_MsgType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MsgType
     __del__ = lambda self: None
@@ -1689,7 +1689,7 @@ class NewSeqNo(IntField):
         this = _quickfix.new_NewSeqNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewSeqNo
     __del__ = lambda self: None
@@ -1711,7 +1711,7 @@ class PossDupFlag(BoolField):
         this = _quickfix.new_PossDupFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PossDupFlag
     __del__ = lambda self: None
@@ -1733,7 +1733,7 @@ class RefSeqNum(IntField):
         this = _quickfix.new_RefSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefSeqNum
     __del__ = lambda self: None
@@ -1755,7 +1755,7 @@ class SenderCompID(StringField):
         this = _quickfix.new_SenderCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SenderCompID
     __del__ = lambda self: None
@@ -1777,7 +1777,7 @@ class SenderSubID(StringField):
         this = _quickfix.new_SenderSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SenderSubID
     __del__ = lambda self: None
@@ -1799,7 +1799,7 @@ class SendingTime(UtcTimeStampField):
         this = _quickfix.new_SendingTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SendingTime
     __del__ = lambda self: None
@@ -1821,7 +1821,7 @@ class TargetCompID(StringField):
         this = _quickfix.new_TargetCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetCompID
     __del__ = lambda self: None
@@ -1843,7 +1843,7 @@ class TargetSubID(StringField):
         this = _quickfix.new_TargetSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetSubID
     __del__ = lambda self: None
@@ -1865,7 +1865,7 @@ class Text(StringField):
         this = _quickfix.new_Text(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Text
     __del__ = lambda self: None
@@ -1887,7 +1887,7 @@ class Signature(StringField):
         this = _quickfix.new_Signature(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Signature
     __del__ = lambda self: None
@@ -1909,7 +1909,7 @@ class SecureDataLen(IntField):
         this = _quickfix.new_SecureDataLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecureDataLen
     __del__ = lambda self: None
@@ -1931,7 +1931,7 @@ class SecureData(StringField):
         this = _quickfix.new_SecureData(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecureData
     __del__ = lambda self: None
@@ -1953,7 +1953,7 @@ class SignatureLength(IntField):
         this = _quickfix.new_SignatureLength(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SignatureLength
     __del__ = lambda self: None
@@ -1975,7 +1975,7 @@ class RawDataLength(IntField):
         this = _quickfix.new_RawDataLength(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RawDataLength
     __del__ = lambda self: None
@@ -1997,7 +1997,7 @@ class RawData(StringField):
         this = _quickfix.new_RawData(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RawData
     __del__ = lambda self: None
@@ -2019,7 +2019,7 @@ class PossResend(BoolField):
         this = _quickfix.new_PossResend(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PossResend
     __del__ = lambda self: None
@@ -2041,7 +2041,7 @@ class EncryptMethod(IntField):
         this = _quickfix.new_EncryptMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptMethod
     __del__ = lambda self: None
@@ -2063,7 +2063,7 @@ class HeartBtInt(IntField):
         this = _quickfix.new_HeartBtInt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HeartBtInt
     __del__ = lambda self: None
@@ -2085,7 +2085,7 @@ class TestReqID(StringField):
         this = _quickfix.new_TestReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TestReqID
     __del__ = lambda self: None
@@ -2107,7 +2107,7 @@ class OnBehalfOfCompID(StringField):
         this = _quickfix.new_OnBehalfOfCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfCompID
     __del__ = lambda self: None
@@ -2129,7 +2129,7 @@ class OnBehalfOfSubID(StringField):
         this = _quickfix.new_OnBehalfOfSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfSubID
     __del__ = lambda self: None
@@ -2151,7 +2151,7 @@ class OrigSendingTime(UtcTimeStampField):
         this = _quickfix.new_OrigSendingTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigSendingTime
     __del__ = lambda self: None
@@ -2173,7 +2173,7 @@ class GapFillFlag(BoolField):
         this = _quickfix.new_GapFillFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_GapFillFlag
     __del__ = lambda self: None
@@ -2195,7 +2195,7 @@ class DeliverToCompID(StringField):
         this = _quickfix.new_DeliverToCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToCompID
     __del__ = lambda self: None
@@ -2217,7 +2217,7 @@ class DeliverToSubID(StringField):
         this = _quickfix.new_DeliverToSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToSubID
     __del__ = lambda self: None
@@ -2239,7 +2239,7 @@ class ResetSeqNumFlag(BoolField):
         this = _quickfix.new_ResetSeqNumFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ResetSeqNumFlag
     __del__ = lambda self: None
@@ -2261,7 +2261,7 @@ class SenderLocationID(StringField):
         this = _quickfix.new_SenderLocationID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SenderLocationID
     __del__ = lambda self: None
@@ -2283,7 +2283,7 @@ class TargetLocationID(StringField):
         this = _quickfix.new_TargetLocationID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetLocationID
     __del__ = lambda self: None
@@ -2305,7 +2305,7 @@ class OnBehalfOfLocationID(StringField):
         this = _quickfix.new_OnBehalfOfLocationID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfLocationID
     __del__ = lambda self: None
@@ -2327,7 +2327,7 @@ class DeliverToLocationID(StringField):
         this = _quickfix.new_DeliverToLocationID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliverToLocationID
     __del__ = lambda self: None
@@ -2349,7 +2349,7 @@ class XmlDataLen(IntField):
         this = _quickfix.new_XmlDataLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_XmlDataLen
     __del__ = lambda self: None
@@ -2371,7 +2371,7 @@ class XmlData(StringField):
         this = _quickfix.new_XmlData(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_XmlData
     __del__ = lambda self: None
@@ -2393,7 +2393,7 @@ class MessageEncoding(StringField):
         this = _quickfix.new_MessageEncoding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MessageEncoding
     __del__ = lambda self: None
@@ -2415,7 +2415,7 @@ class EncodedTextLen(IntField):
         this = _quickfix.new_EncodedTextLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedTextLen
     __del__ = lambda self: None
@@ -2437,7 +2437,7 @@ class EncodedText(StringField):
         this = _quickfix.new_EncodedText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedText
     __del__ = lambda self: None
@@ -2459,7 +2459,7 @@ class LastMsgSeqNumProcessed(IntField):
         this = _quickfix.new_LastMsgSeqNumProcessed(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastMsgSeqNumProcessed
     __del__ = lambda self: None
@@ -2481,7 +2481,7 @@ class RefTagID(IntField):
         this = _quickfix.new_RefTagID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefTagID
     __del__ = lambda self: None
@@ -2503,7 +2503,7 @@ class RefMsgType(StringField):
         this = _quickfix.new_RefMsgType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefMsgType
     __del__ = lambda self: None
@@ -2525,7 +2525,7 @@ class SessionRejectReason(IntField):
         this = _quickfix.new_SessionRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SessionRejectReason
     __del__ = lambda self: None
@@ -2547,7 +2547,7 @@ class MaxMessageSize(IntField):
         this = _quickfix.new_MaxMessageSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxMessageSize
     __del__ = lambda self: None
@@ -2569,7 +2569,7 @@ class NoMsgTypes(IntField):
         this = _quickfix.new_NoMsgTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMsgTypes
     __del__ = lambda self: None
@@ -2591,7 +2591,7 @@ class MsgDirection(CharField):
         this = _quickfix.new_MsgDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MsgDirection
     __del__ = lambda self: None
@@ -2613,7 +2613,7 @@ class TestMessageIndicator(BoolField):
         this = _quickfix.new_TestMessageIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TestMessageIndicator
     __del__ = lambda self: None
@@ -2635,7 +2635,7 @@ class Username(StringField):
         this = _quickfix.new_Username(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Username
     __del__ = lambda self: None
@@ -2657,7 +2657,7 @@ class Password(StringField):
         this = _quickfix.new_Password(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Password
     __del__ = lambda self: None
@@ -2679,7 +2679,7 @@ class NoHops(IntField):
         this = _quickfix.new_NoHops(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoHops
     __del__ = lambda self: None
@@ -2701,7 +2701,7 @@ class HopCompID(StringField):
         this = _quickfix.new_HopCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HopCompID
     __del__ = lambda self: None
@@ -2723,7 +2723,7 @@ class HopSendingTime(UtcTimeStampField):
         this = _quickfix.new_HopSendingTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HopSendingTime
     __del__ = lambda self: None
@@ -2745,7 +2745,7 @@ class HopRefID(IntField):
         this = _quickfix.new_HopRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HopRefID
     __del__ = lambda self: None
@@ -2767,7 +2767,7 @@ class NextExpectedMsgSeqNum(IntField):
         this = _quickfix.new_NextExpectedMsgSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NextExpectedMsgSeqNum
     __del__ = lambda self: None
@@ -2789,7 +2789,7 @@ class ApplVerID(StringField):
         this = _quickfix.new_ApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplVerID
     __del__ = lambda self: None
@@ -2811,7 +2811,7 @@ class CstmApplVerID(StringField):
         this = _quickfix.new_CstmApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CstmApplVerID
     __del__ = lambda self: None
@@ -2833,7 +2833,7 @@ class RefApplVerID(StringField):
         this = _quickfix.new_RefApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplVerID
     __del__ = lambda self: None
@@ -2855,7 +2855,7 @@ class RefCstmApplVerID(StringField):
         this = _quickfix.new_RefCstmApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefCstmApplVerID
     __del__ = lambda self: None
@@ -2877,7 +2877,7 @@ class DefaultApplVerID(StringField):
         this = _quickfix.new_DefaultApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefaultApplVerID
     __del__ = lambda self: None
@@ -2899,7 +2899,7 @@ class Account(StringField):
         this = _quickfix.new_Account(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Account
     __del__ = lambda self: None
@@ -2921,7 +2921,7 @@ class AdvId(StringField):
         this = _quickfix.new_AdvId(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AdvId
     __del__ = lambda self: None
@@ -2943,7 +2943,7 @@ class AdvRefID(StringField):
         this = _quickfix.new_AdvRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AdvRefID
     __del__ = lambda self: None
@@ -2965,7 +2965,7 @@ class AdvSide(CharField):
         this = _quickfix.new_AdvSide(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AdvSide
     __del__ = lambda self: None
@@ -2987,7 +2987,7 @@ class AdvTransType(StringField):
         this = _quickfix.new_AdvTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AdvTransType
     __del__ = lambda self: None
@@ -3009,7 +3009,7 @@ class AvgPx(DoubleField):
         this = _quickfix.new_AvgPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPx
     __del__ = lambda self: None
@@ -3031,7 +3031,7 @@ class ClOrdID(StringField):
         this = _quickfix.new_ClOrdID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClOrdID
     __del__ = lambda self: None
@@ -3053,7 +3053,7 @@ class Commission(DoubleField):
         this = _quickfix.new_Commission(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Commission
     __del__ = lambda self: None
@@ -3075,7 +3075,7 @@ class CommType(CharField):
         this = _quickfix.new_CommType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CommType
     __del__ = lambda self: None
@@ -3097,7 +3097,7 @@ class CumQty(DoubleField):
         this = _quickfix.new_CumQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CumQty
     __del__ = lambda self: None
@@ -3119,7 +3119,7 @@ class Currency(StringField):
         this = _quickfix.new_Currency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Currency
     __del__ = lambda self: None
@@ -3141,7 +3141,7 @@ class ExecID(StringField):
         this = _quickfix.new_ExecID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecID
     __del__ = lambda self: None
@@ -3163,7 +3163,7 @@ class ExecInst(StringField):
         this = _quickfix.new_ExecInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecInst
     __del__ = lambda self: None
@@ -3185,7 +3185,7 @@ class ExecRefID(StringField):
         this = _quickfix.new_ExecRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecRefID
     __del__ = lambda self: None
@@ -3207,7 +3207,7 @@ class ExecTransType(CharField):
         this = _quickfix.new_ExecTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecTransType
     __del__ = lambda self: None
@@ -3229,7 +3229,7 @@ class HandlInst(CharField):
         this = _quickfix.new_HandlInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HandlInst
     __del__ = lambda self: None
@@ -3251,7 +3251,7 @@ class IDSource(StringField):
         this = _quickfix.new_IDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IDSource
     __del__ = lambda self: None
@@ -3273,7 +3273,7 @@ class IOIid(StringField):
         this = _quickfix.new_IOIid(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIid
     __del__ = lambda self: None
@@ -3295,7 +3295,7 @@ class IOIOthSvc(CharField):
         this = _quickfix.new_IOIOthSvc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIOthSvc
     __del__ = lambda self: None
@@ -3317,7 +3317,7 @@ class IOIQltyInd(CharField):
         this = _quickfix.new_IOIQltyInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQltyInd
     __del__ = lambda self: None
@@ -3339,7 +3339,7 @@ class IOIRefID(StringField):
         this = _quickfix.new_IOIRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIRefID
     __del__ = lambda self: None
@@ -3361,7 +3361,7 @@ class IOIShares(StringField):
         this = _quickfix.new_IOIShares(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIShares
     __del__ = lambda self: None
@@ -3383,7 +3383,7 @@ class IOITransType(CharField):
         this = _quickfix.new_IOITransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOITransType
     __del__ = lambda self: None
@@ -3405,7 +3405,7 @@ class LastCapacity(CharField):
         this = _quickfix.new_LastCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastCapacity
     __del__ = lambda self: None
@@ -3427,7 +3427,7 @@ class LastMkt(StringField):
         this = _quickfix.new_LastMkt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastMkt
     __del__ = lambda self: None
@@ -3449,7 +3449,7 @@ class LastPx(DoubleField):
         this = _quickfix.new_LastPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastPx
     __del__ = lambda self: None
@@ -3471,7 +3471,7 @@ class LastShares(DoubleField):
         this = _quickfix.new_LastShares(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastShares
     __del__ = lambda self: None
@@ -3493,7 +3493,7 @@ class LinesOfText(IntField):
         this = _quickfix.new_LinesOfText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LinesOfText
     __del__ = lambda self: None
@@ -3515,7 +3515,7 @@ class OrderID(StringField):
         this = _quickfix.new_OrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderID
     __del__ = lambda self: None
@@ -3537,7 +3537,7 @@ class OrderQty(DoubleField):
         this = _quickfix.new_OrderQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderQty
     __del__ = lambda self: None
@@ -3559,7 +3559,7 @@ class OrdStatus(CharField):
         this = _quickfix.new_OrdStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrdStatus
     __del__ = lambda self: None
@@ -3581,7 +3581,7 @@ class OrdType(CharField):
         this = _quickfix.new_OrdType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrdType
     __del__ = lambda self: None
@@ -3603,7 +3603,7 @@ class OrigClOrdID(StringField):
         this = _quickfix.new_OrigClOrdID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigClOrdID
     __del__ = lambda self: None
@@ -3625,7 +3625,7 @@ class OrigTime(UtcTimeStampField):
         this = _quickfix.new_OrigTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTime
     __del__ = lambda self: None
@@ -3647,7 +3647,7 @@ class Price(DoubleField):
         this = _quickfix.new_Price(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Price
     __del__ = lambda self: None
@@ -3669,7 +3669,7 @@ class RelatdSym(StringField):
         this = _quickfix.new_RelatdSym(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RelatdSym
     __del__ = lambda self: None
@@ -3691,7 +3691,7 @@ class Rule80A(CharField):
         this = _quickfix.new_Rule80A(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Rule80A
     __del__ = lambda self: None
@@ -3713,7 +3713,7 @@ class SecurityID(StringField):
         this = _quickfix.new_SecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityID
     __del__ = lambda self: None
@@ -3735,7 +3735,7 @@ class Shares(DoubleField):
         this = _quickfix.new_Shares(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Shares
     __del__ = lambda self: None
@@ -3757,7 +3757,7 @@ class Side(CharField):
         this = _quickfix.new_Side(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Side
     __del__ = lambda self: None
@@ -3779,7 +3779,7 @@ class Symbol(StringField):
         this = _quickfix.new_Symbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Symbol
     __del__ = lambda self: None
@@ -3801,7 +3801,7 @@ class TimeInForce(CharField):
         this = _quickfix.new_TimeInForce(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TimeInForce
     __del__ = lambda self: None
@@ -3823,7 +3823,7 @@ class TransactTime(UtcTimeStampField):
         this = _quickfix.new_TransactTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TransactTime
     __del__ = lambda self: None
@@ -3845,7 +3845,7 @@ class Urgency(CharField):
         this = _quickfix.new_Urgency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Urgency
     __del__ = lambda self: None
@@ -3867,7 +3867,7 @@ class ValidUntilTime(UtcTimeStampField):
         this = _quickfix.new_ValidUntilTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ValidUntilTime
     __del__ = lambda self: None
@@ -3889,7 +3889,7 @@ class SettlmntTyp(CharField):
         this = _quickfix.new_SettlmntTyp(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlmntTyp
     __del__ = lambda self: None
@@ -3911,7 +3911,7 @@ class FutSettDate(StringField):
         this = _quickfix.new_FutSettDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FutSettDate
     __del__ = lambda self: None
@@ -3933,7 +3933,7 @@ class SymbolSfx(StringField):
         this = _quickfix.new_SymbolSfx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SymbolSfx
     __del__ = lambda self: None
@@ -3955,7 +3955,7 @@ class ListID(StringField):
         this = _quickfix.new_ListID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListID
     __del__ = lambda self: None
@@ -3977,7 +3977,7 @@ class ListSeqNo(IntField):
         this = _quickfix.new_ListSeqNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListSeqNo
     __del__ = lambda self: None
@@ -3999,7 +3999,7 @@ class ListNoOrds(IntField):
         this = _quickfix.new_ListNoOrds(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListNoOrds
     __del__ = lambda self: None
@@ -4021,7 +4021,7 @@ class ListExecInst(StringField):
         this = _quickfix.new_ListExecInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListExecInst
     __del__ = lambda self: None
@@ -4043,7 +4043,7 @@ class AllocID(StringField):
         this = _quickfix.new_AllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocID
     __del__ = lambda self: None
@@ -4065,7 +4065,7 @@ class AllocTransType(CharField):
         this = _quickfix.new_AllocTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocTransType
     __del__ = lambda self: None
@@ -4087,7 +4087,7 @@ class RefAllocID(StringField):
         this = _quickfix.new_RefAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefAllocID
     __del__ = lambda self: None
@@ -4109,7 +4109,7 @@ class NoOrders(IntField):
         this = _quickfix.new_NoOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoOrders
     __del__ = lambda self: None
@@ -4131,7 +4131,7 @@ class AvgPrxPrecision(IntField):
         this = _quickfix.new_AvgPrxPrecision(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPrxPrecision
     __del__ = lambda self: None
@@ -4153,7 +4153,7 @@ class TradeDate(StringField):
         this = _quickfix.new_TradeDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeDate
     __del__ = lambda self: None
@@ -4175,7 +4175,7 @@ class ExecBroker(StringField):
         this = _quickfix.new_ExecBroker(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecBroker
     __del__ = lambda self: None
@@ -4197,7 +4197,7 @@ class OpenClose(CharField):
         this = _quickfix.new_OpenClose(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OpenClose
     __del__ = lambda self: None
@@ -4219,7 +4219,7 @@ class NoAllocs(IntField):
         this = _quickfix.new_NoAllocs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoAllocs
     __del__ = lambda self: None
@@ -4241,7 +4241,7 @@ class AllocAccount(StringField):
         this = _quickfix.new_AllocAccount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccount
     __del__ = lambda self: None
@@ -4263,7 +4263,7 @@ class AllocShares(DoubleField):
         this = _quickfix.new_AllocShares(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocShares
     __del__ = lambda self: None
@@ -4285,7 +4285,7 @@ class ProcessCode(CharField):
         this = _quickfix.new_ProcessCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ProcessCode
     __del__ = lambda self: None
@@ -4307,7 +4307,7 @@ class NoRpts(IntField):
         this = _quickfix.new_NoRpts(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRpts
     __del__ = lambda self: None
@@ -4329,7 +4329,7 @@ class RptSeq(IntField):
         this = _quickfix.new_RptSeq(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RptSeq
     __del__ = lambda self: None
@@ -4351,7 +4351,7 @@ class CxlQty(DoubleField):
         this = _quickfix.new_CxlQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CxlQty
     __del__ = lambda self: None
@@ -4373,7 +4373,7 @@ class NoDlvyInst(IntField):
         this = _quickfix.new_NoDlvyInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDlvyInst
     __del__ = lambda self: None
@@ -4395,7 +4395,7 @@ class DlvyInst(StringField):
         this = _quickfix.new_DlvyInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DlvyInst
     __del__ = lambda self: None
@@ -4417,7 +4417,7 @@ class AllocStatus(IntField):
         this = _quickfix.new_AllocStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocStatus
     __del__ = lambda self: None
@@ -4439,7 +4439,7 @@ class AllocRejCode(IntField):
         this = _quickfix.new_AllocRejCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocRejCode
     __del__ = lambda self: None
@@ -4461,7 +4461,7 @@ class BrokerOfCredit(StringField):
         this = _quickfix.new_BrokerOfCredit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BrokerOfCredit
     __del__ = lambda self: None
@@ -4483,7 +4483,7 @@ class EmailType(CharField):
         this = _quickfix.new_EmailType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EmailType
     __del__ = lambda self: None
@@ -4505,7 +4505,7 @@ class StopPx(DoubleField):
         this = _quickfix.new_StopPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StopPx
     __del__ = lambda self: None
@@ -4527,7 +4527,7 @@ class ExDestination(StringField):
         this = _quickfix.new_ExDestination(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExDestination
     __del__ = lambda self: None
@@ -4549,7 +4549,7 @@ class CxlRejReason(IntField):
         this = _quickfix.new_CxlRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CxlRejReason
     __del__ = lambda self: None
@@ -4571,7 +4571,7 @@ class OrdRejReason(IntField):
         this = _quickfix.new_OrdRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrdRejReason
     __del__ = lambda self: None
@@ -4593,7 +4593,7 @@ class IOIQualifier(CharField):
         this = _quickfix.new_IOIQualifier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQualifier
     __del__ = lambda self: None
@@ -4615,7 +4615,7 @@ class WaveNo(StringField):
         this = _quickfix.new_WaveNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_WaveNo
     __del__ = lambda self: None
@@ -4637,7 +4637,7 @@ class Issuer(StringField):
         this = _quickfix.new_Issuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Issuer
     __del__ = lambda self: None
@@ -4659,7 +4659,7 @@ class SecurityDesc(StringField):
         this = _quickfix.new_SecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityDesc
     __del__ = lambda self: None
@@ -4681,7 +4681,7 @@ class ClientID(StringField):
         this = _quickfix.new_ClientID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClientID
     __del__ = lambda self: None
@@ -4703,7 +4703,7 @@ class MinQty(DoubleField):
         this = _quickfix.new_MinQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinQty
     __del__ = lambda self: None
@@ -4725,7 +4725,7 @@ class MaxFloor(DoubleField):
         this = _quickfix.new_MaxFloor(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxFloor
     __del__ = lambda self: None
@@ -4747,7 +4747,7 @@ class ReportToExch(BoolField):
         this = _quickfix.new_ReportToExch(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReportToExch
     __del__ = lambda self: None
@@ -4769,7 +4769,7 @@ class LocateReqd(BoolField):
         this = _quickfix.new_LocateReqd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LocateReqd
     __del__ = lambda self: None
@@ -4791,7 +4791,7 @@ class QuoteID(StringField):
         this = _quickfix.new_QuoteID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteID
     __del__ = lambda self: None
@@ -4813,7 +4813,7 @@ class NetMoney(DoubleField):
         this = _quickfix.new_NetMoney(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetMoney
     __del__ = lambda self: None
@@ -4835,7 +4835,7 @@ class SettlCurrAmt(DoubleField):
         this = _quickfix.new_SettlCurrAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrAmt
     __del__ = lambda self: None
@@ -4857,7 +4857,7 @@ class SettlCurrency(StringField):
         this = _quickfix.new_SettlCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrency
     __del__ = lambda self: None
@@ -4879,7 +4879,7 @@ class ForexReq(BoolField):
         this = _quickfix.new_ForexReq(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ForexReq
     __del__ = lambda self: None
@@ -4901,7 +4901,7 @@ class NoExecs(IntField):
         this = _quickfix.new_NoExecs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoExecs
     __del__ = lambda self: None
@@ -4923,7 +4923,7 @@ class CxlType(CharField):
         this = _quickfix.new_CxlType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CxlType
     __del__ = lambda self: None
@@ -4945,7 +4945,7 @@ class ExpireTime(UtcTimeStampField):
         this = _quickfix.new_ExpireTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpireTime
     __del__ = lambda self: None
@@ -4967,7 +4967,7 @@ class DKReason(CharField):
         this = _quickfix.new_DKReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DKReason
     __del__ = lambda self: None
@@ -4989,7 +4989,7 @@ class IOINaturalFlag(BoolField):
         this = _quickfix.new_IOINaturalFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOINaturalFlag
     __del__ = lambda self: None
@@ -5011,7 +5011,7 @@ class QuoteReqID(StringField):
         this = _quickfix.new_QuoteReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteReqID
     __del__ = lambda self: None
@@ -5033,7 +5033,7 @@ class BidPx(DoubleField):
         this = _quickfix.new_BidPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidPx
     __del__ = lambda self: None
@@ -5055,7 +5055,7 @@ class OfferPx(DoubleField):
         this = _quickfix.new_OfferPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferPx
     __del__ = lambda self: None
@@ -5077,7 +5077,7 @@ class BidSize(DoubleField):
         this = _quickfix.new_BidSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidSize
     __del__ = lambda self: None
@@ -5099,7 +5099,7 @@ class OfferSize(DoubleField):
         this = _quickfix.new_OfferSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSize
     __del__ = lambda self: None
@@ -5121,7 +5121,7 @@ class NoMiscFees(IntField):
         this = _quickfix.new_NoMiscFees(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMiscFees
     __del__ = lambda self: None
@@ -5143,7 +5143,7 @@ class MiscFeeAmt(DoubleField):
         this = _quickfix.new_MiscFeeAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeAmt
     __del__ = lambda self: None
@@ -5165,7 +5165,7 @@ class MiscFeeCurr(StringField):
         this = _quickfix.new_MiscFeeCurr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeCurr
     __del__ = lambda self: None
@@ -5187,7 +5187,7 @@ class MiscFeeType(StringField):
         this = _quickfix.new_MiscFeeType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeType
     __del__ = lambda self: None
@@ -5209,7 +5209,7 @@ class PrevClosePx(DoubleField):
         this = _quickfix.new_PrevClosePx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PrevClosePx
     __del__ = lambda self: None
@@ -5231,7 +5231,7 @@ class NoRelatedSym(IntField):
         this = _quickfix.new_NoRelatedSym(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRelatedSym
     __del__ = lambda self: None
@@ -5253,7 +5253,7 @@ class Subject(StringField):
         this = _quickfix.new_Subject(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Subject
     __del__ = lambda self: None
@@ -5275,7 +5275,7 @@ class Headline(StringField):
         this = _quickfix.new_Headline(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Headline
     __del__ = lambda self: None
@@ -5297,7 +5297,7 @@ class URLLink(StringField):
         this = _quickfix.new_URLLink(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_URLLink
     __del__ = lambda self: None
@@ -5319,7 +5319,7 @@ class ExecType(CharField):
         this = _quickfix.new_ExecType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecType
     __del__ = lambda self: None
@@ -5341,7 +5341,7 @@ class LeavesQty(DoubleField):
         this = _quickfix.new_LeavesQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LeavesQty
     __del__ = lambda self: None
@@ -5363,7 +5363,7 @@ class CashOrderQty(DoubleField):
         this = _quickfix.new_CashOrderQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashOrderQty
     __del__ = lambda self: None
@@ -5385,7 +5385,7 @@ class AllocAvgPx(DoubleField):
         this = _quickfix.new_AllocAvgPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAvgPx
     __del__ = lambda self: None
@@ -5407,7 +5407,7 @@ class AllocNetMoney(DoubleField):
         this = _quickfix.new_AllocNetMoney(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocNetMoney
     __del__ = lambda self: None
@@ -5429,7 +5429,7 @@ class SettlCurrFxRate(DoubleField):
         this = _quickfix.new_SettlCurrFxRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrFxRate
     __del__ = lambda self: None
@@ -5451,7 +5451,7 @@ class SettlCurrFxRateCalc(CharField):
         this = _quickfix.new_SettlCurrFxRateCalc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrFxRateCalc
     __del__ = lambda self: None
@@ -5473,7 +5473,7 @@ class NumDaysInterest(IntField):
         this = _quickfix.new_NumDaysInterest(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NumDaysInterest
     __del__ = lambda self: None
@@ -5495,7 +5495,7 @@ class AccruedInterestRate(DoubleField):
         this = _quickfix.new_AccruedInterestRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AccruedInterestRate
     __del__ = lambda self: None
@@ -5517,7 +5517,7 @@ class AccruedInterestAmt(DoubleField):
         this = _quickfix.new_AccruedInterestAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AccruedInterestAmt
     __del__ = lambda self: None
@@ -5539,7 +5539,7 @@ class SettlInstMode(CharField):
         this = _quickfix.new_SettlInstMode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstMode
     __del__ = lambda self: None
@@ -5561,7 +5561,7 @@ class AllocText(StringField):
         this = _quickfix.new_AllocText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocText
     __del__ = lambda self: None
@@ -5583,7 +5583,7 @@ class SettlInstID(StringField):
         this = _quickfix.new_SettlInstID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstID
     __del__ = lambda self: None
@@ -5605,7 +5605,7 @@ class SettlInstTransType(CharField):
         this = _quickfix.new_SettlInstTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstTransType
     __del__ = lambda self: None
@@ -5627,7 +5627,7 @@ class EmailThreadID(StringField):
         this = _quickfix.new_EmailThreadID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EmailThreadID
     __del__ = lambda self: None
@@ -5649,7 +5649,7 @@ class SettlInstSource(CharField):
         this = _quickfix.new_SettlInstSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstSource
     __del__ = lambda self: None
@@ -5671,7 +5671,7 @@ class SettlLocation(StringField):
         this = _quickfix.new_SettlLocation(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlLocation
     __del__ = lambda self: None
@@ -5693,7 +5693,7 @@ class SecurityType(StringField):
         this = _quickfix.new_SecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityType
     __del__ = lambda self: None
@@ -5715,7 +5715,7 @@ class EffectiveTime(UtcTimeStampField):
         this = _quickfix.new_EffectiveTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EffectiveTime
     __del__ = lambda self: None
@@ -5737,7 +5737,7 @@ class StandInstDbType(IntField):
         this = _quickfix.new_StandInstDbType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbType
     __del__ = lambda self: None
@@ -5759,7 +5759,7 @@ class StandInstDbName(StringField):
         this = _quickfix.new_StandInstDbName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbName
     __del__ = lambda self: None
@@ -5781,7 +5781,7 @@ class StandInstDbID(StringField):
         this = _quickfix.new_StandInstDbID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StandInstDbID
     __del__ = lambda self: None
@@ -5803,7 +5803,7 @@ class SettlDeliveryType(IntField):
         this = _quickfix.new_SettlDeliveryType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDeliveryType
     __del__ = lambda self: None
@@ -5825,7 +5825,7 @@ class SettlDepositoryCode(StringField):
         this = _quickfix.new_SettlDepositoryCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDepositoryCode
     __del__ = lambda self: None
@@ -5847,7 +5847,7 @@ class SettlBrkrCode(StringField):
         this = _quickfix.new_SettlBrkrCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlBrkrCode
     __del__ = lambda self: None
@@ -5869,7 +5869,7 @@ class SettlInstCode(StringField):
         this = _quickfix.new_SettlInstCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstCode
     __del__ = lambda self: None
@@ -5891,7 +5891,7 @@ class SecuritySettlAgentName(StringField):
         this = _quickfix.new_SecuritySettlAgentName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentName
     __del__ = lambda self: None
@@ -5913,7 +5913,7 @@ class SecuritySettlAgentCode(StringField):
         this = _quickfix.new_SecuritySettlAgentCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentCode
     __del__ = lambda self: None
@@ -5935,7 +5935,7 @@ class SecuritySettlAgentAcctNum(StringField):
         this = _quickfix.new_SecuritySettlAgentAcctNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentAcctNum
     __del__ = lambda self: None
@@ -5957,7 +5957,7 @@ class SecuritySettlAgentAcctName(StringField):
         this = _quickfix.new_SecuritySettlAgentAcctName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentAcctName
     __del__ = lambda self: None
@@ -5979,7 +5979,7 @@ class SecuritySettlAgentContactName(StringField):
         this = _quickfix.new_SecuritySettlAgentContactName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentContactName
     __del__ = lambda self: None
@@ -6001,7 +6001,7 @@ class SecuritySettlAgentContactPhone(StringField):
         this = _quickfix.new_SecuritySettlAgentContactPhone(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySettlAgentContactPhone
     __del__ = lambda self: None
@@ -6023,7 +6023,7 @@ class CashSettlAgentName(StringField):
         this = _quickfix.new_CashSettlAgentName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentName
     __del__ = lambda self: None
@@ -6045,7 +6045,7 @@ class CashSettlAgentCode(StringField):
         this = _quickfix.new_CashSettlAgentCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentCode
     __del__ = lambda self: None
@@ -6067,7 +6067,7 @@ class CashSettlAgentAcctNum(StringField):
         this = _quickfix.new_CashSettlAgentAcctNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentAcctNum
     __del__ = lambda self: None
@@ -6089,7 +6089,7 @@ class CashSettlAgentAcctName(StringField):
         this = _quickfix.new_CashSettlAgentAcctName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentAcctName
     __del__ = lambda self: None
@@ -6111,7 +6111,7 @@ class CashSettlAgentContactName(StringField):
         this = _quickfix.new_CashSettlAgentContactName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentContactName
     __del__ = lambda self: None
@@ -6133,7 +6133,7 @@ class CashSettlAgentContactPhone(StringField):
         this = _quickfix.new_CashSettlAgentContactPhone(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashSettlAgentContactPhone
     __del__ = lambda self: None
@@ -6155,7 +6155,7 @@ class BidSpotRate(DoubleField):
         this = _quickfix.new_BidSpotRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidSpotRate
     __del__ = lambda self: None
@@ -6177,7 +6177,7 @@ class BidForwardPoints(DoubleField):
         this = _quickfix.new_BidForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidForwardPoints
     __del__ = lambda self: None
@@ -6199,7 +6199,7 @@ class OfferSpotRate(DoubleField):
         this = _quickfix.new_OfferSpotRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSpotRate
     __del__ = lambda self: None
@@ -6221,7 +6221,7 @@ class OfferForwardPoints(DoubleField):
         this = _quickfix.new_OfferForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferForwardPoints
     __del__ = lambda self: None
@@ -6243,7 +6243,7 @@ class OrderQty2(DoubleField):
         this = _quickfix.new_OrderQty2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderQty2
     __del__ = lambda self: None
@@ -6265,7 +6265,7 @@ class FutSettDate2(StringField):
         this = _quickfix.new_FutSettDate2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FutSettDate2
     __del__ = lambda self: None
@@ -6287,7 +6287,7 @@ class LastSpotRate(DoubleField):
         this = _quickfix.new_LastSpotRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastSpotRate
     __del__ = lambda self: None
@@ -6309,7 +6309,7 @@ class LastForwardPoints(DoubleField):
         this = _quickfix.new_LastForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastForwardPoints
     __del__ = lambda self: None
@@ -6331,7 +6331,7 @@ class AllocLinkID(StringField):
         this = _quickfix.new_AllocLinkID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocLinkID
     __del__ = lambda self: None
@@ -6353,7 +6353,7 @@ class AllocLinkType(IntField):
         this = _quickfix.new_AllocLinkType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocLinkType
     __del__ = lambda self: None
@@ -6375,7 +6375,7 @@ class SecondaryOrderID(StringField):
         this = _quickfix.new_SecondaryOrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryOrderID
     __del__ = lambda self: None
@@ -6397,7 +6397,7 @@ class NoIOIQualifiers(IntField):
         this = _quickfix.new_NoIOIQualifiers(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoIOIQualifiers
     __del__ = lambda self: None
@@ -6419,7 +6419,7 @@ class MaturityMonthYear(StringField):
         this = _quickfix.new_MaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityMonthYear
     __del__ = lambda self: None
@@ -6441,7 +6441,7 @@ class PutOrCall(IntField):
         this = _quickfix.new_PutOrCall(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PutOrCall
     __del__ = lambda self: None
@@ -6463,7 +6463,7 @@ class StrikePrice(DoubleField):
         this = _quickfix.new_StrikePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikePrice
     __del__ = lambda self: None
@@ -6485,7 +6485,7 @@ class CoveredOrUncovered(IntField):
         this = _quickfix.new_CoveredOrUncovered(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CoveredOrUncovered
     __del__ = lambda self: None
@@ -6507,7 +6507,7 @@ class CustomerOrFirm(IntField):
         this = _quickfix.new_CustomerOrFirm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CustomerOrFirm
     __del__ = lambda self: None
@@ -6529,7 +6529,7 @@ class MaturityDay(StringField):
         this = _quickfix.new_MaturityDay(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityDay
     __del__ = lambda self: None
@@ -6551,7 +6551,7 @@ class OptAttribute(CharField):
         this = _quickfix.new_OptAttribute(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OptAttribute
     __del__ = lambda self: None
@@ -6573,7 +6573,7 @@ class SecurityExchange(StringField):
         this = _quickfix.new_SecurityExchange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityExchange
     __del__ = lambda self: None
@@ -6595,7 +6595,7 @@ class NotifyBrokerOfCredit(BoolField):
         this = _quickfix.new_NotifyBrokerOfCredit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NotifyBrokerOfCredit
     __del__ = lambda self: None
@@ -6617,7 +6617,7 @@ class AllocHandlInst(IntField):
         this = _quickfix.new_AllocHandlInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocHandlInst
     __del__ = lambda self: None
@@ -6639,7 +6639,7 @@ class MaxShow(DoubleField):
         this = _quickfix.new_MaxShow(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxShow
     __del__ = lambda self: None
@@ -6661,7 +6661,7 @@ class PegDifference(DoubleField):
         this = _quickfix.new_PegDifference(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegDifference
     __del__ = lambda self: None
@@ -6683,7 +6683,7 @@ class SendingDate(StringField):
         this = _quickfix.new_SendingDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SendingDate
     __del__ = lambda self: None
@@ -6705,7 +6705,7 @@ class TotNoOrders(IntField):
         this = _quickfix.new_TotNoOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoOrders
     __del__ = lambda self: None
@@ -6727,7 +6727,7 @@ class SettlInstRefID(StringField):
         this = _quickfix.new_SettlInstRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstRefID
     __del__ = lambda self: None
@@ -6749,7 +6749,7 @@ class NoRoutingIDs(IntField):
         this = _quickfix.new_NoRoutingIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRoutingIDs
     __del__ = lambda self: None
@@ -6771,7 +6771,7 @@ class RoutingType(IntField):
         this = _quickfix.new_RoutingType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RoutingType
     __del__ = lambda self: None
@@ -6793,7 +6793,7 @@ class RoutingID(StringField):
         this = _quickfix.new_RoutingID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RoutingID
     __del__ = lambda self: None
@@ -6815,7 +6815,7 @@ class SpreadToBenchmark(DoubleField):
         this = _quickfix.new_SpreadToBenchmark(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SpreadToBenchmark
     __del__ = lambda self: None
@@ -6837,7 +6837,7 @@ class Benchmark(CharField):
         this = _quickfix.new_Benchmark(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Benchmark
     __del__ = lambda self: None
@@ -6859,7 +6859,7 @@ class CouponRate(DoubleField):
         this = _quickfix.new_CouponRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CouponRate
     __del__ = lambda self: None
@@ -6881,7 +6881,7 @@ class ContractMultiplier(DoubleField):
         this = _quickfix.new_ContractMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContractMultiplier
     __del__ = lambda self: None
@@ -6903,7 +6903,7 @@ class MDReqID(StringField):
         this = _quickfix.new_MDReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDReqID
     __del__ = lambda self: None
@@ -6925,7 +6925,7 @@ class SubscriptionRequestType(CharField):
         this = _quickfix.new_SubscriptionRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SubscriptionRequestType
     __del__ = lambda self: None
@@ -6947,7 +6947,7 @@ class MarketDepth(IntField):
         this = _quickfix.new_MarketDepth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketDepth
     __del__ = lambda self: None
@@ -6969,7 +6969,7 @@ class MDUpdateType(IntField):
         this = _quickfix.new_MDUpdateType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDUpdateType
     __del__ = lambda self: None
@@ -6991,7 +6991,7 @@ class AggregatedBook(BoolField):
         this = _quickfix.new_AggregatedBook(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AggregatedBook
     __del__ = lambda self: None
@@ -7013,7 +7013,7 @@ class NoMDEntryTypes(IntField):
         this = _quickfix.new_NoMDEntryTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMDEntryTypes
     __del__ = lambda self: None
@@ -7035,7 +7035,7 @@ class NoMDEntries(IntField):
         this = _quickfix.new_NoMDEntries(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMDEntries
     __del__ = lambda self: None
@@ -7057,7 +7057,7 @@ class MDEntryType(CharField):
         this = _quickfix.new_MDEntryType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryType
     __del__ = lambda self: None
@@ -7079,7 +7079,7 @@ class MDEntryPx(DoubleField):
         this = _quickfix.new_MDEntryPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryPx
     __del__ = lambda self: None
@@ -7101,7 +7101,7 @@ class MDEntrySize(DoubleField):
         this = _quickfix.new_MDEntrySize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySize
     __del__ = lambda self: None
@@ -7123,7 +7123,7 @@ class MDEntryDate(UtcDateField):
         this = _quickfix.new_MDEntryDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryDate
     __del__ = lambda self: None
@@ -7145,7 +7145,7 @@ class MDEntryTime(UtcTimeOnlyField):
         this = _quickfix.new_MDEntryTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryTime
     __del__ = lambda self: None
@@ -7167,7 +7167,7 @@ class TickDirection(CharField):
         this = _quickfix.new_TickDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TickDirection
     __del__ = lambda self: None
@@ -7189,7 +7189,7 @@ class MDMkt(StringField):
         this = _quickfix.new_MDMkt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDMkt
     __del__ = lambda self: None
@@ -7211,7 +7211,7 @@ class QuoteCondition(StringField):
         this = _quickfix.new_QuoteCondition(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteCondition
     __del__ = lambda self: None
@@ -7233,7 +7233,7 @@ class TradeCondition(StringField):
         this = _quickfix.new_TradeCondition(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeCondition
     __del__ = lambda self: None
@@ -7255,7 +7255,7 @@ class MDEntryID(StringField):
         this = _quickfix.new_MDEntryID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryID
     __del__ = lambda self: None
@@ -7277,7 +7277,7 @@ class MDUpdateAction(CharField):
         this = _quickfix.new_MDUpdateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDUpdateAction
     __del__ = lambda self: None
@@ -7299,7 +7299,7 @@ class MDEntryRefID(StringField):
         this = _quickfix.new_MDEntryRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryRefID
     __del__ = lambda self: None
@@ -7321,7 +7321,7 @@ class MDReqRejReason(CharField):
         this = _quickfix.new_MDReqRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDReqRejReason
     __del__ = lambda self: None
@@ -7343,7 +7343,7 @@ class MDEntryOriginator(StringField):
         this = _quickfix.new_MDEntryOriginator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryOriginator
     __del__ = lambda self: None
@@ -7365,7 +7365,7 @@ class LocationID(StringField):
         this = _quickfix.new_LocationID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LocationID
     __del__ = lambda self: None
@@ -7387,7 +7387,7 @@ class DeskID(StringField):
         this = _quickfix.new_DeskID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeskID
     __del__ = lambda self: None
@@ -7409,7 +7409,7 @@ class DeleteReason(CharField):
         this = _quickfix.new_DeleteReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeleteReason
     __del__ = lambda self: None
@@ -7431,7 +7431,7 @@ class OpenCloseSettleFlag(StringField):
         this = _quickfix.new_OpenCloseSettleFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OpenCloseSettleFlag
     __del__ = lambda self: None
@@ -7453,7 +7453,7 @@ class SellerDays(IntField):
         this = _quickfix.new_SellerDays(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SellerDays
     __del__ = lambda self: None
@@ -7475,7 +7475,7 @@ class MDEntryBuyer(StringField):
         this = _quickfix.new_MDEntryBuyer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryBuyer
     __del__ = lambda self: None
@@ -7497,7 +7497,7 @@ class MDEntrySeller(StringField):
         this = _quickfix.new_MDEntrySeller(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySeller
     __del__ = lambda self: None
@@ -7519,7 +7519,7 @@ class MDEntryPositionNo(IntField):
         this = _quickfix.new_MDEntryPositionNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryPositionNo
     __del__ = lambda self: None
@@ -7541,7 +7541,7 @@ class FinancialStatus(StringField):
         this = _quickfix.new_FinancialStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FinancialStatus
     __del__ = lambda self: None
@@ -7563,7 +7563,7 @@ class CorporateAction(StringField):
         this = _quickfix.new_CorporateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CorporateAction
     __del__ = lambda self: None
@@ -7585,7 +7585,7 @@ class DefBidSize(DoubleField):
         this = _quickfix.new_DefBidSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefBidSize
     __del__ = lambda self: None
@@ -7607,7 +7607,7 @@ class DefOfferSize(DoubleField):
         this = _quickfix.new_DefOfferSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefOfferSize
     __del__ = lambda self: None
@@ -7629,7 +7629,7 @@ class NoQuoteEntries(IntField):
         this = _quickfix.new_NoQuoteEntries(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteEntries
     __del__ = lambda self: None
@@ -7651,7 +7651,7 @@ class NoQuoteSets(IntField):
         this = _quickfix.new_NoQuoteSets(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteSets
     __del__ = lambda self: None
@@ -7673,7 +7673,7 @@ class QuoteAckStatus(IntField):
         this = _quickfix.new_QuoteAckStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteAckStatus
     __del__ = lambda self: None
@@ -7695,7 +7695,7 @@ class QuoteCancelType(IntField):
         this = _quickfix.new_QuoteCancelType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteCancelType
     __del__ = lambda self: None
@@ -7717,7 +7717,7 @@ class QuoteEntryID(StringField):
         this = _quickfix.new_QuoteEntryID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteEntryID
     __del__ = lambda self: None
@@ -7739,7 +7739,7 @@ class QuoteRejectReason(IntField):
         this = _quickfix.new_QuoteRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRejectReason
     __del__ = lambda self: None
@@ -7761,7 +7761,7 @@ class QuoteResponseLevel(IntField):
         this = _quickfix.new_QuoteResponseLevel(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteResponseLevel
     __del__ = lambda self: None
@@ -7783,7 +7783,7 @@ class QuoteSetID(StringField):
         this = _quickfix.new_QuoteSetID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteSetID
     __del__ = lambda self: None
@@ -7805,7 +7805,7 @@ class QuoteRequestType(IntField):
         this = _quickfix.new_QuoteRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRequestType
     __del__ = lambda self: None
@@ -7827,7 +7827,7 @@ class TotQuoteEntries(IntField):
         this = _quickfix.new_TotQuoteEntries(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotQuoteEntries
     __del__ = lambda self: None
@@ -7849,7 +7849,7 @@ class UnderlyingIDSource(StringField):
         this = _quickfix.new_UnderlyingIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIDSource
     __del__ = lambda self: None
@@ -7871,7 +7871,7 @@ class UnderlyingIssuer(StringField):
         this = _quickfix.new_UnderlyingIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIssuer
     __del__ = lambda self: None
@@ -7893,7 +7893,7 @@ class UnderlyingSecurityDesc(StringField):
         this = _quickfix.new_UnderlyingSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityDesc
     __del__ = lambda self: None
@@ -7915,7 +7915,7 @@ class UnderlyingSecurityExchange(StringField):
         this = _quickfix.new_UnderlyingSecurityExchange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityExchange
     __del__ = lambda self: None
@@ -7937,7 +7937,7 @@ class UnderlyingSecurityID(StringField):
         this = _quickfix.new_UnderlyingSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityID
     __del__ = lambda self: None
@@ -7959,7 +7959,7 @@ class UnderlyingSecurityType(StringField):
         this = _quickfix.new_UnderlyingSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityType
     __del__ = lambda self: None
@@ -7981,7 +7981,7 @@ class UnderlyingSymbol(StringField):
         this = _quickfix.new_UnderlyingSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSymbol
     __del__ = lambda self: None
@@ -8003,7 +8003,7 @@ class UnderlyingSymbolSfx(StringField):
         this = _quickfix.new_UnderlyingSymbolSfx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSymbolSfx
     __del__ = lambda self: None
@@ -8025,7 +8025,7 @@ class UnderlyingMaturityMonthYear(StringField):
         this = _quickfix.new_UnderlyingMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityMonthYear
     __del__ = lambda self: None
@@ -8047,7 +8047,7 @@ class UnderlyingMaturityDay(StringField):
         this = _quickfix.new_UnderlyingMaturityDay(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityDay
     __del__ = lambda self: None
@@ -8069,7 +8069,7 @@ class UnderlyingPutOrCall(IntField):
         this = _quickfix.new_UnderlyingPutOrCall(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPutOrCall
     __del__ = lambda self: None
@@ -8091,7 +8091,7 @@ class UnderlyingStrikePrice(DoubleField):
         this = _quickfix.new_UnderlyingStrikePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStrikePrice
     __del__ = lambda self: None
@@ -8113,7 +8113,7 @@ class UnderlyingOptAttribute(CharField):
         this = _quickfix.new_UnderlyingOptAttribute(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingOptAttribute
     __del__ = lambda self: None
@@ -8135,7 +8135,7 @@ class UnderlyingCurrency(StringField):
         this = _quickfix.new_UnderlyingCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCurrency
     __del__ = lambda self: None
@@ -8157,7 +8157,7 @@ class RatioQty(DoubleField):
         this = _quickfix.new_RatioQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RatioQty
     __del__ = lambda self: None
@@ -8179,7 +8179,7 @@ class SecurityReqID(StringField):
         this = _quickfix.new_SecurityReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityReqID
     __del__ = lambda self: None
@@ -8201,7 +8201,7 @@ class SecurityRequestType(IntField):
         this = _quickfix.new_SecurityRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityRequestType
     __del__ = lambda self: None
@@ -8223,7 +8223,7 @@ class SecurityResponseID(StringField):
         this = _quickfix.new_SecurityResponseID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityResponseID
     __del__ = lambda self: None
@@ -8245,7 +8245,7 @@ class SecurityResponseType(IntField):
         this = _quickfix.new_SecurityResponseType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityResponseType
     __del__ = lambda self: None
@@ -8267,7 +8267,7 @@ class SecurityStatusReqID(StringField):
         this = _quickfix.new_SecurityStatusReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityStatusReqID
     __del__ = lambda self: None
@@ -8289,7 +8289,7 @@ class UnsolicitedIndicator(BoolField):
         this = _quickfix.new_UnsolicitedIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnsolicitedIndicator
     __del__ = lambda self: None
@@ -8311,7 +8311,7 @@ class SecurityTradingStatus(IntField):
         this = _quickfix.new_SecurityTradingStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityTradingStatus
     __del__ = lambda self: None
@@ -8333,7 +8333,7 @@ class HaltReasonChar(CharField):
         this = _quickfix.new_HaltReasonChar(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HaltReasonChar
     __del__ = lambda self: None
@@ -8355,7 +8355,7 @@ class InViewOfCommon(BoolField):
         this = _quickfix.new_InViewOfCommon(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InViewOfCommon
     __del__ = lambda self: None
@@ -8377,7 +8377,7 @@ class DueToRelated(BoolField):
         this = _quickfix.new_DueToRelated(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DueToRelated
     __del__ = lambda self: None
@@ -8399,7 +8399,7 @@ class BuyVolume(DoubleField):
         this = _quickfix.new_BuyVolume(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BuyVolume
     __del__ = lambda self: None
@@ -8421,7 +8421,7 @@ class SellVolume(DoubleField):
         this = _quickfix.new_SellVolume(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SellVolume
     __del__ = lambda self: None
@@ -8443,7 +8443,7 @@ class HighPx(DoubleField):
         this = _quickfix.new_HighPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HighPx
     __del__ = lambda self: None
@@ -8465,7 +8465,7 @@ class LowPx(DoubleField):
         this = _quickfix.new_LowPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LowPx
     __del__ = lambda self: None
@@ -8487,7 +8487,7 @@ class Adjustment(IntField):
         this = _quickfix.new_Adjustment(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Adjustment
     __del__ = lambda self: None
@@ -8509,7 +8509,7 @@ class TradSesReqID(StringField):
         this = _quickfix.new_TradSesReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesReqID
     __del__ = lambda self: None
@@ -8531,7 +8531,7 @@ class TradingSessionID(StringField):
         this = _quickfix.new_TradingSessionID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradingSessionID
     __del__ = lambda self: None
@@ -8553,7 +8553,7 @@ class ContraTrader(StringField):
         this = _quickfix.new_ContraTrader(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTrader
     __del__ = lambda self: None
@@ -8575,7 +8575,7 @@ class TradSesMethod(IntField):
         this = _quickfix.new_TradSesMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesMethod
     __del__ = lambda self: None
@@ -8597,7 +8597,7 @@ class TradSesMode(IntField):
         this = _quickfix.new_TradSesMode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesMode
     __del__ = lambda self: None
@@ -8619,7 +8619,7 @@ class TradSesStatus(IntField):
         this = _quickfix.new_TradSesStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStatus
     __del__ = lambda self: None
@@ -8641,7 +8641,7 @@ class TradSesStartTime(UtcTimeStampField):
         this = _quickfix.new_TradSesStartTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStartTime
     __del__ = lambda self: None
@@ -8663,7 +8663,7 @@ class TradSesOpenTime(UtcTimeStampField):
         this = _quickfix.new_TradSesOpenTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesOpenTime
     __del__ = lambda self: None
@@ -8685,7 +8685,7 @@ class TradSesPreCloseTime(UtcTimeStampField):
         this = _quickfix.new_TradSesPreCloseTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesPreCloseTime
     __del__ = lambda self: None
@@ -8707,7 +8707,7 @@ class TradSesCloseTime(UtcTimeStampField):
         this = _quickfix.new_TradSesCloseTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesCloseTime
     __del__ = lambda self: None
@@ -8729,7 +8729,7 @@ class TradSesEndTime(UtcTimeStampField):
         this = _quickfix.new_TradSesEndTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesEndTime
     __del__ = lambda self: None
@@ -8751,7 +8751,7 @@ class NumberOfOrders(IntField):
         this = _quickfix.new_NumberOfOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NumberOfOrders
     __del__ = lambda self: None
@@ -8773,7 +8773,7 @@ class EncodedIssuerLen(IntField):
         this = _quickfix.new_EncodedIssuerLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedIssuerLen
     __del__ = lambda self: None
@@ -8795,7 +8795,7 @@ class EncodedIssuer(StringField):
         this = _quickfix.new_EncodedIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedIssuer
     __del__ = lambda self: None
@@ -8817,7 +8817,7 @@ class EncodedSecurityDescLen(IntField):
         this = _quickfix.new_EncodedSecurityDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityDescLen
     __del__ = lambda self: None
@@ -8839,7 +8839,7 @@ class EncodedSecurityDesc(StringField):
         this = _quickfix.new_EncodedSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityDesc
     __del__ = lambda self: None
@@ -8861,7 +8861,7 @@ class EncodedListExecInstLen(IntField):
         this = _quickfix.new_EncodedListExecInstLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListExecInstLen
     __del__ = lambda self: None
@@ -8883,7 +8883,7 @@ class EncodedListExecInst(StringField):
         this = _quickfix.new_EncodedListExecInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListExecInst
     __del__ = lambda self: None
@@ -8905,7 +8905,7 @@ class EncodedSubjectLen(IntField):
         this = _quickfix.new_EncodedSubjectLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSubjectLen
     __del__ = lambda self: None
@@ -8927,7 +8927,7 @@ class EncodedSubject(StringField):
         this = _quickfix.new_EncodedSubject(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSubject
     __del__ = lambda self: None
@@ -8949,7 +8949,7 @@ class EncodedHeadlineLen(IntField):
         this = _quickfix.new_EncodedHeadlineLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedHeadlineLen
     __del__ = lambda self: None
@@ -8971,7 +8971,7 @@ class EncodedHeadline(StringField):
         this = _quickfix.new_EncodedHeadline(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedHeadline
     __del__ = lambda self: None
@@ -8993,7 +8993,7 @@ class EncodedAllocTextLen(IntField):
         this = _quickfix.new_EncodedAllocTextLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedAllocTextLen
     __del__ = lambda self: None
@@ -9015,7 +9015,7 @@ class EncodedAllocText(StringField):
         this = _quickfix.new_EncodedAllocText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedAllocText
     __del__ = lambda self: None
@@ -9037,7 +9037,7 @@ class EncodedUnderlyingIssuerLen(IntField):
         this = _quickfix.new_EncodedUnderlyingIssuerLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingIssuerLen
     __del__ = lambda self: None
@@ -9059,7 +9059,7 @@ class EncodedUnderlyingIssuer(StringField):
         this = _quickfix.new_EncodedUnderlyingIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingIssuer
     __del__ = lambda self: None
@@ -9081,7 +9081,7 @@ class EncodedUnderlyingSecurityDescLen(IntField):
         this = _quickfix.new_EncodedUnderlyingSecurityDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingSecurityDescLen
     __del__ = lambda self: None
@@ -9103,7 +9103,7 @@ class EncodedUnderlyingSecurityDesc(StringField):
         this = _quickfix.new_EncodedUnderlyingSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedUnderlyingSecurityDesc
     __del__ = lambda self: None
@@ -9125,7 +9125,7 @@ class AllocPrice(DoubleField):
         this = _quickfix.new_AllocPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocPrice
     __del__ = lambda self: None
@@ -9147,7 +9147,7 @@ class QuoteSetValidUntilTime(UtcTimeStampField):
         this = _quickfix.new_QuoteSetValidUntilTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteSetValidUntilTime
     __del__ = lambda self: None
@@ -9169,7 +9169,7 @@ class QuoteEntryRejectReason(IntField):
         this = _quickfix.new_QuoteEntryRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteEntryRejectReason
     __del__ = lambda self: None
@@ -9191,7 +9191,7 @@ class OnBehalfOfSendingTime(UtcTimeStampField):
         this = _quickfix.new_OnBehalfOfSendingTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OnBehalfOfSendingTime
     __del__ = lambda self: None
@@ -9213,7 +9213,7 @@ class BidRequestTransType(CharField):
         this = _quickfix.new_BidRequestTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidRequestTransType
     __del__ = lambda self: None
@@ -9235,7 +9235,7 @@ class ContraBroker(StringField):
         this = _quickfix.new_ContraBroker(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraBroker
     __del__ = lambda self: None
@@ -9257,7 +9257,7 @@ class ComplianceID(StringField):
         this = _quickfix.new_ComplianceID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplianceID
     __del__ = lambda self: None
@@ -9279,7 +9279,7 @@ class SolicitedFlag(BoolField):
         this = _quickfix.new_SolicitedFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SolicitedFlag
     __del__ = lambda self: None
@@ -9301,7 +9301,7 @@ class ExecRestatementReason(IntField):
         this = _quickfix.new_ExecRestatementReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecRestatementReason
     __del__ = lambda self: None
@@ -9323,7 +9323,7 @@ class BusinessRejectRefID(StringField):
         this = _quickfix.new_BusinessRejectRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BusinessRejectRefID
     __del__ = lambda self: None
@@ -9345,7 +9345,7 @@ class BusinessRejectReason(IntField):
         this = _quickfix.new_BusinessRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BusinessRejectReason
     __del__ = lambda self: None
@@ -9367,7 +9367,7 @@ class GrossTradeAmt(DoubleField):
         this = _quickfix.new_GrossTradeAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_GrossTradeAmt
     __del__ = lambda self: None
@@ -9389,7 +9389,7 @@ class NoContraBrokers(IntField):
         this = _quickfix.new_NoContraBrokers(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoContraBrokers
     __del__ = lambda self: None
@@ -9411,7 +9411,7 @@ class NoTradingSessions(IntField):
         this = _quickfix.new_NoTradingSessions(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTradingSessions
     __del__ = lambda self: None
@@ -9433,7 +9433,7 @@ class TotalVolumeTraded(DoubleField):
         this = _quickfix.new_TotalVolumeTraded(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTraded
     __del__ = lambda self: None
@@ -9455,7 +9455,7 @@ class DiscretionInst(CharField):
         this = _quickfix.new_DiscretionInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionInst
     __del__ = lambda self: None
@@ -9477,7 +9477,7 @@ class DiscretionOffset(DoubleField):
         this = _quickfix.new_DiscretionOffset(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffset
     __del__ = lambda self: None
@@ -9499,7 +9499,7 @@ class BidID(StringField):
         this = _quickfix.new_BidID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidID
     __del__ = lambda self: None
@@ -9521,7 +9521,7 @@ class ClientBidID(StringField):
         this = _quickfix.new_ClientBidID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClientBidID
     __del__ = lambda self: None
@@ -9543,7 +9543,7 @@ class ListName(StringField):
         this = _quickfix.new_ListName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListName
     __del__ = lambda self: None
@@ -9565,7 +9565,7 @@ class TotalNumSecurities(IntField):
         this = _quickfix.new_TotalNumSecurities(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumSecurities
     __del__ = lambda self: None
@@ -9587,7 +9587,7 @@ class BidType(IntField):
         this = _quickfix.new_BidType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidType
     __del__ = lambda self: None
@@ -9609,7 +9609,7 @@ class NumTickets(IntField):
         this = _quickfix.new_NumTickets(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NumTickets
     __del__ = lambda self: None
@@ -9631,7 +9631,7 @@ class SideValue1(DoubleField):
         this = _quickfix.new_SideValue1(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideValue1
     __del__ = lambda self: None
@@ -9653,7 +9653,7 @@ class SideValue2(DoubleField):
         this = _quickfix.new_SideValue2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideValue2
     __del__ = lambda self: None
@@ -9675,7 +9675,7 @@ class NoBidDescriptors(IntField):
         this = _quickfix.new_NoBidDescriptors(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoBidDescriptors
     __del__ = lambda self: None
@@ -9697,7 +9697,7 @@ class BidDescriptorType(IntField):
         this = _quickfix.new_BidDescriptorType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidDescriptorType
     __del__ = lambda self: None
@@ -9719,7 +9719,7 @@ class BidDescriptor(StringField):
         this = _quickfix.new_BidDescriptor(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidDescriptor
     __del__ = lambda self: None
@@ -9741,7 +9741,7 @@ class SideValueInd(IntField):
         this = _quickfix.new_SideValueInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideValueInd
     __del__ = lambda self: None
@@ -9763,7 +9763,7 @@ class LiquidityPctLow(DoubleField):
         this = _quickfix.new_LiquidityPctLow(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityPctLow
     __del__ = lambda self: None
@@ -9785,7 +9785,7 @@ class LiquidityPctHigh(DoubleField):
         this = _quickfix.new_LiquidityPctHigh(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityPctHigh
     __del__ = lambda self: None
@@ -9807,7 +9807,7 @@ class LiquidityValue(DoubleField):
         this = _quickfix.new_LiquidityValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityValue
     __del__ = lambda self: None
@@ -9829,7 +9829,7 @@ class EFPTrackingError(DoubleField):
         this = _quickfix.new_EFPTrackingError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EFPTrackingError
     __del__ = lambda self: None
@@ -9851,7 +9851,7 @@ class FairValue(DoubleField):
         this = _quickfix.new_FairValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FairValue
     __del__ = lambda self: None
@@ -9873,7 +9873,7 @@ class OutsideIndexPct(DoubleField):
         this = _quickfix.new_OutsideIndexPct(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OutsideIndexPct
     __del__ = lambda self: None
@@ -9895,7 +9895,7 @@ class ValueOfFutures(DoubleField):
         this = _quickfix.new_ValueOfFutures(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ValueOfFutures
     __del__ = lambda self: None
@@ -9917,7 +9917,7 @@ class LiquidityIndType(IntField):
         this = _quickfix.new_LiquidityIndType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityIndType
     __del__ = lambda self: None
@@ -9939,7 +9939,7 @@ class WtAverageLiquidity(DoubleField):
         this = _quickfix.new_WtAverageLiquidity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_WtAverageLiquidity
     __del__ = lambda self: None
@@ -9961,7 +9961,7 @@ class ExchangeForPhysical(BoolField):
         this = _quickfix.new_ExchangeForPhysical(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeForPhysical
     __del__ = lambda self: None
@@ -9983,7 +9983,7 @@ class OutMainCntryUIndex(DoubleField):
         this = _quickfix.new_OutMainCntryUIndex(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OutMainCntryUIndex
     __del__ = lambda self: None
@@ -10005,7 +10005,7 @@ class CrossPercent(DoubleField):
         this = _quickfix.new_CrossPercent(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CrossPercent
     __del__ = lambda self: None
@@ -10027,7 +10027,7 @@ class ProgRptReqs(IntField):
         this = _quickfix.new_ProgRptReqs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ProgRptReqs
     __del__ = lambda self: None
@@ -10049,7 +10049,7 @@ class ProgPeriodInterval(IntField):
         this = _quickfix.new_ProgPeriodInterval(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ProgPeriodInterval
     __del__ = lambda self: None
@@ -10071,7 +10071,7 @@ class IncTaxInd(IntField):
         this = _quickfix.new_IncTaxInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IncTaxInd
     __del__ = lambda self: None
@@ -10093,7 +10093,7 @@ class NumBidders(IntField):
         this = _quickfix.new_NumBidders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NumBidders
     __del__ = lambda self: None
@@ -10115,7 +10115,7 @@ class TradeType(CharField):
         this = _quickfix.new_TradeType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeType
     __del__ = lambda self: None
@@ -10137,7 +10137,7 @@ class BasisPxType(CharField):
         this = _quickfix.new_BasisPxType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BasisPxType
     __del__ = lambda self: None
@@ -10159,7 +10159,7 @@ class NoBidComponents(IntField):
         this = _quickfix.new_NoBidComponents(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoBidComponents
     __del__ = lambda self: None
@@ -10181,7 +10181,7 @@ class Country(StringField):
         this = _quickfix.new_Country(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Country
     __del__ = lambda self: None
@@ -10203,7 +10203,7 @@ class TotNoStrikes(IntField):
         this = _quickfix.new_TotNoStrikes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoStrikes
     __del__ = lambda self: None
@@ -10225,7 +10225,7 @@ class PriceType(IntField):
         this = _quickfix.new_PriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceType
     __del__ = lambda self: None
@@ -10247,7 +10247,7 @@ class DayOrderQty(DoubleField):
         this = _quickfix.new_DayOrderQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DayOrderQty
     __del__ = lambda self: None
@@ -10269,7 +10269,7 @@ class DayCumQty(DoubleField):
         this = _quickfix.new_DayCumQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DayCumQty
     __del__ = lambda self: None
@@ -10291,7 +10291,7 @@ class DayAvgPx(DoubleField):
         this = _quickfix.new_DayAvgPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DayAvgPx
     __del__ = lambda self: None
@@ -10313,7 +10313,7 @@ class GTBookingInst(IntField):
         this = _quickfix.new_GTBookingInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_GTBookingInst
     __del__ = lambda self: None
@@ -10335,7 +10335,7 @@ class NoStrikes(IntField):
         this = _quickfix.new_NoStrikes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoStrikes
     __del__ = lambda self: None
@@ -10357,7 +10357,7 @@ class ListStatusType(IntField):
         this = _quickfix.new_ListStatusType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListStatusType
     __del__ = lambda self: None
@@ -10379,7 +10379,7 @@ class NetGrossInd(IntField):
         this = _quickfix.new_NetGrossInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetGrossInd
     __del__ = lambda self: None
@@ -10401,7 +10401,7 @@ class ListOrderStatus(IntField):
         this = _quickfix.new_ListOrderStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListOrderStatus
     __del__ = lambda self: None
@@ -10423,7 +10423,7 @@ class ExpireDate(StringField):
         this = _quickfix.new_ExpireDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpireDate
     __del__ = lambda self: None
@@ -10445,7 +10445,7 @@ class ListExecInstType(CharField):
         this = _quickfix.new_ListExecInstType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListExecInstType
     __del__ = lambda self: None
@@ -10467,7 +10467,7 @@ class CxlRejResponseTo(CharField):
         this = _quickfix.new_CxlRejResponseTo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CxlRejResponseTo
     __del__ = lambda self: None
@@ -10489,7 +10489,7 @@ class UnderlyingCouponRate(DoubleField):
         this = _quickfix.new_UnderlyingCouponRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCouponRate
     __del__ = lambda self: None
@@ -10511,7 +10511,7 @@ class UnderlyingContractMultiplier(DoubleField):
         this = _quickfix.new_UnderlyingContractMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingContractMultiplier
     __del__ = lambda self: None
@@ -10533,7 +10533,7 @@ class ContraTradeQty(DoubleField):
         this = _quickfix.new_ContraTradeQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTradeQty
     __del__ = lambda self: None
@@ -10555,7 +10555,7 @@ class ContraTradeTime(UtcTimeStampField):
         this = _quickfix.new_ContraTradeTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraTradeTime
     __del__ = lambda self: None
@@ -10577,7 +10577,7 @@ class ClearingFirm(StringField):
         this = _quickfix.new_ClearingFirm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingFirm
     __del__ = lambda self: None
@@ -10599,7 +10599,7 @@ class ClearingAccount(StringField):
         this = _quickfix.new_ClearingAccount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingAccount
     __del__ = lambda self: None
@@ -10621,7 +10621,7 @@ class LiquidityNumSecurities(IntField):
         this = _quickfix.new_LiquidityNumSecurities(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LiquidityNumSecurities
     __del__ = lambda self: None
@@ -10643,7 +10643,7 @@ class MultiLegReportingType(CharField):
         this = _quickfix.new_MultiLegReportingType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MultiLegReportingType
     __del__ = lambda self: None
@@ -10665,7 +10665,7 @@ class StrikeTime(UtcTimeStampField):
         this = _quickfix.new_StrikeTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeTime
     __del__ = lambda self: None
@@ -10687,7 +10687,7 @@ class ListStatusText(StringField):
         this = _quickfix.new_ListStatusText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListStatusText
     __del__ = lambda self: None
@@ -10709,7 +10709,7 @@ class EncodedListStatusTextLen(IntField):
         this = _quickfix.new_EncodedListStatusTextLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListStatusTextLen
     __del__ = lambda self: None
@@ -10731,7 +10731,7 @@ class EncodedListStatusText(StringField):
         this = _quickfix.new_EncodedListStatusText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedListStatusText
     __del__ = lambda self: None
@@ -10753,7 +10753,7 @@ class SecurityIDSource(StringField):
         this = _quickfix.new_SecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityIDSource
     __del__ = lambda self: None
@@ -10775,7 +10775,7 @@ class IOIQty(StringField):
         this = _quickfix.new_IOIQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIQty
     __del__ = lambda self: None
@@ -10797,7 +10797,7 @@ class LastQty(DoubleField):
         this = _quickfix.new_LastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastQty
     __del__ = lambda self: None
@@ -10819,7 +10819,7 @@ class Quantity(DoubleField):
         this = _quickfix.new_Quantity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Quantity
     __del__ = lambda self: None
@@ -10841,7 +10841,7 @@ class PositionEffect(CharField):
         this = _quickfix.new_PositionEffect(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PositionEffect
     __del__ = lambda self: None
@@ -10863,7 +10863,7 @@ class AllocQty(DoubleField):
         this = _quickfix.new_AllocQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocQty
     __del__ = lambda self: None
@@ -10885,7 +10885,7 @@ class Spread(DoubleField):
         this = _quickfix.new_Spread(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Spread
     __del__ = lambda self: None
@@ -10907,7 +10907,7 @@ class BenchmarkCurveCurrency(StringField):
         this = _quickfix.new_BenchmarkCurveCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurveCurrency
     __del__ = lambda self: None
@@ -10929,7 +10929,7 @@ class BenchmarkCurveName(StringField):
         this = _quickfix.new_BenchmarkCurveName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurveName
     __del__ = lambda self: None
@@ -10951,7 +10951,7 @@ class BenchmarkCurvePoint(StringField):
         this = _quickfix.new_BenchmarkCurvePoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkCurvePoint
     __del__ = lambda self: None
@@ -10973,7 +10973,7 @@ class CouponPaymentDate(StringField):
         this = _quickfix.new_CouponPaymentDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CouponPaymentDate
     __del__ = lambda self: None
@@ -10995,7 +10995,7 @@ class IssueDate(StringField):
         this = _quickfix.new_IssueDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IssueDate
     __del__ = lambda self: None
@@ -11017,7 +11017,7 @@ class RepurchaseTerm(IntField):
         this = _quickfix.new_RepurchaseTerm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RepurchaseTerm
     __del__ = lambda self: None
@@ -11039,7 +11039,7 @@ class RepurchaseRate(DoubleField):
         this = _quickfix.new_RepurchaseRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RepurchaseRate
     __del__ = lambda self: None
@@ -11061,7 +11061,7 @@ class Factor(DoubleField):
         this = _quickfix.new_Factor(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Factor
     __del__ = lambda self: None
@@ -11083,7 +11083,7 @@ class TradeOriginationDate(StringField):
         this = _quickfix.new_TradeOriginationDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeOriginationDate
     __del__ = lambda self: None
@@ -11105,7 +11105,7 @@ class ExDate(StringField):
         this = _quickfix.new_ExDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExDate
     __del__ = lambda self: None
@@ -11127,7 +11127,7 @@ class NoStipulations(IntField):
         this = _quickfix.new_NoStipulations(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoStipulations
     __del__ = lambda self: None
@@ -11149,7 +11149,7 @@ class StipulationType(StringField):
         this = _quickfix.new_StipulationType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StipulationType
     __del__ = lambda self: None
@@ -11171,7 +11171,7 @@ class StipulationValue(StringField):
         this = _quickfix.new_StipulationValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StipulationValue
     __del__ = lambda self: None
@@ -11193,7 +11193,7 @@ class YieldType(StringField):
         this = _quickfix.new_YieldType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_YieldType
     __del__ = lambda self: None
@@ -11215,7 +11215,7 @@ class Yield(DoubleField):
         this = _quickfix.new_Yield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Yield
     __del__ = lambda self: None
@@ -11237,7 +11237,7 @@ class TotalTakedown(DoubleField):
         this = _quickfix.new_TotalTakedown(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalTakedown
     __del__ = lambda self: None
@@ -11259,7 +11259,7 @@ class Concession(DoubleField):
         this = _quickfix.new_Concession(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Concession
     __del__ = lambda self: None
@@ -11281,7 +11281,7 @@ class RepoCollateralSecurityType(StringField):
         this = _quickfix.new_RepoCollateralSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RepoCollateralSecurityType
     __del__ = lambda self: None
@@ -11303,7 +11303,7 @@ class RedemptionDate(StringField):
         this = _quickfix.new_RedemptionDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RedemptionDate
     __del__ = lambda self: None
@@ -11325,7 +11325,7 @@ class UnderlyingCouponPaymentDate(StringField):
         this = _quickfix.new_UnderlyingCouponPaymentDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCouponPaymentDate
     __del__ = lambda self: None
@@ -11347,7 +11347,7 @@ class UnderlyingIssueDate(StringField):
         this = _quickfix.new_UnderlyingIssueDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingIssueDate
     __del__ = lambda self: None
@@ -11369,7 +11369,7 @@ class UnderlyingRepoCollateralSecurityType(StringField):
         this = _quickfix.new_UnderlyingRepoCollateralSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepoCollateralSecurityType
     __del__ = lambda self: None
@@ -11391,7 +11391,7 @@ class UnderlyingRepurchaseTerm(IntField):
         this = _quickfix.new_UnderlyingRepurchaseTerm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepurchaseTerm
     __del__ = lambda self: None
@@ -11413,7 +11413,7 @@ class UnderlyingRepurchaseRate(DoubleField):
         this = _quickfix.new_UnderlyingRepurchaseRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRepurchaseRate
     __del__ = lambda self: None
@@ -11435,7 +11435,7 @@ class UnderlyingFactor(DoubleField):
         this = _quickfix.new_UnderlyingFactor(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFactor
     __del__ = lambda self: None
@@ -11457,7 +11457,7 @@ class UnderlyingRedemptionDate(StringField):
         this = _quickfix.new_UnderlyingRedemptionDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRedemptionDate
     __del__ = lambda self: None
@@ -11479,7 +11479,7 @@ class LegCouponPaymentDate(StringField):
         this = _quickfix.new_LegCouponPaymentDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCouponPaymentDate
     __del__ = lambda self: None
@@ -11501,7 +11501,7 @@ class LegIssueDate(StringField):
         this = _quickfix.new_LegIssueDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegIssueDate
     __del__ = lambda self: None
@@ -11523,7 +11523,7 @@ class LegRepoCollateralSecurityType(StringField):
         this = _quickfix.new_LegRepoCollateralSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepoCollateralSecurityType
     __del__ = lambda self: None
@@ -11545,7 +11545,7 @@ class LegRepurchaseTerm(IntField):
         this = _quickfix.new_LegRepurchaseTerm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepurchaseTerm
     __del__ = lambda self: None
@@ -11567,7 +11567,7 @@ class LegRepurchaseRate(DoubleField):
         this = _quickfix.new_LegRepurchaseRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRepurchaseRate
     __del__ = lambda self: None
@@ -11589,7 +11589,7 @@ class LegFactor(DoubleField):
         this = _quickfix.new_LegFactor(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegFactor
     __del__ = lambda self: None
@@ -11611,7 +11611,7 @@ class LegRedemptionDate(StringField):
         this = _quickfix.new_LegRedemptionDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRedemptionDate
     __del__ = lambda self: None
@@ -11633,7 +11633,7 @@ class CreditRating(StringField):
         this = _quickfix.new_CreditRating(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CreditRating
     __del__ = lambda self: None
@@ -11655,7 +11655,7 @@ class UnderlyingCreditRating(StringField):
         this = _quickfix.new_UnderlyingCreditRating(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCreditRating
     __del__ = lambda self: None
@@ -11677,7 +11677,7 @@ class LegCreditRating(StringField):
         this = _quickfix.new_LegCreditRating(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCreditRating
     __del__ = lambda self: None
@@ -11699,7 +11699,7 @@ class TradedFlatSwitch(BoolField):
         this = _quickfix.new_TradedFlatSwitch(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradedFlatSwitch
     __del__ = lambda self: None
@@ -11721,7 +11721,7 @@ class BasisFeatureDate(StringField):
         this = _quickfix.new_BasisFeatureDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BasisFeatureDate
     __del__ = lambda self: None
@@ -11743,7 +11743,7 @@ class BasisFeaturePrice(DoubleField):
         this = _quickfix.new_BasisFeaturePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BasisFeaturePrice
     __del__ = lambda self: None
@@ -11765,7 +11765,7 @@ class QuoteStatus(IntField):
         this = _quickfix.new_QuoteStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteStatus
     __del__ = lambda self: None
@@ -11787,7 +11787,7 @@ class UnderlyingSecurityIDSource(StringField):
         this = _quickfix.new_UnderlyingSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityIDSource
     __del__ = lambda self: None
@@ -11809,7 +11809,7 @@ class PartyIDSource(CharField):
         this = _quickfix.new_PartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PartyIDSource
     __del__ = lambda self: None
@@ -11831,7 +11831,7 @@ class PartyID(StringField):
         this = _quickfix.new_PartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PartyID
     __del__ = lambda self: None
@@ -11853,7 +11853,7 @@ class TotalVolumeTradedDate(UtcDateField):
         this = _quickfix.new_TotalVolumeTradedDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTradedDate
     __del__ = lambda self: None
@@ -11875,7 +11875,7 @@ class TotalVolumeTradedTime(UtcTimeOnlyField):
         this = _quickfix.new_TotalVolumeTradedTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalVolumeTradedTime
     __del__ = lambda self: None
@@ -11897,7 +11897,7 @@ class NetChgPrevDay(DoubleField):
         this = _quickfix.new_NetChgPrevDay(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetChgPrevDay
     __del__ = lambda self: None
@@ -11919,7 +11919,7 @@ class PartyRole(IntField):
         this = _quickfix.new_PartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PartyRole
     __del__ = lambda self: None
@@ -11941,7 +11941,7 @@ class NoPartyIDs(IntField):
         this = _quickfix.new_NoPartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoPartyIDs
     __del__ = lambda self: None
@@ -11963,7 +11963,7 @@ class NoSecurityAltID(IntField):
         this = _quickfix.new_NoSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSecurityAltID
     __del__ = lambda self: None
@@ -11985,7 +11985,7 @@ class SecurityAltID(StringField):
         this = _quickfix.new_SecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityAltID
     __del__ = lambda self: None
@@ -12007,7 +12007,7 @@ class SecurityAltIDSource(StringField):
         this = _quickfix.new_SecurityAltIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityAltIDSource
     __del__ = lambda self: None
@@ -12029,7 +12029,7 @@ class NoUnderlyingSecurityAltID(IntField):
         this = _quickfix.new_NoUnderlyingSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingSecurityAltID
     __del__ = lambda self: None
@@ -12051,7 +12051,7 @@ class UnderlyingSecurityAltID(StringField):
         this = _quickfix.new_UnderlyingSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityAltID
     __del__ = lambda self: None
@@ -12073,7 +12073,7 @@ class UnderlyingSecurityAltIDSource(StringField):
         this = _quickfix.new_UnderlyingSecurityAltIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecurityAltIDSource
     __del__ = lambda self: None
@@ -12095,7 +12095,7 @@ class Product(IntField):
         this = _quickfix.new_Product(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Product
     __del__ = lambda self: None
@@ -12117,7 +12117,7 @@ class CFICode(StringField):
         this = _quickfix.new_CFICode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CFICode
     __del__ = lambda self: None
@@ -12139,7 +12139,7 @@ class UnderlyingProduct(IntField):
         this = _quickfix.new_UnderlyingProduct(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingProduct
     __del__ = lambda self: None
@@ -12161,7 +12161,7 @@ class UnderlyingCFICode(StringField):
         this = _quickfix.new_UnderlyingCFICode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCFICode
     __del__ = lambda self: None
@@ -12183,7 +12183,7 @@ class QuantityType(IntField):
         this = _quickfix.new_QuantityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuantityType
     __del__ = lambda self: None
@@ -12205,7 +12205,7 @@ class BookingRefID(StringField):
         this = _quickfix.new_BookingRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BookingRefID
     __del__ = lambda self: None
@@ -12227,7 +12227,7 @@ class IndividualAllocID(StringField):
         this = _quickfix.new_IndividualAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocID
     __del__ = lambda self: None
@@ -12249,7 +12249,7 @@ class RoundingDirection(CharField):
         this = _quickfix.new_RoundingDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RoundingDirection
     __del__ = lambda self: None
@@ -12271,7 +12271,7 @@ class RoundingModulus(DoubleField):
         this = _quickfix.new_RoundingModulus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RoundingModulus
     __del__ = lambda self: None
@@ -12293,7 +12293,7 @@ class CountryOfIssue(StringField):
         this = _quickfix.new_CountryOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CountryOfIssue
     __del__ = lambda self: None
@@ -12315,7 +12315,7 @@ class StateOrProvinceOfIssue(StringField):
         this = _quickfix.new_StateOrProvinceOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StateOrProvinceOfIssue
     __del__ = lambda self: None
@@ -12337,7 +12337,7 @@ class LocaleOfIssue(StringField):
         this = _quickfix.new_LocaleOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LocaleOfIssue
     __del__ = lambda self: None
@@ -12359,7 +12359,7 @@ class NoRegistDtls(IntField):
         this = _quickfix.new_NoRegistDtls(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRegistDtls
     __del__ = lambda self: None
@@ -12381,7 +12381,7 @@ class MailingDtls(StringField):
         this = _quickfix.new_MailingDtls(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MailingDtls
     __del__ = lambda self: None
@@ -12403,7 +12403,7 @@ class InvestorCountryOfResidence(StringField):
         this = _quickfix.new_InvestorCountryOfResidence(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InvestorCountryOfResidence
     __del__ = lambda self: None
@@ -12425,7 +12425,7 @@ class PaymentRef(StringField):
         this = _quickfix.new_PaymentRef(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentRef
     __del__ = lambda self: None
@@ -12447,7 +12447,7 @@ class DistribPaymentMethod(IntField):
         this = _quickfix.new_DistribPaymentMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DistribPaymentMethod
     __del__ = lambda self: None
@@ -12469,7 +12469,7 @@ class CashDistribCurr(StringField):
         this = _quickfix.new_CashDistribCurr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribCurr
     __del__ = lambda self: None
@@ -12491,7 +12491,7 @@ class CommCurrency(StringField):
         this = _quickfix.new_CommCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CommCurrency
     __del__ = lambda self: None
@@ -12513,7 +12513,7 @@ class CancellationRights(CharField):
         this = _quickfix.new_CancellationRights(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CancellationRights
     __del__ = lambda self: None
@@ -12535,7 +12535,7 @@ class MoneyLaunderingStatus(CharField):
         this = _quickfix.new_MoneyLaunderingStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MoneyLaunderingStatus
     __del__ = lambda self: None
@@ -12557,7 +12557,7 @@ class MailingInst(StringField):
         this = _quickfix.new_MailingInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MailingInst
     __del__ = lambda self: None
@@ -12579,7 +12579,7 @@ class TransBkdTime(UtcTimeStampField):
         this = _quickfix.new_TransBkdTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TransBkdTime
     __del__ = lambda self: None
@@ -12601,7 +12601,7 @@ class ExecPriceType(CharField):
         this = _quickfix.new_ExecPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecPriceType
     __del__ = lambda self: None
@@ -12623,7 +12623,7 @@ class ExecPriceAdjustment(DoubleField):
         this = _quickfix.new_ExecPriceAdjustment(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecPriceAdjustment
     __del__ = lambda self: None
@@ -12645,7 +12645,7 @@ class DateOfBirth(StringField):
         this = _quickfix.new_DateOfBirth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DateOfBirth
     __del__ = lambda self: None
@@ -12667,7 +12667,7 @@ class TradeReportTransType(IntField):
         this = _quickfix.new_TradeReportTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportTransType
     __del__ = lambda self: None
@@ -12689,7 +12689,7 @@ class CardHolderName(StringField):
         this = _quickfix.new_CardHolderName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardHolderName
     __del__ = lambda self: None
@@ -12711,7 +12711,7 @@ class CardNumber(StringField):
         this = _quickfix.new_CardNumber(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardNumber
     __del__ = lambda self: None
@@ -12733,7 +12733,7 @@ class CardExpDate(StringField):
         this = _quickfix.new_CardExpDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardExpDate
     __del__ = lambda self: None
@@ -12755,7 +12755,7 @@ class CardIssNo(StringField):
         this = _quickfix.new_CardIssNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardIssNo
     __del__ = lambda self: None
@@ -12777,7 +12777,7 @@ class PaymentMethod(IntField):
         this = _quickfix.new_PaymentMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentMethod
     __del__ = lambda self: None
@@ -12799,7 +12799,7 @@ class RegistAcctType(StringField):
         this = _quickfix.new_RegistAcctType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistAcctType
     __del__ = lambda self: None
@@ -12821,7 +12821,7 @@ class Designation(StringField):
         this = _quickfix.new_Designation(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Designation
     __del__ = lambda self: None
@@ -12843,7 +12843,7 @@ class TaxAdvantageType(IntField):
         this = _quickfix.new_TaxAdvantageType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TaxAdvantageType
     __del__ = lambda self: None
@@ -12865,7 +12865,7 @@ class RegistRejReasonText(StringField):
         this = _quickfix.new_RegistRejReasonText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRejReasonText
     __del__ = lambda self: None
@@ -12887,7 +12887,7 @@ class FundRenewWaiv(CharField):
         this = _quickfix.new_FundRenewWaiv(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FundRenewWaiv
     __del__ = lambda self: None
@@ -12909,7 +12909,7 @@ class CashDistribAgentName(StringField):
         this = _quickfix.new_CashDistribAgentName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentName
     __del__ = lambda self: None
@@ -12931,7 +12931,7 @@ class CashDistribAgentCode(StringField):
         this = _quickfix.new_CashDistribAgentCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentCode
     __del__ = lambda self: None
@@ -12953,7 +12953,7 @@ class CashDistribAgentAcctNumber(StringField):
         this = _quickfix.new_CashDistribAgentAcctNumber(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentAcctNumber
     __del__ = lambda self: None
@@ -12975,7 +12975,7 @@ class CashDistribPayRef(StringField):
         this = _quickfix.new_CashDistribPayRef(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribPayRef
     __del__ = lambda self: None
@@ -12997,7 +12997,7 @@ class CardStartDate(StringField):
         this = _quickfix.new_CardStartDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardStartDate
     __del__ = lambda self: None
@@ -13019,7 +13019,7 @@ class PaymentDate(StringField):
         this = _quickfix.new_PaymentDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentDate
     __del__ = lambda self: None
@@ -13041,7 +13041,7 @@ class PaymentRemitterID(StringField):
         this = _quickfix.new_PaymentRemitterID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PaymentRemitterID
     __del__ = lambda self: None
@@ -13063,7 +13063,7 @@ class RegistStatus(CharField):
         this = _quickfix.new_RegistStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistStatus
     __del__ = lambda self: None
@@ -13085,7 +13085,7 @@ class RegistRejReasonCode(IntField):
         this = _quickfix.new_RegistRejReasonCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRejReasonCode
     __del__ = lambda self: None
@@ -13107,7 +13107,7 @@ class RegistRefID(StringField):
         this = _quickfix.new_RegistRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistRefID
     __del__ = lambda self: None
@@ -13129,7 +13129,7 @@ class RegistDetls(StringField):
         this = _quickfix.new_RegistDetls(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistDetls
     __del__ = lambda self: None
@@ -13151,7 +13151,7 @@ class NoDistribInsts(IntField):
         this = _quickfix.new_NoDistribInsts(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDistribInsts
     __del__ = lambda self: None
@@ -13173,7 +13173,7 @@ class RegistEmail(StringField):
         this = _quickfix.new_RegistEmail(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistEmail
     __del__ = lambda self: None
@@ -13195,7 +13195,7 @@ class DistribPercentage(DoubleField):
         this = _quickfix.new_DistribPercentage(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DistribPercentage
     __del__ = lambda self: None
@@ -13217,7 +13217,7 @@ class RegistID(StringField):
         this = _quickfix.new_RegistID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistID
     __del__ = lambda self: None
@@ -13239,7 +13239,7 @@ class RegistTransType(CharField):
         this = _quickfix.new_RegistTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistTransType
     __del__ = lambda self: None
@@ -13261,7 +13261,7 @@ class ExecValuationPoint(UtcTimeStampField):
         this = _quickfix.new_ExecValuationPoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecValuationPoint
     __del__ = lambda self: None
@@ -13283,7 +13283,7 @@ class OrderPercent(DoubleField):
         this = _quickfix.new_OrderPercent(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderPercent
     __del__ = lambda self: None
@@ -13305,7 +13305,7 @@ class OwnershipType(CharField):
         this = _quickfix.new_OwnershipType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OwnershipType
     __del__ = lambda self: None
@@ -13327,7 +13327,7 @@ class NoContAmts(IntField):
         this = _quickfix.new_NoContAmts(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoContAmts
     __del__ = lambda self: None
@@ -13349,7 +13349,7 @@ class ContAmtType(IntField):
         this = _quickfix.new_ContAmtType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtType
     __del__ = lambda self: None
@@ -13371,7 +13371,7 @@ class ContAmtValue(DoubleField):
         this = _quickfix.new_ContAmtValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtValue
     __del__ = lambda self: None
@@ -13393,7 +13393,7 @@ class ContAmtCurr(StringField):
         this = _quickfix.new_ContAmtCurr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContAmtCurr
     __del__ = lambda self: None
@@ -13415,7 +13415,7 @@ class OwnerType(IntField):
         this = _quickfix.new_OwnerType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OwnerType
     __del__ = lambda self: None
@@ -13437,7 +13437,7 @@ class PartySubID(StringField):
         this = _quickfix.new_PartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PartySubID
     __del__ = lambda self: None
@@ -13459,7 +13459,7 @@ class NestedPartyID(StringField):
         this = _quickfix.new_NestedPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyID
     __del__ = lambda self: None
@@ -13481,7 +13481,7 @@ class NestedPartyIDSource(CharField):
         this = _quickfix.new_NestedPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyIDSource
     __del__ = lambda self: None
@@ -13503,7 +13503,7 @@ class SecondaryClOrdID(StringField):
         this = _quickfix.new_SecondaryClOrdID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryClOrdID
     __del__ = lambda self: None
@@ -13525,7 +13525,7 @@ class SecondaryExecID(StringField):
         this = _quickfix.new_SecondaryExecID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryExecID
     __del__ = lambda self: None
@@ -13547,7 +13547,7 @@ class OrderCapacity(CharField):
         this = _quickfix.new_OrderCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCapacity
     __del__ = lambda self: None
@@ -13569,7 +13569,7 @@ class OrderRestrictions(StringField):
         this = _quickfix.new_OrderRestrictions(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderRestrictions
     __del__ = lambda self: None
@@ -13591,7 +13591,7 @@ class MassCancelRequestType(CharField):
         this = _quickfix.new_MassCancelRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelRequestType
     __del__ = lambda self: None
@@ -13613,7 +13613,7 @@ class MassCancelResponse(CharField):
         this = _quickfix.new_MassCancelResponse(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelResponse
     __del__ = lambda self: None
@@ -13635,7 +13635,7 @@ class MassCancelRejectReason(IntField):
         this = _quickfix.new_MassCancelRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassCancelRejectReason
     __del__ = lambda self: None
@@ -13657,7 +13657,7 @@ class TotalAffectedOrders(IntField):
         this = _quickfix.new_TotalAffectedOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalAffectedOrders
     __del__ = lambda self: None
@@ -13679,7 +13679,7 @@ class NoAffectedOrders(IntField):
         this = _quickfix.new_NoAffectedOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoAffectedOrders
     __del__ = lambda self: None
@@ -13701,7 +13701,7 @@ class AffectedOrderID(StringField):
         this = _quickfix.new_AffectedOrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AffectedOrderID
     __del__ = lambda self: None
@@ -13723,7 +13723,7 @@ class AffectedSecondaryOrderID(StringField):
         this = _quickfix.new_AffectedSecondaryOrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AffectedSecondaryOrderID
     __del__ = lambda self: None
@@ -13745,7 +13745,7 @@ class QuoteType(IntField):
         this = _quickfix.new_QuoteType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteType
     __del__ = lambda self: None
@@ -13767,7 +13767,7 @@ class NestedPartyRole(IntField):
         this = _quickfix.new_NestedPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartyRole
     __del__ = lambda self: None
@@ -13789,7 +13789,7 @@ class NoNestedPartyIDs(IntField):
         this = _quickfix.new_NoNestedPartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNestedPartyIDs
     __del__ = lambda self: None
@@ -13811,7 +13811,7 @@ class TotalAccruedInterestAmt(DoubleField):
         this = _quickfix.new_TotalAccruedInterestAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalAccruedInterestAmt
     __del__ = lambda self: None
@@ -13833,7 +13833,7 @@ class MaturityDate(StringField):
         this = _quickfix.new_MaturityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityDate
     __del__ = lambda self: None
@@ -13855,7 +13855,7 @@ class UnderlyingMaturityDate(StringField):
         this = _quickfix.new_UnderlyingMaturityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityDate
     __del__ = lambda self: None
@@ -13877,7 +13877,7 @@ class InstrRegistry(StringField):
         this = _quickfix.new_InstrRegistry(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrRegistry
     __del__ = lambda self: None
@@ -13899,7 +13899,7 @@ class CashMargin(CharField):
         this = _quickfix.new_CashMargin(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashMargin
     __del__ = lambda self: None
@@ -13921,7 +13921,7 @@ class NestedPartySubID(StringField):
         this = _quickfix.new_NestedPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartySubID
     __del__ = lambda self: None
@@ -13943,7 +13943,7 @@ class Scope(StringField):
         this = _quickfix.new_Scope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Scope
     __del__ = lambda self: None
@@ -13965,7 +13965,7 @@ class MDImplicitDelete(BoolField):
         this = _quickfix.new_MDImplicitDelete(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDImplicitDelete
     __del__ = lambda self: None
@@ -13987,7 +13987,7 @@ class CrossID(StringField):
         this = _quickfix.new_CrossID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CrossID
     __del__ = lambda self: None
@@ -14009,7 +14009,7 @@ class CrossType(IntField):
         this = _quickfix.new_CrossType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CrossType
     __del__ = lambda self: None
@@ -14031,7 +14031,7 @@ class CrossPrioritization(IntField):
         this = _quickfix.new_CrossPrioritization(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CrossPrioritization
     __del__ = lambda self: None
@@ -14053,7 +14053,7 @@ class OrigCrossID(StringField):
         this = _quickfix.new_OrigCrossID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigCrossID
     __del__ = lambda self: None
@@ -14075,7 +14075,7 @@ class NoSides(IntField):
         this = _quickfix.new_NoSides(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSides
     __del__ = lambda self: None
@@ -14097,7 +14097,7 @@ class NoLegs(IntField):
         this = _quickfix.new_NoLegs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegs
     __del__ = lambda self: None
@@ -14119,7 +14119,7 @@ class LegCurrency(StringField):
         this = _quickfix.new_LegCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCurrency
     __del__ = lambda self: None
@@ -14141,7 +14141,7 @@ class TotalNumSecurityTypes(IntField):
         this = _quickfix.new_TotalNumSecurityTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumSecurityTypes
     __del__ = lambda self: None
@@ -14163,7 +14163,7 @@ class NoSecurityTypes(IntField):
         this = _quickfix.new_NoSecurityTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSecurityTypes
     __del__ = lambda self: None
@@ -14185,7 +14185,7 @@ class SecurityListRequestType(IntField):
         this = _quickfix.new_SecurityListRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListRequestType
     __del__ = lambda self: None
@@ -14207,7 +14207,7 @@ class SecurityRequestResult(IntField):
         this = _quickfix.new_SecurityRequestResult(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityRequestResult
     __del__ = lambda self: None
@@ -14229,7 +14229,7 @@ class RoundLot(DoubleField):
         this = _quickfix.new_RoundLot(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RoundLot
     __del__ = lambda self: None
@@ -14251,7 +14251,7 @@ class MinTradeVol(DoubleField):
         this = _quickfix.new_MinTradeVol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinTradeVol
     __del__ = lambda self: None
@@ -14273,7 +14273,7 @@ class MultiLegRptTypeReq(IntField):
         this = _quickfix.new_MultiLegRptTypeReq(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MultiLegRptTypeReq
     __del__ = lambda self: None
@@ -14295,7 +14295,7 @@ class LegPositionEffect(CharField):
         this = _quickfix.new_LegPositionEffect(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPositionEffect
     __del__ = lambda self: None
@@ -14317,7 +14317,7 @@ class LegCoveredOrUncovered(IntField):
         this = _quickfix.new_LegCoveredOrUncovered(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCoveredOrUncovered
     __del__ = lambda self: None
@@ -14339,7 +14339,7 @@ class LegPrice(DoubleField):
         this = _quickfix.new_LegPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPrice
     __del__ = lambda self: None
@@ -14361,7 +14361,7 @@ class TradSesStatusRejReason(IntField):
         this = _quickfix.new_TradSesStatusRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesStatusRejReason
     __del__ = lambda self: None
@@ -14383,7 +14383,7 @@ class TradeRequestID(StringField):
         this = _quickfix.new_TradeRequestID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestID
     __del__ = lambda self: None
@@ -14405,7 +14405,7 @@ class TradeRequestType(IntField):
         this = _quickfix.new_TradeRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestType
     __del__ = lambda self: None
@@ -14427,7 +14427,7 @@ class PreviouslyReported(BoolField):
         this = _quickfix.new_PreviouslyReported(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PreviouslyReported
     __del__ = lambda self: None
@@ -14449,7 +14449,7 @@ class TradeReportID(StringField):
         this = _quickfix.new_TradeReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportID
     __del__ = lambda self: None
@@ -14471,7 +14471,7 @@ class TradeReportRefID(StringField):
         this = _quickfix.new_TradeReportRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportRefID
     __del__ = lambda self: None
@@ -14493,7 +14493,7 @@ class MatchStatus(CharField):
         this = _quickfix.new_MatchStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MatchStatus
     __del__ = lambda self: None
@@ -14515,7 +14515,7 @@ class MatchType(StringField):
         this = _quickfix.new_MatchType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MatchType
     __del__ = lambda self: None
@@ -14537,7 +14537,7 @@ class OddLot(BoolField):
         this = _quickfix.new_OddLot(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OddLot
     __del__ = lambda self: None
@@ -14559,7 +14559,7 @@ class NoClearingInstructions(IntField):
         this = _quickfix.new_NoClearingInstructions(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoClearingInstructions
     __del__ = lambda self: None
@@ -14581,7 +14581,7 @@ class ClearingInstruction(IntField):
         this = _quickfix.new_ClearingInstruction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingInstruction
     __del__ = lambda self: None
@@ -14603,7 +14603,7 @@ class TradeInputSource(StringField):
         this = _quickfix.new_TradeInputSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeInputSource
     __del__ = lambda self: None
@@ -14625,7 +14625,7 @@ class TradeInputDevice(StringField):
         this = _quickfix.new_TradeInputDevice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeInputDevice
     __del__ = lambda self: None
@@ -14647,7 +14647,7 @@ class NoDates(IntField):
         this = _quickfix.new_NoDates(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDates
     __del__ = lambda self: None
@@ -14669,7 +14669,7 @@ class AccountType(IntField):
         this = _quickfix.new_AccountType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AccountType
     __del__ = lambda self: None
@@ -14691,7 +14691,7 @@ class CustOrderCapacity(IntField):
         this = _quickfix.new_CustOrderCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CustOrderCapacity
     __del__ = lambda self: None
@@ -14713,7 +14713,7 @@ class ClOrdLinkID(StringField):
         this = _quickfix.new_ClOrdLinkID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClOrdLinkID
     __del__ = lambda self: None
@@ -14735,7 +14735,7 @@ class MassStatusReqID(StringField):
         this = _quickfix.new_MassStatusReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassStatusReqID
     __del__ = lambda self: None
@@ -14757,7 +14757,7 @@ class MassStatusReqType(IntField):
         this = _quickfix.new_MassStatusReqType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassStatusReqType
     __del__ = lambda self: None
@@ -14779,7 +14779,7 @@ class OrigOrdModTime(UtcTimeStampField):
         this = _quickfix.new_OrigOrdModTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigOrdModTime
     __del__ = lambda self: None
@@ -14801,7 +14801,7 @@ class LegSettlmntTyp(CharField):
         this = _quickfix.new_LegSettlmntTyp(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlmntTyp
     __del__ = lambda self: None
@@ -14823,7 +14823,7 @@ class LegFutSettDate(StringField):
         this = _quickfix.new_LegFutSettDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegFutSettDate
     __del__ = lambda self: None
@@ -14845,7 +14845,7 @@ class DayBookingInst(CharField):
         this = _quickfix.new_DayBookingInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DayBookingInst
     __del__ = lambda self: None
@@ -14867,7 +14867,7 @@ class BookingUnit(CharField):
         this = _quickfix.new_BookingUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BookingUnit
     __del__ = lambda self: None
@@ -14889,7 +14889,7 @@ class PreallocMethod(CharField):
         this = _quickfix.new_PreallocMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PreallocMethod
     __del__ = lambda self: None
@@ -14911,7 +14911,7 @@ class UnderlyingCountryOfIssue(StringField):
         this = _quickfix.new_UnderlyingCountryOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCountryOfIssue
     __del__ = lambda self: None
@@ -14933,7 +14933,7 @@ class UnderlyingStateOrProvinceOfIssue(StringField):
         this = _quickfix.new_UnderlyingStateOrProvinceOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStateOrProvinceOfIssue
     __del__ = lambda self: None
@@ -14955,7 +14955,7 @@ class UnderlyingLocaleOfIssue(StringField):
         this = _quickfix.new_UnderlyingLocaleOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLocaleOfIssue
     __del__ = lambda self: None
@@ -14977,7 +14977,7 @@ class UnderlyingInstrRegistry(StringField):
         this = _quickfix.new_UnderlyingInstrRegistry(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrRegistry
     __del__ = lambda self: None
@@ -14999,7 +14999,7 @@ class LegCountryOfIssue(StringField):
         this = _quickfix.new_LegCountryOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCountryOfIssue
     __del__ = lambda self: None
@@ -15021,7 +15021,7 @@ class LegStateOrProvinceOfIssue(StringField):
         this = _quickfix.new_LegStateOrProvinceOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegStateOrProvinceOfIssue
     __del__ = lambda self: None
@@ -15043,7 +15043,7 @@ class LegLocaleOfIssue(StringField):
         this = _quickfix.new_LegLocaleOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegLocaleOfIssue
     __del__ = lambda self: None
@@ -15065,7 +15065,7 @@ class LegInstrRegistry(StringField):
         this = _quickfix.new_LegInstrRegistry(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegInstrRegistry
     __del__ = lambda self: None
@@ -15087,7 +15087,7 @@ class LegSymbol(StringField):
         this = _quickfix.new_LegSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSymbol
     __del__ = lambda self: None
@@ -15109,7 +15109,7 @@ class LegSymbolSfx(StringField):
         this = _quickfix.new_LegSymbolSfx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSymbolSfx
     __del__ = lambda self: None
@@ -15131,7 +15131,7 @@ class LegSecurityID(StringField):
         this = _quickfix.new_LegSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityID
     __del__ = lambda self: None
@@ -15153,7 +15153,7 @@ class LegSecurityIDSource(StringField):
         this = _quickfix.new_LegSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityIDSource
     __del__ = lambda self: None
@@ -15175,7 +15175,7 @@ class NoLegSecurityAltID(IntField):
         this = _quickfix.new_NoLegSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegSecurityAltID
     __del__ = lambda self: None
@@ -15197,7 +15197,7 @@ class LegSecurityAltID(StringField):
         this = _quickfix.new_LegSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityAltID
     __del__ = lambda self: None
@@ -15219,7 +15219,7 @@ class LegSecurityAltIDSource(StringField):
         this = _quickfix.new_LegSecurityAltIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityAltIDSource
     __del__ = lambda self: None
@@ -15241,7 +15241,7 @@ class LegProduct(IntField):
         this = _quickfix.new_LegProduct(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegProduct
     __del__ = lambda self: None
@@ -15263,7 +15263,7 @@ class LegCFICode(StringField):
         this = _quickfix.new_LegCFICode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCFICode
     __del__ = lambda self: None
@@ -15285,7 +15285,7 @@ class LegSecurityType(StringField):
         this = _quickfix.new_LegSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityType
     __del__ = lambda self: None
@@ -15307,7 +15307,7 @@ class LegMaturityMonthYear(StringField):
         this = _quickfix.new_LegMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegMaturityMonthYear
     __del__ = lambda self: None
@@ -15329,7 +15329,7 @@ class LegMaturityDate(StringField):
         this = _quickfix.new_LegMaturityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegMaturityDate
     __del__ = lambda self: None
@@ -15351,7 +15351,7 @@ class LegStrikePrice(DoubleField):
         this = _quickfix.new_LegStrikePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegStrikePrice
     __del__ = lambda self: None
@@ -15373,7 +15373,7 @@ class LegOptAttribute(CharField):
         this = _quickfix.new_LegOptAttribute(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegOptAttribute
     __del__ = lambda self: None
@@ -15395,7 +15395,7 @@ class LegContractMultiplier(DoubleField):
         this = _quickfix.new_LegContractMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegContractMultiplier
     __del__ = lambda self: None
@@ -15417,7 +15417,7 @@ class LegCouponRate(DoubleField):
         this = _quickfix.new_LegCouponRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCouponRate
     __del__ = lambda self: None
@@ -15439,7 +15439,7 @@ class LegSecurityExchange(StringField):
         this = _quickfix.new_LegSecurityExchange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityExchange
     __del__ = lambda self: None
@@ -15461,7 +15461,7 @@ class LegIssuer(StringField):
         this = _quickfix.new_LegIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegIssuer
     __del__ = lambda self: None
@@ -15483,7 +15483,7 @@ class EncodedLegIssuerLen(IntField):
         this = _quickfix.new_EncodedLegIssuerLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegIssuerLen
     __del__ = lambda self: None
@@ -15505,7 +15505,7 @@ class EncodedLegIssuer(StringField):
         this = _quickfix.new_EncodedLegIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegIssuer
     __del__ = lambda self: None
@@ -15527,7 +15527,7 @@ class LegSecurityDesc(StringField):
         this = _quickfix.new_LegSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecurityDesc
     __del__ = lambda self: None
@@ -15549,7 +15549,7 @@ class EncodedLegSecurityDescLen(IntField):
         this = _quickfix.new_EncodedLegSecurityDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegSecurityDescLen
     __del__ = lambda self: None
@@ -15571,7 +15571,7 @@ class EncodedLegSecurityDesc(StringField):
         this = _quickfix.new_EncodedLegSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedLegSecurityDesc
     __del__ = lambda self: None
@@ -15593,7 +15593,7 @@ class LegRatioQty(DoubleField):
         this = _quickfix.new_LegRatioQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRatioQty
     __del__ = lambda self: None
@@ -15615,7 +15615,7 @@ class LegSide(CharField):
         this = _quickfix.new_LegSide(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSide
     __del__ = lambda self: None
@@ -15637,7 +15637,7 @@ class TradingSessionSubID(StringField):
         this = _quickfix.new_TradingSessionSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradingSessionSubID
     __del__ = lambda self: None
@@ -15659,7 +15659,7 @@ class AllocType(IntField):
         this = _quickfix.new_AllocType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocType
     __del__ = lambda self: None
@@ -15681,7 +15681,7 @@ class MidPx(DoubleField):
         this = _quickfix.new_MidPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MidPx
     __del__ = lambda self: None
@@ -15703,7 +15703,7 @@ class BidYield(DoubleField):
         this = _quickfix.new_BidYield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidYield
     __del__ = lambda self: None
@@ -15725,7 +15725,7 @@ class MidYield(DoubleField):
         this = _quickfix.new_MidYield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MidYield
     __del__ = lambda self: None
@@ -15747,7 +15747,7 @@ class OfferYield(DoubleField):
         this = _quickfix.new_OfferYield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferYield
     __del__ = lambda self: None
@@ -15769,7 +15769,7 @@ class ClearingFeeIndicator(StringField):
         this = _quickfix.new_ClearingFeeIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingFeeIndicator
     __del__ = lambda self: None
@@ -15791,7 +15791,7 @@ class WorkingIndicator(BoolField):
         this = _quickfix.new_WorkingIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_WorkingIndicator
     __del__ = lambda self: None
@@ -15813,7 +15813,7 @@ class LegLastPx(DoubleField):
         this = _quickfix.new_LegLastPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegLastPx
     __del__ = lambda self: None
@@ -15835,7 +15835,7 @@ class PriorityIndicator(IntField):
         this = _quickfix.new_PriorityIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriorityIndicator
     __del__ = lambda self: None
@@ -15857,7 +15857,7 @@ class PriceImprovement(DoubleField):
         this = _quickfix.new_PriceImprovement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceImprovement
     __del__ = lambda self: None
@@ -15879,7 +15879,7 @@ class Price2(DoubleField):
         this = _quickfix.new_Price2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Price2
     __del__ = lambda self: None
@@ -15901,7 +15901,7 @@ class LastForwardPoints2(DoubleField):
         this = _quickfix.new_LastForwardPoints2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastForwardPoints2
     __del__ = lambda self: None
@@ -15923,7 +15923,7 @@ class BidForwardPoints2(DoubleField):
         this = _quickfix.new_BidForwardPoints2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidForwardPoints2
     __del__ = lambda self: None
@@ -15945,7 +15945,7 @@ class OfferForwardPoints2(DoubleField):
         this = _quickfix.new_OfferForwardPoints2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferForwardPoints2
     __del__ = lambda self: None
@@ -15967,7 +15967,7 @@ class RFQReqID(StringField):
         this = _quickfix.new_RFQReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RFQReqID
     __del__ = lambda self: None
@@ -15989,7 +15989,7 @@ class MktBidPx(DoubleField):
         this = _quickfix.new_MktBidPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MktBidPx
     __del__ = lambda self: None
@@ -16011,7 +16011,7 @@ class MktOfferPx(DoubleField):
         this = _quickfix.new_MktOfferPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MktOfferPx
     __del__ = lambda self: None
@@ -16033,7 +16033,7 @@ class MinBidSize(DoubleField):
         this = _quickfix.new_MinBidSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinBidSize
     __del__ = lambda self: None
@@ -16055,7 +16055,7 @@ class MinOfferSize(DoubleField):
         this = _quickfix.new_MinOfferSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinOfferSize
     __del__ = lambda self: None
@@ -16077,7 +16077,7 @@ class QuoteStatusReqID(StringField):
         this = _quickfix.new_QuoteStatusReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteStatusReqID
     __del__ = lambda self: None
@@ -16099,7 +16099,7 @@ class LegalConfirm(BoolField):
         this = _quickfix.new_LegalConfirm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegalConfirm
     __del__ = lambda self: None
@@ -16121,7 +16121,7 @@ class UnderlyingLastPx(DoubleField):
         this = _quickfix.new_UnderlyingLastPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLastPx
     __del__ = lambda self: None
@@ -16143,7 +16143,7 @@ class UnderlyingLastQty(DoubleField):
         this = _quickfix.new_UnderlyingLastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLastQty
     __del__ = lambda self: None
@@ -16165,7 +16165,7 @@ class LegRefID(StringField):
         this = _quickfix.new_LegRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegRefID
     __del__ = lambda self: None
@@ -16187,7 +16187,7 @@ class ContraLegRefID(StringField):
         this = _quickfix.new_ContraLegRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraLegRefID
     __del__ = lambda self: None
@@ -16209,7 +16209,7 @@ class SettlCurrBidFxRate(DoubleField):
         this = _quickfix.new_SettlCurrBidFxRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrBidFxRate
     __del__ = lambda self: None
@@ -16231,7 +16231,7 @@ class SettlCurrOfferFxRate(DoubleField):
         this = _quickfix.new_SettlCurrOfferFxRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlCurrOfferFxRate
     __del__ = lambda self: None
@@ -16253,7 +16253,7 @@ class QuoteRequestRejectReason(IntField):
         this = _quickfix.new_QuoteRequestRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRequestRejectReason
     __del__ = lambda self: None
@@ -16275,7 +16275,7 @@ class SideComplianceID(StringField):
         this = _quickfix.new_SideComplianceID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideComplianceID
     __del__ = lambda self: None
@@ -16297,7 +16297,7 @@ class IOIID(StringField):
         this = _quickfix.new_IOIID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IOIID
     __del__ = lambda self: None
@@ -16319,7 +16319,7 @@ class NoLinesOfText(IntField):
         this = _quickfix.new_NoLinesOfText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLinesOfText
     __del__ = lambda self: None
@@ -16341,7 +16341,7 @@ class SettlType(StringField):
         this = _quickfix.new_SettlType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlType
     __del__ = lambda self: None
@@ -16363,7 +16363,7 @@ class SettlDate(StringField):
         this = _quickfix.new_SettlDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDate
     __del__ = lambda self: None
@@ -16385,7 +16385,7 @@ class AvgPxPrecision(IntField):
         this = _quickfix.new_AvgPxPrecision(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPxPrecision
     __del__ = lambda self: None
@@ -16407,7 +16407,7 @@ class SettlDate2(StringField):
         this = _quickfix.new_SettlDate2(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlDate2
     __del__ = lambda self: None
@@ -16429,7 +16429,7 @@ class PegOffsetValue(DoubleField):
         this = _quickfix.new_PegOffsetValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegOffsetValue
     __del__ = lambda self: None
@@ -16451,7 +16451,7 @@ class OpenCloseSettlFlag(StringField):
         this = _quickfix.new_OpenCloseSettlFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OpenCloseSettlFlag
     __del__ = lambda self: None
@@ -16473,7 +16473,7 @@ class TotNoQuoteEntries(IntField):
         this = _quickfix.new_TotNoQuoteEntries(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoQuoteEntries
     __del__ = lambda self: None
@@ -16495,7 +16495,7 @@ class DiscretionOffsetValue(DoubleField):
         this = _quickfix.new_DiscretionOffsetValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffsetValue
     __del__ = lambda self: None
@@ -16517,7 +16517,7 @@ class TotNoRelatedSym(IntField):
         this = _quickfix.new_TotNoRelatedSym(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoRelatedSym
     __del__ = lambda self: None
@@ -16539,7 +16539,7 @@ class BidTradeType(CharField):
         this = _quickfix.new_BidTradeType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidTradeType
     __del__ = lambda self: None
@@ -16561,7 +16561,7 @@ class CardIssNum(StringField):
         this = _quickfix.new_CardIssNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CardIssNum
     __del__ = lambda self: None
@@ -16583,7 +16583,7 @@ class CashDistribAgentAcctName(StringField):
         this = _quickfix.new_CashDistribAgentAcctName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashDistribAgentAcctName
     __del__ = lambda self: None
@@ -16605,7 +16605,7 @@ class RegistDtls(StringField):
         this = _quickfix.new_RegistDtls(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RegistDtls
     __del__ = lambda self: None
@@ -16627,7 +16627,7 @@ class TotNoSecurityTypes(IntField):
         this = _quickfix.new_TotNoSecurityTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoSecurityTypes
     __del__ = lambda self: None
@@ -16649,7 +16649,7 @@ class LegSettlType(CharField):
         this = _quickfix.new_LegSettlType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlType
     __del__ = lambda self: None
@@ -16671,7 +16671,7 @@ class LegSettlDate(StringField):
         this = _quickfix.new_LegSettlDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlDate
     __del__ = lambda self: None
@@ -16693,7 +16693,7 @@ class AcctIDSource(IntField):
         this = _quickfix.new_AcctIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AcctIDSource
     __del__ = lambda self: None
@@ -16715,7 +16715,7 @@ class AllocAcctIDSource(IntField):
         this = _quickfix.new_AllocAcctIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAcctIDSource
     __del__ = lambda self: None
@@ -16737,7 +16737,7 @@ class BenchmarkPrice(DoubleField):
         this = _quickfix.new_BenchmarkPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkPrice
     __del__ = lambda self: None
@@ -16759,7 +16759,7 @@ class BenchmarkPriceType(IntField):
         this = _quickfix.new_BenchmarkPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkPriceType
     __del__ = lambda self: None
@@ -16781,7 +16781,7 @@ class ConfirmID(StringField):
         this = _quickfix.new_ConfirmID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmID
     __del__ = lambda self: None
@@ -16803,7 +16803,7 @@ class ConfirmStatus(IntField):
         this = _quickfix.new_ConfirmStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmStatus
     __del__ = lambda self: None
@@ -16825,7 +16825,7 @@ class ConfirmTransType(IntField):
         this = _quickfix.new_ConfirmTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmTransType
     __del__ = lambda self: None
@@ -16847,7 +16847,7 @@ class ContractSettlMonth(StringField):
         this = _quickfix.new_ContractSettlMonth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContractSettlMonth
     __del__ = lambda self: None
@@ -16869,7 +16869,7 @@ class DeliveryForm(IntField):
         this = _quickfix.new_DeliveryForm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryForm
     __del__ = lambda self: None
@@ -16891,7 +16891,7 @@ class LastParPx(DoubleField):
         this = _quickfix.new_LastParPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastParPx
     __del__ = lambda self: None
@@ -16913,7 +16913,7 @@ class NoLegAllocs(IntField):
         this = _quickfix.new_NoLegAllocs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegAllocs
     __del__ = lambda self: None
@@ -16935,7 +16935,7 @@ class LegAllocAccount(StringField):
         this = _quickfix.new_LegAllocAccount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocAccount
     __del__ = lambda self: None
@@ -16957,7 +16957,7 @@ class LegIndividualAllocID(StringField):
         this = _quickfix.new_LegIndividualAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegIndividualAllocID
     __del__ = lambda self: None
@@ -16979,7 +16979,7 @@ class LegAllocQty(DoubleField):
         this = _quickfix.new_LegAllocQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocQty
     __del__ = lambda self: None
@@ -17001,7 +17001,7 @@ class LegAllocAcctIDSource(StringField):
         this = _quickfix.new_LegAllocAcctIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocAcctIDSource
     __del__ = lambda self: None
@@ -17023,7 +17023,7 @@ class LegSettlCurrency(StringField):
         this = _quickfix.new_LegSettlCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSettlCurrency
     __del__ = lambda self: None
@@ -17045,7 +17045,7 @@ class LegBenchmarkCurveCurrency(StringField):
         this = _quickfix.new_LegBenchmarkCurveCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurveCurrency
     __del__ = lambda self: None
@@ -17067,7 +17067,7 @@ class LegBenchmarkCurveName(StringField):
         this = _quickfix.new_LegBenchmarkCurveName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurveName
     __del__ = lambda self: None
@@ -17089,7 +17089,7 @@ class LegBenchmarkCurvePoint(StringField):
         this = _quickfix.new_LegBenchmarkCurvePoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkCurvePoint
     __del__ = lambda self: None
@@ -17111,7 +17111,7 @@ class LegBenchmarkPrice(DoubleField):
         this = _quickfix.new_LegBenchmarkPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkPrice
     __del__ = lambda self: None
@@ -17133,7 +17133,7 @@ class LegBenchmarkPriceType(IntField):
         this = _quickfix.new_LegBenchmarkPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBenchmarkPriceType
     __del__ = lambda self: None
@@ -17155,7 +17155,7 @@ class LegBidPx(DoubleField):
         this = _quickfix.new_LegBidPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBidPx
     __del__ = lambda self: None
@@ -17177,7 +17177,7 @@ class LegIOIQty(StringField):
         this = _quickfix.new_LegIOIQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegIOIQty
     __del__ = lambda self: None
@@ -17199,7 +17199,7 @@ class NoLegStipulations(IntField):
         this = _quickfix.new_NoLegStipulations(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLegStipulations
     __del__ = lambda self: None
@@ -17221,7 +17221,7 @@ class LegOfferPx(DoubleField):
         this = _quickfix.new_LegOfferPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegOfferPx
     __del__ = lambda self: None
@@ -17243,7 +17243,7 @@ class LegPriceType(IntField):
         this = _quickfix.new_LegPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPriceType
     __del__ = lambda self: None
@@ -17265,7 +17265,7 @@ class LegQty(DoubleField):
         this = _quickfix.new_LegQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegQty
     __del__ = lambda self: None
@@ -17287,7 +17287,7 @@ class LegStipulationType(StringField):
         this = _quickfix.new_LegStipulationType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegStipulationType
     __del__ = lambda self: None
@@ -17309,7 +17309,7 @@ class LegStipulationValue(StringField):
         this = _quickfix.new_LegStipulationValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegStipulationValue
     __del__ = lambda self: None
@@ -17331,7 +17331,7 @@ class LegSwapType(IntField):
         this = _quickfix.new_LegSwapType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSwapType
     __del__ = lambda self: None
@@ -17353,7 +17353,7 @@ class Pool(StringField):
         this = _quickfix.new_Pool(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Pool
     __del__ = lambda self: None
@@ -17375,7 +17375,7 @@ class QuotePriceType(IntField):
         this = _quickfix.new_QuotePriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuotePriceType
     __del__ = lambda self: None
@@ -17397,7 +17397,7 @@ class QuoteRespID(StringField):
         this = _quickfix.new_QuoteRespID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRespID
     __del__ = lambda self: None
@@ -17419,7 +17419,7 @@ class QuoteRespType(IntField):
         this = _quickfix.new_QuoteRespType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteRespType
     __del__ = lambda self: None
@@ -17441,7 +17441,7 @@ class QuoteQualifier(CharField):
         this = _quickfix.new_QuoteQualifier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteQualifier
     __del__ = lambda self: None
@@ -17463,7 +17463,7 @@ class YieldRedemptionDate(StringField):
         this = _quickfix.new_YieldRedemptionDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionDate
     __del__ = lambda self: None
@@ -17485,7 +17485,7 @@ class YieldRedemptionPrice(DoubleField):
         this = _quickfix.new_YieldRedemptionPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionPrice
     __del__ = lambda self: None
@@ -17507,7 +17507,7 @@ class YieldRedemptionPriceType(IntField):
         this = _quickfix.new_YieldRedemptionPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_YieldRedemptionPriceType
     __del__ = lambda self: None
@@ -17529,7 +17529,7 @@ class BenchmarkSecurityID(StringField):
         this = _quickfix.new_BenchmarkSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkSecurityID
     __del__ = lambda self: None
@@ -17551,7 +17551,7 @@ class ReversalIndicator(BoolField):
         this = _quickfix.new_ReversalIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReversalIndicator
     __del__ = lambda self: None
@@ -17573,7 +17573,7 @@ class YieldCalcDate(StringField):
         this = _quickfix.new_YieldCalcDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_YieldCalcDate
     __del__ = lambda self: None
@@ -17595,7 +17595,7 @@ class NoPositions(IntField):
         this = _quickfix.new_NoPositions(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoPositions
     __del__ = lambda self: None
@@ -17617,7 +17617,7 @@ class PosType(StringField):
         this = _quickfix.new_PosType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosType
     __del__ = lambda self: None
@@ -17639,7 +17639,7 @@ class LongQty(DoubleField):
         this = _quickfix.new_LongQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LongQty
     __del__ = lambda self: None
@@ -17661,7 +17661,7 @@ class ShortQty(DoubleField):
         this = _quickfix.new_ShortQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ShortQty
     __del__ = lambda self: None
@@ -17683,7 +17683,7 @@ class PosQtyStatus(IntField):
         this = _quickfix.new_PosQtyStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosQtyStatus
     __del__ = lambda self: None
@@ -17705,7 +17705,7 @@ class PosAmtType(StringField):
         this = _quickfix.new_PosAmtType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosAmtType
     __del__ = lambda self: None
@@ -17727,7 +17727,7 @@ class PosAmt(DoubleField):
         this = _quickfix.new_PosAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosAmt
     __del__ = lambda self: None
@@ -17749,7 +17749,7 @@ class PosTransType(IntField):
         this = _quickfix.new_PosTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosTransType
     __del__ = lambda self: None
@@ -17771,7 +17771,7 @@ class PosReqID(StringField):
         this = _quickfix.new_PosReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqID
     __del__ = lambda self: None
@@ -17793,7 +17793,7 @@ class NoUnderlyings(IntField):
         this = _quickfix.new_NoUnderlyings(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyings
     __del__ = lambda self: None
@@ -17815,7 +17815,7 @@ class PosMaintAction(IntField):
         this = _quickfix.new_PosMaintAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintAction
     __del__ = lambda self: None
@@ -17837,7 +17837,7 @@ class OrigPosReqRefID(StringField):
         this = _quickfix.new_OrigPosReqRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigPosReqRefID
     __del__ = lambda self: None
@@ -17859,7 +17859,7 @@ class PosMaintRptRefID(StringField):
         this = _quickfix.new_PosMaintRptRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintRptRefID
     __del__ = lambda self: None
@@ -17881,7 +17881,7 @@ class ClearingBusinessDate(StringField):
         this = _quickfix.new_ClearingBusinessDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ClearingBusinessDate
     __del__ = lambda self: None
@@ -17903,7 +17903,7 @@ class SettlSessID(StringField):
         this = _quickfix.new_SettlSessID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlSessID
     __del__ = lambda self: None
@@ -17925,7 +17925,7 @@ class SettlSessSubID(StringField):
         this = _quickfix.new_SettlSessSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlSessSubID
     __del__ = lambda self: None
@@ -17947,7 +17947,7 @@ class AdjustmentType(IntField):
         this = _quickfix.new_AdjustmentType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AdjustmentType
     __del__ = lambda self: None
@@ -17969,7 +17969,7 @@ class ContraryInstructionIndicator(BoolField):
         this = _quickfix.new_ContraryInstructionIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContraryInstructionIndicator
     __del__ = lambda self: None
@@ -17991,7 +17991,7 @@ class PriorSpreadIndicator(BoolField):
         this = _quickfix.new_PriorSpreadIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriorSpreadIndicator
     __del__ = lambda self: None
@@ -18013,7 +18013,7 @@ class PosMaintRptID(StringField):
         this = _quickfix.new_PosMaintRptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintRptID
     __del__ = lambda self: None
@@ -18035,7 +18035,7 @@ class PosMaintStatus(IntField):
         this = _quickfix.new_PosMaintStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintStatus
     __del__ = lambda self: None
@@ -18057,7 +18057,7 @@ class PosMaintResult(IntField):
         this = _quickfix.new_PosMaintResult(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosMaintResult
     __del__ = lambda self: None
@@ -18079,7 +18079,7 @@ class PosReqType(IntField):
         this = _quickfix.new_PosReqType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqType
     __del__ = lambda self: None
@@ -18101,7 +18101,7 @@ class ResponseTransportType(IntField):
         this = _quickfix.new_ResponseTransportType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ResponseTransportType
     __del__ = lambda self: None
@@ -18123,7 +18123,7 @@ class ResponseDestination(StringField):
         this = _quickfix.new_ResponseDestination(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ResponseDestination
     __del__ = lambda self: None
@@ -18145,7 +18145,7 @@ class TotalNumPosReports(IntField):
         this = _quickfix.new_TotalNumPosReports(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNumPosReports
     __del__ = lambda self: None
@@ -18167,7 +18167,7 @@ class PosReqResult(IntField):
         this = _quickfix.new_PosReqResult(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqResult
     __del__ = lambda self: None
@@ -18189,7 +18189,7 @@ class PosReqStatus(IntField):
         this = _quickfix.new_PosReqStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PosReqStatus
     __del__ = lambda self: None
@@ -18211,7 +18211,7 @@ class SettlPrice(DoubleField):
         this = _quickfix.new_SettlPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPrice
     __del__ = lambda self: None
@@ -18233,7 +18233,7 @@ class SettlPriceType(IntField):
         this = _quickfix.new_SettlPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPriceType
     __del__ = lambda self: None
@@ -18255,7 +18255,7 @@ class UnderlyingSettlPrice(DoubleField):
         this = _quickfix.new_UnderlyingSettlPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlPrice
     __del__ = lambda self: None
@@ -18277,7 +18277,7 @@ class UnderlyingSettlPriceType(IntField):
         this = _quickfix.new_UnderlyingSettlPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlPriceType
     __del__ = lambda self: None
@@ -18299,7 +18299,7 @@ class PriorSettlPrice(DoubleField):
         this = _quickfix.new_PriorSettlPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriorSettlPrice
     __del__ = lambda self: None
@@ -18321,7 +18321,7 @@ class NoQuoteQualifiers(IntField):
         this = _quickfix.new_NoQuoteQualifiers(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoQuoteQualifiers
     __del__ = lambda self: None
@@ -18343,7 +18343,7 @@ class AllocSettlCurrency(StringField):
         this = _quickfix.new_AllocSettlCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlCurrency
     __del__ = lambda self: None
@@ -18365,7 +18365,7 @@ class AllocSettlCurrAmt(DoubleField):
         this = _quickfix.new_AllocSettlCurrAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlCurrAmt
     __del__ = lambda self: None
@@ -18387,7 +18387,7 @@ class InterestAtMaturity(DoubleField):
         this = _quickfix.new_InterestAtMaturity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InterestAtMaturity
     __del__ = lambda self: None
@@ -18409,7 +18409,7 @@ class LegDatedDate(StringField):
         this = _quickfix.new_LegDatedDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegDatedDate
     __del__ = lambda self: None
@@ -18431,7 +18431,7 @@ class LegPool(StringField):
         this = _quickfix.new_LegPool(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPool
     __del__ = lambda self: None
@@ -18453,7 +18453,7 @@ class AllocInterestAtMaturity(DoubleField):
         this = _quickfix.new_AllocInterestAtMaturity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocInterestAtMaturity
     __del__ = lambda self: None
@@ -18475,7 +18475,7 @@ class AllocAccruedInterestAmt(DoubleField):
         this = _quickfix.new_AllocAccruedInterestAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccruedInterestAmt
     __del__ = lambda self: None
@@ -18497,7 +18497,7 @@ class DeliveryDate(StringField):
         this = _quickfix.new_DeliveryDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryDate
     __del__ = lambda self: None
@@ -18519,7 +18519,7 @@ class AssignmentMethod(CharField):
         this = _quickfix.new_AssignmentMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AssignmentMethod
     __del__ = lambda self: None
@@ -18541,7 +18541,7 @@ class AssignmentUnit(DoubleField):
         this = _quickfix.new_AssignmentUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AssignmentUnit
     __del__ = lambda self: None
@@ -18563,7 +18563,7 @@ class OpenInterest(DoubleField):
         this = _quickfix.new_OpenInterest(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OpenInterest
     __del__ = lambda self: None
@@ -18585,7 +18585,7 @@ class ExerciseMethod(CharField):
         this = _quickfix.new_ExerciseMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExerciseMethod
     __del__ = lambda self: None
@@ -18607,7 +18607,7 @@ class TotNumTradeReports(IntField):
         this = _quickfix.new_TotNumTradeReports(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumTradeReports
     __del__ = lambda self: None
@@ -18629,7 +18629,7 @@ class TradeRequestResult(IntField):
         this = _quickfix.new_TradeRequestResult(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestResult
     __del__ = lambda self: None
@@ -18651,7 +18651,7 @@ class TradeRequestStatus(IntField):
         this = _quickfix.new_TradeRequestStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeRequestStatus
     __del__ = lambda self: None
@@ -18673,7 +18673,7 @@ class TradeReportRejectReason(IntField):
         this = _quickfix.new_TradeReportRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportRejectReason
     __del__ = lambda self: None
@@ -18695,7 +18695,7 @@ class SideMultiLegReportingType(IntField):
         this = _quickfix.new_SideMultiLegReportingType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideMultiLegReportingType
     __del__ = lambda self: None
@@ -18717,7 +18717,7 @@ class NoPosAmt(IntField):
         this = _quickfix.new_NoPosAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoPosAmt
     __del__ = lambda self: None
@@ -18739,7 +18739,7 @@ class AutoAcceptIndicator(BoolField):
         this = _quickfix.new_AutoAcceptIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AutoAcceptIndicator
     __del__ = lambda self: None
@@ -18761,7 +18761,7 @@ class AllocReportID(StringField):
         this = _quickfix.new_AllocReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportID
     __del__ = lambda self: None
@@ -18783,7 +18783,7 @@ class NoNested2PartyIDs(IntField):
         this = _quickfix.new_NoNested2PartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested2PartyIDs
     __del__ = lambda self: None
@@ -18805,7 +18805,7 @@ class Nested2PartyID(StringField):
         this = _quickfix.new_Nested2PartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyID
     __del__ = lambda self: None
@@ -18827,7 +18827,7 @@ class Nested2PartyIDSource(CharField):
         this = _quickfix.new_Nested2PartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyIDSource
     __del__ = lambda self: None
@@ -18849,7 +18849,7 @@ class Nested2PartyRole(IntField):
         this = _quickfix.new_Nested2PartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartyRole
     __del__ = lambda self: None
@@ -18871,7 +18871,7 @@ class Nested2PartySubID(StringField):
         this = _quickfix.new_Nested2PartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartySubID
     __del__ = lambda self: None
@@ -18893,7 +18893,7 @@ class BenchmarkSecurityIDSource(StringField):
         this = _quickfix.new_BenchmarkSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BenchmarkSecurityIDSource
     __del__ = lambda self: None
@@ -18915,7 +18915,7 @@ class SecuritySubType(StringField):
         this = _quickfix.new_SecuritySubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecuritySubType
     __del__ = lambda self: None
@@ -18937,7 +18937,7 @@ class UnderlyingSecuritySubType(StringField):
         this = _quickfix.new_UnderlyingSecuritySubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSecuritySubType
     __del__ = lambda self: None
@@ -18959,7 +18959,7 @@ class LegSecuritySubType(StringField):
         this = _quickfix.new_LegSecuritySubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegSecuritySubType
     __del__ = lambda self: None
@@ -18981,7 +18981,7 @@ class AllowableOneSidednessPct(DoubleField):
         this = _quickfix.new_AllowableOneSidednessPct(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessPct
     __del__ = lambda self: None
@@ -19003,7 +19003,7 @@ class AllowableOneSidednessValue(DoubleField):
         this = _quickfix.new_AllowableOneSidednessValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessValue
     __del__ = lambda self: None
@@ -19025,7 +19025,7 @@ class AllowableOneSidednessCurr(StringField):
         this = _quickfix.new_AllowableOneSidednessCurr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllowableOneSidednessCurr
     __del__ = lambda self: None
@@ -19047,7 +19047,7 @@ class NoTrdRegTimestamps(IntField):
         this = _quickfix.new_NoTrdRegTimestamps(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTrdRegTimestamps
     __del__ = lambda self: None
@@ -19069,7 +19069,7 @@ class TrdRegTimestamp(UtcTimeStampField):
         this = _quickfix.new_TrdRegTimestamp(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestamp
     __del__ = lambda self: None
@@ -19091,7 +19091,7 @@ class TrdRegTimestampType(IntField):
         this = _quickfix.new_TrdRegTimestampType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestampType
     __del__ = lambda self: None
@@ -19113,7 +19113,7 @@ class TrdRegTimestampOrigin(StringField):
         this = _quickfix.new_TrdRegTimestampOrigin(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRegTimestampOrigin
     __del__ = lambda self: None
@@ -19135,7 +19135,7 @@ class ConfirmRefID(StringField):
         this = _quickfix.new_ConfirmRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmRefID
     __del__ = lambda self: None
@@ -19157,7 +19157,7 @@ class ConfirmType(IntField):
         this = _quickfix.new_ConfirmType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmType
     __del__ = lambda self: None
@@ -19179,7 +19179,7 @@ class ConfirmRejReason(IntField):
         this = _quickfix.new_ConfirmRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmRejReason
     __del__ = lambda self: None
@@ -19201,7 +19201,7 @@ class BookingType(IntField):
         this = _quickfix.new_BookingType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BookingType
     __del__ = lambda self: None
@@ -19223,7 +19223,7 @@ class IndividualAllocRejCode(IntField):
         this = _quickfix.new_IndividualAllocRejCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocRejCode
     __del__ = lambda self: None
@@ -19245,7 +19245,7 @@ class SettlInstMsgID(StringField):
         this = _quickfix.new_SettlInstMsgID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstMsgID
     __del__ = lambda self: None
@@ -19267,7 +19267,7 @@ class NoSettlInst(IntField):
         this = _quickfix.new_NoSettlInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlInst
     __del__ = lambda self: None
@@ -19289,7 +19289,7 @@ class LastUpdateTime(UtcTimeStampField):
         this = _quickfix.new_LastUpdateTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastUpdateTime
     __del__ = lambda self: None
@@ -19311,7 +19311,7 @@ class AllocSettlInstType(IntField):
         this = _quickfix.new_AllocSettlInstType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocSettlInstType
     __del__ = lambda self: None
@@ -19333,7 +19333,7 @@ class NoSettlPartyIDs(IntField):
         this = _quickfix.new_NoSettlPartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlPartyIDs
     __del__ = lambda self: None
@@ -19355,7 +19355,7 @@ class SettlPartyID(StringField):
         this = _quickfix.new_SettlPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyID
     __del__ = lambda self: None
@@ -19377,7 +19377,7 @@ class SettlPartyIDSource(CharField):
         this = _quickfix.new_SettlPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyIDSource
     __del__ = lambda self: None
@@ -19399,7 +19399,7 @@ class SettlPartyRole(IntField):
         this = _quickfix.new_SettlPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartyRole
     __del__ = lambda self: None
@@ -19421,7 +19421,7 @@ class SettlPartySubID(StringField):
         this = _quickfix.new_SettlPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartySubID
     __del__ = lambda self: None
@@ -19443,7 +19443,7 @@ class SettlPartySubIDType(IntField):
         this = _quickfix.new_SettlPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlPartySubIDType
     __del__ = lambda self: None
@@ -19465,7 +19465,7 @@ class DlvyInstType(CharField):
         this = _quickfix.new_DlvyInstType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DlvyInstType
     __del__ = lambda self: None
@@ -19487,7 +19487,7 @@ class TerminationType(IntField):
         this = _quickfix.new_TerminationType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TerminationType
     __del__ = lambda self: None
@@ -19509,7 +19509,7 @@ class OrdStatusReqID(StringField):
         this = _quickfix.new_OrdStatusReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrdStatusReqID
     __del__ = lambda self: None
@@ -19531,7 +19531,7 @@ class SettlInstReqID(StringField):
         this = _quickfix.new_SettlInstReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstReqID
     __del__ = lambda self: None
@@ -19553,7 +19553,7 @@ class SettlInstReqRejCode(IntField):
         this = _quickfix.new_SettlInstReqRejCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlInstReqRejCode
     __del__ = lambda self: None
@@ -19575,7 +19575,7 @@ class SecondaryAllocID(StringField):
         this = _quickfix.new_SecondaryAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryAllocID
     __del__ = lambda self: None
@@ -19597,7 +19597,7 @@ class AllocReportType(IntField):
         this = _quickfix.new_AllocReportType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportType
     __del__ = lambda self: None
@@ -19619,7 +19619,7 @@ class AllocReportRefID(StringField):
         this = _quickfix.new_AllocReportRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocReportRefID
     __del__ = lambda self: None
@@ -19641,7 +19641,7 @@ class AllocCancReplaceReason(IntField):
         this = _quickfix.new_AllocCancReplaceReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocCancReplaceReason
     __del__ = lambda self: None
@@ -19663,7 +19663,7 @@ class CopyMsgIndicator(BoolField):
         this = _quickfix.new_CopyMsgIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CopyMsgIndicator
     __del__ = lambda self: None
@@ -19685,7 +19685,7 @@ class AllocAccountType(IntField):
         this = _quickfix.new_AllocAccountType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocAccountType
     __del__ = lambda self: None
@@ -19707,7 +19707,7 @@ class OrderAvgPx(DoubleField):
         this = _quickfix.new_OrderAvgPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderAvgPx
     __del__ = lambda self: None
@@ -19729,7 +19729,7 @@ class OrderBookingQty(DoubleField):
         this = _quickfix.new_OrderBookingQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderBookingQty
     __del__ = lambda self: None
@@ -19751,7 +19751,7 @@ class NoSettlPartySubIDs(IntField):
         this = _quickfix.new_NoSettlPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlPartySubIDs
     __del__ = lambda self: None
@@ -19773,7 +19773,7 @@ class NoPartySubIDs(IntField):
         this = _quickfix.new_NoPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoPartySubIDs
     __del__ = lambda self: None
@@ -19795,7 +19795,7 @@ class PartySubIDType(IntField):
         this = _quickfix.new_PartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PartySubIDType
     __del__ = lambda self: None
@@ -19817,7 +19817,7 @@ class NoNestedPartySubIDs(IntField):
         this = _quickfix.new_NoNestedPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNestedPartySubIDs
     __del__ = lambda self: None
@@ -19839,7 +19839,7 @@ class NestedPartySubIDType(IntField):
         this = _quickfix.new_NestedPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedPartySubIDType
     __del__ = lambda self: None
@@ -19861,7 +19861,7 @@ class NoNested2PartySubIDs(IntField):
         this = _quickfix.new_NoNested2PartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested2PartySubIDs
     __del__ = lambda self: None
@@ -19883,7 +19883,7 @@ class Nested2PartySubIDType(IntField):
         this = _quickfix.new_Nested2PartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested2PartySubIDType
     __del__ = lambda self: None
@@ -19905,7 +19905,7 @@ class AllocIntermedReqType(IntField):
         this = _quickfix.new_AllocIntermedReqType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocIntermedReqType
     __del__ = lambda self: None
@@ -19927,7 +19927,7 @@ class UnderlyingPx(DoubleField):
         this = _quickfix.new_UnderlyingPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPx
     __del__ = lambda self: None
@@ -19949,7 +19949,7 @@ class PriceDelta(DoubleField):
         this = _quickfix.new_PriceDelta(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceDelta
     __del__ = lambda self: None
@@ -19971,7 +19971,7 @@ class ApplQueueMax(IntField):
         this = _quickfix.new_ApplQueueMax(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueMax
     __del__ = lambda self: None
@@ -19993,7 +19993,7 @@ class ApplQueueDepth(IntField):
         this = _quickfix.new_ApplQueueDepth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueDepth
     __del__ = lambda self: None
@@ -20015,7 +20015,7 @@ class ApplQueueResolution(IntField):
         this = _quickfix.new_ApplQueueResolution(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueResolution
     __del__ = lambda self: None
@@ -20037,7 +20037,7 @@ class ApplQueueAction(IntField):
         this = _quickfix.new_ApplQueueAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplQueueAction
     __del__ = lambda self: None
@@ -20059,7 +20059,7 @@ class NoAltMDSource(IntField):
         this = _quickfix.new_NoAltMDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoAltMDSource
     __del__ = lambda self: None
@@ -20081,7 +20081,7 @@ class AltMDSourceID(StringField):
         this = _quickfix.new_AltMDSourceID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AltMDSourceID
     __del__ = lambda self: None
@@ -20103,7 +20103,7 @@ class SecondaryTradeReportID(StringField):
         this = _quickfix.new_SecondaryTradeReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeReportID
     __del__ = lambda self: None
@@ -20125,7 +20125,7 @@ class AvgPxIndicator(IntField):
         this = _quickfix.new_AvgPxIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AvgPxIndicator
     __del__ = lambda self: None
@@ -20147,7 +20147,7 @@ class TradeLinkID(StringField):
         this = _quickfix.new_TradeLinkID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeLinkID
     __del__ = lambda self: None
@@ -20169,7 +20169,7 @@ class OrderInputDevice(StringField):
         this = _quickfix.new_OrderInputDevice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderInputDevice
     __del__ = lambda self: None
@@ -20191,7 +20191,7 @@ class UnderlyingTradingSessionID(StringField):
         this = _quickfix.new_UnderlyingTradingSessionID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTradingSessionID
     __del__ = lambda self: None
@@ -20213,7 +20213,7 @@ class UnderlyingTradingSessionSubID(StringField):
         this = _quickfix.new_UnderlyingTradingSessionSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTradingSessionSubID
     __del__ = lambda self: None
@@ -20235,7 +20235,7 @@ class TradeLegRefID(StringField):
         this = _quickfix.new_TradeLegRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeLegRefID
     __del__ = lambda self: None
@@ -20257,7 +20257,7 @@ class ExchangeRule(StringField):
         this = _quickfix.new_ExchangeRule(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeRule
     __del__ = lambda self: None
@@ -20279,7 +20279,7 @@ class TradeAllocIndicator(IntField):
         this = _quickfix.new_TradeAllocIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeAllocIndicator
     __del__ = lambda self: None
@@ -20301,7 +20301,7 @@ class ExpirationCycle(IntField):
         this = _quickfix.new_ExpirationCycle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpirationCycle
     __del__ = lambda self: None
@@ -20323,7 +20323,7 @@ class TrdType(IntField):
         this = _quickfix.new_TrdType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdType
     __del__ = lambda self: None
@@ -20345,7 +20345,7 @@ class TrdSubType(IntField):
         this = _quickfix.new_TrdSubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdSubType
     __del__ = lambda self: None
@@ -20367,7 +20367,7 @@ class TransferReason(StringField):
         this = _quickfix.new_TransferReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TransferReason
     __del__ = lambda self: None
@@ -20389,7 +20389,7 @@ class TotNumAssignmentReports(IntField):
         this = _quickfix.new_TotNumAssignmentReports(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumAssignmentReports
     __del__ = lambda self: None
@@ -20411,7 +20411,7 @@ class AsgnRptID(StringField):
         this = _quickfix.new_AsgnRptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AsgnRptID
     __del__ = lambda self: None
@@ -20433,7 +20433,7 @@ class ThresholdAmount(DoubleField):
         this = _quickfix.new_ThresholdAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ThresholdAmount
     __del__ = lambda self: None
@@ -20455,7 +20455,7 @@ class PegMoveType(IntField):
         this = _quickfix.new_PegMoveType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegMoveType
     __del__ = lambda self: None
@@ -20477,7 +20477,7 @@ class PegOffsetType(IntField):
         this = _quickfix.new_PegOffsetType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegOffsetType
     __del__ = lambda self: None
@@ -20499,7 +20499,7 @@ class PegLimitType(IntField):
         this = _quickfix.new_PegLimitType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegLimitType
     __del__ = lambda self: None
@@ -20521,7 +20521,7 @@ class PegRoundDirection(IntField):
         this = _quickfix.new_PegRoundDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegRoundDirection
     __del__ = lambda self: None
@@ -20543,7 +20543,7 @@ class PeggedPrice(DoubleField):
         this = _quickfix.new_PeggedPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PeggedPrice
     __del__ = lambda self: None
@@ -20565,7 +20565,7 @@ class PegScope(IntField):
         this = _quickfix.new_PegScope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegScope
     __del__ = lambda self: None
@@ -20587,7 +20587,7 @@ class DiscretionMoveType(IntField):
         this = _quickfix.new_DiscretionMoveType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionMoveType
     __del__ = lambda self: None
@@ -20609,7 +20609,7 @@ class DiscretionOffsetType(IntField):
         this = _quickfix.new_DiscretionOffsetType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionOffsetType
     __del__ = lambda self: None
@@ -20631,7 +20631,7 @@ class DiscretionLimitType(IntField):
         this = _quickfix.new_DiscretionLimitType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionLimitType
     __del__ = lambda self: None
@@ -20653,7 +20653,7 @@ class DiscretionRoundDirection(IntField):
         this = _quickfix.new_DiscretionRoundDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionRoundDirection
     __del__ = lambda self: None
@@ -20675,7 +20675,7 @@ class DiscretionPrice(DoubleField):
         this = _quickfix.new_DiscretionPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionPrice
     __del__ = lambda self: None
@@ -20697,7 +20697,7 @@ class DiscretionScope(IntField):
         this = _quickfix.new_DiscretionScope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DiscretionScope
     __del__ = lambda self: None
@@ -20719,7 +20719,7 @@ class TargetStrategy(IntField):
         this = _quickfix.new_TargetStrategy(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategy
     __del__ = lambda self: None
@@ -20741,7 +20741,7 @@ class TargetStrategyParameters(StringField):
         this = _quickfix.new_TargetStrategyParameters(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategyParameters
     __del__ = lambda self: None
@@ -20763,7 +20763,7 @@ class ParticipationRate(DoubleField):
         this = _quickfix.new_ParticipationRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ParticipationRate
     __del__ = lambda self: None
@@ -20785,7 +20785,7 @@ class TargetStrategyPerformance(DoubleField):
         this = _quickfix.new_TargetStrategyPerformance(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetStrategyPerformance
     __del__ = lambda self: None
@@ -20807,7 +20807,7 @@ class LastLiquidityInd(IntField):
         this = _quickfix.new_LastLiquidityInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastLiquidityInd
     __del__ = lambda self: None
@@ -20829,7 +20829,7 @@ class PublishTrdIndicator(BoolField):
         this = _quickfix.new_PublishTrdIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PublishTrdIndicator
     __del__ = lambda self: None
@@ -20851,7 +20851,7 @@ class ShortSaleReason(IntField):
         this = _quickfix.new_ShortSaleReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ShortSaleReason
     __del__ = lambda self: None
@@ -20873,7 +20873,7 @@ class QtyType(IntField):
         this = _quickfix.new_QtyType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QtyType
     __del__ = lambda self: None
@@ -20895,7 +20895,7 @@ class SecondaryTrdType(IntField):
         this = _quickfix.new_SecondaryTrdType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTrdType
     __del__ = lambda self: None
@@ -20917,7 +20917,7 @@ class TradeReportType(IntField):
         this = _quickfix.new_TradeReportType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeReportType
     __del__ = lambda self: None
@@ -20939,7 +20939,7 @@ class AllocNoOrdersType(IntField):
         this = _quickfix.new_AllocNoOrdersType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocNoOrdersType
     __del__ = lambda self: None
@@ -20961,7 +20961,7 @@ class SharedCommission(DoubleField):
         this = _quickfix.new_SharedCommission(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SharedCommission
     __del__ = lambda self: None
@@ -20983,7 +20983,7 @@ class ConfirmReqID(StringField):
         this = _quickfix.new_ConfirmReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ConfirmReqID
     __del__ = lambda self: None
@@ -21005,7 +21005,7 @@ class AvgParPx(DoubleField):
         this = _quickfix.new_AvgParPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AvgParPx
     __del__ = lambda self: None
@@ -21027,7 +21027,7 @@ class ReportedPx(DoubleField):
         this = _quickfix.new_ReportedPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReportedPx
     __del__ = lambda self: None
@@ -21049,7 +21049,7 @@ class NoCapacities(IntField):
         this = _quickfix.new_NoCapacities(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoCapacities
     __del__ = lambda self: None
@@ -21071,7 +21071,7 @@ class OrderCapacityQty(DoubleField):
         this = _quickfix.new_OrderCapacityQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCapacityQty
     __del__ = lambda self: None
@@ -21093,7 +21093,7 @@ class NoEvents(IntField):
         this = _quickfix.new_NoEvents(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoEvents
     __del__ = lambda self: None
@@ -21115,7 +21115,7 @@ class EventType(IntField):
         this = _quickfix.new_EventType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EventType
     __del__ = lambda self: None
@@ -21137,7 +21137,7 @@ class EventDate(StringField):
         this = _quickfix.new_EventDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EventDate
     __del__ = lambda self: None
@@ -21159,7 +21159,7 @@ class EventPx(DoubleField):
         this = _quickfix.new_EventPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EventPx
     __del__ = lambda self: None
@@ -21181,7 +21181,7 @@ class EventText(StringField):
         this = _quickfix.new_EventText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EventText
     __del__ = lambda self: None
@@ -21203,7 +21203,7 @@ class PctAtRisk(DoubleField):
         this = _quickfix.new_PctAtRisk(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PctAtRisk
     __del__ = lambda self: None
@@ -21225,7 +21225,7 @@ class NoInstrAttrib(IntField):
         this = _quickfix.new_NoInstrAttrib(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrAttrib
     __del__ = lambda self: None
@@ -21247,7 +21247,7 @@ class InstrAttribType(IntField):
         this = _quickfix.new_InstrAttribType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrAttribType
     __del__ = lambda self: None
@@ -21269,7 +21269,7 @@ class InstrAttribValue(StringField):
         this = _quickfix.new_InstrAttribValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrAttribValue
     __del__ = lambda self: None
@@ -21291,7 +21291,7 @@ class DatedDate(StringField):
         this = _quickfix.new_DatedDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DatedDate
     __del__ = lambda self: None
@@ -21313,7 +21313,7 @@ class InterestAccrualDate(StringField):
         this = _quickfix.new_InterestAccrualDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InterestAccrualDate
     __del__ = lambda self: None
@@ -21335,7 +21335,7 @@ class CPProgram(IntField):
         this = _quickfix.new_CPProgram(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CPProgram
     __del__ = lambda self: None
@@ -21357,7 +21357,7 @@ class CPRegType(StringField):
         this = _quickfix.new_CPRegType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CPRegType
     __del__ = lambda self: None
@@ -21379,7 +21379,7 @@ class UnderlyingCPProgram(StringField):
         this = _quickfix.new_UnderlyingCPProgram(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCPProgram
     __del__ = lambda self: None
@@ -21401,7 +21401,7 @@ class UnderlyingCPRegType(StringField):
         this = _quickfix.new_UnderlyingCPRegType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCPRegType
     __del__ = lambda self: None
@@ -21423,7 +21423,7 @@ class UnderlyingQty(DoubleField):
         this = _quickfix.new_UnderlyingQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingQty
     __del__ = lambda self: None
@@ -21445,7 +21445,7 @@ class TrdMatchID(StringField):
         this = _quickfix.new_TrdMatchID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdMatchID
     __del__ = lambda self: None
@@ -21467,7 +21467,7 @@ class SecondaryTradeReportRefID(StringField):
         this = _quickfix.new_SecondaryTradeReportRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeReportRefID
     __del__ = lambda self: None
@@ -21489,7 +21489,7 @@ class UnderlyingDirtyPrice(DoubleField):
         this = _quickfix.new_UnderlyingDirtyPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingDirtyPrice
     __del__ = lambda self: None
@@ -21511,7 +21511,7 @@ class UnderlyingEndPrice(DoubleField):
         this = _quickfix.new_UnderlyingEndPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingEndPrice
     __del__ = lambda self: None
@@ -21533,7 +21533,7 @@ class UnderlyingStartValue(DoubleField):
         this = _quickfix.new_UnderlyingStartValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStartValue
     __del__ = lambda self: None
@@ -21555,7 +21555,7 @@ class UnderlyingCurrentValue(DoubleField):
         this = _quickfix.new_UnderlyingCurrentValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCurrentValue
     __del__ = lambda self: None
@@ -21577,7 +21577,7 @@ class UnderlyingEndValue(DoubleField):
         this = _quickfix.new_UnderlyingEndValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingEndValue
     __del__ = lambda self: None
@@ -21599,7 +21599,7 @@ class NoUnderlyingStips(IntField):
         this = _quickfix.new_NoUnderlyingStips(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingStips
     __del__ = lambda self: None
@@ -21621,7 +21621,7 @@ class UnderlyingStipType(StringField):
         this = _quickfix.new_UnderlyingStipType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStipType
     __del__ = lambda self: None
@@ -21643,7 +21643,7 @@ class UnderlyingStipValue(StringField):
         this = _quickfix.new_UnderlyingStipValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStipValue
     __del__ = lambda self: None
@@ -21665,7 +21665,7 @@ class MaturityNetMoney(DoubleField):
         this = _quickfix.new_MaturityNetMoney(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityNetMoney
     __del__ = lambda self: None
@@ -21687,7 +21687,7 @@ class MiscFeeBasis(IntField):
         this = _quickfix.new_MiscFeeBasis(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MiscFeeBasis
     __del__ = lambda self: None
@@ -21709,7 +21709,7 @@ class TotNoAllocs(IntField):
         this = _quickfix.new_TotNoAllocs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoAllocs
     __del__ = lambda self: None
@@ -21731,7 +21731,7 @@ class LastFragment(BoolField):
         this = _quickfix.new_LastFragment(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastFragment
     __del__ = lambda self: None
@@ -21753,7 +21753,7 @@ class CollReqID(StringField):
         this = _quickfix.new_CollReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollReqID
     __del__ = lambda self: None
@@ -21775,7 +21775,7 @@ class CollAsgnReason(IntField):
         this = _quickfix.new_CollAsgnReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnReason
     __del__ = lambda self: None
@@ -21797,7 +21797,7 @@ class CollInquiryQualifier(IntField):
         this = _quickfix.new_CollInquiryQualifier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryQualifier
     __del__ = lambda self: None
@@ -21819,7 +21819,7 @@ class NoTrades(IntField):
         this = _quickfix.new_NoTrades(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTrades
     __del__ = lambda self: None
@@ -21841,7 +21841,7 @@ class MarginRatio(DoubleField):
         this = _quickfix.new_MarginRatio(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarginRatio
     __del__ = lambda self: None
@@ -21863,7 +21863,7 @@ class MarginExcess(DoubleField):
         this = _quickfix.new_MarginExcess(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarginExcess
     __del__ = lambda self: None
@@ -21885,7 +21885,7 @@ class TotalNetValue(DoubleField):
         this = _quickfix.new_TotalNetValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotalNetValue
     __del__ = lambda self: None
@@ -21907,7 +21907,7 @@ class CashOutstanding(DoubleField):
         this = _quickfix.new_CashOutstanding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CashOutstanding
     __del__ = lambda self: None
@@ -21929,7 +21929,7 @@ class CollAsgnID(StringField):
         this = _quickfix.new_CollAsgnID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnID
     __del__ = lambda self: None
@@ -21951,7 +21951,7 @@ class CollAsgnTransType(IntField):
         this = _quickfix.new_CollAsgnTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnTransType
     __del__ = lambda self: None
@@ -21973,7 +21973,7 @@ class CollRespID(StringField):
         this = _quickfix.new_CollRespID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollRespID
     __del__ = lambda self: None
@@ -21995,7 +21995,7 @@ class CollAsgnRespType(IntField):
         this = _quickfix.new_CollAsgnRespType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRespType
     __del__ = lambda self: None
@@ -22017,7 +22017,7 @@ class CollAsgnRejectReason(IntField):
         this = _quickfix.new_CollAsgnRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRejectReason
     __del__ = lambda self: None
@@ -22039,7 +22039,7 @@ class CollAsgnRefID(StringField):
         this = _quickfix.new_CollAsgnRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAsgnRefID
     __del__ = lambda self: None
@@ -22061,7 +22061,7 @@ class CollRptID(StringField):
         this = _quickfix.new_CollRptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollRptID
     __del__ = lambda self: None
@@ -22083,7 +22083,7 @@ class CollInquiryID(StringField):
         this = _quickfix.new_CollInquiryID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryID
     __del__ = lambda self: None
@@ -22105,7 +22105,7 @@ class CollStatus(IntField):
         this = _quickfix.new_CollStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollStatus
     __del__ = lambda self: None
@@ -22127,7 +22127,7 @@ class TotNumReports(IntField):
         this = _quickfix.new_TotNumReports(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNumReports
     __del__ = lambda self: None
@@ -22149,7 +22149,7 @@ class LastRptRequested(BoolField):
         this = _quickfix.new_LastRptRequested(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastRptRequested
     __del__ = lambda self: None
@@ -22171,7 +22171,7 @@ class AgreementDesc(StringField):
         this = _quickfix.new_AgreementDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementDesc
     __del__ = lambda self: None
@@ -22193,7 +22193,7 @@ class AgreementID(StringField):
         this = _quickfix.new_AgreementID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementID
     __del__ = lambda self: None
@@ -22215,7 +22215,7 @@ class AgreementDate(StringField):
         this = _quickfix.new_AgreementDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementDate
     __del__ = lambda self: None
@@ -22237,7 +22237,7 @@ class StartDate(StringField):
         this = _quickfix.new_StartDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StartDate
     __del__ = lambda self: None
@@ -22259,7 +22259,7 @@ class EndDate(StringField):
         this = _quickfix.new_EndDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndDate
     __del__ = lambda self: None
@@ -22281,7 +22281,7 @@ class AgreementCurrency(StringField):
         this = _quickfix.new_AgreementCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AgreementCurrency
     __del__ = lambda self: None
@@ -22303,7 +22303,7 @@ class DeliveryType(IntField):
         this = _quickfix.new_DeliveryType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeliveryType
     __del__ = lambda self: None
@@ -22325,7 +22325,7 @@ class EndAccruedInterestAmt(DoubleField):
         this = _quickfix.new_EndAccruedInterestAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndAccruedInterestAmt
     __del__ = lambda self: None
@@ -22347,7 +22347,7 @@ class StartCash(DoubleField):
         this = _quickfix.new_StartCash(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StartCash
     __del__ = lambda self: None
@@ -22369,7 +22369,7 @@ class EndCash(DoubleField):
         this = _quickfix.new_EndCash(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndCash
     __del__ = lambda self: None
@@ -22391,7 +22391,7 @@ class UserRequestID(StringField):
         this = _quickfix.new_UserRequestID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UserRequestID
     __del__ = lambda self: None
@@ -22413,7 +22413,7 @@ class UserRequestType(IntField):
         this = _quickfix.new_UserRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UserRequestType
     __del__ = lambda self: None
@@ -22435,7 +22435,7 @@ class NewPassword(StringField):
         this = _quickfix.new_NewPassword(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewPassword
     __del__ = lambda self: None
@@ -22457,7 +22457,7 @@ class UserStatus(IntField):
         this = _quickfix.new_UserStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UserStatus
     __del__ = lambda self: None
@@ -22479,7 +22479,7 @@ class UserStatusText(StringField):
         this = _quickfix.new_UserStatusText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UserStatusText
     __del__ = lambda self: None
@@ -22501,7 +22501,7 @@ class StatusValue(IntField):
         this = _quickfix.new_StatusValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StatusValue
     __del__ = lambda self: None
@@ -22523,7 +22523,7 @@ class StatusText(StringField):
         this = _quickfix.new_StatusText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StatusText
     __del__ = lambda self: None
@@ -22545,7 +22545,7 @@ class RefCompID(StringField):
         this = _quickfix.new_RefCompID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefCompID
     __del__ = lambda self: None
@@ -22567,7 +22567,7 @@ class RefSubID(StringField):
         this = _quickfix.new_RefSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefSubID
     __del__ = lambda self: None
@@ -22589,7 +22589,7 @@ class NetworkResponseID(StringField):
         this = _quickfix.new_NetworkResponseID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkResponseID
     __del__ = lambda self: None
@@ -22611,7 +22611,7 @@ class NetworkRequestID(StringField):
         this = _quickfix.new_NetworkRequestID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkRequestID
     __del__ = lambda self: None
@@ -22633,7 +22633,7 @@ class LastNetworkResponseID(StringField):
         this = _quickfix.new_LastNetworkResponseID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastNetworkResponseID
     __del__ = lambda self: None
@@ -22655,7 +22655,7 @@ class NetworkRequestType(IntField):
         this = _quickfix.new_NetworkRequestType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkRequestType
     __del__ = lambda self: None
@@ -22677,7 +22677,7 @@ class NoCompIDs(IntField):
         this = _quickfix.new_NoCompIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoCompIDs
     __del__ = lambda self: None
@@ -22699,7 +22699,7 @@ class NetworkStatusResponseType(IntField):
         this = _quickfix.new_NetworkStatusResponseType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NetworkStatusResponseType
     __del__ = lambda self: None
@@ -22721,7 +22721,7 @@ class NoCollInquiryQualifier(IntField):
         this = _quickfix.new_NoCollInquiryQualifier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoCollInquiryQualifier
     __del__ = lambda self: None
@@ -22743,7 +22743,7 @@ class TrdRptStatus(IntField):
         this = _quickfix.new_TrdRptStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRptStatus
     __del__ = lambda self: None
@@ -22765,7 +22765,7 @@ class AffirmStatus(IntField):
         this = _quickfix.new_AffirmStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AffirmStatus
     __del__ = lambda self: None
@@ -22787,7 +22787,7 @@ class UnderlyingStrikeCurrency(StringField):
         this = _quickfix.new_UnderlyingStrikeCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingStrikeCurrency
     __del__ = lambda self: None
@@ -22809,7 +22809,7 @@ class LegStrikeCurrency(StringField):
         this = _quickfix.new_LegStrikeCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegStrikeCurrency
     __del__ = lambda self: None
@@ -22831,7 +22831,7 @@ class TimeBracket(StringField):
         this = _quickfix.new_TimeBracket(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TimeBracket
     __del__ = lambda self: None
@@ -22853,7 +22853,7 @@ class CollAction(IntField):
         this = _quickfix.new_CollAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollAction
     __del__ = lambda self: None
@@ -22875,7 +22875,7 @@ class CollInquiryStatus(IntField):
         this = _quickfix.new_CollInquiryStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryStatus
     __del__ = lambda self: None
@@ -22897,7 +22897,7 @@ class CollInquiryResult(IntField):
         this = _quickfix.new_CollInquiryResult(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollInquiryResult
     __del__ = lambda self: None
@@ -22919,7 +22919,7 @@ class StrikeCurrency(StringField):
         this = _quickfix.new_StrikeCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeCurrency
     __del__ = lambda self: None
@@ -22941,7 +22941,7 @@ class NoNested3PartyIDs(IntField):
         this = _quickfix.new_NoNested3PartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested3PartyIDs
     __del__ = lambda self: None
@@ -22963,7 +22963,7 @@ class Nested3PartyID(StringField):
         this = _quickfix.new_Nested3PartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyID
     __del__ = lambda self: None
@@ -22985,7 +22985,7 @@ class Nested3PartyIDSource(CharField):
         this = _quickfix.new_Nested3PartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyIDSource
     __del__ = lambda self: None
@@ -23007,7 +23007,7 @@ class Nested3PartyRole(IntField):
         this = _quickfix.new_Nested3PartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartyRole
     __del__ = lambda self: None
@@ -23029,7 +23029,7 @@ class NoNested3PartySubIDs(IntField):
         this = _quickfix.new_NoNested3PartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested3PartySubIDs
     __del__ = lambda self: None
@@ -23051,7 +23051,7 @@ class Nested3PartySubID(StringField):
         this = _quickfix.new_Nested3PartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartySubID
     __del__ = lambda self: None
@@ -23073,7 +23073,7 @@ class Nested3PartySubIDType(IntField):
         this = _quickfix.new_Nested3PartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested3PartySubIDType
     __del__ = lambda self: None
@@ -23095,7 +23095,7 @@ class LegContractSettlMonth(StringField):
         this = _quickfix.new_LegContractSettlMonth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegContractSettlMonth
     __del__ = lambda self: None
@@ -23117,7 +23117,7 @@ class LegInterestAccrualDate(StringField):
         this = _quickfix.new_LegInterestAccrualDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegInterestAccrualDate
     __del__ = lambda self: None
@@ -23139,7 +23139,7 @@ class LegOrderQty(DoubleField):
         this = _quickfix.new_LegOrderQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegOrderQty
     __del__ = lambda self: None
@@ -23161,7 +23161,7 @@ class NoStrategyParameters(IntField):
         this = _quickfix.new_NoStrategyParameters(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoStrategyParameters
     __del__ = lambda self: None
@@ -23183,7 +23183,7 @@ class StrategyParameterName(StringField):
         this = _quickfix.new_StrategyParameterName(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterName
     __del__ = lambda self: None
@@ -23205,7 +23205,7 @@ class StrategyParameterType(IntField):
         this = _quickfix.new_StrategyParameterType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterType
     __del__ = lambda self: None
@@ -23227,7 +23227,7 @@ class StrategyParameterValue(StringField):
         this = _quickfix.new_StrategyParameterValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrategyParameterValue
     __del__ = lambda self: None
@@ -23249,7 +23249,7 @@ class HostCrossID(StringField):
         this = _quickfix.new_HostCrossID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HostCrossID
     __del__ = lambda self: None
@@ -23271,7 +23271,7 @@ class SideTimeInForce(UtcTimeStampField):
         this = _quickfix.new_SideTimeInForce(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTimeInForce
     __del__ = lambda self: None
@@ -23293,7 +23293,7 @@ class MDReportID(IntField):
         this = _quickfix.new_MDReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDReportID
     __del__ = lambda self: None
@@ -23315,7 +23315,7 @@ class SecurityReportID(IntField):
         this = _quickfix.new_SecurityReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityReportID
     __del__ = lambda self: None
@@ -23337,7 +23337,7 @@ class SecurityStatus(StringField):
         this = _quickfix.new_SecurityStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityStatus
     __del__ = lambda self: None
@@ -23359,7 +23359,7 @@ class SettleOnOpenFlag(StringField):
         this = _quickfix.new_SettleOnOpenFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettleOnOpenFlag
     __del__ = lambda self: None
@@ -23381,7 +23381,7 @@ class StrikeMultiplier(DoubleField):
         this = _quickfix.new_StrikeMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeMultiplier
     __del__ = lambda self: None
@@ -23403,7 +23403,7 @@ class StrikeValue(DoubleField):
         this = _quickfix.new_StrikeValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeValue
     __del__ = lambda self: None
@@ -23425,7 +23425,7 @@ class MinPriceIncrement(DoubleField):
         this = _quickfix.new_MinPriceIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinPriceIncrement
     __del__ = lambda self: None
@@ -23447,7 +23447,7 @@ class PositionLimit(IntField):
         this = _quickfix.new_PositionLimit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PositionLimit
     __del__ = lambda self: None
@@ -23469,7 +23469,7 @@ class NTPositionLimit(IntField):
         this = _quickfix.new_NTPositionLimit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NTPositionLimit
     __del__ = lambda self: None
@@ -23491,7 +23491,7 @@ class UnderlyingAllocationPercent(DoubleField):
         this = _quickfix.new_UnderlyingAllocationPercent(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingAllocationPercent
     __del__ = lambda self: None
@@ -23513,7 +23513,7 @@ class UnderlyingCashAmount(DoubleField):
         this = _quickfix.new_UnderlyingCashAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCashAmount
     __del__ = lambda self: None
@@ -23535,7 +23535,7 @@ class UnderlyingCashType(StringField):
         this = _quickfix.new_UnderlyingCashType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCashType
     __del__ = lambda self: None
@@ -23557,7 +23557,7 @@ class UnderlyingSettlementType(IntField):
         this = _quickfix.new_UnderlyingSettlementType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementType
     __del__ = lambda self: None
@@ -23579,7 +23579,7 @@ class QuantityDate(StringField):
         this = _quickfix.new_QuantityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuantityDate
     __del__ = lambda self: None
@@ -23601,7 +23601,7 @@ class ContIntRptID(StringField):
         this = _quickfix.new_ContIntRptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContIntRptID
     __del__ = lambda self: None
@@ -23623,7 +23623,7 @@ class LateIndicator(BoolField):
         this = _quickfix.new_LateIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LateIndicator
     __del__ = lambda self: None
@@ -23645,7 +23645,7 @@ class InputSource(StringField):
         this = _quickfix.new_InputSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InputSource
     __del__ = lambda self: None
@@ -23667,7 +23667,7 @@ class SecurityUpdateAction(CharField):
         this = _quickfix.new_SecurityUpdateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityUpdateAction
     __del__ = lambda self: None
@@ -23689,7 +23689,7 @@ class NoExpiration(IntField):
         this = _quickfix.new_NoExpiration(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoExpiration
     __del__ = lambda self: None
@@ -23711,7 +23711,7 @@ class ExpType(IntField):
         this = _quickfix.new_ExpType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpType
     __del__ = lambda self: None
@@ -23733,7 +23733,7 @@ class ExpQty(DoubleField):
         this = _quickfix.new_ExpQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpQty
     __del__ = lambda self: None
@@ -23755,7 +23755,7 @@ class NoUnderlyingAmounts(IntField):
         this = _quickfix.new_NoUnderlyingAmounts(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingAmounts
     __del__ = lambda self: None
@@ -23777,7 +23777,7 @@ class UnderlyingPayAmount(DoubleField):
         this = _quickfix.new_UnderlyingPayAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPayAmount
     __del__ = lambda self: None
@@ -23799,7 +23799,7 @@ class UnderlyingCollectAmount(DoubleField):
         this = _quickfix.new_UnderlyingCollectAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCollectAmount
     __del__ = lambda self: None
@@ -23821,7 +23821,7 @@ class UnderlyingSettlementDate(StringField):
         this = _quickfix.new_UnderlyingSettlementDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementDate
     __del__ = lambda self: None
@@ -23843,7 +23843,7 @@ class UnderlyingSettlementStatus(StringField):
         this = _quickfix.new_UnderlyingSettlementStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlementStatus
     __del__ = lambda self: None
@@ -23865,7 +23865,7 @@ class SecondaryIndividualAllocID(StringField):
         this = _quickfix.new_SecondaryIndividualAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryIndividualAllocID
     __del__ = lambda self: None
@@ -23887,7 +23887,7 @@ class LegReportID(StringField):
         this = _quickfix.new_LegReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegReportID
     __del__ = lambda self: None
@@ -23909,7 +23909,7 @@ class RndPx(DoubleField):
         this = _quickfix.new_RndPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RndPx
     __del__ = lambda self: None
@@ -23931,7 +23931,7 @@ class IndividualAllocType(IntField):
         this = _quickfix.new_IndividualAllocType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_IndividualAllocType
     __del__ = lambda self: None
@@ -23953,7 +23953,7 @@ class AllocCustomerCapacity(StringField):
         this = _quickfix.new_AllocCustomerCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocCustomerCapacity
     __del__ = lambda self: None
@@ -23975,7 +23975,7 @@ class TierCode(StringField):
         this = _quickfix.new_TierCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TierCode
     __del__ = lambda self: None
@@ -23997,7 +23997,7 @@ class UnitOfMeasure(StringField):
         this = _quickfix.new_UnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnitOfMeasure
     __del__ = lambda self: None
@@ -24019,7 +24019,7 @@ class TimeUnit(StringField):
         this = _quickfix.new_TimeUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TimeUnit
     __del__ = lambda self: None
@@ -24041,7 +24041,7 @@ class UnderlyingUnitOfMeasure(StringField):
         this = _quickfix.new_UnderlyingUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingUnitOfMeasure
     __del__ = lambda self: None
@@ -24063,7 +24063,7 @@ class LegUnitOfMeasure(StringField):
         this = _quickfix.new_LegUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegUnitOfMeasure
     __del__ = lambda self: None
@@ -24085,7 +24085,7 @@ class UnderlyingTimeUnit(StringField):
         this = _quickfix.new_UnderlyingTimeUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingTimeUnit
     __del__ = lambda self: None
@@ -24107,7 +24107,7 @@ class LegTimeUnit(StringField):
         this = _quickfix.new_LegTimeUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegTimeUnit
     __del__ = lambda self: None
@@ -24129,7 +24129,7 @@ class AllocMethod(IntField):
         this = _quickfix.new_AllocMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocMethod
     __del__ = lambda self: None
@@ -24151,7 +24151,7 @@ class TradeID(StringField):
         this = _quickfix.new_TradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeID
     __del__ = lambda self: None
@@ -24173,7 +24173,7 @@ class SideTradeReportID(StringField):
         this = _quickfix.new_SideTradeReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTradeReportID
     __del__ = lambda self: None
@@ -24195,7 +24195,7 @@ class SideFillStationCd(StringField):
         this = _quickfix.new_SideFillStationCd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideFillStationCd
     __del__ = lambda self: None
@@ -24217,7 +24217,7 @@ class SideReasonCd(StringField):
         this = _quickfix.new_SideReasonCd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideReasonCd
     __del__ = lambda self: None
@@ -24239,7 +24239,7 @@ class SideTrdSubTyp(IntField):
         this = _quickfix.new_SideTrdSubTyp(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdSubTyp
     __del__ = lambda self: None
@@ -24261,7 +24261,7 @@ class SideQty(IntField):
         this = _quickfix.new_SideQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideQty
     __del__ = lambda self: None
@@ -24283,7 +24283,7 @@ class MessageEventSource(StringField):
         this = _quickfix.new_MessageEventSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MessageEventSource
     __del__ = lambda self: None
@@ -24305,7 +24305,7 @@ class SideTrdRegTimestamp(UtcTimeStampField):
         this = _quickfix.new_SideTrdRegTimestamp(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestamp
     __del__ = lambda self: None
@@ -24327,7 +24327,7 @@ class SideTrdRegTimestampType(IntField):
         this = _quickfix.new_SideTrdRegTimestampType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestampType
     __del__ = lambda self: None
@@ -24349,7 +24349,7 @@ class SideTrdRegTimestampSrc(StringField):
         this = _quickfix.new_SideTrdRegTimestampSrc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideTrdRegTimestampSrc
     __del__ = lambda self: None
@@ -24371,7 +24371,7 @@ class AsOfIndicator(CharField):
         this = _quickfix.new_AsOfIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AsOfIndicator
     __del__ = lambda self: None
@@ -24393,7 +24393,7 @@ class NoSideTrdRegTS(IntField):
         this = _quickfix.new_NoSideTrdRegTS(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSideTrdRegTS
     __del__ = lambda self: None
@@ -24415,7 +24415,7 @@ class LegOptionRatio(DoubleField):
         this = _quickfix.new_LegOptionRatio(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegOptionRatio
     __del__ = lambda self: None
@@ -24437,7 +24437,7 @@ class NoInstrumentParties(IntField):
         this = _quickfix.new_NoInstrumentParties(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrumentParties
     __del__ = lambda self: None
@@ -24459,7 +24459,7 @@ class InstrumentPartyID(StringField):
         this = _quickfix.new_InstrumentPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyID
     __del__ = lambda self: None
@@ -24481,7 +24481,7 @@ class TradeVolume(DoubleField):
         this = _quickfix.new_TradeVolume(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeVolume
     __del__ = lambda self: None
@@ -24503,7 +24503,7 @@ class MDBookType(IntField):
         this = _quickfix.new_MDBookType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDBookType
     __del__ = lambda self: None
@@ -24525,7 +24525,7 @@ class MDFeedType(StringField):
         this = _quickfix.new_MDFeedType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDFeedType
     __del__ = lambda self: None
@@ -24547,7 +24547,7 @@ class MDPriceLevel(IntField):
         this = _quickfix.new_MDPriceLevel(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDPriceLevel
     __del__ = lambda self: None
@@ -24569,7 +24569,7 @@ class MDOriginType(IntField):
         this = _quickfix.new_MDOriginType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDOriginType
     __del__ = lambda self: None
@@ -24591,7 +24591,7 @@ class FirstPx(DoubleField):
         this = _quickfix.new_FirstPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FirstPx
     __del__ = lambda self: None
@@ -24613,7 +24613,7 @@ class MDEntrySpotRate(DoubleField):
         this = _quickfix.new_MDEntrySpotRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntrySpotRate
     __del__ = lambda self: None
@@ -24635,7 +24635,7 @@ class MDEntryForwardPoints(DoubleField):
         this = _quickfix.new_MDEntryForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDEntryForwardPoints
     __del__ = lambda self: None
@@ -24657,7 +24657,7 @@ class ManualOrderIndicator(BoolField):
         this = _quickfix.new_ManualOrderIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ManualOrderIndicator
     __del__ = lambda self: None
@@ -24679,7 +24679,7 @@ class CustDirectedOrder(BoolField):
         this = _quickfix.new_CustDirectedOrder(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CustDirectedOrder
     __del__ = lambda self: None
@@ -24701,7 +24701,7 @@ class ReceivedDeptID(StringField):
         this = _quickfix.new_ReceivedDeptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReceivedDeptID
     __del__ = lambda self: None
@@ -24723,7 +24723,7 @@ class CustOrderHandlingInst(StringField):
         this = _quickfix.new_CustOrderHandlingInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CustOrderHandlingInst
     __del__ = lambda self: None
@@ -24745,7 +24745,7 @@ class OrderHandlingInstSource(IntField):
         this = _quickfix.new_OrderHandlingInstSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderHandlingInstSource
     __del__ = lambda self: None
@@ -24767,7 +24767,7 @@ class DeskType(StringField):
         this = _quickfix.new_DeskType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeskType
     __del__ = lambda self: None
@@ -24789,7 +24789,7 @@ class DeskTypeSource(IntField):
         this = _quickfix.new_DeskTypeSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeskTypeSource
     __del__ = lambda self: None
@@ -24811,7 +24811,7 @@ class DeskOrderHandlingInst(StringField):
         this = _quickfix.new_DeskOrderHandlingInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DeskOrderHandlingInst
     __del__ = lambda self: None
@@ -24833,7 +24833,7 @@ class ExecAckStatus(CharField):
         this = _quickfix.new_ExecAckStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecAckStatus
     __del__ = lambda self: None
@@ -24855,7 +24855,7 @@ class UnderlyingDeliveryAmount(DoubleField):
         this = _quickfix.new_UnderlyingDeliveryAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingDeliveryAmount
     __del__ = lambda self: None
@@ -24877,7 +24877,7 @@ class UnderlyingCapValue(DoubleField):
         this = _quickfix.new_UnderlyingCapValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingCapValue
     __del__ = lambda self: None
@@ -24899,7 +24899,7 @@ class UnderlyingSettlMethod(StringField):
         this = _quickfix.new_UnderlyingSettlMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSettlMethod
     __del__ = lambda self: None
@@ -24921,7 +24921,7 @@ class SecondaryTradeID(StringField):
         this = _quickfix.new_SecondaryTradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradeID
     __del__ = lambda self: None
@@ -24943,7 +24943,7 @@ class FirmTradeID(StringField):
         this = _quickfix.new_FirmTradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FirmTradeID
     __del__ = lambda self: None
@@ -24965,7 +24965,7 @@ class SecondaryFirmTradeID(StringField):
         this = _quickfix.new_SecondaryFirmTradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryFirmTradeID
     __del__ = lambda self: None
@@ -24987,7 +24987,7 @@ class CollApplType(IntField):
         this = _quickfix.new_CollApplType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CollApplType
     __del__ = lambda self: None
@@ -25009,7 +25009,7 @@ class UnderlyingAdjustedQuantity(DoubleField):
         this = _quickfix.new_UnderlyingAdjustedQuantity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingAdjustedQuantity
     __del__ = lambda self: None
@@ -25031,7 +25031,7 @@ class UnderlyingFXRate(DoubleField):
         this = _quickfix.new_UnderlyingFXRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFXRate
     __del__ = lambda self: None
@@ -25053,7 +25053,7 @@ class UnderlyingFXRateCalc(CharField):
         this = _quickfix.new_UnderlyingFXRateCalc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFXRateCalc
     __del__ = lambda self: None
@@ -25075,7 +25075,7 @@ class AllocPositionEffect(CharField):
         this = _quickfix.new_AllocPositionEffect(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocPositionEffect
     __del__ = lambda self: None
@@ -25097,7 +25097,7 @@ class DealingCapacity(CharField):
         this = _quickfix.new_DealingCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DealingCapacity
     __del__ = lambda self: None
@@ -25119,7 +25119,7 @@ class InstrmtAssignmentMethod(CharField):
         this = _quickfix.new_InstrmtAssignmentMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrmtAssignmentMethod
     __del__ = lambda self: None
@@ -25141,7 +25141,7 @@ class InstrumentPartyIDSource(CharField):
         this = _quickfix.new_InstrumentPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyIDSource
     __del__ = lambda self: None
@@ -25163,7 +25163,7 @@ class InstrumentPartyRole(IntField):
         this = _quickfix.new_InstrumentPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartyRole
     __del__ = lambda self: None
@@ -25185,7 +25185,7 @@ class NoInstrumentPartySubIDs(IntField):
         this = _quickfix.new_NoInstrumentPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoInstrumentPartySubIDs
     __del__ = lambda self: None
@@ -25207,7 +25207,7 @@ class InstrumentPartySubID(StringField):
         this = _quickfix.new_InstrumentPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartySubID
     __del__ = lambda self: None
@@ -25229,7 +25229,7 @@ class InstrumentPartySubIDType(IntField):
         this = _quickfix.new_InstrumentPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_InstrumentPartySubIDType
     __del__ = lambda self: None
@@ -25251,7 +25251,7 @@ class PositionCurrency(StringField):
         this = _quickfix.new_PositionCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PositionCurrency
     __del__ = lambda self: None
@@ -25273,7 +25273,7 @@ class CalculatedCcyLastQty(DoubleField):
         this = _quickfix.new_CalculatedCcyLastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CalculatedCcyLastQty
     __del__ = lambda self: None
@@ -25295,7 +25295,7 @@ class AggressorIndicator(BoolField):
         this = _quickfix.new_AggressorIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AggressorIndicator
     __del__ = lambda self: None
@@ -25317,7 +25317,7 @@ class NoUndlyInstrumentParties(IntField):
         this = _quickfix.new_NoUndlyInstrumentParties(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUndlyInstrumentParties
     __del__ = lambda self: None
@@ -25339,7 +25339,7 @@ class UndlyInstrumentPartyID(StringField):
         this = _quickfix.new_UndlyInstrumentPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyID
     __del__ = lambda self: None
@@ -25361,7 +25361,7 @@ class UndlyInstrumentPartyIDSource(CharField):
         this = _quickfix.new_UndlyInstrumentPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyIDSource
     __del__ = lambda self: None
@@ -25383,7 +25383,7 @@ class UndlyInstrumentPartyRole(IntField):
         this = _quickfix.new_UndlyInstrumentPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartyRole
     __del__ = lambda self: None
@@ -25405,7 +25405,7 @@ class NoUndlyInstrumentPartySubIDs(IntField):
         this = _quickfix.new_NoUndlyInstrumentPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUndlyInstrumentPartySubIDs
     __del__ = lambda self: None
@@ -25427,7 +25427,7 @@ class UndlyInstrumentPartySubID(StringField):
         this = _quickfix.new_UndlyInstrumentPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartySubID
     __del__ = lambda self: None
@@ -25449,7 +25449,7 @@ class UndlyInstrumentPartySubIDType(IntField):
         this = _quickfix.new_UndlyInstrumentPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UndlyInstrumentPartySubIDType
     __del__ = lambda self: None
@@ -25471,7 +25471,7 @@ class BidSwapPoints(DoubleField):
         this = _quickfix.new_BidSwapPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_BidSwapPoints
     __del__ = lambda self: None
@@ -25493,7 +25493,7 @@ class OfferSwapPoints(DoubleField):
         this = _quickfix.new_OfferSwapPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OfferSwapPoints
     __del__ = lambda self: None
@@ -25515,7 +25515,7 @@ class LegBidForwardPoints(DoubleField):
         this = _quickfix.new_LegBidForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegBidForwardPoints
     __del__ = lambda self: None
@@ -25537,7 +25537,7 @@ class LegOfferForwardPoints(DoubleField):
         this = _quickfix.new_LegOfferForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegOfferForwardPoints
     __del__ = lambda self: None
@@ -25559,7 +25559,7 @@ class SwapPoints(DoubleField):
         this = _quickfix.new_SwapPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SwapPoints
     __del__ = lambda self: None
@@ -25581,7 +25581,7 @@ class MDQuoteType(IntField):
         this = _quickfix.new_MDQuoteType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDQuoteType
     __del__ = lambda self: None
@@ -25603,7 +25603,7 @@ class LastSwapPoints(DoubleField):
         this = _quickfix.new_LastSwapPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LastSwapPoints
     __del__ = lambda self: None
@@ -25625,7 +25625,7 @@ class SideGrossTradeAmt(DoubleField):
         this = _quickfix.new_SideGrossTradeAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideGrossTradeAmt
     __del__ = lambda self: None
@@ -25647,7 +25647,7 @@ class LegLastForwardPoints(DoubleField):
         this = _quickfix.new_LegLastForwardPoints(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegLastForwardPoints
     __del__ = lambda self: None
@@ -25669,7 +25669,7 @@ class LegCalculatedCcyLastQty(DoubleField):
         this = _quickfix.new_LegCalculatedCcyLastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCalculatedCcyLastQty
     __del__ = lambda self: None
@@ -25691,7 +25691,7 @@ class LegGrossTradeAmt(DoubleField):
         this = _quickfix.new_LegGrossTradeAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegGrossTradeAmt
     __del__ = lambda self: None
@@ -25713,7 +25713,7 @@ class MaturityTime(StringField):
         this = _quickfix.new_MaturityTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityTime
     __del__ = lambda self: None
@@ -25735,7 +25735,7 @@ class RefOrderID(StringField):
         this = _quickfix.new_RefOrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefOrderID
     __del__ = lambda self: None
@@ -25757,7 +25757,7 @@ class RefOrderIDSource(CharField):
         this = _quickfix.new_RefOrderIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefOrderIDSource
     __del__ = lambda self: None
@@ -25779,7 +25779,7 @@ class SecondaryDisplayQty(DoubleField):
         this = _quickfix.new_SecondaryDisplayQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryDisplayQty
     __del__ = lambda self: None
@@ -25801,7 +25801,7 @@ class DisplayWhen(CharField):
         this = _quickfix.new_DisplayWhen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayWhen
     __del__ = lambda self: None
@@ -25823,7 +25823,7 @@ class DisplayMethod(CharField):
         this = _quickfix.new_DisplayMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayMethod
     __del__ = lambda self: None
@@ -25845,7 +25845,7 @@ class DisplayLowQty(DoubleField):
         this = _quickfix.new_DisplayLowQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayLowQty
     __del__ = lambda self: None
@@ -25867,7 +25867,7 @@ class DisplayHighQty(DoubleField):
         this = _quickfix.new_DisplayHighQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayHighQty
     __del__ = lambda self: None
@@ -25889,7 +25889,7 @@ class DisplayMinIncr(DoubleField):
         this = _quickfix.new_DisplayMinIncr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayMinIncr
     __del__ = lambda self: None
@@ -25911,7 +25911,7 @@ class RefreshQty(DoubleField):
         this = _quickfix.new_RefreshQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefreshQty
     __del__ = lambda self: None
@@ -25933,7 +25933,7 @@ class MatchIncrement(DoubleField):
         this = _quickfix.new_MatchIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MatchIncrement
     __del__ = lambda self: None
@@ -25955,7 +25955,7 @@ class MaxPriceLevels(IntField):
         this = _quickfix.new_MaxPriceLevels(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxPriceLevels
     __del__ = lambda self: None
@@ -25977,7 +25977,7 @@ class PreTradeAnonymity(BoolField):
         this = _quickfix.new_PreTradeAnonymity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PreTradeAnonymity
     __del__ = lambda self: None
@@ -25999,7 +25999,7 @@ class PriceProtectionScope(CharField):
         this = _quickfix.new_PriceProtectionScope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceProtectionScope
     __del__ = lambda self: None
@@ -26021,7 +26021,7 @@ class LotType(CharField):
         this = _quickfix.new_LotType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LotType
     __del__ = lambda self: None
@@ -26043,7 +26043,7 @@ class PegPriceType(IntField):
         this = _quickfix.new_PegPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegPriceType
     __del__ = lambda self: None
@@ -26065,7 +26065,7 @@ class PeggedRefPrice(DoubleField):
         this = _quickfix.new_PeggedRefPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PeggedRefPrice
     __del__ = lambda self: None
@@ -26087,7 +26087,7 @@ class PegSecurityIDSource(StringField):
         this = _quickfix.new_PegSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityIDSource
     __del__ = lambda self: None
@@ -26109,7 +26109,7 @@ class PegSecurityID(StringField):
         this = _quickfix.new_PegSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityID
     __del__ = lambda self: None
@@ -26131,7 +26131,7 @@ class PegSymbol(StringField):
         this = _quickfix.new_PegSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegSymbol
     __del__ = lambda self: None
@@ -26153,7 +26153,7 @@ class PegSecurityDesc(StringField):
         this = _quickfix.new_PegSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PegSecurityDesc
     __del__ = lambda self: None
@@ -26175,7 +26175,7 @@ class TriggerType(CharField):
         this = _quickfix.new_TriggerType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerType
     __del__ = lambda self: None
@@ -26197,7 +26197,7 @@ class TriggerAction(CharField):
         this = _quickfix.new_TriggerAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerAction
     __del__ = lambda self: None
@@ -26219,7 +26219,7 @@ class TriggerPrice(DoubleField):
         this = _quickfix.new_TriggerPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPrice
     __del__ = lambda self: None
@@ -26241,7 +26241,7 @@ class TriggerSymbol(StringField):
         this = _quickfix.new_TriggerSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSymbol
     __del__ = lambda self: None
@@ -26263,7 +26263,7 @@ class TriggerSecurityID(StringField):
         this = _quickfix.new_TriggerSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityID
     __del__ = lambda self: None
@@ -26285,7 +26285,7 @@ class TriggerSecurityIDSource(StringField):
         this = _quickfix.new_TriggerSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityIDSource
     __del__ = lambda self: None
@@ -26307,7 +26307,7 @@ class TriggerSecurityDesc(StringField):
         this = _quickfix.new_TriggerSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerSecurityDesc
     __del__ = lambda self: None
@@ -26329,7 +26329,7 @@ class TriggerPriceType(CharField):
         this = _quickfix.new_TriggerPriceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceType
     __del__ = lambda self: None
@@ -26351,7 +26351,7 @@ class TriggerPriceTypeScope(CharField):
         this = _quickfix.new_TriggerPriceTypeScope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceTypeScope
     __del__ = lambda self: None
@@ -26373,7 +26373,7 @@ class TriggerPriceDirection(CharField):
         this = _quickfix.new_TriggerPriceDirection(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerPriceDirection
     __del__ = lambda self: None
@@ -26395,7 +26395,7 @@ class TriggerNewPrice(DoubleField):
         this = _quickfix.new_TriggerNewPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerNewPrice
     __del__ = lambda self: None
@@ -26417,7 +26417,7 @@ class TriggerOrderType(CharField):
         this = _quickfix.new_TriggerOrderType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerOrderType
     __del__ = lambda self: None
@@ -26439,7 +26439,7 @@ class TriggerNewQty(DoubleField):
         this = _quickfix.new_TriggerNewQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerNewQty
     __del__ = lambda self: None
@@ -26461,7 +26461,7 @@ class TriggerTradingSessionID(StringField):
         this = _quickfix.new_TriggerTradingSessionID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerTradingSessionID
     __del__ = lambda self: None
@@ -26483,7 +26483,7 @@ class TriggerTradingSessionSubID(StringField):
         this = _quickfix.new_TriggerTradingSessionSubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TriggerTradingSessionSubID
     __del__ = lambda self: None
@@ -26505,7 +26505,7 @@ class OrderCategory(CharField):
         this = _quickfix.new_OrderCategory(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderCategory
     __del__ = lambda self: None
@@ -26527,7 +26527,7 @@ class NoRootPartyIDs(IntField):
         this = _quickfix.new_NoRootPartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRootPartyIDs
     __del__ = lambda self: None
@@ -26549,7 +26549,7 @@ class RootPartyID(StringField):
         this = _quickfix.new_RootPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyID
     __del__ = lambda self: None
@@ -26571,7 +26571,7 @@ class RootPartyIDSource(CharField):
         this = _quickfix.new_RootPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyIDSource
     __del__ = lambda self: None
@@ -26593,7 +26593,7 @@ class RootPartyRole(IntField):
         this = _quickfix.new_RootPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartyRole
     __del__ = lambda self: None
@@ -26615,7 +26615,7 @@ class NoRootPartySubIDs(IntField):
         this = _quickfix.new_NoRootPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRootPartySubIDs
     __del__ = lambda self: None
@@ -26637,7 +26637,7 @@ class RootPartySubID(StringField):
         this = _quickfix.new_RootPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartySubID
     __del__ = lambda self: None
@@ -26659,7 +26659,7 @@ class RootPartySubIDType(IntField):
         this = _quickfix.new_RootPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RootPartySubIDType
     __del__ = lambda self: None
@@ -26681,7 +26681,7 @@ class TradeHandlingInstr(CharField):
         this = _quickfix.new_TradeHandlingInstr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradeHandlingInstr
     __del__ = lambda self: None
@@ -26703,7 +26703,7 @@ class OrigTradeHandlingInstr(CharField):
         this = _quickfix.new_OrigTradeHandlingInstr(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeHandlingInstr
     __del__ = lambda self: None
@@ -26725,7 +26725,7 @@ class OrigTradeDate(StringField):
         this = _quickfix.new_OrigTradeDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeDate
     __del__ = lambda self: None
@@ -26747,7 +26747,7 @@ class OrigTradeID(StringField):
         this = _quickfix.new_OrigTradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigTradeID
     __del__ = lambda self: None
@@ -26769,7 +26769,7 @@ class OrigSecondaryTradeID(StringField):
         this = _quickfix.new_OrigSecondaryTradeID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigSecondaryTradeID
     __del__ = lambda self: None
@@ -26791,7 +26791,7 @@ class TZTransactTime(StringField):
         this = _quickfix.new_TZTransactTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TZTransactTime
     __del__ = lambda self: None
@@ -26813,7 +26813,7 @@ class ExDestinationIDSource(CharField):
         this = _quickfix.new_ExDestinationIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExDestinationIDSource
     __del__ = lambda self: None
@@ -26835,7 +26835,7 @@ class ReportedPxDiff(BoolField):
         this = _quickfix.new_ReportedPxDiff(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReportedPxDiff
     __del__ = lambda self: None
@@ -26857,7 +26857,7 @@ class RptSys(StringField):
         this = _quickfix.new_RptSys(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RptSys
     __del__ = lambda self: None
@@ -26879,7 +26879,7 @@ class AllocClearingFeeIndicator(StringField):
         this = _quickfix.new_AllocClearingFeeIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AllocClearingFeeIndicator
     __del__ = lambda self: None
@@ -26901,7 +26901,7 @@ class DisplayQty(DoubleField):
         this = _quickfix.new_DisplayQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DisplayQty
     __del__ = lambda self: None
@@ -26923,7 +26923,7 @@ class ExchangeSpecialInstructions(StringField):
         this = _quickfix.new_ExchangeSpecialInstructions(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExchangeSpecialInstructions
     __del__ = lambda self: None
@@ -26945,7 +26945,7 @@ class NoUsernames(IntField):
         this = _quickfix.new_NoUsernames(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUsernames
     __del__ = lambda self: None
@@ -26967,7 +26967,7 @@ class ExpirationQtyType(IntField):
         this = _quickfix.new_ExpirationQtyType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExpirationQtyType
     __del__ = lambda self: None
@@ -26989,7 +26989,7 @@ class MaxTradeVol(DoubleField):
         this = _quickfix.new_MaxTradeVol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxTradeVol
     __del__ = lambda self: None
@@ -27011,7 +27011,7 @@ class NoMDFeedTypes(IntField):
         this = _quickfix.new_NoMDFeedTypes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMDFeedTypes
     __del__ = lambda self: None
@@ -27033,7 +27033,7 @@ class MatchAlgorithm(StringField):
         this = _quickfix.new_MatchAlgorithm(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MatchAlgorithm
     __del__ = lambda self: None
@@ -27055,7 +27055,7 @@ class MaxPriceVariation(DoubleField):
         this = _quickfix.new_MaxPriceVariation(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaxPriceVariation
     __del__ = lambda self: None
@@ -27077,7 +27077,7 @@ class ImpliedMarketIndicator(IntField):
         this = _quickfix.new_ImpliedMarketIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ImpliedMarketIndicator
     __del__ = lambda self: None
@@ -27099,7 +27099,7 @@ class EventTime(UtcTimeStampField):
         this = _quickfix.new_EventTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EventTime
     __del__ = lambda self: None
@@ -27121,7 +27121,7 @@ class MinPriceIncrementAmount(DoubleField):
         this = _quickfix.new_MinPriceIncrementAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinPriceIncrementAmount
     __del__ = lambda self: None
@@ -27143,7 +27143,7 @@ class UnitOfMeasureQty(DoubleField):
         this = _quickfix.new_UnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnitOfMeasureQty
     __del__ = lambda self: None
@@ -27165,7 +27165,7 @@ class LowLimitPrice(DoubleField):
         this = _quickfix.new_LowLimitPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LowLimitPrice
     __del__ = lambda self: None
@@ -27187,7 +27187,7 @@ class HighLimitPrice(DoubleField):
         this = _quickfix.new_HighLimitPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HighLimitPrice
     __del__ = lambda self: None
@@ -27209,7 +27209,7 @@ class TradingReferencePrice(DoubleField):
         this = _quickfix.new_TradingReferencePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradingReferencePrice
     __del__ = lambda self: None
@@ -27231,7 +27231,7 @@ class SecurityGroup(StringField):
         this = _quickfix.new_SecurityGroup(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityGroup
     __del__ = lambda self: None
@@ -27253,7 +27253,7 @@ class LegNumber(IntField):
         this = _quickfix.new_LegNumber(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegNumber
     __del__ = lambda self: None
@@ -27275,7 +27275,7 @@ class SettlementCycleNo(IntField):
         this = _quickfix.new_SettlementCycleNo(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlementCycleNo
     __del__ = lambda self: None
@@ -27297,7 +27297,7 @@ class SideCurrency(StringField):
         this = _quickfix.new_SideCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideCurrency
     __del__ = lambda self: None
@@ -27319,7 +27319,7 @@ class SideSettlCurrency(StringField):
         this = _quickfix.new_SideSettlCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideSettlCurrency
     __del__ = lambda self: None
@@ -27341,7 +27341,7 @@ class ApplExtID(IntField):
         this = _quickfix.new_ApplExtID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplExtID
     __del__ = lambda self: None
@@ -27363,7 +27363,7 @@ class CcyAmt(DoubleField):
         this = _quickfix.new_CcyAmt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CcyAmt
     __del__ = lambda self: None
@@ -27385,7 +27385,7 @@ class NoSettlDetails(IntField):
         this = _quickfix.new_NoSettlDetails(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlDetails
     __del__ = lambda self: None
@@ -27407,7 +27407,7 @@ class SettlObligMode(IntField):
         this = _quickfix.new_SettlObligMode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligMode
     __del__ = lambda self: None
@@ -27429,7 +27429,7 @@ class SettlObligMsgID(StringField):
         this = _quickfix.new_SettlObligMsgID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligMsgID
     __del__ = lambda self: None
@@ -27451,7 +27451,7 @@ class SettlObligID(StringField):
         this = _quickfix.new_SettlObligID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligID
     __del__ = lambda self: None
@@ -27473,7 +27473,7 @@ class SettlObligTransType(CharField):
         this = _quickfix.new_SettlObligTransType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligTransType
     __del__ = lambda self: None
@@ -27495,7 +27495,7 @@ class SettlObligRefID(StringField):
         this = _quickfix.new_SettlObligRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligRefID
     __del__ = lambda self: None
@@ -27517,7 +27517,7 @@ class SettlObligSource(CharField):
         this = _quickfix.new_SettlObligSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlObligSource
     __del__ = lambda self: None
@@ -27539,7 +27539,7 @@ class NoSettlOblig(IntField):
         this = _quickfix.new_NoSettlOblig(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoSettlOblig
     __del__ = lambda self: None
@@ -27561,7 +27561,7 @@ class QuoteMsgID(StringField):
         this = _quickfix.new_QuoteMsgID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteMsgID
     __del__ = lambda self: None
@@ -27583,7 +27583,7 @@ class QuoteEntryStatus(IntField):
         this = _quickfix.new_QuoteEntryStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_QuoteEntryStatus
     __del__ = lambda self: None
@@ -27605,7 +27605,7 @@ class TotNoCxldQuotes(IntField):
         this = _quickfix.new_TotNoCxldQuotes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoCxldQuotes
     __del__ = lambda self: None
@@ -27627,7 +27627,7 @@ class TotNoAccQuotes(IntField):
         this = _quickfix.new_TotNoAccQuotes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoAccQuotes
     __del__ = lambda self: None
@@ -27649,7 +27649,7 @@ class TotNoRejQuotes(IntField):
         this = _quickfix.new_TotNoRejQuotes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoRejQuotes
     __del__ = lambda self: None
@@ -27671,7 +27671,7 @@ class PrivateQuote(BoolField):
         this = _quickfix.new_PrivateQuote(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PrivateQuote
     __del__ = lambda self: None
@@ -27693,7 +27693,7 @@ class RespondentType(IntField):
         this = _quickfix.new_RespondentType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RespondentType
     __del__ = lambda self: None
@@ -27715,7 +27715,7 @@ class MDSubBookType(IntField):
         this = _quickfix.new_MDSubBookType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDSubBookType
     __del__ = lambda self: None
@@ -27737,7 +27737,7 @@ class SecurityTradingEvent(IntField):
         this = _quickfix.new_SecurityTradingEvent(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityTradingEvent
     __del__ = lambda self: None
@@ -27759,7 +27759,7 @@ class NoStatsIndicators(IntField):
         this = _quickfix.new_NoStatsIndicators(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoStatsIndicators
     __del__ = lambda self: None
@@ -27781,7 +27781,7 @@ class StatsType(IntField):
         this = _quickfix.new_StatsType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StatsType
     __del__ = lambda self: None
@@ -27803,7 +27803,7 @@ class NoOfSecSizes(IntField):
         this = _quickfix.new_NoOfSecSizes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoOfSecSizes
     __del__ = lambda self: None
@@ -27825,7 +27825,7 @@ class MDSecSizeType(IntField):
         this = _quickfix.new_MDSecSizeType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDSecSizeType
     __del__ = lambda self: None
@@ -27847,7 +27847,7 @@ class MDSecSize(DoubleField):
         this = _quickfix.new_MDSecSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDSecSize
     __del__ = lambda self: None
@@ -27869,7 +27869,7 @@ class ApplID(StringField):
         this = _quickfix.new_ApplID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplID
     __del__ = lambda self: None
@@ -27891,7 +27891,7 @@ class ApplSeqNum(IntField):
         this = _quickfix.new_ApplSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplSeqNum
     __del__ = lambda self: None
@@ -27913,7 +27913,7 @@ class ApplBegSeqNum(IntField):
         this = _quickfix.new_ApplBegSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplBegSeqNum
     __del__ = lambda self: None
@@ -27935,7 +27935,7 @@ class ApplEndSeqNum(IntField):
         this = _quickfix.new_ApplEndSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplEndSeqNum
     __del__ = lambda self: None
@@ -27957,7 +27957,7 @@ class SecurityXMLLen(IntField):
         this = _quickfix.new_SecurityXMLLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityXMLLen
     __del__ = lambda self: None
@@ -27979,7 +27979,7 @@ class SecurityXML(StringField):
         this = _quickfix.new_SecurityXML(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityXML
     __del__ = lambda self: None
@@ -28001,7 +28001,7 @@ class SecurityXMLSchema(StringField):
         this = _quickfix.new_SecurityXMLSchema(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityXMLSchema
     __del__ = lambda self: None
@@ -28023,7 +28023,7 @@ class RefreshIndicator(BoolField):
         this = _quickfix.new_RefreshIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefreshIndicator
     __del__ = lambda self: None
@@ -28045,7 +28045,7 @@ class Volatility(DoubleField):
         this = _quickfix.new_Volatility(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Volatility
     __del__ = lambda self: None
@@ -28067,7 +28067,7 @@ class TimeToExpiration(DoubleField):
         this = _quickfix.new_TimeToExpiration(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TimeToExpiration
     __del__ = lambda self: None
@@ -28089,7 +28089,7 @@ class RiskFreeRate(DoubleField):
         this = _quickfix.new_RiskFreeRate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RiskFreeRate
     __del__ = lambda self: None
@@ -28111,7 +28111,7 @@ class PriceUnitOfMeasure(StringField):
         this = _quickfix.new_PriceUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceUnitOfMeasure
     __del__ = lambda self: None
@@ -28133,7 +28133,7 @@ class PriceUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_PriceUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceUnitOfMeasureQty
     __del__ = lambda self: None
@@ -28155,7 +28155,7 @@ class SettlMethod(CharField):
         this = _quickfix.new_SettlMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SettlMethod
     __del__ = lambda self: None
@@ -28177,7 +28177,7 @@ class ExerciseStyle(IntField):
         this = _quickfix.new_ExerciseStyle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExerciseStyle
     __del__ = lambda self: None
@@ -28199,7 +28199,7 @@ class OptPayAmount(DoubleField):
         this = _quickfix.new_OptPayAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OptPayAmount
     __del__ = lambda self: None
@@ -28221,7 +28221,7 @@ class PriceQuoteMethod(StringField):
         this = _quickfix.new_PriceQuoteMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceQuoteMethod
     __del__ = lambda self: None
@@ -28243,7 +28243,7 @@ class FuturesValuationMethod(StringField):
         this = _quickfix.new_FuturesValuationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FuturesValuationMethod
     __del__ = lambda self: None
@@ -28265,7 +28265,7 @@ class ListMethod(IntField):
         this = _quickfix.new_ListMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListMethod
     __del__ = lambda self: None
@@ -28287,7 +28287,7 @@ class CapPrice(DoubleField):
         this = _quickfix.new_CapPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CapPrice
     __del__ = lambda self: None
@@ -28309,7 +28309,7 @@ class FloorPrice(DoubleField):
         this = _quickfix.new_FloorPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FloorPrice
     __del__ = lambda self: None
@@ -28331,7 +28331,7 @@ class NoStrikeRules(IntField):
         this = _quickfix.new_NoStrikeRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoStrikeRules
     __del__ = lambda self: None
@@ -28353,7 +28353,7 @@ class StartStrikePxRange(DoubleField):
         this = _quickfix.new_StartStrikePxRange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StartStrikePxRange
     __del__ = lambda self: None
@@ -28375,7 +28375,7 @@ class EndStrikePxRange(DoubleField):
         this = _quickfix.new_EndStrikePxRange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndStrikePxRange
     __del__ = lambda self: None
@@ -28397,7 +28397,7 @@ class StrikeIncrement(DoubleField):
         this = _quickfix.new_StrikeIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeIncrement
     __del__ = lambda self: None
@@ -28419,7 +28419,7 @@ class NoTickRules(IntField):
         this = _quickfix.new_NoTickRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTickRules
     __del__ = lambda self: None
@@ -28441,7 +28441,7 @@ class StartTickPriceRange(DoubleField):
         this = _quickfix.new_StartTickPriceRange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StartTickPriceRange
     __del__ = lambda self: None
@@ -28463,7 +28463,7 @@ class EndTickPriceRange(DoubleField):
         this = _quickfix.new_EndTickPriceRange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndTickPriceRange
     __del__ = lambda self: None
@@ -28485,7 +28485,7 @@ class TickIncrement(DoubleField):
         this = _quickfix.new_TickIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TickIncrement
     __del__ = lambda self: None
@@ -28507,7 +28507,7 @@ class TickRuleType(IntField):
         this = _quickfix.new_TickRuleType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TickRuleType
     __del__ = lambda self: None
@@ -28529,7 +28529,7 @@ class NestedInstrAttribType(IntField):
         this = _quickfix.new_NestedInstrAttribType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedInstrAttribType
     __del__ = lambda self: None
@@ -28551,7 +28551,7 @@ class NestedInstrAttribValue(StringField):
         this = _quickfix.new_NestedInstrAttribValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NestedInstrAttribValue
     __del__ = lambda self: None
@@ -28573,7 +28573,7 @@ class LegMaturityTime(StringField):
         this = _quickfix.new_LegMaturityTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegMaturityTime
     __del__ = lambda self: None
@@ -28595,7 +28595,7 @@ class UnderlyingMaturityTime(StringField):
         this = _quickfix.new_UnderlyingMaturityTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingMaturityTime
     __del__ = lambda self: None
@@ -28617,7 +28617,7 @@ class DerivativeSymbol(StringField):
         this = _quickfix.new_DerivativeSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSymbol
     __del__ = lambda self: None
@@ -28639,7 +28639,7 @@ class DerivativeSymbolSfx(StringField):
         this = _quickfix.new_DerivativeSymbolSfx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSymbolSfx
     __del__ = lambda self: None
@@ -28661,7 +28661,7 @@ class DerivativeSecurityID(StringField):
         this = _quickfix.new_DerivativeSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityID
     __del__ = lambda self: None
@@ -28683,7 +28683,7 @@ class DerivativeSecurityIDSource(StringField):
         this = _quickfix.new_DerivativeSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityIDSource
     __del__ = lambda self: None
@@ -28705,7 +28705,7 @@ class NoDerivativeSecurityAltID(IntField):
         this = _quickfix.new_NoDerivativeSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDerivativeSecurityAltID
     __del__ = lambda self: None
@@ -28727,7 +28727,7 @@ class DerivativeSecurityAltID(StringField):
         this = _quickfix.new_DerivativeSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityAltID
     __del__ = lambda self: None
@@ -28749,7 +28749,7 @@ class DerivativeSecurityAltIDSource(StringField):
         this = _quickfix.new_DerivativeSecurityAltIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityAltIDSource
     __del__ = lambda self: None
@@ -28771,7 +28771,7 @@ class SecondaryLowLimitPrice(DoubleField):
         this = _quickfix.new_SecondaryLowLimitPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryLowLimitPrice
     __del__ = lambda self: None
@@ -28793,7 +28793,7 @@ class MaturityRuleID(StringField):
         this = _quickfix.new_MaturityRuleID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityRuleID
     __del__ = lambda self: None
@@ -28815,7 +28815,7 @@ class StrikeRuleID(StringField):
         this = _quickfix.new_StrikeRuleID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeRuleID
     __del__ = lambda self: None
@@ -28837,7 +28837,7 @@ class LegUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_LegUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegUnitOfMeasureQty
     __del__ = lambda self: None
@@ -28859,7 +28859,7 @@ class DerivativeOptPayAmount(DoubleField):
         this = _quickfix.new_DerivativeOptPayAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeOptPayAmount
     __del__ = lambda self: None
@@ -28881,7 +28881,7 @@ class EndMaturityMonthYear(StringField):
         this = _quickfix.new_EndMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EndMaturityMonthYear
     __del__ = lambda self: None
@@ -28903,7 +28903,7 @@ class ProductComplex(StringField):
         this = _quickfix.new_ProductComplex(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ProductComplex
     __del__ = lambda self: None
@@ -28925,7 +28925,7 @@ class DerivativeProductComplex(StringField):
         this = _quickfix.new_DerivativeProductComplex(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeProductComplex
     __del__ = lambda self: None
@@ -28947,7 +28947,7 @@ class MaturityMonthYearIncrement(IntField):
         this = _quickfix.new_MaturityMonthYearIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityMonthYearIncrement
     __del__ = lambda self: None
@@ -28969,7 +28969,7 @@ class SecondaryHighLimitPrice(DoubleField):
         this = _quickfix.new_SecondaryHighLimitPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryHighLimitPrice
     __del__ = lambda self: None
@@ -28991,7 +28991,7 @@ class MinLotSize(DoubleField):
         this = _quickfix.new_MinLotSize(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MinLotSize
     __del__ = lambda self: None
@@ -29013,7 +29013,7 @@ class NoExecInstRules(IntField):
         this = _quickfix.new_NoExecInstRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoExecInstRules
     __del__ = lambda self: None
@@ -29035,7 +29035,7 @@ class NoLotTypeRules(IntField):
         this = _quickfix.new_NoLotTypeRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoLotTypeRules
     __del__ = lambda self: None
@@ -29057,7 +29057,7 @@ class NoMatchRules(IntField):
         this = _quickfix.new_NoMatchRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMatchRules
     __del__ = lambda self: None
@@ -29079,7 +29079,7 @@ class NoMaturityRules(IntField):
         this = _quickfix.new_NoMaturityRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMaturityRules
     __del__ = lambda self: None
@@ -29101,7 +29101,7 @@ class NoOrdTypeRules(IntField):
         this = _quickfix.new_NoOrdTypeRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoOrdTypeRules
     __del__ = lambda self: None
@@ -29123,7 +29123,7 @@ class NoTimeInForceRules(IntField):
         this = _quickfix.new_NoTimeInForceRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTimeInForceRules
     __del__ = lambda self: None
@@ -29145,7 +29145,7 @@ class SecondaryTradingReferencePrice(DoubleField):
         this = _quickfix.new_SecondaryTradingReferencePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryTradingReferencePrice
     __del__ = lambda self: None
@@ -29167,7 +29167,7 @@ class StartMaturityMonthYear(StringField):
         this = _quickfix.new_StartMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StartMaturityMonthYear
     __del__ = lambda self: None
@@ -29189,7 +29189,7 @@ class FlexProductEligibilityIndicator(BoolField):
         this = _quickfix.new_FlexProductEligibilityIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FlexProductEligibilityIndicator
     __del__ = lambda self: None
@@ -29211,7 +29211,7 @@ class DerivFlexProductEligibilityIndicator(BoolField):
         this = _quickfix.new_DerivFlexProductEligibilityIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivFlexProductEligibilityIndicator
     __del__ = lambda self: None
@@ -29233,7 +29233,7 @@ class FlexibleIndicator(BoolField):
         this = _quickfix.new_FlexibleIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FlexibleIndicator
     __del__ = lambda self: None
@@ -29255,7 +29255,7 @@ class TradingCurrency(StringField):
         this = _quickfix.new_TradingCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradingCurrency
     __del__ = lambda self: None
@@ -29277,7 +29277,7 @@ class DerivativeProduct(IntField):
         this = _quickfix.new_DerivativeProduct(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeProduct
     __del__ = lambda self: None
@@ -29299,7 +29299,7 @@ class DerivativeSecurityGroup(StringField):
         this = _quickfix.new_DerivativeSecurityGroup(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityGroup
     __del__ = lambda self: None
@@ -29321,7 +29321,7 @@ class DerivativeCFICode(StringField):
         this = _quickfix.new_DerivativeCFICode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeCFICode
     __del__ = lambda self: None
@@ -29343,7 +29343,7 @@ class DerivativeSecurityType(StringField):
         this = _quickfix.new_DerivativeSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityType
     __del__ = lambda self: None
@@ -29365,7 +29365,7 @@ class DerivativeSecuritySubType(StringField):
         this = _quickfix.new_DerivativeSecuritySubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecuritySubType
     __del__ = lambda self: None
@@ -29387,7 +29387,7 @@ class DerivativeMaturityMonthYear(StringField):
         this = _quickfix.new_DerivativeMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeMaturityMonthYear
     __del__ = lambda self: None
@@ -29409,7 +29409,7 @@ class DerivativeMaturityDate(StringField):
         this = _quickfix.new_DerivativeMaturityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeMaturityDate
     __del__ = lambda self: None
@@ -29431,7 +29431,7 @@ class DerivativeMaturityTime(StringField):
         this = _quickfix.new_DerivativeMaturityTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeMaturityTime
     __del__ = lambda self: None
@@ -29453,7 +29453,7 @@ class DerivativeSettleOnOpenFlag(StringField):
         this = _quickfix.new_DerivativeSettleOnOpenFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSettleOnOpenFlag
     __del__ = lambda self: None
@@ -29475,7 +29475,7 @@ class DerivativeInstrmtAssignmentMethod(CharField):
         this = _quickfix.new_DerivativeInstrmtAssignmentMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrmtAssignmentMethod
     __del__ = lambda self: None
@@ -29497,7 +29497,7 @@ class DerivativeSecurityStatus(StringField):
         this = _quickfix.new_DerivativeSecurityStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityStatus
     __del__ = lambda self: None
@@ -29519,7 +29519,7 @@ class DerivativeInstrRegistry(StringField):
         this = _quickfix.new_DerivativeInstrRegistry(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrRegistry
     __del__ = lambda self: None
@@ -29541,7 +29541,7 @@ class DerivativeCountryOfIssue(StringField):
         this = _quickfix.new_DerivativeCountryOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeCountryOfIssue
     __del__ = lambda self: None
@@ -29563,7 +29563,7 @@ class DerivativeStateOrProvinceOfIssue(StringField):
         this = _quickfix.new_DerivativeStateOrProvinceOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeStateOrProvinceOfIssue
     __del__ = lambda self: None
@@ -29585,7 +29585,7 @@ class DerivativeLocaleOfIssue(StringField):
         this = _quickfix.new_DerivativeLocaleOfIssue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeLocaleOfIssue
     __del__ = lambda self: None
@@ -29607,7 +29607,7 @@ class DerivativeStrikePrice(DoubleField):
         this = _quickfix.new_DerivativeStrikePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeStrikePrice
     __del__ = lambda self: None
@@ -29629,7 +29629,7 @@ class DerivativeStrikeCurrency(StringField):
         this = _quickfix.new_DerivativeStrikeCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeStrikeCurrency
     __del__ = lambda self: None
@@ -29651,7 +29651,7 @@ class DerivativeStrikeMultiplier(DoubleField):
         this = _quickfix.new_DerivativeStrikeMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeStrikeMultiplier
     __del__ = lambda self: None
@@ -29673,7 +29673,7 @@ class DerivativeStrikeValue(DoubleField):
         this = _quickfix.new_DerivativeStrikeValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeStrikeValue
     __del__ = lambda self: None
@@ -29695,7 +29695,7 @@ class DerivativeOptAttribute(CharField):
         this = _quickfix.new_DerivativeOptAttribute(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeOptAttribute
     __del__ = lambda self: None
@@ -29717,7 +29717,7 @@ class DerivativeContractMultiplier(DoubleField):
         this = _quickfix.new_DerivativeContractMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeContractMultiplier
     __del__ = lambda self: None
@@ -29739,7 +29739,7 @@ class DerivativeMinPriceIncrement(DoubleField):
         this = _quickfix.new_DerivativeMinPriceIncrement(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeMinPriceIncrement
     __del__ = lambda self: None
@@ -29761,7 +29761,7 @@ class DerivativeMinPriceIncrementAmount(DoubleField):
         this = _quickfix.new_DerivativeMinPriceIncrementAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeMinPriceIncrementAmount
     __del__ = lambda self: None
@@ -29783,7 +29783,7 @@ class DerivativeUnitOfMeasure(StringField):
         this = _quickfix.new_DerivativeUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeUnitOfMeasure
     __del__ = lambda self: None
@@ -29805,7 +29805,7 @@ class DerivativeUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_DerivativeUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeUnitOfMeasureQty
     __del__ = lambda self: None
@@ -29827,7 +29827,7 @@ class DerivativeTimeUnit(StringField):
         this = _quickfix.new_DerivativeTimeUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeTimeUnit
     __del__ = lambda self: None
@@ -29849,7 +29849,7 @@ class DerivativeSecurityExchange(StringField):
         this = _quickfix.new_DerivativeSecurityExchange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityExchange
     __del__ = lambda self: None
@@ -29871,7 +29871,7 @@ class DerivativePositionLimit(IntField):
         this = _quickfix.new_DerivativePositionLimit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativePositionLimit
     __del__ = lambda self: None
@@ -29893,7 +29893,7 @@ class DerivativeNTPositionLimit(IntField):
         this = _quickfix.new_DerivativeNTPositionLimit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeNTPositionLimit
     __del__ = lambda self: None
@@ -29915,7 +29915,7 @@ class DerivativeIssuer(StringField):
         this = _quickfix.new_DerivativeIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeIssuer
     __del__ = lambda self: None
@@ -29937,7 +29937,7 @@ class DerivativeIssueDate(StringField):
         this = _quickfix.new_DerivativeIssueDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeIssueDate
     __del__ = lambda self: None
@@ -29959,7 +29959,7 @@ class DerivativeEncodedIssuerLen(IntField):
         this = _quickfix.new_DerivativeEncodedIssuerLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEncodedIssuerLen
     __del__ = lambda self: None
@@ -29981,7 +29981,7 @@ class DerivativeEncodedIssuer(StringField):
         this = _quickfix.new_DerivativeEncodedIssuer(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEncodedIssuer
     __del__ = lambda self: None
@@ -30003,7 +30003,7 @@ class DerivativeSecurityDesc(StringField):
         this = _quickfix.new_DerivativeSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityDesc
     __del__ = lambda self: None
@@ -30025,7 +30025,7 @@ class DerivativeEncodedSecurityDescLen(IntField):
         this = _quickfix.new_DerivativeEncodedSecurityDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEncodedSecurityDescLen
     __del__ = lambda self: None
@@ -30047,7 +30047,7 @@ class DerivativeEncodedSecurityDesc(StringField):
         this = _quickfix.new_DerivativeEncodedSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEncodedSecurityDesc
     __del__ = lambda self: None
@@ -30069,7 +30069,7 @@ class DerivativeSecurityXMLLen(IntField):
         this = _quickfix.new_DerivativeSecurityXMLLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityXMLLen
     __del__ = lambda self: None
@@ -30091,7 +30091,7 @@ class DerivativeSecurityXML(StringField):
         this = _quickfix.new_DerivativeSecurityXML(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityXML
     __del__ = lambda self: None
@@ -30113,7 +30113,7 @@ class DerivativeSecurityXMLSchema(StringField):
         this = _quickfix.new_DerivativeSecurityXMLSchema(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSecurityXMLSchema
     __del__ = lambda self: None
@@ -30135,7 +30135,7 @@ class DerivativeContractSettlMonth(StringField):
         this = _quickfix.new_DerivativeContractSettlMonth(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeContractSettlMonth
     __del__ = lambda self: None
@@ -30157,7 +30157,7 @@ class NoDerivativeEvents(IntField):
         this = _quickfix.new_NoDerivativeEvents(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDerivativeEvents
     __del__ = lambda self: None
@@ -30179,7 +30179,7 @@ class DerivativeEventType(IntField):
         this = _quickfix.new_DerivativeEventType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEventType
     __del__ = lambda self: None
@@ -30201,7 +30201,7 @@ class DerivativeEventDate(StringField):
         this = _quickfix.new_DerivativeEventDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEventDate
     __del__ = lambda self: None
@@ -30223,7 +30223,7 @@ class DerivativeEventTime(UtcTimeStampField):
         this = _quickfix.new_DerivativeEventTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEventTime
     __del__ = lambda self: None
@@ -30245,7 +30245,7 @@ class DerivativeEventPx(DoubleField):
         this = _quickfix.new_DerivativeEventPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEventPx
     __del__ = lambda self: None
@@ -30267,7 +30267,7 @@ class DerivativeEventText(StringField):
         this = _quickfix.new_DerivativeEventText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeEventText
     __del__ = lambda self: None
@@ -30289,7 +30289,7 @@ class NoDerivativeInstrumentParties(IntField):
         this = _quickfix.new_NoDerivativeInstrumentParties(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDerivativeInstrumentParties
     __del__ = lambda self: None
@@ -30311,7 +30311,7 @@ class DerivativeInstrumentPartyID(StringField):
         this = _quickfix.new_DerivativeInstrumentPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrumentPartyID
     __del__ = lambda self: None
@@ -30333,7 +30333,7 @@ class DerivativeInstrumentPartyIDSource(StringField):
         this = _quickfix.new_DerivativeInstrumentPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrumentPartyIDSource
     __del__ = lambda self: None
@@ -30355,7 +30355,7 @@ class DerivativeInstrumentPartyRole(IntField):
         this = _quickfix.new_DerivativeInstrumentPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrumentPartyRole
     __del__ = lambda self: None
@@ -30377,7 +30377,7 @@ class NoDerivativeInstrumentPartySubIDs(IntField):
         this = _quickfix.new_NoDerivativeInstrumentPartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDerivativeInstrumentPartySubIDs
     __del__ = lambda self: None
@@ -30399,7 +30399,7 @@ class DerivativeInstrumentPartySubID(StringField):
         this = _quickfix.new_DerivativeInstrumentPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrumentPartySubID
     __del__ = lambda self: None
@@ -30421,7 +30421,7 @@ class DerivativeInstrumentPartySubIDType(IntField):
         this = _quickfix.new_DerivativeInstrumentPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrumentPartySubIDType
     __del__ = lambda self: None
@@ -30443,7 +30443,7 @@ class DerivativeExerciseStyle(CharField):
         this = _quickfix.new_DerivativeExerciseStyle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeExerciseStyle
     __del__ = lambda self: None
@@ -30465,7 +30465,7 @@ class MarketSegmentID(StringField):
         this = _quickfix.new_MarketSegmentID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketSegmentID
     __del__ = lambda self: None
@@ -30487,7 +30487,7 @@ class MarketID(StringField):
         this = _quickfix.new_MarketID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketID
     __del__ = lambda self: None
@@ -30509,7 +30509,7 @@ class MaturityMonthYearIncrementUnits(IntField):
         this = _quickfix.new_MaturityMonthYearIncrementUnits(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityMonthYearIncrementUnits
     __del__ = lambda self: None
@@ -30531,7 +30531,7 @@ class MaturityMonthYearFormat(IntField):
         this = _quickfix.new_MaturityMonthYearFormat(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MaturityMonthYearFormat
     __del__ = lambda self: None
@@ -30553,7 +30553,7 @@ class StrikeExerciseStyle(IntField):
         this = _quickfix.new_StrikeExerciseStyle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikeExerciseStyle
     __del__ = lambda self: None
@@ -30575,7 +30575,7 @@ class SecondaryPriceLimitType(IntField):
         this = _quickfix.new_SecondaryPriceLimitType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecondaryPriceLimitType
     __del__ = lambda self: None
@@ -30597,7 +30597,7 @@ class PriceLimitType(IntField):
         this = _quickfix.new_PriceLimitType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_PriceLimitType
     __del__ = lambda self: None
@@ -30619,7 +30619,7 @@ class ExecInstValue(CharField):
         this = _quickfix.new_ExecInstValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ExecInstValue
     __del__ = lambda self: None
@@ -30641,7 +30641,7 @@ class NoTradingSessionRules(IntField):
         this = _quickfix.new_NoTradingSessionRules(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTradingSessionRules
     __del__ = lambda self: None
@@ -30663,7 +30663,7 @@ class NoMarketSegments(IntField):
         this = _quickfix.new_NoMarketSegments(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoMarketSegments
     __del__ = lambda self: None
@@ -30685,7 +30685,7 @@ class NoDerivativeInstrAttrib(IntField):
         this = _quickfix.new_NoDerivativeInstrAttrib(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoDerivativeInstrAttrib
     __del__ = lambda self: None
@@ -30707,7 +30707,7 @@ class NoNestedInstrAttrib(IntField):
         this = _quickfix.new_NoNestedInstrAttrib(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNestedInstrAttrib
     __del__ = lambda self: None
@@ -30729,7 +30729,7 @@ class DerivativeInstrAttribType(IntField):
         this = _quickfix.new_DerivativeInstrAttribType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrAttribType
     __del__ = lambda self: None
@@ -30751,7 +30751,7 @@ class DerivativeInstrAttribValue(StringField):
         this = _quickfix.new_DerivativeInstrAttribValue(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeInstrAttribValue
     __del__ = lambda self: None
@@ -30773,7 +30773,7 @@ class DerivativePriceUnitOfMeasure(StringField):
         this = _quickfix.new_DerivativePriceUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativePriceUnitOfMeasure
     __del__ = lambda self: None
@@ -30795,7 +30795,7 @@ class DerivativePriceUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_DerivativePriceUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativePriceUnitOfMeasureQty
     __del__ = lambda self: None
@@ -30817,7 +30817,7 @@ class DerivativeSettlMethod(CharField):
         this = _quickfix.new_DerivativeSettlMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeSettlMethod
     __del__ = lambda self: None
@@ -30839,7 +30839,7 @@ class DerivativePriceQuoteMethod(StringField):
         this = _quickfix.new_DerivativePriceQuoteMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativePriceQuoteMethod
     __del__ = lambda self: None
@@ -30861,7 +30861,7 @@ class DerivativeFuturesValuationMethod(StringField):
         this = _quickfix.new_DerivativeFuturesValuationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeFuturesValuationMethod
     __del__ = lambda self: None
@@ -30883,7 +30883,7 @@ class DerivativeListMethod(IntField):
         this = _quickfix.new_DerivativeListMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeListMethod
     __del__ = lambda self: None
@@ -30905,7 +30905,7 @@ class DerivativeCapPrice(DoubleField):
         this = _quickfix.new_DerivativeCapPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeCapPrice
     __del__ = lambda self: None
@@ -30927,7 +30927,7 @@ class DerivativeFloorPrice(DoubleField):
         this = _quickfix.new_DerivativeFloorPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeFloorPrice
     __del__ = lambda self: None
@@ -30949,7 +30949,7 @@ class DerivativePutOrCall(IntField):
         this = _quickfix.new_DerivativePutOrCall(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativePutOrCall
     __del__ = lambda self: None
@@ -30971,7 +30971,7 @@ class ListUpdateAction(CharField):
         this = _quickfix.new_ListUpdateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListUpdateAction
     __del__ = lambda self: None
@@ -30993,7 +30993,7 @@ class ParentMktSegmID(StringField):
         this = _quickfix.new_ParentMktSegmID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ParentMktSegmID
     __del__ = lambda self: None
@@ -31015,7 +31015,7 @@ class TradingSessionDesc(StringField):
         this = _quickfix.new_TradingSessionDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradingSessionDesc
     __del__ = lambda self: None
@@ -31037,7 +31037,7 @@ class TradSesUpdateAction(CharField):
         this = _quickfix.new_TradSesUpdateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesUpdateAction
     __del__ = lambda self: None
@@ -31059,7 +31059,7 @@ class RejectText(StringField):
         this = _quickfix.new_RejectText(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RejectText
     __del__ = lambda self: None
@@ -31081,7 +31081,7 @@ class FeeMultiplier(DoubleField):
         this = _quickfix.new_FeeMultiplier(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FeeMultiplier
     __del__ = lambda self: None
@@ -31103,7 +31103,7 @@ class UnderlyingLegSymbol(StringField):
         this = _quickfix.new_UnderlyingLegSymbol(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSymbol
     __del__ = lambda self: None
@@ -31125,7 +31125,7 @@ class UnderlyingLegSymbolSfx(StringField):
         this = _quickfix.new_UnderlyingLegSymbolSfx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSymbolSfx
     __del__ = lambda self: None
@@ -31147,7 +31147,7 @@ class UnderlyingLegSecurityID(StringField):
         this = _quickfix.new_UnderlyingLegSecurityID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityID
     __del__ = lambda self: None
@@ -31169,7 +31169,7 @@ class UnderlyingLegSecurityIDSource(StringField):
         this = _quickfix.new_UnderlyingLegSecurityIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityIDSource
     __del__ = lambda self: None
@@ -31191,7 +31191,7 @@ class NoUnderlyingLegSecurityAltID(IntField):
         this = _quickfix.new_NoUnderlyingLegSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoUnderlyingLegSecurityAltID
     __del__ = lambda self: None
@@ -31213,7 +31213,7 @@ class UnderlyingLegSecurityAltID(StringField):
         this = _quickfix.new_UnderlyingLegSecurityAltID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityAltID
     __del__ = lambda self: None
@@ -31235,7 +31235,7 @@ class UnderlyingLegSecurityAltIDSource(StringField):
         this = _quickfix.new_UnderlyingLegSecurityAltIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityAltIDSource
     __del__ = lambda self: None
@@ -31257,7 +31257,7 @@ class UnderlyingLegSecurityType(StringField):
         this = _quickfix.new_UnderlyingLegSecurityType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityType
     __del__ = lambda self: None
@@ -31279,7 +31279,7 @@ class UnderlyingLegSecuritySubType(StringField):
         this = _quickfix.new_UnderlyingLegSecuritySubType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecuritySubType
     __del__ = lambda self: None
@@ -31301,7 +31301,7 @@ class UnderlyingLegMaturityMonthYear(StringField):
         this = _quickfix.new_UnderlyingLegMaturityMonthYear(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegMaturityMonthYear
     __del__ = lambda self: None
@@ -31323,7 +31323,7 @@ class UnderlyingLegStrikePrice(DoubleField):
         this = _quickfix.new_UnderlyingLegStrikePrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegStrikePrice
     __del__ = lambda self: None
@@ -31345,7 +31345,7 @@ class UnderlyingLegSecurityExchange(StringField):
         this = _quickfix.new_UnderlyingLegSecurityExchange(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityExchange
     __del__ = lambda self: None
@@ -31367,7 +31367,7 @@ class NoOfLegUnderlyings(IntField):
         this = _quickfix.new_NoOfLegUnderlyings(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoOfLegUnderlyings
     __del__ = lambda self: None
@@ -31389,7 +31389,7 @@ class UnderlyingLegPutOrCall(IntField):
         this = _quickfix.new_UnderlyingLegPutOrCall(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegPutOrCall
     __del__ = lambda self: None
@@ -31411,7 +31411,7 @@ class UnderlyingLegCFICode(StringField):
         this = _quickfix.new_UnderlyingLegCFICode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegCFICode
     __del__ = lambda self: None
@@ -31433,7 +31433,7 @@ class UnderlyingLegMaturityDate(StringField):
         this = _quickfix.new_UnderlyingLegMaturityDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegMaturityDate
     __del__ = lambda self: None
@@ -31455,7 +31455,7 @@ class ApplReqID(StringField):
         this = _quickfix.new_ApplReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplReqID
     __del__ = lambda self: None
@@ -31477,7 +31477,7 @@ class ApplReqType(IntField):
         this = _quickfix.new_ApplReqType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplReqType
     __del__ = lambda self: None
@@ -31499,7 +31499,7 @@ class ApplResponseType(IntField):
         this = _quickfix.new_ApplResponseType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplResponseType
     __del__ = lambda self: None
@@ -31521,7 +31521,7 @@ class ApplTotalMessageCount(IntField):
         this = _quickfix.new_ApplTotalMessageCount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplTotalMessageCount
     __del__ = lambda self: None
@@ -31543,7 +31543,7 @@ class ApplLastSeqNum(IntField):
         this = _quickfix.new_ApplLastSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplLastSeqNum
     __del__ = lambda self: None
@@ -31565,7 +31565,7 @@ class NoApplIDs(IntField):
         this = _quickfix.new_NoApplIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoApplIDs
     __del__ = lambda self: None
@@ -31587,7 +31587,7 @@ class ApplResendFlag(BoolField):
         this = _quickfix.new_ApplResendFlag(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplResendFlag
     __del__ = lambda self: None
@@ -31609,7 +31609,7 @@ class ApplResponseID(StringField):
         this = _quickfix.new_ApplResponseID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplResponseID
     __del__ = lambda self: None
@@ -31631,7 +31631,7 @@ class ApplResponseError(IntField):
         this = _quickfix.new_ApplResponseError(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplResponseError
     __del__ = lambda self: None
@@ -31653,7 +31653,7 @@ class RefApplID(StringField):
         this = _quickfix.new_RefApplID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplID
     __del__ = lambda self: None
@@ -31675,7 +31675,7 @@ class ApplReportID(StringField):
         this = _quickfix.new_ApplReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplReportID
     __del__ = lambda self: None
@@ -31697,7 +31697,7 @@ class RefApplLastSeqNum(IntField):
         this = _quickfix.new_RefApplLastSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplLastSeqNum
     __del__ = lambda self: None
@@ -31719,7 +31719,7 @@ class LegPutOrCall(IntField):
         this = _quickfix.new_LegPutOrCall(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPutOrCall
     __del__ = lambda self: None
@@ -31741,7 +31741,7 @@ class TotNoFills(IntField):
         this = _quickfix.new_TotNoFills(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TotNoFills
     __del__ = lambda self: None
@@ -31763,7 +31763,7 @@ class NoFills(IntField):
         this = _quickfix.new_NoFills(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoFills
     __del__ = lambda self: None
@@ -31785,7 +31785,7 @@ class FillExecID(StringField):
         this = _quickfix.new_FillExecID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FillExecID
     __del__ = lambda self: None
@@ -31807,7 +31807,7 @@ class FillPx(DoubleField):
         this = _quickfix.new_FillPx(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FillPx
     __del__ = lambda self: None
@@ -31829,7 +31829,7 @@ class FillQty(DoubleField):
         this = _quickfix.new_FillQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FillQty
     __del__ = lambda self: None
@@ -31851,7 +31851,7 @@ class LegAllocID(StringField):
         this = _quickfix.new_LegAllocID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocID
     __del__ = lambda self: None
@@ -31873,7 +31873,7 @@ class LegAllocSettlCurrency(StringField):
         this = _quickfix.new_LegAllocSettlCurrency(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegAllocSettlCurrency
     __del__ = lambda self: None
@@ -31895,7 +31895,7 @@ class TradSesEvent(IntField):
         this = _quickfix.new_TradSesEvent(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradSesEvent
     __del__ = lambda self: None
@@ -31917,7 +31917,7 @@ class MassActionReportID(StringField):
         this = _quickfix.new_MassActionReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassActionReportID
     __del__ = lambda self: None
@@ -31939,7 +31939,7 @@ class NoNotAffectedOrders(IntField):
         this = _quickfix.new_NoNotAffectedOrders(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNotAffectedOrders
     __del__ = lambda self: None
@@ -31961,7 +31961,7 @@ class NotAffectedOrderID(StringField):
         this = _quickfix.new_NotAffectedOrderID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NotAffectedOrderID
     __del__ = lambda self: None
@@ -31983,7 +31983,7 @@ class NotAffOrigClOrdID(StringField):
         this = _quickfix.new_NotAffOrigClOrdID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NotAffOrigClOrdID
     __del__ = lambda self: None
@@ -32005,7 +32005,7 @@ class MassActionType(IntField):
         this = _quickfix.new_MassActionType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassActionType
     __del__ = lambda self: None
@@ -32027,7 +32027,7 @@ class MassActionScope(IntField):
         this = _quickfix.new_MassActionScope(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassActionScope
     __del__ = lambda self: None
@@ -32049,7 +32049,7 @@ class MassActionResponse(IntField):
         this = _quickfix.new_MassActionResponse(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassActionResponse
     __del__ = lambda self: None
@@ -32071,7 +32071,7 @@ class MassActionRejectReason(IntField):
         this = _quickfix.new_MassActionRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MassActionRejectReason
     __del__ = lambda self: None
@@ -32093,7 +32093,7 @@ class MultilegModel(IntField):
         this = _quickfix.new_MultilegModel(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MultilegModel
     __del__ = lambda self: None
@@ -32115,7 +32115,7 @@ class MultilegPriceMethod(IntField):
         this = _quickfix.new_MultilegPriceMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MultilegPriceMethod
     __del__ = lambda self: None
@@ -32137,7 +32137,7 @@ class LegVolatility(DoubleField):
         this = _quickfix.new_LegVolatility(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegVolatility
     __del__ = lambda self: None
@@ -32159,7 +32159,7 @@ class DividendYield(DoubleField):
         this = _quickfix.new_DividendYield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DividendYield
     __del__ = lambda self: None
@@ -32181,7 +32181,7 @@ class LegDividendYield(DoubleField):
         this = _quickfix.new_LegDividendYield(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegDividendYield
     __del__ = lambda self: None
@@ -32203,7 +32203,7 @@ class CurrencyRatio(DoubleField):
         this = _quickfix.new_CurrencyRatio(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_CurrencyRatio
     __del__ = lambda self: None
@@ -32225,7 +32225,7 @@ class LegCurrencyRatio(DoubleField):
         this = _quickfix.new_LegCurrencyRatio(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegCurrencyRatio
     __del__ = lambda self: None
@@ -32247,7 +32247,7 @@ class LegExecInst(StringField):
         this = _quickfix.new_LegExecInst(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegExecInst
     __del__ = lambda self: None
@@ -32269,7 +32269,7 @@ class ContingencyType(IntField):
         this = _quickfix.new_ContingencyType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContingencyType
     __del__ = lambda self: None
@@ -32291,7 +32291,7 @@ class ListRejectReason(IntField):
         this = _quickfix.new_ListRejectReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ListRejectReason
     __del__ = lambda self: None
@@ -32313,7 +32313,7 @@ class NoTrdRepIndicators(IntField):
         this = _quickfix.new_NoTrdRepIndicators(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTrdRepIndicators
     __del__ = lambda self: None
@@ -32335,7 +32335,7 @@ class TrdRepPartyRole(IntField):
         this = _quickfix.new_TrdRepPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRepPartyRole
     __del__ = lambda self: None
@@ -32357,7 +32357,7 @@ class TrdRepIndicator(BoolField):
         this = _quickfix.new_TrdRepIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TrdRepIndicator
     __del__ = lambda self: None
@@ -32379,7 +32379,7 @@ class TradePublishIndicator(IntField):
         this = _quickfix.new_TradePublishIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TradePublishIndicator
     __del__ = lambda self: None
@@ -32401,7 +32401,7 @@ class UnderlyingLegOptAttribute(CharField):
         this = _quickfix.new_UnderlyingLegOptAttribute(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegOptAttribute
     __del__ = lambda self: None
@@ -32423,7 +32423,7 @@ class UnderlyingLegSecurityDesc(StringField):
         this = _quickfix.new_UnderlyingLegSecurityDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegSecurityDesc
     __del__ = lambda self: None
@@ -32445,7 +32445,7 @@ class MarketReqID(StringField):
         this = _quickfix.new_MarketReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketReqID
     __del__ = lambda self: None
@@ -32467,7 +32467,7 @@ class MarketReportID(StringField):
         this = _quickfix.new_MarketReportID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketReportID
     __del__ = lambda self: None
@@ -32489,7 +32489,7 @@ class MarketUpdateAction(CharField):
         this = _quickfix.new_MarketUpdateAction(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketUpdateAction
     __del__ = lambda self: None
@@ -32511,7 +32511,7 @@ class MarketSegmentDesc(StringField):
         this = _quickfix.new_MarketSegmentDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MarketSegmentDesc
     __del__ = lambda self: None
@@ -32533,7 +32533,7 @@ class EncodedMktSegmDescLen(IntField):
         this = _quickfix.new_EncodedMktSegmDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedMktSegmDescLen
     __del__ = lambda self: None
@@ -32555,7 +32555,7 @@ class EncodedMktSegmDesc(StringField):
         this = _quickfix.new_EncodedMktSegmDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedMktSegmDesc
     __del__ = lambda self: None
@@ -32577,7 +32577,7 @@ class ApplNewSeqNum(IntField):
         this = _quickfix.new_ApplNewSeqNum(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplNewSeqNum
     __del__ = lambda self: None
@@ -32599,7 +32599,7 @@ class EncryptedPasswordMethod(IntField):
         this = _quickfix.new_EncryptedPasswordMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptedPasswordMethod
     __del__ = lambda self: None
@@ -32621,7 +32621,7 @@ class EncryptedPasswordLen(IntField):
         this = _quickfix.new_EncryptedPasswordLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptedPasswordLen
     __del__ = lambda self: None
@@ -32643,7 +32643,7 @@ class EncryptedPassword(StringField):
         this = _quickfix.new_EncryptedPassword(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptedPassword
     __del__ = lambda self: None
@@ -32665,7 +32665,7 @@ class EncryptedNewPasswordLen(IntField):
         this = _quickfix.new_EncryptedNewPasswordLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptedNewPasswordLen
     __del__ = lambda self: None
@@ -32687,7 +32687,7 @@ class EncryptedNewPassword(StringField):
         this = _quickfix.new_EncryptedNewPassword(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncryptedNewPassword
     __del__ = lambda self: None
@@ -32709,7 +32709,7 @@ class UnderlyingLegMaturityTime(StringField):
         this = _quickfix.new_UnderlyingLegMaturityTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingLegMaturityTime
     __del__ = lambda self: None
@@ -32731,7 +32731,7 @@ class RefApplExtID(IntField):
         this = _quickfix.new_RefApplExtID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplExtID
     __del__ = lambda self: None
@@ -32753,7 +32753,7 @@ class DefaultApplExtID(IntField):
         this = _quickfix.new_DefaultApplExtID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefaultApplExtID
     __del__ = lambda self: None
@@ -32775,7 +32775,7 @@ class DefaultCstmApplVerID(StringField):
         this = _quickfix.new_DefaultCstmApplVerID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefaultCstmApplVerID
     __del__ = lambda self: None
@@ -32797,7 +32797,7 @@ class SessionStatus(IntField):
         this = _quickfix.new_SessionStatus(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SessionStatus
     __del__ = lambda self: None
@@ -32819,7 +32819,7 @@ class DefaultVerIndicator(BoolField):
         this = _quickfix.new_DefaultVerIndicator(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DefaultVerIndicator
     __del__ = lambda self: None
@@ -32841,7 +32841,7 @@ class Nested4PartySubIDType(IntField):
         this = _quickfix.new_Nested4PartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested4PartySubIDType
     __del__ = lambda self: None
@@ -32863,7 +32863,7 @@ class Nested4PartySubID(StringField):
         this = _quickfix.new_Nested4PartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested4PartySubID
     __del__ = lambda self: None
@@ -32885,7 +32885,7 @@ class NoNested4PartySubIDs(IntField):
         this = _quickfix.new_NoNested4PartySubIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested4PartySubIDs
     __del__ = lambda self: None
@@ -32907,7 +32907,7 @@ class NoNested4PartyIDs(IntField):
         this = _quickfix.new_NoNested4PartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNested4PartyIDs
     __del__ = lambda self: None
@@ -32929,7 +32929,7 @@ class Nested4PartyID(StringField):
         this = _quickfix.new_Nested4PartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested4PartyID
     __del__ = lambda self: None
@@ -32951,7 +32951,7 @@ class Nested4PartyIDSource(CharField):
         this = _quickfix.new_Nested4PartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested4PartyIDSource
     __del__ = lambda self: None
@@ -32973,7 +32973,7 @@ class Nested4PartyRole(IntField):
         this = _quickfix.new_Nested4PartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Nested4PartyRole
     __del__ = lambda self: None
@@ -32995,7 +32995,7 @@ class LegLastQty(DoubleField):
         this = _quickfix.new_LegLastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegLastQty
     __del__ = lambda self: None
@@ -33017,7 +33017,7 @@ class UnderlyingExerciseStyle(IntField):
         this = _quickfix.new_UnderlyingExerciseStyle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingExerciseStyle
     __del__ = lambda self: None
@@ -33039,7 +33039,7 @@ class LegExerciseStyle(IntField):
         this = _quickfix.new_LegExerciseStyle(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegExerciseStyle
     __del__ = lambda self: None
@@ -33061,7 +33061,7 @@ class LegPriceUnitOfMeasure(StringField):
         this = _quickfix.new_LegPriceUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPriceUnitOfMeasure
     __del__ = lambda self: None
@@ -33083,7 +33083,7 @@ class LegPriceUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_LegPriceUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegPriceUnitOfMeasureQty
     __del__ = lambda self: None
@@ -33105,7 +33105,7 @@ class UnderlyingUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_UnderlyingUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingUnitOfMeasureQty
     __del__ = lambda self: None
@@ -33127,7 +33127,7 @@ class UnderlyingPriceUnitOfMeasure(StringField):
         this = _quickfix.new_UnderlyingPriceUnitOfMeasure(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPriceUnitOfMeasure
     __del__ = lambda self: None
@@ -33149,7 +33149,7 @@ class UnderlyingPriceUnitOfMeasureQty(DoubleField):
         this = _quickfix.new_UnderlyingPriceUnitOfMeasureQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPriceUnitOfMeasureQty
     __del__ = lambda self: None
@@ -33171,7 +33171,7 @@ class ApplReportType(IntField):
         this = _quickfix.new_ApplReportType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ApplReportType
     __del__ = lambda self: None
@@ -33193,7 +33193,7 @@ class HaltReasonInt(IntField):
         this = _quickfix.new_HaltReasonInt(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_HaltReasonInt
     __del__ = lambda self: None
@@ -33215,7 +33215,7 @@ class SideLastQty(IntField):
         this = _quickfix.new_SideLastQty(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideLastQty
     __del__ = lambda self: None
@@ -33237,7 +33237,7 @@ class UnderlyingInstrumentPartyID(StringField):
         this = _quickfix.new_UnderlyingInstrumentPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrumentPartyID
     __del__ = lambda self: None
@@ -33259,7 +33259,7 @@ class UnderlyingInstrumentPartyIDSource(CharField):
         this = _quickfix.new_UnderlyingInstrumentPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrumentPartyIDSource
     __del__ = lambda self: None
@@ -33281,7 +33281,7 @@ class UnderlyingInstrumentPartyRole(IntField):
         this = _quickfix.new_UnderlyingInstrumentPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrumentPartyRole
     __del__ = lambda self: None
@@ -33303,7 +33303,7 @@ class UnderlyingInstrumentPartySubID(StringField):
         this = _quickfix.new_UnderlyingInstrumentPartySubID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrumentPartySubID
     __del__ = lambda self: None
@@ -33325,7 +33325,7 @@ class UnderlyingInstrumentPartySubIDType(IntField):
         this = _quickfix.new_UnderlyingInstrumentPartySubIDType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingInstrumentPartySubIDType
     __del__ = lambda self: None
@@ -33347,7 +33347,7 @@ class OptPayoutAmount(DoubleField):
         this = _quickfix.new_OptPayoutAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OptPayoutAmount
     __del__ = lambda self: None
@@ -33369,7 +33369,7 @@ class ValuationMethod(StringField):
         this = _quickfix.new_ValuationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ValuationMethod
     __del__ = lambda self: None
@@ -33391,7 +33391,7 @@ class DerivativeValuationMethod(StringField):
         this = _quickfix.new_DerivativeValuationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeValuationMethod
     __del__ = lambda self: None
@@ -33413,7 +33413,7 @@ class SideExecID(StringField):
         this = _quickfix.new_SideExecID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideExecID
     __del__ = lambda self: None
@@ -33435,7 +33435,7 @@ class OrderDelay(IntField):
         this = _quickfix.new_OrderDelay(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderDelay
     __del__ = lambda self: None
@@ -33457,7 +33457,7 @@ class OrderDelayUnit(IntField):
         this = _quickfix.new_OrderDelayUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrderDelayUnit
     __del__ = lambda self: None
@@ -33479,7 +33479,7 @@ class VenueType(CharField):
         this = _quickfix.new_VenueType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_VenueType
     __del__ = lambda self: None
@@ -33501,7 +33501,7 @@ class RefOrdIDReason(IntField):
         this = _quickfix.new_RefOrdIDReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefOrdIDReason
     __del__ = lambda self: None
@@ -33523,7 +33523,7 @@ class OrigCustOrderCapacity(IntField):
         this = _quickfix.new_OrigCustOrderCapacity(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OrigCustOrderCapacity
     __del__ = lambda self: None
@@ -33545,7 +33545,7 @@ class RefApplReqID(StringField):
         this = _quickfix.new_RefApplReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RefApplReqID
     __del__ = lambda self: None
@@ -33567,7 +33567,7 @@ class ModelType(IntField):
         this = _quickfix.new_ModelType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ModelType
     __del__ = lambda self: None
@@ -33589,7 +33589,7 @@ class ContractMultiplierUnit(IntField):
         this = _quickfix.new_ContractMultiplierUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ContractMultiplierUnit
     __del__ = lambda self: None
@@ -33611,7 +33611,7 @@ class LegContractMultiplierUnit(IntField):
         this = _quickfix.new_LegContractMultiplierUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegContractMultiplierUnit
     __del__ = lambda self: None
@@ -33633,7 +33633,7 @@ class UnderlyingContractMultiplierUnit(IntField):
         this = _quickfix.new_UnderlyingContractMultiplierUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingContractMultiplierUnit
     __del__ = lambda self: None
@@ -33655,7 +33655,7 @@ class DerivativeContractMultiplierUnit(IntField):
         this = _quickfix.new_DerivativeContractMultiplierUnit(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeContractMultiplierUnit
     __del__ = lambda self: None
@@ -33677,7 +33677,7 @@ class FlowScheduleType(IntField):
         this = _quickfix.new_FlowScheduleType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FlowScheduleType
     __del__ = lambda self: None
@@ -33699,7 +33699,7 @@ class LegFlowScheduleType(IntField):
         this = _quickfix.new_LegFlowScheduleType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LegFlowScheduleType
     __del__ = lambda self: None
@@ -33721,7 +33721,7 @@ class UnderlyingFlowScheduleType(IntField):
         this = _quickfix.new_UnderlyingFlowScheduleType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingFlowScheduleType
     __del__ = lambda self: None
@@ -33743,7 +33743,7 @@ class DerivativeFlowScheduleType(IntField):
         this = _quickfix.new_DerivativeFlowScheduleType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DerivativeFlowScheduleType
     __del__ = lambda self: None
@@ -33765,7 +33765,7 @@ class FillLiquidityInd(IntField):
         this = _quickfix.new_FillLiquidityInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FillLiquidityInd
     __del__ = lambda self: None
@@ -33787,7 +33787,7 @@ class SideLiquidityInd(IntField):
         this = _quickfix.new_SideLiquidityInd(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SideLiquidityInd
     __del__ = lambda self: None
@@ -33809,7 +33809,7 @@ class NoRateSources(IntField):
         this = _quickfix.new_NoRateSources(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoRateSources
     __del__ = lambda self: None
@@ -33831,7 +33831,7 @@ class RateSource(IntField):
         this = _quickfix.new_RateSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RateSource
     __del__ = lambda self: None
@@ -33853,7 +33853,7 @@ class RateSourceType(IntField):
         this = _quickfix.new_RateSourceType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RateSourceType
     __del__ = lambda self: None
@@ -33875,7 +33875,7 @@ class ReferencePage(StringField):
         this = _quickfix.new_ReferencePage(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ReferencePage
     __del__ = lambda self: None
@@ -33897,7 +33897,7 @@ class RestructuringType(StringField):
         this = _quickfix.new_RestructuringType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RestructuringType
     __del__ = lambda self: None
@@ -33919,7 +33919,7 @@ class Seniority(StringField):
         this = _quickfix.new_Seniority(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Seniority
     __del__ = lambda self: None
@@ -33941,7 +33941,7 @@ class NotionalPercentageOutstanding(DoubleField):
         this = _quickfix.new_NotionalPercentageOutstanding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NotionalPercentageOutstanding
     __del__ = lambda self: None
@@ -33963,7 +33963,7 @@ class OriginalNotionalPercentageOutstanding(DoubleField):
         this = _quickfix.new_OriginalNotionalPercentageOutstanding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OriginalNotionalPercentageOutstanding
     __del__ = lambda self: None
@@ -33985,7 +33985,7 @@ class UnderlyingRestructuringType(StringField):
         this = _quickfix.new_UnderlyingRestructuringType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingRestructuringType
     __del__ = lambda self: None
@@ -34007,7 +34007,7 @@ class UnderlyingSeniority(StringField):
         this = _quickfix.new_UnderlyingSeniority(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingSeniority
     __del__ = lambda self: None
@@ -34029,7 +34029,7 @@ class UnderlyingNotionalPercentageOutstanding(DoubleField):
         this = _quickfix.new_UnderlyingNotionalPercentageOutstanding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingNotionalPercentageOutstanding
     __del__ = lambda self: None
@@ -34051,7 +34051,7 @@ class UnderlyingOriginalNotionalPercentageOutstanding(DoubleField):
         this = _quickfix.new_UnderlyingOriginalNotionalPercentageOutstanding(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingOriginalNotionalPercentageOutstanding
     __del__ = lambda self: None
@@ -34073,7 +34073,7 @@ class AttachmentPoint(DoubleField):
         this = _quickfix.new_AttachmentPoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_AttachmentPoint
     __del__ = lambda self: None
@@ -34095,7 +34095,7 @@ class DetachmentPoint(DoubleField):
         this = _quickfix.new_DetachmentPoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DetachmentPoint
     __del__ = lambda self: None
@@ -34117,7 +34117,7 @@ class UnderlyingAttachmentPoint(DoubleField):
         this = _quickfix.new_UnderlyingAttachmentPoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingAttachmentPoint
     __del__ = lambda self: None
@@ -34139,7 +34139,7 @@ class UnderlyingDetachmentPoint(DoubleField):
         this = _quickfix.new_UnderlyingDetachmentPoint(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingDetachmentPoint
     __del__ = lambda self: None
@@ -34161,7 +34161,7 @@ class NoTargetPartyIDs(IntField):
         this = _quickfix.new_NoTargetPartyIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoTargetPartyIDs
     __del__ = lambda self: None
@@ -34183,7 +34183,7 @@ class TargetPartyID(StringField):
         this = _quickfix.new_TargetPartyID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetPartyID
     __del__ = lambda self: None
@@ -34205,7 +34205,7 @@ class TargetPartyIDSource(CharField):
         this = _quickfix.new_TargetPartyIDSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetPartyIDSource
     __del__ = lambda self: None
@@ -34227,7 +34227,7 @@ class TargetPartyRole(IntField):
         this = _quickfix.new_TargetPartyRole(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_TargetPartyRole
     __del__ = lambda self: None
@@ -34249,7 +34249,7 @@ class SecurityListID(StringField):
         this = _quickfix.new_SecurityListID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListID
     __del__ = lambda self: None
@@ -34271,7 +34271,7 @@ class SecurityListRefID(StringField):
         this = _quickfix.new_SecurityListRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListRefID
     __del__ = lambda self: None
@@ -34293,7 +34293,7 @@ class SecurityListDesc(StringField):
         this = _quickfix.new_SecurityListDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListDesc
     __del__ = lambda self: None
@@ -34315,7 +34315,7 @@ class EncodedSecurityListDescLen(IntField):
         this = _quickfix.new_EncodedSecurityListDescLen(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityListDescLen
     __del__ = lambda self: None
@@ -34337,7 +34337,7 @@ class EncodedSecurityListDesc(StringField):
         this = _quickfix.new_EncodedSecurityListDesc(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_EncodedSecurityListDesc
     __del__ = lambda self: None
@@ -34359,7 +34359,7 @@ class SecurityListType(IntField):
         this = _quickfix.new_SecurityListType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListType
     __del__ = lambda self: None
@@ -34381,7 +34381,7 @@ class SecurityListTypeSource(IntField):
         this = _quickfix.new_SecurityListTypeSource(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SecurityListTypeSource
     __del__ = lambda self: None
@@ -34403,7 +34403,7 @@ class NewsID(StringField):
         this = _quickfix.new_NewsID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewsID
     __del__ = lambda self: None
@@ -34425,7 +34425,7 @@ class NewsCategory(IntField):
         this = _quickfix.new_NewsCategory(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewsCategory
     __del__ = lambda self: None
@@ -34447,7 +34447,7 @@ class LanguageCode(StringField):
         this = _quickfix.new_LanguageCode(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_LanguageCode
     __del__ = lambda self: None
@@ -34469,7 +34469,7 @@ class NoNewsRefIDs(IntField):
         this = _quickfix.new_NoNewsRefIDs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoNewsRefIDs
     __del__ = lambda self: None
@@ -34491,7 +34491,7 @@ class NewsRefID(StringField):
         this = _quickfix.new_NewsRefID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewsRefID
     __del__ = lambda self: None
@@ -34513,7 +34513,7 @@ class NewsRefType(IntField):
         this = _quickfix.new_NewsRefType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NewsRefType
     __del__ = lambda self: None
@@ -34535,7 +34535,7 @@ class StrikePriceDeterminationMethod(IntField):
         this = _quickfix.new_StrikePriceDeterminationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikePriceDeterminationMethod
     __del__ = lambda self: None
@@ -34557,7 +34557,7 @@ class StrikePriceBoundaryMethod(IntField):
         this = _quickfix.new_StrikePriceBoundaryMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikePriceBoundaryMethod
     __del__ = lambda self: None
@@ -34579,7 +34579,7 @@ class StrikePriceBoundaryPrecision(DoubleField):
         this = _quickfix.new_StrikePriceBoundaryPrecision(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StrikePriceBoundaryPrecision
     __del__ = lambda self: None
@@ -34601,7 +34601,7 @@ class UnderlyingPriceDeterminationMethod(IntField):
         this = _quickfix.new_UnderlyingPriceDeterminationMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_UnderlyingPriceDeterminationMethod
     __del__ = lambda self: None
@@ -34623,7 +34623,7 @@ class OptPayoutType(IntField):
         this = _quickfix.new_OptPayoutType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_OptPayoutType
     __del__ = lambda self: None
@@ -34645,7 +34645,7 @@ class NoComplexEvents(IntField):
         this = _quickfix.new_NoComplexEvents(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoComplexEvents
     __del__ = lambda self: None
@@ -34667,7 +34667,7 @@ class ComplexEventType(IntField):
         this = _quickfix.new_ComplexEventType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventType
     __del__ = lambda self: None
@@ -34689,7 +34689,7 @@ class ComplexOptPayoutAmount(DoubleField):
         this = _quickfix.new_ComplexOptPayoutAmount(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexOptPayoutAmount
     __del__ = lambda self: None
@@ -34711,7 +34711,7 @@ class ComplexEventPrice(DoubleField):
         this = _quickfix.new_ComplexEventPrice(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventPrice
     __del__ = lambda self: None
@@ -34733,7 +34733,7 @@ class ComplexEventPriceBoundaryMethod(IntField):
         this = _quickfix.new_ComplexEventPriceBoundaryMethod(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventPriceBoundaryMethod
     __del__ = lambda self: None
@@ -34755,7 +34755,7 @@ class ComplexEventPriceBoundaryPrecision(DoubleField):
         this = _quickfix.new_ComplexEventPriceBoundaryPrecision(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventPriceBoundaryPrecision
     __del__ = lambda self: None
@@ -34777,7 +34777,7 @@ class ComplexEventPriceTimeType(IntField):
         this = _quickfix.new_ComplexEventPriceTimeType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventPriceTimeType
     __del__ = lambda self: None
@@ -34799,7 +34799,7 @@ class ComplexEventCondition(IntField):
         this = _quickfix.new_ComplexEventCondition(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventCondition
     __del__ = lambda self: None
@@ -34821,7 +34821,7 @@ class NoComplexEventDates(IntField):
         this = _quickfix.new_NoComplexEventDates(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoComplexEventDates
     __del__ = lambda self: None
@@ -34843,7 +34843,7 @@ class ComplexEventStartDate(UtcTimeStampField):
         this = _quickfix.new_ComplexEventStartDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventStartDate
     __del__ = lambda self: None
@@ -34865,7 +34865,7 @@ class ComplexEventEndDate(UtcTimeStampField):
         this = _quickfix.new_ComplexEventEndDate(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventEndDate
     __del__ = lambda self: None
@@ -34887,7 +34887,7 @@ class NoComplexEventTimes(IntField):
         this = _quickfix.new_NoComplexEventTimes(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoComplexEventTimes
     __del__ = lambda self: None
@@ -34909,7 +34909,7 @@ class ComplexEventStartTime(UtcTimeOnlyField):
         this = _quickfix.new_ComplexEventStartTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventStartTime
     __del__ = lambda self: None
@@ -34931,7 +34931,7 @@ class ComplexEventEndTime(UtcTimeOnlyField):
         this = _quickfix.new_ComplexEventEndTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_ComplexEventEndTime
     __del__ = lambda self: None
@@ -34953,7 +34953,7 @@ class StreamAsgnReqID(StringField):
         this = _quickfix.new_StreamAsgnReqID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnReqID
     __del__ = lambda self: None
@@ -34975,7 +34975,7 @@ class StreamAsgnReqType(IntField):
         this = _quickfix.new_StreamAsgnReqType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnReqType
     __del__ = lambda self: None
@@ -34997,7 +34997,7 @@ class NoAsgnReqs(IntField):
         this = _quickfix.new_NoAsgnReqs(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NoAsgnReqs
     __del__ = lambda self: None
@@ -35019,7 +35019,7 @@ class MDStreamID(StringField):
         this = _quickfix.new_MDStreamID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MDStreamID
     __del__ = lambda self: None
@@ -35041,7 +35041,7 @@ class StreamAsgnRptID(StringField):
         this = _quickfix.new_StreamAsgnRptID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnRptID
     __del__ = lambda self: None
@@ -35063,7 +35063,7 @@ class StreamAsgnRejReason(IntField):
         this = _quickfix.new_StreamAsgnRejReason(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnRejReason
     __del__ = lambda self: None
@@ -35085,7 +35085,7 @@ class StreamAsgnAckType(IntField):
         this = _quickfix.new_StreamAsgnAckType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnAckType
     __del__ = lambda self: None
@@ -35107,7 +35107,7 @@ class RelSymTransactTime(UtcTimeStampField):
         this = _quickfix.new_RelSymTransactTime(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_RelSymTransactTime
     __del__ = lambda self: None
@@ -35129,7 +35129,7 @@ class StreamAsgnType(IntField):
         this = _quickfix.new_StreamAsgnType(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_StreamAsgnType
     __del__ = lambda self: None
@@ -35147,7 +35147,7 @@ class SessionID(_object):
         this = _quickfix.new_SessionID(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def getBeginString(self):
@@ -38513,7 +38513,7 @@ class Dictionary(_object):
         this = _quickfix.new_Dictionary(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Dictionary
     __del__ = lambda self: None
@@ -38579,7 +38579,7 @@ class SessionSettings(_object):
         this = _quickfix.new_SessionSettings(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def has(self, arg2):
@@ -38711,7 +38711,7 @@ class Session(_object):
         this = _quickfix.new_Session(arg2, arg3, arg4, arg5, arg6, heartBtInt, pLogFactory)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_Session
     __del__ = lambda self: None
@@ -38983,7 +38983,7 @@ class ScreenLogFactory(LogFactory):
         this = _quickfix.new_ScreenLogFactory(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def create(self, *args):
@@ -39055,7 +39055,7 @@ class NullLog(Log):
         this = _quickfix.new_NullLog()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NullLog
     __del__ = lambda self: None
@@ -39077,7 +39077,7 @@ class ScreenLog(Log):
         this = _quickfix.new_ScreenLog(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def clear(self):
@@ -39120,7 +39120,7 @@ class FileLogFactory(LogFactory):
         this = _quickfix.new_FileLogFactory(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def create(self, *args):
@@ -39148,7 +39148,7 @@ class FileLog(Log):
         this = _quickfix.new_FileLog(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FileLog
     __del__ = lambda self: None
@@ -39217,7 +39217,7 @@ class MemoryStoreFactory(MessageStoreFactory):
         this = _quickfix.new_MemoryStoreFactory()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MemoryStoreFactory
     __del__ = lambda self: None
@@ -39286,7 +39286,7 @@ class MemoryStore(MessageStore):
         this = _quickfix.new_MemoryStore()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def set(self, arg2, arg3):
@@ -39340,7 +39340,7 @@ class MessageStoreFactoryExceptionWrapper(_object):
         this = _quickfix.new_MessageStoreFactoryExceptionWrapper(pFactory)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def create(self, arg2, arg3, arg4):
@@ -39364,7 +39364,7 @@ class MessageStoreExceptionWrapper(_object):
         this = _quickfix.new_MessageStoreExceptionWrapper(pStore)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_MessageStoreExceptionWrapper
     __del__ = lambda self: None
@@ -39419,7 +39419,7 @@ class FileStoreFactory(MessageStoreFactory):
         this = _quickfix.new_FileStoreFactory(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def create(self, arg2):
@@ -39447,7 +39447,7 @@ class FileStore(MessageStore):
         this = _quickfix.new_FileStore(arg2, s)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_FileStore
     __del__ = lambda self: None
@@ -39525,7 +39525,7 @@ class Application(_object):
         this = _quickfix.new_Application(_self, )
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     def __disown__(self):
         self.this.disown()
@@ -39549,7 +39549,7 @@ class SynchronizedApplication(Application):
         this = _quickfix.new_SynchronizedApplication(app)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
 
     def onCreate(self, sessionID):
@@ -39603,7 +39603,7 @@ class NullApplication(Application):
         this = _quickfix.new_NullApplication()
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_NullApplication
     __del__ = lambda self: None
@@ -39678,7 +39678,7 @@ class SocketInitiatorBase(Initiator):
         this = _quickfix.new_SocketInitiatorBase(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SocketInitiatorBase
     __del__ = lambda self: None
@@ -39753,7 +39753,7 @@ class SocketAcceptorBase(Acceptor):
         this = _quickfix.new_SocketAcceptorBase(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_SocketAcceptorBase
     __del__ = lambda self: None
@@ -39771,7 +39771,7 @@ class DataDictionary(_object):
         this = _quickfix.new_DataDictionary(*args)
         try:
             self.this.append(this)
-        except BaseException:
+        except Exception:
             self.this = this
     __swig_destroy__ = _quickfix.delete_DataDictionary
     __del__ = lambda self: None
