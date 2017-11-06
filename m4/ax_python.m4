@@ -32,12 +32,14 @@ if test $has_python2 = true
 then
   PYTHON_PREFIX=$with_python2
   AC_DEFINE(PYTHON_MAJOR_VERSION, 2, Define the major version of python)
+  AC_DEFINE(HAVE_PYTHON2, 1, Define if you have python2)
 fi
 
 if test $has_python3 = true
 then
   PYTHON_PREFIX=$with_python3
   AC_DEFINE(PYTHON_MAJOR_VERSION, 3, Define the major version of python)
+  AC_DEFINE(HAVE_PYTHON3, 1, Define if you have python3)
 fi
 
 AC_SUBST(PYTHON_PREFIX)
@@ -52,4 +54,6 @@ then
     AC_DEFINE(HAVE_PYTHON, 1, Define if you have python)
 fi
 AM_CONDITIONAL(HAVE_PYTHON, $has_python)
+AM_CONDITIONAL(HAVE_PYTHON2, $has_python2)
+AM_CONDITIONAL(HAVE_PYTHON3, $has_python3)
 ])
