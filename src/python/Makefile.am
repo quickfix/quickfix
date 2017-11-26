@@ -13,7 +13,8 @@ INCLUDES =-I. -I.. -I../.. -I../C++
 local_python_src=$(top_builddir)/src/python
 local_python_lib=$(top_builddir)/lib/python
 
-all-local:
+all-local: $(python_LTLIBRARIES)
+	rm -rf $(local_python_lib)
 	mkdir -p $(local_python_lib)
 	ln -sf $(local_python_src)/.libs/_quickfix* $(local_python_lib)
 	ln -sf $(local_python_src)/*.py $(local_python_lib)
