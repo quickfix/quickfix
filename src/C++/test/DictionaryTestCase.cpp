@@ -80,6 +80,8 @@ TEST(setGetDay)
   object.setString( "DAY5", "TH" );
   object.setString( "DAY6", "FR" );
   object.setString( "DAY7", "SA" );
+  object.setString( "DAYUNKNOWN", "un" );
+  object.setString( "DAYBAD", "f" );
 
   CHECK_EQUAL( 1, object.getDay( "DAY1" ) );
   CHECK_EQUAL( 2, object.getDay( "DAY2" ) );
@@ -88,6 +90,8 @@ TEST(setGetDay)
   CHECK_EQUAL( 5, object.getDay( "DAY5" ) );
   CHECK_EQUAL( 6, object.getDay( "DAY6" ) );
   CHECK_EQUAL( 7, object.getDay( "DAY7" ) );
+  CHECK_EQUAL( -1, object.getDay( "DAYUNKNOWN" ) );
+  CHECK_THROW( object.getDay( "DAYBAD" ), ConfigError );
 
   object.setDay( "NEXTDAY1", 1 );
   object.setDay( "NEXTDAY2", 2 );
@@ -96,6 +100,7 @@ TEST(setGetDay)
   object.setDay( "NEXTDAY5", 5 );
   object.setDay( "NEXTDAY6", 6 );
   object.setDay( "NEXTDAY7", 7 );
+  object.setDay( "NEXTDAYBAD", 8 );
 
   CHECK_EQUAL( 1, object.getDay( "NEXTDAY1" ) );
   CHECK_EQUAL( 2, object.getDay( "NEXTDAY2" ) );

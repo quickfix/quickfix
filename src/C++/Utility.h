@@ -136,6 +136,7 @@ int socket_createAcceptor( int port, bool reuse = false );
 int socket_createConnector();
 int socket_connect( int s, const char* address, int port );
 int socket_accept( int s );
+ssize_t socket_recv( int s, char* buf, size_t length );
 ssize_t socket_send( int s, const char* msg, size_t length );
 void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
@@ -167,8 +168,8 @@ tm time_localtime( const time_t* t );
 typedef _beginthreadex_proc_type THREAD_START_ROUTINE;
 #define THREAD_PROC unsigned int _stdcall
 #elif(_MSC_VER > 0)
-typedef unsigned int(_stdcall THREAD_START_ROUTINE)(void *);
-#define THREAD_PROC unsigned int _stdcall
+typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
+#define  THREAD_PROC unsigned int _stdcall
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *

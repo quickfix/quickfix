@@ -555,7 +555,7 @@ private:
         throw RequiredTagMissing( *iF );
     }
 
-    FieldMap::g_iterator groups;
+    FieldMap::g_const_iterator groups;
     for( groups = body.g_begin(); groups != body.g_end(); ++groups )
     {
       int delim;

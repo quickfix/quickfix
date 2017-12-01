@@ -72,6 +72,7 @@ libquickfix_la_SOURCES = \
 	Application.h \
 	Field.h \
 	FieldConvertors.h \
+	FieldConvertors.cpp \
 	FieldNumbers.h \
 	FieldTypes.cpp \
 	FieldTypes.h \

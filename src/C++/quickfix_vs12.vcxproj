@@ -675,6 +675,7 @@
     <ClCompile Include="DataDictionary.cpp" />
     <ClCompile Include="DataDictionaryProvider.cpp" />
     <ClCompile Include="Dictionary.cpp" />
+    <ClCompile Include="FieldConvertors.cpp" />
     <ClCompile Include="FieldMap.cpp" />
     <ClCompile Include="FieldTypes.cpp" />
     <ClCompile Include="FileLog.cpp" />
@@ -789,6 +790,7 @@
 echo stdafx.h &gt;&gt; EXCLUDE
 echo release\ &gt;&gt; EXCLUDE
 echo debug\ &gt;&gt; EXCLUDE
+echo double-conversion\ &gt;&gt; EXCLUDE
 xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 </Command>
@@ -796,7 +798,7 @@ del /F EXCLUDE
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>$(SolutionDir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -828,6 +830,7 @@ del /F EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
 echo release\ &gt;&gt; EXCLUDE
 echo debug\ &gt;&gt; EXCLUDE
+echo double-conversion\ &gt;&gt; EXCLUDE
 xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 </Command>

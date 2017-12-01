@@ -37,17 +37,13 @@
 
 namespace FIX
 {
-static int const headerOrder[] =
-  {
-    FIELD::BeginString,
-    FIELD::BodyLength,
-    FIELD::MsgType
-  };
 
 class Header : public FieldMap 
 {
+  enum { REQUIRED_FIELDS = 8 };
+
 public:
-  Header() : FieldMap(message_order( message_order::header ) )
+  Header() : FieldMap( message_order( message_order::header ), REQUIRED_FIELDS )
   {}
 
   Header(const message_order & order) : FieldMap(order)
@@ -56,8 +52,10 @@ public:
 
 class Trailer : public FieldMap 
 {
+  enum { REQUIRED_FIELDS = 1 };
+
 public:
-  Trailer() : FieldMap(message_order( message_order::trailer ) )
+  Trailer() : FieldMap( message_order( message_order::trailer ), REQUIRED_FIELDS )
   {}
 
   Trailer(const message_order & order) : FieldMap(order)
@@ -107,17 +105,9 @@ public:
            const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
   throw( InvalidMessage );
 
-  Message( const Message& copy )
-  : FieldMap( copy )
-  {
-    m_header = copy.m_header;
-    m_trailer = copy.m_trailer;
-    m_validStructure = copy.m_validStructure;
-    m_tag = copy.m_tag;
-#ifdef HAVE_EMX
-    m_subMsgType = copy.m_subMsgType;
-#endif
-  }
+  Message( const Message& copy );
+
+  ~Message();
 
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
@@ -146,12 +136,7 @@ public:
 
 protected:
   // Constructor for derived classes
-  Message( const BeginString& beginString, const MsgType& msgType )
-  : m_validStructure( true )
-  {
-    m_header.setField( beginString );
-    m_header.setField( msgType );
-  }
+  Message( const BeginString& beginString, const MsgType& msgType );
 
 public:
   /// Get a string representation of the message
@@ -240,21 +225,17 @@ public:
 
   bool isAdmin() const
   { 
-    if( m_header.isSetField(FIELD::MsgType) )
-    {
-      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
+    MsgType msgType;
+    if( m_header.getFieldIfSet( msgType ) )
       return isAdminMsgType( msgType );
-    }
     return false;
   }
 
   bool isApp() const
   { 
-    if( m_header.isSetField(FIELD::MsgType) )
-    {
-      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
+    MsgType msgType;
+    if( m_header.getFieldIfSet( msgType ) )
       return !isAdminMsgType( msgType );
-    }
     return false;
   }
 
@@ -264,6 +245,7 @@ public:
   void clear()
   { 
     m_tag = 0;
+    m_validStructure = true;
     m_header.clear();
     FieldMap::clear();
     m_trailer.clear();
@@ -342,7 +324,7 @@ private:
   FieldBase extractField( 
     const std::string& string, std::string::size_type& pos,
     const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
-    const Group* pGroup = 0);
+    const Group* pGroup = 0) const;
 
   static bool IsDataField( 
     int field, 
@@ -358,7 +340,7 @@ private:
     return false;
   }
 
-  void validate();
+  void validate() const;
   std::string toXMLFields(const FieldMap& fields, int space) const;
 
 protected:

@@ -43,6 +43,44 @@ namespace FIX50SP1
       FIELD_SET(*this, FIX::TradSesCloseTime);
       FIELD_SET(*this, FIX::TradSesEndTime);
       FIELD_SET(*this, FIX::TotalVolumeTraded);
+      FIELD_SET(*this, FIX::NoOrdTypeRules);
+      class NoOrdTypeRules: public FIX::Group
+      {
+      public:
+      NoOrdTypeRules() : FIX::Group(1237,40,FIX::message_order(40,0)) {}
+        FIELD_SET(*this, FIX::OrdType);
+      };
+      FIELD_SET(*this, FIX::NoTimeInForceRules);
+      class NoTimeInForceRules: public FIX::Group
+      {
+      public:
+      NoTimeInForceRules() : FIX::Group(1239,59,FIX::message_order(59,0)) {}
+        FIELD_SET(*this, FIX::TimeInForce);
+      };
+      FIELD_SET(*this, FIX::NoExecInstRules);
+      class NoExecInstRules: public FIX::Group
+      {
+      public:
+      NoExecInstRules() : FIX::Group(1232,1308,FIX::message_order(1308,0)) {}
+        FIELD_SET(*this, FIX::ExecInstValue);
+      };
+      FIELD_SET(*this, FIX::NoMatchRules);
+      class NoMatchRules: public FIX::Group
+      {
+      public:
+      NoMatchRules() : FIX::Group(1235,1142,FIX::message_order(1142,574,0)) {}
+        FIELD_SET(*this, FIX::MatchAlgorithm);
+        FIELD_SET(*this, FIX::MatchType);
+      };
+      FIELD_SET(*this, FIX::NoMDFeedTypes);
+      class NoMDFeedTypes: public FIX::Group
+      {
+      public:
+      NoMDFeedTypes() : FIX::Group(1141,1022,FIX::message_order(1022,264,1021,0)) {}
+        FIELD_SET(*this, FIX::MDFeedType);
+        FIELD_SET(*this, FIX::MarketDepth);
+        FIELD_SET(*this, FIX::MDBookType);
+      };
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);

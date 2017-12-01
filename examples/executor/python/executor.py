@@ -60,7 +60,7 @@ class Application(fix.Application):
 
 		try:
 			fix.Session.sendToTarget( executionReport, sessionID )
-		except SessionNotFound as e:
+		except fix.SessionNotFound as e:
 			return
 
 	def genOrderID(self):
