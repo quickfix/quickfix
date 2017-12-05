@@ -40,13 +40,13 @@ namespace FIX
 {
 DataDictionary::DataDictionary()
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true )
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false )
 {}
 
 DataDictionary::DataDictionary( std::istream& stream )
 throw( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true )
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false )
 {
   readFromStream( stream );
 }
@@ -54,7 +54,7 @@ throw( ConfigError )
 DataDictionary::DataDictionary( const std::string& url )
 throw( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ),
   m_orderedFieldsArray(0)
 {
   readFromURL( url );
@@ -84,6 +84,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
   m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
   m_checkUserDefinedFields = rhs.m_checkUserDefinedFields;
+  m_allowUnknownMessageFields = rhs.m_allowUnknownMessageFields;
   m_beginString = rhs.m_beginString;
   m_messageFields = rhs.m_messageFields;
   m_requiredFields = rhs.m_requiredFields;

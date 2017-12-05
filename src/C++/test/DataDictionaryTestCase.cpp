@@ -233,6 +233,10 @@ TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
   message.setField( TooHigh( "value" ) );
   CHECK_THROW( object.validate( message ), InvalidTagNumber );
 
+  object.allowUnknownMsgFields( true );
+  object.validate( message );
+  object.allowUnknownMsgFields( false );
+
   object.addField( 501 );
   object.addMsgField( MsgType_TestRequest, 501 );
   object.validate( message );

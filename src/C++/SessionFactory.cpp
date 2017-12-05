@@ -228,6 +228,8 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
     pCopyOfDD->checkFieldsHaveValues( settings.getBool( VALIDATE_FIELDS_HAVE_VALUES ) );
   if( settings.has( VALIDATE_USER_DEFINED_FIELDS ) )
     pCopyOfDD->checkUserDefinedFields( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
+  if( settings.has( ALLOW_UNKNOWN_MSG_FIELDS ) )
+    pCopyOfDD->allowUnknownMsgFields( settings.getBool( ALLOW_UNKNOWN_MSG_FIELDS ) );
 
   return pCopyOfDD;
 }
