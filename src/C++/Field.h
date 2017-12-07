@@ -33,6 +33,10 @@
 #include "FieldTypes.h"
 #include "Utility.h"
 
+#if defined(__SUNPRO_CC)
+#include <algorithm>
+#endif
+
 namespace FIX
 {
 /**

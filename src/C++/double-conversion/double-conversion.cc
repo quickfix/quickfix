@@ -452,8 +452,11 @@ static const uc16 kWhitespaceTable16[] = {
 };
 static const int kWhitespaceTable16Length = ARRAY_SIZE(kWhitespaceTable16);
 
-
+#if defined(__SUNPRO_CC)
+bool isWhitespace(int x) {
+#else
 static bool isWhitespace(int x) {
+#endif
   if (x < 128) {
     for (int i = 0; i < kWhitespaceTable7Length; i++) {
       if (kWhitespaceTable7[i] == x) return true;
@@ -477,8 +480,11 @@ static inline bool AdvanceToNonspace(Iterator* current, Iterator end) {
   return false;
 }
 
-
+#if defined(__SUNPRO_CC)
+bool isDigit(int x, int radix) {
+#else
 static bool isDigit(int x, int radix) {
+#endif
   return (x >= '0' && x <= '9' && x < '0' + radix)
       || (radix > 10 && x >= 'a' && x < 'a' + radix - 10)
       || (radix > 10 && x >= 'A' && x < 'A' + radix - 10);
@@ -514,7 +520,11 @@ static bool inline IsDecimalDigitForRadix(int c, int radix) {
 // because it constant-propagated the radix and concluded that the first
 // condition was always false. By moving it into a separate function the
 // compiler wouldn't warn anymore.
+#if defined(__SUNPRO_CC)
+bool IsCharacterDigitForRadix(int c, int radix, char a_character) {
+#else
 static bool IsCharacterDigitForRadix(int c, int radix, char a_character) {
+#endif
   return radix > 10 && c >= a_character && c < a_character + radix - 10;
 }
 

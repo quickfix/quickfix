@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#include <math.h>
 #include "FieldConvertors.h"
 
 namespace FIX

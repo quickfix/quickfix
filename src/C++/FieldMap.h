@@ -309,7 +309,12 @@ private:
   template <typename Iterator>
   Iterator lookup(Iterator begin, Iterator end, int tag) const
   {
+#if defined(__SUNPRO_CC)
+    std::size_t numElements;
+    std::distance( begin, end, numElements );
+#else
     std::size_t numElements = std::distance( begin, end );
+#endif
     if( numElements < 16 )
       return std::find_if( begin, end, finder( tag ) );
 
