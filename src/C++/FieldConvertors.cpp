@@ -25,9 +25,6 @@
 
 #include "FieldConvertors.h"
 
-namespace FIX
-{
-
 // we include "double-conversion" project in FIX namespace
 // to avoid linking errors if quickfix is linked statically
 // and "double-conversion" is already used by target project
@@ -40,6 +37,9 @@ namespace FIX
 #include "double-conversion/fast-dtoa.cc"
 #include "double-conversion/strtod.cc"
 #include "double-conversion/double-conversion.cc"
+
+namespace FIX
+{
 
   static double_conversion::DoubleToStringConverter g_dtoa_converter(
     double_conversion::DoubleToStringConverter::NO_FLAGS,
