@@ -281,6 +281,17 @@ protected:
     }
   }
 
+  // used to find data length fields during message decoding
+  // message fields are not yet sorted so regular find*** functions might return wrong results
+  const FieldBase& reverse_find( int tag ) const
+  {
+    Fields::const_reverse_iterator iter = std::find_if( m_fields.rbegin(), m_fields.rend(), finder( tag ) );
+    if( iter == m_fields.rend() )
+      throw FieldNotFound( tag );
+
+    return *iter;
+  }
+
   // append field to message without sorting
   // only applicable during message decoding
   void appendField( const FieldBase& field )
@@ -309,10 +320,6 @@ private:
   template <typename Iterator>
   Iterator lookup(Iterator begin, Iterator end, int tag) const
   {
-    std::size_t numElements = std::distance( begin, end );
-    if( numElements < 16 )
-      return std::find_if( begin, end, finder( tag ) );
-
     Iterator iter = std::lower_bound( begin, end, tag, sorter( m_order ) );
     if( iter != end &&
         iter->getTag() == tag )
