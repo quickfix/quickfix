@@ -155,6 +155,7 @@ socket_handle socket_accept( socket_handle s )
   return accept( s, 0, 0 );
 }
 
+
 ssize_t socket_send( socket_handle s, const char* msg, size_t length )
 {
 #ifdef _MSC_VER

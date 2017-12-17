@@ -38,6 +38,28 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::EncodedMktSegmDesc);
     FIELD_SET(*this, FIX::ParentMktSegmID);
     FIELD_SET(*this, FIX::Currency);
+    FIELD_SET(*this, FIX::NoTickRules);
+    class NoTickRules: public FIX::Group
+    {
+    public:
+    NoTickRules() : FIX::Group(1205,1206,FIX::message_order(1206,1207,1208,1209,0)) {}
+      FIELD_SET(*this, FIX::StartTickPriceRange);
+      FIELD_SET(*this, FIX::EndTickPriceRange);
+      FIELD_SET(*this, FIX::TickIncrement);
+      FIELD_SET(*this, FIX::TickRuleType);
+    };
+    FIELD_SET(*this, FIX::NoLotTypeRules);
+    class NoLotTypeRules: public FIX::Group
+    {
+    public:
+    NoLotTypeRules() : FIX::Group(1234,1093,FIX::message_order(1093,1231,0)) {}
+      FIELD_SET(*this, FIX::LotType);
+      FIELD_SET(*this, FIX::MinLotSize);
+    };
+    FIELD_SET(*this, FIX::PriceLimitType);
+    FIELD_SET(*this, FIX::LowLimitPrice);
+    FIELD_SET(*this, FIX::HighLimitPrice);
+    FIELD_SET(*this, FIX::TradingReferencePrice);
     FIELD_SET(*this, FIX::ExpirationCycle);
     FIELD_SET(*this, FIX::MinTradeVol);
     FIELD_SET(*this, FIX::MaxTradeVol);

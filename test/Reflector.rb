@@ -34,7 +34,7 @@ class Reflector < Array
       line.chomp!
       if line.empty? then
       elsif (/^[IEie]\d{1},/ === line) then
-	cid = line[1].to_i - 48
+	cid = line[1].ord.to_i - 48
 	body = fixify!(fileify!(timeify!(line[3, line.length])))
       else
 	cid = 1

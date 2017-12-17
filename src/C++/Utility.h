@@ -129,6 +129,7 @@ std::string string_strip( const std::string& value );
 
 void socket_init();
 void socket_term();
+
 socket_handle socket_createAcceptor( int port, bool reuse = false );
 socket_handle socket_createConnector();
 int socket_connect( socket_handle s, const char* address, int port );
@@ -140,6 +141,7 @@ bool socket_disconnected( socket_handle s );
 int socket_setsockopt( socket_handle s, int opt );
 int socket_setsockopt( socket_handle s, int opt, int optval );
 int socket_getsockopt( socket_handle s, int opt, int& optval );
+
 #ifndef _MSC_VER
 int socket_fcntl( int s, int opt, int arg );
 int socket_getfcntlflag( int s, int arg );
@@ -164,8 +166,8 @@ tm time_localtime( const time_t* t );
 typedef _beginthreadex_proc_type THREAD_START_ROUTINE;
 #define THREAD_PROC unsigned int _stdcall
 #elif(_MSC_VER > 0)
-typedef unsigned int(_stdcall THREAD_START_ROUTINE)(void *);
-#define THREAD_PROC unsigned int _stdcall
+typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
+#define  THREAD_PROC unsigned int _stdcall
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *

@@ -1,10 +1,11 @@
+from __future__ import print_function
 import sys
 import time
 import quickfix as fix
 import at_application
 
 if len(sys.argv) == 0:
-	print "usage: at.py -f FILE"
+	print("usage: at.py -f FILE")
 	exit
 
 file = sys.argv[1]

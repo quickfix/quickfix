@@ -88,7 +88,7 @@ bool SocketConnection::processQueue()
     
   const std::string& msg = m_sendQueue.front();
 
-  size_t result = socket_send
+  ssize_t result = socket_send
     ( m_socket, msg.c_str() + m_sendLength, msg.length() - m_sendLength );
 
   if( result > 0 )
@@ -207,7 +207,7 @@ bool SocketConnection::isValidSession()
 void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
 {
-  ssize_t size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
+  ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
   if( size <= 0 ) throw SocketRecvFailed( size );
   m_parser.addToStream( m_buffer, size );
 }

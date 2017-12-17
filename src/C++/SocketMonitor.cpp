@@ -233,7 +233,7 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
     if( s == m_interrupt )
     {
       int socket = 0;
-      recv( s, (char*)&socket, sizeof(socket), 0 );
+      socket_recv( s, (char*)&socket, sizeof(socket) );
       addWrite( socket );
     }
     else
@@ -252,7 +252,7 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
       if( s == m_interrupt )
       {
         int socket = 0;
-        recv( s, (char*)&socket, sizeof(socket), 0 );
+        socket_recv( s, (char*)&socket, sizeof(socket) );
         addWrite( socket );
       }
       else

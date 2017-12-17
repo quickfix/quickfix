@@ -6,8 +6,6 @@ AC_DEFUN([_MYSQL_CONFIG],[
 
 AC_DEFUN([_MYSQL_CHECK],[
     AC_REQUIRE([_MYSQL_CONFIG])
-    MYSQL_CFLAGS=`$mysql_config --cflags`
-    MYSQL_LIBS=`$mysql_config --libs`
     AC_SUBST(MYSQL_CFLAGS)
     AC_SUBST(MYSQL_LIBS)
 ])
@@ -30,6 +28,8 @@ AC_DEFUN([AX_LIB_MYSQL], [
     then
         AC_REQUIRE([_MYSQL_CHECK])
         AC_DEFINE(HAVE_MYSQL, 1, Define if you have sql library (-lmysqlclient))
+        MYSQL_CFLAGS=`$mysql_config --cflags`
+        MYSQL_LIBS=`$mysql_config --libs`
     fi
     AM_CONDITIONAL(HAVE_MYSQL, $has_mysql)
 ])

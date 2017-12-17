@@ -32,6 +32,14 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
     FIELD_SET(*this, FIX::UnderlyingSecurityID);
     FIELD_SET(*this, FIX::UnderlyingSecurityIDSource);
+    FIELD_SET(*this, FIX::NoUnderlyingSecurityAltID);
+    class NoUnderlyingSecurityAltID: public FIX::Group
+    {
+    public:
+    NoUnderlyingSecurityAltID() : FIX::Group(457,458,FIX::message_order(458,459,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingSecurityAltID);
+      FIELD_SET(*this, FIX::UnderlyingSecurityAltIDSource);
+    };
     FIELD_SET(*this, FIX::UnderlyingProduct);
     FIELD_SET(*this, FIX::UnderlyingCFICode);
     FIELD_SET(*this, FIX::UnderlyingSecurityType);
@@ -83,10 +91,35 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::UnderlyingStartValue);
     FIELD_SET(*this, FIX::UnderlyingCurrentValue);
     FIELD_SET(*this, FIX::UnderlyingEndValue);
+    FIELD_SET(*this, FIX::NoUnderlyingStips);
+    class NoUnderlyingStips: public FIX::Group
+    {
+    public:
+    NoUnderlyingStips() : FIX::Group(887,888,FIX::message_order(888,889,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingStipType);
+      FIELD_SET(*this, FIX::UnderlyingStipValue);
+    };
     FIELD_SET(*this, FIX::UnderlyingAdjustedQuantity);
     FIELD_SET(*this, FIX::UnderlyingFXRate);
     FIELD_SET(*this, FIX::UnderlyingFXRateCalc);
     FIELD_SET(*this, FIX::UnderlyingCapValue);
+    FIELD_SET(*this, FIX::NoUndlyInstrumentParties);
+    class NoUndlyInstrumentParties: public FIX::Group
+    {
+    public:
+    NoUndlyInstrumentParties() : FIX::Group(1058,1059,FIX::message_order(1059,1060,1061,1062,0)) {}
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyID);
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyIDSource);
+      FIELD_SET(*this, FIX::UnderlyingInstrumentPartyRole);
+      FIELD_SET(*this, FIX::NoUndlyInstrumentPartySubIDs);
+      class NoUndlyInstrumentPartySubIDs: public FIX::Group
+      {
+      public:
+      NoUndlyInstrumentPartySubIDs() : FIX::Group(1062,1063,FIX::message_order(1063,1064,0)) {}
+        FIELD_SET(*this, FIX::UnderlyingInstrumentPartySubID);
+        FIELD_SET(*this, FIX::UnderlyingInstrumentPartySubIDType);
+      };
+    };
     FIELD_SET(*this, FIX::UnderlyingSettlMethod);
     FIELD_SET(*this, FIX::UnderlyingPutOrCall);
     FIELD_SET(*this, FIX::UnderlyingContractMultiplierUnit);
@@ -101,6 +134,14 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::DerivativeSymbolSfx);
     FIELD_SET(*this, FIX::DerivativeSecurityID);
     FIELD_SET(*this, FIX::DerivativeSecurityIDSource);
+    FIELD_SET(*this, FIX::NoDerivativeSecurityAltID);
+    class NoDerivativeSecurityAltID: public FIX::Group
+    {
+    public:
+    NoDerivativeSecurityAltID() : FIX::Group(1218,1219,FIX::message_order(1219,1220,0)) {}
+      FIELD_SET(*this, FIX::DerivativeSecurityAltID);
+      FIELD_SET(*this, FIX::DerivativeSecurityAltIDSource);
+    };
     FIELD_SET(*this, FIX::DerivativeProduct);
     FIELD_SET(*this, FIX::DerivativeProductComplex);
     FIELD_SET(*this, FIX::DerivFlexProductEligibilityIndicator);
@@ -150,7 +191,38 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::DerivativeSecurityDesc);
     FIELD_SET(*this, FIX::DerivativeEncodedSecurityDescLen);
     FIELD_SET(*this, FIX::DerivativeEncodedSecurityDesc);
+    FIELD_SET(*this, FIX::DerivativeSecurityXMLLen);
+    FIELD_SET(*this, FIX::DerivativeSecurityXML);
+    FIELD_SET(*this, FIX::DerivativeSecurityXMLSchema);
     FIELD_SET(*this, FIX::DerivativeContractSettlMonth);
+    FIELD_SET(*this, FIX::NoDerivativeEvents);
+    class NoDerivativeEvents: public FIX::Group
+    {
+    public:
+    NoDerivativeEvents() : FIX::Group(1286,1287,FIX::message_order(1287,1288,1289,1290,1291,0)) {}
+      FIELD_SET(*this, FIX::DerivativeEventType);
+      FIELD_SET(*this, FIX::DerivativeEventDate);
+      FIELD_SET(*this, FIX::DerivativeEventTime);
+      FIELD_SET(*this, FIX::DerivativeEventPx);
+      FIELD_SET(*this, FIX::DerivativeEventText);
+    };
+    FIELD_SET(*this, FIX::NoDerivativeInstrumentParties);
+    class NoDerivativeInstrumentParties: public FIX::Group
+    {
+    public:
+    NoDerivativeInstrumentParties() : FIX::Group(1292,1293,FIX::message_order(1293,1294,1295,1296,0)) {}
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyID);
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyIDSource);
+      FIELD_SET(*this, FIX::DerivativeInstrumentPartyRole);
+      FIELD_SET(*this, FIX::NoDerivativeInstrumentPartySubIDs);
+      class NoDerivativeInstrumentPartySubIDs: public FIX::Group
+      {
+      public:
+      NoDerivativeInstrumentPartySubIDs() : FIX::Group(1296,1297,FIX::message_order(1297,1298,0)) {}
+        FIELD_SET(*this, FIX::DerivativeInstrumentPartySubID);
+        FIELD_SET(*this, FIX::DerivativeInstrumentPartySubIDType);
+      };
+    };
     FIELD_SET(*this, FIX::DerivativeContractMultiplierUnit);
     FIELD_SET(*this, FIX::DerivativeFlowScheduleType);
     FIELD_SET(*this, FIX::SecuritySubType);

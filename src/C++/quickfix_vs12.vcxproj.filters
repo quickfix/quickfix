@@ -2171,6 +2171,9 @@
     <ClCompile Include="pugixml.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+	<ClCompile Include="FieldConvertors.cpp">
+      <Filter>Field\Source</Filter>
+    </ClCompile>
     <ClCompile Include="PUGIXML_DOMDocument.cpp">
       <Filter>Source</Filter>
     </ClCompile>
