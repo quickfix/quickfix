@@ -162,15 +162,47 @@ struct DateTime
   }
 
   /// Return the nanosecond portion of the time
-  inline int getNanosecond() const
+  inline unsigned int getNanosecond() const
   {
-    return m_time % NANOS_PER_SEC;
+    return static_cast<uint64_t>(m_time) % NANOS_PER_SEC;
   }
 
   /// Return the fraction portion of the time
   inline int getFraction(int precision) const
   {
-    return (getNanosecond() / PRECISION_FACTOR[precision]);
+    switch (precision)
+    {
+    case 0:
+       return (getNanosecond() / PRECISION_FACTOR[0]);
+
+    case 1:
+      return (getNanosecond() / PRECISION_FACTOR[1]);
+
+    case 2:
+      return (getNanosecond() / PRECISION_FACTOR[2]);
+
+    case 3:
+     return (getNanosecond() / PRECISION_FACTOR[3]);
+
+    case 4:
+      return (getNanosecond() / PRECISION_FACTOR[4]);
+
+    case 5:
+      return (getNanosecond() / PRECISION_FACTOR[5]);
+
+    case 6:
+      return (getNanosecond() / PRECISION_FACTOR[6]);
+
+    case 7:
+      return (getNanosecond() / PRECISION_FACTOR[7]);
+
+    case 8:
+      return (getNanosecond() / PRECISION_FACTOR[8]);
+
+    case 9:
+    default:
+      return (getNanosecond() / PRECISION_FACTOR[9]);
+    }
   }
 
   /// Load the referenced values with the year, month and day
@@ -260,7 +292,53 @@ struct DateTime
   /// Set the time portion of the DateTime
   void setHMS( int hour, int minute, int second, int fraction, int precision )
   {
-    m_time = makeHMS( hour, minute, second, fraction * PRECISION_FACTOR[precision] );
+    int nanos;
+
+    switch (precision)
+    {
+    case 0:
+      nanos = fraction * PRECISION_FACTOR[0];
+      break;
+
+    case 1:
+      nanos = fraction * PRECISION_FACTOR[1];
+      break;
+
+    case 2:
+      nanos = fraction * PRECISION_FACTOR[2];
+      break;
+
+    case 3:
+      nanos = fraction * PRECISION_FACTOR[3];
+      break;
+
+    case 4:
+      nanos = fraction * PRECISION_FACTOR[4];
+      break;
+
+    case 5:
+      nanos = fraction * PRECISION_FACTOR[5];
+      break;
+
+    case 6:
+      nanos = fraction * PRECISION_FACTOR[6];
+      break;
+
+    case 7:
+      nanos = fraction * PRECISION_FACTOR[7];
+      break;
+
+    case 8:
+      nanos = fraction * PRECISION_FACTOR[8];
+      break;
+
+    case 9:
+    default:
+      nanos = fraction * PRECISION_FACTOR[9];
+      break;
+    }
+
+    m_time = makeHMS( hour, minute, second,  nanos);
   }
 
   /// Set the hour portion of the time
