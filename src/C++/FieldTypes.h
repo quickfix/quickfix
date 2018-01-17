@@ -95,7 +95,8 @@ struct DateTime
             int hour, int minute, int second, int fraction, int precision )
   {
     m_date = julianDate( year, month, day );
-    m_time = makeHMS( hour, minute, second, fraction * PRECISION_FACTOR[precision] );
+    int nanos = convertToNanos(fraction, precision);
+    m_time = makeHMS( hour, minute, second, nanos );
   }
 
   virtual ~DateTime() {}
@@ -292,51 +293,7 @@ struct DateTime
   /// Set the time portion of the DateTime
   void setHMS( int hour, int minute, int second, int fraction, int precision )
   {
-    int nanos;
-
-    switch (precision)
-    {
-    case 0:
-      nanos = fraction * PRECISION_FACTOR[0];
-      break;
-
-    case 1:
-      nanos = fraction * PRECISION_FACTOR[1];
-      break;
-
-    case 2:
-      nanos = fraction * PRECISION_FACTOR[2];
-      break;
-
-    case 3:
-      nanos = fraction * PRECISION_FACTOR[3];
-      break;
-
-    case 4:
-      nanos = fraction * PRECISION_FACTOR[4];
-      break;
-
-    case 5:
-      nanos = fraction * PRECISION_FACTOR[5];
-      break;
-
-    case 6:
-      nanos = fraction * PRECISION_FACTOR[6];
-      break;
-
-    case 7:
-      nanos = fraction * PRECISION_FACTOR[7];
-      break;
-
-    case 8:
-      nanos = fraction * PRECISION_FACTOR[8];
-      break;
-
-    case 9:
-    default:
-      nanos = fraction * PRECISION_FACTOR[9];
-      break;
-    }
+    int nanos = convertToNanos(fraction, precision);
 
     m_time = makeHMS( hour, minute, second,  nanos);
   }
@@ -440,6 +397,58 @@ struct DateTime
     }
   }
 
+  /// Convert to internal nanos
+  static int convertToNanos(int fraction, int precision)
+  {
+    int nanos;
+
+    switch (precision)
+    {
+    case 0:
+      nanos = fraction * PRECISION_FACTOR[0];
+      break;
+
+    case 1:
+      nanos = fraction * PRECISION_FACTOR[1];
+      break;
+
+    case 2:
+      nanos = fraction * PRECISION_FACTOR[2];
+      break;
+
+    case 3:
+      nanos = fraction * PRECISION_FACTOR[3];
+      break;
+
+    case 4:
+      nanos = fraction * PRECISION_FACTOR[4];
+      break;
+
+    case 5:
+      nanos = fraction * PRECISION_FACTOR[5];
+      break;
+
+    case 6:
+      nanos = fraction * PRECISION_FACTOR[6];
+      break;
+
+    case 7:
+      nanos = fraction * PRECISION_FACTOR[7];
+      break;
+
+    case 8:
+      nanos = fraction * PRECISION_FACTOR[8];
+      break;
+
+    case 9:
+    default:
+      nanos = fraction * PRECISION_FACTOR[9];
+      break;
+    }
+
+    return nanos;
+  }
+
   /// Helper method to convert a broken down time to a number of
   /// nanoseconds since midnight
   static int64_t makeHMS( int hour, int minute, int second, int nanos )
@@ -493,9 +502,10 @@ struct DateTime
   /// the tm structure is assumed to contain a date specified in UTC
   static DateTime fromTm( const tm& tm, int fraction, int precision )
   {
+    int nanos = convertToNanos(fraction, precision);
     return DateTime ( julianDate(tm.tm_year + 1900, tm.tm_mon + 1,
                                  tm.tm_mday),
-                     makeHMS(tm.tm_hour, tm.tm_min, tm.tm_sec, fraction * PRECISION_FACTOR[precision]) );
+                     makeHMS(tm.tm_hour, tm.tm_min, tm.tm_sec, nanos) );
   }
 
   /// Helper method to calculate a Julian day number.
