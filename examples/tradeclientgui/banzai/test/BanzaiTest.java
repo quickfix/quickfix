@@ -56,7 +56,11 @@ public class BanzaiTest extends TestCase {
 
         server = Runtime.getRuntime().exec
 
-            ("..\\..\\..\\bin\\ordermatch_debug -f cfg\\ordermatch.cfg", null);
+            (
+			System.getProperty("os.name").toLowerCase().indexOf("win") >= 0 ?
+					"..\\..\\..\\bin\\debug\\ordermatch\\ordermatch.exe -f ..\\..\\..\\bin\\cfg\\ordermatch.cfg" :
+					"..\\..\\..\\bin\\ordermatch_debug -f cfg\\ordermatch.cfg"
+			, null);
 
         banzai = new Banzai();
 
