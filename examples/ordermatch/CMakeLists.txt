@@ -1,4 +1,9 @@
-add_executable(ordermatch Application.cpp Market.cpp ordermatch.cpp)
+if (HAVE_SSL AND WIN32)
+set(applink_SOURCE ${OPENSSL_INCLUDE_DIR}/openssl/applink.c)
+SET_SOURCE_FILES_PROPERTIES( ${applink_SOURCE} PROPERTIES LANGUAGE CXX )
+endif()
+
+add_executable(ordermatch Application.cpp Market.cpp ordermatch.cpp ${applink_SOURCE})
 
 target_include_directories(ordermatch PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
 
