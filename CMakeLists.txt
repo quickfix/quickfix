@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-project(quickfix VERSION 0.1 LANGUAGES CXX)
+project(quickfix VERSION 0.1 LANGUAGES CXX C)
 
 #AIX do something like
 #export OBJECT_MODE=64
@@ -19,8 +19,23 @@ set( CMAKE_EXE_LINKER_FLAGS "-m64 -lrt" CACHE STRING "Executable link flags" FOR
 set( CMAKE_SHARED_LINKER_FLAGS "-m64 -lrt" CACHE STRING "shared link flags" FORCE )
 endif()
 
-# TODO - config, allocator, mysql etc.
+# TODO - config, allocator, mysql etc
+if(NOT WIN32)
+add_definitions(-pthread)
+
+INCLUDE (CheckIncludeFiles)
+CHECK_INCLUDE_FILES(dlfcn.h HAVE_DLFCN_H)
+CHECK_INCLUDE_FILES(inttypes.h HAVE_INTTYPES_H)
+CHECK_INCLUDE_FILES(stdint.h HAVE_STDINT_H)
+CHECK_INCLUDE_FILES(stdio.h HAVE_STDIO_H)
+CHECK_INCLUDE_FILES(stdlib.h HAVE_STDLIB_H)
+CHECK_INCLUDE_FILES(strings.h HAVE_STRINGS_H)
+CHECK_INCLUDE_FILES(string.h HAVE_STRING_H)
+CHECK_INCLUDE_FILES(sys/stat.h HAVE_SYS_STAT_H)
+CHECK_INCLUDE_FILES(sys/types.h HAVE_SYS_TYPES_H)
+CHECK_INCLUDE_FILES(unistd.h HAVE_UNISTD_H)
 #CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/config.h.in ${CMAKE_SOURCE_DIR}/config.h)
+endif()
 
 # Call cmake with-DHAVE_SSL=ON to compile with SSL
 option(HAVE_SSL "Build with SSL option")

@@ -31,8 +31,6 @@
  * SUCH DAMAGE.
  */
  
-extern "C" {
-
 #if defined(LIBC_SCCS) && !defined(lint)
 #if 0
 static char sccsid[] = "@(#)getopt.c	8.3 (Berkeley) 4/27/95";
@@ -60,9 +58,9 @@ char	*optarg;		/* argument associated with option */
  */
 int
 getopt(int nargc, char * const *nargv, char * ostr)
-	/*int nargc;
+  /*int nargc;
 	char * const *nargv;
-	const char *ostr;*/
+  const char *ostr;*/
 {
 	extern char *__progname;
 	static char *place = EMSG;		/* option letter processing */
@@ -119,6 +117,4 @@ getopt(int nargc, char * const *nargv, char * ostr)
 		++optind;
 	}
 	return (optopt);			/* dump back option letter */
-}
-
 }
