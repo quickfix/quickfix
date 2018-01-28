@@ -21,8 +21,6 @@ endif()
 
 # TODO - config, allocator, mysql etc
 if(NOT WIN32)
-add_definitions(-pthread)
-
 INCLUDE (CheckIncludeFiles)
 CHECK_INCLUDE_FILES(dlfcn.h HAVE_DLFCN_H)
 CHECK_INCLUDE_FILES(inttypes.h HAVE_INTTYPES_H)

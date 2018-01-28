@@ -74,6 +74,9 @@ typedef int ssize_t;
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
+#if defined(__SUNPRO_CC)
+#include <sys/filio.h>
+#endif
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <netinet/in.h>
