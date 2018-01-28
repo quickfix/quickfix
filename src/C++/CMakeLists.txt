@@ -72,11 +72,7 @@ target_include_directories(quickfix PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_D
 
 set_target_properties(quickfix PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
-if (HAVE_SSL)
-set(quickfix_SSL_LIBS ssl crypto)
-endif()
-
-target_link_libraries(quickfix ${quickfix_SSL_LIBS})
+target_link_libraries(quickfix ${OPENSSL_LIBRARIES})
 
 install(TARGETS quickfix DESTINATION lib)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/C++/ DESTINATION include/quickfix
