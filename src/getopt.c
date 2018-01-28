@@ -30,6 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
+ 
+extern "C" {
 
 #if defined(LIBC_SCCS) && !defined(lint)
 #if 0
@@ -57,10 +59,10 @@ char	*optarg;		/* argument associated with option */
  *	Parse argc/argv argument vector.
  */
 int
-getopt(nargc, nargv, ostr)
-	int nargc;
+getopt(int nargc, char * const *nargv, char * ostr)
+	/*int nargc;
 	char * const *nargv;
-	const char *ostr;
+	const char *ostr;*/
 {
 	extern char *__progname;
 	static char *place = EMSG;		/* option letter processing */
@@ -117,4 +119,6 @@ getopt(nargc, nargv, ostr)
 		++optind;
 	}
 	return (optopt);			/* dump back option letter */
+}
+
 }

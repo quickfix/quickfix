@@ -23,14 +23,14 @@
 #include "config.h"
 #endif
 
-#include "quickfix/FileStore.h"
-#include "quickfix/SocketAcceptor.h"
+#include "FileStore.h"
+#include "SocketAcceptor.h"
 #ifdef HAVE_SSL
-#include "quickfix/ThreadedSSLSocketAcceptor.h"
-#include "quickfix/SSLSocketAcceptor.h"
+#include "ThreadedSSLSocketAcceptor.h"
+#include "SSLSocketAcceptor.h"
 #endif
-#include "quickfix/Log.h"
-#include "quickfix/SessionSettings.h"
+#include "Log.h"
+#include "SessionSettings.h"
 #include "Application.h"
 #include <string>
 #include <iostream>

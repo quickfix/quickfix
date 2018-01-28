@@ -22,18 +22,18 @@
 #ifndef EXECUTOR_APPLICATION_H
 #define EXECUTOR_APPLICATION_H
 
-#include "quickfix/Application.h"
-#include "quickfix/MessageCracker.h"
-#include "quickfix/Values.h"
-#include "quickfix/Utility.h"
-#include "quickfix/Mutex.h"
+#include "Application.h"
+#include "MessageCracker.h"
+#include "Values.h"
+#include "Utility.h"
+#include "Mutex.h"
 
-#include "quickfix/fix40/NewOrderSingle.h"
-#include "quickfix/fix41/NewOrderSingle.h"
-#include "quickfix/fix42/NewOrderSingle.h"
-#include "quickfix/fix43/NewOrderSingle.h"
-#include "quickfix/fix44/NewOrderSingle.h"
-#include "quickfix/fix50/NewOrderSingle.h"
+#include "fix40/NewOrderSingle.h"
+#include "fix41/NewOrderSingle.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix43/NewOrderSingle.h"
+#include "fix44/NewOrderSingle.h"
+#include "fix50/NewOrderSingle.h"
 
 class Application
 : public FIX::Application, public FIX::MessageCracker
