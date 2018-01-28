@@ -46,6 +46,9 @@ endif()
 
 add_subdirectory(src)
 add_subdirectory(examples)
+if( WIN32)
+add_subdirectory(test)
+endif()
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/spec/ DESTINATION share/quickfix
   FILES_MATCHING PATTERN "FIX*.xml")
