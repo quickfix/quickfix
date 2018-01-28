@@ -17,14 +17,46 @@ else()
 target_link_libraries(at quickfix pthread)
 endif()
 
-
-if (WIN32)
-set (ut_SOURCES ${CMAKE_SOURCE_DIR}/src/C++/test/TestHelper.cpp)
-endif()
-
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(at_target ALL
                   COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:at> ${CMAKE_SOURCE_DIR}/test/at)
+endif()
+
+
+if (WIN32)
+set (ut_SOURCES 
+${CMAKE_SOURCE_DIR}/src/C++/test/DataDictionaryTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/DictionaryTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FieldBaseTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FieldConvertorsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FileLogTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FileStoreFactoryTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FileStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FileUtilitiesTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/GroupTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/HttpMessageTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/HttpParserTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/MemoryStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/MessageSortersTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/MessagesTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/MySQLStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/NullStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/OdbcStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/ParserTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/PostgreSQLStoreTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SessionFactoryTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SessionIDTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SessionSettingsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SessionTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SettingsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SocketAcceptorTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SocketConnectorTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SocketServerTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/StringUtilitiesTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/TestHelper.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/TimeRangeTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeOnlyTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeStampTestCase.cpp)
 endif()
 
 add_executable(ut ut.cpp getopt.c ${ut_SOURCES})
