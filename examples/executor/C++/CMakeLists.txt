@@ -1,6 +1,5 @@
 if (HAVE_SSL AND WIN32)
 set(applink_SOURCE ${OPENSSL_INCLUDE_DIR}/openssl/applink.c)
-SET_SOURCE_FILES_PROPERTIES( ${applink_SOURCE} PROPERTIES LANGUAGE CXX )
 endif()
 
 add_executable(executor Application.cpp executor.cpp ${applink_SOURCE})

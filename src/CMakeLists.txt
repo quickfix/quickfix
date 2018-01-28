@@ -2,10 +2,6 @@ add_subdirectory(C++)
 
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
 
-if (WIN32)
-SET_SOURCE_FILES_PROPERTIES( getopt.c PROPERTIES LANGUAGE CXX )
-endif()
-
 add_executable(at at.cpp getopt.c)
 
 target_include_directories(at PRIVATE ${CMAKE_SOURCE_DIR} 
