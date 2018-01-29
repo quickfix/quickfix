@@ -63,18 +63,19 @@ if (HAVE_SSL)
 endif()
 
 if (WIN32)
-  add_library(quickfix STATIC  ${quickfix_SOURCES})
+  add_library(${PROJECT_NAME} STATIC  ${quickfix_SOURCES})
 else()
-  add_library(quickfix SHARED  ${quickfix_SOURCES})
+  add_library(${PROJECT_NAME} SHARED  ${quickfix_SOURCES})
+  set(quickfix_PTHREAD pthread)
 endif()
 
-target_include_directories(quickfix PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/src/C++)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/src/C++)
 
-set_target_properties(quickfix PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
-target_link_libraries(quickfix ${OPENSSL_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES} ${MYSQL_CLIENT_LIBS} ${quickfix_PTHREAD})
 
-install(TARGETS quickfix DESTINATION lib)
+install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/C++/ DESTINATION include/quickfix
         FILES_MATCHING PATTERN "*.h"
         PATTERN double-conversion EXCLUDE

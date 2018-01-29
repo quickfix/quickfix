@@ -8,9 +8,9 @@ target_include_directories(at PRIVATE ${CMAKE_SOURCE_DIR}
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
   
 if (WIN32)
-target_link_libraries(at quickfix Ws2_32)
+target_link_libraries(at ${PROJECT_NAME} Ws2_32)
 else()
-target_link_libraries(at quickfix pthread)
+target_link_libraries(at ${PROJECT_NAME})
 endif()
 
 if (NOT WIN32)
@@ -61,9 +61,9 @@ target_include_directories(ut PRIVATE ${CMAKE_SOURCE_DIR}
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src ${CMAKE_SOURCE_DIR}/src/C++/test/)
   
 if (WIN32)
-target_link_libraries(ut quickfix UnitTest++ Ws2_32)
+target_link_libraries(ut ${PROJECT_NAME} UnitTest++ Ws2_32)
 else()
-target_link_libraries(ut quickfix UnitTest++ pthread)
+target_link_libraries(ut ${PROJECT_NAME} UnitTest++ pthread)
 endif()
 
 if (NOT WIN32)
@@ -77,9 +77,9 @@ target_include_directories(pt PRIVATE ${CMAKE_SOURCE_DIR}
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
   
 if (WIN32)
-target_link_libraries(pt quickfix Ws2_32)
+target_link_libraries(pt ${PROJECT_NAME} Ws2_32)
 else()
-target_link_libraries(pt quickfix pthread)
+target_link_libraries(pt ${PROJECT_NAME} pthread)
 endif()
 
 if (NOT WIN32)

@@ -7,9 +7,9 @@ target_include_directories(ordermatch_ut PRIVATE
 
 
 if (WIN32)
-target_link_libraries(ordermatch_ut quickfix UnitTest++)
+target_link_libraries(ordermatch_ut ${PROJECT_NAME} UnitTest++)
 else()
-target_link_libraries(ordermatch_ut quickfix UnitTest++ pthread)
+target_link_libraries(ordermatch_ut ${PROJECT_NAME} UnitTest++)
 endif()
 
 

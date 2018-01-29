@@ -8,9 +8,9 @@ target_include_directories(ordermatch PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAK
 
 
 if (WIN32)
-target_link_libraries(ordermatch quickfix Ws2_32)
+target_link_libraries(ordermatch ${PROJECT_NAME} Ws2_32)
 else()
-target_link_libraries(ordermatch quickfix pthread)
+target_link_libraries(ordermatch ${PROJECT_NAME})
 endif()
 
 if (NOT WIN32)

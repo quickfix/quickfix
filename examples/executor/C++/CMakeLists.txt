@@ -7,9 +7,9 @@ add_executable(executor Application.cpp executor.cpp ${applink_SOURCE})
 target_include_directories(executor PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
 
 if (WIN32)
-target_link_libraries(executor quickfix Ws2_32)
+target_link_libraries(executor ${PROJECT_NAME} Ws2_32)
 else()
-target_link_libraries(executor quickfix pthread)
+target_link_libraries(executor ${PROJECT_NAME})
 endif()
 
 if (NOT WIN32)

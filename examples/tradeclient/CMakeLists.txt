@@ -8,9 +8,9 @@ target_include_directories(tradeclient PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMA
 
 
 if (WIN32)
-target_link_libraries(tradeclient quickfix Ws2_32)
+target_link_libraries(tradeclient ${PROJECT_NAME} Ws2_32)
 else()
-target_link_libraries(tradeclient quickfix pthread)
+target_link_libraries(tradeclient ${PROJECT_NAME})
 endif()
 
 if (NOT WIN32)
