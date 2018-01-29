@@ -58,6 +58,7 @@ endif()
 option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
+option(HAVE_EMX "Build with EMX")
 
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
@@ -87,6 +88,11 @@ find_package(PostgreSQL REQUIRED)
 
 message("-- Building with POSTGRESQL")
 add_definitions("-DHAVE_POSTGRESQL=1")
+endif()
+
+if(HAVE_EMX)
+message("-- Building with EMX")
+add_definitions("-DHAVE_EMX=1")
 endif()
 
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )

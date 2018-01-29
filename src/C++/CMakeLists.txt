@@ -64,6 +64,7 @@ endif()
 
 if (WIN32)
   add_library(${PROJECT_NAME} STATIC  ${quickfix_SOURCES})
+  set_target_properties (${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 else()
   add_library(${PROJECT_NAME} SHARED  ${quickfix_SOURCES})
   set(quickfix_PTHREAD pthread)
