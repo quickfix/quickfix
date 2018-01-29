@@ -16,7 +16,12 @@ endif()
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(at_target ALL
                   COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:at> ${CMAKE_SOURCE_DIR}/test/at)
-endif()
+else()
+set_target_properties(at PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/test/debug/at/
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/test/release/at/
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_SOURCE_DIR}/test/release/at/)
+endif()  
 
 
 if (WIN32)
@@ -69,7 +74,12 @@ endif()
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(ut_target ALL
                   COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:ut> ${CMAKE_SOURCE_DIR}/test/ut)
-endif()
+else()
+set_target_properties(ut PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/test/debug/ut/
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/test/release/ut/
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_SOURCE_DIR}/test/release/ut/)
+endif()  
 
 add_executable(pt pt.cpp getopt.c)
 
@@ -85,6 +95,11 @@ endif()
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(pt_target ALL
                   COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:pt> ${CMAKE_SOURCE_DIR}/test/pt)
-endif()      
+else()
+set_target_properties(pt PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/test/debug/pt/
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/test/release/pt/
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_SOURCE_DIR}/test/release/pt/)
+endif()  
 
-endif()            
+endif()

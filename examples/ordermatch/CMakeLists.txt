@@ -16,7 +16,12 @@ endif()
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(ordermatch_target ALL
                   COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:ordermatch> ${CMAKE_SOURCE_DIR}/bin/ordermatch)
-endif()                  
+else()
+set_target_properties(ordermatch PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/bin/debug/ordermatch/
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/release/ordermatch/
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_SOURCE_DIR}/bin/release/ordermatch/)
+endif()                   
 
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
 add_subdirectory(test)
