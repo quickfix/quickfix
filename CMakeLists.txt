@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-project(quickfix VERSION 0.1 LANGUAGES CXX C)
+option(HAVE_EMX "Build with EMX")
+
+if(HAVE_EMX)
+message("-- Building with EMX")
+add_definitions("-DHAVE_EMX=1")
+set (quickfix_PROJECT_NAME quickfix-emx)
+else()
+set (quickfix_PROJECT_NAME quickfix)
+endif()
+
+project(${quickfix_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX C)
+message("-- Project name ${CMAKE_PROJECT_NAME}")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -14,8 +25,9 @@ add_compile_options(-q64 -qthreaded)
 add_definitions(-D_THREAD_SAFE=1 -D__IBMCPP_TR1__=1)
 endif()
 
-#SunOS can try
+#SunOS can do something like
 #CC=cc CXX=CC cmake .. -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH=install-path -DOPENSSL_ROOT_DIR=path -DOPENSSL_LIBRARIES=path
+#If the linker complains about not finding ssl libs, try setting the LD_LIBRARY_PATH.
 if( ${CMAKE_SYSTEM_NAME} STREQUAL "SunOS" )
 add_compile_options(-m64)
 set( CMAKE_EXE_LINKER_FLAGS "-m64 -lrt" CACHE STRING "Executable link flags" FORCE )
@@ -58,7 +70,6 @@ endif()
 option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
-option(HAVE_EMX "Build with EMX")
 
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
@@ -78,6 +89,7 @@ endif()
 
 if(HAVE_MYSQL)
 find_package(MySQL REQUIRED)
+include_directories(${MYSQL_INCLUDE_DIR})
 
 message("-- Building with MySQL")
 add_definitions("-DHAVE_MYSQL=1")
@@ -85,14 +97,10 @@ endif()
 
 if(HAVE_POSTGRESQL)
 find_package(PostgreSQL REQUIRED)
+include_directories(${PostgreSQL_INCLUDE_DIRS})
 
 message("-- Building with POSTGRESQL")
 add_definitions("-DHAVE_POSTGRESQL=1")
-endif()
-
-if(HAVE_EMX)
-message("-- Building with EMX")
-add_definitions("-DHAVE_EMX=1")
 endif()
 
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )

@@ -11,11 +11,7 @@ add_executable(${executor_NAME} Application.cpp executor.cpp ${applink_SOURCE})
 
 target_include_directories(${executor_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
 
-if (WIN32)
-target_link_libraries(${executor_NAME} ${PROJECT_NAME} Ws2_32)
-else()
 target_link_libraries(${executor_NAME} ${PROJECT_NAME})
-endif()
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(${executor_NAME}_target ALL

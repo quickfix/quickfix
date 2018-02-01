@@ -35,17 +35,17 @@ For example on Windows,
 
 mkdir build
 cd build
-cmake  -DHAVE_SSL=ON -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX:PATH=C:\github\test\quickfix\install-cmake -DOPENSSL_ROOT_DIR="path to openssl" ..
+cmake  -DHAVE_SSL=ON -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX:PATH="install-path" -DOPENSSL_ROOT_DIR="path to openssl" ..
 Then build in Visual Studio or on command prompt.
 
 
 On Linux (with system openssl),
 
-cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH=/home/nkoak/swissrisk/github/quickfix-stuff/quickfix/install-cmake ..
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH="install-path" ..
 make -j 4 install
 
 
 If one has Ninja then (with system openssl),
 
-cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH=/home/nkoak/swissrisk/github/quickfix-stuff/quickfix/install-cmake ..
+cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH="install-path" ..
 ninja install

@@ -7,11 +7,7 @@ add_executable(at at.cpp getopt.c)
 target_include_directories(at PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
   
-if (WIN32)
-target_link_libraries(at ${PROJECT_NAME} Ws2_32)
-else()
 target_link_libraries(at ${PROJECT_NAME})
-endif()
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(at_target ALL
@@ -65,11 +61,7 @@ add_executable(ut ut.cpp getopt.c ${ut_SOURCES})
 target_include_directories(ut PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src ${CMAKE_SOURCE_DIR}/src/C++/test/)
   
-if (WIN32)
-target_link_libraries(ut ${PROJECT_NAME} UnitTest++ Ws2_32)
-else()
-target_link_libraries(ut ${PROJECT_NAME} UnitTest++ pthread)
-endif()
+target_link_libraries(ut ${PROJECT_NAME} UnitTest++)
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(ut_target ALL
@@ -86,11 +78,7 @@ add_executable(pt pt.cpp getopt.c)
 target_include_directories(pt PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
   
-if (WIN32)
-target_link_libraries(pt ${PROJECT_NAME} Ws2_32)
-else()
-target_link_libraries(pt ${PROJECT_NAME} pthread)
-endif()
+target_link_libraries(pt ${PROJECT_NAME})
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(pt_target ALL

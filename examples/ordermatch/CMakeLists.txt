@@ -7,11 +7,7 @@ add_executable(ordermatch Application.cpp Market.cpp ordermatch.cpp ${applink_SO
 target_include_directories(ordermatch PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
 
 
-if (WIN32)
-target_link_libraries(ordermatch ${PROJECT_NAME} Ws2_32)
-else()
 target_link_libraries(ordermatch ${PROJECT_NAME})
-endif()
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(ordermatch_target ALL
