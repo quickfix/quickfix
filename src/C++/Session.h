@@ -328,7 +328,6 @@ private:
   static SessionIDs s_sessionIDs;
   static Sessions s_registered;
   static Mutex s_mutex;
-
 };
 }
 

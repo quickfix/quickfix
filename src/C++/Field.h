@@ -430,31 +430,64 @@ public:
 };
 
 /// Field that contains a UTC time stamp value
-class UtcTimeStampField : public FieldBase
-{
-public:
-  explicit UtcTimeStampField( int field, const UtcTimeStamp& data, bool showMilliseconds = false )
-: FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) ) {}
-  UtcTimeStampField( int field, bool showMilliseconds = false )
-: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) ) {}
+  class UtcTimeStampField : public FieldBase
+  {
+  public:
+    explicit UtcTimeStampField( int field, const UtcTimeStamp& data, bool showMilliseconds = false )
+        : FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) )
+    {
+      // Nothing here...
+    }
 
-  void setValue( const UtcTimeStamp& value )
-    { setString( UtcTimeStampConvertor::convert( value ) ); }
-  UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
-    { try
-      { return UtcTimeStampConvertor::convert( getString() ); }
-      catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getTag(), getString() ); } }
-  operator UtcTimeStamp() const
-    { return getValue(); }
+    explicit UtcTimeStampField( int field, const UtcTimeStamp& data, PRECISION precision )
+        : FieldBase( field, UtcTimeStampConvertor::convertWithPrecision( data, precision ) )
+    {
+      // Nothing here...
+    }
 
-  bool operator<( const UtcTimeStampField& rhs ) const
-    { return getValue() < rhs.getValue(); }
-  bool operator==( const UtcTimeStampField& rhs ) const
-    { return getValue() == rhs.getValue(); }
-  bool operator!=( const UtcTimeStampField& rhs ) const
-    { return getValue() != rhs.getValue(); }
-};
+    UtcTimeStampField( int field, bool showMilliseconds = false )
+        : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) )
+    {
+      // Nothing here...
+    }
+
+
+    void setValue( const UtcTimeStamp& value )
+    {
+      setString( UtcTimeStampConvertor::convert( value ) );
+    }
+
+    UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
+    {
+      try {
+        return UtcTimeStampConvertor::convert( getString() );
+      }
+      catch( FieldConvertError& ) {
+        throw IncorrectDataFormat( getTag(), getString() );
+      }
+
+    }
+
+    operator UtcTimeStamp() const
+    {
+      return getValue();
+    }
+
+    bool operator<( const UtcTimeStampField& rhs ) const
+    {
+      return getValue() < rhs.getValue();
+    }
+
+    bool operator==( const UtcTimeStampField& rhs ) const
+    {
+      return getValue() == rhs.getValue();
+    }
+
+    bool operator!=( const UtcTimeStampField& rhs ) const
+    {
+      return getValue() != rhs.getValue();
+    }
+  };
 
 /// Field that contains a UTC date value
 class UtcDateField : public FieldBase
@@ -573,6 +606,7 @@ NAME() : TOK##Field(NUM, false) {} \
 NAME(bool showMilliseconds) : TOK##Field(NUM, showMilliseconds) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 NAME(const TYPE& value, bool showMilliseconds) : TOK##Field(NUM, value, showMilliseconds) {} \
+NAME(const TYPE& value, PRECISION precision) : TOK##Field(NUM, value, precision) {} \
 }
 
 #define DEFINE_FIELD_TIMECLASS( NAME, TOK, TYPE ) \
