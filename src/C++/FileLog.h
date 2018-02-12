@@ -80,9 +80,9 @@ public:
   void backup();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp, m_microsecondsInTimeStamp) << " : " << value << std::endl; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp, m_microsecondsInTimeStamp) << " : " << value << std::endl; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
@@ -95,6 +95,11 @@ public:
   void setMillisecondsInTimeStamp ( bool value )
   { m_millisecondsInTimeStamp = value; }
 
+  bool getMicrosecondsInTimeStamp() const
+  { return m_microsecondsInTimeStamp; }
+  void setMicrosecondsInTimeStamp ( bool value )
+  { m_microsecondsInTimeStamp = value; }
+
 private:
   std::string generatePrefix( const SessionID& sessionID );
   void init( std::string path, std::string backupPath, const std::string& prefix );
@@ -106,6 +111,7 @@ private:
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
   bool m_millisecondsInTimeStamp;
+  bool m_microsecondsInTimeStamp;
 };
 }
 

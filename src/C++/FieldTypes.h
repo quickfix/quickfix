@@ -51,6 +51,7 @@ struct DateTime
 {
   int m_date;
   int m_time;
+  int m_micros;
 
   /// Magic numbers
   enum 
@@ -73,14 +74,15 @@ struct DateTime
   DateTime () : m_date (0), m_time (0) {}
 
   /// Construct from a Julian day number and time in millis
-  DateTime (int date, int time) : m_date (date), m_time (time) {}
+  DateTime (int date, int time) : m_date (date), m_time (time), m_micros(0) {}
 
   /// Construct from the specified components
   DateTime( int year, int month, int day,
-            int hour, int minute, int second, int millis ) 
+            int hour, int minute, int second, int millis, int micros ) 
   {
     m_date = julianDate( year, month, day );
     m_time = makeHMS( hour, minute, second, millis );
+    m_micros = micros;
   }
 
   virtual ~DateTime() {}
@@ -140,6 +142,12 @@ struct DateTime
     return m_time % MILLIS_PER_SEC;
   }
 
+  /// Return the microsecond portion of the time
+  inline int getMicrosecond() const 
+  {
+    return m_micros;
+  }
+
   /// Load the referenced values with the year, month and day
   /// portions of the date in a single operation
   inline void getYMD (int& year, int& month, int& day) const 
@@ -149,13 +157,14 @@ struct DateTime
 
   /// Load the referenced values with the hour, minute, second and
   /// millisecond portions of the time in a single operation
-  inline void getHMS( int& hour, int& minute, int& second, int& millis ) const 
+  inline void getHMS( int& hour, int& minute, int& second, int& millis, int& micros ) const
   {
     int ticks = m_time / MILLIS_PER_SEC;
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
     millis = m_time % MILLIS_PER_SEC;
+    micros = m_micros;
   }
 
   /// Calculate the weekday of the date (Sunday is 1, Saturday is 7)
@@ -184,11 +193,11 @@ struct DateTime
   tm getTmUtc() const 
   {
     int year, month, day;
-    int hour, minute, second, millis;
+    int hour, minute, second, millis, micros;
     tm result = { 0 };
 
     getYMD( year, month, day );
-    getHMS( hour, minute, second, millis );
+    getHMS( hour, minute, second, millis, micros );
 
     result.tm_year = year - 1900;
     result.tm_mon = month - 1;
@@ -216,33 +225,38 @@ struct DateTime
   /// Set the hour portion of the time
   void setHour( int hour )
   {
-    int old_hour, min, sec, millis;
-    getHMS( old_hour, min, sec, millis );
+    int old_hour, min, sec, millis, micros;
+    getHMS( old_hour, min, sec, millis, micros );
     setHMS( hour, min, sec, millis );
   }
 
   /// Set the minute portion of the time
   void setMinute( int min )
   {
-    int hour, old_min, sec, millis;
-    getHMS( hour, old_min, sec, millis );
+    int hour, old_min, sec, millis, micros;
+    getHMS( hour, old_min, sec, millis, micros );
     setHMS( hour, min, sec, millis );
   }
 
   /// Set the seconds portion of the time
   void setSecond( int sec )
   {
-    int hour, min, old_sec, millis;
-    getHMS( hour, min, old_sec, millis );
+    int hour, min, old_sec, millis, micros;
+    getHMS( hour, min, old_sec, millis, micros );
     setHMS( hour, min, sec, millis );
   }
 
   /// Set the millisecond portion of the time
   void setMillisecond( int millis )
   {
-    int hour, min, sec, old_millis;
-    getHMS( hour, min, sec, old_millis );
+    int hour, min, sec, old_millis, micros;
+    getHMS( hour, min, sec, old_millis, micros );
     setHMS( hour, min, sec, millis );
+  }
+
+  void setMicrosecond( int micros )
+  {
+      m_micros = micros;
   }
 
   /// Clear the date portion of the DateTime
@@ -412,11 +426,15 @@ public:
 
   UtcTimeStamp( int hour, int minute, int second,
                 int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, 0 ) {}
+  : DateTime( year, month, date, hour, minute, second, 0, 0 ) {}
 
   UtcTimeStamp( int hour, int minute, int second, int millisecond,
                 int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, millisecond ) {}
+      : DateTime( year, month, date, hour, minute, second, millisecond, 0 ) {}
+
+  UtcTimeStamp( int hour, int minute, int second, int millisecond, int micros,
+                int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, millisecond, micros ) {}
 
   explicit UtcTimeStamp( time_t time, int millisecond = 0 )
   : DateTime( fromUtcTimeT (time, millisecond) ) {}
@@ -446,12 +464,16 @@ public:
   }
 
   LocalTimeStamp( int hour, int minute, int second,
-                int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, 0 ) {}
+                  int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, 0, 0 ) {}
 
   LocalTimeStamp( int hour, int minute, int second, int millisecond,
-                int date, int month, int year )
-  : DateTime( year, month, date, hour, minute, second, millisecond ) {}
+                  int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, millisecond, 0 ) {}
+
+  LocalTimeStamp( int hour, int minute, int second, int millisecond, int microsecond,
+                  int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, millisecond, microsecond ) {}
 
   explicit LocalTimeStamp( time_t time, int millisecond = 0 )
   : DateTime( fromLocalTimeT (time, millisecond) ) {}
@@ -481,9 +503,10 @@ public:
     clearDate();
   }
 
-  UtcTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  UtcTimeOnly( int hour, int minute, int second, int millisecond = 0, int microsecond = 0 )
   {
     setHMS( hour, minute, second, millisecond );
+    m_micros = microsecond;
   }
 
   explicit UtcTimeOnly( time_t time, int millisecond = 0 )
@@ -522,9 +545,10 @@ public:
     clearDate();
   }
 
-  LocalTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  LocalTimeOnly( int hour, int minute, int second, int millisecond = 0, int microsecond = 0 )
   {
     setHMS( hour, minute, second, millisecond );
+    m_micros = microsecond;
   }
 
   explicit LocalTimeOnly( time_t time, int millisecond = 0 )
@@ -564,7 +588,7 @@ public:
   }
 
   UtcDate( int date, int month, int year )
-  : DateTime(year, month, date, 0, 0, 0, 0) {}
+  : DateTime(year, month, date, 0, 0, 0, 0, 0) {}
 
   UtcDate( int sec )
   : DateTime( sec / DateTime::SECONDS_PER_DAY, 0 ) {}
@@ -600,7 +624,7 @@ public:
   }
 
   LocalDate( int date, int month, int year )
-  : DateTime(year, month, date, 0, 0, 0, 0) {}
+      : DateTime(year, month, date, 0, 0, 0, 0, 0) {}
 
   LocalDate( int sec )
   : DateTime( sec / DateTime::SECONDS_PER_DAY, 0 ) {}

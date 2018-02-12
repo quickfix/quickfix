@@ -511,6 +511,11 @@ void HttpConnection::processSession
       pSession->setMillisecondsInTimeStamp( copy.getParameter(MILLISECONDS_IN_TIMESTAMP) != "0" );
       copy.removeParameter(MILLISECONDS_IN_TIMESTAMP);
     }
+    if( copy.hasParameter(MICROSECONDS_IN_TIMESTAMP) )
+    {
+      pSession->setMicrosecondsInTimeStamp( copy.getParameter(MICROSECONDS_IN_TIMESTAMP) != "0" );
+      copy.removeParameter(MICROSECONDS_IN_TIMESTAMP);
+    }
     if( copy.hasParameter(PERSIST_MESSAGES) )
     {
       pSession->setPersistMessages( copy.getParameter(PERSIST_MESSAGES) != "0" );

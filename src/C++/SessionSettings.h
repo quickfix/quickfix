@@ -124,6 +124,7 @@ const char RESET_ON_LOGOUT[] = "ResetOnLogout";
 const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
 const char REFRESH_ON_LOGON[] = "RefreshOnLogon";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
+const char MICROSECONDS_IN_TIMESTAMP[] = "MicrosecondsInTimeStamp";
 const char HTTP_ACCEPT_PORT[] = "HttpAcceptPort";
 const char PERSIST_MESSAGES[] = "PersistMessages";
 

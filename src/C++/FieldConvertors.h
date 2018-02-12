@@ -431,15 +431,16 @@ struct BoolConvertor
 struct UtcTimeStampConvertor
 {
   static std::string convert( const UtcTimeStamp& value,
-                              bool showMilliseconds = false )
+                              bool showMilliseconds = false,
+                              bool showMicroseconds = false)
   throw( FieldConvertError )
   {
-    int year, month, day, hour, minute, second, millis;
+    int year, month, day, hour, minute, second, millis, micros;
 
     value.getYMD( year, month, day );
-    value.getHMS( hour, minute, second, millis );
+    value.getHMS( hour, minute, second, millis, micros );
 
-    char result[ 17+4 ];
+    char result[ 17+4+3 ];
 
     integer_to_string_padded( result, 4, year );
     integer_to_string_padded( result + 4, 2, month );
@@ -461,7 +462,17 @@ struct UtcTimeStampConvertor
       }
     }
 
-    return std::string( result, showMilliseconds ? sizeof( result ) : 17 );
+    if( showMicroseconds )
+    {
+      if( integer_to_string_padded ( result + 21, 3, micros )
+          != result + 21 )
+      {
+        throw FieldConvertError();
+      }
+    }
+
+    size_t length = showMicroseconds ? sizeof( result ) : showMicroseconds ? 21 : 17;
+    return std::string( result, length );
   }
 
   static UtcTimeStamp convert( const std::string& value,
@@ -469,9 +480,11 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     bool haveMilliseconds = false;
+    bool haveMicroseconds = false;
 
     switch( value.size() )
     {
+      case 24: haveMicroseconds = haveMilliseconds = true;
       case 21: haveMilliseconds = true;
       case 17: break;
       default: throw FieldConvertError(value);
@@ -498,7 +511,13 @@ struct UtcTimeStampConvertor
         if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
     }
 
-    int year, mon, mday, hour, min, sec, millis;
+    if( haveMicroseconds )
+    {
+        for( c = 0; c < 3; ++c )
+          if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
+    }
+
+    int year, mon, mday, hour, min, sec, millis, micros;
 
     i = 0;
 
@@ -546,7 +565,17 @@ struct UtcTimeStampConvertor
     else
       millis = 0;
 
-    return UtcTimeStamp (hour, min, sec, millis,
+    if( haveMicroseconds )
+    {
+      i += 3;
+      micros = (100000 * (value[i+1] - '0')
+                + 10000 * (value[i+2] - '0')
+                + 1000 * (value[i+3] - '0'));
+    }
+    else
+      micros = 0;
+
+    return UtcTimeStamp (hour, min, sec, millis, micros,
                          mday, mon, year);
   }
 };
@@ -555,13 +584,14 @@ struct UtcTimeStampConvertor
 struct UtcTimeOnlyConvertor
 {
   static std::string convert( const UtcTimeOnly& value,
-                              bool showMilliseconds = false)
+                              bool showMilliseconds = false,
+                              bool showMicroseconds = false)
   throw( FieldConvertError )
   {
-    int hour, minute, second, millis;
-    value.getHMS( hour, minute, second, millis );
+    int hour, minute, second, millis, micros;
+    value.getHMS( hour, minute, second, millis, micros );
 
-    char result[ 8+4 ];
+    char result[ 8+4+3 ];
 
     integer_to_string_padded ( result, 2, hour );
     result[2] = ':';
@@ -577,16 +607,26 @@ struct UtcTimeOnlyConvertor
           throw FieldConvertError();
     }
 
-    return std::string( result, showMilliseconds ? sizeof( result ) : 8 );
+    if( showMicroseconds )
+    {
+      if( integer_to_string_padded ( result + 13, 3, millis )
+          != result + 13 )
+          throw FieldConvertError();
+    }
+
+    size_t length = showMicroseconds ? sizeof( result ) : showMicroseconds ? 12 : 8;
+    return std::string( result, length );
   }
 
   static UtcTimeOnly convert( const std::string& value )
   throw( FieldConvertError )
   {
     bool haveMilliseconds = false;
+    bool haveMicroseconds = false;
 
     switch( value.size() )
     {
+      case 15: haveMicroseconds = haveMilliseconds = true;
       case 12: haveMilliseconds = true;
       case 8: break;
       default: throw FieldConvertError(value);
@@ -610,7 +650,13 @@ struct UtcTimeOnlyConvertor
         if( !IS_DIGIT(value[++i]) ) throw FieldConvertError(value);
     }
 
-    int hour, min, sec, millis;
+    if( haveMicroseconds )
+    {
+      for( c = 0; c < 3; ++c )
+        if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
+    }
+
+    int hour, min, sec, millis, micros;
  
     i = 0;
 
@@ -640,7 +686,17 @@ struct UtcTimeOnlyConvertor
     else
       millis = 0;
 
-    return UtcTimeOnly( hour, min, sec, millis );
+    if( haveMicroseconds )
+    {
+      i += 3;
+      micros = (100000 * (value[i+1] - '0')
+                + 10000 * (value[i+2] - '0')
+                + 1000 * (value[i+3] - '0'));
+    }
+    else
+      micros = 0;
+
+    return UtcTimeOnly( hour, min, sec, millis, micros );
   }
 };
 

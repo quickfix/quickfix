@@ -184,6 +184,11 @@ public:
   void setMillisecondsInTimeStamp ( bool value )
     { m_millisecondsInTimeStamp = value; }
 
+  bool getMicrosecondsInTimeStamp()
+    { return m_microsecondsInTimeStamp; }
+  void setMicrosecondsInTimeStamp ( bool value )
+    { m_microsecondsInTimeStamp = value; }
+
   bool getPersistMessages()
     { return m_persistMessages; }
   void setPersistMessages ( bool value )
@@ -314,6 +319,7 @@ private:
   bool m_resetOnDisconnect;
   bool m_refreshOnLogon;
   bool m_millisecondsInTimeStamp;
+  bool m_microsecondsInTimeStamp;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
 
