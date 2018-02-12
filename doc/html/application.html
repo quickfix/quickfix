@@ -64,7 +64,7 @@ namespace FIX
       exchange or because of a forced termination or a loss of
       network connection.<br>
       <br>
-      <u><b>toAdmin</b></u> provides you with a peak at the
+      <u><b>toAdmin</b></u> provides you with a peek at the
       administrative messages that are being sent from your FIX
       engine to the counter party. This is normally not useful for
       an application however it is provided for any logging you may
@@ -73,7 +73,7 @@ namespace FIX
       it is sent out.<br>
       <br>
       <u><b>toApp</b></u> is a callback for application messages
-      that you are being sent to a counterparty. If you throw a
+      that are being sent to a counterparty. If you throw a
       <i>DoNotSend</i> exception in this function, the application
       will not send the message. This is mostly useful if the
       application has been asked to resend a message such as an
