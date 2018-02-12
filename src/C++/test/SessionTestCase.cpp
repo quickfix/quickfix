@@ -1227,9 +1227,9 @@ struct disconnectBeforeStartTimeFixture : public acceptorFixture
   disconnectBeforeStartTimeFixture()
   {
     startTime.setCurrent();
-    startTime += 100;
+    startTime += 100000000;
     endTime.setCurrent();
-    endTime += 400;
+    endTime += 400000000;
 
     acceptorFixture::createSession( 0 );
   }
