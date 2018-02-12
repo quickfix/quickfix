@@ -63,3 +63,5 @@ INSTALL
 core
 *.pyc
 \#*#
+*.log
+*.trs
