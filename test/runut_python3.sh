@@ -3,7 +3,7 @@
 DIR=`pwd`
 
 cd ../src/python
-./test-py3.sh
+./test-python3.sh
 RESULT=$?
 cd $DIR
 exit $RESULT

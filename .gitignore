@@ -54,8 +54,12 @@ test/ut_debug
 test/cfg
 test/store
 autom4te.cache/
-lib/python
+lib/python2
+lib/python3
 COPYING
 INSTALL
 *.db
 .vs
+core
+*.pyc
+\#*#
