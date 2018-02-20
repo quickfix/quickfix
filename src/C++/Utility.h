@@ -103,6 +103,9 @@ typedef int ssize_t;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
   #include <tr1/memory>
   namespace ptr = std::tr1;
+#elif defined(HAVE_BOOST_SHARED_PTR)
+  #include <boost/shared_ptr.hpp>
+  namespace ptr = boost;
 #else
   namespace ptr = std;
 #endif

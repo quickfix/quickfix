@@ -475,7 +475,7 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
   DOMNodePtr pComponentNode =
     pDoc->getNode("/fix/components/component[@name='" + name + "']");
   if(pComponentNode.get() == 0)
-    throw ConfigError("Component not found");
+    throw ConfigError("Component not found: " + name);
 
   DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
   while(pComponentFieldNode.get())
