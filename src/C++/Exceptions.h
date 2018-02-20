@@ -250,22 +250,20 @@ struct SocketException : public Exception
   SocketException( const std::string& what )
     : Exception( "Socket Error", what ) {}
 
-  std::string errorToWhat()
+  static std::string errorToWhat()
   {
 #ifdef _MSC_VER
-    error = WSAGetLastError();
+    int error = WSAGetLastError();
     char buffer[2048];
     FormatMessageA( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    buffer, 2048, NULL );
     return buffer;
 #else
-    error = errno;
+    int error = errno;
     return strerror( error );
 #endif
   }
-
-  int error;
 };
 
 /// Socket send operation failed
