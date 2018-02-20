@@ -479,8 +479,14 @@ bool Message::isHeaderField( int field )
 bool Message::isHeaderField( const FieldBase& field,
                              const DataDictionary* pD )
 {
-  if ( isHeaderField( field.getTag() ) ) return true;
-  if ( pD ) return pD->isHeaderField( field.getTag() );
+  return isHeaderField( field.getTag(), pD );
+}
+
+bool Message::isHeaderField( int field, 
+                             const DataDictionary * pD )
+{
+  if ( isHeaderField( field ) ) return true;
+  if ( pD ) return pD->isHeaderField( field );
   return false;
 }
 
@@ -500,8 +506,13 @@ bool Message::isTrailerField( int field )
 bool Message::isTrailerField( const FieldBase& field,
                               const DataDictionary* pD )
 {
-  if ( isTrailerField( field.getTag() ) ) return true;
-  if ( pD ) return pD->isTrailerField( field.getTag() );
+  return isTrailerField( field.getTag(), pD );
+}
+
+bool Message::isTrailerField( int field, const DataDictionary * pD )
+{
+  if ( isTrailerField( field ) ) return true;
+  if ( pD ) return pD->isTrailerField( field );
   return false;
 }
 
@@ -600,9 +611,9 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     const FieldMap * location = pGroup;
     if ( !location )
     {
-      if ( isHeaderField( lenField ) )
+      if ( isHeaderField( lenField, pSessionDD ) )
         location = &m_header;
-      else if ( isTrailerField( lenField ) )
+      else if ( isTrailerField( lenField, pSessionDD ) )
         location = &m_trailer;
       else
         location = this;
@@ -610,8 +621,8 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
 
     try
     {
-      const std::string& fieldLength = location->getField( lenField );
-      soh = valueStart + IntConvertor::convert( fieldLength );
+      const FieldBase& fieldLength = location->reverse_find( lenField );
+      soh = valueStart + IntConvertor::convert( fieldLength.getString() );
     }
     catch( FieldNotFound& )
     {
