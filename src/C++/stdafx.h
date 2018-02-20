@@ -11,6 +11,7 @@
 #endif // _MSC_VER > 1000
 
 #define WIN32_LEAN_AND_MEAN
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 #include <stdio.h>
 #include "../config_windows.h"
