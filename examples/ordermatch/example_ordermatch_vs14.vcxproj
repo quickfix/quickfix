@@ -137,7 +137,7 @@
     <ClInclude Include="OrderMatcher.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\C++\quickfix_vs12.vcxproj">
+    <ProjectReference Include="..\..\src\C++\quickfix_vs14.vcxproj">
       <Project>{d5d558ea-bbac-4862-a946-d3881bace3b7}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
