@@ -1,6 +1,6 @@
 #!/bin/sh
 
-killall ut at
+trap "trap - TERM && kill -- -$$" INT TERM KILL EXIT
 
 DIR=`pwd`
 
