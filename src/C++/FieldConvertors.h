@@ -795,7 +795,7 @@ struct UtcDateConvertor
     integer_to_string_padded( result, 4, year );
     integer_to_string_padded( result + 4, 2, month );
     integer_to_string_padded( result + 6, 2, day );
-    return std::string(result);
+    return std::string(result, 8);
   }
 
   static UtcDate convert( const std::string& value )
