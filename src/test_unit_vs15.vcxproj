@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectName>test_unit</ProjectName>
     <ProjectGuid>{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}</ProjectGuid>
-    <RootNamespace>ut_vc12</RootNamespace>
+    <RootNamespace>ut_vc15</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -171,7 +171,7 @@
     <ClInclude Include="C++\test\TestHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C++\quickfix_vs12.vcxproj">
+    <ProjectReference Include="C++\quickfix_vs15.vcxproj">
       <Project>{d5d558ea-bbac-4862-a946-d3881bace3b7}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
