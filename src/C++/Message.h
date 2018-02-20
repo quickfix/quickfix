@@ -285,10 +285,14 @@ public:
   static bool isHeaderField( int field );
   static bool isHeaderField( const FieldBase& field,
                              const DataDictionary* pD = 0 );
+  static bool isHeaderField( int field,
+                             const DataDictionary* pD );
 
   static bool isTrailerField( int field );
   static bool isTrailerField( const FieldBase& field,
                               const DataDictionary* pD = 0 );
+  static bool isTrailerField( int field,
+                              const DataDictionary* pD );
 
   /// Returns the session ID of the intended recipient
   SessionID getSessionID( const std::string& qualifier = "" ) const
