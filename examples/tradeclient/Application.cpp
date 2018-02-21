@@ -26,7 +26,7 @@
 #endif
 
 #include "Application.h"
-#include "quickfix/Session.h"
+#include "Session.h"
 #include <iostream>
 
 void Application::onLogon( const FIX::SessionID& sessionID )

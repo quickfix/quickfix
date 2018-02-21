@@ -1,3 +1,16 @@
+This is a fork to meet my requirements. If you have no specific requirements fulfilled by this fork, then it would be better to use the original. It may be of interest when:
+
+1. SSL connections are required.
+
+2. SunOS or AIX are platforms of interest.
+
+3. Order of fields/tags for outgoing messages is important (configurable, not on by default).
+
+4. There is also some EMX platform related functionality which can be enabled through
+a compile flag.
+
+5. Arbitrary precision (upto nanoseconds) timestamps need to be handled.
+
 BUILDING AND INSTALLING
 
     Full instructions:
@@ -10,15 +23,29 @@ BUILDING AND INSTALLING
         make check
         sudo make install
 
-SYSTEM REQUIREMENTS
 
-    REDHAT/CENTOS 5.x
+For SunOS and AIX have a look at README.SunOS and README.AIX.
 
-        Required: sudo yum install gcc-c++ automake autoconf libtool libxml2 libxml2-devel
-        Optional: sudo yum install postgresql-devel ruby-devel postgresql-server mysql-server mysql-client mysql-devel libxslt
+--------------------------------------------------------------------
 
-    UBUNTU
+It is possible to build many components with a relatively newer version of cmake.
 
-        Required: sudo apt-get install g++ automake libtool libxml2 libxml2-dev
-        Optional: sudo apt-get install ruby ruby-dev libmysqlclient-dev libpq-dev mysql-server postgresql xsltproc
 
+For example on Windows,
+
+mkdir build
+cd build
+cmake  -DHAVE_SSL=ON -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX:PATH="install-path" -DOPENSSL_ROOT_DIR="path to openssl" ..
+Then build in Visual Studio or on command prompt.
+
+
+On Linux (with system openssl),
+
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH="install-path" ..
+make -j 4 install
+
+
+If one has Ninja then (with system openssl),
+
+cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH="install-path" ..
+ninja install

@@ -54,6 +54,46 @@ class DataDictionary
   typedef std::set < int > Fields;
   typedef std::map < int, bool > NonBodyFields;
   typedef std::vector< int > OrderedFields;
+
+  struct MessageFieldsOrderHolder
+  {
+    MessageFieldsOrderHolder()
+    {}
+
+    ~MessageFieldsOrderHolder()
+    {}
+
+    void push_back(int field)
+    {
+      m_orderedFlds.push_back(field);
+    }
+
+    const message_order & getMessageOrder() const
+    {
+      if (m_msgOrder)
+        return m_msgOrder;
+
+      int * tmp = new int[m_orderedFlds.size() + 1];
+      int * i = tmp;
+
+      OrderedFields::const_iterator iter;
+      for( iter = m_orderedFlds.begin(); iter != m_orderedFlds.end(); *(i++) = *(iter++) ) {}
+      *i = 0;
+
+      m_msgOrder = message_order(tmp);
+      delete [] tmp;
+
+      return m_msgOrder;
+    }
+
+  private:
+
+    mutable message_order  m_msgOrder;
+    OrderedFields m_orderedFlds;
+  };
+
+  typedef std::map<std::string, MessageFieldsOrderHolder > MsgTypeToOrderedFields;
+
   typedef message_order OrderedFieldsArray;
   typedef std::map < int, TYPE::Type > FieldTypes;
   typedef std::set < std::string > Values;
@@ -72,8 +112,8 @@ class DataDictionary
 public:
   DataDictionary();
   DataDictionary( const DataDictionary& copy );
-  DataDictionary( std::istream& stream ) throw( ConfigError );
-  DataDictionary( const std::string& url ) throw( ConfigError );
+  DataDictionary(std::istream& stream , bool preserveMsgFldsOrder = false) throw( ConfigError );
+  DataDictionary(const std::string& url , bool preserveMsgFldsOrder = false) throw( ConfigError );
   virtual ~DataDictionary();
 
   void readFromURL( const std::string& url ) throw( ConfigError );
@@ -81,6 +121,9 @@ public:
   void readFromStream( std::istream& stream ) throw( ConfigError );
 
   message_order const& getOrderedFields() const;
+  message_order const& getHeaderOrderedFields() const throw( ConfigError );
+  message_order const& getTrailerOrderedFields() const throw( ConfigError );
+  message_order const& getMessageOrderedFields(const std::string & msgType) const throw( ConfigError );
 
   // storage functions
   void setVersion( const std::string& beginString )
@@ -152,6 +195,11 @@ public:
 
   void addMsgField( const std::string& msgType, int field )
   {
+    if (m_storeMsgFieldsOrder)
+    {
+      m_messageOrderedFields[ msgType ].push_back(field);
+    }
+
     m_messageFields[ msgType ].insert( field );
   }
 
@@ -164,6 +212,11 @@ public:
 
   void addHeaderField( int field, bool required )
   {
+    if (m_storeMsgFieldsOrder)
+    {
+      m_headerOrderedFields.push_back(field);
+    }
+
     m_headerFields[ field ] = required;
   }
 
@@ -174,6 +227,11 @@ public:
 
   void addTrailerField( int field, bool required )
   {
+    if (m_storeMsgFieldsOrder)
+    {
+      m_trailerOrderedFields.push_back(field);
+    }
+
     m_trailerFields[ field ] = required;
   }
 
@@ -305,6 +363,10 @@ public:
   { m_checkUserDefinedFields = value; }
   void allowUnknownMsgFields( bool value )
   { m_allowUnknownMessageFields = value; }
+  void preserveMessageFieldsOrder( bool value )
+  { m_storeMsgFieldsOrder = value; }
+  bool isMessageFieldsOrderPreserved() const
+  { return m_storeMsgFieldsOrder; }
 
   /// Validate a message.
   static void validate( const Message& message,
@@ -522,6 +584,8 @@ private:
   bool m_checkFieldsHaveValues;
   bool m_checkUserDefinedFields;
   bool m_allowUnknownMessageFields;
+  bool m_storeMsgFieldsOrder;
+  
   BeginString m_beginString;
   MsgTypeToField m_messageFields;
   MsgTypeToField m_requiredFields;
@@ -538,6 +602,11 @@ private:
   ValueToName m_valueNames;
   FieldToGroup m_groups;
   MsgFields m_dataFields;
+  OrderedFields m_headerOrderedFields;
+  mutable OrderedFieldsArray m_headerOrder;
+  OrderedFields m_trailerOrderedFields;
+  mutable OrderedFieldsArray m_trailerOrder;
+  MsgTypeToOrderedFields m_messageOrderedFields;
 };
 }
 

@@ -28,16 +28,16 @@
 #include <queue>
 #include <iostream>
 
-#include "quickfix/Application.h"
-#include "quickfix/MessageCracker.h"
-#include "quickfix/Values.h"
-#include "quickfix/Utility.h"
-#include "quickfix/Mutex.h"
+#include "Application.h"
+#include "MessageCracker.h"
+#include "Values.h"
+#include "Utility.h"
+#include "Mutex.h"
 
-#include "quickfix/fix42/NewOrderSingle.h"
-#include "quickfix/fix42/OrderCancelRequest.h"
-#include "quickfix/fix42/MarketDataRequest.h"
-#include "quickfix/fix43/MarketDataRequest.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix42/OrderCancelRequest.h"
+#include "fix42/MarketDataRequest.h"
+#include "fix43/MarketDataRequest.h"
 
 class Application
       : public FIX::Application,

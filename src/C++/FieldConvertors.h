@@ -29,11 +29,13 @@
 #include "FieldTypes.h"
 #include "Exceptions.h"
 #include "Utility.h"
+#include "config-all.h"
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <cstdio>
 #include <limits>
+#include <iterator>
 
 namespace FIX
 {
@@ -204,7 +206,6 @@ struct IntConvertor
     else
       return result;
   }
-
 };
 
 /// Converts checksum to/from a string
@@ -237,7 +238,9 @@ struct CheckSumConvertor
 /// Converts double to/from a string
 struct DoubleConvertor
 {
+
 private:
+
   static double fast_strtod( const char * buffer, int size, int * processed_chars );
 
   static int fast_dtoa( char * buffer, int size, double value );
@@ -245,6 +248,7 @@ private:
   static int fast_fixed_dtoa( char * buffer, int size, double value ); 
 
 public:
+
   static const int SIGNIFICANT_DIGITS = 15;
   static const int BUFFFER_SIZE = 32;
 
@@ -344,9 +348,9 @@ static bool convert( const std::string& value, double& result )
   const double val = fast_strtod( value.c_str(), total_length, &processed_chars);
 
   if ( processed_chars != total_length ||
-	   val != val /*test for quite NaN*/ )
+     val != val /*test for quite NaN*/ )
   {
-	  return false;
+    return false;
   }
 
   result = val;
@@ -424,38 +428,19 @@ struct BoolConvertor
   }
 };
 
-enum PRECISION
-{
-  SECONDS = 0,
-  MILLISECONDS = 3,
-  MICROSECONDS = 6,
-  NANOSECONDS = 9
-};
-
 /// Converts a UtcTimeStamp to/from a string
 struct UtcTimeStampConvertor
 {
-  // Millisecond example of outout:
-  // 20160210-16:42:56.031
-
   static std::string convert( const UtcTimeStamp& value,
-                             bool showMilliseconds = false)
+                              bool showMilliseconds = false )
   throw( FieldConvertError )
   {
-    PRECISION minortimePrecision = (showMilliseconds ? PRECISION::MILLISECONDS : PRECISION::SECONDS);
-    return convertWithPrecision(value, minortimePrecision);
-  }
-
-  static std::string convertWithPrecision( const UtcTimeStamp& value,
-                                           PRECISION precision)
-  throw( FieldConvertError )
-  {
-    int year, month, day, hour, minute, second, nanos;
+    int year, month, day, hour, minute, second, millis;
 
     value.getYMD( year, month, day );
-    value.getHMS( hour, minute, second, nanos );
+    value.getHMS( hour, minute, second, millis );
 
-    char result[ 17 + 1 + NANOSECONDS ];
+    char result[ 17+4 ];
 
     integer_to_string_padded( result, 4, year );
     integer_to_string_padded( result + 4, 2, month );
@@ -467,53 +452,60 @@ struct UtcTimeStampConvertor
     result[14] = ':';
     integer_to_string_padded( result + 15, 2, second );
 
-    if( precision > SECONDS )
+    if( showMilliseconds )
     {
       result[17] = '.';
-      if( precision == MILLISECONDS )
+      if( integer_to_string_padded ( result + 18, 3, millis )
+          != result + 18 )
       {
-        integer_to_string_padded( result + 18, MILLISECONDS, nanos / 1000000 );
-        return std::string( result, 17 + 1 + MILLISECONDS );
-      }
-      else if( precision == MICROSECONDS )
-      {
-        integer_to_string_padded( result + 18, MICROSECONDS, nanos / 1000);
-        return std::string( result, 17 + 1 + MICROSECONDS );
-      }
-      else if( precision == NANOSECONDS )
-      {
-        integer_to_string_padded( result + 18, NANOSECONDS, nanos);
-        return std::string( result, 17 + 1 + NANOSECONDS );
+        throw FieldConvertError();
       }
     }
 
-    return std::string( result, 17 );
+    return std::string( result, showMilliseconds ? sizeof( result ) : 17 );
+  }
+
+  static std::string convert( const UtcTimeStamp& value,
+                              int precision )
+  throw( FieldConvertError )
+  {
+    char result[ 17+10 ]; // Maximum
+    int year, month, day, hour, minute, second, fraction;
+
+    value.getYMD( year, month, day );
+    value.getHMS( hour, minute, second, fraction, precision );
+
+    integer_to_string_padded( result, 4, year);
+    integer_to_string_padded( result + 4, 2, month );
+    integer_to_string_padded( result + 6, 2, day );
+    result[8]  = '-';
+    integer_to_string_padded( result + 9, 2, hour);
+    result[11] = ':';
+    integer_to_string_padded( result + 12, 2, minute);
+    result[14] = ':';
+    integer_to_string_padded( result + 15, 2, second);
+
+    if( precision )
+    {
+      result[17] = '.';
+      if( integer_to_string_padded ( result + 18, precision, fraction )
+          != result + 18 )
+      {
+        throw FieldConvertError();
+      }
+    }
+
+    return std::string(result, precision ? (17 + 1 + precision) : 17);
   }
 
   static UtcTimeStamp convert( const std::string& value,
                                bool calculateDays = false )
   throw( FieldConvertError )
   {
-    bool haveMilliseconds = false, haveMicroseconds = false, haveNanoseconds = false;
+    size_t len = value.size();
+    if (len < 17 || len > 27) throw FieldConvertError(value);
 
-    switch( value.size() )
-    {
-      case 27 :
-        haveNanoseconds = true;
-        break;
-      case 24 :
-        haveMicroseconds = true;
-        break;
-      case 21 :
-        haveMilliseconds = true;
-        break;
-      case 17 :
-        break;
-      default :
-        throw FieldConvertError(value);
-    }
-
-    int i = 0;
+    size_t i = 0;
     int c = 0;
     for( c = 0; c < 8; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
@@ -527,28 +519,7 @@ struct UtcTimeStampConvertor
     for( c = 0; c < 2; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      if( value[i++] != '.' ) throw FieldConvertError(value);
-      for( c = 0; c < 3; ++c )
-        if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
-    }
-
-    if( haveMicroseconds )
-    {
-      if( value[i++] != '.' ) throw FieldConvertError(value);
-      for( c = 0; c < 6; ++c )
-        if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
-    }
-
-    if( haveNanoseconds )
-    {
-      if( value[i++] != '.' ) throw FieldConvertError(value);
-      for( c = 0; c < 9; ++c )
-        if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
-    }
-
-    int year, mon, mday, hour, min, sec, nanosecond;
+    int year, mon, mday, hour, min, sec;
 
     i = 0;
 
@@ -587,38 +558,23 @@ struct UtcTimeStampConvertor
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
+    if (len == 17)
+      return UtcTimeStamp (hour, min, sec, 0,
+                           mday, mon, year);
+
+    if( value[i++] != '.' ) throw FieldConvertError(value);
+
+    int fraction = 0;
+    for (; i < len; ++i)
     {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i+2] - '0')
-                    + 1000000 * (value[i+3] - '0'));
-    }
-    else if( haveMicroseconds ) {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i + 2] - '0')
-                    + 1000000 * (value[i + 3] - '0')
-                    + 100000 * (value[i + 4] - '0')
-                    + 10000 * (value[i + 5] - '0')
-                    + 1000 * (value[i + 6] - '0'));
-    }
-    else if( haveNanoseconds )
-    {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i+2] - '0')
-                    + 1000000 * (value[i+3] - '0')
-                    + 100000 * (value[i+4] - '0')
-                    + 10000 * (value[i+5] - '0')
-                    + 1000 * (value[i+6] - '0')
-                    + 100 * (value[i+7] - '0')
-                    + 10 * (value[i+8] - '0')
-                    +     (value[i+9] - '0'));
+      char ch = value[i];
+      if( !IS_DIGIT(ch)) throw FieldConvertError(value);
+      fraction = (fraction * 10) + ch - '0';
     }
 
-    else
-      nanosecond = 0;
-
-    return UtcTimeStamp (hour, min, sec, nanosecond,
-                         mday, mon, year);  }
+    return UtcTimeStamp (hour, min, sec, fraction,
+                         mday, mon, year, len - 17 - 1);
+  }
 };
 
 /// Converts a UtcTimeOnly to/from a string
@@ -630,18 +586,8 @@ struct UtcTimeOnlyConvertor
   {
     int hour, minute, second, millis;
     value.getHMS( hour, minute, second, millis );
-    PRECISION precision = (showMilliseconds ? PRECISION::MILLISECONDS : PRECISION::SECONDS);
-    return convertWithPrecision(value, precision);
-  }
 
-  static std::string convertWithPrecision( const UtcTimeOnly& value,
-                                           PRECISION precision)
-  throw( FieldConvertError )
-  {
-    int hour, minute, second, nanos;
-    value.getHMS( hour, minute, second, nanos );
-
-    char result[ 8 + 1 + NANOSECONDS ];
+    char result[ 8+4 ];
 
     integer_to_string_padded ( result, 2, hour );
     result[2] = ':';
@@ -649,51 +595,50 @@ struct UtcTimeOnlyConvertor
     result[5] = ':';
     integer_to_string_padded ( result + 6, 2, second );
 
-    if( precision > SECONDS )
+    if( showMilliseconds )
     {
       result[8] = '.';
-      if( precision == MILLISECONDS )
-      {
-        integer_to_string_padded( result + 9, MILLISECONDS, nanos / 1000000 );
-        return std::string( result, 8 + 1 + MILLISECONDS );
-      }
-      else if( precision == MICROSECONDS )
-      {
-        integer_to_string_padded( result + 9, MICROSECONDS, nanos / 1000);
-        return std::string( result, 8 + 1 + MICROSECONDS );
-      }
-      else if( precision == NANOSECONDS )
-      {
-        integer_to_string_padded( result + 9, NANOSECONDS, nanos);
-        return std::string( result, 8 + 1 + NANOSECONDS );
-      }
+      if( integer_to_string_padded ( result + 9, 3, millis )
+          != result + 9 )
+          throw FieldConvertError();
     }
 
-    return std::string( result, 8 );
+    return std::string( result, showMilliseconds ? sizeof( result ) : 8 );
   }
 
-  static UtcTimeOnly convert( const std::string& value )
+  static std::string convert( const UtcTimeOnly& value,
+                              int precision)
   throw( FieldConvertError )
   {
-    bool haveMilliseconds = false, haveMicroseconds = false, haveNanoseconds = false;
+    char result[ 8+10 ]; // Maximum
+    int hour, minute, second, fraction;
 
-    switch( value.size() )
+    value.getHMS( hour, minute, second, fraction, precision );
+
+    integer_to_string_padded ( result, 2, hour );
+    result[2] = ':';
+    integer_to_string_padded ( result + 3, 2, minute );
+    result[5] = ':';
+    integer_to_string_padded ( result + 6, 2, second );
+
+    if( precision )
     {
-      case 18 :
-        haveNanoseconds = true;
-        break;
-      case 15 :
-        haveMicroseconds = true;
-        break;
-      case 12 :
-        haveMilliseconds = true;
-        break;
-      case 8 :
-        break;
-      default: throw FieldConvertError(value);
+      result[8] = '.';
+      if( integer_to_string_padded ( result + 9, precision, fraction )
+          != result + 9 )
+          throw FieldConvertError();
     }
 
-    int i = 0;
+    return std::string(result, precision ? (8 + 1 + precision) : 8);
+  }
+
+  static UtcTimeOnly convert( const std::string& value)
+  throw( FieldConvertError )
+  {
+    size_t len = value.size();
+    if (len < 8 || len > 18) throw FieldConvertError(value);
+
+    size_t i = 0;
     int c = 0;
     for( c = 0; c < 2; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
@@ -704,80 +649,44 @@ struct UtcTimeOnlyConvertor
     for( c = 0; c < 2; ++c )
       if( !IS_DIGIT(value[i++]) ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
-    {
-      // ++i instead of i++ skips the '.' separator
-      for( c = 0; c < 3; ++c )
-        if( !IS_DIGIT(value[++i]) ) throw FieldConvertError(value);
-    }
+    int hour, min, sec;
 
-    if( haveMicroseconds )
-    {
-      // ++i instead of i++ skips the '.' separator
-      for( c = 0; c < 6; ++c )
-        if( !IS_DIGIT(value[++i]) ) throw FieldConvertError(value);
-    }
-
-    if( haveNanoseconds )
-    {
-      // ++i instead of i++ skips the '.' separator
-      for( c = 0; c < 9; ++c )
-        if( !IS_DIGIT(value[++i]) ) throw FieldConvertError(value);
-    }
-
-
-    int hour, min, sec, nanosecond;
- 
     i = 0;
 
     hour = value[i++] - '0';
     hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
     if( 23 < hour ) throw FieldConvertError(value);
+
     ++i; // skip ':'
 
     min = value[i++] - '0';
     min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
     if( 59 < min ) throw FieldConvertError(value);
+
     ++i; // skip ':'
 
     sec = value[i++] - '0';
     sec = 10 * sec + value[i++] - '0';
+
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if( haveMilliseconds )
+    if (len == 8)
+      return UtcTimeOnly (hour, min, sec, 0);
+
+    if( value[i++] != '.' ) throw FieldConvertError(value);
+
+    int fraction = 0;
+    for (; i < len; ++i)
     {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i+2] - '0')
-                    + 1000000 * (value[i+3] - '0'));
-    }
-    else if( haveMicroseconds ) {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i + 2] - '0')
-                    + 1000000 * (value[i + 3] - '0')
-                    + 100000 * (value[i + 4] - '0')
-                    + 10000 * (value[i + 5] - '0')
-                    + 1000 * (value[i + 6] - '0'));
-    }
-    else if( haveNanoseconds )
-    {
-      nanosecond = (100000000 * (value[i + 1] - '0')
-                    + 10000000 * (value[i+2] - '0')
-                    + 1000000 * (value[i+3] - '0')
-                    + 100000 * (value[i+4] - '0')
-                    + 10000 * (value[i+5] - '0')
-                    + 1000 * (value[i+6] - '0')
-                    + 100 * (value[i+7] - '0')
-                    + 10 * (value[i+8] - '0')
-                    +     (value[i+9] - '0'));
+      char ch = value[i];
+      if( !IS_DIGIT(ch)) throw FieldConvertError(value);
+      fraction = (fraction * 10) + ch - '0';
     }
 
-    else
-      nanosecond = 0;
-
-    return UtcTimeOnly( hour, min, sec, nanosecond );
+    return UtcTimeOnly (hour, min, sec, fraction, len - 8 - 1);
   }
 };
 
@@ -795,7 +704,8 @@ struct UtcDateConvertor
     integer_to_string_padded( result, 4, year );
     integer_to_string_padded( result + 4, 2, month );
     integer_to_string_padded( result + 6, 2, day );
-    return std::string(result, 8);
+
+    return std::string( result, sizeof( result ) );
   }
 
   static UtcDate convert( const std::string& value )

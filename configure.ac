@@ -9,6 +9,7 @@ m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
 m4_include([m4/ax_lib_boost.m4])
 m4_include([m4/ax_lib_stlport.m4])
+m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
@@ -31,10 +32,38 @@ AX_LIB_MYSQL()
 AX_LIB_POSTGRESQL()
 AX_LIB_BOOST()
 AX_LIB_STLPORT()
+AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
 AX_JAVA()
+
+########################################
+# Disable unit tests on Solaris, AIX
+
+AC_CANONICAL_HOST
+
+build_no_unit_test = no
+
+# Detect the target system
+case "${host_os}" in
+    *sunos*)
+        build_no_unit_test=yes
+        ;;
+    *solaris*)
+        build_no_unit_test=yes
+        ;;
+    *aix*)
+        build_no_unit_test=yes
+        ;;
+    *)
+        ;;
+esac
+
+# Pass the conditionals to automake
+AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_no_unit_test" = "yes"])
+
+########################################
 
 ########################################
 # TBB 
@@ -78,18 +107,26 @@ fi
 ########################################
 
 # libs
-LIBS="$STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
+LIBS="$OPENSSL_LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 # gcc flags
 if test `uname` == SunOS; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $RUBY_CFLAGS"
 else
-	SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $RUBY_CFLAGS"
+  if test `uname` == AIX; then
+   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+  else
+    SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+  fi
 fi
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
+
+if test "x$NO_MODERN_CPP" != "x"; then
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
-AX_CHECK_COMPILE_FLAG([-std=c++0x], [CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"])
+else
+CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+fi
 AC_SUBST(CXXFLAGS)
 
 

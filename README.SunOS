@@ -1,0 +1,12 @@
+I was able to get the 64 bit version of QuickFIX library to compile on Solaris 10 (sparc) with workshop 12.3 compiler.
+Unit tests do not compile so these were disabled. 
+
+Example script:
+
+#!/bin/sh
+
+./bootstrap
+
+CC=cc CXX=CC CFLAGS=-m64 CXXFLAGS=-m64 LDFLAGS=-m64 configure --prefix="Your prefix"
+
+make && make install

@@ -190,6 +190,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setRefreshOnLogon( settings.getBool( REFRESH_ON_LOGON ) );
   if ( settings.has( MILLISECONDS_IN_TIMESTAMP ) )
     pSession->setMillisecondsInTimeStamp( settings.getBool( MILLISECONDS_IN_TIMESTAMP ) );
+  if ( settings.has( TIMESTAMP_PRECISION ) )
+    pSession->setTimestampPrecision(settings.getInt( TIMESTAMP_PRECISION ) );
   if ( settings.has( PERSIST_MESSAGES ) )
     pSession->setPersistMessages( settings.getBool( PERSIST_MESSAGES ) );
   if ( settings.has( VALIDATE_LENGTH_AND_CHECKSUM ) )
@@ -216,7 +218,10 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
   }
   else
   {
-    pDD = ptr::shared_ptr<DataDictionary>(new DataDictionary( path ));
+    bool preserveMsgFldsOrder = false;
+    if( settings.has( PRESERVE_MESSAGE_FIELDS_ORDER ) )
+      preserveMsgFldsOrder = settings.getBool( PRESERVE_MESSAGE_FIELDS_ORDER );
+    pDD = ptr::shared_ptr<DataDictionary>(new DataDictionary( path, preserveMsgFldsOrder ));
     m_dictionaries[ path ] = pDD;
   }
 

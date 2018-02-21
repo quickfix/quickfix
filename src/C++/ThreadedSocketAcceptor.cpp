@@ -228,8 +228,12 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
       thread_id thread;
       if ( !thread_spawn( &socketConnectionThread, info, thread ) )
+      {
         delete info;
-      pAcceptor->addThread( socket, thread );
+        delete pConnection;
+      }
+      else
+        pAcceptor->addThread( socket, thread );
     }
   }
 

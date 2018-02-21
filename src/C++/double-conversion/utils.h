@@ -32,6 +32,13 @@
 #include <string.h>
 
 #include <assert.h>
+
+#if defined(__SUNPRO_CC)
+#ifndef ASSERT
+#define ASSERT(condition)
+#endif
+#endif
+
 #ifndef ASSERT
 #define ASSERT(condition)         \
     assert(condition);

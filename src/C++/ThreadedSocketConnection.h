@@ -49,7 +49,8 @@ public:
   ThreadedSocketConnection( int s, Sessions sessions, Log* pLog );
   ThreadedSocketConnection( const SessionID&, int s, 
                             const std::string& address, short port, 
-                            Log* pLog );
+                            Log* pLog,
+                            const std::string& sourceAddress = "", short sourcePort = 0);
   virtual ~ThreadedSocketConnection() ;
 
   Session* getSession() const { return m_pSession; }
@@ -69,6 +70,8 @@ private:
 
   std::string m_address;
   int m_port;
+  std::string m_sourceAddress;
+  int m_sourcePort;
 
   Log* m_pLog;
   Parser m_parser;

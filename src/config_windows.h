@@ -14,3 +14,6 @@
 
 // Define if you have ftime
 #define HAVE_FTIME 1
+
+// Define if you have openssl
+// #define HAVE_SSL 1

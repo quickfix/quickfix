@@ -45,6 +45,9 @@ class Header : public FieldMap
 public:
   Header() : FieldMap( message_order( message_order::header ), REQUIRED_FIELDS )
   {}
+
+  Header(const message_order & order) : FieldMap(order)
+  {}
 };
 
 class Trailer : public FieldMap 
@@ -53,6 +56,9 @@ class Trailer : public FieldMap
 
 public:
   Trailer() : FieldMap( message_order( message_order::trailer ), REQUIRED_FIELDS )
+  {}
+
+  Trailer(const message_order & order) : FieldMap(order)
   {}
 };
 
@@ -72,6 +78,9 @@ class Message : public FieldMap
 public:
   Message();
 
+  /// Construct message with a specified order of fields
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order);
+
   /// Construct a message from a string
   Message( const std::string& string, bool validate = true )
   throw( InvalidMessage );
@@ -83,6 +92,16 @@ public:
 
   /// Construct a message from a string using a session and application data dictionary
   Message( const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
+           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
+  throw( InvalidMessage );
+
+  /// Construct a message from a string using a data dictionary
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& dataDictionary,
+           bool validate = true )
+  throw( InvalidMessage );
+
+  /// Construct a message from a string using a session and application data dictionary
+  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
            const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
   throw( InvalidMessage );
 
@@ -300,6 +319,11 @@ public:
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
+#ifdef HAVE_EMX
+  void  setSubMessageType(const std::string & subMsgType) { m_subMsgType.assign(subMsgType); }
+  const std::string & getSubMessageType() const { return m_subMsgType; }
+#endif
+
 private:
   FieldBase extractField( 
     const std::string& string, std::string::size_type& pos,
@@ -328,6 +352,9 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
+#ifdef HAVE_EMX
+  std::string m_subMsgType;
+#endif
   static std::auto_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */

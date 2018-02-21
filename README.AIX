@@ -1,0 +1,24 @@
+I was able to get the 64 bit version of QuickFIX library to compile on AIX 6100-09-05-1524 with IBM XL C/C++ for AIX, V12.1.
+Unit tests do not compile so these were disabled.
+
+Also, for building please refer to
+https://www.ibm.com/support/knowledgecenter/SSGH3R_13.1.0/com.ibm.xlcpp131.aix.doc/proguide/threadsafe_streams.html
+as this may have an impact on your application (like examples).
+
+Example script:
+
+#!/bin/sh
+
+cflagx="-q64 -D_THREAD_SAFE -qthreaded"
+cxxflagx="-q64 -D_THREAD_SAFE -qthreaded -D__IBMCPP_TR1__=1"
+ldflagx="-q64 -D_THREAD_SAFE -qthreaded"
+
+OBJECT_MODE=64
+export OBJECT_MODE
+
+./bootstrap
+
+CC=xlc_r CXX=xlC_r CFLAGS=$cflagx CXXFLAGS=$cxxflagx LDFLAGS=$ldflagx configure --prefix="Your prefix"
+
+make && make install
+

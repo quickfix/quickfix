@@ -33,6 +33,10 @@
 #include "FieldTypes.h"
 #include "Utility.h"
 
+#if defined(__SUNPRO_CC)
+#include <algorithm>
+#endif
+
 namespace FIX
 {
 /**
@@ -214,7 +218,13 @@ private:
     for ( std::string::const_iterator str = start; str != end; ++str )
       checksum += (unsigned char)( *str );
 
+#if defined(__SUNPRO_CC)
+    std::ptrdiff_t d;
+    std::distance(start, end, d);
+    return field_metrics( d, checksum );
+#else
     return field_metrics( std::distance( start, end ), checksum );
+#endif
   }
 
   static field_metrics calculateMetrics( const std::string& field )
@@ -430,64 +440,35 @@ public:
 };
 
 /// Field that contains a UTC time stamp value
-  class UtcTimeStampField : public FieldBase
-  {
-  public:
-    explicit UtcTimeStampField( int field, const UtcTimeStamp& data, bool showMilliseconds = false )
-        : FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) )
-    {
-      // Nothing here...
-    }
+class UtcTimeStampField : public FieldBase
+{
+public:
+  explicit UtcTimeStampField( int field, const UtcTimeStamp& data, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) ) {}
+  UtcTimeStampField( int field, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) ) {}
+  UtcTimeStampField( int field, const UtcTimeStamp& data, int precision )
+: FieldBase( field, UtcTimeStampConvertor::convert( data, precision ) ) {}
+    UtcTimeStampField( int field, int precision )
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
 
-    explicit UtcTimeStampField( int field, const UtcTimeStamp& data, PRECISION precision )
-        : FieldBase( field, UtcTimeStampConvertor::convertWithPrecision( data, precision ) )
-    {
-      // Nothing here...
-    }
+  void setValue( const UtcTimeStamp& value )
+    { setString( UtcTimeStampConvertor::convert( value ) ); }
+  UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
+    { try
+      { return UtcTimeStampConvertor::convert( getString() ); }
+      catch( FieldConvertError& )
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
+  operator UtcTimeStamp() const
+    { return getValue(); }
 
-    UtcTimeStampField( int field, bool showMilliseconds = false )
-        : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) )
-    {
-      // Nothing here...
-    }
-
-
-    void setValue( const UtcTimeStamp& value )
-    {
-      setString( UtcTimeStampConvertor::convert( value ) );
-    }
-
-    UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
-    {
-      try {
-        return UtcTimeStampConvertor::convert( getString() );
-      }
-      catch( FieldConvertError& ) {
-        throw IncorrectDataFormat( getTag(), getString() );
-      }
-
-    }
-
-    operator UtcTimeStamp() const
-    {
-      return getValue();
-    }
-
-    bool operator<( const UtcTimeStampField& rhs ) const
-    {
-      return getValue() < rhs.getValue();
-    }
-
-    bool operator==( const UtcTimeStampField& rhs ) const
-    {
-      return getValue() == rhs.getValue();
-    }
-
-    bool operator!=( const UtcTimeStampField& rhs ) const
-    {
-      return getValue() != rhs.getValue();
-    }
-  };
+  bool operator<( const UtcTimeStampField& rhs ) const
+    { return getValue() < rhs.getValue(); }
+  bool operator==( const UtcTimeStampField& rhs ) const
+    { return getValue() == rhs.getValue(); }
+  bool operator!=( const UtcTimeStampField& rhs ) const
+    { return getValue() != rhs.getValue(); }
+};
 
 /// Field that contains a UTC date value
 class UtcDateField : public FieldBase
@@ -524,6 +505,10 @@ public:
 : FieldBase( field, UtcTimeOnlyConvertor::convert( data, showMilliseconds ) ) {}
   UtcTimeOnlyField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), showMilliseconds ) ) {}
+  UtcTimeOnlyField( int field, const UtcTimeOnly& data, int precision )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( data, precision ) ) {}
+    UtcTimeOnlyField( int field, int precision )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), precision ) ) {}
 
   void setValue( const UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
@@ -604,9 +589,10 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 class NAME : public TOK##Field { public: \
 NAME() : TOK##Field(NUM, false) {} \
 NAME(bool showMilliseconds) : TOK##Field(NUM, showMilliseconds) {} \
+NAME(int precision) : TOK##Field(NUM, precision) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 NAME(const TYPE& value, bool showMilliseconds) : TOK##Field(NUM, value, showMilliseconds) {} \
-NAME(const TYPE& value, PRECISION precision) : TOK##Field(NUM, value, precision) {} \
+NAME(const TYPE& value, int precision) : TOK##Field(NUM, value, precision) {} \
 }
 
 #define DEFINE_FIELD_TIMECLASS( NAME, TOK, TYPE ) \
