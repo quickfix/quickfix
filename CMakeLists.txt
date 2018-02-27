@@ -16,6 +16,7 @@ message("-- Project name ${CMAKE_PROJECT_NAME}")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 include(QuickfixPlatformSettings)
+include(QuickfixPrebuildSetup)
 
 # Call cmake with-DHAVE_SSL=ON to compile with SSL. Similarly for others.
 option(HAVE_SSL "Build with SSL")
