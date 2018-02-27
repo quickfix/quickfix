@@ -264,6 +264,17 @@ DataDictionary=somewhere/FIX42.xml
 
           <td>Y</td>
         </tr>
+        
+        <tr align="left" valign="middle">
+          <td><b>TimestampPrecision</b></td>
+
+          <td>Used to set the fractional part of timestamp. Allowable values are 0 to 9.
+If set, overrrides MillisecondsInTimeStamp.</td>
+
+          <td>0-9</td>
+
+          <td></td>
+        </tr>
 
         <tr align="left" valign="middle">
           <td><b>SendRedundantResendRequests</b></td>
@@ -482,6 +493,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           N</td>
 
           <td>Y</td>
+        </tr>
+        
+        <tr align="left" valign="middle">
+          <td><b>PreserveMessageFieldsOrder</b></td>
+
+          <td>Should the order of fields in the main outgoing message body be preserved or not (as defined in the configuration file). Default: only groups specified order is preserved.</td>
+
+          <td>Y<br>
+          N</td>
+
+          <td>N</td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1210,6 +1232,199 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td>Valid table with correct schema.</td>
 
           <td>event_log</td>
+        </tr>
+         <tr align="center" valign="middle">
+          <td colspan="4" bgcolor="#DDDDDD"><b>SSL</b></td>
+        </tr>
+
+        <tr align="center" valign="middle">
+          <td colspan="4">Parameters have to be defined in the DEFAULT section.</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>SSLProtocol</b></td>
+
+          <td>This directive can be used to control the SSL protocol flavors the application
+should use when establishing its environment.<br><br>
+
+The available (case-insensitive) protocols are:<br><br>
+
+SSLv2<br>
+
+ This is the Secure Sockets Layer (SSL) protocol, version 2.0. It is the
+ original SSL protocol as designed by Netscape Corporation.<br><br>
+
+SSLv3<br>
+
+ This is the Secure Sockets Layer (SSL) protocol, version 3.0. It is the
+ successor to SSLv2 and the currently (as of February 1999) de-facto
+ standardized SSL protocol from Netscape Corporation. It&apos;s supported by
+ almost all popular browsers.<br><br>
+
+TLSv1<br>
+
+ This is the Transport Layer Security (TLS) protocol, version 1.0.<br><br>
+
+TLSv1_1<br>
+
+ This is the Transport Layer Security (TLS) protocol, version 1.1.<br><br>
+
+TLSv1_2<br>
+
+ This is the Transport Layer Security (TLS) protocol, version 1.2.<br><br>
+
+all<br>
+
+ This is a shortcut for +SSLv2 +SSLv3 +TLSv1 +TLSv1_1 +TLSv1_2 and a convenient way for
+ enabling all protocols except one when used in combination with the minus
+ sign on a protocol as the example above shows.<br><br>
+
+Example:<br>
+
+ enable all but not SSLv2<br>
+ SSL_PROTOCOL = all -SSLv2</td>
+
+          <td></td>
+
+          <td>all -SSLv2</td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>SSLCipherSuite</b></td>
+
+          <td>This complex directive uses a colon-separated cipher-spec string consisting
+of OpenSSL cipher specifications to configure the Cipher Suite the client is
+permitted to negotiate in the SSL handshake phase. Notice that this directive
+can be used both in per-server and per-directory context. In per-server
+context it applies to the standard SSL handshake when a connection is
+established. In per-directory context it forces a SSL renegotation with the
+reconfigured Cipher Suite after the HTTP request was read but before the HTTP
+response is sent.<br><br>
+
+An SSL cipher specification in cipher-spec is composed of 4 major attributes
+plus a few extra minor ones.<br><br>
+
+Key Exchange Algorithm:<br>
+ RSA or Diffie-Hellman variants.<br><br>
+
+Authentication Algorithm:<br>
+ RSA, Diffie-Hellman, DSS or none.<br><br>
+
+Cipher/Encryption Algorithm:<br>
+ DES, Triple-DES, RC4, RC2, IDEA or none.<br><br>
+
+MAC Digest Algorithm:<br>
+ MD5, SHA or SHA1.<br><br>
+
+For more details refer to mod_ssl documentation.<br><br>
+
+Example: RC4+RSA:+HIGH:</td>
+
+          <td></td>
+
+          <td>HIGH:!RC4</td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificationAuthoritiesFile</b></td>
+
+          <td>This directive sets the all-in-one file where you can assemble the
+Certificates of Certification Authorities (CA) whose clients you deal with.
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificationAuthoritiesDirectory</b></td>
+
+          <td>This directive sets the directory where you keep the Certificates of
+Certification Authorities (CAs) whose clients you deal with.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+         <tr align="center" valign="middle">
+          <td colspan="4">ACCEPTOR</td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>ServerCertificateFile</b></td>
+
+          <td>This directive points to the PEM-encoded Certificate file and
+optionally also to the corresponding RSA or DSA Private Key file for it
+(contained in the same file).</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>ServerCertificateKeyFile</b></td>
+
+          <td>This directive points to the PEM-encoded Private Key file. If
+the Private Key is not combined with the Certificate in the
+server certificate file, use this additional directive to point to the file with
+the stand-alone Private Key.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>VerifyLevel</b></td>
+
+          <td>This directive sets the Certificate verification level. It applies to the authentication process used in the
+standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificateRevocationListFile</b></td>
+
+          <td>This directive sets the all-in-one file where you can assemble the
+Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+clients you deal with.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>CertificateRevocationListDirectory</b></td>
+
+          <td>This directive sets the directory where you keep the Certificate Revocation
+Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        
+         <tr align="center" valign="middle">
+          <td colspan="4">INITIATOR</td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>ClientCertificateFile</b></td>
+
+          <td>This directive points to the PEM-encoded Certificate file and
+optionally also to the corresponding RSA or DSA Private Key file for it
+(contained in the same file).</td>
+
+          <td></td>
+
+          <td></td>
+        </tr>
+        <tr align="left" valign="middle">
+          <td><b>ClientCertificateKeyFile</b></td>
+
+          <td>This directive points to the PEM-encoded Private Key file. If
+the Private Key is not combined with the Certificate in the
+server certificate file, use this additional directive to point to the file with
+the stand-alone Private Key.</td>
+
+          <td></td>
+
+          <td></td>
         </tr>
       </table>
     </div>

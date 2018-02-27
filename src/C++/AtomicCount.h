@@ -24,6 +24,10 @@
 
 #include "Utility.h"
 
+#if defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
+#include "Mutex.h"
+#endif
+
 namespace FIX
 {
   /// Atomic count class - consider using interlocked functions
@@ -66,7 +70,44 @@ typedef boost::detail::atomic_count atomic_count;
     long volatile m_counter;
   };
 
+#elif defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
+
+// general purpose atomic counter using mutexes
+class atomic_count
+{
+public:
+  explicit atomic_count( long v ): m_counter( v )
+  {
+  }
+
+  long operator++()
+  {
+    Locker _lock(m_mutex);
+    return ++m_counter;
+  }
+
+  long operator--()
+  {
+    Locker _lock(m_mutex);
+    return --m_counter;
+  }
+
+  operator long() const
+  {
+    return static_cast<long const volatile &>( m_counter );
+  }
+
+private:
+
+  atomic_count( atomic_count const & );
+  atomic_count & operator=( atomic_count const & );
+
+  Mutex m_mutex;
+  long m_counter;
+};
+
 #else
+
   //
   //  boost/detail/atomic_count_gcc_x86.hpp
   //

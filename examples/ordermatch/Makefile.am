@@ -1,4 +1,8 @@
+if NO_UNIT_TEST
+SUBDIRS =
+else
 SUBDIRS = test
+endif
 
 noinst_PROGRAMS = ordermatch
 
@@ -14,7 +18,7 @@ ordermatch_SOURCES = \
 
 ordermatch_LDADD = $(top_builddir)/src/C++/libquickfix.la 
 
-INCLUDES = -I$(top_builddir)/include
+INCLUDES = -I$(top_builddir)/include/quickfix
 
 all-local:
 	rm -f ../../bin/ordermatch

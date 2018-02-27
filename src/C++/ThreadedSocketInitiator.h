@@ -66,7 +66,7 @@ private:
   void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread( void* p );
 
-  void getHost( const SessionID&, const Dictionary&, std::string&, short& );
+  void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
   SessionSettings m_settings;
   SessionToHostNum m_sessionToHostNum;

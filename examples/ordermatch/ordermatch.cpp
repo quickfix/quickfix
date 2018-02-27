@@ -23,9 +23,9 @@
 #include "config.h"
 #endif
 
-#include "quickfix/FileStore.h"
-#include "quickfix/SocketAcceptor.h"
-#include "quickfix/SessionSettings.h"
+#include "FileStore.h"
+#include "SocketAcceptor.h"
+#include "SessionSettings.h"
 #include "Application.h"
 #include <string>
 #include <iostream>

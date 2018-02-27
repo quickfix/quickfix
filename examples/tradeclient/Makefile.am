@@ -7,7 +7,7 @@ tradeclient_SOURCES = \
 
 tradeclient_LDADD = $(top_builddir)/src/C++/libquickfix.la 
 
-INCLUDES = -I$(top_builddir)/include -I..
+INCLUDES = -I$(top_builddir)/include/quickfix -I..
 
 all-local:
 	rm -f ../../bin/tradeclient

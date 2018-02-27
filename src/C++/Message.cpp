@@ -47,6 +47,10 @@ Message::Message()
   
 }
 
+Message::Message(const message_order &hdrOrder, const message_order &trlOrder, const message_order& order)
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true ) {}
+
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage )
 : m_validStructure( true )
@@ -76,6 +80,37 @@ throw( InvalidMessage )
     setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
 }
 
+Message::Message( const message_order &hdrOrder,
+                  const message_order &trlOrder,
+                  const message_order& order,
+                  const std::string& string,
+                  const DataDictionary& dataDictionary,
+                  bool validate )
+throw( InvalidMessage )
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true )
+{
+  setString( string, validate, &dataDictionary, &dataDictionary );
+}
+
+Message::Message( const message_order &hdrOrder,
+                  const message_order &trlOrder,
+                  const message_order& order,
+                  const std::string& string,
+                  const DataDictionary& sessionDataDictionary,
+                  const DataDictionary& applicationDataDictionary,
+                  bool validate )
+throw( InvalidMessage )
+: FieldMap(order), m_header(hdrOrder),
+  m_trailer(trlOrder), m_validStructure( true )
+{
+  setStringHeader( string );
+  if( isAdmin() )
+    setString( string, validate, &sessionDataDictionary, &sessionDataDictionary );
+  else
+    setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
+}
+
 Message::Message( const BeginString& beginString, const MsgType& msgType )
 : m_validStructure(true)
 , m_tag( 0 )
@@ -90,13 +125,15 @@ Message::Message(const Message& copy)
 , m_trailer(copy.m_trailer)
 , m_validStructure(copy.m_validStructure)
 , m_tag(copy.m_tag)
+#ifdef HAVE_EMX
+, m_subMsgType(copy.m_subMsgType)
+#endif
 {
 
 }
 
 Message::~Message()
 {
-  
 }
 
 bool Message::InitializeXML( const std::string& url )
@@ -308,6 +345,7 @@ throw( InvalidMessage )
 
   std::string::size_type pos = 0;
   int count = 0;
+
   FIX::MsgType msg;
 
   field_type type = header;
@@ -330,7 +368,24 @@ throw( InvalidMessage )
       {
         msg.setString( field.getString() );
         if ( isAdminMsgType( msg ) )
+        {
           pApplicationDataDictionary = pSessionDataDictionary;
+#ifdef HAVE_EMX
+          m_subMsgType.assign(msg);
+        }
+        else
+        {
+          std::string::size_type equalSign = string.find("\0019426=", pos);
+          if (equalSign == std::string::npos)
+            throw InvalidMessage("EMX message type (9426) not found");
+
+          equalSign += 6;
+          std::string::size_type soh = string.find_first_of('\001', equalSign);
+          if (soh == std::string::npos)
+            throw InvalidMessage("EMX message type (9426) soh char not found");
+          m_subMsgType.assign(string.substr(equalSign, soh - equalSign ));
+#endif
+        }
       }
 
       m_header.appendField( field );
@@ -358,7 +413,11 @@ throw( InvalidMessage )
       appendField( field );
 
       if ( pApplicationDataDictionary )
+#ifdef HAVE_EMX
+        setGroup(m_subMsgType, field, string, pos, *this, *pApplicationDataDictionary);
+#else
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
+#endif
     }
   }
 
@@ -635,7 +694,11 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
   }
 
   std::string::const_iterator const tagEnd = soh + 1;
+#if defined(__SUNPRO_CC)
+  std::distance( string.begin(), tagEnd, pos );
+#else
   pos = std::distance( string.begin(), tagEnd );
+#endif
 
   return FieldBase (
     field,

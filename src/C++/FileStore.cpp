@@ -130,10 +130,18 @@ void FileStore::populateCache()
   {
     int num;
     long offset;
-    size_t size;
+    std::size_t size;
 
-    while ( FILE_FSCANF( headerFile, "%d,%ld,%lu ", &num, &offset, &size ) == 3 )
-      m_offsets[ num ] = std::make_pair( offset, size );
+    while (FILE_FSCANF(headerFile, "%d,%ld,%lu ", &num, &offset, &size) == 3)
+    {
+      std::pair<NumToOffset::iterator, bool> it = 
+        m_offsets.insert(NumToOffset::value_type(num, std::make_pair(offset, size)));
+      //std::cout << it.first->second.first << " --- " << it.first->second.second << '\n';
+      if (it.second == false)
+      {
+        it.first->second = std::make_pair(offset, size);
+      }
+    }
     fclose( headerFile );
   }
 
@@ -192,11 +200,16 @@ throw ( IOException )
   long offset = ftell( m_msgFile );
   if ( offset < 0 ) 
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
-  size_t size = msg.size();
+  std::size_t size = msg.size();
 
   if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
-  m_offsets[ msgSeqNum ] = std::make_pair( offset, size );
+  std::pair<NumToOffset::iterator, bool> it = 
+    m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
+  if (it.second == false)
+  {
+    it.first->second = std::make_pair(offset, size);
+  }
   fwrite( msg.c_str(), sizeof( char ), msg.size(), m_msgFile );
   if ( ferror( m_msgFile ) ) 
     throw IOException( "Unable to write to file " + m_msgFileName );

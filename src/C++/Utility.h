@@ -74,6 +74,9 @@ typedef int ssize_t;
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
+#if defined(__SUNPRO_CC)
+#include <sys/filio.h>
+#endif
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <netinet/in.h>
@@ -101,11 +104,21 @@ typedef int ssize_t;
 #if defined(HAVE_STD_SHARED_PTR)
   namespace ptr = std;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
+  namespace ptr = std::tr1;
+#elif defined(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER)
   #include <tr1/memory>
   namespace ptr = std::tr1;
 #elif defined(HAVE_BOOST_SHARED_PTR)
   #include <boost/shared_ptr.hpp>
   namespace ptr = boost;
+#elif defined(__SUNPRO_CC)
+  #if (__SUNPRO_CC <= 0x5140)
+  #include "./wx/sharedptr.h"
+  namespace ptr = wxWidgets;
+  #endif
+#elif defined(__TOS_AIX__)
+  #include <memory>
+  namespace ptr = std::tr1;
 #else
   namespace ptr = std;
 #endif
@@ -122,6 +135,7 @@ std::string string_strip( const std::string& value );
 
 void socket_init();
 void socket_term();
+int socket_bind( int socket, const char* hostname, int port );
 int socket_createAcceptor( int port, bool reuse = false );
 int socket_createConnector();
 int socket_connect( int s, const char* address, int port );

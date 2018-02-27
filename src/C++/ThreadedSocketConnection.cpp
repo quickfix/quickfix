@@ -44,8 +44,10 @@ ThreadedSocketConnection::ThreadedSocketConnection
 ThreadedSocketConnection::ThreadedSocketConnection
 ( const SessionID& sessionID, int s,
   const std::string& address, short port, 
-  Log* pLog )
+  Log* pLog,
+  const std::string& sourceAddress, short sourcePort )
   : m_socket( s ), m_address( address ), m_port( port ),
+    m_sourceAddress( sourceAddress ), m_sourcePort( sourcePort ),
     m_pLog( pLog ),
     m_pSession( Session::lookupSession( sessionID ) ),
     m_disconnect( false )
@@ -79,6 +81,10 @@ bool ThreadedSocketConnection::send( const std::string& msg )
 
 bool ThreadedSocketConnection::connect()
 {
+  // do the bind in the thread as name resolution may block
+  if ( !m_sourceAddress.empty() || m_sourcePort )
+    socket_bind( m_socket, m_sourceAddress.c_str(), m_sourcePort );
+
   return socket_connect(getSocket(), m_address.c_str(), m_port) >= 0;
 }
 
