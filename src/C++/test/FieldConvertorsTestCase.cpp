@@ -236,7 +236,7 @@ TEST(utcTimeStampConvertToMilli)
   UtcTimeStamp input;
   input.setHMS( 12, 5, 6, 555, 3 );
   input.setYMD( 2000, 4, 26 );
-  CHECK_EQUAL( "20000426-12:05:06.555", UtcTimeStampConvertor::convert( input ) );
+  CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
   CHECK_EQUAL( "20000426-12:05:06.555", UtcTimeStampConvertor::convert( input, 3 ) );
 }
 

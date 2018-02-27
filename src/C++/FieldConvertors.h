@@ -432,41 +432,7 @@ struct BoolConvertor
 struct UtcTimeStampConvertor
 {
   static std::string convert( const UtcTimeStamp& value,
-                              bool showMilliseconds = false )
-  throw( FieldConvertError )
-  {
-    int year, month, day, hour, minute, second, millis;
-
-    value.getYMD( year, month, day );
-    value.getHMS( hour, minute, second, millis );
-
-    char result[ 17+4 ];
-
-    integer_to_string_padded( result, 4, year );
-    integer_to_string_padded( result + 4, 2, month );
-    integer_to_string_padded( result + 6, 2, day );
-    result[8]  = '-';
-    integer_to_string_padded( result + 9, 2, hour );
-    result[11] = ':';
-    integer_to_string_padded( result + 12, 2, minute );
-    result[14] = ':';
-    integer_to_string_padded( result + 15, 2, second );
-
-    if( showMilliseconds )
-    {
-      result[17] = '.';
-      if( integer_to_string_padded ( result + 18, 3, millis )
-          != result + 18 )
-      {
-        throw FieldConvertError();
-      }
-    }
-
-    return std::string( result, showMilliseconds ? sizeof( result ) : 17 );
-  }
-
-  static std::string convert( const UtcTimeStamp& value,
-                              int precision )
+                              int precision = 0 )
   throw( FieldConvertError )
   {
     char result[ 17+10 ]; // Maximum
@@ -581,33 +547,7 @@ struct UtcTimeStampConvertor
 struct UtcTimeOnlyConvertor
 {
   static std::string convert( const UtcTimeOnly& value,
-                              bool showMilliseconds = false)
-  throw( FieldConvertError )
-  {
-    int hour, minute, second, millis;
-    value.getHMS( hour, minute, second, millis );
-
-    char result[ 8+4 ];
-
-    integer_to_string_padded ( result, 2, hour );
-    result[2] = ':';
-    integer_to_string_padded ( result + 3, 2, minute );
-    result[5] = ':';
-    integer_to_string_padded ( result + 6, 2, second );
-
-    if( showMilliseconds )
-    {
-      result[8] = '.';
-      if( integer_to_string_padded ( result + 9, 3, millis )
-          != result + 9 )
-          throw FieldConvertError();
-    }
-
-    return std::string( result, showMilliseconds ? sizeof( result ) : 8 );
-  }
-
-  static std::string convert( const UtcTimeOnly& value,
-                              int precision)
+                              int precision = 0 )
   throw( FieldConvertError )
   {
     char result[ 8+10 ]; // Maximum
