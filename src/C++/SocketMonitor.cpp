@@ -133,17 +133,17 @@ inline timeval* SocketMonitor::getTimeval( bool poll, double timeout )
     m_timeval.tv_sec = timeout;
   return &m_timeval;
 #else
-double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
+  double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   if ( elapsed >= timeout || elapsed == 0.0 )
   {
     m_ticks = clock();
     m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = (timeout * 1000000);
+    m_timeval.tv_usec = (long)(timeout * 1000000);
   }
   else
   {
     m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = ( ( timeout - elapsed ) * 1000000 );
+    m_timeval.tv_usec = (long)( ( timeout - elapsed ) * 1000000 );
   }
   return &m_timeval;
 #endif
