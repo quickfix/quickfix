@@ -135,7 +135,7 @@ struct DateTime
   /// Return the hour portion of the time (0-23)
   inline int getHour() const
   {
-    return m_time / NANOS_PER_HOUR;
+    return (int)(m_time / NANOS_PER_HOUR);
   }
 
   /// Return the minute portion of the time (0-59)
@@ -217,7 +217,7 @@ struct DateTime
   /// millisecond portions of the time in a single operation
   inline void getHMS( int& hour, int& minute, int& second, int& millis ) const 
   {
-    int ticks = m_time / NANOS_PER_SEC;
+    int ticks = (int)m_time / NANOS_PER_SEC;
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
@@ -228,7 +228,7 @@ struct DateTime
   /// fraction portions of the time in a single operation
   inline void getHMS( int& hour, int& minute, int& second, int& fraction, int precision ) const
   {
-    int ticks = m_time / NANOS_PER_SEC;
+    int ticks = (int)m_time / NANOS_PER_SEC;
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
@@ -575,7 +575,7 @@ inline int operator-( const DateTime& lhs, const DateTime& rhs )
 {
   return (DateTime::SECONDS_PER_DAY * (lhs.m_date - rhs.m_date) +
           // Truncate the nanos before subtracting
-          lhs.m_time / DateTime::NANOS_PER_SEC - rhs.m_time / DateTime::NANOS_PER_SEC);
+          (int)(lhs.m_time / DateTime::NANOS_PER_SEC) - (int)(rhs.m_time / DateTime::NANOS_PER_SEC));
 }
 
 /// Date and Time represented in UTC.
