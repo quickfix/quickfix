@@ -217,7 +217,7 @@ struct DateTime
   /// millisecond portions of the time in a single operation
   inline void getHMS( int& hour, int& minute, int& second, int& millis ) const 
   {
-    int ticks = (int)m_time / NANOS_PER_SEC;
+    int ticks = (int)(m_time / NANOS_PER_SEC);
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
@@ -228,7 +228,7 @@ struct DateTime
   /// fraction portions of the time in a single operation
   inline void getHMS( int& hour, int& minute, int& second, int& fraction, int precision ) const
   {
-    int ticks = (int)m_time / NANOS_PER_SEC;
+    int ticks = (int)(m_time / NANOS_PER_SEC);
     hour = ticks / SECONDS_PER_HOUR;
     minute = (ticks / SECONDS_PER_MIN) % MINUTES_PER_HOUR;
     second = ticks % SECONDS_PER_MIN;
