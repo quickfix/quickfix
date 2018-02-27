@@ -755,17 +755,18 @@ class SocketException(FIXException):
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
-
-    def errorToWhat(self):
-        return _quickfix.SocketException_errorToWhat(self)
-    __swig_setmethods__["error"] = _quickfix.SocketException_error_set
-    __swig_getmethods__["error"] = _quickfix.SocketException_error_get
     if _newclass:
-        error = _swig_property(_quickfix.SocketException_error_get, _quickfix.SocketException_error_set)
+        errorToWhat = staticmethod(_quickfix.SocketException_errorToWhat)
+    else:
+        errorToWhat = _quickfix.SocketException_errorToWhat
     __swig_destroy__ = _quickfix.delete_SocketException
     __del__ = lambda self: None
 SocketException_swigregister = _quickfix.SocketException_swigregister
 SocketException_swigregister(SocketException)
+
+def SocketException_errorToWhat():
+    return _quickfix.SocketException_errorToWhat()
+SocketException_errorToWhat = _quickfix.SocketException_errorToWhat
 
 class SocketSendFailed(SocketException):
     __swig_setmethods__ = {}
@@ -1313,8 +1314,8 @@ class Header(FieldMap):
     __getattr__ = lambda self, name: _swig_getattr(self, Header, name)
     __repr__ = _swig_repr
 
-    def __init__(self):
-        this = _quickfix.new_Header()
+    def __init__(self, *args):
+        this = _quickfix.new_Header(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
@@ -1335,8 +1336,8 @@ class Trailer(FieldMap):
     __getattr__ = lambda self, name: _swig_getattr(self, Trailer, name)
     __repr__ = _swig_repr
 
-    def __init__(self):
-        this = _quickfix.new_Trailer()
+    def __init__(self, *args):
+        this = _quickfix.new_Trailer(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
@@ -38641,6 +38642,8 @@ SOCKET_ACCEPT_PORT = cvar.SOCKET_ACCEPT_PORT
 SOCKET_REUSE_ADDRESS = cvar.SOCKET_REUSE_ADDRESS
 SOCKET_CONNECT_HOST = cvar.SOCKET_CONNECT_HOST
 SOCKET_CONNECT_PORT = cvar.SOCKET_CONNECT_PORT
+SOCKET_CONNECT_SOURCE_HOST = cvar.SOCKET_CONNECT_SOURCE_HOST
+SOCKET_CONNECT_SOURCE_PORT = cvar.SOCKET_CONNECT_SOURCE_PORT
 SOCKET_NODELAY = cvar.SOCKET_NODELAY
 SOCKET_SEND_BUFFER_SIZE = cvar.SOCKET_SEND_BUFFER_SIZE
 SOCKET_RECEIVE_BUFFER_SIZE = cvar.SOCKET_RECEIVE_BUFFER_SIZE
@@ -38649,6 +38652,8 @@ VALIDATE_LENGTH_AND_CHECKSUM = cvar.VALIDATE_LENGTH_AND_CHECKSUM
 VALIDATE_FIELDS_OUT_OF_ORDER = cvar.VALIDATE_FIELDS_OUT_OF_ORDER
 VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
 VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
+ALLOW_UNKNOWN_MSG_FIELDS = cvar.ALLOW_UNKNOWN_MSG_FIELDS
+PRESERVE_MESSAGE_FIELDS_ORDER = cvar.PRESERVE_MESSAGE_FIELDS_ORDER
 LOGON_TIMEOUT = cvar.LOGON_TIMEOUT
 LOGOUT_TIMEOUT = cvar.LOGOUT_TIMEOUT
 FILE_STORE_PATH = cvar.FILE_STORE_PATH
@@ -38701,8 +38706,20 @@ RESET_ON_LOGOUT = cvar.RESET_ON_LOGOUT
 RESET_ON_DISCONNECT = cvar.RESET_ON_DISCONNECT
 REFRESH_ON_LOGON = cvar.REFRESH_ON_LOGON
 MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
+TIMESTAMP_PRECISION = cvar.TIMESTAMP_PRECISION
 HTTP_ACCEPT_PORT = cvar.HTTP_ACCEPT_PORT
 PERSIST_MESSAGES = cvar.PERSIST_MESSAGES
+SERVER_CERT_FILE = cvar.SERVER_CERT_FILE
+SERVER_CERT_KEY_FILE = cvar.SERVER_CERT_KEY_FILE
+CLIENT_CERT_FILE = cvar.CLIENT_CERT_FILE
+CLIENT_CERT_KEY_FILE = cvar.CLIENT_CERT_KEY_FILE
+CERT_AUTH_FILE = cvar.CERT_AUTH_FILE
+CERT_AUTH_DIR = cvar.CERT_AUTH_DIR
+CRL_FILE = cvar.CRL_FILE
+CRL_DIR = cvar.CRL_DIR
+VERIFY_LEVEL = cvar.VERIFY_LEVEL
+SSL_PROTOCOL = cvar.SSL_PROTOCOL
+SSL_CIPHER_SUITE = cvar.SSL_CIPHER_SUITE
 
 
 def __rshift__(*args):
@@ -38897,6 +38914,12 @@ class Session(_object):
 
     def setMillisecondsInTimeStamp(self, value):
         return _quickfix.Session_setMillisecondsInTimeStamp(self, value)
+
+    def getTimestampPrecision(self):
+        return _quickfix.Session_getTimestampPrecision(self)
+
+    def setTimestampPrecision(self, precision):
+        return _quickfix.Session_setTimestampPrecision(self, precision)
 
     def getPersistMessages(self):
         return _quickfix.Session_getPersistMessages(self)
@@ -39808,6 +39831,15 @@ class DataDictionary(_object):
     def getOrderedFields(self):
         return _quickfix.DataDictionary_getOrderedFields(self)
 
+    def getHeaderOrderedFields(self):
+        return _quickfix.DataDictionary_getHeaderOrderedFields(self)
+
+    def getTrailerOrderedFields(self):
+        return _quickfix.DataDictionary_getTrailerOrderedFields(self)
+
+    def getMessageOrderedFields(self, msgType):
+        return _quickfix.DataDictionary_getMessageOrderedFields(self, msgType)
+
     def setVersion(self, beginString):
         return _quickfix.DataDictionary_setVersion(self, beginString)
 
@@ -39903,6 +39935,15 @@ class DataDictionary(_object):
 
     def checkUserDefinedFields(self, value):
         return _quickfix.DataDictionary_checkUserDefinedFields(self, value)
+
+    def allowUnknownMsgFields(self, value):
+        return _quickfix.DataDictionary_allowUnknownMsgFields(self, value)
+
+    def preserveMessageFieldsOrder(self, value):
+        return _quickfix.DataDictionary_preserveMessageFieldsOrder(self, value)
+
+    def isMessageFieldsOrderPreserved(self):
+        return _quickfix.DataDictionary_isMessageFieldsOrderPreserved(self)
 
     def validate(self, *args):
         return _quickfix.DataDictionary_validate(self, *args)

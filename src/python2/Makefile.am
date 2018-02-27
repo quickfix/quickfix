@@ -5,7 +5,7 @@ _quickfix_la_SOURCES = \
 
 python_DATA = quickfix.py quickfix40.py quickfix41.py quickfix42.py quickfix43.py quickfix44.py quickfix50.py quickfix50sp1.py quickfix50sp2.py quickfixt11.py
 
-_quickfix_la_CXXFLAGS = -DPYTHON_MAJOR_VERSION=2 -Wno-unused-variable
+_quickfix_la_CXXFLAGS = -DPYTHON_MAJOR_VERSION=2 -Wno-unused-variable -Wno-maybe-uninitialized
 _quickfix_la_LDFLAGS = -version-info 12:0:0 -module
 _quickfix_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
