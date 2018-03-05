@@ -80,20 +80,26 @@ public:
   void backup();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_timestampPrecison) << " : " << value << std::endl; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_timestampPrecison) << " : " << value << std::endl; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
-    m_event << UtcTimeStampConvertor::convert( now, m_millisecondsInTimeStamp )
+    m_event << UtcTimeStampConvertor::convert( now, m_timestampPrecison )
             << " : " << value << std::endl;
   }
 
   bool getMillisecondsInTimeStamp() const
-  { return m_millisecondsInTimeStamp; }
+  { return (m_timestampPrecison == 3); }
+
   void setMillisecondsInTimeStamp ( bool value )
-  { m_millisecondsInTimeStamp = value; }
+  {
+    if (value)
+      m_timestampPrecison = 3;
+    else
+      m_timestampPrecison = 0;
+  }
 
 private:
   std::string generatePrefix( const SessionID& sessionID );
@@ -105,7 +111,7 @@ private:
   std::string m_eventFileName;
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
-  bool m_millisecondsInTimeStamp;
+  bool m_timestampPrecison;
 };
 }
 
