@@ -302,7 +302,7 @@ class MessageTestCase < Test::Unit::TestCase
 		@object.getField( noOrders )
 		assert_equal( 2, noOrders.getValue() )
 
-		@object.removeGroup( group )
+		@object.removeGroup( 1, group )
 		assert( @object.hasGroup(1, group) )
 		assert( !@object.hasGroup(2, group) )
 		assert( !@object.hasGroup(3, group) )
