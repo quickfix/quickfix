@@ -1,3 +1,19 @@
+/* Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* ====================================================================
  * Copyright (c) 1998-2006 Ralf S. Engelschall. All rights reserved.
  *
@@ -250,7 +266,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
                 Log *log, std::string &errStr, int &verifyLevel);
 
-X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
+X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
                         std::string &errStr);
 
 int acceptSSLConnection(int socket, SSL * ssl, Log * log, int verify);
