@@ -40,14 +40,12 @@ void Application::onLogout( const FIX::SessionID& sessionID )
 }
 
 void Application::fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
 {
   crack( message, sessionID );
   std::cout << std::endl << "IN: " << message << std::endl;
 }
 
 void Application::toApp( FIX::Message& message, const FIX::SessionID& sessionID )
-throw( FIX::DoNotSend )
 {
   try
   {

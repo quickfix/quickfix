@@ -112,18 +112,18 @@ class DataDictionary
 public:
   DataDictionary();
   DataDictionary( const DataDictionary& copy );
-  DataDictionary(std::istream& stream , bool preserveMsgFldsOrder = false) throw( ConfigError );
-  DataDictionary(const std::string& url , bool preserveMsgFldsOrder = false) throw( ConfigError );
+  DataDictionary(std::istream& stream , bool preserveMsgFldsOrder = false);
+  DataDictionary(const std::string& url , bool preserveMsgFldsOrder = false);
   virtual ~DataDictionary();
 
-  void readFromURL( const std::string& url ) throw( ConfigError );
-  void readFromDocument( DOMDocumentPtr pDoc ) throw( ConfigError );
-  void readFromStream( std::istream& stream ) throw( ConfigError );
+  void readFromURL( const std::string& url );
+  void readFromDocument( DOMDocumentPtr pDoc );
+  void readFromStream( std::istream& stream );
 
   message_order const& getOrderedFields() const;
-  message_order const& getHeaderOrderedFields() const throw( ConfigError );
-  message_order const& getTrailerOrderedFields() const throw( ConfigError );
-  message_order const& getMessageOrderedFields(const std::string & msgType) const throw( ConfigError );
+  message_order const& getHeaderOrderedFields() const;
+  message_order const& getTrailerOrderedFields() const;
+  message_order const& getMessageOrderedFields(const std::string & msgType) const;
 
   // storage functions
   void setVersion( const std::string& beginString )
@@ -371,11 +371,11 @@ public:
   /// Validate a message.
   static void validate( const Message& message,
                         const DataDictionary* const pSessionDD,
-                        const DataDictionary* const pAppID ) throw( FIX::Exception );
+                        const DataDictionary* const pAppID );
 
-  void validate( const Message& message ) const throw ( FIX::Exception )
+  void validate( const Message& message ) const
   { validate( message, false ); }
-  void validate( const Message& message, bool bodyOnly ) const throw( FIX::Exception )
+  void validate( const Message& message, bool bodyOnly ) const
   { validate( message, bodyOnly ? (DataDictionary*)0 : this, this ); }
 
   DataDictionary& operator=( const DataDictionary& rhs );
@@ -404,14 +404,12 @@ private:
 
   /// Check if field tag number is defined in spec.
   void checkValidTagNumber( const FieldBase& field ) const
-  throw( InvalidTagNumber )
   {
     if( m_fields.find( field.getTag() ) == m_fields.end() )
       throw InvalidTagNumber( field.getTag() );
   }
 
   void checkValidFormat( const FieldBase& field ) const
-  throw( IncorrectDataFormat )
   {
     try
     {
@@ -487,7 +485,6 @@ private:
   }
 
   void checkValue( const FieldBase& field ) const
-  throw( IncorrectTagValue )
   {
     if ( !hasFieldValue( field.getTag() ) ) return ;
 
@@ -498,7 +495,6 @@ private:
 
   /// Check if a field has a value.
   void checkHasValue( const FieldBase& field ) const
-  throw( NoTagValue )
   {
     if ( m_checkFieldsHaveValues && !field.getString().length() )
       throw NoTagValue( field.getTag() );
@@ -507,7 +503,6 @@ private:
   /// Check if a field is in this message type.
   void checkIsInMessage
   ( const FieldBase& field, const MsgType& msgType ) const
-  throw( TagNotDefinedForMessage )
   {
     if ( !isMsgField( msgType, field.getTag() ) )
       throw TagNotDefinedForMessage( field.getTag() );
@@ -516,7 +511,6 @@ private:
   /// Check if group count matches number of groups in
   void checkGroupCount
   ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType ) const
-  throw( RepeatingGroupCountMismatch )
   {
     int fieldNum = field.getTag();
     if( isGroup(msgType, fieldNum) )
@@ -531,7 +525,6 @@ private:
   void checkHasRequired
   ( const FieldMap& header, const FieldMap& body, const FieldMap& trailer,
     const MsgType& msgType ) const
-  throw( RequiredTagMissing )
   {
     NonBodyFields::const_iterator iNBF;
     for( iNBF = m_headerFields.begin(); iNBF != m_headerFields.end(); ++iNBF )

@@ -37,9 +37,9 @@ class SocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) throw( ConfigError );
+                   const SessionSettings& );
   SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) throw( ConfigError );
+                   const SessionSettings&, LogFactory& );
 
   virtual ~SocketInitiator();
 
@@ -47,8 +47,8 @@ private:
   typedef std::map < int, SocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  void onConfigure( const SessionSettings& ) throw ( ConfigError );
-  void onInitialize( const SessionSettings& ) throw ( RuntimeError );
+  void onConfigure( const SessionSettings& );
+  void onInitialize( const SessionSettings& );
 
   void onStart();
   bool onPoll( double timeout );
