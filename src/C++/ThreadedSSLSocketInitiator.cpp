@@ -135,7 +135,7 @@ int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int ver
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings)
+    const SessionSettings &settings) throw(ConfigError)
     : Initiator(application, factory, settings), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
@@ -146,7 +146,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings, LogFactory &logFactory)
+    const SessionSettings &settings, LogFactory &logFactory) throw(ConfigError)
     : Initiator(application, factory, settings, logFactory), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
@@ -167,7 +167,8 @@ ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator()
   socket_term();
 }
 
-void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s)
+void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) throw(
+    ConfigError)
 {
   const Dictionary &dict = s.get();
 
@@ -181,7 +182,8 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s)
     m_rcvBufSize = dict.getInt(SOCKET_RECEIVE_BUFFER_SIZE);
 }
 
-void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s)
+void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) throw(
+    RuntimeError)
 {
   if (m_sslInit)
     return;

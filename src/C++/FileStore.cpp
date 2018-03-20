@@ -190,6 +190,7 @@ void FileStoreFactory::destroy( MessageStore* pStore )
 }
 
 bool FileStore::set( int msgSeqNum, const std::string& msg )
+throw ( IOException )
 {
   if ( fseek( m_msgFile, 0, SEEK_END ) ) 
     throw IOException( "Cannot seek to end of " + m_msgFileName );
@@ -221,6 +222,7 @@ bool FileStore::set( int msgSeqNum, const std::string& msg )
 
 void FileStore::get( int begin, int end,
                      std::vector < std::string > & result ) const
+throw ( IOException )
 {
   result.clear();
   std::string msg;
@@ -231,46 +233,46 @@ void FileStore::get( int begin, int end,
   }
 }
 
-int FileStore::getNextSenderMsgSeqNum() const
+int FileStore::getNextSenderMsgSeqNum() const throw ( IOException )
 {
   return m_cache.getNextSenderMsgSeqNum();
 }
 
-int FileStore::getNextTargetMsgSeqNum() const
+int FileStore::getNextTargetMsgSeqNum() const throw ( IOException )
 {
   return m_cache.getNextTargetMsgSeqNum();
 }
 
-void FileStore::setNextSenderMsgSeqNum( int value )
+void FileStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
 {
   m_cache.setNextSenderMsgSeqNum( value );
   setSeqNum();
 }
 
-void FileStore::setNextTargetMsgSeqNum( int value )
+void FileStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 {
   m_cache.setNextTargetMsgSeqNum( value );
   setSeqNum();
 }
 
-void FileStore::incrNextSenderMsgSeqNum()
+void FileStore::incrNextSenderMsgSeqNum() throw ( IOException )
 {
   m_cache.incrNextSenderMsgSeqNum();
   setSeqNum();
 }
 
-void FileStore::incrNextTargetMsgSeqNum()
+void FileStore::incrNextTargetMsgSeqNum() throw ( IOException )
 {
   m_cache.incrNextTargetMsgSeqNum();
   setSeqNum();
 }
 
-UtcTimeStamp FileStore::getCreationTime() const
+UtcTimeStamp FileStore::getCreationTime() const throw ( IOException )
 {
   return m_cache.getCreationTime();
 }
 
-void FileStore::reset()
+void FileStore::reset() throw ( IOException )
 {
   try
   {
@@ -284,7 +286,7 @@ void FileStore::reset()
   }
 }
 
-void FileStore::refresh()
+void FileStore::refresh() throw ( IOException )
 {
   try
   {
@@ -320,6 +322,7 @@ void FileStore::setSession()
 }
 
 bool FileStore::get( int msgSeqNum, std::string& msg ) const
+throw ( IOException )
 {
   NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
   if ( find == m_offsets.end() ) return false;

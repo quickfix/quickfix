@@ -63,13 +63,13 @@ public:
   bool sentLogout() { return m_state.sentLogout(); }
   bool receivedLogon() { return m_state.receivedLogon(); }
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
-  void reset()
+  void reset() throw( IOException ) 
   { generateLogout(); disconnect(); m_state.reset(); }
-  void refresh()
+  void refresh() throw( IOException )
   { m_state.refresh(); }
-  void setNextSenderMsgSeqNum( int num )
+  void setNextSenderMsgSeqNum( int num ) throw( IOException )
   { m_state.setNextSenderMsgSeqNum( num ); }
-  void setNextTargetMsgSeqNum( int num )
+  void setNextTargetMsgSeqNum( int num ) throw( IOException )
   { m_state.setNextTargetMsgSeqNum( num ); }
 
   const SessionID& getSessionID() const
@@ -80,16 +80,20 @@ public:
   { return m_dataDictionaryProvider; }
 
   static bool sendToTarget( Message& message,
-                            const std::string& qualifier = "" );
-  static bool sendToTarget( Message& message, const SessionID& sessionID );
+                            const std::string& qualifier = "" )
+  throw( SessionNotFound );
+  static bool sendToTarget( Message& message, const SessionID& sessionID )
+  throw( SessionNotFound );
   static bool sendToTarget( Message&,
                             const SenderCompID& senderCompID,
                             const TargetCompID& targetCompID,
-                            const std::string& qualifier = "" );
+                            const std::string& qualifier = "" )
+  throw( SessionNotFound );
   static bool sendToTarget( Message& message,
                             const std::string& senderCompID,
                             const std::string& targetCompID,
-                            const std::string& qualifier = "" );
+                            const std::string& qualifier = "" )
+  throw( SessionNotFound );
 
   static std::set<SessionID> getSessions();
   static bool doesSessionExist( const SessionID& );
@@ -233,7 +237,7 @@ private:
   bool send( const std::string& );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
-  void persist( const Message&, const std::string& );
+  void persist( const Message&, const std::string& ) throw ( IOException );
 
   void insertSendingTime( Header& );
   void insertOrigSendingTime( Header&,

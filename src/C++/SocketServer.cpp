@@ -96,6 +96,7 @@ SocketServer::SocketServer( int timeout )
 
 int SocketServer::add( int port, bool reuse, bool noDelay, 
                        int sendBufSize, int rcvBufSize )
+  throw( SocketException& )
 {
   if( m_portToInfo.find(port) != m_portToInfo.end() )
     return m_portToInfo[port].m_socket;

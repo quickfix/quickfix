@@ -134,9 +134,9 @@ class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                      const SessionSettings& );
+                   const SessionSettings& ) throw( ConfigError );
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                      const SessionSettings&, LogFactory& );
+                   const SessionSettings&, LogFactory& ) throw( ConfigError );
 
   virtual ~SSLSocketInitiator();
 
@@ -156,8 +156,8 @@ private:
   typedef std::map < int, SSLSocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  void onConfigure( const SessionSettings& );
-  void onInitialize( const SessionSettings& );
+  void onConfigure( const SessionSettings& ) throw ( ConfigError );
+  void onInitialize( const SessionSettings& ) throw ( RuntimeError );
 
   void onStart();
   bool onPoll( double timeout );
