@@ -201,7 +201,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
 
 void DataDictionary::readFromURL( const std::string& url )
 {
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new PUGIXML_DOMDocument());
+  DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
 
   if(!pDoc->load(url))
     throw ConfigError(url + ": Could not parse data dictionary file");
@@ -218,7 +218,7 @@ void DataDictionary::readFromURL( const std::string& url )
 
 void DataDictionary::readFromStream( std::istream& stream )
 {
-  DOMDocumentPtr pDoc = DOMDocumentPtr(new PUGIXML_DOMDocument());
+  DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
 
   if(!pDoc->load(stream))
     throw ConfigError("Could not parse data dictionary stream");
@@ -226,7 +226,7 @@ void DataDictionary::readFromStream( std::istream& stream )
   readFromDocument( pDoc );
 }
 
-void DataDictionary::readFromDocument( DOMDocumentPtr pDoc )
+void DataDictionary::readFromDocument( const DOMDocumentPtr &pDoc )
 {
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");

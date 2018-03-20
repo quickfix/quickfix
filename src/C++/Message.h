@@ -345,7 +345,7 @@ protected:
 #ifdef HAVE_EMX
   std::string m_subMsgType;
 #endif
-  static std::auto_ptr<DataDictionary> s_dataDictionary;
+  static SmartPtr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
 

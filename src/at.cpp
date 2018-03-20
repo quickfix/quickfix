@@ -34,7 +34,7 @@
 #include "getopt-repl.h"
 #include "at_application.h"
 
-typedef std::auto_ptr < FIX::Acceptor > AcceptorPtr;
+typedef SmartPtr< FIX::Acceptor > AcceptorPtr;
 
 int main( int argc, char** argv )
 {
@@ -62,17 +62,13 @@ int main( int argc, char** argv )
     AcceptorPtr pAcceptor;
     if ( threaded )
     {
-      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
-                      ( new FIX::ThreadedSocketAcceptor
-                        ( application, factory, settings ) );
-      pAcceptor = p;
+      pAcceptor.reset( new FIX::ThreadedSocketAcceptor
+                       ( application, factory, settings ) );
     }
     else
     {
-      AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
-                      ( new FIX::SocketAcceptor
-                        ( application, factory, settings ) );
-      pAcceptor = p;
+      pAcceptor.reset( new FIX::SocketAcceptor
+                       ( application, factory, settings ) );
     }
 
     pAcceptor->start();
