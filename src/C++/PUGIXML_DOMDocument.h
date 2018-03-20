@@ -64,7 +64,7 @@ namespace FIX
   class PUGIXML_DOMDocument : public DOMDocument
   {
   public:
-    PUGIXML_DOMDocument() throw( ConfigError );
+    PUGIXML_DOMDocument();
     ~PUGIXML_DOMDocument();
 
     bool load( std::istream& );

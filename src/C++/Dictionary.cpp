@@ -30,7 +30,6 @@
 namespace FIX
 {
 std::string Dictionary::getString( const std::string& key, bool capitalize ) const
-throw( ConfigError, FieldConvertError )
 {
   Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
@@ -43,7 +42,6 @@ throw( ConfigError, FieldConvertError )
 }
 
 int Dictionary::getInt( const std::string& key ) const
-throw( ConfigError, FieldConvertError )
 {
   try
   {
@@ -56,7 +54,6 @@ throw( ConfigError, FieldConvertError )
 }
 
 double Dictionary::getDouble( const std::string& key ) const
-throw( ConfigError, FieldConvertError )
 {
   try
   {
@@ -69,7 +66,6 @@ throw( ConfigError, FieldConvertError )
 }
 
 bool Dictionary::getBool( const std::string& key ) const
-throw( ConfigError, FieldConvertError )
 {
   try
   {
@@ -82,7 +78,6 @@ throw( ConfigError, FieldConvertError )
 }
 
 int Dictionary::getDay( const std::string& key ) const
-throw( ConfigError, FieldConvertError )
 {
   try
   {

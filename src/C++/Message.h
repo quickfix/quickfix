@@ -82,28 +82,23 @@ public:
   Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order);
 
   /// Construct a message from a string
-  Message( const std::string& string, bool validate = true )
-  throw( InvalidMessage );
+  Message( const std::string& string, bool validate = true );
 
   /// Construct a message from a string using a data dictionary
   Message( const std::string& string, const FIX::DataDictionary& dataDictionary,
-           bool validate = true )
-  throw( InvalidMessage );
+           bool validate = true );
 
   /// Construct a message from a string using a session and application data dictionary
   Message( const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
-           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
-  throw( InvalidMessage );
+           const FIX::DataDictionary& applicationDataDictionary, bool validate = true );
 
   /// Construct a message from a string using a data dictionary
   Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& dataDictionary,
-           bool validate = true )
-  throw( InvalidMessage );
+           bool validate = true );
 
   /// Construct a message from a string using a session and application data dictionary
   Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
-           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
-  throw( InvalidMessage );
+           const FIX::DataDictionary& applicationDataDictionary, bool validate = true );
 
   Message( const Message& copy );
 
@@ -118,7 +113,7 @@ public:
   void replaceGroup( unsigned num, const FIX::Group& group )
   { FieldMap::replaceGroup( num, group.field(), group ); }
 
-  Group& getGroup( unsigned num, FIX::Group& group ) const throw( FieldNotFound )
+  Group& getGroup( unsigned num, FIX::Group& group ) const
   { group.clear();
     return static_cast < Group& >
       ( FieldMap::getGroup( num, group.field(), group ) );
@@ -167,22 +162,18 @@ public:
    * on failure.
    */
   void setString( const std::string& string )
-  throw( InvalidMessage )
   { setString(string, true); }
   void setString( const std::string& string, bool validate )
-  throw( InvalidMessage )
   { setString(string, validate, 0); }
   void setString( const std::string& string,
                   bool validate,
                   const FIX::DataDictionary* pDataDictionary )
-  throw( InvalidMessage )
   { setString(string, validate, pDataDictionary, pDataDictionary); }
 
   void setString( const std::string& string,
                   bool validate,
                   const FIX::DataDictionary* pSessionDataDictionary,
-                  const FIX::DataDictionary* pApplicationDataDictionary )
-  throw( InvalidMessage );
+                  const FIX::DataDictionary* pApplicationDataDictionary );
 
   void setGroup( const std::string& msg, const FieldBase& field,
                  const std::string& string, std::string::size_type& pos,
@@ -314,8 +305,7 @@ public:
                               const DataDictionary* pD );
 
   /// Returns the session ID of the intended recipient
-  SessionID getSessionID( const std::string& qualifier = "" ) const
-  throw( FieldNotFound );
+  SessionID getSessionID( const std::string& qualifier = "" ) const;
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
@@ -369,7 +359,6 @@ inline std::ostream& operator <<
 
 /// Parse the type of a message from a string.
 inline MsgType identifyType( const std::string& message )
-throw( MessageParseError )
 {
   std::string::size_type pos = message.find( "\001" "35=" );
   if ( pos == std::string::npos ) throw MessageParseError();

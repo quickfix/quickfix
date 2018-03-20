@@ -195,7 +195,6 @@ bool SocketConnection::isValidSession()
 }
 
 void SocketConnection::readFromSocket()
-throw( SocketRecvFailed )
 {
   ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
   if( size <= 0 ) throw SocketRecvFailed( size );

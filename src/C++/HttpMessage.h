@@ -42,8 +42,7 @@ public:
   HttpMessage();
 
   /// Construct a message from a string
-  HttpMessage( const std::string& string )
-  throw( InvalidMessage );
+  HttpMessage( const std::string& string );
 
   HttpMessage( const HttpMessage& copy )
   {
@@ -57,8 +56,7 @@ public:
   /// Get a string representation without making a copy
   std::string& toString( std::string& ) const;
 
-  void setString( const std::string& string )
-  throw( InvalidMessage );
+  void setString( const std::string& string );
 
   void clear()
   {
@@ -95,7 +93,6 @@ public:
   }
 
   const std::string& getParameter( const std::string& key ) const
-  throw( std::logic_error )
   {
     Parameters::const_iterator find = m_parameters.find( key );
     if( find == m_parameters.end() )

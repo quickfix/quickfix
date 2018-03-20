@@ -328,7 +328,6 @@ bool SSLSocketConnection::isValidSession()
 }
 
 void SSLSocketConnection::readFromSocket()
-throw( SocketRecvFailed )
 {
   bool pending = false;
 
@@ -379,8 +378,6 @@ throw( SocketRecvFailed )
                     << IntConvertor::convert(errCodeSSL) << "> " << errbuf
                     << std::endl;
         }
-
-        throw SocketRecvFailed(size);
       }
     }
 
