@@ -101,11 +101,11 @@ typedef int ssize_t;
 #include <cstdlib>
 #include <memory>
 
-#if defined(HAVE_STD_UNIQUE_PTR)
-typedef std::auto_ptr SmartPtr
+#if !defined(HAVE_STD_UNIQUE_PTR)
+#define SmartPtr std::auto_ptr
 #else
 #include <memory>
-typedef std::unique_ptr SmartPtr
+#define SmartPtr std::unique_ptr
 #endif
 
 #if defined(HAVE_STD_SHARED_PTR)
