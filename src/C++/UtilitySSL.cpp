@@ -1103,10 +1103,8 @@ long protocolOptions(const char *opt)
   return options;
 }
 
-void setCtxOptions(SSL_CTX *ctx, const char *opt)
+void setCtxOptions(SSL_CTX *ctx, long options)
 {
-  long options = protocolOptions(opt);
-
   SSL_CTX_set_options(ctx, SSL_OP_ALL);
   if (!(options & SSL_PROTOCOL_SSLV2))
     SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
@@ -1166,7 +1164,25 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
 
   SSL_CTX *ctx = 0;
 
+  std::string strOptions;
+  if (settings.get().has(SSL_PROTOCOL))
+  {
+    strOptions = settings.get().getString(SSL_PROTOCOL);
+  }
+
+  long options = protocolOptions(strOptions.c_str());
+
   /* set up the application context */
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
+  if (server)
+  {
+     ctx = SSL_CTX_new(TLS_server_method());
+  }
+  else
+  {
+     ctx = SSL_CTX_new(TLS_client_method());
+  }
+#else
   if (server)
   {
     ctx = SSL_CTX_new(SSLv23_server_method());
@@ -1175,6 +1191,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
   {
     ctx = SSL_CTX_new(SSLv23_client_method());
   }
+#endif
 
   if (ctx == 0)
   {
@@ -1182,12 +1199,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
     return ctx;
   }
 
-  std::string strOptions;
-  if (settings.get().has(SSL_PROTOCOL))
-  {
-    strOptions = settings.get().getString(SSL_PROTOCOL);
-  }
-  setCtxOptions(ctx, strOptions.c_str());
+  setCtxOptions(ctx, options);
 
   SSL_CTX_set_options(ctx, SSL_OP_SINGLE_DH_USE);
   if (server)
