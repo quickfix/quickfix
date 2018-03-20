@@ -70,6 +70,13 @@ else()
 message("-- shared_ptr not found.")
 endif()
 
+include(FindUniquePtr)
+FIND_UNIQUE_PTR()
+if (HAVE_UNIQUE_PTR_IN_STD_NAMESPACE)
+message("-- set HAVE_STD_UNIQUE_PTR")
+add_definitions("-DHAVE_STD_UNIQUE_PTR=1")
+endif()
+
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
 add_subdirectory(UnitTest++)
 endif()

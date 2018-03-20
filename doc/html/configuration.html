@@ -254,26 +254,13 @@ DataDictionary=somewhere/FIX42.xml
         </tr>
 
         <tr align="left" valign="middle">
-          <td><b>MillisecondsInTimeStamp</b></td>
-
-          <td>Determines if milliseconds should be added to
-          timestamps. Only available for FIX.4.2 and greater.</td>
-
-          <td>Y<br>
-          N</td>
-
-          <td>Y</td>
-        </tr>
-        
-        <tr align="left" valign="middle">
           <td><b>TimestampPrecision</b></td>
 
-          <td>Used to set the fractional part of timestamp. Allowable values are 0 to 9.
-If set, overrrides MillisecondsInTimeStamp.</td>
+          <td>Used to set the fractional part of timestamp. Allowable values are 0 to 9.</td>
 
           <td>0-9</td>
 
-          <td></td>
+          <td>3</td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1343,7 +1330,7 @@ Certification Authorities (CAs) whose clients you deal with.</td>
           <td></td>
         </tr>
          <tr align="center" valign="middle">
-          <td colspan="4">ACCEPTOR</td>
+          <td colspan="4"></br><b>ACCEPTOR</b></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ServerCertificateFile</b></td>
@@ -1371,8 +1358,8 @@ the stand-alone Private Key.</td>
         <tr align="left" valign="middle">
           <td><b>VerifyLevel</b></td>
 
-          <td>This directive sets the Certificate verification level. It applies to the authentication process used in the
-standard SSL handshake when a connection is established. 0 implies do not verify. 1 implies verify.</td>
+          <td>This directive sets the certificate verification level. It applies to the authentication process used in the
+standard SSL handshake when a connection is established. 0 implies do not verify and 1 implies verify the client.</td>
 
           <td></td>
 
@@ -1401,7 +1388,7 @@ Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
         </tr>
         
          <tr align="center" valign="middle">
-          <td colspan="4">INITIATOR</td>
+          <td colspan="4"></br><b>INITIATOR</b></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ClientCertificateFile</b></td>

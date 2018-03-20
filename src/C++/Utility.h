@@ -101,13 +101,6 @@ typedef int ssize_t;
 #include <cstdlib>
 #include <memory>
 
-#if defined(HAVE_STD_UNIQUE_PTR)
-typedef std::auto_ptr SmartPtr
-#else
-#include <memory>
-typedef std::unique_ptr SmartPtr
-#endif
-
 #if defined(HAVE_STD_SHARED_PTR)
   namespace ptr = std;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
@@ -130,6 +123,13 @@ typedef std::unique_ptr SmartPtr
 
 namespace FIX
 {
+
+#if !defined(HAVE_STD_UNIQUE_PTR)
+#define SmartPtr std::auto_ptr
+#else
+#define SmartPtr std::unique_ptr
+#endif
+
 void string_replace( const std::string& oldValue,
                      const std::string& newValue,
                      std::string& value );
