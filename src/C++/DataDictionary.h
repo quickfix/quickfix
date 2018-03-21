@@ -117,7 +117,7 @@ public:
   virtual ~DataDictionary();
 
   void readFromURL( const std::string& url );
-  void readFromDocument( DOMDocumentPtr pDoc );
+  void readFromDocument( const DOMDocumentPtr &pDoc );
   void readFromStream( std::istream& stream );
 
   message_order const& getOrderedFields() const;
