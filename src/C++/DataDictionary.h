@@ -117,7 +117,7 @@ public:
   virtual ~DataDictionary();
 
   void readFromURL( const std::string& url ) throw( ConfigError );
-  void readFromDocument( DOMDocumentPtr pDoc ) throw( ConfigError );
+  void readFromDocument( const DOMDocumentPtr &pDoc ) throw( ConfigError );
   void readFromStream( std::istream& stream ) throw( ConfigError );
 
   message_order const& getOrderedFields() const;

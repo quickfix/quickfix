@@ -101,6 +101,13 @@ typedef int ssize_t;
 #include <cstdlib>
 #include <memory>
 
+#if !defined(HAVE_STD_UNIQUE_PTR)
+#define SmartPtr std::auto_ptr
+#else
+#include <memory>
+#define SmartPtr std::unique_ptr
+#endif
+
 #if defined(HAVE_STD_SHARED_PTR)
   namespace ptr = std;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
