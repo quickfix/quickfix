@@ -86,7 +86,7 @@ long GetTickCount()
 }
 #endif
 
-std::auto_ptr<FIX::DataDictionary> s_dataDictionary;
+SmartPtr<FIX::DataDictionary> s_dataDictionary;
 const bool VALIDATE = true;
 const bool DONT_VALIDATE = false;
 
@@ -741,6 +741,7 @@ public:
   TestApplication() : m_count(0) {}
 
   void fromApp( const FIX::Message& m, const FIX::SessionID& )
+  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {
     m_count++; 
   }

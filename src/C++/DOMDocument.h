@@ -26,9 +26,11 @@
 #include <map>
 #include <iostream>
 #include <memory>
+#include "Utility.h"
 
 namespace FIX
 {
+  #include "Utility.h"
   /// Interface that represents attribute from underlying XML parser.
   class DOMAttributes
   {
@@ -40,7 +42,7 @@ namespace FIX
     virtual bool get( const std::string&, std::string& ) = 0;
     virtual map toMap() = 0;
   };
-  typedef std::auto_ptr<DOMAttributes> DOMAttributesPtr;
+  typedef SmartPtr<DOMAttributes> DOMAttributesPtr;
 
   /// Interface that represents node from underlying XML parser.
   class DOMNode
@@ -48,13 +50,13 @@ namespace FIX
   public:
     virtual ~DOMNode() {}
 
-    virtual std::auto_ptr<DOMNode> getFirstChildNode() = 0;
-    virtual std::auto_ptr<DOMNode> getNextSiblingNode() = 0;
-    virtual std::auto_ptr<DOMAttributes> getAttributes() = 0;
+    virtual SmartPtr<DOMNode> getFirstChildNode() = 0;
+    virtual SmartPtr<DOMNode> getNextSiblingNode() = 0;
+    virtual SmartPtr<DOMAttributes> getAttributes() = 0;
     virtual std::string getName() = 0;
     virtual std::string getText() = 0;
   };
-  typedef std::auto_ptr<DOMNode> DOMNodePtr;
+  typedef SmartPtr<DOMNode> DOMNodePtr;
 
   /// Interface that represents document of underlying XML parser.
   class DOMDocument
@@ -66,9 +68,9 @@ namespace FIX
     virtual bool load( const std::string& ) = 0;
     virtual bool xml( std::ostream& ) = 0;
 
-    virtual std::auto_ptr<DOMNode> getNode( const std::string& ) = 0;
+    virtual SmartPtr<DOMNode> getNode( const std::string& ) = 0;
   };
-  typedef std::auto_ptr<DOMDocument> DOMDocumentPtr;
+  typedef SmartPtr<DOMDocument> DOMDocumentPtr;
 }
 
 #endif

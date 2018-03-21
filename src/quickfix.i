@@ -6,6 +6,7 @@
 %include std_string.i
 %include exception.i
 %include carrays.i
+%include std_unique_ptr.i
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;

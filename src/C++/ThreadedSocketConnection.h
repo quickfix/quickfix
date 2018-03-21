@@ -60,7 +60,7 @@ public:
   bool read();
 
 private:
-  bool readMessage( std::string& msg );
+  bool readMessage( std::string& msg ) throw( SocketRecvFailed );
   void processStream();
   bool send( const std::string& );
   bool setSession( const std::string& msg );

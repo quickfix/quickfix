@@ -134,7 +134,7 @@ public:
     return m_statement;
   }
 
-  void throwException()
+  void throwException() throw( IOException )
   {
     if( !success() )
       throw IOException( "Query failed [" + m_query + "] " + reason() );

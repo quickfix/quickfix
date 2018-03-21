@@ -68,20 +68,22 @@ class MessageStore
 public:
   virtual ~MessageStore() {}
 
-  virtual bool set( int, const std::string& ) = 0;
-  virtual void get( int, int, std::vector < std::string > & ) const = 0;
+  virtual bool set( int, const std::string& )
+  throw ( IOException ) = 0;
+  virtual void get( int, int, std::vector < std::string > & ) const
+  throw ( IOException ) = 0;
 
-  virtual int getNextSenderMsgSeqNum() const = 0;
-  virtual int getNextTargetMsgSeqNum() const = 0;
-  virtual void setNextSenderMsgSeqNum( int ) = 0;
-  virtual void setNextTargetMsgSeqNum( int ) = 0;
-  virtual void incrNextSenderMsgSeqNum() = 0;
-  virtual void incrNextTargetMsgSeqNum() = 0;
+  virtual int getNextSenderMsgSeqNum() const throw ( IOException ) = 0;
+  virtual int getNextTargetMsgSeqNum() const throw ( IOException ) = 0;
+  virtual void setNextSenderMsgSeqNum( int ) throw ( IOException ) = 0;
+  virtual void setNextTargetMsgSeqNum( int ) throw ( IOException ) = 0;
+  virtual void incrNextSenderMsgSeqNum() throw ( IOException ) = 0;
+  virtual void incrNextTargetMsgSeqNum() throw ( IOException ) = 0;
 
-  virtual UtcTimeStamp getCreationTime() const = 0;
+  virtual UtcTimeStamp getCreationTime() const throw ( IOException ) = 0;
 
-  virtual void reset() = 0;
-  virtual void refresh() = 0;
+  virtual void reset() throw ( IOException ) = 0;
+  virtual void refresh() throw ( IOException ) = 0;
 };
 /*! @} */
 
@@ -96,33 +98,33 @@ class MemoryStore : public MessageStore
 public:
   MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
 
-  bool set( int, const std::string& );
-  void get( int, int, std::vector < std::string > & ) const;
+  bool set( int, const std::string& ) throw ( IOException );
+  void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
-  int getNextSenderMsgSeqNum() const
+  int getNextSenderMsgSeqNum() const throw ( IOException )
   { return m_nextSenderMsgSeqNum; }
-  int getNextTargetMsgSeqNum() const
+  int getNextTargetMsgSeqNum() const throw ( IOException )
   { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( int value )
+  void setNextSenderMsgSeqNum( int value ) throw ( IOException )
   { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( int value )
+  void setNextTargetMsgSeqNum( int value ) throw ( IOException )
   { m_nextTargetMsgSeqNum = value; }
-  void incrNextSenderMsgSeqNum()
+  void incrNextSenderMsgSeqNum() throw ( IOException )
   { ++m_nextSenderMsgSeqNum; }
-  void incrNextTargetMsgSeqNum()
+  void incrNextTargetMsgSeqNum() throw ( IOException )
   { ++m_nextTargetMsgSeqNum; }
 
-  void setCreationTime( const UtcTimeStamp& creationTime )
+  void setCreationTime( const UtcTimeStamp& creationTime ) throw ( IOException )
   { m_creationTime = creationTime; }
-  UtcTimeStamp getCreationTime() const
+  UtcTimeStamp getCreationTime() const throw ( IOException )
   { return m_creationTime; }
 
-  void reset()
+  void reset() throw ( IOException )
   {
     m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
     m_messages.clear(); m_creationTime.setCurrent();
   }
-  void refresh() {}
+  void refresh() throw ( IOException ) {}
 
 private:
   typedef std::map < int, std::string > Messages;

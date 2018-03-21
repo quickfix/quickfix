@@ -39,7 +39,9 @@ public:
   HttpParser() {}
   ~HttpParser() {}
 
-  bool readHttpMessage( std::string& str );
+  bool readHttpMessage( std::string& str )
+  throw ( MessageParseError );
+
   void addToStream( const char* str, size_t len )
   { m_buffer.append( str, len ); }
   void addToStream( const std::string& str )

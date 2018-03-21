@@ -210,8 +210,6 @@ class FieldNotFound(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.FieldNotFound_field_set
     __swig_getmethods__["field"] = _quickfix.FieldNotFound_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.FieldNotFound_field_get, _quickfix.FieldNotFound_field_set)
     __swig_destroy__ = _quickfix.delete_FieldNotFound
     __del__ = lambda self: None
 FieldNotFound_swigregister = _quickfix.FieldNotFound_swigregister
@@ -346,8 +344,6 @@ class InvalidTagNumber(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.InvalidTagNumber_field_set
     __swig_getmethods__["field"] = _quickfix.InvalidTagNumber_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.InvalidTagNumber_field_get, _quickfix.InvalidTagNumber_field_set)
     __swig_destroy__ = _quickfix.delete_InvalidTagNumber
     __del__ = lambda self: None
 InvalidTagNumber_swigregister = _quickfix.InvalidTagNumber_swigregister
@@ -372,8 +368,6 @@ class RequiredTagMissing(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RequiredTagMissing_field_set
     __swig_getmethods__["field"] = _quickfix.RequiredTagMissing_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.RequiredTagMissing_field_get, _quickfix.RequiredTagMissing_field_set)
     __swig_destroy__ = _quickfix.delete_RequiredTagMissing
     __del__ = lambda self: None
 RequiredTagMissing_swigregister = _quickfix.RequiredTagMissing_swigregister
@@ -398,8 +392,6 @@ class TagNotDefinedForMessage(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_set
     __swig_getmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.TagNotDefinedForMessage_field_get, _quickfix.TagNotDefinedForMessage_field_set)
     __swig_destroy__ = _quickfix.delete_TagNotDefinedForMessage
     __del__ = lambda self: None
 TagNotDefinedForMessage_swigregister = _quickfix.TagNotDefinedForMessage_swigregister
@@ -424,8 +416,6 @@ class NoTagValue(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.NoTagValue_field_set
     __swig_getmethods__["field"] = _quickfix.NoTagValue_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.NoTagValue_field_get, _quickfix.NoTagValue_field_set)
     __swig_destroy__ = _quickfix.delete_NoTagValue
     __del__ = lambda self: None
 NoTagValue_swigregister = _quickfix.NoTagValue_swigregister
@@ -450,8 +440,6 @@ class IncorrectTagValue(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectTagValue_field_set
     __swig_getmethods__["field"] = _quickfix.IncorrectTagValue_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.IncorrectTagValue_field_get, _quickfix.IncorrectTagValue_field_set)
     __swig_destroy__ = _quickfix.delete_IncorrectTagValue
     __del__ = lambda self: None
 IncorrectTagValue_swigregister = _quickfix.IncorrectTagValue_swigregister
@@ -476,8 +464,6 @@ class IncorrectDataFormat(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.IncorrectDataFormat_field_set
     __swig_getmethods__["field"] = _quickfix.IncorrectDataFormat_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.IncorrectDataFormat_field_get, _quickfix.IncorrectDataFormat_field_set)
     __swig_destroy__ = _quickfix.delete_IncorrectDataFormat
     __del__ = lambda self: None
 IncorrectDataFormat_swigregister = _quickfix.IncorrectDataFormat_swigregister
@@ -638,8 +624,6 @@ class RepeatedTag(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatedTag_field_set
     __swig_getmethods__["field"] = _quickfix.RepeatedTag_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.RepeatedTag_field_get, _quickfix.RepeatedTag_field_set)
     __swig_destroy__ = _quickfix.delete_RepeatedTag
     __del__ = lambda self: None
 RepeatedTag_swigregister = _quickfix.RepeatedTag_swigregister
@@ -664,8 +648,6 @@ class RepeatingGroupCountMismatch(FIXException):
             self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_set
     __swig_getmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_get
-    if _newclass:
-        field = _swig_property(_quickfix.RepeatingGroupCountMismatch_field_get, _quickfix.RepeatingGroupCountMismatch_field_set)
     __swig_destroy__ = _quickfix.delete_RepeatingGroupCountMismatch
     __del__ = lambda self: None
 RepeatingGroupCountMismatch_swigregister = _quickfix.RepeatingGroupCountMismatch_swigregister

@@ -661,6 +661,7 @@ bool Session::resend( Message& message )
 }
 
 void Session::persist( const Message& message,  const std::string& messageString ) 
+throw ( IOException )
 {
   MsgSeqNum msgSeqNum;
   message.getHeader().getField( msgSeqNum );
@@ -1441,6 +1442,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
 }
 
 bool Session::sendToTarget( Message& message, const std::string& qualifier )
+throw( SessionNotFound )
 {
   try
   {
@@ -1451,6 +1453,7 @@ bool Session::sendToTarget( Message& message, const std::string& qualifier )
 }
 
 bool Session::sendToTarget( Message& message, const SessionID& sessionID )
+throw( SessionNotFound )
 {
   message.setSessionID( sessionID );
   Session* pSession = lookupSession( sessionID );
@@ -1463,6 +1466,7 @@ bool Session::sendToTarget
   const SenderCompID& senderCompID,
   const TargetCompID& targetCompID,
   const std::string& qualifier )
+throw( SessionNotFound )
 {
   message.getHeader().setField( senderCompID );
   message.getHeader().setField( targetCompID );
@@ -1472,6 +1476,7 @@ bool Session::sendToTarget
 bool Session::sendToTarget
 ( Message& message, const std::string& sender, const std::string& target,
   const std::string& qualifier )
+throw( SessionNotFound )
 {
   return sendToTarget( message, SenderCompID( sender ),
                        TargetCompID( target ), qualifier );

@@ -89,7 +89,7 @@ public:
     return PQgetvalue( m_result, row, column );
   }
 
-  void throwException()
+  void throwException() throw( IOException )
   {
     if( !success() )
       throw IOException( "Query failed [" + m_query + "] " );
@@ -168,7 +168,7 @@ private:
 
 typedef DatabaseConnectionPool<PostgreSQLConnection>
   PostgreSQLConnectionPool;
-typedef std::auto_ptr< PostgreSQLConnectionPool >
+typedef SmartPtr< PostgreSQLConnectionPool >
   PostgreSQLConnectionPoolPtr;
 }
 

@@ -115,7 +115,7 @@ else
   if test `uname` == AIX; then
    	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
   else
-    SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+    SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations -Wno-deprecated $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
   fi
 fi
 
@@ -236,15 +236,6 @@ AC_TRY_COMPILE(
 	AC_MSG_RESULT(yes)
 	AC_DEFINE(HAVE_STD_TR1_SHARED_PTR, 1,
 	The system supports std::tr1::shared_ptr),
-	AC_MSG_RESULT(no))
-
-AC_MSG_CHECKING(for std::unique_ptr)
-AC_TRY_COMPILE(
-	[#include <memory>],
-	[std::unique_ptr<int> ptr;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_STD_UNIQUE_PTR, 1,
-	The system supports std::unique_ptr),
 	AC_MSG_RESULT(no))
 
 AC_MSG_CHECKING(for std::shared_ptr)

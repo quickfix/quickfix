@@ -38,7 +38,7 @@ int const headerOrder[] =
   FIELD::MsgType
 };
 
-std::auto_ptr<DataDictionary> Message::s_dataDictionary;
+SmartPtr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
 : m_validStructure( true )
@@ -52,6 +52,7 @@ Message::Message(const message_order &hdrOrder, const message_order &trlOrder, c
   m_trailer(trlOrder), m_validStructure( true ) {}
 
 Message::Message( const std::string& string, bool validate )
+throw( InvalidMessage )
 : m_validStructure( true )
 , m_tag( 0 )
 {
@@ -61,6 +62,7 @@ Message::Message( const std::string& string, bool validate )
 Message::Message( const std::string& string,
                   const DataDictionary& dataDictionary,
                   bool validate )
+throw( InvalidMessage )
 : m_validStructure( true )
 , m_tag( 0 )
 {
@@ -71,6 +73,7 @@ Message::Message( const std::string& string,
                   const DataDictionary& sessionDataDictionary,
                   const DataDictionary& applicationDataDictionary,
                   bool validate )
+throw( InvalidMessage )
 : m_validStructure( true )
 , m_tag( 0 )
 {
@@ -83,6 +86,7 @@ Message::Message( const message_order &hdrOrder,
                   const std::string& string,
                   const DataDictionary& dataDictionary,
                   bool validate )
+throw( InvalidMessage )
 : FieldMap(order), m_header(hdrOrder),
   m_trailer(trlOrder), m_validStructure( true )
 {
@@ -96,6 +100,7 @@ Message::Message( const message_order &hdrOrder,
                   const DataDictionary& sessionDataDictionary,
                   const DataDictionary& applicationDataDictionary,
                   bool validate )
+throw( InvalidMessage )
 : FieldMap(order), m_header(hdrOrder),
   m_trailer(trlOrder), m_validStructure( true )
 {
@@ -135,9 +140,7 @@ bool Message::InitializeXML( const std::string& url )
 {
   try
   {
-    std::auto_ptr<DataDictionary> p =
-             std::auto_ptr<DataDictionary>(new DataDictionary(url));
-    s_dataDictionary = p;
+    s_dataDictionary.reset(new DataDictionary(url));
     return true;
   }
   catch( ConfigError& )
@@ -334,6 +337,7 @@ void Message::setString( const std::string& string,
                          bool doValidation,
                          const DataDictionary* pSessionDataDictionary,
                          const DataDictionary* pApplicationDataDictionary )
+throw( InvalidMessage )
 {
   clear();
 
@@ -433,7 +437,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   int delim;
   const DataDictionary* pDD = 0;
   if ( !dataDictionary.getGroup( msg, group, delim, pDD ) ) return ;
-  std::auto_ptr<Group> pGroup;
+  SmartPtr<Group> pGroup;
 
   while ( pos < string.size() )
   {
@@ -570,6 +574,7 @@ bool Message::isTrailerField( int field, const DataDictionary * pD )
 }
 
 SessionID Message::getSessionID( const std::string& qualifier ) const
+throw( FieldNotFound )
 {
   BeginString beginString;
   SenderCompID senderCompID;

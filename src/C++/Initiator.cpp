@@ -35,7 +35,7 @@ namespace FIX
 {
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings )
+                      const SessionSettings& settings ) throw( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -49,7 +49,7 @@ Initiator::Initiator( Application& application,
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings,
-                      LogFactory& logFactory )
+                      LogFactory& logFactory ) throw( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -60,7 +60,7 @@ Initiator::Initiator( Application& application,
   m_stop( true )
 { initialize(); }
 
-void Initiator::initialize()
+void Initiator::initialize() throw ( ConfigError )
 {
   std::set < SessionID > sessions = m_settings.getSessions();
   std::set < SessionID > ::iterator i;
@@ -187,7 +187,7 @@ bool Initiator::isDisconnected( const SessionID& sessionID )
   return m_disconnected.find( sessionID ) != m_disconnected.end();
 }
 
-void Initiator::start()
+void Initiator::start() throw ( ConfigError, RuntimeError )
 {
   m_stop = false;
   onConfigure( m_settings );
@@ -200,7 +200,7 @@ void Initiator::start()
 }
 
 
-void Initiator::block()
+void Initiator::block() throw ( ConfigError, RuntimeError )
 {
   m_stop = false;
   onConfigure( m_settings );
@@ -209,7 +209,7 @@ void Initiator::block()
   startThread(this);
 }
 
-bool Initiator::poll( double timeout )
+bool Initiator::poll( double timeout ) throw ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {

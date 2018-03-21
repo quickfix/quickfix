@@ -39,12 +39,14 @@ void NullStoreFactory::destroy( MessageStore* pStore )
 }
 
 bool NullStore::set( int msgSeqNum, const std::string& msg )
+throw( IOException )
 {
   return true;
 }
 
 void NullStore::get( int begin, int end,
                        std::vector < std::string > & messages ) const
+throw( IOException )
 {
   messages.clear();
 }

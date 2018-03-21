@@ -100,7 +100,7 @@ public:
     return m_rows[row][column];
   }
 
-  void throwException()
+  void throwException() throw( IOException )
   {
     if( !success() )
       throw IOException( "Query failed [" + m_query + "] " + reason() );
@@ -186,7 +186,7 @@ private:
 
 typedef DatabaseConnectionPool<MySQLConnection>
   MySQLConnectionPool;
-typedef std::auto_ptr< MySQLConnectionPool >
+typedef SmartPtr< MySQLConnectionPool >
   MySQLConnectionPoolPtr;
 }
 

@@ -39,7 +39,7 @@ SessionFactory::~SessionFactory()
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
-                                 const Dictionary& settings )
+                                 const Dictionary& settings ) throw( ConfigError )
 {
   std::string connectionType = settings.getString( CONNECTION_TYPE );
   if ( connectionType != "acceptor" && connectionType != "initiator" )
@@ -120,7 +120,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     if ( heartBtInt <= 0 ) throw ConfigError( "Heartbeat must be greater than zero" );
   }
 
-  std::auto_ptr<Session> pSession;
+  SmartPtr<Session> pSession;
   pSession.reset( new Session( m_application, m_messageStoreFactory,
     sessionID, dataDictionaryProvider, sessionTimeRange,
     heartBtInt, m_pLogFactory ) );
@@ -207,7 +207,7 @@ void SessionFactory::destroy( Session* pSession )
 
 ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                                      const Dictionary& settings, 
-                                                                     const std::string& settingsKey)
+                                                                     const std::string& settingsKey) throw(ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDD;
   std::string path = settings.getString( settingsKey );
@@ -241,7 +241,7 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
 
 void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID, 
                                                  const Dictionary& settings, 
-                                                 DataDictionaryProvider& provider)
+                                                 DataDictionaryProvider& provider) throw(ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
@@ -272,7 +272,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
 
 void SessionFactory::processFixDataDictionary(const SessionID& sessionID, 
                                               const Dictionary& settings, 
-                                              DataDictionaryProvider& provider) 
+                                              DataDictionaryProvider& provider) throw(ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
