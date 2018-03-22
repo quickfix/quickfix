@@ -33,7 +33,7 @@ namespace FIX {
 
 DateTime DateTime::nowUtc()
 {
-#if defined( _POSIX_SOURCE )
+#if defined( _POSIX_SOURCE ) || defined(HAVE_GETTIMEOFDAY)
     struct timeval tv;
     gettimeofday (&tv, 0);
     return fromUtcTimeT( tv.tv_sec, tv.tv_usec, 6 );
@@ -48,7 +48,7 @@ DateTime DateTime::nowUtc()
 
 DateTime DateTime::nowLocal()
 {
-#if defined( _POSIX_SOURCE )
+#if defined( _POSIX_SOURCE ) || defined(HAVE_GETTIMEOFDAY)
     struct timeval tv;
     gettimeofday (&tv, 0);
     return fromLocalTimeT( tv.tv_sec, tv.tv_usec, 6 );
