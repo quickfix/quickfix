@@ -111,7 +111,7 @@ private:
   std::string m_eventFileName;
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
-  bool m_timestampPrecison;
+  int m_timestampPrecison;
 };
 }
 
