@@ -789,7 +789,9 @@ div.header
 
 div.headertitle
 {
-	padding: 5px 5px 5px 7px;
+	padding: 10px 5px 10px 7px;
+        font-weight: bold;
+        font-size: 150%;
 }
 
 dl
