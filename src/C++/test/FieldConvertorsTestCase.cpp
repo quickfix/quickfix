@@ -261,7 +261,7 @@ TEST(utcTimeStampConvertToNano)
 TEST(utcTimeStampConvertFromSecond)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
-                        ( std::string( "20000426-12:05:06" ) );
+    ( std::string( "20000426-12:05:06" ) );
   CHECK_EQUAL( 12, result.getHour() );
   CHECK_EQUAL( 5, result.getMinute() );
   CHECK_EQUAL( 6, result.getSecond() );
@@ -271,7 +271,7 @@ TEST(utcTimeStampConvertFromSecond)
   CHECK_EQUAL( 26, result.getDate() );
 
   UtcTimeStamp result2 = UtcTimeStampConvertor::convert
-                         ( std::string( "20000426-12:05:06" ), 0 );
+    ( std::string( "20000426-12:05:06" ) );
   CHECK_EQUAL( 12, result2.getHour() );
   CHECK_EQUAL( 5, result2.getMinute() );
   CHECK_EQUAL( 6, result2.getSecond() );
@@ -284,7 +284,7 @@ TEST(utcTimeStampConvertFromSecond)
 TEST(utcTimeStampConvertFromMilli)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
-                        ( std::string( "20000426-12:05:06.555" ) );
+    ( std::string( "20000426-12:05:06.555" ) );
   CHECK_EQUAL( 12, result.getHour() );
   CHECK_EQUAL( 5, result.getMinute() );
   CHECK_EQUAL( 6, result.getSecond() );
@@ -294,7 +294,7 @@ TEST(utcTimeStampConvertFromMilli)
   CHECK_EQUAL( 26, result.getDate() );
 
   UtcTimeStamp result2 = UtcTimeStampConvertor::convert
-                         ( std::string( "20000426-12:05:06.555" ), 3 );
+    ( std::string( "20000426-12:05:06.555" ) );
   CHECK_EQUAL( 12, result2.getHour() );
   CHECK_EQUAL( 5, result2.getMinute() );
   CHECK_EQUAL( 6, result2.getSecond() );
@@ -307,7 +307,7 @@ TEST(utcTimeStampConvertFromMilli)
 TEST(utcTimeStampConvertFromMicro)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
-                        ( std::string( "20000426-12:05:06.555555" ) );
+    ( std::string( "20000426-12:05:06.555555" ) );
   CHECK_EQUAL( 12, result.getHour() );
   CHECK_EQUAL( 5, result.getMinute() );
   CHECK_EQUAL( 6, result.getSecond() );
@@ -317,7 +317,7 @@ TEST(utcTimeStampConvertFromMicro)
   CHECK_EQUAL( 26, result.getDate() );
 
   UtcTimeStamp result2 = UtcTimeStampConvertor::convert
-                         ( std::string( "20000426-12:05:06.555555" ), 6 );
+    ( std::string( "20000426-12:05:06.555555" ) );
   CHECK_EQUAL( 12, result2.getHour() );
   CHECK_EQUAL( 5, result2.getMinute() );
   CHECK_EQUAL( 6, result2.getSecond() );
@@ -330,7 +330,7 @@ TEST(utcTimeStampConvertFromMicro)
 TEST(utcTimeStampConvertFromNano)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
-                        ( std::string( "20000426-12:05:06.555555555" ) );
+    ( std::string( "20000426-12:05:06.555555555" ) );
   CHECK_EQUAL( 12, result.getHour() );
   CHECK_EQUAL( 5, result.getMinute() );
   CHECK_EQUAL( 6, result.getSecond() );
@@ -340,7 +340,7 @@ TEST(utcTimeStampConvertFromNano)
   CHECK_EQUAL( 26, result.getDate() );
 
   UtcTimeStamp result2 = UtcTimeStampConvertor::convert
-                         ( std::string( "20000426-12:05:06.555555555" ), 9 );
+    ( std::string( "20000426-12:05:06.555555555" ) );
   CHECK_EQUAL( 12, result2.getHour() );
   CHECK_EQUAL( 5, result2.getMinute() );
   CHECK_EQUAL( 6, result2.getSecond() );
@@ -355,7 +355,7 @@ TEST(utcTimeOnlyConvertToSecond)
   UtcTimeOnly input;
   input.setHMS( 12, 5, 6, 0, 0 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
-  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, 0 ) );
+  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, 0) );
 }
 
 TEST(utcTimeOnlyConvertToMilli)
