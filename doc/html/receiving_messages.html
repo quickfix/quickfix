@@ -9,7 +9,7 @@
 
 <body>
   <div class='header'>
-    <div class='headerTitle'>
+    <div class='headertitle'>
       Receiving Messages
     </div>
   </div>
@@ -21,6 +21,7 @@
     you want to see those fields, you must call <b>getHeader()</b>
     or <b>getTrailer()</b> on the message to access them.</p>
 
+    <hr/>
     <h2>Type Safe Messages And Fields</h2>
 
     <p>QuickFIX has a class for all messages defined in the
@@ -78,6 +79,7 @@ class MyApplication
   public FIX::MessageCracker
 </pre>
 
+    <br/><hr/>
     <h2>Type Safe Fields Only</h2>
 
     <p>Use the <b>getField</b> method to get any field from any
@@ -98,6 +100,7 @@ void fromApp( const FIX::Message&amp; message, const FIX::SessionID&amp; session
 }
 </pre>
 
+    <br/><hr/>
     <h2>No Type Safety</h2>
 
     <p>Create your own fields using tag numbers.</p>See this code

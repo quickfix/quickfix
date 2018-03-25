@@ -37,6 +37,7 @@
     telling you what setting is missing or improperly
     formatted.</p>
 
+    <br/><hr/>
     <h1>Sample Settings File</h1>
     <pre class='fragment'>
 # default settings for sessions
@@ -86,9 +87,14 @@ DataDictionary=somewhere/FIX42.xml
 </pre>
 
     <div>
+      <br/><hr/>
       <h1>QuickFIX Settings</h1>
 
       <table class='doxtable'>
+        <tr align="center" valign="middle">
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Session</h2></td>
+        </tr>
+
         <tr align="left" valign="middle">
           <th>ID</th>
 
@@ -97,10 +103,6 @@ DataDictionary=somewhere/FIX42.xml
           <th>Valid Values</th>
 
           <th>Default</th>
-        </tr>
-
-        <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><h2>Session</h2></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -391,6 +393,16 @@ If set, overrrides MillisecondsInTimeStamp.</td>
         </tr>
 
         <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>UseDataDictionary</b></td>
 
           <td>Tell session whether or not to expect a data
@@ -598,6 +610,16 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>HttpAcceptPort</b></td>
 
           <td>Port to listen to HTTP requests. Pointing a browser
@@ -611,6 +633,16 @@ AppDataDictionary.FIX.4.4=FIX44.xml
 
         <tr align="center" valign="middle">
           <td colspan="4" bgcolor="#DDDDDD"><h2>Initiator</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -747,6 +779,16 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>SocketAcceptPort</b></td>
 
           <td>Socket port for listening to incoming connections,
@@ -788,6 +830,16 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>PersistMessages</b></td>
 
           <td>If set to N, no messages will be persisted. This will
@@ -802,7 +854,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">FILE</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>FILE</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -818,7 +870,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">MYSQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>MYSQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -889,7 +941,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">POSTGRESQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>POSTGRESQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -960,7 +1012,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">ODBC</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ODBC</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1001,8 +1053,18 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td colspan="4" bgcolor="#DDDDDD"><h2>Logging</h2></td>
         </tr>
 
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
+        </tr>
+
         <tr align="center" valign="middle">
-          <td colspan="4">FILE</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>FILE</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1028,7 +1090,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">SCREEN</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>SCREEN</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1062,7 +1124,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">MYSQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>MYSQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1163,7 +1225,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">POSTGRESQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>POSTGRESQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1266,7 +1328,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">ODBC</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ODBC</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1336,6 +1398,16 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
          <tr align="center" valign="middle">
           <td colspan="4" bgcolor="#DDDDDD"><h2>SSL</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="center" valign="middle">
@@ -1444,7 +1516,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td></td>
         </tr>
          <tr align="center" valign="middle">
-          <td colspan="4">ACCEPTOR</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ACCEPTOR</h3></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ServerCertificateFile</b></td>
@@ -1504,7 +1576,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
         
          <tr align="center" valign="middle">
-          <td colspan="4">INITIATOR</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>INITIATOR</h3></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ClientCertificateFile</b></td>
