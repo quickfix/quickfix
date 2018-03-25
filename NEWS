@@ -1,3 +1,49 @@
+1.15.0
+------
+Native SSL support.
+
+Support micro and nanosecond precision on timestamps.
+
+Use std::unique_ptr instead of auto_ptr when available.
+
+Use boost::shared_ptr if std::shared_ptr not available.
+
+Support for Visual Studio 15 (2017).
+
+Custom data fields can be decoded in header and trailer.
+
+Can decode data fields in message body that contain more than 16 fields.
+
+FieldNap iterators changed to non-const.
+
+Support for python 3.
+
+Message generator works with recursive components.
+
+Preserve order of messages when resending.
+
+Can configure a source host and port to choose routes.
+
+Addressed several thread safety issues.
+
+Regenerated messages against latest repository.
+
+Faster sorting of fields.
+
+Faster double/string conversion with Florian's Loitsch "double-conversion."
+
+Replaceed std::multimap with std::vector for fields for improved performance.
+
+Detect and throw InvalidMessage when data field length contains junk.
+
+Fixed issues with integer_to_string()
+
+Bug fix for large messages.
+
+getField/setFields deprecated, use getTag/setTag.
+
+Fixes for SunOS/sparc/64 bit.
+
 1.14.3
 ------
 Fixed buck in SocketConnection where recv result stored in signed value.

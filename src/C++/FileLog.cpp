@@ -89,25 +89,25 @@ void FileLogFactory::destroy( Log* pLog )
 }
 
 FileLog::FileLog( const std::string& path )
-: m_millisecondsInTimeStamp( true )
+: m_timeStampPrecision( 3 )
 {
   init( path, path, "GLOBAL" );
 }
 
 FileLog::FileLog( const std::string& path, const std::string& backupPath )
-: m_millisecondsInTimeStamp( true )
+: m_timeStampPrecision( 3 )
 {
   init( path, backupPath, "GLOBAL" );
 }
 
 FileLog::FileLog( const std::string& path, const SessionID& s )
-: m_millisecondsInTimeStamp( true )
+: m_timeStampPrecision( 3 )
 {
   init( path, path, generatePrefix(s) );
 }
 
 FileLog::FileLog( const std::string& path, const std::string& backupPath, const SessionID& s )
-: m_millisecondsInTimeStamp( true )
+: m_timeStampPrecision( 3 )
 {
   init( path, backupPath, generatePrefix(s) );
 }
