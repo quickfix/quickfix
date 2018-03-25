@@ -168,7 +168,7 @@ void FileStore::populateCache()
 #endif
     if( result == 1 )
     {
-      m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
+      m_cache.setCreationTime( UtcTimeStampConvertor::convert( time ) );
     }
     fclose( sessionFile );
   }
