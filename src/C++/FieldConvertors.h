@@ -464,8 +464,7 @@ struct UtcTimeStampConvertor
     return std::string(result, precision ? (17 + 1 + precision) : 17);
   }
 
-  static UtcTimeStamp convert( const std::string& value,
-                               bool calculateDays = false )
+  static UtcTimeStamp convert( const std::string& value )
   throw( FieldConvertError )
   {
     size_t len = value.size();
