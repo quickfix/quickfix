@@ -66,8 +66,8 @@ const char SOCKET_CONNECT_PORT[] = "SocketConnectPort";
 const char SOCKET_CONNECT_SOURCE_HOST[] = "SocketConnectSourceHost";
 const char SOCKET_CONNECT_SOURCE_PORT[] = "SocketConnectSourcePort";
 const char SOCKET_NODELAY[] = "SocketNodelay";
-const char SOCKET_SEND_BUFFER_SIZE[] = "SendBufferSize";
-const char SOCKET_RECEIVE_BUFFER_SIZE[] = "ReceiveBufferSize";
+const char SOCKET_SEND_BUFFER_SIZE[] = "SocketSendBufferSize";
+const char SOCKET_RECEIVE_BUFFER_SIZE[] = "SocketReceiveBufferSize";
 const char RECONNECT_INTERVAL[] = "ReconnectInterval";
 const char VALIDATE_LENGTH_AND_CHECKSUM[] = "ValidateLengthAndChecksum";
 const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
@@ -138,7 +138,7 @@ const char CERT_AUTH_FILE[] = "CertificationAuthoritiesFile";
 const char CERT_AUTH_DIR[] = "CertificationAuthoritiesDirectory";
 const char CRL_FILE[] = "CertificateRevocationListFile";
 const char CRL_DIR[] = "CertificateRevocationListDirectory";
-const char VERIFY_LEVEL[] = "VerifyLevel";
+const char VERIFY_LEVEL[] = "CertificateVerifyLevel";
 /*
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.

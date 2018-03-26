@@ -63,7 +63,7 @@ private:
 /**
  * File based implementation of Log
  *
- * Two files are created by this implementation.  One for messages, 
+ * Two files are created by this implementation.  One for messages,
  * and one for events.
  *
  */
@@ -80,25 +80,14 @@ public:
   void backup();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_timestampPrecison) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_timestampPrecison) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
-    m_event << UtcTimeStampConvertor::convert( now, m_timestampPrecison )
+    m_event << UtcTimeStampConvertor::convert( now, 9 )
             << " : " << value << std::endl;
-  }
-
-  bool getMillisecondsInTimeStamp() const
-  { return (m_timestampPrecison == 3); }
-
-  void setMillisecondsInTimeStamp ( bool value )
-  {
-    if (value)
-      m_timestampPrecison = 3;
-    else
-      m_timestampPrecison = 0;
   }
 
 private:
@@ -111,7 +100,6 @@ private:
   std::string m_eventFileName;
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
-  int m_timestampPrecison;
 };
 }
 

@@ -9,7 +9,7 @@
 
 <body>
   <div class='header'>
-    <div class='headerTitle'>
+    <div class='headertitle'>
       Sending Messages
     </div>
   </div>
@@ -39,6 +39,7 @@ static bool sendToTarget( Message&amp;, const std::string&amp;, const std::strin
   throw(SessionNotFound&amp;);
 </pre>
 
+    <br/><hr/>
     <h2>Type Safe Messages And Fields</h2>
 
     <p>Message constructors take in all required fields and adds
@@ -61,6 +62,7 @@ void sendOrderCancelRequest()
 }
 </pre>
 
+    <br/><hr/>
     <h2>Type Safe Field Only</h2>
 
     <p>The <b>setField</b> method allows you to add any field to
@@ -87,6 +89,7 @@ void sendOrderCancelRequest()
 }
 </pre>
 
+    <br/><hr/>
     <h2>No Type Safety</h2>
 
     <p>You can also use <b>setField</b> to pass in

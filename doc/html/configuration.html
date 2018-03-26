@@ -37,6 +37,7 @@
     telling you what setting is missing or improperly
     formatted.</p>
 
+    <br/><hr/>
     <h1>Sample Settings File</h1>
     <pre class='fragment'>
 # default settings for sessions
@@ -86,9 +87,14 @@ DataDictionary=somewhere/FIX42.xml
 </pre>
 
     <div>
+      <br/><hr/>
       <h1>QuickFIX Settings</h1>
 
       <table class='doxtable'>
+        <tr align="center" valign="middle">
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Session</h2></td>
+        </tr>
+
         <tr align="left" valign="middle">
           <th>ID</th>
 
@@ -97,10 +103,6 @@ DataDictionary=somewhere/FIX42.xml
           <th>Valid Values</th>
 
           <th>Default</th>
-        </tr>
-
-        <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Session</b></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -240,6 +242,52 @@ DataDictionary=somewhere/FIX42.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <td><b>LogonTime</b></td>
+
+          <td>Time of day that this session logs on</td>
+
+          <td>time in the format of HH:MM:SS, time is represented
+          in UTC</td>
+
+          <td>SessionTime value</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>LogoutTime</b></td>
+
+          <td>Time of day that this session logs out</td>
+
+          <td>time in the format of HH:MM:SS, time is represented
+          in UTC</td>
+
+          <td>EndTime value</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>LogonDay</b></td>
+
+          <td>For week long sessions, the day of week the session logs on. 
+          Use in combination with LogonTime.</td>
+
+          <td>Day of week in English using any abbreviation (i.e.
+          mo, mon, mond, monda, monday are all valid)</td>
+
+          <td>StartDay value</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>LogoutDay</b></td>
+
+          <td>For week long sessions, the day of week
+          the session logs out. Use in combination with LogoutTime.</td>
+
+          <td>Day of week in English using any abbreviation (i.e.
+          mo, mon, mond, monda, monday are all valid)</td>
+
+          <td>EndDay value</td>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>UseLocalTime</b></td>
 
           <td>Indicates StartTime and EndTime are expressed in
@@ -254,13 +302,26 @@ DataDictionary=somewhere/FIX42.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <td><b>MillisecondsInTimeStamp</b></td>
+
+          <td>Determines if milliseconds should be added to
+          timestamps. Only available for FIX.4.2 and greater.</td>
+
+          <td>Y<br>
+          N</td>
+
+          <td>Y</td>
+        </tr>
+        
+        <tr align="left" valign="middle">
           <td><b>TimestampPrecision</b></td>
 
-          <td>Used to set the fractional part of timestamp. Allowable values are 0 to 9.</td>
+          <td>Used to set the fractional part of timestamp. Allowable values are 0 to 9.
+If set, overrrides MillisecondsInTimeStamp.</td>
 
           <td>0-9</td>
 
-          <td>3</td>
+          <td></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -328,7 +389,17 @@ DataDictionary=somewhere/FIX42.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Validation</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Validation</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -535,7 +606,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
 
         <tr align="center" valign="middle">
           <td colspan="4" bgcolor="#DDDDDD">
-          <b>Miscellaneous</b></td>
+          <h2>Miscellaneous</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -551,7 +632,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Initiator</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Initiator</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -661,8 +752,40 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td>N</td>
         </tr>
 
+        <tr align="left" valign="middle">
+          <td><b>SocketSendBufferSize</b></td>
+
+          <td>Indicates the size of SO_SNDBUF. Currently, this must be defined in the
+          [DEFAULT] section.</td>
+
+          <td>positive integer</td>
+
+          <td>0</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>SocketReceiveBufferSize</b></td>
+
+          <td>Indicates the size of SO_RCVBUF. Currently, this must be defined in the
+          [DEFAULT] section.</td>
+
+          <td>positive integer</td>
+
+          <td>0</td>
+        </tr>
+
         <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Acceptor</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Acceptor</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -703,7 +826,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Storage</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Storage</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="left" valign="middle">
@@ -721,7 +854,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">FILE</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>FILE</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -737,7 +870,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">MYSQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>MYSQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -808,7 +941,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">POSTGRESQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>POSTGRESQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -879,7 +1012,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">ODBC</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ODBC</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -917,11 +1050,21 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>Logging</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>Logging</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">FILE</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>FILE</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -947,7 +1090,41 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">MYSQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>SCREEN</h3></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>ScreenLogShowIncoming</b></td>
+
+          <td>Print incoming messages to standard out.</td>
+
+          <td>Y<br>N</td>
+
+          <td>Y</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>ScreenLogShowOutgoing</b></td>
+
+          <td>Print outgoing messages to standard out.</td>
+
+          <td>Y<br>N</td>
+
+          <td>Y</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>ScreenLogShowEvents</b></td>
+
+          <td>Print events to standard out.</td>
+
+          <td>Y<br>N</td>
+
+          <td>Y</td>
+        </tr>
+
+        <tr align="center" valign="middle">
+          <td colspan="4" bgcolor="#BBBBBB"><h3>MYSQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1010,8 +1187,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           sessions will share a single database connection.
           Otherwise each session gets its own connection.</td>
 
-          <td>Y<br>
-          N</td>
+          <td>Y<br>N</td>
 
           <td>N</td>
         </tr>
@@ -1049,7 +1225,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">POSTGRESQL</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>POSTGRESQL</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1152,7 +1328,7 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="center" valign="middle">
-          <td colspan="4">ODBC</td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ODBC</h3></td>
         </tr>
 
         <tr align="left" valign="middle">
@@ -1221,7 +1397,17 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td>event_log</td>
         </tr>
          <tr align="center" valign="middle">
-          <td colspan="4" bgcolor="#DDDDDD"><b>SSL</b></td>
+          <td colspan="4" bgcolor="#DDDDDD"><h2>SSL</h2></td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <th>ID</th>
+
+          <th>Description</th>
+
+          <th>Valid Values</th>
+
+          <th>Default</th>
         </tr>
 
         <tr align="center" valign="middle">
@@ -1232,44 +1418,44 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           <td><b>SSLProtocol</b></td>
 
           <td>This directive can be used to control the SSL protocol flavors the application
-should use when establishing its environment.<br><br>
+          should use when establishing its environment.<br><br>
 
-The available (case-insensitive) protocols are:<br><br>
+          The available (case-insensitive) protocols are:<br><br>
 
-SSLv2<br>
+          SSLv2<br>
 
- This is the Secure Sockets Layer (SSL) protocol, version 2.0. It is the
- original SSL protocol as designed by Netscape Corporation.<br><br>
+          This is the Secure Sockets Layer (SSL) protocol, version 2.0. It is the
+          original SSL protocol as designed by Netscape Corporation.<br><br>
 
-SSLv3<br>
+          SSLv3<br>
 
- This is the Secure Sockets Layer (SSL) protocol, version 3.0. It is the
- successor to SSLv2 and the currently (as of February 1999) de-facto
- standardized SSL protocol from Netscape Corporation. It&apos;s supported by
- almost all popular browsers.<br><br>
+          This is the Secure Sockets Layer (SSL) protocol, version 3.0. It is the
+          successor to SSLv2 and the currently (as of February 1999) de-facto
+          standardized SSL protocol from Netscape Corporation. It&apos;s supported by
+          almost all popular browsers.<br><br>
 
-TLSv1<br>
+          TLSv1<br>
 
- This is the Transport Layer Security (TLS) protocol, version 1.0.<br><br>
+          This is the Transport Layer Security (TLS) protocol, version 1.0.<br><br>
 
-TLSv1_1<br>
+          TLSv1_1<br>
 
- This is the Transport Layer Security (TLS) protocol, version 1.1.<br><br>
+          This is the Transport Layer Security (TLS) protocol, version 1.1.<br><br>
 
-TLSv1_2<br>
+          TLSv1_2<br>
 
- This is the Transport Layer Security (TLS) protocol, version 1.2.<br><br>
+          This is the Transport Layer Security (TLS) protocol, version 1.2.<br><br>
 
-all<br>
+          all<br>
 
- This is a shortcut for +SSLv2 +SSLv3 +TLSv1 +TLSv1_1 +TLSv1_2 and a convenient way for
- enabling all protocols except one when used in combination with the minus
- sign on a protocol as the example above shows.<br><br>
+          This is a shortcut for +SSLv2 +SSLv3 +TLSv1 +TLSv1_1 +TLSv1_2 and a convenient way for
+          enabling all protocols except one when used in combination with the minus
+          sign on a protocol as the example above shows.<br><br>
 
-Example:<br>
+          Example:<br>
 
- enable all but not SSLv2<br>
- SSL_PROTOCOL = all -SSLv2</td>
+          enable all but not SSLv2<br>
+          SSL_PROTOCOL = all -SSLv2</td>
 
           <td></td>
 
@@ -1279,32 +1465,32 @@ Example:<br>
           <td><b>SSLCipherSuite</b></td>
 
           <td>This complex directive uses a colon-separated cipher-spec string consisting
-of OpenSSL cipher specifications to configure the Cipher Suite the client is
-permitted to negotiate in the SSL handshake phase. Notice that this directive
-can be used both in per-server and per-directory context. In per-server
-context it applies to the standard SSL handshake when a connection is
-established. In per-directory context it forces a SSL renegotation with the
-reconfigured Cipher Suite after the HTTP request was read but before the HTTP
-response is sent.<br><br>
+          of OpenSSL cipher specifications to configure the Cipher Suite the client is
+          permitted to negotiate in the SSL handshake phase. Notice that this directive
+          can be used both in per-server and per-directory context. In per-server
+          context it applies to the standard SSL handshake when a connection is
+          established. In per-directory context it forces a SSL renegotation with the
+          reconfigured Cipher Suite after the HTTP request was read but before the HTTP
+          response is sent.<br><br>
 
-An SSL cipher specification in cipher-spec is composed of 4 major attributes
-plus a few extra minor ones.<br><br>
+          An SSL cipher specification in cipher-spec is composed of 4 major attributes
+          plus a few extra minor ones.<br><br>
 
-Key Exchange Algorithm:<br>
- RSA or Diffie-Hellman variants.<br><br>
+          Key Exchange Algorithm:<br>
+          RSA or Diffie-Hellman variants.<br><br>
 
-Authentication Algorithm:<br>
- RSA, Diffie-Hellman, DSS or none.<br><br>
+          Authentication Algorithm:<br>
+          RSA, Diffie-Hellman, DSS or none.<br><br>
 
-Cipher/Encryption Algorithm:<br>
- DES, Triple-DES, RC4, RC2, IDEA or none.<br><br>
+          Cipher/Encryption Algorithm:<br>
+          DES, Triple-DES, RC4, RC2, IDEA or none.<br><br>
 
-MAC Digest Algorithm:<br>
- MD5, SHA or SHA1.<br><br>
+          MAC Digest Algorithm:<br>
+          MD5, SHA or SHA1.<br><br>
 
-For more details refer to mod_ssl documentation.<br><br>
+          For more details refer to mod_ssl documentation.<br><br>
 
-Example: RC4+RSA:+HIGH:</td>
+          Example: RC4+RSA:+HIGH:</td>
 
           <td></td>
 
@@ -1314,7 +1500,7 @@ Example: RC4+RSA:+HIGH:</td>
           <td><b>CertificationAuthoritiesFile</b></td>
 
           <td>This directive sets the all-in-one file where you can assemble the
-Certificates of Certification Authorities (CA) whose clients you deal with.
+          Certificates of Certification Authorities (CA) whose clients you deal with.
           <td></td>
 
           <td></td>
@@ -1323,21 +1509,21 @@ Certificates of Certification Authorities (CA) whose clients you deal with.
           <td><b>CertificationAuthoritiesDirectory</b></td>
 
           <td>This directive sets the directory where you keep the Certificates of
-Certification Authorities (CAs) whose clients you deal with.</td>
+          Certification Authorities (CAs) whose clients you deal with.</td>
 
           <td></td>
 
           <td></td>
         </tr>
          <tr align="center" valign="middle">
-          <td colspan="4"></br><b>ACCEPTOR</b></td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>ACCEPTOR</h3></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ServerCertificateFile</b></td>
 
           <td>This directive points to the PEM-encoded Certificate file and
-optionally also to the corresponding RSA or DSA Private Key file for it
-(contained in the same file).</td>
+          optionally also to the corresponding RSA or DSA Private Key file for it
+          (contained in the same file).</td>
 
           <td></td>
 
@@ -1347,19 +1533,21 @@ optionally also to the corresponding RSA or DSA Private Key file for it
           <td><b>ServerCertificateKeyFile</b></td>
 
           <td>This directive points to the PEM-encoded Private Key file. If
-the Private Key is not combined with the Certificate in the
-server certificate file, use this additional directive to point to the file with
-the stand-alone Private Key.</td>
+          the Private Key is not combined with the Certificate in the
+          server certificate file, use this additional directive to point to the file with
+          the stand-alone Private Key.</td>
 
           <td></td>
 
           <td></td>
         </tr>
         <tr align="left" valign="middle">
-          <td><b>VerifyLevel</b></td>
+          <td><b>CertificateVerifyLevel</b></td>
 
-          <td>This directive sets the certificate verification level. It applies to the authentication process used in the
-standard SSL handshake when a connection is established. 0 implies do not verify and 1 implies verify the client.</td>
+          <td>This directive sets the Certificate verification level. 
+          It applies to the authentication process used in the
+          standard SSL handshake when a connection is established. 
+          0 implies do not verify. 1 implies verify.</td>
 
           <td></td>
 
@@ -1369,8 +1557,8 @@ standard SSL handshake when a connection is established. 0 implies do not verify
           <td><b>CertificateRevocationListFile</b></td>
 
           <td>This directive sets the all-in-one file where you can assemble the
-Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
-clients you deal with.</td>
+          Certificate Revocation Lists (CRL) of Certification Authorities (CA) whose
+          clients you deal with.</td>
 
           <td></td>
 
@@ -1380,7 +1568,7 @@ clients you deal with.</td>
           <td><b>CertificateRevocationListDirectory</b></td>
 
           <td>This directive sets the directory where you keep the Certificate Revocation
-Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
+          Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
 
           <td></td>
 
@@ -1388,14 +1576,14 @@ Lists (CRL) of Certification Authorities (CAs) whose clients you deal with.</td>
         </tr>
         
          <tr align="center" valign="middle">
-          <td colspan="4"></br><b>INITIATOR</b></td>
+          <td colspan="4" bgcolor="#BBBBBB"><h3>INITIATOR</h3></td>
         </tr>
         <tr align="left" valign="middle">
           <td><b>ClientCertificateFile</b></td>
 
           <td>This directive points to the PEM-encoded Certificate file and
-optionally also to the corresponding RSA or DSA Private Key file for it
-(contained in the same file).</td>
+          optionally also to the corresponding RSA or DSA Private Key file for it
+          (contained in the same file).</td>
 
           <td></td>
 
@@ -1405,9 +1593,9 @@ optionally also to the corresponding RSA or DSA Private Key file for it
           <td><b>ClientCertificateKeyFile</b></td>
 
           <td>This directive points to the PEM-encoded Private Key file. If
-the Private Key is not combined with the Certificate in the
-server certificate file, use this additional directive to point to the file with
-the stand-alone Private Key.</td>
+          the Private Key is not combined with the Certificate in the
+          server certificate file, use this additional directive to point to the file with
+          the stand-alone Private Key.</td>
 
           <td></td>
 
