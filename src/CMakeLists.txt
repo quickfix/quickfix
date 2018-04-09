@@ -91,3 +91,11 @@ set_target_properties(pt PROPERTIES
 endif()  
 
 endif()
+
+if (HAVE_PYTHON)
+add_subdirectory(python)
+elseif (HAVE_PYTHON2)
+add_subdirectory(python2)
+elseif (HAVE_PYTHON3)
+add_subdirectory(python3)
+endif ()
