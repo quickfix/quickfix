@@ -1323,6 +1323,21 @@ class Header(FieldMap):
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
+
+    def addGroup(self, group):
+        return _quickfix.Header_addGroup(self, group)
+
+    def replaceGroup(self, num, group):
+        return _quickfix.Header_replaceGroup(self, num, group)
+
+    def getGroup(self, num, group):
+        return _quickfix.Header_getGroup(self, num, group)
+
+    def removeGroup(self, *args):
+        return _quickfix.Header_removeGroup(self, *args)
+
+    def hasGroup(self, *args):
+        return _quickfix.Header_hasGroup(self, *args)
     __swig_destroy__ = _quickfix.delete_Header
     __del__ = lambda self: None
 Header_swigregister = _quickfix.Header_swigregister
@@ -1345,6 +1360,21 @@ class Trailer(FieldMap):
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
+
+    def addGroup(self, group):
+        return _quickfix.Trailer_addGroup(self, group)
+
+    def replaceGroup(self, num, group):
+        return _quickfix.Trailer_replaceGroup(self, num, group)
+
+    def getGroup(self, num, group):
+        return _quickfix.Trailer_getGroup(self, num, group)
+
+    def removeGroup(self, *args):
+        return _quickfix.Trailer_removeGroup(self, *args)
+
+    def hasGroup(self, *args):
+        return _quickfix.Trailer_hasGroup(self, *args)
     __swig_destroy__ = _quickfix.delete_Trailer
     __del__ = lambda self: None
 Trailer_swigregister = _quickfix.Trailer_swigregister
