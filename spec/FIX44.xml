@@ -26,7 +26,11 @@
   <field name='XmlData' required='N' />
   <field name='MessageEncoding' required='N' />
   <field name='LastMsgSeqNumProcessed' required='N' />
-  <component name='Hop' required='N' />
+  <group name='NoHops' required='N'>
+   <field name='HopCompID' required='N' />
+   <field name='HopSendingTime' required='N' />
+   <field name='HopRefID' required='N' />
+  </group>
  </header>
  <messages>
   <message name='Heartbeat' msgtype='0' msgcat='admin'>
@@ -3704,13 +3708,6 @@
    <group name='NoNestedPartySubIDs' required='N'>
     <field name='NestedPartySubID' required='N' />
     <field name='NestedPartySubIDType' required='N' />
-   </group>
-  </component>
-  <component name='Hop'>
-   <group name='NoHops' required='N'>
-    <field name='HopCompID' required='N' />
-    <field name='HopSendingTime' required='N' />
-    <field name='HopRefID' required='N' />
    </group>
   </component>
   <component name='NstdPtys2SubGrp'>

@@ -38,7 +38,7 @@
 namespace FIX
 {
 
-class Header : public FieldMap 
+class Header : public FieldMap
 {
   enum { REQUIRED_FIELDS = 8 };
 
@@ -48,9 +48,32 @@ public:
 
   Header(const message_order & order) : FieldMap(order)
   {}
+
+  void addGroup( const FIX::Group& group )
+  { FieldMap::addGroup( group.field(), group ); }
+
+  void replaceGroup( unsigned num, const FIX::Group& group )
+  { FieldMap::replaceGroup( num, group.field(), group ); }
+
+  Group& getGroup( unsigned num, FIX::Group& group ) const throw( FieldNotFound )
+  { group.clear();
+    return static_cast < Group& >
+      ( FieldMap::getGroup( num, group.field(), group ) );
+  }
+
+  void removeGroup( unsigned num, const FIX::Group& group )
+  { FieldMap::removeGroup( num, group.field() ); }
+  void removeGroup( const FIX::Group& group )
+  { FieldMap::removeGroup( group.field() ); }
+
+  bool hasGroup( const FIX::Group& group ) const
+  { return FieldMap::hasGroup( group.field() ); }
+  bool hasGroup( unsigned num, const FIX::Group& group ) const
+  { return FieldMap::hasGroup( num, group.field() ); }
+
 };
 
-class Trailer : public FieldMap 
+class Trailer : public FieldMap
 {
   enum { REQUIRED_FIELDS = 1 };
 
@@ -60,6 +83,29 @@ public:
 
   Trailer(const message_order & order) : FieldMap(order)
   {}
+
+  void addGroup( const FIX::Group& group )
+  { FieldMap::addGroup( group.field(), group ); }
+
+  void replaceGroup( unsigned num, const FIX::Group& group )
+  { FieldMap::replaceGroup( num, group.field(), group ); }
+
+  Group& getGroup( unsigned num, FIX::Group& group ) const throw( FieldNotFound )
+  { group.clear();
+    return static_cast < Group& >
+      ( FieldMap::getGroup( num, group.field(), group ) );
+  }
+
+  void removeGroup( unsigned num, const FIX::Group& group )
+  { FieldMap::removeGroup( num, group.field() ); }
+  void removeGroup( const FIX::Group& group )
+  { FieldMap::removeGroup( group.field() ); }
+
+  bool hasGroup( const FIX::Group& group ) const
+  { return FieldMap::hasGroup( group.field() ); }
+  bool hasGroup( unsigned num, const FIX::Group& group ) const
+  { return FieldMap::hasGroup( num, group.field() ); }
+
 };
 
 /**
@@ -146,7 +192,7 @@ public:
   /// Get a string representation without making a copy
   std::string& toString( std::string&,
                          int beginStringField = FIELD::BeginString,
-                         int bodyLengthField = FIELD::BodyLength, 
+                         int bodyLengthField = FIELD::BodyLength,
                          int checkSumField = FIELD::CheckSum ) const;
   /// Get a XML representation of the message
   std::string toXML() const;
@@ -209,8 +255,8 @@ public:
     return m_validStructure;
   }
 
-  int bodyLength( int beginStringField = FIELD::BeginString, 
-                  int bodyLengthField = FIELD::BodyLength, 
+  int bodyLength( int beginStringField = FIELD::BeginString,
+                  int bodyLengthField = FIELD::BodyLength,
                   int checkSumField = FIELD::CheckSum ) const
   { return m_header.calculateLength(beginStringField, bodyLengthField, checkSumField)
            + calculateLength(beginStringField, bodyLengthField, checkSumField)
@@ -243,7 +289,7 @@ public:
   { return m_header.isEmpty() && FieldMap::isEmpty() && m_trailer.isEmpty(); }
 
   void clear()
-  { 
+  {
     m_tag = 0;
     m_validStructure = true;
     m_header.clear();
@@ -325,14 +371,14 @@ public:
 #endif
 
 private:
-  FieldBase extractField( 
+  FieldBase extractField(
     const std::string& string, std::string::size_type& pos,
     const DataDictionary* pSessionDD = 0, const DataDictionary* pAppDD = 0,
     const Group* pGroup = 0) const;
 
-  static bool IsDataField( 
-    int field, 
-    const DataDictionary* pSessionDD, 
+  static bool IsDataField(
+    int field,
+    const DataDictionary* pSessionDD,
     const DataDictionary* pAppDD )
   {
     if( (pSessionDD && pSessionDD->isDataField( field )) ||
