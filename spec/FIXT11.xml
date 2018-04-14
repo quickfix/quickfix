@@ -27,7 +27,11 @@
     <field name='XmlData' required='N'/>
     <field name='MessageEncoding' required='N'/>
     <field name='LastMsgSeqNumProcessed' required='N'/>
-    <component name='HopGrp' required='N'/>
+    <group name='NoHops' required='N'>
+     <field name='HopCompID' required='N' />
+     <field name='HopSendingTime' required='N' />
+     <field name='HopRefID' required='N' />
+    </group>
     <field name='ApplVerID' required='N'/>
     <field name='CstmApplVerID' required='N'/>
   </header>
@@ -81,13 +85,6 @@
     </message>
   </messages>
   <components>
-    <component name='HopGrp'>
-      <group name='NoHops' required='N'>
-        <field name='HopCompID' required='N'/>
-        <field name='HopSendingTime' required='N'/>
-        <field name='HopRefID' required='N'/>
-      </group>
-    </component>
     <component name='MsgTypeGrp'>
       <group name='NoMsgTypes' required='N'>
         <field name='RefMsgType' required='N'/>
