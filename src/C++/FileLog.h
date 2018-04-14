@@ -63,7 +63,7 @@ private:
 /**
  * File based implementation of Log
  *
- * Two files are created by this implementation.  One for messages, 
+ * Two files are created by this implementation.  One for messages,
  * and one for events.
  *
  */

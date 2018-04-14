@@ -4,7 +4,7 @@ endif()
 
 add_executable(tradeclient Application.cpp tradeclient.cpp ${applink_SOURCE})
 
-target_include_directories(tradeclient PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
+target_include_directories(tradeclient PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/include/quickfix ${CMAKE_SOURCE_DIR})
 
 
 target_link_libraries(tradeclient ${PROJECT_NAME})

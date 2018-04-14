@@ -49,7 +49,7 @@ Log* FileLogFactory::create()
   catch( ConfigError& )
   {
   m_globalLogCount--;
-  throw;  
+  throw;
   }
 }
 
@@ -57,7 +57,7 @@ Log* FileLogFactory::create( const SessionID& s )
 {
   if ( m_path.size() && m_backupPath.size() )
     return new FileLog( m_path, m_backupPath, s );
-  if ( m_path.size() ) 
+  if ( m_path.size() )
     return new FileLog( m_path, s );
 
   std::string path;
@@ -80,7 +80,7 @@ void FileLogFactory::destroy( Log* pLog )
     {
       delete pLog;
       m_globalLogCount = 0;
-    }  
+    }
   }
   else
   {
@@ -127,7 +127,7 @@ std::string FileLog::generatePrefix( const SessionID& s )
 }
 
 void FileLog::init( std::string path, std::string backupPath, const std::string& prefix )
-{  
+{
   file_mkdir( path.c_str() );
   file_mkdir( backupPath.c_str() );
 
@@ -173,7 +173,7 @@ void FileLog::backup()
   {
     std::stringstream messagesFileName;
     std::stringstream eventFileName;
- 
+
     messagesFileName << m_fullBackupPrefix << "messages.backup." << ++i << ".log";
     eventFileName << m_fullBackupPrefix << "event.backup." << i << ".log";
     FILE* messagesLogFile = file_fopen( messagesFileName.str().c_str(), "r" );
@@ -187,7 +187,7 @@ void FileLog::backup()
       m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
       return;
     }
-    
+
     if( messagesLogFile != NULL ) file_fclose( messagesLogFile );
     if( eventLogFile != NULL ) file_fclose( eventLogFile );
   }

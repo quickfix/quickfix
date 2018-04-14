@@ -115,7 +115,7 @@ public:
 class ScreenLog : public Log
 {
 public:
-  ScreenLog( bool incoming, bool outgoing, bool event ) 
+  ScreenLog( bool incoming, bool outgoing, bool event )
 : m_prefix( "GLOBAL" ),
   m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 

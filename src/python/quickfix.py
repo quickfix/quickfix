@@ -39140,12 +39140,6 @@ class ScreenLog(Log):
 
     def onEvent(self, value):
         return _quickfix.ScreenLog_onEvent(self, value)
-
-    def getMillisecondsInTimeStamp(self):
-        return _quickfix.ScreenLog_getMillisecondsInTimeStamp(self)
-
-    def setMillisecondsInTimeStamp(self, value):
-        return _quickfix.ScreenLog_setMillisecondsInTimeStamp(self, value)
     __swig_destroy__ = _quickfix.delete_ScreenLog
     __del__ = lambda self: None
 ScreenLog_swigregister = _quickfix.ScreenLog_swigregister
@@ -39213,12 +39207,6 @@ class FileLog(Log):
 
     def onEvent(self, value):
         return _quickfix.FileLog_onEvent(self, value)
-
-    def getMillisecondsInTimeStamp(self):
-        return _quickfix.FileLog_getMillisecondsInTimeStamp(self)
-
-    def setMillisecondsInTimeStamp(self, value):
-        return _quickfix.FileLog_setMillisecondsInTimeStamp(self, value)
 FileLog_swigregister = _quickfix.FileLog_swigregister
 FileLog_swigregister(FileLog)
 

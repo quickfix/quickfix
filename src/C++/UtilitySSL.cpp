@@ -1,3 +1,19 @@
+/* Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* ====================================================================
  * Copyright (c) 1998-2006 Ralf S. Engelschall. All rights reserved.
  *
@@ -109,11 +125,12 @@
 //#include "openssl/applink.c" // To prevent crashing (see the OpenSSL FAQ)
 
 #include "openssl/bio.h" // BIO objects for I/O
+#include "openssl/bn.h"
 #include "openssl/crypto.h"
 #include "openssl/err.h" // Error reporting
 #include "openssl/rand.h"
 #ifndef OPENSSL_NO_DH
-#include <openssl/dh.h>
+#include "openssl/dh.h"
 #endif
 
 #ifdef _MSC_VER
@@ -132,51 +149,6 @@ namespace FIX
 {
 
 #ifndef OPENSSL_NO_DH
-static unsigned char dh2048_p[] = {
-    0xF6, 0x42, 0x57, 0xB7, 0x08, 0x7F, 0x08, 0x17, 0x72, 0xA2, 0xBA, 0xD6,
-    0xA9, 0x42, 0xF3, 0x05, 0xE8, 0xF9, 0x53, 0x11, 0x39, 0x4F, 0xB6, 0xF1,
-    0x6E, 0xB9, 0x4B, 0x38, 0x20, 0xDA, 0x01, 0xA7, 0x56, 0xA3, 0x14, 0xE9,
-    0x8F, 0x40, 0x55, 0xF3, 0xD0, 0x07, 0xC6, 0xCB, 0x43, 0xA9, 0x94, 0xAD,
-    0xF7, 0x4C, 0x64, 0x86, 0x49, 0xF8, 0x0C, 0x83, 0xBD, 0x65, 0xE9, 0x17,
-    0xD4, 0xA1, 0xD3, 0x50, 0xF8, 0xF5, 0x59, 0x5F, 0xDC, 0x76, 0x52, 0x4F,
-    0x3D, 0x3D, 0x8D, 0xDB, 0xCE, 0x99, 0xE1, 0x57, 0x92, 0x59, 0xCD, 0xFD,
-    0xB8, 0xAE, 0x74, 0x4F, 0xC5, 0xFC, 0x76, 0xBC, 0x83, 0xC5, 0x47, 0x30,
-    0x61, 0xCE, 0x7C, 0xC9, 0x66, 0xFF, 0x15, 0xF9, 0xBB, 0xFD, 0x91, 0x5E,
-    0xC7, 0x01, 0xAA, 0xD3, 0x5B, 0x9E, 0x8D, 0xA0, 0xA5, 0x72, 0x3A, 0xD4,
-    0x1A, 0xF0, 0xBF, 0x46, 0x00, 0x58, 0x2B, 0xE5, 0xF4, 0x88, 0xFD, 0x58,
-    0x4E, 0x49, 0xDB, 0xCD, 0x20, 0xB4, 0x9D, 0xE4, 0x91, 0x07, 0x36, 0x6B,
-    0x33, 0x6C, 0x38, 0x0D, 0x45, 0x1D, 0x0F, 0x7C, 0x88, 0xB3, 0x1C, 0x7C,
-    0x5B, 0x2D, 0x8E, 0xF6, 0xF3, 0xC9, 0x23, 0xC0, 0x43, 0xF0, 0xA5, 0x5B,
-    0x18, 0x8D, 0x8E, 0xBB, 0x55, 0x8C, 0xB8, 0x5D, 0x38, 0xD3, 0x34, 0xFD,
-    0x7C, 0x17, 0x57, 0x43, 0xA3, 0x1D, 0x18, 0x6C, 0xDE, 0x33, 0x21, 0x2C,
-    0xB5, 0x2A, 0xFF, 0x3C, 0xE1, 0xB1, 0x29, 0x40, 0x18, 0x11, 0x8D, 0x7C,
-    0x84, 0xA7, 0x0A, 0x72, 0xD6, 0x86, 0xC4, 0x03, 0x19, 0xC8, 0x07, 0x29,
-    0x7A, 0xCA, 0x95, 0x0C, 0xD9, 0x96, 0x9F, 0xAB, 0xD0, 0x0A, 0x50, 0x9B,
-    0x02, 0x46, 0xD3, 0x08, 0x3D, 0x66, 0xA4, 0x5D, 0x41, 0x9F, 0x9C, 0x7C,
-    0xBD, 0x89, 0x4B, 0x22, 0x19, 0x26, 0xBA, 0xAB, 0xA2, 0x5E, 0xC3, 0x55,
-    0xE9, 0x32, 0x0B, 0x3B,
-};
-
-static unsigned char dh2048_g[] = {
-    0x02,
-};
-
-DH *get_dh2048()
-{
-  DH *dh;
-
-  if ((dh = DH_new()) == NULL)
-    return NULL;
-  dh->p = BN_bin2bn(dh2048_p, sizeof(dh2048_p), NULL);
-  dh->g = BN_bin2bn(dh2048_g, sizeof(dh2048_g), NULL);
-  if (dh->p == NULL || dh->g == NULL)
-  {
-    DH_free(dh);
-    return NULL;
-  }
-  return dh;
-}
-
 static DH *load_dh_param(const char *dhfile)
 {
   DH *ret = NULL;
@@ -189,6 +161,145 @@ err:
   if (bio != NULL)
     BIO_free(bio);
   return (ret);
+}
+
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
+/* OpenSSL Pre-1.1.0 compatibility */
+/* Taken from OpenSSL 1.1.0 snapshot 20160410 */
+static int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g)
+{
+  /* q is optional */
+  if (p == NULL || g == NULL)
+    return 0;
+  BN_free(dh->p);
+  BN_free(dh->q);
+  BN_free(dh->g);
+  dh->p = p;
+  dh->q = q;
+  dh->g = g;
+
+  if (q != NULL)
+  {
+    dh->length = BN_num_bits(q);
+  }
+
+  return 1;
+}
+#endif
+
+/*
+ * Grab well-defined DH parameters from OpenSSL, see the BN_get_rfc*
+ * functions in <openssl/bn.h> for all available primes.
+ */
+static DH *make_dh_params(BIGNUM *(*prime)(BIGNUM *))
+{
+  DH *dh = DH_new();
+  BIGNUM *p, *g;
+
+  if (!dh)
+  {
+    return NULL;
+  }
+  p = prime(NULL);
+  g = BN_new();
+  if (g != NULL)
+  {
+    BN_set_word(g, 2);
+  }
+  if (!p || !g || !DH_set0_pqg(dh, p, NULL, g))
+  {
+    DH_free(dh);
+    BN_free(p);
+    BN_free(g);
+    return NULL;
+  }
+  return dh;
+}
+
+/* Storage and initialization for DH parameters. */
+static struct dhparam
+{
+  BIGNUM *(*const prime)(BIGNUM *); /* function to generate... */
+  DH *dh;                           /* ...this, used for keys.... */
+  const unsigned int min;           /* ...of length >= this. */
+} dhparams[] = {
+    {get_rfc3526_prime_8192, NULL, 6145}, {get_rfc3526_prime_6144, NULL, 4097},
+    {get_rfc3526_prime_4096, NULL, 3073}, {get_rfc3526_prime_3072, NULL, 2049},
+    {get_rfc3526_prime_2048, NULL, 1025}, {get_rfc2409_prime_1024, NULL, 0}};
+
+static void init_dh_params(void)
+{
+  unsigned n;
+
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
+    dhparams[n].dh = make_dh_params(dhparams[n].prime);
+}
+
+static void free_dh_params(void)
+{
+  unsigned n;
+
+  /* DH_free() is a noop for a NULL parameter, so these are harmless
+   * in the (unexpected) case where these variables are already
+   * NULL. */
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
+  {
+    DH_free(dhparams[n].dh);
+    dhparams[n].dh = NULL;
+  }
+}
+
+/* Hand out the same DH structure though once generated as we leak
+ * memory otherwise and freeing the structure up after use would be
+ * hard to track and in fact is not needed at all as it is safe to
+ * use the same parameters over and over again security wise (in
+ * contrast to the keys itself) and code safe as the returned structure
+ * is duplicated by OpenSSL anyway. Hence no modification happens
+ * to our copy. */
+DH *modssl_get_dh_params(unsigned keylen)
+{
+  unsigned n;
+
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
+    if (keylen >= dhparams[n].min)
+      return dhparams[n].dh;
+
+  return NULL; /* impossible to reach. */
+}
+
+/*
+ * Hand out standard DH parameters, based on the authentication strength
+ */
+DH *ssl_callback_TmpDH(SSL *ssl, int exportvar, int keylen)
+{
+  EVP_PKEY *pkey;
+  int type;
+
+  pkey = SSL_get_privatekey(ssl);
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
+  type = pkey ? EVP_PKEY_type(pkey->type) : EVP_PKEY_NONE;
+#else
+  type = pkey ? EVP_PKEY_base_id(pkey) : EVP_PKEY_NONE;
+#endif
+
+  /*
+   * OpenSSL will call us with either keylen == 512 or keylen == 1024
+   * (see the definition of SSL_EXPORT_PKEYLENGTH in ssl_locl.h).
+   * Adjust the DH parameter length according to the size of the
+   * RSA/DSA private key used for the current connection, and always
+   * use at least 1024-bit parameters.
+   * Note: This may cause interoperability issues with implementations
+   * which limit their DH support to 1024 bit - e.g. Java 7 and earlier.
+   * In this case, SSLCertificateFile can be used to specify fixed
+   * 1024-bit DH parameters (with the effect that OpenSSL skips this
+   * callback).
+   */
+  if ((type == EVP_PKEY_RSA) || (type == EVP_PKEY_DSA))
+  {
+    keylen = EVP_PKEY_bits(pkey);
+  }
+
+  return modssl_get_dh_params(keylen);
 }
 #endif
 
@@ -219,7 +330,11 @@ void ssl_init()
   if (ssl_initialized)
     return;
 
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
   CRYPTO_malloc_init();     // Initialize malloc, free, etc for OpenSSL's use
+#else
+  OPENSSL_malloc_init();
+#endif
   SSL_library_init();       // Initialize OpenSSL's SSL libraries
   SSL_load_error_strings(); // Load SSL error strings
   ERR_load_BIO_strings();   // Load BIO error strings
@@ -228,6 +343,10 @@ void ssl_init()
   ssl_rand_seed();
 
   ssl_initialized = 1;
+
+#ifndef OPENSSL_NO_DH
+  init_dh_params();
+#endif
 
   return;
 }
@@ -242,6 +361,10 @@ void ssl_term()
     return;
 
   thread_cleanup();
+
+#ifndef OPENSSL_NO_DH
+  free_dh_params();
+#endif
 }
 
 void ssl_socket_close(int socket, SSL *ssl)
@@ -403,6 +526,7 @@ int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b)
   return (X509_NAME_cmp(*a, *b));
 }
 
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
 int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
                     X509_OBJECT *pObj)
 {
@@ -530,6 +654,7 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
   }
   return ok;
 }
+#endif
 
 int callbackVerify(int ok, X509_STORE_CTX *ctx)
 {
@@ -560,6 +685,7 @@ int callbackVerify(int ok, X509_STORE_CTX *ctx)
   if (cp2)
     free(cp2);
 
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
   /*
    * Additionally perform CRL-based revocation checks
    */
@@ -571,6 +697,7 @@ int callbackVerify(int ok, X509_STORE_CTX *ctx)
     if (!ok)
       errnum = X509_STORE_CTX_get_error(ctx);
   }
+#endif
 
   /*
    * If we already know it's not ok, log the real reason
@@ -595,7 +722,11 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
     pKey = X509_get_pubkey(pCert);
   if (pKey != 0)
   {
+ #if OPENSSL_VERSION_NUMBER < 0x10100000L
     switch (EVP_PKEY_type(pKey->type))
+#else
+    switch (EVP_PKEY_base_id(pKey))
+#endif
     {
     case EVP_PKEY_RSA:
       t = SSL_ALGO_RSA;
@@ -624,14 +755,16 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
   char *cp;
   int n;
 
-  /*
-   * Start with a empty stack/list where new
-   * entries get added in sorted order.
-   */
+/*
+ * Start with a empty stack/list where new
+ * entries get added in sorted order.
+ */
 #ifndef __SUNPRO_CC
   skCAList = sk_X509_NAME_new(caListX509NameCmp);
 #else
-  skCAList = sk_X509_NAME_new((int(*)(const X509_name_st*const*,const X509_name_st*const*))caListX509NameCmp);
+  skCAList =
+      sk_X509_NAME_new((int (*)(const X509_name_st *const *,
+                                const X509_name_st *const *))caListX509NameCmp);
 #endif
 
   /*
@@ -970,10 +1103,8 @@ long protocolOptions(const char *opt)
   return options;
 }
 
-void setCtxOptions(SSL_CTX *ctx, const char *opt)
+void setCtxOptions(SSL_CTX *ctx, long options)
 {
-  long options = protocolOptions(opt);
-
   SSL_CTX_set_options(ctx, SSL_OP_ALL);
   if (!(options & SSL_PROTOCOL_SSLV2))
     SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
@@ -1000,21 +1131,15 @@ int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile)
 
     if (dh != NULL)
     {
+      SSL_CTX_set_tmp_dh(ctx, dh);
+
+      DH_free(dh);
     }
     else
     {
-      dh = get_dh2048();
-      if (dh == NULL)
-      {
-        // ERR_print_errors(bio_err);
-        return 1;
-      }
+      SSL_CTX_set_tmp_dh_callback(ctx, ssl_callback_TmpDH);
     }
     //(void)BIO_flush(bio_s_out);
-
-    SSL_CTX_set_tmp_dh(ctx, dh);
-
-    DH_free(dh);
   }
 #endif
 
@@ -1039,7 +1164,25 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
 
   SSL_CTX *ctx = 0;
 
+  std::string strOptions;
+  if (settings.get().has(SSL_PROTOCOL))
+  {
+    strOptions = settings.get().getString(SSL_PROTOCOL);
+  }
+
+  long options = protocolOptions(strOptions.c_str());
+
   /* set up the application context */
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
+  if (server)
+  {
+     ctx = SSL_CTX_new(TLS_server_method());
+  }
+  else
+  {
+     ctx = SSL_CTX_new(TLS_client_method());
+  }
+#else
   if (server)
   {
     ctx = SSL_CTX_new(SSLv23_server_method());
@@ -1048,6 +1191,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
   {
     ctx = SSL_CTX_new(SSLv23_client_method());
   }
+#endif
 
   if (ctx == 0)
   {
@@ -1055,12 +1199,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
     return ctx;
   }
 
-  std::string strOptions;
-  if (settings.get().has(SSL_PROTOCOL))
-  {
-    strOptions = settings.get().getString(SSL_PROTOCOL);
-  }
-  setCtxOptions(ctx, strOptions.c_str());
+  setCtxOptions(ctx, options);
 
   SSL_CTX_set_options(ctx, SSL_OP_SINGLE_DH_USE);
   if (server)
@@ -1326,7 +1465,7 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   return true;
 }
 
-X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
+X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
                         std::string &errStr)
 {
   errStr.erase();
@@ -1348,12 +1487,23 @@ X509_STORE *loadCRLInfo(const SessionSettings &settings, Log *log,
   if (crlFile.empty() && crlDir.empty())
     return revocationStore;
 
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
   revocationStore =
       createX509Store(crlFile.c_str(), crlDir.empty() ? 0 : crlDir.c_str());
   if (revocationStore == 0)
   {
     errStr.assign("Unable to create revocation store");
   }
+#else
+  X509_STORE *store = SSL_CTX_get_cert_store(ctx);
+  if (!store || !X509_STORE_load_locations(store, crlFile.c_str(),
+                                           crlDir.c_str()))
+  {
+    errStr.assign("Unable to create revocation store");
+    return 0;
+  }
+  X509_STORE_set_flags(store, X509_V_FLAG_CRL_CHECK|X509_V_FLAG_CRL_CHECK_ALL);
+#endif
 
   return revocationStore;
 }
@@ -1467,7 +1617,10 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
         }
         if (errno > 0)
         {
-          if (log) log->onEvent(std::string("SSL handshake interrupted by system, errno " + IntConvertor::convert(errno)));
+          if (log)
+            log->onEvent(
+                std::string("SSL handshake interrupted by system, errno " +
+                            IntConvertor::convert(errno)));
         }
         else if (log)
           log->onEvent("Spurious SSL handshake interrupt");

@@ -216,7 +216,7 @@ throw ( RuntimeError )
       throw RuntimeError(errStr);
     }
 
-    m_revocationStore = loadCRLInfo(m_settings, getLog(), errStr);
+    m_revocationStore = loadCRLInfo(m_ctx, m_settings, getLog(), errStr);
     if (!m_revocationStore && !errStr.empty())
     {
       ssl_term();

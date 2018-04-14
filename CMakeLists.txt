@@ -16,11 +16,15 @@ message("-- Project name ${CMAKE_PROJECT_NAME}")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 include(QuickfixPlatformSettings)
+include(QuickfixPrebuildSetup)
 
 # Call cmake with-DHAVE_SSL=ON to compile with SSL. Similarly for others.
 option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
+option(HAVE_PYTHON "Build with default Python version")
+option(HAVE_PYTHON2 "Build with default Python2 version")
+option(HAVE_PYTHON3 "Build with default Python3 version")
 
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
@@ -68,6 +72,24 @@ add_definitions("-DHAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER=1")
 else()
 message("-- shared_ptr not found.")
 endif()
+
+include(FindUniquePtr)
+FIND_UNIQUE_PTR()
+if (HAVE_UNIQUE_PTR_IN_STD_NAMESPACE)
+message("-- set HAVE_STD_UNIQUE_PTR")
+add_definitions("-DHAVE_STD_UNIQUE_PTR=1")
+endif()
+
+if (HAVE_PYTHON)
+find_package(PythonLibs REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+elseif (HAVE_PYTHON2)
+find_package(PythonLibs 2 REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+elseif (HAVE_PYTHON3)
+find_package(PythonLibs 3 REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+endif ()
 
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
 add_subdirectory(UnitTest++)

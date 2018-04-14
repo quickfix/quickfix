@@ -9,7 +9,7 @@ endif()
 
 add_executable(${executor_NAME} Application.cpp executor.cpp ${applink_SOURCE})
 
-target_include_directories(${executor_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR})
+target_include_directories(${executor_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/include/quickfix ${CMAKE_SOURCE_DIR})
 
 target_link_libraries(${executor_NAME} ${PROJECT_NAME})
 
