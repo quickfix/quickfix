@@ -1068,9 +1068,8 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       doTargetTooHigh( msg );
       return false;
     }
-    else if ( checkTooLow && isTargetTooLow( *pMsgSeqNum ) )
+    else if ( (checkTooLow && isTargetTooLow( *pMsgSeqNum ) ) && !doTargetTooLow( msg ))
     {
-      doTargetTooLow( msg );
       return false;
     }
 
