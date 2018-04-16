@@ -61,8 +61,8 @@ public class ExecutionTableModel extends AbstractTableModel {
         if(exchangeIdToExecution.get(execution.getExchangeID()) != null)
             return;
 
-        rowToExecution.put(new Integer(row), execution);
-        idToRow.put(execution.getID(), new Integer(row));
+        rowToExecution.put(row, execution);
+        idToRow.put(execution.getID(), row);
         idToExecution.put(execution.getID(), execution);
         exchangeIdToExecution.put(execution.getExchangeID(), execution);
 
@@ -74,7 +74,7 @@ public class ExecutionTableModel extends AbstractTableModel {
     }
 
     public Execution getExecution(int row) {
-        return (Execution)rowToExecution.get(new Integer(row));
+        return (Execution)rowToExecution.get(row);
     }
 
     public void setValueAt(Object value, int rowIndex,
@@ -98,17 +98,17 @@ public class ExecutionTableModel extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Execution execution = (Execution)rowToExecution.get
-                              (new Integer(rowIndex));
+                              (rowIndex);
 
         switch(columnIndex) {
         case SYMBOL:
             return execution.getSymbol();
         case QUANTITY:
-            return new Integer(execution.getQuantity());
+            return execution.getQuantity();
         case SIDE:
             return execution.getSide();
         case PRICE:
-            return new Double(execution.getPrice());
+            return execution.getPrice();
         }
         return new String();
     }

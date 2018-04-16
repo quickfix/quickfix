@@ -59,7 +59,7 @@ public class Order implements Cloneable {
     }
 
     public String generateID() {
-        return new Integer(nextID++).toString();
+        return Integer.toString(nextID++);
     }
     public SessionID getSessionID() {
         return sessionID;
@@ -119,7 +119,7 @@ public class Order implements Cloneable {
         if(limit == "" || limit == null) {
             this.limit = null;
         } else {
-            this.limit = new Double(limit);
+            this.limit = Double.valueOf(limit);
         }
     }
     public Double getStop() {
@@ -132,7 +132,7 @@ public class Order implements Cloneable {
         if(stop == "" || stop == null) {
             this.stop = null;
         } else {
-            this.stop = new Double(stop);
+            this.stop = Double.valueOf(stop);
         }
     }
     public void setAvgPx(double avgPx) {

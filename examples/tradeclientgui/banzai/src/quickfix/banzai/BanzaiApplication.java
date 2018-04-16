@@ -115,7 +115,7 @@ public class BanzaiApplication implements Application {
         } catch(FieldNotFound e) {}
         try {
             Price price = (Price)message.getField(new Price());
-            order.setLimit(new Double(price.getValue()));
+            order.setLimit(price.getValue());
         } catch(FieldNotFound e) {}
         try {
             message.getField(lastShares);

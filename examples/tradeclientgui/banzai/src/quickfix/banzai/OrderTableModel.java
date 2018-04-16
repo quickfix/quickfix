@@ -64,8 +64,8 @@ public class OrderTableModel extends AbstractTableModel {
     public void addOrder(Order order) {
         int row = rowToOrder.size();
 
-        rowToOrder.put(new Integer(row), order);
-        idToRow.put(order.getID(), new Integer(row));
+        rowToOrder.put(row, order);
+        idToRow.put(order.getID(), row);
         idToOrder.put(order.getID(), order);
 
         fireTableRowsInserted(row, row);
@@ -109,7 +109,7 @@ public class OrderTableModel extends AbstractTableModel {
     }
 
     public Order getOrder(int row) {
-        return (Order)rowToOrder.get(new Integer(row));
+        return (Order)rowToOrder.get(row);
     }
 
     public void setValueAt(Object value, int rowIndex,
@@ -132,16 +132,16 @@ public class OrderTableModel extends AbstractTableModel {
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Order order = (Order)rowToOrder.get(new Integer(rowIndex));
+        Order order = (Order)rowToOrder.get(rowIndex);
         switch(columnIndex) {
         case SYMBOL:
             return order.getSymbol();
         case QUANTITY:
-            return new Integer(order.getQuantity());
+            return order.getQuantity();
         case OPEN:
-            return new Integer(order.getOpen());
+            return order.getOpen();
         case EXECUTED:
-            return new Integer(order.getExecuted());
+            return order.getExecuted();
         case SIDE:
             return order.getSide();
         case TYPE:
@@ -151,7 +151,7 @@ public class OrderTableModel extends AbstractTableModel {
         case STOPPRICE:
             return order.getStop();
         case AVGPX:
-            return new Double(order.getAvgPx());
+            return order.getAvgPx();
         case TARGET:
             return order.getSessionID().getTargetCompID();
         }
