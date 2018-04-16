@@ -1,16 +1,3 @@
-This is a fork to meet my requirements. If you have no specific requirements fulfilled by this fork, then it would be better to use the original. It may be of interest when:
-
-1. SSL connections are required.
-
-2. SunOS or AIX are platforms of interest.
-
-3. Order of fields/tags for outgoing messages is important (configurable, not on by default).
-
-4. There is also some EMX platform related functionality which can be enabled through
-a compile flag.
-
-5. Arbitrary precision (upto nanoseconds) timestamps need to be handled.
-
 BUILDING AND INSTALLING
 
     Full instructions:
@@ -22,7 +9,6 @@ BUILDING AND INSTALLING
         make
         make check
         sudo make install
-
 
 For SunOS and AIX have a look at README.SunOS and README.AIX.
 
@@ -38,12 +24,10 @@ cd build
 cmake  -DHAVE_SSL=ON -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX:PATH="install-path" -DOPENSSL_ROOT_DIR="path to openssl" ..
 Then build in Visual Studio or on command prompt.
 
-
 On Linux (with system openssl),
 
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DHAVE_SSL=ON -DCMAKE_INSTALL_PREFIX:PATH="install-path" ..
 make -j 4 install
-
 
 If one has Ninja then (with system openssl),
 
