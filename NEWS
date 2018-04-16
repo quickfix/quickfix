@@ -1,5 +1,7 @@
-1.15.0
+1.15.1
 ------
+Support for python 3.
+
 Native SSL support.
 
 Support micro and nanosecond precision on timestamps.
@@ -15,8 +17,6 @@ Custom data fields can be decoded in header and trailer.
 Can decode data fields in message body that contain more than 16 fields.
 
 FieldNap iterators changed to non-const.
-
-Support for python 3.
 
 Message generator works with recursive components.
 
@@ -43,6 +43,8 @@ Bug fix for large messages.
 getField/setFields deprecated, use getTag/setTag.
 
 Fixes for SunOS/sparc/64 bit.
+
+Groups in headers.
 
 1.14.3
 ------
