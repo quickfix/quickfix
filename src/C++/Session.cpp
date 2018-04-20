@@ -424,10 +424,10 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
         pMsg.reset( new Message( *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
       else
       {
-        const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
-        const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
-        const message_order & msgOrder = applicationDD.getMessageOrderedFields(strMsgType);
-        pMsg.reset( new Message( hdrOrder, trlOrder, msgOrder, *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
+        const message_order & headerOrder = sessionDD.getHeaderOrderedFields();
+        const message_order & trailerOrder = sessionDD.getTrailerOrderedFields();
+        const message_order & messageOrder = applicationDD.getMessageOrderedFields(strMsgType);
+        pMsg.reset( new Message( headerOrder, trailerOrder, messageOrder, *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
       }
     }
     else
@@ -436,10 +436,10 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
         pMsg.reset( new Message( *i, sessionDD, m_validateLengthAndChecksum ));
       else
       {
-        const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
-        const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
-        const message_order & msgOrder = sessionDD.getMessageOrderedFields(strMsgType);
-        pMsg.reset(new Message(hdrOrder, trlOrder, msgOrder, *i, sessionDD, m_validateLengthAndChecksum ));
+        const message_order & headerOrder = sessionDD.getHeaderOrderedFields();
+        const message_order & trailerOrder = sessionDD.getTrailerOrderedFields();
+        const message_order & messageOrder = sessionDD.getMessageOrderedFields(strMsgType);
+        pMsg.reset(new Message(headerOrder, trailerOrder, messageOrder, *i, sessionDD, m_validateLengthAndChecksum ));
       }
     }
 
@@ -501,19 +501,19 @@ Message * Session::newMessage(const std::string & msgType) const
   }
   else
   {
-    const message_order & hdrOrder = sessionDD.getHeaderOrderedFields();
-    const message_order & trlOrder = sessionDD.getTrailerOrderedFields();
+    const message_order & headerOrder = sessionDD.getHeaderOrderedFields();
+    const message_order & trailerOrder = sessionDD.getTrailerOrderedFields();
     if (!m_sessionID.isFIXT() || Message::isAdminMsgType(msgType) )
     {
-      const message_order & msgOrder = sessionDD.getMessageOrderedFields(msgType);
-      msg = new Message(hdrOrder, trlOrder, msgOrder);
+      const message_order & messageOrder = sessionDD.getMessageOrderedFields(msgType);
+      msg = new Message(headerOrder, trailerOrder, messageOrder);
     }
     else
     {
       const DataDictionary& applicationDD =
         m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
-      const message_order & msgOrder = applicationDD.getMessageOrderedFields(msgType);
-      msg = new Message(hdrOrder, trlOrder, msgOrder);
+      const message_order & messageOrder = applicationDD.getMessageOrderedFields(msgType);
+      msg = new Message(headerOrder, trailerOrder, messageOrder);
     }
   }
 
@@ -1356,7 +1356,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
     else if ( msgType == MsgType_Logout )
       nextLogout( message, timeStamp );
     else if ( msgType == MsgType_ResendRequest )
-      nextResendRequest( message,timeStamp );
+      nextResendRequest( message, timeStamp );
     else if ( msgType == MsgType_Reject )
       nextReject( message, timeStamp );
     else
