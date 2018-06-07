@@ -28,6 +28,8 @@ endif()
 
 add_library(UnitTest++ STATIC  ${UnitTest++_SOURCES})
 
+target_include_directories(UnitTest++ INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 set (TestUnitTest++_SOURCES
 src/tests/Main.cpp
 src/tests/TestAssertHandler.cpp
