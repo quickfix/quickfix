@@ -234,7 +234,7 @@ AC_TRY_COMPILE(
 	[#include <tr1/memory>],
 	[std::tr1::shared_ptr<int> ptr;],
 	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_SHARED_PTR_IN_TR1_NAMESPACE, 1,
+	AC_DEFINE(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER, 1,
 	The system supports std::tr1::shared_ptr),
 	AC_MSG_RESULT(no))
 
