@@ -157,9 +157,14 @@ struct DateTime
   }
 
   /// Return the microsecond portion of the time
-  inline int getMicroecond() const
+  inline int getMicrosecond() const
   {
     return (getNanosecond() / PRECISION_FACTOR[6]);
+  }
+
+  // deprecated method: use getMicrosecond instead
+  inline int getMicroecond() const {
+    return getMicrosecond();
   }
 
   /// Return the nanosecond portion of the time
