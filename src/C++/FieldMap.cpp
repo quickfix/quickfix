@@ -248,6 +248,9 @@ int FieldMap::calculateLength( int beginStringField,
   Groups::const_iterator j;
   for ( j = m_groups.begin(); j != m_groups.end(); ++j )
   {
+    if(findTag(j->first) == m_fields.end()) {
+      continue;
+    }
     std::vector < FieldMap* > ::const_iterator k;
     for ( k = j->second.begin(); k != j->second.end(); ++k )
       result += ( *k ) ->calculateLength();
@@ -268,6 +271,9 @@ int FieldMap::calculateTotal( int checkSumField ) const
   Groups::const_iterator j;
   for ( j = m_groups.begin(); j != m_groups.end(); ++j )
   {
+    if(findTag(j->first) == m_fields.end()) {
+      continue;
+    }
     std::vector < FieldMap* > ::const_iterator k;
     for ( k = j->second.begin(); k != j->second.end(); ++k )
       result += ( *k ) ->calculateTotal();
