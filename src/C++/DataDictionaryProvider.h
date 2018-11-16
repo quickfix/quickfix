@@ -46,10 +46,10 @@ public:
   DataDictionaryProvider( const DataDictionaryProvider& copy );
 
   const DataDictionary& getSessionDataDictionary(const BeginString& beginString) const
-  throw( DataDictionaryNotFound );
+  EXCEPT ( DataDictionaryNotFound );
 
   const DataDictionary& getApplicationDataDictionary(const ApplVerID& applVerID) const
-  throw( DataDictionaryNotFound );
+  EXCEPT ( DataDictionaryNotFound );
 
   void addTransportDataDictionary(const BeginString& beginString, ptr::shared_ptr<DataDictionary>);
   void addApplicationDataDictionary(const ApplVerID& applVerID, ptr::shared_ptr<DataDictionary>);

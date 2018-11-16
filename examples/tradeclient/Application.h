@@ -81,11 +81,11 @@ private:
   void onLogout( const FIX::SessionID& sessionID );
   void toAdmin( FIX::Message&, const FIX::SessionID& ) {}
   void toApp( FIX::Message&, const FIX::SessionID& )
-  throw( FIX::DoNotSend );
+  EXCEPT( FIX::DoNotSend );
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}
+  EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType );
+  EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType );
 
   void onMessage( const FIX40::ExecutionReport&, const FIX::SessionID& );
   void onMessage( const FIX40::OrderCancelReject&, const FIX::SessionID& );

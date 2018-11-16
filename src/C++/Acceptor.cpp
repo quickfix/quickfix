@@ -36,7 +36,7 @@ namespace FIX
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings )
-throw( ConfigError )
+EXCEPT ( ConfigError )
   : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -53,7 +53,7 @@ Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings,
                     LogFactory& logFactory )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -66,7 +66,7 @@ throw( ConfigError )
   initialize();
 }
 
-void Acceptor::initialize() throw ( ConfigError )
+void Acceptor::initialize() EXCEPT ( ConfigError )
 {
   std::set < SessionID > sessions = m_settings.getSessions();
   std::set < SessionID > ::iterator i;
@@ -155,7 +155,7 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
   }
 }
 
-void Acceptor::start() throw ( ConfigError, RuntimeError )
+void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 {
   m_stop = false;
   onConfigure( m_settings );
@@ -167,7 +167,7 @@ void Acceptor::start() throw ( ConfigError, RuntimeError )
     throw RuntimeError("Unable to spawn thread");
 }
 
-void Acceptor::block() throw ( ConfigError, RuntimeError )
+void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 {
   m_stop = false;
   onConfigure( m_settings );
@@ -176,7 +176,7 @@ void Acceptor::block() throw ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Acceptor::poll( double timeout ) throw ( ConfigError, RuntimeError )
+bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {

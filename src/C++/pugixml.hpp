@@ -17,6 +17,7 @@
 #endif
 
 // Include user configuration file (this can define various configuration macros)
+#include "Except.h"
 #include "pugiconfig.hpp"
 
 #ifndef HEADER_PUGIXML_HPP

@@ -39,7 +39,7 @@ SessionFactory::~SessionFactory()
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
-                                 const Dictionary& settings ) throw( ConfigError )
+                                 const Dictionary& settings ) EXCEPT ( ConfigError )
 {
   std::string connectionType = settings.getString( CONNECTION_TYPE );
   if ( connectionType != "acceptor" && connectionType != "initiator" )
@@ -207,7 +207,7 @@ void SessionFactory::destroy( Session* pSession )
 
 ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const SessionID& sessionID, 
                                                                      const Dictionary& settings, 
-                                                                     const std::string& settingsKey) throw(ConfigError)
+                                                                     const std::string& settingsKey) EXCEPT (ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDD;
   std::string path = settings.getString( settingsKey );
@@ -241,7 +241,7 @@ ptr::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
 
 void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID, 
                                                  const Dictionary& settings, 
-                                                 DataDictionaryProvider& provider) throw(ConfigError)
+                                                 DataDictionaryProvider& provider) EXCEPT (ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
@@ -272,7 +272,7 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
 
 void SessionFactory::processFixDataDictionary(const SessionID& sessionID, 
                                               const Dictionary& settings, 
-                                              DataDictionaryProvider& provider) throw(ConfigError)
+                                              DataDictionaryProvider& provider) EXCEPT (ConfigError)
 {
   ptr::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
