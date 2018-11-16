@@ -179,7 +179,7 @@ MessageStore* FileStoreFactory::create( const SessionID& s )
   if ( m_path.size() ) return new FileStore( m_path, s );
 
   std::string path;
-  Dictionary settings = m_settings.get( s );
+  const Dictionary& settings = m_settings.get( s );
   path = settings.getString( FILE_STORE_PATH );
   return new FileStore( path, s );
 }
