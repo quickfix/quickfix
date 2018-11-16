@@ -36,7 +36,7 @@ Log* FileLogFactory::create()
   try
   {
 
-    Dictionary settings = m_settings.get();
+    const Dictionary& settings = m_settings.get();
     std::string path = settings.getString(FILE_LOG_PATH);
     std::string backupPath = path;
 
