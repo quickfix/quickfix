@@ -73,16 +73,7 @@ Log* FileLogFactory::create( const SessionID& s )
 
 void FileLogFactory::destroy( Log* pLog )
 {
-  if( pLog == m_globalLog )
-  {
-    m_globalLogCount--;
-    if( m_globalLogCount == 0 )
-    {
-      delete pLog;
-      m_globalLogCount = 0;
-    }
-  }
-  else
+  if ( pLog != m_globalLog || --m_globalLogCount == 0 )
   {
     delete pLog;
   }
