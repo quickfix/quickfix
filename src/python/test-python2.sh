@@ -8,3 +8,4 @@ python2 test/DictionaryTestCase.py
 python2 test/FieldBaseTestCase.py
 python2 test/SessionSettingsTestCase.py
 python2 test/MessageTestCase.py
+python2 test/AcceptorTestCase.py

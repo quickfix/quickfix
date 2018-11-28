@@ -33,16 +33,16 @@ namespace FIX
 {
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
-                                const SessionSettings& settings ) EXCEPT ( ConfigError )
+                                SessionSettings& settings ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings ),
   m_pServer( 0 ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
-                                const SessionSettings& settings,
+                                SessionSettings& settings,
                                 LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-  m_pServer( 0 ) 
+  m_pServer( 0 )
 {
 }
 
@@ -69,37 +69,44 @@ EXCEPT ( ConfigError )
   }
 }
 
+void SocketAcceptor::doAccept
+( const SessionID& sessionID, const Dictionary& settings )
+EXCEPT ( RuntimeError )
+{
+  short port = 0;
+  try
+  {
+    port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
+
+    const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ?
+      settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+    const bool noDelay = settings.has( SOCKET_NODELAY ) ?
+      settings.getBool( SOCKET_NODELAY ) : false;
+
+    const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+      settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+    const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+      settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+
+    m_portToSessions[port].insert( sessionID );
+    m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );
+  }
+  catch( SocketException& e )
+  {
+    throw RuntimeError( "Unable to create, bind, or listen to port "
+                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+  }
+}
+
 void SocketAcceptor::onInitialize( const SessionSettings& s )
 EXCEPT ( RuntimeError )
 {
   short port = 0;
-
   try
   {
     m_pServer = new SocketServer( 1 );
-
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
-    {
-      const Dictionary& settings = s.get( *i );
-      port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
-
-      const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
-        settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
-
-      const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
-        settings.getBool( SOCKET_NODELAY ) : false;
-
-      const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
-
-      const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
-
-      m_portToSessions[port].insert( *i );
-      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
-    }    
   }
   catch( SocketException& e )
   {
@@ -107,6 +114,14 @@ EXCEPT ( RuntimeError )
     m_pServer = 0;
     throw RuntimeError( "Unable to create, bind, or listen to port "
                        + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+  }
+
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i = sessions.begin();
+  for( ; i != sessions.end(); ++i )
+  {
+    const Dictionary& sessionDict = s.get( *i );
+    doAccept( *i, sessionDict );
   }
 }
 
@@ -211,7 +226,7 @@ void SocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
   m_connections.erase( s );
 }
 
-void SocketAcceptor::onError( SocketServer& ) 
+void SocketAcceptor::onError( SocketServer& )
 {
 }
 

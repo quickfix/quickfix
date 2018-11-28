@@ -137,8 +137,8 @@ int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, vo
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      SessionSettings& settings ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
@@ -147,9 +147,9 @@ SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings,
-                                LogFactory& logFactory ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      SessionSettings& settings,
+                                      LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
@@ -184,6 +184,37 @@ EXCEPT ( ConfigError )
       settings.getBool( SOCKET_REUSE_ADDRESS );
     if( settings.has(SOCKET_NODELAY) )
       settings.getBool( SOCKET_NODELAY );
+  }
+}
+
+void SSLSocketAcceptor::doAccept
+( const SessionID& sessionID, const Dictionary& settings )
+throw ( RuntimeError )
+{
+  short port = 0;
+  try
+  {
+    port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
+
+    const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ?
+      settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+    const bool noDelay = settings.has( SOCKET_NODELAY ) ?
+      settings.getBool( SOCKET_NODELAY ) : false;
+
+    const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+      settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+    const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+      settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+
+    m_portToSessions[port].insert( sessionID );
+    m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );
+  }
+  catch( SocketException& e )
+  {
+    throw RuntimeError( "Unable to create, bind, or listen to port "
+                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
 }
 
@@ -226,39 +257,14 @@ EXCEPT ( RuntimeError )
     m_sslInit = true;
   }
 
-  short port = 0;
+  m_pServer = new SocketServer( 1 );
 
-  try
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i = sessions.begin();
+  for( ; i != sessions.end(); ++i )
   {
-    m_pServer = new SocketServer( 1 );
-
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
-    {
-      const Dictionary& settings = s.get( *i );
-      port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
-
-      const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
-        settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
-
-      const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
-        settings.getBool( SOCKET_NODELAY ) : false;
-
-      const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
-
-      const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
-
-      m_portToSessions[port].insert( *i );
-      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
-    }    
-  }
-  catch( SocketException& e )
-  {
-    throw RuntimeError( "Unable to create, bind, or listen to port "
-                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+    const Dictionary& sessionDict = s.get( *i );
+    doAccept( *i, sessionDict );
   }
 }
 

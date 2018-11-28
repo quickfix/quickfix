@@ -135,9 +135,9 @@ int SSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, voi
 }
 
 SSLSocketInitiator::SSLSocketInitiator( Application& application,
-                                  MessageStoreFactory& factory,
-                                  const SessionSettings& settings )
-EXCEPT ( ConfigError )
+                                        MessageStoreFactory& factory,
+                                        SessionSettings& settings )
+EXCEPT( ConfigError )
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
@@ -147,10 +147,10 @@ EXCEPT ( ConfigError )
 }
 
 SSLSocketInitiator::SSLSocketInitiator( Application& application,
-                                  MessageStoreFactory& factory,
-                                  const SessionSettings& settings,
-                                  LogFactory& logFactory )
-EXCEPT ( ConfigError )
+                                        MessageStoreFactory& factory,
+                                        SessionSettings& settings,
+                                        LogFactory& logFactory )
+EXCEPT( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
@@ -310,13 +310,13 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     }
     SSL_clear(ssl);
     BIO *sbio = BIO_new_socket(result, BIO_CLOSE); //unfortunately OpenSSL assumes socket is int
-    
+
     if (sbio == 0)
     {
       log->onEvent("BIO_new_socket failed");
       return;
     }
-    SSL_set_bio(ssl, sbio, sbio);    
+    SSL_set_bio(ssl, sbio, sbio);
 
     setPending( s );
     m_pendingConnections[ result ] = new SSLSocketConnection( *this, s, result, ssl, &m_connector.getMonitor() );
@@ -388,7 +388,7 @@ void SSLSocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
   SocketConnections::iterator j = m_pendingConnections.find( s );
 
   SSLSocketConnection* pSocketConnection = 0;
-  if( i != m_connections.end() ) 
+  if( i != m_connections.end() )
     pSocketConnection = i->second;
   if( j != m_pendingConnections.end() )
     pSocketConnection = j->second;

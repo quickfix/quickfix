@@ -73,14 +73,13 @@ OdbcLog::~OdbcLog()
 
 OdbcLogFactory::OdbcLogFactory( const std::string& user, const std::string& password, 
                                 const std::string& connectionString )
-: m_user( user ), m_password( password ), m_connectionString( connectionString ),
-  m_useSettings( false )
+: m_pSettings( NULL ), m_user( user ), m_password( password ), m_connectionString( connectionString ),
 {
 }
 
 OdbcLogFactory::OdbcLogFactory()
-: m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_connectionString( DEFAULT_CONNECTION_STRING ), m_useSettings( false )
+: m_pSettings( NULL ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+  m_connectionString( DEFAULT_CONNECTION_STRING )
 {
 }
 
@@ -94,9 +93,13 @@ Log* OdbcLogFactory::create()
   std::string user;
   std::string connectionString;
 
-  init( m_settings.get(), database, user, connectionString );
+  Dictionary settings;
+  if( m_pSettings != NULL )
+    settings = m_pSettings->get();
+
+  init( settings, database, user, connectionString );
   OdbcLog* result = new OdbcLog( database, user, connectionString );
-  initLog( m_settings.get(), *result );
+  initLog( settings, *result );
   return result;
 }
 
@@ -107,8 +110,8 @@ Log* OdbcLogFactory::create( const SessionID& s )
   std::string connectionString;
 
   Dictionary settings;
-  if( m_settings.has(s) ) 
-    settings = m_settings.get( s );
+  if( m_pSettings != NULL && m_pSettings->has(s) ) 
+    settings = m_pSettings->get( s );
 
   init( settings, database, user, connectionString );
   OdbcLog* result = new OdbcLog( s, database, user, connectionString );
@@ -125,7 +128,7 @@ void OdbcLogFactory::init( const Dictionary& settings,
   password = DEFAULT_PASSWORD;
   connectionString = DEFAULT_CONNECTION_STRING;
 
-  if( m_useSettings )
+  if( m_pSettings != NULL )
   {
     try { user = settings.getString( ODBC_LOG_USER ); }
     catch( ConfigError& ) {}

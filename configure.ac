@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.59])
 
-AC_INIT([QuickFIX], [1.14.3], [ask@quickfixengine.org])
+AC_INIT([QuickFIX], [1.15.1], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])

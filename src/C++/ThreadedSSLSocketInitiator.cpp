@@ -135,7 +135,7 @@ int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int ver
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT (ConfigError)
+    SessionSettings &settings) EXCEPT (ConfigError)
     : Initiator(application, factory, settings), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
@@ -146,7 +146,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application, MessageStoreFactory &factory,
-    const SessionSettings &settings, LogFactory &logFactory) EXCEPT (ConfigError)
+    SessionSettings &settings, LogFactory &logFactory) EXCEPT (ConfigError)
     : Initiator(application, factory, settings, logFactory), m_lastConnect(0),
       m_reconnectInterval(30), m_noDelay(false), m_sendBufSize(0),
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)

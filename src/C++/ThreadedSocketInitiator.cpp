@@ -32,29 +32,29 @@ namespace FIX
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings ) EXCEPT ( ConfigError )
+  SessionSettings& settings ) EXCEPT ( ConfigError )
 : Initiator( application, factory, settings ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), 
-  m_sendBufSize( 0 ), m_rcvBufSize( 0 ) 
-{ 
-  socket_init(); 
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ),
+  m_sendBufSize( 0 ), m_rcvBufSize( 0 )
+{
+  socket_init();
 }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings,
+  SessionSettings& settings,
   LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), 
-  m_sendBufSize( 0 ), m_rcvBufSize( 0 ) 
-{ 
-  socket_init(); 
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ),
+  m_sendBufSize( 0 ), m_rcvBufSize( 0 )
+{
+  socket_init();
 }
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
-{ 
-  socket_term(); 
+{
+  socket_term();
 }
 
 void ThreadedSocketInitiator::onConfigure( const SessionSettings& s )
@@ -104,7 +104,7 @@ void ThreadedSocketInitiator::onStop()
 {
   SocketToThread threads;
   SocketToThread::iterator i;
-  
+
   {
     Locker l(m_mutex);
 
@@ -120,11 +120,11 @@ void ThreadedSocketInitiator::onStop()
 
     threads = m_threads;
     m_threads.clear();
-  }   
+  }
 
   for ( i = threads.begin(); i != threads.end(); ++i )
     socket_close( i->first );
-  
+
   for ( i = threads.begin(); i != threads.end(); ++i )
     thread_join( i->second );
   threads.clear();
@@ -232,7 +232,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   delete pConnection;
   if( !pInitiator->isStopped() )
     pInitiator->removeThread( socket );
-  
+
   pInitiator->setDisconnected( sessionID );
   return 0;
 }

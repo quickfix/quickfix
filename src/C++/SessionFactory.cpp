@@ -27,7 +27,6 @@
 #include "Values.h"
 #include "DataDictionaryProvider.h"
 #include "SessionFactory.h"
-#include "SessionSettings.h"
 #include "Session.h"
 
 #include <memory>

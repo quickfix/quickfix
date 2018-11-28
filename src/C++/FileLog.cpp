@@ -35,16 +35,21 @@ Log* FileLogFactory::create()
 
   try
   {
+    if ( m_pSettings != NULL )
+    {
+      const Dictionary& settings = m_pSettings->get();
+      std::string path = settings.getString( FILE_LOG_PATH );
+      std::string backupPath = path;
 
-    const Dictionary& settings = m_settings.get();
-    std::string path = settings.getString(FILE_LOG_PATH);
-    std::string backupPath = path;
+      if( settings.has( FILE_LOG_BACKUP_PATH ) )
+        backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
 
-    if ( settings.has( FILE_LOG_BACKUP_PATH ) )
-      backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
-
-    return m_globalLog = new FileLog( path, backupPath );
-
+      return m_globalLog = new FileLog( path, backupPath );
+    }
+    else
+    {
+      throw ConfigError( "No SessionSettings or path provided" );
+    }
   }
   catch( ConfigError& )
   {
@@ -62,7 +67,9 @@ Log* FileLogFactory::create( const SessionID& s )
 
   std::string path;
   std::string backupPath;
-  Dictionary settings = m_settings.get( s );
+  Dictionary settings;
+  if ( m_pSettings != NULL )
+    settings = m_pSettings->get( s );
   path = settings.getString( FILE_LOG_PATH );
   backupPath = path;
   if( settings.has( FILE_LOG_BACKUP_PATH ) )

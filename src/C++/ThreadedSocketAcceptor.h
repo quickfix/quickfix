@@ -38,9 +38,9 @@ class ThreadedSocketAcceptor : public Acceptor
   friend class SocketConnection;
 public:
   ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings& ) EXCEPT ( ConfigError );
+                          SessionSettings& ) EXCEPT ( ConfigError );
   ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings&,
+                          SessionSettings&,
                           LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~ThreadedSocketAcceptor();
@@ -58,7 +58,7 @@ private:
 
   struct ConnectionThreadInfo
   {
-    ConnectionThreadInfo( ThreadedSocketAcceptor* pAcceptor, 
+    ConnectionThreadInfo( ThreadedSocketAcceptor* pAcceptor,
                           ThreadedSocketConnection* pConnection )
     : m_pAcceptor( pAcceptor ), m_pConnection( pConnection ) {}
 
@@ -80,6 +80,8 @@ private:
   void onStart();
   bool onPoll( double timeout );
   void onStop();
+  void doAccept( const SessionID& sessionID, const Dictionary& settings )
+  throw ( RuntimeError );
 
   void addThread(socket_handle s, thread_id t );
   void removeThread(socket_handle s );

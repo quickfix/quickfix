@@ -35,7 +35,7 @@ namespace FIX
 {
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings ) EXCEPT ( ConfigError )
+                      SessionSettings& settings ) EXCEPT ( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -48,7 +48,7 @@ Initiator::Initiator( Application& application,
 
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings,
+                      SessionSettings& settings,
                       LogFactory& logFactory ) EXCEPT ( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
@@ -59,6 +59,25 @@ Initiator::Initiator( Application& application,
   m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
+
+void Initiator::createSession
+( const SessionID& sessionID, const Dictionary& dictionary )
+EXCEPT ( ConfigError, RuntimeError )
+{
+  m_settings.set( sessionID, dictionary );
+  SessionFactory factory( m_application, m_messageStoreFactory,
+                          m_pLogFactory );
+
+  if ( m_settings.get( sessionID ).getString( "ConnectionType" ) == "initiator" )
+  {
+    m_sessionIDs.insert( sessionID );
+    m_sessions[ sessionID ] = factory.create( sessionID, m_settings.get( sessionID ) );
+    setDisconnected( sessionID );
+    Session* pSession = Session::lookupSession( sessionID );
+    if ( pSession->isEnabled() && pSession->isSessionTime( UtcTimeStamp() ) )
+      doConnect( sessionID, m_settings.get( sessionID ));
+  }
+}
 
 void Initiator::initialize() EXCEPT ( ConfigError )
 {

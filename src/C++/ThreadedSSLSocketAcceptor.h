@@ -135,9 +135,9 @@ class ThreadedSSLSocketAcceptor : public Acceptor
 
 public:
   ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &,
-                            const SessionSettings &) EXCEPT (ConfigError);
+                            SessionSettings &) EXCEPT (ConfigError);
   ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &,
-                            const SessionSettings &,
+                            SessionSettings &,
                             LogFactory &) EXCEPT (ConfigError);
 
   virtual ~ThreadedSSLSocketAcceptor();
@@ -189,6 +189,8 @@ private:
   void onStart();
   bool onPoll(double timeout);
   void onStop();
+  void doAccept( const SessionID& sessionID, const Dictionary& settings )
+  throw ( RuntimeError );
 
   void addThread(SocketKey s, thread_id t);
   void removeThread(SocketKey s);

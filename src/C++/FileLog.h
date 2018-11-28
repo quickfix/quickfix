@@ -41,11 +41,11 @@ class FileLogFactory : public LogFactory
 {
 public:
   FileLogFactory( const SessionSettings& settings )
-: m_settings( settings ), m_globalLog(0), m_globalLogCount(0) {};
+: m_pSettings( &settings ), m_globalLog( 0 ), m_globalLogCount( 0 ) {};
   FileLogFactory( const std::string& path )
-: m_path( path ), m_backupPath( path ), m_globalLog(0), m_globalLogCount(0) {};
+: m_path( path ), m_backupPath( path ), m_pSettings( NULL ), m_globalLog( 0 ), m_globalLogCount( 0 ) {};
   FileLogFactory( const std::string& path, const std::string& backupPath )
-: m_path( path ), m_backupPath( backupPath ), m_globalLog(0), m_globalLogCount(0) {};
+: m_path( path ), m_backupPath( backupPath ), m_pSettings( NULL ), m_globalLog( 0 ), m_globalLogCount( 0 ) {};
 
 public:
   Log* create();
@@ -55,7 +55,7 @@ public:
 private:
   std::string m_path;
   std::string m_backupPath;
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
   Log* m_globalLog;
   int m_globalLogCount;
 };

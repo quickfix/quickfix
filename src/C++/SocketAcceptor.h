@@ -38,9 +38,9 @@ class SocketAcceptor : public Acceptor, SocketServer::Strategy
   friend class SocketConnection;
 public:
   SocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings& ) EXCEPT ( ConfigError );
+                  SessionSettings& ) EXCEPT ( ConfigError );
   SocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                  SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SocketAcceptor();
 
@@ -64,6 +64,8 @@ private:
   void onDisconnect( SocketServer&, socket_handle );
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
+  void doAccept( const SessionID& sessionID, const Dictionary& settings )
+  throw ( RuntimeError );
 
   SocketServer* m_pServer;
   PortToSessions m_portToSessions;

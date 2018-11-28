@@ -50,14 +50,14 @@ class Acceptor
 {
 public:
   Acceptor( Application&, MessageStoreFactory&,
-            const SessionSettings& ) EXCEPT ( ConfigError );
+            SessionSettings& ) EXCEPT ( ConfigError );
   Acceptor( Application&, MessageStoreFactory&,
-            const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+            SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~Acceptor();
 
-  Log* getLog() 
-  { 
+  Log* getLog()
+  {
     if( m_pLog ) return m_pLog;
     return &m_nullLog;
   }
@@ -81,6 +81,9 @@ public:
   Session* getSession( const SessionID& sessionID ) const;
   const Dictionary* const getSessionSettings( const SessionID& sessionID ) const;
 
+  void createSession( const SessionID& sessionID, const Dictionary& dictionary )
+  throw ( ConfigError, RuntimeError );
+
   bool has( const SessionID& id )
   { return m_sessions.find( id ) != m_sessions.end(); }
 
@@ -103,6 +106,8 @@ private:
   virtual bool onPoll( double second ) = 0;
   /// Implemented to stop a running acceptor.
   virtual void onStop() = 0;
+  /// Implemented to connect a session to its target.
+  virtual void doAccept( const SessionID&, const Dictionary& ) throw ( RuntimeError ) = 0;
 
   static THREAD_PROC startThread( void* p );
 
@@ -115,7 +120,7 @@ private:
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
 protected:
-  SessionSettings m_settings;
+  SessionSettings& m_settings;
 private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;

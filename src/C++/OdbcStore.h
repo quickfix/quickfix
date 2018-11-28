@@ -48,19 +48,19 @@ public:
   static const std::string DEFAULT_CONNECTION_STRING;
 
   OdbcStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+: m_pSettings( &settings ), m_useDictionary( false ) {}
 
   OdbcStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
+: m_pSettings( NULL ), m_dictionary( dictionary ), m_useDictionary( true ) {}
 
   OdbcStoreFactory( const std::string& user, const std::string& password, 
                     const std::string& connectionString )
-: m_user( user ), m_password( password ), m_connectionString( connectionString ),
-  m_useSettings( false ), m_useDictionary( false ) {}
+: m_pSettings( NULL ), m_user( user ), m_password( password ), m_connectionString( connectionString ),
+  m_useDictionary( false ) {}
 
   OdbcStoreFactory()
-: m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_connectionString( DEFAULT_CONNECTION_STRING ), m_useSettings( false ), m_useDictionary( false ) {}
+: m_pSettings( NULL ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+  m_connectionString( DEFAULT_CONNECTION_STRING ), m_useDictionary( false ) {}
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
@@ -68,11 +68,10 @@ private:
   MessageStore* create( const SessionID& s, const Dictionary& );
 
   Dictionary m_dictionary;
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
   std::string m_user;
   std::string m_password;
   std::string m_connectionString;
-  bool m_useSettings;
   bool m_useDictionary;
 };
 /*! @} */

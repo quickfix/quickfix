@@ -32,23 +32,23 @@ namespace FIX
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings ) EXCEPT ( ConfigError )
+  SessionSettings& settings ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings,
+  SessionSettings& settings,
   LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings, logFactory )
-{ 
-  socket_init(); 
+{
+  socket_init();
 }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
-{ 
-  socket_term(); 
+{
+  socket_term();
 }
 
 void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
@@ -67,55 +67,61 @@ EXCEPT ( ConfigError )
   }
 }
 
-void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
+void ThreadedSocketAcceptor::doAccept
+( const SessionID & sessionID, const Dictionary& settings )
 EXCEPT ( RuntimeError )
 {
-  short port = 0;
-  std::set<int> ports;
+  short port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
+  if( m_portToSessions.find(port) != m_portToSessions.end() )
+  {
+    m_portToSessions[port].insert( sessionID );
+    return;
+  }
+
+  m_portToSessions[port].insert( sessionID );
+
+  const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ?
+    settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+  const bool noDelay = settings.has( SOCKET_NODELAY ) ?
+    settings.getBool( SOCKET_NODELAY ) : false;
+
+  const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+    settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+  const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+    settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+
+  socket_handle socket = socket_createAcceptor( port, reuseAddress );
+  if (socket == INVALID_SOCKET_HANDLE)
+  {
+    SocketException e;
+    socket_close( socket );
+    throw RuntimeError( "Unable to create, bind, or listen to port "
+                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+  }
+  if( noDelay )
+    socket_setsockopt( socket, TCP_NODELAY );
+  if( sendBufSize )
+    socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
+  if( rcvBufSize )
+    socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
+
+  m_socketToPort[socket] = port;
+  m_sockets.insert( socket );
+}
+
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
+throw ( RuntimeError )
+{
   std::set<SessionID> sessions = s.getSessions();
   std::set<SessionID>::iterator i = sessions.begin();
   for( ; i != sessions.end(); ++i )
   {
-    const Dictionary& settings = s.get( *i );
-    port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
-
-    m_portToSessions[port].insert( *i );
-
-    if( ports.find(port) != ports.end() )
-      continue;
-    ports.insert( port );
-
-    const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
-      settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
-
-    const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
-      settings.getBool( SOCKET_NODELAY ) : false;
-
-    const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
-      settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
-
-    const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
-      settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
-
-    socket_handle socket = socket_createAcceptor( port, reuseAddress );
-    if( socket == INVALID_SOCKET_HANDLE )
-    {
-      SocketException e;
-      socket_close( socket );
-      throw RuntimeError( "Unable to create, bind, or listen to port " 
-                         + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
-    }
-    if( noDelay )
-      socket_setsockopt( socket, TCP_NODELAY );
-    if( sendBufSize )
-      socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
-    if( rcvBufSize )
-      socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
-
-    m_socketToPort[socket] = port;
-    m_sockets.insert( socket );
-  }    
+    const Dictionary& sessionDict = s.get( *i );
+    doAccept( *i, sessionDict );
+  }
 }
 
 void ThreadedSocketAcceptor::onStart()
@@ -138,7 +144,7 @@ bool ThreadedSocketAcceptor::onPoll( double timeout )
 }
 
 void ThreadedSocketAcceptor::onStop()
-{ 
+{
   SocketToThread threads;
   SocketToThread::iterator i;
 

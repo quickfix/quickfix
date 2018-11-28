@@ -35,7 +35,7 @@ namespace FIX
 {
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
-                    const SessionSettings& settings )
+                    SessionSettings& settings )
 EXCEPT ( ConfigError )
   : m_threadid( 0 ),
   m_application( application ),
@@ -51,7 +51,7 @@ EXCEPT ( ConfigError )
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
-                    const SessionSettings& settings,
+                    SessionSettings& settings,
                     LogFactory& logFactory )
 EXCEPT ( ConfigError )
 : m_threadid( 0 ),
@@ -152,6 +152,23 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
   catch( ConfigError& )
   {
     return 0;
+  }
+}
+
+void Acceptor::createSession
+( const SessionID& sessionID, const Dictionary& dictionary )
+EXCEPT ( ConfigError, RuntimeError )
+{
+  m_settings.set( sessionID, dictionary );
+  SessionFactory factory( m_application, m_messageStoreFactory,
+                          m_pLogFactory );
+
+  const Dictionary& mergedDictionary = m_settings.get( sessionID );
+  if ( mergedDictionary.getString( CONNECTION_TYPE ) == "acceptor" )
+  {
+    m_sessionIDs.insert( sessionID );
+    m_sessions[ sessionID ] = factory.create( sessionID, mergedDictionary );
+    doAccept( sessionID, mergedDictionary );
   }
 }
 

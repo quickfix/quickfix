@@ -127,8 +127,7 @@ const bool SessionSettings::has( const SessionID& sessionID ) const
 const Dictionary& SessionSettings::get( const SessionID& sessionID ) const
 EXCEPT ( ConfigError )
 {
-  Dictionaries::const_iterator i;
-  i = m_settings.find( sessionID );
+  Dictionaries::const_iterator i = m_settings.find( sessionID );
   if ( i == m_settings.end() ) throw ConfigError( "Session not found" );
   return i->second;
 }

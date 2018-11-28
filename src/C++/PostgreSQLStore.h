@@ -50,7 +50,7 @@ public:
   static const short DEFAULT_PORT;
 
   PostgreSQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
+: m_pSettings( &settings ), m_useDictionary( false ) 
   {
     bool poolConnections = false;
     try { poolConnections = settings.get().getBool(POSTGRESQL_STORE_USECONNECTIONPOOL); }
@@ -61,7 +61,7 @@ public:
   }
 
   PostgreSQLStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
+: m_pSettings( NULL ), m_dictionary( dictionary ), m_useDictionary( true ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
@@ -70,16 +70,16 @@ public:
   PostgreSQLStoreFactory( const std::string& database, const std::string& user,
                           const std::string& password, const std::string& host,
                           short port )
-: m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), m_useDictionary( false ) 
+: m_pSettings( NULL ), m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
+  m_useDictionary( false ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
   }
 
   PostgreSQLStoreFactory()
-: m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
+: m_pSettings( NULL ), m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useDictionary( false ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
@@ -91,14 +91,13 @@ private:
   MessageStore* create( const SessionID& s, const Dictionary& );
 
   PostgreSQLConnectionPoolPtr m_connectionPoolPtr;
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
   Dictionary m_dictionary;
   std::string m_database;
   std::string m_user;
   std::string m_password;
   std::string m_host;
   short m_port;
-  bool m_useSettings;
   bool m_useDictionary;
 };
 /*! @} */

@@ -52,9 +52,9 @@ class Initiator
 {
 public:
   Initiator( Application&, MessageStoreFactory&,
-             const SessionSettings& ) EXCEPT ( ConfigError );
+             SessionSettings& ) EXCEPT ( ConfigError );
   Initiator( Application&, MessageStoreFactory&,
-             const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+             SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~Initiator();
 
@@ -82,14 +82,17 @@ public:
 
   bool isStopped() { return m_stop; }
 
+  void createSession( const SessionID& sessionID, const Dictionary& dictionary )
+  throw ( ConfigError, RuntimeError );
+
 public:
   Application& getApplication() { return m_application; }
   MessageStoreFactory& getMessageStoreFactory()
   { return m_messageStoreFactory; }
 
-  Log* getLog() 
-  { 
-    if( m_pLog ) return m_pLog; 
+  Log* getLog()
+  {
+    if( m_pLog ) return m_pLog;
     return &m_nullLog;
   }
 
@@ -136,7 +139,7 @@ private:
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
 protected:
-  SessionSettings m_settings;
+  SessionSettings& m_settings;
 private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;

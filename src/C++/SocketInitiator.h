@@ -37,9 +37,9 @@ class SocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) EXCEPT ( ConfigError );
+                   SessionSettings& ) EXCEPT ( ConfigError );
   SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                   SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SocketInitiator();
 
@@ -64,7 +64,6 @@ private:
 
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
-  SessionSettings m_settings;
   SessionToHostNum m_sessionToHostNum;
   SocketConnector m_connector;
   SocketConnections m_pendingConnections;

@@ -244,7 +244,7 @@ def start(self):
 class SocketInitiator(SocketInitiatorBase):
   application = 0
   storeFactory = 0
-  setting = 0
+  settings = 0
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):
@@ -261,7 +261,7 @@ class SocketInitiator(SocketInitiatorBase):
 class SocketAcceptor(SocketAcceptorBase):
   application = 0
   storeFactory = 0
-  setting = 0
+  settings = 0
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):
