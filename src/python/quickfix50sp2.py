@@ -1029,6 +1029,24 @@ class OrderCancelReject(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("9") )
 
+	class NoPartyIDs(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 448
+			order[1] = 447
+			order[2] = 452
+			order[3] = 802
+			order[4] = 0
+			fix.Group.__init__(self, 453, 448, order)
+
+		class NoPartySubIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(3)
+				order[0] = 523
+				order[1] = 803
+				order[2] = 0
+				fix.Group.__init__(self, 802, 523, order)
+
 class News(Message):
 	def __init__(self):
 		Message.__init__(self)
