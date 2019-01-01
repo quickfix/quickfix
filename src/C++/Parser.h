@@ -40,10 +40,8 @@ public:
   ~Parser() {}
 
   bool extractLength( int& length, std::string::size_type& pos,
-                      const std::string& buffer )
-  throw ( MessageParseError );
-  bool readFixMessage( std::string& str )
-  throw ( MessageParseError );
+                      const std::string& buffer );
+  bool readFixMessage( std::string& str );
 
   void addToStream( const char* str, size_t len )
   { m_buffer.append( str, len ); }

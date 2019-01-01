@@ -35,7 +35,7 @@ DataDictionaryProvider::DataDictionaryProvider( const DataDictionaryProvider& co
 }
 
 const DataDictionary& DataDictionaryProvider::getSessionDataDictionary
-(const BeginString& beginString) const throw( DataDictionaryNotFound )
+(const BeginString& beginString) const
 {
   std::map<std::string, ptr::shared_ptr<DataDictionary> >::const_iterator find =
     m_transportDictionaries.find(beginString);
@@ -46,7 +46,7 @@ const DataDictionary& DataDictionaryProvider::getSessionDataDictionary
 }
 
 const DataDictionary& DataDictionaryProvider::getApplicationDataDictionary
-(const ApplVerID& applVerID) const throw( DataDictionaryNotFound )
+(const ApplVerID& applVerID) const
 {
   std::map<std::string, ptr::shared_ptr<DataDictionary> >::const_iterator find =
     m_applicationDictionaries.find(applVerID);

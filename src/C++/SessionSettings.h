@@ -221,21 +221,21 @@ class SessionSettings
 {
 public:
   SessionSettings() { m_resolveEnvVars = false; }
-  SessionSettings( std::istream& stream, bool resolveEnvVars = false ) throw( ConfigError );
-  SessionSettings( const std::string& file, bool resolveEnvVars = false ) throw( ConfigError );
+  SessionSettings( std::istream& stream, bool resolveEnvVars = false );
+  SessionSettings( const std::string& file, bool resolveEnvVars = false );
 
   /// Check if session setings are present
   const bool has( const SessionID& ) const;
 
   /// Get a dictionary for a session.
-  const Dictionary& get( const SessionID& ) const throw( ConfigError );
+  const Dictionary& get( const SessionID& ) const;
   /// Set a dictionary for a session
-  void set( const SessionID&, Dictionary ) throw( ConfigError );
+  void set( const SessionID&, Dictionary );
 
   /// Get global default settings
   const Dictionary& get() const { return m_defaults; }
   /// Set global default settings
-  void set( const Dictionary& defaults ) throw( ConfigError );
+  void set( const Dictionary& defaults );
 
   /// Number of session settings
   size_t size() const { return m_settings.size(); }
@@ -244,19 +244,18 @@ public:
   std::set < SessionID > getSessions() const;
 
 private:
-  void validate( const Dictionary& ) const throw( ConfigError );
+  void validate( const Dictionary& ) const;
 
   Dictionaries m_settings;
   Dictionary m_defaults;
   bool m_resolveEnvVars;  // while reading, replace $var, $(var) and ${var} by environment variable var
 
-  friend std::istream& operator>>( std::istream&, SessionSettings& ) throw( ConfigError );
+  friend std::istream& operator>>( std::istream&, SessionSettings& );
   friend std::ostream& operator<<( std::ostream&, const SessionSettings& );
 };
 /*! @} */
 
-std::istream& operator>>( std::istream&, SessionSettings& )
-throw( ConfigError );
+std::istream& operator>>( std::istream&, SessionSettings& );
 std::ostream& operator<<( std::ostream&, const SessionSettings& );
 }
 

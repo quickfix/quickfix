@@ -60,33 +60,33 @@ class NullStore : public MessageStore
 public:
   NullStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
 
-  bool set( int, const std::string& ) throw ( IOException );
-  void get( int, int, std::vector < std::string > & ) const throw ( IOException );
+  bool set( int, const std::string& );
+  void get( int, int, std::vector < std::string > & ) const;
 
-  int getNextSenderMsgSeqNum() const throw ( IOException )
+  int getNextSenderMsgSeqNum() const
   { return m_nextSenderMsgSeqNum; }
-  int getNextTargetMsgSeqNum() const throw ( IOException )
+  int getNextTargetMsgSeqNum() const
   { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( int value ) throw ( IOException )
+  void setNextSenderMsgSeqNum( int value )
   { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( int value ) throw ( IOException )
+  void setNextTargetMsgSeqNum( int value )
   { m_nextTargetMsgSeqNum = value; }
-  void incrNextSenderMsgSeqNum() throw ( IOException )
+  void incrNextSenderMsgSeqNum()
   { ++m_nextSenderMsgSeqNum; }
-  void incrNextTargetMsgSeqNum() throw ( IOException )
+  void incrNextTargetMsgSeqNum()
   { ++m_nextTargetMsgSeqNum; }
 
-  void setCreationTime( const UtcTimeStamp& creationTime ) throw ( IOException )
+  void setCreationTime( const UtcTimeStamp& creationTime )
   { m_creationTime = creationTime; }
-  UtcTimeStamp getCreationTime() const throw ( IOException )
+  UtcTimeStamp getCreationTime() const
   { return m_creationTime; }
 
-  void reset() throw ( IOException )
+  void reset()
   {
     m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
     m_creationTime.setCurrent();
   }
-  void refresh() throw ( IOException ) {}
+  void refresh() {}
 
 private:
   int m_nextSenderMsgSeqNum;

@@ -104,7 +104,6 @@ public:
   }
 
   void fromAdmin( const FIX::Message& message, const SessionID& )
-  throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon )
   {
     MsgType msgType;
     message.getHeader().getField( msgType );
@@ -124,7 +123,6 @@ public:
   }
 
   void fromApp( const FIX::Message& message, const SessionID& )
-  throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType )
   {
     MsgType msgType;
     message.getHeader().getField( msgType );
@@ -133,7 +131,6 @@ public:
   }
 
   void toApp( FIX::Message& message, const SessionID& )
-  throw( DoNotSend )
   {
     PossDupFlag possDupFlag(false);
     if( message.getHeader().isSetField(possDupFlag) )
