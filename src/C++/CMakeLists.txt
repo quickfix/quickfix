@@ -74,7 +74,10 @@ endif()
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION include/quickfix
         FILES_MATCHING PATTERN "*.h"
         PATTERN double-conversion EXCLUDE
-        PATTERN test EXCLUDE)
+        PATTERN test EXCLUDE
+        PATTERN CMakeFiles EXCLUDE
+        PATTERN quickfix.dir EXCLUDE
+        PATTERN include EXCLUDE)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../ INTERFACE ${CMAKE_CURRENT_BINARY_DIR}/include )
 if (HAVE_SHARED_PTR_IN_STD_NAMESPACE)
   target_compile_definitions(${PROJECT_NAME} INTERFACE HAVE_STD_SHARED_PTR=1)
@@ -91,7 +94,4 @@ endif()
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION include/quickfix
-        FILES_MATCHING PATTERN "*.h"
-        PATTERN double-conversion EXCLUDE
-        PATTERN test EXCLUDE)
+install(DIRECTORY include/quickfix DESTINATION include)
