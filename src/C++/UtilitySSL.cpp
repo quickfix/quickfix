@@ -367,7 +367,7 @@ void ssl_term()
 #endif
 }
 
-void ssl_socket_close(int socket, SSL *ssl)
+void ssl_socket_close(socket_handle socket, SSL *ssl)
 {
 
   if (ssl == 0)
@@ -982,7 +982,7 @@ char *strCat(const char *a, ...)
   return res;
 }
 
-int setSocketNonBlocking(int pSocket)
+int setSocketNonBlocking(socket_handle pSocket)
 /********************************************************************************
 * switch socket to non-blocking mode
 * Returns: 0 in the case of success, -1 in the case of error
@@ -1519,7 +1519,7 @@ int doAccept(SSL *ssl, int &result)
   return rc;
 }
 
-int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
+int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
 {
   int rc;
   int result = -1;
@@ -1635,7 +1635,7 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
               std::string(
                   "SSL handshake interrupted by system, system error ") +
               IntConvertor::convert(lastSocketError) + " socket " +
-              IntConvertor::convert(socket));
+              std::to_string(socket));
 
 #else
         if (errno == EINTR)

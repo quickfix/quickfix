@@ -210,7 +210,7 @@ EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
 char *strCat(const char *a, ...);
 }
 
-int setSocketNonBlocking(int pSocket);
+int setSocketNonBlocking(socket_handle pSocket);
 
 // define certificate algorithm type
 #define SSL_ALGO_UNKNOWN 0
@@ -244,7 +244,7 @@ void ssl_init();
 
 void ssl_term();
 
-void ssl_socket_close(int socket, SSL *ssl);
+void ssl_socket_close(socket_handle socket, SSL *ssl);
 
 const char *socket_error(char *tempbuf, int buflen);
 
@@ -269,7 +269,7 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
                         std::string &errStr);
 
-int acceptSSLConnection(int socket, SSL * ssl, Log * log, int verify);
+int acceptSSLConnection(socket_handle socket, SSL * ssl, Log * log, int verify);
 }
 
 #endif
