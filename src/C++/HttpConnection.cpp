@@ -33,7 +33,7 @@ using namespace HTML;
 
 namespace FIX
 {
-HttpConnection::HttpConnection( int s )
+HttpConnection::HttpConnection(socket_handle s )
 : m_socket( s )
 {
   FD_ZERO( &m_fds );
