@@ -146,11 +146,11 @@ class SSLSocketConnection : Responder
 public:
   typedef std::set<SessionID> Sessions;
 
-  SSLSocketConnection( int s, SSL *ssl, Sessions sessions, SocketMonitor* pMonitor );
-  SSLSocketConnection( SSLSocketInitiator&, const SessionID&, int, SSL *, SocketMonitor* );
+  SSLSocketConnection( socket_handle s, SSL *ssl, Sessions sessions, SocketMonitor* pMonitor );
+  SSLSocketConnection( SSLSocketInitiator&, const SessionID&, socket_handle, SSL *, SocketMonitor* );
   virtual ~SSLSocketConnection();
 
-  int getSocket() const { return m_socket; }
+  socket_handle getSocket() const { return m_socket; }
   Session* getSession() const { return m_pSession; }
 
   bool read( SocketConnector& s );
@@ -186,7 +186,7 @@ private:
   bool send( const std::string& );
   void disconnect();
 
-  int m_socket;
+  socket_handle m_socket;
   SSL *m_ssl;
   char m_buffer[BUFSIZ];
 

@@ -32,7 +32,7 @@
 
 namespace FIX
 {
-SocketConnection::SocketConnection( int s, Sessions sessions,
+SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
@@ -42,7 +42,7 @@ SocketConnection::SocketConnection( int s, Sessions sessions,
 }
 
 SocketConnection::SocketConnection( SocketInitiator& i,
-                                    const SessionID& sessionID, int s,
+                                    const SessionID& sessionID, socket_handle s,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),
