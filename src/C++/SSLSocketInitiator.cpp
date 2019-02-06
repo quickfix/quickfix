@@ -300,7 +300,7 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     getHost( s, d, address, port, sourceAddress, sourcePort );
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) + " (Source " + sourceAddress + ":" + IntConvertor::convert((unsigned short)sourcePort) + ")");
-    int result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize, sourceAddress, sourcePort );
+    socket_handle result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize, sourceAddress, sourcePort );
 
     SSL *ssl = SSL_new(m_ctx);
     if (ssl == 0)
@@ -309,7 +309,7 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
       return;
     }
     SSL_clear(ssl);
-    BIO *sbio = BIO_new_socket(result, BIO_CLOSE);
+    BIO *sbio = BIO_new_socket(result, BIO_CLOSE); //unfortunately OpenSSL assumes socket is int
     if (sbio == 0)
     {
       log->onEvent("BIO_new_socket failed");
@@ -343,7 +343,7 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
   catch ( std::exception& ) {}
 }
 
-void SSLSocketInitiator::onConnect( SocketConnector&, int s )
+void SSLSocketInitiator::onConnect( SocketConnector&, socket_handle s )
 {
   SocketConnections::iterator i = m_pendingConnections.find( s );
   if( i == m_pendingConnections.end() ) return;
@@ -355,7 +355,7 @@ void SSLSocketInitiator::onConnect( SocketConnector&, int s )
   pSocketConnection->onTimeout();
 }
 
-void SSLSocketInitiator::onWrite( SocketConnector& connector, int s )
+void SSLSocketInitiator::onWrite( SocketConnector& connector, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
@@ -364,7 +364,7 @@ void SSLSocketInitiator::onWrite( SocketConnector& connector, int s )
     pSocketConnection->unsignal();
 }
 
-bool SSLSocketInitiator::onData( SocketConnector& connector, int s )
+bool SSLSocketInitiator::onData( SocketConnector& connector, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
@@ -372,7 +372,7 @@ bool SSLSocketInitiator::onData( SocketConnector& connector, int s )
   return pSocketConnection->read( connector );
 }
 
-void SSLSocketInitiator::onDisconnect( SocketConnector&, int s )
+void SSLSocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   SocketConnections::iterator j = m_pendingConnections.find( s );
