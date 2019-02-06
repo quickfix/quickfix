@@ -70,6 +70,9 @@ typedef int socklen_t;
 typedef int ssize_t;
 typedef SOCKET socket_handle;
 #define INVALID_SOCKET_HANDLE INVALID_SOCKET
+#define BIND_SOCKET_ERROR SOCKET_ERROR
+#define LISTEN_SOCKET_ERROR SOCKET_ERROR
+#define SET_SOCK_OPT_ERROR SOCKET_ERROR
 /////////////////////////////////////////////
 #else
 /////////////////////////////////////////////
@@ -94,6 +97,9 @@ typedef SOCKET socket_handle;
 #include <stdlib.h>
 typedef int socket_handle;
 #define INVALID_SOCKET_HANDLE -1
+#define BIND_SOCKET_ERROR -1
+#define LISTEN_SOCKET_ERROR -1
+#define SET_SOCK_OPT_ERROR -1
 /////////////////////////////////////////////
 #endif
 
