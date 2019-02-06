@@ -346,7 +346,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   AcceptorThreadInfo *info = reinterpret_cast< AcceptorThreadInfo * >(p);
 
   ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  int s = info->m_socket;
+  socket_handle s = info->m_socket;
   int port = info->m_port;
   delete info;
 
@@ -373,7 +373,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
         socket, ssl, sessions, pAcceptor->getLog());
     SSL_clear(ssl);
-    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE);
+    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE); //unfortunately OpenSSL uses int as socket handle
     SSL_set_bio(ssl, sBio, sBio);
     // TODO - check this
     SSL_set_app_data(ssl, pAcceptor->revocationStore());
