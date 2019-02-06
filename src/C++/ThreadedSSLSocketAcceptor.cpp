@@ -252,8 +252,8 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) throw(
                                ? settings.getInt(SOCKET_RECEIVE_BUFFER_SIZE)
                                : 0;
 
-    int socket = socket_createAcceptor(port, reuseAddress);
-    if (socket < 0)
+    socket_handle socket = socket_createAcceptor(port, reuseAddress);
+    if (socket == INVALID_SOCKET_HANDLE)
     {
       SocketException e;
       socket_close(socket);
@@ -357,8 +357,8 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   socket_getsockopt(s, SO_SNDBUF, sendBufSize);
   socket_getsockopt(s, SO_RCVBUF, rcvBufSize);
 
-  int socket = 0;
-  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) >= 0))
+  socket_handle socket = 0;
+  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) != INVALID_SOCKET_HANDLE))
   {
     if (noDelay)
       socket_setsockopt(socket, TCP_NODELAY);
@@ -418,7 +418,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
   ThreadedSSLSocketConnection *pConnection = info->m_pConnection;
   delete info;
 
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
 
   if (acceptSSLConnection(pConnection->getSocket(), pConnection->sslObject(), pAcceptor->getLog(), pAcceptor->m_verify) != 0)
   {
