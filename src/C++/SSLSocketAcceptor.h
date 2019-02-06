@@ -152,7 +152,7 @@ private:
 
   typedef std::set < SessionID > Sessions;
   typedef std::map < int, Sessions > PortToSessions;
-  typedef std::map < int, SSLSocketConnection* > SocketConnections;
+  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError );
@@ -161,10 +161,10 @@ private:
   bool onPoll( double timeout );
   void onStop();
 
-  void onConnect( SocketServer&, int, int );
-  void onWrite( SocketServer&, int );
-  bool onData( SocketServer&, int );
-  void onDisconnect( SocketServer&, int );
+  void onConnect( SocketServer&, socket_handle, socket_handle);
+  void onWrite( SocketServer&, socket_handle);
+  bool onData( SocketServer&, socket_handle);
+  void onDisconnect( SocketServer&, socket_handle);
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
 
