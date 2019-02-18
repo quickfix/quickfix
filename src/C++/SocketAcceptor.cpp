@@ -103,6 +103,8 @@ throw ( RuntimeError )
   }
   catch( SocketException& e )
   {
+    delete m_pServer;
+    m_pServer = 0;
     throw RuntimeError( "Unable to create, bind, or listen to port "
                        + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
