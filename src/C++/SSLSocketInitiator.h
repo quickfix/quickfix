@@ -170,7 +170,7 @@ private:
   void onDisconnect( SocketConnector&, socket_handle);
   void onError( SocketConnector& );
   void onTimeout( SocketConnector& );
-
+  bool handshakeSSL(SSL* ssl);
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
   SessionToHostNum m_sessionToHostNum;

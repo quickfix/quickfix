@@ -404,7 +404,7 @@ static void locking_callback(int mode, int type, const char *file, int line)
 static unsigned long thread_id_func()
 {
 #ifdef _MSC_VER
-  return (unsigned)GetCurrentThread();
+  return (unsigned)GetCurrentThreadId();
 #else
   return (unsigned long)pthread_self();
 #endif
