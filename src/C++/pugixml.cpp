@@ -6214,7 +6214,7 @@ PUGI__NS_BEGIN
 		#endif
 		}
 		
-		void* allocate_nothrow(size_t size)
+		void* allocate_noEXCEPT (size_t size)
 		{
 			// align size so that we're able to store pointers in subsequent blocks
 			size = (size + sizeof(void*) - 1) & ~(sizeof(void*) - 1);
@@ -6249,7 +6249,7 @@ PUGI__NS_BEGIN
 
 		void* allocate(size_t size)
 		{
-			void* result = allocate_nothrow(size);
+			void* result = allocate_noEXCEPT (size);
 
 			if (!result)
 			{
@@ -9294,7 +9294,7 @@ PUGI__NS_BEGIN
 
 		void* alloc_node()
 		{
-			void* result = _alloc->allocate_nothrow(sizeof(xpath_ast_node));
+			void* result = _alloc->allocate_noEXCEPT (sizeof(xpath_ast_node));
 
 			if (!result) throw_error_oom();
 
@@ -9307,7 +9307,7 @@ PUGI__NS_BEGIN
 			{
 				size_t length = static_cast<size_t>(value.end - value.begin);
 
-				char_t* c = static_cast<char_t*>(_alloc->allocate_nothrow((length + 1) * sizeof(char_t)));
+				char_t* c = static_cast<char_t*>(_alloc->allocate_noEXCEPT ((length + 1) * sizeof(char_t)));
 				if (!c) throw_error_oom();
 				assert(c); // workaround for clang static analysis
 
@@ -10142,7 +10142,7 @@ namespace pugi
 		assert(_result.error);
 	}
 	
-	PUGI__FN const char* xpath_exception::what() const throw()
+	PUGI__FN const char* xpath_exception::what() const NOEXCEPT
 	{
 		return _result.error;
 	}

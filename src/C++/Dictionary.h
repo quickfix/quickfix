@@ -51,19 +51,19 @@ public:
 
   /// Get a value as a string.
   std::string getString( const std::string&, bool capitalize = false ) const
-  throw( ConfigError, FieldConvertError );
+  EXCEPT ( ConfigError, FieldConvertError );
   /// Get a value as a int.
   int getInt( const std::string& ) const
-  throw( ConfigError, FieldConvertError );
+  EXCEPT ( ConfigError, FieldConvertError );
   /// Get a value as a double.
   double getDouble( const std::string& ) const
-  throw( ConfigError, FieldConvertError );
+  EXCEPT ( ConfigError, FieldConvertError );
   /// Get a value as a bool
   bool getBool( const std::string& ) const
-  throw( ConfigError, FieldConvertError );
+  EXCEPT ( ConfigError, FieldConvertError );
   /// Get a value as a day of week
   int getDay( const std::string& ) const
-  throw( ConfigError, FieldConvertError );
+  EXCEPT ( ConfigError, FieldConvertError );
 
   /// Set a value from a string.
   void setString( const std::string&, const std::string& );

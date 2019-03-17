@@ -63,13 +63,13 @@ public:
   bool sentLogout() { return m_state.sentLogout(); }
   bool receivedLogon() { return m_state.receivedLogon(); }
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
-  void reset() throw( IOException ) 
+  void reset() EXCEPT ( IOException ) 
   { generateLogout(); disconnect(); m_state.reset(); }
-  void refresh() throw( IOException )
+  void refresh() EXCEPT ( IOException )
   { m_state.refresh(); }
-  void setNextSenderMsgSeqNum( int num ) throw( IOException )
+  void setNextSenderMsgSeqNum( int num ) EXCEPT ( IOException )
   { m_state.setNextSenderMsgSeqNum( num ); }
-  void setNextTargetMsgSeqNum( int num ) throw( IOException )
+  void setNextTargetMsgSeqNum( int num ) EXCEPT ( IOException )
   { m_state.setNextTargetMsgSeqNum( num ); }
 
   const SessionID& getSessionID() const
@@ -81,19 +81,19 @@ public:
 
   static bool sendToTarget( Message& message,
                             const std::string& qualifier = "" )
-  throw( SessionNotFound );
+  EXCEPT ( SessionNotFound );
   static bool sendToTarget( Message& message, const SessionID& sessionID )
-  throw( SessionNotFound );
+  EXCEPT ( SessionNotFound );
   static bool sendToTarget( Message&,
                             const SenderCompID& senderCompID,
                             const TargetCompID& targetCompID,
                             const std::string& qualifier = "" )
-  throw( SessionNotFound );
+  EXCEPT ( SessionNotFound );
   static bool sendToTarget( Message& message,
                             const std::string& senderCompID,
                             const std::string& targetCompID,
                             const std::string& qualifier = "" )
-  throw( SessionNotFound );
+  EXCEPT ( SessionNotFound );
 
   static std::set<SessionID> getSessions();
   static bool doesSessionExist( const SessionID& );
@@ -237,7 +237,7 @@ private:
   bool send( const std::string& );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
-  void persist( const Message&, const std::string& ) throw ( IOException );
+  void persist( const Message&, const std::string& ) EXCEPT ( IOException );
 
   void insertSendingTime( Header& );
   void insertOrigSendingTime( Header&,

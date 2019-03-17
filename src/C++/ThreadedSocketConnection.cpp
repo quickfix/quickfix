@@ -143,7 +143,7 @@ bool ThreadedSocketConnection::read()
 }
 
 bool ThreadedSocketConnection::readMessage( std::string& msg )
-throw( SocketRecvFailed )
+EXCEPT ( SocketRecvFailed )
 {
   try
   {
