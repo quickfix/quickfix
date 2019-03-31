@@ -91,7 +91,7 @@ bool HttpConnection::read()
 }
 
 bool HttpConnection::readMessage( std::string& msg )
-throw( SocketRecvFailed )
+EXCEPT ( SocketRecvFailed )
 {
   try
   {

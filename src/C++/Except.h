@@ -1,3 +1,5 @@
+/* -*- C++ -*- */
+
 /****************************************************************************
 ** Copyright (c) 2001-2014
 **
@@ -17,38 +19,15 @@
 **
 ****************************************************************************/
 
-#ifdef _MSC_VER
-#include "stdafx.h"
+#ifndef FIX_EXCEPT_H
+#define FIX_EXCEPT_H
+
+#ifdef __cpp_noexcept_function_type
+#define NOEXCEPT noexcept
+#define EXCEPT(...) noexcept(false)
 #else
-#include "config.h"
+#define NOEXCEPT throw()
+#define EXCEPT(...) throw(__VA_ARGS__)
 #endif
 
-#include "NullStore.h"
-
-namespace FIX
-{
-
-MessageStore* NullStoreFactory::create( const SessionID& )
-{
-  return new NullStore();
-}
-
-void NullStoreFactory::destroy( MessageStore* pStore )
-{
-  delete pStore;
-}
-
-bool NullStore::set( int msgSeqNum, const std::string& msg )
-EXCEPT ( IOException )
-{
-  return true;
-}
-
-void NullStore::get( int begin, int end,
-                       std::vector < std::string > & messages ) const
-EXCEPT ( IOException )
-{
-  messages.clear();
-}
-
-} //namespace FIX
+#endif

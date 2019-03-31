@@ -44,7 +44,7 @@ DataDictionary::DataDictionary()
 {}
 
 DataDictionary::DataDictionary( std::istream& stream, bool preserveMsgFldsOrder )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder)
 {
@@ -52,7 +52,7 @@ throw( ConfigError )
 }
 
 DataDictionary::DataDictionary( const std::string& url, bool preserveMsgFldsOrder )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder), m_orderedFieldsArray(0)
 {
@@ -123,7 +123,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
 void DataDictionary::validate( const Message& message,
                                const DataDictionary* const pSessionDD,
                                const DataDictionary* const pAppDD )
-throw( FIX::Exception )
+EXCEPT ( FIX::Exception )
 {  
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
@@ -203,7 +203,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
 }
 
 void DataDictionary::readFromURL( const std::string& url )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 {
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
 
@@ -221,7 +221,7 @@ throw( ConfigError )
 }
 
 void DataDictionary::readFromStream( std::istream& stream )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 {
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
 
@@ -232,7 +232,7 @@ throw( ConfigError )
 }
 
 void DataDictionary::readFromDocument( const DOMDocumentPtr &pDoc )
-throw( ConfigError )
+EXCEPT ( ConfigError )
 {
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");
@@ -455,7 +455,7 @@ message_order const& DataDictionary::getOrderedFields() const
   return m_orderedFieldsArray;
 }
 
-message_order const& DataDictionary::getHeaderOrderedFields() const throw( ConfigError )
+message_order const& DataDictionary::getHeaderOrderedFields() const EXCEPT ( ConfigError )
 {
   if( m_headerOrder ) return m_headerOrder;
 
@@ -475,7 +475,7 @@ message_order const& DataDictionary::getHeaderOrderedFields() const throw( Confi
   return m_headerOrder;
 }
 
-message_order const& DataDictionary::getTrailerOrderedFields() const throw( ConfigError )
+message_order const& DataDictionary::getTrailerOrderedFields() const EXCEPT ( ConfigError )
 {
   if( m_trailerOrder ) return m_trailerOrder;
 
@@ -495,7 +495,7 @@ message_order const& DataDictionary::getTrailerOrderedFields() const throw( Conf
   return m_trailerOrder;
 }
 
-const message_order &DataDictionary::getMessageOrderedFields(const std::string & msgType) const throw( ConfigError )
+const message_order &DataDictionary::getMessageOrderedFields(const std::string & msgType) const EXCEPT ( ConfigError )
 {
   MsgTypeToOrderedFields::const_iterator iter = m_messageOrderedFields.find(msgType);
   if (iter == m_messageOrderedFields.end())

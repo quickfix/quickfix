@@ -167,7 +167,7 @@ class Application : public FIX::Application
   }
 
   void onLogon( const FIX::SessionID& sessionID )
-  throw( FIX::RejectLogon )
+  EXCEPT( FIX::RejectLogon )
 {}
 
   void onLogout( const FIX::SessionID& sessionID )
@@ -179,11 +179,11 @@ class Application : public FIX::Application
   {}
 
   void toApp( FIX::Message& message, const FIX::SessionID& )
-  throw( FIX::DoNotSend )
+  EXCEPT( FIX::DoNotSend )
   {}
 
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) 
+  EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) 
   {
     FIX::MsgType msgType;
     message.getHeader().getField( msgType );
@@ -199,7 +199,7 @@ class Application : public FIX::Application
   }
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
+  EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {
     FIX::MsgType msgType;
     message.getHeader().getField( msgType );

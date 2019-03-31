@@ -328,7 +328,7 @@ bool SSLSocketConnection::isValidSession()
 }
 
 void SSLSocketConnection::readFromSocket()
-throw( SocketRecvFailed )
+EXCEPT ( SocketRecvFailed )
 {
   bool pending = false;
 

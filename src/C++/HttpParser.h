@@ -40,7 +40,7 @@ public:
   ~HttpParser() {}
 
   bool readHttpMessage( std::string& str )
-  throw ( MessageParseError );
+  EXCEPT ( MessageParseError );
 
   void addToStream( const char* str, size_t len )
   { m_buffer.append( str, len ); }

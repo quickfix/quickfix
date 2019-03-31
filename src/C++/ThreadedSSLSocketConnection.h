@@ -161,7 +161,7 @@ public:
 private:
   typedef std::pair< socket_handle, SSL * > SocketKey;
 
-  bool readMessage(std::string &msg) throw(SocketRecvFailed);
+  bool readMessage(std::string &msg) EXCEPT (SocketRecvFailed);
   void processStream();
   bool send(const std::string &);
   bool setSession(const std::string &msg);

@@ -61,7 +61,7 @@ public:
   SocketServer( int timeout = 0 );
 
   socket_handle add( int port, bool reuse = false, bool noDelay = false,
-           int sendBufSize = 0, int rcvBufSize = 0 ) throw( SocketException& );
+           int sendBufSize = 0, int rcvBufSize = 0 ) EXCEPT( SocketException& );
   socket_handle accept(socket_handle socket );
   void close();
   bool block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );

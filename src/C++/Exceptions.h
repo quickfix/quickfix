@@ -36,7 +36,7 @@ struct Exception : public std::logic_error
   : std::logic_error( d.size() ? t + ": " + d : t ),
     type( t ), detail( d )
   {}
-  ~Exception() throw() {}
+  ~Exception() NOEXCEPT {}
 
   std::string type;
   std::string detail;
@@ -48,7 +48,7 @@ struct DataDictionaryNotFound : public Exception
   DataDictionaryNotFound( const std::string& v, const std::string& what = "" )
     : Exception( "Could not find data dictionary", what ),
                  version( v ) {}
-  ~DataDictionaryNotFound() throw() {}
+  ~DataDictionaryNotFound() NOEXCEPT {}
 
   std::string version;
 };

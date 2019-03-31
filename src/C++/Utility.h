@@ -30,6 +30,8 @@
 #include "Allocator.h"
 #endif
 
+#include "Except.h"
+
 #ifdef HAVE_STLPORT
   #define ALLOCATOR std::allocator
 #elif ENABLE_DEBUG_ALLOCATOR

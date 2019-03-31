@@ -89,7 +89,7 @@ public:
     return PQgetvalue( m_result, row, column );
   }
 
-  void throwException() throw( IOException )
+  void throwException() EXCEPT ( IOException )
   {
     if( !success() )
       throw IOException( "Query failed [" + m_query + "] " );

@@ -58,7 +58,7 @@ public:
 
   void addGroup( const Group& group );
   void replaceGroup( unsigned num, const Group& group );
-  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound );
+  Group& getGroup( unsigned num, Group& group ) const EXCEPT ( FieldNotFound );
   void removeGroup( unsigned num, const Group& group );
   void removeGroup( const Group& group );
   bool hasGroup( const Group& group );

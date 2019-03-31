@@ -43,7 +43,7 @@ public:
   bool read();
 
 private:
-  bool readMessage( std::string& msg ) throw( SocketRecvFailed );
+  bool readMessage( std::string& msg ) EXCEPT ( SocketRecvFailed );
   void processStream();
   void processRequest( const HttpMessage& );
   void processRoot( const HttpMessage&, std::stringstream& h, std::stringstream& b );

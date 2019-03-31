@@ -16,7 +16,7 @@ class TestApplication : public NullApplication
 {
 public:
   void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
+  EXCEPT( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
   void onRun() {}
 };
 
