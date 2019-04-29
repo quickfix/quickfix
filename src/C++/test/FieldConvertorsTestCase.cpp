@@ -112,6 +112,7 @@ TEST(integerConvertTo)
   CHECK_EQUAL( "-123456789", IntConvertor::convert( -123456789 ) );
   CHECK_EQUAL( "-2147483647", IntConvertor::convert( -2147483647 ) );
   CHECK_EQUAL( "-2147483648", IntConvertor::convert( MIN_INT ) );
+  CHECK_THROW( IntConvertor::convert( "-" ), FieldConvertError );
 }
 
 TEST(integerConvertFrom)
@@ -165,6 +166,9 @@ TEST(doubleConvertTo)
   CHECK_EQUAL( "-12.2345", DoubleConvertor::convert( -12.2345, 2) );
   CHECK_EQUAL( "-0.00001", DoubleConvertor::convert( -0.00001, 5) );
   CHECK_EQUAL( "0.0", DoubleConvertor::convert( 0.0, 1) );
+
+  CHECK_EQUAL( "", DoubleConvertor::convert( 0.01, 0, -1));
+  CHECK_EQUAL( "", DoubleConvertor::convert( 0.00000000000000000000000000000000000000000000000000000000000000001, 0, 61, 100));
 }
 
 TEST(doubleConvertFrom)
@@ -200,6 +204,8 @@ TEST(charConvertTo)
   CHECK_EQUAL( "1", CharConvertor::convert( '1' ) );
   CHECK_EQUAL( "F", CharConvertor::convert( 'F' ) );
   CHECK_EQUAL( "", CharConvertor::convert( 0 ) );
+  CHECK_THROW( CharConvertor::convert( "11" ), FieldConvertError );
+  CHECK_THROW( CharConvertor::convert( "1 " ), FieldConvertError );
 }
 
 TEST(charConvertFrom)
@@ -406,6 +412,10 @@ TEST(utcDateConvertFrom)
   CHECK_EQUAL( 2000, result.getYear() );
   CHECK_EQUAL( 4, result.getMonth() );
   CHECK_EQUAL( 26, result.getDate() );
+  std::string outOfRangeMonth = "20001526";
+  CHECK_THROW( UtcDateConvertor::convert(outOfRangeMonth), FieldConvertError );
+  std::string outOfRangeMonthDay = "20000438";
+  CHECK_THROW( UtcDateConvertor::convert(outOfRangeMonthDay), FieldConvertError );
 }
 
 TEST(checkSumConvertTo)
@@ -416,6 +426,14 @@ TEST(checkSumConvertTo)
   CHECK_EQUAL( "234", CheckSumConvertor::convert( 234 ) );
   CHECK_THROW( CheckSumConvertor::convert( -1 ), FieldConvertError );
   CHECK_THROW( CheckSumConvertor::convert( 256 ), FieldConvertError );
+}
+
+TEST(integerToStringPadded)
+{
+  char result[5];
+  int fraction = 1234;
+  int precision = 5;
+  CHECK_EQUAL(result, integer_to_string_padded(result, precision, fraction));
 }
 
 }
