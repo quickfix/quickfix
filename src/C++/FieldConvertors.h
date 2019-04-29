@@ -216,10 +216,7 @@ struct CheckSumConvertor
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
     char result[3];
-    if( integer_to_string_padded(result, sizeof(result), value) != result )
-    {
-      throw FieldConvertError();
-    }
+    integer_to_string_padded(result, sizeof(result), value);
     return std::string( result, sizeof( result ) );
   }
 
@@ -243,24 +240,24 @@ private:
 
   static double fast_strtod( const char * buffer, int size, int * processed_chars );
 
-  static int fast_dtoa( char * buffer, int size, double value );
+  static int fast_dtoa( char * buffer, int size, double value, int significant_digits );
 
-  static int fast_fixed_dtoa( char * buffer, int size, double value ); 
+  static int fast_fixed_dtoa( char * buffer, int size, double value, int significant_digits);
 
 public:
 
   static const int SIGNIFICANT_DIGITS = 15;
   static const int BUFFFER_SIZE = 32;
 
-  static std::string convert( double value, int padding = 0 )
+  static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS, int buffer_size = BUFFFER_SIZE )
   {
-    char result[BUFFFER_SIZE];
+    char result[buffer_size];
     char *end = 0;
 
     int size;
     if( value == 0 || value > 0.0001 || value < -0.0001 )
     {
-      size = fast_dtoa( result, BUFFFER_SIZE, value ); 
+      size = fast_dtoa( result, buffer_size, value, significant_digits);
       if( size == 0 )
         return std::string();
 
@@ -288,7 +285,7 @@ public:
     }
     else
     {
-      size = fast_fixed_dtoa( result, BUFFFER_SIZE, value );
+      size = fast_fixed_dtoa( result, buffer_size, value, significant_digits );
       if( size == 0 )
         return std::string();
 
@@ -297,7 +294,7 @@ public:
 
       if( padding > 0 )
       {
-        int discard = SIGNIFICANT_DIGITS - padding;
+        int discard = significant_digits - padding;
 
         while( (*end == '0') && (discard-- > 0) )
         {
@@ -342,18 +339,11 @@ static bool convert( const std::string& value, double& result )
   }
 
   if( *i || !haveDigit ) return false;
-    
+
   int processed_chars;
   const int total_length = value.length();
-  const double val = fast_strtod( value.c_str(), total_length, &processed_chars);
+  result = fast_strtod( value.c_str(), total_length, &processed_chars);
 
-  if ( processed_chars != total_length ||
-     val != val /*test for quite NaN*/ )
-  {
-    return false;
-  }
-
-  result = val;
   return true;
 }
 
@@ -454,11 +444,7 @@ struct UtcTimeStampConvertor
     if( precision )
     {
       result[17] = '.';
-      if( integer_to_string_padded ( result + 18, precision, fraction )
-          != result + 18 )
-      {
-        throw FieldConvertError();
-      }
+      integer_to_string_padded ( result + 18, precision, fraction );
     }
 
     return std::string(result, precision ? (17 + 1 + precision) : 17);
@@ -563,9 +549,7 @@ struct UtcTimeOnlyConvertor
     if( precision )
     {
       result[8] = '.';
-      if( integer_to_string_padded ( result + 9, precision, fraction )
-          != result + 9 )
-          throw FieldConvertError();
+      integer_to_string_padded ( result + 9, precision, fraction );
     }
 
     return std::string(result, precision ? (8 + 1 + precision) : 8);

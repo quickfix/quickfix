@@ -65,10 +65,10 @@ namespace FIX
 	  return g_atod_converter.StringToDouble( buffer, size, processed_chars );
   }
 
-  int DoubleConvertor::fast_dtoa( char * buffer, int size, double value )
+  int DoubleConvertor::fast_dtoa( char * buffer, int size, double value, int significant_digits )
   {
     double_conversion::StringBuilder builder( buffer, size );
-    if( !g_dtoa_converter.ToPrecision( value, DoubleConvertor::SIGNIFICANT_DIGITS, &builder ) )
+    if( !g_dtoa_converter.ToPrecision( value, significant_digits, &builder ) )
     {
       builder.Reset();
       return 0;
@@ -78,10 +78,10 @@ namespace FIX
     return builder.position();
   }
 
-  int DoubleConvertor::fast_fixed_dtoa( char * buffer, int size, double value )
+  int DoubleConvertor::fast_fixed_dtoa( char * buffer, int size, double value, int significant_digits )
   {
     double_conversion::StringBuilder builder( buffer, size );
-    if( !g_dtoa_converter.ToFixed( value, DoubleConvertor::SIGNIFICANT_DIGITS, &builder ) )
+    if( !g_dtoa_converter.ToFixed( value, significant_digits, &builder ) )
     {
       builder.Reset();
       return 0;
