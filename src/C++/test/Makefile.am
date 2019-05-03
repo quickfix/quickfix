@@ -7,6 +7,7 @@ libquickfixcpptest_la_SOURCES = \
 	DictionaryTestCase.cpp \
 	FieldBaseTestCase.cpp \
 	FieldConvertorsTestCase.cpp \
+    FieldMapTestCase.cpp \
     FieldTypesTestCase.cpp \
 	FileLogTestCase.cpp \
 	FileStoreFactoryTestCase.cpp \
