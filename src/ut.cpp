@@ -38,6 +38,7 @@
 #include <FileUtilitiesTestCase.cpp>
 #include <HttpMessageTestCase.cpp>
 #include <HttpParserTestCase.cpp>
+#include <GroupTestCase.cpp>
 #include <MemoryStoreTestCase.cpp>
 #include <MessageSortersTestCase.cpp>
 #include <MessagesTestCase.cpp>
