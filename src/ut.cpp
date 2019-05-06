@@ -31,6 +31,7 @@
 #include <DictionaryTestCase.cpp>
 #include <FieldBaseTestCase.cpp>
 #include <FieldConvertorsTestCase.cpp>
+#include <FieldTypesTestCase.cpp>
 #include <FileLogTestCase.cpp>
 #include <FileStoreFactoryTestCase.cpp>
 #include <FileStoreTestCase.cpp>
