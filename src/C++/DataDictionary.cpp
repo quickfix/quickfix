@@ -592,8 +592,8 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
 {
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
-  if(!attrs->get("name", name))
-    throw ConfigError("No name given to group");
+  attrs->get("name", name);
+
   int group = lookupXMLFieldNumber( pDoc, name );
   int delim = 0;
   int field = 0;
