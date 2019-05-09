@@ -386,7 +386,7 @@ EXCEPT ( ConfigError )
       DOMAttributesPtr attrs = pMessageNode->getAttributes();
       std::string msgtype;
       if(!attrs->get("msgtype", msgtype))
-        throw ConfigError("<field> does not have a name attribute");
+        throw ConfigError("<message> does not have a msgtype attribute");
       addMsgType(msgtype);
 
       std::string name;
