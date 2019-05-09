@@ -31,12 +31,15 @@
 #include <DictionaryTestCase.cpp>
 #include <FieldBaseTestCase.cpp>
 #include <FieldConvertorsTestCase.cpp>
+#include <FieldMapTestCase.cpp>
+#include <FieldTypesTestCase.cpp>
 #include <FileLogTestCase.cpp>
 #include <FileStoreFactoryTestCase.cpp>
 #include <FileStoreTestCase.cpp>
 #include <FileUtilitiesTestCase.cpp>
 #include <HttpMessageTestCase.cpp>
 #include <HttpParserTestCase.cpp>
+#include <GroupTestCase.cpp>
 #include <MemoryStoreTestCase.cpp>
 #include <MessageSortersTestCase.cpp>
 #include <MessagesTestCase.cpp>

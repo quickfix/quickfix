@@ -49,4 +49,32 @@ TEST(set)
   CHECK_EQUAL( 9lu, object.getLength() );
 }
 
+TEST(CharField_getValue_FieldConvertError){
+  CharField charField(1);
+  CHECK_THROW(charField.getValue(), IncorrectDataFormat);
+}
+
+TEST(DoubleField_getValue_FieldConvertError){
+  DoubleField doubleField(1);
+  CHECK_THROW(doubleField.getValue(), IncorrectDataFormat);
+}
+
+TEST(BoolField_getValue_FieldConvertError){
+  BoolField boolField(1);
+  CHECK_THROW(boolField.getValue(), IncorrectDataFormat);
+}
+
+TEST(UtcTimeStampField_getValue_FieldConvertError){
+  UtcTimeStampField utcTimeStampField(1);
+  utcTimeStampField.setString("1");
+  CHECK_THROW(utcTimeStampField.getValue(), IncorrectDataFormat);
+}
+
+TEST(StringField_ComparisonIsLessThanOrEqualTo){
+  StringField stringField(1, "string");
+  CHECK(stringField <= "string");
+  CHECK(stringField <= "string_long");
+  CHECK(!(stringField <= "str"));
+}
+
 }
