@@ -36,26 +36,28 @@ SUITE(FieldMapTests)
 
 TEST(setMessageOrder)
 {
-  const int order[] = {1, 2, 3};
+  int order[] = {1, 2, 3};
   FieldMap fieldMap(order);
   fieldMap.setField(3, "account");
   fieldMap.setField(1, "adv_id");
   fieldMap.setField(2, "adv_ref_id");
 
-  std::vector<int*> actualOrder;
-  for(FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++) {
-    int val = itr->getTag();
-    actualOrder.push_back(&val);
+  int pos1 = 0, pos2 = 0, pos3 = 0;
+  int iterationCount = 0;
+  for( FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++, iterationCount++) {
+    if(iterationCount == 0) {
+      pos1 = itr->getTag();
+    } else if (iterationCount == 1 ) {
+      pos2 = itr->getTag();
+    } else if (iterationCount == 2) {
+      pos3 = itr->getTag();
+    }
   }
 
-  if(actualOrder.size() != 3) {
-    CHECK(false);
-    return;
-  }
+  CHECK_EQUAL(1, pos1);
+  CHECK_EQUAL(2, pos2);
+  CHECK_EQUAL(3, pos3);
 
-  CHECK_EQUAL(*actualOrder[0], 1);
-  CHECK_EQUAL(*actualOrder[1], 2);
-  CHECK_EQUAL(*actualOrder[2], 3);
 }
 
 TEST(addGroupPtr_nullptr)
