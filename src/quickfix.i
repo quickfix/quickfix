@@ -7,6 +7,7 @@
 %include exception.i
 %include carrays.i
 %include std_unique_ptr.i
+%include std_set.i
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
@@ -117,6 +118,7 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %typedef std::string FIX::COUNTRY;
 %typedef std::string FIX::TZTIMEONLY;
 %typedef std::string FIX::TZTIMESTAMP;
+%template(SessionIDSet) std::set<FIX::SessionID>;
 
 %extend FIX::Exception {
   std::string __str__() {
