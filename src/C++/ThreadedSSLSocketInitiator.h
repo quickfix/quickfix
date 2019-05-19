@@ -157,7 +157,7 @@ public:
   static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
 
 private:
-  typedef std::pair< int, SSL * > SocketKey;
+  typedef std::pair< socket_handle, SSL * > SocketKey;
   typedef std::map< SocketKey, thread_id > SocketToThread;
   typedef std::map< SessionID, int > SessionToHostNum;
   typedef std::pair< ThreadedSSLSocketInitiator *,

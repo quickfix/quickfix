@@ -163,7 +163,7 @@ void SocketAcceptor::onStop()
 {
 }
 
-void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
+void SocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
 {
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
@@ -179,7 +179,7 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
     getLog()->onEvent( stream.str() );
 }
 
-void SocketAcceptor::onWrite( SocketServer& server, int s )
+void SocketAcceptor::onWrite( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
@@ -188,7 +188,7 @@ void SocketAcceptor::onWrite( SocketServer& server, int s )
     pSocketConnection->unsignal();
 }
 
-bool SocketAcceptor::onData( SocketServer& server, int s )
+bool SocketAcceptor::onData( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
@@ -196,7 +196,7 @@ bool SocketAcceptor::onData( SocketServer& server, int s )
   return pSocketConnection->read( *this, server );
 }
 
-void SocketAcceptor::onDisconnect( SocketServer&, int s )
+void SocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;

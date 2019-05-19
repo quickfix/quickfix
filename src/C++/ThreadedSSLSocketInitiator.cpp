@@ -295,7 +295,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     short port = 0;
     getHost(s, d, address, port);
 
-    int socket = socket_createConnector();
+    socket_handle socket = socket_createConnector();
     if (m_noDelay)
       socket_setsockopt(socket, TCP_NODELAY);
     if (m_sendBufSize)
@@ -314,7 +314,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
       return;
     }
     SSL_clear(ssl);
-    BIO *sbio = BIO_new_socket(socket, BIO_CLOSE);
+    BIO *sbio = BIO_new_socket(socket, BIO_CLOSE); //unfortunately OpenSSL uses int for socket handles
     SSL_set_bio(ssl, sbio, sbio);
 
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
@@ -373,7 +373,7 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
   ThreadedSSLSocketConnection *pConnection = pair->second;
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
   FIX::Session *pSession = FIX::Session::lookupSession(sessionID);
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
   delete pair;
 
   pInitiator->lock();

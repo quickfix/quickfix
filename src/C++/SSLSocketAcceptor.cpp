@@ -317,7 +317,7 @@ void SSLSocketAcceptor::onStop()
 {
 }
 
-void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
+void SSLSocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
 {
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
@@ -327,7 +327,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
 
   SSL *ssl = SSL_new(m_ctx);
   SSL_clear(ssl);
-  BIO *sBio = BIO_new_socket(s, BIO_CLOSE);
+  BIO *sBio = BIO_new_socket(s, BIO_CLOSE); //Unfortunately OpenSSL assumes socket is int
   SSL_set_bio(ssl, sBio, sBio);
   // TODO - check this
   SSL_set_app_data(ssl, m_revocationStore);
@@ -355,7 +355,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
     getLog()->onEvent( stream.str() );
 }
 
-void SSLSocketAcceptor::onWrite( SocketServer& server, int s )
+void SSLSocketAcceptor::onWrite( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
@@ -364,7 +364,7 @@ void SSLSocketAcceptor::onWrite( SocketServer& server, int s )
     pSocketConnection->unsignal();
 }
 
-bool SSLSocketAcceptor::onData( SocketServer& server, int s )
+bool SSLSocketAcceptor::onData( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
@@ -372,7 +372,7 @@ bool SSLSocketAcceptor::onData( SocketServer& server, int s )
   return pSocketConnection->read( *this, server );
 }
 
-void SSLSocketAcceptor::onDisconnect( SocketServer&, int s )
+void SSLSocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;

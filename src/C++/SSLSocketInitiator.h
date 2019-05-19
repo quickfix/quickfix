@@ -153,7 +153,7 @@ public:
   static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
 
 private:
-  typedef std::map < int, SSLSocketConnection* > SocketConnections;
+  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
@@ -164,13 +164,13 @@ private:
   void onStop();
 
   void doConnect( const SessionID&, const Dictionary& d );
-  void onConnect( SocketConnector&, int );
-  void onWrite( SocketConnector&, int );
-  bool onData( SocketConnector&, int );
-  void onDisconnect( SocketConnector&, int );
+  void onConnect( SocketConnector&, socket_handle);
+  void onWrite( SocketConnector&, socket_handle);
+  bool onData( SocketConnector&, socket_handle);
+  void onDisconnect( SocketConnector&, socket_handle);
   void onError( SocketConnector& );
   void onTimeout( SocketConnector& );
-
+  bool handshakeSSL(SSL* ssl);
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
   SessionToHostNum m_sessionToHostNum;

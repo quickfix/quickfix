@@ -129,7 +129,7 @@
 
 namespace FIX
 {
-SSLSocketConnection::SSLSocketConnection(int s, SSL *ssl, Sessions sessions,
+SSLSocketConnection::SSLSocketConnection(socket_handle s, SSL *ssl, Sessions sessions,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_ssl(ssl), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
@@ -139,7 +139,7 @@ SSLSocketConnection::SSLSocketConnection(int s, SSL *ssl, Sessions sessions,
 }
 
 SSLSocketConnection::SSLSocketConnection(SSLSocketInitiator &i,
-                                    const SessionID& sessionID, int s, SSL * ssl,
+                                    const SessionID& sessionID, socket_handle s, SSL * ssl,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_ssl(ssl), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),

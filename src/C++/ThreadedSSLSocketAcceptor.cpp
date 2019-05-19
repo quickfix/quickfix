@@ -250,8 +250,8 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT (R
                                ? settings.getInt(SOCKET_RECEIVE_BUFFER_SIZE)
                                : 0;
 
-    int socket = socket_createAcceptor(port, reuseAddress);
-    if (socket < 0)
+    socket_handle socket = socket_createAcceptor(port, reuseAddress);
+    if (socket == INVALID_SOCKET_HANDLE)
     {
       SocketException e;
       socket_close(socket);
@@ -344,7 +344,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   AcceptorThreadInfo *info = reinterpret_cast< AcceptorThreadInfo * >(p);
 
   ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  int s = info->m_socket;
+  socket_handle s = info->m_socket;
   int port = info->m_port;
   delete info;
 
@@ -355,8 +355,8 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   socket_getsockopt(s, SO_SNDBUF, sendBufSize);
   socket_getsockopt(s, SO_RCVBUF, rcvBufSize);
 
-  int socket = 0;
-  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) >= 0))
+  socket_handle socket = 0;
+  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) != INVALID_SOCKET_HANDLE))
   {
     if (noDelay)
       socket_setsockopt(socket, TCP_NODELAY);
@@ -371,7 +371,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
         socket, ssl, sessions, pAcceptor->getLog());
     SSL_clear(ssl);
-    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE);
+    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE); //unfortunately OpenSSL uses int as socket handle
     SSL_set_bio(ssl, sBio, sBio);
     // TODO - check this
     SSL_set_app_data(ssl, pAcceptor->revocationStore());
@@ -416,7 +416,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
   ThreadedSSLSocketConnection *pConnection = info->m_pConnection;
   delete info;
 
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
 
   if (acceptSSLConnection(pConnection->getSocket(), pConnection->sslObject(), pAcceptor->getLog(), pAcceptor->m_verify) != 0)
   {
