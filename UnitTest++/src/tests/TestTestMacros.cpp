@@ -131,7 +131,7 @@ TEST(FixturesWithThrowingCtorsAreFailures)
 
 struct FixtureDtorThrows
 {
-	~FixtureDtorThrows() { throw "exception"; }
+	~FixtureDtorThrows() NOEXCEPT_FALSE { throw "exception"; }
 };
 
 TestList throwingFixtureTestList2;
