@@ -248,7 +248,7 @@ void SocketInitiator::getHost( const SessionID& s, const Dictionary& d,
   std::string portString = portStream.str();
 
   sourcePort = 0;
-  sourceAddress.empty();
+  sourceAddress.clear();
 
   if( d.has(hostString) && d.has(portString) )
   {
