@@ -140,4 +140,29 @@ TEST(isTransportSession)
                       TargetCompID( "TARGET" ) );
   CHECK( object.isFIXT() );
 }
+
+TEST(fromString_SessionStringMissingColon_SessionNotPopulated)
+{
+
+  std::string sessionString = "FIX.4.2SENDER->TARGET";
+
+  SessionID object;
+  object.fromString(sessionString);
+
+  CHECK_EQUAL("", object.getBeginString());
+  CHECK_EQUAL("", object.getSenderCompID());
+  CHECK_EQUAL("", object.getTargetCompID());
+}
+
+TEST(fromString_SessionStringMissingRightArrow_StringNotPopulated)
+{
+  std::string sessionString = "FIX.4.2:SENDER<-TARGET";
+
+  SessionID object;
+  object.fromString(sessionString);
+
+  CHECK_EQUAL("", object.getBeginString());
+  CHECK_EQUAL("", object.getSenderCompID());
+  CHECK_EQUAL("", object.getTargetCompID());
+}
 }
