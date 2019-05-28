@@ -46,6 +46,19 @@ class Session;
 class SocketConnection : Responder
 {
 public:
+
+  class SocketReceiver {
+  public:
+    SocketReceiver(){};
+    virtual ~SocketReceiver(){};
+    virtual ssize_t receive( int s, char* buf, size_t length ) {
+      return socket_recv(s, buf, length);
+    }
+    virtual int selectExecution(int socket, fd_set* readset, fd_set* writeset, fd_set* exceptset, timeval* timeout){
+      return select( 1 + socket, readset, writeset, exceptset, timeout );
+    }
+  };
+
   typedef std::set<SessionID> Sessions;
 
   SocketConnection( socket_handle s, Sessions sessions, SocketMonitor* pMonitor );
@@ -74,6 +87,7 @@ public:
   }
 
   void onTimeout();
+  void setSocketReciever(const std::shared_ptr<SocketReceiver>&);
 
 private:
   typedef std::deque<std::string, ALLOCATOR<std::string> >
@@ -97,6 +111,7 @@ private:
   SocketMonitor* m_pMonitor;
   Mutex m_mutex;
   fd_set m_fds;
+  std::shared_ptr<SocketReceiver> socketReceiver;
 };
 }
 

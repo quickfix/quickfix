@@ -70,9 +70,9 @@ public:
   bool addConnect(socket_handle socket );
   bool addRead(socket_handle socket );
   bool addWrite(socket_handle socket );
-  bool drop(socket_handle socket );
-  void signal(socket_handle socket );
-  void unsignal(socket_handle socket );
+  virtual bool drop(socket_handle socket );
+  virtual void signal(socket_handle socket );
+  virtual void unsignal(socket_handle socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
   void setSocketOperator(const std::shared_ptr<SocketOperator>& op ) {
     socketOperator = op;

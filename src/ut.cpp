@@ -55,6 +55,7 @@
 #include <SettingsTestCase.cpp>
 #include <SharedArrayTestCase.cpp>
 #include <SocketAcceptorTestCase.cpp>
+#include <SocketConnectionTestCase.cpp>
 #include <SocketConnectorTestCase.cpp>
 #include <SocketMonitorTestCase.cpp>
 #include <SocketServerTestCase.cpp>

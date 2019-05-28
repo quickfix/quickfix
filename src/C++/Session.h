@@ -217,7 +217,7 @@ public:
   bool send( Message& );
   void next();
   void next( const UtcTimeStamp& timeStamp );
-  void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false );
+  virtual void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false );
   void next( const Message&, const UtcTimeStamp& timeStamp, bool queued = false );
   void disconnect();
 

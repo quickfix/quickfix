@@ -71,7 +71,7 @@ public:
   /// Check to see if any sessions are currently logged on
   bool isLoggedOn();
 
-  Session* getSession( const SessionID& sessionID, Responder& );
+  virtual Session* getSession( const SessionID& sessionID, Responder& );
 
   const std::set<SessionID>& getSessions() const { return m_sessionIDs; }
   Session* getSession( const SessionID& sessionID ) const;
