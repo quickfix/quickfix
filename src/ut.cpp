@@ -53,6 +53,7 @@
 #include <SessionTestCase.cpp>
 #include <SessionFactoryTestCase.cpp>
 #include <SettingsTestCase.cpp>
+#include <SharedArrayTestCase.cpp>
 #include <SocketAcceptorTestCase.cpp>
 #include <SocketConnectorTestCase.cpp>
 #include <SocketServerTestCase.cpp>
