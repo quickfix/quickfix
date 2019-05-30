@@ -56,6 +56,7 @@
 #include <SharedArrayTestCase.cpp>
 #include <SocketAcceptorTestCase.cpp>
 #include <SocketConnectorTestCase.cpp>
+#include <SocketMonitorTestCase.cpp>
 #include <SocketServerTestCase.cpp>
 #include <TestHelper.cpp>
 #include <TimeRangeTestCase.cpp>

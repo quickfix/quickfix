@@ -40,6 +40,7 @@ typedef int socklen_t;
 #include <set>
 #include <queue>
 #include <time.h>
+#include <memory>
 
 #include "Utility.h"
 
@@ -51,6 +52,18 @@ class SocketMonitor
 public:
   class Strategy;
 
+  class SocketOperator
+  {
+  public:
+    virtual ~SocketOperator(){}
+    virtual bool fdIsSet(int i, fd_set& set) {
+      return FD_ISSET(i, &set);
+    }
+    virtual int selectExecution(int set_size, fd_set* readset, fd_set* writeset, fd_set* exceptset, timeval* timeout) {
+      return select( set_size, readset, writeset, exceptset, timeout );
+    }
+
+  };
   SocketMonitor( int timeout = 0 );
   virtual ~SocketMonitor();
 
@@ -61,9 +74,19 @@ public:
   void signal(socket_handle socket );
   void unsignal(socket_handle socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
+  void setSocketOperator(const std::shared_ptr<SocketOperator>& op ) {
+    socketOperator = op;
+  };
 
   size_t numSockets() 
   { return m_readSockets.size() - 1; }
+
+  void dropAllReadSockets(){
+    std::set<socket_handle> sockets = m_readSockets;
+    for(socket_handle sock : sockets) {
+      drop(sock);
+    }
+  }
 
 private:
   typedef std::set < socket_handle > Sockets;
@@ -92,6 +115,7 @@ private:
   Sockets m_readSockets;
   Sockets m_writeSockets;
   Queue m_dropped;
+  std::shared_ptr<SocketOperator> socketOperator;
 
 public:
   class Strategy

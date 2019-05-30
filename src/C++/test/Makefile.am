@@ -34,6 +34,7 @@ libquickfixcpptest_la_SOURCES = \
 	SharedArrayTestCase.cpp \
 	SocketAcceptorTestCase.cpp \
 	SocketConnectorTestCase.cpp \
+	SocketMonitorTestCase.cpp \
 	SocketServerTestCase.cpp \
 	StringUtilitiesTestCase.cpp \
 	TestHelper.cpp \
