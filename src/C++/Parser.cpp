@@ -67,6 +67,7 @@ EXCEPT ( MessageParseError )
   m_buffer.erase( 0, pos );
 
   int length = 0;
+  bool success = false;
 
   try
   {
@@ -85,19 +86,15 @@ EXCEPT ( MessageParseError )
 
       str.assign( m_buffer, 0, pos );
       m_buffer.erase( 0, pos );
-      return true;
+      success = true;
     }
   }
   catch( MessageParseError& e )
   {
-    if( length > 0 )
-      m_buffer.erase( 0, pos + length );
-    else
-      m_buffer.erase();
-
+    m_buffer.erase();
     throw e;
   }
 
-  return false;
+  return success;
 }
 }
