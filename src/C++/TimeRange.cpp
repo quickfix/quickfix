@@ -141,9 +141,7 @@ namespace FIX
         UtcTimeOnly time2TimeOnly = UtcTimeOnly(time2);
 
         long delta = time2TimeOnly - start;
-        if( delta < 0 )
-          delta = DateTime::SECONDS_PER_DAY - labs(delta);
-
+        delta = delta < 0 ? DateTime::SECONDS_PER_DAY - labs(delta) : delta;
         return (time1 - time2) < (sessionLength - delta);
       }
       else
