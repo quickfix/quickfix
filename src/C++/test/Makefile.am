@@ -40,6 +40,8 @@ libquickfixcpptest_la_SOURCES = \
 	TestHelper.cpp \
 	TimeRangeTestCase.cpp \
 	UtcTimeOnlyTestCase.cpp \
-	UtcTimeStampTestCase.cpp
+	UtcTimeStampTestCase.cpp \
+	UtilityTestCase.cpp
+	
 
 INCLUDES = -I.. -I../../../UnitTest++/src

@@ -62,6 +62,8 @@
 #include <TimeRangeTestCase.cpp>
 #include <UtcTimeOnlyTestCase.cpp>
 #include <UtcTimeStampTestCase.cpp>
+#include <UtilityTestCase.cpp>
+
 #endif
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
