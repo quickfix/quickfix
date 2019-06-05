@@ -28,8 +28,10 @@
 
 #include "MessageStore.h"
 #include "SessionSettings.h"
+#include "Utility.h"
 #include <fstream>
 #include <string>
+#include <iostream>
 
 namespace FIX
 {
@@ -78,10 +80,40 @@ private:
  * &nbsp;&nbsp;
  *   YYYYMMDD-HH:MM:SS
  */
+
+
 class FileStore : public MessageStore
 {
 public:
-  FileStore( std::string, const SessionID& s );
+
+  class FileManager {
+  public:
+    virtual ~FileManager(){};
+
+    virtual void makeDirectory( const std::string& path );
+    virtual void unlink( const std::string& path );
+    virtual FILE* open( const std::string& path, const std::string& mode );
+
+    virtual int printHeaderFile(FILE *headerFile, int msgSeqNum, long offset, std::size_t size);
+    virtual int printSeqNumsFile(FILE *seqnumFile, int nextSenderSeqNum, int nextTargetSeqNum);
+    virtual int printSessionFile(FILE *sessionFile, UtcTimeStamp timestamp);
+
+    virtual int scanHeaderFile(FILE *headerFile, int* num, long* offset, std::size_t* size);
+    virtual int scanSeqNumsFile(FILE *seqnumFile, int* sender, int* target);
+    virtual int scanSessionFile(FILE *sessionFile, char time[]);
+
+    virtual int close(FILE *stream);
+    virtual int seek(FILE *stream, long int offset, int whence) const;
+    virtual long int tell(FILE *stream);
+    virtual size_t write (const void *data, size_t size, size_t count, FILE *stream);
+    virtual int error (FILE *stream) const;
+    virtual int flush (FILE *stream);
+    virtual void rewindStream(FILE *stream);
+    virtual size_t read (void *data, size_t size, size_t count, FILE *stream) const;
+  };
+
+  FileStore( std::string, const SessionID& s, bool deleteFile = false, FileManager* manager = nullptr);
+
   virtual ~FileStore();
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
@@ -110,6 +142,13 @@ private:
   void open( bool deleteFile );
   void populateCache();
   bool readFromFile( int offset, int size, std::string& msg );
+  void seekEND(FILE *stream, long int offset, const std::string& filename);
+  void seekSET(FILE *stream, long int offset, const std::string& filename) const;
+  void insertOffSet(NumToOffset::value_type value, const long& offset, const std::size_t& size );
+
+
+  void flush(FILE *stream, const std::string& filename);
+  void checkForWriteError(FILE *stream, const std::string& filename);
   void setSeqNum();
   void setSession();
 
@@ -127,6 +166,9 @@ private:
   FILE* m_headerFile;
   FILE* m_seqNumsFile;
   FILE* m_sessionFile;
+
+  FileManager* fileManager;
+  bool defaultFileManagerUsed = false;
 };
 }
 

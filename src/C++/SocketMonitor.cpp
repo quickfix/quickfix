@@ -35,6 +35,7 @@ namespace FIX
 SocketMonitor::SocketMonitor( int timeout )
 : m_timeout( timeout )
 {
+  socketOperator = std::make_shared<SocketOperator>(SocketOperator());
   socket_init();
 
   std::pair<socket_handle, socket_handle> sockets = socket_createpair();
@@ -205,7 +206,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
     return;
   }
 
-  int result = select( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout) );
+  int result = socketOperator->selectExecution( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout) );
 
   if ( result == 0 )
   {
@@ -247,7 +248,7 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
       socket_handle s = *i;
-      if ( !FD_ISSET( *i, &readSet ) )
+      if ( !socketOperator->fdIsSet( *i, readSet ) )
         continue;
       if( s == m_interrupt )
       {
@@ -286,7 +287,7 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   for( i = sockets.begin(); i != sockets.end(); ++i )
   {
     socket_handle s = *i;
-    if ( !FD_ISSET( *i, &writeSet ) )
+    if ( !socketOperator->fdIsSet( *i, writeSet ) )
       continue;
     m_connectSockets.erase( s );
     m_readSockets.insert( s );
@@ -297,7 +298,7 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   for( i = sockets.begin(); i != sockets.end(); ++i )
   {
     socket_handle s = *i;
-    if ( !FD_ISSET( *i, &writeSet ) )
+    if ( !socketOperator->fdIsSet( *i, writeSet ) )
       continue;
     strategy.onWrite( *this, s );
   }
@@ -318,7 +319,7 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
       socket_handle s = *i;
-      if ( !FD_ISSET( *i, &exceptSet ) )
+      if ( !socketOperator->fdIsSet( *i, exceptSet ) )
         continue;
       strategy.onError( *this, s );
     }

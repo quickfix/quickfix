@@ -320,6 +320,9 @@ const char* socket_hostname(socket_handle socket )
 
 const char* socket_hostname( const char* name )
 {
+
+  if ( name == 0 ) return 0;
+
   struct hostent* host_ptr = 0;
   struct in_addr** paddr;
   struct in_addr saddr;
@@ -351,13 +354,13 @@ const char* socket_peername(socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
-  if( getpeername( socket, (struct sockaddr*)&addr, &len ) < 0 )
-    return "UNKNOWN";
-  char* result = inet_ntoa( addr.sin_addr );
-  if( result )
-    return result;
-  else
-    return "UNKNOWN";
+  if( getpeername( socket, (struct sockaddr*)&addr, &len ) >= 0 ) {
+    char* result = inet_ntoa( addr.sin_addr );
+    if(result) {
+      return inet_ntoa( addr.sin_addr );
+    }
+  }
+  return "UNKNOWN";
 }
 
 std::pair<socket_handle, socket_handle> socket_createpair()
@@ -417,12 +420,13 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
   unsigned int id = 0;
   result = _beginthreadex( NULL, 0, func, var, 0, &id );
   if ( result == 0 ) return false;
-#else
-  thread_id result = 0;
-  if( pthread_create( &result, 0, func, var ) != 0 ) return false;
-#endif
   thread = result;
   return true;
+#else
+  thread_id result = 0;
+  if( pthread_create( &result, 0, func, var ) != 0 ){ return false; } else {thread = result; return true;}
+#endif
+
 }
 
 bool thread_spawn( THREAD_START_ROUTINE func, void* var )
@@ -469,8 +473,7 @@ void process_sleep( double s )
   double intpart;
   time.tv_nsec = (long)(modf(s, &intpart) * 1e9);
   time.tv_sec = (int)intpart;
-  while( nanosleep(&time, &remainder) == -1 )
-  time = remainder;
+  while( nanosleep(&time, &remainder) == -1 ) { time = remainder; }
 #endif
 }
 

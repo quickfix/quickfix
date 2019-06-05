@@ -39,6 +39,7 @@ SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
+  socketReceiver = std::make_shared<SocketReceiver>(SocketReceiver());
 }
 
 SocketConnection::SocketConnection( SocketInitiator& i,
@@ -51,6 +52,7 @@ SocketConnection::SocketConnection( SocketInitiator& i,
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
   m_sessions.insert( sessionID );
+  socketReceiver = std::make_shared<SocketReceiver>(SocketReceiver());
 }
 
 SocketConnection::~SocketConnection()
@@ -77,7 +79,7 @@ bool SocketConnection::processQueue()
 
   struct timeval timeout = { 0, 0 };
   fd_set writeset = m_fds;
-  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+  if( socketReceiver->selectExecution( m_socket, 0, &writeset, 0, &timeout ) <= 0 )
     return false;
     
   const std::string& msg = m_sendQueue.front();
@@ -132,12 +134,10 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
 
       while( !readMessage( msg ) )
       {
-        int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+        int result = socketReceiver->selectExecution( m_socket, &readset, 0, 0, &timeout );
         if( result > 0 )
           readFromSocket();
-        else if( result == 0 )
-          return false;
-        else if( result < 0 )
+        else if( result <= 0)
           return false;
       }
 
@@ -197,7 +197,7 @@ bool SocketConnection::isValidSession()
 void SocketConnection::readFromSocket()
 EXCEPT ( SocketRecvFailed )
 {
-  ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
+  ssize_t size = socketReceiver->receive( m_socket, m_buffer, sizeof(m_buffer) );
   if( size <= 0 ) throw SocketRecvFailed( size );
   m_parser.addToStream( m_buffer, size );
 }
@@ -214,19 +214,19 @@ bool SocketConnection::readMessage( std::string& msg )
 
 void SocketConnection::readMessages( SocketMonitor& s )
 {
-  if( !m_pSession ) return;
-
-  std::string msg;
-  while( readMessage( msg ) )
-  {
-    try
+  if(m_pSession) {
+    std::string msg;
+    while( readMessage( msg ) )
     {
-      m_pSession->next( msg, UtcTimeStamp() );
-    }
-    catch ( InvalidMessage& )
-    {
-      if( !m_pSession->isLoggedOn() )
-        s.drop( m_socket );
+      try
+      {
+        m_pSession->next( msg, UtcTimeStamp() );
+      }
+      catch ( InvalidMessage& )
+      {
+        if( !m_pSession->isLoggedOn() )
+          s.drop( m_socket );
+      }
     }
   }
 }
@@ -234,5 +234,9 @@ void SocketConnection::readMessages( SocketMonitor& s )
 void SocketConnection::onTimeout()
 {
   if ( m_pSession ) m_pSession->next();
+}
+
+void SocketConnection::setSocketReciever(const std::shared_ptr<SocketReceiver>& receiver) {
+  socketReceiver = receiver;
 }
 } // namespace FIX
