@@ -373,9 +373,9 @@ public:
                         const DataDictionary* const pSessionDD,
                         const DataDictionary* const pAppID ) EXCEPT ( FIX::Exception );
 
-  void validate( const Message& message ) const EXCEPT ( FIX::Exception )
+  virtual void validate( const Message& message ) const EXCEPT ( FIX::Exception )
   { validate( message, false ); }
-  void validate( const Message& message, bool bodyOnly ) const EXCEPT ( FIX::Exception )
+  virtual void validate( const Message& message, bool bodyOnly ) const EXCEPT ( FIX::Exception )
   { validate( message, bodyOnly ? (DataDictionary*)0 : this, this ); }
 
   DataDictionary& operator=( const DataDictionary& rhs );

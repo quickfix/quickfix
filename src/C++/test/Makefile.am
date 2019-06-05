@@ -28,6 +28,7 @@ libquickfixcpptest_la_SOURCES = \
 	PostgreSQLStoreTestCase.cpp \
 	SessionIDTestCase.cpp \
 	SessionSettingsTestCase.cpp \
+    SessionStateTestCase.cpp \
 	SessionTestCase.cpp \
 	SessionFactoryTestCase.cpp \
 	SettingsTestCase.cpp \

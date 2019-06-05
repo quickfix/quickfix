@@ -30,6 +30,28 @@
 
 namespace FIX
 {
+
+namespace
+{
+
+const std::map<int, std::string> kBusinessRejectToBusinessRejectText = {
+    std::pair<int, std::string>{BusinessRejectReason_OTHER, BusinessRejectReason_OTHER_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_UNKNOWN_ID, BusinessRejectReason_UNKNOWN_ID_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_UNKNOWN_SECURITY, BusinessRejectReason_UNKNOWN_SECURITY_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_UNKNOWN_MESSAGE_TYPE, BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_APPLICATION_NOT_AVAILABLE, BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING, BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_NOT_AUTHORIZED, BusinessRejectReason_NOT_AUTHORIZED_TEXT},
+    std::pair<int, std::string>{BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME, BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT},
+};
+
+std::string GetBusinessRejectText(const int& err) {
+  auto itr = kBusinessRejectToBusinessRejectText.find(err);
+  return itr != kBusinessRejectToBusinessRejectText.end() ? itr->second : "";
+}
+
+}
+
 Session::Sessions Session::s_sessions;
 Session::SessionIDs Session::s_sessionIDs;
 Session::Sessions Session::s_registered;
@@ -366,7 +388,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   {
     endSeqNo = EndSeqNo(endSeqNo + 1);
     int next = m_state.getNextSenderMsgSeqNum();
-    if( endSeqNo > next )
+    if( endSeqNo >= next )
       endSeqNo = EndSeqNo(next);
     generateSequenceReset( beginSeqNo, endSeqNo );
     return;
@@ -479,7 +501,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   {
     endSeqNo = EndSeqNo(endSeqNo + 1);
     int next = m_state.getNextSenderMsgSeqNum();
-    if( endSeqNo > next )
+    if( endSeqNo >= next )
       endSeqNo = EndSeqNo(next);
     generateSequenceReset( beginSeqNo, endSeqNo );
   }
@@ -778,13 +800,11 @@ void Session::generateHeartbeat( const Message& testRequest )
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
   fill( heartbeat.getHeader() );
-  try
-  {
-    TestReqID testReqID;
-    testRequest.getField( testReqID );
+
+  TestReqID testReqID;
+  if(testRequest.getFieldIfSet( testReqID )){
     heartbeat.setField( testReqID );
   }
-  catch ( FieldNotFound& ) {}
 
   sendRaw( heartbeat );
 }
@@ -878,20 +898,22 @@ void Session::generateReject( const Message& message, int err, int field )
     reason = SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
   };
 
+  std::string rejectText = "Message " + msgSeqNum.getString() + " Rejected";
+
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
   {
     populateRejectReason( reject, field, reason );
-    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
-                     + reason + ":" + IntConvertor::convert( field ) );
+    rejectText = "Message " + msgSeqNum.getString() + " Rejected: "
+                     + reason + ":" + IntConvertor::convert( field );
   }
   else if ( reason )
   {
     populateRejectReason( reject, reason );
-    m_state.onEvent( "Message " + msgSeqNum.getString()
-         + " Rejected: " + reason );
+    rejectText = "Message " + msgSeqNum.getString()
+         + " Rejected: " + reason;
   }
-  else
-    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
+
+  m_state.onEvent( rejectText );
 
   if ( !m_state.receivedLogon() )
     throw std::runtime_error( "Tried to send a reject while not logged on" );
@@ -901,7 +923,6 @@ void Session::generateReject( const Message& message, int err, int field )
 
 void Session::generateReject( const Message& message, const std::string& str )
 {
-  std::string beginString = m_sessionID.getBeginString();
 
   SmartPtr<Message> pMsg(newMessage("3"));
   Message & reject = *pMsg;
@@ -915,7 +936,10 @@ void Session::generateReject( const Message& message, const std::string& str )
 
   message.getHeader().getField( msgType );
   message.getHeader().getField( msgSeqNum );
-  if ( beginString >= FIX::BeginString_FIX42 )
+
+  const DataDictionary& sessionDD = m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+
+  if ( sessionDD.isMsgField(MsgType("3"), FIELD::RefMsgType) )
     reject.setField( RefMsgType( msgType ) );
   reject.setField( RefSeqNum( msgSeqNum ) );
 
@@ -946,49 +970,24 @@ void Session::generateBusinessReject( const Message& message, int err, int field
   reject.setField( BusinessRejectReason( err ) );
   m_state.incrNextTargetMsgSeqNum();
 
-  const char* reason = 0;
-  switch ( err )
-  {
-    case BusinessRejectReason_OTHER:
-    reason = BusinessRejectReason_OTHER_TEXT;
-    break;
-    case BusinessRejectReason_UNKNOWN_ID:
-    reason = BusinessRejectReason_UNKNOWN_ID_TEXT;
-    break;
-    case BusinessRejectReason_UNKNOWN_SECURITY:
-    reason = BusinessRejectReason_UNKNOWN_SECURITY_TEXT;
-    break;
-    case BusinessRejectReason_UNKNOWN_MESSAGE_TYPE:
-    reason = BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT;
-    break;
-    case BusinessRejectReason_APPLICATION_NOT_AVAILABLE:
-    reason = BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT;
-    break;
-    case BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING:
-    reason = BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT;
-    break;
-    case BusinessRejectReason_NOT_AUTHORIZED:
-    reason = BusinessRejectReason_NOT_AUTHORIZED_TEXT;
-    break;
-    case BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME:
-    reason = BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT;
-    break;
-  };
+  std::string reason = GetBusinessRejectText(err);
 
-  if ( reason && field )
+  std::string rejectText =  "Message " + msgSeqNum.getString() + " Rejected";
+
+  if ( !reason.empty() && field )
   {
     populateRejectReason( reject, field, reason );
-    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
-                     + reason + ":" + IntConvertor::convert( field ) );
+    rejectText = "Message " + msgSeqNum.getString() + " Rejected: "
+        + reason + ":" + IntConvertor::convert( field );
   }
-  else if ( reason )
+  else if ( !reason.empty() )
   {
     populateRejectReason( reject, reason );
-    m_state.onEvent( "Message " + msgSeqNum.getString()
-         + " Rejected: " + reason );
+    rejectText = "Message " + msgSeqNum.getString()
+             + " Rejected: " + reason;
   }
-  else
-    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
+
+  m_state.onEvent( rejectText );
 
   sendRaw( reject );
 }
@@ -1122,14 +1121,13 @@ bool Session::validLogonState( const MsgType& msgType )
   if ( (msgType == MsgType_Logon && !m_state.receivedLogon())
        || (msgType != MsgType_Logon && m_state.receivedLogon()) )
     return true;
-  if ( msgType == MsgType_Logout && m_state.sentLogon() )
+  if ((msgType == MsgType_Logout && m_state.sentLogon())  ||
+      (msgType != MsgType_Logout && m_state.sentLogout()) ||
+      msgType == MsgType_SequenceReset                    ||
+      msgType == MsgType_Reject
+  ){
     return true;
-  if ( msgType != MsgType_Logout && m_state.sentLogout() )
-    return true;
-  if ( msgType == MsgType_SequenceReset ) 
-    return true;
-  if ( msgType == MsgType_Reject )
-    return true;
+  }
 
   return false;
 }
