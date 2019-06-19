@@ -64,7 +64,7 @@ TEST(addGroupPtr_nullptr)
 {
   FieldMap fieldMap;
   fieldMap.addGroupPtr(1, nullptr);
-  CHECK_EQUAL(0, fieldMap.groupCount(0));
+  CHECK_EQUAL(0, (int) fieldMap.groupCount(0));
 }
 
 TEST(removeGroup_allGroupsWithSameTag)

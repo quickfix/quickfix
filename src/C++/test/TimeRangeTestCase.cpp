@@ -68,6 +68,17 @@ TEST(isInRange)
   CHECK( !TimeRange::isInRange( start, end, now ) );
 }
 
+TEST(isInRange_UseLocalTime)
+{
+  LocalTimeOnly start( 0, 0, 0 );
+  LocalTimeOnly end( 1, 0, 0 );
+
+  UtcTimeStamp now( 10, 0, 0, 10, 10, 2000 );
+  TimeRange timeRange(start, end, 1, 1);
+  CHECK( timeRange.isInRange( now ) );
+
+}
+
 TEST(isInRangeWithDay)
 {
   UtcTimeOnly startTime( 3, 0, 0 );
@@ -123,6 +134,18 @@ TEST(isInRangeWithDay)
   now = UtcTimeStamp( 9, 1, 0, 4, 12, 2006 );
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
   now = UtcTimeStamp( 9, 0, 0, 4, 12, 2006 );
+  CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
+}
+
+TEST(isInRangeWithDay_SameDay)
+{
+  UtcTimeOnly startTime( 3, 0, 0 );
+  UtcTimeOnly endTime( 18, 0, 0 );
+  int startDay = 2;
+  int endDay = 2;
+
+  UtcTimeStamp now( 2, 0, 0, 28, 7, 2004 );
+  TimeRange timeRange(startTime, endTime, startDay, endDay);
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
 }
 
@@ -197,6 +220,19 @@ TEST(isInSameRange)
   time2 = UtcTimeStamp( 19, 06, 0, 1, 14, 2004 );
   CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
   CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+}
+
+TEST(isInSameRange_UseLocalTime)
+{
+  LocalTimeOnly start( 0, 0, 0 );
+  LocalTimeOnly end( 1, 0, 0 );
+
+  UtcTimeStamp time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  UtcTimeStamp time2 = UtcTimeStamp( 11, 0, 0, 10, 10, 2000 );
+  TimeRange timeRange(start, end, 1, 1);
+
+  CHECK( timeRange.isInSameRange(time1, time2) );
+
 }
 
 TEST(isInSameRangeWithDay)

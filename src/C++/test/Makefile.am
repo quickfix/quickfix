@@ -28,16 +28,22 @@ libquickfixcpptest_la_SOURCES = \
 	PostgreSQLStoreTestCase.cpp \
 	SessionIDTestCase.cpp \
 	SessionSettingsTestCase.cpp \
+    SessionStateTestCase.cpp \
 	SessionTestCase.cpp \
 	SessionFactoryTestCase.cpp \
 	SettingsTestCase.cpp \
+	SharedArrayTestCase.cpp \
 	SocketAcceptorTestCase.cpp \
+    SocketConnectionTestCase.cpp \
 	SocketConnectorTestCase.cpp \
+	SocketMonitorTestCase.cpp \
 	SocketServerTestCase.cpp \
 	StringUtilitiesTestCase.cpp \
 	TestHelper.cpp \
 	TimeRangeTestCase.cpp \
 	UtcTimeOnlyTestCase.cpp \
-	UtcTimeStampTestCase.cpp
+	UtcTimeStampTestCase.cpp \
+	UtilityTestCase.cpp
+	
 
 INCLUDES = -I.. -I../../../UnitTest++/src

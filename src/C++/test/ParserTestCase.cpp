@@ -66,10 +66,14 @@ TEST_FIXTURE(extractLengthFixture, extractLength)
   CHECK_EQUAL( 15, (int)pos );
 
   pos = 0;
+  length = 0;
   CHECK_THROW( object.extractLength(length, pos, badLength), MessageParseError );
+  CHECK( length <= 0);
 
+  length = 0;
   CHECK_EQUAL( 0, (int)pos );
   CHECK_THROW( object.extractLength(length, pos, negativeLength), MessageParseError );
+  CHECK( length <= 0);
 
   CHECK_EQUAL( 0, (int)pos );
   object.extractLength(length, pos, incomplete_1);
@@ -84,16 +88,21 @@ struct readFixMessageFixture
 {
   readFixMessageFixture()
   {
-    fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
-    fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-    fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+    fixMsg1   = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+    fixMsg2   = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+    fixMsg3   = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
 
-    object.addToStream( fixMsg1 + fixMsg2 + fixMsg3 );
+    badLength = "8=FIX.4.2\0019=200A\00135=A\001108=30\00110=31\001";
+
+
+    object.addToStream( fixMsg1 + fixMsg2 + fixMsg3 + badLength );
   }
 
   std::string fixMsg1;
   std::string fixMsg2;
   std::string fixMsg3;
+  std::string badLength;
+
   Parser object;
 };
 
@@ -108,6 +117,8 @@ TEST_FIXTURE(readFixMessageFixture, readFixMessage)
 
   CHECK( object.readFixMessage( readFixMsg ) );
   CHECK_EQUAL( fixMsg3, readFixMsg );
+
+  CHECK_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
 }
 
 struct readPartialFixMessageFixture
