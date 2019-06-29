@@ -249,15 +249,15 @@ public:
   static const int SIGNIFICANT_DIGITS = 15;
   static const int BUFFFER_SIZE = 32;
 
-  static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS, int buffer_size = BUFFFER_SIZE )
+  static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS)
   {
-    char result[buffer_size];
+    char result[BUFFFER_SIZE];
     char *end = 0;
 
     int size;
     if( value == 0 || value > 0.0001 || value < -0.0001 )
     {
-      size = fast_dtoa( result, buffer_size, value, significant_digits);
+      size = fast_dtoa( result, BUFFFER_SIZE, value, significant_digits);
       if( size == 0 )
         return std::string();
 
@@ -285,7 +285,7 @@ public:
     }
     else
     {
-      size = fast_fixed_dtoa( result, buffer_size, value, significant_digits );
+      size = fast_fixed_dtoa( result, BUFFFER_SIZE, value, significant_digits );
       if( size == 0 )
         return std::string();
 
