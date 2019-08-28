@@ -28,13 +28,16 @@
 #include "Mutex.h"
 #endif
 
+#ifdef ENABLE_BOOST_ATOMIC_COUNT
+#include <boost/smart_ptr/detail/atomic_count.hpp>
+#endif
+
 namespace FIX
 {
   /// Atomic count class - consider using interlocked functions
 
 #ifdef ENABLE_BOOST_ATOMIC_COUNT
 
-#include <boost/smart_ptr/detail/atomic_count.hpp>
 typedef boost::detail::atomic_count atomic_count;
 
 #elif _MSC_VER 
