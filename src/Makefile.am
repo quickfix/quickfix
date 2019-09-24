@@ -25,7 +25,7 @@ pt_SOURCES = pt.cpp
 EXTRA_DIST = getopt.c getopt-repl.h
 
 at_LDADD = C++/libquickfix.la
-ut_LDADD = C++/test/libquickfixcpptest.la C++/libquickfix.la
+ut_LDADD = C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
 
 INCLUDES =-IC++ -IC++/test -I../UnitTest++/src

@@ -1378,4 +1378,107 @@ TEST(allocationInstructionString)
   CHECK_EQUAL( 196, object.getTrailer().get(checkSum) );
 }
 
+
+TEST(initializeXml_UrlIsIncorrect_False)
+{
+  FIX::Message msg;
+  CHECK(!msg.InitializeXML("wrong"));
+}
+
+TEST(setString_TrailerStructureInvalid_MessageStructureInvalid) {
+
+  DataDictionary dictionary;
+  dictionary.checkFieldsOutOfOrder(true);
+  dictionary.addHeaderField(FIELD::BeginString, true);
+  dictionary.addHeaderField(FIELD::MsgType, true);
+  dictionary.addField(FIELD::ClOrdID);
+  dictionary.addField(FIELD::MsgType);
+  dictionary.addTrailerField(FIELD::CheckSum, true);
+  dictionary.addFieldType(FIELD::CheckSum, FIX::TYPE::Type::Int);
+
+  dictionary.setVersion(BeginString_FIX42);
+
+  FIX::Message msg;
+  std::string delimSOH = "\x01";
+  std::string rawFixMsg = "8=FIX.4.2" + delimSOH
+      + "9=200"         + delimSOH
+      + "35=A"          + delimSOH
+      + "49=SENDER"     + delimSOH
+      + "56=TARGET"     + delimSOH
+      + "34=1"          + delimSOH
+      + "98=0"          + delimSOH
+      + "10=200"        + delimSOH //Trailer in Body is invalid
+      + "108=30"        + delimSOH
+      + "10=200"        + delimSOH;
+
+
+  msg.setString(rawFixMsg, false, &dictionary, &dictionary);
+  int checkSumTag = FIELD::CheckSum;
+  CHECK(!msg.hasValidStructure(checkSumTag));
+}
+
+TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException) {
+
+  DataDictionary dictionary;
+  dictionary.checkFieldsOutOfOrder(true);
+  dictionary.addHeaderField(FIELD::BeginString, true);
+  dictionary.addHeaderField(FIELD::MsgType, true);
+  dictionary.addField(FIELD::ClOrdID);
+  dictionary.addField(FIELD::MsgType);
+  dictionary.addTrailerField(FIELD::CheckSum, true);
+  dictionary.addTrailerField(FIELD::Signature, true);
+
+  dictionary.addFieldType(FIELD::Signature, FIX::TYPE::Type::Data);
+
+  dictionary.setVersion(BeginString_FIX42);
+
+  FIX::Message msg;
+  std::string delimSOH = "\x01";
+  std::string rawFixMsg = "8=FIX.4.2" + delimSOH
+      + "9=200"         + delimSOH
+      + "35=A"          + delimSOH
+      + "49=SENDER"     + delimSOH
+      + "56=TARGET"     + delimSOH
+      + "34=1"          + delimSOH
+      + "98=0"          + delimSOH
+      + "108=30"        + delimSOH
+      + "89=200"        + delimSOH; // Signature
+      + "10=200"        + delimSOH;
+
+  CHECK_THROW(msg.setString(rawFixMsg, false, &dictionary, &dictionary), InvalidMessage);
+
+}
+
+TEST(setStringAndValidate_IncorrectBodyLength_InvalidException) {
+
+  DataDictionary dictionary;
+
+  FIX::Message msg;
+  std::string delimSOH = "\x01";
+  std::string rawFixMsg = "8=FIX.4.2" + delimSOH
+      + "9=2000"        + delimSOH //Incorrect BodyLength
+      + "35=A"          + delimSOH
+      + "49=SENDER"     + delimSOH
+      + "56=TARGET"     + delimSOH
+      + "34=1"          + delimSOH
+      + "98=0"          + delimSOH
+      + "108=30"        + delimSOH
+      + "10=200"        + delimSOH;
+
+  CHECK_THROW(msg.setString(rawFixMsg, true, &dictionary, &dictionary), InvalidMessage);
+}
+
+TEST(BeginStringToApplVerID) {
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX40), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX40)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX41), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX41)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX42), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX42)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX43), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX43)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX44), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX44)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX50)));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP1), FIX::Message::toApplVerID(BeginString("FIX.5.0SP1")));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP2), FIX::Message::toApplVerID(BeginString("FIX.5.0SP2")));
+  CHECK_EQUAL(ApplVerID("Custom"), FIX::Message::toApplVerID(BeginString("Custom")));
+
+}
+
 }

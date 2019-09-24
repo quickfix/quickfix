@@ -3,6 +3,10 @@
 
 #include <Application.h>
 #include <SessionSettings.h>
+#include "Log.h"
+#include "FileLog.h"
+#include "FileStore.h"
+#include <iostream>
 
 namespace FIX
 {
@@ -52,6 +56,49 @@ socket_handle inline createSocket( int port, const char* address )
   }
   return sock;
 }
+
+class ExeceptionStore : public MessageStore
+{
+public:
+  virtual ~ExeceptionStore() {};
+
+  bool set( int, const std::string& ) EXCEPT ( IOException ) {
+    throw IOException("set threw an IOException");
+  }
+  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException ) {
+    throw IOException("get threw an IOException");
+  }
+  int getNextSenderMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
+  int getNextTargetMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
+  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException ) {};
+  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException ) {};
+  void incrNextSenderMsgSeqNum() EXCEPT ( IOException ) {};
+  void incrNextTargetMsgSeqNum() EXCEPT ( IOException ) {};
+
+  UtcTimeStamp getCreationTime() const EXCEPT ( IOException ) { return UtcTimeStamp(); };
+
+  void reset() EXCEPT ( IOException ) {throw IOException("reset IOException");};
+  void refresh() EXCEPT ( IOException ) {};
+};
+
+class ExceptionMessageStoreFactory : public MessageStoreFactory
+{
+public:
+  ExceptionMessageStoreFactory( const SessionSettings& settings )
+: m_settings( settings ) {};
+  ExceptionMessageStoreFactory( const std::string& path )
+: m_path( path ) {};
+
+  MessageStore* create( const SessionID& ) {
+    return new ExeceptionStore();
+  };
+  void destroy( MessageStore* pStore) {
+    delete pStore;
+  }
+private:
+  std::string m_path;
+  SessionSettings m_settings;
+};
 
 }
 

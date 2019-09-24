@@ -125,4 +125,22 @@ TEST(merge)
   CHECK_EQUAL( "FIRST", object.getString( "THIRDKEY" ) );
 }
 
+TEST(setBool_ValuesSet)
+{
+  Dictionary object;
+  object.setBool("test", false);
+  CHECK(!object.getBool("test"));
+
+  object.setBool("test", true);
+  CHECK(object.getBool("test"));
+}
+
+TEST(getBool_KeyValueNotABoolean)
+{
+  Dictionary object;
+  object.setString("test", "notABoolean");
+
+  CHECK_THROW(object.getBool("test"), ConfigError);
+}
+
 }

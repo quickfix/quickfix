@@ -47,6 +47,7 @@ include/
 src/at
 src/pt
 src/ut
+src/C++/Allocator.h
 test/at
 test/pt
 test/ut
