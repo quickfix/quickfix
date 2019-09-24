@@ -127,11 +127,10 @@
 namespace FIX
 {
 
-FIX::ThreadedSSLSocketAcceptor *acceptObjT = 0;
 
-int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return acceptObjT->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<ThreadedSSLSocketAcceptor*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
@@ -141,7 +140,6 @@ ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
       m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
   socket_init();
-  acceptObjT = this;
 }
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
@@ -151,7 +149,6 @@ ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
       m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
   socket_init();
-  acceptObjT = this;
 }
 
 ThreadedSSLSocketAcceptor::~ThreadedSSLSocketAcceptor()
@@ -197,7 +194,7 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT (R
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, this, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
@@ -440,7 +437,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
 }
 
 int ThreadedSSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
-                                                      int verify, void *job)
+                                                      int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

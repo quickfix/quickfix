@@ -1227,7 +1227,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
 }
 
 bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb, std::string &errStr)
+                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam, std::string &errStr)
 {
   errStr.erase();
 
@@ -1281,6 +1281,12 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     else
       key.assign(cert);
   }
+
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+  ::SSL_CTX_set_default_passwd_cb_userdata(ctx, passwordCallbackParam);
+#else
+  ctx->default_passwd_callback_userdata = passwordCallbackParam;
+#endif
 
   SSL_CTX_set_default_passwd_cb(ctx, cb);
 

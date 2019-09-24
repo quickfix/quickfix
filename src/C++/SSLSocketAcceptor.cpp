@@ -129,11 +129,9 @@
 namespace FIX
 {
 
-FIX::SSLSocketAcceptor *acceptObj = 0;
-
-int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<SSLSocketAcceptor*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
@@ -143,7 +141,6 @@ SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  acceptObj = this;
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
@@ -154,7 +151,6 @@ SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  acceptObj = this;
 }
 
 SSLSocketAcceptor::~SSLSocketAcceptor()
@@ -204,7 +200,7 @@ EXCEPT ( RuntimeError )
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, this, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
@@ -397,7 +393,7 @@ void SSLSocketAcceptor::onTimeout( SocketServer& )
 }
 
 int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
-                                                      int verify, void *job)
+                                                      int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

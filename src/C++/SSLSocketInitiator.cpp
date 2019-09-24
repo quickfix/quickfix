@@ -127,11 +127,10 @@
 namespace FIX
 {
 
-FIX::SSLSocketInitiator *initObj = 0;
 
-int SSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *job)
+int SSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return initObj->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<SSLSocketInitiator*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 SSLSocketInitiator::SSLSocketInitiator( Application& application,
@@ -143,7 +142,6 @@ EXCEPT ( ConfigError )
   m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
   m_rcvBufSize( 0 ), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
-  initObj = this;
 }
 
 SSLSocketInitiator::SSLSocketInitiator( Application& application,
@@ -155,8 +153,7 @@ EXCEPT ( ConfigError )
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
   m_rcvBufSize( 0 ), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
-{
-  initObj = this;
+{  
 }
 
 SSLSocketInitiator::~SSLSocketInitiator()
@@ -223,7 +220,7 @@ EXCEPT ( RuntimeError )
       throw RuntimeError("Failed to set key");
     }
   }
-  else if (!loadSSLCert(m_ctx, false, s, getLog(), SSLSocketInitiator::passwordHandleCB, errStr))
+  else if (!loadSSLCert(m_ctx, false, s, getLog(), SSLSocketInitiator::passwordHandleCB, this, errStr))
   {
     ssl_term();
     throw RuntimeError(errStr);
@@ -482,7 +479,7 @@ void SSLSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
 }
 
 int SSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
-                                                       int verify, void *job)
+                                                       int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

@@ -260,7 +260,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
                           std::string &errStr);
 
 bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb,
+                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam,
                  std::string &errStr);
 
 bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
