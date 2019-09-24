@@ -853,13 +853,13 @@ X509_STORE *createX509Store(const char *cpFile, const char *cpPath)
   }
   return pStore;
 }
-X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb)
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam)
 {
   X509 *rc;
   BIO *bioS;
   BIO *bioF;
 
-  rc = PEM_read_X509(fp, x509, cb, 0);
+  rc = PEM_read_X509(fp, x509, cb, passwordCallbackParam);
   if (rc == 0)
   {
     /* 2. try DER+Base64 */
@@ -896,13 +896,13 @@ X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb)
 }
 
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                         passPhraseHandleCallbackType cb)
+                         passPhraseHandleCallbackType cb, void* passwordCallbackParam)
 {
   EVP_PKEY *rc;
   BIO *bioS;
   BIO *bioF;
 
-  rc = PEM_read_PrivateKey(fp, key, cb, 0);
+  rc = PEM_read_PrivateKey(fp, key, cb, passwordCallbackParam);
   if (rc == 0)
   {
     /* 2. try DER+Base64 */
@@ -1299,7 +1299,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     return false;
   }
 
-  X509 *X509Cert = readX509(fp, 0, 0);
+  X509 *X509Cert = readX509(fp, 0, 0, 0);
 
   fclose(fp);
 
@@ -1345,7 +1345,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     return false;
   }
 
-  EVP_PKEY *privateKey = readPrivateKey(fp, 0, cb);
+  EVP_PKEY *privateKey = readPrivateKey(fp, 0, cb, passwordCallbackParam);
 
   fclose(fp);
 
