@@ -196,6 +196,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setPersistMessages( settings.getBool( PERSIST_MESSAGES ) );
   if ( settings.has( VALIDATE_LENGTH_AND_CHECKSUM ) )
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
+  if ( settings.has( ENABLE_LAST_MSG_SEQ_NUM_PROCESSED ) )
+    pSession->setEnableLastMsgSeqNumProcessed( settings.getBool( ENABLE_LAST_MSG_SEQ_NUM_PROCESSED ) );
    
   return pSession.release();
 }

@@ -207,6 +207,11 @@ public:
   void setValidateLengthAndChecksum ( bool value )
     { m_validateLengthAndChecksum = value; }
 
+  bool getEnableLastMsgSeqNumProcessed()
+    { return m_enableLastMsgSeqNumProcessed; }
+  void setEnableLastMsgSeqNumProcessed( bool value )
+    { m_enableLastMsgSeqNumProcessed = value; }
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(UtcTimeStamp()) )
@@ -293,7 +298,7 @@ private:
   void generateLogon();
   void generateLogon( const Message& );
   void generateResendRequest( const BeginString&, const MsgSeqNum& );
-  void generateSequenceReset( int, int );
+  void generateSequenceReset(const Message& , int, int );
   void generateHeartbeat();
   void generateHeartbeat( const Message& );
   void generateTestRequest( const std::string& );
@@ -301,6 +306,7 @@ private:
   void generateReject( const Message&, const std::string& );
   void generateBusinessReject( const Message&, int err, int field = 0 );
   void generateLogout( const std::string& text = "" );
+  void generateLogout( const Message&, const std::string& text = "" );
 
   void populateRejectReason( Message&, int field, const std::string& );
   void populateRejectReason( Message&, const std::string& );
@@ -312,6 +318,8 @@ private:
   bool get( int s, Message& m ) const;
 
   Message * newMessage(const std::string & msgType) const;
+
+  void setLastMsgSeqNumProcessed(const Message& other, Message& message);
 
   Application& m_application;
   SessionID m_sessionID;
@@ -331,6 +339,7 @@ private:
   int m_timestampPrecision;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
+  bool m_enableLastMsgSeqNumProcessed;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;

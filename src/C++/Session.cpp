@@ -61,6 +61,7 @@ Session::Session( Application& application,
   m_timestampPrecision( 3 ),
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
+  m_enableLastMsgSeqNumProcessed ( false ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -119,6 +120,20 @@ void Session::fill( Header& header )
   header.setField( m_sessionID.getSenderCompID() );
   header.setField( m_sessionID.getTargetCompID() );
   header.setField( MsgSeqNum( getExpectedSenderNum() ) );
+
+  if ( m_enableLastMsgSeqNumProcessed )
+  {
+    LastMsgSeqNumProcessed lastMsgSeqNumProcessed;
+    try
+    {
+      header.getField(lastMsgSeqNumProcessed);
+    }
+    catch( const FIX::FieldNotFound& )
+    {
+      header.setField(LastMsgSeqNumProcessed(getExpectedTargetNum() - 1));
+    }
+  }
+
   insertSendingTime( header );
 }
 
@@ -298,7 +313,7 @@ void Session::nextLogout( const Message& logout, const UtcTimeStamp& timeStamp )
   if ( !m_state.sentLogout() )
   {
     m_state.onEvent( "Received logout request" );
-    generateLogout();
+    generateLogout( logout );
     m_state.onEvent( "Sending logout response" );
   }
   else
@@ -368,7 +383,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
-    generateSequenceReset( beginSeqNo, endSeqNo );
+    generateSequenceReset( resendRequest, beginSeqNo, endSeqNo );
     return;
   }
 
@@ -459,7 +474,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     {
       if ( resend( msg ) )
       {
-        if ( begin ) generateSequenceReset( begin, msgSeqNum );
+        if ( begin ) generateSequenceReset( resendRequest, begin, msgSeqNum );
         send( msg.toString(messageString) );
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
@@ -472,7 +487,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   }
   if ( begin )
   {
-    generateSequenceReset( begin, msgSeqNum + 1 );
+    generateSequenceReset( resendRequest, begin, msgSeqNum + 1 );
   }
 
   if ( endSeqNo > msgSeqNum )
@@ -481,7 +496,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
-    generateSequenceReset( beginSeqNo, endSeqNo );
+    generateSequenceReset( resendRequest, beginSeqNo, endSeqNo );
   }
 
   resendRequest.getHeader().getField( msgSeqNum );
@@ -710,6 +725,9 @@ void Session::generateLogon( const Message& aLogon )
   aLogon.getField( heartBtInt );
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( heartBtInt );
+
+  setLastMsgSeqNumProcessed( aLogon, logon );
+
   fill( logon.getHeader() );
   sendRaw( logon );
   m_state.sentLogon( true );
@@ -740,10 +758,12 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
 }
 
 void Session::generateSequenceReset
-( int beginSeqNo, int endSeqNo )
+( const Message& message, int beginSeqNo, int endSeqNo )
 {
   SmartPtr<Message> pMsg(newMessage("4"));
   Message & sequenceReset = *pMsg;
+
+  setLastMsgSeqNumProcessed( message, sequenceReset );
 
   NewSeqNo newSeqNo( endSeqNo );
   sequenceReset.getHeader().setField( MsgType( "4" ) );
@@ -777,6 +797,9 @@ void Session::generateHeartbeat( const Message& testRequest )
   Message & heartbeat = *pMsg;
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
+
+  setLastMsgSeqNumProcessed( testRequest, heartbeat );
+
   fill( heartbeat.getHeader() );
   try
   {
@@ -999,6 +1022,23 @@ void Session::generateLogout( const std::string& text )
   Message & logout = *pMsg;
 
   logout.getHeader().setField( MsgType( MsgType_Logout ) );
+
+  fill( logout.getHeader() );
+  if ( text.length() )
+    logout.setField( Text( text ) );
+  sendRaw( logout );
+  m_state.sentLogout( true );
+}
+
+void Session::generateLogout( const Message& message, const std::string& text )
+{
+  SmartPtr<Message> pMsg(newMessage("5"));
+  Message & logout = *pMsg;
+
+  logout.getHeader().setField( MsgType( MsgType_Logout ) );
+
+  setLastMsgSeqNumProcessed (message, logout );
+
   fill( logout.getHeader() );
   if ( text.length() )
     logout.setField( Text( text ) );
@@ -1146,13 +1186,13 @@ void Session::fromCallback( const MsgType& msgType, const Message& msg,
 void Session::doBadTime( const Message& msg )
 {
   generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
-  generateLogout();
+  generateLogout( msg );
 }
 
 void Session::doBadCompID( const Message& msg )
 {
   generateReject( msg, SessionRejectReason_COMPID_PROBLEM );
-  generateLogout();
+  generateLogout( msg );
 }
 
 bool Session::doPossDup( const Message& msg )
@@ -1176,7 +1216,7 @@ bool Session::doPossDup( const Message& msg )
     if ( origSendingTime > sendingTime )
     {
       generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
-      generateLogout();
+      generateLogout( msg );
       return false;
     }
   }
@@ -1196,7 +1236,7 @@ bool Session::doTargetTooLow( const Message& msg )
     std::stringstream stream;
     stream << "MsgSeqNum too low, expecting " << getExpectedTargetNum()
            << " but received " << msgSeqNum;
-    generateLogout( stream.str() );
+    generateLogout( msg,  stream.str() );
     throw std::logic_error( stream.str() );
   }
 
@@ -1415,7 +1455,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   catch ( RejectLogon& e )
   {
     m_state.onEvent( e.what() );
-    generateLogout( e.what() );
+    generateLogout( message, e.what() );
     disconnect();
   }
   catch ( UnsupportedVersion& )
@@ -1424,7 +1464,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
       nextLogout( message, timeStamp );
     else
     {
-      generateLogout( "Incorrect BeginString" );
+      generateLogout( message, "Incorrect BeginString" );
       m_state.incrNextTargetMsgSeqNum();
     }
   }
@@ -1577,4 +1617,22 @@ void Session::removeSession( Session& s )
   s_sessionIDs.erase( s.m_sessionID );
   s_registered.erase( s.m_sessionID );
 }
+
+void Session::setLastMsgSeqNumProcessed(const Message& other, Message& message)
+{
+  if (m_enableLastMsgSeqNumProcessed)
+  {
+    MsgSeqNum otherMsgSeqNum;
+    try
+    {
+      other.getHeader().getField(otherMsgSeqNum);
+      message.getHeader().setField(LastMsgSeqNumProcessed(otherMsgSeqNum.getValue()));
+    }
+    catch (const FIX::FieldNotFound&)
+    {
+      m_state.onEvent( "Unable to set last msg seq num processed, incoming msg is missing seq num." ); 
+    }
+  }
+}
+
 }
