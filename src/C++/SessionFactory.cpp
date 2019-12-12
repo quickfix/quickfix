@@ -198,6 +198,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
   if ( settings.has( ENABLE_LAST_MSG_SEQ_NUM_PROCESSED ) )
     pSession->setEnableLastMsgSeqNumProcessed( settings.getBool( ENABLE_LAST_MSG_SEQ_NUM_PROCESSED ) );
+  if ( settings.has( IGNORE_POSSDUP_RESEND_REQUESTS ) )
+    pSession->setIgnorePossdupResendRequests( settings.getBool( IGNORE_POSSDUP_RESEND_REQUESTS ) );
    
   return pSession.release();
 }

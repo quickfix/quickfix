@@ -62,6 +62,7 @@ Session::Session( Application& application,
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
   m_enableLastMsgSeqNumProcessed ( false ),
+  m_ignorePossdupResendRequests ( false ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -361,6 +362,29 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   if ( !verify( resendRequest, false, false ) ) return ;
 
   Locker l( m_mutex );
+
+
+  if ( m_ignorePossdupResendRequests )
+  {
+    try
+    {
+      PossDupFlag possDupFlag;
+      resendRequest.getHeader().getField(possDupFlag);
+      if (possDupFlag.getValue())
+      {
+        m_state.onEvent("Ignoring ResendRequest with PossDupFlag=Y.");
+        MsgSeqNum msgSeqNum;
+        resendRequest.getHeader().getField( msgSeqNum );
+        if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
+          m_state.incrNextTargetMsgSeqNum();
+        return;
+      }
+    }
+    catch(const FieldNotFound&)
+    {
+      // Process resend request like normal
+    }
+  }
 
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;

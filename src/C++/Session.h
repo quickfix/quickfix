@@ -212,6 +212,11 @@ public:
   void setEnableLastMsgSeqNumProcessed( bool value )
     { m_enableLastMsgSeqNumProcessed = value; }
 
+  bool getIgnorePossdupResendRequests()
+    { return m_ignorePossdupResendRequests; }
+  void setIgnorePossdupResendRequests( bool value )
+    { m_ignorePossdupResendRequests = value; }
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(UtcTimeStamp()) )
@@ -340,6 +345,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_enableLastMsgSeqNumProcessed;
+  bool m_ignorePossdupResendRequests;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;
