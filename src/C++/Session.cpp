@@ -62,6 +62,7 @@ Session::Session( Application& application,
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
   m_enableLastMsgSeqNumProcessed ( false ),
+  m_maxMessagesInResendRequest ( 0 ),
   m_ignorePossdupResendRequests ( false ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -757,17 +758,14 @@ void Session::generateLogon( const Message& aLogon )
   m_state.sentLogon( true );
 }
 
-void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
+void Session::generateResendRequestRange(int startSeqNum, int endSeqNum)
 {
   SmartPtr<Message> pMsg(newMessage("2"));
   Message & resendRequest = *pMsg;
 
-  BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
-  EndSeqNo endSeqNo( msgSeqNum - 1 );
-  if ( beginString >= FIX::BeginString_FIX42 )
-    endSeqNo = 0;
-  else if( beginString <= FIX::BeginString_FIX41 )
-    endSeqNo = 999999;
+  BeginSeqNo beginSeqNo( startSeqNum );
+  EndSeqNo endSeqNo( endSeqNum);
+
   resendRequest.getHeader().setField( MsgType( "2" ) );
   resendRequest.setField( beginSeqNo );
   resendRequest.setField( endSeqNo );
@@ -777,8 +775,30 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
   m_state.onEvent( "Sent ResendRequest FROM: "
                    + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
+}
 
-  m_state.resendRange( beginSeqNo, msgSeqNum - 1 );
+void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
+{
+  SmartPtr<Message> pMsg(newMessage("2"));
+  Message & resendRequest = *pMsg;
+
+  BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
+  EndSeqNo endSeqNo( msgSeqNum - 1 );
+  int chunkEndSeqNo = -1;
+  if (m_maxMessagesInResendRequest > 0)
+  {
+    chunkEndSeqNo = std::min(endSeqNo.getValue(), beginSeqNo.getValue() + m_maxMessagesInResendRequest - 1);
+    generateResendRequestRange(beginSeqNo.getValue(), chunkEndSeqNo);
+  }
+  else
+  {
+    if ( beginString >= FIX::BeginString_FIX42 )
+      endSeqNo = 0;
+    else if( beginString <= FIX::BeginString_FIX41 )
+      endSeqNo = 999999;
+    generateResendRequestRange(beginSeqNo.getValue(), endSeqNo.getValue());
+  }
+  m_state.resendRange(beginSeqNo.getValue(), endSeqNo.getValue(), chunkEndSeqNo);
 }
 
 void Session::generateSequenceReset
@@ -1142,13 +1162,23 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     {
       SessionState::ResendRange range = m_state.resendRange();
  
-      if ( *pMsgSeqNum >= range.second )
+      if ( *pMsgSeqNum >= std::get<1>(range) )
       {
         m_state.onEvent ("ResendRequest for messages FROM: " +
-                         IntConvertor::convert (range.first) + " TO: " +
-                         IntConvertor::convert (range.second) +
+                         IntConvertor::convert (std::get<0>(range)) + " TO: " +
+                         IntConvertor::convert (std::get<1>(range)) +
                          " has been satisfied.");
         m_state.resendRange (0, 0);
+      }
+      else if( *pMsgSeqNum >= std::get<2>(range) )
+      {
+        m_state.onEvent ("Chunked ResendRequest for messages FROM: " +
+                  IntConvertor::convert (std::get<0>(range)) + " TO: " +
+                  IntConvertor::convert (std::get<2>(range)) +
+                  " has been satisfied.");
+        int newChunkEndSeqNo = std::min(std::get<1>(range), std::get<2>(range) + m_maxMessagesInResendRequest);
+        generateResendRequestRange(std::get<2>(range) + 1, newChunkEndSeqNo);
+        m_state.resendRange( std::get<0>(range), std::get<1>(range), newChunkEndSeqNo );
       }
     }
   }
@@ -1286,11 +1316,11 @@ void Session::doTargetTooHigh( const Message& msg )
   {
     SessionState::ResendRange range = m_state.resendRange();
 
-    if( !m_sendRedundantResendRequests && msgSeqNum >= range.first )
+    if( !m_sendRedundantResendRequests && msgSeqNum >= std::get<0>(range) )
     {
           m_state.onEvent ("Already sent ResendRequest FROM: " +
-                           IntConvertor::convert (range.first) + " TO: " +
-                           IntConvertor::convert (range.second) +
+                           IntConvertor::convert (std::get<0>(range)) + " TO: " +
+                           IntConvertor::convert (std::get<1>(range)) +
                            ".  Not sending another.");
           return;
     }

@@ -45,6 +45,7 @@ public:
   m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), 
   m_logoutTimeout( 2 ), m_testRequest( 0 ),
+  m_resendRange(std::make_tuple(0, 0, 0)),
   m_pStore( 0 ), m_pLog( 0 ) {}
 
   bool enabled() const { return m_enabled; }
@@ -78,13 +79,14 @@ public:
   void testRequest( int value ) { m_testRequest = value; }
 
   bool resendRequested() const
-  { return !(m_resendRange.first == 0 && m_resendRange.second == 0); }
+  { return !(std::get<0>(m_resendRange) == 0 && std::get<1>(m_resendRange) == 0); }
 
-  typedef std::pair<int, int> ResendRange;
+  /* BeginSeqNo, EndSeqNo, ChunkEndSeqNo */
+  typedef std::tuple<int, int, int> ResendRange;
 
   ResendRange resendRange () const { return m_resendRange; }
-  void resendRange (int begin, int end)
-  { m_resendRange = std::make_pair( begin, end ); }
+  void resendRange (int begin, int end, int chunkEnd=-1)
+  { m_resendRange = std::make_tuple( begin, end, chunkEnd == -1 ? end : chunkEnd); }
 
   MessageStore* store() { return m_pStore; }
   void store( MessageStore* pValue ) { m_pStore = pValue; }

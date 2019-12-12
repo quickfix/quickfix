@@ -140,7 +140,9 @@ const char CRL_FILE[] = "CertificateRevocationListFile";
 const char CRL_DIR[] = "CertificateRevocationListDirectory";
 const char VERIFY_LEVEL[] = "CertificateVerifyLevel";
 const char ENABLE_LAST_MSG_SEQ_NUM_PROCESSED[] = "EnableLastMsgSeqNumProcessed";
+const char MAX_MESSAGES_IN_RESEND_REQUEST[] = "MaxMessagesInResendRequest";
 const char IGNORE_POSSDUP_RESEND_REQUESTS[] = "IgnorePossDupResendRequests";
+
 /*
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.

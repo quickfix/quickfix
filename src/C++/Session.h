@@ -212,6 +212,11 @@ public:
   void setEnableLastMsgSeqNumProcessed( bool value )
     { m_enableLastMsgSeqNumProcessed = value; }
 
+  int getMaxMessagesInResendRequest()
+    { return m_maxMessagesInResendRequest; }
+  void setMaxMessagesInResendRequest( int value )
+    { m_maxMessagesInResendRequest = value; }
+
   bool getIgnorePossdupResendRequests()
     { return m_ignorePossdupResendRequests; }
   void setIgnorePossdupResendRequests( bool value )
@@ -302,6 +307,7 @@ private:
 
   void generateLogon();
   void generateLogon( const Message& );
+  void generateResendRequestRange(int startSeqNum, int endSeqNum);
   void generateResendRequest( const BeginString&, const MsgSeqNum& );
   void generateSequenceReset(const Message& , int, int );
   void generateHeartbeat();
@@ -345,6 +351,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_enableLastMsgSeqNumProcessed;
+  int m_maxMessagesInResendRequest;
   bool m_ignorePossdupResendRequests;
 
   SessionState m_state;
