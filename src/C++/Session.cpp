@@ -335,6 +335,28 @@ void Session::nextReject( const Message& reject, const UtcTimeStamp& timeStamp )
 
 void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& timeStamp )
 {
+  if ( m_ignorePossdupResendRequests && m_state.resendRequested() )
+  {
+    try
+    {
+      PossDupFlag possDupFlag;
+      sequenceReset.getHeader().getField(possDupFlag);
+      if (possDupFlag.getValue())
+      {
+        m_state.onEvent("Ignoring SequenceReset with PossDupFlag=Y.");
+        MsgSeqNum msgSeqNum;
+        sequenceReset.getHeader().getField( msgSeqNum );
+        if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
+          m_state.incrNextTargetMsgSeqNum();
+        return;
+      }
+    }
+    catch(const FieldNotFound&)
+    {
+      // Process resend request like normal
+    }
+  }
+
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
   if ( sequenceReset.getFieldIfSet( gapFillFlag ) )
@@ -365,7 +387,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   Locker l( m_mutex );
 
 
-  if ( m_ignorePossdupResendRequests )
+  if ( m_ignorePossdupResendRequests && m_state.resendRequested() )
   {
     try
     {
