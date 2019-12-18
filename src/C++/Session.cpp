@@ -335,28 +335,6 @@ void Session::nextReject( const Message& reject, const UtcTimeStamp& timeStamp )
 
 void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& timeStamp )
 {
-  if ( m_ignorePossdupResendRequests && m_state.resendRequested() )
-  {
-    try
-    {
-      PossDupFlag possDupFlag;
-      sequenceReset.getHeader().getField(possDupFlag);
-      if (possDupFlag.getValue())
-      {
-        m_state.onEvent("Ignoring SequenceReset with PossDupFlag=Y.");
-        MsgSeqNum msgSeqNum;
-        sequenceReset.getHeader().getField( msgSeqNum );
-        if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
-          m_state.incrNextTargetMsgSeqNum();
-        return;
-      }
-    }
-    catch(const FieldNotFound&)
-    {
-      // Process resend request like normal
-    }
-  }
-
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
   if ( sequenceReset.getFieldIfSet( gapFillFlag ) )
@@ -373,10 +351,23 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
                      + IntConvertor::convert( getExpectedTargetNum() ) +
                      " TO: " + IntConvertor::convert( newSeqNo ) );
 
-    if ( newSeqNo > getExpectedTargetNum() )
-      m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
-    else if ( newSeqNo < getExpectedTargetNum() )
-      generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
+    if ( m_maxMessagesInResendRequest && m_state.resendRequested() )
+    {
+      if ( verifyResendRequest(newSeqNo.getValue()) )
+      {
+        if ( newSeqNo > getExpectedTargetNum() )
+          m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
+        else if ( newSeqNo < getExpectedTargetNum() )
+          generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
+      }
+    }
+    else
+    {
+      if ( newSeqNo > getExpectedTargetNum() )
+        m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
+      else if ( newSeqNo < getExpectedTargetNum() )
+        generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
+    }
   }
 }
 
@@ -385,7 +376,6 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   if ( !verify( resendRequest, false, false ) ) return ;
 
   Locker l( m_mutex );
-
 
   if ( m_ignorePossdupResendRequests && m_state.resendRequested() )
   {
@@ -778,6 +768,58 @@ void Session::generateLogon( const Message& aLogon )
   fill( logon.getHeader() );
   sendRaw( logon );
   m_state.sentLogon( true );
+}
+
+bool Session::verifyResendRequest(int seqNum)
+{
+    SessionState::ResendRange range = m_state.resendRange();
+    int start = std::get<0>(range);
+    int end = std::get<1>(range);
+    int chunkEnd = std::get<2>(range);
+    if ( m_maxMessagesInResendRequest )
+    {
+      if ( seqNum >= chunkEnd )
+      {
+        if ( chunkEnd == end )
+        {
+          m_state.onEvent ("ResendRequest for messages FROM: " +
+                          IntConvertor::convert (start) + " TO: " +
+                          IntConvertor::convert (end) +
+                          " has been satisfied.");
+          m_state.resendRange (0, 0);
+        }
+        else
+        {
+          int chunkStart = chunkEnd - m_maxMessagesInResendRequest + 1;
+
+          m_state.onEvent ("Chunked ResendRequest for messages FROM: " +
+                    IntConvertor::convert (chunkStart) + " TO: " +
+                    IntConvertor::convert (chunkEnd) +
+                    " has been satisfied.");
+
+          int newChunkEndSeqNo = std::min(end, chunkEnd + m_maxMessagesInResendRequest);
+          int newChunkStartSeqNo = chunkEnd + 1;
+          int remainingAmt = newChunkEndSeqNo - chunkEnd;
+          if ( remainingAmt < m_maxMessagesInResendRequest )
+          {
+            newChunkEndSeqNo = 0; // Request the rest
+          }
+
+          generateResendRequestRange(newChunkStartSeqNo, newChunkEndSeqNo);
+          m_state.resendRange( start, end, newChunkEndSeqNo == 0 ? end :  newChunkEndSeqNo);
+          return false;
+        }
+      }
+    }
+    else if ( seqNum >= end )
+    {
+      m_state.onEvent ("ResendRequest for messages FROM: " +
+                        IntConvertor::convert (start) + " TO: " +
+                        IntConvertor::convert (end) +
+                        " has been satisfied.");
+      m_state.resendRange (0, 0);
+    }
+    return true;   
 }
 
 void Session::generateResendRequestRange(int startSeqNum, int endSeqNum)
@@ -1182,26 +1224,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
 
     if ( (checkTooHigh || checkTooLow) && m_state.resendRequested() )
     {
-      SessionState::ResendRange range = m_state.resendRange();
- 
-      if ( *pMsgSeqNum >= std::get<1>(range) )
-      {
-        m_state.onEvent ("ResendRequest for messages FROM: " +
-                         IntConvertor::convert (std::get<0>(range)) + " TO: " +
-                         IntConvertor::convert (std::get<1>(range)) +
-                         " has been satisfied.");
-        m_state.resendRange (0, 0);
-      }
-      else if( *pMsgSeqNum >= std::get<2>(range) )
-      {
-        m_state.onEvent ("Chunked ResendRequest for messages FROM: " +
-                  IntConvertor::convert (std::get<0>(range)) + " TO: " +
-                  IntConvertor::convert (std::get<2>(range)) +
-                  " has been satisfied.");
-        int newChunkEndSeqNo = std::min(std::get<1>(range), std::get<2>(range) + m_maxMessagesInResendRequest);
-        generateResendRequestRange(std::get<2>(range) + 1, newChunkEndSeqNo);
-        m_state.resendRange( std::get<0>(range), std::get<1>(range), newChunkEndSeqNo );
-      }
+      verifyResendRequest(*pMsgSeqNum);
     }
   }
   catch ( std::exception& e )

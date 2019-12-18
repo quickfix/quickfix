@@ -307,6 +307,7 @@ private:
 
   void generateLogon();
   void generateLogon( const Message& );
+  bool verifyResendRequest(int seqNum);
   void generateResendRequestRange(int startSeqNum, int endSeqNum);
   void generateResendRequest( const BeginString&, const MsgSeqNum& );
   void generateSequenceReset(const Message& , int, int );
