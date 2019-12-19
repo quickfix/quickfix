@@ -353,21 +353,13 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
 
     if ( m_maxMessagesInResendRequest && m_state.resendRequested() )
     {
-      if ( verifyResendRequest(newSeqNo.getValue()) )
-      {
-        if ( newSeqNo > getExpectedTargetNum() )
-          m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
-        else if ( newSeqNo < getExpectedTargetNum() )
-          generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
-      }
+      verifyResendRequest(newSeqNo.getValue());
     }
-    else
-    {
-      if ( newSeqNo > getExpectedTargetNum() )
-        m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
-      else if ( newSeqNo < getExpectedTargetNum() )
-        generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
-    }
+
+    if ( newSeqNo > getExpectedTargetNum() )
+      m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
+    else if ( newSeqNo < getExpectedTargetNum() )
+      generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
   }
 }
 
@@ -770,7 +762,7 @@ void Session::generateLogon( const Message& aLogon )
   m_state.sentLogon( true );
 }
 
-bool Session::verifyResendRequest(int seqNum)
+void Session::verifyResendRequest(int seqNum)
 {
     SessionState::ResendRange range = m_state.resendRange();
     int start = std::get<0>(range);
@@ -807,7 +799,6 @@ bool Session::verifyResendRequest(int seqNum)
 
           generateResendRequestRange(newChunkStartSeqNo, newChunkEndSeqNo);
           m_state.resendRange( start, end, newChunkEndSeqNo == 0 ? end :  newChunkEndSeqNo);
-          return false;
         }
       }
     }
@@ -819,7 +810,6 @@ bool Session::verifyResendRequest(int seqNum)
                         " has been satisfied.");
       m_state.resendRange (0, 0);
     }
-    return true;   
 }
 
 void Session::generateResendRequestRange(int startSeqNum, int endSeqNum)
