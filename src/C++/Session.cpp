@@ -350,12 +350,6 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
     m_state.onEvent( "Received SequenceReset FROM: "
                      + IntConvertor::convert( getExpectedTargetNum() ) +
                      " TO: " + IntConvertor::convert( newSeqNo ) );
-
-    if ( m_maxMessagesInResendRequest && m_state.resendRequested() )
-    {
-      verifyResendRequest(newSeqNo.getValue());
-    }
-
     if ( newSeqNo > getExpectedTargetNum() )
       m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
     else if ( newSeqNo < getExpectedTargetNum() )
@@ -1290,9 +1284,11 @@ bool Session::doPossDup( const Message& msg )
   OrigSendingTime origSendingTime;
   SendingTime sendingTime;
   MsgType msgType;
+  MsgSeqNum seqNum;
 
   header.getField( msgType );
   header.getField( sendingTime );
+  header.getField( seqNum );
 
   if ( msgType != MsgType_SequenceReset )
   {
@@ -1308,6 +1304,10 @@ bool Session::doPossDup( const Message& msg )
       generateLogout( msg );
       return false;
     }
+  }
+  else if( m_maxMessagesInResendRequest && m_state.resendRequested() )
+  {
+    verifyResendRequest(seqNum);
   }
   return true;
 }
