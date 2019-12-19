@@ -1213,7 +1213,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
         MsgType msgType;
         NewSeqNo newSeqNum;
         header.getField( msgType );
-        if ( msgType == MsgType_SequenceReset &&  header.getFieldIfSet(newSeqNum) )
+        if ( msgType == MsgType_SequenceReset &&  msg.getFieldIfSet(newSeqNum) )
         {
           verifyResendRequest(newSeqNum.getValue());
         }
@@ -1323,9 +1323,9 @@ bool Session::doPossDup( const Message& msg )
   else if( m_maxMessagesInResendRequest && m_state.resendRequested() )
   {
     NewSeqNo newSeqNum;
-    if ( header.getFieldIfSet(newSeqNum) )
+    if ( msg.getFieldIfSet(newSeqNum) )
     {
-      verifyResendRequest(newSeqNum);
+      verifyResendRequest(newSeqNum.getValue());
     }
   }
   return true;
