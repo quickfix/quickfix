@@ -1208,7 +1208,24 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
 
     if ( (checkTooHigh || checkTooLow) && m_state.resendRequested() )
     {
-      verifyResendRequest(*pMsgSeqNum);
+      if ( m_maxMessagesInResendRequest )
+      {
+        MsgType msgType;
+        NewSeqNo newSeqNum;
+        header.getField( msgType );
+        if ( msgType == MsgType_SequenceReset &&  header.getFieldIfSet(newSeqNum) )
+        {
+          verifyResendRequest(newSeqNum.getValue());
+        }
+        else
+        {
+          verifyResendRequest(*pMsgSeqNum);
+        }
+      }
+      else
+      {
+        verifyResendRequest(*pMsgSeqNum);
+      }
     }
   }
   catch ( std::exception& e )
@@ -1284,11 +1301,9 @@ bool Session::doPossDup( const Message& msg )
   OrigSendingTime origSendingTime;
   SendingTime sendingTime;
   MsgType msgType;
-  MsgSeqNum seqNum;
 
   header.getField( msgType );
   header.getField( sendingTime );
-  header.getField( seqNum );
 
   if ( msgType != MsgType_SequenceReset )
   {
@@ -1307,7 +1322,11 @@ bool Session::doPossDup( const Message& msg )
   }
   else if( m_maxMessagesInResendRequest && m_state.resendRequested() )
   {
-    verifyResendRequest(seqNum);
+    NewSeqNo newSeqNum;
+    if ( header.getFieldIfSet(newSeqNum) )
+    {
+      verifyResendRequest(newSeqNum);
+    }
   }
   return true;
 }
