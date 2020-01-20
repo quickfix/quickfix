@@ -310,6 +310,20 @@ TEST(isInSameRangeWithDay)
   endDay = -1;
   CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
 
+  startDay = 5;
+  endDay = 5;
+  startTime = UtcTimeOnly(22, 28, 20);
+  endTime = UtcTimeOnly(22, 28, 5);
+  time1 = UtcTimeStamp(22, 28, 2, 16, 1, 2020); // session
+  time2 = UtcTimeStamp(22, 30, 47, 16, 1, 2020); // date
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  startTime = UtcTimeOnly(22, 24, 0);
+  endTime = UtcTimeOnly(22, 15, 30);
+  time1 = UtcTimeStamp(18, 15, 15, 15, 1, 2020); // session
+  time2 = UtcTimeStamp(22, 26, 20, 16, 1, 2020); // date
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
   // Session days are the same
   startDay = 1;
   endDay = 1;
@@ -342,6 +356,23 @@ TEST(isInSameRangeWithDay)
   time2 = UtcTimeStamp(9, 1, 0, 11, 12, 2006);
   CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
   time2 = UtcTimeStamp(8, 1, 0, 3, 12, 2006);
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Re-creating weekend cert reset
+  startDay = 2;
+  endDay = 2;
+  startTime = UtcTimeOnly(17, 0, 0);
+  endTime = UtcTimeOnly(16, 02, 30);
+  time1 = UtcTimeStamp(23, 4, 3, 17, 1, 2020); // 20200117-23:04:03.008 -> H M S, D M Y
+  time2 = UtcTimeStamp(6, 0, 0, 19, 1, 2020); // 20200119-06:00:00
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  startDay = 4;
+  endDay = 4;
+  startTime = UtcTimeOnly(17, 0, 0);
+  endTime = UtcTimeOnly(16, 02, 30);
+  time1 = UtcTimeStamp(23, 4, 3, 17, 1, 2020); // 20200117-23:04:03.008 -> H M S, D M Y
+  time2 = UtcTimeStamp(6, 0, 0, 20, 1, 2020); // 20200120-06:00:00
   CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
 }
 
