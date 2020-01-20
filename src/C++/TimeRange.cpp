@@ -58,6 +58,25 @@ namespace FIX
     { m_endTime = m_startTime; }
   }
 
+  int TimeRange::getRangeStartDate( const DateTime& time,
+                                    int startDay,
+                                    const DateTime& startTime )
+  {
+    if (time.getWeekDay() > startDay)
+    {
+      return time.getJulianDate() - time.getWeekDay() + startDay;
+    }
+    else if (time.getWeekDay() < startDay)
+    {
+      return time.getJulianDate() -time.getWeekDay() + startDay - 7;
+    }
+    else
+    {
+      if (UtcTimeOnly(time) >= UtcTimeOnly(startTime)) return time.getJulianDate();
+      else return time.getJulianDate() - 7;
+    }
+  }
+
   bool TimeRange::isInRange( const DateTime& start,
                              const DateTime& end,
                              const DateTime& time )
@@ -225,9 +244,11 @@ namespace FIX
       // session start and end day are the same day, which is between these times
       else
       {
+        int time1RangeStartDate = getRangeStartDate(time1, startDay, startTime);
+        int time2RangeStartDate = getRangeStartDate(time2, startDay, startTime);
         bool time1_past_reset = time1.getWeekDay() > startDay || (time1.getWeekDay() == startDay && UtcTimeOnly(time1) >= UtcTimeOnly(startTime));
         bool time2_past_reset = time2.getWeekDay() > startDay || (time2.getWeekDay() == startDay && UtcTimeOnly(time2) >= UtcTimeOnly(startTime));
-        return time1_past_reset == time2_past_reset;
+        return time1RangeStartDate == time2RangeStartDate;
       }
 
     }
