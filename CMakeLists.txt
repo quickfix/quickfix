@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
+option(BUILD_EXAMPLES "Build examples" ON)
+if(NOT WIN32)
+    option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+endif()
+
 option(HAVE_EMX "Build with EMX")
 
 if(HAVE_EMX)
@@ -13,7 +18,7 @@ endif()
 project(${quickfix_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX C)
 message("-- Project name ${CMAKE_PROJECT_NAME}")
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/")
 
 include(QuickfixPlatformSettings)
 include(QuickfixPrebuildSetup)
@@ -96,10 +101,12 @@ add_subdirectory(UnitTest++)
 endif()
 
 add_subdirectory(src)
+if(BUILD_EXAMPLES)
 add_subdirectory(examples)
+endif()
 if( WIN32)
 add_subdirectory(test)
 endif()
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/spec/ DESTINATION share/quickfix
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/spec/ DESTINATION share/quickfix
   FILES_MATCHING PATTERN "FIX*.xml")
