@@ -204,12 +204,22 @@ TEST(addValueName)
   object.addValueName( 23, "BOO", "VALUE_23_BOO" );
 
   std::string name;
+  std::string value;
+
   CHECK( object.getValueName( 12, "0", name ) );
   CHECK_EQUAL( "VALUE_12_0", name );
+  CHECK( object.getNameValue( 12, "VALUE_12_0", value ) );
+  CHECK_EQUAL( "0", value );
+
   CHECK( object.getValueName( 12, "B", name ) );
   CHECK_EQUAL( "VALUE_12_B", name );
+  CHECK( object.getNameValue( 12, "VALUE_12_B", value ) );
+  CHECK_EQUAL( "B", value );
+
   CHECK( object.getValueName( 23, "BOO", name ) );
   CHECK_EQUAL( "VALUE_23_BOO", name );
+  CHECK( object.getNameValue( 23, "VALUE_23_BOO", value ) );
+  CHECK_EQUAL( "BOO", value );
 }
 
 struct checkValidTagNumberFixture
