@@ -72,17 +72,25 @@ class FileLog : public Log
 public:
   FileLog( const std::string& path );
   FileLog( const std::string& path, const std::string& backupPath );
-  FileLog( const std::string& path, const SessionID& sessionID );
-  FileLog( const std::string& path, const std::string& backupPath, const SessionID& sessionID );
+  FileLog( const std::string& path, const SessionID& sessionID, std::set<MsgType> doNotLogMsgTypes={});
+  FileLog( const std::string& path, const std::string& backupPath, const SessionID& sessionID, std::set<MsgType> doNotLogMsgTypes={} );
   virtual ~FileLog();
 
   void clear();
   void backup();
-
+  bool shouldLog( const std::string& value );
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
+  {
+    if ( !shouldLog(value) )
+      return;
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; 
+  }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
+  { 
+    if ( !shouldLog(value) )
+      return;
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; 
+  }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
@@ -100,6 +108,7 @@ private:
   std::string m_eventFileName;
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
+  std::set<MsgType> m_doNotLogMsgTypes;
 };
 }
 

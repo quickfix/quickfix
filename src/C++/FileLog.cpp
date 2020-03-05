@@ -24,7 +24,8 @@
 #endif
 
 #include "FileLog.h"
-
+#include <boost/algorithm/string.hpp>
+#include <boost/tokenizer.hpp>
 namespace FIX
 {
 Log* FileLogFactory::create()
@@ -65,10 +66,24 @@ Log* FileLogFactory::create( const SessionID& s )
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_LOG_PATH );
   backupPath = path;
-  if( settings.has( FILE_LOG_BACKUP_PATH ) )
+  if ( settings.has( FILE_LOG_BACKUP_PATH ) )
     backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
+  
+  std::set<MsgType> doNotLogMsgTypes;
+  if ( settings.has(DO_NOT_LOG_MSG_TYPES))
+  {
+    boost::char_separator<char> sep{","};
+    std::string cfg(settings.getString(DO_NOT_LOG_MSG_TYPES));
+    boost::tokenizer tok{cfg, sep};
+    for (const auto& t : tok)
+    {
+      std::string msgType(t);
+      boost::trim(msgType);
+      doNotLogMsgTypes.emplace(msgType);
+    }
+  }
 
-  return new FileLog( path, backupPath, s );
+  return new FileLog( path, backupPath, s, doNotLogMsgTypes);
 }
 
 void FileLogFactory::destroy( Log* pLog )
@@ -89,12 +104,14 @@ FileLog::FileLog( const std::string& path, const std::string& backupPath )
   init( path, backupPath, "GLOBAL" );
 }
 
-FileLog::FileLog( const std::string& path, const SessionID& s )
+FileLog::FileLog( const std::string& path, const SessionID& s, std::set<MsgType> doNotLogMsgTypes)
+  : m_doNotLogMsgTypes(doNotLogMsgTypes)
 {
   init( path, path, generatePrefix(s) );
 }
 
-FileLog::FileLog( const std::string& path, const std::string& backupPath, const SessionID& s )
+FileLog::FileLog( const std::string& path, const std::string& backupPath, const SessionID& s, std::set<MsgType> doNotLogMsgTypes)
+  : m_doNotLogMsgTypes(doNotLogMsgTypes)
 {
   init( path, backupPath, generatePrefix(s) );
 }
@@ -184,4 +201,16 @@ void FileLog::backup()
   }
 }
 
+bool FileLog::shouldLog( const std::string& value )
+{
+  try
+  {
+    MsgType msgType = identifyType(value);
+    return m_doNotLogMsgTypes.find(msgType) == m_doNotLogMsgTypes.end();
+  }
+  catch(const MessageParseError&)
+  {
+  }
+  return true;
+}
 } //namespace FIX
