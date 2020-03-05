@@ -140,6 +140,7 @@ const char CRL_FILE[] = "CertificateRevocationListFile";
 const char CRL_DIR[] = "CertificateRevocationListDirectory";
 const char VERIFY_LEVEL[] = "CertificateVerifyLevel";
 const char ENABLE_LAST_MSG_SEQ_NUM_PROCESSED[] = "EnableLastMsgSeqNumProcessed";
+const char ENABLE_NEXT_EXPECTED_MSG_SEQ_NUM[] = "EnableNextExpectedMsgSeqNum";
 const char MAX_MESSAGES_IN_RESEND_REQUEST[] = "MaxMessagesInResendRequest";
 const char IGNORE_POSSDUP_RESEND_REQUESTS[] = "IgnorePossDupResendRequests";
 

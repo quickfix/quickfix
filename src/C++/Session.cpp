@@ -62,6 +62,7 @@ Session::Session( Application& application,
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
   m_enableLastMsgSeqNumProcessed ( false ),
+  m_enableNextExpectedMsgSeqNum ( false ),
   m_maxMessagesInResendRequest ( 0 ),
   m_ignorePossdupResendRequests ( false ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
@@ -726,6 +727,13 @@ void Session::generateLogon()
     logon.setField( ResetSeqNumFlag(true) );
 
   fill( logon.getHeader() );
+
+  if ( m_enableNextExpectedMsgSeqNum )
+  {
+    NextExpectedMsgSeqNum nextExpectedMsgSeqNum(getExpectedTargetNum());
+    logon.setField(nextExpectedMsgSeqNum);
+  }
+
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
   m_state.testRequest( 0 );
@@ -750,6 +758,7 @@ void Session::generateLogon( const Message& aLogon )
   logon.setField( heartBtInt );
 
   setLastMsgSeqNumProcessed( aLogon, logon );
+  setNextExpectedMsgSeqNum( aLogon, logon);
 
   fill( logon.getHeader() );
   sendRaw( logon );
@@ -1739,6 +1748,23 @@ void Session::setLastMsgSeqNumProcessed(const Message& other, Message& message)
     catch (const FIX::FieldNotFound&)
     {
       m_state.onEvent( "Unable to set last msg seq num processed, incoming msg is missing seq num." ); 
+    }
+  }
+}
+
+void Session::setNextExpectedMsgSeqNum(const Message& other, Message& message)
+{
+  if (m_enableNextExpectedMsgSeqNum)
+  {
+    MsgSeqNum otherMsgSeqNum;
+    if (other.getHeader().getFieldIfSet(otherMsgSeqNum))
+    {
+      other.getHeader().getField(otherMsgSeqNum);
+      message.setField(NextExpectedMsgSeqNum(otherMsgSeqNum.getValue()+1));
+    }
+    else
+    {
+       m_state.onEvent( "Unable to set next expected msg seq num processed, incoming msg is missing seq num." ); 
     }
   }
 }

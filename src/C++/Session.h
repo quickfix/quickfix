@@ -212,6 +212,11 @@ public:
   void setEnableLastMsgSeqNumProcessed( bool value )
     { m_enableLastMsgSeqNumProcessed = value; }
 
+  bool getEnableNextExpectedMsgSeqNum()
+    { return m_enableNextExpectedMsgSeqNum; }
+  void setEnableNextExpectedMsgSeqNum( bool value )
+    { m_enableNextExpectedMsgSeqNum = value; }
+
   int getMaxMessagesInResendRequest()
     { return m_maxMessagesInResendRequest; }
   void setMaxMessagesInResendRequest( int value )
@@ -332,6 +337,7 @@ private:
   Message * newMessage(const std::string & msgType) const;
 
   void setLastMsgSeqNumProcessed(const Message& other, Message& message);
+  void setNextExpectedMsgSeqNum(const Message& other, Message& message);
 
   Application& m_application;
   SessionID m_sessionID;
@@ -352,6 +358,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_enableLastMsgSeqNumProcessed;
+  bool m_enableNextExpectedMsgSeqNum;
   int m_maxMessagesInResendRequest;
   bool m_ignorePossdupResendRequests;
 
