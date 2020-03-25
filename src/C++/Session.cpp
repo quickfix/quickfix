@@ -401,13 +401,24 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
        (endSeqNo >= getExpectedSenderNum()) )
   { endSeqNo = getExpectedSenderNum() - 1; }
 
-  if ( !m_persistMessages )
+  int numRequestedMsgs = (endSeqNo.getValue() - beginSeqNo.getValue()) + 1;
+  bool invalidRange =  (m_maxMessagesInResendRequest && isAcceptor() && (numRequestedMsgs > m_maxMessagesInResendRequest));
+  if ( !m_persistMessages  || invalidRange)
   {
     endSeqNo = EndSeqNo(endSeqNo + 1);
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
     generateSequenceReset( resendRequest, beginSeqNo, endSeqNo );
+    if(invalidRange)
+    {
+      std::stringstream what;
+      what << "Max messages in resend request violated, max=" << m_maxMessagesInResendRequest
+           << ", beginSeqNo=" << beginSeqNo.getValue()
+           << ", endSeqNo=" << endSeqNo.getValue()
+           << ", number of msgs requests=" << numRequestedMsgs;
+      throw InvalidResendRequestRange(beginSeqNo.getValue(), endSeqNo.getValue(), what.str());
+    }
     return;
   }
 
@@ -1000,6 +1011,8 @@ void Session::generateReject( const Message& message, int err, int field )
     break;
     case SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP:
     reason = SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
+    case SessionRejectReason_INVALID_RESEND_REQUEST_RANGE:
+    reason = SessionRejectReason_INVALID_RESEND_REQUEST_RANGE_TEXT;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
@@ -1521,6 +1534,11 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
       if ( !verify( message ) ) return ;
       m_state.incrNextTargetMsgSeqNum();
     }
+  }
+  catch (InvalidResendRequestRange& e)
+  {
+     m_state.onEvent( e.what() );
+     LOGEX( generateReject( message, SessionRejectReason_INVALID_RESEND_REQUEST_RANGE) );
   }
   catch ( MessageParseError& e )
   { m_state.onEvent( e.what() ); }

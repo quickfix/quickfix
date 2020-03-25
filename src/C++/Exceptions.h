@@ -234,6 +234,16 @@ struct SessionNotFound : public Exception
     : Exception( "Session Not Found", what ) {}
 };
 
+/// Invalid resend request range
+struct InvalidResendRequestRange : public Exception
+{
+  InvalidResendRequestRange( int beginSeqNo, int endSeqNo, const std::string& what="" )
+    : Exception( "Invalid resend request range", what ),
+                 beginSeqNo( beginSeqNo ), endSeqNo(endSeqNo) {}
+  int beginSeqNo;
+  int endSeqNo;
+};
+
 /// IO Error
 struct IOException : public Exception
 {

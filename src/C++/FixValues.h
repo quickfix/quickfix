@@ -167,6 +167,7 @@ namespace FIX
   const int SessionRejectReason_DECRYPTION_PROBLEM = 7;
   const int SessionRejectReason_SIGNATURE_PROBLEM = 8;
   const int SessionRejectReason_COMPID_PROBLEM = 9;
+  const int SessionRejectReason_INVALID_RESEND_REQUEST_RANGE = 98;
   const int SessionRejectReason_OTHER = 99;
   const char MsgDirection_RECEIVE = 'R';
   const char MsgDirection_SEND = 'S';
