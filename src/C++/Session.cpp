@@ -776,7 +776,7 @@ void Session::generateLogon( const Message& aLogon )
   m_state.sentLogon( true );
 }
 
-void Session::verifyResendRequest(int seqNum)
+bool Session::verifyResendRequest(int seqNum)
 {
     SessionState::ResendRange range = m_state.resendRange();
     int start = std::get<0>(range);
@@ -813,6 +813,8 @@ void Session::verifyResendRequest(int seqNum)
 
           generateResendRequestRange(newChunkStartSeqNo, newChunkEndSeqNo);
           m_state.resendRange( start, end, newChunkEndSeqNo == 0 ? end :  newChunkEndSeqNo);
+
+          return (seqNum <= chunkEnd+1); // Msg is ok to process if seqNum <= chunkEnd+1 (current resend request chunk range)
         }
       }
     }
@@ -824,6 +826,7 @@ void Session::verifyResendRequest(int seqNum)
                         " has been satisfied.");
       m_state.resendRange (0, 0);
     }
+    return true;
 }
 
 void Session::generateResendRequestRange(int startSeqNum, int endSeqNum)
@@ -1237,7 +1240,10 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
         header.getField( msgType );
         if ( msgType == MsgType_SequenceReset &&  msg.getFieldIfSet(newSeqNum) )
         {
-          verifyResendRequest(newSeqNum.getValue());
+          if(!verifyResendRequest(newSeqNum.getValue()))
+          {
+            return false;
+          }
         }
         else
         {
