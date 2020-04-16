@@ -343,7 +343,10 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
     isGapFill = gapFillFlag;
   }
 
-  if ( !verify( sequenceReset, isGapFill, isGapFill ) ) return ;
+  if ( !verify( sequenceReset, isGapFill, isGapFill ) )
+  {
+    return ;
+  }
 
   NewSeqNo newSeqNo;
   if ( sequenceReset.getFieldIfSet( newSeqNo ) )
@@ -813,9 +816,8 @@ bool Session::verifyResendRequest(int seqNum)
 
           generateResendRequestRange(newChunkStartSeqNo, newChunkEndSeqNo);
           m_state.resendRange( start, end, newChunkEndSeqNo == 0 ? end :  newChunkEndSeqNo);
-
-          return (seqNum <= chunkEnd+1); // Msg is ok to process if seqNum <= chunkEnd+1 (current resend request chunk range)
         }
+        return (seqNum <= chunkEnd+1); // SequenceResets are ok to process if seqNum <= chunkEnd+1 (current resend request chunk range)
       }
     }
     else if ( seqNum >= end )
@@ -1242,6 +1244,10 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
         {
           if(!verifyResendRequest(newSeqNum.getValue()))
           {
+            m_state.incrNextTargetMsgSeqNum();
+            // Ignore sequence reset and just move next taget + 1
+            // If this is end of resend request then any queued msgs
+            // shall be processed properly
             return false;
           }
         }
