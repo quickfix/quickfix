@@ -779,7 +779,7 @@ void Session::generateLogon( const Message& aLogon )
   m_state.sentLogon( true );
 }
 
-bool Session::verifyResendRequest(int seqNum)
+int Session::verifyResendRequest(int seqNum)
 {
     SessionState::ResendRange range = m_state.resendRange();
     int start = std::get<0>(range);
@@ -789,6 +789,7 @@ bool Session::verifyResendRequest(int seqNum)
     {
       if ( seqNum >= chunkEnd )
       {
+        int nextExpectedSeqNo = chunkEnd + 1;
         if ( chunkEnd == end )
         {
           m_state.onEvent ("ResendRequest for messages FROM: " +
@@ -807,17 +808,23 @@ bool Session::verifyResendRequest(int seqNum)
                     " has been satisfied.");
 
           int newChunkEndSeqNo = std::min(end, chunkEnd + m_maxMessagesInResendRequest);
-          int newChunkStartSeqNo = chunkEnd + 1;
           int remainingAmt = newChunkEndSeqNo - chunkEnd;
           if ( remainingAmt < m_maxMessagesInResendRequest )
           {
             newChunkEndSeqNo = 0; // Request the rest
           }
 
-          generateResendRequestRange(newChunkStartSeqNo, newChunkEndSeqNo);
+          generateResendRequestRange(nextExpectedSeqNo, newChunkEndSeqNo);
           m_state.resendRange( start, end, newChunkEndSeqNo == 0 ? end :  newChunkEndSeqNo);
         }
-        return (seqNum <= chunkEnd+1); // SequenceResets are ok to process if seqNum <= chunkEnd+1 (current resend request chunk range)
+        if (seqNum <= chunkEnd+1) // SequenceResets are ok to process if seqNum <= chunkEnd+1 (current resend request chunk range)
+        {
+          return 0;
+        }
+        else
+        {
+          return nextExpectedSeqNo;
+        }
       }
     }
     else if ( seqNum >= end )
@@ -828,7 +835,7 @@ bool Session::verifyResendRequest(int seqNum)
                         " has been satisfied.");
       m_state.resendRange (0, 0);
     }
-    return true;
+    return 0;
 }
 
 void Session::generateResendRequestRange(int startSeqNum, int endSeqNum)
@@ -1242,12 +1249,19 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
         header.getField( msgType );
         if ( msgType == MsgType_SequenceReset &&  msg.getFieldIfSet(newSeqNum) )
         {
-          if(!verifyResendRequest(newSeqNum.getValue()))
+          int nextTargetMsgSeqNum = verifyResendRequest(newSeqNum.getValue());
+          if(nextTargetMsgSeqNum > 0)
           {
-            m_state.incrNextTargetMsgSeqNum();
-            // Ignore sequence reset and just move next taget + 1
-            // If this is end of resend request then any queued msgs
-            // shall be processed properly
+            m_state.setNextTargetMsgSeqNum( MsgSeqNum( nextTargetMsgSeqNum ) );
+            m_state.onEvent( "Chunk resend request in progress, ignoring SequenceReset message NewSeqNo " + std::to_string(newSeqNum.getValue()) + ", setting NextTargetMsgSeqNum=" + std::to_string(nextTargetMsgSeqNum));
+            
+            UtcTimeStamp now;
+            m_state.lastReceivedTime( now );
+            m_state.testRequest( 0 );
+
+            fromCallback( pMsgType ? *pMsgType : MsgType(), msg, m_sessionID );
+            
+            // Ignore further processing of sequence reset
             return false;
           }
         }
