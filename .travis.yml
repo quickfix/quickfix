@@ -8,4 +8,8 @@ before_script:
  - sudo apt-get install libxml2-dev
  - ./bootstrap
 
-script: ./configure && make && make check
+script:
+ - ./configure
+ - make -j
+ - make check
+ - cat test/test-suite.log
