@@ -39,18 +39,18 @@
                                                             \
   std::vector < std::string > messages;                     \
   object->get( 1, 3, messages );                            \
-  CHECK_EQUAL( 3U, messages.size() );                        \
-  CHECK_EQUAL( logon.toString(), messages[ 0 ] );           \
-  CHECK_EQUAL( heartbeat.toString(), messages[ 1 ] );       \
-  CHECK_EQUAL( newOrderSingle.toString(), messages[ 2 ] );  \
+  ASSERT_EQ( 3U, messages.size() );                        \
+  ASSERT_EQ( logon.toString(), messages[ 0 ] );           \
+  ASSERT_EQ( heartbeat.toString(), messages[ 1 ] );       \
+  ASSERT_EQ( newOrderSingle.toString(), messages[ 2 ] );  \
                                                             \
   object->get( 4, 6, messages );                            \
-  CHECK_EQUAL( 0U, messages.size() );                        \
+  ASSERT_EQ( 0U, messages.size() );                        \
                                                             \
   object->get( 2, 6, messages );                            \
-  CHECK_EQUAL( 2U, messages.size() );                        \
-  CHECK_EQUAL( heartbeat.toString(), messages[ 0 ] );       \
-  CHECK_EQUAL( newOrderSingle.toString(), messages[ 1 ] );
+  ASSERT_EQ( 2U, messages.size() );                        \
+  ASSERT_EQ( heartbeat.toString(), messages[ 0 ] );       \
+  ASSERT_EQ( newOrderSingle.toString(), messages[ 1 ] );
 
 #define CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE        \
   FIX42::ExecutionReport singleQuote;                 \
@@ -71,32 +71,32 @@
                                                       \
   std::vector < std::string > messages;               \
   object->get( 1, 4, messages );                      \
-  CHECK_EQUAL( 4U, messages.size() );                  \
-  CHECK_EQUAL( singleQuote.toString(), messages[0] ); \
-  CHECK_EQUAL( doubleQuote.toString(), messages[1] ); \
-  CHECK_EQUAL( bothQuote.toString(), messages[2] );   \
-  CHECK_EQUAL( escape.toString(), messages[3] );
+  ASSERT_EQ( 4U, messages.size() );                  \
+  ASSERT_EQ( singleQuote.toString(), messages[0] ); \
+  ASSERT_EQ( doubleQuote.toString(), messages[1] ); \
+  ASSERT_EQ( bothQuote.toString(), messages[2] );   \
+  ASSERT_EQ( escape.toString(), messages[3] );
 
 #define CHECK_MESSAGE_STORE_OTHER                       \
   object->setNextSenderMsgSeqNum( 10 );                 \
-  CHECK_EQUAL( 10, object->getNextSenderMsgSeqNum() );  \
+  ASSERT_EQ( 10, object->getNextSenderMsgSeqNum() );  \
   object->setNextTargetMsgSeqNum( 20 );                 \
-  CHECK_EQUAL( 20, object->getNextTargetMsgSeqNum() );  \
+  ASSERT_EQ( 20, object->getNextTargetMsgSeqNum() );  \
   object->incrNextSenderMsgSeqNum();                    \
-  CHECK_EQUAL( 11, object->getNextSenderMsgSeqNum() );  \
+  ASSERT_EQ( 11, object->getNextSenderMsgSeqNum() );  \
   object->incrNextTargetMsgSeqNum();                    \
-  CHECK_EQUAL( 21, object->getNextTargetMsgSeqNum() );  \
+  ASSERT_EQ( 21, object->getNextTargetMsgSeqNum() );  \
                                                         \
   object->setNextSenderMsgSeqNum( 5 );                  \
   object->setNextTargetMsgSeqNum( 6 );
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_RELOAD                      \
-  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() );   \
-  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
+  ASSERT_EQ( 5, object->getNextSenderMsgSeqNum() );   \
+  ASSERT_EQ( 6, object->getNextTargetMsgSeqNum() );
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_REFRESH                   \
   object->refresh();                                  \
-  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() ); \
-  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
+  ASSERT_EQ( 5, object->getNextSenderMsgSeqNum() ); \
+  ASSERT_EQ( 6, object->getNextTargetMsgSeqNum() );

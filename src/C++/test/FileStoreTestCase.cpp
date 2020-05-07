@@ -24,17 +24,14 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <TestHelper.h>
 #include <FileStore.h>
 #include "MessageStoreTestCase.h"
 
 using namespace FIX;
 
-SUITE(FileStoreTests)
-{
-
-struct fileStoreFixture
+struct fileStoreFixture : public ::testing::Test
 {
   fileStoreFixture( bool resetBefore, bool resetAfter )
   : factory( "store" )
@@ -95,56 +92,56 @@ struct resetBeforeAndAfterWithTestFileManager : resetBeforeAndAfterFileStoreFixt
   }
 };
 
-TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, setGet)
+TEST_F(resetBeforeAndAfterFileStoreFixture, setGet)
 {
   CHECK_MESSAGE_STORE_SET_GET;
 }
 
-TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, setGetWithQuote)
+TEST_F(resetBeforeAndAfterFileStoreFixture, setGetWithQuote)
 {
   CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-TEST_FIXTURE(resetBeforeFileStoreFixture, other)
+TEST_F(resetBeforeFileStoreFixture, other)
 {
   CHECK_MESSAGE_STORE_OTHER
 }
 
-TEST_FIXTURE(noResetFileStoreFixture, reload)
+TEST_F(noResetFileStoreFixture, reload)
 {
   CHECK_MESSAGE_STORE_REFRESH
 }
 
-TEST_FIXTURE(resetAfterFileStoreFixture, refresh)
+TEST_F(resetAfterFileStoreFixture, refresh)
 {
   CHECK_MESSAGE_STORE_RELOAD
 }
 
-TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Refresh_DeleteFileStartup_NoException) {
+TEST_F(resetBeforeAndAfterWithTestFileManager, Refresh_DeleteFileStartup_NoException) {
   try {
     object->refresh();
   } catch (Exception& e) {
-    CHECK(false);
+    ASSERT_TRUE(false);
     throw e;
   }
 }
 
-TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Reset_DeleteFileStartup_NoException) {
+TEST_F(resetBeforeAndAfterWithTestFileManager, Reset_DeleteFileStartup_NoException) {
   try {
     object->reset();
   } catch (Exception& e) {
-    CHECK(false);
+    ASSERT_TRUE(false);
     throw e;
   }
 }
 
-TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
+TEST_F(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
   UtcTimeStamp timeStamp = object->getCreationTime();
   UtcTimeStamp currentTimeStamp;
-  CHECK_EQUAL(currentTimeStamp.getYear(), timeStamp.getYear());
+  ASSERT_EQ(currentTimeStamp.getYear(), timeStamp.getYear());
 }
 
-TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreFromDictionary) {
+TEST_F(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreFromDictionary) {
   SessionID sessionID( BeginString( "FIX.4.2" ),
       SenderCompID( "SETGET" ), TargetCompID( "TEST" ), "Test" );
   Dictionary dictionary;
@@ -155,8 +152,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreF
   settings.set(sessionID, dictionary);
   FileStoreFactory fileStoreFactory(settings);
 
-  MessageStore* fileStore = fileStoreFactory.create(sessionID);
-  CHECK(fileStore != nullptr);
-}
-
+  SmartPtr<MessageStore> fileStore;
+  ASSERT_NO_THROW(fileStore.reset(fileStoreFactory.create(sessionID)));
+  ASSERT_TRUE(fileStore.get() != nullptr);
 }

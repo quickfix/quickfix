@@ -26,17 +26,14 @@
 
 #ifdef HAVE_MYSQL
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <TestHelper.h>
 #include <MySQLStore.h>
 #include "MessageStoreTestCase.h"
 
 using namespace FIX;
 
-SUITE(MySQLStoreTests)
-{
-
-struct mySQLStoreFixture
+struct mySQLStoreFixture : public ::testing::Test
 {
   mySQLStoreFixture( bool reset )
   : factory( TestSettings::sessionSettings.get() )
@@ -80,31 +77,29 @@ struct resetMySQLStoreFixture : mySQLStoreFixture
   resetMySQLStoreFixture() : mySQLStoreFixture( true ) {}
 };
 
-TEST_FIXTURE(resetMySQLStoreFixture, setGet)
+TEST_F(resetMySQLStoreFixture, setGet)
 {
   CHECK_MESSAGE_STORE_SET_GET;
 }
 
-TEST_FIXTURE(resetMySQLStoreFixture, setGetWithQuote)
+TEST_F(resetMySQLStoreFixture, setGetWithQuote)
 {
   CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-TEST_FIXTURE(resetMySQLStoreFixture, other)
+TEST_F(resetMySQLStoreFixture, other)
 {
   CHECK_MESSAGE_STORE_OTHER
 }
 
-TEST_FIXTURE(noResetMySQLStoreFixture, reload)
+TEST_F(noResetMySQLStoreFixture, reload)
 {
   CHECK_MESSAGE_STORE_RELOAD
 }
 
-TEST_FIXTURE(noResetMySQLStoreFixture, refresh)
+TEST_F(noResetMySQLStoreFixture, refresh)
 {
   CHECK_MESSAGE_STORE_REFRESH
-}
-
 }
 
 #endif

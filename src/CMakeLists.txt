@@ -5,7 +5,7 @@ if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
 add_executable(at at.cpp getopt.c)
 
 target_include_directories(at PRIVATE ${CMAKE_SOURCE_DIR} 
-  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
+  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/googletest)
   
 target_link_libraries(at ${PROJECT_NAME})
 
@@ -22,10 +22,13 @@ endif()
 
 if (WIN32)
 set (ut_SOURCES 
+${CMAKE_SOURCE_DIR}/src/C++/test/DataDictionaryProviderTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/DataDictionaryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/DictionaryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FieldBaseTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FieldConvertorsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FieldMapTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/FieldTypesTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FileLogTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FileStoreFactoryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FileStoreTestCase.cpp
@@ -44,24 +47,29 @@ ${CMAKE_SOURCE_DIR}/src/C++/test/PostgreSQLStoreTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SessionFactoryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SessionIDTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SessionSettingsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SessionStateTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SessionTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SettingsTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SharedArrayTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SocketAcceptorTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SocketConnectionTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SocketConnectorTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/SocketMonitorTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/SocketServerTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/StringUtilitiesTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/TestHelper.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/TimeRangeTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeOnlyTestCase.cpp
-${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeStampTestCase.cpp)
+${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeStampTestCase.cpp
+${CMAKE_SOURCE_DIR}/src/C++/test/UtilityTestCase.cpp)
 endif()
 
 add_executable(ut ut.cpp getopt.c ${ut_SOURCES})
 
 target_include_directories(ut PRIVATE ${CMAKE_SOURCE_DIR} 
-  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src ${CMAKE_SOURCE_DIR}/src/C++/test/)
+  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/googletest ${CMAKE_SOURCE_DIR}/src/C++/test/)
   
-target_link_libraries(ut ${PROJECT_NAME} UnitTest++)
+target_link_libraries(ut ${PROJECT_NAME})
 
 if (NOT WIN32)
 ADD_CUSTOM_TARGET(ut_target ALL
@@ -76,7 +84,7 @@ endif()
 add_executable(pt pt.cpp getopt.c)
 
 target_include_directories(pt PRIVATE ${CMAKE_SOURCE_DIR} 
-  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
+  ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/googletest)
   
 target_link_libraries(pt ${PROJECT_NAME})
 

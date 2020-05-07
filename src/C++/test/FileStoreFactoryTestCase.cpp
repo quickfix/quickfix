@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FileStore.h>
 #include <Session.h>
 #include <fstream>
@@ -33,10 +33,7 @@
 
 using namespace FIX;
 
-SUITE(FileStoreFactoryTests)
-{
-
-struct callCreateFixture
+struct callCreateFixture : public ::testing::Test
 {
   callCreateFixture() : object( "store" )
   {
@@ -51,25 +48,24 @@ struct callCreateFixture
   FileStoreFactory object;
 };
 
-TEST_FIXTURE(callCreateFixture, callCreate)
+TEST_F(callCreateFixture, callCreate)
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
 
   MessageStore* m = object.create( sessionID );
-  CHECK( typeid( FileStore ) == typeid( *m ) );
+  ASSERT_TRUE( typeid( FileStore ) == typeid( *m ) );
   object.destroy( m );
 
   std::ifstream messageFile( "store/FIX.4.2-FS-FACT.body" );
-  CHECK( !messageFile.fail() );
+  ASSERT_TRUE( !messageFile.fail() );
   messageFile.close();
 
   std::ifstream seqnumsFile( "store/FIX.4.2-FS-FACT.seqnums" );
-  CHECK( !seqnumsFile.fail() );
+  ASSERT_TRUE( !seqnumsFile.fail() );
   seqnumsFile.close();
 
   std::ifstream sessionFile( "store/FIX.4.2-FS-FACT.session" );
-  CHECK( !sessionFile.fail() );
+  ASSERT_TRUE( !sessionFile.fail() );
   sessionFile.close();
 }
-} //namespace FIX

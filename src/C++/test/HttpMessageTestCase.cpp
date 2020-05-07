@@ -24,16 +24,13 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <HttpMessage.h>
 #include <Utility.h>
 
 using namespace FIX;
 
-SUITE(HttpMessageTests)
-{
-
-TEST(setString)
+TEST(HttpMessageTests, setString)
 {
   HttpMessage object;
 
@@ -53,30 +50,28 @@ TEST(setString)
     "GEB /some/url HTTB/1.0\r\nContent Type: text/html\r\n\r\n";
 
   object.setString( strGood1 );
-  CHECK_EQUAL( "/", object.getRootString() );
-  CHECK_EQUAL( 0U, object.getParameters().size() );
+  ASSERT_EQ( "/", object.getRootString() );
+  ASSERT_EQ( 0U, object.getParameters().size() );
 
   object.setString( strGood2 );
-  CHECK_EQUAL( "/another/url", object.getRootString() );
-  CHECK_EQUAL( 0U, object.getParameters().size() );
+  ASSERT_EQ( "/another/url", object.getRootString() );
+  ASSERT_EQ( 0U, object.getParameters().size() );
 
   object.setString( strGoodWithParameters );
-  CHECK_EQUAL( "/some/url", object.getRootString() );
-  CHECK_EQUAL( 3U, object.getParameters().size() );
-  CHECK_EQUAL( "one", object.getParameters().find("p1")->second );
-  CHECK_EQUAL( "two", object.getParameters().find("p2")->second );
-  CHECK_EQUAL( "three", object.getParameters().find("p3")->second );
+  ASSERT_EQ( "/some/url", object.getRootString() );
+  ASSERT_EQ( 3U, object.getParameters().size() );
+  ASSERT_EQ( "one", object.getParameters().find("p1")->second );
+  ASSERT_EQ( "two", object.getParameters().find("p2")->second );
+  ASSERT_EQ( "three", object.getParameters().find("p3")->second );
 
   object.setString( strGoodWithEmptyParameters );
-  CHECK_EQUAL( "/some/url", object.getRootString() );
-  CHECK_EQUAL( 3U, object.getParameters().size() );
-  CHECK_EQUAL( "", object.getParameters().find("p1")->second );
-  CHECK_EQUAL( "", object.getParameters().find("p2")->second );
-  CHECK_EQUAL( "", object.getParameters().find("p3")->second );
+  ASSERT_EQ( "/some/url", object.getRootString() );
+  ASSERT_EQ( 3U, object.getParameters().size() );
+  ASSERT_EQ( "", object.getParameters().find("p1")->second );
+  ASSERT_EQ( "", object.getParameters().find("p2")->second );
+  ASSERT_EQ( "", object.getParameters().find("p3")->second );
 
-  CHECK_THROW( object.setString( strBad1 ), InvalidMessage );
-  CHECK_THROW( object.setString( strBad2 ), InvalidMessage );
-  CHECK_THROW( object.setString( strBad3 ), InvalidMessage );
-}
-
+  ASSERT_THROW( object.setString( strBad1 ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBad2 ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBad3 ), InvalidMessage );
 }

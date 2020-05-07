@@ -24,71 +24,66 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Utility.h>
 
 using namespace FIX;
 
-SUITE(StringUtilitiesTests)
-{
-
-TEST(replace)
+TEST(StringUtilitiesTests, replace)
 {
   std::string object = "replace the A in this string with a B";
   string_replace( "A", "B", object );
-  CHECK_EQUAL( "replace the B in this string with a B", object );
+  ASSERT_EQ( "replace the B in this string with a B", object );
   string_replace( "B", "A", object );
-  CHECK_EQUAL( "replace the A in this string with a A", object );
+  ASSERT_EQ( "replace the A in this string with a A", object );
   string_replace( "A", "AB", object );
-  CHECK_EQUAL( "replace the AB in this string with a AB", object );
+  ASSERT_EQ( "replace the AB in this string with a AB", object );
   string_replace( "AB", "ABCDE", object );
-  CHECK_EQUAL( "replace the ABCDE in this string with a ABCDE", object );
+  ASSERT_EQ( "replace the ABCDE in this string with a ABCDE", object );
   string_replace( "ABCDE", "AB", object );
-  CHECK_EQUAL( "replace the AB in this string with a AB", object );
+  ASSERT_EQ( "replace the AB in this string with a AB", object );
 }
 
-TEST(toUpper)
+TEST(StringUtilitiesTests, toUpper)
 {
   std::string object = "turn this to upper case";
-  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  ASSERT_EQ( "TURN THIS TO UPPER CASE", string_toUpper(object) );
   object = "Turn This To Upper Case";
-  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  ASSERT_EQ( "TURN THIS TO UPPER CASE", string_toUpper(object) );
   object = "TURN THIS TO UPPER CASE";
-  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  ASSERT_EQ( "TURN THIS TO UPPER CASE", string_toUpper(object) );
   object = "!Turn1 This% To* Upper; Case5";
-  CHECK_EQUAL( "!TURN1 THIS% TO* UPPER; CASE5", string_toUpper(object) );
+  ASSERT_EQ( "!TURN1 THIS% TO* UPPER; CASE5", string_toUpper(object) );
 }
 
-TEST(toLower)
+TEST(StringUtilitiesTests, toLower)
 {
   std::string object = "TURN THIS TO LOWER CASE";
-  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  ASSERT_EQ( "turn this to lower case", string_toLower(object) );
   object = "Turn This To Lower Case";
-  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  ASSERT_EQ( "turn this to lower case", string_toLower(object) );
   object = "turn this to lower case";
-  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  ASSERT_EQ( "turn this to lower case", string_toLower(object) );
   object = "!Turn1 This% To* Lower; Case5";
-  CHECK_EQUAL( "!turn1 this% to* lower; case5", string_toLower(object) );
+  ASSERT_EQ( "!turn1 this% to* lower; case5", string_toLower(object) );
 }
 
-TEST(strip)
+TEST(StringUtilitiesTests, strip)
 {
   std::string object = "strip this";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = " strip this";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "  strip this";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "  \tstrip this\n\r";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "strip this ";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "strip this  ";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "  strip this  ";
-  CHECK_EQUAL( "strip this", string_strip(object) );
+  ASSERT_EQ( "strip this", string_strip(object) );
   object = "\t\n\r  strip this  \t\n\r";
-  CHECK_EQUAL( "strip this", string_strip(object) );
-}
-
+  ASSERT_EQ( "strip this", string_strip(object) );
 }

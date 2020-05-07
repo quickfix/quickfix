@@ -24,81 +24,78 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FieldTypes.h>
 
 using namespace FIX;
 
-SUITE(FieldTypesTests)
-{
-
-TEST(DateTime_getFraction_NanoSecond)
+TEST(FieldTypesTests, DateTime_getFraction_NanoSecond)
 {
   FIX::DateTime dateTime;
   dateTime.setHMS(1,0,0,123456789,9);
 
-  CHECK_EQUAL(1,dateTime.getFraction(1));
-  CHECK_EQUAL(12,dateTime.getFraction(2));
-  CHECK_EQUAL(123,dateTime.getFraction(3));
-  CHECK_EQUAL(1234,dateTime.getFraction(4));
-  CHECK_EQUAL(12345,dateTime.getFraction(5));
-  CHECK_EQUAL(123456,dateTime.getFraction(6));
-  CHECK_EQUAL(1234567,dateTime.getFraction(7));
-  CHECK_EQUAL(12345678,dateTime.getFraction(8));
-  CHECK_EQUAL(123456789,dateTime.getFraction(9));
-  CHECK_EQUAL(123456789,dateTime.getFraction(25));
+  ASSERT_EQ(1,dateTime.getFraction(1));
+  ASSERT_EQ(12,dateTime.getFraction(2));
+  ASSERT_EQ(123,dateTime.getFraction(3));
+  ASSERT_EQ(1234,dateTime.getFraction(4));
+  ASSERT_EQ(12345,dateTime.getFraction(5));
+  ASSERT_EQ(123456,dateTime.getFraction(6));
+  ASSERT_EQ(1234567,dateTime.getFraction(7));
+  ASSERT_EQ(12345678,dateTime.getFraction(8));
+  ASSERT_EQ(123456789,dateTime.getFraction(9));
+  ASSERT_EQ(123456789,dateTime.getFraction(25));
 
 }
 
-TEST(DateTime_convertToNanos)
+TEST(FieldTypesTests, DateTime_convertToNanos)
 {
 
-  CHECK_EQUAL(1000000000,FIX::DateTime::convertToNanos(1,0));
-  CHECK_EQUAL(100000000,FIX::DateTime::convertToNanos(1,1));
-  CHECK_EQUAL(10000000,FIX::DateTime::convertToNanos(1,2));
-  CHECK_EQUAL(1000000,FIX::DateTime::convertToNanos(1,3));
-  CHECK_EQUAL(100000,FIX::DateTime::convertToNanos(1,4));
-  CHECK_EQUAL(10000,FIX::DateTime::convertToNanos(1,5));
-  CHECK_EQUAL(1000,FIX::DateTime::convertToNanos(1,6));
-  CHECK_EQUAL(100,FIX::DateTime::convertToNanos(1,7));
-  CHECK_EQUAL(10,FIX::DateTime::convertToNanos(1,8));
-  CHECK_EQUAL(1,FIX::DateTime::convertToNanos(1,9));
-  CHECK_EQUAL(1,FIX::DateTime::convertToNanos(1,25));
+  ASSERT_EQ(1000000000,FIX::DateTime::convertToNanos(1,0));
+  ASSERT_EQ(100000000,FIX::DateTime::convertToNanos(1,1));
+  ASSERT_EQ(10000000,FIX::DateTime::convertToNanos(1,2));
+  ASSERT_EQ(1000000,FIX::DateTime::convertToNanos(1,3));
+  ASSERT_EQ(100000,FIX::DateTime::convertToNanos(1,4));
+  ASSERT_EQ(10000,FIX::DateTime::convertToNanos(1,5));
+  ASSERT_EQ(1000,FIX::DateTime::convertToNanos(1,6));
+  ASSERT_EQ(100,FIX::DateTime::convertToNanos(1,7));
+  ASSERT_EQ(10,FIX::DateTime::convertToNanos(1,8));
+  ASSERT_EQ(1,FIX::DateTime::convertToNanos(1,9));
+  ASSERT_EQ(1,FIX::DateTime::convertToNanos(1,25));
 
 }
 
-TEST(DateTime_getTimeT)
+TEST(FieldTypesTests, DateTime_getTimeT)
 {
   FIX::DateTime dateTime;
   dateTime.setYMD(2019,5,6);
   dateTime.setHMS(1,0,0,123456789,9);
 
-  CHECK_EQUAL(1557104400, dateTime.getTimeT());
+  ASSERT_EQ(1557104400, dateTime.getTimeT());
 }
 
-TEST(DateTime_addAndSubtractSeconds)
+TEST(FieldTypesTests, DateTime_addAndSubtractSeconds)
 {
   FIX::DateTime addSeconds(2019,5,6,23,1,1,0);
   addSeconds += 7200; // 2 hours in seconds
-  CHECK_EQUAL(2019, addSeconds.getYear());
-  CHECK_EQUAL(5, addSeconds.getMonth());
-  CHECK_EQUAL(7, addSeconds.getDay());
-  CHECK_EQUAL(1, addSeconds.getHour());
-  CHECK_EQUAL(1, addSeconds.getMinute());
-  CHECK_EQUAL(1, addSeconds.getSecond());
+  ASSERT_EQ(2019, addSeconds.getYear());
+  ASSERT_EQ(5, addSeconds.getMonth());
+  ASSERT_EQ(7, addSeconds.getDay());
+  ASSERT_EQ(1, addSeconds.getHour());
+  ASSERT_EQ(1, addSeconds.getMinute());
+  ASSERT_EQ(1, addSeconds.getSecond());
 
   FIX::DateTime subtractSeconds(2019,5,6,1,1,1,0);
   subtractSeconds += -7200; // 2 hours in seconds
 
-  CHECK_EQUAL(2019, subtractSeconds.getYear());
-  CHECK_EQUAL(5, subtractSeconds.getMonth());
-  CHECK_EQUAL(5, subtractSeconds.getDay());
-  CHECK_EQUAL(23, subtractSeconds.getHour());
-  CHECK_EQUAL(1, subtractSeconds.getMinute());
-  CHECK_EQUAL(1, subtractSeconds.getSecond());
+  ASSERT_EQ(2019, subtractSeconds.getYear());
+  ASSERT_EQ(5, subtractSeconds.getMonth());
+  ASSERT_EQ(5, subtractSeconds.getDay());
+  ASSERT_EQ(23, subtractSeconds.getHour());
+  ASSERT_EQ(1, subtractSeconds.getMinute());
+  ASSERT_EQ(1, subtractSeconds.getSecond());
 }
 
-TEST(DateTime_fromLocalTimeT)
+TEST(FieldTypesTests, DateTime_fromLocalTimeT)
 {
   time_t currTime;
   currTime = time(NULL);
@@ -107,17 +104,17 @@ TEST(DateTime_fromLocalTimeT)
   FIX::DateTime nonFractionalDateTime;
   nonFractionalDateTime = FIX::DateTime::fromLocalTimeT(currTime);
 
-  CHECK(nonFractionalDateTime.m_date > 0);
-  CHECK(nonFractionalDateTime.m_time > 0);
+  ASSERT_TRUE(nonFractionalDateTime.m_date > 0);
+  ASSERT_TRUE(nonFractionalDateTime.m_time > 0);
 
   FIX::DateTime fractionalDateTime = FIX::DateTime::fromLocalTimeT(currTime,1,1);
 
-  CHECK(fractionalDateTime.m_date > 0);
-  CHECK(fractionalDateTime.m_time > 0);
+  ASSERT_TRUE(fractionalDateTime.m_date > 0);
+  ASSERT_TRUE(fractionalDateTime.m_time > 0);
 
 }
 
-TEST(DateTime_fromTm)
+TEST(FieldTypesTests, DateTime_fromTm)
 {
   tm expectedTm;
   expectedTm.tm_year = 119;
@@ -129,15 +126,15 @@ TEST(DateTime_fromTm)
 
   FIX::DateTime dateTime = FIX::DateTime::fromTm(expectedTm);
 
-  CHECK_EQUAL(2019, dateTime.getYear());
-  CHECK_EQUAL(6, dateTime.getMonth());
-  CHECK_EQUAL(6, dateTime.getDate());
-  CHECK_EQUAL(1, dateTime.getHour());
-  CHECK_EQUAL(1, dateTime.getMinute());
-  CHECK_EQUAL(1, dateTime.getSecond());
+  ASSERT_EQ(2019, dateTime.getYear());
+  ASSERT_EQ(6, dateTime.getMonth());
+  ASSERT_EQ(6, dateTime.getDate());
+  ASSERT_EQ(1, dateTime.getHour());
+  ASSERT_EQ(1, dateTime.getMinute());
+  ASSERT_EQ(1, dateTime.getSecond());
 }
 
-TEST(DateTime_nowLocal)
+TEST(FieldTypesTests, DateTime_nowLocal)
 {
   time_t currTime;
   currTime = time(NULL);
@@ -145,11 +142,11 @@ TEST(DateTime_nowLocal)
 
   FIX::DateTime localTime = FIX::DateTime::nowLocal();
 
-  CHECK(localTime.m_date > 0);
-  CHECK(localTime.m_time > 0);
+  ASSERT_TRUE(localTime.m_date > 0);
+  ASSERT_TRUE(localTime.m_time > 0);
 }
 
-TEST(LocalTimeStamp_fromTm)
+TEST(FieldTypesTests, LocalTimeStamp_fromTm)
 {
   time_t currTime;
   currTime = time(NULL);
@@ -157,14 +154,6 @@ TEST(LocalTimeStamp_fromTm)
 
   FIX::LocalTimeStamp timestamp(currTime);
 
-  CHECK(timestamp.m_date > 0);
-  CHECK(timestamp.m_time > 0);
+  ASSERT_TRUE(timestamp.m_date > 0);
+  ASSERT_TRUE(timestamp.m_time > 0);
 }
-
-
-
-
-
-}
-
-

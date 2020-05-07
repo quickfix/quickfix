@@ -21,7 +21,6 @@ Makefile
 *.so
 *.dylib
 ChangeLog
-UnitTest++/TestUnitTest++
 aclocal.m4
 config.h
 config.log

@@ -24,15 +24,12 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FieldTypes.h>
 
 using namespace FIX;
 
-SUITE(UtcTimeOnlyTests)
-{
-
-TEST(compare)
+TEST(UtcTimeOnlyTests, compare)
 {
   UtcTimeOnly object;
   object.setHour( 12 );
@@ -46,24 +43,22 @@ TEST(compare)
   lesserObject.setSecond( 5 );
   lesserObject.setMillisecond( 0 );
 
-  CHECK( lesserObject < object );
-  CHECK( lesserObject <= object );
-  CHECK( object > lesserObject );
-  CHECK( object >= lesserObject );
+  ASSERT_TRUE( lesserObject < object );
+  ASSERT_TRUE( lesserObject <= object );
+  ASSERT_TRUE( object > lesserObject );
+  ASSERT_TRUE( object >= lesserObject );
 
   UtcTimeOnly greaterObject;
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );
   greaterObject.setMillisecond( 0 );
-  CHECK( greaterObject > object );
-  CHECK( greaterObject >= object );
-  CHECK( object < greaterObject );
-  CHECK( object <= greaterObject );
+  ASSERT_TRUE( greaterObject > object );
+  ASSERT_TRUE( greaterObject >= object );
+  ASSERT_TRUE( object < greaterObject );
+  ASSERT_TRUE( object <= greaterObject );
 
-  CHECK( object <= object );
-  CHECK( object >= object );
-  CHECK( object == object );
-}
-
+  ASSERT_TRUE( object <= object );
+  ASSERT_TRUE( object >= object );
+  ASSERT_TRUE( object == object );
 }

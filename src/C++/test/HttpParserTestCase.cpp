@@ -24,17 +24,14 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <HttpParser.h>
 #include <string>
 #include <sstream>
 
 using namespace FIX;
 
-SUITE(HttpParserTests)
-{
-
-struct readHttpMessageFixture
+struct readHttpMessageFixture : public ::testing::Test
 {
   readHttpMessageFixture()
   {
@@ -51,20 +48,20 @@ struct readHttpMessageFixture
   HttpParser object;
 };
 
-TEST_FIXTURE(readHttpMessageFixture, readHttpMessage)
+TEST_F(readHttpMessageFixture, readHttpMessage)
 {
   std::string readHttpMsg;
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg1, readHttpMsg );
+  ASSERT_TRUE( object.readHttpMessage( readHttpMsg ) );
+  ASSERT_EQ( httpMsg1, readHttpMsg );
 
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg2, readHttpMsg );
+  ASSERT_TRUE( object.readHttpMessage( readHttpMsg ) );
+  ASSERT_EQ( httpMsg2, readHttpMsg );
 
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg3, readHttpMsg );
+  ASSERT_TRUE( object.readHttpMessage( readHttpMsg ) );
+  ASSERT_EQ( httpMsg3, readHttpMsg );
 }
 
-struct readPartialHttpMessageFixture
+struct readPartialHttpMessageFixture : public ::testing::Test
 {
   readPartialHttpMessageFixture()
   {
@@ -78,13 +75,11 @@ struct readPartialHttpMessageFixture
   HttpParser object;
 };
 
-TEST_FIXTURE(readPartialHttpMessageFixture, readPartialHttpMessage)
+TEST_F(readPartialHttpMessageFixture, readPartialHttpMessage)
 {
   std::string readPartHttpMsg;
-  CHECK( !object.readHttpMessage( readPartHttpMsg ) );
+  ASSERT_TRUE( !object.readHttpMessage( readPartHttpMsg ) );
   object.addToStream( partHttpMsg2 );
-  CHECK( object.readHttpMessage( readPartHttpMsg ) );
-  CHECK_EQUAL( ( partHttpMsg1 + partHttpMsg2 ), readPartHttpMsg );
-}
-
+  ASSERT_TRUE( object.readHttpMessage( readPartHttpMsg ) );
+  ASSERT_EQ( ( partHttpMsg1 + partHttpMsg2 ), readPartHttpMsg );
 }

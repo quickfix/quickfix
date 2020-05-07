@@ -24,16 +24,13 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <SessionSettings.h>
 #include <sstream>
 
 using namespace FIX;
 
-SUITE(SessionSettingsTests)
-{
-
-TEST(readFromIstream)
+TEST(SessionSettingsTests, readFromIstream)
 {
   SessionSettings object;
   std::string configuration =
@@ -100,35 +97,35 @@ TEST(readFromIstream)
                       TargetCompID( "TW" ),
                       "QUAL2" );
 
-  CHECK_EQUAL( "", object.get().getString( "Empty" ) );
+  ASSERT_EQ( "", object.get().getString( "Empty" ) );
 
-  CHECK_EQUAL( 4, object.get().getInt( "Value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "Value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "Value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "Value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "Value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "Value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "Value" ) );
+  ASSERT_EQ( 4, object.get().getInt( "Value" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "Value" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "Value" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "Value" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "Value" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "Value" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "Value" ) );
 
   // case insensitivity
-  CHECK_EQUAL( 4, object.get().getInt( "value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "value" ) );
+  ASSERT_EQ( 4, object.get().getInt( "value" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "value" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "value" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "value" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "value" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "value" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "value" ) );
 
-  CHECK_EQUAL( 4, object.get().getInt( "VALUE" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 4, object.get().getInt( "VALUE" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "VALUE" ) );
 }
 
-TEST(readFromIstreamDefaultLast)
+TEST(SessionSettingsTests, readFromIstreamDefaultLast)
 {
   SessionSettings object;
   std::string configuration =
@@ -191,35 +188,35 @@ TEST(readFromIstreamDefaultLast)
                       TargetCompID( "TW" ),
                       "QUAL2" );
 
-  CHECK_EQUAL( "", object.get().getString( "Empty" ) );
+  ASSERT_EQ( "", object.get().getString( "Empty" ) );
 
-  CHECK_EQUAL( 4, object.get().getInt( "Value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "Value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "Value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "Value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "Value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "Value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "Value" ) );
+  ASSERT_EQ( 4, object.get().getInt( "Value" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "Value" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "Value" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "Value" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "Value" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "Value" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "Value" ) );
 
   // case insensitivity
-  CHECK_EQUAL( 4, object.get().getInt( "value" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "value" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "value" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "value" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "value" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "value" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "value" ) );
+  ASSERT_EQ( 4, object.get().getInt( "value" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "value" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "value" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "value" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "value" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "value" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "value" ) );
 
-  CHECK_EQUAL( 4, object.get().getInt( "VALUE" ) );
-  CHECK_EQUAL( 1, object.get( session1 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 2, object.get( session2 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 3, object.get( session3 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 4, object.get( session4 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 5, object.get( session5 ).getInt( "VALUE" ) );
-  CHECK_EQUAL( 6, object.get( session6 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 4, object.get().getInt( "VALUE" ) );
+  ASSERT_EQ( 1, object.get( session1 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 2, object.get( session2 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 3, object.get( session3 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 4, object.get( session4 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 5, object.get( session5 ).getInt( "VALUE" ) );
+  ASSERT_EQ( 6, object.get( session6 ).getInt( "VALUE" ) );
 }
 
-TEST(readFromIstreamDuplicateSession)
+TEST(SessionSettingsTests, readFromIstreamDuplicateSession)
 {
   SessionSettings object;
   std::string configuration =
@@ -237,10 +234,10 @@ TEST(readFromIstreamDuplicateSession)
 
   std::istringstream input( configuration );
 
-  CHECK_THROW( input >> object, ConfigError );
+  ASSERT_THROW( input >> object, ConfigError );
 }
 
-TEST(stripSpaces)
+TEST(SessionSettingsTests, stripSpaces)
 {
   SessionSettings object;
   std::string configuration =
@@ -277,29 +274,29 @@ TEST(stripSpaces)
                       SenderCompID( "ISLD" ),
                       TargetCompID( "TW" ) );
 
-  CHECK_EQUAL( "StringValue1", object.get().getString( "StringValue1" ) );
-  CHECK_EQUAL( "StringValue2", object.get().getString( "StringValue2" ) );
-  CHECK_EQUAL( "StringValue3", object.get().getString( "StringValue3" ) );
-  CHECK_EQUAL( "StringValue4", object.get().getString( "StringValue4" ) );
-  CHECK_EQUAL( "StringValue5", object.get().getString( "StringValue5" ) );
-  CHECK_EQUAL( "StringValue6", object.get().getString( "StringValue6" ) );
+  ASSERT_EQ( "StringValue1", object.get().getString( "StringValue1" ) );
+  ASSERT_EQ( "StringValue2", object.get().getString( "StringValue2" ) );
+  ASSERT_EQ( "StringValue3", object.get().getString( "StringValue3" ) );
+  ASSERT_EQ( "StringValue4", object.get().getString( "StringValue4" ) );
+  ASSERT_EQ( "StringValue5", object.get().getString( "StringValue5" ) );
+  ASSERT_EQ( "StringValue6", object.get().getString( "StringValue6" ) );
 
-  CHECK_EQUAL( 1, object.get().getInt( "IntegerValue1" ) );
-  CHECK_EQUAL( 2, object.get().getInt( "IntegerValue2" ) );
-  CHECK_EQUAL( 3, object.get().getInt( "IntegerValue3" ) );
-  CHECK_EQUAL( 4, object.get().getInt( "IntegerValue4" ) );
-  CHECK_EQUAL( 5, object.get().getInt( "IntegerValue5" ) );
-  CHECK_EQUAL( 6, object.get().getInt( "IntegerValue6" ) );
+  ASSERT_EQ( 1, object.get().getInt( "IntegerValue1" ) );
+  ASSERT_EQ( 2, object.get().getInt( "IntegerValue2" ) );
+  ASSERT_EQ( 3, object.get().getInt( "IntegerValue3" ) );
+  ASSERT_EQ( 4, object.get().getInt( "IntegerValue4" ) );
+  ASSERT_EQ( 5, object.get().getInt( "IntegerValue5" ) );
+  ASSERT_EQ( 6, object.get().getInt( "IntegerValue6" ) );
 
-  CHECK_EQUAL( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
-  CHECK_EQUAL( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );
-  CHECK_EQUAL( 3.3, object.get(session1).getDouble( "DoubleValue3" ) );
-  CHECK_EQUAL( 4.4, object.get(session1).getDouble( "DoubleValue4" ) );
-  CHECK_EQUAL( 5.5, object.get(session1).getDouble( "DoubleValue5" ) );
-  CHECK_EQUAL( 6.6, object.get(session1).getDouble( "DoubleValue6" ) );
+  ASSERT_DOUBLE_EQ( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
+  ASSERT_DOUBLE_EQ( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );
+  ASSERT_DOUBLE_EQ( 3.3, object.get(session1).getDouble( "DoubleValue3" ) );
+  ASSERT_DOUBLE_EQ( 4.4, object.get(session1).getDouble( "DoubleValue4" ) );
+  ASSERT_DOUBLE_EQ( 5.5, object.get(session1).getDouble( "DoubleValue5" ) );
+  ASSERT_DOUBLE_EQ( 6.6, object.get(session1).getDouble( "DoubleValue6" ) );
 }
 
-TEST(writeToOstream)
+TEST(SessionSettingsTests, writeToOstream)
 {
   SessionSettings object;
   std::stringstream istream;
@@ -326,21 +323,21 @@ TEST(writeToOstream)
   
   std::stringstream ostream;
   ostream << object;
-  CHECK_EQUAL( istream.str(), ostream.str() );
+  ASSERT_EQ( istream.str(), ostream.str() );
 }
 
-TEST(validate)
+TEST(SessionSettingsTests, validate)
 {
   SessionSettings object;
   SessionID sessionID = SessionID( "FIX.4.2", "SenderCompID", "TargetCompID" );
 
   // ConnectionType not set
   Dictionary dictionary;    
-  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
+  ASSERT_THROW( object.set( sessionID, dictionary ), ConfigError );
 
   // ConnectionType set to invalid value
   dictionary.setString( CONNECTION_TYPE, "badvalue" );
-  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
+  ASSERT_THROW( object.set( sessionID, dictionary ), ConfigError );
 
   // ConnectionType set to valid value
   dictionary.setString( CONNECTION_TYPE, "initiator" );
@@ -348,7 +345,5 @@ TEST(validate)
 
   // Invalid BeginString
   sessionID = SessionID( "FIX4.2", "SenderCompID", "TargetCompID" );
-  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
-}
-
+  ASSERT_THROW( object.set( sessionID, dictionary ), ConfigError );
 }

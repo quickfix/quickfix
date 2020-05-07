@@ -58,7 +58,7 @@
     <ClCompile>
       <AdditionalOptions>"  /I /src/socket"  "  /I /src/socket"  "  /I /src/socket"  "  /I /src/socket"  %(AdditionalOptions)</AdditionalOptions>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\src\C++;$(SolutionDir)\src\C++\test;$(SolutionDir)\UnitTest++\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\src\C++;$(SolutionDir)\src\C++\test;$(SolutionDir)\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -81,7 +81,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>quickfix.lib;UnitTest++_vs12.lib;ws2_32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>quickfix.lib;ws2_32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -96,7 +96,7 @@
     <ClCompile>
       <AdditionalOptions>"  /I /src/socket"  "  /I /src/socket"  "  /I /src/socket"  "  /I /src/socket"  %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\src\C++;$(SolutionDIr)\src\C++\test;$(SolutionDir)\UnitTest++\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\src\C++;$(SolutionDIr)\src\C++\test;$(SolutionDir)\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -120,7 +120,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>quickfix.lib;UnitTest++_vs12.lib;ws2_32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>quickfix.lib;ws2_32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,16 +130,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="C++\test\DataDictionaryProviderTestCase.cpp" />
     <ClCompile Include="C++\test\DataDictionaryTestCase.cpp" />
     <ClCompile Include="C++\test\DictionaryTestCase.cpp" />
     <ClCompile Include="C++\test\FieldBaseTestCase.cpp" />
     <ClCompile Include="C++\test\FieldConvertorsTestCase.cpp" />
+    <ClCompile Include="C++\test\FieldMapTestCase.cpp" />
+    <ClCompile Include="C++\test\FieldTypesTestCase.cpp" />
     <ClCompile Include="C++\test\FileLogTestCase.cpp" />
     <ClCompile Include="C++\test\FileStoreFactoryTestCase.cpp" />
     <ClCompile Include="C++\test\FileStoreTestCase.cpp" />
     <ClCompile Include="C++\test\FileUtilitiesTestCase.cpp" />
     <ClCompile Include="C++\test\GroupTestCase.cpp" />
     <ClCompile Include="C++\test\SessionFactoryTestCase.cpp" />
+    <ClCompile Include="C++\test\SessionStateTestCase.cpp" />
+    <ClCompile Include="C++\test\SharedArrayTestCase.cpp" />
+    <ClCompile Include="C++\test\SocketConnectionTestCase.cpp" />
+    <ClCompile Include="C++\test\SocketMonitorTestCase.cpp" />
+    <ClCompile Include="C++\test\UtilityTestCase.cpp" />
     <ClCompile Include="getopt.c" />
     <ClCompile Include="C++\test\HttpMessageTestCase.cpp" />
     <ClCompile Include="C++\test\HttpParserTestCase.cpp" />

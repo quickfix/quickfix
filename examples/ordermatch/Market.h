@@ -33,7 +33,7 @@ class Market
 public:
   bool insert( const Order& order );
   void erase( const Order& order );
-  Order& find( Order::Side side, std::string id );
+  Order& find( Order::Side side, const std::string& id );
   bool match( std::queue < Order > & );
   void display() const;
 

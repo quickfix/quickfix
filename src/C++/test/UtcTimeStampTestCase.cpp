@@ -24,15 +24,12 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FieldTypes.h>
 
 using namespace FIX;
 
-SUITE(UtcTimeStampTests)
-{
-
-TEST(compare)
+TEST(UtcTimeStampTests, compare)
 {
   UtcTimeStamp object;
   object.setHour( 12 );
@@ -45,55 +42,53 @@ TEST(compare)
   lesserObject.setMinute( 10 );
   lesserObject.setSecond( 5 );
   lesserObject.setMillisecond( 0 );
-  CHECK( lesserObject < object );
-  CHECK( lesserObject <= object );
-  CHECK( object > lesserObject );
-  CHECK( object >= lesserObject );
+  ASSERT_TRUE( lesserObject < object );
+  ASSERT_TRUE( lesserObject <= object );
+  ASSERT_TRUE( object > lesserObject );
+  ASSERT_TRUE( object >= lesserObject );
 
   UtcTimeStamp greaterObject;
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );
   greaterObject.setMillisecond( 0 );
-  CHECK( greaterObject > object );
-  CHECK( greaterObject >= object );
-  CHECK( object < greaterObject );
-  CHECK( object <= greaterObject );
+  ASSERT_TRUE( greaterObject > object );
+  ASSERT_TRUE( greaterObject >= object );
+  ASSERT_TRUE( object < greaterObject );
+  ASSERT_TRUE( object <= greaterObject );
 
-  CHECK( object <= object );
-  CHECK( object >= object );
-  CHECK( object == object );
+  ASSERT_TRUE( object <= object );
+  ASSERT_TRUE( object >= object );
+  ASSERT_TRUE( object == object );
 }
 
-TEST(subtract)
+TEST(UtcTimeStampTests, subtract)
 {
   UtcTimeStamp sm( 10, 10, 10, 10, 10, 2000 );
   UtcTimeStamp lg( 10, 10, 20, 10, 10, 2000 );
   UtcTimeStamp mid( 10, 10, 15, 10, 10, 2000 );
 
-  CHECK_EQUAL( 0, ( sm - sm ) );
-  CHECK_EQUAL( -10, ( sm - lg ) );
-  CHECK_EQUAL( -5, ( sm - mid ) );
+  ASSERT_EQ( 0, ( sm - sm ) );
+  ASSERT_EQ( -10, ( sm - lg ) );
+  ASSERT_EQ( -5, ( sm - mid ) );
 
-  CHECK_EQUAL( 5, ( mid - sm ) );
-  CHECK_EQUAL( -5, ( mid - lg ) );
-  CHECK_EQUAL( 0, ( mid - mid ) );
+  ASSERT_EQ( 5, ( mid - sm ) );
+  ASSERT_EQ( -5, ( mid - lg ) );
+  ASSERT_EQ( 0, ( mid - mid ) );
 
-  CHECK_EQUAL( 10, ( lg - sm ) );
-  CHECK_EQUAL( 0, ( lg - lg ) );
-  CHECK_EQUAL( 5, ( lg - mid ) );
+  ASSERT_EQ( 10, ( lg - sm ) );
+  ASSERT_EQ( 0, ( lg - lg ) );
+  ASSERT_EQ( 5, ( lg - mid ) );
 }
 
-TEST(addSeconds)
+TEST(UtcTimeStampTests, addSeconds)
 {
   UtcTimeStamp time( 10, 10, 10, 10, 10, 2000 );
   time += DateTime::SECONDS_PER_DAY;
-  CHECK_EQUAL( 10, time.getHour() );
-  CHECK_EQUAL( 10, time.getMinute() );
-  CHECK_EQUAL( 10, time.getSecond() );
-  CHECK_EQUAL( 11, time.getDate() );
-  CHECK_EQUAL( 10, time.getMonth() );
-  CHECK_EQUAL( 2000, time.getYear() );
-}
-
+  ASSERT_EQ( 10, time.getHour() );
+  ASSERT_EQ( 10, time.getMinute() );
+  ASSERT_EQ( 10, time.getSecond() );
+  ASSERT_EQ( 11, time.getDate() );
+  ASSERT_EQ( 10, time.getMonth() );
+  ASSERT_EQ( 2000, time.getYear() );
 }

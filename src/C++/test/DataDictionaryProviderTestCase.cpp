@@ -24,15 +24,12 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <DataDictionaryProvider.h>
 
 using namespace FIX;
 
-SUITE(DataDictionaryProviderTests)
-{
-
-TEST(getApplicationDataDictionary_DataDictionaryNotSet)
+TEST(DataDictionaryProviderTests, getApplicationDataDictionary_DataDictionaryNotSet)
 {
   DataDictionaryProvider dictionaryProvider;
   DataDictionary expected;
@@ -40,8 +37,6 @@ TEST(getApplicationDataDictionary_DataDictionaryNotSet)
   ApplVerID id;
   DataDictionary actual = dictionaryProvider.getApplicationDataDictionary(id);
 
-  CHECK_EQUAL(expected.getVersion(), actual.getVersion());
-  CHECK_EQUAL(expected.getOrderedFields(), actual.getOrderedFields());
-}
-
+  ASSERT_EQ(expected.getVersion(), actual.getVersion());
+  ASSERT_EQ(expected.getOrderedFields(), actual.getOrderedFields());
 }

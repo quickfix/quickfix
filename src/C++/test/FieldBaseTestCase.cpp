@@ -24,57 +24,52 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Field.h>
 
 using namespace FIX;
 
-SUITE(FieldBaseTests)
-{
-
-TEST(set)
+TEST(FieldBaseTests, set)
 {
   FieldBase object( 12, "VALUE" );
   object.setString( "VALUE" );
-  CHECK_EQUAL( "12=VALUE\001", object.getFixString() );
-  CHECK_EQUAL( 542, object.getTotal() );
-  CHECK_EQUAL( 9lu, object.getLength() );
+  ASSERT_EQ( "12=VALUE\001", object.getFixString() );
+  ASSERT_EQ( 542, object.getTotal() );
+  ASSERT_EQ( 9lu, object.getLength() );
   object.setString( "VALUF" );
-  CHECK_EQUAL( "12=VALUF\001", object.getFixString() );
-  CHECK_EQUAL( 543, object.getTotal() );
-  CHECK_EQUAL( 9lu, object.getLength() );
+  ASSERT_EQ( "12=VALUF\001", object.getFixString() );
+  ASSERT_EQ( 543, object.getTotal() );
+  ASSERT_EQ( 9lu, object.getLength() );
   object.setTag( 13 );
-  CHECK_EQUAL( "13=VALUF\001", object.getFixString() );
-  CHECK_EQUAL( 544, object.getTotal() );
-  CHECK_EQUAL( 9lu, object.getLength() );
+  ASSERT_EQ( "13=VALUF\001", object.getFixString() );
+  ASSERT_EQ( 544, object.getTotal() );
+  ASSERT_EQ( 9lu, object.getLength() );
 }
 
-TEST(CharField_getValue_FieldConvertError){
+TEST(FieldBaseTests, CharField_getValue_FieldConvertError){
   CharField charField(1);
-  CHECK_THROW(charField.getValue(), IncorrectDataFormat);
+  ASSERT_THROW(charField.getValue(), IncorrectDataFormat);
 }
 
-TEST(DoubleField_getValue_FieldConvertError){
+TEST(FieldBaseTests, DoubleField_getValue_FieldConvertError){
   DoubleField doubleField(1);
-  CHECK_THROW(doubleField.getValue(), IncorrectDataFormat);
+  ASSERT_THROW(doubleField.getValue(), IncorrectDataFormat);
 }
 
-TEST(BoolField_getValue_FieldConvertError){
+TEST(FieldBaseTests, BoolField_getValue_FieldConvertError){
   BoolField boolField(1);
-  CHECK_THROW(boolField.getValue(), IncorrectDataFormat);
+  ASSERT_THROW(boolField.getValue(), IncorrectDataFormat);
 }
 
-TEST(UtcTimeStampField_getValue_FieldConvertError){
+TEST(FieldBaseTests, UtcTimeStampField_getValue_FieldConvertError){
   UtcTimeStampField utcTimeStampField(1);
   utcTimeStampField.setString("1");
-  CHECK_THROW(utcTimeStampField.getValue(), IncorrectDataFormat);
+  ASSERT_THROW(utcTimeStampField.getValue(), IncorrectDataFormat);
 }
 
-TEST(StringField_ComparisonIsLessThanOrEqualTo){
+TEST(FieldBaseTests, StringField_ComparisonIsLessThanOrEqualTo){
   StringField stringField(1, "string");
-  CHECK(stringField <= "string");
-  CHECK(stringField <= "string_long");
-  CHECK(!(stringField <= "str"));
-}
-
+  ASSERT_TRUE(stringField <= "string");
+  ASSERT_TRUE(stringField <= "string_long");
+  ASSERT_TRUE(!(stringField <= "str"));
 }

@@ -61,15 +61,15 @@
 #include <SocketConnectorTestCase.cpp>
 #include <SocketMonitorTestCase.cpp>
 #include <SocketServerTestCase.cpp>
+#include <StringUtilitiesTestCase.cpp>
 #include <TestHelper.cpp>
 #include <TimeRangeTestCase.cpp>
 #include <UtcTimeOnlyTestCase.cpp>
 #include <UtcTimeStampTestCase.cpp>
 #include <UtilityTestCase.cpp>
-
 #endif
-#include <UnitTest++.h>
-#include <TestReporterStdout.h>
+
+#include <gmock-gtest-all.cc>
 #include "getopt-repl.h"
 #include "TestHelper.h"
 
@@ -106,7 +106,8 @@ int main( int argc, char** argv )
   }
 
   std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
-  int result = UnitTest::RunAllTests();
+  ::testing::InitGoogleTest(&argc, argv);
+  int result = RUN_ALL_TESTS();
   std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
 
   return result;

@@ -24,17 +24,14 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <SessionFactory.h>
 #include <Application.h>
 #include <MessageStore.h>
 
 using namespace FIX;
 
-SUITE(SessionFactoryTests)
-{
-
-TEST(validConfiguration)
+TEST(SessionFactoryTests, validConfiguration)
 {
   NullApplication application;
   MemoryStoreFactory messageStoreFactory;
@@ -50,7 +47,7 @@ TEST(validConfiguration)
   object.destroy(object.create(sessionID, settings));
 }
 
-TEST(startDayAndEndDayAreDifferent)
+TEST(SessionFactoryTests, startDayAndEndDayAreDifferent)
 {
   NullApplication application;
   MemoryStoreFactory messageStoreFactory;
@@ -66,6 +63,4 @@ TEST(startDayAndEndDayAreDifferent)
   settings.setString(END_DAY, "Mon");
   settings.setString(HEARTBTINT, "30");
   object.destroy(object.create(sessionID, settings));
-}
-
 }

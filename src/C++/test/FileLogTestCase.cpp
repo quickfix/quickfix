@@ -24,15 +24,12 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FileLog.h>
 #include <Utility.h>
 #include <fstream>
 
 using namespace FIX;
-
-SUITE(FileLogTests)
-{
 
 void deleteLogSession( std::string sender, std::string target )
 {
@@ -51,7 +48,7 @@ void deleteLogSession( std::string sender, std::string target )
   file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.5.log" ).c_str() );
 }
 
-struct generateFileNameFixture
+struct generateFileNameFixture : public ::testing::Test
 {
   generateFileNameFixture()
   : fileLogFactory( "log", "log" + file_separator() + "backup" ) 
@@ -73,45 +70,44 @@ struct generateFileNameFixture
   FileLog* object;
 };
 
-TEST_FIXTURE(generateFileNameFixture, generateFileName)
+TEST_F(generateFileNameFixture, generateFileName)
 {
   object->onEvent( "EVENT1" );
   object->onIncoming( "INCOMING1" );
   object->onOutgoing( "OUTGOING1" );
 
-  CHECK( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.event.current.log") );
-  CHECK( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.messages.current.log") );
+  ASSERT_TRUE( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.event.current.log") );
+  ASSERT_TRUE( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.messages.current.log") );
 
   object->backup();
   object->onEvent( "EVENT2" );
   object->onIncoming( "INCOMING2" );
   object->onOutgoing( "OUTGOING2" );
 
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.1.log") );
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.1.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.1.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.1.log") );
 
   object->backup();
   object->onEvent( "EVENT3" );
   object->onIncoming( "INCOMING3" );
   object->onOutgoing( "OUTGOING3" );
 
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.2.log") );
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.2.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.2.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.2.log") );
 
   object->backup();
   object->onEvent( "EVENT4" );
   object->onIncoming( "INCOMING4" );
   object->onOutgoing( "OUTGOING4" );
 
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.3.log") );
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.3.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.3.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.3.log") );
 
   object->backup();
   object->onEvent( "EVENT5" );
   object->onIncoming( "INCOMING5" );
   object->onOutgoing( "OUTGOING5" );
 
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.4.log") );
-  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.4.log") );
-}
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.4.log") );
+  ASSERT_TRUE( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.4.log") );
 }

@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <TestHelper.h>
 #include <SocketServer.h>
 #ifdef _MSC_VER
@@ -33,7 +33,7 @@
 
 using namespace FIX;
 
-class socketServerFixture : public SocketServer::Strategy
+class socketServerFixture : public SocketServer::Strategy, public ::testing::Test
 {
 public:
   socketServerFixture() 
@@ -63,83 +63,78 @@ public:
   char buf[ 1 ]; size_t bufLen;
 };
 
-SUITE(SocketServerTests)
-{
-
-TEST_FIXTURE(socketServerFixture, accept)
+TEST_F(socketServerFixture, accept)
 {
   SocketServer object( 0 );
   socket_handle serverS1 = object.add( TestSettings::port, true, true );
   socket_handle clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
-  CHECK( clientS1 > 0 );
+  ASSERT_TRUE( clientS1 > 0 );
   process_sleep(0.1);
   socket_handle s1 = object.accept( serverS1 );
-  CHECK( s1 >= 0 );
+  ASSERT_TRUE( s1 >= 0 );
   object.block( *this );
-  CHECK( object.numConnections() == 1 );
+  ASSERT_TRUE( object.numConnections() == 1 );
 
   socket_handle clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
-  CHECK( clientS2 > 0 );
+  ASSERT_TRUE( clientS2 > 0 );
   process_sleep(0.1);
   socket_handle s2 = object.accept( serverS1 );
-  CHECK( s2 >= 0 );
+  ASSERT_TRUE( s2 >= 0 );
   object.block( *this );
-  CHECK( object.numConnections() == 2 );
+  ASSERT_TRUE( object.numConnections() == 2 );
 
   socket_handle clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
-  CHECK( clientS3 > 0 );
+  ASSERT_TRUE( clientS3 > 0 );
   process_sleep(0.1);
   socket_handle s3 = object.accept( serverS1 );
-  CHECK( s3 >= 0 );
+  ASSERT_TRUE( s3 >= 0 );
   object.block( *this );
-  CHECK( object.numConnections() == 3 );
+  ASSERT_TRUE( object.numConnections() == 3 );
 
   SocketMonitor& monitor = object.getMonitor();
-  CHECK( !monitor.drop( -1 ) );
-  CHECK( object.numConnections() == 3 );
-  CHECK( monitor.drop( s1 ) );
-  CHECK( object.numConnections() == 2 );
-  CHECK( monitor.drop( s2 ) );
-  CHECK( object.numConnections() == 1 );
-  CHECK( monitor.drop( s3 ) );
-  CHECK( object.numConnections() == 0 );
+  ASSERT_TRUE( !monitor.drop( -1 ) );
+  ASSERT_TRUE( object.numConnections() == 3 );
+  ASSERT_TRUE( monitor.drop( s1 ) );
+  ASSERT_TRUE( object.numConnections() == 2 );
+  ASSERT_TRUE( monitor.drop( s2 ) );
+  ASSERT_TRUE( object.numConnections() == 1 );
+  ASSERT_TRUE( monitor.drop( s3 ) );
+  ASSERT_TRUE( object.numConnections() == 0 );
 
   destroySocket( clientS1 );
   destroySocket( clientS2 );
   destroySocket( clientS3 );
 }
 
-TEST_FIXTURE(socketServerFixture, block)
+TEST_F(socketServerFixture, block)
 {
   SocketServer object( 0 );
   object.add( TestSettings::port, true, true );
   socket_handle clientS = createSocket( TestSettings::port, "127.0.0.1" );
-  CHECK( clientS >= 0 );
+  ASSERT_TRUE( clientS >= 0 );
 
   object.block( *this );
-  CHECK_EQUAL( 1, connect );
-  CHECK( connectSocket > 0 );
+  ASSERT_EQ( 1, connect );
+  ASSERT_TRUE( connectSocket > 0 );
 
   send( clientS, "1", 1, 0 );
   object.block( *this );
   object.block( *this );
-  CHECK_EQUAL( 1, data );
-  CHECK_EQUAL( 1U, bufLen );
-  CHECK_EQUAL( '1', *buf );
-  CHECK( dataSocket > 0 );
+  ASSERT_EQ( 1, data );
+  ASSERT_EQ( 1U, bufLen );
+  ASSERT_EQ( '1', *buf );
+  ASSERT_TRUE( dataSocket > 0 );
 
   destroySocket( clientS );
   object.block( *this );
-  CHECK_EQUAL( 1, disconnect );
-  CHECK( disconnectSocket > 0 );
+  ASSERT_EQ( 1, disconnect );
+  ASSERT_TRUE( disconnectSocket > 0 );
 }
 
-TEST_FIXTURE(socketServerFixture, close)
+TEST_F(socketServerFixture, close)
 {
   SocketServer object( 0 );
   object.add( TestSettings::port, true, true );
   object.close();
   object.block( *this );
-}
-
 }

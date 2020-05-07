@@ -24,53 +24,50 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Dictionary.h>
 
 using namespace FIX;
 
-SUITE(DictionaryTests)
-{
-
-TEST(setGetString)
+TEST(DictionaryTests, setGetString)
 {
   Dictionary object;
   object.setString( "STRINGKEY1", "STRINGVALUE1" );
   object.setString( "STRINGKEY2", "stringvalue2" );
 
-  CHECK_EQUAL( "STRINGVALUE1", object.getString( "STRINGKEY1" ) );
-  CHECK_EQUAL( "stringvalue2", object.getString( "STRINGKEY2" )  );
-  CHECK_EQUAL( "STRINGVALUE2", object.getString( "STRINGKEY2", true ) );
-  CHECK_THROW( object.getString( "STRINGKEY3" ), ConfigError );
+  ASSERT_EQ( "STRINGVALUE1", object.getString( "STRINGKEY1" ) );
+  ASSERT_EQ( "stringvalue2", object.getString( "STRINGKEY2" )  );
+  ASSERT_EQ( "STRINGVALUE2", object.getString( "STRINGKEY2", true ) );
+  ASSERT_THROW( object.getString( "STRINGKEY3" ), ConfigError );
 }
 
-TEST(setGetInt)
+TEST(DictionaryTests, setGetInt)
 {
   Dictionary object;
   object.setInt( "INTKEY1", 12 );
   object.setInt( "INTKEY2", 9827362 );
   object.setString( "BADINTKEY", "AB12" );
 
-  CHECK_EQUAL( 12, object.getInt( "INTKEY1" ) );
-  CHECK_EQUAL( 9827362, object.getInt( "INTKEY2" ) );
-  CHECK_THROW( object.getInt( "INTKEY3" ), ConfigError );
-  CHECK_THROW( object.getInt( "BADINTKEY" ), ConfigError );
+  ASSERT_DOUBLE_EQ( 12, object.getInt( "INTKEY1" ) );
+  ASSERT_DOUBLE_EQ( 9827362, object.getInt( "INTKEY2" ) );
+  ASSERT_THROW( object.getInt( "INTKEY3" ), ConfigError );
+  ASSERT_THROW( object.getInt( "BADINTKEY" ), ConfigError );
 }
 
-TEST(setGetDouble)
+TEST(DictionaryTests, setGetDouble)
 {
   Dictionary object;
   object.setDouble( "DOUBLEKEY1", 12.3 );
   object.setDouble( "DOUBLEKEY2", 9827362.9827362 );
   object.setString( "BADDOUBLEKEY", "AB12.3" );
 
-  CHECK_EQUAL( 12.3, object.getDouble( "DOUBLEKEY1" ) );
-  CHECK_EQUAL( 9827362.9827362, object.getDouble( "DOUBLEKEY2" ) );
-  CHECK_THROW( object.getDouble( "DOUBLEKEY3" ), ConfigError );
-  CHECK_THROW( object.getDouble( "BADDOUBLEKEY" ), ConfigError );
+  ASSERT_DOUBLE_EQ( 12.3, object.getDouble( "DOUBLEKEY1" ) );
+  ASSERT_DOUBLE_EQ( 9827362.9827362, object.getDouble( "DOUBLEKEY2" ) );
+  ASSERT_THROW( object.getDouble( "DOUBLEKEY3" ), ConfigError );
+  ASSERT_THROW( object.getDouble( "BADDOUBLEKEY" ), ConfigError );
 }
 
-TEST(setGetDay)
+TEST(DictionaryTests, setGetDay)
 {
   Dictionary object;
   object.setString( "DAY1", "SU" );
@@ -83,15 +80,15 @@ TEST(setGetDay)
   object.setString( "DAYUNKNOWN", "un" );
   object.setString( "DAYBAD", "f" );
 
-  CHECK_EQUAL( 1, object.getDay( "DAY1" ) );
-  CHECK_EQUAL( 2, object.getDay( "DAY2" ) );
-  CHECK_EQUAL( 3, object.getDay( "DAY3" ) );
-  CHECK_EQUAL( 4, object.getDay( "DAY4" ) );
-  CHECK_EQUAL( 5, object.getDay( "DAY5" ) );
-  CHECK_EQUAL( 6, object.getDay( "DAY6" ) );
-  CHECK_EQUAL( 7, object.getDay( "DAY7" ) );
-  CHECK_EQUAL( -1, object.getDay( "DAYUNKNOWN" ) );
-  CHECK_THROW( object.getDay( "DAYBAD" ), ConfigError );
+  ASSERT_EQ( 1, object.getDay( "DAY1" ) );
+  ASSERT_EQ( 2, object.getDay( "DAY2" ) );
+  ASSERT_EQ( 3, object.getDay( "DAY3" ) );
+  ASSERT_EQ( 4, object.getDay( "DAY4" ) );
+  ASSERT_EQ( 5, object.getDay( "DAY5" ) );
+  ASSERT_EQ( 6, object.getDay( "DAY6" ) );
+  ASSERT_EQ( 7, object.getDay( "DAY7" ) );
+  ASSERT_EQ( -1, object.getDay( "DAYUNKNOWN" ) );
+  ASSERT_THROW( object.getDay( "DAYBAD" ), ConfigError );
 
   object.setDay( "NEXTDAY1", 1 );
   object.setDay( "NEXTDAY2", 2 );
@@ -102,16 +99,16 @@ TEST(setGetDay)
   object.setDay( "NEXTDAY7", 7 );
   object.setDay( "NEXTDAYBAD", 8 );
 
-  CHECK_EQUAL( 1, object.getDay( "NEXTDAY1" ) );
-  CHECK_EQUAL( 2, object.getDay( "NEXTDAY2" ) );
-  CHECK_EQUAL( 3, object.getDay( "NEXTDAY3" ) );
-  CHECK_EQUAL( 4, object.getDay( "NEXTDAY4" ) );
-  CHECK_EQUAL( 5, object.getDay( "NEXTDAY5" ) );
-  CHECK_EQUAL( 6, object.getDay( "NEXTDAY6" ) );
-  CHECK_EQUAL( 7, object.getDay( "NEXTDAY7" ) );
+  ASSERT_EQ( 1, object.getDay( "NEXTDAY1" ) );
+  ASSERT_EQ( 2, object.getDay( "NEXTDAY2" ) );
+  ASSERT_EQ( 3, object.getDay( "NEXTDAY3" ) );
+  ASSERT_EQ( 4, object.getDay( "NEXTDAY4" ) );
+  ASSERT_EQ( 5, object.getDay( "NEXTDAY5" ) );
+  ASSERT_EQ( 6, object.getDay( "NEXTDAY6" ) );
+  ASSERT_EQ( 7, object.getDay( "NEXTDAY7" ) );
 }
 
-TEST(merge)
+TEST(DictionaryTests, merge)
 {
   Dictionary object;
   object.setString( "FIRSTKEY", "FIRSTVALUE" );
@@ -120,27 +117,25 @@ TEST(merge)
   second.setString( "SECONDKEY", "SECONDVALUE" );
   second.setString( "THIRDKEY", "SECOND" );
   object.merge( second );
-  CHECK_EQUAL( "FIRSTVALUE", object.getString( "FIRSTKEY" ) );
-  CHECK_EQUAL( "SECONDVALUE", object.getString( "SECONDKEY" ) );
-  CHECK_EQUAL( "FIRST", object.getString( "THIRDKEY" ) );
+  ASSERT_EQ( "FIRSTVALUE", object.getString( "FIRSTKEY" ) );
+  ASSERT_EQ( "SECONDVALUE", object.getString( "SECONDKEY" ) );
+  ASSERT_EQ( "FIRST", object.getString( "THIRDKEY" ) );
 }
 
-TEST(setBool_ValuesSet)
+TEST(DictionaryTests, setBool_ValuesSet)
 {
   Dictionary object;
   object.setBool("test", false);
-  CHECK(!object.getBool("test"));
+  ASSERT_TRUE(!object.getBool("test"));
 
   object.setBool("test", true);
-  CHECK(object.getBool("test"));
+  ASSERT_TRUE(object.getBool("test"));
 }
 
-TEST(getBool_KeyValueNotABoolean)
+TEST(DictionaryTests, getBool_KeyValueNotABoolean)
 {
   Dictionary object;
   object.setString("test", "notABoolean");
 
-  CHECK_THROW(object.getBool("test"), ConfigError);
-}
-
+  ASSERT_THROW(object.getBool("test"), ConfigError);
 }

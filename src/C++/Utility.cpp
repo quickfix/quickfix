@@ -284,14 +284,17 @@ bool socket_isValid(socket_handle socket )
 #endif
 }
 
-#ifndef _MSC_VER
-bool socket_isBad( int s )
+bool socket_isBad(socket_handle s)
 {
+#ifndef _MSC_VER
   struct stat buf;
   fstat( s, &buf );
   return errno == EBADF;
-}
+#else
+  int opt;
+  return socket_getsockopt(s, SO_TYPE, opt) != 0;
 #endif
+}
 
 void socket_invalidate(socket_handle& socket )
 {

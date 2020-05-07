@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Values.h>
 #include <Utility.h>
 #include <fix44/MarketDataRequest.h>
@@ -51,82 +51,79 @@ using namespace FIX;
 using namespace FIX42;
 using namespace FIX44;
 
-SUITE(MessageTests)
-{
-
 static UtcTimeStamp create_tm()
 {
   UtcTimeStamp result = UtcTimeStamp (0, 0, 0, 1, 1, 1900);
   return result;
 }
 
-TEST(identifyType)
+TEST(MessageTests, identifyType)
 {
-  CHECK_EQUAL( "A", FIX::identifyType( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=031\001" ) );
-  CHECK_EQUAL( "AB", FIX::identifyType( "8=FIX.4.2\0019=12\00135=AB\001108=30\00110=031\001" ) );
-  CHECK_THROW( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" ), std::logic_error );
+  ASSERT_EQ( "A", FIX::identifyType( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=031\001" ) );
+  ASSERT_EQ( "AB", FIX::identifyType( "8=FIX.4.2\0019=12\00135=AB\001108=30\00110=031\001" ) );
+  ASSERT_THROW( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" ), std::logic_error );
 }
 
-TEST(isAdminMsgType)
+TEST(MessageTests, isAdminMsgType)
 {
-  CHECK( FIX::Message::isAdminMsgType( FIX::MsgType("A") ));
-  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType("D") ));
-  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType("AE") ));
-  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
+  ASSERT_TRUE( FIX::Message::isAdminMsgType( FIX::MsgType("A") ));
+  ASSERT_TRUE( !FIX::Message::isAdminMsgType( FIX::MsgType("D") ));
+  ASSERT_TRUE( !FIX::Message::isAdminMsgType( FIX::MsgType("AE") ));
+  ASSERT_TRUE( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
 }
 
-TEST(isAdmin)
-{
-  FIX::Message object;
-  CHECK( !object.isAdmin() );
-  object.getHeader().setField( FIX::MsgType("A") );
-  CHECK( object.isAdmin() );
-  object.getHeader().setField( FIX::MsgType("D") );
-  CHECK( !object.isAdmin() );
-}
-
-TEST(isApp)
+TEST(MessageTests, isAdmin)
 {
   FIX::Message object;
-  CHECK( !object.isApp() );
+  ASSERT_TRUE( !object.isAdmin() );
   object.getHeader().setField( FIX::MsgType("A") );
-  CHECK( !object.isApp() );
+  ASSERT_TRUE( object.isAdmin() );
   object.getHeader().setField( FIX::MsgType("D") );
-  CHECK( object.isApp() );
+  ASSERT_TRUE( !object.isAdmin() );
 }
 
-TEST(isEmpty)
+TEST(MessageTests, isApp)
+{
+  FIX::Message object;
+  ASSERT_TRUE( !object.isApp() );
+  object.getHeader().setField( FIX::MsgType("A") );
+  ASSERT_TRUE( !object.isApp() );
+  object.getHeader().setField( FIX::MsgType("D") );
+  ASSERT_TRUE( object.isApp() );
+}
+
+TEST(MessageTests, isEmpty)
 {
   FIX::Message message;
-  CHECK( message.isEmpty() );
+  ASSERT_TRUE( message.isEmpty() );
   message.getHeader().setField( BeginString("FIX.4.2") );
-  CHECK( !message.isEmpty() );
+  ASSERT_TRUE( !message.isEmpty() );
   message.clear();
-  CHECK( message.isEmpty() );
+  ASSERT_TRUE( message.isEmpty() );
   message.setField( Symbol("MSFT") );
-  CHECK( !message.isEmpty() );
+  ASSERT_TRUE( !message.isEmpty() );
   message.clear();
-  CHECK( message.isEmpty() );
+  ASSERT_TRUE( message.isEmpty() );
   message.getTrailer().setField( CheckSum(10) );
-  CHECK( !message.isEmpty() );
+  ASSERT_TRUE( !message.isEmpty() );
   message.clear();
-  CHECK( message.isEmpty() );
+  ASSERT_TRUE( message.isEmpty() );
 }
 
-TEST(getFieldIfPresent)
+TEST(MessageTests, getFieldIfPresent)
 {
   FIX::Message message;
   FIX::MsgType initial("A");
-  CHECK( !message.getFieldIfSet( initial ) );
-  CHECK( initial == FIX::MsgType("A") );
+  ASSERT_TRUE( !message.getFieldIfSet( initial ) );
+  ASSERT_TRUE( initial == FIX::MsgType("A") );
 
   message.setField( initial );
   FIX::MsgType stored;
-  CHECK( message.getFieldIfSet( stored ) );
-  CHECK( stored == initial );
+  ASSERT_TRUE( message.getFieldIfSet( stored ) );
+  ASSERT_TRUE( stored == initial );
 }
 
-TEST(setString)
+TEST(MessageTests, setString)
 {
   static const char* strGood =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
@@ -171,16 +168,16 @@ TEST(setString)
   object.setString( std::string(strNull, 68) );
   object.setString( strNoLengthAndChk, false );
 
-  CHECK_THROW( object.setString( strTrailingCharacter ), InvalidMessage );
-  CHECK_THROW( object.setString( strNoChk ), InvalidMessage );
-  CHECK_THROW( object.setString( strBadChk ), InvalidMessage );
-  CHECK_THROW( object.setString( strBad ), InvalidMessage );
-  CHECK_THROW( object.setString( strBadHeaderOrder ), InvalidMessage );
-  CHECK_THROW( object.setString( strNoLengthAndChk ), InvalidMessage );
-  CHECK_THROW( object.setString( strBadLength ), InvalidMessage );
-  CHECK_THROW( object.setString( strBadChecksum ), InvalidMessage );
-  CHECK_THROW( object.setString( strJunk ), InvalidMessage );
-  CHECK_THROW( object.setString( strEmpty ), InvalidMessage );
+  ASSERT_THROW( object.setString( strTrailingCharacter ), InvalidMessage );
+  ASSERT_THROW( object.setString( strNoChk ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBadChk ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBad ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBadHeaderOrder ), InvalidMessage );
+  ASSERT_THROW( object.setString( strNoLengthAndChk ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBadLength ), InvalidMessage );
+  ASSERT_THROW( object.setString( strBadChecksum ), InvalidMessage );
+  ASSERT_THROW( object.setString( strJunk ), InvalidMessage );
+  ASSERT_THROW( object.setString( strEmpty ), InvalidMessage );
 
   DataDictionary dataDictionary;
   dataDictionary.addHeaderField( 11, false );
@@ -191,12 +188,12 @@ TEST(setString)
   Symbol symbol;
   object.setString( strBodyFields, true, &dataDictionary );
 
-  CHECK( object.getHeader().isSetField( clOrdID ) );
-  CHECK( object.getTrailer().isSetField( transactTime ) );
-  CHECK( object.isSetField( symbol ) );
+  ASSERT_TRUE( object.getHeader().isSetField( clOrdID ) );
+  ASSERT_TRUE( object.getTrailer().isSetField( transactTime ) );
+  ASSERT_TRUE( object.isSetField( symbol ) );
 }
 
-TEST(setStringWithGroup)
+TEST(MessageTests, setStringWithGroup)
 {
   FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX43.xml" );
@@ -208,10 +205,10 @@ TEST(setStringWithGroup)
     "138\001";
 
   object.setString( str, true, &dataDictionary );
-  CHECK_EQUAL( str, object.toString() );
+  ASSERT_EQ( str, object.toString() );
 }
 
-TEST(setStringWithGroupWithoutDelimiter)
+TEST(MessageTests, setStringWithGroupWithoutDelimiter)
 {
   FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX43.xml" );
@@ -223,10 +220,10 @@ TEST(setStringWithGroupWithoutDelimiter)
     "054\001";
 
   object.setString( str, true, &dataDictionary );
-  CHECK_EQUAL( str, object.toString() );
+  ASSERT_EQ( str, object.toString() );
 }
 
-TEST(setStringWithHeaderGroup)
+TEST(MessageTests, setStringWithHeaderGroup)
 {
   FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX43.xml" );
@@ -238,10 +235,10 @@ TEST(setStringWithHeaderGroup)
     "10=079\001";
 
   object.setString( str, true, &dataDictionary );
-  CHECK_EQUAL( str, object.toString() );
+  ASSERT_EQ( str, object.toString() );
 }
 
-TEST(setStringWithHeaderGroupDefinedInComponent)
+TEST(MessageTests, setStringWithHeaderGroupDefinedInComponent)
 {
   FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX44.xml" );
@@ -253,10 +250,10 @@ TEST(setStringWithHeaderGroupDefinedInComponent)
     "10=080\001";
 
   object.setString( str, true, &dataDictionary );
-  CHECK_EQUAL( str, object.toString() );
+  ASSERT_EQ( str, object.toString() );
 }
 
-TEST(setStringWithHighBit)
+TEST(MessageTests, setStringWithHighBit)
 {
   FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
@@ -278,10 +275,10 @@ TEST(setStringWithHighBit)
   std::string str = msg.toString();
 
   object.setString( str, true, &dataDictionary );
-  CHECK_EQUAL( str, object.toString() );
+  ASSERT_EQ( str, object.toString() );
 }
 
-TEST(setStringWithDataFieldWithoutDataLength)
+TEST(MessageTests, setStringWithDataFieldWithoutDataLength)
 {
   FIX::Message object;
   DataDictionary dataDictionary("../spec/FIX42.xml");
@@ -300,10 +297,10 @@ TEST(setStringWithDataFieldWithoutDataLength)
   msg.set(data);
   std::string str = msg.toString();
 
-  CHECK_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
+  ASSERT_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
 }
 
-TEST(setStringWithDataFieldAndGarbageAsDataLength)
+TEST(MessageTests, setStringWithDataFieldAndGarbageAsDataLength)
 {
   FIX::Message object;
   DataDictionary dataDictionary("../spec/FIX42.xml");
@@ -326,10 +323,10 @@ TEST(setStringWithDataFieldAndGarbageAsDataLength)
   msg.set(data);
   std::string str = msg.toString();
 
-  CHECK_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
+  ASSERT_THROW(object.setString(str, true, &dataDictionary), InvalidMessage);
 }
 
-TEST(copy)
+TEST(MessageTests, copy)
 {
   FIX::Message object;
   FIX::MDReqID mdReqID( "MARKETDATAID" );
@@ -351,11 +348,11 @@ TEST(copy)
   FIX::Message copy = object;
   FIX::Message copy2 = copy;
 
-  CHECK_EQUAL( object.toString(), copy.toString() );
-  CHECK_EQUAL( object.toString(), copy2.toString() );
+  ASSERT_EQ( object.toString(), copy.toString() );
+  ASSERT_EQ( object.toString(), copy2.toString() );
 }
 
-TEST(checkSum)
+TEST(MessageTests, checkSum)
 {
   FIX::Message object;
   const std::string str1 =
@@ -372,10 +369,10 @@ TEST(checkSum)
   chksum %= 256;
 
   object.setString( str2, false );
-  CHECK_EQUAL( chksum, object.checkSum() );
+  ASSERT_EQ( chksum, object.checkSum() );
 }
 
-TEST(headerFieldsFirst)
+TEST(MessageTests, headerFieldsFirst)
 {
   FIX::Message object;
   const std::string str =
@@ -384,21 +381,21 @@ TEST(headerFieldsFirst)
     "40=1\00154=1\00160=00000000-00:00:00\00110=000\001";
   object.setString( str, false );
   int field = 0;
-  CHECK( !object.hasValidStructure(field) );
-  CHECK_EQUAL( 52, field );
+  ASSERT_TRUE( !object.hasValidStructure(field) );
+  ASSERT_EQ( 52, field );
 }
 
-TEST(noEndingDelim)
+TEST(MessageTests, noEndingDelim)
 {
   FIX::Message object;
   static const char * str =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218";
 
-  CHECK_THROW( object.setString( str ), InvalidMessage );
+  ASSERT_THROW( object.setString( str ), InvalidMessage );
 }
 
-TEST(outOfOrder)
+TEST(MessageTests, outOfOrder)
 {
   FIX::Message object;
   static const char * str =
@@ -415,10 +412,10 @@ TEST(outOfOrder)
     "54=1\00155=ABCD\00160=00000000-00:00:00\001150=2\001151=0\00110=225\001";
 
   object.setString( str, false );
-  CHECK_EQUAL( expected, object.toString() );
+  ASSERT_EQ( expected, object.toString() );
 }
 
-TEST(getXML)
+TEST(MessageTests, getXML)
 {
   FIX::Message::InitializeXML("../spec/FIX42.xml");
   FIX::Message message;
@@ -466,10 +463,10 @@ TEST(getXML)
           << "  </trailer>" << std::endl
           << "</message>";
 
-  CHECK_EQUAL( stream.str(), message.toXML() );
+  ASSERT_EQ( stream.str(), message.toXML() );
 }
 
-TEST(reverseRoute)
+TEST(MessageTests, reverseRoute)
 {
   FIX::Header header;
   BeginString beginString( "FIX.4.2" );
@@ -496,45 +493,45 @@ TEST(reverseRoute)
   header.setField( deliverToLocationID );
 
   reversedMessage.reverseRoute( header );
-  CHECK_EQUAL( "FIX.4.2", reversedHeader.getField( beginString ).getString() );
-  CHECK_EQUAL( "TargetCompID", reversedHeader.getField( senderCompID ).getString() );
-  CHECK_EQUAL( "SenderCompID", reversedHeader.getField( targetCompID ).getString() );
-  CHECK_EQUAL( "DeliverToCompID", reversedHeader.getField( onBehalfOfCompID ).getString() );
-  CHECK_EQUAL( "DeliverToSubID", reversedHeader.getField( onBehalfOfSubID ).getString() );
-  CHECK_EQUAL( "DeliverToLocationID", reversedHeader.getField( onBehalfOfLocationID ).getString() );
-  CHECK_EQUAL( "OnBehalfOfCompID", reversedHeader.getField( deliverToCompID ).getString() );
-  CHECK_EQUAL( "OnBehalfOfSubID", reversedHeader.getField( deliverToSubID ).getString() );
-  CHECK_EQUAL( "OnBehalfOfLocationID", reversedHeader.getField( deliverToLocationID ).getString() );
+  ASSERT_EQ( "FIX.4.2", reversedHeader.getField( beginString ).getString() );
+  ASSERT_EQ( "TargetCompID", reversedHeader.getField( senderCompID ).getString() );
+  ASSERT_EQ( "SenderCompID", reversedHeader.getField( targetCompID ).getString() );
+  ASSERT_EQ( "DeliverToCompID", reversedHeader.getField( onBehalfOfCompID ).getString() );
+  ASSERT_EQ( "DeliverToSubID", reversedHeader.getField( onBehalfOfSubID ).getString() );
+  ASSERT_EQ( "DeliverToLocationID", reversedHeader.getField( onBehalfOfLocationID ).getString() );
+  ASSERT_EQ( "OnBehalfOfCompID", reversedHeader.getField( deliverToCompID ).getString() );
+  ASSERT_EQ( "OnBehalfOfSubID", reversedHeader.getField( deliverToSubID ).getString() );
+  ASSERT_EQ( "OnBehalfOfLocationID", reversedHeader.getField( deliverToLocationID ).getString() );
 
   header.setField( BeginString("FIX.4.0" ) );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField( onBehalfOfLocationID ) );
-  CHECK( !reversedHeader.isSetField( deliverToLocationID ) );
+  ASSERT_TRUE( !reversedHeader.isSetField( onBehalfOfLocationID ) );
+  ASSERT_TRUE( !reversedHeader.isSetField( deliverToLocationID ) );
 
   header.setField( beginString );
   reversedMessage.reverseRoute( header );
 
   header.removeField( FIX::FIELD::OnBehalfOfCompID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(deliverToCompID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(deliverToCompID) );
   header.removeField( FIX::FIELD::DeliverToCompID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(onBehalfOfCompID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(onBehalfOfCompID) );
   header.removeField( FIX::FIELD::OnBehalfOfSubID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(deliverToSubID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(deliverToSubID) );
   header.removeField( FIX::FIELD::DeliverToSubID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(onBehalfOfSubID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(onBehalfOfSubID) );
   header.removeField( FIX::FIELD::OnBehalfOfLocationID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(deliverToLocationID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(deliverToLocationID) );
   header.removeField( FIX::FIELD::DeliverToLocationID );
   reversedMessage.reverseRoute( header );
-  CHECK( !reversedHeader.isSetField(onBehalfOfLocationID) );
+  ASSERT_TRUE( !reversedHeader.isSetField(onBehalfOfLocationID) );
 }
 
-TEST(addRemoveGroup)
+TEST(MessageTests, addRemoveGroup)
 {
   FIX::Message object;
   object.setField( ListID( "1" ) );
@@ -562,30 +559,30 @@ TEST(addRemoveGroup)
 
   NoOrders noOrders;
 
-  CHECK( object.hasGroup(1, group) );
-  CHECK( object.hasGroup(2, group) );
-  CHECK( object.hasGroup(3, group) );
-  CHECK_EQUAL( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
+  ASSERT_TRUE( object.hasGroup(1, group) );
+  ASSERT_TRUE( object.hasGroup(2, group) );
+  ASSERT_TRUE( object.hasGroup(3, group) );
+  ASSERT_EQ( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  CHECK_EQUAL( 3, noOrders );
+  ASSERT_EQ( 3, noOrders );
 
   object.removeGroup( 2, group );
-  CHECK( object.hasGroup(1, group) );
-  CHECK( object.hasGroup(2, group) );
-  CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 2lu, object.groupCount(FIX::FIELD::NoOrders) );
+  ASSERT_TRUE( object.hasGroup(1, group) );
+  ASSERT_TRUE( object.hasGroup(2, group) );
+  ASSERT_TRUE( !object.hasGroup(3, group) );
+  ASSERT_EQ( 2lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  CHECK_EQUAL( 2, noOrders );
+  ASSERT_EQ( 2, noOrders );
 
   object.removeGroup( group );
-  CHECK( !object.hasGroup(1, group) );
-  CHECK( !object.hasGroup(2, group) );
-  CHECK( !object.hasGroup(3, group) );
-  CHECK_EQUAL( 0lu, object.groupCount(FIX::FIELD::NoOrders) );
-  CHECK( !object.isSetField( noOrders ) );
+  ASSERT_TRUE( !object.hasGroup(1, group) );
+  ASSERT_TRUE( !object.hasGroup(2, group) );
+  ASSERT_TRUE( !object.hasGroup(3, group) );
+  ASSERT_EQ( 0lu, object.groupCount(FIX::FIELD::NoOrders) );
+  ASSERT_TRUE( !object.isSetField( noOrders ) );
 }
 
-TEST(replaceGroup)
+TEST(MessageTests, replaceGroup)
 {
   FIX::Message object;
   object.setField( ListID( "1" ) );
@@ -619,36 +616,36 @@ TEST(replaceGroup)
 
   NoOrders noOrders;
 
-  CHECK( object.hasGroup(1, group) );
-  CHECK( object.hasGroup(2, group) );
-  CHECK( object.hasGroup(3, group) );
-  CHECK_EQUAL( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
+  ASSERT_TRUE( object.hasGroup(1, group) );
+  ASSERT_TRUE( object.hasGroup(2, group) );
+  ASSERT_TRUE( object.hasGroup(3, group) );
+  ASSERT_EQ( 3lu, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  CHECK_EQUAL( 3, noOrders );
+  ASSERT_EQ( 3, noOrders );
 
   ClOrdID clOrdID;
   object.getGroup( 1, group );
-  CHECK_EQUAL( "A", group.getField(clOrdID).getString() );
+  ASSERT_EQ( "A", group.getField(clOrdID).getString() );
   object.getGroup( 2, group );
-  CHECK_EQUAL( "D", group.getField(clOrdID).getString() );
+  ASSERT_EQ( "D", group.getField(clOrdID).getString() );
   object.getGroup( 3, group );
-  CHECK_EQUAL( "C", group.getField(clOrdID).getString() );
+  ASSERT_EQ( "C", group.getField(clOrdID).getString() );
 }
 
-TEST(logonGetString)
+TEST(MessageTests, logonGetString)
 {
   Logon object;
 
   EncryptMethod encryptMethod;
-  CHECK_THROW( object.get( encryptMethod ), std::logic_error );
+  ASSERT_THROW( object.get( encryptMethod ), std::logic_error );
 
   object.set( HeartBtInt( 30 ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=12\00135=A\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=12\00135=A\001"
                "108=30\00110=026\001", object.toString() );
 }
 
-TEST(logonSetString)
+TEST(MessageTests, logonSetString)
 {
   Logon object;
 
@@ -656,20 +653,20 @@ TEST(logonSetString)
     ( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001" ) ;
 
   HeartBtInt heartBtInt;
-  CHECK_EQUAL( 30, object.get( heartBtInt ) );
+  ASSERT_EQ( 30, object.get( heartBtInt ) );
 }
 
-TEST(testRequestGetString)
+TEST(MessageTests, testRequestGetString)
 {
   TestRequest object;
 
   object.set( TestReqID( "23" ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001",
+  ASSERT_EQ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001",
                object.toString() );
 }
 
-TEST(testRequestSetString)
+TEST(MessageTests, testRequestSetString)
 {
   TestRequest object;
 
@@ -677,21 +674,21 @@ TEST(testRequestSetString)
     ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
 
   TestReqID testReqID;
-  CHECK_EQUAL( "23", object.get( testReqID ) );
+  ASSERT_EQ( "23", object.get( testReqID ) );
 }
 
-TEST(resendRequestGetString)
+TEST(MessageTests, resendRequestGetString)
 {
   ResendRequest object;
 
   object.set( BeginSeqNo( 1 ) );
   object.set( EndSeqNo( 233 ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001",
+  ASSERT_EQ( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001",
                object.toString() );
 }
 
-TEST(resendRequestSetString)
+TEST(MessageTests, resendRequestSetString)
 {
   ResendRequest object;
 
@@ -700,23 +697,23 @@ TEST(resendRequestSetString)
 
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
-  CHECK_EQUAL( 1, object.get( beginSeqNo ) );
-  CHECK_EQUAL( 233, object.get( endSeqNo ) );
+  ASSERT_EQ( 1, object.get( beginSeqNo ) );
+  ASSERT_EQ( 233, object.get( endSeqNo ) );
 }
 
-TEST(rejectGetString)
+TEST(MessageTests, rejectGetString)
 {
   Reject object;
 
   object.set( RefSeqNum( 73 ) );
   object.set( Text( "This Message SUCKS!!!" ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
                "58=This Message SUCKS!!!\00110=029\001",
                object.toString() );
 }
 
-TEST(rejectSetString)
+TEST(MessageTests, rejectSetString)
 {
   Reject object;
 
@@ -726,22 +723,22 @@ TEST(rejectSetString)
 
   RefSeqNum refSeqNum;
   Text text;
-  CHECK_EQUAL( 73, object.get( refSeqNum ) );
-  CHECK_EQUAL( "This Message SUCKS!!!", object.get( text ) );
+  ASSERT_EQ( 73, object.get( refSeqNum ) );
+  ASSERT_EQ( "This Message SUCKS!!!", object.get( text ) );
 }
 
-TEST(sequenceResetGetString)
+TEST(MessageTests, sequenceResetGetString)
 {
   SequenceReset object;
 
   object.set( GapFillFlag( true ) );
   object.set( NewSeqNo( 88 ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001",
+  ASSERT_EQ( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001",
                object.toString() );
 }
 
-TEST(sequenceResetSetString)
+TEST(MessageTests, sequenceResetSetString)
 {
   SequenceReset object;
 
@@ -750,21 +747,21 @@ TEST(sequenceResetSetString)
 
   GapFillFlag gapFillFlag;
   NewSeqNo newSeqNo;
-  CHECK( object.get( gapFillFlag ) );
-  CHECK_EQUAL( 88, object.get( newSeqNo ) );
+  ASSERT_TRUE( object.get( gapFillFlag ) );
+  ASSERT_EQ( 88, object.get( newSeqNo ) );
 }
 
-TEST(logoutGetString)
+TEST(MessageTests, logoutGetString)
 {
   Logout object;
 
   object.set( Text( "See Ya..." ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001",
+  ASSERT_EQ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001",
                object.toString() );
 }
 
-TEST(logoutSetString)
+TEST(MessageTests, logoutSetString)
 {
   Logout object;
 
@@ -772,10 +769,10 @@ TEST(logoutSetString)
     ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
 
   Text text;
-  CHECK_EQUAL( "See Ya...", object.get( text ) );
+  ASSERT_EQ( "See Ya...", object.get( text ) );
 }
 
-TEST(newOrderSingleGetString)
+TEST(MessageTests, newOrderSingleGetString)
 {
   NewOrderSingle object;
 
@@ -786,12 +783,12 @@ TEST(newOrderSingleGetString)
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '2' ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
                "54=1\00155=MSFT\00160=19000101-00:00:00\00110=226\001",
                object.toString() );
 }
 
-TEST(newOrderSingleSetString)
+TEST(MessageTests, newOrderSingleSetString)
 {
   NewOrderSingle object;
 
@@ -805,15 +802,15 @@ TEST(newOrderSingleSetString)
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  CHECK_EQUAL( "ORDERID", object.get( clOrdID ) );
-  CHECK_EQUAL( '3', object.get( handlInst ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '1', object.get( side ) );
-  //CHECK_EQUAL( 0, object.get(transactTime) );
-  CHECK_EQUAL( '2', object.get( ordType ) );
+  ASSERT_EQ( "ORDERID", object.get( clOrdID ) );
+  ASSERT_EQ( '3', object.get( handlInst ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '1', object.get( side ) );
+  //ASSERT_EQ( 0, object.get(transactTime) );
+  ASSERT_EQ( '2', object.get( ordType ) );
 }
 
-TEST(executionReportGetString)
+TEST(MessageTests, executionReportGetString)
 {
   ExecutionReport object;
 
@@ -828,13 +825,13 @@ TEST(executionReportGetString)
   object.set( CumQty( 300 ) );
   object.set( AvgPx( 23.4 ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
                "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\00155=MSFT\001"
                "150=2\001151=200\00110=052\001",
                object.toString() );
 }
 
-TEST(executionReportSetString)
+TEST(MessageTests, executionReportSetString)
 {
   ExecutionReport object;
 
@@ -853,19 +850,19 @@ TEST(executionReportSetString)
   LeavesQty leavesQty;
   CumQty cumQty;
   AvgPx avgPx;
-  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
-  CHECK_EQUAL( "EXECID", object.get( execID ) );
-  CHECK_EQUAL( '1', object.get( execTransType ) );
-  CHECK_EQUAL( '2', object.get( execType ) );
-  CHECK_EQUAL( '3', object.get( ordStatus ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '4', object.get( side ) );
-  CHECK_EQUAL( 200, object.get( leavesQty ) );
-  CHECK_EQUAL( 300, object.get( cumQty ) );
-  CHECK_EQUAL( 23.4, object.get( avgPx ) );
+  ASSERT_EQ( "ORDERID", object.get( orderID ) );
+  ASSERT_EQ( "EXECID", object.get( execID ) );
+  ASSERT_EQ( '1', object.get( execTransType ) );
+  ASSERT_EQ( '2', object.get( execType ) );
+  ASSERT_EQ( '3', object.get( ordStatus ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '4', object.get( side ) );
+  ASSERT_DOUBLE_EQ( 200, object.get( leavesQty ) );
+  ASSERT_DOUBLE_EQ( 300, object.get( cumQty ) );
+  ASSERT_DOUBLE_EQ( 23.4, object.get( avgPx ) );
 }
 
-TEST(dontKnowTradeGetString)
+TEST(MessageTests, dontKnowTradeGetString)
 {
   DontKnowTrade object;
 
@@ -875,12 +872,12 @@ TEST(dontKnowTradeGetString)
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '2' ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
                "54=2\00155=MSFT\001127=1\00110=195\001",
                object.toString() );
 }
 
-TEST(dontKnowTradeSetString)
+TEST(MessageTests, dontKnowTradeSetString)
 {
   DontKnowTrade object;
 
@@ -893,14 +890,14 @@ TEST(dontKnowTradeSetString)
   DKReason dKReason;
   Symbol symbol;
   Side side;
-  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
-  CHECK_EQUAL( "EXECID", object.get( execID ) );
-  CHECK_EQUAL( '1', object.get( dKReason ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '2', object.get( side ) );
+  ASSERT_EQ( "ORDERID", object.get( orderID ) );
+  ASSERT_EQ( "EXECID", object.get( execID ) );
+  ASSERT_EQ( '1', object.get( dKReason ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '2', object.get( side ) );
 }
 
-TEST(orderCancelReplaceGetString)
+TEST(MessageTests, orderCancelReplaceGetString)
 {
   OrderCancelReplaceRequest object;
 
@@ -912,13 +909,13 @@ TEST(orderCancelReplaceGetString)
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '3' ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
                "40=3\00141=ORIGINALID\00154=2\00155=MSFT\001"
                "60=19000101-00:00:00\00110=179\001",
                object.toString() );
 }
 
-TEST(orderCancelReplaceRequestSetString)
+TEST(MessageTests, orderCancelReplaceRequestSetString)
 {
   OrderCancelReplaceRequest object;
 
@@ -934,15 +931,15 @@ TEST(orderCancelReplaceRequestSetString)
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
-  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
-  CHECK_EQUAL( '1', object.get( handlInst ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '2', object.get( side ) );
-  CHECK_EQUAL( '3', object.get( ordType ) );
+  ASSERT_EQ( "ORIGINALID", object.get( origClOrdID ) );
+  ASSERT_EQ( "CLIENTID", object.get( clOrdID ) );
+  ASSERT_EQ( '1', object.get( handlInst ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '2', object.get( side ) );
+  ASSERT_EQ( '3', object.get( ordType ) );
 }
 
-TEST(orderCancelRequestGetString)
+TEST(MessageTests, orderCancelRequestGetString)
 {
   OrderCancelRequest object;
 
@@ -952,12 +949,12 @@ TEST(orderCancelRequestGetString)
   object.set( Side( '1' ) );
   object.set( TransactTime( create_tm() ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
                "54=1\00155=MSFT\00160=19000101-00:00:00\00110=009\001",
                object.toString() );
 }
 
-TEST(orderCancelRequestSetString)
+TEST(MessageTests, orderCancelRequestSetString)
 {
   OrderCancelRequest object;
 
@@ -970,13 +967,13 @@ TEST(orderCancelRequestSetString)
   Symbol symbol;
   Side side;
   TransactTime transactTime;
-  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
-  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '1', object.get( side ) );
+  ASSERT_EQ( "ORIGINALID", object.get( origClOrdID ) );
+  ASSERT_EQ( "CLIENTID", object.get( clOrdID ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '1', object.get( side ) );
 }
 
-TEST(XMLNonFIXSetString)
+TEST(MessageTests, XMLNonFIXSetString)
 {
   // XMLnonFIX message
   FIX::Message object;
@@ -1003,11 +1000,11 @@ TEST(XMLNonFIXSetString)
   object.getHeader().getField( dataLen );
   object.getHeader().getField( xmlData );
 
-  CHECK_EQUAL( 413, dataLen.getValue() );
-  CHECK_EQUAL( encodedFIXmessage, xmlData.getValue() );
+  ASSERT_EQ( 413, dataLen.getValue() );
+  ASSERT_EQ( encodedFIXmessage, xmlData.getValue() );
 }
 
-TEST(orderCancelRejectGetString)
+TEST(MessageTests, orderCancelRejectGetString)
 {
   OrderCancelReject object;
 
@@ -1017,12 +1014,12 @@ TEST(orderCancelRejectGetString)
   object.set( OrdStatus( '1' ) );
   object.set( CxlRejResponseTo( '2' ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
                "39=1\00141=ORIGINALID\001434=2\00110=229\001",
                object.toString() );
 }
 
-TEST(orderCancelRejectSetString)
+TEST(MessageTests, orderCancelRejectSetString)
 {
   OrderCancelReject object;
 
@@ -1035,14 +1032,14 @@ TEST(orderCancelRejectSetString)
   OrigClOrdID origClOrdID;
   OrdStatus ordStatus;
   CxlRejResponseTo cxlRejResponseTo;
-  CHECK_EQUAL( "ORDERID", object.get( orderID ) );
-  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
-  CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
-  CHECK_EQUAL( '1', object.get( ordStatus ) );
-  CHECK_EQUAL( '2', object.get( cxlRejResponseTo ) );
+  ASSERT_EQ( "ORDERID", object.get( orderID ) );
+  ASSERT_EQ( "CLIENTID", object.get( clOrdID ) );
+  ASSERT_EQ( "ORIGINALID", object.get( origClOrdID ) );
+  ASSERT_EQ( '1', object.get( ordStatus ) );
+  ASSERT_EQ( '2', object.get( cxlRejResponseTo ) );
 }
 
-TEST(orderStatusRequestGetString)
+TEST(MessageTests, orderStatusRequestGetString)
 {
   OrderStatusRequest object;
 
@@ -1050,12 +1047,12 @@ TEST(orderStatusRequestGetString)
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '1' ) );
 
-  CHECK_EQUAL( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+  ASSERT_EQ( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
                "55=MSFT\00110=141\001",
                object.toString() );
 }
 
-TEST(orderStatusRequestSetString)
+TEST(MessageTests, orderStatusRequestSetString)
 {
   OrderStatusRequest object;
 
@@ -1066,12 +1063,12 @@ TEST(orderStatusRequestSetString)
   ClOrdID clOrdID;
   Symbol symbol;
   Side side;
-  CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
-  CHECK_EQUAL( "MSFT", object.get( symbol ) );
-  CHECK_EQUAL( '1', object.get( side ) );
+  ASSERT_EQ( "CLIENTID", object.get( clOrdID ) );
+  ASSERT_EQ( "MSFT", object.get( symbol ) );
+  ASSERT_EQ( '1', object.get( side ) );
 }
 
-TEST(newOrderListGetString)
+TEST(MessageTests, newOrderListGetString)
 {
   FIX42::NewOrderList object;
 
@@ -1098,7 +1095,7 @@ TEST(newOrderListGetString)
   group.set( Side( '3' ) );
   object.addGroup( group );
 
-  CHECK_EQUAL(
+  ASSERT_EQ(
           ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
             "11=A\00167=1\00155=DELL\00154=1\001"
             "11=B\00167=2\00155=LNUX\00154=2\001"
@@ -1106,7 +1103,7 @@ TEST(newOrderListGetString)
             "394=0\00110=233\001" ), object.toString() );
 }
 
-TEST(newOrderListSetString)
+TEST(MessageTests, newOrderListSetString)
 {
   FIX42::NewOrderList object;
 
@@ -1139,10 +1136,10 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  CHECK_EQUAL( "A", clOrdID.getValue() );
-  CHECK_EQUAL( 1, listSeqNo );
-  CHECK_EQUAL( "DELL", symbol );
-  CHECK_EQUAL( '1', side );
+  ASSERT_EQ( "A", clOrdID.getValue() );
+  ASSERT_EQ( 1, listSeqNo );
+  ASSERT_EQ( "DELL", symbol );
+  ASSERT_EQ( '1', side );
 
   object.getGroup( 2, group );
   group.get( clOrdID );
@@ -1150,10 +1147,10 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  CHECK_EQUAL( "B", clOrdID.getValue() );
-  CHECK_EQUAL( 2, listSeqNo );
-  CHECK_EQUAL( "LNUX", symbol );
-  CHECK_EQUAL( '2', side );
+  ASSERT_EQ( "B", clOrdID.getValue() );
+  ASSERT_EQ( 2, listSeqNo );
+  ASSERT_EQ( "LNUX", symbol );
+  ASSERT_EQ( '2', side );
 
   object.getGroup( 3, group );
   group.get( clOrdID );
@@ -1161,17 +1158,17 @@ TEST(newOrderListSetString)
   group.get( symbol );
   group.get( side );
 
-  CHECK_EQUAL( "C", clOrdID.getValue() );
-  CHECK_EQUAL( 3, listSeqNo );
-  CHECK_EQUAL( "RHAT", symbol );
-  CHECK_EQUAL( '3', side );
+  ASSERT_EQ( "C", clOrdID.getValue() );
+  ASSERT_EQ( 3, listSeqNo );
+  ASSERT_EQ( "RHAT", symbol );
+  ASSERT_EQ( '3', side );
 
   object.setString
     ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
       "394=0\00110=137\001", true, &dataDictionary );
 }
 
-TEST(massQuoteParseGetString)
+TEST(MessageTests, massQuoteParseGetString)
 {
   MassQuote object;
 
@@ -1184,12 +1181,12 @@ TEST(massQuoteParseGetString)
   group.set( EncodedUnderlyingSecurityDesc( "DELL\001COMP\001" ) );
   object.addGroup( group );
 
-  CHECK_EQUAL(
+  ASSERT_EQ(
           ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
             "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001" ), object.toString() );
 }
 
-TEST(massQuoteSetString)
+TEST(MessageTests, massQuoteSetString)
 {
   MassQuote object;
 
@@ -1216,13 +1213,13 @@ TEST(massQuoteSetString)
   group.get( encLen );
   group.get( encDesc );
 
-  CHECK_EQUAL( "A", quoteSetID );
-  CHECK_EQUAL( "DELL", underlyingSymbol );
-  CHECK_EQUAL( 10, encLen );
-  CHECK_EQUAL( "DELL\001COMP\001", encDesc );
+  ASSERT_EQ( "A", quoteSetID );
+  ASSERT_EQ( "DELL", underlyingSymbol );
+  ASSERT_EQ( 10, encLen );
+  ASSERT_EQ( "DELL\001COMP\001", encDesc );
 }
 
-TEST(newOrderCrossGetString)
+TEST(MessageTests, newOrderCrossGetString)
 {
   NewOrderCross object;
 
@@ -1246,12 +1243,12 @@ TEST(newOrderCrossGetString)
 
   object.addGroup( noSides );
 
-  CHECK_EQUAL(
+  ASSERT_EQ(
           ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
             "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001" ), object.toString() );
 }
 
-TEST(newOrderCrossSetString)
+TEST(MessageTests, newOrderCrossSetString)
 {
   NewOrderCross object;
 
@@ -1267,7 +1264,7 @@ TEST(newOrderCrossSetString)
 
   FIX::Side side;
   noSides.get( side );
-  CHECK_EQUAL( FIX::Side_BUY, side );
+  ASSERT_EQ( FIX::Side_BUY, side );
 
   FIX::PartyID partyID;
   FIX::PartyIDSource partyIDSource;
@@ -1278,24 +1275,24 @@ TEST(newOrderCrossSetString)
   noPartyIDs.get( partyID );
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
-  CHECK_EQUAL( "PARTY1", partyID );
-  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
-  CHECK_EQUAL( FIX::PartyRole_CLIENT_ID, partyRole );
+  ASSERT_EQ( "PARTY1", partyID );
+  ASSERT_EQ( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
+  ASSERT_EQ( FIX::PartyRole_CLIENT_ID, partyRole );
 
   noSides.getGroup( 2, noPartyIDs );
   noPartyIDs.get( partyID );
   noPartyIDs.get( partyIDSource );
   noPartyIDs.get( partyRole );
-  CHECK_EQUAL( "PARTY2", partyID );
-  CHECK_EQUAL( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
-  CHECK_EQUAL( FIX::PartyRole_CLIENT_ID,  partyRole );
+  ASSERT_EQ( "PARTY2", partyID );
+  ASSERT_EQ( FIX::PartyIDSource_PROPRIETARY, partyIDSource );
+  ASSERT_EQ( FIX::PartyRole_CLIENT_ID,  partyRole );
 
   FIX::OrderQty orderQty;
   noSides.get( orderQty );
-  CHECK_EQUAL( 100, orderQty );
+  ASSERT_DOUBLE_EQ( 100, orderQty );
 }
 
-TEST(allocationInstructionParseGetString)
+TEST(MessageTests, allocationInstructionParseGetString)
 {
   AllocationInstruction object;
 
@@ -1317,13 +1314,13 @@ TEST(allocationInstructionParseGetString)
   object.setField(AvgPx(23.1));
   object.setField(TradeDate("20170317"));
 
-  CHECK_EQUAL(
+  ASSERT_EQ(
           "8=FIX.4.4\0019=121\00135=J\00134=1\00149=SENDER\00156=TARGET\001627=2\001"
           "628=HOP1\001630=1\001628=HOP2\001630=2\0016=23.1\00153=100\00170=Alloc001\001"
           "71=0\00175=20170317\001626=1\001857=0\00110=159\001", object.toString());
 }
 
-TEST(allocationInstructionString)
+TEST(MessageTests, allocationInstructionString)
 {
   AllocationInstruction object;
   DataDictionary dataDictionary( "../spec/FIX44.xml" );
@@ -1343,21 +1340,21 @@ TEST(allocationInstructionString)
   FIX::HopSendingTime hopSendingTime;
   FIX::HopRefID hopRefID;
 
-  CHECK_EQUAL( "SENDER", object.getHeader().get(senderCompID));
-  CHECK_EQUAL( "TARGET", object.getHeader().get(targetCompID));
-  CHECK_EQUAL( "20170317-15:55:23.685", object.getHeader().get(sendingTime).getString());
-  CHECK_EQUAL( 1, object.getHeader().get(msgSeqNum));
+  ASSERT_EQ( "SENDER", object.getHeader().get(senderCompID));
+  ASSERT_EQ( "TARGET", object.getHeader().get(targetCompID));
+  ASSERT_EQ( "20170317-15:55:23.685", object.getHeader().get(sendingTime).getString());
+  ASSERT_EQ( 1, object.getHeader().get(msgSeqNum));
 
   FIX44::Header::NoHops noHops;
   object.getHeader().getGroup( 1, noHops );
-  CHECK_EQUAL( "HOP1", noHops.get(hopCompID) );
-  CHECK_EQUAL( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
-  CHECK_EQUAL( 1, noHops.get(hopRefID) );
+  ASSERT_EQ( "HOP1", noHops.get(hopCompID) );
+  ASSERT_EQ( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
+  ASSERT_EQ( 1, noHops.get(hopRefID) );
 
   object.getHeader().getGroup( 2, noHops );
-  CHECK_EQUAL( "HOP2", noHops.get(hopCompID) );
-  CHECK_EQUAL( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
-  CHECK_EQUAL( 2, noHops.get(hopRefID) );
+  ASSERT_EQ( "HOP2", noHops.get(hopCompID) );
+  ASSERT_EQ( "20170317-15:55:23.685", noHops.getField(hopSendingTime).getString() );
+  ASSERT_EQ( 2, noHops.get(hopRefID) );
 
   FIX::AllocID allocID;
   FIX::AllocTransType allocTransType;
@@ -1366,26 +1363,26 @@ TEST(allocationInstructionString)
   FIX::Quantity quantity;
   FIX::AvgPx avgPx;
   FIX::TradeDate tradeDate;
-  CHECK_EQUAL( "Alloc001", object.get(allocID) );
-  CHECK_EQUAL( AllocTransType_NEW, object.get(allocTransType) );
-  CHECK_EQUAL( AllocType_CALCULATED, object.get(allocType) );
-  CHECK_EQUAL( AllocNoOrdersType_NOT_SPECIFIED, object.get(allocNoOrdersType) );
-  CHECK_EQUAL( 100, object.get(quantity) );
-  CHECK_EQUAL( 23.1, object.get(avgPx) );
-  CHECK_EQUAL( "20170317", object.get(tradeDate) );
+  ASSERT_EQ( "Alloc001", object.get(allocID) );
+  ASSERT_EQ( AllocTransType_NEW, object.get(allocTransType) );
+  ASSERT_EQ( AllocType_CALCULATED, object.get(allocType) );
+  ASSERT_EQ( AllocNoOrdersType_NOT_SPECIFIED, object.get(allocNoOrdersType) );
+  ASSERT_DOUBLE_EQ( 100, object.get(quantity) );
+  ASSERT_DOUBLE_EQ( 23.1, object.get(avgPx) );
+  ASSERT_EQ( "20170317", object.get(tradeDate) );
 
   FIX::CheckSum checkSum;
-  CHECK_EQUAL( 196, object.getTrailer().get(checkSum) );
+  ASSERT_EQ( 196, object.getTrailer().get(checkSum) );
 }
 
 
-TEST(initializeXml_UrlIsIncorrect_False)
+TEST(MessageTests, initializeXml_UrlIsIncorrect_False)
 {
   FIX::Message msg;
-  CHECK(!msg.InitializeXML("wrong"));
+  ASSERT_TRUE(!msg.InitializeXML("wrong"));
 }
 
-TEST(setString_TrailerStructureInvalid_MessageStructureInvalid) {
+TEST(MessageTests, setString_TrailerStructureInvalid_MessageStructureInvalid) {
 
   DataDictionary dictionary;
   dictionary.checkFieldsOutOfOrder(true);
@@ -1414,10 +1411,10 @@ TEST(setString_TrailerStructureInvalid_MessageStructureInvalid) {
 
   msg.setString(rawFixMsg, false, &dictionary, &dictionary);
   int checkSumTag = FIELD::CheckSum;
-  CHECK(!msg.hasValidStructure(checkSumTag));
+  ASSERT_TRUE(!msg.hasValidStructure(checkSumTag));
 }
 
-TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException) {
+TEST(MessageTests, setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException) {
 
   DataDictionary dictionary;
   dictionary.checkFieldsOutOfOrder(true);
@@ -1443,13 +1440,13 @@ TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException)
       + "98=0"          + delimSOH
       + "108=30"        + delimSOH
       + "89=200"        + delimSOH; // Signature
-      + "10=200"        + delimSOH;
+      //+ "10=200"        + delimSOH;
 
-  CHECK_THROW(msg.setString(rawFixMsg, false, &dictionary, &dictionary), InvalidMessage);
+  ASSERT_THROW(msg.setString(rawFixMsg, false, &dictionary, &dictionary), InvalidMessage);
 
 }
 
-TEST(setStringAndValidate_IncorrectBodyLength_InvalidException) {
+TEST(MessageTests, setStringAndValidate_IncorrectBodyLength_InvalidException) {
 
   DataDictionary dictionary;
 
@@ -1465,20 +1462,18 @@ TEST(setStringAndValidate_IncorrectBodyLength_InvalidException) {
       + "108=30"        + delimSOH
       + "10=200"        + delimSOH;
 
-  CHECK_THROW(msg.setString(rawFixMsg, true, &dictionary, &dictionary), InvalidMessage);
+  ASSERT_THROW(msg.setString(rawFixMsg, true, &dictionary, &dictionary), InvalidMessage);
 }
 
-TEST(BeginStringToApplVerID) {
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX40), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX40)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX41), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX41)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX42), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX42)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX43), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX43)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX44), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX44)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX50)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP1), FIX::Message::toApplVerID(BeginString("FIX.5.0SP1")));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP2), FIX::Message::toApplVerID(BeginString("FIX.5.0SP2")));
-  CHECK_EQUAL(ApplVerID("Custom"), FIX::Message::toApplVerID(BeginString("Custom")));
-
-}
+TEST(MessageTests, BeginStringToApplVerID) {
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX40), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX40)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX41), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX41)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX42), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX42)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX43), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX43)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX44), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX44)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX50), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX50)));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX50SP1), FIX::Message::toApplVerID(BeginString("FIX.5.0SP1")));
+  ASSERT_EQ(ApplVerID(ApplVerID_FIX50SP2), FIX::Message::toApplVerID(BeginString("FIX.5.0SP2")));
+  ASSERT_EQ(ApplVerID("Custom"), FIX::Message::toApplVerID(BeginString("Custom")));
 
 }

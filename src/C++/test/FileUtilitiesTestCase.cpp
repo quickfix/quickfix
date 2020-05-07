@@ -24,28 +24,23 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Utility.h>
 
 using namespace FIX;
 
-SUITE(FileUtilitiesTests)
-{
-
-TEST(separator)
+TEST(FileUtilitiesTests, separator)
 {
 #ifdef _MSC_VER
-  CHECK_EQUAL( "\\", file_separator() );
+  ASSERT_EQ( "\\", file_separator() );
 #else
-  CHECK_EQUAL( "/", file_separator() );
+  ASSERT_EQ( "/", file_separator() );
 #endif
 }
 
-TEST(appendpath)
+TEST(FileUtilitiesTests, appendpath)
 {
-  CHECK_EQUAL( ("path" + file_separator() + "file"), file_appendpath("path", "file") );
-  CHECK_EQUAL( "path/file", file_appendpath("path/", "file") );
-  CHECK_EQUAL( "path\\file", file_appendpath("path\\", "file") );
-}
-
+  ASSERT_EQ( ("path" + file_separator() + "file"), file_appendpath("path", "file") );
+  ASSERT_EQ( "path/file", file_appendpath("path/", "file") );
+  ASSERT_EQ( "path\\file", file_appendpath("path\\", "file") );
 }

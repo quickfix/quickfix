@@ -91,10 +91,6 @@ find_package(PythonLibs 3 REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
 endif ()
 
-if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
-add_subdirectory(UnitTest++)
-endif()
-
 add_subdirectory(src)
 add_subdirectory(examples)
 if( WIN32)

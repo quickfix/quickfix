@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Parser.h>
 #include <Utility.h>
 #include <SocketServer.h>
@@ -34,10 +34,7 @@
 
 using namespace FIX;
 
-SUITE(ParserTests)
-{
-
-struct extractLengthFixture
+struct extractLengthFixture : public ::testing::Test
 {
   extractLengthFixture()
   {
@@ -56,35 +53,35 @@ struct extractLengthFixture
   Parser object;
 };
 
-TEST_FIXTURE(extractLengthFixture, extractLength)
+TEST_F(extractLengthFixture, extractLength)
 {
   int length = 0;
   std::string::size_type pos = 0;
 
-  CHECK( object.extractLength(length, pos, normalLength) );
-  CHECK_EQUAL( 12, length );
-  CHECK_EQUAL( 15, (int)pos );
+  ASSERT_TRUE( object.extractLength(length, pos, normalLength) );
+  ASSERT_EQ( 12, length );
+  ASSERT_EQ( 15, (int)pos );
 
   pos = 0;
   length = 0;
-  CHECK_THROW( object.extractLength(length, pos, badLength), MessageParseError );
-  CHECK( length <= 0);
+  ASSERT_THROW( object.extractLength(length, pos, badLength), MessageParseError );
+  ASSERT_TRUE( length <= 0);
 
   length = 0;
-  CHECK_EQUAL( 0, (int)pos );
-  CHECK_THROW( object.extractLength(length, pos, negativeLength), MessageParseError );
-  CHECK( length <= 0);
+  ASSERT_EQ( 0, (int)pos );
+  ASSERT_THROW( object.extractLength(length, pos, negativeLength), MessageParseError );
+  ASSERT_TRUE( length <= 0);
 
-  CHECK_EQUAL( 0, (int)pos );
+  ASSERT_EQ( 0, (int)pos );
   object.extractLength(length, pos, incomplete_1);
 
   object.extractLength(length, pos, incomplete_2);
-  CHECK_EQUAL( 0, (int)pos );
+  ASSERT_EQ( 0, (int)pos );
 
-  CHECK( !object.extractLength(length, pos, "") );
+  ASSERT_TRUE( !object.extractLength(length, pos, "") );
 }
 
-struct readFixMessageFixture
+struct readFixMessageFixture : public ::testing::Test
 {
   readFixMessageFixture()
   {
@@ -106,22 +103,22 @@ struct readFixMessageFixture
   Parser object;
 };
 
-TEST_FIXTURE(readFixMessageFixture, readFixMessage)
+TEST_F(readFixMessageFixture, readFixMessage)
 {
   std::string readFixMsg;
-  CHECK( object.readFixMessage( readFixMsg ) );
-  CHECK_EQUAL( fixMsg1, readFixMsg );
+  ASSERT_TRUE( object.readFixMessage( readFixMsg ) );
+  ASSERT_EQ( fixMsg1, readFixMsg );
 
-  CHECK( object.readFixMessage( readFixMsg ) );
-  CHECK_EQUAL( fixMsg2, readFixMsg );
+  ASSERT_TRUE( object.readFixMessage( readFixMsg ) );
+  ASSERT_EQ( fixMsg2, readFixMsg );
 
-  CHECK( object.readFixMessage( readFixMsg ) );
-  CHECK_EQUAL( fixMsg3, readFixMsg );
+  ASSERT_TRUE( object.readFixMessage( readFixMsg ) );
+  ASSERT_EQ( fixMsg3, readFixMsg );
 
-  CHECK_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
+  ASSERT_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
 }
 
-struct readPartialFixMessageFixture
+struct readPartialFixMessageFixture : public ::testing::Test
 {
   readPartialFixMessageFixture()
   {
@@ -136,16 +133,16 @@ struct readPartialFixMessageFixture
   Parser object;
 };
 
-TEST_FIXTURE(readPartialFixMessageFixture, readPartialFixMessage)
+TEST_F(readPartialFixMessageFixture, readPartialFixMessage)
 {
   std::string readPartFixMsg;
-  CHECK( !object.readFixMessage( readPartFixMsg ) );
+  ASSERT_TRUE( !object.readFixMessage( readPartFixMsg ) );
   object.addToStream( partFixMsg2 );
-  CHECK( object.readFixMessage( readPartFixMsg ) );
-  CHECK_EQUAL( partFixMsg1 + partFixMsg2, readPartFixMsg );
+  ASSERT_TRUE( object.readFixMessage( readPartFixMsg ) );
+  ASSERT_EQ( partFixMsg1 + partFixMsg2, readPartFixMsg );
 }
 
-TEST(readMessagesByteByByte)
+TEST(ParserTests, readMessagesByteByByte)
 {
   Parser object;
   std::string fixMsg;
@@ -160,7 +157,7 @@ TEST(readMessagesByteByByte)
   }
 }
 
-struct readMessageWithBadLengthFixture
+struct readMessageWithBadLengthFixture : public ::testing::Test
 {
   readMessageWithBadLengthFixture()
   {
@@ -173,12 +170,10 @@ struct readMessageWithBadLengthFixture
   Parser object;
 };
 
-TEST_FIXTURE(readMessageWithBadLengthFixture, readMessageWithBadLength)
+TEST_F(readMessageWithBadLengthFixture, readMessageWithBadLength)
 {
   std::string readFixMsg;
 
-  CHECK_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
+  ASSERT_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
   object.readFixMessage( readFixMsg );
-}
-
 }

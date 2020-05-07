@@ -24,29 +24,24 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <SharedArray.h>
 
 using namespace FIX;
 
-SUITE(SharedArrayTests)
-{
-
-TEST(SharedArrayEqualsOperator_SharedArraySetEqualToItself)
+TEST(SharedArrayTests, SharedArrayEqualsOperator_SharedArraySetEqualToItself)
 {
   shared_array<std::string> shared;
   shared_array<std::string>* pShared = &shared;
 
   shared = *pShared;
 
-  CHECK_EQUAL(*pShared, shared);
+  ASSERT_EQ(*pShared, shared);
 }
 
-TEST(CreateSharedArray_SizeZeroArray)
+TEST(SharedArrayTests, CreateSharedArray_SizeZeroArray)
 {
   shared_array<std::string> shared = shared_array<std::string>::create(0);
 
-  CHECK_EQUAL(0, (int) shared.size());
-}
-
+  ASSERT_EQ(0, (int) shared.size());
 }

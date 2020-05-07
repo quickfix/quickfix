@@ -24,14 +24,14 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FieldMap.h>
 #include <Message.h>
 #include <vector>
 
 using namespace FIX;
 
-SUITE(FieldMapTests)
+TEST(FieldMapTests, setMessageOrder)
 {
 
 TEST(setMessageOrder)
@@ -54,20 +54,20 @@ TEST(setMessageOrder)
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 
 }
 
-TEST(addGroupPtr_nullptr)
+TEST(FieldMapTests, addGroupPtr_nullptr)
 {
   FieldMap fieldMap;
   fieldMap.addGroupPtr(1, nullptr);
-  CHECK_EQUAL(0, (int) fieldMap.groupCount(0));
+  ASSERT_EQ(0, (int) fieldMap.groupCount(0));
 }
 
-TEST(removeGroup_allGroupsWithSameTag)
+TEST(FieldMapTests, removeGroup_allGroupsWithSameTag)
 {
   FieldMap fieldMap;
   FieldMap group1;
@@ -81,28 +81,28 @@ TEST(removeGroup_allGroupsWithSameTag)
   fieldMap.removeGroup(2, 1);
   fieldMap.removeGroup(1, 1);
 
-  CHECK_EQUAL(0, fieldMap.groupCount(1));
+  ASSERT_EQ(0U, fieldMap.groupCount(1));
 }
 
-TEST(hasGroup_groupExists)
+TEST(FieldMapTests, hasGroup_groupExists)
 {
   FieldMap fieldMap;
   FieldMap group;
   fieldMap.addGroup(1, group);
 
-  CHECK_EQUAL(true, fieldMap.hasGroup(1));
+  ASSERT_TRUE(fieldMap.hasGroup(1));
 }
 
-TEST(hasGroup_groupDoesNotExist)
+TEST(FieldMapTests, hasGroup_groupDoesNotExist)
 {
   FieldMap fieldMap;
   FieldMap group;
   fieldMap.addGroup(1, group);
 
-  CHECK_EQUAL(false, fieldMap.hasGroup(2));
+  ASSERT_FALSE(fieldMap.hasGroup(2));
 }
 
-TEST(totalFields)
+TEST(FieldMapTests, totalFields)
 {
   FieldMap fieldMap;
   fieldMap.setField(1, "field1");
@@ -117,10 +117,10 @@ TEST(totalFields)
   group2.setField(6, "field6");
   fieldMap.addGroup(20, group2);
 
-  CHECK_EQUAL(8, fieldMap.totalFields());
+  ASSERT_EQ(8U, fieldMap.totalFields());
 }
 
-TEST(setField_16FieldsAlreadyExist_fieldSet)
+TEST(FieldMapTests, setField_16FieldsAlreadyExist_fieldSet)
 {
     FieldMap fieldMap;
     fieldMap.setField(1, "field1");
@@ -150,11 +150,6 @@ TEST(setField_16FieldsAlreadyExist_fieldSet)
     FieldBase actualTag18(18, "");
     fieldMap.getFieldIfSet(actualTag18);
 
-    CHECK_EQUAL(18, actualTag18.getTag());
-    CHECK_EQUAL("field18_new", actualTag18.getString());
+    ASSERT_EQ(18, actualTag18.getTag());
+    ASSERT_EQ("field18_new", actualTag18.getString());
 }
-
-}
-
-
-

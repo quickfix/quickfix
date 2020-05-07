@@ -24,13 +24,13 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <MessageStore.h>
 
 namespace FIX
 {
 
-struct memoryStoreFixture
+struct memoryStoreFixture : public ::testing::Test
 {
   memoryStoreFixture()
   {

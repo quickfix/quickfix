@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <SocketAcceptor.h>
 #include <Utility.h>
 #include <fix42/Logon.h>
@@ -33,10 +33,7 @@
 
 using namespace FIX;
 
-SUITE(SocketAcceptorTests)
-{
-
-struct receivePartialMessageFixture
+struct receivePartialMessageFixture : public ::testing::Test
 {
   receivePartialMessageFixture()
   {
@@ -82,7 +79,7 @@ struct receivePartialMessageFixture
   socket_handle s;
 };
 
-TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
+TEST_F(receivePartialMessageFixture, receivePartialMessage)
 {
   std::string firstPart = "8=FIX.4.29=28235=834=2369=31450"
                           "52=20041209-15:35:32.68749=TW50=G56=ISLD"
@@ -108,11 +105,10 @@ TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
   logon.getHeader().set( SendingTime() );
   logon.set( HeartBtInt(30) );
 
-  CHECK( socket_send( s, logon.toString().c_str(), (int)strlen(logon.toString().c_str()) ) );
+  ASSERT_TRUE( socket_send( s, logon.toString().c_str(), (int)strlen(logon.toString().c_str()) ) );
   object->poll();
-  CHECK( socket_send( s, firstPart.c_str(), (int)strlen(firstPart.c_str()) ) );
+  ASSERT_TRUE( socket_send( s, firstPart.c_str(), (int)strlen(firstPart.c_str()) ) );
   object->poll();
-  CHECK( socket_send( s, secondPart.c_str(), (int)strlen(secondPart.c_str()) ) );
+  ASSERT_TRUE( socket_send( s, secondPart.c_str(), (int)strlen(secondPart.c_str()) ) );
   object->poll();
-}
 }

@@ -17,7 +17,7 @@
 **
 ****************************************************************************/
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <fstream>
 #include "../Process.h"
 
@@ -37,7 +37,7 @@ std::string chompDriveLetter(const std::string& s)
 
 static std::string g_startDir("\\projects\\quickfix\\test");
 
-TEST(createProcess)
+TEST(ProcessTests, createProcess)
 {
   SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
   Process object;
@@ -46,15 +46,15 @@ TEST(createProcess)
   object.setWorkingDirectory("..");
 
   object.create();
-  CHECK(!object.created());
+  ASSERT_TRUE(!object.created());
 
   object.setCommandLine("cmd /C ECHO Hello World!");
 
   object.create();
-  CHECK(object.created());
+  ASSERT_TRUE(object.created());
 }
 
-TEST(sendOutputToFile)
+TEST(ProcessTests, sendOutputToFile)
 {
   SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
   Process object;
@@ -73,10 +73,10 @@ TEST(sendOutputToFile)
   std::string line;
   std::ifstream f(outfile.c_str());
   std::getline(f,line);
-  CHECK_EQUAL(expected, line);
+  ASSERT_EQ(expected, line);
 }
 
-TEST(setWorkingDirectory)
+TEST(ProcessTests, setWorkingDirectory)
 {
   SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
   Process object;
@@ -94,15 +94,15 @@ TEST(setWorkingDirectory)
   std::string line;
   std::ifstream f(outfile.c_str());
   std::getline(f,line);
-  CHECK_EQUAL("\\projects\\quickfix", chompDriveLetter(line));
+  ASSERT_EQ("\\projects\\quickfix", chompDriveLetter(line));
 
   char curdir[100];
   GetCurrentDirectory(sizeof(curdir), curdir);
   std::string expected(curdir);
-  CHECK_EQUAL( g_startDir, chompDriveLetter(expected) );
+  ASSERT_EQ( g_startDir, chompDriveLetter(expected) );
 }
 
-TEST(terminateProcess)
+TEST(ProcessTests, terminateProcess)
 {
   SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
   Process object;
@@ -115,19 +115,19 @@ TEST(terminateProcess)
   object.sendToFile(true);
 
   object.create();
-  CHECK(object.created());
-  CHECK(object.getProcessId() > 0);
+  ASSERT_TRUE(object.created());
+  ASSERT_TRUE(object.getProcessId() > 0);
 
   object.terminate();
-  CHECK(!object.created());
-  CHECK_EQUAL(-1, object.getProcessId());
+  ASSERT_TRUE(!object.created());
+  ASSERT_EQ(-1, object.getProcessId());
 
   Sleep(1000); //give file a chance to close
   std::ofstream f(outfile.c_str());
-  CHECK(!f.fail());
+  ASSERT_TRUE(!f.fail());
 }
 
-TEST(waitFor)
+TEST(ProcessTests, waitFor)
 {
   SetCurrentDirectory( const_cast<char*>(g_startDir.c_str()) );
   Process object;
@@ -140,12 +140,12 @@ TEST(waitFor)
 
   object.create();
   object.waitFor();
-  CHECK(!object.created());
+  ASSERT_TRUE(!object.created());
 
   std::ofstream f(outfile.c_str());
-  CHECK( !(f.fail()) );
+  ASSERT_TRUE( !(f.fail()) );
 
-  CHECK_EQUAL(-1, object.getProcessId());
+  ASSERT_EQ(-1, object.getProcessId());
 
   //could also assert that the waitFor() call holds for 5 seconds
   //because of the sleep call

@@ -45,14 +45,14 @@ public:
     i->second.erase( order );
   }
 
-  Order& find( std::string symbol, Order::Side side, std::string id )
+  Order& find( const std::string& symbol, Order::Side side, const std::string& id )
   {
     Markets::iterator i = m_markets.find( symbol );
     if ( i == m_markets.end() ) throw std::exception();
     return i->second.find( side, id );
   }
 
-  bool match( std::string symbol, std::queue < Order > & orders )
+  bool match( const std::string& symbol, std::queue < Order > & orders )
   {
     Markets::iterator i = m_markets.find( symbol );
     if ( i == m_markets.end() ) return false;
@@ -67,7 +67,7 @@ public:
     return orders.size() != 0;
   }
 
-  void display( std::string symbol ) const
+  void display( const std::string& symbol ) const
   {
     Markets::const_iterator i = m_markets.find( symbol );
     if ( i == m_markets.end() ) return ;

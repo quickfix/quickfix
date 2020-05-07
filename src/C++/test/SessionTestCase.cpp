@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Session.h>
 #include <Responder.h>
 #include <Acceptor.h>
@@ -57,10 +57,7 @@
 
 using namespace FIX;
 
-SUITE(SessionTests)
-{
-
-class TestCallback : public Responder, public NullApplication
+class TestCallback : public Responder, public NullApplication, public ::testing::Test
 {
 protected:
   UtcTimeOnly startTime;
@@ -233,7 +230,7 @@ private:
 
 };
 
- void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
+void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
 {
   header.setField( SenderCompID( sender ) );
   header.setField( TargetCompID( target ) );
@@ -602,28 +599,28 @@ struct acceptorT11Fixture : public sessionT11Fixture
   acceptorT11Fixture() : sessionT11Fixture( 0 ) {}
 };
 
-TEST_FIXTURE(acceptorFixture, nextLogon)
+TEST_F(acceptorFixture, nextLogon)
 {
   // send with an incorrect SenderCompID
   object->setResponder( this );
   object->next( createLogon( "BLAH", "TW", 1 ), UtcTimeStamp() );
-  CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_TRUE( !object->receivedLogon() );
+  ASSERT_EQ( 0, toLogon );
+  ASSERT_EQ( 1, disconnected );
 
   // send with an incorrect TargetCompID
   object->setResponder( this );
   object->next( createLogon( "ISLD", "BLAH", 1 ), UtcTimeStamp() );
-  CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 2, disconnected );
+  ASSERT_TRUE( !object->receivedLogon() );
+  ASSERT_EQ( 0, toLogon );
+  ASSERT_EQ( 2, disconnected );
 
   // send a correct logon
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK( object->receivedLogon() );
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 2, disconnected );
+  ASSERT_TRUE( object->receivedLogon() );
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 2, disconnected );
 
   // check that we got a valid logon response
   SenderCompID senderCompID;
@@ -636,21 +633,21 @@ TEST_FIXTURE(acceptorFixture, nextLogon)
   sentLogon.getField( heartBtInt );
   sentLogon.getField( encryptMethod );
 
-  CHECK_EQUAL( "TW", senderCompID );
-  CHECK_EQUAL( "ISLD", targetCompID );
-  CHECK_EQUAL( 30, heartBtInt );
-  CHECK_EQUAL( 0, encryptMethod );
+  ASSERT_EQ( "TW", senderCompID );
+  ASSERT_EQ( "ISLD", targetCompID );
+  ASSERT_EQ( 30, heartBtInt );
+  ASSERT_EQ( 0, encryptMethod );
 }
 
-TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
+TEST_F(acceptorFixture, nextLogonNoEncryptMethod)
 {
   // send a correct logon
   object->setResponder( this );
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   object->next( logon, UtcTimeStamp() );
-  CHECK( object->receivedLogon() );
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_TRUE( object->receivedLogon() );
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 0, disconnected );
 
   // check that we got a valid logon response
   SenderCompID senderCompID;
@@ -663,108 +660,108 @@ TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
   sentLogon.getField( heartBtInt );
   sentLogon.getField( encryptMethod );
 
-  CHECK_EQUAL( "TW", senderCompID );
-  CHECK_EQUAL( "ISLD", targetCompID );
-  CHECK_EQUAL( 30, heartBtInt );
-  CHECK_EQUAL( 0, encryptMethod );
+  ASSERT_EQ( "TW", senderCompID );
+  ASSERT_EQ( "ISLD", targetCompID );
+  ASSERT_EQ( 30, heartBtInt );
+  ASSERT_EQ( 0, encryptMethod );
 }
 
-TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
+TEST_F(acceptorFixture, nextLogonResetSeqNumFlag)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 1, disconnected );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, fromLogout );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+  ASSERT_TRUE( !object->receivedLogon() );
+  ASSERT_EQ( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, fromLogout );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
 
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   logon.set( FIX::ResetSeqNumFlag(true) );
   object->next( logon, UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 }
 
-TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithResetSeqNumInResponse)
+TEST_F(initiatorFixture, initiatorResetLogonWithResetSeqNumInResponse)
 {
   object->setResponder( this );
   object->next();
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 
   object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
 
   object->setResetOnLogon( true );
   object->next();
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   logon.set( FIX::ResetSeqNumFlag(true) );
   object->next( logon, UtcTimeStamp() );
-  CHECK( object->isLoggedOn() );
+  ASSERT_TRUE( object->isLoggedOn() );
 }
 
-TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithoutResetSeqNumInResponse)
+TEST_F(initiatorFixture, initiatorResetLogonWithoutResetSeqNumInResponse)
 {
   object->setResponder( this );
   object->next();
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 
   object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
 
   object->setResetOnLogon( true );
   object->next();
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   object->next( logon, UtcTimeStamp() );
-  CHECK( object->isLoggedOn() );
+  ASSERT_TRUE( object->isLoggedOn() );
 }
 
-TEST_FIXTURE(acceptorFixture, notifyResendRequest)
+TEST_F(acceptorFixture, notifyResendRequest)
 {
   object->next( createLogon( "ISLD", "TW", 5 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toResendRequest );
+  ASSERT_EQ( 1, toResendRequest );
 }
 
-TEST_FIXTURE(acceptorFixture, incrMsgSeqNum)
+TEST_F(acceptorFixture, incrMsgSeqNum)
 {
-  CHECK_EQUAL( 1, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 1, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, object->getExpectedSenderNum() );
+  ASSERT_EQ( 1, object->getExpectedTargetNum() );
 
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 
   object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
 
   object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 4, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 4, object->getExpectedTargetNum() );
 }
 
-TEST_FIXTURE(acceptorFixture, callDisconnect)
+TEST_F(acceptorFixture, callDisconnect)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 0, disconnected );
 
   object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
-  CHECK_EQUAL( 1, fromHeartbeat );
+  ASSERT_EQ( 0, disconnected );
+  ASSERT_EQ( 1, fromHeartbeat );
 
   object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
-  CHECK_EQUAL( 2, fromHeartbeat );
+  ASSERT_EQ( 0, disconnected );
+  ASSERT_EQ( 2, fromHeartbeat );
 
   // message is dupicate
   FIX42::Heartbeat heartbeat = createHeartbeat( "ISLD", "TW", 2 );
@@ -780,17 +777,17 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
   heartbeat.getHeader().setField( sendingTime );
   heartbeat.getHeader().setField( origSendingTime );
   object->next( heartbeat, UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
-  CHECK_EQUAL( 2, fromHeartbeat );
+  ASSERT_EQ( 0, disconnected );
+  ASSERT_EQ( 2, fromHeartbeat );
 
   // message is not a possible dup, disconnected
   heartbeat.getHeader().setField( PossDupFlag( false ) );
   object->next( heartbeat, UtcTimeStamp() );
-  CHECK_EQUAL( 1, disconnected );
-  CHECK_EQUAL( 2, fromHeartbeat );
+  ASSERT_EQ( 1, disconnected );
+  ASSERT_EQ( 2, fromHeartbeat );
 }
 
-TEST_FIXTURE(sessionFixture, doesSessionExist)
+TEST_F(sessionFixture, doesSessionExist)
 {
   DataDictionaryProvider provider;
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
@@ -822,46 +819,46 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
   pSession4->setResponder( this );
   pSession5->setResponder( this );
 
-  CHECK( Session::doesSessionExist
+  ASSERT_TRUE( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "TW" ),
                        TargetCompID( "ISLD" ) ) ) );
-  CHECK( Session::doesSessionExist
+  ASSERT_TRUE( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "WT" ),
                        TargetCompID( "ISLD" ) ) ) );
-  CHECK( Session::doesSessionExist
+  ASSERT_TRUE( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "TW" ),
                        TargetCompID( "DLSI" ) ) ) );
-  CHECK( Session::doesSessionExist
+  ASSERT_TRUE( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
 
-  CHECK_EQUAL( 4lu, Session::numSessions() );
+  ASSERT_EQ( 4lu, Session::numSessions() );
 
   delete pSession1;
 
-  CHECK( !Session::doesSessionExist
+  ASSERT_TRUE( !Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( 3lu, Session::numSessions() );
+  ASSERT_EQ( 3lu, Session::numSessions() );
 
   delete pSession2;
   delete pSession3;
 
-  CHECK_EQUAL( 1lu, Session::numSessions() );
-  CHECK( Session::doesSessionExist
+  ASSERT_EQ( 1lu, Session::numSessions() );
+  ASSERT_TRUE( Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
 
   delete pSession4;
-  CHECK_EQUAL( 0lu, Session::numSessions() );
-  CHECK( !Session::doesSessionExist
+  ASSERT_EQ( 0lu, Session::numSessions() );
+  ASSERT_TRUE( !Session::doesSessionExist
           ( SessionID( BeginString( "FIX.4.2" ), SenderCompID( "OREN" ),
                        TargetCompID( "NERO" ) ) ) );
 
   delete pSession5;
 }
 
-TEST_FIXTURE(sessionFixture, lookupSession)
+TEST_F(sessionFixture, lookupSession)
 {
   DataDictionaryProvider provider;
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
@@ -893,19 +890,19 @@ TEST_FIXTURE(sessionFixture, lookupSession)
   pSession4->setResponder( this );
   pSession5->setResponder( this );
 
-  CHECK_EQUAL( pSession1,
+  ASSERT_EQ( pSession1,
                Session::lookupSession( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
 
-  CHECK_EQUAL( pSession2,
+  ASSERT_EQ( pSession2,
                Session::lookupSession( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "WT" ), TargetCompID( "ISLD" ) ) ) );
 
-  CHECK_EQUAL( pSession3,
+  ASSERT_EQ( pSession3,
                Session::lookupSession( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "TW" ), TargetCompID( "DLSI" ) ) ) );
 
-  CHECK_EQUAL( pSession4,
+  ASSERT_EQ( pSession4,
                Session::lookupSession( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "OREN" ), TargetCompID( "NERO" ) ) ) );
 
@@ -916,7 +913,7 @@ TEST_FIXTURE(sessionFixture, lookupSession)
   delete pSession5;
 }
 
-TEST_FIXTURE(sessionFixture, registerSession)
+TEST_F(sessionFixture, registerSession)
 {
   DataDictionaryProvider provider;
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), ptr::shared_ptr<DataDictionary>(new DataDictionary()) );
@@ -926,86 +923,86 @@ TEST_FIXTURE(sessionFixture, registerSession)
                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), provider,
                       TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
-  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.1" ),
+  ASSERT_EQ( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.1" ),
                                                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( pSession, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_EQ( pSession, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
                                                    SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK( Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_TRUE( Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_EQ( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
                                                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
   Session::unregisterSession( SessionID( BeginString( "FIX.4.2" ),
                                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) );
-  CHECK( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_TRUE( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
                                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( pSession, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_EQ( pSession, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
                                                    SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
   delete pSession;
-  CHECK( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_TRUE( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
                                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+  ASSERT_EQ( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
                                                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
 }
 
-TEST_FIXTURE(acceptorFixture, nextTestRequest)
+TEST_F(acceptorFixture, nextTestRequest)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromTestRequest );
-  CHECK_EQUAL( 1, toHeartbeat );
+  ASSERT_EQ( 1, fromTestRequest );
+  ASSERT_EQ( 1, toHeartbeat );
 
   TestReqID testReqID;
   sentHeartbeat.getField( testReqID );
-  CHECK_EQUAL( "HELLO", testReqID );
+  ASSERT_EQ( "HELLO", testReqID );
 }
 
-TEST_FIXTURE(acceptorFixture, outOfOrder)
+TEST_F(acceptorFixture, outOfOrder)
 {
-  CHECK_EQUAL( 1, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 1, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, object->getExpectedSenderNum() );
+  ASSERT_EQ( 1, object->getExpectedTargetNum() );
 
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 
   object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, fromHeartbeat );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 0, fromHeartbeat );
 
   object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 4, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 2, fromHeartbeat );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 4, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, fromHeartbeat );
 }
 
-TEST_FIXTURE(acceptorFixture, nextLogout)
+TEST_F(acceptorFixture, nextLogout)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 1, disconnected );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, fromLogout );
+  ASSERT_TRUE( !object->receivedLogon() );
+  ASSERT_EQ( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, fromLogout );
 }
 
-TEST_FIXTURE(initiatorFixture, logoutInitiator)
+TEST_F(initiatorFixture, logoutInitiator)
 {
   object->setResponder( this );
   object->next();
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 2, object->getExpectedSenderNum() );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
 
   object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 3, object->getExpectedSenderNum() );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
 }
 
-TEST_FIXTURE(acceptorFixture, badOrigSendingTime)
+TEST_F(acceptorFixture, badOrigSendingTime)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1024,16 +1021,16 @@ TEST_FIXTURE(acceptorFixture, badOrigSendingTime)
   newOrderSingle.getHeader().setField( origSendingTime );
   newOrderSingle.getHeader().setField( PossDupFlag( true ) );
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL( 1, toReject );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, toReject );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 0, disconnected );
 
   object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, disconnected );
-  CHECK_EQUAL( 1, toLogout );
+  ASSERT_EQ( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
 }
 
-TEST_FIXTURE(acceptorFixture, noOrigSendingTime)
+TEST_F(acceptorFixture, noOrigSendingTime)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1049,44 +1046,44 @@ TEST_FIXTURE(acceptorFixture, noOrigSendingTime)
   newOrderSingle.getHeader().setField( sendingTime );
   newOrderSingle.getHeader().setField( PossDupFlag( true ) );
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL( 1, toReject );
-  CHECK_EQUAL( 0, toLogout );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, toReject );
+  ASSERT_EQ( 0, toLogout );
+  ASSERT_EQ( 0, disconnected );
 
   object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, disconnected );
 }
 
-TEST_FIXTURE(acceptorFixture, badCompID)
+TEST_F(acceptorFixture, badCompID)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   object->next( createNewOrderSingle( "ISLD", "WT", 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toReject );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, toReject );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 0, disconnected );
 
   object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, disconnected );
 }
 
-TEST_FIXTURE(acceptorFixture, nextReject)
+TEST_F(acceptorFixture, nextReject)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
 
   object->next( createReject( "ISLD", "TW", 3, 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromReject );
-  CHECK_EQUAL( 0, toReject );
-  CHECK_EQUAL( 0, toLogout );
-  CHECK_EQUAL( 0, disconnected );
-  CHECK_EQUAL( 4, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, fromReject );
+  ASSERT_EQ( 0, toReject );
+  ASSERT_EQ( 0, toLogout );
+  ASSERT_EQ( 0, disconnected );
+  ASSERT_EQ( 4, object->getExpectedTargetNum() );
 
   object->next( createHeartbeat( "ISLD", "TW", 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, toResendRequest );
+  ASSERT_EQ( 0, toResendRequest );
 }
 
 class MsgWithBadType : public FIX42::Message
@@ -1095,7 +1092,7 @@ public:
   MsgWithBadType() : FIX42::Message( MsgType( "*" ) ) {}
 };
 
-TEST_FIXTURE(acceptorFixture, badMsgType)
+TEST_F(acceptorFixture, badMsgType)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1105,47 +1102,47 @@ TEST_FIXTURE(acceptorFixture, badMsgType)
 
   object->next( msgWithBadType, UtcTimeStamp() );
 
-  CHECK_EQUAL( 1, toReject );
-  CHECK_EQUAL( 0, disconnected );
-  CHECK_EQUAL( 0, toLogout );
+  ASSERT_EQ( 1, toReject );
+  ASSERT_EQ( 0, disconnected );
+  ASSERT_EQ( 0, toLogout );
 
   object->next( createLogout( "ISLD", "TW", 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, disconnected );
 }
 
-TEST_FIXTURE(acceptorFixture, nextSequenceReset)
+TEST_F(acceptorFixture, nextSequenceReset)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   // NewSeqNo is greater
   object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromSequenceReset );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, toReject );
+  ASSERT_EQ( 1, fromSequenceReset );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 0, toReject );
 
   // NewSeqNo is equal
   object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, fromSequenceReset );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, toReject );
+  ASSERT_EQ( 2, fromSequenceReset );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 0, toReject );
 
   // No MsgSeqNum
   FIX42::SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 0, 3 );
   sequenceReset.getHeader().removeField( 34 );
   object->next( sequenceReset, UtcTimeStamp() );
-  CHECK_EQUAL( 3, fromSequenceReset );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, toReject );
+  ASSERT_EQ( 3, fromSequenceReset );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 0, toReject );
 
   // NewSeqNo is less
   object->next( createSequenceReset( "ISLD", "TW", 0, 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 4, fromSequenceReset );
-  CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, toReject );
+  ASSERT_EQ( 4, fromSequenceReset );
+  ASSERT_EQ( 3, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, toReject );
 }
 
-TEST_FIXTURE(acceptorFixture, nextGapFill)
+TEST_F(acceptorFixture, nextGapFill)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1155,17 +1152,17 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   FIX42::SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 2, 20 );
   sequenceReset.set( GapFillFlag( true ) );
   object->next( sequenceReset, UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromSequenceReset );
-  CHECK_EQUAL( 0, toResendRequest );
-  CHECK_EQUAL( 20, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, fromSequenceReset );
+  ASSERT_EQ( 0, toResendRequest );
+  ASSERT_EQ( 20, object->getExpectedTargetNum() );
 
   // NewSeqNo is greater
   FIX42::SequenceReset sequenceReset2 = createSequenceReset( "ISLD", "TW", 21, 40 );
   sequenceReset2.set( GapFillFlag( true ) );
   object->next( sequenceReset2, UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromSequenceReset );
-  CHECK_EQUAL( 1, toResendRequest );
-  CHECK_EQUAL( 20, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, fromSequenceReset );
+  ASSERT_EQ( 1, toResendRequest );
+  ASSERT_EQ( 20, object->getExpectedTargetNum() );
 
   // NewSeqNo is less, PossDupFlag = Y
   FIX42::SequenceReset sequenceReset3 = createSequenceReset( "ISLD", "TW", 19, 20 );
@@ -1173,65 +1170,65 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   sequenceReset3.getHeader().setField( PossDupFlag( true ) );
   sequenceReset3.getHeader().setField( OrigSendingTime() );
   object->next( sequenceReset3, UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromSequenceReset );
-  CHECK_EQUAL( 1, toResendRequest );
-  CHECK_EQUAL( 20, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, fromSequenceReset );
+  ASSERT_EQ( 1, toResendRequest );
+  ASSERT_EQ( 20, object->getExpectedTargetNum() );
+  ASSERT_EQ( 0, disconnected );
 
   // NewSeqNo is less, PossDupFlag = N
   FIX42::SequenceReset sequenceReset4 = createSequenceReset( "ISLD", "TW", 19, 20 );
   sequenceReset4.set( GapFillFlag( true ) );
   sequenceReset4.getHeader().setField( PossDupFlag( false ) );
   object->next( sequenceReset4, UtcTimeStamp() );
-  CHECK_EQUAL( 1, fromSequenceReset );
-  CHECK_EQUAL( 1, toResendRequest );
-  CHECK_EQUAL( 20, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, fromSequenceReset );
+  ASSERT_EQ( 1, toResendRequest );
+  ASSERT_EQ( 20, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, disconnected );
 }
 
-TEST_FIXTURE(acceptorFixture, nextResendRequest)
+TEST_F(acceptorFixture, nextResendRequest)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
   object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), UtcTimeStamp() );
   object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), UtcTimeStamp() );
   object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 1, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 
   FIX::Message message = createNewOrderSingle( "ISLD", "TW", 6 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 7 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 8 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toSequenceReset );
-  CHECK_EQUAL( 3, resent );
+  ASSERT_EQ( 1, toSequenceReset );
+  ASSERT_EQ( 3, resent );
 
   object->setNextSenderMsgSeqNum(15);
   object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, toSequenceReset );
-  CHECK_EQUAL( 3, resent );
+  ASSERT_EQ( 2, toSequenceReset );
+  ASSERT_EQ( 3, resent );
 
   object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), UtcTimeStamp() );
-  CHECK_EQUAL( 4, toSequenceReset );
-  CHECK_EQUAL( 6, resent );
+  ASSERT_EQ( 4, toSequenceReset );
+  ASSERT_EQ( 6, resent );
 
   message = createNewOrderSingle( "ISLD", "TW", 16 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 17 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), UtcTimeStamp() );
-  CHECK_EQUAL( 6, toSequenceReset );
-  CHECK_EQUAL( 11, resent );
+  ASSERT_EQ( 6, toSequenceReset );
+  ASSERT_EQ( 11, resent );
 }
 
-TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
+TEST_F(acceptorFixture, nextResendRequestRepeatingGroup)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   FIX::Message message = createExecutionReport( "ISLD", "TW", 2 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
 
   PossDupFlag possDupFlag;
@@ -1243,14 +1240,14 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
   message.getHeader().setField( possDupFlag );
   message.getHeader().setField( origSendingTime );
   message.getHeader().setField( sendingTime );
-  CHECK_EQUAL( message.toString(), lastResent.toString() );
+  ASSERT_EQ( message.toString(), lastResent.toString() );
 }
 
-TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
+TEST_F(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
 {
   object->next( createT11Logon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   FIX::Message message = createT1142ExecutionReport( "ISLD", "TW", 2 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
 
   PossDupFlag possDupFlag;
@@ -1262,14 +1259,14 @@ TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
   message.getHeader().setField( possDupFlag );
   message.getHeader().setField( origSendingTime );
   message.getHeader().setField( sendingTime );
-  CHECK_EQUAL( message.toString(), lastResent.toString() );
+  ASSERT_EQ( message.toString(), lastResent.toString() );
 }
 
-TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
+TEST_F(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
 {
   object->next( createT11Logon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   FIX::Message message = createT1150ExecutionReport( "ISLD", "TW", 2 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
 
   PossDupFlag possDupFlag;
@@ -1281,10 +1278,10 @@ TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
   message.getHeader().setField( possDupFlag );
   message.getHeader().setField( origSendingTime );
   message.getHeader().setField( sendingTime );
-  CHECK_EQUAL( message.toString(), lastResent.toString() );
+  ASSERT_EQ( message.toString(), lastResent.toString() );
 }
 
-TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
+TEST_F(acceptorFixture, nextResendRequestNoMessagePersist)
 {
   object->setPersistMessages( false );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1292,38 +1289,38 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
   object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), UtcTimeStamp() );
   object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), UtcTimeStamp() );
   object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 1, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 
   FIX::Message message = createNewOrderSingle( "ISLD", "TW", 6 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 7 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 8 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 2, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 
   object->setNextSenderMsgSeqNum(15);
   object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), UtcTimeStamp() );
-  CHECK_EQUAL( 3, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 3, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 
   object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), UtcTimeStamp() );
-  CHECK_EQUAL( 4, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 4, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 
   message = createNewOrderSingle( "ISLD", "TW", 16 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 17 );
-  CHECK( object->send( message ) );
+  ASSERT_TRUE( object->send( message ) );
   object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), UtcTimeStamp() );
-  CHECK_EQUAL( 5, toSequenceReset );
-  CHECK_EQUAL( 0, resent );
+  ASSERT_EQ( 5, toSequenceReset );
+  ASSERT_EQ( 0, resent );
 }
 
-TEST_FIXTURE(acceptorFixture, badBeginString)
+TEST_F(acceptorFixture, badBeginString)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
@@ -1331,34 +1328,34 @@ TEST_FIXTURE(acceptorFixture, badBeginString)
   FIX42::TestRequest testRequest = createTestRequest( "ISLD", "TW", 2, "HELLO" );
   testRequest.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( testRequest, UtcTimeStamp() );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 0, disconnected );
 
   FIX42::Logout logout = createLogout( "ISLD", "TW", 3 );
   logout.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( logout, UtcTimeStamp() );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, disconnected );
 }
 
-TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
+TEST_F(acceptorFixture, unsupportedMsgType)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
   FIX42::ExecutionReport message = createExecutionReport( "ISLD", "TW", 2 );
   object->next( message, UtcTimeStamp() );
-  CHECK_EQUAL( 1, toBusinessMessageReject );
+  ASSERT_EQ( 1, toBusinessMessageReject );
 }
 
-TEST_FIXTURE(acceptorFixture, doNotRespondToLogonWhenDisabled)
+TEST_F(acceptorFixture, doNotRespondToLogonWhenDisabled)
 {
   object->setResponder( this );
   object->logout();
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
-  CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 0, toLogout );
+  ASSERT_EQ( 0, toLogon );
+  ASSERT_EQ( 0, toLogout );
 }
 
 struct resetOnEndTimeFixture : public acceptorFixture
@@ -1380,24 +1377,24 @@ struct resetOnEndTimeFixture : public acceptorFixture
   }
 };
 
-TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
+TEST_F(resetOnEndTimeFixture, resetOnEndTime)
 {
   createSession();
   UtcTimeStamp timeStamp = startTimeStamp;
   object->next( createLogon( "ISLD", "TW", 1 ), timeStamp );
   object->next( createHeartbeat( "ISLD", "TW", 2 ), timeStamp );
 
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 0, disconnected );
   timeStamp += 1;
   object->next( timeStamp );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 0, disconnected );
   timeStamp += 2;
   object->next( timeStamp );
-  CHECK_EQUAL( 1, disconnected );
-  CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, object->getExpectedSenderNum() );
-  CHECK_EQUAL( 1, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, disconnected );
+  ASSERT_EQ( 1, toLogout );
+  ASSERT_EQ( 1, object->getExpectedSenderNum() );
+  ASSERT_EQ( 1, object->getExpectedTargetNum() );
 }
 
 struct disconnectBeforeStartTimeFixture : public acceptorFixture
@@ -1413,14 +1410,14 @@ struct disconnectBeforeStartTimeFixture : public acceptorFixture
   }
 };
 
-TEST_FIXTURE(disconnectBeforeStartTimeFixture, disconnectedBeforeStartTime)
+TEST_F(disconnectBeforeStartTimeFixture, disconnectedBeforeStartTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, disconnected );
 
   process_sleep( 2 );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, disconnected );
 }
 
 struct resetOnNewSessionFixture : public acceptorFixture
@@ -1436,14 +1433,14 @@ struct resetOnNewSessionFixture : public acceptorFixture
   }
 };
 
-TEST_FIXTURE(resetOnNewSessionFixture, resetOnNewSession)
+TEST_F(resetOnNewSessionFixture, resetOnNewSession)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 0, disconnected );
 
   process_sleep( 3 );
   object->next();
-  CHECK_EQUAL( 1, disconnected );
+  ASSERT_EQ( 1, disconnected );
 }
 
 struct logonAtLogonStartTimeFixture : public acceptorFixture
@@ -1469,43 +1466,43 @@ struct logonAtLogonStartTimeFixture : public acceptorFixture
   }
 };
 
-TEST_FIXTURE(logonAtLogonStartTimeFixture, logonAtLogonStartTime)
+TEST_F(logonAtLogonStartTimeFixture, logonAtLogonStartTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
 
-  CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 0, toLogout );
+  ASSERT_EQ( 0, toLogon );
+  ASSERT_EQ( 0, toLogout );
   process_sleep( 1 );
 
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
   object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
   object->next();
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 0, toLogout );
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 0, toLogout );
 
   process_sleep( 2 );
   object->next();
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 1, toLogout );
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 1, toLogout );
 }
 
-TEST_FIXTURE(acceptorFixture, processQueuedMessages)
+TEST_F(acceptorFixture, processQueuedMessages)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  CHECK_EQUAL( 0, disconnected );
+  ASSERT_EQ( 0, disconnected );
 
   for( int i = 3; i <= 5003; ++i )
   {
     object->next( createNewOrderSingle( "ISLD", "TW", i ), UtcTimeStamp() );
   }
-  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, toResendRequest );
+  ASSERT_EQ( 2, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, toResendRequest );
   object->next( createNewOrderSingle( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 5004, object->getExpectedTargetNum() );
+  ASSERT_EQ( 5004, object->getExpectedTargetNum() );
   object->next( createNewOrderSingle( "ISLD", "TW", 5006 ), UtcTimeStamp() );
-  CHECK_EQUAL( 2, toResendRequest );
+  ASSERT_EQ( 2, toResendRequest );
 }
 
 struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
@@ -1558,44 +1555,44 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
   * Verifies bug fix: only a Logon should be sent at
   * StartTime, not Logout followed by Logon
   */
-TEST_FIXTURE(initiatorCreatedBeforeStartTimeFixture, initiatorLogonAtStartTime)
+TEST_F(initiatorCreatedBeforeStartTimeFixture, initiatorLogonAtStartTime)
 {
   process_sleep( STARTTIMEFROMNOW );
 
-  CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 0, actuallySent);
-  CHECK_EQUAL( false, actuallySentLogon);
+  ASSERT_EQ( 0, toLogon );
+  ASSERT_EQ( 0, actuallySent);
+  ASSERT_FALSE( actuallySentLogon );
 
   object->setResponder( this );
   object->next();
 
-  CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 1, actuallySent);
-  CHECK_EQUAL( true, actuallySentLogon);
+  ASSERT_EQ( 1, toLogon );
+  ASSERT_EQ( 1, actuallySent);
+  ASSERT_TRUE( actuallySentLogon );
 }
 
-TEST_FIXTURE(sessionFixture, SessionRefreshKeepsCurrentMessageState) {
+TEST_F(sessionFixture, SessionRefreshKeepsCurrentMessageState) {
   createSession(1);
   int expectedMessageSeq = object->getStore()->getNextSenderMsgSeqNum();
   object->refresh();
-  CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
+  ASSERT_EQ(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, SetSenderMsgSeqNum) {
+TEST_F(sessionFixture, SetSenderMsgSeqNum) {
   createSession(1);
   int expectedMessageSeq = 25;
   object->setNextSenderMsgSeqNum(expectedMessageSeq);
-  CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
+  ASSERT_EQ(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, SetTargetMsgSeqNum) {
+TEST_F(sessionFixture, SetTargetMsgSeqNum) {
   createSession(1);
   int expectedMessageSeq = 25;
   object->setNextTargetMsgSeqNum(expectedMessageSeq);
-  CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextTargetMsgSeqNum());
+  ASSERT_EQ(expectedMessageSeq, object->getStore()->getNextTargetMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, TimeIsWithinSessionTime) {
+TEST_F(sessionFixture, TimeIsWithinSessionTime) {
   UtcTimeStamp fixedStartTime = UtcTimeStamp(8, 8, 8, 5, 13, 2019);
   UtcTimeStamp fixedEndTime = UtcTimeStamp(16, 16, 16, 5, 13, 2019);
 
@@ -1605,10 +1602,10 @@ TEST_FIXTURE(sessionFixture, TimeIsWithinSessionTime) {
 
   UtcTimeStamp withinSessionTime = UtcTimeStamp(10, 10, 10, 5, 13, 2019);
 
-  CHECK(object->isSessionTime(withinSessionTime));
+  ASSERT_TRUE(object->isSessionTime(withinSessionTime));
 }
 
-TEST_FIXTURE(sessionFixture, TimeIsOutsideSessionTime) {
+TEST_F(sessionFixture, TimeIsOutsideSessionTime) {
   UtcTimeStamp fixedStartTime = UtcTimeStamp(8, 8, 8, 5, 13, 2019);
   UtcTimeStamp fixedEndTime = UtcTimeStamp(16, 16, 16, 5, 13, 2019);
 
@@ -1618,178 +1615,178 @@ TEST_FIXTURE(sessionFixture, TimeIsOutsideSessionTime) {
 
   UtcTimeStamp outsideSessionTime = UtcTimeStamp(20, 20, 20, 5, 13, 2019);
 
-  CHECK(!object->isSessionTime(outsideSessionTime));
+  ASSERT_TRUE(!object->isSessionTime(outsideSessionTime));
 }
 
-TEST_FIXTURE(sessionFixture, SessionIsAnInitiator) {
+TEST_F(sessionFixture, SessionIsAnInitiator) {
   createSession(1);
-  CHECK(object->isInitiator());
+  ASSERT_TRUE(object->isInitiator());
 }
 
-TEST_FIXTURE(sessionFixture, SessionIsAnAcceptor) {
+TEST_F(sessionFixture, SessionIsAnAcceptor) {
   createSession(0);
-  CHECK(object->isAcceptor());
+  ASSERT_TRUE(object->isAcceptor());
 }
 
-TEST_FIXTURE(sessionFixture, SendsRedundantResendRequests) {
+TEST_F(sessionFixture, SendsRedundantResendRequests) {
   createSession(1);
   object->setSendRedundantResendRequests(true);
-  CHECK(object->getSendRedundantResendRequests());
+  ASSERT_TRUE(object->getSendRedundantResendRequests());
 }
 
-TEST_FIXTURE(sessionFixture, DoesNotSendRedundantResendRequests) {
+TEST_F(sessionFixture, DoesNotSendRedundantResendRequests) {
   createSession(1);
   object->setSendRedundantResendRequests(false);
-  CHECK(!object->getSendRedundantResendRequests());
+  ASSERT_TRUE(!object->getSendRedundantResendRequests());
 }
 
-TEST_FIXTURE(sessionFixture, SessionChecksCompId) {
+TEST_F(sessionFixture, SessionChecksCompId) {
   createSession(1);
   object->setCheckCompId(true);
-  CHECK(object->getCheckCompId());
+  ASSERT_TRUE(object->getCheckCompId());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotCheckCompId) {
+TEST_F(sessionFixture, SessionDoesNotCheckCompId) {
   createSession(1);
   object->setCheckCompId(false);
-  CHECK(!object->getCheckCompId());
+  ASSERT_TRUE(!object->getCheckCompId());
 }
 
-TEST_FIXTURE(sessionFixture, SessionChecksLatency) {
+TEST_F(sessionFixture, SessionChecksLatency) {
   createSession(1);
   object->setCheckLatency(true);
-  CHECK(object->getCheckLatency());
+  ASSERT_TRUE(object->getCheckLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotCheckLatency) {
+TEST_F(sessionFixture, SessionDoesNotCheckLatency) {
   createSession(1);
   object->setCheckLatency(false);
-  CHECK(!object->getCheckLatency());
+  ASSERT_TRUE(!object->getCheckLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasMaxLatency) {
+TEST_F(sessionFixture, SessionHasMaxLatency) {
   createSession(1);
   object->setMaxLatency(5);
-  CHECK_EQUAL(5, object->getMaxLatency());
+  ASSERT_EQ(5, object->getMaxLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasLogonTimeout) {
+TEST_F(sessionFixture, SessionHasLogonTimeout) {
   createSession(1);
   object->setLogonTimeout(5);
-  CHECK_EQUAL(5, object->getLogonTimeout());
+  ASSERT_EQ(5, object->getLogonTimeout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasLogoutTimeout) {
+TEST_F(sessionFixture, SessionHasLogoutTimeout) {
   createSession(1);
   object->setLogoutTimeout(5);
-  CHECK_EQUAL(5, object->getLogoutTimeout());
+  ASSERT_EQ(5, object->getLogoutTimeout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnLogon) {
+TEST_F(sessionFixture, SessionResetsOnLogon) {
   createSession(1);
   object->setResetOnLogon(true);
-  CHECK(object->getResetOnLogon());
+  ASSERT_TRUE(object->getResetOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogon) {
+TEST_F(sessionFixture, SessionDoesNotResetOnLogon) {
   createSession(1);
   object->setResetOnLogon(false);
-  CHECK(!object->getResetOnLogon());
+  ASSERT_TRUE(!object->getResetOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnLogout) {
+TEST_F(sessionFixture, SessionResetsOnLogout) {
   createSession(1);
   object->setResetOnLogout(true);
-  CHECK(object->getResetOnLogout());
+  ASSERT_TRUE(object->getResetOnLogout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogout) {
+TEST_F(sessionFixture, SessionDoesNotResetOnLogout) {
   createSession(1);
   object->setResetOnLogout(false);
-  CHECK(!object->getResetOnLogout());
+  ASSERT_TRUE(!object->getResetOnLogout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnDisconnect) {
+TEST_F(sessionFixture, SessionResetsOnDisconnect) {
   createSession(1);
   object->setResetOnDisconnect(true);
-  CHECK(object->getResetOnDisconnect());
+  ASSERT_TRUE(object->getResetOnDisconnect());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnDisconnect) {
+TEST_F(sessionFixture, SessionDoesNotResetOnDisconnect) {
   createSession(1);
   object->setResetOnDisconnect(false);
-  CHECK(!object->getResetOnDisconnect());
+  ASSERT_TRUE(!object->getResetOnDisconnect());
 }
 
-TEST_FIXTURE(sessionFixture, SessionRefreshesOnLogon) {
+TEST_F(sessionFixture, SessionRefreshesOnLogon) {
   createSession(1);
   object->setRefreshOnLogon(true);
-  CHECK(object->getRefreshOnLogon());
+  ASSERT_TRUE(object->getRefreshOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotRefreshOnLogon) {
+TEST_F(sessionFixture, SessionDoesNotRefreshOnLogon) {
   createSession(1);
   object->setRefreshOnLogon(false);
-  CHECK(!object->getRefreshOnLogon());
+  ASSERT_TRUE(!object->getRefreshOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasMillisecondsInTimeStamp) {
+TEST_F(sessionFixture, SessionHasMillisecondsInTimeStamp) {
   createSession(1);
   object->setMillisecondsInTimeStamp(true);
-  CHECK(object->getMillisecondsInTimeStamp());
+  ASSERT_TRUE(object->getMillisecondsInTimeStamp());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotHaveMillisecondsInTimeStamp) {
+TEST_F(sessionFixture, SessionDoesNotHaveMillisecondsInTimeStamp) {
   createSession(1);
   object->setMillisecondsInTimeStamp(false);
-  CHECK(!object->getMillisecondsInTimeStamp());
+  ASSERT_TRUE(!object->getMillisecondsInTimeStamp());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_GreaterThanTen_InvalidEntrySetAsPreviousValue) {
+TEST_F(sessionFixture, SessionTimeStampPrecision_GreaterThanTen_InvalidEntrySetAsPreviousValue) {
   createSession(1);
   int previousVal = object->getTimestampPrecision();
   object->setTimestampPrecision(20);
-  CHECK_EQUAL(previousVal, object->getTimestampPrecision());
+  ASSERT_EQ(previousVal, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_LessThanZero_InvalidEntrySetAsPreviousValue) {
+TEST_F(sessionFixture, SessionTimeStampPrecision_LessThanZero_InvalidEntrySetAsPreviousValue) {
   createSession(1);
   int previousVal = object->getTimestampPrecision();
   object->setTimestampPrecision(-5);
-  CHECK_EQUAL(previousVal, object->getTimestampPrecision());
+  ASSERT_EQ(previousVal, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_ValidEntry) {
+TEST_F(sessionFixture, SessionTimeStampPrecision_ValidEntry) {
   createSession(1);
   object->setTimestampPrecision(5);
-  CHECK_EQUAL(5, object->getTimestampPrecision());
+  ASSERT_EQ(5, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionPersistsMessages) {
+TEST_F(sessionFixture, SessionPersistsMessages) {
   createSession(1);
   object->setPersistMessages(true);
-  CHECK(object->getPersistMessages());
+  ASSERT_TRUE(object->getPersistMessages());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotPersistMessages) {
+TEST_F(sessionFixture, SessionDoesNotPersistMessages) {
   createSession(1);
   object->setPersistMessages(false);
-  CHECK(!object->getPersistMessages());
+  ASSERT_TRUE(!object->getPersistMessages());
 }
 
-TEST_FIXTURE(sessionFixture, SessionValidatesLengthAndChecksum) {
+TEST_F(sessionFixture, SessionValidatesLengthAndChecksum) {
   createSession(1);
   object->setValidateLengthAndChecksum(true);
-  CHECK(object->getValidateLengthAndChecksum());
+  ASSERT_TRUE(object->getValidateLengthAndChecksum());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotValidateLengthAndChecksum) {
+TEST_F(sessionFixture, SessionDoesNotValidateLengthAndChecksum) {
   createSession(1);
   object->setValidateLengthAndChecksum(false);
-  CHECK(!object->getValidateLengthAndChecksum());
+  ASSERT_TRUE(!object->getValidateLengthAndChecksum());
 }
 
-TEST_FIXTURE(sessionFixture, SessionCapableOfLogging) {
+TEST_F(sessionFixture, SessionCapableOfLogging) {
   Session* sessionObject;
 
   SessionID sessionIDCustom( BeginString( "FIX.4.2" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
@@ -1809,12 +1806,12 @@ TEST_FIXTURE(sessionFixture, SessionCapableOfLogging) {
       sessionTimeCustom, 1, &fileLogFactory);
 
   Log* log = object->getLog();
-  CHECK(log != nullptr);
+  ASSERT_TRUE(log != nullptr);
 
   delete sessionObject;
 }
 
-TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) {
+TEST_F(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1826,10 +1823,10 @@ TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) {
 
   object->logout("test_logout");
   object->next();
-  CHECK(!object->sentLogout());
+  ASSERT_TRUE(!object->sentLogout());
 }
 
-TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) {
+TEST_F(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1844,10 +1841,10 @@ TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) {
   object->next();
   object->next();
 
-  CHECK(!object->sentLogon());
+  ASSERT_TRUE(!object->sentLogon());
 }
 
-TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) {
+TEST_F(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1870,11 +1867,11 @@ TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) {
   object->send(sendLogout);
   object->next();
 
-  CHECK(!object->sentLogout());
+  ASSERT_TRUE(!object->sentLogout());
 }
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) {
+TEST_F(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1895,12 +1892,12 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) {
   process_sleep(3);
 
   object->next();
-  CHECK(!object->isLoggedOn());
+  ASSERT_TRUE(!object->isLoggedOn());
 }
 
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
+TEST_F(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1921,12 +1918,12 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
   process_sleep(2);
 
   object->next();
-  CHECK_EQUAL(4, object->getExpectedSenderNum());
-  CHECK(object->isLoggedOn());
+  ASSERT_EQ(4, object->getExpectedSenderNum());
+  ASSERT_TRUE(object->isLoggedOn());
 }
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatGenerated) {
+TEST_F(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatGenerated) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1947,12 +1944,12 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatG
   process_sleep(2);
 
   object->next();
-  CHECK_EQUAL(4, object->getExpectedSenderNum());
-  CHECK(object->isLoggedOn());
+  ASSERT_EQ(4, object->getExpectedSenderNum());
+  ASSERT_TRUE(object->isLoggedOn());
 
 }
 
-TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {
+TEST_F(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {
 
   Session* sessionObject;
 
@@ -1979,12 +1976,12 @@ TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {
   UtcTimeStamp oldTime(8, 8, 8, 13, 5, 2010);
   sessionObject->next(oldTime);
 
-  CHECK(!sessionObject->isLoggedOn());
+  ASSERT_TRUE(!sessionObject->isLoggedOn());
 
   delete sessionObject;
 }
 
-TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnRequest) {
+TEST_F(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnRequest) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -1996,10 +1993,10 @@ TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnR
   object->logon();
   object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
 
-  CHECK(!object->sentLogout());
+  ASSERT_TRUE(!object->sentLogout());
 }
 
-TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon) {
+TEST_F(initiatorFixture, LogOn_RefreshOnLogon) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2017,10 +2014,10 @@ TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon) {
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  CHECK(object->isLoggedOn());
+  ASSERT_TRUE(object->isLoggedOn());
 }
 
-TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon) {
+TEST_F(acceptorFixture, LogOn_ResetOnLogon) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2034,10 +2031,10 @@ TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon) {
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  CHECK(object->isLoggedOn());
+  ASSERT_TRUE(object->isLoggedOn());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGreaterThenSeqNums) {
+TEST_F(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGreaterThenSeqNums) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2059,12 +2056,12 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGre
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 10);
   object->next(resendReq, UtcTimeStamp());
 
-  CHECK_EQUAL(5, object->getExpectedSenderNum());
-  CHECK_EQUAL(2, object->getExpectedTargetNum());
+  ASSERT_EQ(5, object->getExpectedSenderNum());
+  ASSERT_EQ(2, object->getExpectedTargetNum());
 
 }
 
-TEST_FIXTURE(initiatorFixture, Disconnect_ResetOnDisconnect) {
+TEST_F(initiatorFixture, Disconnect_ResetOnDisconnect) {
   startLoggedOn();
 
   object->setResetOnDisconnect(true);
@@ -2074,12 +2071,12 @@ TEST_FIXTURE(initiatorFixture, Disconnect_ResetOnDisconnect) {
 
   object->disconnect();
 
-  CHECK_EQUAL(1, object->getExpectedSenderNum());
-  CHECK_EQUAL(1, object->getExpectedTargetNum());
+  ASSERT_EQ(1, object->getExpectedSenderNum());
+  ASSERT_EQ(1, object->getExpectedTargetNum());
 
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesFieldOrder) {
+TEST_F(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesFieldOrder) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2116,11 +2113,11 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesF
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 2);
   object->next(resendReq, UtcTimeStamp());
 
-  CHECK_EQUAL(3, object->getExpectedSenderNum());
-  CHECK_EQUAL(2, object->getExpectedTargetNum());
+  ASSERT_EQ(3, object->getExpectedSenderNum());
+  ASSERT_EQ(2, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreservesFieldOrder) {
+TEST_F(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreservesFieldOrder) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2161,11 +2158,11 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreserves
   FIX::Message resendReq = createT11ResendRequest( "ISLD", "TW", 2, 1, 2);
   object->next(resendReq, UtcTimeStamp());
 
-  CHECK_EQUAL(3, object->getExpectedSenderNum());
-  CHECK_EQUAL(2, object->getExpectedTargetNum());
+  ASSERT_EQ(3, object->getExpectedSenderNum());
+  ASSERT_EQ(2, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendException) {
+TEST_F(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendException) {
   startLoggedOn();
 
   FIX::Message neworder1 = createNewOrderSingle("ISLD", "TW", 2);
@@ -2180,11 +2177,11 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendExc
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 8);
   object->next(resendReq, UtcTimeStamp());
 
-  CHECK_EQUAL(5, object->getExpectedSenderNum());
-  CHECK_EQUAL(3, object->getExpectedTargetNum());
+  ASSERT_EQ(5, object->getExpectedSenderNum());
+  ASSERT_EQ(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) {
+TEST_F(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) {
   startLoggedOn();
 
   object->setNextSenderMsgSeqNum(15);
@@ -2192,11 +2189,11 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) {
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 20);
   object->next(resendReq, UtcTimeStamp());
 
-  CHECK_EQUAL(15, object->getExpectedSenderNum());
-  CHECK_EQUAL(3, object->getExpectedTargetNum());
+  ASSERT_EQ(15, object->getExpectedSenderNum());
+  ASSERT_EQ(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_UnsupportedMessageType) {
+TEST_F(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_UnsupportedMessageType) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2238,11 +2235,11 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_Unsupported
   FIX::Message er = createT1142ExecutionReport( "ISLD", "TW", 2);
   object->next(er, UtcTimeStamp());
 
-  CHECK_EQUAL(4, object->getExpectedSenderNum());
-  CHECK_EQUAL(3, object->getExpectedTargetNum());
+  ASSERT_EQ(4, object->getExpectedSenderNum());
+  ASSERT_EQ(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_MessageNotSent) {
+TEST_F(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_MessageNotSent) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2253,20 +2250,20 @@ TEST_FIXTURE(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_Messag
   object->setResetOnLogon(true);
 
   FIX::Message neworder1 = createNewOrderSingle("ISLD", "TW", 1);
-  CHECK(!object->send(neworder1));
+  ASSERT_TRUE(!object->send(neworder1));
 }
 
-TEST_FIXTURE(initiatorFixture, SendMessage_DoNotSendNewOrder_MessageNotSent) {
+TEST_F(initiatorFixture, SendMessage_DoNotSendNewOrder_MessageNotSent) {
   startLoggedOn();
 
   this->checkForDoNotSend = true;
 
   FIX::Message neworder1 = createNewOrderSingle("ISLD", "TW", 1);
   neworder1.setField(Text("DoNotSend"));
-  CHECK(!object->send(neworder1));
+  ASSERT_TRUE(!object->send(neworder1));
 }
 
-TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent) {
+TEST_F(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent) {
     startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
     endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
     startTime = UtcTimeOnly( startTimeStamp );
@@ -2302,11 +2299,11 @@ TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent) {
     receivedLogon.getHeader().setField(MsgSeqNum(50));
     object->next(receivedLogon, UtcTimeStamp());
 
-    CHECK_EQUAL(4, object->getExpectedSenderNum());
-    CHECK_EQUAL(1, object->getExpectedTargetNum());
+    ASSERT_EQ(4, object->getExpectedSenderNum());
+    ASSERT_EQ(1, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidTagNumber_Rejected)
+TEST_F(initiatorFixture, InvalidTagNumber_Rejected)
 {
   startLoggedOn();
 
@@ -2314,10 +2311,10 @@ TEST_FIXTURE(initiatorFixture, InvalidTagNumber_Rejected)
   newOrderSingle.setField(100000, "invalidTagNumber");
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, TagNotDefinedForMessageType_Rejected)
+TEST_F(initiatorFixture, TagNotDefinedForMessageType_Rejected)
 {
   startLoggedOn();
 
@@ -2325,10 +2322,10 @@ TEST_FIXTURE(initiatorFixture, TagNotDefinedForMessageType_Rejected)
   newOrderSingle.setField(391, "ClientBidID");
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, TagSpecifiedWithoutAValue_Rejected)
+TEST_F(initiatorFixture, TagSpecifiedWithoutAValue_Rejected)
 {
   startLoggedOn();
 
@@ -2336,10 +2333,10 @@ TEST_FIXTURE(initiatorFixture, TagSpecifiedWithoutAValue_Rejected)
   newOrderSingle.setField(FIELD::ClOrdID, "");
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, IncorrectDataFormatForValue_Rejected)
+TEST_F(initiatorFixture, IncorrectDataFormatForValue_Rejected)
 {
   startLoggedOn();
 
@@ -2347,10 +2344,10 @@ TEST_FIXTURE(initiatorFixture, IncorrectDataFormatForValue_Rejected)
   newOrderSingle.setField(FIELD::MinQty, "incorrectFormat");
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, TagAppearsMoreThanOnce_Rejected)
+TEST_F(initiatorFixture, TagAppearsMoreThanOnce_Rejected)
 {
   startLoggedOn();
 
@@ -2359,10 +2356,10 @@ TEST_FIXTURE(initiatorFixture, TagAppearsMoreThanOnce_Rejected)
   newOrderSingle.setField(Symbol("2ndAppearance"), false);
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject) {
+TEST_F(initiatorFixture, MessageTagsOutOfOrder_Reject) {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
   startTime = UtcTimeOnly( startTimeStamp );
@@ -2419,10 +2416,10 @@ TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject) {
   newOrderSingle.setString(newOrderSingleRawFIX, false, pDataDictionary.get(), pDataDictionary.get());
   object->next( newOrderSingle, UtcTimeStamp() );
 
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, IncorrectNumInGroupCount_Rejected)
+TEST_F(initiatorFixture, IncorrectNumInGroupCount_Rejected)
 {
   startLoggedOn();
 
@@ -2433,10 +2430,10 @@ TEST_FIXTURE(initiatorFixture, IncorrectNumInGroupCount_Rejected)
   newOrderSingle.setField(NoAllocs(2));
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, ConditionallyRequiredFieldMissing_Rejected)
+TEST_F(initiatorFixture, ConditionallyRequiredFieldMissing_Rejected)
 {
   startLoggedOn();
 
@@ -2444,10 +2441,10 @@ TEST_FIXTURE(initiatorFixture, ConditionallyRequiredFieldMissing_Rejected)
   newOrderSingle.getHeader().removeField(FIELD::TargetCompID);
 
   object->next( newOrderSingle, UtcTimeStamp() );
-  CHECK_EQUAL(1, toBusinessMessageReject);
+  ASSERT_EQ(1, toBusinessMessageReject);
 }
 
-TEST_FIXTURE(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
+TEST_F(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
 {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
@@ -2465,10 +2462,10 @@ TEST_FIXTURE(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
   receivedLogon.getHeader().removeField(FIELD::TargetCompID);
   object->next(receivedLogon, UtcTimeStamp());
 
-  CHECK(!object->isLoggedOn());
+  ASSERT_TRUE(!object->isLoggedOn());
 }
 
-TEST_FIXTURE(initiatorFIX40Fixture, CustomFIX40_UnsupportedMessageType_ERReject)
+TEST_F(initiatorFIX40Fixture, CustomFIX40_UnsupportedMessageType_ERReject)
 {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
@@ -2506,11 +2503,11 @@ TEST_FIXTURE(initiatorFIX40Fixture, CustomFIX40_UnsupportedMessageType_ERReject)
   FIX::Message executionReport = createFIX40ExecutionReport( "ISLD", "TW", 2 );
 
   object->next( executionReport, UtcTimeStamp() );
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
 
-TEST_FIXTURE(initiatorFixture, SendingTimeOutsideOfMaxLatency_Rejected)
+TEST_F(initiatorFixture, SendingTimeOutsideOfMaxLatency_Rejected)
 {
   startLoggedOn();
 
@@ -2522,10 +2519,10 @@ TEST_FIXTURE(initiatorFixture, SendingTimeOutsideOfMaxLatency_Rejected)
   newOrderSingle.getHeader().setField(SendingTime(highLatency));
   object->next( newOrderSingle, UtcTimeStamp() );
 
-  CHECK_EQUAL(1, toReject);
+  ASSERT_EQ(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_Valid)
+TEST_F(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_Valid)
 {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
@@ -2542,10 +2539,10 @@ TEST_FIXTURE(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_
   FIX42::Logout logout = createLogout( "ISLD", "TW", 2 );
   object->next( logout, UtcTimeStamp() );
 
-  CHECK_EQUAL(0, toReject);
+  ASSERT_EQ(0, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
+TEST_F(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
 
   FIX42::NewOrderSingle newOrderSingle;
   std::string newOrderSingleRawFIX;
@@ -2561,11 +2558,11 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInval
   + "108=1" + delimSOH
   + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  ASSERT_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
 
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_InvalidMessageException) {
+TEST_F(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_InvalidMessageException) {
 
   startLoggedOn();
 
@@ -2582,10 +2579,10 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_Inv
   + "108=1" + delimSOH
   + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  ASSERT_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
+TEST_F(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
 
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
@@ -2625,47 +2622,47 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInva
       + "108=1" + delimSOH
       + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  ASSERT_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
 }
 
-TEST_FIXTURE(initiatorFixture, SendToTarget_MsgHeaderMissingTarget_SessionNotFoundException)
+TEST_F(initiatorFixture, SendToTarget_MsgHeaderMissingTarget_SessionNotFoundException)
 {
   startLoggedOn();
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.getHeader().removeField(FIELD::TargetCompID);
 
-  CHECK_THROW(object->sendToTarget(newOrderSingle, "qualifier"), FIX::SessionNotFound);
+  ASSERT_THROW(object->sendToTarget(newOrderSingle, "qualifier"), FIX::SessionNotFound);
 }
 
-TEST_FIXTURE(initiatorFixture, SendToTarget_SessionIDDoesNotExist_SessionNotFoundException)
+TEST_F(initiatorFixture, SendToTarget_SessionIDDoesNotExist_SessionNotFoundException)
 {
   startLoggedOn();
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   SessionID sessionid;
-  CHECK_THROW(object->sendToTarget(newOrderSingle, sessionid), FIX::SessionNotFound);
+  ASSERT_THROW(object->sendToTarget(newOrderSingle, sessionid), FIX::SessionNotFound);
 }
 
-TEST_FIXTURE(initiatorFixture, SendToTarget_SessionIDExists_MessageSent)
+TEST_F(initiatorFixture, SendToTarget_SessionIDExists_MessageSent)
 {
   startLoggedOn();
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
-  CHECK(object->sendToTarget(newOrderSingle, object->getSessionID()));
+  ASSERT_TRUE(object->sendToTarget(newOrderSingle, object->getSessionID()));
 }
 
-TEST_FIXTURE(initiatorFixture, SendToTarget_MsgMissingTargetButTargetProvidedSeparatly_MessageSent)
+TEST_F(initiatorFixture, SendToTarget_MsgMissingTargetButTargetProvidedSeparatly_MessageSent)
 {
   startLoggedOn();
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.getHeader().removeField(FIELD::TargetCompID);
 
-  CHECK(object->sendToTarget(newOrderSingle, "TW", "ISLD", object->getSessionID().getSessionQualifier()));
+  ASSERT_TRUE(object->sendToTarget(newOrderSingle, "TW", "ISLD", object->getSessionID().getSessionQualifier()));
 }
 
-TEST_FIXTURE(initiatorFixture, QueuedLogonMessages)
+TEST_F(initiatorFixture, QueuedLogonMessages)
 {
   startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
   endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
@@ -2686,24 +2683,24 @@ TEST_FIXTURE(initiatorFixture, QueuedLogonMessages)
   {
       object->next( createNewOrderSingle( "ISLD", "TW", i), UtcTimeStamp() );
   }
-  CHECK_EQUAL( 1, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, toResendRequest );
+  ASSERT_EQ( 1, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, toResendRequest );
 
   object->next( createNewOrderSingle( "ISLD", "TW", 1), UtcTimeStamp() );
-  CHECK_EQUAL( 1, toResendRequest );
-  CHECK_EQUAL( 7, object->getExpectedTargetNum() );
+  ASSERT_EQ( 1, toResendRequest );
+  ASSERT_EQ( 7, object->getExpectedTargetNum() );
 }
 
-TEST_FIXTURE(initiatorFixture, SessionIDsExist)
+TEST_F(initiatorFixture, SessionIDsExist)
 {
   startLoggedOn();
 
-  CHECK_EQUAL(1, object->getSessions().size());
+  ASSERT_EQ(1U, object->getSessions().size());
 
 }
 
 
-TEST_FIXTURE(initiatorFixture, LookUpSession_InvalidSessionHeader_NoSessionReturned)
+TEST_F(initiatorFixture, LookUpSession_InvalidSessionHeader_NoSessionReturned)
 {
   startLoggedOn();
   std::string delimSOH = "\x01";
@@ -2712,17 +2709,17 @@ TEST_FIXTURE(initiatorFixture, LookUpSession_InvalidSessionHeader_NoSessionRetur
       + "9=100" + delimSOH;
 
   Session* actualSession = object->lookupSession(header, false);
-  CHECK(nullptr == actualSession);
+  ASSERT_TRUE(nullptr == actualSession);
 }
 
-TEST_FIXTURE(initiatorFixture, LookUpSession_FieldNotFoundException_NoSessionReturned)
+TEST_F(initiatorFixture, LookUpSession_FieldNotFoundException_NoSessionReturned)
 {
   startLoggedOn();
   Session* actualSession = object->lookupSession("8=FIX.4.2\x01", false);
-  CHECK(nullptr == actualSession);
+  ASSERT_TRUE(nullptr == actualSession);
 }
 
-TEST_FIXTURE(initiatorFixture, LookUpSession_SessionFound)
+TEST_F(initiatorFixture, LookUpSession_SessionFound)
 {
   startLoggedOn();
   std::string delimSOH = "\x01";
@@ -2733,7 +2730,5 @@ TEST_FIXTURE(initiatorFixture, LookUpSession_SessionFound)
       + "56=ISLD" + delimSOH;
 
   Session* actualSession = object->lookupSession(header, false);
-  CHECK(nullptr != actualSession);
-}
-
+  ASSERT_TRUE(nullptr != actualSession);
 }

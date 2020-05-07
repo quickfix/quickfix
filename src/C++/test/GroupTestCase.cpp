@@ -24,15 +24,12 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Group.h>
 
 using namespace FIX;
 
-SUITE(GroupTests)
-{
-
-TEST(copy)
+TEST(GroupTests, copy)
 {
   Group object(1, 10, message_order(10, 9, 8, 7, 0));
   object.setField(10, "10");
@@ -48,10 +45,10 @@ TEST(copy)
   std::string copyString;
   copy.calculateString( copyString );
 
-  CHECK_EQUAL( originalString, copyString );
+  ASSERT_EQ( originalString, copyString );
 }
 
-TEST(replace)
+TEST(GroupTests, replace)
 {
   Group parent(5, 100);
 
@@ -69,12 +66,11 @@ TEST(replace)
   Group actualChild(1, 10);
   parent.getGroup(1, actualChild);
 
-  CHECK_EQUAL("replace_1", actualChild.getField(1));
-  CHECK_EQUAL("replace_2", actualChild.getField(2));
-
+  ASSERT_EQ("replace_1", actualChild.getField(1));
+  ASSERT_EQ("replace_2", actualChild.getField(2));
 }
 
-TEST(removeGroup)
+TEST(GroupTests, removeGroup)
 {
   Group parent(5, 100);
 
@@ -85,11 +81,10 @@ TEST(removeGroup)
 
   parent.removeGroup(child);
 
-  CHECK_EQUAL(0, (int) parent.groupCount(1));
-
+  ASSERT_EQ(0, (int) parent.groupCount(1));
 }
 
-TEST(removeGroupByNum)
+TEST(GroupTests, removeGroupByNum)
 {
   Group parent(5, 100);
 
@@ -105,16 +100,15 @@ TEST(removeGroupByNum)
 
   parent.removeGroup(1, childA);
 
-  CHECK_EQUAL(1, (int) parent.groupCount(1));
+  ASSERT_EQ(1, (int) parent.groupCount(1));
 
   Group actualChild(1, 10);
   parent.getGroup(1, actualChild);
-  CHECK_EQUAL("childB_1", actualChild.getField(1));
-  CHECK_EQUAL("childB_2", actualChild.getField(2));
-
+  ASSERT_EQ("childB_1", actualChild.getField(1));
+  ASSERT_EQ("childB_2", actualChild.getField(2));
 }
 
-TEST(hasGroup)
+TEST(GroupTests, hasGroup)
 {
   Group parent(5, 100);
 
@@ -123,13 +117,13 @@ TEST(hasGroup)
   child.setField(2, "2");
   parent.addGroup(child);
 
-  CHECK(parent.hasGroup(child));
+  ASSERT_TRUE(parent.hasGroup(child));
 
   Group missingChild(2, 10);
-  CHECK(!parent.hasGroup(missingChild));
+  ASSERT_TRUE(!parent.hasGroup(missingChild));
 }
 
-TEST(hasGroupByNum)
+TEST(GroupTests, hasGroupByNum)
 {
   Group parent(5, 100);
 
@@ -143,13 +137,9 @@ TEST(hasGroupByNum)
   childB.setField(2, "childB_2");
   parent.addGroup(childB);
 
-  CHECK(parent.hasGroup(1, childA));
-  CHECK(parent.hasGroup(2, childB));
+  ASSERT_TRUE(parent.hasGroup(1, childA));
+  ASSERT_TRUE(parent.hasGroup(2, childB));
 
   Group missingChild(1, 10);
-  CHECK(!parent.hasGroup(3, missingChild));
-}
-
-
-
+  ASSERT_TRUE(!parent.hasGroup(3, missingChild));
 }

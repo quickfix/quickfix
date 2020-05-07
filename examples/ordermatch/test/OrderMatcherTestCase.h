@@ -18,6 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
+#ifdef 0
 
 #ifndef ORDERMATCHERTESTCASE_H
 #define ORDERMATCHERTESTCASE_H
@@ -73,3 +74,6 @@ private:
 };
 
 #endif
+
+#endif
+

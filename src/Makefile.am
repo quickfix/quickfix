@@ -28,8 +28,7 @@ at_LDADD = C++/libquickfix.la
 ut_LDADD = C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
 
-INCLUDES =-IC++ -IC++/test -I../UnitTest++/src
-LDFLAGS =-L../UnitTest++ -lUnitTest++
+INCLUDES =-IC++ -IC++/test -I../googletest
 
 all-local:
 	rm -f ../test/ut ../test/pt ../test/at ../test/ut_debug

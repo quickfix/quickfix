@@ -1,4 +1,5 @@
 /* -*- C++ -*- */
+#ifdef 0
 
 #ifndef PROCESSTESTCASE_H
 #define PROCESSTESTCASE_H
@@ -77,3 +78,5 @@ namespace ATRUN
 }
 
 #endif // PROCESSTESTCASE_H
+
+#endif

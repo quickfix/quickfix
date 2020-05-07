@@ -87,7 +87,7 @@ bool Market::match( std::queue < Order > & orders )
   }
 }
 
-Order& Market::find( Order::Side side, std::string id )
+Order& Market::find( Order::Side side, const std::string& id )
 {
   if ( side == Order::buy )
   {

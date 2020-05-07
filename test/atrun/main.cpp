@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <signal.h>
-#include <UnitTest++.h>
+#include <gmock-gtest-all.cc>
 
 #include "TestSuite.h"
 
@@ -27,7 +27,7 @@ namespace ATRUN {
 ATRUN::Process server;
 ATRUN::Process client;
 
-int doTestMode();
+int doTestMode(int argc, char** argv);
 int doRunMode(int argc, char** argv );
 bool processArguments(int argc, char** argv);
 void printUsage(char* exe);
@@ -47,7 +47,7 @@ int main( int argc, char** argv )
 
   if(strcmp(optarg, "test") == 0)
   {
-    return doTestMode();
+    return doTestMode( argc, argv );
   }
   else if(strcmp(optarg, "run") == 0)
   {
@@ -58,10 +58,11 @@ int main( int argc, char** argv )
   return 1;
 }
 
-int doTestMode()
+int doTestMode(int argc, char** argv)
 {
   std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
-  int result = UnitTest::RunAllTests();
+  ::testing::InitGoogleTest(&argc, argv);
+  int result = RUN_ALL_TESTS();
   std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
   return 0;
 }

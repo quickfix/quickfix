@@ -10,6 +10,7 @@
 
 namespace FIX
 {
+
 struct TestSettings
 {
   static short port;

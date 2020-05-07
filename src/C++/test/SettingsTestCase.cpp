@@ -24,16 +24,13 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <Settings.h>
 #include <sstream>
 
 using namespace FIX;
 
-SUITE(SettingsTests)
-{
-
-TEST(readFromIstream)
+TEST(SettingsTests, readFromIstream)
 {
   Settings object;
   std::string configuration =
@@ -53,29 +50,27 @@ TEST(readFromIstream)
   input >> object;
 
   Settings::Sections none = object.get( "NONE" );
-  CHECK_EQUAL( 0U, none.size() );
+  ASSERT_EQ( 0U, none.size() );
 
   Settings::Sections foo = object.get( "FOO" );
-  CHECK_EQUAL( 1U, foo.size() );
-  CHECK_EQUAL( 24, foo[ 0 ].getInt( "bar" ) );
-  CHECK_EQUAL( "moo", foo[ 0 ].getString( "baz" ) );
-  CHECK_EQUAL( 2lu, foo[ 0 ].size() );
+  ASSERT_EQ( 1U, foo.size() );
+  ASSERT_EQ( 24, foo[ 0 ].getInt( "bar" ) );
+  ASSERT_EQ( "moo", foo[ 0 ].getString( "baz" ) );
+  ASSERT_EQ( 2lu, foo[ 0 ].size() );
 
   Settings::Sections oren = object.get( "OREN" );
-  CHECK_EQUAL( 2lu, oren.size() );
-  CHECK_EQUAL( 1lu, oren[ 0 ].size() );
-  CHECK_EQUAL( "TW", oren[ 0 ].getString( "Nero" ) );
-  CHECK_EQUAL( 2lu, oren[ 1 ].size() );
-  CHECK_EQUAL( "Nero", oren[ 1 ].getString( "ISLD" ) );
-  CHECK_EQUAL( "./\\:", oren[ 1 ].getString( "STUFF" ) );
+  ASSERT_EQ( 2lu, oren.size() );
+  ASSERT_EQ( 1lu, oren[ 0 ].size() );
+  ASSERT_EQ( "TW", oren[ 0 ].getString( "Nero" ) );
+  ASSERT_EQ( 2lu, oren[ 1 ].size() );
+  ASSERT_EQ( "Nero", oren[ 1 ].getString( "ISLD" ) );
+  ASSERT_EQ( "./\\:", oren[ 1 ].getString( "STUFF" ) );
 
   Settings::Sections nero = object.get( "NERO" );
-  CHECK_EQUAL( 1lu, nero.size() );
-  CHECK_EQUAL( 4lu, nero[ 0 ].size() );
-  CHECK_EQUAL( "D:\\This Is\\A-Directory\\ok\\", nero[ 0 ].getString( "WINDIR" ) );
-  CHECK_EQUAL( "/This Is/A Directory/ok/", nero[ 0 ].getString( "UNIXDIR" ) );
-  CHECK_EQUAL( "D:\\Program Files\\Tomcat 4.1\\webapps\\mek\\WEB-INF\\HTTPtoFIX.cfg", nero[ 0 ].getString( "WINFILE" ) );
-  CHECK_EQUAL( "last spaces stripped", nero[ 0 ].getString( "stripspace" ) );
-}
-
+  ASSERT_EQ( 1lu, nero.size() );
+  ASSERT_EQ( 4lu, nero[ 0 ].size() );
+  ASSERT_EQ( "D:\\This Is\\A-Directory\\ok\\", nero[ 0 ].getString( "WINDIR" ) );
+  ASSERT_EQ( "/This Is/A Directory/ok/", nero[ 0 ].getString( "UNIXDIR" ) );
+  ASSERT_EQ( "D:\\Program Files\\Tomcat 4.1\\webapps\\mek\\WEB-INF\\HTTPtoFIX.cfg", nero[ 0 ].getString( "WINFILE" ) );
+  ASSERT_EQ( "last spaces stripped", nero[ 0 ].getString( "stripspace" ) );
 }

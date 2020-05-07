@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <FieldNumbers.h>
 #include <Values.h>
 #include <fix40/TestRequest.h>
@@ -41,88 +41,85 @@
 
 using namespace FIX;
 
-SUITE(DataDictionaryTests)
-{
-
 USER_DEFINE_STRING( TooHigh, 501 );
 
-TEST(addMsgType)
+TEST(DataDictionaryTests, addMsgType)
 {
   DataDictionary object;
-  CHECK( !object.isMsgType( "A" ) );
+  ASSERT_TRUE( !object.isMsgType( "A" ) );
   object.addMsgType( "A" );
-  CHECK( object.isMsgType( "A" ) );
+  ASSERT_TRUE( object.isMsgType( "A" ) );
 }
 
-TEST(addMsgField)
+TEST(DataDictionaryTests, addMsgField)
 {
   DataDictionary object;
-  CHECK( !object.isMsgField( "A", 10 ) );
-  CHECK( !object.isMsgField( "Z", 50 ) );
+  ASSERT_TRUE( !object.isMsgField( "A", 10 ) );
+  ASSERT_TRUE( !object.isMsgField( "Z", 50 ) );
   object.addMsgField( "A", 10 );
   object.addMsgField( "Z", 50 );
-  CHECK( object.isMsgField( "A", 10 ) );
-  CHECK( object.isMsgField( "Z", 50 ) );
-  CHECK( !object.isMsgField( "A", 50 ) );
-  CHECK( !object.isMsgField( "Z", 10 ) );
+  ASSERT_TRUE( object.isMsgField( "A", 10 ) );
+  ASSERT_TRUE( object.isMsgField( "Z", 50 ) );
+  ASSERT_TRUE( !object.isMsgField( "A", 50 ) );
+  ASSERT_TRUE( !object.isMsgField( "Z", 10 ) );
 }
 
-TEST(addHeaderField)
+TEST(DataDictionaryTests, addHeaderField)
 {
   DataDictionary object;
-  CHECK( !object.isHeaderField( 56 ) );
-  CHECK( !object.isHeaderField( 49 ) );
+  ASSERT_TRUE( !object.isHeaderField( 56 ) );
+  ASSERT_TRUE( !object.isHeaderField( 49 ) );
   object.addHeaderField( 56, true );
   object.addHeaderField( 49, true );
-  CHECK( object.isHeaderField( 56 ) );
-  CHECK( object.isHeaderField( 49 ) );
+  ASSERT_TRUE( object.isHeaderField( 56 ) );
+  ASSERT_TRUE( object.isHeaderField( 49 ) );
 }
 
-TEST(addTrailerField)
+TEST(DataDictionaryTests, addTrailerField)
 {
   DataDictionary object;
-  CHECK( !object.isTrailerField( 10 ) );
+  ASSERT_TRUE( !object.isTrailerField( 10 ) );
   object.addTrailerField( 10, true );
-  CHECK( object.isTrailerField( 10 ) );
+  ASSERT_TRUE( object.isTrailerField( 10 ) );
 }
 
-TEST(addFieldType)
+TEST(DataDictionaryTests, addFieldType)
 {
   DataDictionary object;
   TYPE::Type type;
-  CHECK( !object.getFieldType( 14, type ) );
-  CHECK( !object.getFieldType( 23, type ) );
+  ASSERT_TRUE( !object.getFieldType( 14, type ) );
+  ASSERT_TRUE( !object.getFieldType( 23, type ) );
 
   object.addFieldType( 14, TYPE::String );
   object.addFieldType( 23, TYPE::Char );
 
-  CHECK( object.getFieldType( 14, type ) );
-  CHECK_EQUAL( TYPE::String, type );
-  CHECK( object.getFieldType( 23, type ) );
-  CHECK_EQUAL( TYPE::Char, type );
+  ASSERT_TRUE( object.getFieldType( 14, type ) );
+  ASSERT_EQ( TYPE::String, type );
+  ASSERT_TRUE( object.getFieldType( 23, type ) );
+  ASSERT_EQ( TYPE::Char, type );
 }
 
-TEST(addRequiredField)
+TEST(DataDictionaryTests, addRequiredField)
 {
   DataDictionary object;
-  CHECK( !object.isRequiredField( "A", 10 ) );
-  CHECK( !object.isRequiredField( "Z", 50 ) );
+  ASSERT_TRUE( !object.isRequiredField( "A", 10 ) );
+  ASSERT_TRUE( !object.isRequiredField( "Z", 50 ) );
   object.addRequiredField( "A", 10 );
   object.addRequiredField( "Z", 50 );
-  CHECK( object.isRequiredField( "A", 10 ) );
-  CHECK( object.isRequiredField( "Z", 50 ) );
-  CHECK( !object.isRequiredField( "A", 50 ) );
-  CHECK( !object.isRequiredField( "Z", 10 ) );
+  ASSERT_TRUE( object.isRequiredField( "A", 10 ) );
+  ASSERT_TRUE( object.isRequiredField( "Z", 50 ) );
+  ASSERT_TRUE( !object.isRequiredField( "A", 50 ) );
+  ASSERT_TRUE( !object.isRequiredField( "Z", 10 ) );
 }
 
-TEST(addFieldValue)
+TEST(DataDictionaryTests, addFieldValue)
 {
   DataDictionary object;
-  CHECK( !object.isFieldValue( 12, "f" ) );
-  CHECK( !object.isFieldValue( 12, "g" ) );
-  CHECK( !object.isFieldValue( 15, "1" ) );
-  CHECK( !object.isFieldValue( 18, "2" ) );
-  CHECK( !object.isFieldValue( 167, "FUT" ) );
+  ASSERT_TRUE( !object.isFieldValue( 12, "f" ) );
+  ASSERT_TRUE( !object.isFieldValue( 12, "g" ) );
+  ASSERT_TRUE( !object.isFieldValue( 15, "1" ) );
+  ASSERT_TRUE( !object.isFieldValue( 18, "2" ) );
+  ASSERT_TRUE( !object.isFieldValue( 167, "FUT" ) );
 
   object.addFieldValue( 12, "f" );
   object.addFieldValue( 12, "g" );
@@ -130,14 +127,14 @@ TEST(addFieldValue)
   object.addFieldValue( 18, "2" );
   object.addFieldValue( 167, "FUT" );
 
-  CHECK( object.isFieldValue( 12, "f" ) );
-  CHECK( object.isFieldValue( 12, "g" ) );
-  CHECK( object.isFieldValue( 15, "1" ) );
-  CHECK( object.isFieldValue( 18, "2" ) );
-  CHECK( object.isFieldValue( 167, "FUT" ) );
+  ASSERT_TRUE( object.isFieldValue( 12, "f" ) );
+  ASSERT_TRUE( object.isFieldValue( 12, "g" ) );
+  ASSERT_TRUE( object.isFieldValue( 15, "1" ) );
+  ASSERT_TRUE( object.isFieldValue( 18, "2" ) );
+  ASSERT_TRUE( object.isFieldValue( 167, "FUT" ) );
 }
 
-TEST(addGroup)
+TEST(DataDictionaryTests, addGroup)
 {
   DataDictionary object;
   object.setVersion( "FIX.4.2" );
@@ -156,20 +153,20 @@ TEST(addGroup)
   int delim;
   const DataDictionary* pDD = 0;
 
-  CHECK( object.getGroup( "A", 100, delim, pDD ) );
-  CHECK_EQUAL( 101, delim );
-  CHECK( pDD->isMsgType( "1" ) );
+  ASSERT_TRUE( object.getGroup( "A", 100, delim, pDD ) );
+  ASSERT_EQ( 101, delim );
+  ASSERT_TRUE( pDD->isMsgType( "1" ) );
 
-  CHECK( object.getGroup( "A", 200, delim, pDD ) );
-  CHECK_EQUAL( 201, delim );
-  CHECK( pDD->isMsgType( "2" ) );
+  ASSERT_TRUE( object.getGroup( "A", 200, delim, pDD ) );
+  ASSERT_EQ( 201, delim );
+  ASSERT_TRUE( pDD->isMsgType( "2" ) );
 
-  CHECK( object.getGroup( "A", 300, delim, pDD ) );
-  CHECK_EQUAL( 301, delim );
-  CHECK( pDD->isMsgType( "3" ) );
+  ASSERT_TRUE( object.getGroup( "A", 300, delim, pDD ) );
+  ASSERT_EQ( 301, delim );
+  ASSERT_TRUE( pDD->isMsgType( "3" ) );
 }
 
-TEST(addFieldName)
+TEST(DataDictionaryTests, addFieldName)
 {
   DataDictionary object;
   object.setVersion( "FIX.4.2" );
@@ -180,21 +177,21 @@ TEST(addFieldName)
 
   std::string name;
   int field;
-  CHECK( object.getFieldName( 1, name ) );
-  CHECK_EQUAL( "Account", name );
-  CHECK( object.getFieldTag( name, field ) );
-  CHECK_EQUAL( 1, field );
-  CHECK( object.getFieldName( 11, name ) );
-  CHECK_EQUAL( "ClOrdID", name );
-  CHECK( object.getFieldTag( name, field ) );
-  CHECK_EQUAL( 11, field );
-  CHECK( object.getFieldName( 8, name ) );
-  CHECK_EQUAL( "BeginString", name );
-  CHECK( object.getFieldTag( name, field ) );
-  CHECK_EQUAL( 8, field );
+  ASSERT_TRUE( object.getFieldName( 1, name ) );
+  ASSERT_EQ( "Account", name );
+  ASSERT_TRUE( object.getFieldTag( name, field ) );
+  ASSERT_EQ( 1, field );
+  ASSERT_TRUE( object.getFieldName( 11, name ) );
+  ASSERT_EQ( "ClOrdID", name );
+  ASSERT_TRUE( object.getFieldTag( name, field ) );
+  ASSERT_EQ( 11, field );
+  ASSERT_TRUE( object.getFieldName( 8, name ) );
+  ASSERT_EQ( "BeginString", name );
+  ASSERT_TRUE( object.getFieldTag( name, field ) );
+  ASSERT_EQ( 8, field );
 }
 
-TEST(addValueName)
+TEST(DataDictionaryTests, addValueName)
 {
   DataDictionary object;
   object.setVersion( "FIX.4.2" );
@@ -204,15 +201,15 @@ TEST(addValueName)
   object.addValueName( 23, "BOO", "VALUE_23_BOO" );
 
   std::string name;
-  CHECK( object.getValueName( 12, "0", name ) );
-  CHECK_EQUAL( "VALUE_12_0", name );
-  CHECK( object.getValueName( 12, "B", name ) );
-  CHECK_EQUAL( "VALUE_12_B", name );
-  CHECK( object.getValueName( 23, "BOO", name ) );
-  CHECK_EQUAL( "VALUE_23_BOO", name );
+  ASSERT_TRUE( object.getValueName( 12, "0", name ) );
+  ASSERT_EQ( "VALUE_12_0", name );
+  ASSERT_TRUE( object.getValueName( 12, "B", name ) );
+  ASSERT_EQ( "VALUE_12_B", name );
+  ASSERT_TRUE( object.getValueName( 23, "BOO", name ) );
+  ASSERT_EQ( "VALUE_23_BOO", name );
 }
 
-struct checkValidTagNumberFixture
+struct checkValidTagNumberFixture : public ::testing::Test
 {
   checkValidTagNumberFixture()
   {
@@ -229,13 +226,13 @@ struct checkValidTagNumberFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
+TEST_F(checkValidTagNumberFixture, checkValidTagNumber)
 {
   object.checkFieldsOutOfOrder(true);
   TestReqID testReqID( "1" );
   FIX40::TestRequest message( testReqID );
   message.setField( TooHigh( "value" ) );
-  CHECK_THROW( object.validate( message ), InvalidTagNumber );
+  ASSERT_THROW( object.validate( message ), InvalidTagNumber );
 
   object.allowUnknownMsgFields( true );
   object.validate( message );
@@ -246,23 +243,23 @@ TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
   object.validate( message );
 
   message.setField( FIELD::UserMin, "value" );
-  CHECK_THROW( object.validate( message ), InvalidTagNumber );
+  ASSERT_THROW( object.validate( message ), InvalidTagNumber );
 
   object.checkUserDefinedFields( false );
   object.validate( message );
 }
 
-TEST(checkHasValue)
+TEST(DataDictionaryTests, checkHasValue)
 {
   DataDictionary object;
   object.checkFieldsHaveValues(true);
   Message testReqID( "8=FIX.4.2\0019=12\00135=1\001112=\00110=007\001", false );
   FIX42::TestRequest message( testReqID );
 
-  CHECK_THROW( object.validate( message ), NoTagValue );
+  ASSERT_THROW( object.validate( message ), NoTagValue );
 }
 
-struct checkIsInMessageFixture
+struct checkIsInMessageFixture : public ::testing::Test
 {
   checkIsInMessageFixture()
   {
@@ -280,7 +277,7 @@ struct checkIsInMessageFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE(checkIsInMessageFixture, checkIsInMessage)
+TEST_F(checkIsInMessageFixture, checkIsInMessage)
 {
   TestReqID testReqID( "1" );
 
@@ -288,10 +285,10 @@ TEST_FIXTURE(checkIsInMessageFixture, checkIsInMessage)
   object.validate( message );
 
   message.setField( Symbol( "MSFT" ) );
-  CHECK_THROW( object.validate( message ), TagNotDefinedForMessage );
+  ASSERT_THROW( object.validate( message ), TagNotDefinedForMessage );
 }
 
-struct checkHasRequiredFixture
+struct checkHasRequiredFixture : public ::testing::Test
 {
   checkHasRequiredFixture()
   {
@@ -316,29 +313,29 @@ struct checkHasRequiredFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
+TEST_F(checkHasRequiredFixture, checkHasRequired)
 {
   FIX40::TestRequest message;
   message.getTrailer().setField( SignatureLength( 1 ) );
 
-  CHECK_THROW( object.validate( message ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( message ), RequiredTagMissing );
 
   message.getHeader().setField( SenderCompID( "SENDER" ) );
-  CHECK_THROW( object.validate( message ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( message ), RequiredTagMissing );
 
   message.setField( TestReqID( "1" ) );
   object.validate( message );
 
   message.getHeader().removeField( FIELD::SenderCompID );
   message.setField( SenderCompID( "SENDER" ) );
-  CHECK_THROW( object.validate( message ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( message ), RequiredTagMissing );
 
   message.getHeader().setField( SenderCompID( "SENDER" ) );
   message.getTrailer().removeField( FIELD::SignatureLength );
-  CHECK_THROW( object.validate( message ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( message ), RequiredTagMissing );
 }
 
-struct checkValidFormatFixture
+struct checkValidFormatFixture : public ::testing::Test
 {
   checkValidFormatFixture()
   {
@@ -354,147 +351,147 @@ struct checkValidFormatFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Int_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Int_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Int );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "+200" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Char_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Char_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Char );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Price_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Price_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Price );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Amt_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Amt_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Amt );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Qty_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Qty_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Qty );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeStamp_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_UtcTimeStamp_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcTimeStamp );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Boolean_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Boolean_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Boolean );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Float_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_Float_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Float );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcDate_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_UtcDate_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcDate );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeOnly_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_UtcTimeOnly_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcTimeOnly );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_NumInGroup_Exception )
+TEST_F( checkValidFormatFixture, checkValidFormat_NumInGroup_Exception )
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::NumInGroup );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Percentage_Exception)
+TEST_F( checkValidFormatFixture, checkValidFormat_Percentage_Exception)
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Percentage );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_SeqNum_Exception)
+TEST_F( checkValidFormatFixture, checkValidFormat_SeqNum_Exception)
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::SeqNum );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Length_Exception)
+TEST_F( checkValidFormatFixture, checkValidFormat_Length_Exception)
 {
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Length );
 
   FIX40::TestRequest message;
   message.setField( TestReqID( "ERROR" ) );
-  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
+  ASSERT_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_AllSetFieldsValid)
+TEST_F( checkValidFormatFixture, checkValidFormat_AllSetFieldsValid)
 {
   object.addField( 5000 );
   object.addField( 5001 );
@@ -627,13 +624,13 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_AllSetFieldsValid)
     object.validate( message );
   }
   catch ( IncorrectDataFormat& e){
-    CHECK(false);
+    ASSERT_TRUE(false);
     throw e;
   }
 }
 
 
-struct checkValueFixture
+struct checkValueFixture : public ::testing::Test
 {
   checkValueFixture()
   {
@@ -658,7 +655,7 @@ struct checkValueFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE( checkValueFixture, checkValue )
+TEST_F( checkValueFixture, checkValue )
 {
   DataDictionary object;
   FIX40::NewOrderSingle message;
@@ -676,23 +673,23 @@ TEST_FIXTURE( checkValueFixture, checkValue )
   object.validate( message );
 }
 
-TEST_FIXTURE( checkValueFixture, checkValue_IncorrectTagValue )
+TEST_F( checkValueFixture, checkValue_IncorrectTagValue )
 {
   FIX40::NewOrderSingle message;
   message.setField(FIELD::OrderRestrictions, "Incorrect");
-  CHECK_THROW(object.validate( message ), IncorrectTagValue);
+  ASSERT_THROW(object.validate( message ), IncorrectTagValue);
 }
 
-TEST( checkRepeatedTag )
+TEST(DataDictionaryTests, checkRepeatedTag)
 {
   DataDictionary object;
   FIX40::NewOrderSingle message;
   message.setField( OrdType('1') );
   message.setField( OrdType('1'), false );
-  CHECK_THROW( object.validate(message), RepeatedTag );
+  ASSERT_THROW( object.validate(message), RepeatedTag );
 }
 
-struct checkGroupCountFixture
+struct checkGroupCountFixture : public ::testing::Test
 {
   checkGroupCountFixture()
   {
@@ -712,17 +709,17 @@ struct checkGroupCountFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
+TEST_F( checkGroupCountFixture, checkGroupCount )
 {
   FIX42::NewOrderSingle message;
   FIX42::NewOrderSingle::NoAllocs group;
   group.setField( AllocAccount("account") );
   message.addGroup( group );
   message.set( NoAllocs(2) );
-  CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
+  ASSERT_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
-TEST( checkGroupRequiredFields )
+TEST(DataDictionaryTests, checkGroupRequiredFields )
 {
   DataDictionary object( "../spec/FIX44.xml" );
   FIX44::NewOrderList newOrderList;
@@ -730,10 +727,10 @@ TEST( checkGroupRequiredFields )
   object.validate( newOrderList );
 
   newOrderList.setString("8=FIX.4.49=15835=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=036", false, &object);
-  CHECK_THROW( object.validate( newOrderList ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( newOrderList ), RequiredTagMissing );
 
   newOrderList.setString("8=FIX.4.49=26935=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=211=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD11=SE104555=MSFT67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=109", false, &object);
-  CHECK_THROW( object.validate( newOrderList ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( newOrderList ), RequiredTagMissing );
 
   FIX44::MarketDataRequest marketDataRequest(
     MDReqID("1"),
@@ -764,7 +761,7 @@ TEST( checkGroupRequiredFields )
 
   noMDEntryTypes.removeField( FIELD::MDEntryType );
   marketDataRequest.addGroup( noMDEntryTypes );
-  CHECK_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
+  ASSERT_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
 
   FIX44::MarketDataSnapshotFullRefresh md;
   md.set( MDReqID("1") );
@@ -787,71 +784,71 @@ TEST( checkGroupRequiredFields )
   //object.validate( md );
 }
 
-TEST( readFromFile )
+TEST(DataDictionaryTests, readFromFile)
 {
   DataDictionary object( "../spec/FIX43.xml" );
-  CHECK( object.isHeaderField( 56 ) );
-  CHECK( !object.isHeaderField( 38 ) );
-  CHECK( !object.isHeaderField( 10 ) );
+  ASSERT_TRUE( object.isHeaderField( 56 ) );
+  ASSERT_TRUE( !object.isHeaderField( 38 ) );
+  ASSERT_TRUE( !object.isHeaderField( 10 ) );
 
-  CHECK( object.isTrailerField( 10 ) );
-  CHECK( !object.isTrailerField( 38 ) );
-  CHECK( !object.isTrailerField( 56 ) );
+  ASSERT_TRUE( object.isTrailerField( 10 ) );
+  ASSERT_TRUE( !object.isTrailerField( 38 ) );
+  ASSERT_TRUE( !object.isTrailerField( 56 ) );
 
-  CHECK( object.isMsgType( "A" ) );
-  CHECK( object.isMsgField( "A", 383 ) );
+  ASSERT_TRUE( object.isMsgType( "A" ) );
+  ASSERT_TRUE( object.isMsgField( "A", 383 ) );
 
   TYPE::Type type = TYPE::Unknown;
-  CHECK( object.getFieldType( 383, type ) );
-  CHECK_EQUAL( TYPE::Length, type );
+  ASSERT_TRUE( object.getFieldType( 383, type ) );
+  ASSERT_EQ( TYPE::Length, type );
 
-  CHECK( object.isRequiredField( "A", 108 ) );
-  CHECK( !object.isRequiredField( "A", 383 ) );
-  CHECK( object.isRequiredField( "6", 28 ) );
-  CHECK( !object.isRequiredField( "B", 55 ) );
+  ASSERT_TRUE( object.isRequiredField( "A", 108 ) );
+  ASSERT_TRUE( !object.isRequiredField( "A", 383 ) );
+  ASSERT_TRUE( object.isRequiredField( "6", 28 ) );
+  ASSERT_TRUE( !object.isRequiredField( "B", 55 ) );
 
-  CHECK( object.isFieldValue( 40, "A" ) );
-  CHECK( !object.isFieldValue( 40, "Z" ) );
+  ASSERT_TRUE( object.isFieldValue( 40, "A" ) );
+  ASSERT_TRUE( !object.isFieldValue( 40, "Z" ) );
 
   std::string name;
-  CHECK( object.getFieldName( 1, name ) );
-  CHECK_EQUAL( "Account", name );
-  CHECK( object.getFieldName( 11, name ) );
-  CHECK_EQUAL( "ClOrdID", name );
-  CHECK( object.getFieldName( 8, name ) );
-  CHECK_EQUAL( "BeginString", name );
+  ASSERT_TRUE( object.getFieldName( 1, name ) );
+  ASSERT_EQ( "Account", name );
+  ASSERT_TRUE( object.getFieldName( 11, name ) );
+  ASSERT_EQ( "ClOrdID", name );
+  ASSERT_TRUE( object.getFieldName( 8, name ) );
+  ASSERT_EQ( "BeginString", name );
 
-  CHECK( object.getValueName( 18, "1", name ) );
-  CHECK_EQUAL( "NOTHELD", name );
-  CHECK( object.getValueName( 18, "2", name ) );
-  CHECK_EQUAL( "WORK", name );
-  CHECK( object.getValueName( 18, "W", name ) );
-  CHECK_EQUAL( "PEGVWAP", name );
+  ASSERT_TRUE( object.getValueName( 18, "1", name ) );
+  ASSERT_EQ( "NOTHELD", name );
+  ASSERT_TRUE( object.getValueName( 18, "2", name ) );
+  ASSERT_EQ( "WORK", name );
+  ASSERT_TRUE( object.getValueName( 18, "W", name ) );
+  ASSERT_EQ( "PEGVWAP", name );
 
   const DataDictionary* pDD = 0;
   int delim = 0;
-  CHECK( object.getGroup( "b", 296, delim, pDD ) );
-  CHECK_EQUAL( 302, delim );
-  CHECK( pDD->isField( 295 ) );
-  CHECK( pDD->isField( 310 ) );
-  CHECK( !pDD->isField( 55 ) );
-  CHECK( pDD->getGroup( "b", 295, delim, pDD ) );
-  CHECK_EQUAL( 299, delim );
-  CHECK( pDD->isField( 55 ) );
-  CHECK( !pDD->isField( 310 ) );
-  CHECK( object.getGroup( "8", 453, delim, pDD ) );
-  CHECK_EQUAL( 448, delim );
-  CHECK( object.getGroup( "y", 146, delim, pDD ) );
-  CHECK_EQUAL( 55, delim );
+  ASSERT_TRUE( object.getGroup( "b", 296, delim, pDD ) );
+  ASSERT_EQ( 302, delim );
+  ASSERT_TRUE( pDD->isField( 295 ) );
+  ASSERT_TRUE( pDD->isField( 310 ) );
+  ASSERT_TRUE( !pDD->isField( 55 ) );
+  ASSERT_TRUE( pDD->getGroup( "b", 295, delim, pDD ) );
+  ASSERT_EQ( 299, delim );
+  ASSERT_TRUE( pDD->isField( 55 ) );
+  ASSERT_TRUE( !pDD->isField( 310 ) );
+  ASSERT_TRUE( object.getGroup( "8", 453, delim, pDD ) );
+  ASSERT_EQ( 448, delim );
+  ASSERT_TRUE( object.getGroup( "y", 146, delim, pDD ) );
+  ASSERT_EQ( 55, delim );
 }
 
-TEST( readFromStream )
+TEST(DataDictionaryTests, readFromStream)
 {
   std::fstream stream( "../spec/FIX43.xml" );
   DataDictionary object( stream );
 }
 
-struct copyFixture
+struct copyFixture : public ::testing::Test
 {
   copyFixture()
   {
@@ -872,32 +869,32 @@ struct copyFixture
   DataDictionary object;
 };
 
-TEST_FIXTURE( copyFixture, copy )
+TEST_F( copyFixture, copy )
 {
   DataDictionary dataDictionary = object;
   TYPE::Type type;
   int delim;
 
-  CHECK_EQUAL( BeginString_FIX40, dataDictionary.getVersion() );
-  CHECK( dataDictionary.isMsgType( MsgType_NewOrderSingle ) );
-  CHECK( dataDictionary.isMsgField( MsgType_NewOrderSingle, FIELD::OrdType ) );
-  CHECK( dataDictionary.getFieldType( FIELD::OrdType, type ) );
-  CHECK_EQUAL( TYPE::Char, type );
-  CHECK( dataDictionary.isFieldValue( FIELD::OrdType, "1" ) );
+  ASSERT_EQ( BeginString_FIX40, dataDictionary.getVersion() );
+  ASSERT_TRUE( dataDictionary.isMsgType( MsgType_NewOrderSingle ) );
+  ASSERT_TRUE( dataDictionary.isMsgField( MsgType_NewOrderSingle, FIELD::OrdType ) );
+  ASSERT_TRUE( dataDictionary.getFieldType( FIELD::OrdType, type ) );
+  ASSERT_EQ( TYPE::Char, type );
+  ASSERT_TRUE( dataDictionary.isFieldValue( FIELD::OrdType, "1" ) );
 
   const DataDictionary* pDD = 0;
-  CHECK( dataDictionary.getGroup( "A", 10, delim, pDD ) );
-  CHECK( pDD->getFieldType( FIELD::HeartBtInt, type ) );
-  CHECK_EQUAL( TYPE::String, type );
-  CHECK_EQUAL( 20, delim );
+  ASSERT_TRUE( dataDictionary.getGroup( "A", 10, delim, pDD ) );
+  ASSERT_TRUE( pDD->getFieldType( FIELD::HeartBtInt, type ) );
+  ASSERT_EQ( TYPE::String, type );
+  ASSERT_EQ( 20, delim );
 
-  CHECK( pDD->getGroup( "A", 1, delim, pDD ) );
-  CHECK( pDD->getFieldType( FIELD::MsgType, type ) );
-  CHECK_EQUAL( TYPE::Char, type );
-  CHECK_EQUAL( 2, delim );
+  ASSERT_TRUE( pDD->getGroup( "A", 1, delim, pDD ) );
+  ASSERT_TRUE( pDD->getFieldType( FIELD::MsgType, type ) );
+  ASSERT_EQ( TYPE::Char, type );
+  ASSERT_EQ( 2, delim );
 }
 
-TEST(getMessageOrderedFields_StoredOrder) {
+TEST(DataDictionaryTests, getMessageOrderedFields_StoredOrder) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -925,12 +922,12 @@ TEST(getMessageOrderedFields_StoredOrder) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
-TEST(getMessageOrderedFields_GetOrderTwice) {
+TEST(DataDictionaryTests, getMessageOrderedFields_GetOrderTwice) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -960,25 +957,25 @@ TEST(getMessageOrderedFields_GetOrderTwice) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
 
-TEST(getMessageOrderedFields_NoStoredOrder) {
+TEST(DataDictionaryTests, getMessageOrderedFields_NoStoredOrder) {
   DataDictionary dictionary;
-  CHECK_THROW(dictionary.getMessageOrderedFields("none"), ConfigError);
+  ASSERT_THROW(dictionary.getMessageOrderedFields("none"), ConfigError);
 }
 
-TEST(addFieldName_addNameTwiceError) {
+TEST(DataDictionaryTests, addFieldName_addNameTwiceError) {
   DataDictionary dictionary;
   dictionary.addFieldName(1, "name");
 
-  CHECK_THROW(dictionary.addFieldName(1, "name"), ConfigError);
+  ASSERT_THROW(dictionary.addFieldName(1, "name"), ConfigError);
 }
 
-TEST(getHeaderOrderedFields_StoredOrder) {
+TEST(DataDictionaryTests, getHeaderOrderedFields_StoredOrder) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -1005,12 +1002,12 @@ TEST(getHeaderOrderedFields_StoredOrder) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
-TEST(getTrailerOrderedFields_StoredOrder) {
+TEST(DataDictionaryTests, getTrailerOrderedFields_StoredOrder) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -1037,24 +1034,24 @@ TEST(getTrailerOrderedFields_StoredOrder) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
-TEST(getHeaderOrderedFields_HeaderDoesNotHaveStoredOrderValues) {
+TEST(DataDictionaryTests, getHeaderOrderedFields_HeaderDoesNotHaveStoredOrderValues) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
-  CHECK_THROW(dictionary.getHeaderOrderedFields(), ConfigError);
+  ASSERT_THROW(dictionary.getHeaderOrderedFields(), ConfigError);
 }
 
-TEST(getTrailerOrderedFields_TrailerDoesNotHaveStoredOrderValues) {
+TEST(DataDictionaryTests, getTrailerOrderedFields_TrailerDoesNotHaveStoredOrderValues) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
-  CHECK_THROW(dictionary.getTrailerOrderedFields(), ConfigError);
+  ASSERT_THROW(dictionary.getTrailerOrderedFields(), ConfigError);
 }
 
-TEST(getHeaderOrderedFields_GetOrderTwice) {
+TEST(DataDictionaryTests, getHeaderOrderedFields_GetOrderTwice) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -1083,12 +1080,12 @@ TEST(getHeaderOrderedFields_GetOrderTwice) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
-TEST(getTrailerOrderedFields_GetOrderTwice) {
+TEST(DataDictionaryTests, getTrailerOrderedFields_GetOrderTwice) {
   DataDictionary dictionary;
   dictionary.preserveMessageFieldsOrder(true);
 
@@ -1117,30 +1114,30 @@ TEST(getTrailerOrderedFields_GetOrderTwice) {
     }
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
+  ASSERT_EQ(1, pos1);
+  ASSERT_EQ(2, pos2);
+  ASSERT_EQ(3, pos3);
 }
 
-TEST(isFieldValue_MultipleValueType_FieldValueExists) {
+TEST(DataDictionaryTests,isFieldValue_MultipleValueType_FieldValueExists) {
   DataDictionary dictionary;
   dictionary.addFieldType(1, TYPE::MultipleValueString);
   dictionary.addFieldValue(1,"value1");
   dictionary.addFieldValue(1,"value2");
 
-  CHECK(dictionary.isFieldValue(1, "value1 value2"));
+  ASSERT_TRUE(dictionary.isFieldValue(1, "value1 value2"));
 }
 
-TEST(isFieldValue_MultipleValueType_FieldValueDoesNotExist) {
+TEST(DataDictionaryTests,isFieldValue_MultipleValueType_FieldValueDoesNotExist) {
   DataDictionary dictionary;
   dictionary.addFieldType(1, TYPE::MultipleValueString);
   dictionary.addFieldValue(1,"value1");
   dictionary.addFieldValue(1,"value2");
 
-  CHECK(!dictionary.isFieldValue(1, "value5"));
+  ASSERT_TRUE(!dictionary.isFieldValue(1, "value5"));
 }
 
-TEST(dataDictionaryValidate_UnSupportedVersion) {
+TEST(DataDictionaryTests,dataDictionaryValidate_UnSupportedVersion) {
   DataDictionary dictionary;
   dictionary.addHeaderField(FIELD::BeginString, true);
   dictionary.addHeaderField(FIELD::MsgType, true);
@@ -1150,10 +1147,10 @@ TEST(dataDictionaryValidate_UnSupportedVersion) {
   msg.getHeader().setField(BeginString(BeginString_FIX40));
   msg.getHeader().setField(MsgType(MsgType_NewOrderSingle));
 
-  CHECK_THROW(DataDictionary::validate(msg, &dictionary, &dictionary), UnsupportedVersion);
+  ASSERT_THROW(DataDictionary::validate(msg, &dictionary, &dictionary), UnsupportedVersion);
 }
 
-TEST(dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForSessionDictionary) {
+TEST(DataDictionaryTests,dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForSessionDictionary) {
   DataDictionary dictionary;
   dictionary.checkFieldsOutOfOrder(true);
   dictionary.addHeaderField(FIELD::BeginString, true);
@@ -1167,10 +1164,10 @@ TEST(dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForSessionDictionary)
   std::string rawFixMsg = "8=FIX.4.0" + delimSOH +"35=D" + delimSOH + "11=Clordid" + delimSOH + "35=D" + delimSOH;
   msg.setString(rawFixMsg, false, &dictionary, &dictionary);
 
-  CHECK_THROW(DataDictionary::validate(msg, &dictionary, nullptr), TagOutOfOrder);
+  ASSERT_THROW(DataDictionary::validate(msg, &dictionary, nullptr), TagOutOfOrder);
 }
 
-TEST(dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForAppDictionary) {
+TEST(DataDictionaryTests,dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForAppDictionary) {
   DataDictionary dictionary;
   dictionary.checkFieldsOutOfOrder(true);
   dictionary.addHeaderField(FIELD::BeginString, true);
@@ -1184,159 +1181,142 @@ TEST(dataDictionaryValidate_HeaderFieldInBody_TagOutOfOrderForAppDictionary) {
   std::string rawFixMsg = "8=FIX.4.0" + delimSOH +"35=D" + delimSOH + "11=Clordid" + delimSOH + "35=D" + delimSOH;
   msg.setString(rawFixMsg, false, &dictionary, &dictionary);
 
-  CHECK_THROW(DataDictionary::validate(msg, nullptr, &dictionary), TagOutOfOrder);
+  ASSERT_THROW(DataDictionary::validate(msg, nullptr, &dictionary), TagOutOfOrder);
 }
 
-TEST(readFromURL_UrlNotParsable) {
+TEST(DataDictionaryTests,readFromURL_UrlNotParsable) {
   DataDictionary dictionary;
 
-  CHECK_THROW(dictionary.readFromURL("invalidurl"), ConfigError);
+  ASSERT_THROW(dictionary.readFromURL("invalidurl"), ConfigError);
 }
 
-TEST(readFromURL_FileAtUrlNotParsable) {
+TEST(DataDictionaryTests,readFromURL_FileAtUrlNotParsable) {
   DataDictionary dictionary;
-  CHECK_THROW(dictionary.readFromURL("resources/invalid_datadictionary.xml"), ConfigError);
+  ASSERT_THROW(dictionary.readFromURL("resources/invalid_datadictionary.xml"), ConfigError);
 }
 
-TEST(readFromStream_StreamDataNotParsable) {
+TEST(DataDictionaryTests,readFromStream_StreamDataNotParsable) {
   DataDictionary dictionary;
 
   std::stringbuf buffer; // empty buffer contains no parsable data
   std::istream is(&buffer);
-  CHECK_THROW(dictionary.readFromStream(is);, ConfigError);
+  ASSERT_THROW(dictionary.readFromStream(is), ConfigError);
 }
 
-TEST(readFromDocument_FIXNodeNotAtRoot) {
+TEST(DataDictionaryTests,readFromDocument_FIXNodeNotAtRoot) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml = "<notFIXRoot></notFIXroot>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_TypeAttributeNotFIXorFIXT) {
+TEST(DataDictionaryTests,readFromDocument_TypeAttributeNotFIXorFIXT) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='WrongType' major='4' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MajorAttributeMissing) {
+TEST(DataDictionaryTests,readFromDocument_MajorAttributeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MinorAttributeMissing) {
+TEST(DataDictionaryTests,readFromDocument_MinorAttributeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' major='4' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_FieldsSectionMissing) {
+TEST(DataDictionaryTests,readFromDocument_FieldsSectionMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' major='4' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_FieldNameAttributeMissing) {
+TEST(DataDictionaryTests,readFromDocument_FieldNameAttributeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<fields>"
           "<field number='8' type='STRING' />" // name attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_FieldNumberAttributeMissing) {
+TEST(DataDictionaryTests,readFromDocument_FieldNumberAttributeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<fields>"
           "<field name='BeginString' type='STRING' />" // number attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_FieldTypeAttributeMissing) {
+TEST(DataDictionaryTests,readFromDocument_FieldTypeAttributeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<fields>"
           "<field number='8' name='BeginString' />" // type attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_FieldValueNodeMissingEnumAttribute) {
+TEST(DataDictionaryTests,readFromDocument_FieldValueNodeMissingEnumAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<fields>"
@@ -1345,19 +1325,17 @@ TEST(readFromDocument_FieldValueNodeMissingEnumAttribute) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_HeaderNodeMissing) {
+TEST(DataDictionaryTests,readFromDocument_HeaderNodeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<fields>"
@@ -1366,19 +1344,17 @@ TEST(readFromDocument_HeaderNodeMissing) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_HeaderFieldNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_HeaderFieldNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1390,19 +1366,17 @@ TEST(readFromDocument_HeaderFieldNodeMissingNameAttribute) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_TrailerNodeMissing) {
+TEST(DataDictionaryTests,readFromDocument_TrailerNodeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1414,19 +1388,17 @@ TEST(readFromDocument_TrailerNodeMissing) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_TrailerFieldNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_TrailerFieldNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1441,19 +1413,17 @@ TEST(readFromDocument_TrailerFieldNodeMissingNameAttribute) {
           "<field required='Y' />" // name attribute missing
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MessagesNodeMissing) {
+TEST(DataDictionaryTests,readFromDocument_MessagesNodeMissing) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1474,19 +1444,17 @@ TEST(readFromDocument_MessagesNodeMissing) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MessageNodeMissingMsgTypeAttribute) {
+TEST(DataDictionaryTests,readFromDocument_MessageNodeMissingMsgTypeAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1510,19 +1478,17 @@ TEST(readFromDocument_MessageNodeMissingMsgTypeAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MessagesFieldNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_MessagesFieldNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1548,19 +1514,17 @@ TEST(readFromDocument_MessagesFieldNodeMissingNameAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_GroupNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_GroupNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
         "<fix type='FIX' major='4' minor='2' servicepack='0'>"
           "<header>"
@@ -1595,19 +1559,17 @@ TEST(readFromDocument_GroupNodeMissingNameAttribute) {
             "</component>"
           "</components>"
         "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_MessagesGroupNodeFieldNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_MessagesGroupNodeFieldNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1637,19 +1599,17 @@ TEST(readFromDocument_MessagesGroupNodeFieldNodeMissingNameAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_GroupFieldMissingAssociatedFieldNodeInFieldsNode) {
+TEST(DataDictionaryTests,readFromDocument_GroupFieldMissingAssociatedFieldNodeInFieldsNode) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1674,19 +1634,17 @@ TEST(readFromDocument_GroupFieldMissingAssociatedFieldNodeInFieldsNode) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_ComponentNodeMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_ComponentNodeMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1719,19 +1677,17 @@ TEST(readFromDocument_ComponentNodeMissingNameAttribute) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_ComponentNodeInMessageNotFound) {
+TEST(DataDictionaryTests,readFromDocument_ComponentNodeInMessageNotFound) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1764,19 +1720,17 @@ TEST(readFromDocument_ComponentNodeInMessageNotFound) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_ComponentNodeHasFieldNodeWithMissingNameAttribute) {
+TEST(DataDictionaryTests,readFromDocument_ComponentNodeHasFieldNodeWithMissingNameAttribute) {
   DataDictionary dictionary;
 
-  std::stringbuf buffer;
   std::string dictionaryXml =
       "<fix type='FIX' major='4' minor='2' servicepack='0'>"
         "<header>"
@@ -1809,21 +1763,19 @@ TEST(readFromDocument_ComponentNodeHasFieldNodeWithMissingNameAttribute) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
 
-  CHECK_THROW(dictionary.readFromDocument(pDoc);, ConfigError);
+  ASSERT_THROW(dictionary.readFromDocument(pDoc), ConfigError);
 }
 
-TEST(readFromDocument_VersionPreFIX42_FieldTypeCharTreatedAsString) {
+TEST(DataDictionaryTests,readFromDocument_VersionPreFIX42_FieldTypeCharTreatedAsString) {
   DataDictionary dictionary;
   dictionary.setVersion(BeginString_FIX40);
 
-  std::stringbuf buffer;
-    std::string dictionaryXml =
+  std::string dictionaryXml =
         "<fix type='FIX' major='4' minor='0' servicepack='0'>"
           "<header>"
             "<field name='BeginString' required='Y' />"
@@ -1846,8 +1798,7 @@ TEST(readFromDocument_VersionPreFIX42_FieldTypeCharTreatedAsString) {
             "<field name='SignatureLength' required='Y' />"
           "</trailer>"
         "</fix>";
-  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
-  std::istream is(&buffer);
+  std::istringstream is(dictionaryXml);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
   pDoc->load(is);
@@ -1855,8 +1806,5 @@ TEST(readFromDocument_VersionPreFIX42_FieldTypeCharTreatedAsString) {
 
   FIX::TYPE::Type actualType;
   dictionary.getFieldType(55, actualType);
-  CHECK_EQUAL(TYPE::String, actualType);
+  ASSERT_EQ(TYPE::String, actualType);
 }
-
-}
-

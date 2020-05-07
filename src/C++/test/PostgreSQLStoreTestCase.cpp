@@ -26,17 +26,14 @@
 
 #ifdef HAVE_POSTGRESQL
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <TestHelper.h>
 #include <PostgreSQLStore.h>
 #include "MessageStoreTestCase.h"
 
 using namespace FIX;
 
-SUITE(PostgreSQLStoreTests)
-{
-
-struct postgreSQLStoreFixture
+struct postgreSQLStoreFixture : public ::testing::Test
 {
   postgreSQLStoreFixture( bool reset )
   : factory( TestSettings::sessionSettings.get() )
@@ -80,31 +77,29 @@ struct resetPostgreSQLStoreFixture : postgreSQLStoreFixture
   resetPostgreSQLStoreFixture() : postgreSQLStoreFixture( true ) {}
 };
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, setGet)
+TEST_F(resetPostgreSQLStoreFixture, setGet)
 {
   CHECK_MESSAGE_STORE_SET_GET;
 }
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, setGetWithQuote)
+TEST_F(resetPostgreSQLStoreFixture, setGetWithQuote)
 {
   //CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, other)
+TEST_F(resetPostgreSQLStoreFixture, other)
 {
   CHECK_MESSAGE_STORE_OTHER
 }
 
-TEST_FIXTURE(noResetPostgreSQLStoreFixture, reload)
+TEST_F(noResetPostgreSQLStoreFixture, reload)
 {
   CHECK_MESSAGE_STORE_RELOAD
 }
 
-TEST_FIXTURE(noResetPostgreSQLStoreFixture, refresh)
+TEST_F(noResetPostgreSQLStoreFixture, refresh)
 {
   CHECK_MESSAGE_STORE_RELOAD
-}
-
 }
 
 #endif

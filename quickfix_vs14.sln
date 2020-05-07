@@ -24,8 +24,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_acceptance_runner", "t
 		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6} = {64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest++_vs14", "UnitTest++\UnitTest++_vs14.vcxproj", "{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,16 +114,6 @@ Global
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release|Win32.ActiveCfg = Release|Win32
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release|Win32.Build.0 = Release|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Debug|Win32.ActiveCfg = Debug|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Debug|Win32.Build.0 = Debug|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Release|Any CPU.ActiveCfg = Release|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Release|Win32.ActiveCfg = Release|Win32
-		{64A4FEFE-0461-4E95-8CC1-91EF5F57DBC6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

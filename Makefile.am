@@ -2,7 +2,7 @@
 if NO_UNIT_TEST
 SUBDIRS = src bin spec test examples doc
 else
-SUBDIRS = UnitTest++ src bin spec test examples doc
+SUBDIRS = src bin spec test examples doc
 endif
 
 ACLOCAL_AMFLAGS = -I m4

@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <SessionState.h>
 #include <string>
 #include <sstream>
@@ -32,77 +32,73 @@
 
 using namespace FIX;
 
-SUITE(SessionStateTests)
+class TestLog : public Log
 {
-
-  class TestLog : public Log
-  {
-  public:
-    void clear() {
-      events = 0;
-    }
-    void backup() {
-      eventsBackup = events;
-    }
-    void onIncoming( const std::string& ) {}
-    void onOutgoing( const std::string& ) {}
-    void onEvent( const std::string& ) {}
-
-    int events = 0;
-    int eventsBackup = 0;
-  };
-
-  TEST(ClearSessionLog_StateLogNotNull_LogCleared)
-  {
-    SessionSettings settings;
-    TestLog log;
-    log.events = 5;
-
-    SessionState state;
-    state.log(&log);
-
-    state.clear();
-
-    CHECK_EQUAL(0, log.events);
+public:
+  void clear() {
+    events = 0;
   }
-
-  TEST(ClearSessionLog_StateLogIsNull_LogNotCleared)
-  {
-    SessionSettings settings;
-    TestLog log;
-    log.events = 5;
-
-    SessionState state;
-
-    state.clear();
-
-    CHECK_EQUAL(5, log.events);
+  void backup() {
+    eventsBackup = events;
   }
+  void onIncoming(const std::string&) {}
+  void onOutgoing(const std::string&) {}
+  void onEvent(const std::string&) {}
 
-  TEST(BackupSessionLog_StateLogNotNull_LogBackedUp)
-  {
-    SessionSettings settings;
-    TestLog log;
-    log.events = 5;
+  int events = 0;
+  int eventsBackup = 0;
+};
 
-    SessionState state;
-    state.log(&log);
+TEST(SessionStateTests, ClearSessionLog_StateLogNotNull_LogCleared)
+{
+  SessionSettings settings;
+  TestLog log;
+  log.events = 5;
 
-    state.backup();
+  SessionState state;
+  state.log(&log);
 
-    CHECK_EQUAL(5, log.eventsBackup);
-  }
+  state.clear();
 
-  TEST(BackupSessionLog_StateLogIsNull_LogBackedUp)
-  {
-    SessionSettings settings;
-    TestLog log;
-    log.events = 5;
+  ASSERT_EQ(0, log.events);
+}
 
-    SessionState state;
+TEST(SessionStateTests, ClearSessionLog_StateLogIsNull_LogNotCleared)
+{
+  SessionSettings settings;
+  TestLog log;
+  log.events = 5;
 
-    state.backup();
+  SessionState state;
 
-    CHECK_EQUAL(0, log.eventsBackup);
-  }
+  state.clear();
+
+  ASSERT_EQ(5, log.events);
+}
+
+TEST(SessionStateTests, BackupSessionLog_StateLogNotNull_LogBackedUp)
+{
+  SessionSettings settings;
+  TestLog log;
+  log.events = 5;
+
+  SessionState state;
+  state.log(&log);
+
+  state.backup();
+
+  ASSERT_EQ(5, log.eventsBackup);
+}
+
+TEST(SessionStateTests, BackupSessionLog_StateLogIsNull_LogBackedUp)
+{
+  SessionSettings settings;
+  TestLog log;
+  log.events = 5;
+
+  SessionState state;
+
+  state.backup();
+
+  ASSERT_EQ(0, log.eventsBackup);
 }

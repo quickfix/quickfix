@@ -18,6 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
+#ifdef 0
 
 #include <CPPTest/TestSuite.h>
 #include <CPPTest/TestDisplay.h>
@@ -35,3 +36,5 @@ private:
 
   OrderMatcherTestCase m_orderMatcher;
 };
+
+#endif

@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <NullStore.h>
 #include <fix42/Logon.h>
 #include <fix42/Heartbeat.h>
@@ -35,17 +35,14 @@
 using namespace FIX;
 using namespace FIX42;
 
-SUITE(NullStoreTests)
-{
-
-struct sharedObjectFixture
+struct sharedObjectFixture : public ::testing::Test
 {
   static NullStore object;
 };
 
 NullStore sharedObjectFixture::object;
 
-TEST( setGet )
+TEST(NullStoreTests, setGet)
 {
   NullStore object;
 
@@ -63,16 +60,16 @@ TEST( setGet )
 
   std::vector < std::string > messages;
   object.get( 1, 3, messages );
-  CHECK_EQUAL( 0U, messages.size() );
+  ASSERT_EQ( 0U, messages.size() );
 
   object.get( 4, 6, messages );
-  CHECK_EQUAL( 0U, messages.size() );
+  ASSERT_EQ( 0U, messages.size() );
 
   object.get( 2, 6, messages );
-  CHECK_EQUAL( 0U, messages.size() );
+  ASSERT_EQ( 0U, messages.size() );
 }
 
-TEST( setGetWithQuote )
+TEST(NullStoreTests,  setGetWithQuote)
 {
   NullStore object;
 
@@ -94,36 +91,35 @@ TEST( setGetWithQuote )
 
   std::vector < std::string > messages;
   object.get( 1, 4, messages );
-  CHECK_EQUAL( 0U, messages.size() );
+  ASSERT_EQ( 0U, messages.size() );
 }
 
-TEST_FIXTURE( sharedObjectFixture, other )
+TEST_F( sharedObjectFixture, other )
 {
   object.setNextSenderMsgSeqNum( 10 );
-  CHECK_EQUAL( 10, object.getNextSenderMsgSeqNum() );
+  ASSERT_EQ( 10, object.getNextSenderMsgSeqNum() );
   object.setNextTargetMsgSeqNum( 20 );
-  CHECK_EQUAL( 20, object.getNextTargetMsgSeqNum() );
+  ASSERT_EQ( 20, object.getNextTargetMsgSeqNum() );
   object.incrNextSenderMsgSeqNum();
-  CHECK_EQUAL( 11, object.getNextSenderMsgSeqNum() );
+  ASSERT_EQ( 11, object.getNextSenderMsgSeqNum() );
   object.incrNextTargetMsgSeqNum();
-  CHECK_EQUAL( 21, object.getNextTargetMsgSeqNum() );
+  ASSERT_EQ( 21, object.getNextTargetMsgSeqNum() );
 
   object.setNextSenderMsgSeqNum( 5 );
   object.setNextTargetMsgSeqNum( 6 );
 }
 
-TEST_FIXTURE( sharedObjectFixture, reload )
+TEST_F( sharedObjectFixture, reload )
 {
   // use same session from previous test
-  CHECK_EQUAL( 5, object.getNextSenderMsgSeqNum() );
-  CHECK_EQUAL( 6, object.getNextTargetMsgSeqNum() );
+  ASSERT_EQ( 5, object.getNextSenderMsgSeqNum() );
+  ASSERT_EQ( 6, object.getNextTargetMsgSeqNum() );
 }
 
-TEST_FIXTURE( sharedObjectFixture, refresh )
+TEST_F( sharedObjectFixture, refresh )
 {
   // use same session from previous test
   object.refresh();
-  CHECK_EQUAL( 5, object.getNextSenderMsgSeqNum() );
-  CHECK_EQUAL( 6, object.getNextTargetMsgSeqNum() );
-}
+  ASSERT_EQ( 5, object.getNextSenderMsgSeqNum() );
+  ASSERT_EQ( 6, object.getNextTargetMsgSeqNum() );
 }

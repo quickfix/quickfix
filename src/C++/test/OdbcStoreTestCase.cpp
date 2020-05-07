@@ -26,17 +26,14 @@
 
 #ifdef HAVE_ODBC
 
-#include <UnitTest++.h>
+#include <gtest/gtest.h>
 #include <TestHelper.h>
 #include <OdbcStore.h>
 #include "MessageStoreTestCase.h"
 
 using namespace FIX;
 
-SUITE(OdbcStoreTests)
-{
-
-struct odbcStoreFixture
+struct odbcStoreFixture : public ::testing::Test
 {
   odbcStoreFixture( bool reset )
   : factory( TestSettings::sessionSettings.get() )
@@ -80,31 +77,29 @@ struct resetOdbcStoreFixture : odbcStoreFixture
   resetOdbcStoreFixture() : odbcStoreFixture( true ) {}
 };
 
-TEST_FIXTURE(resetOdbcStoreFixture, setGet)
+TEST_F(resetOdbcStoreFixture, setGet)
 {
   CHECK_MESSAGE_STORE_SET_GET;
 }
 
-TEST_FIXTURE(resetOdbcStoreFixture, setGetWithQuote)
+TEST_F(resetOdbcStoreFixture, setGetWithQuote)
 {
   //CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-TEST_FIXTURE(resetOdbcStoreFixture, other)
+TEST_F(resetOdbcStoreFixture, other)
 {
   CHECK_MESSAGE_STORE_OTHER
 }
 
-TEST_FIXTURE(noResetOdbcStoreFixture, reload)
+TEST_F(noResetOdbcStoreFixture, reload)
 {
   CHECK_MESSAGE_STORE_RELOAD
 }
 
-TEST_FIXTURE(noResetOdbcStoreFixture, refresh)
+TEST_F(noResetOdbcStoreFixture, refresh)
 {
   CHECK_MESSAGE_STORE_RELOAD
-}
-
 }
 
 #endif
