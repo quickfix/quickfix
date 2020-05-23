@@ -115,4 +115,3 @@ COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfix/
 COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/C++/fixt11 ${CMAKE_SOURCE_DIR}/include/quickfix/wx/
 )
 endif()
-

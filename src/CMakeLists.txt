@@ -22,7 +22,7 @@ endif()
 
 if (WIN32)
 set (ut_SOURCES 
-${CMAKE_SOURCE_DIR}/src/C++/test/DataDictionaryTestCase.cpp
+# ${CMAKE_SOURCE_DIR}/src/C++/test/DataDictionaryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/DictionaryTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FieldBaseTestCase.cpp
 ${CMAKE_SOURCE_DIR}/src/C++/test/FieldConvertorsTestCase.cpp
