@@ -241,7 +241,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C++\test\DataDictionaryTestCase.cpp" />
+    <!-- ClCompile Include="C++\test\DataDictionaryTestCase.cpp" /-->
     <ClCompile Include="C++\test\DictionaryTestCase.cpp" />
     <ClCompile Include="C++\test\FieldBaseTestCase.cpp" />
     <ClCompile Include="C++\test\FieldConvertorsTestCase.cpp" />
