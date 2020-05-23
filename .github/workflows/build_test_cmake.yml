@@ -16,7 +16,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=$Configuration
+          cmake .. -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration
         env:
           Configuration: ${{ matrix.configuration }}
       - name: Build
@@ -24,5 +24,12 @@ jobs:
         run: |
           cd build
           cmake --build . --config $Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+      - name: Install
+        shell: bash
+        run: |
+          cd build
+          cmake --install . --config $Configuration
         env:
           Configuration: ${{ matrix.configuration }}
