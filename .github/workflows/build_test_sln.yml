@@ -74,6 +74,18 @@ jobs:
                   configrun: debug
                 - configuration: Release
                   configrun: release
+                - platform: Mixed Platforms
+                  configuration: Debug
+                  port: 6666
+                - platform: Mixed Platforms
+                  configuration: Release
+                  port: 6667
+                - platform: Win32
+                  configuration: Debug
+                  port: 6668
+                - platform: Win32
+                  configuration: Release
+                  port: 6669
       steps:
       - name: Download
         uses: actions/download-artifact@v2
@@ -88,8 +100,8 @@ jobs:
       - name: Run Unit Tests
         working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
         run: |
-          echo %CD%\runut %CONFIGURATION% 6666
-          runut %CONFIGURATION% 6666
+          runut %CONFIGURATION% %PORT%
         shell: cmd
         env:
           CONFIGURATION: ${{ matrix.configrun }}
+          PORT: ${{ matrix.port }}
