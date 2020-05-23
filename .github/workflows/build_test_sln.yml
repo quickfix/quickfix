@@ -39,6 +39,12 @@ jobs:
         with:
           name: drop-headers
           path: ./include/**
+      - name: Upload Specs
+        if: ${{ matrix.copyheaders }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop-specs
+          path: ./spec/**
       - name: Upload lib
         uses: actions/upload-artifact@v2
         with:
@@ -54,3 +60,36 @@ jobs:
         with:
           name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-test
           path: ./test/**
+
+    test:
+      runs-on: ${{ matrix.runner }}
+      needs: build
+      strategy:
+          matrix:
+              runner: [windows-2019]
+              platform: [Mixed Platforms, Win32]
+              configuration: [Debug, Release]
+              include:
+                - configuration: Debug
+                  configrun: debug
+                - configuration: Release
+                  configrun: release
+      steps:
+      - name: Download
+        uses: actions/download-artifact@v2
+        with:
+          name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-test
+          path: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
+      - name: Download Specs
+        uses: actions/download-artifact@v2
+        with:
+          name: drop-specs
+          path: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}
+      - name: Run Unit Tests
+        working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/tests
+        run: |
+          echo %CD%\runut %CONFIGURATION% 6666
+          runut %CONFIGURATION% 6666
+        shell: cmd
+        env:
+          CONFIGURATION: ${{ matrix.configrun }}
