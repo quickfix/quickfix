@@ -15,6 +15,10 @@ jobs:
                   targetframeworkversion: v4.8
                   platformtoolset: v142
                   windowstargetplatformversion: 10.0
+                - runner: windows-2019
+                  platform: Win32
+                  configuration: Release
+                  copyheaders: true
       steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,18 +33,24 @@ jobs:
           TargetFrameworkVersion: ${{ matrix.targetframeworkversion }}
           PlatformToolset: ${{ matrix.platformtoolset }}
           WindowsTargetPlatformVersion: ${{ matrix.windowstargetplatformversion }}
+      - name: Upload Headers
+        if: ${{ matrix.copyheaders }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop-headers
+          path: ./include/**
       - name: Upload lib
         uses: actions/upload-artifact@v2
         with:
           name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-lib
-          path: ./**/lib/**
+          path: ./lib/**
       - name: Upload bin
         uses: actions/upload-artifact@v2
         with:
           name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-bin
-          path: ./**/bin/**
+          path: ./bin/**
       - name: Upload test
         uses: actions/upload-artifact@v2
         with:
           name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-test
-          path: ./**/test/**
+          path: ./test/**
