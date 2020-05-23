@@ -29,3 +29,18 @@ jobs:
           TargetFrameworkVersion: ${{ matrix.targetframeworkversion }}
           PlatformToolset: ${{ matrix.platformtoolset }}
           WindowsTargetPlatformVersion: ${{ matrix.windowstargetplatformversion }}
+      - name: Upload lib
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-lib
+          path: ./**/lib/**
+      - name: Upload bin
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-bin
+          path: ./**/bin/**
+      - name: Upload test
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop-${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}-test
+          path: ./**/test/**
