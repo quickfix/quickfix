@@ -144,6 +144,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
   CHECK_EQUAL(currentTimeStamp.getYear(), timeStamp.getYear());
 }
 
+#ifndef _MSC_VER
 TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreFromDictionary) {
   SessionID sessionID( BeginString( "FIX.4.2" ),
       SenderCompID( "SETGET" ), TargetCompID( "TEST" ), "Test" );
@@ -158,5 +159,6 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreF
   MessageStore* fileStore = fileStoreFactory.create(sessionID);
   CHECK(fileStore != nullptr);
 }
+#endif // _MSC_VER
 
 }
