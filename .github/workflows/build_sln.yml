@@ -1,0 +1,31 @@
+name: Build Visual Studio Solution
+on: [pull_request, push]
+
+jobs:
+    build:
+      runs-on: ${{ matrix.runner }}
+      strategy:
+          matrix:
+              runner: [windows-2019]
+              platform: [Mixed Platforms, Win32]
+              configuration: [Debug, Release]
+              include:
+                - runner: windows-2019
+                  solution: quickfix_vs15.sln
+                  targetframeworkversion: v4.8
+                  platformtoolset: v142
+                  windowstargetplatformversion: 10.0
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.0
+      - name: Build
+        run: msbuild $env:Solution /t:Build /p:Platform=$env:Platform /p:Configuration=$env:Configuration /p:TargetFrameworkVersion=$env:TargetFrameworkVersion /p:PlatformToolset=$env:PlatformToolset /p:WindowsTargetPlatformVersion=$env:WindowsTargetPlatformVersion
+        env:
+          Configuration: ${{ matrix.configuration }}
+          Platform: ${{ matrix.platform }}
+          Solution: ${{ matrix.solution }}
+          TargetFrameworkVersion: ${{ matrix.targetframeworkversion }}
+          PlatformToolset: ${{ matrix.platformtoolset }}
+          WindowsTargetPlatformVersion: ${{ matrix.windowstargetplatformversion }}
