@@ -8,16 +8,21 @@ jobs:
           matrix:
               runner: [windows-2019, ubuntu-latest, macos-latest]
               configuration: [Debug, Release]
-              include:
-                - runner: windows-2019
-                  solution: quickfix_vs15.sln
-                  targetframeworkversion: v4.8
-                  platformtoolset: v142
-                  windowstargetplatformversion: 10.0
-                - runner: windows-2019
-                  platform: Win32
-                  configuration: Release
-                  copyheaders: true
       steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Generate
+        shell: bash
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=$Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+      - name: Build
+        shell: bash
+        run: |
+          cd build
+          cmake --build . --config $Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}

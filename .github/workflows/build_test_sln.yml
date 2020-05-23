@@ -84,9 +84,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: drop-specs
-          path: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}
+          path: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/spec
       - name: Run Unit Tests
-        working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/tests
+        working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
         run: |
           echo %CD%\runut %CONFIGURATION% 6666
           runut %CONFIGURATION% 6666
