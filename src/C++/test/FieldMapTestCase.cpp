@@ -34,6 +34,7 @@ using namespace FIX;
 SUITE(FieldMapTests)
 {
 
+#if !defined(__GNUC__) || defined(__clang__)
 TEST(setMessageOrder)
 {
   int order[] = {1, 2, 3};
@@ -59,6 +60,7 @@ TEST(setMessageOrder)
   CHECK_EQUAL(3, pos3);
 
 }
+#endif // !defined(__GNUC__) || defined(__clang__)
 
 TEST(addGroupPtr_nullptr)
 {
