@@ -97,10 +97,10 @@ jobs:
         with:
           name: drop-specs
           path: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/spec
-      - name: Run Unit Tests
+      - name: Run Acceptance Tests
         working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
         run: |
-          runut %CONFIGURATION% %PORT%
+          runat %CONFIGURATION% %PORT%
         shell: cmd
         env:
           CONFIGURATION: ${{ matrix.configrun }}
@@ -110,6 +110,14 @@ jobs:
         working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
         run: |
           runpt %CONFIGURATION% %PORT%
+        shell: cmd
+        env:
+          CONFIGURATION: ${{ matrix.configrun }}
+          PORT: ${{ matrix.port }}
+      - name: Run Unit Tests
+        working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
+        run: |
+          runut %CONFIGURATION% %PORT%
         shell: cmd
         env:
           CONFIGURATION: ${{ matrix.configrun }}
