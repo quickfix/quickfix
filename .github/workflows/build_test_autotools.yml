@@ -33,6 +33,10 @@ jobs:
 
       - name: Make check
         shell: bash
+        run: make check
+
+      - name: Cat test-suite.log
+        if: ${{ always() }}
+        shell: bash
         run: |
-          make check
-          cat test/test-suite.log
+          test -f test/test-suite.log && cat test/test-suite.log
