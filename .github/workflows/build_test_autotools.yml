@@ -33,4 +33,6 @@ jobs:
 
       - name: Make check
         shell: bash
-        run: make check
+        run: |
+          make check
+          cat test/test-suite.log
