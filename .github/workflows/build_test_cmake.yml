@@ -96,6 +96,13 @@ jobs:
           $ut -p $PORT -f cfg/ut.cfg
         env:
           PORT: 6666
-          at: ${{ env.at }}
-          pt: ${{ env.pt }}
           ut: ${{ env.ut }}
+      - name: Run performance tests
+        if: ${{ env.pt_check == 'true' && matrix.configuration == 'Release' }}
+        shell: bash
+        working-directory: ./test
+        run: |
+          $pt -p $PORT -c 500000
+        env:
+          PORT: 6666
+          pt: ${{ env.pt }}

@@ -105,3 +105,12 @@ jobs:
         env:
           CONFIGURATION: ${{ matrix.configrun }}
           PORT: ${{ matrix.port }}
+      - name: Run Performance Tests
+        if: ${{ matrix.configuration == 'Release' }}
+        working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
+        run: |
+          runpt %CONFIGURATION% %PORT%
+        shell: cmd
+        env:
+          CONFIGURATION: ${{ matrix.configrun }}
+          PORT: ${{ matrix.port }}
