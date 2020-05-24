@@ -11,8 +11,10 @@ jobs:
               include:
                 - configuration: Debug
                   config: debug
+                  portoffset: 0
                 - configuration: Release
                   config: release
+                  portoffset: 1
       steps:
       - name: Echo event_name ${{ github.event_name }}
         shell: bash
@@ -98,33 +100,38 @@ jobs:
         shell: cmd
         working-directory: ./test
         run: |
+          set /a "PORT=%PortBase%+%Offset%"
           runat %CONFIG% %PORT%
         env:
           CONFIG: ${{ matrix.config }}
-          PORT: 6666
+          PortBase: 6666
+          Offset: ${{ matrix.portoffset }}
       - name: Run acceptance tests for ${{ matrix.runner }}
         if: ${{ env.at_check == 'true' && matrix.runner != 'windows-2019' && github.event_name == 'pull_request' }}
         shell: bash
         working-directory: ./test
         run: |
-          ./runat.sh $PORT
+          ./runat.sh $(($PortBase + $Offset))
         env:
-          PORT: 6666
+          PortBase: 6666
+          Offset: ${{ matrix.portoffset }}
       - name: Run performance tests
         if: ${{ env.pt_check == 'true' && matrix.configuration == 'Release' }}
         shell: bash
         working-directory: ./test
         run: |
-          $pt -p $PORT -c 500000
+          $pt -p $(($PortBase + $Offset)) -c 500000
         env:
           pt: ${{ env.pt }}
-          PORT: 6667
+          PortBase: 6668
+          Offset: ${{ matrix.portoffset }}
       - name: Run unit tests
         if: ${{ env.ut_check == 'true' }}
         shell: bash
         working-directory: ./test
         run: |
-          $ut -p $PORT -f cfg/ut.cfg
+          $ut -p $(($PortBase + $Offset)) -f cfg/ut.cfg
         env:
           ut: ${{ env.ut }}
-          PORT: 6668
+          PortBase: 6670
+          Offset: ${{ matrix.portoffset }}
