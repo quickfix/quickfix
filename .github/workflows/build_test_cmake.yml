@@ -118,7 +118,7 @@ jobs:
           $pt -p $PORT -c 500000
         env:
           pt: ${{ env.pt }}
-          PORT: 6666
+          PORT: 6667
       - name: Run unit tests
         if: ${{ env.ut_check == 'true' }}
         shell: bash
@@ -127,4 +127,4 @@ jobs:
           $ut -p $PORT -f cfg/ut.cfg
         env:
           ut: ${{ env.ut }}
-          PORT: 6666
+          PORT: 6668
