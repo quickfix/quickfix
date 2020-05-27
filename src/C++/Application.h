@@ -25,7 +25,7 @@
 #include "Message.h"
 #include "SessionID.h"
 #include "Mutex.h"
-
+#include "TimeRange.h"
 namespace FIX
 {
 /**
@@ -61,6 +61,10 @@ public:
   /// Notification of app message being received from target
   virtual void fromApp( const Message&, const SessionID& )
   EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
+
+  /// Optionally allow application to provide custom session start/end times weekday 
+  /// schedule = ((Sun)1-7(Sat)) to time range map
+  virtual std::map<int, TimeRange> getSessionSchedule(const SessionID&) { return {};}
 };
 
 /**

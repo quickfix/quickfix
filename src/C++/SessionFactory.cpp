@@ -98,6 +98,12 @@ Session* SessionFactory::create( const SessionID& sessionID,
     endTime = UtcTimeOnlyConvertor::convert
               ( settings.getString( END_TIME ) );
   }
+  catch( ConfigError & e){
+    if(m_application.getSessionSchedule(sessionID).empty())
+    {
+      throw e;
+    }
+  }
   catch ( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
   TimeRange utcSessionTime

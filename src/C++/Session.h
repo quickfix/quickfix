@@ -106,9 +106,35 @@ public:
   static size_t numSessions();
 
   bool isSessionTime(const UtcTimeStamp& time)
-    { return m_sessionTime.isInRange(time); }
+  {
+    if(!m_schedule.empty())
+    {
+      UtcTimeStamp now;
+      int wkday = now.getWeekDay();
+      auto iter = m_schedule.find(wkday);
+      if(iter != m_schedule.end())
+      {
+        return iter->second.isInRange(time);
+      }
+      return false;
+    }
+    else
+    {
+      return m_sessionTime.isInRange(time);
+    }
+  }
   bool isLogonTime(const UtcTimeStamp& time)
-    { return m_logonTime.isInRange(time); }
+  {
+    if(!m_schedule.empty())
+    {
+      return isSessionTime(time);
+    }
+    else
+    {
+       return m_logonTime.isInRange(time);
+    }
+  }
+
   bool isInitiator()
     { return m_state.initiate(); }
   bool isAcceptor()
@@ -273,7 +299,22 @@ private:
   bool checkSessionTime( const UtcTimeStamp& timeStamp )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return m_sessionTime.isInSameRange( timeStamp, creationTime );
+
+    if(!m_schedule.empty())
+    {
+      UtcTimeStamp now;
+      int wkday = now.getWeekDay();
+      auto iter = m_schedule.find(wkday);
+      if(iter != m_schedule.end())
+      {
+        return iter->second.isInSameRange(timeStamp, creationTime);
+      }
+      return false;
+    }
+    else
+    {
+      return m_sessionTime.isInSameRange( timeStamp, creationTime );
+    }
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
@@ -343,7 +384,7 @@ private:
   SessionID m_sessionID;
   TimeRange m_sessionTime;
   TimeRange m_logonTime;
-
+  std::map<int,TimeRange> m_schedule;
   std::string m_senderDefaultApplVerID;
   std::string m_targetDefaultApplVerID;
   bool m_sendRedundantResendRequests;
