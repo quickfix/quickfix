@@ -237,6 +237,11 @@ public:
     return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
+  UtcTimeOnly getStartTime() const { return m_startTime; }
+  UtcTimeOnly getEndTime() const { return m_endTime; }
+  int getStartDay() const { return m_startDay;}
+  int getEndDay() const { return m_endDay;}
+  bool getUseLocalTime() const { return m_useLocalTime; }
 private:
   bool isInSameRange( const DateTime& time1, const DateTime& time2 )
   {
