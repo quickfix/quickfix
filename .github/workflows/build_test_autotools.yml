@@ -8,9 +8,10 @@ jobs:
           matrix:
               runner: [ubuntu-latest, macos-latest]
               configuration: [Release]
+              compiler-settings: ['']
               include:
-                - configuration: Release
-                  config: release
+                - runner: ubuntu-latest
+                  compiler-settings: CXX=clang++ CC=clang
       steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,9 +24,15 @@ jobs:
         shell: bash
         run: ./bootstrap
 
+      - name: Configure ${{ matrix.compiler-settings }}
+        shell: bash
+        run: ${{ matrix.compiler-settings }} ./configure
+        if: ${{ success() && matrix.compiler-settings != '' }}
+
       - name: Configure
         shell: bash
         run: ./configure
+        if: ${{ success() && matrix.compiler-settings == '' }}
 
       - name: Make
         shell: bash
