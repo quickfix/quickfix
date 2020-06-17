@@ -12,6 +12,8 @@ jobs:
               include:
                 - runner: ubuntu-latest
                   compiler-settings: CXX=clang++ CC=clang
+                - runner: macos-latest
+                  compiler-settings: CXX=g++ CC=gcc
       steps:
       - name: Checkout
         uses: actions/checkout@v2
