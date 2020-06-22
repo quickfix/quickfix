@@ -168,6 +168,21 @@ public:
     }
     return false;
   }
+  void dequeueMessagesUpTo( int msgSeqNum )
+  {
+    Locker l( m_mutex );
+    for(auto iter = m_queue.begin(); iter != m_queue.end();)
+    {
+      if(iter->first < msgSeqNum)
+      {
+        iter = m_queue.erase(iter);
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
   void clearQueue()
   { Locker l( m_mutex ); m_queue.clear(); }
 

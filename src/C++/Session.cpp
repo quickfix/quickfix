@@ -356,7 +356,11 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
                      + IntConvertor::convert( getExpectedTargetNum() ) +
                      " TO: " + IntConvertor::convert( newSeqNo ) );
     if ( newSeqNo > getExpectedTargetNum() )
+    {
+      // Disgard any queued messages lower than newSeqNo
+      m_state.dequeueMessagesUpTo(newSeqNo);
       m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
+    }
     else if ( newSeqNo < getExpectedTargetNum() )
       generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
   }
