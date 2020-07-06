@@ -1360,17 +1360,14 @@ bool Session::doPossDup( const Message& msg )
 
   if ( msgType != MsgType_SequenceReset )
   {
-    if ( !header.getFieldIfSet( origSendingTime ) )
+    if ( header.getFieldIfSet( origSendingTime ) )
     {
-      generateReject( msg, SessionRejectReason_REQUIRED_TAG_MISSING, origSendingTime.getTag() );
-      return false;
-    }
-
-    if ( origSendingTime > sendingTime )
-    {
-      generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
-      generateLogout( msg );
-      return false;
+      if ( origSendingTime > sendingTime )
+      {
+        generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
+        generateLogout( msg );
+        return false;
+      }
     }
   }
   else if( m_maxMessagesInResendRequest && m_state.resendRequested() )
