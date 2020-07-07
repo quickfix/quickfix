@@ -454,6 +454,10 @@ struct UtcTimeStampConvertor
   EXCEPT ( FieldConvertError )
   {
     size_t len = value.size();
+    if (len > 0 && value[len-1] == 'Z')
+    {
+      len--;
+    }
     if (len < 17 || len > 27) throw FieldConvertError(value);
 
     size_t i = 0;
