@@ -1,8 +1,127 @@
 language: cpp
 
-compiler:
- - gcc
- - clang
+matrix:
+  include:
+   
+    - name: "Ubuntu 16.04 LTS (Xenial Xerus) GCC 5" 
+      os: linux
+      dist: xenial
+      env:
+        - MATRIX_EVAL="CC=gcc && CXX=g++"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+    
+    - name: "Ubuntu 16.04 LTS (Xenial Xerus) GCC 6" 
+      os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+
+    - name: "Ubuntu 16.04 LTS (Xenial Xerus) GCC 7" 
+      os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+
+    - name: "Ubuntu 16.04 LTS (Xenial Xerus) GCC 8" 
+      os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+      env:
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+
+    - name: "Ubuntu 16.04 LTS (Xenial Xerus) GCC 9" 
+      os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-9
+      env:
+        - MATRIX_EVAL="CC=gcc-9 && CXX=g++-9"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+
+    - name: "Ubuntu 18.04 LTS (Bionic Beaver) GCC 7" 
+      os: linux
+      dist: bionic
+      env:
+        - MATRIX_EVAL="CC=gcc && CXX=g++"
+
+    - name: "Ubuntu 18.04 LTS (Bionic Beaver) GCC 8" 
+      os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-8
+      env:
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG_PEDANTIC"
+
+    - name: "Ubuntu 18.04 LTS (Bionic Beaver) Clang 6" 
+      os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-bionic-6.0
+          packages:
+            - clang-6.0
+      env:
+        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_LIBCPP_DEBUG"
+
+    - name: "Ubuntu 18.04 LTS (Bionic Beaver) Clang 7" 
+      os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-bionic-7
+          packages:
+            - clang-7
+      env:
+        - MATRIX_EVAL="CC=clang-7 && CXX=clang++-7"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_LIBCPP_DEBUG"
+
+    - name: "Ubuntu 18.04 LTS (Bionic Beaver) Clang 8" 
+      os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-bionic-8
+          packages:
+            - clang-8
+      env:
+        - MATRIX_EVAL="CC=clang-8 && CXX=clang++-8"
+        - CXXFLAGS="-O2 -D_FORTIFY_SOURCE=2 -D_LIBCPP_DEBUG"
+
+before_install:
+  - eval "${MATRIX_EVAL}"
 
 before_script:
  - sudo apt-get install libxml2-dev

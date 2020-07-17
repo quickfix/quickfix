@@ -1,6 +1,3 @@
-CFLAGS += -O0 -g
-CXXFLAGS += -O0 -g
-
 noinst_LTLIBRARIES = libquickfixcpptest.la
 
 libquickfixcpptest_la_SOURCES = \
