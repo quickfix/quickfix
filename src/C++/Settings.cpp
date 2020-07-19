@@ -62,6 +62,30 @@ std::pair<std::string, std::string> splitKeyValue( const std::string& line )
   return std::pair<std::string, std::string>( key, value );
 }
 
+static bool tryGetEnvSafe( const std::string& varName, std::string& resultStr )
+{
+#if defined(_MSC_VER) || (defined(__STDC_LIB_EXT1__) && (__STDC_WANT_LIB_EXT1__ == 1))
+  size_t resultSize = 0;
+
+  getenv_s( &resultSize, NULL, 0, varName.c_str() );
+
+  if (resultSize == 0 )
+  {
+    return false;
+  }
+
+  resultStr.resize( resultSize );
+
+  getenv_s( &resultSize, &(resultStr.at(0)), resultSize, varName.c_str() );
+
+  resultStr.resize( std::char_traits<char>::length( resultStr.c_str() ) );
+#else
+  resultStr = getenv( varName.c_str() );
+#endif
+
+  return true;
+}
+
 std::string resolveEnvVars(const std::string& str)
 {
   std::string resultStr;
@@ -117,8 +141,8 @@ std::string resolveEnvVars(const std::string& str)
           --actPos;
         // varName contains the name of the variable,
         // actPos points to first char _after_ variable
-        const char *varValue = 0;
-        if (!varName.empty() && (0 != (varValue = getenv(varName.c_str()))))
+        std::string varValue;
+        if (!varName.empty() && tryGetEnvSafe(varName, varValue))
           resultStr.append(varValue);
         continue;
       }

@@ -28,7 +28,6 @@
 
 namespace FIX
 {
-
 /// Base QuickFIX exception type.
 struct Exception : public std::logic_error
 {
@@ -40,15 +39,6 @@ struct Exception : public std::logic_error
 
   std::string type;
   std::string detail;
-
-protected:
-  template <class T>
-  static inline std::string to_string(T const & t)
-  {
-	std::stringstream ss;
-	ss << t;
-	return ss.str();
-  }
 };
 
 /// DataDictionary not found for BeginString or ApplVerID
@@ -66,7 +56,7 @@ struct DataDictionaryNotFound : public Exception
 struct FieldNotFound : public Exception
 {
   FieldNotFound( int f = 0, const std::string& what = "" )
-    : Exception( "Field not found: " + to_string(f), what ),
+    : Exception( "Field not found: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -110,7 +100,7 @@ struct RuntimeError : public Exception
 struct InvalidTagNumber : public Exception
 {
   InvalidTagNumber( int f = 0, const std::string& what = "" )
-    : Exception( "Invalid tag number: " + to_string(f), what ),
+    : Exception( "Invalid tag number: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -119,7 +109,7 @@ struct InvalidTagNumber : public Exception
 struct RequiredTagMissing : public Exception
 {
   RequiredTagMissing( int f = 0, const std::string& what = "" )
-    : Exception( "Required tag missing: " + to_string(f), what ),
+    : Exception( "Required tag missing: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -128,7 +118,7 @@ struct RequiredTagMissing : public Exception
 struct TagNotDefinedForMessage : public Exception
 {
   TagNotDefinedForMessage( int f = 0, const std::string& what = "" )
-    : Exception( "Tag not defined for this message type: " + to_string(f), what ),
+    : Exception( "Tag not defined for this message type: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -137,7 +127,7 @@ struct TagNotDefinedForMessage : public Exception
 struct NoTagValue : public Exception
 {
   NoTagValue( int f = 0, const std::string& what = "" )
-    : Exception( "Tag specified without a value: " + to_string(f), what ),
+    : Exception( "Tag specified without a value: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -146,7 +136,7 @@ struct NoTagValue : public Exception
 struct IncorrectTagValue : public Exception
 {
   IncorrectTagValue( int f = 0, const std::string& what = "" )
-    : Exception( "Value is incorrect (out of range) for this tag: " + to_string(f), what ),
+    : Exception( "Value is incorrect (out of range) for this tag: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -155,7 +145,7 @@ struct IncorrectTagValue : public Exception
 struct IncorrectDataFormat : public Exception
 {
   IncorrectDataFormat( int f = 0, const std::string& what = "" )
-    : Exception( "Incorrect data format for value: " + to_string(f), what ),
+    : Exception( "Incorrect data format for value: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -199,7 +189,7 @@ struct UnsupportedVersion : public Exception
 struct TagOutOfOrder : public Exception
 {
   TagOutOfOrder( int f = 0, const std::string& what = "" )
-    : Exception( "Tag specified out of required order: " + to_string(f), what ),
+    : Exception( "Tag specified out of required order: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -208,7 +198,7 @@ struct TagOutOfOrder : public Exception
 struct RepeatedTag : public Exception
 {
   RepeatedTag( int f = 0, const std::string& what = "" )
-    : Exception( "Repeated tag not part of repeating group: " + to_string(f), what ),
+    : Exception( "Repeated tag not part of repeating group: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
@@ -217,7 +207,7 @@ struct RepeatedTag : public Exception
 struct RepeatingGroupCountMismatch : public Exception
 {
   RepeatingGroupCountMismatch( int f = 0, const std::string& what = "" )
-    : Exception( "Repeating group count mismatch: " + to_string(f), what ),
+    : Exception( "Repeating group count mismatch: " + std::to_string(f), what ),
                  field( f ) {}
   int field;
 };
