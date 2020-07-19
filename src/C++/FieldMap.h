@@ -184,6 +184,15 @@ public:
     return &getFieldRef( tag );
   }
 
+  /// Get direct access to a field through a pointer if set
+  const FieldBase* const getFieldPtrIfSet( int tag )
+  {
+    Fields::const_iterator iter = findTag(tag);
+    if (iter == m_fields.end())
+      return nullptr;
+    return &(*iter);
+  }
+
   /// Check to see if a field is set
   bool isSetField( const FieldBase& field ) const
   { return isSetField( field.getTag() ); }
@@ -228,6 +237,16 @@ public:
     return &getGroupRef( num, tag );
   }
 
+  /// Get direct access to a field through a pointer
+  FieldMap* getGroupIfSetPtr( int num, int tag ) const
+  {
+    Groups::const_iterator i = m_groups.find( tag );
+    if( i == m_groups.end() ) return nullptr;
+    if( num <= 0 ) return nullptr;
+    if( i->second.size() < (unsigned)num ) return nullptr;
+    return &( *( *(i->second.begin() + (num-1) ) ) );
+  }
+
   /// Remove a specific instance of a group.
   void removeGroup( int num, int tag );
   /// Remove all instances of a group.
@@ -249,7 +268,7 @@ public:
 
   std::string& calculateString( std::string& ) const;
 
-  int calculateLength( int beginStringField = FIELD::BeginString,
+  size_t calculateLength( int beginStringField = FIELD::BeginString,
                        int bodyLengthField = FIELD::BodyLength,
                        int checkSumField = FIELD::CheckSum ) const;
 

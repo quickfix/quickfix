@@ -44,6 +44,9 @@ examples/ordermatch/ordermatch
 examples/ordermatch/test/ordermatch_ut
 examples/tradeclient/tradeclient
 include/
+obj/
+exe/
+bin/
 src/at
 src/pt
 src/ut
@@ -66,3 +69,5 @@ core
 \#*#
 *.log
 *.trs
+*.ipdb
+*.iobj

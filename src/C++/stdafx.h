@@ -12,6 +12,7 @@
 
 #define WIN32_LEAN_AND_MEAN
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _CRT_NONSTDC_NO_WARNINGS // getpid
 
 #include <stdio.h>
 #include "../config_windows.h"
@@ -25,6 +26,15 @@
 #endif
 
 #define _WIN32_DCOM
+
+// Pre-compile most-used headers
+#include <windows.h>
+#include <string>
+#include <map>
+#include <iostream>
+#include <exception>
+#include <list>
+#include <vector>
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

@@ -331,4 +331,12 @@ void PostgreSQLStore::refresh() EXCEPT ( IOException )
 
 }
 
+#else //HAVE_POSTGRESQL
+
+namespace FIX
+{ 
+	int PostgreSQLStoreWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif

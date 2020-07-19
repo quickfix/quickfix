@@ -230,11 +230,11 @@ std::string& FieldMap::calculateString( std::string& result ) const
   return result;
 }
 
-int FieldMap::calculateLength( int beginStringField,
+size_t FieldMap::calculateLength( int beginStringField,
                                int bodyLengthField,
                                int checkSumField ) const
 {
-  int result = 0;
+  size_t result = 0;
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {

@@ -247,17 +247,17 @@ private:
 public:
 
   static const int SIGNIFICANT_DIGITS = 15;
-  static const int BUFFFER_SIZE = 32;
+  static const int BUFFER_SIZE = 32;
 
   static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS)
   {
-    char result[BUFFFER_SIZE];
+    char result[BUFFER_SIZE];
     char *end = 0;
 
     int size;
     if( value == 0 || value > 0.0001 || value < -0.0001 )
     {
-      size = fast_dtoa( result, BUFFFER_SIZE, value, significant_digits);
+      size = fast_dtoa( result, BUFFER_SIZE, value, significant_digits);
       if( size == 0 )
         return std::string();
 
@@ -285,7 +285,7 @@ public:
     }
     else
     {
-      size = fast_fixed_dtoa( result, BUFFFER_SIZE, value, significant_digits );
+      size = fast_fixed_dtoa( result, BUFFER_SIZE, value, significant_digits );
       if( size == 0 )
         return std::string();
 
@@ -341,7 +341,7 @@ static bool convert( const std::string& value, double& result )
   if( *i || !haveDigit ) return false;
 
   int processed_chars;
-  const int total_length = value.length();
+  const int total_length = (int)value.length();
   result = fast_strtod( value.c_str(), total_length, &processed_chars);
 
   return true;
@@ -524,7 +524,7 @@ struct UtcTimeStampConvertor
     }
 
     return UtcTimeStamp (hour, min, sec, fraction,
-                         mday, mon, year, len - 17 - 1);
+                         mday, mon, year, (int)len - 17 - 1);
   }
 };
 
@@ -609,7 +609,7 @@ struct UtcTimeOnlyConvertor
       fraction = (fraction * 10) + ch - '0';
     }
 
-    return UtcTimeOnly (hour, min, sec, fraction, len - 8 - 1);
+    return UtcTimeOnly (hour, min, sec, fraction, (int)len - 8 - 1);
   }
 };
 

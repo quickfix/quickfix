@@ -407,4 +407,12 @@ int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
 }
 }
 
+#else //(HAVE_SSL > 0)
+
+namespace FIX
+{
+	int SSLSocketAcceptorWarningSilencer = 0;
+
+} //namespace FIX
+
 #endif

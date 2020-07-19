@@ -400,4 +400,12 @@ bool ThreadedSSLSocketConnection::setSession(const std::string &msg)
 
 } // namespace FIX
 
+#else //(HAVE_SSL > 0)
+
+namespace FIX
+{
+	int ThreadedSSLSocketConnectionWarningSilencer = 0;
+
+} //namespace FIX
+
 #endif

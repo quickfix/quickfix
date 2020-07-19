@@ -272,4 +272,12 @@ void MySQLLog::insert( const std::string& table, const std::string value )
 
 } //namespace FIX
 
+#else //HAVE_MYSQL
+
+namespace FIX
+{ 
+	int MySQLLogWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif //HAVE_MYSQL

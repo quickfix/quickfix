@@ -328,4 +328,12 @@ void MySQLStore::refresh() EXCEPT ( IOException )
 
 }
 
+#else //HAVE_MYSQL
+
+namespace FIX
+{ 
+	int MySQLStoreWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif

@@ -424,4 +424,12 @@ void SSLSocketConnection::onTimeout()
 
 } // namespace FIX
 
+#else //(HAVE_SSL > 0)
+
+namespace FIX
+{
+	int SSLSocketConnectionWarningSilencer = 0;
+
+} //namespace FIX
+
 #endif

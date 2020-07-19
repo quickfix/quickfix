@@ -249,4 +249,12 @@ void OdbcLog::insert( const std::string& table, const std::string value )
 
 }
 
+#else //HAVE_ODBC
+
+namespace FIX
+{ 
+	int OdbcLogWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif
