@@ -77,7 +77,7 @@ bool SocketConnection::processQueue()
 
   struct timeval timeout = { 0, 0 };
   fd_set writeset = m_fds;
-  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+  if( select( 1 + (int)m_socket, 0, &writeset, 0, &timeout ) <= 0 )
     return false;
     
   const std::string& msg = m_sendQueue.front();
@@ -132,7 +132,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
 
       while( !readMessage( msg ) )
       {
-        int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+        int result = select( 1 + (int)m_socket, &readset, 0, 0, &timeout );
         if( result > 0 )
           readFromSocket();
         else if( result == 0 )
