@@ -140,6 +140,21 @@ typedef int socket_handle;
   namespace ptr = std;
 #endif
 
+/// Workaround missing std::to_string in C++03 and less 
+#if ((__cplusplus <= 199711L) || (defined(_MSC_VER) && (_MSC_VER < 1600)))
+#include <sstream>
+namespace std
+{
+  template <class T>
+  static inline string to_string(T const & t)
+  {
+    stringstream ss;
+    ss << t;
+    return ss.str();
+  }
+}
+#endif
+
 namespace FIX
 {
 void string_replace( const std::string& oldValue,

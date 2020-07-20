@@ -30,21 +30,4 @@
 #define EXCEPT(...) throw(__VA_ARGS__)
 #endif
 
-#if __cplusplus <= 199711L
-/// Workaround missing std::to_string in C++03 and less 
-namespace FIX
-{
-  namespace std
-  {
-    template <class T>
-    static inline std::string to_string(T const & t)
-    {
-      std::stringstream ss;
-      ss << t;
-      return ss.str();
-    }
-  }
-}
-#endif
-
 #endif
