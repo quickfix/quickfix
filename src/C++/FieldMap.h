@@ -238,7 +238,7 @@ public:
   }
 
   /// Get direct access to a field through a pointer
-  FieldMap* getGroupIfSetPtr( int num, int tag ) const
+  FieldMap* getGroupPtrIfSet( int num, int tag ) const
   {
     Groups::const_iterator i = m_groups.find( tag );
     if( i == m_groups.end() ) return nullptr;
