@@ -130,7 +130,7 @@ void FileStore::populateCache()
   {
     int num;
     long offset;
-    std::size_t size;
+    unsigned long size;
 
     while (FILE_FSCANF(headerFile, "%d,%ld,%lu ", &num, &offset, &size) == 3)
     {
@@ -202,7 +202,7 @@ EXCEPT ( IOException )
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
   std::size_t size = msg.size();
 
-  if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, size ) < 0 )
+  if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, (unsigned long)size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
   std::pair<NumToOffset::iterator, bool> it = 
     m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
