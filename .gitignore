@@ -46,7 +46,7 @@ examples/tradeclient/tradeclient
 include/
 obj/
 exe/
-bin/
+build/
 src/at
 src/pt
 src/ut

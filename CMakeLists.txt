@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
+#Try to use latest compiler settings
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED OFF)
+
 option(HAVE_EMX "Build with EMX")
 
 if(HAVE_EMX)

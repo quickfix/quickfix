@@ -22,6 +22,7 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/dirent
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/DOMDocument.h ${CMAKE_SOURCE_DIR}/include/quickfix/DOMDocument.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Event.h ${CMAKE_SOURCE_DIR}/include/quickfix/Event.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Exceptions.h ${CMAKE_SOURCE_DIR}/include/quickfix/Exceptions.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Except.h ${CMAKE_SOURCE_DIR}/include/quickfix/Except.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Field.h ${CMAKE_SOURCE_DIR}/include/quickfix/Field.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/FieldConvertors.h ${CMAKE_SOURCE_DIR}/include/quickfix/FieldConvertors.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/FieldMap.h ${CMAKE_SOURCE_DIR}/include/quickfix/FieldMap.h
