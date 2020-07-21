@@ -429,7 +429,7 @@ TEST(checkSumConvertTo)
 
 TEST(integerToStringPadded)
 {
-  char result[5];
+  char result[6] = {'\0'};
   int fraction = 1234;
   int precision = 5;
   CHECK_EQUAL(result, integer_to_string_padded(result, precision, fraction));

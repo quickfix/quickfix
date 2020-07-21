@@ -1,4 +1,8 @@
-BUILDING AND INSTALLING
+# Quickfix
+
+[![Build Status](https://travis-ci.org/quickfix/quickfix.svg?branch=master)](https://travis-ci.org/quickfix/quickfix)
+
+## BUILDING AND INSTALLING
 
     Full instructions:
         See doc/html/building.html

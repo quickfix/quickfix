@@ -1,6 +1,3 @@
-CFLAGS += -O0 -g
-CXXFLAGS += -O0 -g
-
 noinst_PROGRAMS = ordermatch_ut
 
 ordermatch_ut_SOURCES = \
