@@ -122,15 +122,7 @@ public:
     }
     else
     {
-      Fields::iterator i = findTag( field.getTag() );
-      if( i == m_fields.end() )
-      {
-        addField( field );
-      }
-      else
-      {
-        i->setString( field.getString() );
-      }
+      setField( field.getTag(), field.getString() );
     }
   }
 
@@ -138,8 +130,17 @@ public:
   void setField( int tag, const std::string& value )
   EXCEPT ( RepeatedTag, NoTagValue )
   {
-    FieldBase fieldBase( tag, value );
-    setField( fieldBase );
+    Fields::iterator i = findTag( tag );
+    if( i == m_fields.end() )
+    {
+      FieldBase field( tag, value );
+
+      addField( field );
+    }
+    else
+    {
+      i->setString( value );
+    }
   }
 
   /// Get a field if set
@@ -379,4 +380,3 @@ bool getIfSet( FIELD& field ) const       \
 if( !(MAP).isSetField( FIX::FIELD::FLD) ) \
   throw FieldNotFound( FIX::FIELD::FLD )
 #endif //FIX_FIELDMAP
-
