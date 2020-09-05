@@ -28,13 +28,16 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
-#if defined(_MSC_VER)
+// detect C++17
+#if defined(_MSC_VER) && defined( _MSVC_LANG) && ( _MSVC_LANG >= 201703L)
+
+#define HAVE_CXX_17 1
+
 #elif defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
 #elif ( __cplusplus >= 201703L) // C++ 17 onwards
 
 #define HAVE_CXX_17 1
 
-#else
 #endif
 
 #ifndef _MSC_VER
