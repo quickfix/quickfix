@@ -35,9 +35,8 @@
 
 #include "Mutex.h"
 
-#elif ( __cplusplus >= 201703L) // C++ 17 onwards
+#elif defined( HAVE_CXX_17) // C++ 17 onwards
 
-#define HAVE_CXX_17 1
 #include <atomic>
 
 #else

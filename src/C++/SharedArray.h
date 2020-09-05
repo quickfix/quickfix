@@ -28,7 +28,7 @@
 namespace FIX
 {
   /// Shared array with atomic reference count
-#if !defined( _MSC_VER) && ( __cplusplus >= 201703L) // Not MS compiler and c++ 17 onwards
+#if defined( HAVE_CXX_17) // C++ 17 onwards
   template<typename T>
   class shared_array
   {
@@ -61,7 +61,7 @@ namespace FIX
         return shared_array();
       }
 
-      return shared_array( ptr_type( new char[nSize]), nSize);
+      return shared_array( ptr_type( new T[nSize]), nSize);
     }
 
   private:

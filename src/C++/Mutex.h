@@ -22,20 +22,12 @@
 #ifndef FIX_MUTEX_H
 #define FIX_MUTEX_H
 
-#if defined(_MSC_VER)
+#include "Utility.h"
 
-#elif defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
-
-#elif ( __cplusplus >= 201703L) // C++ 17 onwards
-
-#define HAVE_CXX_17 1
+#if defined( HAVE_CXX_17)
 #include <atomic>
-
-#else
-
 #endif
 
-#include "Utility.h"
 
 namespace FIX
 {
