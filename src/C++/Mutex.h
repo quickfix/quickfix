@@ -22,6 +22,19 @@
 #ifndef FIX_MUTEX_H
 #define FIX_MUTEX_H
 
+#if defined(_MSC_VER)
+
+#elif defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
+
+#elif ( __cplusplus >= 201703L) // C++ 17 onwards
+
+#define HAVE_CXX_17 1
+#include <atomic>
+
+#else
+
+#endif
+
 #include "Utility.h"
 
 namespace FIX
@@ -59,11 +72,12 @@ public:
 #ifdef _MSC_VER
     EnterCriticalSection( &m_mutex );
 #else
-    if ( m_count && m_threadID == pthread_self() )
-    { ++m_count; return ; }
-    pthread_mutex_lock( &m_mutex );
+    if( m_threadID != pthread_self())
+    {
+      pthread_mutex_lock( &m_mutex );
+      m_threadID = pthread_self();
+    }
     ++m_count;
-    m_threadID = pthread_self();
 #endif
   }
 
@@ -72,22 +86,46 @@ public:
 #ifdef _MSC_VER
     LeaveCriticalSection( &m_mutex );
 #else
-    if ( m_count > 1 )
-    { m_count--; return ; }
-    --m_count;
-    m_threadID = 0;
-    pthread_mutex_unlock( &m_mutex );
+    if( 0 == --m_count)
+    {
+      m_threadID = 0;
+      pthread_mutex_unlock( &m_mutex );
+    }
 #endif
   }
+
+#ifdef HAVE_CXX_17 // C++ 17 onwards
+  Mutex( const Mutex & other):
+    m_threadID( other.m_threadID.load()),
+    m_count( other.m_count),
+    m_mutex( other.m_mutex)
+  {
+  }
+
+  Mutex & operator=( const Mutex & other)
+  {
+    if( this != &other)
+    {
+      m_threadID = other.m_threadID.load();
+      m_count = other.m_count;
+      m_mutex = other.m_mutex;
+    }
+    return *this;
+  }
+#endif
 
 private:
 
 #ifdef _MSC_VER
   CRITICAL_SECTION m_mutex;
 #else
-  pthread_mutex_t m_mutex;
+#ifdef HAVE_CXX_17 // C++ 17 onwards
+  std::atomic<pthread_t> m_threadID;
+#else
   pthread_t m_threadID;
+#endif
   int m_count;
+  pthread_mutex_t m_mutex;
 #endif
 };
 

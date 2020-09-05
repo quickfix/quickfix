@@ -22,10 +22,25 @@
 #ifndef ATOMIC_COUNT
 #define ATOMIC_COUNT
 
+
 #include "Utility.h"
 
-#if defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
+#ifdef ENABLE_BOOST_ATOMIC_COUNT
+
+#include <boost/smart_ptr/detail/atomic_count.hpp>
+
+#elif defined(_MSC_VER)
+
+#elif defined(__SUNPRO_CC) ||  defined(__TOS_AIX__)
+
 #include "Mutex.h"
+
+#elif ( __cplusplus >= 201703L) // C++ 17 onwards
+
+#define HAVE_CXX_17 1
+#include <atomic>
+
+#else
 #endif
 
 namespace FIX
@@ -34,10 +49,9 @@ namespace FIX
 
 #ifdef ENABLE_BOOST_ATOMIC_COUNT
 
-#include <boost/smart_ptr/detail/atomic_count.hpp>
 typedef boost::detail::atomic_count atomic_count;
 
-#elif _MSC_VER 
+#elif _MSC_VER
 
   //atomic counter based on interlocked functions for Win32
   class atomic_count
@@ -106,6 +120,8 @@ private:
   long m_counter;
 };
 
+#elif defined( HAVE_CXX_17 ) // C++ 17 onwards
+typedef std::atomic<long> atomic_count;
 #else
 
   //
@@ -176,4 +192,3 @@ private:
 }
 
 #endif
-

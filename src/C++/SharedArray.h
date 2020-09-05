@@ -28,7 +28,55 @@
 namespace FIX
 {
   /// Shared array with atomic reference count
-#ifndef NO_UNALIGNED_ACCESS
+#if !defined( _MSC_VER) && ( __cplusplus >= 201703L) // Not MS compiler and c++ 17 onwards
+  template<typename T>
+  class shared_array
+  {
+  public:
+    shared_array() = default;
+    shared_array( const shared_array &) = default;
+    shared_array( shared_array &&) = default;
+    shared_array & operator=( const shared_array & rhs) = default;
+    shared_array & operator=( shared_array && rhs) = default;
+
+    std::size_t size() const
+    {
+      return m_size;
+    }
+
+    bool empty() const
+    {
+      return !m_buffer;
+    }
+
+    operator T* () const
+    {
+      return m_buffer.get();
+    }
+
+    static shared_array create( const std::size_t nSize)
+    {
+      if( nSize == 0)
+      {
+        return shared_array();
+      }
+
+      return shared_array( ptr_type( new char[nSize]), nSize);
+    }
+
+  private:
+    using ptr_type = std::shared_ptr<T[]>;
+
+    shared_array( ptr_type && buffer, std::size_t nSize):
+      m_size( nSize),
+      m_buffer( std::forward<ptr_type>( buffer))
+    {
+    }
+
+    std::size_t m_size;
+    ptr_type m_buffer;
+  };
+#elif !defined( NO_UNALIGNED_ACCESS)
   template<typename T>
   class shared_array
   {
