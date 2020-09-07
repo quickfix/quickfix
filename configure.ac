@@ -65,12 +65,14 @@ AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_no_unit_test" = "yes"])
 
 ########################################
 
+AX_CXX_COMPILE_STDCXX( [17], [noext])
+
 ########################################
-# TBB 
+# TBB
 ########################################
 has_tbb=false
 AC_ARG_WITH(tbb,
-    [  --with-tbb=<path>       prefix of Intel Thread Building Blocks (TBB) installation. e.g. /opt/intel/tbb/3.0], 
+    [  --with-tbb=<path>       prefix of Intel Thread Building Blocks (TBB) installation. e.g. /opt/intel/tbb/3.0],
     [if test $withval == "no"
      then
        has_tbb=false
@@ -84,7 +86,7 @@ AC_SUBST(TBB_PREFIX)
 
 has_tbb_arch=false
 AC_ARG_WITH(tbb-arch,
-    [  --with-tbb-arch=<arch>  TBB arch subdir, e.g. intel64/cc4.1.0_libc2.4_kernel2.6.16.21 ], 
+    [  --with-tbb-arch=<arch>  TBB arch subdir, e.g. intel64/cc4.1.0_libc2.4_kernel2.6.16.21 ],
     [if test $withval == "no"
      then
        has_tbb_arch=false
@@ -147,11 +149,11 @@ case $build_os in
 		LIBS="-pthread $LIBS"
 		AC_MSG_RESULT([-pthread])
 		;;
-	linux-*) 
+	linux-*)
 		AC_MSG_RESULT([-lpthread])
 		AC_CHECK_LIB(pthread, pthread_create)
 		;;
-	solaris*) 
+	solaris*)
 		AC_MSG_RESULT([-lpthread])
 		AC_CHECK_LIB(pthread, pthread_create)
 		;;
@@ -223,7 +225,7 @@ else AC_MSG_RESULT(no)
      void term() {}],
     [std::set_terminate(term);],
     AC_MSG_RESULT(yes)
-    AC_DEFINE(TERMINATE_IN_STD, 1, 
+    AC_DEFINE(TERMINATE_IN_STD, 1,
     For location of set_terminate),
     AC_MSG_RESULT(no)
     AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
@@ -256,6 +258,15 @@ AC_TRY_COMPILE(
         The system supports boost::shared_ptr),
         AC_MSG_RESULT(no))
 
+AC_MSG_CHECKING(for std::unique_ptr)
+AC_TRY_COMPILE(
+	[#include <memory>],
+	[std::unique_ptr<int> ptr;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_STD_UNIQUE_PTR, 1,
+	The system supports std::unique_ptr),
+	AC_MSG_RESULT(no))
+
 AC_MSG_CHECKING(for typeinfo in the global namespace)
 AC_TRY_COMPILE(
 	[#include <typeinfo>],
@@ -270,7 +281,7 @@ else AC_MSG_RESULT(no)
     [#include <typeinfo>],
     [const std::type_info& ty = typeid(std::type_info);],
     AC_MSG_RESULT(yes)
-    AC_DEFINE(TYPEINFO_IN_STD, 1, 
+    AC_DEFINE(TYPEINFO_IN_STD, 1,
     Whether or not we are using the new-style typeinfo header),
     AC_MSG_RESULT(no)
     AC_MSG_ERROR(type_info is required by the test library))
@@ -297,7 +308,7 @@ AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 # Checks for library functions.
 AC_LANG_RESTORE
 
-AC_CHECK_LIB(iberty, cplus_demangle,    
+AC_CHECK_LIB(iberty, cplus_demangle,
   AC_DEFINE(HAVE_CPLUS_DEMANGLE,1,whether or not we have to demangle names)
   LIBS="$LIBS -liberty")
 
@@ -318,7 +329,7 @@ int main(int argc, char** argv)
 }
 ],
 AC_MSG_RESULT(yes)
-AC_DEFINE(SELECT_MODIFIES_TIMEVAL, 1, 
+AC_DEFINE(SELECT_MODIFIES_TIMEVAL, 1,
 select statement decrements timeval parameter if interupted),
 AC_MSG_RESULT(no),
 AC_MSG_RESULT(unable to determine, assuming no...))

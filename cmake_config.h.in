@@ -1,0 +1,11 @@
+#ifndef CONFIG_H_IN
+#define CONFIG_H_IN
+
+#cmakedefine HAVE_EMX
+#cmakedefine HAVE_CXX17
+#cmakedefine HAVE_STD_SHARED_PTR
+#cmakedefine HAVE_SHARED_PTR_IN_TR1_NAMESPACE
+#cmakedefine HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER
+#cmakedefine HAVE_STD_UNIQUE_PTR
+
+#endif
