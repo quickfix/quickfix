@@ -66,7 +66,7 @@ AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_no_unit_test" = "yes"])
 
 ########################################
 
-AX_CXX_COMPILE_STDCXX( [17], [noext])
+AX_CXX_COMPILE_STDCXX( [17], [noext], optional)
 
 ########################################
 # TBB
