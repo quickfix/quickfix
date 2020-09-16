@@ -120,7 +120,7 @@ libquickfix_la_SOURCES = \
 	MessageCracker.h \
 	Responder.h \
 	wx/sharedptr.h
-	
+
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
 	ThreadedSSLSocketAcceptor.h \
@@ -145,7 +145,7 @@ libquickfix_la_SOURCES += $(libquickfix_la_ssl_SOURCES)
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
 Allocator.h: Makefile
-	grep "_ALLOCATOR" $(top_builddir)/config.h >$@
+	grep "_ALLOCATOR" config.h >$@
 
 all-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
