@@ -22,6 +22,8 @@
 #ifndef FIX_UTILITY_H
 #define FIX_UTILITY_H
 
+#include "config.h"
+
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
