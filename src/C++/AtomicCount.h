@@ -22,7 +22,6 @@
 #ifndef ATOMIC_COUNT
 #define ATOMIC_COUNT
 
-
 #include "Utility.h"
 
 #ifdef ENABLE_BOOST_ATOMIC_COUNT

@@ -28,7 +28,6 @@
 #include <atomic>
 #endif
 
-
 namespace FIX
 {
 /// Portable implementation of a mutex.
