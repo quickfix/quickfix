@@ -22,6 +22,8 @@
 #ifndef FIX_UTILITY_H
 #define FIX_UTILITY_H
 
+#include "config.h"
+
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
@@ -123,6 +125,9 @@ typedef int socket_handle;
 #if defined(HAVE_STD_SHARED_PTR)
   namespace ptr = std;
 #elif defined(HAVE_STD_TR1_SHARED_PTR)
+  #include <memory>
+  namespace ptr = std::tr1;
+#elif defined(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER)
   #include <tr1/memory>
   namespace ptr = std::tr1;
 #elif defined(HAVE_BOOST_SHARED_PTR)

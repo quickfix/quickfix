@@ -263,6 +263,15 @@ TEST(utcTimeStampConvertToNano)
   CHECK_EQUAL( "20000426-12:05:06.555555555", UtcTimeStampConvertor::convert( input, 9 ) );
 }
 
+TEST(utcTimeStampConvertToPrecisionBounds)
+{
+  UtcTimeStamp input;
+  input.setHMS( 12, 5, 6, 555555555, 9 );
+  input.setYMD( 2000, 4, 26 );
+  CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input, -1000 ) );
+  CHECK_EQUAL( "20000426-12:05:06.555555555", UtcTimeStampConvertor::convert( input, 1000 ) );
+}
+
 TEST(utcTimeStampConvertFromSecond)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
@@ -387,6 +396,14 @@ TEST(utcTimeOnlyConvertToNano)
   CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 9 ) );
 }
 
+TEST(utcTimeOnlyConvertToPrecisionBounds)
+{
+  UtcTimeOnly input;
+  input.setHMS( 12, 5, 6, 555555555, 9 );
+  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, -1000 ) );
+  CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 1000 ) );
+}
+
 TEST(utcTimeOnlyConvertFromMicro)
 {
   UtcTimeOnly result = UtcTimeOnlyConvertor::convert
@@ -429,7 +446,7 @@ TEST(checkSumConvertTo)
 
 TEST(integerToStringPadded)
 {
-  char result[5];
+  char result[6] = {'\0'};
   int fraction = 1234;
   int precision = 5;
   CHECK_EQUAL(result, integer_to_string_padded(result, precision, fraction));

@@ -78,7 +78,6 @@ private:
   Sessions m_sessions;
   Session* m_pSession;
   bool m_disconnect;
-  fd_set m_fds;
 };
 }
 
