@@ -128,7 +128,9 @@ AC_SUBST(CFLAGS)
 if test "x$NO_MODERN_CPP" != "x"; then
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
 else
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+  if test "x$HAVE_CXX17" == "x"; then
+     CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
+  fi
 fi
 AC_SUBST(CXXFLAGS)
 
