@@ -22,13 +22,17 @@
 #ifndef SHARED_ARRAY
 #define SHARED_ARRAY
 
+#if defined( HAVE_CXX17) // C++ 17 onwards
+#include <memory>
+#endif
+
 #include "config-all.h"
 #include "AtomicCount.h"
 
 namespace FIX
 {
   /// Shared array with atomic reference count
-#if defined( HAVE_CXX_17) // C++ 17 onwards
+#if defined( HAVE_CXX17) // C++ 17 onwards
   template<typename T>
   class shared_array
   {
@@ -61,11 +65,14 @@ namespace FIX
         return shared_array();
       }
 
-      return shared_array( ptr_type( new T[nSize]), nSize);
+      // Should be able to do std::shared_ptr<T[]>( new t[ nSize]), but there is a known clang libc++ bug.
+      auto buffer = std::unique_ptr<T[]>(new T[nSize]);
+      return shared_array( ptr_type( buffer.release(), buffer.get_deleter()), nSize);
     }
 
   private:
-    using ptr_type = std::shared_ptr<T[]>;
+    // Should be able to do using ptr_type = std::shared_ptr<T[]>, but there is a known clang libc++ bug.
+    using ptr_type = std::shared_ptr<T>;
 
     shared_array( ptr_type && buffer, std::size_t nSize):
       m_size( nSize),

@@ -24,7 +24,7 @@
 
 #include "Utility.h"
 
-#if defined( HAVE_CXX_17)
+#if defined( HAVE_CXX17)
 #include <atomic>
 #endif
 
@@ -85,7 +85,7 @@ public:
 #endif
   }
 
-#ifdef HAVE_CXX_17 // C++ 17 onwards
+#ifdef HAVE_CXX17 // C++ 17 onwards
   Mutex( const Mutex & other):
     m_threadID( other.m_threadID.load()),
     m_count( other.m_count),
@@ -110,7 +110,7 @@ private:
 #ifdef _MSC_VER
   CRITICAL_SECTION m_mutex;
 #else
-#ifdef HAVE_CXX_17 // C++ 17 onwards
+#ifdef HAVE_CXX17 // C++ 17 onwards
   std::atomic<pthread_t> m_threadID;
 #else
   pthread_t m_threadID;

@@ -34,7 +34,7 @@
 
 #include "Mutex.h"
 
-#elif defined( HAVE_CXX_17) // C++ 17 onwards
+#elif defined( HAVE_CXX17) // C++ 17 onwards
 
 #include <atomic>
 
@@ -118,7 +118,7 @@ private:
   long m_counter;
 };
 
-#elif defined( HAVE_CXX_17 ) // C++ 17 onwards
+#elif defined( HAVE_CXX17 ) // C++ 17 onwards
 typedef std::atomic<long> atomic_count;
 #else
 
