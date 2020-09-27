@@ -37,11 +37,44 @@ namespace FIX
   class shared_array
   {
   public:
-    shared_array() = default;
-    shared_array( const shared_array &) = default;
-    shared_array( shared_array &&) = default;
-    shared_array & operator=( const shared_array & rhs) = default;
-    shared_array & operator=( shared_array && rhs) = default;
+    shared_array():
+      m_size( 0),
+      m_buffer()
+    {
+    }
+
+    shared_array( const shared_array & other):
+      m_size( other.m_size),
+      m_buffer( other.m_buffer)
+    {
+    }
+
+    shared_array( shared_array && other):
+      shared_array()
+    {
+      swap( other);
+    }
+
+    shared_array & operator=( const shared_array & other)
+    {
+      if( this != &other)
+      {
+        m_size = other.m_size;
+        m_buffer = other.m_buffer;
+      }
+
+      return *this;
+    }
+
+    shared_array & operator=( shared_array && other)
+    {
+      if( this != &other)
+      {
+        shared_array( std::move( other)).swap( *this);
+      }
+
+      return *this;
+    }
 
     std::size_t size() const
     {
@@ -58,6 +91,12 @@ namespace FIX
       return m_buffer.get();
     }
 
+    void swap( shared_array & other)
+    {
+      std::swap( m_size, other.m_size);
+      std::swap( m_buffer, other.m_buffer);
+    }
+
     static shared_array create( const std::size_t nSize)
     {
       if( nSize == 0)
@@ -67,6 +106,7 @@ namespace FIX
 
       // Should be able to do std::shared_ptr<T[]>( new t[ nSize]), but there is a known clang libc++ bug.
       auto buffer = std::unique_ptr<T[]>(new T[nSize]);
+
       return shared_array( ptr_type( buffer.release(), buffer.get_deleter()), nSize);
     }
 
