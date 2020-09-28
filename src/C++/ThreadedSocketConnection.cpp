@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #else
 #include "config.h"
+#include <poll.h>
 #endif
 
 #include "ThreadedSocketConnection.h"
@@ -28,8 +29,6 @@
 #include "ThreadedSocketInitiator.h"
 #include "Session.h"
 #include "Utility.h"
-
-#include <poll.h>
 
 namespace FIX
 {
@@ -39,6 +38,10 @@ ThreadedSocketConnection::ThreadedSocketConnection
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
 {
+#if _MSC_VER
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
+#endif
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection
@@ -52,6 +55,10 @@ ThreadedSocketConnection::ThreadedSocketConnection
     m_pSession( Session::lookupSession( sessionID ) ),
     m_disconnect( false )
 {
+#if _MSC_VER
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
+#endif
   if ( m_pSession ) m_pSession->setResponder( this );
 }
 
@@ -94,13 +101,22 @@ void ThreadedSocketConnection::disconnect()
 
 bool ThreadedSocketConnection::read()
 {
+#if _MSC_VER
+  struct timeval timeout = { 1, 0 };
+  fd_set readset = m_fds;
+#else
   int timeout = 1000; // 1000ms = 1 second
   struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+#endif
 
   try
   {
     // Wait for input (1 second timeout)
+#if _MSC_VER
+    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+#else
     int result = poll( &pfd, 1, timeout );
+#endif
 
     if( result > 0 ) // Something to read
     {

@@ -26,6 +26,8 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#include "Utility.h"
+
 #ifdef _MSC_VER
 #include <Winsock2.h>
 typedef int socklen_t;
@@ -40,9 +42,6 @@ typedef int socklen_t;
 #include <set>
 #include <queue>
 #include <time.h>
-#include <poll.h>
-
-#include "Utility.h"
 
 namespace FIX
 {
@@ -55,39 +54,40 @@ public:
   SocketMonitor( int timeout = 0 );
   virtual ~SocketMonitor();
 
-  bool addConnect(socket_handle socket );
-  bool addRead(socket_handle socket );
-  bool addWrite(socket_handle socket );
-  bool drop(socket_handle socket );
-  void signal(socket_handle socket );
-  void unsignal(socket_handle socket );
+  bool addConnect( int socket );
+  bool addRead( int socket );
+  bool addWrite( int socket );
+  bool drop( int socket );
+  void signal( int socket );
+  void unsignal( int socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
   size_t numSockets() 
   { return m_readSockets.size() - 1; }
 
 private:
-  typedef std::set < socket_handle > Sockets;
-  typedef std::queue < socket_handle > Queue;
+  typedef std::set < int > Sockets;
+  typedef std::queue < int > Queue;
 
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( const Sockets&, struct pollfd *pfds, short events );
-  inline int getTimeval( bool poll, double timeout );
+  void buildSet( const Sockets&, fd_set& );
+  inline timeval* getTimeval( bool poll, double timeout );
   inline bool sleepIfEmpty( bool poll );
 
-  void processRead( Strategy&, int socket_fd );
-  void processWrite( Strategy&, int socket_fd );
-  void processError( Strategy&, int socket_fd );
-  void processPollList( Strategy& strategy, struct pollfd *pfds,
-                        unsigned pfds_size );
+  void processReadSet( Strategy&, fd_set& );
+  void processWriteSet( Strategy&, fd_set& );
+  void processExceptSet( Strategy&, fd_set& );
 
   int m_timeout;
+  timeval m_timeval;
+#ifndef SELECT_DECREMENTS_TIME
   clock_t m_ticks;
+#endif
 
-  socket_handle m_signal;
-  socket_handle m_interrupt;
+  int m_signal;
+  int m_interrupt;
   Sockets m_connectSockets;
   Sockets m_readSockets;
   Sockets m_writeSockets;

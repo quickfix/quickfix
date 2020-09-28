@@ -41,7 +41,6 @@ set(quickfix_SOURCES
   SocketConnection.cpp
   SocketConnector.cpp
   SocketInitiator.cpp
-  SocketMonitor.cpp
   SocketServer.cpp
   stdafx.cpp
   ThreadedSocketAcceptor.cpp
@@ -50,6 +49,12 @@ set(quickfix_SOURCES
   TimeRange.cpp
   Utility.cpp
 )
+
+if (WIN32)
+  list(APPEND quickfix_SOURCES WIN32/SocketMonitor.cpp)
+else()
+  list(APPEND quickfix_SOURCES SocketMonitor.cpp)
+endif()
 
 if (HAVE_SSL)
   set (quickfix_SOURCES ${quickfix_SOURCES}
@@ -72,6 +77,10 @@ else()
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/src/C++)
+
+if (WIN32)
+  target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/C++/WIN32)
+endif ()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
