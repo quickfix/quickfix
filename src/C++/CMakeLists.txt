@@ -53,7 +53,7 @@ set(quickfix_SOURCES
 if (WIN32)
   list(APPEND quickfix_SOURCES WIN32/SocketMonitor.cpp)
 else()
-  list(APPEND quickfix_SOURCES SocketMonitor.cpp)
+  list(APPEND quickfix_SOURCES UNIX/SocketMonitor.cpp)
 endif()
 
 if (HAVE_SSL)

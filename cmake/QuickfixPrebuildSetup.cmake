@@ -4,6 +4,7 @@ if (NOT WIN32)
 add_custom_target(QUICKFIX_HEADERS_LINK ALL
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
     COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/include/quickfix
+    COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/C++/UNIX/SocketMonitor.h ${CMAKE_SOURCE_DIR}/src/C++/SocketMonitor.h
 )
 else()
 add_custom_target(QUICKFIX_HEADERS_COPY ALL 
