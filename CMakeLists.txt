@@ -105,5 +105,7 @@ endif()
 
 configure_file(cmake_config.h.in ${CMAKE_SOURCE_DIR}/src/C++/config.h @ONLY)
 
+configure_file(cmake_config.h.in ${CMAKE_SOURCE_DIR}/include/quickfix/config.h @ONLY)
+
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/spec/ DESTINATION share/quickfix
   FILES_MATCHING PATTERN "FIX*.xml")
