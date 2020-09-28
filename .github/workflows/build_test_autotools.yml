@@ -1,0 +1,51 @@
+name: Build with Autotools
+on: [pull_request, push]
+
+jobs:
+    build:
+      runs-on: ${{ matrix.runner }}
+      strategy:
+          matrix:
+              runner: [ubuntu-latest, macos-latest]
+              configuration: [Release]
+              compiler-settings: ['']
+              include:
+                - runner: ubuntu-latest
+                  compiler-settings: CXX=clang++ CC=clang
+                - runner: macos-latest
+                  compiler-settings: CXX=g++ CC=gcc
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install autoconf and automake for macOS
+        if: matrix.runner == 'macos-latest'
+        run: brew install autoconf automake
+
+      - name: Bootstrap
+        shell: bash
+        run: ./bootstrap
+
+      - name: Configure ${{ matrix.compiler-settings }}
+        shell: bash
+        run: ${{ matrix.compiler-settings }} ./configure
+        if: ${{ success() && matrix.compiler-settings != '' }}
+
+      - name: Configure
+        shell: bash
+        run: ./configure
+        if: ${{ success() && matrix.compiler-settings == '' }}
+
+      - name: Make
+        shell: bash
+        run:  make -j
+
+      - name: Make check
+        shell: bash
+        run: make check
+
+      - name: Cat test-suite.log
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          test -f test/test-suite.log && cat test/test-suite.log

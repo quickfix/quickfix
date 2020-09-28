@@ -30,6 +30,7 @@
 #include "Exceptions.h"
 #include "Utility.h"
 #include "config-all.h"
+#include <assert.h>
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -136,6 +137,16 @@ inline char* integer_to_string_padded
   while( p > buf )
     *--p = paddingChar;
   return p;
+}
+
+template<typename T>
+T clamp_of( const T& value, const T& lowerBound, const T& upperBound )
+{
+  assert( lowerBound <= upperBound );
+  if( value < lowerBound )
+    return lowerBound;
+  else
+    return ( value > upperBound ) ? upperBound : value;
 }
 
 /// Empty converter is a no-op.
@@ -428,6 +439,8 @@ struct UtcTimeStampConvertor
     char result[ 17+10 ]; // Maximum
     int year, month, day, hour, minute, second, fraction;
 
+    precision = clamp_of( precision, 0, 9 );
+
     value.getYMD( year, month, day );
     value.getHMS( hour, minute, second, fraction, precision );
 
@@ -537,6 +550,8 @@ struct UtcTimeOnlyConvertor
   {
     char result[ 8+10 ]; // Maximum
     int hour, minute, second, fraction;
+
+    precision = clamp_of( precision, 0, 9 );
 
     value.getHMS( hour, minute, second, fraction, precision );
 
