@@ -10,7 +10,7 @@ set -ex
 echo "run code generator:"
 make generate
 
-echo "build with re-generated code:"
+echo "build with re-generated codes:"
 make -j3
 make check
 
