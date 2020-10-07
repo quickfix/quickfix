@@ -141,6 +141,72 @@ void Session::fill( Header& header )
   insertSendingTime( header );
 }
 
+void Session::replaceRawStringField(int fieldNum, const std::string& val, std::string& msg)
+{
+    const static std::string SOH("\001");
+    std::string fieldStart = SOH;
+    fieldStart.append(std::to_string(fieldNum));
+    fieldStart.append("=");
+
+    auto pos = msg.find(fieldStart);
+    if(pos == std::string::npos)
+    {
+        return;
+    }
+
+    pos += fieldStart.size();
+    auto endPos = msg.find(SOH, pos);
+    if(endPos == std::string::npos)
+    {
+        return;
+    }
+    msg.replace(pos, endPos-pos, val);
+}
+
+void Session::fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum)
+{
+  UtcTimeStamp now;
+  m_state.lastSentTime( now );
+
+  msgSeqNum = getExpectedSenderNum();
+
+  replaceRawStringField(m_sessionID.getBeginString().getTag(), m_sessionID.getBeginString().getString(), messageString);
+  replaceRawStringField(m_sessionID.getSenderCompID().getTag(), m_sessionID.getSenderCompID().getString(), messageString);
+  replaceRawStringField(m_sessionID.getTargetCompID().getTag(), m_sessionID.getTargetCompID().getString(), messageString);
+  replaceRawStringField(msgSeqNum.getTag(), msgSeqNum.getString(), messageString);
+
+  if ( m_enableLastMsgSeqNumProcessed )
+  {
+    LastMsgSeqNumProcessed lastMsgSeqNumProcessed(getExpectedTargetNum() - 1);
+    replaceRawStringField(lastMsgSeqNumProcessed.getTag(), lastMsgSeqNumProcessed.getString(), messageString);
+  }
+
+  bool showMilliseconds = false;
+  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
+    showMilliseconds = true;
+  else
+    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+
+  SendingTime sendingTime(now, showMilliseconds ? m_timestampPrecision : 0);
+  replaceRawStringField(sendingTime.getTag(), sendingTime.getString(), messageString);
+
+  message = Message(messageString, false);
+  size_t pos = messageString.find("\00135=");
+  size_t endPos = messageString.find("\00110=");
+  if(pos != std::string::npos && endPos != std::string::npos)
+  {
+    replaceRawStringField(FIELD::BodyLength, std::to_string(endPos-pos), messageString);
+
+    int checksum = 0;
+    for(size_t i=0; i <= endPos; i++)
+    {
+      checksum += static_cast<unsigned char>(messageString.at(i));
+    }
+    checksum = checksum % 256;
+    replaceRawStringField(FIELD::CheckSum, std::to_string(checksum), messageString);
+  }
+}
+
 void Session::next()
 {
   next( UtcTimeStamp() );
@@ -645,6 +711,56 @@ bool Session::sendRaw( Message& message, int num )
 
         if( !num )
           persist( message, messageString );
+
+        if ( isLoggedOn() )
+          send( messageString );
+      }
+      catch ( DoNotSend& ) { return false; }
+    }
+
+    return true;
+  }
+  catch ( IOException& e )
+  {
+    m_state.onEvent( e.what() );
+    return false;
+  }
+}
+
+bool Session::sendRawString(std::string &messageString, MsgSeqNum& msgSeqNum)
+{
+  Locker l( m_mutex );
+
+  try
+  {
+    auto pos = messageString.find("\00135=");
+    if(pos == std::string::npos)
+    {
+      return false;
+    }
+    pos += 4;
+    auto endPos = messageString.find("\001", pos);
+    if(endPos == std::string::npos)
+    {
+      return false;
+    }
+    MsgType msgType(messageString.substr(pos, endPos-pos));
+    if ( Message::isAdminMsgType( msgType ) )
+    {
+      return false;
+    }
+    else
+    {
+      // do not send application messages if they will just be cleared
+      if( !isLoggedOn() && shouldSendReset() )
+        return false;
+
+      try
+      {
+        FIX::Message message;
+        fillRawString( messageString, message, msgSeqNum );
+        m_application.toApp(message, m_sessionID );
+        persist( message, messageString );
 
         if ( isLoggedOn() )
           send( messageString );
@@ -1683,6 +1799,14 @@ EXCEPT ( SessionNotFound )
 {
   return sendToTarget( message, SenderCompID( sender ),
                        TargetCompID( target ), qualifier );
+}
+
+bool Session::sendRawStringToTarget(std::string& messageString, const SessionID &sessionID, MsgSeqNum& msgSeqNum)
+      EXCEPT(SessionNotFound)
+{
+  Session* pSession = lookupSession( sessionID );
+  if ( !pSession ) throw SessionNotFound();
+    return pSession->sendRawString( messageString, msgSeqNum );
 }
 
 std::set<SessionID> Session::getSessions()

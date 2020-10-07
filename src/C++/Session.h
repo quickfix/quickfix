@@ -94,7 +94,10 @@ public:
                             const std::string& targetCompID,
                             const std::string& qualifier = "" )
   EXCEPT ( SessionNotFound );
-
+  static bool sendRawStringToTarget( std::string& messageString,
+                              const SessionID &sessionID,
+                              MsgSeqNum& msgSeqNum)
+  EXCEPT ( SessionNotFound );
   static std::set<SessionID> getSessions();
   static bool doesSessionExist( const SessionID& );
   static Session* lookupSession( const SessionID& );
@@ -282,6 +285,7 @@ private:
 
   bool send( const std::string& );
   bool sendRaw( Message&, int msgSeqNum = 0 );
+  bool sendRawString(std::string &messageString, MsgSeqNum& msgSeqNum);
   bool resend( Message& message );
   void persist( const Message&, const std::string& ) EXCEPT ( IOException );
 
@@ -289,6 +293,8 @@ private:
   void insertOrigSendingTime( Header&,
                               const UtcTimeStamp& when = UtcTimeStamp () );
   void fill( Header& );
+  void replaceRawStringField(int fieldNum, const std::string& val, std::string& msg);
+  void fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum);
 
   bool isGoodTime( const SendingTime& sendingTime )
   {
