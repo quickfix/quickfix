@@ -203,7 +203,7 @@ void Session::fillRawString(std::string& messageString, Message& message, MsgSeq
       checksum += static_cast<unsigned char>(messageString.at(i));
     }
     checksum = checksum % 256;
-    replaceRawStringField(FIELD::CheckSum, std::to_string(checksum), messageString);
+    replaceRawStringField(FIELD::CheckSum, CheckSumConvertor::convert(checksum), messageString);
   }
 }
 
