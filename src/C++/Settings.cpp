@@ -133,11 +133,11 @@ std::string resolveEnvVars(const std::string& str)
 
 std::istream& operator>>( std::istream& stream, Settings& s )
 {
-  char buffer[1024];
+  std::string buffer;
   std::string line;
   Settings::Sections::iterator section = s.m_sections.end();;
 
-  while( stream.getline(buffer, sizeof(buffer)) )
+  while( std::getline(stream, buffer) )
   {
     line = string_strip( buffer );
     if( isComment(line) )
