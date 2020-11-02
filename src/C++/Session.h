@@ -256,6 +256,11 @@ public:
   void setIgnorePossdupResendRequests( bool value )
     { m_ignorePossdupResendRequests = value; }
 
+  bool getUseDataDictionary()
+    { return m_useDataDictionary; }
+  void setUseDataDictionary( bool value )
+    { m_useDataDictionary = value; }
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(UtcTimeStamp()) )
@@ -287,14 +292,16 @@ private:
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool sendRawString(std::string &messageString, MsgSeqNum& msgSeqNum);
   bool resend( Message& message );
+  bool resend( std::string& messageString);
   void persist( const Message&, const std::string& ) EXCEPT ( IOException );
 
   void insertSendingTime( Header& );
   void insertOrigSendingTime( Header&,
                               const UtcTimeStamp& when = UtcTimeStamp () );
   void fill( Header& );
-  void replaceRawStringField(int fieldNum, const std::string& val, std::string& msg);
-  void fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum);
+  void findRawStringField(int fieldNum, const std::string& msg, size_t& pos, size_t& endPos);
+  bool replaceRawStringField(int fieldNum, const std::string& val, std::string& msg);
+  void fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum, bool resend=false);
 
   bool isGoodTime( const SendingTime& sendingTime )
   {
@@ -408,6 +415,7 @@ private:
   bool m_enableNextExpectedMsgSeqNum;
   int m_maxMessagesInResendRequest;
   bool m_ignorePossdupResendRequests;
+  bool m_useDataDictionary;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;

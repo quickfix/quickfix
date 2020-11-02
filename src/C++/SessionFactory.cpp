@@ -210,7 +210,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setMaxMessagesInResendRequest( settings.getInt( MAX_MESSAGES_IN_RESEND_REQUEST ) );
   if ( settings.has( IGNORE_POSSDUP_RESEND_REQUESTS ) )
     pSession->setIgnorePossdupResendRequests( settings.getBool( IGNORE_POSSDUP_RESEND_REQUESTS ) );
-   
+  if ( settings.has( USE_DATA_DICTIONARY ) )
+    pSession->setUseDataDictionary( settings.getBool( USE_DATA_DICTIONARY ) );
+
   return pSession.release();
 }
 

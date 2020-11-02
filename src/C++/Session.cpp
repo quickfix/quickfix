@@ -30,6 +30,8 @@
 
 namespace FIX
 {
+const static std::string SOH{"\001"};
+
 Session::Sessions Session::s_sessions;
 Session::SessionIDs Session::s_sessionIDs;
 Session::Sessions Session::s_registered;
@@ -66,6 +68,7 @@ Session::Session( Application& application,
   m_enableNextExpectedMsgSeqNum ( false ),
   m_maxMessagesInResendRequest ( 0 ),
   m_ignorePossdupResendRequests ( false ),
+  m_useDataDictionary(true),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -141,44 +144,56 @@ void Session::fill( Header& header )
   insertSendingTime( header );
 }
 
-void Session::replaceRawStringField(int fieldNum, const std::string& val, std::string& msg)
+void Session::findRawStringField(int fieldNum, const std::string& msg, size_t& pos, size_t& endPos)
 {
-    const static std::string SOH("\001");
-    std::string fieldStart = SOH;
-    fieldStart.append(std::to_string(fieldNum));
-    fieldStart.append("=");
-
-    auto pos = msg.find(fieldStart);
-    if(pos == std::string::npos)
-    {
-        return;
-    }
-
-    pos += fieldStart.size();
-    auto endPos = msg.find(SOH, pos);
-    if(endPos == std::string::npos)
-    {
-        return;
-    }
-    msg.replace(pos, endPos-pos, val);
+  pos = std::string::npos;
+  endPos = std::string::npos;
+  std::string fieldStart{SOH};
+  fieldStart.append(std::to_string(fieldNum));
+  fieldStart.append("=");
+  pos = msg.find(fieldStart);
+  if(pos == std::string::npos)
+  {
+      return;
+  }
+  pos += fieldStart.size();
+  endPos = msg.find(SOH, pos);
 }
 
-void Session::fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum)
+bool Session::replaceRawStringField(int fieldNum, const std::string& val, std::string& msg)
+{
+    std::string fieldStart{SOH};
+    fieldStart.append(std::to_string(fieldNum));
+    fieldStart.append("=");
+    size_t pos, endPos;
+    findRawStringField(fieldNum, msg, pos, endPos);
+    if(pos == std::string::npos || endPos == std::string::npos)
+    {
+      return false;
+    }
+    msg.replace(pos, endPos-pos, val);
+    return true;
+}
+
+void Session::fillRawString(std::string& messageString, Message& message, MsgSeqNum& msgSeqNum, bool resend)
 {
   UtcTimeStamp now;
-  m_state.lastSentTime( now );
-
-  msgSeqNum = getExpectedSenderNum();
-
-  replaceRawStringField(m_sessionID.getBeginString().getTag(), m_sessionID.getBeginString().getString(), messageString);
-  replaceRawStringField(m_sessionID.getSenderCompID().getTag(), m_sessionID.getSenderCompID().getString(), messageString);
-  replaceRawStringField(m_sessionID.getTargetCompID().getTag(), m_sessionID.getTargetCompID().getString(), messageString);
-  replaceRawStringField(msgSeqNum.getTag(), msgSeqNum.getString(), messageString);
-
-  if ( m_enableLastMsgSeqNumProcessed )
+  if ( !resend )
   {
-    LastMsgSeqNumProcessed lastMsgSeqNumProcessed(getExpectedTargetNum() - 1);
-    replaceRawStringField(lastMsgSeqNumProcessed.getTag(), lastMsgSeqNumProcessed.getString(), messageString);
+    m_state.lastSentTime( now );
+
+    msgSeqNum = getExpectedSenderNum();
+
+    replaceRawStringField(m_sessionID.getBeginString().getTag(), m_sessionID.getBeginString().getString(), messageString);
+    replaceRawStringField(m_sessionID.getSenderCompID().getTag(), m_sessionID.getSenderCompID().getString(), messageString);
+    replaceRawStringField(m_sessionID.getTargetCompID().getTag(), m_sessionID.getTargetCompID().getString(), messageString);
+    replaceRawStringField(msgSeqNum.getTag(), msgSeqNum.getString(), messageString);
+
+    if ( m_enableLastMsgSeqNumProcessed )
+    {
+      LastMsgSeqNumProcessed lastMsgSeqNumProcessed(getExpectedTargetNum() - 1);
+      replaceRawStringField(lastMsgSeqNumProcessed.getTag(), lastMsgSeqNumProcessed.getString(), messageString);
+    }
   }
 
   bool showMilliseconds = false;
@@ -188,12 +203,43 @@ void Session::fillRawString(std::string& messageString, Message& message, MsgSeq
     showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
 
   SendingTime sendingTime(now, showMilliseconds ? m_timestampPrecision : 0);
-  replaceRawStringField(sendingTime.getTag(), sendingTime.getString(), messageString);
 
+  if ( resend )
+  {
+    bool replacePossDup = !replaceRawStringField(FIELD::PossDupFlag, "Y", messageString);
+    size_t pos, endPos;
+    findRawStringField(sendingTime.getTag(), messageString, pos, endPos);
+    if( pos != std::string::npos  && endPos != std::string::npos)
+    {
+      // Insert new sending time, orig sending time and PossDupFlag=Y (if not already set)
+      std::string resendHeaderFields{sendingTime.getString()};
+      size_t oPos, oEndPos;
+      findRawStringField(FIELD::OrigSendingTime, messageString, oPos, oEndPos);
+      if(oPos == std::string::npos && oEndPos == std::string::npos)
+      {
+        resendHeaderFields.append(SOH);
+        resendHeaderFields.append(std::to_string(FIELD::OrigSendingTime));
+        resendHeaderFields.append("=");
+        resendHeaderFields.append(messageString.substr(pos, endPos-pos));
+      }      
+      if ( replacePossDup )
+      {
+        resendHeaderFields.append(SOH);
+        resendHeaderFields.append(std::to_string(FIELD::PossDupFlag));
+        resendHeaderFields.append("=Y");
+      }
+      messageString.replace(pos, endPos-pos, resendHeaderFields);
+    }
+  }
+  else
+  {
+      replaceRawStringField(sendingTime.getTag(), sendingTime.getString(), messageString);
+  }
+  
   message = Message(messageString, false);
   size_t pos = messageString.find("\00135=");
   size_t endPos = messageString.find("\00110=");
-  if(pos != std::string::npos && endPos != std::string::npos)
+  if( pos != std::string::npos && endPos != std::string::npos )
   {
     replaceRawStringField(FIELD::BodyLength, std::to_string(endPos-pos), messageString);
 
@@ -504,7 +550,6 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   MsgType msgType;
   int begin = 0;
   int current = beginSeqNo;
-  std::string messageString;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
@@ -512,7 +557,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     std::string strMsgType;
     const DataDictionary& sessionDD =
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
-    if (sessionDD.isMessageFieldsOrderPreserved())
+    if ( sessionDD.isMessageFieldsOrderPreserved() )
     {
       std::string::size_type equalSign = (*i).find("\00135=");
       equalSign += 4;
@@ -544,7 +589,12 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
 
       const DataDictionary& applicationDD =
           m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
-      if (strMsgType.empty())
+      if ( !m_useDataDictionary  )
+      {
+        pMsg.reset( new Message() );
+        fillRawString( *i, *pMsg, msgSeqNum, true );
+      }
+      else if ( strMsgType.empty() )
         pMsg.reset( new Message( *i, sessionDD, applicationDD, m_validateLengthAndChecksum ));
       else
       {
@@ -556,7 +606,12 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     }
     else
     {
-      if (strMsgType.empty())
+      if (  !m_useDataDictionary )
+      {
+        pMsg.reset( new Message() );
+        fillRawString( *i, *pMsg, msgSeqNum, true );       
+      }
+      else if ( strMsgType.empty()  )
         pMsg.reset( new Message( *i, sessionDD, m_validateLengthAndChecksum ));
       else
       {
@@ -581,10 +636,18 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     }
     else
     {
-      if ( resend( msg ) )
+      if ( !m_useDataDictionary || resend( msg ) )
       {
         if ( begin ) generateSequenceReset( resendRequest, begin, msgSeqNum );
-        send( msg.toString(messageString) );
+        if ( m_useDataDictionary )
+        {
+          std::string messageString;
+          send( msg.toString(messageString) );
+        }
+        else
+        {
+          send( *i );
+        }
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
@@ -733,18 +796,7 @@ bool Session::sendRawString(std::string &messageString, MsgSeqNum& msgSeqNum)
 
   try
   {
-    auto pos = messageString.find("\00135=");
-    if(pos == std::string::npos)
-    {
-      return false;
-    }
-    pos += 4;
-    auto endPos = messageString.find("\001", pos);
-    if(endPos == std::string::npos)
-    {
-      return false;
-    }
-    MsgType msgType(messageString.substr(pos, endPos-pos));
+    MsgType msgType(identifyType(messageString));
     if ( Message::isAdminMsgType( msgType ) )
     {
       return false;
@@ -757,7 +809,7 @@ bool Session::sendRawString(std::string &messageString, MsgSeqNum& msgSeqNum)
 
       try
       {
-        FIX::Message message;
+        Message message;
         fillRawString( messageString, message, msgSeqNum );
         m_application.toApp(message, m_sessionID );
         persist( message, messageString );
