@@ -263,7 +263,7 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
 #endif
 }
 
-void SocketMonitor::processWrite( Strategy& strategy, socket_handle socket_fd )
+void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
 {
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < writeSet.fd_count; ++i )
