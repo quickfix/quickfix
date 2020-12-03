@@ -1,4 +1,4 @@
-echo off
+echo on
 if "%1" == "" goto usage
 if "%2" == "" goto usage
 
