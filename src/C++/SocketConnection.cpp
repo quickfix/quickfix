@@ -30,8 +30,6 @@
 #include "Session.h"
 #include "Utility.h"
 
-#include <poll.h>
-
 namespace FIX
 {
 SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
@@ -39,6 +37,8 @@ SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
 : m_socket( s ), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
 {
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
 }
 
 SocketConnection::SocketConnection( SocketInitiator& i,
@@ -46,8 +46,10 @@ SocketConnection::SocketConnection( SocketInitiator& i,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),
-  m_pMonitor( pMonitor )
+  m_pMonitor( pMonitor ) 
 {
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
   m_sessions.insert( sessionID );
 }
 
@@ -73,9 +75,11 @@ bool SocketConnection::processQueue()
 
   if( !m_sendQueue.size() ) return true;
 
-  struct pollfd pfd = { m_socket, POLLOUT, 0 };
-  if ( poll( &pfd, 1, 0 ) <= 0 ) { return false; }
-
+  struct timeval timeout = { 0, 0 };
+  fd_set writeset = m_fds;
+  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+    return false;
+    
   const std::string& msg = m_sendQueue.front();
 
   ssize_t result = socket_send
@@ -123,12 +127,12 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   {
     if ( !m_pSession )
     {
-      int timeout = 1000; // 1000ms = 1 second
-      struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+      struct timeval timeout = { 1, 0 };
+      fd_set readset = m_fds;
 
       while( !readMessage( msg ) )
       {
-        int result = poll( &pfd, 1, timeout );
+        int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
         if( result > 0 )
           readFromSocket();
         else if( result == 0 )

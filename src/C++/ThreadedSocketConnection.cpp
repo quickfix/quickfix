@@ -29,8 +29,6 @@
 #include "Session.h"
 #include "Utility.h"
 
-#include <poll.h>
-
 namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection
@@ -39,6 +37,8 @@ ThreadedSocketConnection::ThreadedSocketConnection
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
 {
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection
@@ -52,6 +52,8 @@ ThreadedSocketConnection::ThreadedSocketConnection
     m_pSession( Session::lookupSession( sessionID ) ),
     m_disconnect( false )
 {
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
   if ( m_pSession ) m_pSession->setResponder( this );
 }
 
@@ -87,20 +89,20 @@ bool ThreadedSocketConnection::connect()
 }
 
 void ThreadedSocketConnection::disconnect()
-{
+{  
   m_disconnect = true;
   socket_close( m_socket );
 }
 
 bool ThreadedSocketConnection::read()
 {
-  int timeout = 1000; // 1000ms = 1 second
-  struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+  struct timeval timeout = { 1, 0 };
+  fd_set readset = m_fds;
 
   try
   {
     // Wait for input (1 second timeout)
-    int result = poll( &pfd, 1, timeout );
+    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
 
     if( result > 0 ) // Something to read
     {
@@ -179,7 +181,7 @@ void ThreadedSocketConnection::processStream()
 bool ThreadedSocketConnection::setSession( const std::string& msg )
 {
   m_pSession = Session::lookupSession( msg, true );
-  if ( !m_pSession )
+  if ( !m_pSession ) 
   {
     if( m_pLog )
     {
@@ -201,7 +203,7 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
     process_sleep( 1 );
   }
 
-  if ( !m_pSession )
+  if ( !m_pSession ) 
     return false;
   if ( m_sessions.find(m_pSession->getSessionID()) == m_sessions.end() )
     return false;

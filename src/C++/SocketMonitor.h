@@ -40,7 +40,6 @@ typedef int socklen_t;
 #include <set>
 #include <queue>
 #include <time.h>
-#include <poll.h>
 
 #include "Utility.h"
 
@@ -73,18 +72,19 @@ private:
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( const Sockets&, struct pollfd *pfds, short events );
-  inline int getTimeval( bool poll, double timeout );
+  void buildSet( const Sockets&, fd_set& );
+  inline timeval* getTimeval( bool poll, double timeout );
   inline bool sleepIfEmpty( bool poll );
 
-  void processRead( Strategy&, int socket_fd );
-  void processWrite( Strategy&, int socket_fd );
-  void processError( Strategy&, int socket_fd );
-  void processPollList( Strategy& strategy, struct pollfd *pfds,
-                        unsigned pfds_size );
+  void processReadSet( Strategy&, fd_set& );
+  void processWriteSet( Strategy&, fd_set& );
+  void processExceptSet( Strategy&, fd_set& );
 
   int m_timeout;
+  timeval m_timeval;
+#ifndef SELECT_DECREMENTS_TIME
   clock_t m_ticks;
+#endif
 
   socket_handle m_signal;
   socket_handle m_interrupt;
