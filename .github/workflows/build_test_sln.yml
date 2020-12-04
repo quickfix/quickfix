@@ -11,7 +11,7 @@ jobs:
               configuration: [Debug, Release]
               include:
                 - runner: windows-2019
-                  solution: quickfix_vs15.sln
+                  solution: quickfix_vs16.sln
                   targetframeworkversion: v4.8
                   platformtoolset: v142
                   windowstargetplatformversion: 10.0
