@@ -13,7 +13,7 @@
 #define WIN32_LEAN_AND_MEAN// Exclude rarely-used stuff from Windows headers
 
 #include <stdio.h>
-#include "config.h"
+#include "config_windows.h"
 
 // TODO: reference additional headers your program requires here
 
