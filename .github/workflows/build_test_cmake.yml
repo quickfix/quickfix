@@ -42,25 +42,25 @@ jobs:
         shell: bash
         if: ${{ matrix.runner == 'windows-2019' }}
         run: |
-          echo "::set-env name=at::$PWD/test/$Config/at/at.exe"
-          echo "::set-env name=pt::$PWD/test/$Config/pt/pt.exe"
-          echo "::set-env name=ut::$PWD/test/$Config/ut/ut.exe"
+          echo "at=$PWD/test/$Config/at/at.exe" >> GITHUB_ENV
+          echo "pt=$PWD/test/$Config/pt/pt.exe" >> GITHUB_ENV
+          echo "ut=$PWD/test/$Config/ut/ut.exe" >> GITHUB_ENV
         env:
           Config: ${{ matrix.config }}
       - name: Set tests paths ubuntu-latest
         shell: bash
         if: ${{ matrix.runner == 'ubuntu-latest' }}
         run: |
-          echo "::set-env name=at::$PWD/test/at"
-          echo "::set-env name=pt::$PWD/test/pt"
-          echo "::set-env name=ut::$PWD/test/ut"
+          echo "at=$PWD/test/at" >> GITHUB_ENV
+          echo "pt=$PWD/test/pt" >> GITHUB_ENV
+          echo "ut=$PWD/test/ut" >> GITHUB_ENV
       - name: Set tests paths macos-latest
         shell: bash
         if: ${{ matrix.runner == 'macos-latest' }}
         run: |
-          echo "::set-env name=at::$PWD/test/at"
-          echo "::set-env name=pt::$PWD/test/pt"
-          echo "::set-env name=ut::$PWD/test/ut"
+          echo "at=$PWD/test/at" >> GITHUB_ENV
+          echo "pt=$PWD/test/pt" >> GITHUB_ENV
+          echo "ut=$PWD/test/ut" >> GITHUB_ENV
       - name: Echo test paths ${{ matrix.runner }}
         shell: bash
         run: |
@@ -78,9 +78,9 @@ jobs:
           AT=$( test -f $at && echo "true" || echo "false" )
           PT=$( test -f $pt && echo "true" || echo "false" )
           UT=$( test -f $ut && echo "true" || echo "false" )
-          echo "::set-env name=at_check::$AT"
-          echo "::set-env name=pt_check::$PT"
-          echo "::set-env name=ut_check::$UT"
+          echo "at_check=$AT" >> GITHUB_ENV
+          echo "pt_check=$PT" >> GITHUB_ENV
+          echo "ut_check=$UT" >> GITHUB_ENV
         env:
           at: ${{ env.at }}
           pt: ${{ env.pt }}
