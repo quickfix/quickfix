@@ -19,9 +19,8 @@
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 )
-#else
-#include "config.h"
 #endif
+#include "config.h"
 
 #include "ThreadedSocketAcceptor.h"
 #include "SocketAcceptor.h"
