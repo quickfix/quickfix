@@ -24,10 +24,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.0
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Build
         run: msbuild $env:Solution /t:Build /p:Platform=$env:Platform /p:Configuration=$env:Configuration /p:TargetFrameworkVersion=$env:TargetFrameworkVersion /p:PlatformToolset=$env:PlatformToolset /p:WindowsTargetPlatformVersion=$env:WindowsTargetPlatformVersion
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
           Configuration: ${{ matrix.configuration }}
           Platform: ${{ matrix.platform }}
           Solution: ${{ matrix.solution }}
