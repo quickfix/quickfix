@@ -116,7 +116,7 @@ public:
   friend bool operator==( const SessionID&, const SessionID& );
   friend bool operator!=( const SessionID&, const SessionID& );
   friend std::ostream& operator<<( std::ostream&, const SessionID& );
-  friend std::ostream& operator>>( std::ostream&, const SessionID& );
+  friend std::istream& operator>>( std::istream&, const SessionID& );
 
   SessionID operator~() const
   {
