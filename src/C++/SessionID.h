@@ -31,6 +31,7 @@ class SessionID
 {
 public:
   SessionID()
+  : m_isFIXT(false)
   {
     toString(m_frozenString);
   }
@@ -99,6 +100,9 @@ public:
       m_sessionQualifier = str.substr(third+1);
     }
     toString(m_frozenString);
+
+    if( str.substr(0, 4) == "FIXT" )
+      m_isFIXT = true;
   }
 
   /// Get a string representation without making a copy
