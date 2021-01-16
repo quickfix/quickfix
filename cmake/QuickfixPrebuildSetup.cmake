@@ -1,11 +1,5 @@
 # Needed to build examples
 
-if (NOT WIN32)
-add_custom_target(QUICKFIX_HEADERS_LINK ALL
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/include/quickfix
-)
-else()
 add_custom_target(QUICKFIX_HEADERS_COPY ALL 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfix
@@ -114,4 +108,3 @@ COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/C++/fixt11 ${
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfix/wx
 COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/C++/fixt11 ${CMAKE_SOURCE_DIR}/include/quickfix/wx/
 )
-endif()
