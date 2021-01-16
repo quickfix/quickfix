@@ -26,9 +26,7 @@ jobs:
       - name: Generate
         shell: bash
         run: |
-          mkdir build
-          cd build
-          cmake .. -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration
+          cmake . -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration
         env:
           Configuration: ${{ matrix.configuration }}
       - name: Build
