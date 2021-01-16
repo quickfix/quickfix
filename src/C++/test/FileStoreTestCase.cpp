@@ -146,7 +146,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
 
 TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreFromDictionary) {
   SessionID sessionID( BeginString( "FIX.4.2" ),
-      SenderCompID( "SETGET" ), TargetCompID( "TEST" ), "Test" );
+      SenderCompID( "SETGET" ), TargetCompID( "TEST" ));
   Dictionary dictionary;
   dictionary.setString("ConnectionType", "acceptor");
   dictionary.setString("FileStorePath", "store");
