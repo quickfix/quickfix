@@ -4,7 +4,6 @@ add_custom_target(QUICKFIX_HEADERS_COPY ALL
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfixC
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Acceptor.h ${CMAKE_SOURCE_DIR}/include/quickfix/Acceptor.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Allocator.h ${CMAKE_SOURCE_DIR}/include/quickfix/Allocator.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Application.h ${CMAKE_SOURCE_DIR}/include/quickfix/Application.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/AtomicCount.h ${CMAKE_SOURCE_DIR}/include/quickfix/AtomicCount.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/config-all.h ${CMAKE_SOURCE_DIR}/include/quickfix/config-all.h
