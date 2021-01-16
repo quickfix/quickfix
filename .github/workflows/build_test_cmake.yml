@@ -34,7 +34,6 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          cd build
           cmake --build . --config $Configuration
         env:
           Configuration: ${{ matrix.configuration }}
