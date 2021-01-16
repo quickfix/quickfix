@@ -750,9 +750,9 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)lib\debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs12\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs12\quickfix</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)lib\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs12\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs12\quickfix</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">quickfix</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">quickfix</TargetName>
   </PropertyGroup>
