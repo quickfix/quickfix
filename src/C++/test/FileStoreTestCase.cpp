@@ -159,4 +159,21 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreF
   CHECK(fileStore != nullptr);
 }
 
+TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, FileStore_refresh_reset) {
+  // Init store with 3 messages
+  CHECK_MESSAGE_STORE_SET_GET
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 3U, messages.size() );
+
+  // Still 3 messages after refresh
+  object->refresh();
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 3U, messages.size() );
+
+  // Should be 0 messages after reset
+  object->reset();
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 0U, messages.size() );
+}
+
 }
