@@ -90,25 +90,12 @@ Session::~Session()
 
 void Session::insertSendingTime( Header& header )
 {
-  UtcTimeStamp now;
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( SendingTime(now, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( SendingTime(UtcTimeStamp(), getSupportedTimestampPrecision()) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 {
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( OrigSendingTime(when, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( OrigSendingTime(when, getSupportedTimestampPrecision()) );
 }
 
 void Session::fill( Header& header )

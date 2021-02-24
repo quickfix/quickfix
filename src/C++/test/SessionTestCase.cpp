@@ -233,7 +233,7 @@ private:
 
 };
 
- void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
+void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
 {
   header.setField( SenderCompID( sender ) );
   header.setField( TargetCompID( target ) );
@@ -601,6 +601,16 @@ struct acceptorT11Fixture : public sessionT11Fixture
 {
   acceptorT11Fixture() : sessionT11Fixture( 0 ) {}
 };
+
+TEST(supportsSubMillisecondTimestamps)
+{
+  CHECK( !Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX40) );
+  CHECK( !Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX41) );
+  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX42) );
+  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX43) );
+  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX44) );
+  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIXT11) );
+}
 
 TEST_FIXTURE(acceptorFixture, nextLogon)
 {

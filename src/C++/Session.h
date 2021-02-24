@@ -105,6 +105,7 @@ public:
 
   static size_t numSessions();
 
+
   bool isSessionTime(const UtcTimeStamp& time)
     { return m_sessionTime.isInRange(time); }
   bool isLogonTime(const UtcTimeStamp& time)
@@ -196,6 +197,18 @@ public:
 
       m_timestampPrecision = precision;
     }
+  int getSupportedTimestampPrecision() 
+    {
+      return supportsSubMillisecondTimestamps(m_sessionID.getBeginString()) ? m_timestampPrecision : 0;
+    }
+  static bool supportsSubMillisecondTimestamps(const std::string &beginString) 
+  {
+    if( beginString == BeginString_FIXT11 )
+      return true;
+    else
+      return beginString >= BeginString_FIX42;
+  }
+    
 
   bool getPersistMessages()
     { return m_persistMessages; }
