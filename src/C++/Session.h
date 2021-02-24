@@ -199,9 +199,9 @@ public:
     }
   int getSupportedTimestampPrecision() 
     {
-      return supportsSubMillisecondTimestamps(m_sessionID.getBeginString()) ? m_timestampPrecision : 0;
+      return supportsSubSecondTimestamps(m_sessionID.getBeginString()) ? m_timestampPrecision : 0;
     }
-  static bool supportsSubMillisecondTimestamps(const std::string &beginString) 
+  static bool supportsSubSecondTimestamps(const std::string &beginString) 
   {
     if( beginString == BeginString_FIXT11 )
       return true;

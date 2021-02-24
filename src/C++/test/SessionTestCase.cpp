@@ -604,12 +604,12 @@ struct acceptorT11Fixture : public sessionT11Fixture
 
 TEST(supportsSubMillisecondTimestamps)
 {
-  CHECK( !Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX40) );
-  CHECK( !Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX41) );
-  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX42) );
-  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX43) );
-  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIX44) );
-  CHECK( Session::supportsSubMillisecondTimestamps(FIX::BeginString_FIXT11) );
+  CHECK( !Session::supportsSubSecondTimestamps(FIX::BeginString_FIX40) );
+  CHECK( !Session::supportsSubSecondTimestamps(FIX::BeginString_FIX41) );
+  CHECK( Session::supportsSubSecondTimestamps(FIX::BeginString_FIX42) );
+  CHECK( Session::supportsSubSecondTimestamps(FIX::BeginString_FIX43) );
+  CHECK( Session::supportsSubSecondTimestamps(FIX::BeginString_FIX44) );
+  CHECK( Session::supportsSubSecondTimestamps(FIX::BeginString_FIXT11) );
 }
 
 TEST_FIXTURE(acceptorFixture, nextLogon)
