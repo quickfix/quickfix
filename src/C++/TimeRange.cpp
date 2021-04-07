@@ -166,8 +166,71 @@ namespace FIX
     if( !isInRange( startTime, endTime, startDay, endDay, time2, time2.getWeekDay() ) )
       return false;
 
-    int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();
-    int absoluteDay2 = time2.getJulianDate() - time2.getWeekDay();
-    return absoluteDay1 == absoluteDay2;
+    if (startDay != endDay)
+    {
+      int time1RangeStartDate = getRangeStartDate(time1, startDay, startTime);
+      int time2RangeStartDate = getRangeStartDate(time2, startDay, startTime);
+      return time1RangeStartDate == time2RangeStartDate;
+    }
+    else
+    {
+      int day1 = time1.getJulianDate();
+      int day2 = time2.getJulianDate();
+
+      // session start and end day are the same day, which is also both of these time's day
+      if (time1.getJulianDate() == time2.getJulianDate() && startDay == time1.getWeekDay())
+      {
+        auto time1_utcTimeOnly = UtcTimeOnly(time1);
+        auto time2_utcTimeOnly = UtcTimeOnly(time2);
+        auto startTime_utcTimeOnly = UtcTimeOnly(startTime);
+        auto endTime_utcTimeOnly = UtcTimeOnly(endTime);
+        bool bothBeforeEndOfRange = time1_utcTimeOnly <= endTime_utcTimeOnly && time2_utcTimeOnly <= endTime_utcTimeOnly;
+        bool bothAfterStartOfRange = time1_utcTimeOnly >= startTime_utcTimeOnly && time2_utcTimeOnly >= startTime_utcTimeOnly;
+        return bothBeforeEndOfRange || bothAfterStartOfRange;
+      }
+
+      // session start and end day are the same day, which is neither of these time's day
+      else if (day1 == day2 && startDay != time1.getWeekDay())
+      {
+        return true;
+      }
+
+      // session start and end day are 7 days apart, so times greater than 7 days apart means different range
+      else if (abs(day1-day2) > 7)
+      {
+        return false;
+      }
+
+      else if (abs(day1-day2) == 7)
+      {
+        if (time1.getWeekDay() != startDay)
+          return false;
+
+        // a week apart on start days
+        DateTime earlierTime, laterTime;
+        if (day2 > day1)
+        {
+          earlierTime = time1;
+          laterTime = time2;
+        }
+        else
+        {
+          earlierTime = time2;
+          laterTime = time1;
+        }
+        return UtcTimeOnly(earlierTime) >= UtcTimeOnly(startTime) && UtcTimeOnly(laterTime) <= UtcTimeOnly(endTime);
+      }
+
+      // session start and end day are the same day, which is between these times
+      else
+      {
+        int time1RangeStartDate = getRangeStartDate(time1, startDay, startTime);
+        int time2RangeStartDate = getRangeStartDate(time2, startDay, startTime);
+        bool time1_past_reset = time1.getWeekDay() > startDay || (time1.getWeekDay() == startDay && UtcTimeOnly(time1) >= UtcTimeOnly(startTime));
+        bool time2_past_reset = time2.getWeekDay() > startDay || (time2.getWeekDay() == startDay && UtcTimeOnly(time2) >= UtcTimeOnly(startTime));
+        return time1RangeStartDate == time2RangeStartDate;
+      }
+
+    }
   }
 }
