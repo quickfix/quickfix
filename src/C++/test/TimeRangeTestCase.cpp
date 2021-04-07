@@ -149,6 +149,32 @@ TEST(isInRangeWithDay_SameDay)
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
 }
 
+TEST(isInRangeWithDay_PastSundayOverlapSession)
+{
+    //Start Friday 00:00:00, end Thursday 23:59:59
+    UtcTimeOnly startTime( 0, 0, 0 );
+    UtcTimeOnly endTime( 23, 59, 59 );
+    int startDay = 6;
+    int endDay = 5;
+
+    //Given creation happened on a Friday at 00:00:01, and a login the next day Saturday
+    UtcTimeStamp creation( 0, 0, 1, 23, 4, 2021 );
+    UtcTimeStamp expSameSession1( 8, 30, 0, 24, 4, 2021 );
+    CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expSameSession1) );
+
+    //Then a login request on a Monday at 08:30:00 should be part of the same session
+    UtcTimeStamp expSameSession2( 8, 30, 0, 26, 4, 2021 );
+    CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expSameSession2) );
+
+    //But a login request on the following Friday at 08:30:00 should be part of a different session
+    UtcTimeStamp expNextSession( 8, 30, 0, 30, 4, 2021 );
+    CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expNextSession) );
+
+    //And a login request on the preceding Thursday at 23:59:58 should be part of a different session
+    UtcTimeStamp expPrevSession( 23, 59, 58, 22, 4, 2021 );
+    CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expPrevSession) );
+}
+
 TEST(isInSameRange)
 {
   // start time is less than end time
