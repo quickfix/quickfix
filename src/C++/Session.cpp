@@ -61,6 +61,7 @@ Session::Session( Application& application,
   m_resetOnLogout( false ), 
   m_resetOnDisconnect( false ),
   m_refreshOnLogon( false ),
+  m_shouldSendReset( true ),
   m_timestampPrecision( 3 ),
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
@@ -1468,6 +1469,7 @@ bool Session::shouldSendReset()
 {
   std::string beginString = m_sessionID.getBeginString();
   return beginString >= FIX::BeginString_FIX41
+    && m_shouldSendReset
     && ( m_resetOnLogon || 
          m_resetOnLogout || 
          m_resetOnDisconnect )

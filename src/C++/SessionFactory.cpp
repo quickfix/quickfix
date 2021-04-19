@@ -194,6 +194,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setResetOnDisconnect( settings.getBool( RESET_ON_DISCONNECT ) );
   if ( settings.has( REFRESH_ON_LOGON ) )
     pSession->setRefreshOnLogon( settings.getBool( REFRESH_ON_LOGON ) );
+  if ( settings.has( SHOULD_SEND_RESET ) )
+    pSession->setShouldSendReset( settings.getBool( SHOULD_SEND_RESET ) );
   if ( settings.has( MILLISECONDS_IN_TIMESTAMP ) )
     pSession->setTimestampPrecision(3);
   if ( settings.has( TIMESTAMP_PRECISION ) )

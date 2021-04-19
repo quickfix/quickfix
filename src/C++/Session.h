@@ -208,6 +208,11 @@ public:
   void setRefreshOnLogon( bool value )
     { m_refreshOnLogon = value; } 
 
+  bool getShouldSendReset()
+    { return m_shouldSendReset; }
+  void setShouldSendReset( bool value )
+    { m_shouldSendReset = value; } 
+
   bool getMillisecondsInTimeStamp()
     { return (m_timestampPrecision == 3); }
   void setMillisecondsInTimeStamp ( bool value )
@@ -408,6 +413,7 @@ private:
   bool m_resetOnLogout;
   bool m_resetOnDisconnect;
   bool m_refreshOnLogon;
+  bool m_shouldSendReset;
   int m_timestampPrecision;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
