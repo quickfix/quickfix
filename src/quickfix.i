@@ -41,6 +41,9 @@
 #include <Acceptor.h>
 #include <SocketAcceptor.h>
 #include <DataDictionary.h>
+#include <SSLSocketAcceptor.h>
+#include <SSLSocketInitiator.h>
+#include <SSLSocketConnection.h>
 typedef FIX::UtcTimeStamp UtcTimeStamp;
 typedef FIX::UtcDate UtcDate;
 typedef FIX::UtcTimeOnly UtcTimeOnly;
@@ -168,3 +171,6 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %include "../C++/Acceptor.h"
 %include "../C++/SocketAcceptor.h"
 %include "../C++/DataDictionary.h"
+%include "../C++/SSLSocketAcceptor.h"
+%include "../C++/SSLSocketInitiator.h"
+%include "../C++/SSLSocketConnection.h"
