@@ -21683,6 +21683,9 @@ class SessionSettings(object):
 
     def getSessions(self):
         return _quickfix.SessionSettings_getSessions(self)
+
+    def setFromString(self, str):
+        return _quickfix.SessionSettings_setFromString(self, str)
     __swig_destroy__ = _quickfix.delete_SessionSettings
 
 # Register SessionSettings in _quickfix:

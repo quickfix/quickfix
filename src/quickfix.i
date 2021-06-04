@@ -88,6 +88,7 @@ typedef FIX::MessageStore MessageStore;
 typedef FIX::MessageStoreFactory MessageStoreFactory;
 typedef FIX::Mutex Mutex;
 typedef FIX::DOMDocumentPtr DOMDocumentPtr;
+typedef FIX::SessionSettings SessionSettings;
 %}
 
 %typedef DoubleField PriceField;
@@ -180,6 +181,12 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
       $self->getHMS(h, mi, s, fs, 6);
       return PyDateTime_FromDateAndTime(y, m, d, h, mi, s, fs);
   }
+}
+
+%extend FIX::SessionSettings {
+    void setFromString(const std::string& str) {
+        std::stringstream(str) >> (*$self);
+    }
 }
 
 %include "../C++/Except.h"
