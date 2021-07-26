@@ -149,6 +149,77 @@ TEST(isInRangeWithDay_SameDay)
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
 }
 
+TEST(isInSameRangeInvalidStartEnd)
+{
+  // start time is valid/end time is not
+  UtcTimeOnly start( 3, 0, 0 );
+  UtcTimeOnly end( 0, static_cast<int64_t>(-1) );
+
+  // same time
+  UtcTimeStamp time1( 10, 0, 0, 10, 10, 2000 );
+  UtcTimeStamp time2( 10, 0, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 in same session but greater
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 11, 0, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 in same session but less
+  time1 = UtcTimeStamp( 11, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 1 not in session
+  time1 = UtcTimeStamp( 2, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 not in session
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 2, 0, 0, 10, 10, 2000 );
+  CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // end time is valid/start time is not
+  start = UtcTimeOnly( 0, static_cast<int64_t>(-1) );
+  end = UtcTimeOnly( 11, 0, 0 );
+
+ // same time
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 in same session but greater
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 10, 30, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 in same session but less
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 9, 0, 0, 10, 10, 2000 );
+  CHECK( TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 1 not in session
+  time1 = UtcTimeStamp( 11, 30, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+
+  // time 2 not in session
+  time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  time2 = UtcTimeStamp( 11, 30, 0, 10, 10, 2000 );
+  CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
+  CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+}
+
 TEST(isInSameRange)
 {
   // start time is less than end time

@@ -101,6 +101,11 @@ struct DateTime
 
   virtual ~DateTime() {}
 
+  inline bool valid() const
+  {
+      return m_date >= 0 && m_time >= 0;
+  }
+
   /// Return the year portion of the date
   inline int getYear() const 
   {
@@ -728,6 +733,12 @@ public:
   : DateTime( fromTm (*time, fraction, precision) )
   {
     clearDate();
+  }
+
+  UtcTimeOnly(int date, int64_t time)
+  : DateTime(date, time)
+  {
+
   }
 
   /// Set to the current time.

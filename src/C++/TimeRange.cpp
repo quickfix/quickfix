@@ -64,10 +64,25 @@ namespace FIX
   {
     UtcTimeOnly timeOnly (time);
 
-    if( start < end )
-      return( timeOnly >= start && timeOnly <= end );
+    if( start.valid() && end.valid())
+    {
+      if( start < end )
+          return( timeOnly >= start && timeOnly <= end );
+      else
+          return( timeOnly >= start || timeOnly <= end );
+    }
+    else if( start.valid() && !end.valid())
+    {
+      return timeOnly >= start;
+    }
+    else if( !start.valid() && end.valid())
+    {
+      return timeOnly <= end;
+    }
     else
-      return( timeOnly >= start || timeOnly <= end );
+    {
+      return false;
+    }
   }
 
   bool TimeRange::isInRange( const DateTime& startTime,
