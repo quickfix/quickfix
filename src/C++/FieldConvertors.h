@@ -352,7 +352,7 @@ static bool convert( const std::string& value, double& result )
   if( *i || !haveDigit ) return false;
 
   int processed_chars;
-  const int total_length = value.length();
+  const int total_length = static_cast<int>(value.length());
   result = fast_strtod( value.c_str(), total_length, &processed_chars);
 
   return true;
@@ -537,7 +537,7 @@ struct UtcTimeStampConvertor
     }
 
     return UtcTimeStamp (hour, min, sec, fraction,
-                         mday, mon, year, len - 17 - 1);
+                         mday, mon, year, static_cast<int>(len - 17 - 1));
   }
 };
 
@@ -624,7 +624,7 @@ struct UtcTimeOnlyConvertor
       fraction = (fraction * 10) + ch - '0';
     }
 
-    return UtcTimeOnly (hour, min, sec, fraction, len - 8 - 1);
+    return UtcTimeOnly (hour, min, sec, fraction, static_cast<int>(len - 8 - 1));
   }
 };
 
