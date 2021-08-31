@@ -145,6 +145,7 @@ const char ENABLE_NEXT_EXPECTED_MSG_SEQ_NUM[] = "EnableNextExpectedMsgSeqNum";
 const char MAX_MESSAGES_IN_RESEND_REQUEST[] = "MaxMessagesInResendRequest";
 const char IGNORE_POSSDUP_RESEND_REQUESTS[] = "IgnorePossDupResendRequests";
 const char DO_NOT_LOG_MSG_TYPES[] = "DoNotLogMsgTypes";
+const char DO_NOT_PROCESS_MSG_TYPES[] = "DoNotProcessMsgTypes";
 
 /*
 # This directive can be used to control the SSL protocol flavors the application

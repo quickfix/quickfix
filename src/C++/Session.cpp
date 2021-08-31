@@ -27,6 +27,8 @@
 #include "Values.h"
 #include <algorithm>
 #include <iostream>
+#include <boost/algorithm/string.hpp>
+#include <boost/tokenizer.hpp>
 
 namespace FIX
 {
@@ -1676,61 +1678,72 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
       { reset(); return; }
 
     const MsgType& msgType = FIELD_GET_REF( header, MsgType );
-    const BeginString& beginString = FIELD_GET_REF( header, BeginString );
-    // make sure these fields are present
-    FIELD_THROW_IF_NOT_FOUND( header, SenderCompID );
-    FIELD_THROW_IF_NOT_FOUND( header, TargetCompID );
-
-    if ( beginString != m_sessionID.getBeginString() )
-      throw UnsupportedVersion();
-
-    if( msgType == MsgType_Logon )
+    if ( shouldProcessMsgType(msgType) )
     {
-      if( m_sessionID.isFIXT() )
+      const BeginString& beginString = FIELD_GET_REF( header, BeginString );
+      // make sure these fields are present
+      FIELD_THROW_IF_NOT_FOUND( header, SenderCompID );
+      FIELD_THROW_IF_NOT_FOUND( header, TargetCompID );
+
+      if ( beginString != m_sessionID.getBeginString() )
+        throw UnsupportedVersion();
+
+      if( msgType == MsgType_Logon )
       {
-        const DefaultApplVerID& applVerID = FIELD_GET_REF( message, DefaultApplVerID );
-        setTargetDefaultApplVerID(applVerID);
+        if( m_sessionID.isFIXT() )
+        {
+          const DefaultApplVerID& applVerID = FIELD_GET_REF( message, DefaultApplVerID );
+          setTargetDefaultApplVerID(applVerID);
+        }
+        else
+        {
+          setTargetDefaultApplVerID(Message::toApplVerID(beginString));
+        }
+      }
+
+      const DataDictionary& sessionDataDictionary = 
+          m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
+
+      if( m_sessionID.isFIXT() && message.isApp() )
+      {
+        ApplVerID applVerID = m_targetDefaultApplVerID;
+        header.getFieldIfSet(applVerID);
+        const DataDictionary& applicationDataDictionary = 
+          m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
+        DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );
       }
       else
       {
-        setTargetDefaultApplVerID(Message::toApplVerID(beginString));
+        sessionDataDictionary.validate( message );
+      }
+
+      if ( msgType == MsgType_Logon )
+        nextLogon( message, timeStamp );
+      else if ( msgType == MsgType_Heartbeat )
+        nextHeartbeat( message, timeStamp );
+      else if ( msgType == MsgType_TestRequest )
+        nextTestRequest( message, timeStamp );
+      else if ( msgType == MsgType_SequenceReset )
+        nextSequenceReset( message, timeStamp );
+      else if ( msgType == MsgType_Logout )
+        nextLogout( message, timeStamp );
+      else if ( msgType == MsgType_ResendRequest )
+        nextResendRequest( message, timeStamp );
+      else if ( msgType == MsgType_Reject )
+        nextReject( message, timeStamp );
+      else
+      {
+        if ( !verify( message ) ) return ;
+        m_state.incrNextTargetMsgSeqNum();
       }
     }
-
-    const DataDictionary& sessionDataDictionary = 
-        m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
-
-    if( m_sessionID.isFIXT() && message.isApp() )
+    else if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset)
     {
-      ApplVerID applVerID = m_targetDefaultApplVerID;
-      header.getFieldIfSet(applVerID);
-      const DataDictionary& applicationDataDictionary = 
-        m_dataDictionaryProvider.getApplicationDataDictionary(applVerID);
-      DataDictionary::validate( message, &sessionDataDictionary, &applicationDataDictionary );
-    }
-    else
-    {
-      sessionDataDictionary.validate( message );
-    }
-
-    if ( msgType == MsgType_Logon )
-      nextLogon( message, timeStamp );
-    else if ( msgType == MsgType_Heartbeat )
-      nextHeartbeat( message, timeStamp );
-    else if ( msgType == MsgType_TestRequest )
-      nextTestRequest( message, timeStamp );
-    else if ( msgType == MsgType_SequenceReset )
-      nextSequenceReset( message, timeStamp );
-    else if ( msgType == MsgType_Logout )
-      nextLogout( message, timeStamp );
-    else if ( msgType == MsgType_ResendRequest )
-      nextResendRequest( message, timeStamp );
-    else if ( msgType == MsgType_Reject )
-      nextReject( message, timeStamp );
-    else
-    {
-      if ( !verify( message ) ) return ;
-      m_state.incrNextTargetMsgSeqNum();
+      MsgSeqNum msgSeqNum;
+      if( message.getHeader().getFieldIfSet( msgSeqNum ) && msgSeqNum == getExpectedTargetNum())
+      {
+        m_state.incrNextTargetMsgSeqNum(); 
+      }
     }
   }
   catch (InvalidResendRequestRange& e)
@@ -1993,4 +2006,31 @@ void Session::setNextExpectedMsgSeqNum(const Message& other, Message& message)
   }
 }
 
+void Session::setDoNotProcessMsgTypes(const std::string& value)
+{
+    m_doNotProcessMsgTypes.clear();
+    boost::char_separator<char> sep{","};
+    boost::tokenizer tok{value, sep};
+    std::string doNotProcess;
+    for (const auto& t : tok)
+    {
+        std::string msgType(t);
+        boost::trim(msgType);
+        if(!Message::isAdminMsgType(msgType))
+        {
+          m_doNotProcessMsgTypes.emplace(msgType);
+          if(!doNotProcess.empty())
+          {
+            doNotProcess.append(",");
+          }
+          doNotProcess.append(msgType);
+        }
+    }
+    m_state.onEvent("Do not process the following msg types=" + doNotProcess);
+}
+
+bool Session::shouldProcessMsgType(const MsgType& msgType)
+{
+  return m_doNotProcessMsgTypes.find(msgType) == m_doNotProcessMsgTypes.end();
+}
 }

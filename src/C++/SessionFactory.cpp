@@ -214,6 +214,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setIgnorePossdupResendRequests( settings.getBool( IGNORE_POSSDUP_RESEND_REQUESTS ) );
   if ( settings.has( USE_DATA_DICTIONARY ) )
     pSession->setUseDataDictionary( settings.getBool( USE_DATA_DICTIONARY ) );
+  if (settings.has ( DO_NOT_PROCESS_MSG_TYPES ))
+    pSession->setDoNotProcessMsgTypes( settings.getString( DO_NOT_PROCESS_MSG_TYPES ) );
 
   return pSession.release();
 }

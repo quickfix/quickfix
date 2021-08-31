@@ -266,6 +266,9 @@ public:
   void setUseDataDictionary( bool value )
     { m_useDataDictionary = value; }
 
+  void setDoNotProcessMsgTypes(const std::string& value);
+  bool shouldProcessMsgType(const MsgType& msgType);
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(UtcTimeStamp()) )
@@ -422,7 +425,7 @@ private:
   int m_maxMessagesInResendRequest;
   bool m_ignorePossdupResendRequests;
   bool m_useDataDictionary;
-
+  std::set<MsgType> m_doNotProcessMsgTypes;
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;
   MessageStoreFactory& m_messageStoreFactory;
