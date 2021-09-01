@@ -361,6 +361,8 @@ public:
   { m_checkFieldsHaveValues = value; }
   void checkUserDefinedFields( bool value )
   { m_checkUserDefinedFields = value; }
+  void checkFieldsFormat( bool value )
+  { m_checkFieldsFormat = value; }
   void allowUnknownMsgFields( bool value )
   { m_allowUnknownMessageFields = value; }
   void preserveMessageFieldsOrder( bool value )
@@ -583,6 +585,7 @@ private:
   bool m_checkFieldsOutOfOrder;
   bool m_checkFieldsHaveValues;
   bool m_checkUserDefinedFields;
+  bool m_checkFieldsFormat;
   bool m_allowUnknownMessageFields;
   bool m_storeMsgFieldsOrder;
   

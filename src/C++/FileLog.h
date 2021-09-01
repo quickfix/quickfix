@@ -83,13 +83,13 @@ public:
   {
     if ( !shouldLog(value) )
       return;
-    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; 
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " <: " << value << std::endl; 
   }
   void onOutgoing( const std::string& value )
   { 
     if ( !shouldLog(value) )
       return;
-    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; 
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " >: " << value << std::endl; 
   }
   void onEvent( const std::string& value )
   {

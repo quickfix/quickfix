@@ -40,13 +40,13 @@ namespace FIX
 {
 DataDictionary::DataDictionary()
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(false)
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_checkFieldsFormat(false), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(false)
 {}
 
 DataDictionary::DataDictionary( std::istream& stream, bool preserveMsgFldsOrder )
 EXCEPT ( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder)
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_checkFieldsFormat(false), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder)
 {
   readFromStream( stream );
 }
@@ -54,7 +54,7 @@ EXCEPT ( ConfigError )
 DataDictionary::DataDictionary( const std::string& url, bool preserveMsgFldsOrder )
 EXCEPT ( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder), m_orderedFieldsArray(0)
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_checkFieldsFormat(false), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder), m_orderedFieldsArray(0)
 {
   readFromURL( url );
 }
@@ -84,6 +84,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
   m_storeMsgFieldsOrder = rhs.m_storeMsgFieldsOrder;
   m_checkUserDefinedFields = rhs.m_checkUserDefinedFields;
+  m_checkFieldsFormat = rhs.m_checkFieldsFormat;
   m_allowUnknownMessageFields = rhs.m_allowUnknownMessageFields;
   m_beginString = rhs.m_beginString;
   m_messageFields = rhs.m_messageFields;
@@ -184,7 +185,10 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType ) cons
 
     if ( m_hasVersion )
     {
-      checkValidFormat( field );
+      if(m_checkFieldsFormat)
+      {
+        checkValidFormat( field );
+      }
       checkValue( field );
     }
 

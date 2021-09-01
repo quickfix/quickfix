@@ -73,6 +73,7 @@ const char VALIDATE_LENGTH_AND_CHECKSUM[] = "ValidateLengthAndChecksum";
 const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
 const char VALIDATE_FIELDS_HAVE_VALUES[] = "ValidateFieldsHaveValues";
 const char VALIDATE_USER_DEFINED_FIELDS[] = "ValidateUserDefinedFields";
+const char VALIDATE_FIELDS_FORMAT[] = "ValidateFieldsFormat";
 const char ALLOW_UNKNOWN_MSG_FIELDS[] = "AllowUnknownMsgFields";
 const char PRESERVE_MESSAGE_FIELDS_ORDER[] = "PreserveMessageFieldsOrder";
 const char LOGON_TIMEOUT[] = "LogonTimeout";

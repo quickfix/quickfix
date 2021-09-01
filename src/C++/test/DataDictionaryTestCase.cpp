@@ -356,6 +356,7 @@ struct checkValidFormatFixture
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Int_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Int );
 
@@ -366,6 +367,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Int_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Char_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Char );
 
@@ -376,6 +378,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Char_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Price_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Price );
 
@@ -386,6 +389,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Price_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Amt_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Amt );
 
@@ -396,6 +400,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Amt_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Qty_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Qty );
 
@@ -404,8 +409,19 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Qty_Exception )
   CHECK_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
+TEST_FIXTURE( checkValidFormatFixture, doNotCheckValidFormat )
+{
+  object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
+  object.addFieldType( FIELD::TestReqID, TYPE::Qty );
+
+  FIX40::TestRequest message;
+  message.setField( TestReqID( "ERROR" ) );
+  object.validate( message );
+}
+
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeStamp_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcTimeStamp );
 
@@ -416,6 +432,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeStamp_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Boolean_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Boolean );
 
@@ -426,6 +443,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Boolean_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Float_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Float );
 
@@ -436,6 +454,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Float_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcDate_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcDate );
 
@@ -446,6 +465,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcDate_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeOnly_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::UtcTimeOnly );
 
@@ -456,6 +476,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_UtcTimeOnly_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_NumInGroup_Exception )
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::NumInGroup );
 
@@ -466,6 +487,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_NumInGroup_Exception )
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Percentage_Exception)
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Percentage );
 
@@ -476,6 +498,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Percentage_Exception)
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_SeqNum_Exception)
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::SeqNum );
 
@@ -486,6 +509,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_SeqNum_Exception)
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Length_Exception)
 {
+  object.checkFieldsFormat(true);
   object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   object.addFieldType( FIELD::TestReqID, TYPE::Length );
 
@@ -496,6 +520,7 @@ TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_Length_Exception)
 
 TEST_FIXTURE( checkValidFormatFixture, checkValidFormat_AllSetFieldsValid)
 {
+  object.checkFieldsFormat(true);
   object.addField( 5000 );
   object.addField( 5001 );
   object.addField( 5002 );
