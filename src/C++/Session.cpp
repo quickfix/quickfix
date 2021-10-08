@@ -367,10 +367,12 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   MsgType msgType;
   int begin = 0;
   int current = beginSeqNo;
+  bool appMessageJustSent = false;
   std::string messageString;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
+    appMessageJustSent = false;
     SmartPtr<FIX::Message> pMsg;
     std::string strMsgType;
     const DataDictionary& sessionDD =
@@ -451,6 +453,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
+        appMessageJustSent = true;
       }
       else
       { if ( !begin ) begin = msgSeqNum; }
@@ -468,6 +471,8 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
+    if ( appMessageJustSent )
+      beginSeqNo = msgSeqNum + 1;
     generateSequenceReset( beginSeqNo, endSeqNo );
   }
 
