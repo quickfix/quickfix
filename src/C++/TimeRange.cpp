@@ -185,12 +185,11 @@ namespace FIX
     if( !isInRange( startTime, endTime, startDay, endDay, time2, time2.getWeekDay() ) )
       return false;
 
-    int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();
-    int absoluteDay2 = time2.getJulianDate() - time2.getWeekDay();
-
     if (startDay != endDay)
     {
-      return absoluteDay1 == absoluteDay2;
+      int time1RangeStartDate = getRangeStartDate(time1, startDay, startTime);
+      int time2RangeStartDate = getRangeStartDate(time2, startDay, startTime);
+      return time1RangeStartDate == time2RangeStartDate;
     }
     else
     {
