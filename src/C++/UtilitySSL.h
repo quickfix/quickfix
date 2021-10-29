@@ -203,9 +203,9 @@ int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
 int callbackVerify(int ok, X509_STORE_CTX *ctx);
 int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore);
 X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
-X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb);
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                         passPhraseHandleCallbackType cb);
+                         passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 
 char *strCat(const char *a, ...);
 }
@@ -260,7 +260,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
                           std::string &errStr);
 
 bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb,
+                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam,
                  std::string &errStr);
 
 bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
