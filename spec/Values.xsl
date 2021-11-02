@@ -39,7 +39,7 @@ namespace FIX
  
 <xsl:template match="fix/fields/field/value">
 <xsl:choose>
-  <xsl:when test="../@type='INT'">
+  <xsl:when test="(../@type='INT') or (../@type='NUMINGROUP')">
  const int <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = <xsl:value-of select="@enum"/>;</xsl:when>
   <xsl:when test="../@type='STRING'">
  const char <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/>[] = "<xsl:value-of select="@enum"/>";</xsl:when>
