@@ -150,6 +150,10 @@ typedef EmptyConvertor StringConvertor;
 /// Converts integer to/from a string
 struct IntConvertor
 {
+  static const signed_int VALUE_MIN = std::numeric_limits<signed_int>::min();
+  static const signed_int VALUE_MAX = std::numeric_limits<signed_int>::max();
+  static const signed_int OVERFLOW_MAX = VALUE_MAX / 10;
+
   static std::string convert( signed_int value )
   {
     // buffer is big enough for significant digits and extra digit,
@@ -180,9 +184,11 @@ struct IntConvertor
 
     do
     {
+      if( x < 0 || x > OVERFLOW_MAX ) return false; // overflow
       const unsigned_int c = *str - '0';
       if( c > 9 ) return false;
       x = 10 * x + c;
+      if( x < 0 && ( !isNegative || x != VALUE_MIN )) return false; // overflow
     } while ( ++str != end );
 
     if( isNegative )

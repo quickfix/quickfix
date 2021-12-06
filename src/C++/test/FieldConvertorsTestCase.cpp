@@ -122,14 +122,22 @@ TEST(integerConvertFrom)
   CHECK_EQUAL( 12, IntConvertor::convert( "12" ) );
   CHECK_EQUAL( 100, IntConvertor::convert( "100" ) );
   CHECK_EQUAL( 1234, IntConvertor::convert( "1234" ) );
+  CHECK_EQUAL( 214748365, IntConvertor::convert( "214748365" ) );
   CHECK_EQUAL( MAX_INT, IntConvertor::convert( "2147483647" ) );
+  CHECK_THROW( IntConvertor::convert( "2147483648" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "2147483650" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "9999999999" ), FieldConvertError ); // overflow
 
   CHECK_EQUAL( -1, IntConvertor::convert( "-1" ) );
   CHECK_EQUAL( -12, IntConvertor::convert( "-12" ) );
   CHECK_EQUAL( -100, IntConvertor::convert( "-100" ) );
   CHECK_EQUAL( -1234, IntConvertor::convert( "-1234" ) );
+  CHECK_EQUAL( -214748365, IntConvertor::convert( "-214748365" ) );
   CHECK_EQUAL( -2147483647, IntConvertor::convert( "-2147483647" ) );
   CHECK_EQUAL( MIN_INT, IntConvertor::convert( "-2147483648" ) );
+  CHECK_THROW( IntConvertor::convert( "-2147483649" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "-2147483650" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "-9999999999" ), FieldConvertError ); // overflow
 
   CHECK_THROW( IntConvertor::convert( "" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "abc" ), FieldConvertError );
