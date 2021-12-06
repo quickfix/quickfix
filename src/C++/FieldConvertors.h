@@ -150,8 +150,8 @@ typedef EmptyConvertor StringConvertor;
 /// Converts integer to/from a string
 struct IntConvertor
 {
-  static const signed_int VALUE_MIN = std::numeric_limits<signed_int>::min();
-  static const signed_int VALUE_MAX = std::numeric_limits<signed_int>::max();
+  static const signed_int VALUE_MIN = (std::numeric_limits<signed_int>::min)();
+  static const signed_int VALUE_MAX = (std::numeric_limits<signed_int>::max)();
   static const signed_int OVERFLOW_MAX = VALUE_MAX / 10;
 
   static std::string convert( signed_int value )
