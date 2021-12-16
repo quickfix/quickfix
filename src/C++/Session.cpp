@@ -736,7 +736,14 @@ bool Session::sendRaw( Message& message, int num )
 
     if ( Message::isAdminMsgType( msgType ) )
     {
-      m_application.toAdmin( message, m_sessionID );
+      try
+      {
+        m_application.toAdmin(message, m_sessionID);
+      }
+      catch (const DoNotSend &)
+      {
+        return false;
+      }
 
       if( msgType == "A" && !m_state.receivedReset() )
       {
