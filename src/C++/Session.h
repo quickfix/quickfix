@@ -112,8 +112,7 @@ public:
   {
     if(!m_schedule.empty())
     {
-      UtcTimeStamp now;
-      int wkday = now.getWeekDay();
+      int wkday = time.getWeekDay();
       auto iter = m_schedule.find(wkday);
       if(iter != m_schedule.end())
       {
@@ -323,8 +322,7 @@ private:
 
     if(!m_schedule.empty())
     {
-      UtcTimeStamp now;
-      int wkday = now.getWeekDay();
+      int wkday = timeStamp.getWeekDay();
       auto iter = m_schedule.find(wkday);
       if(iter != m_schedule.end())
       {
