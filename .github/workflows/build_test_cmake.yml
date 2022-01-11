@@ -1,0 +1,134 @@
+name: Build with CMake
+on: [pull_request, push]
+
+jobs:
+    build:
+      runs-on: ${{ matrix.runner }}
+      strategy:
+          matrix:
+              runner: [windows-2019, ubuntu-latest, macos-latest]
+              configuration: [Debug, Release]
+              include:
+                - configuration: Debug
+                  config: debug
+                  portoffset: 0
+                - configuration: Release
+                  config: release
+                  portoffset: 1
+      steps:
+      - name: Echo event_name ${{ github.event_name }}
+        shell: bash
+        run: echo "github.event_name $event_name"
+        env:
+          event_name: ${{ github.event_name }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate
+        shell: bash
+        run: |
+          cmake . -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+      - name: Build
+        shell: bash
+        run: |
+          cmake --build . --config $Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+      - name: Set tests paths windows-2019
+        shell: bash
+        if: ${{ matrix.runner == 'windows-2019' }}
+        run: |
+          echo "at=$PWD/test/$Config/at/at.exe" >> GITHUB_ENV
+          echo "pt=$PWD/test/$Config/pt/pt.exe" >> GITHUB_ENV
+          echo "ut=$PWD/test/$Config/ut/ut.exe" >> GITHUB_ENV
+        env:
+          Config: ${{ matrix.config }}
+      - name: Set tests paths ubuntu-latest
+        shell: bash
+        if: ${{ matrix.runner == 'ubuntu-latest' }}
+        run: |
+          echo "at=$PWD/test/at" >> GITHUB_ENV
+          echo "pt=$PWD/test/pt" >> GITHUB_ENV
+          echo "ut=$PWD/test/ut" >> GITHUB_ENV
+      - name: Set tests paths macos-latest
+        shell: bash
+        if: ${{ matrix.runner == 'macos-latest' }}
+        run: |
+          echo "at=$PWD/test/at" >> GITHUB_ENV
+          echo "pt=$PWD/test/pt" >> GITHUB_ENV
+          echo "ut=$PWD/test/ut" >> GITHUB_ENV
+      - name: Echo test paths ${{ matrix.runner }}
+        shell: bash
+        run: |
+          echo "at: $at"
+          echo "pt: $pt"
+          echo "ut: $ut"
+        env:
+          at: ${{ env.at }}
+          pt: ${{ env.pt }}
+          ut: ${{ env.ut }}
+      - name: Check if tests were built
+        id: check_files
+        shell: bash
+        run: |
+          AT=$( test -f $at && echo "true" || echo "false" )
+          PT=$( test -f $pt && echo "true" || echo "false" )
+          UT=$( test -f $ut && echo "true" || echo "false" )
+          echo "at_check=$AT" >> GITHUB_ENV
+          echo "pt_check=$PT" >> GITHUB_ENV
+          echo "ut_check=$UT" >> GITHUB_ENV
+        env:
+          at: ${{ env.at }}
+          pt: ${{ env.pt }}
+          ut: ${{ env.ut }}
+      - name: Echo test checks ${{ matrix.runner }}
+        shell: bash
+        run: |
+          echo "at_check: $at_check"
+          echo "pt_check: $pt_check"
+          echo "ut_check: $ut_check"
+        env:
+          at_check: ${{ env.at_check }}
+          pt_check: ${{ env.pt_check }}
+          ut_check: ${{ env.ut_check }}
+      - name: Run acceptance tests for windows-2019
+        if: ${{ env.at_check == 'true' && matrix.runner == 'windows-2019' && github.event_name == 'pull_request' }}
+        shell: cmd
+        working-directory: ./test
+        run: |
+          set /a "PORT=%PortBase%+%Offset%"
+          runat %CONFIG% %PORT%
+        env:
+          CONFIG: ${{ matrix.config }}
+          PortBase: 6666
+          Offset: ${{ matrix.portoffset }}
+      - name: Run acceptance tests for ${{ matrix.runner }}
+        if: ${{ env.at_check == 'true' && matrix.runner != 'windows-2019' && github.event_name == 'pull_request' }}
+        shell: bash
+        working-directory: ./test
+        run: |
+          ./runat.sh $(($PortBase + $Offset))
+        env:
+          PortBase: 6666
+          Offset: ${{ matrix.portoffset }}
+      - name: Run performance tests
+        if: ${{ env.pt_check == 'true' && matrix.configuration == 'Release' }}
+        shell: bash
+        working-directory: ./test
+        run: |
+          $pt -p $(($PortBase + $Offset)) -c 500000
+        env:
+          pt: ${{ env.pt }}
+          PortBase: 6668
+          Offset: ${{ matrix.portoffset }}
+      - name: Run unit tests
+        if: ${{ env.ut_check == 'true' }}
+        shell: bash
+        working-directory: ./test
+        run: |
+          $ut -p $(($PortBase + $Offset)) -f cfg/ut.cfg
+        env:
+          ut: ${{ env.ut }}
+          PortBase: 6670
+          Offset: ${{ matrix.portoffset }}

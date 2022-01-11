@@ -108,6 +108,7 @@ public:
 
   static size_t numSessions();
 
+
   bool isSessionTime(const UtcTimeStamp& time)
   {
     if(!m_schedule.empty())
@@ -229,6 +230,18 @@ public:
 
       m_timestampPrecision = precision;
     }
+  int getSupportedTimestampPrecision() 
+    {
+      return supportsSubSecondTimestamps(m_sessionID.getBeginString()) ? m_timestampPrecision : 0;
+    }
+  static bool supportsSubSecondTimestamps(const std::string &beginString) 
+  {
+    if( beginString == BeginString_FIXT11 )
+      return true;
+    else
+      return beginString >= BeginString_FIX42;
+  }
+    
 
   bool getPersistMessages()
     { return m_persistMessages; }

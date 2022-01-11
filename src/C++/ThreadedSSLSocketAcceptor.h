@@ -144,9 +144,9 @@ public:
 
   void setPassword(const std::string &pwd) { m_password.assign(pwd); }
 
-  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify);
 
-  static int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
+  static int passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
   struct AcceptorThreadInfo

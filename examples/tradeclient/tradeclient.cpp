@@ -19,9 +19,9 @@
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
-#else
-#include "config.h"
 #endif
+
+#include "quickfix/config.h"
 
 #include "quickfix/FileStore.h"
 #include "quickfix/SocketInitiator.h"

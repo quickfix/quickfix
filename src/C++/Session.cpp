@@ -101,25 +101,12 @@ Session::~Session()
 
 void Session::insertSendingTime( Header& header )
 {
-  UtcTimeStamp now;
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( SendingTime(now, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( SendingTime(UtcTimeStamp(), getSupportedTimestampPrecision()) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 {
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( OrigSendingTime(when, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( OrigSendingTime(when, getSupportedTimestampPrecision()) );
 }
 
 void Session::fill( Header& header )
@@ -553,9 +540,12 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   MsgType msgType;
   int begin = 0;
   int current = beginSeqNo;
+  bool appMessageJustSent = false;
+  std::string messageString;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
+    appMessageJustSent = false;
     SmartPtr<FIX::Message> pMsg;
     std::string strMsgType;
     const DataDictionary& sessionDD =
@@ -654,6 +644,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
+        appMessageJustSent = true;
       }
       else
       { if ( !begin ) begin = msgSeqNum; }
@@ -671,6 +662,8 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
+    if ( appMessageJustSent )
+      beginSeqNo = msgSeqNum + 1;
     generateSequenceReset( resendRequest, beginSeqNo, endSeqNo );
   }
 

@@ -148,9 +148,9 @@ public:
     m_key = key;
   }
 
-  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify);
 
-  static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
+  static int passwordHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
   typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;

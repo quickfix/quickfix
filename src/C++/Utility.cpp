@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <algorithm>
 #include <fstream>
+#include <sstream>
 
 namespace FIX
 {
@@ -186,6 +187,26 @@ void socket_close(socket_handle s )
 #else
   close( s );
 #endif
+}
+
+std::string socket_get_last_error()
+{
+    std::stringstream errorMessage;
+#ifdef _MSC_VER
+    int winsockErrorCode = WSAGetLastError();
+
+    char* s = NULL;
+    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL, winsockErrorCode,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPSTR)&s, 0, NULL);
+    errorMessage << "Winsock error " << winsockErrorCode << ": " << s;
+    LocalFree(s);
+#else
+    int errorNumber = errno;    
+    errorMessage << "Winsock error " << errorNumber << ": " << strerror(errorNumber);
+#endif
+    return errorMessage.str();
 }
 
 bool socket_fionread(socket_handle s, int& bytes )

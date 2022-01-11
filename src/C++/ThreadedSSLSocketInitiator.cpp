@@ -126,11 +126,10 @@
 
 namespace FIX
 {
-FIX::ThreadedSSLSocketInitiator *initObjT = 0;
 
-int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *job)
+int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return initObjT->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<ThreadedSSLSocketInitiator*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -141,7 +140,6 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -152,7 +150,6 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator()
@@ -210,7 +207,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT (
       throw RuntimeError("Failed to set key");
     }
   }
-  else if (!loadSSLCert(m_ctx, false, m_settings, getLog(), ThreadedSSLSocketInitiator::passwordHandleCB, errStr))
+  else if (!loadSSLCert(m_ctx, false, m_settings, getLog(), ThreadedSSLSocketInitiator::passwordHandleCB, this, errStr))
   {
     ssl_term();
     throw RuntimeError(errStr);
@@ -454,7 +451,7 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
 }
 
 int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
-                                                       int verify, void *job)
+                                                       int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

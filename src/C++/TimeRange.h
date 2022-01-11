@@ -153,6 +153,10 @@ public:
   }
 
 private:
+  static int getRangeStartDate( const DateTime& time,
+                                int startDay,
+                                const DateTime& startTime );
+
   static bool isInRange( const DateTime& start,
                          const DateTime& end,
                          const DateTime& time );

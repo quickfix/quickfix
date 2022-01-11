@@ -229,10 +229,10 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < readSet.fd_count; ++i )
   {
-    socket_handle s = readSet.fd_array[ i ];
+    int s = readSet.fd_array[ i ];
     if( s == m_interrupt )
     {
-      socket_handle socket = 0;
+      int socket = 0;
       socket_recv( s, (char*)&socket, sizeof(socket) );
       addWrite( socket );
     }
@@ -246,12 +246,12 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
     Sockets sockets = m_readSockets;
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
-      socket_handle s = *i;
+      int s = *i;
       if ( !FD_ISSET( *i, &readSet ) )
         continue;
       if( s == m_interrupt )
       {
-        socket_handle socket = 0;
+        int socket = 0;
         socket_recv( s, (char*)&socket, sizeof(socket) );
         addWrite( socket );
       }
@@ -268,7 +268,7 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < writeSet.fd_count; ++i )
   {
-    socket_handle s = writeSet.fd_array[ i ];
+    int s = writeSet.fd_array[ i ];
     if( m_connectSockets.find(s) != m_connectSockets.end() )
     {
       m_connectSockets.erase( s );
@@ -285,7 +285,7 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   Sockets sockets = m_connectSockets;
   for( i = sockets.begin(); i != sockets.end(); ++i )
   {
-    socket_handle s = *i;
+    int s = *i;
     if ( !FD_ISSET( *i, &writeSet ) )
       continue;
     m_connectSockets.erase( s );
@@ -296,7 +296,7 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   sockets = m_writeSockets;
   for( i = sockets.begin(); i != sockets.end(); ++i )
   {
-    socket_handle s = *i;
+    int s = *i;
     if ( !FD_ISSET( *i, &writeSet ) )
       continue;
     strategy.onWrite( *this, s );
@@ -309,7 +309,7 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < exceptSet.fd_count; ++i )
   {
-    socket_handle s = exceptSet.fd_array[ i ];
+    int s = exceptSet.fd_array[ i ];
     strategy.onError( *this, s );
   }
 #else
@@ -317,7 +317,7 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
     Sockets sockets = m_connectSockets;
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
-      socket_handle s = *i;
+      int s = *i;
       if ( !FD_ISSET( *i, &exceptSet ) )
         continue;
       strategy.onError( *this, s );

@@ -1,14 +1,8 @@
 # Needed to build examples
 
-if (NOT WIN32)
-add_custom_target(QUICKFIX_HEADERS_LINK ALL
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/include/quickfix
-)
-else()
 add_custom_target(QUICKFIX_HEADERS_COPY ALL 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/
-COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfix
+COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfixC
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Acceptor.h ${CMAKE_SOURCE_DIR}/include/quickfix/Acceptor.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Application.h ${CMAKE_SOURCE_DIR}/include/quickfix/Application.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/AtomicCount.h ${CMAKE_SOURCE_DIR}/include/quickfix/AtomicCount.h
@@ -21,6 +15,7 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Dictio
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/dirent_windows.h ${CMAKE_SOURCE_DIR}/include/quickfix/dirent_windows.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/DOMDocument.h ${CMAKE_SOURCE_DIR}/include/quickfix/DOMDocument.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Event.h ${CMAKE_SOURCE_DIR}/include/quickfix/Event.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Except.h ${CMAKE_SOURCE_DIR}/include/quickfix/Except.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Exceptions.h ${CMAKE_SOURCE_DIR}/include/quickfix/Exceptions.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/Field.h ${CMAKE_SOURCE_DIR}/include/quickfix/Field.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/src/C++/FieldConvertors.h ${CMAKE_SOURCE_DIR}/include/quickfix/FieldConvertors.h
@@ -113,4 +108,3 @@ COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/C++/fixt11 ${
 COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SOURCE_DIR}/include/quickfix/wx
 COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/C++/fixt11 ${CMAKE_SOURCE_DIR}/include/quickfix/wx/
 )
-endif()

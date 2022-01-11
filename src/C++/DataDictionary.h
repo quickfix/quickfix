@@ -168,6 +168,7 @@ public:
   void addValueName( int field, const std::string& value, const std::string& name )
   {
     m_valueNames[std::make_pair(field, value)] = name;
+    m_nameValues[std::make_pair(field, name)] = value;
   }
 
   bool getValueName( int field, const std::string& value, std::string& name ) const
@@ -175,6 +176,14 @@ public:
     ValueToName::const_iterator i = m_valueNames.find( std::make_pair(field, value) );
     if(i == m_valueNames.end()) return false;
     name = i->second;
+    return true;
+  }
+
+  bool getNameValue( int field, const std::string& name, std::string& value ) const
+  {
+    ValueToName::const_iterator i = m_nameValues.find(std::make_pair(field, name));
+    if (m_nameValues.end() == i) return false;
+    value = i->second;
     return true;
   }
 
@@ -603,6 +612,7 @@ private:
   FieldToName m_fieldNames;
   NameToField m_names;
   ValueToName m_valueNames;
+  ValueToName m_nameValues;
   FieldToGroup m_groups;
   MsgFields m_dataFields;
   OrderedFields m_headerOrderedFields;
