@@ -19,7 +19,7 @@ with open('LICENSE') as file:
 
 setup(name='quickfix-ssl',
       version='1.15.1',
-      py_modules=['quickfix', 'quickfixt11', 'quickfix40', 'quickfix41', 'quickfix42', 'quickfix43', 'quickfix44', 'quickfix50', 'quickfix50sp1', 'quickfix50sp2'],
+      py_modules=['src/python/quickfix',],
       data_files=[('share/quickfix', glob.glob('spec/FIX*.xml'))],
       author='Oren Miller',
       author_email='oren@quickfixengine.org',
