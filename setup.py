@@ -34,19 +34,7 @@ with open('LICENSE') as fp:
 
 setup(name='quickfix-ssl',
       version='1.14.3',
-      py_modules=[
-          'quickfix',
-          'quickfixt11',
-          'quickfix40',
-          'quickfix41',
-          'quickfix42',
-          'quickfix43',
-          'quickfix44',
-          'quickfix50',
-          'quickfix50sp1',
-          'quickfix50sp2',
-          'quickfix-ssl',
-      ],
+      py_modules=['quickfix',],
       data_files=[('share/quickfix', glob.glob('spec/FIX*.xml'))],
       author='Oren Miller',
       author_email='oren@quickfixengine.org',
@@ -56,11 +44,6 @@ setup(name='quickfix-ssl',
       url='http://www.quickfixengine.org',
       download_url='http://www.quickfixengine.org',
       license=quickfix_license,
-      include_dirs=['C++'],
       cmdclass={'build_ext': build_ext_subclass},
-      ext_modules=[
-          Extension('_quickfix',
-                    glob.glob('C++/*.cpp'),
-                    extra_compile_args=['-std=c++0x'])
-      ],
-      )
+      ext_modules=[Extension('_quickfix', glob.glob('C++/*.cpp'), include_dirs=["C++"], extra_compile_args=['-std=c++0x', '-Wno-deprecated', '-Wno-unused-variable', '-Wno-deprecated-declarations', '-Wno-maybe-uninitialized'])],
+)
