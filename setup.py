@@ -51,7 +51,7 @@ long_description=''
 with open('LICENSE') as file:
     license = file.read();
 
-setup(name='quickfix',
+setup(name='quickfix-ssl',
       version='1.15.1',
       py_modules=['quickfix', 'quickfix-ssl',],
       data_files=[('share/quickfix', glob.glob('spec/FIX*.xml'))],
