@@ -29,14 +29,6 @@ class build_ext_subclass( build_ext ):
             print("...found")
         except:
             print("...not found")
-
-        print("Testing for std::unique_ptr...")
-        try:
-            self.compiler.compile(['test_std_unique_ptr.cpp'], extra_preargs=['-std=c++0x']),
-            self.compiler.define_macro("HAVE_STD_UNIQUE_PTR")
-            print("...found")
-        except:
-            print("...not found")
     
         build_ext.build_extensions(self)
 
