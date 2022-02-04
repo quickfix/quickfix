@@ -17,9 +17,20 @@ long_description=''
 with open('LICENSE') as file:
     license = file.read();
 
-setup(name='quickfix-ssl',
+setup(name='quickfix',
       version='1.15.1',
-      py_modules=['src/python/quickfix',],
+      py_modules=[
+        'src/python/quickfix',
+        'src/python/quickfixt11', 
+        'src/python/quickfix40', 
+        'src/python/quickfix41', 
+        'src/python/quickfix42', 
+        'src/python/quickfix43', 
+        'src/python/quickfix44', 
+        'src/python/quickfix50', 
+        'src/python/quickfix50sp1', 
+        'src/python/quickfix50sp2'
+      ],
       data_files=[('share/quickfix', glob.glob('spec/FIX*.xml'))],
       author='Oren Miller',
       author_email='oren@quickfixengine.org',
