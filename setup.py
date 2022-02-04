@@ -51,7 +51,7 @@ long_description=''
 with open('LICENSE') as file:
     license = file.read();
 
-setup(name='quickfix-ssl',
+setup(name='quickfix',
       version='1.15.1',
       py_modules=['quickfix', 'quickfixt11', 'quickfix40', 'quickfix41', 'quickfix42', 'quickfix43', 'quickfix44', 'quickfix50', 'quickfix50sp1', 'quickfix50sp2'],
       data_files=[('share/quickfix', glob.glob('spec/FIX*.xml'))],
@@ -63,7 +63,7 @@ setup(name='quickfix-ssl',
       url='http://www.quickfixengine.org',
       download_url='http://www.quickfixengine.org',
       license=license,
-      include_dirs=['src/C++', 'src', 'src/python3'],
+      include_dirs=['C++'],
       cmdclass = {'build_ext': build_ext_subclass },
-      ext_modules=[Extension('_quickfix', glob.glob('src/C++/*.cpp'), extra_compile_args=['-std=c++0x', '-Wno-deprecated', '-Wno-unused-variable', '-Wno-deprecated-declarations', '-Wno-maybe-uninitialized'])],
+      ext_modules=[Extension('_quickfix', glob.glob('C++/*.cpp'), extra_compile_args=['-std=c++0x', '-Wno-deprecated', '-Wno-unused-variable', '-Wno-deprecated-declarations', '-Wno-maybe-uninitialized'])],
 )
