@@ -66,4 +66,4 @@ core
 \#*#
 *.log
 *.trs
-./idea
+.idea/
