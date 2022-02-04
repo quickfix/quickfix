@@ -52,7 +52,7 @@ with open('LICENSE') as file:
     license = file.read();
 
 setup(name='quickfix',
-      version='1.15.1',
+      version='1.15.2',
       py_modules=[
         'src/python/quickfix',
         'src/python/quickfixt11', 
@@ -75,6 +75,6 @@ setup(name='quickfix',
       download_url='http://www.quickfixengine.org',
       license=license,
       include_dirs=['src/C++',],
-      cmdclass = {'build_ext': build_ext_subclass },
+      cmdclass={'build_ext': build_ext_subclass},
       ext_modules=[Extension('_quickfix', glob.glob('src/C++/*.cpp'), extra_compile_args=['-std=c++0x', '-Wno-deprecated', '-Wno-unused-variable', '-Wno-deprecated-declarations', '-Wno-maybe-uninitialized'])],
 )
