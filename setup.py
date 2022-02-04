@@ -74,7 +74,7 @@ setup(name='quickfix',
       url='http://www.quickfixengine.org',
       download_url='http://www.quickfixengine.org',
       license=license,
-      include_dirs=['src/C++',],
+      include_dirs=['C++'],
       cmdclass={'build_ext': build_ext_subclass},
       ext_modules=[Extension('_quickfix', glob.glob('src/C++/*.cpp'), extra_compile_args=['-std=c++0x', '-Wno-deprecated', '-Wno-unused-variable', '-Wno-deprecated-declarations', '-Wno-maybe-uninitialized'])],
 )
