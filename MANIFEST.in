@@ -1,0 +1,4 @@
+recursive-include C++ *.h *.hpp *.cc
+include test*.cpp
+include LICENSE
+include spec/*.xml
