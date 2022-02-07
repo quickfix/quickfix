@@ -67,3 +67,4 @@ core
 *.log
 *.trs
 .idea/
+*/.DS_STORE
