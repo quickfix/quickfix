@@ -37,7 +37,7 @@ class DataDictionary
     if (sp != 0)
       directory = directory + "SP#{sp}"
     end
-    directory += "/Base"
+    directory += "/Basic"
 
     @fieldsDoc = REXML::Document.new(File.new("#{directory}/Fields.xml"))
     @enumsDoc = REXML::Document.new(File.new("#{directory}/Enums.xml"))
