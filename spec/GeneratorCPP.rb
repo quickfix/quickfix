@@ -1,4 +1,4 @@
-require 'PrintFile'
+require "PrintFile"
 
 class GeneratorCPP
   def initialize(type, major, minor, sp, verid, basedir)
@@ -6,7 +6,7 @@ class GeneratorCPP
     @major = major
     @minor = minor
     @namespace = type + major + minor
-    if( sp != "0" )
+    if (sp != "0")
       @namespace += "SP#{sp}"
     end
     @verid = verid
@@ -80,7 +80,7 @@ class GeneratorCPP
     @f.puts "Message( const FIX::MsgType& msgtype )"
     @f.puts ": FIX::Message("
     @f.puts "  FIX::BeginString(\"" + @beginstring + "\"), msgtype )"
-    if( @verid == "0" )
+    if (@verid == "0")
       @f.puts " {} "
     else
       @f.puts " { getHeader().setField( FIX::ApplVerID(\"" + @verid + "\") ); }"
@@ -102,7 +102,7 @@ class GeneratorCPP
   end
 
   def groupStart(name, number, delim, order)
-    @f.indent    
+    @f.indent
     @f.puts "class " + name + ": public FIX::Group"
     @f.puts "{"
     @f.puts "public:"
@@ -138,14 +138,14 @@ class GeneratorCPP
     @f.puts name + "(const #{name}& m) : Message(m) {}"
     @f.puts "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
 
-    if( required.size > 0 )
+    if (required.size > 0)
       @f.puts
       @f.puts name + "("
       @f.indent
       required.each_index { |i|
         field = required[i]
-        @f.print "const FIX::" + field + "& a" + field 
-        if(i != required.size-1)
+        @f.print "const FIX::" + field + "& a" + field
+        if (i != required.size - 1)
           @f.putsInline ","
         else
           @f.putsInline " )"
@@ -156,7 +156,8 @@ class GeneratorCPP
       @f.puts "{"
       @f.indent
       required.each { |field|
-  @f.puts "set(a" + field + ");" }
+        @f.puts "set(a" + field + ");"
+      }
       @f.dedent
       @f.puts "}"
     end
@@ -217,9 +218,9 @@ class GeneratorCPP
     f.puts "{"
     f.indent
   end
-    
+
   def fixFields(f, name, number, type)
-    if( name == "CheckSum" )
+    if (name == "CheckSum")
       f.puts "DEFINE_CHECKSUM(#{name});"
     else
       f.puts "DEFINE_#{type.upcase}(#{name});"
@@ -243,7 +244,7 @@ class GeneratorCPP
     f.puts "{"
     f.indent
   end
-    
+
   def fixFieldNumbers(f, name, number, type)
     f.puts "const int #{name} = #{number};"
   end
@@ -270,12 +271,12 @@ class GeneratorCPP
   def fixFieldValues(f, name, number, type, values)
     values.each { |description, enum|
       case type
-        when "INT"
-          f.puts "const int #{name}_#{description} = #{enum};"
-        when "STRING", "MULTIPLESTRINGVALUE"
-          f.puts "const char #{name}_#{description}[] = \"#{enum}\";"
-        else
-          f.puts "const char #{name}_#{description} = '#{enum}';"
+      when "INT"
+        f.puts "const int #{name}_#{description} = #{enum};"
+      when "STRING", "MULTIPLESTRINGVALUE"
+        f.puts "const char #{name}_#{description}[] = \"#{enum}\";"
+      else
+        f.puts "const char #{name}_#{description} = '#{enum}';"
       end
     }
   end
@@ -284,5 +285,4 @@ class GeneratorCPP
     f.puts "}"
     f.puts "#endif //FIX_VALUES_H"
   end
-
 end

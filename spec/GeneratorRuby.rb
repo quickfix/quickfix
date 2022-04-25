@@ -8,19 +8,19 @@ class GeneratorRuby
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
-    @depth = 0;
+    @depth = 0
     @dir = dir + "/"
-    if( sp != "0" )
-      @f = createFile( "quick" + type.downcase + major + minor + "sp#{sp}" + ".rb" )
+    if (sp != "0")
+      @f = createFile("quick" + type.downcase + major + minor + "sp#{sp}" + ".rb")
     else
-      @f = createFile( "quick" + type.downcase + major + minor + ".rb" )
+      @f = createFile("quick" + type.downcase + major + minor + ".rb")
     end
     @verid = verid
     @messageStarted = false
   end
 
   def createFile(name)
-    attr = File::CREAT|File::TRUNC|File::RDWR
+    attr = File::CREAT | File::TRUNC | File::RDWR
     return File.new(@dir + name, attr, 0644)
   end
 
@@ -28,7 +28,7 @@ class GeneratorRuby
     count = 0
     result = ""
     while (count != @depth)
-      result += "\t" 
+      result += "\t"
       count += 1
     end
     return result
@@ -36,7 +36,7 @@ class GeneratorRuby
 
   def front
     @f.puts "require 'quickfix'"
-    if( @sp == "0" )
+    if (@sp == "0")
       @f.puts "module Quickfix#{@major}#{@minor}"
     else
       @f.puts "module Quickfix#{@major}#{@minor}Sp#{@sp}"
@@ -65,7 +65,7 @@ class GeneratorRuby
     @depth += 1
     @f.puts tabs + "super"
     @f.puts tabs + "getHeader().setField( Quickfix::BeginString.new(" + "\"" + @beginstring + "\"" + ") )"
-    if( @verid != "0" )
+    if (@verid != "0")
       @f.puts tabs + "getHeader().setField( Quickfix::ApplVerID.new(" + "\"" + @verid + "\"" + ") )"
     end
     @depth -= 1
@@ -81,12 +81,12 @@ class GeneratorRuby
     return if @messageStarted == false
     @f.puts
 
-    @depth += 1    
+    @depth += 1
     @f.puts tabs + "class " + name + " < Quickfix::Group"
     @depth += 1
     @f.puts tabs + "def initialize"
     @depth += 1
-    @f.puts tabs + "order = Quickfix::IntArray.new(#{order.size+1})"
+    @f.puts tabs + "order = Quickfix::IntArray.new(#{order.size + 1})"
     order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
     @f.puts tabs + "order[#{order.size}] = 0"
     @f.puts tabs + "super(#{number}, #{delim}, order)"
@@ -120,14 +120,14 @@ class GeneratorRuby
     @messageStarted = false
     @f.puts tabs + "end"
   end
-  
+
   def fieldsStart
     @f = createFile("quickfix_fields.rb")
     @f.puts tabs + "module Quickfix"
     @depth += 1
   end
-  
-  def fieldType( name, type )
+
+  def fieldType(name, type)
     return "CheckSum" if name == "CheckSum"
     return "Char" if type == "CHAR"
     return "Double" if type == "PRICE"
@@ -147,7 +147,7 @@ class GeneratorRuby
     return "Int" if type == "LENGTH"
     return "String"
   end
-  
+
   def fields(name, number, type, values)
     @f.puts tabs + "class #{name} < Quickfix::#{fieldType(name, type)}Field"
     @depth += 1
@@ -175,7 +175,7 @@ class GeneratorRuby
     @f.puts tabs + "end"
     @f.puts
   end
-  
+
   def fieldsEnd
     @depth -= 1
     @f.puts tabs + "end"
