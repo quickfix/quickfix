@@ -155,6 +155,7 @@ class DataDictionary
     @fieldsDoc.elements["Fields"].elements.each("Field") { |fieldsElement|
       tag = fieldsElement.elements["Tag"].text.to_i
       type = fieldsElement.elements["Type"].text
+      enumDatatype = fieldsElement.elements["EnumDatatype"]
 
       next if type == nil
       type.upcase!
@@ -166,6 +167,9 @@ class DataDictionary
       fieldHash["type"] = toType(type)
       fieldName = toFieldName(fieldsElement.elements["Name"].text, type)
       fieldHash["fieldName"] = fieldName
+      if enumDatatype != nil
+        fieldHash["enumDatatype"] = enumDatatype.text.to_i
+      end
 
       @tagToField[tag] = fieldHash
     }
@@ -193,6 +197,13 @@ class DataDictionary
         enumArray.push([enum, description])
         @tagToEnum[tag] = enumArray
       end
+    }
+    @tagToField.each { |tag, fieldHash|
+      next if fieldHash == nil
+      next if fieldHash["enumDatatype"] == nil
+      next if @tagToEnum[fieldHash["enumDatatype"]] == nil
+
+      @tagToEnum[tag] = @tagToEnum[fieldHash["enumDatatype"]]
     }
   end
 
