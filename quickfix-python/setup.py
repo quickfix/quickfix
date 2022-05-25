@@ -68,7 +68,7 @@ ext = Extension(
 
 setup(
     name='quickfix-albert',
-    version='1.15.13',
+    version='1.15.14',
     py_modules=['quickfix', 'quickfixt11', 'quickfix40', 'quickfix41',
               'quickfix42', 'quickfix43', 'quickfix44', 'quickfix50',
               'quickfix50sp1', 'quickfix50sp2'],
