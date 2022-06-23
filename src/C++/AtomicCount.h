@@ -155,7 +155,7 @@ private:
       // int r = *pw;
       // *pw += dv;
       // return r;
-
+    #if ( defined( __i386__ ) || defined( __x86_64__ ) )
       int r;
 
       __asm__ __volatile__
@@ -168,6 +168,14 @@ private:
         );
 
       return r;
+    #elif ( defined( __arm__ ) || defined( __aarch64__ ) )
+      // supported on gcc and clang
+        return __atomic_fetch_add(pw, dv, __ATOMIC_SEQ_CST);
+    #else // other architectures
+        // supported on gcc and clang
+        return __atomic_fetch_add(pw, dv, __ATOMIC_SEQ_CST);
+    #endif
+
     }
   };
 
