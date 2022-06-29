@@ -9,4 +9,9 @@
 #cmakedefine HAVE_STD_UNIQUE_PTR
 #cmakedefine HAVE_SSL
 
+#ifdef HAVE_SSL
+#undef HAVE_SSL
+#define HAVE_SSL 1
+#endif
+
 #endif
