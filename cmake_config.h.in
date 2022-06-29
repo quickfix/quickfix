@@ -7,5 +7,6 @@
 #cmakedefine HAVE_SHARED_PTR_IN_TR1_NAMESPACE
 #cmakedefine HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER
 #cmakedefine HAVE_STD_UNIQUE_PTR
+#cmakedefine HAVE_SSL
 
 #endif
