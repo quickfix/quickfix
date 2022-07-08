@@ -367,8 +367,6 @@ SSLHandshakeStatus SSLSocketInitiator::handshakeSSL(SSLSocketConnection* connect
             getLog()->onEvent("SSL_connect failed with SSL error " + IntConvertor::convert(err));
             return SSL_HANDSHAKE_FAILED;
         }
-        ERR_clear_error();
-        rc = SSL_connect(ssl);
     }
 
     return SSL_HANDSHAKE_SUCCEDED;
