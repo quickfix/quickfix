@@ -306,7 +306,7 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
       return;
     }
     SSL_clear(ssl);
-    BIO *sbio = BIO_new_socket(result, BIO_CLOSE); //unfortunately OpenSSL assumes socket is int
+    BIO *sbio = BIO_new_socket(result, BIO_NOCLOSE); //unfortunately OpenSSL assumes socket is int
     
     if (sbio == 0)
     {
