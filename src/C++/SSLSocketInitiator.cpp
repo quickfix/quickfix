@@ -398,8 +398,6 @@ void SSLSocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
   if( !pSocketConnection )
     return;
 
-  setDisconnected( pSocketConnection->getSession()->getSessionID() );
-
   Session* pSession = pSocketConnection->getSession();
   if ( pSession )
   {
