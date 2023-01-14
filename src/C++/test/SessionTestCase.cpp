@@ -247,6 +247,8 @@ FIX42::Logon createLogon( const char* sender, const char* target, int seq )
   logon.set( EncryptMethod( 0 ) );
   logon.set( HeartBtInt( 30 ) );
   fillHeader( logon.getHeader(), sender, target, seq );
+  logon.getHeader().setField(BodyLength(logon.bodyLength()));
+  logon.getTrailer().setField(CheckSum(logon.checkSum()));
   return logon;
 }
 
@@ -256,6 +258,8 @@ FIX40::Logon createFIX40Logon( const char* sender, const char* target, int seq )
   logon.set( EncryptMethod( 0 ) );
   logon.set( HeartBtInt( 30 ) );
   fillHeader( logon.getHeader(), sender, target, seq );
+  logon.getHeader().setField(BodyLength(logon.bodyLength()));
+  logon.getTrailer().setField(CheckSum(logon.checkSum()));
   return logon;
 }
 
@@ -266,6 +270,8 @@ FIXT11::Logon createT11Logon( const char* sender, const char* target, int seq )
   logon.set( HeartBtInt( 30 ) );
   logon.set( DefaultApplVerID("7") );
   fillHeader( logon.getHeader(), sender, target, seq );
+  logon.getHeader().setField(BodyLength(logon.bodyLength()));
+  logon.getTrailer().setField(CheckSum(logon.checkSum()));
   return logon;
 }
 
@@ -273,6 +279,8 @@ FIX42::Logout createLogout( const char* sender, const char* target, int seq )
 {
   FIX42::Logout logout;
   fillHeader( logout.getHeader(), sender, target, seq );
+  logout.getHeader().setField(BodyLength(logout.bodyLength()));
+  logout.getTrailer().setField(CheckSum(logout.checkSum()));
   return logout;
 }
 
@@ -280,6 +288,8 @@ FIX40::Logon createFIX40Logout( const char* sender, const char* target, int seq 
 {
   FIX40::Logout logout;
   fillHeader( logout.getHeader(), sender, target, seq );
+  logout.getHeader().setField(BodyLength(logout.bodyLength()));
+  logout.getTrailer().setField(CheckSum(logout.checkSum()));
   return logout;
 }
 
@@ -287,6 +297,8 @@ FIX42::Heartbeat createHeartbeat( const char* sender, const char* target, int se
 {
   FIX42::Heartbeat heartbeat;
   fillHeader( heartbeat.getHeader(), sender, target, seq );
+  heartbeat.getHeader().setField(BodyLength(heartbeat.bodyLength()));
+  heartbeat.getTrailer().setField(CheckSum(heartbeat.checkSum()));
   return heartbeat;
 }
 
@@ -295,6 +307,8 @@ FIX42::TestRequest createTestRequest( const char* sender, const char* target, in
   FIX42::TestRequest testRequest;
   testRequest.set( TestReqID( id ) );
   fillHeader( testRequest.getHeader(), sender, target, seq );
+  testRequest.getHeader().setField(BodyLength(testRequest.bodyLength()));
+  testRequest.getTrailer().setField(CheckSum(testRequest.checkSum()));
   return testRequest;
 }
 
@@ -303,6 +317,8 @@ FIX42::SequenceReset createSequenceReset( const char* sender, const char* target
   FIX42::SequenceReset sequenceReset;
   sequenceReset.set( NewSeqNo( newSeq ) );
   fillHeader( sequenceReset.getHeader(), sender, target, seq );
+  sequenceReset.getHeader().setField(BodyLength(sequenceReset.bodyLength()));
+  sequenceReset.getTrailer().setField(CheckSum(sequenceReset.checkSum()));
   return sequenceReset;
 }
 
@@ -312,6 +328,8 @@ FIX42::ResendRequest createResendRequest( const char* sender, const char* target
   resendRequest.set( BeginSeqNo( begin ) );
   resendRequest.set( EndSeqNo( end ) );
   fillHeader( resendRequest.getHeader(), sender, target, seq );
+  resendRequest.getHeader().setField(BodyLength(resendRequest.bodyLength()));
+  resendRequest.getTrailer().setField(CheckSum(resendRequest.checkSum()));
   return resendRequest;
 }
 
@@ -321,6 +339,8 @@ FIXT11::ResendRequest createT11ResendRequest( const char* sender, const char* ta
   resendRequest.set( BeginSeqNo( begin ) );
   resendRequest.set( EndSeqNo( end ) );
   fillHeader( resendRequest.getHeader(), sender, target, seq );
+  resendRequest.getHeader().setField(BodyLength(resendRequest.bodyLength()));
+  resendRequest.getTrailer().setField(CheckSum(resendRequest.checkSum()));
   return resendRequest;
 }
 
@@ -329,6 +349,8 @@ FIX42::Reject createReject( const char* sender, const char* target, int seq, int
   FIX42::Reject reject;
   reject.set( RefSeqNum( refSeq ) );
   fillHeader( reject.getHeader(), sender, target, seq );
+  reject.getHeader().setField(BodyLength(reject.bodyLength()));
+  reject.getTrailer().setField(CheckSum(reject.checkSum()));
   return reject;
 }
 
@@ -337,6 +359,8 @@ FIX42::NewOrderSingle createNewOrderSingle( const char* sender, const char* targ
   FIX42::NewOrderSingle newOrderSingle
     ( ClOrdID("ID"), HandlInst('1'), Symbol("SYMBOL"), Side(Side_BUY), TransactTime(), OrdType(OrdType_MARKET) );
   fillHeader( newOrderSingle.getHeader(), sender, target, seq );
+  newOrderSingle.getHeader().setField(BodyLength(newOrderSingle.bodyLength()));
+  newOrderSingle.getTrailer().setField(CheckSum(newOrderSingle.checkSum()));
   return newOrderSingle;
 }
 
@@ -355,6 +379,8 @@ FIX42::ExecutionReport createExecutionReport( const char* sender, const char* ta
   noContraBrokers.set( ContraTradeQty(100) );
   noContraBrokers.set( ContraTradeTime() );
   executionReport.addGroup( noContraBrokers );
+  executionReport.getHeader().setField(BodyLength(executionReport.bodyLength()));
+  executionReport.getTrailer().setField(CheckSum(executionReport.checkSum()));
   return executionReport;
 }
 
@@ -363,6 +389,8 @@ FIX40::ExecutionReport createFIX40ExecutionReport(const char* sender, const char
       OrderQty(100), LastShares(0), LastPx(0), CumQty(0), AvgPx(0) );
   fillHeader( executionReport.getHeader(), sender, target, seq );
   executionReport.getHeader().set( BeginString("FIX.4.0") );
+  executionReport.getHeader().setField(BodyLength(executionReport.bodyLength()));
+  executionReport.getTrailer().setField(CheckSum(executionReport.checkSum()));
   return executionReport;
 }
 
@@ -383,6 +411,8 @@ FIX42::ExecutionReport createT1142ExecutionReport( const char* sender, const cha
   noContraBrokers.set( ContraTradeQty(100) );
   noContraBrokers.set( ContraTradeTime() );
   executionReport.addGroup( noContraBrokers );
+  executionReport.getHeader().setField(BodyLength(executionReport.bodyLength()));
+  executionReport.getTrailer().setField(CheckSum(executionReport.checkSum()));
   return executionReport;
 }
 
@@ -401,6 +431,8 @@ FIX42::ExecutionReport createT1150ExecutionReport( const char* sender, const cha
   noContraBrokers.set( ContraTradeQty(100) );
   noContraBrokers.set( ContraTradeTime() );
   executionReport.addGroup( noContraBrokers );
+  executionReport.getHeader().setField(BodyLength(executionReport.bodyLength()));
+  executionReport.getTrailer().setField(CheckSum(executionReport.checkSum()));
   return executionReport;
 }
 
@@ -1143,16 +1175,17 @@ TEST_FIXTURE(acceptorFixture, nextSequenceReset)
   // No MsgSeqNum
   FIX42::SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 0, 3 );
   sequenceReset.getHeader().removeField( 34 );
-  object->next( sequenceReset, UtcTimeStamp() );
-  CHECK_EQUAL( 3, fromSequenceReset );
+  // Fiels 34 is a required field in the header. So validation does not pass.
+  object->next( sequenceReset, UtcTimeStamp());
+  CHECK_EQUAL( 2, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, toReject );
+  CHECK_EQUAL( 1, toReject );
 
   // NewSeqNo is less
   object->next( createSequenceReset( "ISLD", "TW", 0, 2 ), UtcTimeStamp() );
-  CHECK_EQUAL( 4, fromSequenceReset );
+  CHECK_EQUAL( 3, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, toReject );
+  CHECK_EQUAL( 2, toReject );
 }
 
 TEST_FIXTURE(acceptorFixture, nextGapFill)
