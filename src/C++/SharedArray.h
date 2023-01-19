@@ -50,8 +50,32 @@ namespace FIX
       rhs.attach();
     }
 
+    shared_array(shared_array&& rhs)
+    : m_size(rhs.m_size)
+    , m_buffer(rhs.m_buffer)
+    {
+      rhs.m_size = 0;
+      rhs.m_buffer = 0;
+    }
+
     ~shared_array()
     { release(); }
+
+    shared_array& operator=(shared_array&& rhs)
+    {
+      if( &rhs == this )
+        return *this;
+
+      release();
+
+      m_size = rhs.m_size;
+      m_buffer = rhs.m_buffer;
+
+      rhs.m_size = 0;
+      rhs.m_buffer = 0;
+
+      return *this;
+    }
 
     shared_array& operator=(const shared_array& rhs)
     {
