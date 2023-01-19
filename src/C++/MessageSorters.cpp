@@ -76,16 +76,6 @@ message_order::message_order( const int order[] )
   setOrder(size, order);
 }
 
-message_order& message_order::operator=( const message_order& rhs )
-{
-  m_mode = rhs.m_mode;
-  m_delim = rhs.m_delim;
-  m_largest = rhs.m_largest;
-  m_groupOrder = rhs.m_groupOrder;
-
-  return *this;
-}
-
 void message_order::setOrder( int size, const int order[] )
 {
   if(size < 1) return;
