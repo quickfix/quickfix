@@ -119,19 +119,6 @@ Message::Message( const BeginString& beginString, const MsgType& msgType )
   m_header.setField(msgType);
 }
 
-Message::Message(const Message& copy)
-: FieldMap(copy)
-, m_header(copy.m_header)
-, m_trailer(copy.m_trailer)
-, m_validStructure(copy.m_validStructure)
-, m_tag(copy.m_tag)
-#ifdef HAVE_EMX
-, m_subMsgType(copy.m_subMsgType)
-#endif
-{
-
-}
-
 Message::~Message()
 {
 }
