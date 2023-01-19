@@ -107,10 +107,12 @@ public:
   FieldMap( const int order[] );
 
   FieldMap( const FieldMap& copy );
+  FieldMap(FieldMap&& rhs);
 
   virtual ~FieldMap();
 
   FieldMap& operator=( const FieldMap& rhs );
+  FieldMap& operator=(FieldMap&& rhs);
 
   /// Set a field without type checking
   void setField( const FieldBase& field, bool overwrite = true )
