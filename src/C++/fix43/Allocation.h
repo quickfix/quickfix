@@ -12,7 +12,10 @@ namespace FIX43
     Allocation() : Message(MsgType()) {}
     Allocation(const FIX::Message& m) : Message(m) {}
     Allocation(const Message& m) : Message(m) {}
-    Allocation(const Allocation& m) : Message(m) {}
+    Allocation(const Allocation&) = default;
+    Allocation(Allocation&&) = default;
+    Allocation& operator=(const Allocation&) = default;
+    Allocation& operator=(Allocation&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("J"); }
 
     Allocation(
