@@ -12,7 +12,10 @@ namespace FIX50SP1
     AdjustedPositionReport() : Message(MsgType()) {}
     AdjustedPositionReport(const FIX::Message& m) : Message(m) {}
     AdjustedPositionReport(const Message& m) : Message(m) {}
-    AdjustedPositionReport(const AdjustedPositionReport& m) : Message(m) {}
+    AdjustedPositionReport(const AdjustedPositionReport&) = default;
+    AdjustedPositionReport(AdjustedPositionReport&&) = default;
+    AdjustedPositionReport& operator=(const AdjustedPositionReport&) = default;
+    AdjustedPositionReport& operator=(AdjustedPositionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BL"); }
 
     AdjustedPositionReport(

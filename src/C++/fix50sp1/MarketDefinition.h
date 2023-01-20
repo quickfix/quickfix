@@ -12,7 +12,10 @@ namespace FIX50SP1
     MarketDefinition() : Message(MsgType()) {}
     MarketDefinition(const FIX::Message& m) : Message(m) {}
     MarketDefinition(const Message& m) : Message(m) {}
-    MarketDefinition(const MarketDefinition& m) : Message(m) {}
+    MarketDefinition(const MarketDefinition&) = default;
+    MarketDefinition(MarketDefinition&&) = default;
+    MarketDefinition& operator=(const MarketDefinition&) = default;
+    MarketDefinition& operator=(MarketDefinition&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BU"); }
 
     MarketDefinition(

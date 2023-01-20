@@ -12,7 +12,10 @@ namespace FIX50SP1
     SecurityListUpdateReport() : Message(MsgType()) {}
     SecurityListUpdateReport(const FIX::Message& m) : Message(m) {}
     SecurityListUpdateReport(const Message& m) : Message(m) {}
-    SecurityListUpdateReport(const SecurityListUpdateReport& m) : Message(m) {}
+    SecurityListUpdateReport(const SecurityListUpdateReport&) = default;
+    SecurityListUpdateReport(SecurityListUpdateReport&&) = default;
+    SecurityListUpdateReport& operator=(const SecurityListUpdateReport&) = default;
+    SecurityListUpdateReport& operator=(SecurityListUpdateReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BK"); }
 
     FIELD_SET(*this, FIX::ApplID);

@@ -12,7 +12,10 @@ namespace FIX50SP1
     ApplicationMessageRequestAck() : Message(MsgType()) {}
     ApplicationMessageRequestAck(const FIX::Message& m) : Message(m) {}
     ApplicationMessageRequestAck(const Message& m) : Message(m) {}
-    ApplicationMessageRequestAck(const ApplicationMessageRequestAck& m) : Message(m) {}
+    ApplicationMessageRequestAck(const ApplicationMessageRequestAck&) = default;
+    ApplicationMessageRequestAck(ApplicationMessageRequestAck&&) = default;
+    ApplicationMessageRequestAck& operator=(const ApplicationMessageRequestAck&) = default;
+    ApplicationMessageRequestAck& operator=(ApplicationMessageRequestAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BX"); }
 
     ApplicationMessageRequestAck(

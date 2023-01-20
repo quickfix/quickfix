@@ -12,7 +12,10 @@ namespace FIX50SP1
     SecurityListRequest() : Message(MsgType()) {}
     SecurityListRequest(const FIX::Message& m) : Message(m) {}
     SecurityListRequest(const Message& m) : Message(m) {}
-    SecurityListRequest(const SecurityListRequest& m) : Message(m) {}
+    SecurityListRequest(const SecurityListRequest&) = default;
+    SecurityListRequest(SecurityListRequest&&) = default;
+    SecurityListRequest& operator=(const SecurityListRequest&) = default;
+    SecurityListRequest& operator=(SecurityListRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("x"); }
 
     SecurityListRequest(
