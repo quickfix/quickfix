@@ -12,7 +12,10 @@ namespace FIX40
     TestRequest() : Message(MsgType()) {}
     TestRequest(const FIX::Message& m) : Message(m) {}
     TestRequest(const Message& m) : Message(m) {}
-    TestRequest(const TestRequest& m) : Message(m) {}
+    TestRequest(const TestRequest&) = default;
+    TestRequest(TestRequest&&) = default;
+    TestRequest& operator=(const TestRequest&) = default;
+    TestRequest& operator=(TestRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("1"); }
 
     TestRequest(
