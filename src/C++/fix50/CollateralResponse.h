@@ -12,7 +12,10 @@ namespace FIX50
     CollateralResponse() : Message(MsgType()) {}
     CollateralResponse(const FIX::Message& m) : Message(m) {}
     CollateralResponse(const Message& m) : Message(m) {}
-    CollateralResponse(const CollateralResponse& m) : Message(m) {}
+    CollateralResponse(const CollateralResponse&) = default;
+    CollateralResponse(CollateralResponse&&) = default;
+    CollateralResponse& operator=(const CollateralResponse&) = default;
+    CollateralResponse& operator=(CollateralResponse&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AZ"); }
 
     CollateralResponse(

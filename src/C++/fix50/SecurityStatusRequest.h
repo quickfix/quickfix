@@ -12,7 +12,10 @@ namespace FIX50
     SecurityStatusRequest() : Message(MsgType()) {}
     SecurityStatusRequest(const FIX::Message& m) : Message(m) {}
     SecurityStatusRequest(const Message& m) : Message(m) {}
-    SecurityStatusRequest(const SecurityStatusRequest& m) : Message(m) {}
+    SecurityStatusRequest(const SecurityStatusRequest&) = default;
+    SecurityStatusRequest(SecurityStatusRequest&&) = default;
+    SecurityStatusRequest& operator=(const SecurityStatusRequest&) = default;
+    SecurityStatusRequest& operator=(SecurityStatusRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("e"); }
 
     SecurityStatusRequest(
