@@ -12,7 +12,10 @@ namespace FIX42
     ListStatus() : Message(MsgType()) {}
     ListStatus(const FIX::Message& m) : Message(m) {}
     ListStatus(const Message& m) : Message(m) {}
-    ListStatus(const ListStatus& m) : Message(m) {}
+    ListStatus(const ListStatus&) = default;
+    ListStatus(ListStatus&&) = default;
+    ListStatus& operator=(const ListStatus&) = default;
+    ListStatus& operator=(ListStatus&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("N"); }
 
     ListStatus(
