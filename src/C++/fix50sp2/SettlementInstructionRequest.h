@@ -12,7 +12,10 @@ namespace FIX50SP2
     SettlementInstructionRequest() : Message(MsgType()) {}
     SettlementInstructionRequest(const FIX::Message& m) : Message(m) {}
     SettlementInstructionRequest(const Message& m) : Message(m) {}
-    SettlementInstructionRequest(const SettlementInstructionRequest& m) : Message(m) {}
+    SettlementInstructionRequest(const SettlementInstructionRequest&) = default;
+    SettlementInstructionRequest(SettlementInstructionRequest&&) = default;
+    SettlementInstructionRequest& operator=(const SettlementInstructionRequest&) = default;
+    SettlementInstructionRequest& operator=(SettlementInstructionRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AV"); }
 
     SettlementInstructionRequest(

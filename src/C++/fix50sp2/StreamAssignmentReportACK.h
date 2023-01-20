@@ -12,7 +12,10 @@ namespace FIX50SP2
     StreamAssignmentReportACK() : Message(MsgType()) {}
     StreamAssignmentReportACK(const FIX::Message& m) : Message(m) {}
     StreamAssignmentReportACK(const Message& m) : Message(m) {}
-    StreamAssignmentReportACK(const StreamAssignmentReportACK& m) : Message(m) {}
+    StreamAssignmentReportACK(const StreamAssignmentReportACK&) = default;
+    StreamAssignmentReportACK(StreamAssignmentReportACK&&) = default;
+    StreamAssignmentReportACK& operator=(const StreamAssignmentReportACK&) = default;
+    StreamAssignmentReportACK& operator=(StreamAssignmentReportACK&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("CE"); }
 
     StreamAssignmentReportACK(

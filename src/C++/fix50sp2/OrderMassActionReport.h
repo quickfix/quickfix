@@ -12,7 +12,10 @@ namespace FIX50SP2
     OrderMassActionReport() : Message(MsgType()) {}
     OrderMassActionReport(const FIX::Message& m) : Message(m) {}
     OrderMassActionReport(const Message& m) : Message(m) {}
-    OrderMassActionReport(const OrderMassActionReport& m) : Message(m) {}
+    OrderMassActionReport(const OrderMassActionReport&) = default;
+    OrderMassActionReport(OrderMassActionReport&&) = default;
+    OrderMassActionReport& operator=(const OrderMassActionReport&) = default;
+    OrderMassActionReport& operator=(OrderMassActionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BZ"); }
 
     OrderMassActionReport(

@@ -12,7 +12,10 @@ namespace FIX50SP2
     NetworkCounterpartySystemStatusResponse() : Message(MsgType()) {}
     NetworkCounterpartySystemStatusResponse(const FIX::Message& m) : Message(m) {}
     NetworkCounterpartySystemStatusResponse(const Message& m) : Message(m) {}
-    NetworkCounterpartySystemStatusResponse(const NetworkCounterpartySystemStatusResponse& m) : Message(m) {}
+    NetworkCounterpartySystemStatusResponse(const NetworkCounterpartySystemStatusResponse&) = default;
+    NetworkCounterpartySystemStatusResponse(NetworkCounterpartySystemStatusResponse&&) = default;
+    NetworkCounterpartySystemStatusResponse& operator=(const NetworkCounterpartySystemStatusResponse&) = default;
+    NetworkCounterpartySystemStatusResponse& operator=(NetworkCounterpartySystemStatusResponse&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BD"); }
 
     NetworkCounterpartySystemStatusResponse(
