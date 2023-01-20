@@ -12,7 +12,10 @@ namespace FIX43
     MassQuote() : Message(MsgType()) {}
     MassQuote(const FIX::Message& m) : Message(m) {}
     MassQuote(const Message& m) : Message(m) {}
-    MassQuote(const MassQuote& m) : Message(m) {}
+    MassQuote(const MassQuote&) = default;
+    MassQuote(MassQuote&&) = default;
+    MassQuote& operator=(const MassQuote&) = default;
+    MassQuote& operator=(MassQuote&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("i"); }
 
     MassQuote(

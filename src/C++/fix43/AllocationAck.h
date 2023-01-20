@@ -12,7 +12,10 @@ namespace FIX43
     AllocationAck() : Message(MsgType()) {}
     AllocationAck(const FIX::Message& m) : Message(m) {}
     AllocationAck(const Message& m) : Message(m) {}
-    AllocationAck(const AllocationAck& m) : Message(m) {}
+    AllocationAck(const AllocationAck&) = default;
+    AllocationAck(AllocationAck&&) = default;
+    AllocationAck& operator=(const AllocationAck&) = default;
+    AllocationAck& operator=(AllocationAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("P"); }
 
     AllocationAck(

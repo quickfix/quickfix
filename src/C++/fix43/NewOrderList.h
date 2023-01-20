@@ -12,7 +12,10 @@ namespace FIX43
     NewOrderList() : Message(MsgType()) {}
     NewOrderList(const FIX::Message& m) : Message(m) {}
     NewOrderList(const Message& m) : Message(m) {}
-    NewOrderList(const NewOrderList& m) : Message(m) {}
+    NewOrderList(const NewOrderList&) = default;
+    NewOrderList(NewOrderList&&) = default;
+    NewOrderList& operator=(const NewOrderList&) = default;
+    NewOrderList& operator=(NewOrderList&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("E"); }
 
     NewOrderList(
