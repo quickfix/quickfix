@@ -12,7 +12,10 @@ namespace FIX50SP2
     ListStatusRequest() : Message(MsgType()) {}
     ListStatusRequest(const FIX::Message& m) : Message(m) {}
     ListStatusRequest(const Message& m) : Message(m) {}
-    ListStatusRequest(const ListStatusRequest& m) : Message(m) {}
+    ListStatusRequest(const ListStatusRequest&) = default;
+    ListStatusRequest(ListStatusRequest&&) = default;
+    ListStatusRequest& operator=(const ListStatusRequest&) = default;
+    ListStatusRequest& operator=(ListStatusRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("M"); }
 
     ListStatusRequest(

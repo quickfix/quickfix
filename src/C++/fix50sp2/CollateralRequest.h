@@ -12,7 +12,10 @@ namespace FIX50SP2
     CollateralRequest() : Message(MsgType()) {}
     CollateralRequest(const FIX::Message& m) : Message(m) {}
     CollateralRequest(const Message& m) : Message(m) {}
-    CollateralRequest(const CollateralRequest& m) : Message(m) {}
+    CollateralRequest(const CollateralRequest&) = default;
+    CollateralRequest(CollateralRequest&&) = default;
+    CollateralRequest& operator=(const CollateralRequest&) = default;
+    CollateralRequest& operator=(CollateralRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AX"); }
 
     CollateralRequest(

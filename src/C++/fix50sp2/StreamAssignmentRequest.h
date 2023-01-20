@@ -12,7 +12,10 @@ namespace FIX50SP2
     StreamAssignmentRequest() : Message(MsgType()) {}
     StreamAssignmentRequest(const FIX::Message& m) : Message(m) {}
     StreamAssignmentRequest(const Message& m) : Message(m) {}
-    StreamAssignmentRequest(const StreamAssignmentRequest& m) : Message(m) {}
+    StreamAssignmentRequest(const StreamAssignmentRequest&) = default;
+    StreamAssignmentRequest(StreamAssignmentRequest&&) = default;
+    StreamAssignmentRequest& operator=(const StreamAssignmentRequest&) = default;
+    StreamAssignmentRequest& operator=(StreamAssignmentRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("CC"); }
 
     StreamAssignmentRequest(

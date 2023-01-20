@@ -12,7 +12,10 @@ namespace FIX50SP2
     CrossOrderCancelRequest() : Message(MsgType()) {}
     CrossOrderCancelRequest(const FIX::Message& m) : Message(m) {}
     CrossOrderCancelRequest(const Message& m) : Message(m) {}
-    CrossOrderCancelRequest(const CrossOrderCancelRequest& m) : Message(m) {}
+    CrossOrderCancelRequest(const CrossOrderCancelRequest&) = default;
+    CrossOrderCancelRequest(CrossOrderCancelRequest&&) = default;
+    CrossOrderCancelRequest& operator=(const CrossOrderCancelRequest&) = default;
+    CrossOrderCancelRequest& operator=(CrossOrderCancelRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("u"); }
 
     CrossOrderCancelRequest(

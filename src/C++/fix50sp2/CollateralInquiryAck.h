@@ -12,7 +12,10 @@ namespace FIX50SP2
     CollateralInquiryAck() : Message(MsgType()) {}
     CollateralInquiryAck(const FIX::Message& m) : Message(m) {}
     CollateralInquiryAck(const Message& m) : Message(m) {}
-    CollateralInquiryAck(const CollateralInquiryAck& m) : Message(m) {}
+    CollateralInquiryAck(const CollateralInquiryAck&) = default;
+    CollateralInquiryAck(CollateralInquiryAck&&) = default;
+    CollateralInquiryAck& operator=(const CollateralInquiryAck&) = default;
+    CollateralInquiryAck& operator=(CollateralInquiryAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BG"); }
 
     CollateralInquiryAck(
