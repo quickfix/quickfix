@@ -12,7 +12,10 @@ namespace FIX44
     TradeCaptureReportRequestAck() : Message(MsgType()) {}
     TradeCaptureReportRequestAck(const FIX::Message& m) : Message(m) {}
     TradeCaptureReportRequestAck(const Message& m) : Message(m) {}
-    TradeCaptureReportRequestAck(const TradeCaptureReportRequestAck& m) : Message(m) {}
+    TradeCaptureReportRequestAck(const TradeCaptureReportRequestAck&) = default;
+    TradeCaptureReportRequestAck(TradeCaptureReportRequestAck&&) = default;
+    TradeCaptureReportRequestAck& operator=(const TradeCaptureReportRequestAck&) = default;
+    TradeCaptureReportRequestAck& operator=(TradeCaptureReportRequestAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AQ"); }
 
     TradeCaptureReportRequestAck(

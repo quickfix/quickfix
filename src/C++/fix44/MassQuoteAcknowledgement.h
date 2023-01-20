@@ -12,7 +12,10 @@ namespace FIX44
     MassQuoteAcknowledgement() : Message(MsgType()) {}
     MassQuoteAcknowledgement(const FIX::Message& m) : Message(m) {}
     MassQuoteAcknowledgement(const Message& m) : Message(m) {}
-    MassQuoteAcknowledgement(const MassQuoteAcknowledgement& m) : Message(m) {}
+    MassQuoteAcknowledgement(const MassQuoteAcknowledgement&) = default;
+    MassQuoteAcknowledgement(MassQuoteAcknowledgement&&) = default;
+    MassQuoteAcknowledgement& operator=(const MassQuoteAcknowledgement&) = default;
+    MassQuoteAcknowledgement& operator=(MassQuoteAcknowledgement&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("b"); }
 
     MassQuoteAcknowledgement(

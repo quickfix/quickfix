@@ -12,7 +12,10 @@ namespace FIX44
     XMLnonFIX() : Message(MsgType()) {}
     XMLnonFIX(const FIX::Message& m) : Message(m) {}
     XMLnonFIX(const Message& m) : Message(m) {}
-    XMLnonFIX(const XMLnonFIX& m) : Message(m) {}
+    XMLnonFIX(const XMLnonFIX&) = default;
+    XMLnonFIX(XMLnonFIX&&) = default;
+    XMLnonFIX& operator=(const XMLnonFIX&) = default;
+    XMLnonFIX& operator=(XMLnonFIX&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("n"); }
 
   };

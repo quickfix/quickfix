@@ -12,7 +12,10 @@ namespace FIX44
     ResendRequest() : Message(MsgType()) {}
     ResendRequest(const FIX::Message& m) : Message(m) {}
     ResendRequest(const Message& m) : Message(m) {}
-    ResendRequest(const ResendRequest& m) : Message(m) {}
+    ResendRequest(const ResendRequest&) = default;
+    ResendRequest(ResendRequest&&) = default;
+    ResendRequest& operator=(const ResendRequest&) = default;
+    ResendRequest& operator=(ResendRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("2"); }
 
     ResendRequest(

@@ -12,7 +12,10 @@ namespace FIX44
     AllocationReport() : Message(MsgType()) {}
     AllocationReport(const FIX::Message& m) : Message(m) {}
     AllocationReport(const Message& m) : Message(m) {}
-    AllocationReport(const AllocationReport& m) : Message(m) {}
+    AllocationReport(const AllocationReport&) = default;
+    AllocationReport(AllocationReport&&) = default;
+    AllocationReport& operator=(const AllocationReport&) = default;
+    AllocationReport& operator=(AllocationReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AS"); }
 
     AllocationReport(
