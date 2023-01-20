@@ -12,7 +12,10 @@ namespace FIX50
     PositionMaintenanceReport() : Message(MsgType()) {}
     PositionMaintenanceReport(const FIX::Message& m) : Message(m) {}
     PositionMaintenanceReport(const Message& m) : Message(m) {}
-    PositionMaintenanceReport(const PositionMaintenanceReport& m) : Message(m) {}
+    PositionMaintenanceReport(const PositionMaintenanceReport&) = default;
+    PositionMaintenanceReport(PositionMaintenanceReport&&) = default;
+    PositionMaintenanceReport& operator=(const PositionMaintenanceReport&) = default;
+    PositionMaintenanceReport& operator=(PositionMaintenanceReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AM"); }
 
     PositionMaintenanceReport(

@@ -12,7 +12,10 @@ namespace FIX50
     ListExecute() : Message(MsgType()) {}
     ListExecute(const FIX::Message& m) : Message(m) {}
     ListExecute(const Message& m) : Message(m) {}
-    ListExecute(const ListExecute& m) : Message(m) {}
+    ListExecute(const ListExecute&) = default;
+    ListExecute(ListExecute&&) = default;
+    ListExecute& operator=(const ListExecute&) = default;
+    ListExecute& operator=(ListExecute&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("L"); }
 
     ListExecute(

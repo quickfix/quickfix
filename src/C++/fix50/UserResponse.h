@@ -12,7 +12,10 @@ namespace FIX50
     UserResponse() : Message(MsgType()) {}
     UserResponse(const FIX::Message& m) : Message(m) {}
     UserResponse(const Message& m) : Message(m) {}
-    UserResponse(const UserResponse& m) : Message(m) {}
+    UserResponse(const UserResponse&) = default;
+    UserResponse(UserResponse&&) = default;
+    UserResponse& operator=(const UserResponse&) = default;
+    UserResponse& operator=(UserResponse&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BF"); }
 
     UserResponse(

@@ -12,7 +12,10 @@ namespace FIX50
     TradeCaptureReportAck() : Message(MsgType()) {}
     TradeCaptureReportAck(const FIX::Message& m) : Message(m) {}
     TradeCaptureReportAck(const Message& m) : Message(m) {}
-    TradeCaptureReportAck(const TradeCaptureReportAck& m) : Message(m) {}
+    TradeCaptureReportAck(const TradeCaptureReportAck&) = default;
+    TradeCaptureReportAck(TradeCaptureReportAck&&) = default;
+    TradeCaptureReportAck& operator=(const TradeCaptureReportAck&) = default;
+    TradeCaptureReportAck& operator=(TradeCaptureReportAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AR"); }
 
     FIELD_SET(*this, FIX::TradeReportID);
