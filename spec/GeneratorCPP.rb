@@ -87,7 +87,10 @@ class GeneratorCPP
     end
     @f.puts
     @f.puts "Message(const FIX::Message& m) : FIX::Message(m) {}"
-    @f.puts "Message(const Message& m) : FIX::Message(m) {}"
+    @f.puts "Message(const Message& m) = default;"
+    @f.puts "Message(Message&& m) = default;"
+    @f.puts "Message& operator=(Message&&) = default;"
+    @f.puts "Message& operator=(const Message&) = default;"
     @f.puts "Header& getHeader() { return (Header&)m_header; }"
     @f.puts "const Header& getHeader() const { return (Header&)m_header; }"
     @f.puts "Trailer& getTrailer() { return (Trailer&)m_trailer; }"
@@ -135,7 +138,10 @@ class GeneratorCPP
     @f.puts name + "() : Message(MsgType()) {}"
     @f.puts name + "(const FIX::Message& m) : Message(m) {}"
     @f.puts name + "(const Message& m) : Message(m) {}"
-    @f.puts name + "(const #{name}& m) : Message(m) {}"
+    @f.puts name + "(const #{name}&) = default;"
+    @f.puts name + "(#{name}&&) = default;"
+    @f.puts name + "& operator=(const #{name}&) = default;"
+    @f.puts name + "& operator=(#{name}&&) = default;"
     @f.puts "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
 
     if( required.size > 0 )
