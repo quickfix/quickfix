@@ -12,7 +12,10 @@ namespace FIX41
     Quote() : Message(MsgType()) {}
     Quote(const FIX::Message& m) : Message(m) {}
     Quote(const Message& m) : Message(m) {}
-    Quote(const Quote& m) : Message(m) {}
+    Quote(const Quote&) = default;
+    Quote(Quote&&) = default;
+    Quote& operator=(const Quote&) = default;
+    Quote& operator=(Quote&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("S"); }
 
     Quote(
