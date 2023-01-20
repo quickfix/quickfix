@@ -12,7 +12,10 @@ namespace FIX42
     ListStrikePrice() : Message(MsgType()) {}
     ListStrikePrice(const FIX::Message& m) : Message(m) {}
     ListStrikePrice(const Message& m) : Message(m) {}
-    ListStrikePrice(const ListStrikePrice& m) : Message(m) {}
+    ListStrikePrice(const ListStrikePrice&) = default;
+    ListStrikePrice(ListStrikePrice&&) = default;
+    ListStrikePrice& operator=(const ListStrikePrice&) = default;
+    ListStrikePrice& operator=(ListStrikePrice&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("m"); }
 
     ListStrikePrice(
