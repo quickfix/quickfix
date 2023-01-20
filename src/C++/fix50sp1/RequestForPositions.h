@@ -12,7 +12,10 @@ namespace FIX50SP1
     RequestForPositions() : Message(MsgType()) {}
     RequestForPositions(const FIX::Message& m) : Message(m) {}
     RequestForPositions(const Message& m) : Message(m) {}
-    RequestForPositions(const RequestForPositions& m) : Message(m) {}
+    RequestForPositions(const RequestForPositions&) = default;
+    RequestForPositions(RequestForPositions&&) = default;
+    RequestForPositions& operator=(const RequestForPositions&) = default;
+    RequestForPositions& operator=(RequestForPositions&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AN"); }
 
     RequestForPositions(

@@ -12,7 +12,10 @@ namespace FIX50SP1
     Email() : Message(MsgType()) {}
     Email(const FIX::Message& m) : Message(m) {}
     Email(const Message& m) : Message(m) {}
-    Email(const Email& m) : Message(m) {}
+    Email(const Email&) = default;
+    Email(Email&&) = default;
+    Email& operator=(const Email&) = default;
+    Email& operator=(Email&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("C"); }
 
     Email(

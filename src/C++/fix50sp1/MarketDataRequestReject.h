@@ -12,7 +12,10 @@ namespace FIX50SP1
     MarketDataRequestReject() : Message(MsgType()) {}
     MarketDataRequestReject(const FIX::Message& m) : Message(m) {}
     MarketDataRequestReject(const Message& m) : Message(m) {}
-    MarketDataRequestReject(const MarketDataRequestReject& m) : Message(m) {}
+    MarketDataRequestReject(const MarketDataRequestReject&) = default;
+    MarketDataRequestReject(MarketDataRequestReject&&) = default;
+    MarketDataRequestReject& operator=(const MarketDataRequestReject&) = default;
+    MarketDataRequestReject& operator=(MarketDataRequestReject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("Y"); }
 
     MarketDataRequestReject(

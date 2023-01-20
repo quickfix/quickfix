@@ -12,7 +12,10 @@ namespace FIX50SP1
     ContraryIntentionReport() : Message(MsgType()) {}
     ContraryIntentionReport(const FIX::Message& m) : Message(m) {}
     ContraryIntentionReport(const Message& m) : Message(m) {}
-    ContraryIntentionReport(const ContraryIntentionReport& m) : Message(m) {}
+    ContraryIntentionReport(const ContraryIntentionReport&) = default;
+    ContraryIntentionReport(ContraryIntentionReport&&) = default;
+    ContraryIntentionReport& operator=(const ContraryIntentionReport&) = default;
+    ContraryIntentionReport& operator=(ContraryIntentionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BO"); }
 
     ContraryIntentionReport(

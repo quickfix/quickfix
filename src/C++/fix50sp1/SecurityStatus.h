@@ -12,7 +12,10 @@ namespace FIX50SP1
     SecurityStatus() : Message(MsgType()) {}
     SecurityStatus(const FIX::Message& m) : Message(m) {}
     SecurityStatus(const Message& m) : Message(m) {}
-    SecurityStatus(const SecurityStatus& m) : Message(m) {}
+    SecurityStatus(const SecurityStatus&) = default;
+    SecurityStatus(SecurityStatus&&) = default;
+    SecurityStatus& operator=(const SecurityStatus&) = default;
+    SecurityStatus& operator=(SecurityStatus&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("f"); }
 
     FIELD_SET(*this, FIX::ApplID);

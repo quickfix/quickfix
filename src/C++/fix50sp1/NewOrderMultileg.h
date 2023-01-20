@@ -12,7 +12,10 @@ namespace FIX50SP1
     NewOrderMultileg() : Message(MsgType()) {}
     NewOrderMultileg(const FIX::Message& m) : Message(m) {}
     NewOrderMultileg(const Message& m) : Message(m) {}
-    NewOrderMultileg(const NewOrderMultileg& m) : Message(m) {}
+    NewOrderMultileg(const NewOrderMultileg&) = default;
+    NewOrderMultileg(NewOrderMultileg&&) = default;
+    NewOrderMultileg& operator=(const NewOrderMultileg&) = default;
+    NewOrderMultileg& operator=(NewOrderMultileg&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AB"); }
 
     NewOrderMultileg(

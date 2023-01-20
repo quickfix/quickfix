@@ -12,7 +12,10 @@ namespace FIX50SP1
     OrderMassCancelReport() : Message(MsgType()) {}
     OrderMassCancelReport(const FIX::Message& m) : Message(m) {}
     OrderMassCancelReport(const Message& m) : Message(m) {}
-    OrderMassCancelReport(const OrderMassCancelReport& m) : Message(m) {}
+    OrderMassCancelReport(const OrderMassCancelReport&) = default;
+    OrderMassCancelReport(OrderMassCancelReport&&) = default;
+    OrderMassCancelReport& operator=(const OrderMassCancelReport&) = default;
+    OrderMassCancelReport& operator=(OrderMassCancelReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("r"); }
 
     OrderMassCancelReport(

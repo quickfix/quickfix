@@ -12,7 +12,10 @@ namespace FIX50SP1
     SecurityDefinitionUpdateReport() : Message(MsgType()) {}
     SecurityDefinitionUpdateReport(const FIX::Message& m) : Message(m) {}
     SecurityDefinitionUpdateReport(const Message& m) : Message(m) {}
-    SecurityDefinitionUpdateReport(const SecurityDefinitionUpdateReport& m) : Message(m) {}
+    SecurityDefinitionUpdateReport(const SecurityDefinitionUpdateReport&) = default;
+    SecurityDefinitionUpdateReport(SecurityDefinitionUpdateReport&&) = default;
+    SecurityDefinitionUpdateReport& operator=(const SecurityDefinitionUpdateReport&) = default;
+    SecurityDefinitionUpdateReport& operator=(SecurityDefinitionUpdateReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BP"); }
 
     FIELD_SET(*this, FIX::ApplID);

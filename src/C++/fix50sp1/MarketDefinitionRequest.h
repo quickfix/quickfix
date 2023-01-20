@@ -12,7 +12,10 @@ namespace FIX50SP1
     MarketDefinitionRequest() : Message(MsgType()) {}
     MarketDefinitionRequest(const FIX::Message& m) : Message(m) {}
     MarketDefinitionRequest(const Message& m) : Message(m) {}
-    MarketDefinitionRequest(const MarketDefinitionRequest& m) : Message(m) {}
+    MarketDefinitionRequest(const MarketDefinitionRequest&) = default;
+    MarketDefinitionRequest(MarketDefinitionRequest&&) = default;
+    MarketDefinitionRequest& operator=(const MarketDefinitionRequest&) = default;
+    MarketDefinitionRequest& operator=(MarketDefinitionRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BT"); }
 
     MarketDefinitionRequest(
