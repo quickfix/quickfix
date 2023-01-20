@@ -12,7 +12,10 @@ namespace FIX44
     Confirmation() : Message(MsgType()) {}
     Confirmation(const FIX::Message& m) : Message(m) {}
     Confirmation(const Message& m) : Message(m) {}
-    Confirmation(const Confirmation& m) : Message(m) {}
+    Confirmation(const Confirmation&) = default;
+    Confirmation(Confirmation&&) = default;
+    Confirmation& operator=(const Confirmation&) = default;
+    Confirmation& operator=(Confirmation&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AK"); }
 
     Confirmation(

@@ -12,7 +12,10 @@ namespace FIX44
     NewOrderCross() : Message(MsgType()) {}
     NewOrderCross(const FIX::Message& m) : Message(m) {}
     NewOrderCross(const Message& m) : Message(m) {}
-    NewOrderCross(const NewOrderCross& m) : Message(m) {}
+    NewOrderCross(const NewOrderCross&) = default;
+    NewOrderCross(NewOrderCross&&) = default;
+    NewOrderCross& operator=(const NewOrderCross&) = default;
+    NewOrderCross& operator=(NewOrderCross&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("s"); }
 
     NewOrderCross(
