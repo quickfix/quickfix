@@ -16,9 +16,6 @@ namespace FIX42
     SequenceReset(SequenceReset&&) = default;
     SequenceReset& operator=(const SequenceReset&) = default;
     SequenceReset& operator=(SequenceReset&&) = default;
-    SequenceReset(SequenceReset&&) = default;
-    SequenceReset& operator=(const SequenceReset&) = default;
-    SequenceReset& operator=(SequenceReset&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("4"); }
 
     SequenceReset(

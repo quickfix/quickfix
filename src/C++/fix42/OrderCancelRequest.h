@@ -16,9 +16,6 @@ namespace FIX42
     OrderCancelRequest(OrderCancelRequest&&) = default;
     OrderCancelRequest& operator=(const OrderCancelRequest&) = default;
     OrderCancelRequest& operator=(OrderCancelRequest&&) = default;
-    OrderCancelRequest(OrderCancelRequest&&) = default;
-    OrderCancelRequest& operator=(const OrderCancelRequest&) = default;
-    OrderCancelRequest& operator=(OrderCancelRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("F"); }
 
     OrderCancelRequest(
