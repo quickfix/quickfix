@@ -27,6 +27,7 @@ src/Posix/TimeHelpers.cpp)
 endif()
 
 add_library(UnitTest++ STATIC  ${UnitTest++_SOURCES})
+target_compile_definitions(UnitTest++ PRIVATE _CRT_SECURE_NO_WARNINGS)
 
 set (TestUnitTest++_SOURCES
 src/tests/Main.cpp
@@ -50,4 +51,4 @@ src/tests/TestXmlTestReporter.cpp)
 add_executable(TestUnitTest++ ${TestUnitTest++_SOURCES})
 
 target_link_libraries(TestUnitTest++ UnitTest++)
-
+target_compile_definitions(TestUnitTest++ PRIVATE _CRT_SECURE_NO_WARNINGS)

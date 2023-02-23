@@ -461,4 +461,12 @@ int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize
 }
 }
 
+#else //(HAVE_SSL > 0)
+
+namespace FIX
+{
+	int ThreadedSSLSocketInitiatorWarningSilencer = 0;
+
+} //namespace FIX
+
 #endif

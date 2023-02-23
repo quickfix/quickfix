@@ -143,6 +143,21 @@ typedef int socket_handle;
   namespace ptr = std;
 #endif
 
+/// Workaround missing std::to_string in C++03 and less 
+#if ((__cplusplus <= 199711L) || (defined(_MSC_VER) && (_MSC_VER < 1600)))
+#include <sstream>
+namespace std
+{
+  template <class T>
+  static inline string to_string(T const & t)
+  {
+    stringstream ss;
+    ss << t;
+    return ss.str();
+  }
+}
+#endif
+
 namespace FIX
 {
 void string_replace( const std::string& oldValue,
@@ -189,19 +204,16 @@ std::pair<socket_handle, socket_handle> socket_createpair();
 tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t );
 
-#if(_MSC_VER >= 1900)
-typedef _beginthreadex_proc_type THREAD_START_ROUTINE;
-#define THREAD_PROC unsigned int _stdcall
-#elif(_MSC_VER > 0)
-typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
-#define  THREAD_PROC unsigned int _stdcall
+#if(_MSC_VER > 0)
+typedef LPTHREAD_START_ROUTINE THREAD_START_ROUTINE;
+#define THREAD_PROC DWORD WINAPI
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *
 #endif
 
 #ifdef _MSC_VER
-typedef unsigned thread_id;
+typedef HANDLE thread_id;
 #else
 typedef pthread_t thread_id;
 #endif

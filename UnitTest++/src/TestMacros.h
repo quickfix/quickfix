@@ -109,7 +109,7 @@
 
 #define TEST_FIXTURE(Fixture,Name) TEST_FIXTURE_EX(Fixture, Name, UnitTest::Test::GetTestList())
 
-#if __cplusplus >= 201103L
+#if __cplusplus >= 201103L || (defined(_MSC_VER) && (_MSC_VER >= 1900))
 #define NOEXCEPT_FALSE noexcept(false)
 #else
 #define NOEXCEPT_FALSE

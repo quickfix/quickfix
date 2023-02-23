@@ -335,4 +335,12 @@ void OdbcStore::refresh() EXCEPT ( IOException )
 
 }
 
+#else //HAVE_ODBC
+
+namespace FIX
+{ 
+	int OdbcStoreWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif

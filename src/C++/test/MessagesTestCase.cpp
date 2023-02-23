@@ -1442,7 +1442,7 @@ TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException)
       + "34=1"          + delimSOH
       + "98=0"          + delimSOH
       + "108=30"        + delimSOH
-      + "89=200"        + delimSOH; // Signature
+      + "89=200"        + delimSOH // Signature
       + "10=200"        + delimSOH;
 
   CHECK_THROW(msg.setString(rawFixMsg, false, &dictionary, &dictionary), InvalidMessage);

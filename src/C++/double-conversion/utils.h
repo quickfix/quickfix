@@ -61,7 +61,7 @@
 // disabled.)
 // On Linux,x86 89255e-22 != Div_double(89255.0/1e22)
 #if defined(_M_X64) || defined(__x86_64__) || \
-    defined(__ARMEL__) || defined(__avr32__) || \
+    defined(__ARMEL__) || defined(__avr32__) || defined(_M_ARM) || \
     defined(__hppa__) || defined(__ia64__) || \
     defined(__mips__) || \
     defined(__powerpc__) || defined(__ppc__) || defined(__ppc64__) || \
@@ -69,7 +69,7 @@
     defined(__sparc__) || defined(__sparc) || defined(__s390__) || \
     defined(__SH4__) || defined(__alpha__) || \
     defined(_MIPS_ARCH_MIPS32R2) || \
-    defined(__AARCH64EL__) || defined(__aarch64__)
+    defined(__AARCH64EL__) || defined(__aarch64__) || defined(_M_ARM64)
 #define DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS 1
 #elif defined(__mc68000__)
 #undef DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS

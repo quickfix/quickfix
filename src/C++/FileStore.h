@@ -100,11 +100,7 @@ public:
   void refresh() EXCEPT ( IOException );
 
 private:
-#ifdef _MSC_VER
-  typedef std::pair < int, int > OffsetSize;
-#else
   typedef std::pair < long, std::size_t > OffsetSize;
-#endif
   typedef std::map < int, OffsetSize > NumToOffset;
 
   void open( bool deleteFile );

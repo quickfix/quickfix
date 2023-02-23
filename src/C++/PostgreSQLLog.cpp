@@ -273,4 +273,12 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
 
 } // namespace FIX
 
+#else //HAVE_POSTGRESQL
+
+namespace FIX
+{ 
+	int PostgreSQLLogWarningSilencer = 0; 
+
+} //namespace FIX
+
 #endif //HAVE_POSTGRESQL

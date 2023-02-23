@@ -3,6 +3,7 @@ add_subdirectory(C++)
 if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
 
 add_executable(at at.cpp getopt.c)
+target_compile_definitions(at PRIVATE _WINSOCK_DEPRECATED_NO_WARNINGS)
 
 target_include_directories(at PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
@@ -57,6 +58,7 @@ ${CMAKE_SOURCE_DIR}/src/C++/test/UtcTimeStampTestCase.cpp)
 endif()
 
 add_executable(ut ut.cpp getopt.c ${ut_SOURCES})
+target_compile_definitions(ut PRIVATE _WINSOCK_DEPRECATED_NO_WARNINGS)
 
 target_include_directories(ut PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src ${CMAKE_SOURCE_DIR}/src/C++/test/)
@@ -74,6 +76,7 @@ set_target_properties(ut PROPERTIES
 endif()  
 
 add_executable(pt pt.cpp getopt.c)
+target_compile_definitions(pt PRIVATE _WINSOCK_DEPRECATED_NO_WARNINGS)
 
 target_include_directories(pt PRIVATE ${CMAKE_SOURCE_DIR} 
   ${CMAKE_SOURCE_DIR}/src/C++ ${CMAKE_SOURCE_DIR}/UnitTest++/src)
