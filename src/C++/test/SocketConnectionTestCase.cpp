@@ -108,7 +108,7 @@ SUITE(SocketConnectionTests)
 
   class TestSocketInitiator : public SocketInitiator {
   public:
-    TestSocketInitiator(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session) :
+    TestSocketInitiator(Application& app, MessageStoreFactory& factory, SessionSettings& settings, Session* session) :
       SocketInitiator(app, factory, settings), pSession(session){    };
 
     virtual ~TestSocketInitiator(){};
@@ -123,7 +123,7 @@ SUITE(SocketConnectionTests)
 
   class TestSocketAcceptor : public SocketAcceptor {
   public:
-    TestSocketAcceptor(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session, LogFactory& log) :
+    TestSocketAcceptor(Application& app, MessageStoreFactory& factory, SessionSettings& settings, Session* session, LogFactory& log) :
       SocketAcceptor(app, factory, settings, log), pSession(session){    };
 
     virtual ~TestSocketAcceptor(){};

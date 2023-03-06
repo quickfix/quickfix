@@ -39869,6 +39869,9 @@ class Initiator(_object):
     def isStopped(self):
         return _quickfix.Initiator_isStopped(self)
 
+    def createSession(self, sessionID, dictionary):
+        return _quickfix.Initiator_createSession(self, sessionID, dictionary)
+
     def getApplication(self):
         return _quickfix.Initiator_getApplication(self)
 
@@ -39940,6 +39943,9 @@ class Acceptor(_object):
 
     def getSessionSettings(self, sessionID):
         return _quickfix.Acceptor_getSessionSettings(self, sessionID)
+
+    def createSession(self, sessionID, dictionary):
+        return _quickfix.Acceptor_createSession(self, sessionID, dictionary)
 
     def has(self, id):
         return _quickfix.Acceptor_has(self, id)
@@ -40140,7 +40146,7 @@ def _quickfix_start_thread(i_or_a):
 class SocketInitiator(SocketInitiatorBase):
   application = 0
   storeFactory = 0
-  setting = 0
+  settings = 0
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):
@@ -40157,7 +40163,7 @@ class SocketInitiator(SocketInitiatorBase):
 class SocketAcceptor(SocketAcceptorBase):
   application = 0
   storeFactory = 0
-  setting = 0
+  settings = 0
   logFactory = 0
 
   def __init__(self, application, storeFactory, settings, logFactory=None):

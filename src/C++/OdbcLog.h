@@ -86,7 +86,7 @@ public:
   static const std::string DEFAULT_CONNECTION_STRING;
 
   OdbcLogFactory( const SessionSettings& settings )
-  : m_settings( settings ), m_useSettings( true ) {}
+  : m_pSettings( &settings ) {}
 
   OdbcLogFactory( const std::string& user, const std::string& password, 
                   const std::string& connectionString );
@@ -105,11 +105,10 @@ private:
 
   void initLog( const Dictionary& settings, OdbcLog& log );
 
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
   std::string m_user;
   std::string m_password;
   std::string m_connectionString;
-  bool m_useSettings;
 };
 }
 

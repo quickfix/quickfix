@@ -101,10 +101,14 @@ Log* PostgreSQLLogFactory::create()
   std::string host;
   short port;
 
-  init( m_settings.get(), database, user, password, host, port );
+  Dictionary settings;
+  if( m_pSettings != NULL )
+    settings = m_pSettings->get();
+
+  init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
   PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
-  initLog( m_settings.get(), *result );
+  initLog( settings, *result );
   return result;
 }
 
@@ -117,8 +121,8 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
   short port;
 
   Dictionary settings;
-  if( m_settings.has(s) ) 
-    settings = m_settings.get( s );
+  if( m_pSettings != NULL && m_pSettings->has( s ) ) 
+    settings = m_pSettings->get( s );
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
@@ -140,7 +144,7 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
   host = DEFAULT_HOST;
   port = DEFAULT_PORT;
 
-  if( m_useSettings )
+  if( m_pSettings != NULL )
   {
     try { database = settings.getString( POSTGRESQL_LOG_DATABASE ); }
     catch( ConfigError& ) {}

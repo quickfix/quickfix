@@ -31,18 +31,18 @@ namespace FIX
 {
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
-                                  const SessionSettings& settings )
+                                  SessionSettings& settings )
 EXCEPT ( ConfigError )
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
-  m_rcvBufSize( 0 ) 
+  m_rcvBufSize( 0 )
 {
 }
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
-                                  const SessionSettings& settings,
+                                  SessionSettings& settings,
                                   LogFactory& logFactory )
 EXCEPT ( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
@@ -148,7 +148,7 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     socket_handle result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize, sourceAddress, sourcePort );
     setPending( s );
 
-    m_pendingConnections[ result ] 
+    m_pendingConnections[ result ]
       = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
   }
   catch ( std::exception& ) {}
@@ -159,7 +159,7 @@ void SocketInitiator::onConnect( SocketConnector&, socket_handle s )
   SocketConnections::iterator i = m_pendingConnections.find( s );
   if( i == m_pendingConnections.end() ) return;
   SocketConnection* pSocketConnection = i->second;
-  
+
   m_connections[s] = pSocketConnection;
   m_pendingConnections.erase( i );
   setConnected( pSocketConnection->getSession()->getSessionID() );
@@ -189,7 +189,7 @@ void SocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
   SocketConnections::iterator j = m_pendingConnections.find( s );
 
   SocketConnection* pSocketConnection = 0;
-  if( i != m_connections.end() ) 
+  if( i != m_connections.end() )
     pSocketConnection = i->second;
   if( j != m_pendingConnections.end() )
     pSocketConnection = j->second;

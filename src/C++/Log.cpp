@@ -32,15 +32,18 @@ Mutex ScreenLog::s_mutex;
 Log* ScreenLogFactory::create()
 {
   bool incoming, outgoing, event;
-  init( m_settings.get(), incoming, outgoing, event );
+  Dictionary settings;
+  if( m_pSettings != NULL )
+    settings = m_pSettings->get();
+  init( settings, incoming, outgoing, event );
   return new ScreenLog( incoming, outgoing, event );
 }
 
 Log* ScreenLogFactory::create( const SessionID& sessionID )
 {
   Dictionary settings;
-  if( m_settings.has(sessionID) ) 
-    settings = m_settings.get( sessionID );
+  if( m_pSettings != NULL && m_pSettings->has(sessionID) ) 
+    settings = m_pSettings->get( sessionID );
 
   bool incoming, outgoing, event;
   init( settings, incoming, outgoing, event );
@@ -49,7 +52,7 @@ Log* ScreenLogFactory::create( const SessionID& sessionID )
 
 void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event )
 {  
-  if( m_useSettings )
+  if( m_pSettings != NULL )
   {
     incoming = true;
     outgoing = true;

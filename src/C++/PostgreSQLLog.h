@@ -91,7 +91,7 @@ public:
   static const short DEFAULT_PORT;
 
   PostgreSQLLogFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ) 
+: m_pSettings( &settings )
   {
     bool poolConnections = false;
     try { poolConnections = settings.get().getBool(POSTGRESQL_LOG_USECONNECTIONPOOL); }
@@ -104,16 +104,15 @@ public:
   PostgreSQLLogFactory( const std::string& database, const std::string& user,
                         const std::string& password, const std::string& host,
                         short port )
-: m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ) 
+: m_pSettings( NULL ), m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
   }
 
   PostgreSQLLogFactory()
-: m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) 
+: m_pSettings( NULL ), m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT )
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
@@ -130,13 +129,12 @@ private:
   void initLog( const Dictionary& settings, PostgreSQLLog& log );
 
   PostgreSQLConnectionPoolPtr m_connectionPoolPtr;
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
   std::string m_database;
   std::string m_user;
   std::string m_password;
   std::string m_host;
   short m_port;
-  bool m_useSettings;
 };
 }
 

@@ -135,9 +135,9 @@ class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy
   friend class SSLSocketConnection;
 public:
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings& ) EXCEPT ( ConfigError );
+                     SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                     SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketAcceptor();
 
@@ -167,6 +167,8 @@ private:
   void onDisconnect( SocketServer&, socket_handle);
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
+  void doAccept( const SessionID& sessionID, const Dictionary& settings )
+  throw ( RuntimeError );
 
   SocketServer* m_pServer;
   PortToSessions m_portToSessions;

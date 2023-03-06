@@ -40,15 +40,15 @@ class FileStoreFactory : public MessageStoreFactory
 {
 public:
   FileStoreFactory( const SessionSettings& settings )
-: m_settings( settings ) {};
+: m_pSettings( &settings ) {};
   FileStoreFactory( const std::string& path )
-: m_path( path ) {};
+: m_path( path ), m_pSettings( NULL ) {};
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
 private:
   std::string m_path;
-  SessionSettings m_settings;
+  const SessionSettings* m_pSettings;
 };
 /*! @} */
 

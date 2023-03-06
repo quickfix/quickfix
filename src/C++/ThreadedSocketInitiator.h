@@ -40,9 +40,9 @@ class ThreadedSocketInitiator : public Initiator
 {
 public:
   ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings& ) EXCEPT ( ConfigError );
+                           SessionSettings& ) EXCEPT ( ConfigError );
   ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings&,
+                           SessionSettings&,
                            LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~ThreadedSocketInitiator();
@@ -68,7 +68,6 @@ private:
 
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
-  SessionSettings m_settings;
   SessionToHostNum m_sessionToHostNum;
   time_t m_lastConnect;
   int m_reconnectInterval;

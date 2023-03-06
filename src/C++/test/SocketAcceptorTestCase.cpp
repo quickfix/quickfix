@@ -26,6 +26,8 @@
 
 #include <UnitTest++.h>
 #include <SocketAcceptor.h>
+#include <SessionID.h>
+#include <Dictionary.h>
 #include <Utility.h>
 #include <fix42/Logon.h>
 #include <sstream>
@@ -82,6 +84,48 @@ struct receivePartialMessageFixture
   socket_handle s;
 };
 
+struct createDynamicSessionFixture
+{
+  createDynamicSessionFixture()
+  {
+    std::string input =
+      "[DEFAULT]\n"
+      "BeginString=FIX.4.2\n"
+      "ConnectionType=acceptor\n"
+      "SocketAcceptPort=5050\n"
+      "SocketReuseAddress=Y\n"
+      "SendBufferSize=1024\n"
+      "ReceiveBufferSize=1024\n"
+      "StartTime=00:00:00\n"
+      "EndTime=00:00:00\n"
+      "UseDataDictionary=N\n"
+      "CheckLatency=N\n"
+      "[SESSION]\n"
+      "SenderCompID=ISLD\n"
+      "TargetCompID=TW\n";
+    std::stringstream stream( input );
+    stream >> settings;
+
+    object = new SocketAcceptor( application, factory, settings );
+    object->poll();
+    s = createSocket( 5050, "127.0.0.1" );
+    object->poll();
+  }
+
+  ~createDynamicSessionFixture()
+  {
+    object->stop( true );
+    delete object;
+    destroySocket( s );
+  }
+
+  TestApplication application;
+  MemoryStoreFactory factory;
+  SessionSettings settings;
+  SocketAcceptor* object;
+  int s;
+};
+
 TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
 {
   std::string firstPart = "8=FIX.4.29=28235=834=2369=31450"
@@ -114,5 +158,20 @@ TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
   object->poll();
   CHECK( socket_send( s, secondPart.c_str(), (int)strlen(secondPart.c_str()) ) );
   object->poll();
+}
+
+TEST_FIXTURE(createDynamicSessionFixture, createDynamicSession)
+{
+  std::string beginString = "FIX.4.2";
+  std::string senderCompID = "DynamicISLD";
+  std::string targetCompID = "DynamicTW";
+  SessionID sessionID( beginString, senderCompID, targetCompID );
+  Dictionary sessionDict = Dictionary( settings.get() );
+  object->createSession( sessionID, sessionDict );
+
+  unsigned expectedSessions = 2;
+  CHECK_EQUAL( expectedSessions, object->getSessions().size() );
+  Session* session = object->getSession( sessionID );
+  CHECK( session );
 }
 }

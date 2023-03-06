@@ -130,8 +130,8 @@ void OdbcStore::populateCache()
 
 MessageStore* OdbcStoreFactory::create( const SessionID& s )
 {
-  if( m_useSettings )
-    return create( s, m_settings.get(s) );
+  if( m_pSettings != NULL )
+    return create( s, m_pSettings->get(s) );
   else if( m_useDictionary )
     return create( s, m_dictionary );
   else

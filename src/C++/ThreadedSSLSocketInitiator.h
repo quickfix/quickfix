@@ -137,9 +137,9 @@ class ThreadedSSLSocketInitiator : public Initiator
 {
 public:
   ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
-                             const SessionSettings &) EXCEPT (ConfigError);
+                             SessionSettings &) EXCEPT (ConfigError);
   ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
-                             const SessionSettings &,
+                             SessionSettings &,
                              LogFactory &) EXCEPT (ConfigError);
 
   virtual ~ThreadedSSLSocketInitiator();
