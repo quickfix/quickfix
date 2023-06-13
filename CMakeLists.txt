@@ -32,6 +32,9 @@ option(HAVE_PYTHON "Build with default Python version")
 option(HAVE_PYTHON2 "Build with default Python2 version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
+# add option to build shared or static
+option(QUICKFIX_SHARED_LIBS "Build using shared libraries" ON)
+
 #Make sure that a previous config.h has not undefined HAVE_SSL
 if(HAVE_SSL)
 # Can set location explicitly, example, cmake -DOPENSSL_ROOT_DIR=/usr/local/ssl -DOPENSSL_LIBRARIES=/usr/local/ssl/lib
