@@ -34,6 +34,9 @@ option(HAVE_PYTHON3 "Build with default Python3 version")
 
 # add option to build shared or static
 option(QUICKFIX_SHARED_LIBS "Build using shared libraries" ON)
+# add option to build other targets
+option(QUICKFIX_EXAMPLES "Build quickfix examples" ON)
+option(QUICKFIX_TESTS "Build quickfix tests" ON)
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
 if(HAVE_SSL)
@@ -96,14 +99,20 @@ elseif (HAVE_PYTHON3)
   include_directories(${PYTHON_INCLUDE_DIRS})
 endif ()
 
-if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
-add_subdirectory(UnitTest++)
+add_subdirectory(src)
+
+if (QUICKFIX_EXAMPLES)
+  add_subdirectory(examples)
 endif()
 
-add_subdirectory(src)
-add_subdirectory(examples)
-if( WIN32)
-add_subdirectory(test)
+if (QUICKFIX_TESTS)
+  if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
+    add_subdirectory(UnitTest++)
+  endif()
+  
+  if( WIN32)
+    add_subdirectory(test)
+  endif()
 endif()
 
 configure_file(cmake_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/src/C++/config.h @ONLY)
