@@ -734,6 +734,9 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
     case EVP_PKEY_DSA:
       t = SSL_ALGO_DSA;
       break;
+    case EVP_PKEY_EC:
+      t = SSL_ALGO_EC;
+      break;
     default:
       break;
     }
@@ -1331,6 +1334,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     }
     break;
 
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client certificate");
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
+    {
+      errStr.assign("Unable to configure EC client certificate");
+      return false;
+    }
+    break;
+
   default:
     errStr.assign("Unable to configure client certificate");
     return false;
@@ -1372,6 +1384,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
     {
       errStr.assign("Unable to configure DSA server private key");
+      return false;
+    }
+    break;
+    
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client private key");
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
+    {
+      errStr.assign("Unable to configure EC server private key");
       return false;
     }
     break;
