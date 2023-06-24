@@ -355,21 +355,6 @@ EXCEPT ( InvalidMessage )
         if ( isAdminMsgType( msg ) )
         {
           pApplicationDataDictionary = pSessionDataDictionary;
-#ifdef HAVE_EMX
-          m_subMsgType.assign(msg);
-        }
-        else
-        {
-          std::string::size_type equalSign = string.find("\0019426=", pos);
-          if (equalSign == std::string::npos)
-            throw InvalidMessage("EMX message type (9426) not found");
-
-          equalSign += 6;
-          std::string::size_type soh = string.find_first_of('\001', equalSign);
-          if (soh == std::string::npos)
-            throw InvalidMessage("EMX message type (9426) soh char not found");
-          m_subMsgType.assign(string.substr(equalSign, soh - equalSign ));
-#endif
         }
       }
 
@@ -398,11 +383,7 @@ EXCEPT ( InvalidMessage )
       appendField( field );
 
       if ( pApplicationDataDictionary )
-#ifdef HAVE_EMX
-        setGroup(m_subMsgType, field, string, pos, *this, *pApplicationDataDictionary);
-#else
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
-#endif
     }
   }
 

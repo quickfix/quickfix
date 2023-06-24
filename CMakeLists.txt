@@ -1,13 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-option(HAVE_EMX "Build with EMX")
-
-if(HAVE_EMX)
-  message("-- Building with EMX")
-  set (quickfix_PROJECT_NAME quickfix-emx)
-else()
-  set (quickfix_PROJECT_NAME quickfix)
-endif()
+set (quickfix_PROJECT_NAME quickfix)
 
 project(${quickfix_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX C)
 message("-- Project name ${CMAKE_PROJECT_NAME}")
