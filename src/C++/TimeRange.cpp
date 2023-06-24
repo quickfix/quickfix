@@ -239,14 +239,11 @@ namespace FIX
         }
         return UtcTimeOnly(earlierTime) >= UtcTimeOnly(startTime) && UtcTimeOnly(laterTime) <= UtcTimeOnly(endTime);
       }
-
       // session start and end day are the same day, which is between these times
       else
       {
         int time1RangeStartDate = getRangeStartDate(time1, startDay, startTime);
         int time2RangeStartDate = getRangeStartDate(time2, startDay, startTime);
-        bool time1_past_reset = time1.getWeekDay() > startDay || (time1.getWeekDay() == startDay && UtcTimeOnly(time1) >= UtcTimeOnly(startTime));
-        bool time2_past_reset = time2.getWeekDay() > startDay || (time2.getWeekDay() == startDay && UtcTimeOnly(time2) >= UtcTimeOnly(startTime));
         return time1RangeStartDate == time2RangeStartDate;
       }
 

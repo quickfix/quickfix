@@ -87,7 +87,7 @@ namespace FIX
 
       //allocate and zero-fill the buffer
       T* storage = new T[ sizeToAllocate ];
-      memset(storage, 0, sizeToAllocate * sizeof(T));
+      memset(reinterpret_cast<void*>(storage), 0, sizeToAllocate * sizeof(T));
 
       // create the counter object at the end of the storage
       // with initial reference count set to 1
