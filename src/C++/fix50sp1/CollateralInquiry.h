@@ -12,7 +12,10 @@ namespace FIX50SP1
     CollateralInquiry() : Message(MsgType()) {}
     CollateralInquiry(const FIX::Message& m) : Message(m) {}
     CollateralInquiry(const Message& m) : Message(m) {}
-    CollateralInquiry(const CollateralInquiry& m) : Message(m) {}
+    CollateralInquiry(const CollateralInquiry&) = default;
+    CollateralInquiry(CollateralInquiry&&) = default;
+    CollateralInquiry& operator=(const CollateralInquiry&) = default;
+    CollateralInquiry& operator=(CollateralInquiry&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BB"); }
 
     FIELD_SET(*this, FIX::CollInquiryID);

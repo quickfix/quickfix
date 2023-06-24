@@ -12,7 +12,10 @@ namespace FIX50SP1
     ConfirmationRequest() : Message(MsgType()) {}
     ConfirmationRequest(const FIX::Message& m) : Message(m) {}
     ConfirmationRequest(const Message& m) : Message(m) {}
-    ConfirmationRequest(const ConfirmationRequest& m) : Message(m) {}
+    ConfirmationRequest(const ConfirmationRequest&) = default;
+    ConfirmationRequest(ConfirmationRequest&&) = default;
+    ConfirmationRequest& operator=(const ConfirmationRequest&) = default;
+    ConfirmationRequest& operator=(ConfirmationRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BH"); }
 
     ConfirmationRequest(

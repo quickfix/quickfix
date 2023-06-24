@@ -12,7 +12,10 @@ namespace FIX50
     RequestForPositionsAck() : Message(MsgType()) {}
     RequestForPositionsAck(const FIX::Message& m) : Message(m) {}
     RequestForPositionsAck(const Message& m) : Message(m) {}
-    RequestForPositionsAck(const RequestForPositionsAck& m) : Message(m) {}
+    RequestForPositionsAck(const RequestForPositionsAck&) = default;
+    RequestForPositionsAck(RequestForPositionsAck&&) = default;
+    RequestForPositionsAck& operator=(const RequestForPositionsAck&) = default;
+    RequestForPositionsAck& operator=(RequestForPositionsAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AO"); }
 
     RequestForPositionsAck(

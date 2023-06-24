@@ -12,7 +12,10 @@ namespace FIX50SP1
     QuoteRequestReject() : Message(MsgType()) {}
     QuoteRequestReject(const FIX::Message& m) : Message(m) {}
     QuoteRequestReject(const Message& m) : Message(m) {}
-    QuoteRequestReject(const QuoteRequestReject& m) : Message(m) {}
+    QuoteRequestReject(const QuoteRequestReject&) = default;
+    QuoteRequestReject(QuoteRequestReject&&) = default;
+    QuoteRequestReject& operator=(const QuoteRequestReject&) = default;
+    QuoteRequestReject& operator=(QuoteRequestReject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AG"); }
 
     QuoteRequestReject(

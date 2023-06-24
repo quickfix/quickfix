@@ -12,7 +12,10 @@ namespace FIX44
     TradingSessionStatus() : Message(MsgType()) {}
     TradingSessionStatus(const FIX::Message& m) : Message(m) {}
     TradingSessionStatus(const Message& m) : Message(m) {}
-    TradingSessionStatus(const TradingSessionStatus& m) : Message(m) {}
+    TradingSessionStatus(const TradingSessionStatus&) = default;
+    TradingSessionStatus(TradingSessionStatus&&) = default;
+    TradingSessionStatus& operator=(const TradingSessionStatus&) = default;
+    TradingSessionStatus& operator=(TradingSessionStatus&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("h"); }
 
     TradingSessionStatus(

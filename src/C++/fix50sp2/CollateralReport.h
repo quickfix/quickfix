@@ -12,7 +12,10 @@ namespace FIX50SP2
     CollateralReport() : Message(MsgType()) {}
     CollateralReport(const FIX::Message& m) : Message(m) {}
     CollateralReport(const Message& m) : Message(m) {}
-    CollateralReport(const CollateralReport& m) : Message(m) {}
+    CollateralReport(const CollateralReport&) = default;
+    CollateralReport(CollateralReport&&) = default;
+    CollateralReport& operator=(const CollateralReport&) = default;
+    CollateralReport& operator=(CollateralReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BA"); }
 
     CollateralReport(

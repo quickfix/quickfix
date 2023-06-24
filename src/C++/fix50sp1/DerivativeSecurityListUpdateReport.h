@@ -12,7 +12,10 @@ namespace FIX50SP1
     DerivativeSecurityListUpdateReport() : Message(MsgType()) {}
     DerivativeSecurityListUpdateReport(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityListUpdateReport(const Message& m) : Message(m) {}
-    DerivativeSecurityListUpdateReport(const DerivativeSecurityListUpdateReport& m) : Message(m) {}
+    DerivativeSecurityListUpdateReport(const DerivativeSecurityListUpdateReport&) = default;
+    DerivativeSecurityListUpdateReport(DerivativeSecurityListUpdateReport&&) = default;
+    DerivativeSecurityListUpdateReport& operator=(const DerivativeSecurityListUpdateReport&) = default;
+    DerivativeSecurityListUpdateReport& operator=(DerivativeSecurityListUpdateReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BR"); }
 
     FIELD_SET(*this, FIX::ApplID);

@@ -12,7 +12,10 @@ namespace FIX50SP1
     QuoteResponse() : Message(MsgType()) {}
     QuoteResponse(const FIX::Message& m) : Message(m) {}
     QuoteResponse(const Message& m) : Message(m) {}
-    QuoteResponse(const QuoteResponse& m) : Message(m) {}
+    QuoteResponse(const QuoteResponse&) = default;
+    QuoteResponse(QuoteResponse&&) = default;
+    QuoteResponse& operator=(const QuoteResponse&) = default;
+    QuoteResponse& operator=(QuoteResponse&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AJ"); }
 
     QuoteResponse(

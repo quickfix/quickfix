@@ -12,7 +12,10 @@ namespace FIX50SP2
     QuoteCancel() : Message(MsgType()) {}
     QuoteCancel(const FIX::Message& m) : Message(m) {}
     QuoteCancel(const Message& m) : Message(m) {}
-    QuoteCancel(const QuoteCancel& m) : Message(m) {}
+    QuoteCancel(const QuoteCancel&) = default;
+    QuoteCancel(QuoteCancel&&) = default;
+    QuoteCancel& operator=(const QuoteCancel&) = default;
+    QuoteCancel& operator=(QuoteCancel&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("Z"); }
 
     QuoteCancel(

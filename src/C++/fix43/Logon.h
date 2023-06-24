@@ -12,7 +12,10 @@ namespace FIX43
     Logon() : Message(MsgType()) {}
     Logon(const FIX::Message& m) : Message(m) {}
     Logon(const Message& m) : Message(m) {}
-    Logon(const Logon& m) : Message(m) {}
+    Logon(const Logon&) = default;
+    Logon(Logon&&) = default;
+    Logon& operator=(const Logon&) = default;
+    Logon& operator=(Logon&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("A"); }
 
     Logon(

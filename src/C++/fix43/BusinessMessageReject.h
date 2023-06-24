@@ -12,7 +12,10 @@ namespace FIX43
     BusinessMessageReject() : Message(MsgType()) {}
     BusinessMessageReject(const FIX::Message& m) : Message(m) {}
     BusinessMessageReject(const Message& m) : Message(m) {}
-    BusinessMessageReject(const BusinessMessageReject& m) : Message(m) {}
+    BusinessMessageReject(const BusinessMessageReject&) = default;
+    BusinessMessageReject(BusinessMessageReject&&) = default;
+    BusinessMessageReject& operator=(const BusinessMessageReject&) = default;
+    BusinessMessageReject& operator=(BusinessMessageReject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("j"); }
 
     BusinessMessageReject(

@@ -12,7 +12,10 @@ namespace FIX50SP1
     SecurityList() : Message(MsgType()) {}
     SecurityList(const FIX::Message& m) : Message(m) {}
     SecurityList(const Message& m) : Message(m) {}
-    SecurityList(const SecurityList& m) : Message(m) {}
+    SecurityList(const SecurityList&) = default;
+    SecurityList(SecurityList&&) = default;
+    SecurityList& operator=(const SecurityList&) = default;
+    SecurityList& operator=(SecurityList&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("y"); }
 
     FIELD_SET(*this, FIX::ApplID);

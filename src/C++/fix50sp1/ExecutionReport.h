@@ -12,7 +12,10 @@ namespace FIX50SP1
     ExecutionReport() : Message(MsgType()) {}
     ExecutionReport(const FIX::Message& m) : Message(m) {}
     ExecutionReport(const Message& m) : Message(m) {}
-    ExecutionReport(const ExecutionReport& m) : Message(m) {}
+    ExecutionReport(const ExecutionReport&) = default;
+    ExecutionReport(ExecutionReport&&) = default;
+    ExecutionReport& operator=(const ExecutionReport&) = default;
+    ExecutionReport& operator=(ExecutionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("8"); }
 
     ExecutionReport(

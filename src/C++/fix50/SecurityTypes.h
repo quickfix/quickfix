@@ -12,7 +12,10 @@ namespace FIX50
     SecurityTypes() : Message(MsgType()) {}
     SecurityTypes(const FIX::Message& m) : Message(m) {}
     SecurityTypes(const Message& m) : Message(m) {}
-    SecurityTypes(const SecurityTypes& m) : Message(m) {}
+    SecurityTypes(const SecurityTypes&) = default;
+    SecurityTypes(SecurityTypes&&) = default;
+    SecurityTypes& operator=(const SecurityTypes&) = default;
+    SecurityTypes& operator=(SecurityTypes&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("w"); }
 
     SecurityTypes(

@@ -12,7 +12,10 @@ namespace FIX50SP2
     PositionReport() : Message(MsgType()) {}
     PositionReport(const FIX::Message& m) : Message(m) {}
     PositionReport(const Message& m) : Message(m) {}
-    PositionReport(const PositionReport& m) : Message(m) {}
+    PositionReport(const PositionReport&) = default;
+    PositionReport(PositionReport&&) = default;
+    PositionReport& operator=(const PositionReport&) = default;
+    PositionReport& operator=(PositionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AP"); }
 
     PositionReport(

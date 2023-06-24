@@ -12,7 +12,10 @@ namespace FIX50SP1
     DerivativeSecurityListRequest() : Message(MsgType()) {}
     DerivativeSecurityListRequest(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityListRequest(const Message& m) : Message(m) {}
-    DerivativeSecurityListRequest(const DerivativeSecurityListRequest& m) : Message(m) {}
+    DerivativeSecurityListRequest(const DerivativeSecurityListRequest&) = default;
+    DerivativeSecurityListRequest(DerivativeSecurityListRequest&&) = default;
+    DerivativeSecurityListRequest& operator=(const DerivativeSecurityListRequest&) = default;
+    DerivativeSecurityListRequest& operator=(DerivativeSecurityListRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("z"); }
 
     DerivativeSecurityListRequest(

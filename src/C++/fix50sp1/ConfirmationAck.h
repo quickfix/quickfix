@@ -12,7 +12,10 @@ namespace FIX50SP1
     ConfirmationAck() : Message(MsgType()) {}
     ConfirmationAck(const FIX::Message& m) : Message(m) {}
     ConfirmationAck(const Message& m) : Message(m) {}
-    ConfirmationAck(const ConfirmationAck& m) : Message(m) {}
+    ConfirmationAck(const ConfirmationAck&) = default;
+    ConfirmationAck(ConfirmationAck&&) = default;
+    ConfirmationAck& operator=(const ConfirmationAck&) = default;
+    ConfirmationAck& operator=(ConfirmationAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AU"); }
 
     ConfirmationAck(

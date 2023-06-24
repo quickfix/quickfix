@@ -12,7 +12,10 @@ namespace FIX43
     DerivativeSecurityList() : Message(MsgType()) {}
     DerivativeSecurityList(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityList(const Message& m) : Message(m) {}
-    DerivativeSecurityList(const DerivativeSecurityList& m) : Message(m) {}
+    DerivativeSecurityList(const DerivativeSecurityList&) = default;
+    DerivativeSecurityList(DerivativeSecurityList&&) = default;
+    DerivativeSecurityList& operator=(const DerivativeSecurityList&) = default;
+    DerivativeSecurityList& operator=(DerivativeSecurityList&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AA"); }
 
     DerivativeSecurityList(

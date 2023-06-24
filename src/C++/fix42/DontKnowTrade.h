@@ -12,7 +12,10 @@ namespace FIX42
     DontKnowTrade() : Message(MsgType()) {}
     DontKnowTrade(const FIX::Message& m) : Message(m) {}
     DontKnowTrade(const Message& m) : Message(m) {}
-    DontKnowTrade(const DontKnowTrade& m) : Message(m) {}
+    DontKnowTrade(const DontKnowTrade&) = default;
+    DontKnowTrade(DontKnowTrade&&) = default;
+    DontKnowTrade& operator=(const DontKnowTrade&) = default;
+    DontKnowTrade& operator=(DontKnowTrade&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("Q"); }
 
     DontKnowTrade(

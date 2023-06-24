@@ -12,7 +12,10 @@ namespace FIX50SP1
     SettlementObligationReport() : Message(MsgType()) {}
     SettlementObligationReport(const FIX::Message& m) : Message(m) {}
     SettlementObligationReport(const Message& m) : Message(m) {}
-    SettlementObligationReport(const SettlementObligationReport& m) : Message(m) {}
+    SettlementObligationReport(const SettlementObligationReport&) = default;
+    SettlementObligationReport(SettlementObligationReport&&) = default;
+    SettlementObligationReport& operator=(const SettlementObligationReport&) = default;
+    SettlementObligationReport& operator=(SettlementObligationReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BQ"); }
 
     SettlementObligationReport(

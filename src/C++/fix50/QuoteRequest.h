@@ -12,7 +12,10 @@ namespace FIX50
     QuoteRequest() : Message(MsgType()) {}
     QuoteRequest(const FIX::Message& m) : Message(m) {}
     QuoteRequest(const Message& m) : Message(m) {}
-    QuoteRequest(const QuoteRequest& m) : Message(m) {}
+    QuoteRequest(const QuoteRequest&) = default;
+    QuoteRequest(QuoteRequest&&) = default;
+    QuoteRequest& operator=(const QuoteRequest&) = default;
+    QuoteRequest& operator=(QuoteRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("R"); }
 
     QuoteRequest(

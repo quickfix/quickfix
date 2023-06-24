@@ -12,7 +12,10 @@ namespace FIX50
     UserRequest() : Message(MsgType()) {}
     UserRequest(const FIX::Message& m) : Message(m) {}
     UserRequest(const Message& m) : Message(m) {}
-    UserRequest(const UserRequest& m) : Message(m) {}
+    UserRequest(const UserRequest&) = default;
+    UserRequest(UserRequest&&) = default;
+    UserRequest& operator=(const UserRequest&) = default;
+    UserRequest& operator=(UserRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BE"); }
 
     UserRequest(

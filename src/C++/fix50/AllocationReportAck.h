@@ -12,7 +12,10 @@ namespace FIX50
     AllocationReportAck() : Message(MsgType()) {}
     AllocationReportAck(const FIX::Message& m) : Message(m) {}
     AllocationReportAck(const Message& m) : Message(m) {}
-    AllocationReportAck(const AllocationReportAck& m) : Message(m) {}
+    AllocationReportAck(const AllocationReportAck&) = default;
+    AllocationReportAck(AllocationReportAck&&) = default;
+    AllocationReportAck& operator=(const AllocationReportAck&) = default;
+    AllocationReportAck& operator=(AllocationReportAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AT"); }
 
     AllocationReportAck(
