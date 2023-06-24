@@ -113,36 +113,6 @@ typedef int socket_handle;
 #include <cstdlib>
 #include <memory>
 
-#if !defined(HAVE_STD_UNIQUE_PTR)
-#define SmartPtr std::auto_ptr
-#else
-#include <memory>
-#define SmartPtr std::unique_ptr
-#endif
-
-#if defined(HAVE_STD_SHARED_PTR)
-  namespace ptr = std;
-#elif defined(HAVE_STD_TR1_SHARED_PTR)
-  #include <memory>
-  namespace ptr = std::tr1;
-#elif defined(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER)
-  #include <tr1/memory>
-  namespace ptr = std::tr1;
-#elif defined(HAVE_BOOST_SHARED_PTR)
-  #include <boost/shared_ptr.hpp>
-  namespace ptr = boost;
-#elif defined(__SUNPRO_CC)
-  #if (__SUNPRO_CC <= 0x5140)
-  #include "./wx/sharedptr.h"
-  namespace ptr = wxWidgets;
-  #endif
-#elif defined(__TOS_AIX__)
-  #include <memory>
-  namespace ptr = std::tr1;
-#else
-  namespace ptr = std;
-#endif
-
 namespace FIX
 {
 void string_replace( const std::string& oldValue,

@@ -86,7 +86,7 @@ long GetTickCount()
 }
 #endif
 
-SmartPtr<FIX::DataDictionary> s_dataDictionary;
+std::unique_ptr<FIX::DataDictionary> s_dataDictionary;
 const bool VALIDATE = true;
 const bool DONT_VALIDATE = false;
 

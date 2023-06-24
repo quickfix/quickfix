@@ -373,7 +373,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
     appMessageJustSent = false;
-    SmartPtr<FIX::Message> pMsg;
+    std::unique_ptr<FIX::Message> pMsg;
     std::string strMsgType;
     const DataDictionary& sessionDD =
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
@@ -650,7 +650,7 @@ EXCEPT ( IOException )
 
 void Session::generateLogon()
 {
-  SmartPtr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg(newMessage("A"));
   Message & logon = *pMsg;
 
   logon.getHeader().setField( MsgType( "A" ) );
@@ -675,7 +675,7 @@ void Session::generateLogon()
 
 void Session::generateLogon( const Message& aLogon )
 {
-  SmartPtr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg(newMessage("A"));
   Message & logon = *pMsg;
 
   EncryptMethod encryptMethod;
@@ -695,7 +695,7 @@ void Session::generateLogon( const Message& aLogon )
 
 void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
 {
-  SmartPtr<Message> pMsg(newMessage("2"));
+  std::unique_ptr<Message> pMsg(newMessage("2"));
   Message & resendRequest = *pMsg;
 
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
@@ -720,7 +720,7 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
 void Session::generateSequenceReset
 ( int beginSeqNo, int endSeqNo )
 {
-  SmartPtr<Message> pMsg(newMessage("4"));
+  std::unique_ptr<Message> pMsg(newMessage("4"));
   Message & sequenceReset = *pMsg;
 
   NewSeqNo newSeqNo( endSeqNo );
@@ -741,7 +741,7 @@ void Session::generateSequenceReset
 
 void Session::generateHeartbeat()
 {
-  SmartPtr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg(newMessage("0"));
   Message & heartbeat = *pMsg;
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
@@ -751,7 +751,7 @@ void Session::generateHeartbeat()
 
 void Session::generateHeartbeat( const Message& testRequest )
 {
-  SmartPtr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg(newMessage("0"));
   Message & heartbeat = *pMsg;
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
@@ -769,7 +769,7 @@ void Session::generateHeartbeat( const Message& testRequest )
 
 void Session::generateTestRequest( const std::string& id )
 {
-  SmartPtr<Message> pMsg(newMessage("1"));
+  std::unique_ptr<Message> pMsg(newMessage("1"));
   Message & testRequest = *pMsg;
 
   testRequest.getHeader().setField( MsgType( "1" ) );
@@ -784,7 +784,7 @@ void Session::generateReject( const Message& message, int err, int field )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  SmartPtr<Message> pMsg(newMessage("3"));
+  std::unique_ptr<Message> pMsg(newMessage("3"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( "3" ) );
@@ -881,7 +881,7 @@ void Session::generateReject( const Message& message, const std::string& str )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  SmartPtr<Message> pMsg(newMessage("3"));
+  std::unique_ptr<Message> pMsg(newMessage("3"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( "3" ) );
@@ -908,7 +908,7 @@ void Session::generateReject( const Message& message, const std::string& str )
 
 void Session::generateBusinessReject( const Message& message, int err, int field )
 {
-  SmartPtr<Message> pMsg(newMessage("j"));
+  std::unique_ptr<Message> pMsg(newMessage("j"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
@@ -973,7 +973,7 @@ void Session::generateBusinessReject( const Message& message, int err, int field
 
 void Session::generateLogout( const std::string& text )
 {
-  SmartPtr<Message> pMsg(newMessage("5"));
+  std::unique_ptr<Message> pMsg(newMessage("5"));
   Message & logout = *pMsg;
 
   logout.getHeader().setField( MsgType( MsgType_Logout ) );
