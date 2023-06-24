@@ -216,7 +216,8 @@ int setSocketNonBlocking(socket_handle pSocket);
 #define SSL_ALGO_UNKNOWN 0
 #define SSL_ALGO_RSA 1
 #define SSL_ALGO_DSA 2
-#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA)
+#define SSL_ALGO_EC 8  // 8 to match SSL's own enum
+#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA | SSL_ALGO_EC)
 
 /*
  * Define the SSL Protocol options

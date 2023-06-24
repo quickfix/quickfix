@@ -19,7 +19,7 @@ if( CMAKE_CXX_STANDARD EQUAL 17 )
   option( HAVE_CXX17 "Using C++17" ON)
 endif()
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
 include(QuickfixPlatformSettings)
 include(QuickfixPrebuildSetup)
@@ -31,6 +31,12 @@ option(HAVE_POSTGRESQL "Build with PostgreSQL")
 option(HAVE_PYTHON "Build with default Python version")
 option(HAVE_PYTHON2 "Build with default Python2 version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
+
+# add option to build shared or static
+option(QUICKFIX_SHARED_LIBS "Build using shared libraries" ON)
+# add option to build other targets
+option(QUICKFIX_EXAMPLES "Build quickfix examples" ON)
+option(QUICKFIX_TESTS "Build quickfix tests" ON)
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
 if(HAVE_SSL)
@@ -93,20 +99,26 @@ elseif (HAVE_PYTHON3)
   include_directories(${PYTHON_INCLUDE_DIRS})
 endif ()
 
-if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
-add_subdirectory(UnitTest++)
-endif()
-
 add_subdirectory(src)
-add_subdirectory(examples)
-if( WIN32)
-add_subdirectory(test)
+
+if (QUICKFIX_EXAMPLES)
+  add_subdirectory(examples)
 endif()
 
-configure_file(cmake_config.h.in ${CMAKE_SOURCE_DIR}/src/C++/config.h @ONLY)
-configure_file(cmake_config.h.in ${CMAKE_SOURCE_DIR}/include/quickfix/config.h @ONLY)
+if (QUICKFIX_TESTS)
+  if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
+    add_subdirectory(UnitTest++)
+  endif()
+  
+  if( WIN32)
+    add_subdirectory(test)
+  endif()
+endif()
+
+configure_file(cmake_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/src/C++/config.h @ONLY)
+configure_file(cmake_config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/quickfix/config.h @ONLY)
 file(REMOVE config.h)
 
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/spec/ DESTINATION share/quickfix
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/spec/ DESTINATION share/quickfix
   FILES_MATCHING PATTERN "FIX*.xml")
