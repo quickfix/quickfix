@@ -22,7 +22,6 @@
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Allocator.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="AtomicCount.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="DatabaseConnectionID.h" />
     <ClInclude Include="DatabaseConnectionPool.h" />
