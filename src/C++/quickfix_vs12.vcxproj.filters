@@ -1897,9 +1897,6 @@
     <ClInclude Include="Application.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="AtomicCount.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Dictionary.h">
       <Filter>Headers</Filter>
     </ClInclude>

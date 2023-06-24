@@ -10,7 +10,6 @@ lib_LTLIBRARIES = libquickfix.la
 
 libquickfix_la_SOURCES = \
 	Allocator.h \
-	AtomicCount.h \
 	Session.cpp \
 	Session.h \
 	TimeRange.cpp \
