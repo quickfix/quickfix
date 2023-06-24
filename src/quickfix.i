@@ -17,10 +17,30 @@
 %ignore _REENTRANT;
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
+%rename(SSLSocketInitiatorBase) FIX::SSLSocketInitiator;
+%rename(SSLSocketAcceptorBase) FIX::SSLSocketAcceptor;
+
+// Rename enum's as they're clashing with some classes
+%rename("%(regex:/^FIX::TYPE::(.*)/Enum\\1/)s", regextarget=1, fullname=1) "^FIX::TYPE::";
+
+// Misunderstanding something here but these constants, declared in the header
+// are causing undefined symbol errors when loading the library in python so
+// ignoring
+%ignore FIX::DateTime::SECONDS_PER_DAY;
+%ignore FIX::DateTime::SECONDS_PER_HOUR;
+%ignore FIX::DateTime::SECONDS_PER_MIN;
+%ignore FIX::DateTime::MINUTES_PER_HOUR;
+%ignore FIX::DateTime::NANOS_PER_DAY;
+%ignore FIX::DateTime::NANOS_PER_HOUR;
+%ignore FIX::DateTime::NANOS_PER_MIN;
+%ignore FIX::DateTime::NANOS_PER_SEC;
+%ignore FIX::DateTime::JULIAN_19700101;
 
 %{
 #include <config.h>
+#include <Except.h>
 #include <Exceptions.h>
+#include <FieldTypes.h>
 #include <Field.h>
 #include <Message.h>
 #include <Group.h>
@@ -30,7 +50,6 @@
 #include <Dictionary.h>
 #include <SessionSettings.h>
 #include <Session.h>
-#include <SessionID.h>
 #include <Log.h>
 #include <FileLog.h>
 #include <MessageStore.h>
@@ -41,6 +60,12 @@
 #include <Acceptor.h>
 #include <SocketAcceptor.h>
 #include <DataDictionary.h>
+#include <SocketMonitor.h>
+#include <SSLSocketAcceptor.h>
+#include <SSLSocketInitiator.h>
+#include <SSLSocketConnection.h>
+#include "datetime.h"
+         
 typedef FIX::UtcTimeStamp UtcTimeStamp;
 typedef FIX::UtcDate UtcDate;
 typedef FIX::UtcTimeOnly UtcTimeOnly;
@@ -63,6 +88,7 @@ typedef FIX::MessageStore MessageStore;
 typedef FIX::MessageStoreFactory MessageStoreFactory;
 typedef FIX::Mutex Mutex;
 typedef FIX::DOMDocumentPtr DOMDocumentPtr;
+typedef FIX::SessionSettings SessionSettings;
 %}
 
 %typedef DoubleField PriceField;
@@ -144,7 +170,28 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
   }
 }
 
+%init %{
+    PyDateTime_IMPORT;
+%}
+
+%extend FIX::UtcTimeStamp {
+  PyObject *getDateTime() {
+      int y, m, d, h, mi, s, fs;
+      $self->getYMD(y, m, d);
+      $self->getHMS(h, mi, s, fs, 6);
+      return PyDateTime_FromDateAndTime(y, m, d, h, mi, s, fs);
+  }
+}
+
+%extend FIX::SessionSettings {
+    void setFromString(const std::string& str) {
+        std::stringstream(str) >> (*$self);
+    }
+}
+
+%include "../C++/Except.h"
 %include "../C++/Exceptions.h"
+%include "../C++/FieldTypes.h"
 %include "../C++/Field.h"
 %include "../C++/FieldMap.h"
 %include "../C++/Message.h"
@@ -157,7 +204,6 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %include "../C++/Dictionary.h"
 %include "../C++/SessionSettings.h"
 %include "../C++/Session.h"
-%include "../C++/SessionID.h"
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
 %include "../C++/MessageStore.h"
@@ -168,3 +214,7 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 %include "../C++/Acceptor.h"
 %include "../C++/SocketAcceptor.h"
 %include "../C++/DataDictionary.h"
+%include "../C++/SocketMonitor.h"
+%include "../C++/SSLSocketAcceptor.h"
+%include "../C++/SSLSocketInitiator.h"
+%include "../C++/SSLSocketConnection.h"

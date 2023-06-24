@@ -12,6 +12,11 @@ target_include_directories(${quickfix_python_lib_name} PRIVATE ${PROJECT_SOURCE_
 
 target_link_libraries(${quickfix_python_lib_name} ${PROJECT_NAME})
 
+if (HAVE_SSL)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_SSL=1")
+  target_link_libraries(${quickfix_python_lib_name} ${PROJECT_NAME} ${OPENSSL_LIBRARIES})
+endif()
+
 set_target_properties(${quickfix_python_lib_name} PROPERTIES VERSION ${quickfix_python_VERSION} SOVERSION ${quickfix_python_VERSION_MAJOR} PREFIX "")
 
 install(TARGETS ${quickfix_python_lib_name} DESTINATION lib/python2)
