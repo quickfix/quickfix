@@ -129,6 +129,11 @@
 
 namespace FIX
 {
+enum SSLHandshakeStatus {
+    SSL_HANDSHAKE_FAILED = 0,
+    SSL_HANDSHAKE_SUCCEDED = 1,
+    SSL_HANDSHAKE_IN_PROGRESS = 2
+};
 /// Socket implementation of Initiator.
 class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
 {
@@ -170,11 +175,15 @@ private:
   void onDisconnect( SocketConnector&, socket_handle);
   void onError( SocketConnector& );
   void onTimeout( SocketConnector& );
-  bool handshakeSSL(SSL* ssl);
+  void disconnectPendingSSLHandshakesThatTakeTooLong(time_t now);
+  SSLHandshakeStatus handshakeSSL(SSLSocketConnection* connection);
+  void handshakeSSLAndHandleConnection(SocketConnector& connector, socket_handle s);
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
   SessionToHostNum m_sessionToHostNum;
   SocketConnector m_connector;
+
+  SocketConnections m_pendingSSLHandshakes;
   SocketConnections m_pendingConnections;
   SocketConnections m_connections;
   time_t m_lastConnect;

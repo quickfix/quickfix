@@ -174,6 +174,8 @@ bool SSLSocketConnection::processQueue()
 {
   Locker l( m_mutex );
 
+  m_processQueueNeedsToReadData = false;
+	
   if( m_sendQueue.empty() ) return true;
 
   struct timeval timeout = { 0, 0 };
@@ -182,52 +184,62 @@ bool SSLSocketConnection::processQueue()
     return false;
     
   const std::string& msg = m_sendQueue.front();
-  m_sendLength = 0;
+  
+  errno = 0;
+  int errCodeSSL = 0;
+  int sent = 0;
+  ERR_clear_error();
 
-  while (m_sendLength < (int)msg.length())
+  sent = SSL_write(m_ssl, msg.c_str() + m_sendLength,  msg.length() - m_sendLength);
+      
+  if (sent > 0)
   {
-    errno = 0;
-    int errCodeSSL = 0;
-    int sent = 0;
-    ERR_clear_error();
+      m_sendLength += sent;
 
-    // Cannot do concurrent SSL write and read as ssl context has to be
-    // protected. Done above.
-    {
-      sent = SSL_write(m_ssl, msg.c_str() + m_sendLength,  msg.length() - m_sendLength);
-      if (sent <= 0)
-        errCodeSSL = SSL_get_error(m_ssl, sent);
-    }
-
-    if (sent <= 0)
-    {
-      if ((errCodeSSL == SSL_ERROR_WANT_READ) ||
-          (errCodeSSL == SSL_ERROR_WANT_WRITE))
+      if (m_sendLength == msg.length())
       {
-        errno = EINTR;
-        sent = 0;
+          m_sendLength = 0;
+          m_sendQueue.pop_front();
       }
-      else
+      return m_sendQueue.empty();
+  }
+
+  errCodeSSL = SSL_get_error(m_ssl, sent);
+
+  if ((errCodeSSL == SSL_ERROR_WANT_READ) ||
+      (errCodeSSL == SSL_ERROR_WANT_WRITE))
+  {
+      errno = EINTR;
+      sent = 0;
+
+      if (errCodeSSL == SSL_ERROR_WANT_WRITE) {
+          return false;
+      }
+
+      if (errCodeSSL == SSL_ERROR_WANT_READ)
       {
-        char errbuf[200];
+          m_processQueueNeedsToReadData = true;
+    	  return true; //we may have more to write but we want to read first, so unsignal for now
+      }
+  }
+  else
+  {
+      char errbuf[200];
 
-        socket_error(errbuf, sizeof(errbuf));
+      socket_error(errbuf, sizeof(errbuf));
 
-        m_pSession->getLog()->onEvent("SSL send error <" +
+      m_pSession->getLog()->onEvent("SSL send error <" +
                                       IntConvertor::convert(errCodeSSL) + "> " +
                                       errbuf);
 
-        return m_sendQueue.empty();
-      }
-    }
+      return false;
+  }  
+}
 
-    m_sendLength += sent;
-  }
-
-  m_sendLength = 0;
-  m_sendQueue.pop_front();
-
-  return m_sendQueue.empty();
+bool SSLSocketConnection::didProcessQueueRequestToRead() const
+{
+    Locker l(m_mutex);
+    return m_processQueueNeedsToReadData;
 }
 
 void SSLSocketConnection::disconnect()
@@ -332,6 +344,7 @@ EXCEPT ( SocketRecvFailed )
 {
   bool pending = false;
 
+  m_readFromSocketNeedsToWriteData = false;
   do
   {
     pending = false;
@@ -359,7 +372,14 @@ EXCEPT ( SocketRecvFailed )
       {
         errno = EINTR;
         size = 0;
-
+        
+        if (errCodeSSL == SSL_ERROR_WANT_WRITE)
+        {
+            Locker locker(m_mutex);
+            m_readFromSocketNeedsToWriteData = true;
+            subscribeToSocketWriteAvailableEvents();
+        }
+      	
         return;
       }
       else
@@ -387,6 +407,13 @@ EXCEPT ( SocketRecvFailed )
     m_parser.addToStream(m_buffer, size);
   } while (pending);
 }
+
+bool SSLSocketConnection::didReadFromSocketRequestToWrite() const
+{
+    Locker locker(m_mutex);
+    return m_readFromSocketNeedsToWriteData;
+}
+
 
 bool SSLSocketConnection::readMessage( std::string& msg )
 {

@@ -338,6 +338,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket
     if( getLog() )
       getLog()->onEvent( stream.str() );
 
+    server.getMonitor().drop(sconn->getSocket());
     delete sconn;
     return;
   }
@@ -356,6 +357,11 @@ void SSLSocketAcceptor::onWrite( SocketServer& server, socket_handle s )
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didReadFromSocketRequestToWrite()) {
+     pSocketConnection->read(*this, server);
+  }
+
   if( pSocketConnection->processQueue() )
     pSocketConnection->unsignal();
 }
@@ -365,6 +371,12 @@ bool SSLSocketAcceptor::onData( SocketServer& server, socket_handle s )
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didProcessQueueRequestToRead()) {
+      pSocketConnection->processQueue();
+      pSocketConnection->signal();
+  }
+
   return pSocketConnection->read( *this, server );
 }
 
@@ -383,6 +395,11 @@ void SSLSocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
 
 void SSLSocketAcceptor::onError( SocketServer& )
 {
+    if (getLog()) {
+        std::stringstream stream;
+        stream << "acceptor onError " << socket_get_last_error();
+        getLog()->onEvent(stream.str());
+    }    
 }
 
 void SSLSocketAcceptor::onTimeout( SocketServer& )
