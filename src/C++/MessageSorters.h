@@ -119,8 +119,8 @@ public:
     : m_mode( mode ), m_delim( 0 ), m_largest( 0 ) {}
   message_order( int first, ... );
   message_order( const int order[] );
-  message_order( const message_order& copy ) 
-  { *this = copy; }
+  message_order(const message_order&) = default;
+  message_order(message_order&&) = default;
 
   bool operator() ( const int x, const int y ) const
   {
@@ -137,7 +137,8 @@ public:
     }
   }
 
-  message_order& operator=( const message_order& rhs );
+  message_order& operator=(const message_order&) = default;
+  message_order& operator=(message_order&&) = default;
 
   operator bool() const
   { return !m_groupOrder.empty(); }

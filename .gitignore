@@ -67,6 +67,7 @@ core
 \#*#
 *.log
 *.trs
+build*
 CMakeFiles
 CMakeCache.txt
 *.cmake

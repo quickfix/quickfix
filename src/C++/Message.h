@@ -151,9 +151,13 @@ public:
            const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
   EXCEPT ( InvalidMessage );
 
-  Message( const Message& copy );
+  Message(const Message&) = default;
+  Message(Message&&) = default;
 
   ~Message();
+
+  Message& operator=(const Message&) = default;
+  Message& operator=(Message&&) = default;
 
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
