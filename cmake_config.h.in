@@ -1,7 +1,6 @@
 #ifndef CONFIG_H_IN
 #define CONFIG_H_IN
 
-#cmakedefine HAVE_EMX
 #cmakedefine HAVE_CXX17
 #cmakedefine HAVE_STD_SHARED_PTR
 #cmakedefine HAVE_SHARED_PTR_IN_TR1_NAMESPACE

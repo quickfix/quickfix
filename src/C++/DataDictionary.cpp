@@ -127,15 +127,8 @@ EXCEPT ( FIX::Exception )
 {  
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
-#ifdef HAVE_EMX
-  const std::string & msgType = message.getSubMessageType();
-  if (msgType.empty())
-  {
-    throw InvalidMessageType("empty subMsgType, check Tag 9426/MESSAGE_ID");
-  }
-#else
   const MsgType& msgType = FIELD_GET_REF( header, MsgType );
-#endif
+
   if ( pSessionDD != 0 && pSessionDD->m_hasVersion )
   {
     if( pSessionDD->getVersion() != beginString )

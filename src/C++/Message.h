@@ -369,11 +369,6 @@ public:
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
-#ifdef HAVE_EMX
-  void  setSubMessageType(const std::string & subMsgType) { m_subMsgType.assign(subMsgType); }
-  const std::string & getSubMessageType() const { return m_subMsgType; }
-#endif
-
 private:
   FieldBase extractField(
     const std::string& string, std::string::size_type& pos,
@@ -402,9 +397,6 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
-#ifdef HAVE_EMX
-  std::string m_subMsgType;
-#endif
   static SmartPtr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
