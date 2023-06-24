@@ -323,7 +323,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket
 
   SSL *ssl = SSL_new(m_ctx);
   SSL_clear(ssl);
-  BIO *sBio = BIO_new_socket(s, BIO_CLOSE); //Unfortunately OpenSSL assumes socket is int
+  BIO *sBio = BIO_new_socket(s, BIO_NOCLOSE); //Unfortunately OpenSSL assumes socket is int
   SSL_set_bio(ssl, sBio, sBio);
   // TODO - check this
   SSL_set_app_data(ssl, m_revocationStore);
