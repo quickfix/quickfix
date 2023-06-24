@@ -81,7 +81,7 @@ TEST(removeGroup_allGroupsWithSameTag)
   fieldMap.removeGroup(2, 1);
   fieldMap.removeGroup(1, 1);
 
-  CHECK_EQUAL(0, fieldMap.groupCount(1));
+  CHECK_EQUAL(0ul, fieldMap.groupCount(1));
 }
 
 TEST(hasGroup_groupExists)
@@ -117,7 +117,7 @@ TEST(totalFields)
   group2.setField(6, "field6");
   fieldMap.addGroup(20, group2);
 
-  CHECK_EQUAL(8, fieldMap.totalFields());
+  CHECK_EQUAL(8ul, fieldMap.totalFields());
 }
 
 TEST(setField_16FieldsAlreadyExist_fieldSet)

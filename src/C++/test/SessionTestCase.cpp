@@ -2708,10 +2708,8 @@ TEST_FIXTURE(initiatorFixture, SessionIDsExist)
 {
   startLoggedOn();
 
-  CHECK_EQUAL(1, object->getSessions().size());
-
+  CHECK_EQUAL(1ul, object->getSessions().size());
 }
-
 
 TEST_FIXTURE(initiatorFixture, LookUpSession_InvalidSessionHeader_NoSessionReturned)
 {

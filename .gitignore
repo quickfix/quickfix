@@ -19,6 +19,7 @@ Makefile
 .libs
 *.la
 *.so
+*.so.*
 *.dylib
 ChangeLog
 UnitTest++/TestUnitTest++
@@ -67,3 +68,6 @@ core
 *.log
 *.trs
 build*
+CMakeFiles
+CMakeCache.txt
+*.cmake

@@ -127,7 +127,6 @@
 namespace FIX
 {
 
-
 int SSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
   return reinterpret_cast<SSLSocketInitiator*>(instance)->passwordHandleCallback(buf, bufsize, verify);
@@ -166,6 +165,10 @@ SSLSocketInitiator::~SSLSocketInitiator()
   for (i = m_pendingConnections.begin();
        i != m_pendingConnections.end(); ++i)
     delete i->second;
+
+  for (i = m_pendingSSLHandshakes.begin();
+      i != m_pendingSSLHandshakes.end(); ++i)
+      delete i->second;
 
   if (m_sslInit)
   {
@@ -283,7 +286,7 @@ void SSLSocketInitiator::onStop()
 void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 {
   try
-  {
+  {    
     std::string address;
     short port = 0;
     std::string sourceAddress;
@@ -298,6 +301,8 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) + " (Source " + sourceAddress + ":" + IntConvertor::convert((unsigned short)sourcePort) + ")");
     socket_handle result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize, sourceAddress, sourcePort );
+
+    log->onEvent("Socket created with handle:" + std::to_string(result));
 
     SSL *ssl = SSL_new(m_ctx);
     if (ssl == 0)
@@ -318,83 +323,163 @@ void SSLSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     setPending( s );
     m_pendingConnections[ result ] = new SSLSocketConnection( *this, s, result, ssl, &m_connector.getMonitor() );
   }
-  catch ( std::exception& ) {}
+  catch ( std::exception& ex)
+  {
+      getLog()->onEvent(ex.what());
+  }
 }
 
-bool SSLSocketInitiator::handshakeSSL(SSL* ssl)
+SSLHandshakeStatus SSLSocketInitiator::handshakeSSL(SSLSocketConnection* connection)
 {
+    SSL* ssl = connection->sslObject();
     ERR_clear_error();
     // Do the SSL handshake.
     int rc = SSL_connect(ssl);
-    while (rc <= 0) {
+    if (rc <= 0) {
         int err = SSL_get_error(ssl, rc);
         if ((err == SSL_ERROR_WANT_READ) ||
             (err == SSL_ERROR_WANT_WRITE)) {
             errno = EINTR;
-        } else {
-            getLog()->onEvent("SSL_connect failed with SSL error " + IntConvertor::convert(err));
-            return false;
+
+            if (err == SSL_ERROR_WANT_WRITE) {
+                connection->subscribeToSocketWriteAvailableEvents();                
+            }
+            return SSL_HANDSHAKE_IN_PROGRESS;
         }
-        ERR_clear_error();
-        rc = SSL_connect(ssl);
+        else if (err == SSL_ERROR_SYSCALL)
+        {
+            getLog()->onEvent("SSL_connect failed with SSL error " + IntConvertor::convert(err) + ". Error stack:");
+
+            char errorBuffer[512];
+            unsigned long systemError;
+
+            while ((systemError = ERR_get_error()) != 0) {
+                ERR_error_string_n(systemError, errorBuffer, sizeof(errorBuffer));
+                getLog()->onEvent(errorBuffer);
+            }
+            getLog()->onEvent("End of error stack");
+
+            getLog()->onEvent(socket_get_last_error());
+
+            return SSL_HANDSHAKE_FAILED;
+        }
+        else {            
+            getLog()->onEvent("SSL_connect failed with SSL error " + IntConvertor::convert(err));
+            return SSL_HANDSHAKE_FAILED;
+        }
     }
-    return true;
+
+    return SSL_HANDSHAKE_SUCCEDED;
 }
 
 void SSLSocketInitiator::onConnect( SocketConnector& connector, socket_handle s )
 {
-  SocketConnections::iterator i = m_pendingConnections.find( s );
-  if( i == m_pendingConnections.end() ) return;
+  getLog()->onEvent("Socket connected handle: " + std::to_string(s));
+   
+  time_t now;
+  ::time(&now);
+
+  SocketConnections::iterator i = m_pendingConnections.find(s);
+  if (i == m_pendingConnections.end()) return;
   SSLSocketConnection* pSocketConnection = i->second;
-
-  bool sslHandshakeSuccess = handshakeSSL(pSocketConnection->sslObject());
-
-  if (sslHandshakeSuccess) {
-      m_connections[s] = pSocketConnection;
-      m_pendingConnections.erase(i);
-      setConnected(pSocketConnection->getSession()->getSessionID());
-      pSocketConnection->onTimeout();
-  }else
-  {
-      setDisconnected(pSocketConnection->getSession()->getSessionID());
-	  Session* pSession = pSocketConnection->getSession();
-      if (pSession)
-      {
-          pSession->disconnect();
-          setDisconnected(pSession->getSessionID());
-      }      
-      delete pSocketConnection;
-	  m_pendingConnections.erase(i);
-  }
+  
+  m_pendingConnections.erase(i);
+  m_pendingSSLHandshakes[s] = pSocketConnection;
+  pSocketConnection->setHandshakeStartTime(now);
+    
+  handshakeSSLAndHandleConnection(connector, s); 
 }
 
-void SSLSocketInitiator::onWrite( SocketConnector& connector, socket_handle s )
+void SSLSocketInitiator::handshakeSSLAndHandleConnection(SocketConnector& connector, socket_handle s) {
+    SocketConnections::iterator i = m_pendingSSLHandshakes.find(s);
+    if (i == m_pendingSSLHandshakes.end()) return;
+    SSLSocketConnection* pSocketConnection = i->second;
+
+    SSLHandshakeStatus sslHandshakeStatus = handshakeSSL(pSocketConnection);
+
+    if (sslHandshakeStatus == SSL_HANDSHAKE_SUCCEDED) {
+        m_connections[s] = pSocketConnection;
+        m_pendingSSLHandshakes.erase(i);
+        setConnected(pSocketConnection->getSession()->getSessionID());
+        pSocketConnection->onTimeout();
+    }
+    else if (sslHandshakeStatus == SSL_HANDSHAKE_FAILED)
+    {
+        setDisconnected(pSocketConnection->getSession()->getSessionID());
+
+        Session* pSession = pSocketConnection->getSession();
+        if (pSession)
+        {
+            pSession->disconnect();
+            setDisconnected(pSession->getSessionID());
+        }
+
+        delete pSocketConnection;
+        m_pendingSSLHandshakes.erase(i);
+
+        getLog()->onEvent("Socket deleted due to ssl handshake error");
+    }
+}
+
+
+void SSLSocketInitiator::onWrite(SocketConnector& connector, socket_handle s)
 {
+    SocketConnections::iterator iPendingSSL = m_pendingSSLHandshakes.find(s);
+    if (iPendingSSL != m_pendingSSLHandshakes.end()){
+        SSLSocketConnection* pSocketConnection = iPendingSSL->second;
+        pSocketConnection->unsignal();
+        handshakeSSLAndHandleConnection(connector, s);
+        return;
+    }
+
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didReadFromSocketRequestToWrite()) {
+      pSocketConnection->read(connector);
+  }
+
   if( pSocketConnection->processQueue() )
     pSocketConnection->unsignal();
 }
 
 bool SSLSocketInitiator::onData( SocketConnector& connector, socket_handle s )
 {
+  SocketConnections::iterator iPending = m_pendingSSLHandshakes.find(s);
+  if (iPending != m_pendingSSLHandshakes.end()) {
+      SSLSocketConnection* pSocketConnection = iPending->second;
+      handshakeSSLAndHandleConnection(connector, s);
+      return true;
+  }
+
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didProcessQueueRequestToRead()) {
+      pSocketConnection->processQueue();
+      pSocketConnection->signal();
+  }
+	
   return pSocketConnection->read( connector );
 }
 
 void SSLSocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
 {
+    getLog()->onEvent("Socket disconnect " + std::to_string(s));
   SocketConnections::iterator i = m_connections.find( s );
   SocketConnections::iterator j = m_pendingConnections.find( s );
+  SocketConnections::iterator k = m_pendingSSLHandshakes.find(s);
 
   SSLSocketConnection* pSocketConnection = 0;
   if( i != m_connections.end() ) 
     pSocketConnection = i->second;
   if( j != m_pendingConnections.end() )
     pSocketConnection = j->second;
+  if (k != m_pendingSSLHandshakes.end())
+    pSocketConnection = k->second;
+
   if( !pSocketConnection )
     return;
 
@@ -410,10 +495,12 @@ void SSLSocketInitiator::onDisconnect( SocketConnector&, socket_handle s )
   delete pSocketConnection;
   m_connections.erase( s );
   m_pendingConnections.erase( s );
+  m_pendingSSLHandshakes.erase( s );
 }
 
 void SSLSocketInitiator::onError( SocketConnector& connector )
 {
+  getLog()->onEvent("Socket error " + socket_get_last_error());
   onTimeout( connector );
 }
 
@@ -421,6 +508,8 @@ void SSLSocketInitiator::onTimeout( SocketConnector& )
 {
   time_t now;
   ::time( &now );
+
+  disconnectPendingSSLHandshakesThatTakeTooLong(now);
 
   if ( (now - m_lastConnect) >= m_reconnectInterval )
   {
@@ -431,6 +520,33 @@ void SSLSocketInitiator::onTimeout( SocketConnector& )
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
     i->second->onTimeout();
+}
+
+void SSLSocketInitiator::disconnectPendingSSLHandshakesThatTakeTooLong(time_t now) {
+    SocketConnections::iterator iPendingSSL;
+    for (iPendingSSL = m_pendingSSLHandshakes.begin(); iPendingSSL != m_pendingSSLHandshakes.end(); ) {
+        FIX::SSLSocketConnection* pSocketConnection = iPendingSSL->second;
+
+        if (pSocketConnection->getSecondsFromHandshakeStart(now) > 10) {
+            getLog()->onEvent("SSL Handshake took too long to complete");
+
+            setDisconnected(pSocketConnection->getSession()->getSessionID());
+
+            Session* pSession = pSocketConnection->getSession();
+            if (pSession)
+            {
+                pSession->disconnect();
+                setDisconnected(pSession->getSessionID());
+            }
+
+            delete pSocketConnection;
+
+            iPendingSSL = m_pendingSSLHandshakes.erase(iPendingSSL);
+        }
+        else {
+            ++iPendingSSL;
+        }
+    }
 }
 
 void SSLSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
