@@ -1,4 +1,4 @@
-require 'PrintFile'
+require "PrintFile"
 
 class Aggregator
   def initialize
@@ -58,7 +58,7 @@ class Aggregator
   end
 
   def fields(name, number, type, values)
-    if( @fields.has_key?(name) )
+    if (@fields.has_key?(name))
       oldValues = @fields[name]["values"]
       values = oldValues.merge!(values)
     end
@@ -68,5 +68,4 @@ class Aggregator
 
   def fieldsEnd
   end
-
 end
