@@ -30,6 +30,7 @@
 #include <fix40/TestRequest.h>
 #include <fix42/TestRequest.h>
 #include <fix42/NewOrderSingle.h>
+#include <fix42/Heartbeat.h>
 #include <fix40/NewOrderSingle.h>
 #include <fix44/NewOrderList.h>
 #include <fix44/MarketDataRequest.h>
@@ -346,6 +347,21 @@ TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
   message.getHeader().setField( SenderCompID( "SENDER" ) );
   message.getTrailer().removeField( FIELD::SignatureLength );
   CHECK_THROW( object.validate( message ), RequiredTagMissing );
+}
+
+TEST(checkRequiredAttribute) {
+  DataDictionary object( "../spec/FIX42.xml" );
+
+  FIX42::Heartbeat message;
+  // All required fields are present
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:3210=119", false, &object);
+  object.validate(message);
+  // Required field (49) is missed in the header
+  message.setString("8=FIX.4.29=4935=056=TW34=252=20050225-16:54:3210=119", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
+  // Required field (10) is missed in the trailer
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:32", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
 }
 
 struct checkValidFormatFixture
@@ -732,6 +748,16 @@ TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
   CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
+static void fillHeaderTrailer(FIX44::Message& message)
+{
+  message.getHeader().set( FIX::BodyLength(0) );
+  message.getHeader().set( SenderCompID("FIXTEST") );
+  message.getHeader().set( TargetCompID("TW") );
+  message.getHeader().set( MsgSeqNum(1) );
+  message.getHeader().set( SendingTime(UtcTimeStamp()) );
+  message.getTrailer().set( CheckSum(0) );
+}
+
 TEST( checkGroupRequiredFields )
 {
   DataDictionary object( "../spec/FIX44.xml" );
@@ -749,6 +775,7 @@ TEST( checkGroupRequiredFields )
     MDReqID("1"),
     SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES ),
     MarketDepth( 9999 ) );
+  fillHeaderTrailer(marketDataRequest);
 
   marketDataRequest.set( MDUpdateType( MDUpdateType_INCREMENTAL_REFRESH ) );
   marketDataRequest.set( AggregatedBook( true ) );
@@ -776,25 +803,25 @@ TEST( checkGroupRequiredFields )
   marketDataRequest.addGroup( noMDEntryTypes );
   CHECK_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
 
-  FIX44::MarketDataSnapshotFullRefresh md;
-  md.set( MDReqID("1") );
-  md.set( Symbol("QQQQ") );
+  FIX44::MarketDataSnapshotFullRefresh marketDataSnapshotFullRefresh;
+  marketDataSnapshotFullRefresh.set( MDReqID("1") );
+  marketDataSnapshotFullRefresh.set( Symbol("QQQQ") );
+  fillHeaderTrailer(marketDataSnapshotFullRefresh);
 
   FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
 
   entry.set( MDEntryType( MDEntryType_OFFER ) );
   entry.set( MDEntryPx( 41.48 ) );
   entry.set( MDEntrySize( 500 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
   entry.set( MDEntryType( MDEntryType_BID ) );
   entry.set( MDEntryPx( 41.2 ) );
   entry.set( MDEntrySize( 300 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
-  Message message( md.toString(), object );
+  Message message( marketDataSnapshotFullRefresh.toString(), object );
   object.validate( message );
-  //object.validate( md );
 }
 
 TEST( readFromFile )
