@@ -111,7 +111,7 @@ int main( int argc, char** argv )
       std::cout << "usage: "
       << argv[ 0 ]
       << " -p port -c count" << std::endl;
-      return 1;
+      return EXIT_FAILURE;
     }
   }
 
@@ -197,9 +197,10 @@ int main( int argc, char** argv )
   catch( std::exception const& e )
   {
     std::cerr << e.what() << std::endl;
+    return EXIT_FAILURE;
   }
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 void report( long time, int count )
