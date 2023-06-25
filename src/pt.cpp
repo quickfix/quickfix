@@ -19,6 +19,7 @@
 **
 ****************************************************************************/
 
+#include "FixFields.h"
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
 #include "stdafx.h"
@@ -642,6 +643,8 @@ long testValidateNewOrderSingle( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   FIX::DataDictionary dataDictionary;
   count = count - 1;
@@ -667,6 +670,8 @@ long testValidateDictNewOrderSingle( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   count = count - 1;
 
@@ -696,6 +701,12 @@ long testValidateQuoteRequest( int count )
     message.addGroup( noRelatedSym );
   }
 
+  message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
+  message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
+  message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
+
   FIX::DataDictionary dataDictionary;
   count = count - 1;
 
@@ -724,6 +735,12 @@ long testValidateDictQuoteRequest( int count )
     noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
     message.addGroup( noRelatedSym );
   }
+
+  message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
+  message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
+  message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   count = count - 1;
 
