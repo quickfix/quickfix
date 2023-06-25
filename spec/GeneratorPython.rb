@@ -7,19 +7,19 @@ class GeneratorPython
     if @type == "FIX" && major >= "5"
       @beginstring = "FIXT.1.1"
     end
-    @depth = 0;
+    @depth = 0
     @dir = dir + "/"
-    if( sp != "0" )
-      @f = createFile( "quick" + type.downcase + major + minor + "sp#{sp}" + ".py" )
+    if (sp != "0")
+      @f = createFile("quick" + type.downcase + major + minor + "sp#{sp}" + ".py")
     else
-      @f = createFile( "quick" + type.downcase + major + minor + ".py" )
+      @f = createFile("quick" + type.downcase + major + minor + ".py")
     end
     @verid = verid
     @messageStarted = false
   end
 
   def createFile(name)
-    attr = File::CREAT|File::TRUNC|File::RDWR
+    attr = File::CREAT | File::TRUNC | File::RDWR
     return File.new(@dir + name, attr, 0644)
   end
 
@@ -27,7 +27,7 @@ class GeneratorPython
     count = 0
     result = ""
     while (count != @depth)
-      result += "\t" 
+      result += "\t"
       count += 1
     end
     return result
@@ -60,8 +60,8 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "fix.Message.__init__(self)"
     @f.puts tabs + "self.getHeader().setField( fix.BeginString(" + "\"" + @beginstring + "\"" + ") )"
-    if( @verid != "0" )
-      @f.puts tabs + "self.getHeader().setField( fix.ApplVerID(" + "\"" + @verid + "\"" +") )"
+    if (@verid != "0")
+      @f.puts tabs + "self.getHeader().setField( fix.ApplVerID(" + "\"" + @verid + "\"" + ") )"
     end
     @depth -= 1
     @depth -= 1
@@ -75,12 +75,12 @@ class GeneratorPython
 
     @f.puts
 
-    @depth += 1    
+    @depth += 1
     @f.puts tabs + "class " + name + "(fix.Group):"
     @depth += 1
     @f.puts tabs + "def __init__(self):"
     @depth += 1
-    @f.puts tabs + "order = fix.IntArray(#{order.size+1})"
+    @f.puts tabs + "order = fix.IntArray(#{order.size + 1})"
     order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
     @f.puts tabs + "order[#{order.size}] = 0"
     @f.puts tabs + "fix.Group.__init__(self, #{number}, #{delim}, order)"
@@ -94,7 +94,7 @@ class GeneratorPython
   end
 
   def messageStart(name, msgtype, required)
-    @messageStarted = true;
+    @messageStarted = true
     @f.puts
 
     @f.puts tabs + "class " + name + "(Message):"
@@ -116,8 +116,8 @@ class GeneratorPython
     @f.puts tabs + "import quickfix"
     @f.puts
   end
-  
-  def fieldType( name, type )
+
+  def fieldType(name, type)
     return "CheckSum" if name == "CheckSum"
     return "Char" if type == "CHAR"
     return "Double" if type == "PRICE"
@@ -137,7 +137,7 @@ class GeneratorPython
     return "Int" if type == "LENGTH"
     return "String"
   end
-  
+
   def fields(name, number, type, values)
     @f.puts tabs + "class #{name}(quickfix.#{fieldType(name, type)}Field):"
     @depth += 1

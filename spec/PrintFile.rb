@@ -6,7 +6,7 @@ class PrintFile
   end
 
   def createFile(name)
-    attr = File::CREAT|File::TRUNC|File::RDWR
+    attr = File::CREAT | File::TRUNC | File::RDWR
     File.new(name, attr, 0644)
   end
 
@@ -15,7 +15,7 @@ class PrintFile
     count = 0
     result = ""
     while (count != @depth)
-      result += "  " 
+      result += "  "
       count += 1
     end
     return result
@@ -41,7 +41,7 @@ class PrintFile
   end
 
   def print(*values)
-    if(values.length == 0)
+    if (values.length == 0)
       return
     end
 
@@ -52,7 +52,7 @@ class PrintFile
   end
 
   def puts(*values)
-    if(values.length == 0)
+    if (values.length == 0)
       @file.puts
       return
     end
