@@ -32,6 +32,7 @@
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include "Values.h"
+
 #include <vector>
 #include <memory>
 
@@ -397,7 +398,7 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
-  static SmartPtr<DataDictionary> s_dataDictionary;
+  static std::unique_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
 

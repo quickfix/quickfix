@@ -232,15 +232,6 @@ else AC_MSG_RESULT(no)
     AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
 fi
 
-AC_MSG_CHECKING(for std::tr1::shared_ptr)
-AC_TRY_COMPILE(
-	[#include <tr1/memory>],
-	[std::tr1::shared_ptr<int> ptr;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER, 1,
-	The system supports std::tr1::shared_ptr),
-	AC_MSG_RESULT(no))
-
 AC_MSG_CHECKING(for std::shared_ptr)
 AC_TRY_COMPILE(
 	[#include <memory>],
@@ -248,16 +239,8 @@ AC_TRY_COMPILE(
 	AC_MSG_RESULT(yes)
 	AC_DEFINE(HAVE_STD_SHARED_PTR, 1,
 	The system supports std::shared_ptr),
-	AC_MSG_RESULT(no))
-
-AC_MSG_CHECKING(for boost::shared_ptr)
-AC_TRY_COMPILE(
-        [#include <boost/shared_ptr.hpp>],
-        [boost::shared_ptr<int> ptr;],
-        AC_MSG_RESULT(yes)
-        AC_DEFINE(HAVE_BOOST_SHARED_PTR, 1,
-        The system supports boost::shared_ptr),
-        AC_MSG_RESULT(no))
+	AC_MSG_RESULT(no)
+  AC_MSG_ERROR(The system does not support std::shared_ptr))
 
 AC_MSG_CHECKING(for std::unique_ptr)
 AC_TRY_COMPILE(
@@ -266,7 +249,8 @@ AC_TRY_COMPILE(
 	AC_MSG_RESULT(yes)
 	AC_DEFINE(HAVE_STD_UNIQUE_PTR, 1,
 	The system supports std::unique_ptr),
-	AC_MSG_RESULT(no))
+	AC_MSG_RESULT(no)
+  AC_MSG_ERROR(The system does not support std::unique_ptr))
 
 AC_MSG_CHECKING(for typeinfo in the global namespace)
 AC_TRY_COMPILE(
