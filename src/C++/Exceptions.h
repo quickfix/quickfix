@@ -32,9 +32,9 @@ namespace FIX
 /// Base QuickFIX exception type.
 struct Exception : public std::logic_error
 {
-  Exception( const std::string& t, const std::string& d )
-  : std::logic_error( d.size() ? t + ": " + d : t ),
-    type( t ), detail( d )
+  Exception( const std::string& type, const std::string& detail )
+  : std::logic_error( detail.size() ? type + ": " + detail : type),
+    type( type ), detail( detail )
   {}
   ~Exception() NOEXCEPT {}
 
@@ -45,9 +45,9 @@ struct Exception : public std::logic_error
 /// DataDictionary not found for BeginString or ApplVerID
 struct DataDictionaryNotFound : public Exception
 {
-  DataDictionaryNotFound( const std::string& v, const std::string& what = "" )
+  DataDictionaryNotFound( const std::string& version, const std::string& what = "" )
     : Exception( "Could not find data dictionary", what ),
-                 version( v ) {}
+                 version( version ) {}
   ~DataDictionaryNotFound() NOEXCEPT {}
 
   std::string version;
@@ -56,9 +56,9 @@ struct DataDictionaryNotFound : public Exception
 /// Field not found inside a message
 struct FieldNotFound : public Exception
 {
-  FieldNotFound( int f = 0, const std::string& what = "" )
+  FieldNotFound( int field = 0, const std::string& what = "" )
     : Exception( "Field not found", what ),
-                 field( f ) {}
+                 field( field ) {}
   int field;
 };
 
@@ -100,54 +100,54 @@ struct RuntimeError : public Exception
 /// Tag number does not exist in specification
 struct InvalidTagNumber : public Exception
 {
-  InvalidTagNumber( int f = 0, const std::string& what = "" )
-    : Exception( "Invalid tag number", what ),
-                 field( f ) {}
+  InvalidTagNumber( int field = 0, const std::string& what = "" )
+    : Exception( "Invalid tag number: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
 /// Required field is not in message
 struct RequiredTagMissing : public Exception
 {
-  RequiredTagMissing( int f = 0, const std::string& what = "" )
-    : Exception( "Required tag missing", what ),
-                 field( f ) {}
+  RequiredTagMissing( int field = 0, const std::string& what = "" )
+    : Exception( "Required tag missing: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
 /// Field does not belong to message
 struct TagNotDefinedForMessage : public Exception
 {
-  TagNotDefinedForMessage( int f = 0, const std::string& what = "" )
-    : Exception( "Tag not defined for this message type", what ),
-                 field( f ) {}
+  TagNotDefinedForMessage( int field = 0, const std::string& what = "" )
+    : Exception( "Tag not defined for this message type: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
 /// Field exists in message without a value
 struct NoTagValue : public Exception
 {
-  NoTagValue( int f = 0, const std::string& what = "" )
-    : Exception( "Tag specified without a value", what ),
-                 field( f ) {}
+  NoTagValue( int field = 0, const std::string& what = "" )
+    : Exception( "Tag specified without a value: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
 /// Field has a value that is out of range
 struct IncorrectTagValue : public Exception
 {
-  IncorrectTagValue( int f = 0, const std::string& what = "" )
-    : Exception( "Value is incorrect (out of range) for this tag", what ),
-                 field( f ) {}
+  IncorrectTagValue( int field = 0, const std::string& what = "" )
+    : Exception( "Value is incorrect (out of range) for this tag: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
 /// Field has a badly formatted value
 struct IncorrectDataFormat : public Exception
 {
-  IncorrectDataFormat( int f = 0, const std::string& what = "" )
-    : Exception( "Incorrect data format for value", what ),
-                 field( f ) {}
+  IncorrectDataFormat( int field = 0, const std::string& what = "" )
+    : Exception( "Incorrect data format for value with tag: " + std::to_string(field), what ),
+                 field( field ) {}
   int field;
 };
 
@@ -189,27 +189,27 @@ struct UnsupportedVersion : public Exception
 /// Tag is not in the correct order
 struct TagOutOfOrder : public Exception
 {
-  TagOutOfOrder( int f = 0, const std::string& what = "" )
+  TagOutOfOrder( int field = 0, const std::string& what = "" )
     : Exception( "Tag specified out of required order", what ),
-                 field( f ) {}
+                 field( field ) {}
   int field;
 };
 
 /// Repeated tag not part of repeating group
 struct RepeatedTag : public Exception
 {
-  RepeatedTag( int f = 0, const std::string& what = "" )
+  RepeatedTag( int field = 0, const std::string& what = "" )
     : Exception( "Repeated tag not part of repeating group", what ),
-                 field( f ) {}
+                 field( field ) {}
   int field;
 };
 
 /// Repeated group count not equal to actual count
 struct RepeatingGroupCountMismatch : public Exception
 {
-  RepeatingGroupCountMismatch( int f = 0, const std::string& what = "" )
+  RepeatingGroupCountMismatch( int field = 0, const std::string& what = "" )
     : Exception( "Repeating group count mismatch", what ),
-                 field( f ) {}
+                 field( field ) {}
   int field;
 };
 
