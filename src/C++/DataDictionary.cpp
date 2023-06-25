@@ -312,9 +312,10 @@ EXCEPT ( ConfigError )
         std::string name;
         if(!attrs->get("name", name))
           throw ConfigError("<field> does not have a name attribute");
-        std::string required = "false";
+        std::string required;
         attrs->get("required", required);
-        addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+        bool isRequired = (required == "Y" || required == "y");
+        addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), isRequired);
       }
       if(pHeaderFieldNode->getName() == "group")
       {
@@ -347,9 +348,10 @@ EXCEPT ( ConfigError )
         std::string name;
         if(!attrs->get("name", name))
           throw ConfigError("<field> does not have a name attribute");
-        std::string required = "false";
+        std::string required;
         attrs->get("required", required);
-        addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+        bool isRequired = (required == "Y" || required == "y");
+        addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), isRequired);
       }
       if(pTrailerFieldNode->getName() == "group")
       {

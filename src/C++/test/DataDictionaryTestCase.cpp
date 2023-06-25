@@ -30,6 +30,7 @@
 #include <fix40/TestRequest.h>
 #include <fix42/TestRequest.h>
 #include <fix42/NewOrderSingle.h>
+#include <fix42/Heartbeat.h>
 #include <fix40/NewOrderSingle.h>
 #include <fix44/NewOrderList.h>
 #include <fix44/MarketDataRequest.h>
@@ -346,6 +347,21 @@ TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
   message.getHeader().setField( SenderCompID( "SENDER" ) );
   message.getTrailer().removeField( FIELD::SignatureLength );
   CHECK_THROW( object.validate( message ), RequiredTagMissing );
+}
+
+TEST(checkRequiredAttribute) {
+  DataDictionary object( "../spec/FIX42.xml" );
+
+  FIX42::Heartbeat m;
+  // All required fields are present
+  m.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:3210=119", false, &object);
+  object.validate(m);
+  // Required field (49) is missed in the header
+  m.setString("8=FIX.4.29=4935=056=TW34=252=20050225-16:54:3210=119", false, &object);
+  CHECK_THROW(object.validate(m);, RequiredTagMissing);
+  // Required field (10) is missed in the trailer
+  m.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:32", false, &object);
+  CHECK_THROW(object.validate(m);, RequiredTagMissing);
 }
 
 struct checkValidFormatFixture
@@ -732,6 +748,16 @@ TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
   CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
+static void fillHeaderTrailer(FIX44::Message& m)
+{
+  m.getHeader().set(FIX::BodyLength(0));
+  m.getHeader().set( SenderCompID("FIXTEST") );
+  m.getHeader().set( TargetCompID("TW") );
+  m.getHeader().set( MsgSeqNum(1) );
+  m.getHeader().set( SendingTime(UtcTimeStamp()) );
+  m.getTrailer().set( CheckSum(0) );
+}
+
 TEST( checkGroupRequiredFields )
 {
   DataDictionary object( "../spec/FIX44.xml" );
@@ -749,6 +775,7 @@ TEST( checkGroupRequiredFields )
     MDReqID("1"),
     SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES ),
     MarketDepth( 9999 ) );
+  fillHeaderTrailer(marketDataRequest);
 
   marketDataRequest.set( MDUpdateType( MDUpdateType_INCREMENTAL_REFRESH ) );
   marketDataRequest.set( AggregatedBook( true ) );
@@ -779,6 +806,7 @@ TEST( checkGroupRequiredFields )
   FIX44::MarketDataSnapshotFullRefresh md;
   md.set( MDReqID("1") );
   md.set( Symbol("QQQQ") );
+  fillHeaderTrailer(md);
 
   FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
 
