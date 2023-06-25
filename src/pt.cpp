@@ -115,82 +115,89 @@ int main( int argc, char** argv )
     }
   }
 
-  s_dataDictionary.reset( new FIX::DataDictionary( "../spec/FIX42.xml" ) );
+  try
+  {
+    s_dataDictionary.reset( new FIX::DataDictionary( "../spec/FIX42.xml" ) );
 
-  std::cout << "Converting integers to strings: ";
-  report( testIntegerToString( count ), count );
+    std::cout << "Converting integers to strings: ";
+    report( testIntegerToString( count ), count );
 
-  std::cout << "Converting strings to integers: ";
-  report( testStringToInteger( count ), count );
+    std::cout << "Converting strings to integers: ";
+    report( testStringToInteger( count ), count );
 
-  std::cout << "Converting doubles to strings: ";
-  report( testDoubleToString( count ), count );
+    std::cout << "Converting doubles to strings: ";
+    report( testDoubleToString( count ), count );
 
-  std::cout << "Converting strings to doubles: ";
-  report( testStringToDouble( count ), count );
+    std::cout << "Converting strings to doubles: ";
+    report( testStringToDouble( count ), count );
 
-  std::cout << "Creating Heartbeat messages: ";
-  report( testCreateHeartbeat( count ), count );
+    std::cout << "Creating Heartbeat messages: ";
+    report( testCreateHeartbeat( count ), count );
 
-  std::cout << "Identifying message types: ";
-  report( testIdentifyType( count ), count );
+    std::cout << "Identifying message types: ";
+    report( testIdentifyType( count ), count );
 
-  std::cout << "Serializing Heartbeat messages to strings: ";
-  report( testSerializeToStringHeartbeat( count ), count );
+    std::cout << "Serializing Heartbeat messages to strings: ";
+    report( testSerializeToStringHeartbeat( count ), count );
 
-  std::cout << "Serializing Heartbeat messages from strings: ";
-  report( testSerializeFromStringHeartbeat( count ), count );
+    std::cout << "Serializing Heartbeat messages from strings: ";
+    report( testSerializeFromStringHeartbeat( count ), count );
 
-  std::cout << "Serializing Heartbeat messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateHeartbeat( count ), count );
+    std::cout << "Serializing Heartbeat messages from strings and validation: ";
+    report( testSerializeFromStringAndValidateHeartbeat( count ), count );
 
-  std::cout << "Creating NewOrderSingle messages: ";
-  report( testCreateNewOrderSingle( count ), count );
+    std::cout << "Creating NewOrderSingle messages: ";
+    report( testCreateNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages to strings: ";
-  report( testSerializeToStringNewOrderSingle( count ), count );
+    std::cout << "Serializing NewOrderSingle messages to strings: ";
+    report( testSerializeToStringNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages from strings: ";
-  report( testSerializeFromStringNewOrderSingle( count ), count );
+    std::cout << "Serializing NewOrderSingle messages from strings: ";
+    report( testSerializeFromStringNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateNewOrderSingle( count ), count );
+    std::cout << "Serializing NewOrderSingle messages from strings and validation: ";
+    report( testSerializeFromStringAndValidateNewOrderSingle( count ), count );
 
-  std::cout << "Creating QuoteRequest messages: ";
-  report( testCreateQuoteRequest( count ), count );
+    std::cout << "Creating QuoteRequest messages: ";
+    report( testCreateQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages to strings: ";
-  report( testSerializeToStringQuoteRequest( count ), count );
+    std::cout << "Serializing QuoteRequest messages to strings: ";
+    report( testSerializeToStringQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages from strings: ";
-  report( testSerializeFromStringQuoteRequest( count ), count );
+    std::cout << "Serializing QuoteRequest messages from strings: ";
+    report( testSerializeFromStringQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateQuoteRequest( count ), count );
+    std::cout << "Serializing QuoteRequest messages from strings and validation: ";
+    report( testSerializeFromStringAndValidateQuoteRequest( count ), count );
 
-  std::cout << "Reading fields from QuoteRequest message: ";
-  report( testReadFromQuoteRequest( count ), count );
+    std::cout << "Reading fields from QuoteRequest message: ";
+    report( testReadFromQuoteRequest( count ), count );
 
-  std::cout << "Storing NewOrderSingle messages: ";
-  report( testFileStoreNewOrderSingle( count ), count );
+    std::cout << "Storing NewOrderSingle messages: ";
+    report( testFileStoreNewOrderSingle( count ), count );
 
-  std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
-  report( testValidateNewOrderSingle( count ), count );
+    std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
+    report( testValidateNewOrderSingle( count ), count );
 
-  std::cout << "Validating NewOrderSingle messages with data dictionary: ";
-  report( testValidateDictNewOrderSingle( count ), count );
+    std::cout << "Validating NewOrderSingle messages with data dictionary: ";
+    report( testValidateDictNewOrderSingle( count ), count );
 
-  std::cout << "Validating QuoteRequest messages with no data dictionary: ";
-  report( testValidateQuoteRequest( count ), count );
+    std::cout << "Validating QuoteRequest messages with no data dictionary: ";
+    report( testValidateQuoteRequest( count ), count );
 
-  std::cout << "Validating QuoteRequest messages with data dictionary: ";
-  report( testValidateDictQuoteRequest( count ), count );
+    std::cout << "Validating QuoteRequest messages with data dictionary: ";
+    report( testValidateDictQuoteRequest( count ), count );
 
-  std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
-  report( testSendOnSocket( count, port ), count );
+    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
+    report( testSendOnSocket( count, port ), count );
 
-  std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
-  report( testSendOnThreadedSocket( count, port ), count );
+    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
+    report( testSendOnThreadedSocket( count, port ), count );
+  }
+  catch( std::exception const& e )
+  {
+    std::cerr << e.what() << std::endl;
+  }
 
   return 0;
 }
