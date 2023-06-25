@@ -651,6 +651,7 @@ long testValidateNewOrderSingle( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime( ) );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -678,6 +679,7 @@ long testValidateDictNewOrderSingle( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime( ) );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -712,6 +714,8 @@ long testValidateQuoteRequest( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime( ) );
+  message.getHeader().set( FIX::SendingTime( ) );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -747,6 +751,7 @@ long testValidateDictQuoteRequest( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime( ) );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
