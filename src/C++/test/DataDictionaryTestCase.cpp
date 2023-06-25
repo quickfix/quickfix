@@ -352,16 +352,16 @@ TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
 TEST(checkRequiredAttribute) {
   DataDictionary object( "../spec/FIX42.xml" );
 
-  FIX42::Heartbeat m;
+  FIX42::Heartbeat message;
   // All required fields are present
-  m.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:3210=119", false, &object);
-  object.validate(m);
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:3210=119", false, &object);
+  object.validate(message);
   // Required field (49) is missed in the header
-  m.setString("8=FIX.4.29=4935=056=TW34=252=20050225-16:54:3210=119", false, &object);
-  CHECK_THROW(object.validate(m);, RequiredTagMissing);
+  message.setString("8=FIX.4.29=4935=056=TW34=252=20050225-16:54:3210=119", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
   // Required field (10) is missed in the trailer
-  m.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:32", false, &object);
-  CHECK_THROW(object.validate(m);, RequiredTagMissing);
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:32", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
 }
 
 struct checkValidFormatFixture
@@ -748,14 +748,14 @@ TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
   CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
-static void fillHeaderTrailer(FIX44::Message& m)
+static void fillHeaderTrailer(FIX44::Message& message)
 {
-  m.getHeader().set(FIX::BodyLength(0));
-  m.getHeader().set( SenderCompID("FIXTEST") );
-  m.getHeader().set( TargetCompID("TW") );
-  m.getHeader().set( MsgSeqNum(1) );
-  m.getHeader().set( SendingTime(UtcTimeStamp()) );
-  m.getTrailer().set( CheckSum(0) );
+  message.getHeader().set( FIX::BodyLength(0) );
+  message.getHeader().set( SenderCompID("FIXTEST") );
+  message.getHeader().set( TargetCompID("TW") );
+  message.getHeader().set( MsgSeqNum(1) );
+  message.getHeader().set( SendingTime(UtcTimeStamp()) );
+  message.getTrailer().set( CheckSum(0) );
 }
 
 TEST( checkGroupRequiredFields )
@@ -803,26 +803,25 @@ TEST( checkGroupRequiredFields )
   marketDataRequest.addGroup( noMDEntryTypes );
   CHECK_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
 
-  FIX44::MarketDataSnapshotFullRefresh md;
-  md.set( MDReqID("1") );
-  md.set( Symbol("QQQQ") );
-  fillHeaderTrailer(md);
+  FIX44::MarketDataSnapshotFullRefresh marketDataSnapshotFullRefresh;
+  marketDataSnapshotFullRefresh.set( MDReqID("1") );
+  marketDataSnapshotFullRefresh.set( Symbol("QQQQ") );
+  fillHeaderTrailer(marketDataSnapshotFullRefresh);
 
   FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
 
   entry.set( MDEntryType( MDEntryType_OFFER ) );
   entry.set( MDEntryPx( 41.48 ) );
   entry.set( MDEntrySize( 500 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
   entry.set( MDEntryType( MDEntryType_BID ) );
   entry.set( MDEntryPx( 41.2 ) );
   entry.set( MDEntrySize( 300 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
-  Message message( md.toString(), object );
+  Message message( marketDataSnapshotFullRefresh.toString(), object );
   object.validate( message );
-  //object.validate( md );
 }
 
 TEST( readFromFile )
