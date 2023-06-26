@@ -526,12 +526,10 @@ void file_mkdir( const char* path )
 
 FILE* file_fopen( const char* path, const char* mode )
 {
-#if( _MSC_VER >= 1400 )
-  FILE* result = 0;
-  fopen_s( &result, path, mode );
-  return result;
+#ifdef _MSC_VER
+  return _fsopen(path, mode, _SH_DENYWR);
 #else
-  return fopen( path, mode );
+  return fopen(path, mode);
 #endif
 }
 
