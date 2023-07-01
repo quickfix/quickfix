@@ -281,8 +281,6 @@ int socket_getfcntlflag( int s, int arg )
 
 int socket_setfcntlflag( int s, int arg )
 {
-  int oldValue = socket_getfcntlflag( s, arg );
-  oldValue |= arg;
   return socket_fcntl( s, F_SETFL, arg );
 }
 #endif
