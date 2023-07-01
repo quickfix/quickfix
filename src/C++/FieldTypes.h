@@ -384,13 +384,13 @@ struct DateTime
   /// Add a number of seconds to this
   void operator+=( int seconds )
   {
-    int d = seconds / SECONDS_PER_DAY;
-    int s = seconds % SECONDS_PER_DAY;
+    int daysToAdd = seconds / SECONDS_PER_DAY;
+    int secondsToAdd = seconds % SECONDS_PER_DAY;
 
-    m_date += d;
-    m_time += s * NANOS_PER_SEC;
+    m_date += daysToAdd;
+    m_time += secondsToAdd * NANOS_PER_SEC;
 
-    if( m_time > NANOS_PER_DAY )
+    if( m_time >= NANOS_PER_DAY )
     {
       m_date++;
       m_time %= NANOS_PER_DAY;
