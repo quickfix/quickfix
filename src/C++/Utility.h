@@ -32,9 +32,7 @@
 
 #include "Except.h"
 
-#ifdef HAVE_STLPORT
-  #define ALLOCATOR std::allocator
-#elif ENABLE_DEBUG_ALLOCATOR
+#ifdef ENABLE_DEBUG_ALLOCATOR
   #include <ext/debug_allocator.h>
   #define ALLOCATOR __gnu_cxx::debug_allocator
 #elif ENABLE_NEW_ALLOCATOR
@@ -208,7 +206,7 @@ std::string file_appendpath( const std::string& path, const std::string& file );
 #define STRING_SPRINTF sprintf
 #endif
 
-#if (!defined(_MSC_VER) || (_MSC_VER >= 1300)) && !defined(HAVE_STLPORT)
+#if (!defined(_MSC_VER) || (_MSC_VER >= 1300))
 using std::abort;
 using std::sprintf;
 using std::atoi;
