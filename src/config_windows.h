@@ -1,8 +1,5 @@
 #pragma once
 
-// Define if you are using stlport
-// #define HAVE_STLPORT
-
 // Define if you have sql library (libMySQL.lib)
 // #define HAVE_MYSQL 1
 
