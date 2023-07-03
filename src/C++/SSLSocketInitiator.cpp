@@ -260,7 +260,7 @@ void SSLSocketInitiator::onStart()
   }
 }
 
-bool SSLSocketInitiator::onPoll( double timeout )
+bool SSLSocketInitiator::onPoll()
 {
   time_t start = 0;
   time_t now = 0;
@@ -275,7 +275,7 @@ bool SSLSocketInitiator::onPoll( double timeout )
       return false;
   }
 
-  m_connector.block( *this, true, timeout );
+  m_connector.block( *this, true );
   return true;
 }
 

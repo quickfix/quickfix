@@ -176,7 +176,7 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {
@@ -186,7 +186,7 @@ bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Acceptor::stop( bool force )

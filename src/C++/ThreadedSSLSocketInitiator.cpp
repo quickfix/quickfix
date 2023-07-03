@@ -241,7 +241,7 @@ void ThreadedSSLSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSSLSocketInitiator::onPoll(double timeout) { return false; }
+bool ThreadedSSLSocketInitiator::onPoll() { return false; }
 
 void ThreadedSSLSocketInitiator::onStop()
 {

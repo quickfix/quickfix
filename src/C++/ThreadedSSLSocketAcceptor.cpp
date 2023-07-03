@@ -282,7 +282,7 @@ void ThreadedSSLSocketAcceptor::onStart()
   }
 }
 
-bool ThreadedSSLSocketAcceptor::onPoll(double timeout) { return false; }
+bool ThreadedSSLSocketAcceptor::onPoll() { return false; }
 
 void ThreadedSSLSocketAcceptor::onStop()
 {

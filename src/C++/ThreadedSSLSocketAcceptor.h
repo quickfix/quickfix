@@ -187,7 +187,7 @@ private:
   void onInitialize(const SessionSettings &) EXCEPT (RuntimeError);
 
   void onStart();
-  bool onPoll(double timeout);
+  bool onPoll();
   void onStop();
 
   void addThread(SocketKey s, thread_id t);

@@ -95,7 +95,7 @@ void ThreadedSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSocketInitiator::onPoll( double timeout )
+bool ThreadedSocketInitiator::onPoll()
 {
   return false;
 }
