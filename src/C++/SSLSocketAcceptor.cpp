@@ -281,7 +281,7 @@ void SSLSocketAcceptor::onStart()
   m_pServer = 0;
 }
 
-bool SSLSocketAcceptor::onPoll( double timeout )
+bool SSLSocketAcceptor::onPoll()
 {
   if( !m_pServer )
     return false;

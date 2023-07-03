@@ -209,7 +209,7 @@ void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Initiator::poll() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {
@@ -220,7 +220,7 @@ bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Initiator::stop( bool force )

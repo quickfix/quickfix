@@ -56,7 +56,7 @@ private:
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
   void doConnect( const SessionID& s, const Dictionary& d );
