@@ -73,7 +73,7 @@ Session::Session( Application& application,
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
   if( !checkSessionTime(UtcTimeStamp()) )
-    reset();
+    m_state.reset();
 
   addSession( *this );
   m_application.onCreate( m_sessionID );
