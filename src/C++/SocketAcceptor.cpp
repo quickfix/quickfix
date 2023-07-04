@@ -53,14 +53,12 @@ SocketAcceptor::~SocketAcceptor()
     delete iter->second;
 }
 
-void SocketAcceptor::onConfigure( const SessionSettings& s )
+void SocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
 EXCEPT ( ConfigError )
 {
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessionSettings.getSessions() )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     settings.getInt( SOCKET_ACCEPT_PORT );
     if( settings.has(SOCKET_REUSE_ADDRESS) )
       settings.getBool( SOCKET_REUSE_ADDRESS );
@@ -69,7 +67,7 @@ EXCEPT ( ConfigError )
   }
 }
 
-void SocketAcceptor::onInitialize( const SessionSettings& s )
+void SocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
   short port = 0;
@@ -78,11 +76,9 @@ EXCEPT ( RuntimeError )
   {
     m_pServer = new SocketServer( 1 );
 
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
+    for( const SessionID& sessionID : sessionSettings.getSessions() )
     {
-      const Dictionary& settings = s.get( *i );
+      const Dictionary& settings = sessionSettings.get( sessionID );
       port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
@@ -97,7 +93,7 @@ EXCEPT ( RuntimeError )
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
         settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
-      m_portToSessions[port].insert( *i );
+      m_portToSessions[port].insert( sessionID );
       m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
     }    
   }

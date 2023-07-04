@@ -76,8 +76,9 @@ class DataDictionary
       int * tmp = new int[m_orderedFlds.size() + 1];
       int * i = tmp;
 
-      OrderedFields::const_iterator iter;
-      for( iter = m_orderedFlds.begin(); iter != m_orderedFlds.end(); *(i++) = *(iter++) ) {}
+      for( OrderedFields::const_iterator iter = m_orderedFlds.begin(); 
+           iter != m_orderedFlds.end(); 
+           *(i++) = *(iter++) ) {}
       *i = 0;
 
       m_msgOrder = message_order(tmp);
@@ -542,17 +543,16 @@ private:
     const MsgType& msgType ) const
   EXCEPT ( RequiredTagMissing )
   {
-    NonBodyFields::const_iterator iNBF;
-    for( iNBF = m_headerFields.begin(); iNBF != m_headerFields.end(); ++iNBF )
+    for( const NonBodyFields::value_type& NBF : m_headerFields )
     {
-      if( iNBF->second == true && !header.isSetField(iNBF->first) )
-        throw RequiredTagMissing( iNBF->first );
+      if( NBF.second == true && !header.isSetField(NBF.first) )
+        throw RequiredTagMissing( NBF.first );
     }
 
-    for( iNBF = m_trailerFields.begin(); iNBF != m_trailerFields.end(); ++iNBF )
+    for( const NonBodyFields::value_type& NBF : m_trailerFields )
     {
-      if( iNBF->second == true && !trailer.isSetField(iNBF->first) )
-        throw RequiredTagMissing( iNBF->first );
+      if( NBF.second == true && !trailer.isSetField(NBF.first) )
+        throw RequiredTagMissing( NBF.first );
     }
 
     MsgTypeToField::const_iterator iM
@@ -561,23 +561,21 @@ private:
 
     const MsgFields& fields = iM->second;
     MsgFields::const_iterator iF;
-    for( iF = fields.begin(); iF != fields.end(); ++iF )
+    for( const MsgFields::value_type& F : fields )
     {
-      if( !body.isSetField(*iF) )
-        throw RequiredTagMissing( *iF );
+      if( !body.isSetField( F ) )
+        throw RequiredTagMissing( F );
     }
 
-    FieldMap::g_const_iterator groups;
-    for( groups = body.g_begin(); groups != body.g_end(); ++groups )
+    for( FieldMap::g_const_iterator groups = body.g_begin(); groups != body.g_end(); ++groups )
     {
       int delim;
       const DataDictionary* DD = 0;
       int field = groups->first;
       if( getGroup( msgType.getValue(), field, delim, DD ) )
       {
-        std::vector<FieldMap*>::const_iterator group;
-        for( group = groups->second.begin(); group != groups->second.end(); ++group )
-          DD->checkHasRequired( **group, **group, **group, msgType );
+        for( const FieldMap* group : groups->second )
+          DD->checkHasRequired( *group, *group, *group, msgType );
       }
     }
   }

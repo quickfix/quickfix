@@ -129,20 +129,20 @@
 
 namespace FIX
 {
-SSLSocketConnection::SSLSocketConnection(socket_handle s, SSL *ssl, Sessions sessions,
-                                    SocketMonitor* pMonitor )
-: m_socket( s ), m_ssl(ssl), m_sendLength( 0 ),
+SSLSocketConnection::SSLSocketConnection(socket_handle socket, SSL *ssl, Sessions sessions,
+                                         SocketMonitor* pMonitor )
+: m_socket( socket ), m_ssl( ssl ), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
 }
 
-SSLSocketConnection::SSLSocketConnection(SSLSocketInitiator &i,
-                                    const SessionID& sessionID, socket_handle s, SSL * ssl,
-                                    SocketMonitor* pMonitor )
-: m_socket( s ), m_ssl(ssl), m_sendLength( 0 ),
-  m_pSession( i.getSession( sessionID, *this ) ),
+SSLSocketConnection::SSLSocketConnection(SSLSocketInitiator &initiator,
+                                         const SessionID& sessionID, socket_handle socket, SSL * ssl,
+                                         SocketMonitor* pMonitor )
+: m_socket( socket ), m_ssl( ssl ), m_sendLength( 0 ),
+  m_pSession( initiator.getSession( sessionID, *this ) ),
   m_pMonitor( pMonitor ) 
 {
   FD_ZERO( &m_fds );
@@ -160,11 +160,11 @@ SSLSocketConnection::~SSLSocketConnection()
   SSL_free(m_ssl);
 }
 
-bool SSLSocketConnection::send( const std::string& msg )
+bool SSLSocketConnection::send( const std::string& message )
 {
   Locker l( m_mutex );
 
-  m_sendQueue.push_back( msg );
+  m_sendQueue.push_back( message );
   processQueue();
   signal();
   return true;
@@ -194,14 +194,14 @@ bool SSLSocketConnection::processQueue()
       
   if (sent > 0)
   {
-      m_sendLength += sent;
+    m_sendLength += sent;
 
-      if (m_sendLength == msg.length())
-      {
-          m_sendLength = 0;
-          m_sendQueue.pop_front();
-      }
-      return m_sendQueue.empty();
+    if (m_sendLength == msg.length())
+    {
+      m_sendLength = 0;
+      m_sendQueue.pop_front();
+    }
+    return m_sendQueue.empty();
   }
 
   errCodeSSL = SSL_get_error(m_ssl, sent);
@@ -209,30 +209,30 @@ bool SSLSocketConnection::processQueue()
   if ((errCodeSSL == SSL_ERROR_WANT_READ) ||
       (errCodeSSL == SSL_ERROR_WANT_WRITE))
   {
-      errno = EINTR;
-      sent = 0;
+    errno = EINTR;
+    sent = 0;
 
-      if (errCodeSSL == SSL_ERROR_WANT_WRITE) {
-          return false;
-      }
+    if (errCodeSSL == SSL_ERROR_WANT_WRITE) {
+      return false;
+    }
 
-      if (errCodeSSL == SSL_ERROR_WANT_READ)
-      {
-          m_processQueueNeedsToReadData = true;
-    	  return true; //we may have more to write but we want to read first, so unsignal for now
-      }
+    if (errCodeSSL == SSL_ERROR_WANT_READ)
+    {
+      m_processQueueNeedsToReadData = true;
+      return true; //we may have more to write but we want to read first, so unsignal for now
+    }
   }
   else
   {
-      char errbuf[200];
+    char errbuf[200];
 
-      socket_error(errbuf, sizeof(errbuf));
+    socket_error(errbuf, sizeof(errbuf));
 
-      m_pSession->getLog()->onEvent("SSL send error <" +
-                                      IntConvertor::convert(errCodeSSL) + "> " +
-                                      errbuf);
+    m_pSession->getLog()->onEvent("SSL send error <" +
+                                  IntConvertor::convert(errCodeSSL) + "> " +
+                                  errbuf);
 
-      return false;
+    return false;
   }  
 }
 
@@ -248,14 +248,14 @@ void SSLSocketConnection::disconnect()
     m_pMonitor->drop( m_socket );
 }
 
-bool SSLSocketConnection::read( SocketConnector& s )
+bool SSLSocketConnection::read( SocketConnector& connector )
 {
   if ( !m_pSession ) return false;
 
   try
   {
     readFromSocket();
-    readMessages( s.getMonitor() );
+    readMessages( connector.getMonitor() );
   }
   catch( SocketRecvFailed& e )
   {
@@ -265,9 +265,9 @@ bool SSLSocketConnection::read( SocketConnector& s )
   return true;
 }
 
-bool SSLSocketConnection::read(SSLSocketAcceptor &a, SocketServer& s )
+bool SSLSocketConnection::read(SSLSocketAcceptor &acceptor, SocketServer& server )
 {
-  std::string msg;
+  std::string message;
   try
   {
     if ( !m_pSession )
@@ -275,7 +275,7 @@ bool SSLSocketConnection::read(SSLSocketAcceptor &a, SocketServer& s )
       struct timeval timeout = { 1, 0 };
       fd_set readset = m_fds;
 
-      while( !readMessage( msg ) )
+      while( !readMessage( message ) )
       {
         int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
         if( result > 0 )
@@ -286,23 +286,23 @@ bool SSLSocketConnection::read(SSLSocketAcceptor &a, SocketServer& s )
           return false;
       }
 
-      m_pSession = Session::lookupSession( msg, true );
+      m_pSession = Session::lookupSession( message, true );
       if( !isValidSession() )
       {
         m_pSession = 0;
-        if( a.getLog() )
+        if( acceptor.getLog() )
         {
-          a.getLog()->onEvent( "Session not found for incoming message: " + msg );
-          a.getLog()->onIncoming( msg );
+          acceptor.getLog()->onEvent( "Session not found for incoming message: " + message );
+          acceptor.getLog()->onIncoming( message );
         }
       }
       if( m_pSession )
-        m_pSession = a.getSession( msg, *this );
+        m_pSession = acceptor.getSession( message, *this );
       if( m_pSession )
-        m_pSession->next( msg, UtcTimeStamp() );
+        m_pSession->next( message, UtcTimeStamp() );
       if( !m_pSession )
       {
-        s.getMonitor().drop( m_socket );
+        server.getMonitor().drop( m_socket );
         return false;
       }
 
@@ -312,7 +312,7 @@ bool SSLSocketConnection::read(SSLSocketAcceptor &a, SocketServer& s )
     else
     {
       readFromSocket();
-      readMessages( s.getMonitor() );
+      readMessages( server.getMonitor() );
       return true;
     }
   }
@@ -320,11 +320,11 @@ bool SSLSocketConnection::read(SSLSocketAcceptor &a, SocketServer& s )
   {
     if( m_pSession )
       m_pSession->getLog()->onEvent( e.what() );
-    s.getMonitor().drop( m_socket );
+    server.getMonitor().drop( m_socket );
   }
   catch ( InvalidMessage& )
   {
-    s.getMonitor().drop( m_socket );
+    server.getMonitor().drop( m_socket );
   }
   return false;
 }
@@ -375,9 +375,9 @@ EXCEPT ( SocketRecvFailed )
         
         if (errCodeSSL == SSL_ERROR_WANT_WRITE)
         {
-            Locker locker(m_mutex);
-            m_readFromSocketNeedsToWriteData = true;
-            subscribeToSocketWriteAvailableEvents();
+          Locker locker(m_mutex);
+          m_readFromSocketNeedsToWriteData = true;
+          subscribeToSocketWriteAvailableEvents();
         }
       	
         return;
@@ -413,7 +413,6 @@ bool SSLSocketConnection::didReadFromSocketRequestToWrite() const
     Locker locker(m_mutex);
     return m_readFromSocketNeedsToWriteData;
 }
-
 
 bool SSLSocketConnection::readMessage( std::string& msg )
 {

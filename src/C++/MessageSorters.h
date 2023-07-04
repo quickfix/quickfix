@@ -28,9 +28,11 @@
 
 #include "FieldNumbers.h"
 #include "SharedArray.h"
+
 #include <stdarg.h>
 #include <functional>
 #include <map>
+#include <vector>
 
 namespace FIX
 {
@@ -119,8 +121,8 @@ public:
     : m_mode( mode ), m_delim( 0 ), m_largest( 0 ) {}
   message_order( int first, ... );
   message_order( const int order[] );
-  message_order(const message_order&) = default;
-  message_order(message_order&&) = default;
+  message_order( const message_order& ) = default;
+  message_order( message_order&& ) = default;
 
   bool operator() ( const int x, const int y ) const
   {

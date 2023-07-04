@@ -135,8 +135,8 @@ int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, vo
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      const SessionSettings& settings ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
@@ -144,9 +144,9 @@ SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings,
-                                LogFactory& logFactory ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      const SessionSettings& settings,
+                                      LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
@@ -155,9 +155,8 @@ SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
 
 SSLSocketAcceptor::~SSLSocketAcceptor()
 {
-  SocketConnections::iterator iter;
-  for ( iter = m_connections.begin(); iter != m_connections.end(); ++iter )
-    delete iter->second;
+  for( const SocketConnections::value_type& connection : m_connections )
+    delete connection.second;
 
   if (m_sslInit)
   {
@@ -167,14 +166,13 @@ SSLSocketAcceptor::~SSLSocketAcceptor()
   }
 }
 
-void SSLSocketAcceptor::onConfigure( const SessionSettings& s )
+void SSLSocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
 EXCEPT ( ConfigError )
 {
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  std::set<SessionID> sessions = sessionSettings.getSessions();
+  for( const SessionID& sessionID : sessions )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     settings.getInt( SOCKET_ACCEPT_PORT );
     if( settings.has(SOCKET_REUSE_ADDRESS) )
       settings.getBool( SOCKET_REUSE_ADDRESS );
@@ -183,12 +181,11 @@ EXCEPT ( ConfigError )
   }
 }
 
-void SSLSocketAcceptor::onInitialize( const SessionSettings& s )
+void SSLSocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
   if (!m_sslInit)
   {
-
     ssl_init();
 
     std::string errStr;
@@ -228,11 +225,10 @@ EXCEPT ( RuntimeError )
   {
     m_pServer = new SocketServer( 1 );
 
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
+    std::set<SessionID> sessions = sessionSettings.getSessions();
+    for( const SessionID& sessionID : sessions )
     {
-      const Dictionary& settings = s.get( *i );
+      const Dictionary& settings = sessionSettings.get( sessionID );
       port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
@@ -247,7 +243,7 @@ EXCEPT ( RuntimeError )
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
         settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
-      m_portToSessions[port].insert( *i );
+      m_portToSessions[port].insert( sessionID );
       m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
     }    
   }

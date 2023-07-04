@@ -268,38 +268,35 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < writeSet.fd_count; ++i )
   {
-    int s = writeSet.fd_array[ i ];
-    if( m_connectSockets.find(s) != m_connectSockets.end() )
+    int socket = writeSet.fd_array[ i ];
+    if( m_connectSockets.find( socket ) != m_connectSockets.end() )
     {
-      m_connectSockets.erase( s );
-      m_readSockets.insert( s );
-      strategy.onConnect( *this, s );
+      m_connectSockets.erase( socket );
+      m_readSockets.insert( socket );
+      strategy.onConnect( *this, socket );
     }
     else
     {
-      strategy.onWrite( *this, s );
+      strategy.onWrite( *this, socket );
     }
   }
 #else
-  Sockets::iterator i;
-  Sockets sockets = m_connectSockets;
-  for( i = sockets.begin(); i != sockets.end(); ++i )
+  Sockets connectSockets = m_connectSockets;
+  for( Sockets::value_type socket : connectSockets )
   {
-    int s = *i;
-    if ( !FD_ISSET( *i, &writeSet ) )
+    if ( !FD_ISSET( socket, &writeSet ) )
       continue;
-    m_connectSockets.erase( s );
-    m_readSockets.insert( s );
-    strategy.onConnect( *this, s );
+    m_connectSockets.erase( socket );
+    m_readSockets.insert( socket );
+    strategy.onConnect( *this, socket );
   }
 
-  sockets = m_writeSockets;
-  for( i = sockets.begin(); i != sockets.end(); ++i )
+  Sockets writeSockets = m_writeSockets;
+  for( Sockets::value_type socket : writeSockets )
   {
-    int s = *i;
-    if ( !FD_ISSET( *i, &writeSet ) )
+    if ( !FD_ISSET( socket, &writeSet ) )
       continue;
-    strategy.onWrite( *this, s );
+    strategy.onWrite( *this, socket );
   }
 #endif
 }
@@ -309,27 +306,25 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
 #ifdef _MSC_VER
   for ( unsigned i = 0; i < exceptSet.fd_count; ++i )
   {
-    int s = exceptSet.fd_array[ i ];
-    strategy.onError( *this, s );
+    int socket = exceptSet.fd_array[ i ];
+    strategy.onError( *this, socket );
   }
 #else
-    Sockets::iterator i;
-    Sockets sockets = m_connectSockets;
-    for ( i = sockets.begin(); i != sockets.end(); ++i )
+    Sockets connectSockets = m_connectSockets;
+    for( Sockets::value_type socket : connectSockets )
     {
-      int s = *i;
-      if ( !FD_ISSET( *i, &exceptSet ) )
+      if ( !FD_ISSET( socket, &exceptSet ) )
         continue;
-      strategy.onError( *this, s );
+      strategy.onError( *this, socket );
     }
 #endif
 }
 
 void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
 {
-  Sockets::const_iterator iter;
-  for ( iter = sockets.begin(); iter != sockets.end(); ++iter ) {
-    FD_SET( *iter, &watchSet );
+  for( Sockets::value_type socket : sockets )
+  {
+    FD_SET( socket, &watchSet );
   }
 }
 }

@@ -76,8 +76,7 @@ public:
   const std::string getParameterString() const
   {
     std::string result;
-    Parameters::const_iterator i;
-    for( i = m_parameters.begin(); i != m_parameters.end(); ++i )
+    for( Parameters::const_iterator i = m_parameters.begin(); i != m_parameters.end(); ++i )
     {
       result += (i == m_parameters.begin()) ? "?" : "&";
       result += i->first + "=" + i->second;

@@ -267,9 +267,8 @@ void Initiator::stop( bool force )
     thread_join( m_threadid );
   m_threadid = 0;
 
-  std::vector<Session*>::iterator session = enabledSessions.begin();
-  for( ; session != enabledSessions.end(); ++session )
-    (*session)->logon();
+  for( Session* session : enabledSessions )
+    session->logon();
 }
 
 bool Initiator::isLoggedOn()

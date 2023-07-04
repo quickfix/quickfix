@@ -98,8 +98,10 @@ public:
 
   typedef Fields::iterator iterator;
   typedef Fields::const_iterator const_iterator;
+  typedef Fields::value_type value_type;
   typedef Groups::iterator g_iterator;
   typedef Groups::const_iterator g_const_iterator;
+  typedef Groups::value_type g_value_type;
 
   FieldMap( const message_order& order =
             message_order( message_order::normal ) );
@@ -229,6 +231,10 @@ public:
   {
     return &getGroupRef( num, tag );
   }
+
+  const Groups& groups() const {
+    return m_groups;
+  } 
 
   /// Remove a specific instance of a group.
   void removeGroup( int num, int tag );

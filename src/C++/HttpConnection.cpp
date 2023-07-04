@@ -204,21 +204,20 @@ void HttpConnection::processRoot
   }
 
   std::set<SessionID> sessions = Session::getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessions )
   {
-    Session* pSession = Session::lookupSession( *i );
+    Session* pSession = Session::lookupSession( sessionID );
     if( !pSession ) continue;
 
     { TR tr(b); tr.text();
       { TD td(b); td.text();
-        std::string href = "/session?BeginString=" + i->getBeginString().getValue() +
-                            "&SenderCompID=" + i->getSenderCompID().getValue() +
-                            "&TargetCompID=" + i->getTargetCompID().getValue();
-        if( i->getSessionQualifier().size() )
-          href += "&SessionQualifier=" + i->getSessionQualifier();
+        std::string href = "/session?BeginString=" + sessionID.getBeginString().getValue() +
+                            "&SenderCompID=" + sessionID.getSenderCompID().getValue() +
+                            "&TargetCompID=" + sessionID.getTargetCompID().getValue();
+        if( sessionID.getSessionQualifier().size() )
+          href += "&SessionQualifier=" + sessionID.getSessionQualifier();
 
-        A a(b); a.href(href).text(i->toString());
+        A a(b); a.href(href).text(sessionID.toString());
       }
       { TD td(b); td.text(pSession->isInitiator() ? "initiator" : "acceptor"); }
       { TD td(b); td.text(pSession->isEnabled() ? "yes" : "no"); }
@@ -244,7 +243,7 @@ void HttpConnection::processResetSessions
       std::set<SessionID> sessions = Session::getSessions();
       std::set<SessionID>::iterator session;
       for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->reset();
+        Session::lookupSession( *session )->reset();
       copy.removeParameter("confirm");
     }
 
@@ -289,9 +288,8 @@ void HttpConnection::processRefreshSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->refresh();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->refresh();
       copy.removeParameter("confirm");
     }
 
@@ -336,9 +334,8 @@ void HttpConnection::processEnableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logon();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logon();
       copy.removeParameter("confirm");
     }
 
@@ -383,9 +380,8 @@ void HttpConnection::processDisableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logout();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logout();
       copy.removeParameter("confirm");
     }
 
