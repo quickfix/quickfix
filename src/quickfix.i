@@ -1,3 +1,6 @@
+#include "C++/DataDictionary.h"
+#include "C++/Exceptions.h"
+#include <type_traits>
 %module(directors="1") quickfix
 
 %exceptionclass FIX::Exception;
@@ -8,6 +11,142 @@
 %include carrays.i
 %include std_unique_ptr.i
 %include std_set.i
+
+%exception
+{
+  try
+  {
+    $action
+  }
+  catch(FIX::DataDictionaryNotFound const& e)
+  {
+    raisePythonException<FIX::DataDictionaryNotFound>(e, SWIGTYPE_p_FIX__DataDictionaryNotFound); SWIG_fail;
+  }
+  catch(FIX::FieldNotFound const& e)
+  {
+    raisePythonException<FIX::FieldNotFound>(e, SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError const& e)
+  {
+    raisePythonException<FIX::FieldConvertError>(e, SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  catch(FIX::MessageParseError const& e)
+  {
+    raisePythonException<FIX::MessageParseError>(e, SWIGTYPE_p_FIX__MessageParseError); SWIG_fail;
+  }
+  catch(FIX::InvalidMessage const& e)
+  {
+    raisePythonException<FIX::InvalidMessage>(e, SWIGTYPE_p_FIX__InvalidMessage); SWIG_fail;
+  }
+  catch(FIX::ConfigError const& e)
+  {
+    raisePythonException<FIX::ConfigError>(e, SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::RuntimeError const& e)
+  {
+    raisePythonException<FIX::RuntimeError>(e, SWIGTYPE_p_FIX__RuntimeError); SWIG_fail;
+  }
+  catch(FIX::InvalidTagNumber const& e)
+  {
+    raisePythonException<FIX::InvalidTagNumber>(e, SWIGTYPE_p_FIX__InvalidTagNumber); SWIG_fail;
+  }
+  catch(FIX::RequiredTagMissing const& e)
+  {
+    raisePythonException<FIX::RequiredTagMissing>(e, SWIGTYPE_p_FIX__RequiredTagMissing); SWIG_fail;
+  }
+  catch(FIX::TagNotDefinedForMessage const& e)
+  {
+    raisePythonException<FIX::TagNotDefinedForMessage>(e, SWIGTYPE_p_FIX__TagNotDefinedForMessage); SWIG_fail;
+  }
+  catch(FIX::NoTagValue const& e)
+  {
+    raisePythonException<FIX::NoTagValue>(e, SWIGTYPE_p_FIX__NoTagValue); SWIG_fail;
+  }
+  catch(FIX::IncorrectTagValue const& e)
+  {
+    raisePythonException<FIX::IncorrectTagValue>(e, SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
+  }
+  catch(FIX::IncorrectDataFormat const& e)
+  {
+    raisePythonException<FIX::IncorrectDataFormat>(e, SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
+  }
+  catch(FIX::IncorrectMessageStructure const& e)
+  {
+    raisePythonException<FIX::IncorrectMessageStructure>(e, SWIGTYPE_p_FIX__IncorrectMessageStructure); SWIG_fail;
+  }
+  catch(FIX::DuplicateFieldNumber const& e)
+  {
+    raisePythonException<FIX::DuplicateFieldNumber>(e, SWIGTYPE_p_FIX__DuplicateFieldNumber); SWIG_fail;
+  }
+  catch(FIX::InvalidMessageType const& e)
+  {
+    raisePythonException<FIX::InvalidMessageType>(e, SWIGTYPE_p_FIX__InvalidMessageType); SWIG_fail;
+  }
+  catch(FIX::UnsupportedMessageType const& e)
+  {
+    raisePythonException<FIX::UnsupportedMessageType>(e, SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
+  }
+  catch(FIX::UnsupportedVersion const& e)
+  {
+    raisePythonException<FIX::UnsupportedVersion>(e, SWIGTYPE_p_FIX__UnsupportedVersion); SWIG_fail;
+  }
+  catch(FIX::TagOutOfOrder const& e)
+  {
+    raisePythonException<FIX::TagOutOfOrder>(e, SWIGTYPE_p_FIX__TagOutOfOrder); SWIG_fail;
+  }
+  catch(FIX::RepeatedTag const& e)
+  {
+    raisePythonException<FIX::RepeatedTag>(e, SWIGTYPE_p_FIX__RepeatedTag); SWIG_fail;
+  }
+  catch(FIX::RepeatingGroupCountMismatch const& e)
+  {
+    raisePythonException<FIX::RepeatingGroupCountMismatch>(e, SWIGTYPE_p_FIX__RepeatingGroupCountMismatch); SWIG_fail;
+  }
+  catch(FIX::DoNotSend const& e)
+  {
+    raisePythonException<FIX::DoNotSend>(e, SWIGTYPE_p_FIX__DoNotSend); SWIG_fail;
+  }
+  catch(FIX::RejectLogon const& e)
+  {
+    raisePythonException<FIX::RejectLogon>(e, SWIGTYPE_p_FIX__RejectLogon); SWIG_fail;
+  }
+  catch(FIX::SessionNotFound const& e)
+  {
+    raisePythonException<FIX::SessionNotFound>(e, SWIGTYPE_p_FIX__SessionNotFound); SWIG_fail;
+  }
+  catch(FIX::IOException const& e)
+  {
+    raisePythonException<FIX::IOException>(e, SWIGTYPE_p_FIX__IOException); SWIG_fail;
+  }
+  catch(FIX::SocketSendFailed const& e)
+  {
+    raisePythonException<FIX::SocketSendFailed>(e, SWIGTYPE_p_FIX__SocketSendFailed); SWIG_fail;
+  }
+  catch(FIX::SocketRecvFailed const& e)
+  {
+    raisePythonException<FIX::SocketRecvFailed>(e, SWIGTYPE_p_FIX__SocketRecvFailed); SWIG_fail;
+  }
+  catch(FIX::SocketCloseFailed const& e)
+  {
+    raisePythonException<FIX::SocketCloseFailed>(e, SWIGTYPE_p_FIX__SocketCloseFailed); SWIG_fail;
+  }
+  catch(FIX::SocketException const& e)
+  {
+    raisePythonException<FIX::SocketException>(e, SWIGTYPE_p_FIX__SocketException); SWIG_fail;
+  }
+  catch(FIX::Exception const& e)
+  {
+    raisePythonException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); SWIG_fail;
+  }
+  catch(std::exception const& e) 
+  {
+    SWIG_exception(SWIG_RuntimeError, e.what());
+  }
+  catch(...)
+  {
+    SWIG_exception(SWIG_RuntimeError, "unknown exception");
+  }
+}
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
@@ -66,6 +205,149 @@
 #include <SSLSocketConnection.h>
 #ifdef SWIGPYTHON
 #include "datetime.h"
+#endif
+
+template<typename Exception>
+void raisePythonException(Exception const& e, swig_type_info* swigType)
+{
+  SWIG_Python_Raise(SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN), typeid(Exception).name(), swigType);
+}
+
+#ifndef HAVE_SSL
+struct SSL{};
+struct RSA{};
+struct X509{};
+
+namespace FIX
+{
+enum SSLHandshakeStatus {
+    SSL_HANDSHAKE_FAILED = 0,
+    SSL_HANDSHAKE_SUCCEDED = 1,
+    SSL_HANDSHAKE_IN_PROGRESS = 2
+};
+
+class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
+{
+public:
+  SSLSocketInitiator( Application& application, 
+                      MessageStoreFactory& factory,
+                      const SessionSettings& settings ) EXCEPT ( ConfigError ) 
+  : Initiator( application, factory, settings)
+  {
+    throw ConfigError("SSL not enabled");
+  }
+
+  SSLSocketInitiator( Application& application, 
+                      MessageStoreFactory& factory,
+                      const SessionSettings& settings, 
+                      LogFactory& logFactory ) EXCEPT ( ConfigError ) 
+  : Initiator( application, factory, settings, logFactory )
+  {
+    throw ConfigError("SSL not enabled");
+  }
+
+  virtual ~SSLSocketInitiator();
+
+  void setPassword(const std::string &) {}
+
+  void setCertAndKey(X509 *, RSA *) {}
+
+  int passwordHandleCallback(char *, size_t, int ) { return 0; }
+
+  static int passwordHandleCB(char *, int, int, void *) { return 0; }
+
+private:
+  virtual void onStart() {};
+  virtual bool onPoll() { return false; };
+  virtual void onStop() {};
+
+  virtual void doConnect( const SessionID&, const Dictionary& ) {};
+  virtual void onConnect( SocketConnector&, socket_handle ) {};
+  virtual void onWrite( SocketConnector&, socket_handle ) {};
+  virtual bool onData( SocketConnector&, socket_handle ) { return false; };
+  virtual void onDisconnect( SocketConnector&, socket_handle ) {};
+  virtual void onError( SocketConnector& ) {};
+};
+
+class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy
+{
+  friend class SSLSocketConnection;
+public:
+  SSLSocketAcceptor( Application& application, 
+                     MessageStoreFactory& factory,
+                     const SessionSettings& settings ) EXCEPT ( ConfigError ) 
+  : Acceptor( application, factory, settings)
+  {
+    throw ConfigError("SSL not enabled");
+  }
+
+  SSLSocketAcceptor( Application& application, 
+                     MessageStoreFactory& factory,
+                     const SessionSettings& settings, 
+                     LogFactory& logFactory ) EXCEPT ( ConfigError ) 
+  : Acceptor( application, factory, settings, logFactory )
+  {
+    throw ConfigError("SSL not enabled");
+  }
+
+  virtual ~SSLSocketAcceptor() {}
+
+  void setPassword(const std::string &pwd) {}
+
+  int passwordHandleCallback(char *, size_t, int) { return 0; }
+
+  static int passPhraseHandleCB(char *, int, int, void *) { return 0; }
+
+private:
+  virtual void onStart() {};
+  virtual bool onPoll() { return false; };
+  virtual void onStop() {};
+
+  virtual void onConnect( SocketServer&, socket_handle, socket_handle ) {};
+  virtual void onWrite( SocketServer&, socket_handle ) {};
+  virtual bool onData( SocketServer&, socket_handle ) { return false; };
+  virtual void onDisconnect( SocketServer&, socket_handle ) {};
+  virtual void onError( SocketServer& ) {};
+};
+
+class SSLSocketConnection : Responder
+{
+public:
+  typedef std::set<SessionID> Sessions;
+
+  SSLSocketConnection( socket_handle, SSL *, Sessions, SocketMonitor* ) {}
+  SSLSocketConnection( SSLSocketInitiator&, const SessionID&, socket_handle, SSL *, SocketMonitor* ) {}
+  virtual ~SSLSocketConnection();
+
+  socket_handle getSocket() const { return 0; }
+  Session* getSession() const { return nullptr; }
+
+  bool read( SocketConnector& ) { return false; };
+  bool read( SSLSocketAcceptor&, SocketServer& ) { return false; };
+  bool processQueue() { return false; }
+
+  void signal() {}
+
+  void subscribeToSocketWriteAvailableEvents() {}
+
+  void unsignal() {}
+
+  void setHandshakeStartTime(time_t) {}
+
+  int getSecondsFromHandshakeStart(time_t) { return 0; }
+
+  void onTimeout() {}
+
+  SSL *sslObject() { return nullptr; }
+
+  bool didProcessQueueRequestToRead() const { return false; };
+  bool didReadFromSocketRequestToWrite() const { return false; };
+
+private:
+  virtual bool send( const std::string& ) { return false; };
+  virtual void disconnect() {};
+};
+}
 #endif
          
 typedef FIX::UtcTimeStamp UtcTimeStamp;

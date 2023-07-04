@@ -2,6 +2,7 @@
 export LD_LIBRARY_PATH=../../src/C++/.libs
 export DYLD_LIBRARY_PATH=../../src/C++/.libs
 export PYTHONPATH=../../lib/python3
+export QUICKFIX_PATH=../../
 
 python3 test/DataDictionaryTestCase.py
 python3 test/DictionaryTestCase.py
