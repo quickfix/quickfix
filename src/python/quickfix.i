@@ -57,6 +57,15 @@
   *pDD = *(*$1);
 }
 
+%extend FIX::UtcTimeStamp {
+  PyObject *getDateTime() {
+      int y, m, d, h, mi, s, fs;
+      $self->getYMD(y, m, d);
+      $self->getHMS(h, mi, s, fs, 6);
+      return PyDateTime_FromDateAndTime(y, m, d, h, mi, s, fs);
+  }
+}
+
 %rename(FIXException) FIX::Exception;
 
 %include ../quickfix.i

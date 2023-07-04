@@ -64,7 +64,9 @@
 #include <SSLSocketAcceptor.h>
 #include <SSLSocketInitiator.h>
 #include <SSLSocketConnection.h>
+#ifdef SWIGPYTHON
 #include "datetime.h"
+#endif
          
 typedef FIX::UtcTimeStamp UtcTimeStamp;
 typedef FIX::UtcDate UtcDate;
@@ -171,17 +173,10 @@ typedef FIX::SessionSettings SessionSettings;
 }
 
 %init %{
+#ifdef SWIGPYTHON
     PyDateTime_IMPORT;
+#endif
 %}
-
-%extend FIX::UtcTimeStamp {
-  PyObject *getDateTime() {
-      int y, m, d, h, mi, s, fs;
-      $self->getYMD(y, m, d);
-      $self->getHMS(h, mi, s, fs, 6);
-      return PyDateTime_FromDateAndTime(y, m, d, h, mi, s, fs);
-  }
-}
 
 %extend FIX::SessionSettings {
     void setFromString(const std::string& str) {
