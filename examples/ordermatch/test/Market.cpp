@@ -72,7 +72,7 @@ bool Market::match( std::queue < Order > & orders )
 
     if ( iBid->second.getPrice() >= iAsk->second.getPrice() )
     {
-      Order & bid = iBid->second;
+      Order& bid = iBid->second;
       Order& ask = iAsk->second;
 
       match( bid, ask );
@@ -91,15 +91,15 @@ Order& Market::find( Order::Side side, std::string id )
 {
   if ( side == Order::buy )
   {
-    BidOrders::iterator i;
-    for ( i = m_bidOrders.begin(); i != m_bidOrders.end(); ++i )
-      if ( i->second.getClientID() == id ) return i->second;
+    for( BidOrders::value_type& bid : m_bidOrders )
+      if( bid.second.getClientID() == id)
+        return bid.second;
   }
   else if ( side == Order::sell )
   {
-    AskOrders::iterator i;
-    for ( i = m_askOrders.begin(); i != m_askOrders.end(); ++i )
-      if ( i->second.getClientID() == id ) return i->second;
+    for( AskOrders::value_type& ask : m_askOrders )
+      if( ask.second.getClientID() == id)
+        return ask.second;
   }
   throw std::exception();
 }
@@ -125,13 +125,13 @@ void Market::display() const
 
   std::cout << "BIDS:" << std::endl;
   std::cout << "-----" << std::endl << std::endl;
-  for ( iBid = m_bidOrders.begin(); iBid != m_bidOrders.end(); ++iBid )
-    std::cout << iBid->second << std::endl;
+  for( BidOrders::value_type const& bid : m_bidOrders )
+    std::cout << bid.second << std::endl;
 
   std::cout << std::endl << std::endl;
 
   std::cout << "ASKS:" << std::endl;
   std::cout << "-----" << std::endl << std::endl;
-  for ( iAsk = m_askOrders.begin(); iAsk != m_askOrders.end(); ++iAsk )
-    std::cout << iAsk->second << std::endl;
+  for( AskOrders::value_type const& ask : m_askOrders )
+    std::cout <<ask.second << std::endl;
 }

@@ -86,32 +86,32 @@ EXCEPT ( ConfigError )
   return stream;
 }
 
-std::ostream& operator<<( std::ostream& stream, const SessionSettings& s )
+std::ostream& operator<<( std::ostream& stream, const SessionSettings& sessionSettings )
 {
-  const Dictionary& defaults = s.m_defaults;
+  const Dictionary& defaults = sessionSettings.get();
   if( defaults.size() )
   {
     stream << "[DEFAULT]" << std::endl;
-    Dictionary::iterator i;
-    for( i = defaults.begin(); i != defaults.end(); ++i )
-      stream << i->first << "=" << i->second << std::endl;
+    for( const Dictionary::value_type& defaultParam : defaults )
+    {
+      stream << defaultParam.first << "=" << defaultParam.second << std::endl;
+    }
     stream << std::endl;
   }
 
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessionSettings.getSessions() )
   {
     stream << "[SESSION]" << std::endl;
-    const Dictionary& section = s.get( *i );
+    const Dictionary& section = sessionSettings.get( sessionID );
     if( !section.size() ) continue;
 
-    Dictionary::iterator i;
-    for( i = section.begin(); i != section.end(); ++i )
+    for( const Dictionary::value_type& sectionParam : section )
     {
-      if( defaults.has(i->first) && defaults.getString(i->first) == i->second )
+      if( defaults.has(sectionParam.first) 
+        && defaults.getString(sectionParam.first) == sectionParam.second ) {
         continue;
-      stream << i->first << "=" << i->second << std::endl;
+      }
+      stream << sectionParam.first << "=" << sectionParam.second << std::endl;
     }
     stream << std::endl;
   }
@@ -152,17 +152,15 @@ EXCEPT ( ConfigError )
 void SessionSettings::set( const Dictionary& defaults ) EXCEPT ( ConfigError ) 
 { 
   m_defaults = defaults;
-  Dictionaries::iterator i = m_settings.begin();
-  for( i = m_settings.begin(); i != m_settings.end(); ++i )
-    i->second.merge( defaults );
+  for( Dictionaries::value_type& setting : m_settings )
+    setting.second.merge( defaults );
 }
 
 std::set < SessionID > SessionSettings::getSessions() const
 {
   std::set < SessionID > result;
-  Dictionaries::const_iterator i;
-  for ( i = m_settings.begin(); i != m_settings.end(); ++i )
-    result.insert( i->first );
+  for( const Dictionaries::value_type& setting : m_settings )
+    result.insert( setting.first );
   return result;
 }
 

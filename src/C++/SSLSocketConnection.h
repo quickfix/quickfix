@@ -165,7 +165,7 @@ public:
   }
 
   void subscribeToSocketWriteAvailableEvents() {
-      m_pMonitor->signal(m_socket);
+    m_pMonitor->signal(m_socket);
   }
 
   void unsignal()
@@ -176,11 +176,11 @@ public:
   }
 
   void setHandshakeStartTime(time_t time) {
-      m_handshakeStartTime = time;
+    m_handshakeStartTime = time;
   }
 
   int getSecondsFromHandshakeStart(time_t now) {
-      return now - m_handshakeStartTime;
+    return now - m_handshakeStartTime;
   }
 
   void onTimeout();

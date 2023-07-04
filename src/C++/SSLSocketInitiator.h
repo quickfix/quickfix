@@ -139,9 +139,9 @@ class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) EXCEPT ( ConfigError );
+                      const SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                      const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketInitiator();
 

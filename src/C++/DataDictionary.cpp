@@ -440,8 +440,9 @@ message_order const& DataDictionary::getOrderedFields() const
   int * tmp = new int[m_orderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_orderedFields.begin(); iter != m_orderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_orderedFields.begin(); 
+       iter != m_orderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_orderedFieldsArray = message_order(tmp);
@@ -460,8 +461,9 @@ message_order const& DataDictionary::getHeaderOrderedFields() const EXCEPT ( Con
   int * tmp = new int[m_headerOrderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_headerOrderedFields.begin(); iter != m_headerOrderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_headerOrderedFields.begin(); 
+       iter != m_headerOrderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_headerOrder = message_order(tmp);
@@ -480,8 +482,9 @@ message_order const& DataDictionary::getTrailerOrderedFields() const EXCEPT ( Co
   int * tmp = new int[m_trailerOrderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_trailerOrderedFields.begin(); iter != m_trailerOrderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_trailerOrderedFields.begin(); 
+       iter != m_trailerOrderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_trailerOrder = message_order(tmp);

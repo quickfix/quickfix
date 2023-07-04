@@ -136,24 +136,22 @@ socket_handle SocketServer::accept(socket_handle socket )
 
 void SocketServer::close()
 {
-  SocketToInfo::iterator i = m_socketToInfo.begin();
-  for( ; i != m_socketToInfo.end(); ++i )
+  for( const SocketToInfo::value_type& socketWithInfo : m_socketToInfo )
   {
-    socket_handle s = i->first;
-    socket_close( s );
-    socket_invalidate( s );
+    socket_handle socket = socketWithInfo.first;
+    socket_close( socket );
+    socket_invalidate( socket );
   }
 }
 
 bool SocketServer::block( Strategy& strategy, bool poll, double timeout )
 {
   std::set<socket_handle> sockets;
-  SocketToInfo::iterator i = m_socketToInfo.begin();
-  for( ; i != m_socketToInfo.end(); ++i )
+  for( const SocketToInfo::value_type& socketWithInfo : m_socketToInfo )
   {
-    if( !socket_isValid(i->first) )
+    if( !socket_isValid( socketWithInfo.first ) )
       return false;
-    sockets.insert( i->first );
+    sockets.insert( socketWithInfo.first );
   }
 
   ServerWrapper wrapper( sockets, *this, strategy );

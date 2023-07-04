@@ -135,9 +135,9 @@ class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy
   friend class SSLSocketConnection;
 public:
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings& ) EXCEPT ( ConfigError );
+                     const SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                     const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketAcceptor();
 

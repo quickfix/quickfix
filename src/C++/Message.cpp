@@ -282,21 +282,20 @@ std::string& Message::toXML( std::string& str ) const
 std::string Message::toXMLFields(const FieldMap& fields, int space) const
 {
   std::stringstream stream;
-  FieldMap::const_iterator i;
   std::string name;
-  for(i = fields.begin(); i != fields.end(); ++i)
+  for( const FieldMap::value_type& field : fields )
   {
-    int field = i->getTag();
-    std::string value = i->getString();
+    int tag = field.getTag();
+    std::string value = field.getString();
 
     stream << std::setw(space) << " " << "<field ";
-    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
+    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(tag, name))
     {
       stream << "name=\"" << name << "\" ";
     }
-    stream << "number=\"" << field << "\"";
+    stream << "number=\"" << tag << "\"";
     if(s_dataDictionary.get()
-       && s_dataDictionary->getValueName(field, value, name))
+       && s_dataDictionary->getValueName(tag, value, name))
     {
       stream << " enum=\"" << name << "\"";
     }
@@ -305,14 +304,12 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     stream << "</field>" << std::endl;
   }
 
-  FieldMap::g_const_iterator j;
-  for(j = fields.g_begin(); j != fields.g_end(); ++j)
+  for( const FieldMap::g_value_type& group : fields.groups() )
   {
-    std::vector<FieldMap*>::const_iterator k;
-    for(k = j->second.begin(); k != j->second.end(); ++k)
+    for( const FieldMap* groupFields : group.second )
     {
       stream << std::setw(space) << " " << "<group>" << std::endl
-             << toXMLFields(*(*k), space+2)
+             << toXMLFields(*groupFields, space+2)
              << std::setw(space) << " " << "</group>" << std::endl;
     }
   }

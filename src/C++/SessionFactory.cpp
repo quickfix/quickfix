@@ -247,9 +247,9 @@ void SessionFactory::processFixtDataDictionaries(const SessionID& sessionID,
   std::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   
-  for(Dictionary::const_iterator data = settings.begin(); data != settings.end(); ++data)
+  for(const Dictionary::value_type& data : settings)
   {
-    const std::string& key = data->first;
+    const std::string& key = data.first;
     const std::string frontKey = key.substr(0, strlen(APP_DATA_DICTIONARY));
     if( frontKey == string_toUpper(APP_DATA_DICTIONARY) )
     {
