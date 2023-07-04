@@ -32,8 +32,8 @@
 #include <Dictionary.h>
 #include <SessionSettings.h>
 #include <SocketInitiator.h>
-#include "SocketAcceptor.h"
-#include "SocketServer.h"
+#include <SocketAcceptor.h>
+#include <SocketServer.h>
 #include <fix42/NewOrderSingle.h>
 #include <fix42/Logon.h>
 #include <Utility.h>
@@ -219,7 +219,6 @@ SUITE(SocketConnectionTests)
     ~NonTestSessionConnection(){};
 
     std::unique_ptr<SocketConnection> pSocketConnection;
-
   };
 
   struct TestSessionConnection : public BaseSocketConnection
