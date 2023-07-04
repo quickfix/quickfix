@@ -80,22 +80,22 @@
 /* #undef HAVE_MYSQL */
 
 /* Define to 1 if you have the <openssl/ssl.h> header file. */
-#define HAVE_OPENSSL_SSL_H 1
+/* #undef HAVE_OPENSSL_SSL_H */
 
 /* Define to 1 if PostgreSQL libraries are available */
 /* #undef HAVE_POSTGRESQL */
 
 /* Define if you have python2 */
-/* #undef HAVE_PYTHON2 */
+#define HAVE_PYTHON2 1
 
 /* Define if you have python3 */
-#define HAVE_PYTHON3 1
+/* #undef HAVE_PYTHON3 */
 
 /* Define if you have ruby */
 /* #undef HAVE_RUBY */
 
 /* Define if you have SSL */
-#define HAVE_SSL 1
+/* #undef HAVE_SSL */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1

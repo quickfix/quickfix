@@ -110,7 +110,7 @@ public:
     throw ConfigError("SSL not enabled");
   }
 
-  virtual ~SSLSocketInitiator();
+  virtual ~SSLSocketInitiator() {}
 
   void setPassword(const std::string &) {}
 
@@ -121,21 +121,20 @@ public:
   static int passwordHandleCB(char *, int, int, void *) { return 0; }
 
 private:
-  virtual void onStart() {};
-  virtual bool onPoll() { return false; };
-  virtual void onStop() {};
+  void onStart() {};
+  bool onPoll() { return false; };
+  void onStop() {};
 
-  virtual void doConnect( const SessionID&, const Dictionary& ) {};
-  virtual void onConnect( SocketConnector&, socket_handle ) {};
-  virtual void onWrite( SocketConnector&, socket_handle ) {};
-  virtual bool onData( SocketConnector&, socket_handle ) { return false; };
-  virtual void onDisconnect( SocketConnector&, socket_handle ) {};
-  virtual void onError( SocketConnector& ) {};
+  void doConnect( const SessionID&, const Dictionary& ) override {};
+  void onConnect( SocketConnector&, socket_handle ) override {};
+  void onWrite( SocketConnector&, socket_handle ) override {};
+  bool onData( SocketConnector&, socket_handle ) override { return false; };
+  void onDisconnect( SocketConnector&, socket_handle ) override {};
+  void onError( SocketConnector& ) override {};
 };
 
 class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy
 {
-  friend class SSLSocketConnection;
 public:
   SSLSocketAcceptor( Application& application, 
                      MessageStoreFactory& factory,
@@ -163,15 +162,15 @@ public:
   static int passPhraseHandleCB(char *, int, int, void *) { return 0; }
 
 private:
-  virtual void onStart() {};
-  virtual bool onPoll() { return false; };
-  virtual void onStop() {};
+  void onStart() override {};
+  bool onPoll() override { return false; };
+  void onStop() override {};
 
-  virtual void onConnect( SocketServer&, socket_handle, socket_handle ) {};
-  virtual void onWrite( SocketServer&, socket_handle ) {};
-  virtual bool onData( SocketServer&, socket_handle ) { return false; };
-  virtual void onDisconnect( SocketServer&, socket_handle ) {};
-  virtual void onError( SocketServer& ) {};
+  void onConnect( SocketServer&, socket_handle, socket_handle ) override {};
+  void onWrite( SocketServer&, socket_handle ) override {};
+  bool onData( SocketServer&, socket_handle ) override { return false; };
+  void onDisconnect( SocketServer&, socket_handle ) override {};
+  void onError( SocketServer& ) override {};
 };
 
 class SSLSocketConnection : Responder
@@ -208,8 +207,8 @@ public:
   bool didReadFromSocketRequestToWrite() const { return false; };
 
 private:
-  virtual bool send( const std::string& ) { return false; };
-  virtual void disconnect() {};
+  bool send( const std::string& ) override { return false; };
+  void disconnect() override {};
 };
 }
 #endif
