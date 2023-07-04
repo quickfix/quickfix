@@ -98,7 +98,7 @@ void MySQLStore::populateCache()
   else
   {
     UtcTimeStamp time = m_cache.getCreationTime();
-    char sqlTime[ 20 ];
+    char sqlTime[ 50 ];
     int year, month, day, hour, minute, second, millis;
     time.getYMD (year, month, day);
     time.getHMS (hour, minute, second, millis);
@@ -302,7 +302,7 @@ void MySQLStore::reset() EXCEPT ( IOException )
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );
 
-  char sqlTime[ 20 ];
+  char sqlTime[ 50 ];
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 

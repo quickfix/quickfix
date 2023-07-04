@@ -173,7 +173,10 @@ private:
         if( !connected() )
           throw ConfigError( std::string("Unable to connect to database [") + mysql_error(m_pConnection) + "]" );
     }
-    #if( MYSQL_VERSION_ID > 50000 )
+    #if( MYSQL_VERSION_ID > 80000 )
+    bool reconnect = true;
+    mysql_options( m_pConnection, MYSQL_OPT_RECONNECT, &reconnect );
+    #else
     my_bool reconnect = 1;
     mysql_options( m_pConnection, MYSQL_OPT_RECONNECT, static_cast<char*>(&reconnect) );
     #endif
