@@ -38,6 +38,8 @@
 %ignore FIX::DateTime::NANOS_PER_MIN;
 %ignore FIX::DateTime::NANOS_PER_SEC;
 %ignore FIX::DateTime::JULIAN_19700101;
+%ignore FIX::DateTime::getYMD;
+%ignore FIX::DateTime::getHMS;
 
 %{
 #include <config.h>
