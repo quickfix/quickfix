@@ -12,7 +12,7 @@ all-local:
 	ln -sf $(top_builddir)/spec spec
 
 clean-local:
-	make -f Makefile.ruby clean
+	$(MAKE) -f Makefile.ruby clean
 	rm -rf $(local_ruby_lib)
 
 install-exec-local:
