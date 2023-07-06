@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\config_windows.h" />
     <ClInclude Include="..\stdafx.h" />
+    <ClInclude Include="config_windows.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="DatabaseConnectionID.h" />
