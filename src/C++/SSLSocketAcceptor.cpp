@@ -301,7 +301,7 @@ bool SSLSocketAcceptor::onPoll()
     }
   }
 
-  m_pServer->block( *this, true, timeout );
+  m_pServer->block( *this, true );
   return true;
 }
 

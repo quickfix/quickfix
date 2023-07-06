@@ -123,7 +123,7 @@ class MessageTestCase(unittest.TestCase):
         assert( self.object.isSetField( symbol ) )
 
     def test_setStringWithGroup(self):
-        dataDictionary = fix.DataDictionary( "spec/FIX43.xml" )
+        dataDictionary = fix.DataDictionary( "../../spec/FIX43.xml" )
         str = "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111=1095350459\00167=1\0011=00303\00155=fred\00154=1\00140=1\00159=3\00111=1095350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110=138\001"
 
         try:
@@ -133,7 +133,7 @@ class MessageTestCase(unittest.TestCase):
             assert( 0 )
 
     def test_setStringWithHeaderGroup(self):
-        dataDictionary = fix.DataDictionary( "spec/FIX43.xml" )
+        dataDictionary = fix.DataDictionary( "../../spec/FIX43.xml" )
         str = "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\00152=20040916-16:19:18.328\00156=SELLSIDE\001627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001628=HOP2\001629=20040916-16:19:18.328\001630=ID2\00110=079\001"
 
         try:
@@ -153,7 +153,7 @@ class MessageTestCase(unittest.TestCase):
             self.assertTrue(0)
 
     def test_embeddedXml(self):
-        dataDictionary = fix.DataDictionary( "spec/FIX42.xml" )
+        dataDictionary = fix.DataDictionary( "../../spec/FIX42.xml" )
         encodedFIXmessage = "8=FIX.4.2\0019=390\00135=8\00134=136\001369=131\00152=20150220-14:40:24.991\00149=CME\00150=G\00156=GGGGGGN\00157=GGG\001143=IL\0011=TEST\0016=0\00111=00000000000000000003\00114=1\00117=64485:M:412850TN0031303\00120=0\00131=208700\00132=1\00137=64227619161\00138=1\00139=2\00140=2\00141=0\00144=208700\00148=147403\00154=1\00155=ES\00159=0\00160=20150220-14:40:24.970\00175=20150220\001107=ESH5\001150=2\001151=0\001167=FUT\001337=TRADE\001375=CME000A\001432=20150220\001442=1\001527=642276191612015022031303\0011028=N\0011057=N\00110=000\001"
 
         str = "8=FIX.4.2\0019=501\00135=n\00134=158\001369=130\00152=20150220-14:40:24.991\00149=CME\00150=G\00156=QQQQQQN\00157=QQQ\001212=413\001213=" + encodedFIXmessage + "\00110=129\001"

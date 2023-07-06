@@ -240,8 +240,8 @@ class FIXException(Exception):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, t, d):
-        _quickfix.FIXException_swiginit(self, _quickfix.new_FIXException(t, d))
+    def __init__(self, type, detail):
+        _quickfix.FIXException_swiginit(self, _quickfix.new_FIXException(type, detail))
     __swig_destroy__ = _quickfix.delete_FIXException
     type = property(_quickfix.FIXException_type_get, _quickfix.FIXException_type_set)
     detail = property(_quickfix.FIXException_detail_get, _quickfix.FIXException_detail_set)
@@ -638,9 +638,6 @@ class DateTime(object):
     def getFraction(self, precision):
         return _quickfix.DateTime_getFraction(self, precision)
 
-    def getHMS(self, *args):
-        return _quickfix.DateTime_getHMS(self, *args)
-
     def getWeekDay(self):
         return _quickfix.DateTime_getWeekDay(self)
 
@@ -721,10 +718,6 @@ class DateTime(object):
     def julianDate(year, month, day):
         return _quickfix.DateTime_julianDate(year, month, day)
 
-    @staticmethod
-    def getYMD(*args):
-        return _quickfix.DateTime_getYMD(*args)
-
 # Register DateTime in _quickfix:
 _quickfix.DateTime_swigregister(DateTime)
 cvar = _quickfix.cvar
@@ -753,9 +746,6 @@ def DateTime_fromTm(*args):
 
 def DateTime_julianDate(year, month, day):
     return _quickfix.DateTime_julianDate(year, month, day)
-
-def DateTime_getYMD(*args):
-    return _quickfix.DateTime_getYMD(*args)
 
 
 def __sub__(lhs, rhs):
@@ -1188,6 +1178,9 @@ class FieldMap(object):
 
     def getGroupPtr(self, num, tag):
         return _quickfix.FieldMap_getGroupPtr(self, num, tag)
+
+    def groups(self):
+        return _quickfix.FieldMap_groups(self)
 
     def removeGroup(self, *args):
         return _quickfix.FieldMap_removeGroup(self, *args)
@@ -22565,8 +22558,8 @@ class Initiator(object):
     def block(self):
         return _quickfix.Initiator_block(self)
 
-    def poll(self, timeout=0.0):
-        return _quickfix.Initiator_poll(self, timeout)
+    def poll(self):
+        return _quickfix.Initiator_poll(self)
 
     def stop(self, force=False):
         return _quickfix.Initiator_stop(self, force)
@@ -22629,8 +22622,8 @@ class Acceptor(object):
     def block(self):
         return _quickfix.Acceptor_block(self)
 
-    def poll(self, timeout=0.0):
-        return _quickfix.Acceptor_poll(self, timeout)
+    def poll(self):
+        return _quickfix.Acceptor_poll(self)
 
     def stop(self, force=False):
         return _quickfix.Acceptor_stop(self, force)
@@ -22862,19 +22855,22 @@ class SSLSocketAcceptorBase(Acceptor):
     def setPassword(self, pwd):
         return _quickfix.SSLSocketAcceptorBase_setPassword(self, pwd)
 
-    def passwordHandleCallback(self, buf, bufsize, verify, job):
-        return _quickfix.SSLSocketAcceptorBase_passwordHandleCallback(self, buf, bufsize, verify, job)
+    def passwordHandleCallback(self, buf, bufsize, verify):
+        return _quickfix.SSLSocketAcceptorBase_passwordHandleCallback(self, buf, bufsize, verify)
 
     @staticmethod
-    def passPhraseHandleCB(buf, bufsize, verify, job):
-        return _quickfix.SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, job)
+    def passPhraseHandleCB(buf, bufsize, verify, instance):
+        return _quickfix.SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, instance)
 
 # Register SSLSocketAcceptorBase in _quickfix:
 _quickfix.SSLSocketAcceptorBase_swigregister(SSLSocketAcceptorBase)
 
-def SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, job):
-    return _quickfix.SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, job)
+def SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, instance):
+    return _quickfix.SSLSocketAcceptorBase_passPhraseHandleCB(buf, bufsize, verify, instance)
 
+SSL_HANDSHAKE_FAILED = _quickfix.SSL_HANDSHAKE_FAILED
+SSL_HANDSHAKE_SUCCEDED = _quickfix.SSL_HANDSHAKE_SUCCEDED
+SSL_HANDSHAKE_IN_PROGRESS = _quickfix.SSL_HANDSHAKE_IN_PROGRESS
 class SSLSocketInitiatorBase(Initiator):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -22889,18 +22885,18 @@ class SSLSocketInitiatorBase(Initiator):
     def setCertAndKey(self, cert, key):
         return _quickfix.SSLSocketInitiatorBase_setCertAndKey(self, cert, key)
 
-    def passwordHandleCallback(self, buf, bufsize, verify, job):
-        return _quickfix.SSLSocketInitiatorBase_passwordHandleCallback(self, buf, bufsize, verify, job)
+    def passwordHandleCallback(self, buf, bufsize, verify):
+        return _quickfix.SSLSocketInitiatorBase_passwordHandleCallback(self, buf, bufsize, verify)
 
     @staticmethod
-    def passwordHandleCB(buf, bufsize, verify, job):
-        return _quickfix.SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, job)
+    def passwordHandleCB(buf, bufsize, verify, instance):
+        return _quickfix.SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, instance)
 
 # Register SSLSocketInitiatorBase in _quickfix:
 _quickfix.SSLSocketInitiatorBase_swigregister(SSLSocketInitiatorBase)
 
-def SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, job):
-    return _quickfix.SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, job)
+def SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, instance):
+    return _quickfix.SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, instance)
 
 class SSLSocketConnection(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
@@ -22925,14 +22921,29 @@ class SSLSocketConnection(object):
     def signal(self):
         return _quickfix.SSLSocketConnection_signal(self)
 
+    def subscribeToSocketWriteAvailableEvents(self):
+        return _quickfix.SSLSocketConnection_subscribeToSocketWriteAvailableEvents(self)
+
     def unsignal(self):
         return _quickfix.SSLSocketConnection_unsignal(self)
+
+    def setHandshakeStartTime(self, time):
+        return _quickfix.SSLSocketConnection_setHandshakeStartTime(self, time)
+
+    def getSecondsFromHandshakeStart(self, now):
+        return _quickfix.SSLSocketConnection_getSecondsFromHandshakeStart(self, now)
 
     def onTimeout(self):
         return _quickfix.SSLSocketConnection_onTimeout(self)
 
     def sslObject(self):
         return _quickfix.SSLSocketConnection_sslObject(self)
+
+    def didProcessQueueRequestToRead(self):
+        return _quickfix.SSLSocketConnection_didProcessQueueRequestToRead(self)
+
+    def didReadFromSocketRequestToWrite(self):
+        return _quickfix.SSLSocketConnection_didReadFromSocketRequestToWrite(self)
 
 # Register SSLSocketConnection in _quickfix:
 _quickfix.SSLSocketConnection_swigregister(SSLSocketConnection)

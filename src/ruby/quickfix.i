@@ -1,3 +1,139 @@
+%exception
+{
+  try
+  {
+    $action
+  }
+  catch(FIX::DataDictionaryNotFound const& e)
+  {
+    raiseRubyException<FIX::DataDictionaryNotFound>(e, SWIGTYPE_p_FIX__DataDictionaryNotFound); SWIG_fail;
+  }
+  catch(FIX::FieldNotFound const& e)
+  {
+    raiseRubyException<FIX::FieldNotFound>(e, SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError const& e)
+  {
+    raiseRubyException<FIX::FieldConvertError>(e, SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  catch(FIX::MessageParseError const& e)
+  {
+    raiseRubyException<FIX::MessageParseError>(e, SWIGTYPE_p_FIX__MessageParseError); SWIG_fail;
+  }
+  catch(FIX::InvalidMessage const& e)
+  {
+    raiseRubyException<FIX::InvalidMessage>(e, SWIGTYPE_p_FIX__InvalidMessage); SWIG_fail;
+  }
+  catch(FIX::ConfigError const& e)
+  {
+    raiseRubyException<FIX::ConfigError>(e, SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::RuntimeError const& e)
+  {
+    raiseRubyException<FIX::RuntimeError>(e, SWIGTYPE_p_FIX__RuntimeError); SWIG_fail;
+  }
+  catch(FIX::InvalidTagNumber const& e)
+  {
+    raiseRubyException<FIX::InvalidTagNumber>(e, SWIGTYPE_p_FIX__InvalidTagNumber); SWIG_fail;
+  }
+  catch(FIX::RequiredTagMissing const& e)
+  {
+    raiseRubyException<FIX::RequiredTagMissing>(e, SWIGTYPE_p_FIX__RequiredTagMissing); SWIG_fail;
+  }
+  catch(FIX::TagNotDefinedForMessage const& e)
+  {
+    raiseRubyException<FIX::TagNotDefinedForMessage>(e, SWIGTYPE_p_FIX__TagNotDefinedForMessage); SWIG_fail;
+  }
+  catch(FIX::NoTagValue const& e)
+  {
+    raiseRubyException<FIX::NoTagValue>(e, SWIGTYPE_p_FIX__NoTagValue); SWIG_fail;
+  }
+  catch(FIX::IncorrectTagValue const& e)
+  {
+    raiseRubyException<FIX::IncorrectTagValue>(e, SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
+  }
+  catch(FIX::IncorrectDataFormat const& e)
+  {
+    raiseRubyException<FIX::IncorrectDataFormat>(e, SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
+  }
+  catch(FIX::IncorrectMessageStructure const& e)
+  {
+    raiseRubyException<FIX::IncorrectMessageStructure>(e, SWIGTYPE_p_FIX__IncorrectMessageStructure); SWIG_fail;
+  }
+  catch(FIX::DuplicateFieldNumber const& e)
+  {
+    raiseRubyException<FIX::DuplicateFieldNumber>(e, SWIGTYPE_p_FIX__DuplicateFieldNumber); SWIG_fail;
+  }
+  catch(FIX::InvalidMessageType const& e)
+  {
+    raiseRubyException<FIX::InvalidMessageType>(e, SWIGTYPE_p_FIX__InvalidMessageType); SWIG_fail;
+  }
+  catch(FIX::UnsupportedMessageType const& e)
+  {
+    raiseRubyException<FIX::UnsupportedMessageType>(e, SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
+  }
+  catch(FIX::UnsupportedVersion const& e)
+  {
+    raiseRubyException<FIX::UnsupportedVersion>(e, SWIGTYPE_p_FIX__UnsupportedVersion); SWIG_fail;
+  }
+  catch(FIX::TagOutOfOrder const& e)
+  {
+    raiseRubyException<FIX::TagOutOfOrder>(e, SWIGTYPE_p_FIX__TagOutOfOrder); SWIG_fail;
+  }
+  catch(FIX::RepeatedTag const& e)
+  {
+    raiseRubyException<FIX::RepeatedTag>(e, SWIGTYPE_p_FIX__RepeatedTag); SWIG_fail;
+  }
+  catch(FIX::RepeatingGroupCountMismatch const& e)
+  {
+    raiseRubyException<FIX::RepeatingGroupCountMismatch>(e, SWIGTYPE_p_FIX__RepeatingGroupCountMismatch); SWIG_fail;
+  }
+  catch(FIX::DoNotSend const& e)
+  {
+    raiseRubyException<FIX::DoNotSend>(e, SWIGTYPE_p_FIX__DoNotSend); SWIG_fail;
+  }
+  catch(FIX::RejectLogon const& e)
+  {
+    raiseRubyException<FIX::RejectLogon>(e, SWIGTYPE_p_FIX__RejectLogon); SWIG_fail;
+  }
+  catch(FIX::SessionNotFound const& e)
+  {
+    raiseRubyException<FIX::SessionNotFound>(e, SWIGTYPE_p_FIX__SessionNotFound); SWIG_fail;
+  }
+  catch(FIX::IOException const& e)
+  {
+    raiseRubyException<FIX::IOException>(e, SWIGTYPE_p_FIX__IOException); SWIG_fail;
+  }
+  catch(FIX::SocketSendFailed const& e)
+  {
+    raiseRubyException<FIX::SocketSendFailed>(e, SWIGTYPE_p_FIX__SocketSendFailed); SWIG_fail;
+  }
+  catch(FIX::SocketRecvFailed const& e)
+  {
+    raiseRubyException<FIX::SocketRecvFailed>(e, SWIGTYPE_p_FIX__SocketRecvFailed); SWIG_fail;
+  }
+  catch(FIX::SocketCloseFailed const& e)
+  {
+    raiseRubyException<FIX::SocketCloseFailed>(e, SWIGTYPE_p_FIX__SocketCloseFailed); SWIG_fail;
+  }
+  catch(FIX::SocketException const& e)
+  {
+    raiseRubyException<FIX::SocketException>(e, SWIGTYPE_p_FIX__SocketException); SWIG_fail;
+  }
+  catch(FIX::Exception const& e)
+  {
+    raiseRubyException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); SWIG_fail;
+  }
+  catch(std::exception const& e) 
+  {
+    SWIG_exception(SWIG_RuntimeError, e.what());
+  }
+  catch(...)
+  {
+    SWIG_exception(SWIG_RuntimeError, "unknown exception");
+  }
+}
+
 #ifdef SWIGRUBY
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
 %rename(_getValueName) FIX::DataDictionary::getValueName;
