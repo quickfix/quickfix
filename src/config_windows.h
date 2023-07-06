@@ -14,3 +14,7 @@
 
 // Define if you have openssl
 // #define HAVE_SSL 1
+
+#define HAVE_CXX17
+#define HAVE_STD_SHARED_PTR
+#define HAVE_STD_UNIQUE_PTR
