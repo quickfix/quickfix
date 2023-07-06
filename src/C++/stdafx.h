@@ -14,7 +14,7 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 #include <stdio.h>
-#include "config.h"
+#include "config_windows.h"
 
 #if _MSC_VER >= 1300
   #define TERMINATE_IN_STD 1
