@@ -638,9 +638,6 @@ class DateTime(object):
     def getFraction(self, precision):
         return _quickfix.DateTime_getFraction(self, precision)
 
-    def getHMS(self, *args):
-        return _quickfix.DateTime_getHMS(self, *args)
-
     def getWeekDay(self):
         return _quickfix.DateTime_getWeekDay(self)
 
@@ -721,10 +718,6 @@ class DateTime(object):
     def julianDate(year, month, day):
         return _quickfix.DateTime_julianDate(year, month, day)
 
-    @staticmethod
-    def getYMD(*args):
-        return _quickfix.DateTime_getYMD(*args)
-
 # Register DateTime in _quickfix:
 _quickfix.DateTime_swigregister(DateTime)
 cvar = _quickfix.cvar
@@ -753,9 +746,6 @@ def DateTime_fromTm(*args):
 
 def DateTime_julianDate(year, month, day):
     return _quickfix.DateTime_julianDate(year, month, day)
-
-def DateTime_getYMD(*args):
-    return _quickfix.DateTime_getYMD(*args)
 
 
 def __sub__(lhs, rhs):

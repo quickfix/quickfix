@@ -86,10 +86,10 @@
 /* #undef HAVE_POSTGRESQL */
 
 /* Define if you have python2 */
-#define HAVE_PYTHON2 1
+/* #undef HAVE_PYTHON2 */
 
 /* Define if you have python3 */
-/* #undef HAVE_PYTHON3 */
+#define HAVE_PYTHON3 1
 
 /* Define if you have ruby */
 /* #undef HAVE_RUBY */

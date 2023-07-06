@@ -1,6 +1,7 @@
 #include "C++/DataDictionary.h"
 #include "C++/Exceptions.h"
 #include <type_traits>
+
 %module(directors="1") quickfix
 
 %exceptionclass FIX::Exception;
@@ -77,6 +78,12 @@ template<typename Exception>
 void raisePythonException(Exception const& e, swig_type_info* swigType)
 {
   SWIG_Python_Raise(SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN), typeid(Exception).name(), swigType);
+}
+
+template<typename Exception>
+void raiseRubyException(Exception const& e, swig_type_info* swigType)
+{
+  rb_exc_raise(SWIG_Ruby_ExceptionType(swigType, SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN)));
 }
 
 #ifndef HAVE_SSL
@@ -182,7 +189,7 @@ public:
 
   SSLSocketConnection( socket_handle, SSL *, Sessions, SocketMonitor* ) {}
   SSLSocketConnection( SSLSocketInitiator&, const SessionID&, socket_handle, SSL *, SocketMonitor* ) {}
-  virtual ~SSLSocketConnection();
+  virtual ~SSLSocketConnection() {};
 
   socket_handle getSocket() const { return 0; }
   Session* getSession() const { return nullptr; }
