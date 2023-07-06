@@ -22,7 +22,6 @@ option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
 option(HAVE_PYTHON "Build with default Python version")
-option(HAVE_PYTHON2 "Build with default Python2 version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
 # add option to build shared or static
@@ -77,9 +76,6 @@ endif()
 
 if (HAVE_PYTHON)
   find_package(PythonLibs REQUIRED)
-  include_directories(${PYTHON_INCLUDE_DIRS})
-elseif (HAVE_PYTHON2)
-  find_package(PythonLibs 2 REQUIRED)
   include_directories(${PYTHON_INCLUDE_DIRS})
 elseif (HAVE_PYTHON3)
   find_package(PythonLibs 3 REQUIRED)

@@ -323,7 +323,6 @@ AC_CONFIG_FILES([
     src/Makefile
     src/C++/Makefile
     src/C++/test/Makefile
-    src/python2/Makefile
     src/python3/Makefile
     src/ruby/Makefile
     bin/Makefile
