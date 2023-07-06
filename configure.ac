@@ -15,7 +15,7 @@ m4_include([m4/ax_ruby.m4])
 m4_include([m4/ax_java.m4])
 m4_include([m4/ax_cxx_compile_stdcxx.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
-AC_CONFIG_HEADERS([src/C++/config.h])
+AC_CONFIG_HEADERS([src/C++/config_unix.h])
 AC_CONFIG_AUX_DIR([config])
 AM_INIT_AUTOMAKE
 
