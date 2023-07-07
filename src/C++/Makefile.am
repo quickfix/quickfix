@@ -144,7 +144,7 @@ libquickfix_la_SOURCES += $(libquickfix_la_ssl_SOURCES)
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
 Allocator.h: Makefile
-	grep "_ALLOCATOR" config.h >$@
+	grep "_ALLOCATOR" config_unix.h >$@
 
 all-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a

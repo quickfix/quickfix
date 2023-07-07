@@ -24,7 +24,7 @@ Makefile
 ChangeLog
 UnitTest++/TestUnitTest++
 aclocal.m4
-config.h
+config_unix.h
 config.log
 config.status
 config/
