@@ -43,6 +43,8 @@
 %ignore FIX::DateTime::getHMS;
 
 %{
+#define SWIG_PYTHON_STRICT_BYTE_CHAR
+
 #include <config.h>
 #include <Except.h>
 #include <Exceptions.h>

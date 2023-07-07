@@ -280,5 +280,12 @@ class MessageTestCase(unittest.TestCase):
         self.object.getGroup( 3, group )
         self.assertEqual( "C", group.getField(clOrdID).getString() )
 
+    def test_rawData(self):
+        rawData = fix.RawData()
+        self.object.setField( fix.RawData(b"data") )
+        self.object.getField( rawData )
+        self.assertEqual( b"data", rawData.getValue() )
+
+
 if __name__ == '__main__':
     unittest.main()
