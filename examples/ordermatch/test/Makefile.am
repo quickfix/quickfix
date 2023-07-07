@@ -7,5 +7,5 @@ ordermatch_ut_SOURCES = \
 
 ordermatch_ut_LDADD = -L$(top_builddir)/src/C++ -lquickfix 
 
-INCLUDES = -I$(top_builddir)/include -I.. -I../../../UnitTest++/src
-LDFLAGS = -L../../../UnitTest++ -lUnitTest++
+AM_CPPFLAGS = -I$(top_builddir)/include -I.. -I../../../UnitTest++/src
+AM_LDFLAGS = -L../../../UnitTest++ -lUnitTest++
