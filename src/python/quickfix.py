@@ -22949,7 +22949,6 @@ class SSLSocketConnection(object):
 _quickfix.SSLSocketConnection_swigregister(SSLSocketConnection)
 
 
-#ifdef SWIGPYTHON
 try:
   import thread
 except ImportError:
@@ -22957,10 +22956,8 @@ except ImportError:
 
 def _quickfix_start_thread(i_or_a):
   i_or_a.block()
-#endif
 
 
-#ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
   application = 0
   storeFactory = 0
@@ -23029,7 +23026,6 @@ class SSLSocketAcceptor(SSLSocketAcceptorBase):
     self.storeFactory = storeFactory
     self.settings = settings
     self.logFactory = logFactory
-#endif
 #endif
 
 

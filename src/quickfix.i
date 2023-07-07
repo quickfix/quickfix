@@ -74,17 +74,21 @@
 #include "datetime.h"
 #endif
 
+#ifdef SWIGPYTHON
 template<typename Exception>
 void raisePythonException(Exception const& e, swig_type_info* swigType)
 {
   SWIG_Python_Raise(SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN), typeid(Exception).name(), swigType);
 }
+#endif
 
+#ifdef SWIGRUBY
 template<typename Exception>
 void raiseRubyException(Exception const& e, swig_type_info* swigType)
 {
   rb_exc_raise(SWIG_Ruby_ExceptionType(swigType, SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN)));
 }
+#endif
 
 #ifndef HAVE_SSL
 struct SSL{};
