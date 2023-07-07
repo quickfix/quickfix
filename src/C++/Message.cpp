@@ -566,26 +566,26 @@ void Message::validate() const
     const BodyLength& aBodyLength = FIELD_GET_REF( m_header, BodyLength );
 
     const int expectedLength = (int)aBodyLength;
-    const int actualLength = bodyLength();
+    const int receivedLength = bodyLength();
 
-    if ( expectedLength != actualLength )
+    if ( expectedLength != receivedLength )
     {
       std::stringstream text;
-      text << "Expected BodyLength=" << actualLength
-           << ", Received BodyLength=" << expectedLength;
+      text << "Expected BodyLength=" << expectedLength
+           << ", Received BodyLength=" << receivedLength;
       throw InvalidMessage(text.str());
     }
 
     const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
 
     const int expectedChecksum = (int)aCheckSum;
-    const int actualChecksum = checkSum();
+    const int receivedChecksum = checkSum();
 
-    if ( expectedChecksum != actualChecksum )
+    if ( expectedChecksum != receivedChecksum )
     {
       std::stringstream text;
-      text << "Expected CheckSum=" << actualChecksum
-           << ", Received CheckSum=" << expectedChecksum;
+      text << "Expected CheckSum=" << expectedChecksum
+           << ", Received CheckSum=" << receivedChecksum;
       throw InvalidMessage(text.str());
     }
   }
