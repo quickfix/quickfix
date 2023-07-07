@@ -65,10 +65,10 @@ class Application(fix.Application):
 
 	def genOrderID(self):
 		self.orderID = self.orderID+1
-		return self.orderID
+		return str(self.orderID)
 	def genExecID(self):
 		self.execID = self.execID+1
-		return self.execID
+		return str(self.execID)
 
 try:
 	file = sys.argv[1]
