@@ -158,6 +158,7 @@
     <ClCompile Include="C++\test\SettingsTestCase.cpp" />
     <ClCompile Include="C++\test\SocketAcceptorTestCase.cpp" />
     <ClCompile Include="C++\test\SocketConnectorTestCase.cpp" />
+    <ClCompile Include="C++\test\SocketMonitorTestCase.cpp" />
     <ClCompile Include="C++\test\SocketServerTestCase.cpp" />
     <ClCompile Include="C++\test\StringUtilitiesTestCase.cpp" />
     <ClCompile Include="C++\test\TestHelper.cpp" />
