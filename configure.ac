@@ -165,10 +165,7 @@ esac
 AC_CHECK_HEADERS([stdio.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-
-
-AC_LANG_SAVE
-AC_LANG_CPLUSPLUS
+AC_LANG_PUSH(C++)
 
 AC_MSG_CHECKING(for STREAMS ioctl)
 AC_TRY_COMPILE(
@@ -287,7 +284,7 @@ AC_TRY_COMPILE(
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 
 # Checks for library functions.
-AC_LANG_RESTORE
+AC_LANG_POP(C++)
 
 AC_CHECK_LIB(iberty, cplus_demangle,
   AC_DEFINE(HAVE_CPLUS_DEMANGLE,1,whether or not we have to demangle names)
