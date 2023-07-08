@@ -43,4 +43,4 @@ libquickfixcpptest_la_SOURCES = \
 	UtilityTestCase.cpp
 	
 
-INCLUDES = -I.. -I../../../UnitTest++/src
+AM_CPPFLAGS = -I.. -I../../../UnitTest++/src

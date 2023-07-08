@@ -18,7 +18,7 @@ ordermatch_SOURCES = \
 
 ordermatch_LDADD = $(top_builddir)/src/C++/libquickfix.la 
 
-INCLUDES = -I$(top_builddir)/include
+AM_CPPFLAGS = -I$(top_builddir)/include
 
 all-local:
 	rm -f ../../bin/ordermatch
