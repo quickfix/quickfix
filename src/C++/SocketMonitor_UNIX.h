@@ -22,20 +22,13 @@
 #ifndef FIX_SOCKETMONITOR_UNIX_H
 #define FIX_SOCKETMONITOR_UNIX_H
 
-#ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
-#endif
+#ifndef _MSC_VER
 
-#ifdef _MSC_VER
-#include <Winsock2.h>
-typedef int socklen_t;
-#else
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#endif
 
 #include <set>
 #include <queue>
@@ -109,5 +102,7 @@ public:
   ;
 };
 }
+
+#endif //_MSC_VER
 
 #endif //FIX_SOCKETMONITOR_UNIX_H

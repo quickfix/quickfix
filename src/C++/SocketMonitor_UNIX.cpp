@@ -17,11 +17,9 @@
 **
 ****************************************************************************/
 
-#ifdef _MSC_VER
-#include "stdafx.h"
-#else
+#ifndef _MSC_VER
+
 #include "config.h"
-#endif
 
 #include "SocketMonitor.h"
 #include "Utility.h"
@@ -226,22 +224,6 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
 
 void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
 {
-#ifdef _MSC_VER
-  for ( unsigned i = 0; i < readSet.fd_count; ++i )
-  {
-    int s = readSet.fd_array[ i ];
-    if( s == m_interrupt )
-    {
-      int socket = 0;
-      socket_recv( s, (char*)&socket, sizeof(socket) );
-      addWrite( socket );
-    }
-    else
-    {
-      strategy.onEvent( *this, s );
-    }
-  }
-#else
     Sockets::iterator i;
     Sockets sockets = m_readSockets;
     for ( i = sockets.begin(); i != sockets.end(); ++i )
@@ -260,27 +242,10 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
         strategy.onEvent( *this, s );
       }
     }
-#endif
 }
 
 void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
 {
-#ifdef _MSC_VER
-  for ( unsigned i = 0; i < writeSet.fd_count; ++i )
-  {
-    int socket = writeSet.fd_array[ i ];
-    if( m_connectSockets.find( socket ) != m_connectSockets.end() )
-    {
-      m_connectSockets.erase( socket );
-      m_readSockets.insert( socket );
-      strategy.onConnect( *this, socket );
-    }
-    else
-    {
-      strategy.onWrite( *this, socket );
-    }
-  }
-#else
   Sockets connectSockets = m_connectSockets;
   for( Sockets::value_type socket : connectSockets )
   {
@@ -298,18 +263,10 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
       continue;
     strategy.onWrite( *this, socket );
   }
-#endif
 }
 
 void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
 {
-#ifdef _MSC_VER
-  for ( unsigned i = 0; i < exceptSet.fd_count; ++i )
-  {
-    int socket = exceptSet.fd_array[ i ];
-    strategy.onError( *this, socket );
-  }
-#else
     Sockets connectSockets = m_connectSockets;
     for( Sockets::value_type socket : connectSockets )
     {
@@ -317,7 +274,6 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
         continue;
       strategy.onError( *this, socket );
     }
-#endif
 }
 
 void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
@@ -328,3 +284,5 @@ void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
   }
 }
 }
+
+#endif
