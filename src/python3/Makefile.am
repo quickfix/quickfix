@@ -9,7 +9,7 @@ _quickfix_la_CXXFLAGS = -DPYTHON_MAJOR_VERSION=3 -Wno-unused-variable -Wno-maybe
 _quickfix_la_LDFLAGS = -version-info 13:0:0 -module
 _quickfix_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
-AM_CPPFLAGS = $(PYTHON3_CFLAGS) -I. -I.. -I../.. -I../C++
+AM_CPPFLAGS = $(PYTHON3_CFLAGS) -I. -I.. -I../.. -I../C++ -I../swig
 
 local_python_src=$(top_builddir)/src/python3
 local_python_lib=$(top_builddir)/lib/python3

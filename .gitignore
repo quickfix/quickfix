@@ -70,3 +70,5 @@ build*
 CMakeFiles
 CMakeCache.txt
 *.cmake
+.vscode
+.cache
