@@ -12,7 +12,6 @@ m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
-m4_include([m4/ax_java.m4])
 m4_include([m4/ax_cxx_compile_stdcxx.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
 AC_CONFIG_HEADERS([src/C++/config_unix.h])
@@ -35,7 +34,6 @@ AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
-AX_JAVA()
 
 ########################################
 # Disable unit tests on Solaris, AIX
@@ -111,10 +109,10 @@ fi
 LIBS="$OPENSSL_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
 # gcc flags
 if test `uname` == SunOS; then
-   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $RUBY_CFLAGS"
+   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $RUBY_CFLAGS"
 else
   if test `uname` == AIX; then
-   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
   else
     SHAREDFLAGS="-Wall -ansi -Wno-unused-command-line-argument -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations -Wno-deprecated $TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
   fi
@@ -340,13 +338,6 @@ AC_CONFIG_FILES([
     examples/ordermatch/Makefile
     examples/ordermatch/test/Makefile
     examples/tradeclient/Makefile
-    examples/tradeclientgui/Makefile
-    examples/tradeclientgui/banzai/Makefile
-    examples/tradeclientgui/banzai/test/Makefile
-    examples/tradeclientgui/banzai/src/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
     doc/Makefile
     doc/html/Makefile ])
 AC_OUTPUT
