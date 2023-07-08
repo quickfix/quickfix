@@ -43,4 +43,4 @@ libquickfixcpptest_la_SOURCES = \
 	UtilityTestCase.cpp
 	
 
-AM_CPPFLAGS = -I.. -I../../../UnitTest++/src
+AM_CPPFLAGS = -I.. -I$(top_builddir)/UnitTest++/src
