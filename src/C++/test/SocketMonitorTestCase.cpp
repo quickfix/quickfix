@@ -36,10 +36,10 @@ SUITE(SocketMonitorTests)
   class TestStrategy : public SocketMonitor::Strategy {
   public:
       virtual ~TestStrategy(){}
-      virtual void onConnect( SocketMonitor&, int socket ){ connectCount++; };
-      virtual void onEvent( SocketMonitor&, int socket ){ eventCount++; };
-      virtual void onWrite( SocketMonitor&, int socket ){ writeCount++; };
-      virtual void onError( SocketMonitor&, int socket ){ errorCount++; };
+      virtual void onConnect( SocketMonitor&, socket_handle socket ){ connectCount++; };
+      virtual void onEvent( SocketMonitor&, socket_handle socket ){ eventCount++; };
+      virtual void onWrite( SocketMonitor&, socket_handle socket ){ writeCount++; };
+      virtual void onError( SocketMonitor&, socket_handle socket ){ errorCount++; };
       virtual void onError( SocketMonitor& ){ errorCount++; };
       virtual void onTimeout( SocketMonitor& monitor){
         SocketMonitor::Strategy::onTimeout(monitor);
