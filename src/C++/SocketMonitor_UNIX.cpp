@@ -42,11 +42,7 @@ SocketMonitor::SocketMonitor( int timeout )
   socket_setnonblock( m_interrupt );
   m_readSockets.insert( m_interrupt );
 
-  m_timeval.tv_sec = 0;
-  m_timeval.tv_usec = 0;
-#ifndef SELECT_DECREMENTS_TIME
   m_ticks = clock();
-#endif
 }
 
 SocketMonitor::~SocketMonitor()
@@ -99,7 +95,7 @@ bool SocketMonitor::drop(socket_handle s )
   Sockets::iterator j = m_writeSockets.find( s );
   Sockets::iterator k = m_connectSockets.find( s );
 
-  if ( i != m_readSockets.end() || 
+  if ( i != m_readSockets.end() ||
        j != m_writeSockets.end() ||
        k != m_connectSockets.end() )
   {
@@ -113,38 +109,29 @@ bool SocketMonitor::drop(socket_handle s )
   return false;
 }
 
-inline timeval* SocketMonitor::getTimeval( bool poll, double timeout )
+inline int SocketMonitor::getTimeval( bool poll, double timeout )
 {
   if ( poll )
   {
-    m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = 0;
-    return &m_timeval;
+    return 0;
   }
 
   timeout = m_timeout;
 
   if ( !timeout )
     return 0;
-#ifdef SELECT_MODIFIES_TIMEVAL
-  if ( !m_timeval.tv_sec && !m_timeval.tv_usec && timeout )
-    m_timeval.tv_sec = timeout;
-  return &m_timeval;
-#else
+
   double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   if ( elapsed >= timeout || elapsed == 0.0 )
   {
-    m_ticks = clock();
-    m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = (long)(timeout * 1000000);
+      m_ticks = clock();
+      return ( timeout * 1000 );
   }
   else
   {
-    m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = (long)( ( timeout - elapsed ) * 1000000 );
+      return ( ( timeout - elapsed ) * 1000 );
   }
-  return &m_timeval;
-#endif
+  return ( timeout * 1000 );
 }
 
 bool SocketMonitor::sleepIfEmpty( bool poll )
@@ -152,7 +139,7 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
   if( poll )
     return false;
 
-  if ( m_readSockets.empty() && 
+  if ( m_readSockets.empty() &&
        m_writeSockets.empty() &&
        m_connectSockets.empty() )
   {
@@ -176,7 +163,7 @@ void SocketMonitor::unsignal(socket_handle s )
   m_writeSockets.erase( s );
 }
 
-void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
+void SocketMonitor::block( Strategy& strategy, bool should_poll, double timeout )
 {
   while ( m_dropped.size() )
   {
@@ -186,24 +173,22 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
       return ;
   }
 
-  fd_set readSet;
-  FD_ZERO( &readSet );
-  buildSet( m_readSockets, readSet );
-  fd_set writeSet;
-  FD_ZERO( &writeSet );
-  buildSet( m_connectSockets, writeSet );
-  buildSet( m_writeSockets, writeSet );
-  fd_set exceptSet;
-  FD_ZERO( &exceptSet );
-  buildSet( m_connectSockets, exceptSet );
+  int pfds_size = m_readSockets.size() +
+                  m_connectSockets.size() +
+                  m_writeSockets.size();
+  struct pollfd pfds[ pfds_size ];
+  buildSet( m_readSockets, pfds, POLLPRI | POLLIN );
+  buildSet( m_connectSockets, pfds + m_readSockets.size(), POLLOUT | POLLERR );
+  buildSet( m_writeSockets, pfds + m_readSockets.size() + m_connectSockets.size(),
+            POLLOUT );
 
-  if ( sleepIfEmpty(poll) )
+  if ( sleepIfEmpty(should_poll) )
   {
     strategy.onTimeout( *this );
     return;
   }
 
-  int result = select( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout) );
+  int result = poll( pfds, pfds_size, getTimeval( should_poll, timeout ) );
 
   if ( result == 0 )
   {
@@ -212,9 +197,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
   }
   else if ( result > 0 )
   {
-    processExceptSet( strategy, exceptSet );
-    processWriteSet( strategy, writeSet );
-    processReadSet( strategy, readSet );
+    processPollList( strategy, pfds, pfds_size );
   }
   else
   {
@@ -222,67 +205,73 @@ void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
   }
 }
 
-void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
+void SocketMonitor::processRead( Strategy& strategy, socket_handle socket_fd )
 {
-    Sockets::iterator i;
-    Sockets sockets = m_readSockets;
-    for ( i = sockets.begin(); i != sockets.end(); ++i )
+  int s = socket_fd;
+  if( s == m_interrupt )
+  {
+    socket_handle socket = 0;
+    recv( s, (char*)&socket, sizeof(socket), 0 );
+    addWrite( socket );
+  }
+  else
+  {
+    strategy.onEvent( *this, s );
+  }
+}
+
+void SocketMonitor::processWrite( Strategy& strategy, socket_handle socket_fd )
+{
+  socket_handle s = socket_fd;
+  if( m_connectSockets.find(s) != m_connectSockets.end() )
+  {
+    m_connectSockets.erase( s );
+    m_readSockets.insert( s );
+    strategy.onConnect( *this, s );
+  }
+  else
+  {
+    strategy.onWrite( *this, s );
+  }
+}
+
+void SocketMonitor::processError( Strategy& strategy, socket_handle socket_fd )
+{
+  strategy.onError( *this, socket_fd );
+}
+
+void SocketMonitor::processPollList( Strategy& strategy, struct pollfd *pfds, unsigned pfds_size )
+{
+  for ( unsigned i = 0; i < pfds_size; ++i )
+  {
+    if ( ( pfds[i].revents & POLLIN ) || ( pfds[i].revents & POLLPRI ) )
     {
-      int s = *i;
-      if ( !FD_ISSET( *i, &readSet ) )
-        continue;
-      if( s == m_interrupt )
-      {
-        int socket = 0;
-        socket_recv( s, (char*)&socket, sizeof(socket) );
-        addWrite( socket );
-      }
-      else
-      {
-        strategy.onEvent( *this, s );
-      }
+      processRead( strategy, pfds[i].fd );
     }
-}
 
-void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
-{
-  Sockets connectSockets = m_connectSockets;
-  for( Sockets::value_type socket : connectSockets )
-  {
-    if ( !FD_ISSET( socket, &writeSet ) )
-      continue;
-    m_connectSockets.erase( socket );
-    m_readSockets.insert( socket );
-    strategy.onConnect( *this, socket );
-  }
-
-  Sockets writeSockets = m_writeSockets;
-  for( Sockets::value_type socket : writeSockets )
-  {
-    if ( !FD_ISSET( socket, &writeSet ) )
-      continue;
-    strategy.onWrite( *this, socket );
-  }
-}
-
-void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
-{
-    Sockets connectSockets = m_connectSockets;
-    for( Sockets::value_type socket : connectSockets )
+    if ( ( pfds[i].revents & POLLOUT ) )
     {
-      if ( !FD_ISSET( socket, &exceptSet ) )
-        continue;
-      strategy.onError( *this, socket );
+      processWrite( strategy, pfds[i].fd );
     }
-}
-
-void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
-{
-  for( Sockets::value_type socket : sockets )
-  {
-    FD_SET( socket, &watchSet );
+    if ( ( pfds[i].revents & POLLERR ) )
+    {
+      processError( strategy, pfds[i].fd );
+    }
   }
 }
+
+void SocketMonitor::buildSet( const Sockets& sockets, struct pollfd *pfds, short events )
+{
+  Sockets::const_iterator iter;
+  unsigned int i = 0;
+  for ( iter = sockets.begin(); iter != sockets.end(); ++iter ) {
+    pfds[i].fd = *iter;
+    pfds[i].events = events;
+    pfds[i].revents = 0;
+    i += 1;
+  }
+}
+
 }
 
 #endif
