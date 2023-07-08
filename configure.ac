@@ -339,6 +339,7 @@ AC_CONFIG_FILES([
     examples/executor/C++/Makefile
     examples/ordermatch/Makefile
     examples/ordermatch/test/Makefile
+    examples/tradeclient/Makefile
     doc/Makefile
     doc/html/Makefile ])
 AC_OUTPUT
