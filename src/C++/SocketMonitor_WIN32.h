@@ -19,8 +19,8 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_SOCKETMONITOR_H
-#define FIX_SOCKETMONITOR_H
+#ifndef FIX_SOCKETMONITOR_WIND32_H
+#define FIX_SOCKETMONITOR_WIND32_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -110,4 +110,4 @@ public:
 };
 }
 
-#endif //FIX_SOCKETMONITOR_H
+#endif //FIX_SOCKETMONITOR_WIN32_H
