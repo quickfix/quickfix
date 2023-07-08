@@ -24,15 +24,15 @@ class ReflectorClientTestCase < RUNIT::TestCase
 
     def client.next
       begin
-	return @queue.pop 0
+	      return @queue.pop 0
       rescue
-	return nil
+	      return nil
       end
     end
 
     def client.compareAction(e, a)
       if !defined? @queue
-	@queue = Queue.new
+	      @queue = Queue.new
       end
       @queue.push(e)
       @queue.push(a)
