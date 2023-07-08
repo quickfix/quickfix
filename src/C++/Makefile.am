@@ -39,7 +39,8 @@ libquickfix_la_SOURCES = \
 	SocketInitiator.cpp \
 	SocketInitiator.h \
 	SocketMonitor.h \
-	UNIX/SocketMonitor.cpp \
+	SocketMonitor_UNIX.h \
+	SocketMonitor_UNIX.cpp \
 	SocketConnection.cpp \
 	SocketConnection.h \
 	ThreadedSocketAcceptor.cpp \

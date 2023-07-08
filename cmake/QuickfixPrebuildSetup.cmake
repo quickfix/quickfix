@@ -1,15 +1,8 @@
 # Needed to build examples
 
-if (NOT WIN32)
-add_custom_target(QUICKFIX_HEADERS_LINK ALL
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/
-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/include/quickfix
-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${PROJECT_SOURCE_DIR}/src/C++/UNIX/SocketMonitor.h ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor.h
-)
-else()
 add_custom_target(QUICKFIX_HEADERS_COPY ALL 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/
-COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfixC
+COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfix
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Acceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/Acceptor.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Application.h ${PROJECT_SOURCE_DIR}/include/quickfix/Application.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/config-all.h ${PROJECT_SOURCE_DIR}/include/quickfix/config-all.h
@@ -75,6 +68,8 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Sock
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketConnector.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketConnector.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketInitiator.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_UNIX.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_UNIX.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_WIN32.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_WIN32.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketServer.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketServer.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketAcceptor.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketConnection.h

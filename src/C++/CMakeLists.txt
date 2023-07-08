@@ -51,9 +51,9 @@ set(quickfix_SOURCES
 )
 
 if (WIN32)
-  list(APPEND quickfix_SOURCES WIN32/SocketMonitor.cpp)
+  list(APPEND quickfix_SOURCES SocketMonitor_WIN32.cpp)
 else()
-  list(APPEND quickfix_SOURCES UNIX/SocketMonitor.cpp)
+  list(APPEND quickfix_SOURCES SocketMonitor_UNIX.cpp)
 endif()
 
 if (HAVE_SSL)
@@ -82,10 +82,6 @@ endif()
 
 target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/src/C++)
-
-if (WIN32)
-  target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURPROJECT_SOURCE_DIRCE_DIR}/src/C++/WIN32)
-endif ()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
