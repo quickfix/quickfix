@@ -71,7 +71,9 @@ private:
   char m_buffer[BUFSIZ];
 
   HttpParser m_parser;
+#if _MSC_VER
   fd_set m_fds;
+#endif
 };
 }
 

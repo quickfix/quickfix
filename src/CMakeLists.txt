@@ -4,6 +4,13 @@ if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQ
 
 if (QUICKFIX_EXAMPLES)
   add_executable(at at.cpp getopt.c)
+
+target_include_directories(at PRIVATE ${PROJECT_SOURCE_DIR} 
+  ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src)
+
+if (WIN32)
+  target_include_directories(at PRIVATE ${PROJECT_SOURCE_DIR}/src/C++/WIN32)
+endif()
   
   target_include_directories(at PRIVATE ${PROJECT_SOURCE_DIR} 
     ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src)
@@ -62,6 +69,9 @@ if (QUICKFIX_TESTS)
   
   target_include_directories(ut PRIVATE ${PROJECT_SOURCE_DIR} 
     ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src ${PROJECT_SOURCE_DIR}/src/C++/test/)
+
+  if (WIN32)
+    target_include_directories(ut PRIVATE ${CMAKE_SOPROJECT_SOURCE_DIRURCE_DIR}/src/C++/WIN32)  
     
   target_link_libraries(ut ${PROJECT_NAME} UnitTest++)
   
@@ -79,20 +89,20 @@ endif()
 if (QUICKFIX_EXAMPLES)
   add_executable(pt pt.cpp getopt.c)
   
-  target_include_directories(pt PRIVATE ${PROJECT_SOURCE_DIR} 
-    ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src)
-    
-  target_link_libraries(pt ${PROJECT_NAME})
-  
-  if (NOT WIN32)
-  ADD_CUSTOM_TARGET(pt_target ALL
-                    COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:pt> ${PROJECT_SOURCE_DIR}/test/pt)
-  else()
-  set_target_properties(pt PROPERTIES
-                        RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/test/debug/pt/
-                        RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/test/release/pt/
-                        RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/test/release/pt/)
-  endif()  
+target_link_libraries(pt ${PROJECT_NAME})
+
+if (WIN32)
+  target_include_directories(pt PRIVATE ${PROJECT_SOURCE_DIR}/src/C++/WIN32)
+endif()
+
+if (NOT WIN32)
+ADD_CUSTOM_TARGET(pt_target ALL
+                  COMMAND ${CMAKE_COMMAND} -E create_symlink $<TARGET_FILE:pt> ${PROJECT_SOURCE_DIR}/test/pt)
+else()
+set_target_properties(pt PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/test/debug/pt/
+                      RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/test/release/pt/
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/test/release/pt/)
 endif()  
 
 endif()

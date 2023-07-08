@@ -1,5 +1,12 @@
 # Needed to build examples
 
+if (NOT WIN32)
+add_custom_target(QUICKFIX_HEADERS_LINK ALL
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/
+    COMMAND ${CMAKE_COMMAND} -E create_symlink ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/include/quickfix
+    COMMAND ${CMAKE_COMMAND} -E create_symlink ${PROJECT_SOURCE_DIR}/src/C++/UNIX/SocketMonitor.h ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor.h
+)
+else()
 add_custom_target(QUICKFIX_HEADERS_COPY ALL 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfixC

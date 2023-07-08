@@ -44,33 +44,33 @@ public:
 : m_connector( connector ), m_strategy( strategy ) {}
 
 private:
-  void onConnect( SocketMonitor&, socket_handle socket )
+  virtual void onConnect( SocketMonitor&, socket_handle socket ) override
   {    
     m_strategy.onConnect( m_connector, socket );
   }
 
-  void onWrite( SocketMonitor&, socket_handle socket )
+  virtual void onWrite( SocketMonitor&, socket_handle socket ) override
   {
     m_strategy.onWrite( m_connector, socket );
   }
 
-  void onEvent( SocketMonitor&, socket_handle socket )
+  virtual void onEvent( SocketMonitor&, socket_handle socket ) override
   {
     if( !m_strategy.onData( m_connector, socket ) )
       m_strategy.onDisconnect( m_connector, socket );
   }
 
-  void onError( SocketMonitor&, socket_handle socket )
+  virtual void onError( SocketMonitor&, socket_handle socket ) override
   {
     m_strategy.onDisconnect( m_connector, socket );
   }
 
-  void onError( SocketMonitor& )
+  virtual void onError( SocketMonitor& ) override
   {
     m_strategy.onError( m_connector );
   }
 
-  void onTimeout( SocketMonitor& )
+  virtual void onTimeout( SocketMonitor& ) override
   {
     m_strategy.onTimeout( m_connector );
   };
