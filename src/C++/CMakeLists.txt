@@ -41,7 +41,6 @@ set(quickfix_SOURCES
   SocketConnection.cpp
   SocketConnector.cpp
   SocketInitiator.cpp
-  SocketMonitor.cpp
   SocketServer.cpp
   stdafx.cpp
   ThreadedSocketAcceptor.cpp
@@ -50,6 +49,12 @@ set(quickfix_SOURCES
   TimeRange.cpp
   Utility.cpp
 )
+
+if (WIN32)
+  list(APPEND quickfix_SOURCES SocketMonitor_WIN32.cpp)
+else()
+  list(APPEND quickfix_SOURCES SocketMonitor_UNIX.cpp)
+endif()
 
 if (HAVE_SSL)
   set (quickfix_SOURCES ${quickfix_SOURCES}

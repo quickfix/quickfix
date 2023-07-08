@@ -50,6 +50,7 @@ if (QUICKFIX_TESTS)
   ${PROJECT_SOURCE_DIR}/src/C++/test/SettingsTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/SocketAcceptorTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/SocketConnectorTestCase.cpp
+  ${PROJECT_SOURCE_DIR}/src/C++/test/SocketMonitorTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/SocketServerTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/StringUtilitiesTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/TestHelper.cpp

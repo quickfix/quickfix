@@ -212,7 +212,9 @@ private:
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
   mutable Mutex m_mutex;
+#ifdef _MSC_VER
   fd_set m_fds;
+#endif
   bool m_processQueueNeedsToReadData = false;
   bool m_readFromSocketNeedsToWriteData = false;
   time_t m_handshakeStartTime = 0;
