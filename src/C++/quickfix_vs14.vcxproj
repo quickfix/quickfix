@@ -670,6 +670,7 @@
     <ClInclude Include="SocketConnector.h" />
     <ClInclude Include="SocketInitiator.h" />
     <ClInclude Include="SocketMonitor.h" />
+    <ClInclude Include="SocketMonitor_WIN32.h" />
     <ClInclude Include="SocketServer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="strptime.h" />
@@ -718,7 +719,7 @@
     <ClCompile Include="SocketConnection.cpp" />
     <ClCompile Include="SocketConnector.cpp" />
     <ClCompile Include="SocketInitiator.cpp" />
-    <ClCompile Include="SocketMonitor.cpp" />
+    <ClCompile Include="SocketMonitor_WIN32.cpp" />
     <ClCompile Include="SocketServer.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="ThreadedSocketAcceptor.cpp" />
