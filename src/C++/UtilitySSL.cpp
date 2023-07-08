@@ -386,30 +386,6 @@ void ssl_socket_close(socket_handle socket, SSL *ssl)
   }
 }
 
-static void locking_callback(int mode, int type, const char *file, int line)
-{
-#ifdef _MSC_VER
-  if (mode & CRYPTO_LOCK)
-    WaitForSingleObject(lock_cs[type], INFINITE);
-  else
-    ReleaseMutex(lock_cs[type]);
-#else
-  if (mode & CRYPTO_LOCK)
-    pthread_mutex_lock(&(lock_cs[type]));
-  else
-    pthread_mutex_unlock(&(lock_cs[type]));
-#endif
-}
-
-static unsigned long thread_id_func()
-{
-#ifdef _MSC_VER
-  return (unsigned)GetCurrentThreadId();
-#else
-  return (unsigned long)pthread_self();
-#endif
-}
-
 static void thread_setup(void)
 {
 

@@ -214,9 +214,8 @@ bool SSLSocketConnection::processQueue()
 
     if (errCodeSSL == SSL_ERROR_WANT_WRITE) {
       return false;
-    }
-
-    if (errCodeSSL == SSL_ERROR_WANT_READ)
+    } 
+    else 
     {
       m_processQueueNeedsToReadData = true;
       return true; //we may have more to write but we want to read first, so unsignal for now
