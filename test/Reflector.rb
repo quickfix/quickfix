@@ -34,11 +34,11 @@ class Reflector < Array
       line.chomp!
       if line.empty? then
       elsif (/^[IEie]\d{1},/ === line) then
-	cid = line[1].ord.to_i - 48
-	body = fixify!(fileify!(timeify!(line[3, line.length])))
+	      cid = line[1].ord.to_i - 48
+	      body = fixify!(fileify!(timeify!(line[3, line.length])))
       else
-	cid = 1
-	body = fixify!(fileify!(timeify!(line[1, line.length])))
+	      cid = 1
+	      body = fixify!(fileify!(timeify!(line[1, line.length])))
       end
 
       begin
@@ -123,16 +123,16 @@ class Reflector < Array
       op = message[pos1 + 5]
       num = message.slice(pos1+6..pos2-1)
       if( op == ?+ )
-	t += num.to_i
+	      t += num.to_i
       else
-	t -= num.to_i
+	      t -= num.to_i
       end
 
       strtime = t.strftime("%Y%m%d-%H:%M:%S")
       exp = Regexp.compile("<TIME[" + op.chr + "]" + num + ">")
       message.sub!(exp, strtime)
       if( message != copy )
-	return timeify!(message)
+	      return timeify!(message)
       end
     end
 

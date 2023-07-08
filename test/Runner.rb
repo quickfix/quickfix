@@ -68,8 +68,7 @@ def printResult(test, exception)
 end
 
 def createProcess(file, address, port)
-  newarray = [1,2,3,4,5,6,7,8,9,10]
-  newarray.each do
+  [1...10].each do
     | num |
     begin
       socket = TCPSocket.open(address, port);
@@ -96,14 +95,13 @@ def createProcess(file, address, port)
 end
 
 i = 0
-newarray = ARGV[2, ARGV.length-2]
 exitValue = 0
 total = 0
 failures = 0
 
 begin
   print "<at>\n"
-  newarray.each do
+  ARGV[2, ARGV.length-2].each do
     | v |
     file = File.open(v, "r")
     process = createProcess(file, ARGV[0], ARGV[1])
