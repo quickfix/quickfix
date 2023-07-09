@@ -340,13 +340,6 @@ AC_CONFIG_FILES([
     examples/ordermatch/Makefile
     examples/ordermatch/test/Makefile
     examples/tradeclient/Makefile
-    examples/tradeclientgui/Makefile
-    examples/tradeclientgui/banzai/Makefile
-    examples/tradeclientgui/banzai/test/Makefile
-    examples/tradeclientgui/banzai/src/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
     doc/Makefile
     doc/html/Makefile ])
 AC_OUTPUT
