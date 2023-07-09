@@ -34,7 +34,6 @@ AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
-AX_JAVA()
 
 ########################################
 # Disable unit tests on Solaris, AIX
