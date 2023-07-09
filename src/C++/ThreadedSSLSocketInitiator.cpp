@@ -126,11 +126,10 @@
 
 namespace FIX
 {
-FIX::ThreadedSSLSocketInitiator *initObjT = 0;
 
-int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *job)
+int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return initObjT->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<ThreadedSSLSocketInitiator*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -141,7 +140,6 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
@@ -152,7 +150,6 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
       m_rcvBufSize(0), m_sslInit(false), m_ctx(0), m_cert(0), m_key(0)
 {
   socket_init();
-  initObjT = this;
 }
 
 ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator()
@@ -210,7 +207,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT (
       throw RuntimeError("Failed to set key");
     }
   }
-  else if (!loadSSLCert(m_ctx, false, m_settings, getLog(), ThreadedSSLSocketInitiator::passwordHandleCB, errStr))
+  else if (!loadSSLCert(m_ctx, false, m_settings, getLog(), ThreadedSSLSocketInitiator::passwordHandleCB, this, errStr))
   {
     ssl_term();
     throw RuntimeError(errStr);
@@ -244,7 +241,7 @@ void ThreadedSSLSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSSLSocketInitiator::onPoll(double timeout) { return false; }
+bool ThreadedSSLSocketInitiator::onPoll() { return false; }
 
 void ThreadedSSLSocketInitiator::onStop()
 {
@@ -295,7 +292,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     short port = 0;
     getHost(s, d, address, port);
 
-    int socket = socket_createConnector();
+    socket_handle socket = socket_createConnector();
     if (m_noDelay)
       socket_setsockopt(socket, TCP_NODELAY);
     if (m_sendBufSize)
@@ -314,7 +311,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
       return;
     }
     SSL_clear(ssl);
-    BIO *sbio = BIO_new_socket(socket, BIO_CLOSE);
+    BIO *sbio = BIO_new_socket(socket, BIO_CLOSE); //unfortunately OpenSSL uses int for socket handles
     SSL_set_bio(ssl, sbio, sbio);
 
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
@@ -373,7 +370,7 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
   ThreadedSSLSocketConnection *pConnection = pair->second;
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
   FIX::Session *pSession = FIX::Session::lookupSession(sessionID);
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
   delete pair;
 
   pInitiator->lock();
@@ -454,7 +451,7 @@ void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
 }
 
 int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
-                                                       int verify, void *job)
+                                                       int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

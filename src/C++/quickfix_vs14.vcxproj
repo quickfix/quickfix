@@ -11,11 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\config_windows.h" />
+    <ClInclude Include="config_windows.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="Allocator.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="AtomicCount.h" />
     <ClInclude Include="DatabaseConnectionID.h" />
     <ClInclude Include="DatabaseConnectionPool.h" />
     <ClInclude Include="DataDictionary.h" />
@@ -671,6 +670,7 @@
     <ClInclude Include="SocketConnector.h" />
     <ClInclude Include="SocketInitiator.h" />
     <ClInclude Include="SocketMonitor.h" />
+    <ClInclude Include="SocketMonitor_WIN32.h" />
     <ClInclude Include="SocketServer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="strptime.h" />
@@ -719,7 +719,7 @@
     <ClCompile Include="SocketConnection.cpp" />
     <ClCompile Include="SocketConnector.cpp" />
     <ClCompile Include="SocketInitiator.cpp" />
-    <ClCompile Include="SocketMonitor.cpp" />
+    <ClCompile Include="SocketMonitor_WIN32.cpp" />
     <ClCompile Include="SocketServer.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="ThreadedSocketAcceptor.cpp" />
@@ -762,9 +762,9 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.21006.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)lib\debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs14\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\vs14\quickfix\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)lib\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs14\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\vs14\quickfix\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">quickfix</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">quickfix</TargetName>
   </PropertyGroup>

@@ -131,7 +131,10 @@ TEST(FixturesWithThrowingCtorsAreFailures)
 
 struct FixtureDtorThrows
 {
-	~FixtureDtorThrows() { throw "exception"; }
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wc++11-compat"
+	~FixtureDtorThrows() NOEXCEPT_FALSE { throw "exception"; }
+	#pragma GCC diagnostic pop
 };
 
 TestList throwingFixtureTestList2;

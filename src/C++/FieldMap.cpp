@@ -54,6 +54,13 @@ FieldMap::FieldMap( const FieldMap& copy )
   *this = copy;
 }
 
+FieldMap::FieldMap(FieldMap&& rhs)
+: m_fields(std::move(rhs.m_fields)),
+  m_groups(std::move(rhs.m_groups)),
+  m_order(std::move(rhs.m_order))
+{
+}
+
 FieldMap::~FieldMap()
 {
   clear();
@@ -77,6 +84,14 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
     }
   }
 
+  return *this;
+}
+
+FieldMap& FieldMap::operator=(FieldMap&& rhs)
+{
+  m_fields = std::move(rhs.m_fields);
+  m_groups = std::move(rhs.m_groups);
+  m_order = std::move(rhs.m_order);
   return *this;
 }
 

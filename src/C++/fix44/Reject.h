@@ -12,7 +12,10 @@ namespace FIX44
     Reject() : Message(MsgType()) {}
     Reject(const FIX::Message& m) : Message(m) {}
     Reject(const Message& m) : Message(m) {}
-    Reject(const Reject& m) : Message(m) {}
+    Reject(const Reject&) = default;
+    Reject(Reject&&) = default;
+    Reject& operator=(const Reject&) = default;
+    Reject& operator=(Reject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("3"); }
 
     Reject(

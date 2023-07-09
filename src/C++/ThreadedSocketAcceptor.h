@@ -48,11 +48,11 @@ public:
 private:
   struct AcceptorThreadInfo
   {
-    AcceptorThreadInfo( ThreadedSocketAcceptor* pAcceptor, int socket, int port )
+    AcceptorThreadInfo( ThreadedSocketAcceptor* pAcceptor, socket_handle socket, int port )
     : m_pAcceptor( pAcceptor ), m_socket( socket ), m_port( port ) {}
 
     ThreadedSocketAcceptor* m_pAcceptor;
-    int m_socket;
+    socket_handle m_socket;
     int m_port;
   };
 
@@ -68,21 +68,21 @@ private:
 
   bool readSettings( const SessionSettings& );
 
-  typedef std::set < int >  Sockets;
+  typedef std::set < socket_handle >  Sockets;
   typedef std::set < SessionID > Sessions;
   typedef std::map < int, Sessions > PortToSessions;
-  typedef std::map < int, int > SocketToPort;
-  typedef std::map < int, thread_id > SocketToThread;
+  typedef std::map < socket_handle, int > SocketToPort;
+  typedef std::map < socket_handle, thread_id > SocketToThread;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
-  void addThread( int s, thread_id t );
-  void removeThread( int s );
+  void addThread(socket_handle s, thread_id t );
+  void removeThread(socket_handle s );
   static THREAD_PROC socketAcceptorThread( void* p );
   static THREAD_PROC socketConnectionThread( void* p );
 

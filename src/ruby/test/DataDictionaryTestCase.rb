@@ -155,7 +155,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::InvalidTagNumber
 		end
 
 		@object.addField( 501 )
@@ -170,7 +170,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::InvalidTagNumber
 		end
 
 		@object.checkUserDefinedFields( false )
@@ -188,7 +188,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::NoTagValue
 		end
 	end
 
@@ -217,7 +217,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::TagNotDefinedForMessage
 		end
 	end
 
@@ -240,14 +240,14 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::RequiredTagMissing
 		end
 
 		message.getHeader().setField( Quickfix::SenderCompID.new("SENDER") )
 		begin
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::RequiredTagMissing
 		end
 
 		message.setField( Quickfix::TestReqID.new( "1" ) )
@@ -262,7 +262,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		begin 
 			@object.validate( message )
 			assert( false )
-		rescue Quickfix::Exception
+		rescue Quickfix::RequiredTagMissing
 		end
 	end
 end

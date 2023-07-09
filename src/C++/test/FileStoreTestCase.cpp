@@ -83,6 +83,18 @@ struct noResetFileStoreFixture : fileStoreFixture
   noResetFileStoreFixture() : fileStoreFixture( false, false ) {}
 };
 
+struct resetBeforeAndAfterWithTestFileManager : resetBeforeAndAfterFileStoreFixture
+{
+  resetBeforeAndAfterWithTestFileManager() : resetBeforeAndAfterFileStoreFixture() {
+    factory.destroy( object );
+
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+        SenderCompID( "SETGET" ), TargetCompID( "TEST" ), "Test" );
+
+    object = new FileStore( "store", sessionID);
+  }
+};
+
 TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, setGet)
 {
   CHECK_MESSAGE_STORE_SET_GET;
@@ -107,5 +119,63 @@ TEST_FIXTURE(resetAfterFileStoreFixture, refresh)
 {
   CHECK_MESSAGE_STORE_RELOAD
 }
+
+TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, FileStore_refresh_reset) {
+  // Init store with 3 messages
+  CHECK_MESSAGE_STORE_SET_GET
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 3U, messages.size() );
+
+  // Still 3 messages after refresh
+  object->refresh();
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 3U, messages.size() );
+
+  // Should be 0 messages after reset
+  object->reset();
+  object->get( 1, 10, messages );
+  CHECK_EQUAL( 0U, messages.size() );
+}
+
+TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Refresh_DeleteFileStartup_NoException) {
+  try {
+    object->refresh();
+  } catch (Exception& e) {
+    CHECK(false);
+    throw e;
+  }
+}
+
+TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Reset_DeleteFileStartup_NoException) {
+  try {
+    object->reset();
+  } catch (Exception& e) {
+    CHECK(false);
+    throw e;
+  }
+}
+
+TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
+  UtcTimeStamp timeStamp = object->getCreationTime();
+  UtcTimeStamp currentTimeStamp;
+  CHECK_EQUAL(currentTimeStamp.getYear(), timeStamp.getYear());
+}
+
+#ifndef _MSC_VER
+TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreFromDictionary) {
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+      SenderCompID( "SETGET" ), TargetCompID( "TEST" ));
+  Dictionary dictionary;
+  dictionary.setString("ConnectionType", "acceptor");
+  dictionary.setString("FileStorePath", "store");
+
+  SessionSettings settings;
+  settings.set(sessionID, dictionary);
+  FileStoreFactory fileStoreFactory(settings);
+
+  MessageStore* fileStore = fileStoreFactory.create(sessionID);
+  CHECK(fileStore != nullptr);
+}
+#endif // _MSC_VER
 
 }

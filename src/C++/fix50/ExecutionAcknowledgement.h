@@ -12,7 +12,10 @@ namespace FIX50
     ExecutionAcknowledgement() : Message(MsgType()) {}
     ExecutionAcknowledgement(const FIX::Message& m) : Message(m) {}
     ExecutionAcknowledgement(const Message& m) : Message(m) {}
-    ExecutionAcknowledgement(const ExecutionAcknowledgement& m) : Message(m) {}
+    ExecutionAcknowledgement(const ExecutionAcknowledgement&) = default;
+    ExecutionAcknowledgement(ExecutionAcknowledgement&&) = default;
+    ExecutionAcknowledgement& operator=(const ExecutionAcknowledgement&) = default;
+    ExecutionAcknowledgement& operator=(ExecutionAcknowledgement&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BN"); }
 
     ExecutionAcknowledgement(

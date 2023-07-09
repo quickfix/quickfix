@@ -12,7 +12,10 @@ namespace FIX42
     SecurityDefinitionRequest() : Message(MsgType()) {}
     SecurityDefinitionRequest(const FIX::Message& m) : Message(m) {}
     SecurityDefinitionRequest(const Message& m) : Message(m) {}
-    SecurityDefinitionRequest(const SecurityDefinitionRequest& m) : Message(m) {}
+    SecurityDefinitionRequest(const SecurityDefinitionRequest&) = default;
+    SecurityDefinitionRequest(SecurityDefinitionRequest&&) = default;
+    SecurityDefinitionRequest& operator=(const SecurityDefinitionRequest&) = default;
+    SecurityDefinitionRequest& operator=(SecurityDefinitionRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("c"); }
 
     SecurityDefinitionRequest(

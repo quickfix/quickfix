@@ -12,7 +12,10 @@ namespace FIX40
     SequenceReset() : Message(MsgType()) {}
     SequenceReset(const FIX::Message& m) : Message(m) {}
     SequenceReset(const Message& m) : Message(m) {}
-    SequenceReset(const SequenceReset& m) : Message(m) {}
+    SequenceReset(const SequenceReset&) = default;
+    SequenceReset(SequenceReset&&) = default;
+    SequenceReset& operator=(const SequenceReset&) = default;
+    SequenceReset& operator=(SequenceReset&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("4"); }
 
     SequenceReset(

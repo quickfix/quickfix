@@ -12,7 +12,10 @@ namespace FIX50SP1
     RFQRequest() : Message(MsgType()) {}
     RFQRequest(const FIX::Message& m) : Message(m) {}
     RFQRequest(const Message& m) : Message(m) {}
-    RFQRequest(const RFQRequest& m) : Message(m) {}
+    RFQRequest(const RFQRequest&) = default;
+    RFQRequest(RFQRequest&&) = default;
+    RFQRequest& operator=(const RFQRequest&) = default;
+    RFQRequest& operator=(RFQRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AH"); }
 
     RFQRequest(

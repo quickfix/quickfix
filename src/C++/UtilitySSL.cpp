@@ -367,7 +367,7 @@ void ssl_term()
 #endif
 }
 
-void ssl_socket_close(int socket, SSL *ssl)
+void ssl_socket_close(socket_handle socket, SSL *ssl)
 {
 
   if (ssl == 0)
@@ -384,30 +384,6 @@ void ssl_socket_close(int socket, SSL *ssl)
     if ((rc = SSL_shutdown(ssl)) == 1)
       break;
   }
-}
-
-static void locking_callback(int mode, int type, const char *file, int line)
-{
-#ifdef _MSC_VER
-  if (mode & CRYPTO_LOCK)
-    WaitForSingleObject(lock_cs[type], INFINITE);
-  else
-    ReleaseMutex(lock_cs[type]);
-#else
-  if (mode & CRYPTO_LOCK)
-    pthread_mutex_lock(&(lock_cs[type]));
-  else
-    pthread_mutex_unlock(&(lock_cs[type]));
-#endif
-}
-
-static unsigned long thread_id_func()
-{
-#ifdef _MSC_VER
-  return (unsigned)GetCurrentThread();
-#else
-  return (unsigned long)pthread_self();
-#endif
 }
 
 static void thread_setup(void)
@@ -734,6 +710,9 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
     case EVP_PKEY_DSA:
       t = SSL_ALGO_DSA;
       break;
+    case EVP_PKEY_EC:
+      t = SSL_ALGO_EC;
+      break;
     default:
       break;
     }
@@ -853,13 +832,13 @@ X509_STORE *createX509Store(const char *cpFile, const char *cpPath)
   }
   return pStore;
 }
-X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb)
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam)
 {
   X509 *rc;
   BIO *bioS;
   BIO *bioF;
 
-  rc = PEM_read_X509(fp, x509, cb, 0);
+  rc = PEM_read_X509(fp, x509, cb, passwordCallbackParam);
   if (rc == 0)
   {
     /* 2. try DER+Base64 */
@@ -896,13 +875,13 @@ X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb)
 }
 
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                         passPhraseHandleCallbackType cb)
+                         passPhraseHandleCallbackType cb, void* passwordCallbackParam)
 {
   EVP_PKEY *rc;
   BIO *bioS;
   BIO *bioF;
 
-  rc = PEM_read_PrivateKey(fp, key, cb, 0);
+  rc = PEM_read_PrivateKey(fp, key, cb, passwordCallbackParam);
   if (rc == 0)
   {
     /* 2. try DER+Base64 */
@@ -982,7 +961,7 @@ char *strCat(const char *a, ...)
   return res;
 }
 
-int setSocketNonBlocking(int pSocket)
+int setSocketNonBlocking(socket_handle pSocket)
 /********************************************************************************
 * switch socket to non-blocking mode
 * Returns: 0 in the case of success, -1 in the case of error
@@ -1227,7 +1206,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
 }
 
 bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb, std::string &errStr)
+                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam, std::string &errStr)
 {
   errStr.erase();
 
@@ -1282,6 +1261,12 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
       key.assign(cert);
   }
 
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
+  ::SSL_CTX_set_default_passwd_cb_userdata(ctx, passwordCallbackParam);
+#else
+  ctx->default_passwd_callback_userdata = passwordCallbackParam;
+#endif
+
   SSL_CTX_set_default_passwd_cb(ctx, cb);
 
   FILE *fp;
@@ -1293,7 +1278,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     return false;
   }
 
-  X509 *X509Cert = readX509(fp, 0, 0);
+  X509 *X509Cert = readX509(fp, 0, 0, 0);
 
   fclose(fp);
 
@@ -1325,6 +1310,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     }
     break;
 
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client certificate");
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
+    {
+      errStr.assign("Unable to configure EC client certificate");
+      return false;
+    }
+    break;
+
   default:
     errStr.assign("Unable to configure client certificate");
     return false;
@@ -1339,7 +1333,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     return false;
   }
 
-  EVP_PKEY *privateKey = readPrivateKey(fp, 0, cb);
+  EVP_PKEY *privateKey = readPrivateKey(fp, 0, cb, passwordCallbackParam);
 
   fclose(fp);
 
@@ -1366,6 +1360,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
     {
       errStr.assign("Unable to configure DSA server private key");
+      return false;
+    }
+    break;
+    
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client private key");
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
+    {
+      errStr.assign("Unable to configure EC server private key");
       return false;
     }
     break;
@@ -1519,7 +1522,7 @@ int doAccept(SSL *ssl, int &result)
   return rc;
 }
 
-int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
+int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
 {
   int rc;
   int result = -1;
@@ -1635,7 +1638,7 @@ int acceptSSLConnection(int socket, SSL *ssl, Log *log, int verify)
               std::string(
                   "SSL handshake interrupted by system, system error ") +
               IntConvertor::convert(lastSocketError) + " socket " +
-              IntConvertor::convert(socket));
+              std::to_string(socket));
 
 #else
         if (errno == EINTR)

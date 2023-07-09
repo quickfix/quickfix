@@ -29,27 +29,27 @@ namespace FIX
 {
 Log* FileLogFactory::create()
 {
-  m_globalLogCount++;
-  if( m_globalLogCount > 1 ) return m_globalLog;
+  if ( ++m_globalLogCount > 1 ) return m_globalLog;
+
+  if ( m_path.size() ) return new FileLog(m_path);
 
   try
   {
-    if ( m_path.size() ) return new FileLog( m_path );
-    std::string path;
-    std::string backupPath;
 
-    Dictionary settings = m_settings.get();
-    path = settings.getString( FILE_LOG_PATH );
-    backupPath = path;
-    if( settings.has( FILE_LOG_BACKUP_PATH ) )
+    const Dictionary& settings = m_settings.get();
+    std::string path = settings.getString(FILE_LOG_PATH);
+    std::string backupPath = path;
+
+    if ( settings.has( FILE_LOG_BACKUP_PATH ) )
       backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
 
     return m_globalLog = new FileLog( path, backupPath );
+
   }
   catch( ConfigError& )
   {
-  m_globalLogCount--;
-  throw;
+    m_globalLogCount--;
+    throw;
   }
 }
 
@@ -73,16 +73,7 @@ Log* FileLogFactory::create( const SessionID& s )
 
 void FileLogFactory::destroy( Log* pLog )
 {
-  if( pLog == m_globalLog )
-  {
-    m_globalLogCount--;
-    if( m_globalLogCount == 0 )
-    {
-      delete pLog;
-      m_globalLogCount = 0;
-    }
-  }
-  else
+  if ( pLog != m_globalLog || --m_globalLogCount == 0 )
   {
     delete pLog;
   }

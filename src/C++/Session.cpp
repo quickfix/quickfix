@@ -73,7 +73,7 @@ Session::Session( Application& application,
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
   if( !checkSessionTime(UtcTimeStamp()) )
-    reset();
+    m_state.reset();
 
   addSession( *this );
   m_application.onCreate( m_sessionID );
@@ -90,25 +90,12 @@ Session::~Session()
 
 void Session::insertSendingTime( Header& header )
 {
-  UtcTimeStamp now;
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( SendingTime(now, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( SendingTime(UtcTimeStamp(), getSupportedTimestampPrecision()) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 {
-  bool showMilliseconds = false;
-  if( m_sessionID.getBeginString() == BeginString_FIXT11 )
-    showMilliseconds = true;
-  else
-    showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-
-  header.setField( OrigSendingTime(when, showMilliseconds ? m_timestampPrecision : 0) );
+  header.setField( OrigSendingTime(when, getSupportedTimestampPrecision()) );
 }
 
 void Session::fill( Header& header )
@@ -380,11 +367,13 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   MsgType msgType;
   int begin = 0;
   int current = beginSeqNo;
+  bool appMessageJustSent = false;
   std::string messageString;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
-    SmartPtr<FIX::Message> pMsg;
+    appMessageJustSent = false;
+    std::unique_ptr<FIX::Message> pMsg;
     std::string strMsgType;
     const DataDictionary& sessionDD =
       m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
@@ -394,20 +383,6 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
       equalSign += 4;
       std::string::size_type soh = (*i).find_first_of('\001', equalSign);
       strMsgType = (*i).substr(equalSign, soh - equalSign);
-#ifdef HAVE_EMX
-      if (FIX::Message::isAdminMsgType(strMsgType) == false)
-      {
-        equalSign = (*i).find("\0019426=", soh);
-        if (equalSign == std::string::npos)
-          throw FIX::IOException("EMX message type (9426) not found");
-
-        equalSign += 6;
-        soh = (*i).find_first_of('\001', equalSign);
-        if (soh == std::string::npos)
-          throw FIX::IOException("EMX message type (9426) soh char not found");
-        strMsgType.assign((*i).substr(equalSign, soh - equalSign));
-      }
-#endif
     }
 
     if( m_sessionID.isFIXT() )
@@ -464,6 +439,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
+        appMessageJustSent = true;
       }
       else
       { if ( !begin ) begin = msgSeqNum; }
@@ -481,6 +457,8 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     int next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
+    if ( appMessageJustSent )
+      beginSeqNo = msgSeqNum + 1;
     generateSequenceReset( beginSeqNo, endSeqNo );
   }
 
@@ -672,7 +650,7 @@ EXCEPT ( IOException )
 
 void Session::generateLogon()
 {
-  SmartPtr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg(newMessage("A"));
   Message & logon = *pMsg;
 
   logon.getHeader().setField( MsgType( "A" ) );
@@ -697,7 +675,7 @@ void Session::generateLogon()
 
 void Session::generateLogon( const Message& aLogon )
 {
-  SmartPtr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg(newMessage("A"));
   Message & logon = *pMsg;
 
   EncryptMethod encryptMethod;
@@ -717,7 +695,7 @@ void Session::generateLogon( const Message& aLogon )
 
 void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
 {
-  SmartPtr<Message> pMsg(newMessage("2"));
+  std::unique_ptr<Message> pMsg(newMessage("2"));
   Message & resendRequest = *pMsg;
 
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
@@ -742,7 +720,7 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
 void Session::generateSequenceReset
 ( int beginSeqNo, int endSeqNo )
 {
-  SmartPtr<Message> pMsg(newMessage("4"));
+  std::unique_ptr<Message> pMsg(newMessage("4"));
   Message & sequenceReset = *pMsg;
 
   NewSeqNo newSeqNo( endSeqNo );
@@ -763,7 +741,7 @@ void Session::generateSequenceReset
 
 void Session::generateHeartbeat()
 {
-  SmartPtr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg(newMessage("0"));
   Message & heartbeat = *pMsg;
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
@@ -773,7 +751,7 @@ void Session::generateHeartbeat()
 
 void Session::generateHeartbeat( const Message& testRequest )
 {
-  SmartPtr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg(newMessage("0"));
   Message & heartbeat = *pMsg;
 
   heartbeat.getHeader().setField( MsgType( "0" ) );
@@ -791,7 +769,7 @@ void Session::generateHeartbeat( const Message& testRequest )
 
 void Session::generateTestRequest( const std::string& id )
 {
-  SmartPtr<Message> pMsg(newMessage("1"));
+  std::unique_ptr<Message> pMsg(newMessage("1"));
   Message & testRequest = *pMsg;
 
   testRequest.getHeader().setField( MsgType( "1" ) );
@@ -806,7 +784,7 @@ void Session::generateReject( const Message& message, int err, int field )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  SmartPtr<Message> pMsg(newMessage("3"));
+  std::unique_ptr<Message> pMsg(newMessage("3"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( "3" ) );
@@ -903,7 +881,7 @@ void Session::generateReject( const Message& message, const std::string& str )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  SmartPtr<Message> pMsg(newMessage("3"));
+  std::unique_ptr<Message> pMsg(newMessage("3"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( "3" ) );
@@ -930,7 +908,7 @@ void Session::generateReject( const Message& message, const std::string& str )
 
 void Session::generateBusinessReject( const Message& message, int err, int field )
 {
-  SmartPtr<Message> pMsg(newMessage("j"));
+  std::unique_ptr<Message> pMsg(newMessage("j"));
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
@@ -995,7 +973,7 @@ void Session::generateBusinessReject( const Message& message, int err, int field
 
 void Session::generateLogout( const std::string& text )
 {
-  SmartPtr<Message> pMsg(newMessage("5"));
+  std::unique_ptr<Message> pMsg(newMessage("5"));
   Message & logout = *pMsg;
 
   logout.getHeader().setField( MsgType( MsgType_Logout ) );

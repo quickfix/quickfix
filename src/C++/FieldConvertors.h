@@ -30,6 +30,7 @@
 #include "Exceptions.h"
 #include "Utility.h"
 #include "config-all.h"
+#include <assert.h>
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -138,6 +139,16 @@ inline char* integer_to_string_padded
   return p;
 }
 
+template<typename T>
+T clamp_of( const T& value, const T& lowerBound, const T& upperBound )
+{
+  assert( lowerBound <= upperBound );
+  if( value < lowerBound )
+    return lowerBound;
+  else
+    return ( value > upperBound ) ? upperBound : value;
+}
+
 /// Empty converter is a no-op.
 struct EmptyConvertor
 {
@@ -150,6 +161,10 @@ typedef EmptyConvertor StringConvertor;
 /// Converts integer to/from a string
 struct IntConvertor
 {
+  static const signed_int VALUE_MIN = (std::numeric_limits<signed_int>::min)();
+  static const signed_int VALUE_MAX = (std::numeric_limits<signed_int>::max)();
+  static const signed_int OVERFLOW_MAX = VALUE_MAX / 10;
+
   static std::string convert( signed_int value )
   {
     // buffer is big enough for significant digits and extra digit,
@@ -180,9 +195,11 @@ struct IntConvertor
 
     do
     {
+      if( x < 0 || x > OVERFLOW_MAX ) return false; // overflow
       const unsigned_int c = *str - '0';
       if( c > 9 ) return false;
       x = 10 * x + c;
+      if( x < 0 && ( !isNegative || x != VALUE_MIN )) return false; // overflow
     } while ( ++str != end );
 
     if( isNegative )
@@ -249,15 +266,15 @@ public:
   static const int SIGNIFICANT_DIGITS = 15;
   static const int BUFFFER_SIZE = 32;
 
-  static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS, int buffer_size = BUFFFER_SIZE )
+  static std::string convert( double value, int padding = 0, int significant_digits = SIGNIFICANT_DIGITS)
   {
-    char result[buffer_size];
+    char result[BUFFFER_SIZE];
     char *end = 0;
 
     int size;
     if( value == 0 || value > 0.0001 || value < -0.0001 )
     {
-      size = fast_dtoa( result, buffer_size, value, significant_digits);
+      size = fast_dtoa( result, BUFFFER_SIZE, value, significant_digits);
       if( size == 0 )
         return std::string();
 
@@ -285,7 +302,7 @@ public:
     }
     else
     {
-      size = fast_fixed_dtoa( result, buffer_size, value, significant_digits );
+      size = fast_fixed_dtoa( result, BUFFFER_SIZE, value, significant_digits );
       if( size == 0 )
         return std::string();
 
@@ -428,6 +445,8 @@ struct UtcTimeStampConvertor
     char result[ 17+10 ]; // Maximum
     int year, month, day, hour, minute, second, fraction;
 
+    precision = clamp_of( precision, 0, 9 );
+
     value.getYMD( year, month, day );
     value.getHMS( hour, minute, second, fraction, precision );
 
@@ -537,6 +556,8 @@ struct UtcTimeOnlyConvertor
   {
     char result[ 8+10 ]; // Maximum
     int hour, minute, second, fraction;
+
+    precision = clamp_of( precision, 0, 9 );
 
     value.getHMS( hour, minute, second, fraction, precision );
 

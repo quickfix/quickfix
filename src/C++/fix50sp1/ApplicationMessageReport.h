@@ -12,7 +12,10 @@ namespace FIX50SP1
     ApplicationMessageReport() : Message(MsgType()) {}
     ApplicationMessageReport(const FIX::Message& m) : Message(m) {}
     ApplicationMessageReport(const Message& m) : Message(m) {}
-    ApplicationMessageReport(const ApplicationMessageReport& m) : Message(m) {}
+    ApplicationMessageReport(const ApplicationMessageReport&) = default;
+    ApplicationMessageReport(ApplicationMessageReport&&) = default;
+    ApplicationMessageReport& operator=(const ApplicationMessageReport&) = default;
+    ApplicationMessageReport& operator=(ApplicationMessageReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BY"); }
 
     ApplicationMessageReport(

@@ -12,7 +12,10 @@ namespace FIX50SP1
     MarketDefinitionUpdateReport() : Message(MsgType()) {}
     MarketDefinitionUpdateReport(const FIX::Message& m) : Message(m) {}
     MarketDefinitionUpdateReport(const Message& m) : Message(m) {}
-    MarketDefinitionUpdateReport(const MarketDefinitionUpdateReport& m) : Message(m) {}
+    MarketDefinitionUpdateReport(const MarketDefinitionUpdateReport&) = default;
+    MarketDefinitionUpdateReport(MarketDefinitionUpdateReport&&) = default;
+    MarketDefinitionUpdateReport& operator=(const MarketDefinitionUpdateReport&) = default;
+    MarketDefinitionUpdateReport& operator=(MarketDefinitionUpdateReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BV"); }
 
     MarketDefinitionUpdateReport(

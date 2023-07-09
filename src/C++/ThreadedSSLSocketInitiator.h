@@ -152,12 +152,12 @@ public:
     m_key = key;
   }
 
-  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify);
 
-  static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
+  static int passwordHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
-  typedef std::pair< int, SSL * > SocketKey;
+  typedef std::pair< socket_handle, SSL * > SocketKey;
   typedef std::map< SocketKey, thread_id > SocketToThread;
   typedef std::map< SessionID, int > SessionToHostNum;
   typedef std::pair< ThreadedSSLSocketInitiator *,
@@ -167,7 +167,7 @@ private:
   void onInitialize(const SessionSettings &) EXCEPT (RuntimeError);
 
   void onStart();
-  bool onPoll(double timeout);
+  bool onPoll();
   void onStop();
 
   void doConnect(const SessionID &s, const Dictionary &d);

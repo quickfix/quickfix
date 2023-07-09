@@ -209,7 +209,7 @@ void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Initiator::poll() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {
@@ -220,7 +220,7 @@ bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Initiator::stop( bool force )
@@ -267,9 +267,8 @@ void Initiator::stop( bool force )
     thread_join( m_threadid );
   m_threadid = 0;
 
-  std::vector<Session*>::iterator session = enabledSessions.begin();
-  for( ; session != enabledSessions.end(); ++session )
-    (*session)->logon();
+  for( Session* session : enabledSessions )
+    session->logon();
 }
 
 bool Initiator::isLoggedOn()

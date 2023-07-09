@@ -157,9 +157,14 @@ struct DateTime
   }
 
   /// Return the microsecond portion of the time
-  inline int getMicroecond() const
+  inline int getMicrosecond() const
   {
     return (getNanosecond() / PRECISION_FACTOR[6]);
+  }
+
+  // deprecated method: use getMicrosecond instead
+  inline int getMicroecond() const {
+    return getMicrosecond();
   }
 
   /// Return the nanosecond portion of the time
@@ -379,13 +384,13 @@ struct DateTime
   /// Add a number of seconds to this
   void operator+=( int seconds )
   {
-    int d = seconds / SECONDS_PER_DAY;
-    int s = seconds % SECONDS_PER_DAY;
+    int daysToAdd = seconds / SECONDS_PER_DAY;
+    int secondsToAdd = seconds % SECONDS_PER_DAY;
 
-    m_date += d;
-    m_time += s * NANOS_PER_SEC;
+    m_date += daysToAdd;
+    m_time += secondsToAdd * NANOS_PER_SEC;
 
-    if( m_time > NANOS_PER_DAY )
+    if( m_time >= NANOS_PER_DAY )
     {
       m_date++;
       m_time %= NANOS_PER_DAY;

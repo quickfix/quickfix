@@ -44,21 +44,21 @@ public:
   virtual ~SocketInitiator();
 
 private:
-  typedef std::map < int, SocketConnection* > SocketConnections;
+  typedef std::map < socket_handle, SocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
   void doConnect( const SessionID&, const Dictionary& d );
-  void onConnect( SocketConnector&, int );
-  void onWrite( SocketConnector&, int );
-  bool onData( SocketConnector&, int );
-  void onDisconnect( SocketConnector&, int );
+  void onConnect( SocketConnector&, socket_handle);
+  void onWrite( SocketConnector&, socket_handle);
+  bool onData( SocketConnector&, socket_handle);
+  void onDisconnect( SocketConnector&, socket_handle);
   void onError( SocketConnector& );
   void onTimeout( SocketConnector& );
 

@@ -127,11 +127,10 @@
 namespace FIX
 {
 
-FIX::ThreadedSSLSocketAcceptor *acceptObjT = 0;
 
-int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return acceptObjT->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<ThreadedSSLSocketAcceptor*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
@@ -141,7 +140,6 @@ ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
       m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
   socket_init();
-  acceptObjT = this;
 }
 
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
@@ -151,7 +149,6 @@ ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
       m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
   socket_init();
-  acceptObjT = this;
 }
 
 ThreadedSSLSocketAcceptor::~ThreadedSSLSocketAcceptor()
@@ -197,7 +194,7 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT (R
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), ThreadedSSLSocketAcceptor::passPhraseHandleCB, this, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
@@ -250,8 +247,8 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT (R
                                ? settings.getInt(SOCKET_RECEIVE_BUFFER_SIZE)
                                : 0;
 
-    int socket = socket_createAcceptor(port, reuseAddress);
-    if (socket < 0)
+    socket_handle socket = socket_createAcceptor(port, reuseAddress);
+    if (socket == INVALID_SOCKET_HANDLE)
     {
       SocketException e;
       socket_close(socket);
@@ -285,7 +282,7 @@ void ThreadedSSLSocketAcceptor::onStart()
   }
 }
 
-bool ThreadedSSLSocketAcceptor::onPoll(double timeout) { return false; }
+bool ThreadedSSLSocketAcceptor::onPoll() { return false; }
 
 void ThreadedSSLSocketAcceptor::onStop()
 {
@@ -344,7 +341,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   AcceptorThreadInfo *info = reinterpret_cast< AcceptorThreadInfo * >(p);
 
   ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
-  int s = info->m_socket;
+  socket_handle s = info->m_socket;
   int port = info->m_port;
   delete info;
 
@@ -355,8 +352,8 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
   socket_getsockopt(s, SO_SNDBUF, sendBufSize);
   socket_getsockopt(s, SO_RCVBUF, rcvBufSize);
 
-  int socket = 0;
-  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) >= 0))
+  socket_handle socket = 0;
+  while ((!pAcceptor->isStopped() && (socket = socket_accept(s)) != INVALID_SOCKET_HANDLE))
   {
     if (noDelay)
       socket_setsockopt(socket, TCP_NODELAY);
@@ -371,7 +368,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
         socket, ssl, sessions, pAcceptor->getLog());
     SSL_clear(ssl);
-    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE);
+    BIO *sBio = BIO_new_socket(socket, BIO_CLOSE); //unfortunately OpenSSL uses int as socket handle
     SSL_set_bio(ssl, sBio, sBio);
     // TODO - check this
     SSL_set_app_data(ssl, pAcceptor->revocationStore());
@@ -416,7 +413,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
   ThreadedSSLSocketConnection *pConnection = info->m_pConnection;
   delete info;
 
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
 
   if (acceptSSLConnection(pConnection->getSocket(), pConnection->sslObject(), pAcceptor->getLog(), pAcceptor->m_verify) != 0)
   {
@@ -440,7 +437,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
 }
 
 int ThreadedSSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
-                                                      int verify, void *job)
+                                                      int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

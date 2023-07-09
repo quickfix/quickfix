@@ -98,8 +98,10 @@ public:
 
   typedef Fields::iterator iterator;
   typedef Fields::const_iterator const_iterator;
+  typedef Fields::value_type value_type;
   typedef Groups::iterator g_iterator;
   typedef Groups::const_iterator g_const_iterator;
+  typedef Groups::value_type g_value_type;
 
   FieldMap( const message_order& order =
             message_order( message_order::normal ) );
@@ -107,10 +109,12 @@ public:
   FieldMap( const int order[] );
 
   FieldMap( const FieldMap& copy );
+  FieldMap(FieldMap&& rhs);
 
   virtual ~FieldMap();
 
   FieldMap& operator=( const FieldMap& rhs );
+  FieldMap& operator=(FieldMap&& rhs);
 
   /// Set a field without type checking
   void setField( const FieldBase& field, bool overwrite = true )
@@ -227,6 +231,10 @@ public:
   {
     return &getGroupRef( num, tag );
   }
+
+  const Groups& groups() const {
+    return m_groups;
+  } 
 
   /// Remove a specific instance of a group.
   void removeGroup( int num, int tag );

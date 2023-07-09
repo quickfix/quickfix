@@ -32,6 +32,7 @@
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include "Values.h"
+
 #include <vector>
 #include <memory>
 
@@ -151,9 +152,13 @@ public:
            const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
   EXCEPT ( InvalidMessage );
 
-  Message( const Message& copy );
+  Message(const Message&) = default;
+  Message(Message&&) = default;
 
   ~Message();
+
+  Message& operator=(const Message&) = default;
+  Message& operator=(Message&&) = default;
 
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
@@ -365,11 +370,6 @@ public:
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
-#ifdef HAVE_EMX
-  void  setSubMessageType(const std::string & subMsgType) { m_subMsgType.assign(subMsgType); }
-  const std::string & getSubMessageType() const { return m_subMsgType; }
-#endif
-
 private:
   FieldBase extractField(
     const std::string& string, std::string::size_type& pos,
@@ -398,10 +398,7 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
-#ifdef HAVE_EMX
-  std::string m_subMsgType;
-#endif
-  static SmartPtr<DataDictionary> s_dataDictionary;
+  static std::unique_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
 

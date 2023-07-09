@@ -42,24 +42,24 @@ public:
     dataSocket( 0 ), disconnectSocket( 0 ),
     bufLen( 0 ) {}
 
-  void onConnect( SocketServer&, int accept, int socket )
+  void onConnect( SocketServer&, socket_handle accept, socket_handle socket )
   { connect++; connectSocket = socket; }
-  void onWrite( SocketServer&, int socket )
+  void onWrite( SocketServer&, socket_handle socket )
   { write++; writeSocket = socket; }
-  bool onData( SocketServer& server, int socket )
+  bool onData( SocketServer& server, socket_handle socket )
   {
     data++; dataSocket = socket;
     bufLen = recv( socket, buf, 1, 0 );
     return bufLen > 0;
   }
-  void onDisconnect( SocketServer&, int socket )
+  void onDisconnect( SocketServer&, socket_handle socket )
   { disconnect++; disconnectSocket = socket; }
   void onError( SocketServer& )
   {}
 
   int connect, write, data, disconnect;
-  int connectSocket, writeSocket;
-  int dataSocket, disconnectSocket;
+  socket_handle connectSocket, writeSocket;
+  socket_handle dataSocket, disconnectSocket;
   char buf[ 1 ]; size_t bufLen;
 };
 
@@ -69,27 +69,27 @@ SUITE(SocketServerTests)
 TEST_FIXTURE(socketServerFixture, accept)
 {
   SocketServer object( 0 );
-  int serverS1 = object.add( TestSettings::port, true, true );
-  int clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle serverS1 = object.add( TestSettings::port, true, true );
+  socket_handle clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS1 > 0 );
   process_sleep(0.1);
-  int s1 = object.accept( serverS1 );
+  socket_handle s1 = object.accept( serverS1 );
   CHECK( s1 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 1 );
 
-  int clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS2 > 0 );
   process_sleep(0.1);
-  int s2 = object.accept( serverS1 );
+  socket_handle s2 = object.accept( serverS1 );
   CHECK( s2 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 2 );
 
-  int clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS3 > 0 );
   process_sleep(0.1);
-  int s3 = object.accept( serverS1 );
+  socket_handle s3 = object.accept( serverS1 );
   CHECK( s3 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 3 );
@@ -113,7 +113,7 @@ TEST_FIXTURE(socketServerFixture, block)
 {
   SocketServer object( 0 );
   object.add( TestSettings::port, true, true );
-  int clientS = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle clientS = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS >= 0 );
 
   object.block( *this );

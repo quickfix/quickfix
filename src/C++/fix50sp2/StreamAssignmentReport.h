@@ -12,7 +12,10 @@ namespace FIX50SP2
     StreamAssignmentReport() : Message(MsgType()) {}
     StreamAssignmentReport(const FIX::Message& m) : Message(m) {}
     StreamAssignmentReport(const Message& m) : Message(m) {}
-    StreamAssignmentReport(const StreamAssignmentReport& m) : Message(m) {}
+    StreamAssignmentReport(const StreamAssignmentReport&) = default;
+    StreamAssignmentReport(StreamAssignmentReport&&) = default;
+    StreamAssignmentReport& operator=(const StreamAssignmentReport&) = default;
+    StreamAssignmentReport& operator=(StreamAssignmentReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("CD"); }
 
     StreamAssignmentReport(

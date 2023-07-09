@@ -51,16 +51,22 @@
 #include <PostgreSQLStoreTestCase.cpp>
 #include <SessionIDTestCase.cpp>
 #include <SessionSettingsTestCase.cpp>
+#include <SessionStateTestCase.cpp>
 #include <SessionTestCase.cpp>
 #include <SessionFactoryTestCase.cpp>
 #include <SettingsTestCase.cpp>
+#include <SharedArrayTestCase.cpp>
 #include <SocketAcceptorTestCase.cpp>
+#include <SocketConnectionTestCase.cpp>
 #include <SocketConnectorTestCase.cpp>
+#include <SocketMonitorTestCase.cpp>
 #include <SocketServerTestCase.cpp>
 #include <TestHelper.cpp>
 #include <TimeRangeTestCase.cpp>
 #include <UtcTimeOnlyTestCase.cpp>
 #include <UtcTimeStampTestCase.cpp>
+#include <UtilityTestCase.cpp>
+
 #endif
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>

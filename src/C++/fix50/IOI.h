@@ -12,7 +12,10 @@ namespace FIX50
     IOI() : Message(MsgType()) {}
     IOI(const FIX::Message& m) : Message(m) {}
     IOI(const Message& m) : Message(m) {}
-    IOI(const IOI& m) : Message(m) {}
+    IOI(const IOI&) = default;
+    IOI(IOI&&) = default;
+    IOI& operator=(const IOI&) = default;
+    IOI& operator=(IOI&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("6"); }
 
     IOI(

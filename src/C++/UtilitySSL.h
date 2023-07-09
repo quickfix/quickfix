@@ -203,20 +203,21 @@ int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
 int callbackVerify(int ok, X509_STORE_CTX *ctx);
 int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore);
 X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
-X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb);
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                         passPhraseHandleCallbackType cb);
+                         passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 
 char *strCat(const char *a, ...);
 }
 
-int setSocketNonBlocking(int pSocket);
+int setSocketNonBlocking(socket_handle pSocket);
 
 // define certificate algorithm type
 #define SSL_ALGO_UNKNOWN 0
 #define SSL_ALGO_RSA 1
 #define SSL_ALGO_DSA 2
-#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA)
+#define SSL_ALGO_EC 8  // 8 to match SSL's own enum
+#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA | SSL_ALGO_EC)
 
 /*
  * Define the SSL Protocol options
@@ -244,7 +245,7 @@ void ssl_init();
 
 void ssl_term();
 
-void ssl_socket_close(int socket, SSL *ssl);
+void ssl_socket_close(socket_handle socket, SSL *ssl);
 
 const char *socket_error(char *tempbuf, int buflen);
 
@@ -260,7 +261,7 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
                           std::string &errStr);
 
 bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb,
+                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam,
                  std::string &errStr);
 
 bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
@@ -269,7 +270,7 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
                         std::string &errStr);
 
-int acceptSSLConnection(int socket, SSL * ssl, Log * log, int verify);
+int acceptSSLConnection(socket_handle socket, SSL * ssl, Log * log, int verify);
 }
 
 #endif

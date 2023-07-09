@@ -19,9 +19,8 @@
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 )
-#else
-#include "config.h"
 #endif
+#include "config.h"
 
 #include "ThreadedSocketAcceptor.h"
 #include "SocketAcceptor.h"
@@ -34,7 +33,7 @@
 #include "getopt-repl.h"
 #include "at_application.h"
 
-typedef SmartPtr< FIX::Acceptor > AcceptorPtr;
+typedef std::unique_ptr< FIX::Acceptor > AcceptorPtr;
 
 int main( int argc, char** argv )
 {

@@ -37,9 +37,9 @@ class HttpMessage;
 class HttpConnection
 {
 public:
-  HttpConnection( int s );
+  HttpConnection(socket_handle s );
 
-  int getSocket() const { return m_socket; }
+  socket_handle getSocket() const { return m_socket; }
   bool read();
 
 private:
@@ -67,11 +67,13 @@ private:
   bool send( const std::string& );
   void disconnect( int error = 0 );
 
-  int m_socket;
+  socket_handle m_socket;
   char m_buffer[BUFSIZ];
 
   HttpParser m_parser;
+#if _MSC_VER
   fd_set m_fds;
+#endif
 };
 }
 

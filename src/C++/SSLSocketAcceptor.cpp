@@ -129,39 +129,34 @@
 namespace FIX
 {
 
-FIX::SSLSocketAcceptor *acceptObj = 0;
-
-int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *job)
+int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance)
 {
-  return acceptObj->passwordHandleCallback(buf, bufsize, verify, job);
+  return reinterpret_cast<SSLSocketAcceptor*>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      const SessionSettings& settings ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  acceptObj = this;
 }
 
 SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings,
-                                LogFactory& logFactory ) EXCEPT ( ConfigError )
+                                      MessageStoreFactory& factory,
+                                      const SessionSettings& settings,
+                                      LogFactory& logFactory ) EXCEPT ( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
   m_pServer( 0 ), m_sslInit(false),
   m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
 {
-  acceptObj = this;
 }
 
 SSLSocketAcceptor::~SSLSocketAcceptor()
 {
-  SocketConnections::iterator iter;
-  for ( iter = m_connections.begin(); iter != m_connections.end(); ++iter )
-    delete iter->second;
+  for( const SocketConnections::value_type& connection : m_connections )
+    delete connection.second;
 
   if (m_sslInit)
   {
@@ -171,14 +166,13 @@ SSLSocketAcceptor::~SSLSocketAcceptor()
   }
 }
 
-void SSLSocketAcceptor::onConfigure( const SessionSettings& s )
+void SSLSocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
 EXCEPT ( ConfigError )
 {
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  std::set<SessionID> sessions = sessionSettings.getSessions();
+  for( const SessionID& sessionID : sessions )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     settings.getInt( SOCKET_ACCEPT_PORT );
     if( settings.has(SOCKET_REUSE_ADDRESS) )
       settings.getBool( SOCKET_REUSE_ADDRESS );
@@ -187,12 +181,11 @@ EXCEPT ( ConfigError )
   }
 }
 
-void SSLSocketAcceptor::onInitialize( const SessionSettings& s )
+void SSLSocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
   if (!m_sslInit)
   {
-
     ssl_init();
 
     std::string errStr;
@@ -204,7 +197,7 @@ EXCEPT ( RuntimeError )
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, errStr))
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, this, errStr))
     {
       ssl_term();
       throw RuntimeError(errStr);
@@ -232,11 +225,10 @@ EXCEPT ( RuntimeError )
   {
     m_pServer = new SocketServer( 1 );
 
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
+    std::set<SessionID> sessions = sessionSettings.getSessions();
+    for( const SessionID& sessionID : sessions )
     {
-      const Dictionary& settings = s.get( *i );
+      const Dictionary& settings = sessionSettings.get( sessionID );
       port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
@@ -251,7 +243,7 @@ EXCEPT ( RuntimeError )
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
         settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
-      m_portToSessions[port].insert( *i );
+      m_portToSessions[port].insert( sessionID );
       m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
     }    
   }
@@ -285,7 +277,7 @@ void SSLSocketAcceptor::onStart()
   m_pServer = 0;
 }
 
-bool SSLSocketAcceptor::onPoll( double timeout )
+bool SSLSocketAcceptor::onPoll()
 {
   if( !m_pServer )
     return false;
@@ -309,7 +301,7 @@ bool SSLSocketAcceptor::onPoll( double timeout )
     }
   }
 
-  m_pServer->block( *this, true, timeout );
+  m_pServer->block( *this, true );
   return true;
 }
 
@@ -317,7 +309,7 @@ void SSLSocketAcceptor::onStop()
 {
 }
 
-void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
+void SSLSocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
 {
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
@@ -327,7 +319,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
 
   SSL *ssl = SSL_new(m_ctx);
   SSL_clear(ssl);
-  BIO *sBio = BIO_new_socket(s, BIO_CLOSE);
+  BIO *sBio = BIO_new_socket(s, BIO_NOCLOSE); //Unfortunately OpenSSL assumes socket is int
   SSL_set_bio(ssl, sBio, sBio);
   // TODO - check this
   SSL_set_app_data(ssl, m_revocationStore);
@@ -342,6 +334,7 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
     if( getLog() )
       getLog()->onEvent( stream.str() );
 
+    server.getMonitor().drop(sconn->getSocket());
     delete sconn;
     return;
   }
@@ -355,24 +348,35 @@ void SSLSocketAcceptor::onConnect( SocketServer& server, int a, int s )
     getLog()->onEvent( stream.str() );
 }
 
-void SSLSocketAcceptor::onWrite( SocketServer& server, int s )
+void SSLSocketAcceptor::onWrite( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didReadFromSocketRequestToWrite()) {
+     pSocketConnection->read(*this, server);
+  }
+
   if( pSocketConnection->processQueue() )
     pSocketConnection->unsignal();
 }
 
-bool SSLSocketAcceptor::onData( SocketServer& server, int s )
+bool SSLSocketAcceptor::onData( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
   SSLSocketConnection* pSocketConnection = i->second;
+
+  if (pSocketConnection->didProcessQueueRequestToRead()) {
+      pSocketConnection->processQueue();
+      pSocketConnection->signal();
+  }
+
   return pSocketConnection->read( *this, server );
 }
 
-void SSLSocketAcceptor::onDisconnect( SocketServer&, int s )
+void SSLSocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
@@ -387,6 +391,11 @@ void SSLSocketAcceptor::onDisconnect( SocketServer&, int s )
 
 void SSLSocketAcceptor::onError( SocketServer& )
 {
+    if (getLog()) {
+        std::stringstream stream;
+        stream << "acceptor onError " << socket_get_last_error();
+        getLog()->onEvent(stream.str());
+    }    
 }
 
 void SSLSocketAcceptor::onTimeout( SocketServer& )
@@ -397,7 +406,7 @@ void SSLSocketAcceptor::onTimeout( SocketServer& )
 }
 
 int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
-                                                      int verify, void *job)
+                                                      int verify)
 {
   if (m_password.length() > bufsize)
     return -1;

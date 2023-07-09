@@ -12,7 +12,10 @@ namespace FIX50SP1
     OrderMassActionRequest() : Message(MsgType()) {}
     OrderMassActionRequest(const FIX::Message& m) : Message(m) {}
     OrderMassActionRequest(const Message& m) : Message(m) {}
-    OrderMassActionRequest(const OrderMassActionRequest& m) : Message(m) {}
+    OrderMassActionRequest(const OrderMassActionRequest&) = default;
+    OrderMassActionRequest(OrderMassActionRequest&&) = default;
+    OrderMassActionRequest& operator=(const OrderMassActionRequest&) = default;
+    OrderMassActionRequest& operator=(OrderMassActionRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("CA"); }
 
     OrderMassActionRequest(

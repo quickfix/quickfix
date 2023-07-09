@@ -12,7 +12,10 @@ namespace FIX44
     QuoteStatusReport() : Message(MsgType()) {}
     QuoteStatusReport(const FIX::Message& m) : Message(m) {}
     QuoteStatusReport(const Message& m) : Message(m) {}
-    QuoteStatusReport(const QuoteStatusReport& m) : Message(m) {}
+    QuoteStatusReport(const QuoteStatusReport&) = default;
+    QuoteStatusReport(QuoteStatusReport&&) = default;
+    QuoteStatusReport& operator=(const QuoteStatusReport&) = default;
+    QuoteStatusReport& operator=(QuoteStatusReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AI"); }
 
     QuoteStatusReport(

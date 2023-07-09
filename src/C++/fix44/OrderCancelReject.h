@@ -12,7 +12,10 @@ namespace FIX44
     OrderCancelReject() : Message(MsgType()) {}
     OrderCancelReject(const FIX::Message& m) : Message(m) {}
     OrderCancelReject(const Message& m) : Message(m) {}
-    OrderCancelReject(const OrderCancelReject& m) : Message(m) {}
+    OrderCancelReject(const OrderCancelReject&) = default;
+    OrderCancelReject(OrderCancelReject&&) = default;
+    OrderCancelReject& operator=(const OrderCancelReject&) = default;
+    OrderCancelReject& operator=(OrderCancelReject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("9"); }
 
     OrderCancelReject(

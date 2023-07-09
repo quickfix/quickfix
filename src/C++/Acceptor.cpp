@@ -176,7 +176,7 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_firstPoll )
   {
@@ -186,7 +186,7 @@ bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Acceptor::stop( bool force )
@@ -222,18 +222,16 @@ void Acceptor::stop( bool force )
     thread_join( m_threadid );
   m_threadid = 0;
 
-  std::vector<Session*>::iterator session = enabledSessions.begin();
-  for( ; session != enabledSessions.end(); ++session )
-    (*session)->logon();
+  for( Session* session : enabledSessions )
+    session->logon();
 }
 
 bool Acceptor::isLoggedOn()
 {
   Sessions sessions = m_sessions;
-  Sessions::iterator i = sessions.begin();
-  for ( ; i != sessions.end(); ++i )
+  for ( Sessions::value_type const& sessionIDWithSession : sessions )
   {
-    if( i->second->isLoggedOn() )
+    if( sessionIDWithSession.second->isLoggedOn() )
       return true;
   }
   return false;

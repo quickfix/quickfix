@@ -12,7 +12,10 @@ namespace FIX50
     TradingSessionStatusRequest() : Message(MsgType()) {}
     TradingSessionStatusRequest(const FIX::Message& m) : Message(m) {}
     TradingSessionStatusRequest(const Message& m) : Message(m) {}
-    TradingSessionStatusRequest(const TradingSessionStatusRequest& m) : Message(m) {}
+    TradingSessionStatusRequest(const TradingSessionStatusRequest&) = default;
+    TradingSessionStatusRequest(TradingSessionStatusRequest&&) = default;
+    TradingSessionStatusRequest& operator=(const TradingSessionStatusRequest&) = default;
+    TradingSessionStatusRequest& operator=(TradingSessionStatusRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("g"); }
 
     TradingSessionStatusRequest(

@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #else
 #include "config.h"
+#include <poll.h>
 #endif
 
 #include "HttpConnection.h"
@@ -33,11 +34,13 @@ using namespace HTML;
 
 namespace FIX
 {
-HttpConnection::HttpConnection( int s )
+HttpConnection::HttpConnection(socket_handle s )
 : m_socket( s )
 {
+#ifdef _MSC_VER
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
+#endif
 }
 
 bool HttpConnection::send( const std::string& msg )
@@ -55,13 +58,23 @@ void HttpConnection::disconnect( int error )
 
 bool HttpConnection::read()
 {
+#if _MSC_VER
   struct timeval timeout = { 2, 0 };
   fd_set readset = m_fds;
+#else
+  int timeout = 2000; // 2000ms = 2 seconds
+  struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+#endif
 
   try
   {
+#if _MSC_VER
     // Wait for input (1 second timeout)
-    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+    int result = select(1 + m_socket, &readset, 0, 0, &timeout);
+#else
+    // Wait for input (2 second timeout)
+    int result = poll( &pfd, 1, timeout );
+#endif
 
     if( result > 0 ) // Something to read
     {
@@ -204,21 +217,20 @@ void HttpConnection::processRoot
   }
 
   std::set<SessionID> sessions = Session::getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessions )
   {
-    Session* pSession = Session::lookupSession( *i );
+    Session* pSession = Session::lookupSession( sessionID );
     if( !pSession ) continue;
 
     { TR tr(b); tr.text();
       { TD td(b); td.text();
-        std::string href = "/session?BeginString=" + i->getBeginString().getValue() +
-                            "&SenderCompID=" + i->getSenderCompID().getValue() +
-                            "&TargetCompID=" + i->getTargetCompID().getValue();
-        if( i->getSessionQualifier().size() )
-          href += "&SessionQualifier=" + i->getSessionQualifier();
+        std::string href = "/session?BeginString=" + sessionID.getBeginString().getValue() +
+                            "&SenderCompID=" + sessionID.getSenderCompID().getValue() +
+                            "&TargetCompID=" + sessionID.getTargetCompID().getValue();
+        if( sessionID.getSessionQualifier().size() )
+          href += "&SessionQualifier=" + sessionID.getSessionQualifier();
 
-        A a(b); a.href(href).text(i->toString());
+        A a(b); a.href(href).text(sessionID.toString());
       }
       { TD td(b); td.text(pSession->isInitiator() ? "initiator" : "acceptor"); }
       { TD td(b); td.text(pSession->isEnabled() ? "yes" : "no"); }
@@ -244,7 +256,7 @@ void HttpConnection::processResetSessions
       std::set<SessionID> sessions = Session::getSessions();
       std::set<SessionID>::iterator session;
       for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->reset();
+        Session::lookupSession( *session )->reset();
       copy.removeParameter("confirm");
     }
 
@@ -289,9 +301,8 @@ void HttpConnection::processRefreshSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->refresh();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->refresh();
       copy.removeParameter("confirm");
     }
 
@@ -336,9 +347,8 @@ void HttpConnection::processEnableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logon();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logon();
       copy.removeParameter("confirm");
     }
 
@@ -383,9 +393,8 @@ void HttpConnection::processDisableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logout();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logout();
       copy.removeParameter("confirm");
     }
 

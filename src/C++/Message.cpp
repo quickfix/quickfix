@@ -38,7 +38,7 @@ int const headerOrder[] =
   FIELD::MsgType
 };
 
-SmartPtr<DataDictionary> Message::s_dataDictionary;
+std::unique_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
 : m_validStructure( true )
@@ -117,19 +117,6 @@ Message::Message( const BeginString& beginString, const MsgType& msgType )
 {
   m_header.setField(beginString);
   m_header.setField(msgType);
-}
-
-Message::Message(const Message& copy)
-: FieldMap(copy)
-, m_header(copy.m_header)
-, m_trailer(copy.m_trailer)
-, m_validStructure(copy.m_validStructure)
-, m_tag(copy.m_tag)
-#ifdef HAVE_EMX
-, m_subMsgType(copy.m_subMsgType)
-#endif
-{
-
 }
 
 Message::~Message()
@@ -295,21 +282,20 @@ std::string& Message::toXML( std::string& str ) const
 std::string Message::toXMLFields(const FieldMap& fields, int space) const
 {
   std::stringstream stream;
-  FieldMap::const_iterator i;
   std::string name;
-  for(i = fields.begin(); i != fields.end(); ++i)
+  for( const FieldMap::value_type& field : fields )
   {
-    int field = i->getTag();
-    std::string value = i->getString();
+    int tag = field.getTag();
+    std::string value = field.getString();
 
     stream << std::setw(space) << " " << "<field ";
-    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
+    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(tag, name))
     {
       stream << "name=\"" << name << "\" ";
     }
-    stream << "number=\"" << field << "\"";
+    stream << "number=\"" << tag << "\"";
     if(s_dataDictionary.get()
-       && s_dataDictionary->getValueName(field, value, name))
+       && s_dataDictionary->getValueName(tag, value, name))
     {
       stream << " enum=\"" << name << "\"";
     }
@@ -318,14 +304,12 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     stream << "</field>" << std::endl;
   }
 
-  FieldMap::g_const_iterator j;
-  for(j = fields.g_begin(); j != fields.g_end(); ++j)
+  for( const FieldMap::g_value_type& group : fields.groups() )
   {
-    std::vector<FieldMap*>::const_iterator k;
-    for(k = j->second.begin(); k != j->second.end(); ++k)
+    for( const FieldMap* groupFields : group.second )
     {
       stream << std::setw(space) << " " << "<group>" << std::endl
-             << toXMLFields(*(*k), space+2)
+             << toXMLFields(*groupFields, space+2)
              << std::setw(space) << " " << "</group>" << std::endl;
     }
   }
@@ -368,21 +352,6 @@ EXCEPT ( InvalidMessage )
         if ( isAdminMsgType( msg ) )
         {
           pApplicationDataDictionary = pSessionDataDictionary;
-#ifdef HAVE_EMX
-          m_subMsgType.assign(msg);
-        }
-        else
-        {
-          std::string::size_type equalSign = string.find("\0019426=", pos);
-          if (equalSign == std::string::npos)
-            throw InvalidMessage("EMX message type (9426) not found");
-
-          equalSign += 6;
-          std::string::size_type soh = string.find_first_of('\001', equalSign);
-          if (soh == std::string::npos)
-            throw InvalidMessage("EMX message type (9426) soh char not found");
-          m_subMsgType.assign(string.substr(equalSign, soh - equalSign ));
-#endif
         }
       }
 
@@ -411,11 +380,7 @@ EXCEPT ( InvalidMessage )
       appendField( field );
 
       if ( pApplicationDataDictionary )
-#ifdef HAVE_EMX
-        setGroup(m_subMsgType, field, string, pos, *this, *pApplicationDataDictionary);
-#else
         setGroup( msg, field, string, pos, *this, *pApplicationDataDictionary );
-#endif
     }
   }
 
@@ -437,7 +402,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   int delim;
   const DataDictionary* pDD = 0;
   if ( !dataDictionary.getGroup( msg, group, delim, pDD ) ) return ;
-  SmartPtr<Group> pGroup;
+  std::unique_ptr<Group> pGroup;
 
   while ( pos < string.size() )
   {
@@ -601,26 +566,26 @@ void Message::validate() const
     const BodyLength& aBodyLength = FIELD_GET_REF( m_header, BodyLength );
 
     const int expectedLength = (int)aBodyLength;
-    const int actualLength = bodyLength();
+    const int receivedLength = bodyLength();
 
-    if ( expectedLength != actualLength )
+    if ( expectedLength != receivedLength )
     {
       std::stringstream text;
-      text << "Expected BodyLength=" << actualLength
-           << ", Received BodyLength=" << expectedLength;
+      text << "Expected BodyLength=" << expectedLength
+           << ", Received BodyLength=" << receivedLength;
       throw InvalidMessage(text.str());
     }
 
     const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
 
     const int expectedChecksum = (int)aCheckSum;
-    const int actualChecksum = checkSum();
+    const int receivedChecksum = checkSum();
 
-    if ( expectedChecksum != actualChecksum )
+    if ( expectedChecksum != receivedChecksum )
     {
       std::stringstream text;
-      text << "Expected CheckSum=" << actualChecksum
-           << ", Received CheckSum=" << expectedChecksum;
+      text << "Expected CheckSum=" << expectedChecksum
+           << ", Received CheckSum=" << receivedChecksum;
       throw InvalidMessage(text.str());
     }
   }

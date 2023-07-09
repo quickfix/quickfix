@@ -128,7 +128,7 @@
 
 namespace FIX
 {
-ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(int s, SSL *ssl,
+ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(socket_handle s, SSL *ssl,
                                                          Sessions sessions,
                                                          Log *pLog)
     : m_socket(s), m_ssl(ssl), m_pLog(pLog), m_sessions(sessions),
@@ -139,7 +139,7 @@ ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(int s, SSL *ssl,
 }
 
 ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(
-    const SessionID &sessionID, int s, SSL *ssl, const std::string &address,
+    const SessionID &sessionID, socket_handle s, SSL *ssl, const std::string &address,
     short port, Log *pLog)
     : m_socket(s), m_ssl(ssl), m_address(address), m_port(port), m_pLog(pLog),
       m_pSession(Session::lookupSession(sessionID)), m_disconnect(false)

@@ -129,14 +129,19 @@
 
 namespace FIX
 {
+enum SSLHandshakeStatus {
+    SSL_HANDSHAKE_FAILED = 0,
+    SSL_HANDSHAKE_SUCCEDED = 1,
+    SSL_HANDSHAKE_IN_PROGRESS = 2
+};
 /// Socket implementation of Initiator.
 class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) EXCEPT ( ConfigError );
+                      const SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                      const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketInitiator();
 
@@ -148,33 +153,37 @@ public:
     m_key = key;
   }
 
-  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify);
 
-  static int passwordHandleCB(char *buf, int bufsize, int verify, void *job);
+  static int passwordHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
-  typedef std::map < int, SSLSocketConnection* > SocketConnections;
+  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
   void doConnect( const SessionID&, const Dictionary& d );
-  void onConnect( SocketConnector&, int );
-  void onWrite( SocketConnector&, int );
-  bool onData( SocketConnector&, int );
-  void onDisconnect( SocketConnector&, int );
+  void onConnect( SocketConnector&, socket_handle);
+  void onWrite( SocketConnector&, socket_handle);
+  bool onData( SocketConnector&, socket_handle);
+  void onDisconnect( SocketConnector&, socket_handle);
   void onError( SocketConnector& );
   void onTimeout( SocketConnector& );
-
+  void disconnectPendingSSLHandshakesThatTakeTooLong(time_t now);
+  SSLHandshakeStatus handshakeSSL(SSLSocketConnection* connection);
+  void handshakeSSLAndHandleConnection(SocketConnector& connector, socket_handle s);
   void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
 
   SessionToHostNum m_sessionToHostNum;
   SocketConnector m_connector;
+
+  SocketConnections m_pendingSSLHandshakes;
   SocketConnections m_pendingConnections;
   SocketConnections m_connections;
   time_t m_lastConnect;

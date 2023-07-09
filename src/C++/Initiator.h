@@ -63,7 +63,7 @@ public:
   /// Block on the initiator
   void block() EXCEPT ( ConfigError, RuntimeError );
   /// Poll the initiator
-  bool poll( double timeout = 0.0 ) EXCEPT ( ConfigError, RuntimeError );
+  bool poll() EXCEPT ( ConfigError, RuntimeError );
 
   /// Stop initiator.
   void stop( bool force = false );
@@ -113,7 +113,7 @@ private:
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
   /// Implemented to connect and poll for events.
-  virtual bool onPoll( double timeout ) = 0;
+  virtual bool onPoll() = 0;
   /// Implemented to stop a running initiator.
   virtual void onStop() = 0;
   /// Implemented to connect a session to its target.

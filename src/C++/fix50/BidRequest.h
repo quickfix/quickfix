@@ -12,7 +12,10 @@ namespace FIX50
     BidRequest() : Message(MsgType()) {}
     BidRequest(const FIX::Message& m) : Message(m) {}
     BidRequest(const Message& m) : Message(m) {}
-    BidRequest(const BidRequest& m) : Message(m) {}
+    BidRequest(const BidRequest&) = default;
+    BidRequest(BidRequest&&) = default;
+    BidRequest& operator=(const BidRequest&) = default;
+    BidRequest& operator=(BidRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("k"); }
 
     BidRequest(

@@ -25,9 +25,9 @@ DROP TABLE event_log;
 CREATE TABLE event_log (
   id INT NOT NULL,
   time TIMESTAMP NOT NULL,
-  beginstring CHAR(8) NOT NULL,
-  sendercompid VARCHAR(64) NOT NULL,
-  targetcompid VARCHAR(64) NOT NULL,
+  beginstring CHAR(8),
+  sendercompid VARCHAR(64),
+  targetcompid VARCHAR(64),
   session_qualifier VARCHAR(64),
   text BLOB NOT NULL,
   PRIMARY KEY (id)
@@ -51,9 +51,9 @@ DROP TABLE event_backup_log;
 CREATE TABLE event_backup_log (
   id INT NOT NULL,
   time TIMESTAMP NOT NULL,
-  beginstring CHAR(8) NOT NULL,
-  sendercompid VARCHAR(64) NOT NULL,
-  targetcompid VARCHAR(64) NOT NULL,
+  beginstring CHAR(8),
+  sendercompid VARCHAR(64),
+  targetcompid VARCHAR(64),
   session_qualifier VARCHAR(64),
   text BLOB NOT NULL,
   PRIMARY KEY (id)

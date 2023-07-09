@@ -68,6 +68,17 @@ TEST(isInRange)
   CHECK( !TimeRange::isInRange( start, end, now ) );
 }
 
+TEST(isInRange_UseLocalTime)
+{
+  LocalTimeOnly start( 0, 0, 0 );
+  LocalTimeOnly end( 1, 0, 0 );
+
+  UtcTimeStamp now( 10, 0, 0, 10, 10, 2000 );
+  TimeRange timeRange(start, end, 1, 1);
+  CHECK( timeRange.isInRange( now ) );
+
+}
+
 TEST(isInRangeWithDay)
 {
   UtcTimeOnly startTime( 3, 0, 0 );
@@ -124,6 +135,44 @@ TEST(isInRangeWithDay)
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
   now = UtcTimeStamp( 9, 0, 0, 4, 12, 2006 );
   CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
+}
+
+TEST(isInRangeWithDay_SameDay)
+{
+  UtcTimeOnly startTime( 3, 0, 0 );
+  UtcTimeOnly endTime( 18, 0, 0 );
+  int startDay = 2;
+  int endDay = 2;
+
+  UtcTimeStamp now( 2, 0, 0, 28, 7, 2004 );
+  TimeRange timeRange(startTime, endTime, startDay, endDay);
+  CHECK(TimeRange::isInRange(startTime, endTime, startDay, endDay, now));
+}
+
+TEST(isInRangeWithDay_PastSundayOverlapSession)
+{
+    //Start Friday 00:00:00, end Thursday 23:59:59
+    UtcTimeOnly startTime( 0, 0, 0 );
+    UtcTimeOnly endTime( 23, 59, 59 );
+    int startDay = 6;
+    int endDay = 5;
+
+    //Given creation happened on a Friday at 00:00:01, and a login the next day Saturday
+    UtcTimeStamp creation( 0, 0, 1, 23, 4, 2021 );
+    UtcTimeStamp expSameSession1( 8, 30, 0, 24, 4, 2021 );
+    CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expSameSession1) );
+
+    //Then a login request on a Monday at 08:30:00 should be part of the same session
+    UtcTimeStamp expSameSession2( 8, 30, 0, 26, 4, 2021 );
+    CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expSameSession2) );
+
+    //But a login request on the following Friday at 08:30:00 should be part of a different session
+    UtcTimeStamp expNextSession( 8, 30, 0, 30, 4, 2021 );
+    CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expNextSession) );
+
+    //And a login request on the preceding Thursday at 23:59:58 should be part of a different session
+    UtcTimeStamp expPrevSession( 23, 59, 58, 22, 4, 2021 );
+    CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, creation, expPrevSession) );
 }
 
 TEST(isInSameRange)
@@ -197,6 +246,19 @@ TEST(isInSameRange)
   time2 = UtcTimeStamp( 19, 06, 0, 1, 14, 2004 );
   CHECK( !TimeRange::isInSameRange( start, end, time1, time2 ) );
   CHECK( !TimeRange::isInSameRange( start, end, time2, time1 ) );
+}
+
+TEST(isInSameRange_UseLocalTime)
+{
+  LocalTimeOnly start( 0, 0, 0 );
+  LocalTimeOnly end( 1, 0, 0 );
+
+  UtcTimeStamp time1 = UtcTimeStamp( 10, 0, 0, 10, 10, 2000 );
+  UtcTimeStamp time2 = UtcTimeStamp( 11, 0, 0, 10, 10, 2000 );
+  TimeRange timeRange(start, end, 1, 1);
+
+  CHECK( timeRange.isInSameRange(time1, time2) );
+
 }
 
 TEST(isInSameRangeWithDay)
@@ -274,6 +336,20 @@ TEST(isInSameRangeWithDay)
   endDay = -1;
   CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
 
+  startDay = 5;
+  endDay = 5;
+  startTime = UtcTimeOnly(22, 28, 20);
+  endTime = UtcTimeOnly(22, 28, 5);
+  time1 = UtcTimeStamp(22, 28, 2, 16, 1, 2020); // session
+  time2 = UtcTimeStamp(22, 30, 47, 16, 1, 2020); // date
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  startTime = UtcTimeOnly(22, 24, 0);
+  endTime = UtcTimeOnly(22, 15, 30);
+  time1 = UtcTimeStamp(18, 15, 15, 15, 1, 2020); // session
+  time2 = UtcTimeStamp(22, 26, 20, 16, 1, 2020); // date
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
   // Session days are the same
   startDay = 1;
   endDay = 1;
@@ -285,6 +361,44 @@ TEST(isInSameRangeWithDay)
   time2 = UtcTimeStamp(9, 1, 0, 10, 12, 2006);
   CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
   time2 = UtcTimeStamp(9, 1, 0, 4, 12, 2006);
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  time1 = UtcTimeStamp(10, 1, 0, 3, 12, 2006);
+  time2 = UtcTimeStamp(9, 1, 0, 10, 12, 2006);
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(8, 1, 0, 10, 12, 2006);
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(8, 1, 0, 5, 12, 2006);
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Session days are the same, and not today
+  startDay = 2;
+  endDay = 2;
+  startTime = UtcTimeOnly(9, 1, 0);
+  endTime = UtcTimeOnly(8, 59, 0);
+  time1 = UtcTimeStamp(9, 1, 0, 3, 12, 2006); // day before swap
+  time2 = UtcTimeStamp(9, 1, 0, 5, 12, 2006);
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(9, 1, 0, 11, 12, 2006);
+  CHECK( !TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(8, 1, 0, 3, 12, 2006);
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Re-creating weekend cert reset
+  startDay = 2;
+  endDay = 2;
+  startTime = UtcTimeOnly(17, 0, 0);
+  endTime = UtcTimeOnly(16, 02, 30);
+  time1 = UtcTimeStamp(23, 4, 3, 17, 1, 2020); // 20200117-23:04:03.008 -> H M S, D M Y
+  time2 = UtcTimeStamp(6, 0, 0, 19, 1, 2020); // 20200119-06:00:00
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+
+  startDay = 4;
+  endDay = 4;
+  startTime = UtcTimeOnly(17, 0, 0);
+  endTime = UtcTimeOnly(16, 02, 30);
+  time1 = UtcTimeStamp(23, 4, 3, 17, 1, 2020); // 20200117-23:04:03.008 -> H M S, D M Y
+  time2 = UtcTimeStamp(6, 0, 0, 20, 1, 2020); // 20200120-06:00:00
   CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
 }
 

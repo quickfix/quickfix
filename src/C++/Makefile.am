@@ -10,7 +10,6 @@ lib_LTLIBRARIES = libquickfix.la
 
 libquickfix_la_SOURCES = \
 	Allocator.h \
-	AtomicCount.h \
 	Session.cpp \
 	Session.h \
 	TimeRange.cpp \
@@ -39,8 +38,9 @@ libquickfix_la_SOURCES = \
 	SocketAcceptor.h \
 	SocketInitiator.cpp \
 	SocketInitiator.h \
-	SocketMonitor.cpp \
 	SocketMonitor.h \
+	SocketMonitor_UNIX.h \
+	SocketMonitor_UNIX.cpp \
 	SocketConnection.cpp \
 	SocketConnection.h \
 	ThreadedSocketAcceptor.cpp \
@@ -120,7 +120,7 @@ libquickfix_la_SOURCES = \
 	MessageCracker.h \
 	Responder.h \
 	wx/sharedptr.h
-	
+
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
 	ThreadedSSLSocketAcceptor.h \
@@ -145,7 +145,7 @@ libquickfix_la_SOURCES += $(libquickfix_la_ssl_SOURCES)
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
 Allocator.h: Makefile
-	grep "_ALLOCATOR" $(top_builddir)/config.h >$@
+	grep "_ALLOCATOR" config_unix.h >$@
 
 all-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
@@ -197,4 +197,4 @@ EXTRA_DIST = strptime.c strptime.h
 
 libquickfix_la_LDFLAGS = -version-info 17:0:0
 
-INCLUDES =-I. -I.. -I../..
+AM_CPPFLAGS =-I. -I.. -I../..

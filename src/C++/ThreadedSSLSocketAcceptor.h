@@ -144,21 +144,21 @@ public:
 
   void setPassword(const std::string &pwd) { m_password.assign(pwd); }
 
-  int passwordHandleCallback(char *buf, size_t bufsize, int verify, void *job);
+  int passwordHandleCallback(char *buf, size_t bufsize, int verify);
 
-  static int passPhraseHandleCB(char *buf, int bufsize, int verify, void *job);
+  static int passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
   struct AcceptorThreadInfo
   {
-    AcceptorThreadInfo(ThreadedSSLSocketAcceptor *pAcceptor, int socket,
+    AcceptorThreadInfo(ThreadedSSLSocketAcceptor *pAcceptor, socket_handle socket,
                        int port)
         : m_pAcceptor(pAcceptor), m_socket(socket), m_port(port)
     {
     }
 
     ThreadedSSLSocketAcceptor *m_pAcceptor;
-    int m_socket;
+    socket_handle m_socket;
     int m_port;
   };
 
@@ -176,18 +176,18 @@ private:
 
   bool readSettings(const SessionSettings &);
 
-  typedef std::set< int > Sockets;
+  typedef std::set< socket_handle > Sockets;
   typedef std::set< SessionID > Sessions;
   typedef std::map< int, Sessions > PortToSessions;
-  typedef std::map< int, int > SocketToPort;
-  typedef std::pair< int, SSL * > SocketKey;
+  typedef std::map< socket_handle, int > SocketToPort;
+  typedef std::pair< socket_handle, SSL * > SocketKey;
   typedef std::map< SocketKey, thread_id > SocketToThread;
 
   void onConfigure(const SessionSettings &) EXCEPT (ConfigError);
   void onInitialize(const SessionSettings &) EXCEPT (RuntimeError);
 
   void onStart();
-  bool onPoll(double timeout);
+  bool onPoll();
   void onStop();
 
   void addThread(SocketKey s, thread_id t);

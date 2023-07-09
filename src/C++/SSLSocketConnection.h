@@ -146,11 +146,11 @@ class SSLSocketConnection : Responder
 public:
   typedef std::set<SessionID> Sessions;
 
-  SSLSocketConnection( int s, SSL *ssl, Sessions sessions, SocketMonitor* pMonitor );
-  SSLSocketConnection( SSLSocketInitiator&, const SessionID&, int, SSL *, SocketMonitor* );
+  SSLSocketConnection( socket_handle s, SSL *ssl, Sessions sessions, SocketMonitor* pMonitor );
+  SSLSocketConnection( SSLSocketInitiator&, const SessionID&, socket_handle, SSL *, SocketMonitor* );
   virtual ~SSLSocketConnection();
 
-  int getSocket() const { return m_socket; }
+  socket_handle getSocket() const { return m_socket; }
   Session* getSession() const { return m_pSession; }
 
   bool read( SocketConnector& s );
@@ -164,6 +164,10 @@ public:
       m_pMonitor->signal( m_socket );
   }
 
+  void subscribeToSocketWriteAvailableEvents() {
+    m_pMonitor->signal(m_socket);
+  }
+
   void unsignal()
   {
     Locker l( m_mutex );
@@ -171,9 +175,20 @@ public:
       m_pMonitor->unsignal( m_socket );
   }
 
+  void setHandshakeStartTime(time_t time) {
+    m_handshakeStartTime = time;
+  }
+
+  int getSecondsFromHandshakeStart(time_t now) {
+    return now - m_handshakeStartTime;
+  }
+
   void onTimeout();
 
   SSL *sslObject() { return m_ssl; }
+
+  bool didProcessQueueRequestToRead() const;
+  bool didReadFromSocketRequestToWrite() const;
 
 private:
   typedef std::deque<std::string, ALLOCATOR<std::string> >
@@ -184,9 +199,9 @@ private:
   bool readMessage( std::string& msg );
   void readMessages( SocketMonitor& s );
   bool send( const std::string& );
-  void disconnect();
+  void disconnect();	
 
-  int m_socket;
+  socket_handle m_socket;
   SSL *m_ssl;
   char m_buffer[BUFSIZ];
 
@@ -196,8 +211,13 @@ private:
   Sessions m_sessions;
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
-  Mutex m_mutex;
+  mutable Mutex m_mutex;
+#ifdef _MSC_VER
   fd_set m_fds;
+#endif
+  bool m_processQueueNeedsToReadData = false;
+  bool m_readFromSocketNeedsToWriteData = false;
+  time_t m_handshakeStartTime = 0;
 };
 }
 

@@ -78,8 +78,11 @@ TEST(DateTime_getTimeT)
 
 TEST(DateTime_addAndSubtractSeconds)
 {
+  int secondsInAnHour = 3600;
+  int secondsIn2Hours = 2 * secondsInAnHour;
+
   FIX::DateTime addSeconds(2019,5,6,23,1,1,0);
-  addSeconds += 7200; // 2 hours in seconds
+  addSeconds += secondsIn2Hours;
   CHECK_EQUAL(2019, addSeconds.getYear());
   CHECK_EQUAL(5, addSeconds.getMonth());
   CHECK_EQUAL(7, addSeconds.getDay());
@@ -88,14 +91,23 @@ TEST(DateTime_addAndSubtractSeconds)
   CHECK_EQUAL(1, addSeconds.getSecond());
 
   FIX::DateTime subtractSeconds(2019,5,6,1,1,1,0);
-  subtractSeconds += -7200; // 2 hours in seconds
-
+  subtractSeconds += -secondsIn2Hours;
   CHECK_EQUAL(2019, subtractSeconds.getYear());
   CHECK_EQUAL(5, subtractSeconds.getMonth());
   CHECK_EQUAL(5, subtractSeconds.getDay());
   CHECK_EQUAL(23, subtractSeconds.getHour());
   CHECK_EQUAL(1, subtractSeconds.getMinute());
   CHECK_EQUAL(1, subtractSeconds.getSecond());
+
+  int secondsInADay = 86400;
+  FIX::DateTime addSecondsDayBoundary(2019,5,6,23,1,1,0);
+  addSecondsDayBoundary += secondsInADay;
+  CHECK_EQUAL(2019, addSecondsDayBoundary.getYear());
+  CHECK_EQUAL(5, addSecondsDayBoundary.getMonth());
+  CHECK_EQUAL(7, addSecondsDayBoundary.getDay());
+  CHECK_EQUAL(23, addSecondsDayBoundary.getHour());
+  CHECK_EQUAL(1, addSecondsDayBoundary.getMinute());
+  CHECK_EQUAL(1, addSecondsDayBoundary.getSecond());
 }
 
 TEST(DateTime_fromLocalTimeT)

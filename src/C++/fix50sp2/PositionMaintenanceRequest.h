@@ -12,7 +12,10 @@ namespace FIX50SP2
     PositionMaintenanceRequest() : Message(MsgType()) {}
     PositionMaintenanceRequest(const FIX::Message& m) : Message(m) {}
     PositionMaintenanceRequest(const Message& m) : Message(m) {}
-    PositionMaintenanceRequest(const PositionMaintenanceRequest& m) : Message(m) {}
+    PositionMaintenanceRequest(const PositionMaintenanceRequest&) = default;
+    PositionMaintenanceRequest(PositionMaintenanceRequest&&) = default;
+    PositionMaintenanceRequest& operator=(const PositionMaintenanceRequest&) = default;
+    PositionMaintenanceRequest& operator=(PositionMaintenanceRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AL"); }
 
     PositionMaintenanceRequest(

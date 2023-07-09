@@ -95,7 +95,7 @@ void ThreadedSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSocketInitiator::onPoll( double timeout )
+bool ThreadedSocketInitiator::onPoll()
 {
   return false;
 }
@@ -145,7 +145,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     short sourcePort = 0;
     getHost( s, d, address, port, sourceAddress, sourcePort );
 
-    int socket = socket_createConnector();
+    socket_handle socket = socket_createConnector();
     if( m_noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
     if( m_sendBufSize )
@@ -180,14 +180,14 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
   catch ( std::exception& ) {}
 }
 
-void ThreadedSocketInitiator::addThread( int s, thread_id t )
+void ThreadedSocketInitiator::addThread(socket_handle s, thread_id t )
 {
   Locker l(m_mutex);
 
   m_threads[ s ] = t;
 }
 
-void ThreadedSocketInitiator::removeThread( int s )
+void ThreadedSocketInitiator::removeThread(socket_handle s )
 {
   Locker l(m_mutex);
   SocketToThread::iterator i = m_threads.find( s );
@@ -207,7 +207,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   ThreadedSocketConnection* pConnection = pair->second;
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
   FIX::Session* pSession = FIX::Session::lookupSession( sessionID );
-  int socket = pConnection->getSocket();
+  socket_handle socket = pConnection->getSocket();
   delete pair;
 
   pInitiator->lock();

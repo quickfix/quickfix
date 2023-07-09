@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #else
 #include "config.h"
+#include <poll.h>
 #endif
 
 #include "SocketConnection.h"
@@ -32,24 +33,28 @@
 
 namespace FIX
 {
-SocketConnection::SocketConnection( int s, Sessions sessions,
+SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
 {
+#ifdef _MSC_VER
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
+#endif
 }
 
 SocketConnection::SocketConnection( SocketInitiator& i,
-                                    const SessionID& sessionID, int s,
+                                    const SessionID& sessionID, socket_handle s,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),
   m_pMonitor( pMonitor ) 
 {
+#ifdef _MSC_VER
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
+#endif
   m_sessions.insert( sessionID );
 }
 
@@ -75,11 +80,16 @@ bool SocketConnection::processQueue()
 
   if( !m_sendQueue.size() ) return true;
 
+#ifdef _MSC_VER
   struct timeval timeout = { 0, 0 };
   fd_set writeset = m_fds;
-  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0)
     return false;
-    
+#else
+  struct pollfd pfd = { m_socket, POLLOUT, 0 };
+  if ( poll( &pfd, 1, 0 ) <= 0 ) { return false; }
+#endif
+
   const std::string& msg = m_sendQueue.front();
 
   ssize_t result = socket_send
@@ -127,12 +137,21 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   {
     if ( !m_pSession )
     {
+#if _MSC_VER
       struct timeval timeout = { 1, 0 };
       fd_set readset = m_fds;
+#else
+      int timeout = 1000; // 1000ms = 1 second
+      struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+#endif
 
       while( !readMessage( msg ) )
       {
+#if _MSC_VER
         int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+#else
+        int result = poll( &pfd, 1, timeout );
+#endif
         if( result > 0 )
           readFromSocket();
         else if( result == 0 )

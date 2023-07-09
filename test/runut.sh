@@ -2,9 +2,9 @@
 
 trap "trap - TERM && kill -- -$$" INT TERM KILL EXIT
 
-DIR=`pwd`
+DIR=$(dirname "$0")
 
+cd $DIR
 ./ut -p $1 -f cfg/ut.cfg
 RESULT=$?
-cd $DIR
 exit $RESULT

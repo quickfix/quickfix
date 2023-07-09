@@ -12,7 +12,10 @@ namespace FIX50SP2
     MarketDataSnapshotFullRefresh() : Message(MsgType()) {}
     MarketDataSnapshotFullRefresh(const FIX::Message& m) : Message(m) {}
     MarketDataSnapshotFullRefresh(const Message& m) : Message(m) {}
-    MarketDataSnapshotFullRefresh(const MarketDataSnapshotFullRefresh& m) : Message(m) {}
+    MarketDataSnapshotFullRefresh(const MarketDataSnapshotFullRefresh&) = default;
+    MarketDataSnapshotFullRefresh(MarketDataSnapshotFullRefresh&&) = default;
+    MarketDataSnapshotFullRefresh& operator=(const MarketDataSnapshotFullRefresh&) = default;
+    MarketDataSnapshotFullRefresh& operator=(MarketDataSnapshotFullRefresh&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("W"); }
 
     FIELD_SET(*this, FIX::ApplID);

@@ -36,7 +36,7 @@ SUITE(FieldMapTests)
 
 TEST(setMessageOrder)
 {
-  int order[] = {1, 2, 3};
+  int order[] = {1, 2, 3, 0}; // '0' is used to signify the end of array passed to FieldMap()
   FieldMap fieldMap(order);
   fieldMap.setField(3, "account");
   fieldMap.setField(1, "adv_id");
@@ -64,7 +64,7 @@ TEST(addGroupPtr_nullptr)
 {
   FieldMap fieldMap;
   fieldMap.addGroupPtr(1, nullptr);
-  CHECK_EQUAL(0, fieldMap.groupCount(0));
+  CHECK_EQUAL(0, (int) fieldMap.groupCount(0));
 }
 
 TEST(removeGroup_allGroupsWithSameTag)
@@ -81,7 +81,7 @@ TEST(removeGroup_allGroupsWithSameTag)
   fieldMap.removeGroup(2, 1);
   fieldMap.removeGroup(1, 1);
 
-  CHECK_EQUAL(0, fieldMap.groupCount(1));
+  CHECK_EQUAL(0ul, fieldMap.groupCount(1));
 }
 
 TEST(hasGroup_groupExists)
@@ -117,7 +117,7 @@ TEST(totalFields)
   group2.setField(6, "field6");
   fieldMap.addGroup(20, group2);
 
-  CHECK_EQUAL(8, fieldMap.totalFields());
+  CHECK_EQUAL(8ul, fieldMap.totalFields());
 }
 
 TEST(setField_16FieldsAlreadyExist_fieldSet)

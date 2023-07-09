@@ -12,7 +12,10 @@ namespace FIX50
     AllocationInstructionAlert() : Message(MsgType()) {}
     AllocationInstructionAlert(const FIX::Message& m) : Message(m) {}
     AllocationInstructionAlert(const Message& m) : Message(m) {}
-    AllocationInstructionAlert(const AllocationInstructionAlert& m) : Message(m) {}
+    AllocationInstructionAlert(const AllocationInstructionAlert&) = default;
+    AllocationInstructionAlert(AllocationInstructionAlert&&) = default;
+    AllocationInstructionAlert& operator=(const AllocationInstructionAlert&) = default;
+    AllocationInstructionAlert& operator=(AllocationInstructionAlert&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BM"); }
 
     AllocationInstructionAlert(

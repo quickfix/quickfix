@@ -53,14 +53,12 @@ SocketAcceptor::~SocketAcceptor()
     delete iter->second;
 }
 
-void SocketAcceptor::onConfigure( const SessionSettings& s )
+void SocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
 EXCEPT ( ConfigError )
 {
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessionSettings.getSessions() )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     settings.getInt( SOCKET_ACCEPT_PORT );
     if( settings.has(SOCKET_REUSE_ADDRESS) )
       settings.getBool( SOCKET_REUSE_ADDRESS );
@@ -69,7 +67,7 @@ EXCEPT ( ConfigError )
   }
 }
 
-void SocketAcceptor::onInitialize( const SessionSettings& s )
+void SocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
   short port = 0;
@@ -78,11 +76,9 @@ EXCEPT ( RuntimeError )
   {
     m_pServer = new SocketServer( 1 );
 
-    std::set<SessionID> sessions = s.getSessions();
-    std::set<SessionID>::iterator i = sessions.begin();
-    for( ; i != sessions.end(); ++i )
+    for( const SessionID& sessionID : sessionSettings.getSessions() )
     {
-      const Dictionary& settings = s.get( *i );
+      const Dictionary& settings = sessionSettings.get( sessionID );
       port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
       const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
@@ -97,12 +93,14 @@ EXCEPT ( RuntimeError )
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
         settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
-      m_portToSessions[port].insert( *i );
+      m_portToSessions[port].insert( sessionID );
       m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
     }    
   }
   catch( SocketException& e )
   {
+    delete m_pServer;
+    m_pServer = 0;
     throw RuntimeError( "Unable to create, bind, or listen to port "
                        + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
@@ -131,7 +129,7 @@ void SocketAcceptor::onStart()
   m_pServer = 0;
 }
 
-bool SocketAcceptor::onPoll( double timeout )
+bool SocketAcceptor::onPoll()
 {
   if( !m_pServer )
     return false;
@@ -155,7 +153,7 @@ bool SocketAcceptor::onPoll( double timeout )
     }
   }
 
-  m_pServer->block( *this, true, timeout );
+  m_pServer->block( *this, true );
   return true;
 }
 
@@ -163,7 +161,7 @@ void SocketAcceptor::onStop()
 {
 }
 
-void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
+void SocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
 {
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
@@ -179,7 +177,7 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
     getLog()->onEvent( stream.str() );
 }
 
-void SocketAcceptor::onWrite( SocketServer& server, int s )
+void SocketAcceptor::onWrite( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
@@ -188,7 +186,7 @@ void SocketAcceptor::onWrite( SocketServer& server, int s )
     pSocketConnection->unsignal();
 }
 
-bool SocketAcceptor::onData( SocketServer& server, int s )
+bool SocketAcceptor::onData( SocketServer& server, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return false;
@@ -196,7 +194,7 @@ bool SocketAcceptor::onData( SocketServer& server, int s )
   return pSocketConnection->read( *this, server );
 }
 
-void SocketAcceptor::onDisconnect( SocketServer&, int s )
+void SocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
 {
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;

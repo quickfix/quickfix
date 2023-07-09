@@ -19,11 +19,12 @@ Makefile
 .libs
 *.la
 *.so
+*.so.*
 *.dylib
 ChangeLog
 UnitTest++/TestUnitTest++
 aclocal.m4
-config.h
+config_unix.h
 config.log
 config.status
 config/
@@ -47,6 +48,7 @@ include/
 src/at
 src/pt
 src/ut
+src/C++/Allocator.h
 test/at
 test/pt
 test/ut
@@ -54,7 +56,6 @@ test/ut_debug
 test/cfg
 test/store
 autom4te.cache/
-lib/python2
 lib/python3
 COPYING
 INSTALL
@@ -65,3 +66,9 @@ core
 \#*#
 *.log
 *.trs
+build*
+CMakeFiles
+CMakeCache.txt
+*.cmake
+.vscode
+.cache

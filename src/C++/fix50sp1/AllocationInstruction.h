@@ -12,7 +12,10 @@ namespace FIX50SP1
     AllocationInstruction() : Message(MsgType()) {}
     AllocationInstruction(const FIX::Message& m) : Message(m) {}
     AllocationInstruction(const Message& m) : Message(m) {}
-    AllocationInstruction(const AllocationInstruction& m) : Message(m) {}
+    AllocationInstruction(const AllocationInstruction&) = default;
+    AllocationInstruction(AllocationInstruction&&) = default;
+    AllocationInstruction& operator=(const AllocationInstruction&) = default;
+    AllocationInstruction& operator=(AllocationInstruction&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("J"); }
 
     AllocationInstruction(

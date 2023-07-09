@@ -122,14 +122,22 @@ TEST(integerConvertFrom)
   CHECK_EQUAL( 12, IntConvertor::convert( "12" ) );
   CHECK_EQUAL( 100, IntConvertor::convert( "100" ) );
   CHECK_EQUAL( 1234, IntConvertor::convert( "1234" ) );
+  CHECK_EQUAL( 214748365, IntConvertor::convert( "214748365" ) );
   CHECK_EQUAL( MAX_INT, IntConvertor::convert( "2147483647" ) );
+  CHECK_THROW( IntConvertor::convert( "2147483648" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "2147483650" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "9999999999" ), FieldConvertError ); // overflow
 
   CHECK_EQUAL( -1, IntConvertor::convert( "-1" ) );
   CHECK_EQUAL( -12, IntConvertor::convert( "-12" ) );
   CHECK_EQUAL( -100, IntConvertor::convert( "-100" ) );
   CHECK_EQUAL( -1234, IntConvertor::convert( "-1234" ) );
+  CHECK_EQUAL( -214748365, IntConvertor::convert( "-214748365" ) );
   CHECK_EQUAL( -2147483647, IntConvertor::convert( "-2147483647" ) );
   CHECK_EQUAL( MIN_INT, IntConvertor::convert( "-2147483648" ) );
+  CHECK_THROW( IntConvertor::convert( "-2147483649" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "-2147483650" ), FieldConvertError ); // overflow
+  CHECK_THROW( IntConvertor::convert( "-9999999999" ), FieldConvertError ); // overflow
 
   CHECK_THROW( IntConvertor::convert( "" ), FieldConvertError );
   CHECK_THROW( IntConvertor::convert( "abc" ), FieldConvertError );
@@ -168,7 +176,6 @@ TEST(doubleConvertTo)
   CHECK_EQUAL( "0.0", DoubleConvertor::convert( 0.0, 1) );
 
   CHECK_EQUAL( "", DoubleConvertor::convert( 0.01, 0, -1));
-  CHECK_EQUAL( "", DoubleConvertor::convert( 0.00000000000000000000000000000000000000000000000000000000000000001, 0, 61, 100));
 }
 
 TEST(doubleConvertFrom)
@@ -262,6 +269,15 @@ TEST(utcTimeStampConvertToNano)
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
   CHECK_EQUAL( "20000426-12:05:06.555555555", UtcTimeStampConvertor::convert( input, 9 ) );
+}
+
+TEST(utcTimeStampConvertToPrecisionBounds)
+{
+  UtcTimeStamp input;
+  input.setHMS( 12, 5, 6, 555555555, 9 );
+  input.setYMD( 2000, 4, 26 );
+  CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input, -1000 ) );
+  CHECK_EQUAL( "20000426-12:05:06.555555555", UtcTimeStampConvertor::convert( input, 1000 ) );
 }
 
 TEST(utcTimeStampConvertFromSecond)
@@ -388,6 +404,14 @@ TEST(utcTimeOnlyConvertToNano)
   CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 9 ) );
 }
 
+TEST(utcTimeOnlyConvertToPrecisionBounds)
+{
+  UtcTimeOnly input;
+  input.setHMS( 12, 5, 6, 555555555, 9 );
+  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, -1000 ) );
+  CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 1000 ) );
+}
+
 TEST(utcTimeOnlyConvertFromMicro)
 {
   UtcTimeOnly result = UtcTimeOnlyConvertor::convert
@@ -430,7 +454,7 @@ TEST(checkSumConvertTo)
 
 TEST(integerToStringPadded)
 {
-  char result[5];
+  char result[6] = {'\0'};
   int fraction = 1234;
   int precision = 5;
   CHECK_EQUAL(result, integer_to_string_padded(result, precision, fraction));

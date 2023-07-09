@@ -30,6 +30,7 @@
 #include <fix40/TestRequest.h>
 #include <fix42/TestRequest.h>
 #include <fix42/NewOrderSingle.h>
+#include <fix42/Heartbeat.h>
 #include <fix40/NewOrderSingle.h>
 #include <fix44/NewOrderList.h>
 #include <fix44/MarketDataRequest.h>
@@ -204,12 +205,22 @@ TEST(addValueName)
   object.addValueName( 23, "BOO", "VALUE_23_BOO" );
 
   std::string name;
+  std::string value;
+
   CHECK( object.getValueName( 12, "0", name ) );
   CHECK_EQUAL( "VALUE_12_0", name );
+  CHECK( object.getNameValue( 12, "VALUE_12_0", value ) );
+  CHECK_EQUAL( "0", value );
+
   CHECK( object.getValueName( 12, "B", name ) );
   CHECK_EQUAL( "VALUE_12_B", name );
+  CHECK( object.getNameValue( 12, "VALUE_12_B", value ) );
+  CHECK_EQUAL( "B", value );
+
   CHECK( object.getValueName( 23, "BOO", name ) );
   CHECK_EQUAL( "VALUE_23_BOO", name );
+  CHECK( object.getNameValue( 23, "VALUE_23_BOO", value ) );
+  CHECK_EQUAL( "BOO", value );
 }
 
 struct checkValidTagNumberFixture
@@ -336,6 +347,21 @@ TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
   message.getHeader().setField( SenderCompID( "SENDER" ) );
   message.getTrailer().removeField( FIELD::SignatureLength );
   CHECK_THROW( object.validate( message ), RequiredTagMissing );
+}
+
+TEST(checkRequiredAttribute) {
+  DataDictionary object( "../spec/FIX42.xml" );
+
+  FIX42::Heartbeat message;
+  // All required fields are present
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:3210=119", false, &object);
+  object.validate(message);
+  // Required field (49) is missed in the header
+  message.setString("8=FIX.4.29=4935=056=TW34=252=20050225-16:54:3210=119", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
+  // Required field (10) is missed in the trailer
+  message.setString("8=FIX.4.29=4935=049=FIXTEST56=TW34=252=20050225-16:54:32", false, &object);
+  CHECK_THROW(object.validate(message);, RequiredTagMissing);
 }
 
 struct checkValidFormatFixture
@@ -722,6 +748,16 @@ TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
   CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
+static void fillHeaderTrailer(FIX44::Message& message)
+{
+  message.getHeader().set( FIX::BodyLength(0) );
+  message.getHeader().set( SenderCompID("FIXTEST") );
+  message.getHeader().set( TargetCompID("TW") );
+  message.getHeader().set( MsgSeqNum(1) );
+  message.getHeader().set( SendingTime(UtcTimeStamp()) );
+  message.getTrailer().set( CheckSum(0) );
+}
+
 TEST( checkGroupRequiredFields )
 {
   DataDictionary object( "../spec/FIX44.xml" );
@@ -739,6 +775,7 @@ TEST( checkGroupRequiredFields )
     MDReqID("1"),
     SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES ),
     MarketDepth( 9999 ) );
+  fillHeaderTrailer(marketDataRequest);
 
   marketDataRequest.set( MDUpdateType( MDUpdateType_INCREMENTAL_REFRESH ) );
   marketDataRequest.set( AggregatedBook( true ) );
@@ -766,25 +803,25 @@ TEST( checkGroupRequiredFields )
   marketDataRequest.addGroup( noMDEntryTypes );
   CHECK_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
 
-  FIX44::MarketDataSnapshotFullRefresh md;
-  md.set( MDReqID("1") );
-  md.set( Symbol("QQQQ") );
+  FIX44::MarketDataSnapshotFullRefresh marketDataSnapshotFullRefresh;
+  marketDataSnapshotFullRefresh.set( MDReqID("1") );
+  marketDataSnapshotFullRefresh.set( Symbol("QQQQ") );
+  fillHeaderTrailer(marketDataSnapshotFullRefresh);
 
   FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
 
   entry.set( MDEntryType( MDEntryType_OFFER ) );
   entry.set( MDEntryPx( 41.48 ) );
   entry.set( MDEntrySize( 500 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
   entry.set( MDEntryType( MDEntryType_BID ) );
   entry.set( MDEntryPx( 41.2 ) );
   entry.set( MDEntrySize( 300 ) );
-  md.addGroup( entry );
+  marketDataSnapshotFullRefresh.addGroup( entry );
 
-  Message message( md.toString(), object );
+  Message message( marketDataSnapshotFullRefresh.toString(), object );
   object.validate( message );
-  //object.validate( md );
 }
 
 TEST( readFromFile )
@@ -1211,7 +1248,7 @@ TEST(readFromDocument_FIXNodeNotAtRoot) {
 
   std::stringbuf buffer;
   std::string dictionaryXml = "<notFIXRoot></notFIXroot>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1225,7 +1262,7 @@ TEST(readFromDocument_TypeAttributeNotFIXorFIXT) {
 
   std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='WrongType' major='4' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1239,7 +1276,7 @@ TEST(readFromDocument_MajorAttributeMissing) {
 
   std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1253,7 +1290,7 @@ TEST(readFromDocument_MinorAttributeMissing) {
 
   std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' major='4' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1267,7 +1304,7 @@ TEST(readFromDocument_FieldsSectionMissing) {
 
   std::stringbuf buffer;
   std::string dictionaryXml = "<fix type='FIX' major='4' minor='2' servicepack='0'></fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1286,7 +1323,7 @@ TEST(readFromDocument_FieldNameAttributeMissing) {
           "<field number='8' type='STRING' />" // name attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1305,7 +1342,7 @@ TEST(readFromDocument_FieldNumberAttributeMissing) {
           "<field name='BeginString' type='STRING' />" // number attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1324,7 +1361,7 @@ TEST(readFromDocument_FieldTypeAttributeMissing) {
           "<field number='8' name='BeginString' />" // type attribute missing
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1345,7 +1382,7 @@ TEST(readFromDocument_FieldValueNodeMissingEnumAttribute) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1366,7 +1403,7 @@ TEST(readFromDocument_HeaderNodeMissing) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1390,7 +1427,7 @@ TEST(readFromDocument_HeaderFieldNodeMissingNameAttribute) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1414,7 +1451,7 @@ TEST(readFromDocument_TrailerNodeMissing) {
           "</field>"
         "</fields>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1441,7 +1478,7 @@ TEST(readFromDocument_TrailerFieldNodeMissingNameAttribute) {
           "<field required='Y' />" // name attribute missing
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1474,7 +1511,7 @@ TEST(readFromDocument_MessagesNodeMissing) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1510,7 +1547,7 @@ TEST(readFromDocument_MessageNodeMissingMsgTypeAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1548,7 +1585,7 @@ TEST(readFromDocument_MessagesFieldNodeMissingNameAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1595,7 +1632,7 @@ TEST(readFromDocument_GroupNodeMissingNameAttribute) {
             "</component>"
           "</components>"
         "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1637,7 +1674,7 @@ TEST(readFromDocument_MessagesGroupNodeFieldNodeMissingNameAttribute) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1674,7 +1711,7 @@ TEST(readFromDocument_GroupFieldMissingAssociatedFieldNodeInFieldsNode) {
           "</group>"
         "</trailer>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1719,7 +1756,7 @@ TEST(readFromDocument_ComponentNodeMissingNameAttribute) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1764,7 +1801,7 @@ TEST(readFromDocument_ComponentNodeInMessageNotFound) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1809,7 +1846,7 @@ TEST(readFromDocument_ComponentNodeHasFieldNodeWithMissingNameAttribute) {
           "</component>"
         "</components>"
       "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
@@ -1846,7 +1883,7 @@ TEST(readFromDocument_VersionPreFIX42_FieldTypeCharTreatedAsString) {
             "<field name='SignatureLength' required='Y' />"
           "</trailer>"
         "</fix>";
-  buffer.sputn(dictionaryXml.c_str(),1000);
+  buffer.sputn(dictionaryXml.c_str(), dictionaryXml.size());
   std::istream is(&buffer);
 
   DOMDocumentPtr pDoc(new PUGIXML_DOMDocument());
