@@ -1,6 +1,5 @@
 echo off
 if "%1" == "" goto usage
-if "%2" == "" goto usage
 
 if "%1" == "debug" goto debug:
 if "%1" == "release" goto release:
@@ -19,6 +18,6 @@ goto start
 goto quit
 
 :usage
-echo "Usage: runut [release | debug] [port]"
+echo "Usage: runut [release | debug]"
 
 :quit
