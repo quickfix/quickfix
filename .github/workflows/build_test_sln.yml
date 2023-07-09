@@ -118,7 +118,7 @@ jobs:
       - name: Run Unit Tests
         working-directory: ./${{ matrix.runner }}-${{ matrix.platform }}-${{ matrix.configuration }}/test
         run: |
-          runut %CONFIGURATION% %PORT%
+          runut %CONFIGURATION%
         shell: cmd
         env:
           CONFIGURATION: ${{ matrix.configrun }}
