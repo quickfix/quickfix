@@ -1,6 +1,4 @@
 call generate_c++
-call generate_net
-call generate_java
 
 REM The generator runs much faster with jruby, so use it if possible.
 jruby -h

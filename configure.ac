@@ -12,7 +12,6 @@ m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
-m4_include([m4/ax_java.m4])
 m4_include([m4/ax_cxx_compile_stdcxx.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
 AC_CONFIG_HEADERS([src/C++/config_unix.h])
@@ -35,7 +34,6 @@ AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
-AX_JAVA()
 
 ########################################
 # Disable unit tests on Solaris, AIX
