@@ -3,7 +3,7 @@ sleep 1
 
 QUICKFIX_TEST_PORT=54321
 
-./runut.sh $QUICKFIX_TEST_PORT
+./runut.sh
 RESULT=$?
 if [ $RESULT != 0 ]
 then 

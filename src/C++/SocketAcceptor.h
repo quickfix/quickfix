@@ -37,18 +37,25 @@ class SocketAcceptor : public Acceptor, SocketServer::Strategy
 {
   friend class SocketConnection;
 public:
+  typedef std::map < SessionID, uint16_t > SessionToPort;
+
   SocketAcceptor( Application&, MessageStoreFactory&,
                   const SessionSettings& ) EXCEPT ( ConfigError );
   SocketAcceptor( Application&, MessageStoreFactory&,
                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
-
+  
   virtual ~SocketAcceptor();
+
+  const SessionToPort& sessionToPort()
+  {
+    return m_sessionToPort;
+  }
 
 private:
   bool readSettings( const SessionSettings& );
 
   typedef std::set < SessionID > Sessions;
-  typedef std::map < int, Sessions > PortToSessions;
+  typedef std::map < uint16_t, Sessions > PortToSessions;
   typedef std::map < socket_handle, SocketConnection* > SocketConnections;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
@@ -67,6 +74,7 @@ private:
 
   SocketServer* m_pServer;
   PortToSessions m_portToSessions;
+  SessionToPort m_sessionToPort;
   SocketConnections m_connections;
 };
 /*! @} */

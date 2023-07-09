@@ -12,7 +12,7 @@ namespace FIX
 {
 struct TestSettings
 {
-  static short port;
+  static const uint16_t port;
   static FIX::SessionSettings sessionSettings;
 };
 
@@ -38,7 +38,7 @@ inline void destroySocket( socket_handle s )
   socket_invalidate( s );
 }
 
-socket_handle inline createSocket( int port, const char* address )
+socket_handle inline createSocket( uint16_t port, const char* address )
 {
   socket_handle sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 

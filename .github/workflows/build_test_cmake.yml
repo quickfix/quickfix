@@ -127,8 +127,6 @@ jobs:
         shell: bash
         working-directory: ./test
         run: |
-          $ut -p $(($PortBase + $Offset)) -f cfg/ut.cfg
+          $ut -f cfg/ut.cfg
         env:
           ut: ${{ env.ut }}
-          PortBase: 6670
-          Offset: ${{ matrix.portoffset }}

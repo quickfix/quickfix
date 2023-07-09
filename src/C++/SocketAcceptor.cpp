@@ -70,7 +70,7 @@ EXCEPT ( ConfigError )
 void SocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
-  short port = 0;
+  uint16_t port = 0;
 
   try
   {
@@ -93,8 +93,9 @@ EXCEPT ( RuntimeError )
       const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
         settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
-      m_portToSessions[port].insert( sessionID );
-      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
+      socket_handle acceptSocket = m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );
+      m_portToSessions[socket_hostport(acceptSocket)].insert( sessionID );
+      m_sessionToPort[sessionID] = socket_hostport(acceptSocket);
     }    
   }
   catch( SocketException& e )
@@ -159,6 +160,10 @@ bool SocketAcceptor::onPoll()
 
 void SocketAcceptor::onStop()
 {
+  if( m_pServer )
+  {
+    m_pServer->close();
+  }
 }
 
 void SocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
@@ -166,7 +171,7 @@ void SocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_ha
   if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
   if ( i != m_connections.end() ) return;
-  int port = server.socketToPort( a );
+  uint16_t port = server.socketToPort( a );
   Sessions sessions = m_portToSessions[port];
   m_connections[ s ] = new SocketConnection( s, sessions, &server.getMonitor() );
 

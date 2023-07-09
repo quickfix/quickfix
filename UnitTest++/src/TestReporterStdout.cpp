@@ -22,12 +22,16 @@ void TestReporterStdout::ReportFailure(TestDetails const& details, char const* f
     printf(errorFormat, details.filename, details.lineNumber, details.testName, failure);
 }
 
-void TestReporterStdout::ReportTestStart(TestDetails const& /*test*/)
+void TestReporterStdout::ReportTestStart(TestDetails const& test)
 {
+    using namespace std;
+    printf("%s: %s\n", test.suiteName, test.testName);
 }
 
-void TestReporterStdout::ReportTestFinish(TestDetails const& /*test*/, float)
+void TestReporterStdout::ReportTestFinish(TestDetails const& /*test*/, float secondsElapsed)
 {
+    using namespace std;
+    printf("  %f seconds\n", secondsElapsed);
 }
 
 void TestReporterStdout::ReportSummary(int const totalTestCount, int const failedTestCount,

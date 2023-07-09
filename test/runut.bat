@@ -15,7 +15,7 @@ set DIR=release\ut
 goto start
 
 :start
-%DIR%\ut.exe -p %2 -f cfg\ut.cfg
+%DIR%\ut.exe -f cfg\ut.cfg
 goto quit
 
 :usage

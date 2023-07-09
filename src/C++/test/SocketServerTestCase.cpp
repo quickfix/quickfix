@@ -69,26 +69,26 @@ SUITE(SocketServerTests)
 TEST_FIXTURE(socketServerFixture, accept)
 {
   SocketServer object( 0 );
-  socket_handle serverS1 = object.add( TestSettings::port, true, true );
-  socket_handle clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle serverS1 = object.add( 0, true, true );
+  socket_handle clientS1 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
   CHECK( clientS1 > 0 );
-  process_sleep(0.1);
+  process_sleep( 0.1 );
   socket_handle s1 = object.accept( serverS1 );
   CHECK( s1 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 1 );
 
-  socket_handle clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle clientS2 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
   CHECK( clientS2 > 0 );
-  process_sleep(0.1);
+  process_sleep( 0.1 );
   socket_handle s2 = object.accept( serverS1 );
   CHECK( s2 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 2 );
 
-  socket_handle clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle clientS3 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
   CHECK( clientS3 > 0 );
-  process_sleep(0.1);
+  process_sleep( 0.1 );
   socket_handle s3 = object.accept( serverS1 );
   CHECK( s3 >= 0 );
   object.block( *this );
@@ -112,15 +112,17 @@ TEST_FIXTURE(socketServerFixture, accept)
 TEST_FIXTURE(socketServerFixture, block)
 {
   SocketServer object( 0 );
-  object.add( TestSettings::port, true, true );
-  socket_handle clientS = createSocket( TestSettings::port, "127.0.0.1" );
+  socket_handle serverS = object.add( 0, true, true );
+  socket_handle clientS = createSocket( socket_hostport(serverS), "127.0.0.1" );
   CHECK( clientS >= 0 );
 
+  process_sleep( 0.1 );
   object.block( *this );
   CHECK_EQUAL( 1, connect );
   CHECK( connectSocket > 0 );
 
   send( clientS, "1", 1, 0 );
+  process_sleep( 0.1 );
   object.block( *this );
   object.block( *this );
   CHECK_EQUAL( 1, data );
@@ -129,6 +131,7 @@ TEST_FIXTURE(socketServerFixture, block)
   CHECK( dataSocket > 0 );
 
   destroySocket( clientS );
+  process_sleep( 0.1 );
   object.block( *this );
   CHECK_EQUAL( 1, disconnect );
   CHECK( disconnectSocket > 0 );
@@ -137,7 +140,7 @@ TEST_FIXTURE(socketServerFixture, block)
 TEST_FIXTURE(socketServerFixture, close)
 {
   SocketServer object( 0 );
-  object.add( TestSettings::port, true, true );
+  object.add( 0, true, true );
   object.close();
   object.block( *this );
 }
