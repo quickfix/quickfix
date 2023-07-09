@@ -236,4 +236,3 @@ typedef FIX::SessionSettings SessionSettings;
 %include "../C++/SocketMonitor.h"
 %include "../C++/SSLSocketAcceptor.h"
 %include "../C++/SSLSocketInitiator.h"
-%include "../C++/SSLSocketConnection.h"
