@@ -26,7 +26,6 @@
 
 #include "C++/Utility.h"
 #include "C++/SessionSettings.h"
-#ifndef _MSC_VER
 #include <DataDictionaryProviderTestCase.cpp>
 #include <DataDictionaryTestCase.cpp>
 #include <DictionaryTestCase.cpp>
@@ -66,7 +65,6 @@
 #include <UtcTimeOnlyTestCase.cpp>
 #include <UtcTimeStampTestCase.cpp>
 #include <UtilityTestCase.cpp>
-#endif
 
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
