@@ -105,9 +105,5 @@ int main( int argc, char** argv )
     }
   }
 
-  std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
-  int result = UnitTest::RunAllTests();
-  std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
-
-  return result;
+  return UnitTest::RunAllTests();
 }
