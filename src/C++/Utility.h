@@ -155,9 +155,7 @@ int socket_setfcntlflag( int s, int arg );
 #endif
 void socket_setnonblock(socket_handle s );
 bool socket_isValid(socket_handle socket );
-#ifndef _MSC_VER
 bool socket_isBad( int s );
-#endif
 void socket_invalidate(socket_handle& socket );
 short socket_hostport(socket_handle socket );
 const char* socket_hostname(socket_handle socket );

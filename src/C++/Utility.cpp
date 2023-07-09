@@ -303,14 +303,16 @@ bool socket_isValid(socket_handle socket )
 #endif
 }
 
-#ifndef _MSC_VER
 bool socket_isBad( int s )
 {
   struct stat buf;
+#ifdef _MSC_VER
+  _fstat( s, &buf );
+#else
   fstat( s, &buf );
+#endif
   return errno == EBADF;
 }
-#endif
 
 void socket_invalidate(socket_handle& socket )
 {
