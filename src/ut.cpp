@@ -66,8 +66,8 @@
 #include <UtcTimeOnlyTestCase.cpp>
 #include <UtcTimeStampTestCase.cpp>
 #include <UtilityTestCase.cpp>
-
 #endif
+
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
 #include "getopt-repl.h"
@@ -77,25 +77,22 @@ void print_usage( char** argv )
 {
   std::cout << "usage: "
             << argv[ 0 ]
-            << " -p port -f file" << std::endl;
+            << " -f file" << std::endl;
 }
 
 int main( int argc, char** argv )
 {
-  if( argc != 5 )
+  if( argc != 3 )
   {
     print_usage( argv );
     return 1;
   }
 
   int opt;
-  while ( (opt = getopt( argc, argv, "+p:+f:" )) != -1 )
+  while ( (opt = getopt( argc, argv, "+f:" )) != -1 )
   {
     switch( opt )
     {
-    case 'p':
-      FIX::TestSettings::port = (short)atol( optarg );
-      break;
     case 'f':
       FIX::TestSettings::sessionSettings = FIX::SessionSettings(optarg);
       break;

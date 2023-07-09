@@ -44,7 +44,7 @@ struct receivePartialMessageFixture
     std::string input =
       "[DEFAULT]\n"
       "ConnectionType=acceptor\n"
-      "SocketAcceptPort=5000\n"
+      "SocketAcceptPort=0\n"
       "SocketReuseAddress=Y\n"
       "SendBufferSize=1024\n"
       "ReceiveBufferSize=1024\n"
@@ -65,7 +65,7 @@ struct receivePartialMessageFixture
 
     object = new SocketAcceptor( application, factory, settings );
     object->poll();
-    s = createSocket( 5000, "127.0.0.1" );
+    s = createSocket( object->sessionToPort().find(SessionID("FIX.4.2", "ISLD", "TW"))->second, "127.0.0.1" );
     object->poll();
   }
 

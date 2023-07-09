@@ -25,7 +25,7 @@ void TestReporterStdout::ReportFailure(TestDetails const& details, char const* f
 void TestReporterStdout::ReportTestStart(TestDetails const& test)
 {
     using namespace std;
-    printf("%s\n", test.testName);
+    printf("%s: %s\n", test.suiteName, test.testName);
 }
 
 void TestReporterStdout::ReportTestFinish(TestDetails const& /*test*/, float secondsElapsed)
