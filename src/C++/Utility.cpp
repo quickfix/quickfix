@@ -305,10 +305,11 @@ bool socket_isValid(socket_handle socket )
 
 bool socket_isBad( int s )
 {
-  struct stat buf;
 #ifdef _MSC_VER
+  struct _stat buf;
   _fstat( s, &buf );
 #else
+  struct stat buf;
   fstat( s, &buf );
 #endif
   return errno == EBADF;
