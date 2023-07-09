@@ -22,8 +22,7 @@ require './Comparator'
 def extendProcess(c)
 
   def c.errorAction(lineNum, line)
-    report =  "    " + $!.to_s + "\n"    
-    report += "    <line>" + lineNum.to_s + "</line>\n"
+    report = "    line    : #{lineNum}\n#{$!.to_s}\n"
     raise report
   end
 
@@ -36,11 +35,11 @@ def extendProcess(c)
     end
 
     if( !@comp.compare(e,a) )
-       e.tr!("\001", "*")
-       a.tr!("\001", "*")
-       report =  @comp.reason + "\n"
-       report += "    <expected><![CDATA[" + e + "]]></expected>\n"
-       report += "    <received><![CDATA[" + a + "]]></received>"
+       e.tr!("\001", "|")
+       a.tr!("\001", "|")
+       report =  "    reason  : #{@comp.reason}\n"
+       report += "    expected: #{e}\n"
+       report += "    received: #{a}"
        raise report
     end
   end
@@ -53,16 +52,9 @@ def extendProcess(c)
 end
 
 def printResult(test, exception)
-  print "<test name='", test,  "' result='"
   if exception == nil then
-    print "success'/>\n"
   else
-    print "failure' >\n"
-    print "  <message>\n", $!, "  </message>\n"
-    #print "  <trace><![CDATA["
-    #print $!.backtrace.join("]]></trace>\n  <trace><![CDATA[")
-    #print "  ]]></trace>\n"
-    print "</test>\n"
+    puts $!
   end
   STDOUT.flush
 end
@@ -100,16 +92,13 @@ total = 0
 failures = 0
 
 begin
-  print "<at>\n"
   ARGV[2, ARGV.length-2].each do
     | v |
+    puts v
     file = File.open(v, "r")
     process = createProcess(file, ARGV[0], ARGV[1])
     if process.nil? then
-      print "  <test name='", v,  "' result='", "failure' >\n"
-      print "    <message><![CDATA[Test definition did "
-      print "not contain iCONNECT or eCONNECT]]></message>\n"
-      print "  </test>\n"
+      puts "    Test definition did not contain iCONNECT or eCONNECT"
       exitValue += 1
       next
     end
@@ -129,11 +118,13 @@ begin
       process.stop
     end
   end
-  print "\n<results total='", total, "' failures='", failures, "'/>\n"
-  print "</at>\n"
+  if failures != 0
+    puts "FAILED #{failures} out of #{total} tests"
+  else
+    puts "#{total} tests passed"
+  end
 rescue
   print "  ",$!,"\n"
-  print "</at>\n"
 end
 
 exit exitValue
