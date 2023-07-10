@@ -192,6 +192,7 @@ namespace FIX
     shared_array(const shared_array& rhs)
     : m_size(rhs.m_size)
     , m_buffer(rhs.m_buffer)
+    , m_pCtr(rhs.m_pCtr)
     {
       rhs.attach();
     }
@@ -294,7 +295,7 @@ namespace FIX
         m_size = 0;
 
         //explicitly call destructor for the counter object
-        tmpCounter->~std::atomic<long>();
+        tmpCounter->~atomic<long>();
 
         std::free(tmpBuff);
       }
