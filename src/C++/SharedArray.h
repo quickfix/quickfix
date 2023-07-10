@@ -294,7 +294,7 @@ namespace FIX
         m_size = 0;
 
         //explicitly call destructor for the counter object
-        tmpCounter->~std::atomic<long>();
+        tmpCounter->~atomic<long>();
 
         std::free(tmpBuff);
       }
