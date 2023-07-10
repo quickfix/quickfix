@@ -192,6 +192,7 @@ namespace FIX
     shared_array(const shared_array& rhs)
     : m_size(rhs.m_size)
     , m_buffer(rhs.m_buffer)
+    , m_pCtr(rhs.m_pCtr)
     {
       rhs.attach();
     }
