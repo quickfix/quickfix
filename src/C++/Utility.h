@@ -77,9 +77,6 @@
 #include <process.h>
 #include <direct.h>
 #include <time.h>
-typedef int socklen_t;
-typedef int ssize_t;
-typedef SOCKET socket_handle;
 #define INVALID_SOCKET_HANDLE INVALID_SOCKET
 #define BIND_SOCKET_ERROR SOCKET_ERROR
 #define LISTEN_SOCKET_ERROR SOCKET_ERROR
@@ -106,7 +103,6 @@ typedef SOCKET socket_handle;
 #include <errno.h>
 #include <time.h>
 #include <stdlib.h>
-typedef int socket_handle;
 #define INVALID_SOCKET_HANDLE -1
 #define BIND_SOCKET_ERROR -1
 #define LISTEN_SOCKET_ERROR -1
@@ -124,58 +120,66 @@ typedef int socket_handle;
 
 namespace FIX
 {
-void string_replace( const std::string& oldValue,
-                     const std::string& newValue,
-                     std::string& value );
+#ifdef _MSC_VER
+typedef int socklen_t;
+typedef int ssize_t;
+typedef SOCKET socket_handle;
+#else
+typedef int socket_handle;
+#endif
 
-std::string string_toLower( const std::string& value );
-std::string string_toUpper( const std::string& value );
-std::string string_strip( const std::string& value );
+void string_replace(const std::string& oldValue,
+                   const std::string& newValue,
+                   std::string& value);
+
+std::string string_toLower(const std::string& value);
+std::string string_toUpper(const std::string& value);
+std::string string_strip(const std::string& value);
 
 void socket_init();
 void socket_term();
-int socket_bind(socket_handle socket, const char* hostname, int port );
-socket_handle socket_createAcceptor( int port, bool reuse = false );
+int socket_bind(socket_handle socket, const char* hostname, int port);
+socket_handle socket_createAcceptor(int port, bool reuse = false);
 socket_handle socket_createConnector();
-int socket_connect(socket_handle s, const char* address, int port );
-socket_handle socket_accept(socket_handle s );
-ssize_t socket_recv(socket_handle s, char* buf, size_t length );
-ssize_t socket_send(socket_handle s, const char* msg, size_t length );
-void socket_close(socket_handle s );
+int socket_connect(socket_handle s, const char* address, int port);
+socket_handle socket_accept(socket_handle s);
+ssize_t socket_recv(socket_handle s, char* buf, size_t length);
+ssize_t socket_send(socket_handle s, const char* msg, size_t length);
+void socket_close(socket_handle s);
 std::string socket_get_last_error();
-bool socket_fionread(socket_handle s, int& bytes );
-bool socket_disconnected(socket_handle s );
-int socket_setsockopt(socket_handle s, int opt );
-int socket_setsockopt(socket_handle s, int opt, int optval );
-int socket_getsockopt(socket_handle s, int opt, int& optval );
+bool socket_fionread(socket_handle s, int& bytes);
+bool socket_disconnected(socket_handle s);
+int socket_setsockopt(socket_handle s, int opt);
+int socket_setsockopt(socket_handle s, int opt, int optval);
+int socket_getsockopt(socket_handle s, int opt, int& optval);
 #ifndef _MSC_VER
-int socket_fcntl( int s, int opt, int arg );
-int socket_getfcntlflag( int s, int arg );
-int socket_setfcntlflag( int s, int arg );
+int socket_fcntl(int s, int opt, int arg);
+int socket_getfcntlflag(int s, int arg);
+int socket_setfcntlflag(int s, int arg);
 #endif
-void socket_setnonblock(socket_handle s );
-bool socket_isValid(socket_handle socket );
+void socket_setnonblock(socket_handle s);
+bool socket_isValid(socket_handle socket);
 #ifndef _MSC_VER
-bool socket_isBad( int s );
+bool socket_isBad(int s);
 #endif
-void socket_invalidate(socket_handle& socket );
-short socket_hostport(socket_handle socket );
-const char* socket_hostname(socket_handle socket );
-const char* socket_hostname( const char* name );
-const char* socket_peername(socket_handle socket );
+void socket_invalidate(socket_handle& socket);
+short socket_hostport(socket_handle socket);
+const char* socket_hostname(socket_handle socket);
+const char* socket_hostname(const char* name);
+const char* socket_peername(socket_handle socket);
 std::pair<socket_handle, socket_handle> socket_createpair();
 
-tm time_gmtime( const time_t* t );
-tm time_localtime( const time_t* t );
+tm time_gmtime(const time_t* t);
+tm time_localtime(const time_t* t);
 
 #if(_MSC_VER >= 1900)
 typedef _beginthreadex_proc_type THREAD_START_ROUTINE;
 #define THREAD_PROC unsigned int _stdcall
 #elif(_MSC_VER > 0)
-typedef unsigned int (_stdcall * THREAD_START_ROUTINE)(void *);
+typedef unsigned int(_stdcall* THREAD_START_ROUTINE)(void*);
 #define  THREAD_PROC unsigned int _stdcall
 #else
-extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
+extern "C" { typedef void* (THREAD_START_ROUTINE)(void*); }
 #define THREAD_PROC void *
 #endif
 
@@ -185,22 +189,22 @@ typedef unsigned thread_id;
 typedef pthread_t thread_id;
 #endif
 
-bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread );
-bool thread_spawn( THREAD_START_ROUTINE func, void* var );
-void thread_join( thread_id thread );
-void thread_detach( thread_id thread );
+bool thread_spawn(THREAD_START_ROUTINE func, void* var, thread_id& thread);
+bool thread_spawn(THREAD_START_ROUTINE func, void* var);
+void thread_join(thread_id thread);
+void thread_detach(thread_id thread);
 thread_id thread_self();
 
-void process_sleep( double s );
+void process_sleep(double s);
 
 std::string file_separator();
-void file_mkdir( const char* path );
-FILE* file_fopen( const char* path, const char* mode );
-void file_fclose( FILE* file );
-bool file_exists( const char* path );
-void file_unlink( const char* path );
-int file_rename( const char* oldpath, const char* newpath );
-std::string file_appendpath( const std::string& path, const std::string& file );
+void file_mkdir(const char* path);
+FILE* file_fopen(const char* path, const char* mode);
+void file_fclose(FILE* file);
+bool file_exists(const char* path);
+void file_unlink(const char* path);
+int file_rename(const char* oldpath, const char* newpath);
+std::string file_appendpath(const std::string& path, const std::string& file);
 }
 
 #if( _MSC_VER >= 1400 )
