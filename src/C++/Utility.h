@@ -125,7 +125,7 @@ typedef int socklen_t;
 typedef int ssize_t;
 typedef SOCKET socket_handle;
 #else
-  typedef int socket_handle;
+typedef int socket_handle;
 #endif
 
 void string_replace(const std::string& oldValue,
