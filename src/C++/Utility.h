@@ -125,8 +125,6 @@ namespace FIX
     typedef int ssize_t;
     typedef SOCKET socket_handle;
 #else
-    typedef ::socklen_t socklen_t;
-    typedef ::size_t ssize_t;
     typedef int socket_handle;
 #endif
 
