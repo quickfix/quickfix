@@ -44,31 +44,31 @@
 #include "Except.h"
 
 #ifdef ENABLE_DEBUG_ALLOCATOR
-#include <ext/debug_allocator.h>
-#define ALLOCATOR __gnu_cxx::debug_allocator
+  #include <ext/debug_allocator.h>
+  #define ALLOCATOR __gnu_cxx::debug_allocator
 #elif ENABLE_NEW_ALLOCATOR
-#include <ext/new_allocator.h>
-#define ALLOCATOR __gnu_cxx::new_allocator
+  #include <ext/new_allocator.h>
+  #define ALLOCATOR __gnu_cxx::new_allocator
 #elif ENABLE_BOOST_FAST_POOL_ALLOCATOR
-#include <boost/pool/pool_alloc.hpp>
-#define ALLOCATOR boost::fast_pool_allocator
+  #include <boost/pool/pool_alloc.hpp>
+  #define ALLOCATOR boost::fast_pool_allocator
 #elif ENABLE_MT_ALLOCATOR
-#include <ext/mt_allocator.h>
-#define ALLOCATOR __gnu_cxx::__mt_alloc
+  #include <ext/mt_allocator.h>
+  #define ALLOCATOR __gnu_cxx::__mt_alloc
 #elif ENABLE_BOOST_POOL_ALLOCATOR
-#include <boost/pool/pool_alloc.hpp>
-#define ALLOCATOR boost::pool_allocator
+  #include <boost/pool/pool_alloc.hpp>
+  #define ALLOCATOR boost::pool_allocator
 #elif ENABLE_POOL_ALLOCATOR
-#include <ext/pool_allocator.h>
-#define ALLOCATOR __gnu_cxx::__pool_alloc
+  #include <ext/pool_allocator.h>
+  #define ALLOCATOR __gnu_cxx::__pool_alloc
 #elif ENABLE_BITMAP_ALLOCATOR
-#include <ext/bitmap_allocator.h>
-#define ALLOCATOR __gnu_cxx::bitmap_allocator
+  #include <ext/bitmap_allocator.h>
+  #define ALLOCATOR __gnu_cxx::bitmap_allocator
 #elif ENABLE_TBB_ALLOCATOR
-#include <tbb/scalable_allocator.h>
-#define ALLOCATOR tbb::scalable_allocator
+  #include <tbb/scalable_allocator.h>
+  #define ALLOCATOR tbb::scalable_allocator
 #else
-#define ALLOCATOR std::allocator
+  #define ALLOCATOR std::allocator
 #endif
 
 #ifdef _MSC_VER
