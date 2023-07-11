@@ -30,8 +30,6 @@ void TestReporterStdout::ReportTestStart(TestDetails const& test)
 
 void TestReporterStdout::ReportTestFinish(TestDetails const& /*test*/, float secondsElapsed)
 {
-    using namespace std;
-    printf("  %f seconds\n", secondsElapsed);
 }
 
 void TestReporterStdout::ReportSummary(int const totalTestCount, int const failedTestCount,

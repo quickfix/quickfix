@@ -28,6 +28,8 @@
 #include "Session.h"
 #include "SessionFactory.h"
 #include "HttpServer.h"
+#include "scope_guard.hpp"
+
 #include <algorithm>
 #include <fstream>
 
@@ -42,6 +44,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
@@ -56,6 +59,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
@@ -189,6 +193,10 @@ bool Initiator::isDisconnected( const SessionID& sessionID )
 
 void Initiator::start() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::start called when already processing messages");
+  
+  m_processing = true;
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -196,12 +204,21 @@ void Initiator::start() EXCEPT ( ConfigError, RuntimeError )
   HttpServer::startGlobal( m_settings );
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
+  {
+    m_processing = false;
     throw RuntimeError("Unable to spawn thread");
+  }
 }
 
 
 void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::block called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+  
+  m_processing = true;
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -211,6 +228,12 @@ void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
 
 bool Initiator::poll() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::poll called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+  m_processing = true;
   if( m_firstPoll )
   {
     m_stop = false;
@@ -288,6 +311,7 @@ bool Initiator::isLoggedOn()
 THREAD_PROC Initiator::startThread( void* p )
 {
   Initiator * pInitiator = static_cast < Initiator* > ( p );
+  auto guard = sg::make_scope_guard([pInitiator](){ pInitiator->m_processing = false; });
   pInitiator->onStart();
   return 0;
 }

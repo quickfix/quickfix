@@ -34,6 +34,8 @@
 #include "Exceptions.h"
 #include "Mutex.h"
 #include "Session.h"
+
+#include <atomic>
 #include <set>
 #include <map>
 #include <string>
@@ -141,8 +143,9 @@ private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;
   NullLog m_nullLog;
-  bool m_firstPoll;
-  bool m_stop;
+  std::atomic<bool> m_processing;
+  std::atomic<bool> m_firstPoll;
+  std::atomic<bool> m_stop;
   Mutex m_mutex;
 };
 /*! @} */

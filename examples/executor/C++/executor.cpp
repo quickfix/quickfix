@@ -32,9 +32,11 @@
 #include "quickfix/Log.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <memory>
 
 void wait()
 {
@@ -62,7 +64,6 @@ int main( int argc, char** argv )
   }
 #endif
 
-  FIX::Acceptor * acceptor = 0;
   try
   {
     FIX::SessionSettings settings( file );
@@ -78,18 +79,17 @@ int main( int argc, char** argv )
       acceptor = new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory );
     else
 #endif
-    acceptor = new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory );
+    auto acceptor = std::unique_ptr<FIX::SocketAcceptor>(
+      new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory ));
 
     acceptor->start();
     wait();
     acceptor->stop();
-    delete acceptor;
     return 0;
   }
   catch ( std::exception & e )
   {
     std::cout << e.what() << std::endl;
-    delete acceptor;
     return 1;
   }
 }

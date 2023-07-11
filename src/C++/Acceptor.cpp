@@ -28,6 +28,8 @@
 #include "Session.h"
 #include "SessionFactory.h"
 #include "HttpServer.h"
+#include "scope_guard.hpp"
+
 #include <algorithm>
 #include <fstream>
 
@@ -157,6 +159,10 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
 
 void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::start called when already processing messages");
+  
+  m_processing = true;
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -169,6 +175,12 @@ void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 
 void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::block called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+  m_processing = true;
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -178,6 +190,12 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 
 bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
+   if( m_processing )
+    throw RuntimeError("Initiator::poll called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+  m_processing = true;
   if( m_firstPoll )
   {
     m_stop = false;
@@ -240,6 +258,7 @@ bool Acceptor::isLoggedOn()
 THREAD_PROC Acceptor::startThread( void* p )
 {
   Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
+  auto guard = sg::make_scope_guard([pAcceptor](){ pAcceptor->m_processing = false; });
   pAcceptor->onStart();
   return 0;
 }

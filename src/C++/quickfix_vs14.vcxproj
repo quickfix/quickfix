@@ -671,6 +671,7 @@
     <ClInclude Include="SocketMonitor.h" />
     <ClInclude Include="SocketMonitor_WIN32.h" />
     <ClInclude Include="SocketServer.h" />
+    <ClInclude Include="scope_guard.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="strptime.h" />
     <ClInclude Include="ThreadedSocketAcceptor.h" />
