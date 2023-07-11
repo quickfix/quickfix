@@ -178,7 +178,7 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
   if( m_processing )
     throw RuntimeError("Initiator::block called when already processing messages");
 
-  sg::make_scope_guard([this](){ m_processing = false; });
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
 
   m_processing = true;
   m_stop = false;
@@ -193,7 +193,7 @@ bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
    if( m_processing )
     throw RuntimeError("Initiator::poll called when already processing messages");
 
-  sg::make_scope_guard([this](){ m_processing = false; });
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
 
   m_processing = true;
   if( m_firstPoll )
@@ -258,8 +258,8 @@ bool Acceptor::isLoggedOn()
 THREAD_PROC Acceptor::startThread( void* p )
 {
   Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
+  auto guard = sg::make_scope_guard([pAcceptor](){ pAcceptor->m_processing = false; });
   pAcceptor->onStart();
-  sg::make_scope_guard([pAcceptor](){ pAcceptor->m_processing = false; });
   return 0;
 }
 }
