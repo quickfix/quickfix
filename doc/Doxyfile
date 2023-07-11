@@ -486,7 +486,6 @@ EXCLUDE_SYMLINKS       = NO
 
 EXCLUDE_PATTERNS       = ConfigLexer.cpp \
                          ConfigLexer.h \
-                         FlexLexer.h \
                          FIX*.* \
                          stdafx.h \
                          stdafx.cpp \

@@ -110,7 +110,6 @@ libquickfix_la_SOURCES = \
 	Utility.h \
 	Values.h \
 	DeprecatedValues.h \
-	FlexLexer.h \
 	DOMDocument.h \
 	PUGIXML_DOMDocument.cpp \
 	PUGIXML_DOMDocument.h \

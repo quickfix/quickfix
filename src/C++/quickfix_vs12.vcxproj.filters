@@ -1909,9 +1909,6 @@
     <ClInclude Include="Exceptions.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="FlexLexer.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Initiator.h">
       <Filter>Headers</Filter>
     </ClInclude>
