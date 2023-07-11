@@ -128,9 +128,12 @@ typedef SOCKET socket_handle;
 typedef int socket_handle;
 #endif
 
+std::string error_strerror(decltype(errno) error_number);
+std::string error_strerror();
+
 void string_replace(const std::string& oldValue,
-                   const std::string& newValue,
-                   std::string& value);
+                    const std::string& newValue,
+                    std::string& value);
 
 std::string string_toLower(const std::string& value);
 std::string string_toUpper(const std::string& value);

@@ -99,15 +99,18 @@ void FileStore::open( bool deleteFile )
   populateCache();
   m_msgFile = file_fopen( m_msgFileName.c_str(), "r+" );
   if ( !m_msgFile ) m_msgFile = file_fopen( m_msgFileName.c_str(), "w+" );
-  if ( !m_msgFile ) throw ConfigError( "Could not open body file: " + m_msgFileName );
+  if ( !m_msgFile ) throw ConfigError( 
+    "Could not open body file: " + m_msgFileName + " " + error_strerror() );
 
   m_headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
-  if ( !m_headerFile ) throw ConfigError( "Could not open header file: " + m_headerFileName );
+  if ( !m_headerFile ) throw ConfigError( 
+    "Could not open header file: " + m_headerFileName + " " + error_strerror() );
 
   m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
   if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "w+" );
-  if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file: " + m_seqNumsFileName );
+  if ( !m_seqNumsFile ) throw ConfigError( 
+    "Could not open seqnums file: " + m_seqNumsFileName + " " + error_strerror() );
 
   bool setCreationTime = false;
   m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r" );
@@ -116,7 +119,8 @@ void FileStore::open( bool deleteFile )
 
   m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
   if ( !m_sessionFile ) m_sessionFile = file_fopen( m_sessionFileName.c_str(), "w+" );
-  if ( !m_sessionFile ) throw ConfigError( "Could not open session file" );
+  if ( !m_sessionFile ) throw ConfigError( 
+    "Could not open session file " + error_strerror() );
   if ( setCreationTime ) setSession();
 
   setNextSenderMsgSeqNum( getNextSenderMsgSeqNum() );
@@ -136,7 +140,7 @@ void FileStore::populateCache()
     {
       std::pair<NumToOffset::iterator, bool> it = 
         m_offsets.insert(NumToOffset::value_type(num, std::make_pair(offset, size)));
-      //std::cout << it.first->second.first << " --- " << it.first->second.second << '\n';
+
       if (it.second == false)
       {
         it.first->second = std::make_pair(offset, size);
