@@ -619,7 +619,6 @@
     <ClInclude Include="fixt11\SequenceReset.h" />
     <ClInclude Include="fixt11\TestRequest.h" />
     <ClInclude Include="FixValues.h" />
-    <ClInclude Include="FlexLexer.h" />
     <ClInclude Include="Group.h" />
     <ClInclude Include="HttpConnection.h" />
     <ClInclude Include="HttpMessage.h" />
