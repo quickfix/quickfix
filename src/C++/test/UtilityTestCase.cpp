@@ -38,6 +38,17 @@ THREAD_PROC startTestThread( void* p )
   return 0;
 }
 
+TEST(error_strerror)
+{
+  std::string expected = "(errno[5]:Input/output error)";
+
+  auto error_number = EIO;
+  CHECK_EQUAL(expected, FIX::error_strerror(error_number));
+
+  errno = error_number;
+  CHECK_EQUAL(expected, FIX::error_strerror());
+}
+
 TEST(stringReplace_ReplacesAll)
 {
   std::string value = "1~2~3~4";

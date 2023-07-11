@@ -38,6 +38,16 @@
 
 namespace FIX
 {
+std::string error_strerror(decltype(errno) error_number)
+{
+  return "(errno[" + std::to_string(error_number) + "]:" + std::strerror(error_number) + ")"; 
+}
+
+std::string error_strerror()
+{
+  return error_strerror(errno);
+}
+
 void string_replace( const std::string& oldValue,
                      const std::string& newValue,
                      std::string& value )
