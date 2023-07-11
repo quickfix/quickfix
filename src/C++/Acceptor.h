@@ -120,8 +120,9 @@ private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;
   NullLog m_nullLog;
-  bool m_firstPoll;
-  bool m_stop;
+  std::atomic<bool> m_processing;
+  std::atomic<bool> m_firstPoll;
+  std::atomic<bool> m_stop;
 };
 /*! @} */
 }

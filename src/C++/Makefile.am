@@ -117,9 +117,9 @@ libquickfix_la_SOURCES = \
 	pugixml.cpp \
 	pugixml.hpp \
 	pugiconfig.hpp \
+	scope_guard.hpp \
 	MessageCracker.h \
-	Responder.h \
-	wx/sharedptr.h
+	Responder.h
 
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
