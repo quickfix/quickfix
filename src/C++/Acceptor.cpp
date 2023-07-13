@@ -164,21 +164,31 @@ void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
   
   m_processing = true;
   m_stop = false;
-  onConfigure( m_settings );
-  onInitialize( m_settings );
 
-  HttpServer::startGlobal( m_settings );
+  try
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings );
+
+    HttpServer::startGlobal( m_settings );
+  }
+  catch(...)
+  {
+    m_processing = false;
+    throw;
+  }
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
+  {
+    m_processing = false;
     throw RuntimeError("Unable to spawn thread");
+  }
 }
 
 void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_processing )
     throw RuntimeError("Initiator::block called when already processing messages");
-
-  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
 
   m_processing = true;
   m_stop = false;
@@ -190,18 +200,20 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 
 bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
-   if( m_processing )
+  if( m_processing )
     throw RuntimeError("Initiator::poll called when already processing messages");
 
-  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
-
-  m_processing = true;
-  if( m_firstPoll )
   {
-    m_stop = false;
-    onConfigure( m_settings );
-    onInitialize( m_settings );
-    m_firstPoll = false;
+    auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+    m_processing = true;
+    if( m_firstPoll )
+    {
+      m_stop = false;
+      onConfigure( m_settings );
+      onInitialize( m_settings );
+      m_firstPoll = false;
+    }
   }
 
   return onPoll();
