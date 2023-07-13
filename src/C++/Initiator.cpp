@@ -198,10 +198,19 @@ void Initiator::start() EXCEPT ( ConfigError, RuntimeError )
   
   m_processing = true;
   m_stop = false;
-  onConfigure( m_settings );
-  onInitialize( m_settings );
 
-  HttpServer::startGlobal( m_settings );
+  try
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings );
+
+    HttpServer::startGlobal( m_settings );
+  }
+  catch(...)
+  {
+    m_processing = false;
+    throw;
+  }
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
   {
@@ -209,7 +218,6 @@ void Initiator::start() EXCEPT ( ConfigError, RuntimeError )
     throw RuntimeError("Unable to spawn thread");
   }
 }
-
 
 void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
 {
@@ -220,6 +228,7 @@ void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
   
   m_processing = true;
   m_stop = false;
+
   onConfigure( m_settings );
   onInitialize( m_settings );
 
