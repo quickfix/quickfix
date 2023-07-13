@@ -22663,6 +22663,9 @@ class SocketAcceptorBase(Acceptor):
         _quickfix.SocketAcceptorBase_swiginit(self, _quickfix.new_SocketAcceptorBase(*args))
     __swig_destroy__ = _quickfix.delete_SocketAcceptorBase
 
+    def sessionToPort(self):
+        return _quickfix.SocketAcceptorBase_sessionToPort(self)
+
 # Register SocketAcceptorBase in _quickfix:
 _quickfix.SocketAcceptorBase_swigregister(SocketAcceptorBase)
 
@@ -22809,41 +22812,6 @@ class DataDictionary(object):
 # Register DataDictionary in _quickfix:
 _quickfix.DataDictionary_swigregister(DataDictionary)
 
-class SocketMonitor(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def __init__(self, timeout=0):
-        _quickfix.SocketMonitor_swiginit(self, _quickfix.new_SocketMonitor(timeout))
-    __swig_destroy__ = _quickfix.delete_SocketMonitor
-
-    def addConnect(self, socket):
-        return _quickfix.SocketMonitor_addConnect(self, socket)
-
-    def addRead(self, socket):
-        return _quickfix.SocketMonitor_addRead(self, socket)
-
-    def addWrite(self, socket):
-        return _quickfix.SocketMonitor_addWrite(self, socket)
-
-    def drop(self, socket):
-        return _quickfix.SocketMonitor_drop(self, socket)
-
-    def signal(self, socket):
-        return _quickfix.SocketMonitor_signal(self, socket)
-
-    def unsignal(self, socket):
-        return _quickfix.SocketMonitor_unsignal(self, socket)
-
-    def block(self, strategy, poll=False, timeout=0.0):
-        return _quickfix.SocketMonitor_block(self, strategy, poll, timeout)
-
-    def numSockets(self):
-        return _quickfix.SocketMonitor_numSockets(self)
-
-# Register SocketMonitor in _quickfix:
-_quickfix.SocketMonitor_swigregister(SocketMonitor)
-
 class SSLSocketAcceptorBase(Acceptor):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -22897,56 +22865,6 @@ _quickfix.SSLSocketInitiatorBase_swigregister(SSLSocketInitiatorBase)
 
 def SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, instance):
     return _quickfix.SSLSocketInitiatorBase_passwordHandleCB(buf, bufsize, verify, instance)
-
-class SSLSocketConnection(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _quickfix.SSLSocketConnection_swiginit(self, _quickfix.new_SSLSocketConnection(*args))
-    __swig_destroy__ = _quickfix.delete_SSLSocketConnection
-
-    def getSocket(self):
-        return _quickfix.SSLSocketConnection_getSocket(self)
-
-    def getSession(self):
-        return _quickfix.SSLSocketConnection_getSession(self)
-
-    def read(self, *args):
-        return _quickfix.SSLSocketConnection_read(self, *args)
-
-    def processQueue(self):
-        return _quickfix.SSLSocketConnection_processQueue(self)
-
-    def signal(self):
-        return _quickfix.SSLSocketConnection_signal(self)
-
-    def subscribeToSocketWriteAvailableEvents(self):
-        return _quickfix.SSLSocketConnection_subscribeToSocketWriteAvailableEvents(self)
-
-    def unsignal(self):
-        return _quickfix.SSLSocketConnection_unsignal(self)
-
-    def setHandshakeStartTime(self, time):
-        return _quickfix.SSLSocketConnection_setHandshakeStartTime(self, time)
-
-    def getSecondsFromHandshakeStart(self, now):
-        return _quickfix.SSLSocketConnection_getSecondsFromHandshakeStart(self, now)
-
-    def onTimeout(self):
-        return _quickfix.SSLSocketConnection_onTimeout(self)
-
-    def sslObject(self):
-        return _quickfix.SSLSocketConnection_sslObject(self)
-
-    def didProcessQueueRequestToRead(self):
-        return _quickfix.SSLSocketConnection_didProcessQueueRequestToRead(self)
-
-    def didReadFromSocketRequestToWrite(self):
-        return _quickfix.SSLSocketConnection_didReadFromSocketRequestToWrite(self)
-
-# Register SSLSocketConnection in _quickfix:
-_quickfix.SSLSocketConnection_swigregister(SSLSocketConnection)
 
 
 try:
