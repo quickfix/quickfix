@@ -29,6 +29,8 @@
 #include "Message.h"
 #include "Mutex.h"
 #include "SessionSettings.h"
+
+#include <algorithm>
 #include <map>
 #include <vector>
 
@@ -135,7 +137,7 @@ public:
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time, 9)
               << ", " << m_prefix
               << ", " << "incoming>" << std::endl
-              << "  (" << value << ")" << std::endl;
+              << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
   void onOutgoing( const std::string& value )
@@ -146,7 +148,7 @@ public:
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time, 9)
               << ", " << m_prefix
               << ", " << "outgoing>" << std::endl
-              << "  (" << value << ")" << std::endl;
+              << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
   void onEvent( const std::string& value )
@@ -157,10 +159,16 @@ public:
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time, 9)
               << ", " << m_prefix
               << ", " << "event>" << std::endl
-              << "  (" << value << ")" << std::endl;
+              << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
 private:
+  std::string replaceSOHWithPipe( std::string value )
+  {
+    std::replace( value.begin(), value.end(), '\001', '|');
+    return value;
+  }
+
   std::string m_prefix;
   UtcTimeStamp m_time;
   bool m_incoming;
