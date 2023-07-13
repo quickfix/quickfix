@@ -70,8 +70,8 @@
 #include <SSLSocketAcceptor.h>
 #include <SSLSocketInitiator.h>
 #include <SSLSocketConnection.h>
-
 #include <SSLStubs.h>
+#include <functional>
 #ifdef SWIGPYTHON
 #include "datetime.h"
 #endif
@@ -82,6 +82,142 @@ void raisePythonException(Exception const& e, swig_type_info* swigType)
 {
   SWIG_Python_Raise(SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN), typeid(Exception).name(), swigType);
 }
+
+bool tryPythonException(std::function<bool()> const& function)
+{
+  try
+  {
+    return function();
+  }
+  catch(FIX::DataDictionaryNotFound const& e)
+  {
+    raisePythonException<FIX::DataDictionaryNotFound>(e, SWIGTYPE_p_FIX__DataDictionaryNotFound); return false;
+  }
+  catch(FIX::FieldNotFound const& e)
+  {
+    raisePythonException<FIX::FieldNotFound>(e, SWIGTYPE_p_FIX__FieldNotFound); return false;
+  }
+  catch(FIX::FieldConvertError const& e)
+  {
+    raisePythonException<FIX::FieldConvertError>(e, SWIGTYPE_p_FIX__FieldConvertError); return false;
+  }
+  catch(FIX::MessageParseError const& e)
+  {
+    raisePythonException<FIX::MessageParseError>(e, SWIGTYPE_p_FIX__MessageParseError); return false;
+  }
+  catch(FIX::InvalidMessage const& e)
+  {
+    raisePythonException<FIX::InvalidMessage>(e, SWIGTYPE_p_FIX__InvalidMessage); return false;
+  }
+  catch(FIX::ConfigError const& e)
+  {
+    raisePythonException<FIX::ConfigError>(e, SWIGTYPE_p_FIX__ConfigError); return false;
+  }
+  catch(FIX::RuntimeError const& e)
+  {
+    raisePythonException<FIX::RuntimeError>(e, SWIGTYPE_p_FIX__RuntimeError); return false;
+  }
+  catch(FIX::InvalidTagNumber const& e)
+  {
+    raisePythonException<FIX::InvalidTagNumber>(e, SWIGTYPE_p_FIX__InvalidTagNumber); return false;
+  }
+  catch(FIX::RequiredTagMissing const& e)
+  {
+    raisePythonException<FIX::RequiredTagMissing>(e, SWIGTYPE_p_FIX__RequiredTagMissing); return false;
+  }
+  catch(FIX::TagNotDefinedForMessage const& e)
+  {
+    raisePythonException<FIX::TagNotDefinedForMessage>(e, SWIGTYPE_p_FIX__TagNotDefinedForMessage); return false;
+  }
+  catch(FIX::NoTagValue const& e)
+  {
+    raisePythonException<FIX::NoTagValue>(e, SWIGTYPE_p_FIX__NoTagValue); return false;
+  }
+  catch(FIX::IncorrectTagValue const& e)
+  {
+    raisePythonException<FIX::IncorrectTagValue>(e, SWIGTYPE_p_FIX__IncorrectTagValue); return false;
+  }
+  catch(FIX::IncorrectDataFormat const& e)
+  {
+    raisePythonException<FIX::IncorrectDataFormat>(e, SWIGTYPE_p_FIX__IncorrectDataFormat); return false;
+  }
+  catch(FIX::IncorrectMessageStructure const& e)
+  {
+    raisePythonException<FIX::IncorrectMessageStructure>(e, SWIGTYPE_p_FIX__IncorrectMessageStructure); return false;
+  }
+  catch(FIX::DuplicateFieldNumber const& e)
+  {
+    raisePythonException<FIX::DuplicateFieldNumber>(e, SWIGTYPE_p_FIX__DuplicateFieldNumber); return false;
+  }
+  catch(FIX::InvalidMessageType const& e)
+  {
+    raisePythonException<FIX::InvalidMessageType>(e, SWIGTYPE_p_FIX__InvalidMessageType); return false;
+  }
+  catch(FIX::UnsupportedMessageType const& e)
+  {
+    raisePythonException<FIX::UnsupportedMessageType>(e, SWIGTYPE_p_FIX__UnsupportedMessageType); return false;
+  }
+  catch(FIX::UnsupportedVersion const& e)
+  {
+    raisePythonException<FIX::UnsupportedVersion>(e, SWIGTYPE_p_FIX__UnsupportedVersion); return false;
+  }
+  catch(FIX::TagOutOfOrder const& e)
+  {
+    raisePythonException<FIX::TagOutOfOrder>(e, SWIGTYPE_p_FIX__TagOutOfOrder); return false;
+  }
+  catch(FIX::RepeatedTag const& e)
+  {
+    raisePythonException<FIX::RepeatedTag>(e, SWIGTYPE_p_FIX__RepeatedTag); return false;
+  }
+  catch(FIX::RepeatingGroupCountMismatch const& e)
+  {
+    raisePythonException<FIX::RepeatingGroupCountMismatch>(e, SWIGTYPE_p_FIX__RepeatingGroupCountMismatch); return false;
+  }
+  catch(FIX::DoNotSend const& e)
+  {
+    raisePythonException<FIX::DoNotSend>(e, SWIGTYPE_p_FIX__DoNotSend); return false;
+  }
+  catch(FIX::RejectLogon const& e)
+  {
+    raisePythonException<FIX::RejectLogon>(e, SWIGTYPE_p_FIX__RejectLogon); return false;
+  }
+  catch(FIX::SessionNotFound const& e)
+  {
+    raisePythonException<FIX::SessionNotFound>(e, SWIGTYPE_p_FIX__SessionNotFound); return false;
+  }
+  catch(FIX::IOException const& e)
+  {
+    raisePythonException<FIX::IOException>(e, SWIGTYPE_p_FIX__IOException); return false;
+  }
+  catch(FIX::SocketSendFailed const& e)
+  {
+    raisePythonException<FIX::SocketSendFailed>(e, SWIGTYPE_p_FIX__SocketSendFailed); return false;
+  }
+  catch(FIX::SocketRecvFailed const& e)
+  {
+    raisePythonException<FIX::SocketRecvFailed>(e, SWIGTYPE_p_FIX__SocketRecvFailed); return false;
+  }
+  catch(FIX::SocketCloseFailed const& e)
+  {
+    raisePythonException<FIX::SocketCloseFailed>(e, SWIGTYPE_p_FIX__SocketCloseFailed); return false;
+  }
+  catch(FIX::SocketException const& e)
+  {
+    raisePythonException<FIX::SocketException>(e, SWIGTYPE_p_FIX__SocketException); return false;
+  }
+  catch(FIX::Exception const& e)
+  {
+    raisePythonException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); return false;
+  }
+  catch(std::exception const& e) 
+  {
+    SWIG_Error(SWIG_RuntimeError, e.what()); return false;
+  }
+  catch(...)
+  {
+    SWIG_Error(SWIG_RuntimeError, "unknown exception"); return false;
+  }
+}
 #endif
 
 #ifdef SWIGRUBY
@@ -89,6 +225,142 @@ template<typename Exception>
 void raiseRubyException(Exception const& e, swig_type_info* swigType)
 {
   rb_exc_raise(SWIG_Ruby_ExceptionType(swigType, SWIG_NewPointerObj((new Exception(static_cast<const Exception&>(e))),swigType,SWIG_POINTER_OWN)));
+}
+
+VALUE tryRubyException(std::function<VALUE()> const& function)
+{
+  try
+  {
+    return function();
+  }
+  catch(FIX::DataDictionaryNotFound const& e)
+  {
+    raiseRubyException<FIX::DataDictionaryNotFound>(e, SWIGTYPE_p_FIX__DataDictionaryNotFound); return Qnil;
+  }
+  catch(FIX::FieldNotFound const& e)
+  {
+    raiseRubyException<FIX::FieldNotFound>(e, SWIGTYPE_p_FIX__FieldNotFound); return Qnil;
+  }
+  catch(FIX::FieldConvertError const& e)
+  {
+    raiseRubyException<FIX::FieldConvertError>(e, SWIGTYPE_p_FIX__FieldConvertError); return Qnil;
+  }
+  catch(FIX::MessageParseError const& e)
+  {
+    raiseRubyException<FIX::MessageParseError>(e, SWIGTYPE_p_FIX__MessageParseError); return Qnil;
+  }
+  catch(FIX::InvalidMessage const& e)
+  {
+    raiseRubyException<FIX::InvalidMessage>(e, SWIGTYPE_p_FIX__InvalidMessage); return Qnil;
+  }
+  catch(FIX::ConfigError const& e)
+  {
+    raiseRubyException<FIX::ConfigError>(e, SWIGTYPE_p_FIX__ConfigError); return Qnil;
+  }
+  catch(FIX::RuntimeError const& e)
+  {
+    raiseRubyException<FIX::RuntimeError>(e, SWIGTYPE_p_FIX__RuntimeError); return Qnil;
+  }
+  catch(FIX::InvalidTagNumber const& e)
+  {
+    raiseRubyException<FIX::InvalidTagNumber>(e, SWIGTYPE_p_FIX__InvalidTagNumber); return Qnil;
+  }
+  catch(FIX::RequiredTagMissing const& e)
+  {
+    raiseRubyException<FIX::RequiredTagMissing>(e, SWIGTYPE_p_FIX__RequiredTagMissing); return Qnil;
+  }
+  catch(FIX::TagNotDefinedForMessage const& e)
+  {
+    raiseRubyException<FIX::TagNotDefinedForMessage>(e, SWIGTYPE_p_FIX__TagNotDefinedForMessage); return Qnil;
+  }
+  catch(FIX::NoTagValue const& e)
+  {
+    raiseRubyException<FIX::NoTagValue>(e, SWIGTYPE_p_FIX__NoTagValue); return Qnil;
+  }
+  catch(FIX::IncorrectTagValue const& e)
+  {
+    raiseRubyException<FIX::IncorrectTagValue>(e, SWIGTYPE_p_FIX__IncorrectTagValue); return Qnil;
+  }
+  catch(FIX::IncorrectDataFormat const& e)
+  {
+    raiseRubyException<FIX::IncorrectDataFormat>(e, SWIGTYPE_p_FIX__IncorrectDataFormat); return Qnil;
+  }
+  catch(FIX::IncorrectMessageStructure const& e)
+  {
+    raiseRubyException<FIX::IncorrectMessageStructure>(e, SWIGTYPE_p_FIX__IncorrectMessageStructure); return Qnil;
+  }
+  catch(FIX::DuplicateFieldNumber const& e)
+  {
+    raiseRubyException<FIX::DuplicateFieldNumber>(e, SWIGTYPE_p_FIX__DuplicateFieldNumber); return Qnil;
+  }
+  catch(FIX::InvalidMessageType const& e)
+  {
+    raiseRubyException<FIX::InvalidMessageType>(e, SWIGTYPE_p_FIX__InvalidMessageType); return Qnil;
+  }
+  catch(FIX::UnsupportedMessageType const& e)
+  {
+    raiseRubyException<FIX::UnsupportedMessageType>(e, SWIGTYPE_p_FIX__UnsupportedMessageType); return Qnil;
+  }
+  catch(FIX::UnsupportedVersion const& e)
+  {
+    raiseRubyException<FIX::UnsupportedVersion>(e, SWIGTYPE_p_FIX__UnsupportedVersion); return Qnil;
+  }
+  catch(FIX::TagOutOfOrder const& e)
+  {
+    raiseRubyException<FIX::TagOutOfOrder>(e, SWIGTYPE_p_FIX__TagOutOfOrder); return Qnil;
+  }
+  catch(FIX::RepeatedTag const& e)
+  {
+    raiseRubyException<FIX::RepeatedTag>(e, SWIGTYPE_p_FIX__RepeatedTag); return Qnil;
+  }
+  catch(FIX::RepeatingGroupCountMismatch const& e)
+  {
+    raiseRubyException<FIX::RepeatingGroupCountMismatch>(e, SWIGTYPE_p_FIX__RepeatingGroupCountMismatch); return Qnil;
+  }
+  catch(FIX::DoNotSend const& e)
+  {
+    raiseRubyException<FIX::DoNotSend>(e, SWIGTYPE_p_FIX__DoNotSend); return Qnil;
+  }
+  catch(FIX::RejectLogon const& e)
+  {
+    raiseRubyException<FIX::RejectLogon>(e, SWIGTYPE_p_FIX__RejectLogon); return Qnil;
+  }
+  catch(FIX::SessionNotFound const& e)
+  {
+    raiseRubyException<FIX::SessionNotFound>(e, SWIGTYPE_p_FIX__SessionNotFound); return Qnil;
+  }
+  catch(FIX::IOException const& e)
+  {
+    raiseRubyException<FIX::IOException>(e, SWIGTYPE_p_FIX__IOException); return Qnil;
+  }
+  catch(FIX::SocketSendFailed const& e)
+  {
+    raiseRubyException<FIX::SocketSendFailed>(e, SWIGTYPE_p_FIX__SocketSendFailed); return Qnil;
+  }
+  catch(FIX::SocketRecvFailed const& e)
+  {
+    raiseRubyException<FIX::SocketRecvFailed>(e, SWIGTYPE_p_FIX__SocketRecvFailed); return Qnil;
+  }
+  catch(FIX::SocketCloseFailed const& e)
+  {
+    raiseRubyException<FIX::SocketCloseFailed>(e, SWIGTYPE_p_FIX__SocketCloseFailed); return Qnil;
+  }
+  catch(FIX::SocketException const& e)
+  {
+    raiseRubyException<FIX::SocketException>(e, SWIGTYPE_p_FIX__SocketException); return Qnil;
+  }
+  catch(FIX::Exception const& e)
+  {
+    raiseRubyException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); return Qnil;
+  }
+  catch(std::exception const& e) 
+  {
+    SWIG_Error(SWIG_RuntimeError, e.what()); return Qnil;
+  }
+  catch(...)
+  {
+    SWIG_Error(SWIG_RuntimeError, "unknown exception"); return Qnil;
+  }
 }
 #endif
          

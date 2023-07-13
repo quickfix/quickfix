@@ -1,5 +1,5 @@
 require 'mkmf'
-dir_config("quickfix", ["../..", "../../include", "../C++"], "../../lib")
+dir_config("quickfix", ["../..", "../../include", "../C++", "../swig"], "../../lib")
 have_library("quickfix")
 
 CONFIG["warnflags"].sub!('-Wdeprecated-declarations', '-Wno-deprecated-declarations -Wno-deprecated')
