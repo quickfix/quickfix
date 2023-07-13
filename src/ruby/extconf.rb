@@ -11,8 +11,8 @@ if( ENV['CXX'] != nil )
   CONFIG["LDSHARED"].gsub!("cc", ENV['CXX'])
 end
 
-warning_flags = ' -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
-$CFLAGS << warning_flags 
-$CXXFLAGS << warning_flags
+additional_flags = ' -std=c++11 -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
+$CFLAGS << additional_flags
+$CXXFLAGS << additional_flags
 
 create_makefile("quickfix")
