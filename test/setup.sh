@@ -35,4 +35,9 @@ TransportDataDictionary=../spec/FIXT11.xml
 AppDataDictionary=../spec/FIX50.xml
 AppDataDictionary.FIX.5.0SP1=../spec/FIX50SP1.xml
 AppDataDictionary.FIX.5.0SP2=../spec/FIX50SP2.xml
+[SESSION]
+BeginString=FIX.4.4
+TargetCompID=NO_CHECK_FIELDS_HAVE_VALUES
+DataDictionary=../spec/FIX44.xml
+ValidateFieldsHaveValues=N
 EOF
