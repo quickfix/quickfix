@@ -266,11 +266,14 @@ TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
 TEST(checkHasValue)
 {
   DataDictionary object;
-  object.checkFieldsHaveValues(true);
   Message testReqID( "8=FIX.4.2\0019=12\00135=1\001112=\00110=007\001", false );
   FIX42::TestRequest message( testReqID );
 
+  object.checkFieldsHaveValues(true);
   CHECK_THROW( object.validate( message ), NoTagValue );
+
+  object.checkFieldsHaveValues(false);
+  object.validate( message );
 }
 
 struct checkIsInMessageFixture
