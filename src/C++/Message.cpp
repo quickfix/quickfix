@@ -44,7 +44,7 @@ Message::Message()
 : m_validStructure( true )
 , m_tag( 0 )
 {
-  
+
 }
 
 Message::Message(const message_order &hdrOrder, const message_order &trlOrder, const message_order& order)
@@ -220,8 +220,8 @@ void Message::reverseRoute( const Header& header )
   }
 }
 
-std::string Message::toString( int beginStringField, 
-                               int bodyLengthField, 
+std::string Message::toString( int beginStringField,
+                               int bodyLengthField,
                                int checkSumField ) const
 {
   std::string str;
@@ -229,9 +229,9 @@ std::string Message::toString( int beginStringField,
   return str;
 }
 
-std::string& Message::toString( std::string& str, 
+std::string& Message::toString( std::string& str,
                                 int beginStringField,
-                                int bodyLengthField, 
+                                int bodyLengthField,
                                 int checkSumField ) const
 {
   int length = bodyLength( beginStringField, bodyLengthField, checkSumField );
@@ -315,6 +315,41 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   }
 
   return stream.str();
+}
+
+/// Generate a compact map-based structure for fields and values in message
+FIX::MessageFieldsMap Message::toMap() const
+{
+  FIX::MessageFieldsMap outputMap;
+  outputMap.sectionMap.insert({"header", toSectionMap(getHeader())});
+  outputMap.sectionMap.insert({"body", toSectionMap(*this)});
+  outputMap.sectionMap.insert({"trailer", toSectionMap(getTrailer())});
+  return outputMap;
+}
+
+std::map<int, FieldValueContainer> Message::toSectionMap(const FieldMap& fields) const
+{
+  std::map<int, FieldValueContainer> fieldValues;
+
+  FieldMap::const_iterator i;
+  for(i = fields.begin(); i != fields.end(); ++i)
+  {
+    int field = i->getTag();
+
+    FIX::FieldValueContainer valueContainer;
+    valueContainer.value = i->getString();
+    if (fields.hasGroup(field))
+    {
+      int noGroups = fields.groupCount(field);
+      for (int j = 0; j < noGroups; j++)
+      {
+        valueContainer.groups.push_back(toSectionMap(fields.getGroupRef(j + 1, field)));
+      }
+    }
+    fieldValues.insert({field, valueContainer});
+  }
+
+  return fieldValues;
 }
 
 void Message::setString( const std::string& string,
@@ -408,7 +443,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, &dataDictionary, pGroup.get() );
-       
+
     // Start a new group because...
     if (// found delimiter
     (field.getTag() == delim) ||
@@ -504,7 +539,7 @@ bool Message::isHeaderField( const FieldBase& field,
   return isHeaderField( field.getTag(), pD );
 }
 
-bool Message::isHeaderField( int field, 
+bool Message::isHeaderField( int field,
                              const DataDictionary * pD )
 {
   if ( isHeaderField( field ) ) return true;
@@ -601,8 +636,8 @@ void Message::validate() const
   }
 }
 
-FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos, 
-                                      const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/, 
+FIX::FieldBase Message::extractField( const std::string& string, std::string::size_type& pos,
+                                      const DataDictionary* pSessionDD /*= 0*/, const DataDictionary* pAppDD /*= 0*/,
                                       const Group* pGroup /*= 0*/ ) const
 {
   std::string::const_iterator const tagStart = string.begin() + pos;
@@ -667,7 +702,7 @@ FIX::FieldBase Message::extractField( const std::string& string, std::string::si
     field,
     valueStart,
     soh,
-    tagStart, 
+    tagStart,
     tagEnd );
 }
 

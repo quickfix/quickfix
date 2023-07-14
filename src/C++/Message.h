@@ -35,6 +35,7 @@
 
 #include <vector>
 #include <memory>
+#include <map>
 
 namespace FIX
 {
@@ -107,6 +108,19 @@ public:
   bool hasGroup( unsigned num, const FIX::Group& group ) const
   { return FieldMap::hasGroup( num, group.field() ); }
 
+};
+
+/// Compact struct to store only the value and nested repeating groups (if any) of each field in a message
+struct FieldValueContainer
+{
+	std::string value;
+	std::vector<std::map<int, FieldValueContainer>> groups;
+};
+
+/// Container to store groups of map<tag, FieldValueContainer> for different section of a message (ie: header, body, trailer)
+struct MessageFieldsMap
+{
+	std::map<std::string, std::map<int, FieldValueContainer>> sectionMap;
 };
 
 /**
@@ -204,6 +218,9 @@ public:
   /// Get a XML representation without making a copy
   std::string& toXML( std::string& ) const;
 
+  /// Get a convenient map data structure representation of the tag-value in message
+  FIX::MessageFieldsMap toMap() const;
+
   /**
    * Add header informations depending on a source message.
    * This can be used to add routing informations like OnBehalfOfCompID
@@ -275,7 +292,7 @@ public:
   }
 
   bool isAdmin() const
-  { 
+  {
     MsgType msgType;
     if( m_header.getFieldIfSet( msgType ) )
       return isAdminMsgType( msgType );
@@ -283,7 +300,7 @@ public:
   }
 
   bool isApp() const
-  { 
+  {
     MsgType msgType;
     if( m_header.getFieldIfSet( msgType ) )
       return !isAdminMsgType( msgType );
@@ -392,6 +409,7 @@ private:
 
   void validate() const;
   std::string toXMLFields(const FieldMap& fields, int space) const;
+  std::map<int, FieldValueContainer> toSectionMap(const FieldMap& fields) const;
 
 protected:
   mutable Header m_header;

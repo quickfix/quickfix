@@ -1,12 +1,12 @@
 %exception
 {
-  if(!tryPythonException([&]() mutable 
-  { 
+  if(!tryPythonException([&]() mutable
+  {
     $action
     return true;
   fail:
     return false;
-  })) 
+  }))
   {
     SWIG_fail;
   }
@@ -36,7 +36,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );    
+    PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );
   }
 }
 
@@ -57,6 +57,18 @@
   *pDD = *(*$1);
 }
 
+%typemap(out) FIX::MessageFieldsMap (PyObject* obj) {
+	obj = PyDict_New();
+  for (auto const& section : $1.sectionMap) {
+    PyObject* sectionObj = PyUnicode_FromString(section.first.c_str());
+    PyObject* groupObj = recursiveMap(section.second);
+    PyDict_SetItem(obj, sectionObj, groupObj);
+    Py_XDECREF(sectionObj);
+    Py_XDECREF(groupObj);
+  }
+	$result = SWIG_Python_AppendOutput($result, obj);
+}
+
 %extend FIX::UtcTimeStamp {
   PyObject *getDateTime() {
       int y, m, d, h, mi, s, fs;
@@ -69,6 +81,33 @@
 %rename(FIXException) FIX::Exception;
 
 %include ../quickfix.i
+
+%{
+PyObject* recursiveMap(std::map<int, FIX::FieldValueContainer> fieldGroup) {
+	PyObject* obj = PyDict_New();
+	if (true) {
+		for (auto const& field : fieldGroup) {
+			PyObject* tagObj = PyLong_FromLong(field.first);
+			std::vector<std::map<int, FIX::FieldValueContainer>> groups = field.second.groups;
+			PyObject* valueObj;
+			if (groups.size() == 0) {
+				valueObj = PyUnicode_FromString(field.second.value.c_str());
+			}
+			else {
+				valueObj = PyList_New(groups.size());
+				for (long unsigned int i = 0; i < groups.size(); i++) {
+					PyObject* groupDict = recursiveMap(groups[i]);
+					PyList_SetItem(valueObj, i, groupDict);
+				}
+			}
+			PyDict_SetItem(obj, tagObj, valueObj);
+			Py_XDECREF(tagObj);
+			Py_XDECREF(valueObj);
+		}
+	}
+	return obj;
+}
+%}
 
 %pythoncode %{
 try:
