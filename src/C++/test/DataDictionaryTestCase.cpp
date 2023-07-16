@@ -773,7 +773,7 @@ TEST( checkGroupRequiredFields )
 
   FIX44::MarketDataRequest marketDataRequest(
     MDReqID("1"),
-    SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES ),
+    SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_AND_UPDATES ),
     MarketDepth( 9999 ) );
   fillHeaderTrailer(marketDataRequest);
 
@@ -859,11 +859,11 @@ TEST( readFromFile )
   CHECK_EQUAL( "BeginString", name );
 
   CHECK( object.getValueName( 18, "1", name ) );
-  CHECK_EQUAL( "NOTHELD", name );
+  CHECK_EQUAL( "NOT_HELD", name );
   CHECK( object.getValueName( 18, "2", name ) );
   CHECK_EQUAL( "WORK", name );
   CHECK( object.getValueName( 18, "W", name ) );
-  CHECK_EQUAL( "PEGVWAP", name );
+  CHECK_EQUAL( "PEG_TO_VWAP", name );
 
   const DataDictionary* pDD = 0;
   int delim = 0;

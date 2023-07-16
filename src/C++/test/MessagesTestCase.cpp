@@ -1475,8 +1475,8 @@ TEST(BeginStringToApplVerID) {
   CHECK_EQUAL(ApplVerID(ApplVerID_FIX43), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX43)));
   CHECK_EQUAL(ApplVerID(ApplVerID_FIX44), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX44)));
   CHECK_EQUAL(ApplVerID(ApplVerID_FIX50), FIX::Message::toApplVerID(BeginString(FIX::BeginString_FIX50)));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP1), FIX::Message::toApplVerID(BeginString("FIX.5.0SP1")));
-  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50SP2), FIX::Message::toApplVerID(BeginString("FIX.5.0SP2")));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50_SP1), FIX::Message::toApplVerID(BeginString("FIX.5.0SP1")));
+  CHECK_EQUAL(ApplVerID(ApplVerID_FIX50_SP2), FIX::Message::toApplVerID(BeginString("FIX.5.0SP2")));
   CHECK_EQUAL(ApplVerID("Custom"), FIX::Message::toApplVerID(BeginString("Custom")));
 
 }

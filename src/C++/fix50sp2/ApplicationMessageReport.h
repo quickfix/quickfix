@@ -28,6 +28,7 @@ namespace FIX50SP2
     }
 
     FIELD_SET(*this, FIX::ApplReportID);
+    FIELD_SET(*this, FIX::ApplReqID);
     FIELD_SET(*this, FIX::ApplReportType);
     FIELD_SET(*this, FIX::NoApplIDs);
     class NoApplIDs: public FIX::Group
@@ -41,7 +42,6 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::ApplReqID);
   };
 
 }

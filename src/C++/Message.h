@@ -324,9 +324,9 @@ public:
     if( value == BeginString_FIX50 )
       return ApplVerID(ApplVerID_FIX50);
     if( value == "FIX.5.0SP1" )
-      return ApplVerID(ApplVerID_FIX50SP1);
+      return ApplVerID(ApplVerID_FIX50_SP1);
     if( value == "FIX.5.0SP2" )
-      return ApplVerID(ApplVerID_FIX50SP2);
+      return ApplVerID(ApplVerID_FIX50_SP2);
     return ApplVerID(ApplVerID(value));
   }
 
@@ -344,9 +344,9 @@ public:
       return BeginString(BeginString_FIX44);
     else if( applVerID == ApplVerID_FIX50 )
       return BeginString(BeginString_FIX50);
-    else if( applVerID == ApplVerID_FIX50SP1 )
+    else if( applVerID == ApplVerID_FIX50_SP1 )
       return BeginString(BeginString_FIX50);
-    else if( applVerID == ApplVerID_FIX50SP2 )
+    else if( applVerID == ApplVerID_FIX50_SP2 )
       return BeginString(BeginString_FIX50);
     else
       return BeginString("");

@@ -57,6 +57,6 @@ namespace FIX
   const char BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT[] = "Application Not Available";
   const char BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT[] = "Conditionally Required Field Missing";
   const char BusinessRejectReason_NOT_AUTHORIZED_TEXT[] = "Not Authorized";
-  const char BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT[] = "Deliver to firm not available at this time";
+  const char BusinessRejectReason_DELIVER_TO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT[] = "Deliver to firm not available at this time";
 }
 #endif //FIX_VALUES_BASE_H

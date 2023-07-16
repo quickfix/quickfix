@@ -76,6 +76,12 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
     FIELD_SET(*this, FIX::SecurityStatus);
     FIELD_SET(*this, FIX::CouponPaymentDate);
+    FIELD_SET(*this, FIX::RestructuringType);
+    FIELD_SET(*this, FIX::Seniority);
+    FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
+    FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
+    FIELD_SET(*this, FIX::AttachmentPoint);
+    FIELD_SET(*this, FIX::DetachmentPoint);
     FIELD_SET(*this, FIX::IssueDate);
     FIELD_SET(*this, FIX::RepoCollateralSecurityType);
     FIELD_SET(*this, FIX::RepurchaseTerm);
@@ -91,8 +97,14 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::StrikeCurrency);
     FIELD_SET(*this, FIX::StrikeMultiplier);
     FIELD_SET(*this, FIX::StrikeValue);
+    FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
+    FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
+    FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
+    FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
+    FIELD_SET(*this, FIX::ContractMultiplierUnit);
+    FIELD_SET(*this, FIX::FlowScheduleType);
     FIELD_SET(*this, FIX::MinPriceIncrement);
     FIELD_SET(*this, FIX::MinPriceIncrementAmount);
     FIELD_SET(*this, FIX::UnitOfMeasure);
@@ -101,6 +113,7 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::PriceUnitOfMeasureQty);
     FIELD_SET(*this, FIX::SettlMethod);
     FIELD_SET(*this, FIX::ExerciseStyle);
+    FIELD_SET(*this, FIX::OptPayoutType);
     FIELD_SET(*this, FIX::OptPayoutAmount);
     FIELD_SET(*this, FIX::PriceQuoteMethod);
     FIELD_SET(*this, FIX::ValuationMethod);
@@ -158,19 +171,6 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::InstrumentPartySubIDType);
       };
     };
-    FIELD_SET(*this, FIX::ContractMultiplierUnit);
-    FIELD_SET(*this, FIX::FlowScheduleType);
-    FIELD_SET(*this, FIX::RestructuringType);
-    FIELD_SET(*this, FIX::Seniority);
-    FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
-    FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
-    FIELD_SET(*this, FIX::AttachmentPoint);
-    FIELD_SET(*this, FIX::DetachmentPoint);
-    FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
-    FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
-    FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
-    FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
-    FIELD_SET(*this, FIX::OptPayoutType);
     FIELD_SET(*this, FIX::NoComplexEvents);
     class NoComplexEvents: public FIX::Group
     {

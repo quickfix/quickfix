@@ -36,7 +36,8 @@ namespace FIXT11
   class Reject; 
   class SequenceReset; 
   class Logout; 
-  class Logon;
+  class Logon; 
+  class XMLnonFIX;
 
   class MessageCracker
   {
@@ -60,6 +61,8 @@ namespace FIXT11
     {}
   virtual void onMessage( const Logon&, const FIX::SessionID& ) 
     {}
+  virtual void onMessage( const XMLnonFIX&, const FIX::SessionID& ) 
+    {}
   virtual void onMessage( Heartbeat&, const FIX::SessionID& ) {} 
  virtual void onMessage( TestRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ResendRequest&, const FIX::SessionID& ) {} 
@@ -67,6 +70,7 @@ namespace FIXT11
  virtual void onMessage( SequenceReset&, const FIX::SessionID& ) {} 
  virtual void onMessage( Logout&, const FIX::SessionID& ) {} 
  virtual void onMessage( Logon&, const FIX::SessionID& ) {} 
+ virtual void onMessage( XMLnonFIX&, const FIX::SessionID& ) {} 
 
 public:
   void crack( const Message& message, 
@@ -95,6 +99,9 @@ public:
     else
     if( msgTypeValue == "A" )
       onMessage( (const Logon&)message, sessionID );
+    else
+    if( msgTypeValue == "n" )
+      onMessage( (const XMLnonFIX&)message, sessionID );
     else onMessage( message, sessionID );
   }
   
@@ -125,6 +132,9 @@ void crack( Message& message,
     else
     if( msgTypeValue == "A" )
       onMessage( (Logon&)message, sessionID );
+    else
+    if( msgTypeValue == "n" )
+      onMessage( (XMLnonFIX&)message, sessionID );
     else onMessage( message, sessionID );
   }
 

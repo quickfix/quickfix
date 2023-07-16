@@ -12,6 +12,9 @@ namespace FIXT11
     FIELD_SET(*this, FIX::BeginString);
     FIELD_SET(*this, FIX::BodyLength);
     FIELD_SET(*this, FIX::MsgType);
+    FIELD_SET(*this, FIX::ApplVerID);
+    FIELD_SET(*this, FIX::ApplExtID);
+    FIELD_SET(*this, FIX::CstmApplVerID);
     FIELD_SET(*this, FIX::SenderCompID);
     FIELD_SET(*this, FIX::TargetCompID);
     FIELD_SET(*this, FIX::OnBehalfOfCompID);
@@ -35,8 +38,6 @@ namespace FIXT11
     FIELD_SET(*this, FIX::XmlData);
     FIELD_SET(*this, FIX::MessageEncoding);
     FIELD_SET(*this, FIX::LastMsgSeqNumProcessed);
-    FIELD_SET(*this, FIX::ApplVerID);
-    FIELD_SET(*this, FIX::CstmApplVerID);
     FIELD_SET(*this, FIX::NoHops);
     class NoHops: public FIX::Group
     {
@@ -65,10 +66,10 @@ namespace FIXT11
      {} 
 
     Message(const FIX::Message& m) : FIX::Message(m) {}
-    Message(const Message&) = default;
-    Message(Message&&) = default;
-    Message& operator=(const Message&) = default;
+    Message(const Message& m) = default;
+    Message(Message&& m) = default;
     Message& operator=(Message&&) = default;
+    Message& operator=(const Message&) = default;
     Header& getHeader() { return (Header&)m_header; }
     const Header& getHeader() const { return (Header&)m_header; }
     Trailer& getTrailer() { return (Trailer&)m_trailer; }

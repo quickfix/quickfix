@@ -69,7 +69,7 @@ namespace FIX50SP2
     class NoOrders: public FIX::Group
     {
     public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,526,67,583,160,453,229,75,1,660,581,589,590,70,591,78,63,64,544,635,21,18,110,1089,1090,1138,1082,1083,1084,1085,1086,1087,1088,111,100,1133,386,81,55,65,48,22,460,1227,1151,461,167,762,200,541,1079,966,1049,965,224,225,239,226,227,228,255,543,470,471,472,240,202,947,967,968,206,231,969,1146,996,1147,1191,1192,1193,1194,1195,1196,1197,1198,1199,1200,201,1244,1242,997,223,207,970,971,106,348,349,107,350,351,691,667,875,876,873,874,1435,1439,1449,1450,1451,1452,1457,1458,1478,1479,1480,1481,1482,711,140,54,401,114,60,232,854,38,152,516,468,469,40,423,44,1092,99,1100,1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1111,1112,1113,1114,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,1080,1081,59,168,432,126,427,12,13,479,497,528,529,1091,582,121,120,775,58,354,355,193,192,640,77,203,210,211,1094,835,836,837,838,840,1096,1097,1098,1099,388,389,841,842,843,844,846,847,957,848,849,494,0)) {}
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,526,67,583,160,453,229,75,1,660,581,589,590,70,591,78,63,64,544,635,21,18,110,1089,1090,1138,1082,1083,1084,1085,1086,1087,1088,111,100,1133,386,81,55,65,48,22,460,1227,1151,461,167,762,200,541,1079,966,1049,965,224,1449,1450,1451,1452,1457,1458,225,239,226,227,228,255,543,470,471,472,240,202,947,967,968,1478,1479,1480,1481,206,231,1435,1439,969,1146,996,1147,1191,1192,1193,1194,1482,1195,1196,1197,1198,1199,1200,201,1244,1242,997,223,207,970,971,106,348,349,107,350,351,691,667,875,876,873,874,711,140,54,401,114,60,232,854,38,152,516,468,469,40,423,44,1092,99,1100,1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1111,1112,1113,1114,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,1080,1081,59,168,432,126,427,12,13,479,497,528,529,1091,582,121,120,775,58,354,355,193,192,640,77,203,210,211,1094,835,836,837,838,840,1096,1097,1098,1099,388,389,841,842,843,844,846,847,957,848,849,494,0)) {}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::SecondaryClOrdID);
       FIELD_SET(*this, FIX::ListSeqNo);
@@ -183,6 +183,12 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
       FIELD_SET(*this, FIX::SecurityStatus);
       FIELD_SET(*this, FIX::CouponPaymentDate);
+      FIELD_SET(*this, FIX::RestructuringType);
+      FIELD_SET(*this, FIX::Seniority);
+      FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
+      FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
+      FIELD_SET(*this, FIX::AttachmentPoint);
+      FIELD_SET(*this, FIX::DetachmentPoint);
       FIELD_SET(*this, FIX::IssueDate);
       FIELD_SET(*this, FIX::RepoCollateralSecurityType);
       FIELD_SET(*this, FIX::RepurchaseTerm);
@@ -198,8 +204,14 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::StrikeCurrency);
       FIELD_SET(*this, FIX::StrikeMultiplier);
       FIELD_SET(*this, FIX::StrikeValue);
+      FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
+      FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
+      FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
+      FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
       FIELD_SET(*this, FIX::OptAttribute);
       FIELD_SET(*this, FIX::ContractMultiplier);
+      FIELD_SET(*this, FIX::ContractMultiplierUnit);
+      FIELD_SET(*this, FIX::FlowScheduleType);
       FIELD_SET(*this, FIX::MinPriceIncrement);
       FIELD_SET(*this, FIX::MinPriceIncrementAmount);
       FIELD_SET(*this, FIX::UnitOfMeasure);
@@ -208,6 +220,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::PriceUnitOfMeasureQty);
       FIELD_SET(*this, FIX::SettlMethod);
       FIELD_SET(*this, FIX::ExerciseStyle);
+      FIELD_SET(*this, FIX::OptPayoutType);
       FIELD_SET(*this, FIX::OptPayoutAmount);
       FIELD_SET(*this, FIX::PriceQuoteMethod);
       FIELD_SET(*this, FIX::ValuationMethod);
@@ -265,19 +278,6 @@ namespace FIX50SP2
           FIELD_SET(*this, FIX::InstrumentPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::ContractMultiplierUnit);
-      FIELD_SET(*this, FIX::FlowScheduleType);
-      FIELD_SET(*this, FIX::RestructuringType);
-      FIELD_SET(*this, FIX::Seniority);
-      FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
-      FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
-      FIELD_SET(*this, FIX::AttachmentPoint);
-      FIELD_SET(*this, FIX::DetachmentPoint);
-      FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
-      FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
-      FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
-      FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
-      FIELD_SET(*this, FIX::OptPayoutType);
       FIELD_SET(*this, FIX::NoComplexEvents);
       class NoComplexEvents: public FIX::Group
       {
@@ -311,7 +311,7 @@ namespace FIX50SP2
       class NoUnderlyings: public FIX::Group
       {
       public:
-      NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,1213,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,998,1423,1424,1425,1000,1419,435,308,306,362,363,307,364,365,877,878,972,318,879,975,973,974,810,882,883,884,885,886,1044,1045,1046,1038,1039,315,1437,1441,1453,1454,1455,1456,1459,1460,0)) {}
+      NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,1213,241,1453,1454,1455,1456,1459,1460,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,1437,1441,998,1423,1424,1425,1000,1419,435,308,306,362,363,307,364,365,877,878,972,318,879,975,973,974,810,882,883,884,885,886,1044,1045,1046,1038,1039,315,0)) {}
         FIELD_SET(*this, FIX::UnderlyingSymbol);
         FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
         FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -332,6 +332,12 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::UnderlyingMaturityDate);
         FIELD_SET(*this, FIX::UnderlyingMaturityTime);
         FIELD_SET(*this, FIX::UnderlyingCouponPaymentDate);
+        FIELD_SET(*this, FIX::UnderlyingRestructuringType);
+        FIELD_SET(*this, FIX::UnderlyingSeniority);
+        FIELD_SET(*this, FIX::UnderlyingNotionalPercentageOutstanding);
+        FIELD_SET(*this, FIX::UnderlyingOriginalNotionalPercentageOutstanding);
+        FIELD_SET(*this, FIX::UnderlyingAttachmentPoint);
+        FIELD_SET(*this, FIX::UnderlyingDetachmentPoint);
         FIELD_SET(*this, FIX::UnderlyingIssueDate);
         FIELD_SET(*this, FIX::UnderlyingRepoCollateralSecurityType);
         FIELD_SET(*this, FIX::UnderlyingRepurchaseTerm);
@@ -347,6 +353,8 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
         FIELD_SET(*this, FIX::UnderlyingOptAttribute);
         FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
+        FIELD_SET(*this, FIX::UnderlyingContractMultiplierUnit);
+        FIELD_SET(*this, FIX::UnderlyingFlowScheduleType);
         FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
         FIELD_SET(*this, FIX::UnderlyingUnitOfMeasureQty);
         FIELD_SET(*this, FIX::UnderlyingPriceUnitOfMeasure);
@@ -406,14 +414,6 @@ namespace FIX50SP2
         };
         FIELD_SET(*this, FIX::UnderlyingSettlMethod);
         FIELD_SET(*this, FIX::UnderlyingPutOrCall);
-        FIELD_SET(*this, FIX::UnderlyingContractMultiplierUnit);
-        FIELD_SET(*this, FIX::UnderlyingFlowScheduleType);
-        FIELD_SET(*this, FIX::UnderlyingRestructuringType);
-        FIELD_SET(*this, FIX::UnderlyingSeniority);
-        FIELD_SET(*this, FIX::UnderlyingNotionalPercentageOutstanding);
-        FIELD_SET(*this, FIX::UnderlyingOriginalNotionalPercentageOutstanding);
-        FIELD_SET(*this, FIX::UnderlyingAttachmentPoint);
-        FIELD_SET(*this, FIX::UnderlyingDetachmentPoint);
       };
       FIELD_SET(*this, FIX::PrevClosePx);
       FIELD_SET(*this, FIX::Side);

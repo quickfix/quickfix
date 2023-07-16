@@ -2067,52 +2067,6 @@ class NewOrderCross(Message):
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
 
-class CrossOrderCancelRequest(Message):
-	def __init__(self):
-		Message.__init__(self)
-		self.getHeader().setField( fix.MsgType("u") )
-
-	class NoSecurityAltID(fix.Group):
-		def __init__(self):
-			order = fix.IntArray(3)
-			order[0] = 455
-			order[1] = 456
-			order[2] = 0
-			fix.Group.__init__(self, 454, 455, order)
-
-	class NoSides(fix.Group):
-		def __init__(self):
-			order = fix.IntArray(18)
-			order[0] = 54
-			order[1] = 41
-			order[2] = 11
-			order[3] = 526
-			order[4] = 583
-			order[5] = 586
-			order[6] = 453
-			order[7] = 229
-			order[8] = 38
-			order[9] = 152
-			order[10] = 516
-			order[11] = 468
-			order[12] = 469
-			order[13] = 376
-			order[14] = 58
-			order[15] = 354
-			order[16] = 355
-			order[17] = 0
-			fix.Group.__init__(self, 552, 54, order)
-
-		class NoPartyIDs(fix.Group):
-			def __init__(self):
-				order = fix.IntArray(5)
-				order[0] = 448
-				order[1] = 447
-				order[2] = 452
-				order[3] = 523
-				order[4] = 0
-				fix.Group.__init__(self, 453, 448, order)
-
 class CrossOrderCancelReplaceRequest(Message):
 	def __init__(self):
 		Message.__init__(self)
@@ -2215,6 +2169,52 @@ class CrossOrderCancelReplaceRequest(Message):
 			order[1] = 625
 			order[2] = 0
 			fix.Group.__init__(self, 386, 336, order)
+
+class CrossOrderCancelRequest(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("u") )
+
+	class NoSecurityAltID(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			fix.Group.__init__(self, 454, 455, order)
+
+	class NoSides(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(18)
+			order[0] = 54
+			order[1] = 41
+			order[2] = 11
+			order[3] = 526
+			order[4] = 583
+			order[5] = 586
+			order[6] = 453
+			order[7] = 229
+			order[8] = 38
+			order[9] = 152
+			order[10] = 516
+			order[11] = 468
+			order[12] = 469
+			order[13] = 376
+			order[14] = 58
+			order[15] = 354
+			order[16] = 355
+			order[17] = 0
+			fix.Group.__init__(self, 552, 54, order)
+
+		class NoPartyIDs(fix.Group):
+			def __init__(self):
+				order = fix.IntArray(5)
+				order[0] = 448
+				order[1] = 447
+				order[2] = 452
+				order[3] = 523
+				order[4] = 0
+				fix.Group.__init__(self, 453, 448, order)
 
 class SecurityTypeRequest(Message):
 	def __init__(self):

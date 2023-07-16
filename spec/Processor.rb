@@ -120,6 +120,11 @@ class Processor
     }
 
     groups(@header)
+
+    @header.elements.each("component") { |element|
+      component(element)
+    }
+
     @generators.each { |generator|
       generator.headerEnd
     }
@@ -137,6 +142,11 @@ class Processor
     }
 
     groups(@trailer)
+
+    @trailer.elements.each("component") { |element|
+      component(element)
+    }
+
     @generators.each { |generator|
       generator.trailerEnd
     }
