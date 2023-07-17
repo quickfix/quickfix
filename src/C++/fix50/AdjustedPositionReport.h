@@ -119,7 +119,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);

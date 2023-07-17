@@ -129,12 +129,12 @@ namespace FIX50SP2
   class MarketDefinitionRequest; 
   class MarketDefinition; 
   class MarketDefinitionUpdateReport; 
+  class UserNotification; 
+  class OrderMassActionReport; 
+  class OrderMassActionRequest; 
   class ApplicationMessageRequest; 
   class ApplicationMessageRequestAck; 
   class ApplicationMessageReport; 
-  class OrderMassActionReport; 
-  class OrderMassActionRequest; 
-  class UserNotification; 
   class StreamAssignmentRequest; 
   class StreamAssignmentReport; 
   class StreamAssignmentReportACK;
@@ -345,17 +345,17 @@ namespace FIX50SP2
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const MarketDefinitionUpdateReport&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ApplicationMessageRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ApplicationMessageRequestAck&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ApplicationMessageReport&, const FIX::SessionID& ) 
+  virtual void onMessage( const UserNotification&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const OrderMassActionReport&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const OrderMassActionRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const UserNotification&, const FIX::SessionID& ) 
+  virtual void onMessage( const ApplicationMessageRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const ApplicationMessageRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const ApplicationMessageReport&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const StreamAssignmentRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -462,12 +462,12 @@ namespace FIX50SP2
  virtual void onMessage( MarketDefinitionRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( MarketDefinition&, const FIX::SessionID& ) {} 
  virtual void onMessage( MarketDefinitionUpdateReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( UserNotification&, const FIX::SessionID& ) {} 
+ virtual void onMessage( OrderMassActionReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( OrderMassActionRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ApplicationMessageRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( ApplicationMessageRequestAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( ApplicationMessageReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderMassActionReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderMassActionRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( UserNotification&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReportACK&, const FIX::SessionID& ) {} 
@@ -776,6 +776,15 @@ public:
     if( msgTypeValue == "BV" )
       onMessage( (const MarketDefinitionUpdateReport&)message, sessionID );
     else
+    if( msgTypeValue == "CB" )
+      onMessage( (const UserNotification&)message, sessionID );
+    else
+    if( msgTypeValue == "BZ" )
+      onMessage( (const OrderMassActionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CA" )
+      onMessage( (const OrderMassActionRequest&)message, sessionID );
+    else
     if( msgTypeValue == "BW" )
       onMessage( (const ApplicationMessageRequest&)message, sessionID );
     else
@@ -784,15 +793,6 @@ public:
     else
     if( msgTypeValue == "BY" )
       onMessage( (const ApplicationMessageReport&)message, sessionID );
-    else
-    if( msgTypeValue == "BZ" )
-      onMessage( (const OrderMassActionReport&)message, sessionID );
-    else
-    if( msgTypeValue == "CA" )
-      onMessage( (const OrderMassActionRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "CB" )
-      onMessage( (const UserNotification&)message, sessionID );
     else
     if( msgTypeValue == "CC" )
       onMessage( (const StreamAssignmentRequest&)message, sessionID );
@@ -1109,6 +1109,15 @@ void crack( Message& message,
     if( msgTypeValue == "BV" )
       onMessage( (MarketDefinitionUpdateReport&)message, sessionID );
     else
+    if( msgTypeValue == "CB" )
+      onMessage( (UserNotification&)message, sessionID );
+    else
+    if( msgTypeValue == "BZ" )
+      onMessage( (OrderMassActionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CA" )
+      onMessage( (OrderMassActionRequest&)message, sessionID );
+    else
     if( msgTypeValue == "BW" )
       onMessage( (ApplicationMessageRequest&)message, sessionID );
     else
@@ -1117,15 +1126,6 @@ void crack( Message& message,
     else
     if( msgTypeValue == "BY" )
       onMessage( (ApplicationMessageReport&)message, sessionID );
-    else
-    if( msgTypeValue == "BZ" )
-      onMessage( (OrderMassActionReport&)message, sessionID );
-    else
-    if( msgTypeValue == "CA" )
-      onMessage( (OrderMassActionRequest&)message, sessionID );
-    else
-    if( msgTypeValue == "CB" )
-      onMessage( (UserNotification&)message, sessionID );
     else
     if( msgTypeValue == "CC" )
       onMessage( (StreamAssignmentRequest&)message, sessionID );

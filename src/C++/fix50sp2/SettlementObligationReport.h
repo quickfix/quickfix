@@ -43,7 +43,7 @@ namespace FIX50SP2
     class NoSettlOblig: public FIX::Group
     {
     public:
-    NoSettlOblig() : FIX::Group(1165,430,FIX::message_order(430,1161,1162,1163,1157,119,15,120,155,64,55,65,48,22,460,1227,1151,461,167,762,200,541,1079,966,1049,965,224,225,239,226,227,228,255,543,470,471,472,240,202,947,967,968,206,231,969,1146,996,1147,1191,1192,1193,1194,1195,1196,1197,1198,1199,1200,201,1244,1242,997,223,207,970,971,106,348,349,107,350,351,691,667,875,876,873,874,1435,1439,1449,1450,1451,1452,1457,1458,1478,1479,1480,1481,1482,453,168,126,779,1158,0)) {}
+    NoSettlOblig() : FIX::Group(1165,430,FIX::message_order(430,1161,1162,1163,1157,119,15,120,155,64,55,65,48,22,460,1227,1151,461,167,762,200,541,1079,966,1049,965,224,1449,1450,1451,1452,1457,1458,225,239,226,227,228,255,543,470,471,472,240,202,947,967,968,1478,1479,1480,1481,206,231,1435,1439,969,1146,996,1147,1191,1192,1193,1194,1482,1195,1196,1197,1198,1199,1200,201,1244,1242,997,223,207,970,971,106,348,349,107,350,351,691,667,875,876,873,874,453,168,126,779,1158,0)) {}
       FIELD_SET(*this, FIX::NetGrossInd);
       FIELD_SET(*this, FIX::SettlObligID);
       FIELD_SET(*this, FIX::SettlObligTransType);
@@ -79,6 +79,12 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::InstrmtAssignmentMethod);
       FIELD_SET(*this, FIX::SecurityStatus);
       FIELD_SET(*this, FIX::CouponPaymentDate);
+      FIELD_SET(*this, FIX::RestructuringType);
+      FIELD_SET(*this, FIX::Seniority);
+      FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
+      FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
+      FIELD_SET(*this, FIX::AttachmentPoint);
+      FIELD_SET(*this, FIX::DetachmentPoint);
       FIELD_SET(*this, FIX::IssueDate);
       FIELD_SET(*this, FIX::RepoCollateralSecurityType);
       FIELD_SET(*this, FIX::RepurchaseTerm);
@@ -94,8 +100,14 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::StrikeCurrency);
       FIELD_SET(*this, FIX::StrikeMultiplier);
       FIELD_SET(*this, FIX::StrikeValue);
+      FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
+      FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
+      FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
+      FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
       FIELD_SET(*this, FIX::OptAttribute);
       FIELD_SET(*this, FIX::ContractMultiplier);
+      FIELD_SET(*this, FIX::ContractMultiplierUnit);
+      FIELD_SET(*this, FIX::FlowScheduleType);
       FIELD_SET(*this, FIX::MinPriceIncrement);
       FIELD_SET(*this, FIX::MinPriceIncrementAmount);
       FIELD_SET(*this, FIX::UnitOfMeasure);
@@ -104,6 +116,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::PriceUnitOfMeasureQty);
       FIELD_SET(*this, FIX::SettlMethod);
       FIELD_SET(*this, FIX::ExerciseStyle);
+      FIELD_SET(*this, FIX::OptPayoutType);
       FIELD_SET(*this, FIX::OptPayoutAmount);
       FIELD_SET(*this, FIX::PriceQuoteMethod);
       FIELD_SET(*this, FIX::ValuationMethod);
@@ -161,19 +174,6 @@ namespace FIX50SP2
           FIELD_SET(*this, FIX::InstrumentPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::ContractMultiplierUnit);
-      FIELD_SET(*this, FIX::FlowScheduleType);
-      FIELD_SET(*this, FIX::RestructuringType);
-      FIELD_SET(*this, FIX::Seniority);
-      FIELD_SET(*this, FIX::NotionalPercentageOutstanding);
-      FIELD_SET(*this, FIX::OriginalNotionalPercentageOutstanding);
-      FIELD_SET(*this, FIX::AttachmentPoint);
-      FIELD_SET(*this, FIX::DetachmentPoint);
-      FIELD_SET(*this, FIX::StrikePriceDeterminationMethod);
-      FIELD_SET(*this, FIX::StrikePriceBoundaryMethod);
-      FIELD_SET(*this, FIX::StrikePriceBoundaryPrecision);
-      FIELD_SET(*this, FIX::UnderlyingPriceDeterminationMethod);
-      FIELD_SET(*this, FIX::OptPayoutType);
       FIELD_SET(*this, FIX::NoComplexEvents);
       class NoComplexEvents: public FIX::Group
       {

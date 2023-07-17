@@ -57,7 +57,7 @@ struct DataDictionaryNotFound : public Exception
 struct FieldNotFound : public Exception
 {
   FieldNotFound( int field = 0, const std::string& what = "" )
-    : Exception( "Field not found", what ),
+    : Exception( "Field not found: " + std::to_string(field), what ),
                  field( field ) {}
   int field;
 };

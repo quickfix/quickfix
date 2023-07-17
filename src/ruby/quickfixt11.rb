@@ -54,17 +54,12 @@ class Logon < Message
 		super
 		getHeader().setField( Quickfix::MsgType.new("A") )
 	end
+end
 
-	class NoMsgTypes < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(5)
-			order[0] = 372
-			order[1] = 385
-			order[2] = 1130
-			order[3] = 1131
-			order[4] = 0
-			super(384, 372, order)
-		end
+class XMLnonFIX < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("n") )
 	end
 end
 end

@@ -97,18 +97,26 @@ public:
     switch ( msgType.getValue() [ 0 ] )
     {
       case 'A':
-      toLogon++; sentLogon = message; break;
+        toLogon++; 
+        sentLogon = message; 
+        break;
       case '2':
-      toResendRequest++;
-      sentResendRequest = message; break;
+        toResendRequest++;
+        sentResendRequest = message; 
+        break;
       case '0':
-      toHeartbeat++; sentHeartbeat = message; break;
+        toHeartbeat++; 
+        sentHeartbeat = message; 
+        break;
       case '5':
-      toLogout++; break;
+        toLogout++; 
+        break;
       case '3':
-      toReject++; break;
+        toReject++; 
+        break;
       case '4':
-      toSequenceReset++; break;
+        toSequenceReset++; 
+        break;
     }
   }
 
@@ -120,15 +128,20 @@ public:
     switch ( msgType.getValue() [ 0 ] )
     {
       case '0':
-      fromHeartbeat++; break;
+        fromHeartbeat++; 
+        break;
       case '1':
-      fromTestRequest++; break;
+        fromTestRequest++; 
+        break;
       case '5':
-      fromLogout++; break;
+        fromLogout++; 
+        break;
       case '3':
-      fromReject++; break;
+        fromReject++; 
+        break;
       case '4':
-      fromSequenceReset++; break;
+        fromSequenceReset++; 
+        break;
     }
   }
 
@@ -165,7 +178,8 @@ public:
     switch ( msgType.getValue() [ 0 ] )
     {
       case 'j':
-      toBusinessMessageReject++; break;
+        toBusinessMessageReject++;
+        break;
     }
   }
 

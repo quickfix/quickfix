@@ -34,8 +34,9 @@ namespace FIX50SP2
     class NoApplIDs: public FIX::Group
     {
     public:
-    NoApplIDs() : FIX::Group(1351,1355,FIX::message_order(1355,1182,1183,1357,1354,539,1433,0)) {}
+    NoApplIDs() : FIX::Group(1351,1355,FIX::message_order(1355,1433,1182,1183,1357,1354,539,0)) {}
       FIELD_SET(*this, FIX::RefApplID);
+      FIELD_SET(*this, FIX::RefApplReqID);
       FIELD_SET(*this, FIX::ApplBegSeqNum);
       FIELD_SET(*this, FIX::ApplEndSeqNum);
       FIELD_SET(*this, FIX::RefApplLastSeqNum);
@@ -57,11 +58,7 @@ namespace FIX50SP2
           FIELD_SET(*this, FIX::NestedPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::RefApplReqID);
     };
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoPartyIDs);
     class NoPartyIDs: public FIX::Group
     {
@@ -79,6 +76,9 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::PartySubIDType);
       };
     };
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

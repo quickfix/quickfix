@@ -28,6 +28,9 @@ namespace FIXT11
     FIELD_SET(*this, FIX::RefSeqNum);
     FIELD_SET(*this, FIX::RefTagID);
     FIELD_SET(*this, FIX::RefMsgType);
+    FIELD_SET(*this, FIX::RefApplVerID);
+    FIELD_SET(*this, FIX::RefApplExtID);
+    FIELD_SET(*this, FIX::RefCstmApplVerID);
     FIELD_SET(*this, FIX::SessionRejectReason);
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);

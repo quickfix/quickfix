@@ -82,8 +82,8 @@ namespace FIX43
   class OrderMassCancelRequest; 
   class OrderMassCancelReport; 
   class NewOrderCross; 
-  class CrossOrderCancelRequest; 
   class CrossOrderCancelReplaceRequest; 
+  class CrossOrderCancelRequest; 
   class SecurityTypeRequest; 
   class SecurityTypes; 
   class SecurityListRequest; 
@@ -211,9 +211,9 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const NewOrderCross&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const SecurityTypeRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -295,8 +295,8 @@ namespace FIX43
  virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderMassCancelReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( NewOrderCross&, const FIX::SessionID& ) {} 
- virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityTypeRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityTypes&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityListRequest&, const FIX::SessionID& ) {} 
@@ -475,11 +475,11 @@ public:
     if( msgTypeValue == "s" )
       onMessage( (const NewOrderCross&)message, sessionID );
     else
-    if( msgTypeValue == "u" )
-      onMessage( (const CrossOrderCancelRequest&)message, sessionID );
-    else
     if( msgTypeValue == "t" )
       onMessage( (const CrossOrderCancelReplaceRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "u" )
+      onMessage( (const CrossOrderCancelRequest&)message, sessionID );
     else
     if( msgTypeValue == "v" )
       onMessage( (const SecurityTypeRequest&)message, sessionID );
@@ -688,11 +688,11 @@ void crack( Message& message,
     if( msgTypeValue == "s" )
       onMessage( (NewOrderCross&)message, sessionID );
     else
-    if( msgTypeValue == "u" )
-      onMessage( (CrossOrderCancelRequest&)message, sessionID );
-    else
     if( msgTypeValue == "t" )
       onMessage( (CrossOrderCancelReplaceRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "u" )
+      onMessage( (CrossOrderCancelRequest&)message, sessionID );
     else
     if( msgTypeValue == "v" )
       onMessage( (SecurityTypeRequest&)message, sessionID );

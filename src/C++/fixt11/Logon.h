@@ -39,17 +39,19 @@ namespace FIXT11
     FIELD_SET(*this, FIX::TestMessageIndicator);
     FIELD_SET(*this, FIX::Username);
     FIELD_SET(*this, FIX::Password);
+    FIELD_SET(*this, FIX::NewPassword);
+    FIELD_SET(*this, FIX::EncryptedPasswordMethod);
+    FIELD_SET(*this, FIX::EncryptedPasswordLen);
+    FIELD_SET(*this, FIX::EncryptedPassword);
+    FIELD_SET(*this, FIX::EncryptedNewPasswordLen);
+    FIELD_SET(*this, FIX::EncryptedNewPassword);
+    FIELD_SET(*this, FIX::SessionStatus);
     FIELD_SET(*this, FIX::DefaultApplVerID);
-    FIELD_SET(*this, FIX::NoMsgTypes);
-    class NoMsgTypes: public FIX::Group
-    {
-    public:
-    NoMsgTypes() : FIX::Group(384,372,FIX::message_order(372,385,1130,1131,0)) {}
-      FIELD_SET(*this, FIX::RefMsgType);
-      FIELD_SET(*this, FIX::MsgDirection);
-      FIELD_SET(*this, FIX::RefApplVerID);
-      FIELD_SET(*this, FIX::RefCstmApplVerID);
-    };
+    FIELD_SET(*this, FIX::DefaultApplExtID);
+    FIELD_SET(*this, FIX::DefaultCstmApplVerID);
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }
