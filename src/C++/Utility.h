@@ -131,6 +131,11 @@ typedef int socket_handle;
 std::string error_strerror(decltype(errno) error_number);
 std::string error_strerror();
 
+#ifdef _MSC_VER
+std::string error_wsaerror(int wsa_error_number);
+std::string error_wsaerror();
+#endif
+
 void string_replace(const std::string& oldValue,
                     const std::string& newValue,
                     std::string& value);
