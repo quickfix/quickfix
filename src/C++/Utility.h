@@ -146,6 +146,7 @@ std::string string_strip(const std::string& value);
 
 void socket_init();
 void socket_term();
+std::string socket_error();
 int socket_bind(socket_handle socket, const char* hostname, int port);
 socket_handle socket_createAcceptor(int port, bool reuse = false);
 socket_handle socket_createConnector();

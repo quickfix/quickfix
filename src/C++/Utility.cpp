@@ -136,6 +136,15 @@ void socket_term()
 #endif
 }
 
+std::string socket_error()
+{
+#ifdef _MSC_VER
+  return error_wsaerror();
+#else
+  return error_strerror();
+#endif  
+}
+
 int socket_bind(socket_handle socket, const char* hostname, int port )
 {
   sockaddr_in address;

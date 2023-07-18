@@ -65,14 +65,18 @@ int main( int argc, char** argv )
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
     FIX::ScreenLogFactory logFactory( settings );
+    
+    std::unique_ptr<FIX::Initiator> initiator;
 #ifdef HAVE_SSL
     if (isSSL.compare("SSL") == 0)
-      initiator = new FIX::ThreadedSSLSocketInitiator ( application, storeFactory, settings, logFactory );
+      initiator = std::unique_ptr<FIX::Initiator>(
+        new FIX::ThreadedSSLSocketInitiator ( application, storeFactory, settings, logFactory ));
     else if (isSSL.compare("SSL-ST") == 0)
-      initiator = new FIX::SSLSocketInitiator ( application, storeFactory, settings, logFactory );
+      initiator = std::unique_ptr<FIX::Initiator>(
+        new FIX::SSLSocketInitiator ( application, storeFactory, settings, logFactory ));
     else
 #endif
-    auto initiator = std::unique_ptr<FIX::SocketInitiator>( 
+    initiator = std::unique_ptr<FIX::Initiator>( 
       new FIX::SocketInitiator( application, storeFactory, settings, logFactory ) );
 
     initiator->start();

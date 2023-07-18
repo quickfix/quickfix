@@ -190,13 +190,11 @@ bool ThreadedSSLSocketConnection::send(const std::string &msg)
       }
       else
       {
-        char errbuf[200];
-
-        socket_error(errbuf, sizeof(errbuf));
+        std::string error = socket_error();
 
         m_pSession->getLog()->onEvent("SSL send error <" +
                                       IntConvertor::convert(errCodeSSL) + "> " +
-                                      errbuf);
+                                      error);
 
         return false;
       }
@@ -265,19 +263,17 @@ bool ThreadedSSLSocketConnection::read()
           }
           else
           {
-            char errbuf[200];
-
-            socket_error(errbuf, sizeof(errbuf));
+            std::string error = socket_error();
 
             if (m_pSession)
               m_pSession->getLog()->onEvent("SSL read error <" +
                                             IntConvertor::convert(errCodeSSL) +
-                                            "> " + errbuf);
+                                            "> " + error);
             else
             {
               std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp())
                         << "SSL read error <"
-                        << IntConvertor::convert(errCodeSSL) << "> " << errbuf
+                        << IntConvertor::convert(errCodeSSL) << "> " << error
                         << std::endl;
             }
 
