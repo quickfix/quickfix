@@ -263,7 +263,8 @@ public:
   int bodyLength( int beginStringField = FIELD::BeginString,
                   int bodyLengthField = FIELD::BodyLength,
                   int checkSumField = FIELD::CheckSum ) const
-  { return m_header.calculateLength(beginStringField, bodyLengthField, checkSumField)
+  { 
+    return m_header.calculateLength(beginStringField, bodyLengthField, checkSumField)
            + calculateLength(beginStringField, bodyLengthField, checkSumField)
            + m_trailer.calculateLength(beginStringField, bodyLengthField, checkSumField);
   }

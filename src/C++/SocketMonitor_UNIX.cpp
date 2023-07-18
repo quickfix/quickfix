@@ -56,7 +56,7 @@ SocketMonitor::~SocketMonitor()
   socket_term();
 }
 
-bool SocketMonitor::addConnect(socket_handle s )
+bool SocketMonitor::addConnect( socket_handle s )
 {
   socket_setnonblock( s );
   Sockets::iterator i = m_connectSockets.find( s );
@@ -66,7 +66,7 @@ bool SocketMonitor::addConnect(socket_handle s )
   return true;
 }
 
-bool SocketMonitor::addRead(socket_handle s )
+bool SocketMonitor::addRead( socket_handle s )
 {
   socket_setnonblock( s );
   Sockets::iterator i = m_readSockets.find( s );
@@ -76,7 +76,7 @@ bool SocketMonitor::addRead(socket_handle s )
   return true;
 }
 
-bool SocketMonitor::addWrite(socket_handle s )
+bool SocketMonitor::addWrite( socket_handle s )
 {
   if( m_readSockets.find(s) == m_readSockets.end() )
     return false;
@@ -89,7 +89,7 @@ bool SocketMonitor::addWrite(socket_handle s )
   return true;
 }
 
-bool SocketMonitor::drop(socket_handle s )
+bool SocketMonitor::drop( socket_handle s )
 {
   Sockets::iterator i = m_readSockets.find( s );
   Sockets::iterator j = m_writeSockets.find( s );
