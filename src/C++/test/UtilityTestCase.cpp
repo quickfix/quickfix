@@ -209,9 +209,10 @@ TEST(threadJoinAndDetach_NoException)
 {
   bool success = true;
   try{
-    thread_id threadSelf = thread_spawn(&startThread, NULL);
-    thread_join(threadSelf);
-    thread_detach(threadSelf);
+    thread_id threadId;
+    thread_spawn(&startThread, NULL, threadId);
+    thread_join(threadId);
+    thread_detach(threadId);
   }catch(...){
     success = false;
   }
