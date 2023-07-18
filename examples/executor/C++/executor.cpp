@@ -72,19 +72,23 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory storeFactory( settings );
     FIX::ScreenLogFactory logFactory( settings );
 
+    std::unique_ptr<FIX::Acceptor> acceptor;
 #ifdef HAVE_SSL
     if (isSSL.compare("SSL") == 0)
-      acceptor = new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+      acceptor = std::unique_ptr<FIX::Acceptor>(
+        new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory ));
     else if (isSSL.compare("SSL-ST") == 0)
-      acceptor = new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+      acceptor = std::unique_ptr<FIX::Acceptor>(
+        new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory ));
     else
 #endif
-    auto acceptor = std::unique_ptr<FIX::SocketAcceptor>(
+    acceptor = std::unique_ptr<FIX::Acceptor>(
       new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory ));
 
     acceptor->start();
     wait();
     acceptor->stop();
+    
     return 0;
   }
   catch ( std::exception & e )

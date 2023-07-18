@@ -22,9 +22,10 @@
 #ifndef FIX_EXCEPTIONS_H
 #define FIX_EXCEPTIONS_H
 
+#include "Utility.h"
+
 #include <string>
 #include <stdexcept>
-#include "Utility.h"
 
 namespace FIX
 {
@@ -252,17 +253,7 @@ struct SocketException : public Exception
 
   static std::string errorToWhat()
   {
-#ifdef _MSC_VER
-    int error = WSAGetLastError();
-    char buffer[2048];
-    FormatMessageA( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
-                   MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                   buffer, 2048, NULL );
-    return buffer;
-#else
-    int error = errno;
-    return strerror( error );
-#endif
+    return socket_error();
   }
 };
 

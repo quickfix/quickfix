@@ -484,19 +484,6 @@ static void ssl_rand_seed(void)
   RAND_seed(stackdata + n, 128);
 }
 
-const char *socket_error(char *tempbuf, int buflen)
-{
-#ifdef _MSC_VER
-  int code = WSAGetLastError();
-  snprintf(tempbuf, buflen, "%s(%d)", WSAErrString(code), code);
-#else /* UNIX */
-  snprintf(tempbuf, buflen, "%s(errno=%d)", strerror(errno), errno);
-#endif
-  tempbuf[buflen - 1] = 0;
-
-  return tempbuf;
-}
-
 int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b)
 {
   return (X509_NAME_cmp(*a, *b));
