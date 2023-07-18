@@ -35,6 +35,7 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 namespace FIX
 {
@@ -47,6 +48,30 @@ std::string error_strerror()
 {
   return error_strerror(errno);
 }
+
+#ifdef _MSC_VER
+std::string error_wsaerror(int wsa_error_number)
+{
+  auto format = FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_MAX_WIDTH_MASK;
+  LPSTR buffer = NULL;
+
+  FormatMessageA(
+    format,
+    0, 
+    wsa_error_number,
+    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+    (LPSTR)&buffer, 
+    0, 
+    NULL);
+
+  return "(wsaerror[" + std::to_string(wsa_error_number) + "]:" + buffer + ")";
+}
+
+std::string error_wsaerror()
+{
+  return error_wsaerror(WSAGetLastError());
+}
+#endif
 
 void string_replace( const std::string& oldValue,
                      const std::string& newValue,
@@ -322,26 +347,26 @@ bool socket_isBad( int s )
 }
 #endif
 
-void socket_invalidate(socket_handle& socket )
+void socket_invalidate( socket_handle& socket )
 {
   socket = INVALID_SOCKET_HANDLE;
 }
 
-short socket_hostport(socket_handle socket )
+short socket_hostport( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
-  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) != 0 )
     return 0;
 
   return ntohs( addr.sin_port );
 }
 
-const char* socket_hostname(socket_handle socket )
+const char* socket_hostname( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
-  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) != 0 )
     return 0;
 
   return inet_ntoa( addr.sin_addr );

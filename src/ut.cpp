@@ -102,5 +102,6 @@ int main( int argc, char** argv )
     }
   }
 
+  FIX::socket_init();
   return UnitTest::RunAllTests();
 }
