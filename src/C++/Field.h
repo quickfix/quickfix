@@ -54,12 +54,12 @@ class FieldBase
   {
   public:
 
-    field_metrics( const size_t length, const int checksum )
+    field_metrics( const int length, const int checksum )
       : m_length( length )
       , m_checksum( checksum )
     {}
 
-    size_t getLength() const
+    int getLength() const
     { return m_length; }
 
     int getCheckSum() const
@@ -70,7 +70,7 @@ class FieldBase
 
   private:
 
-    size_t m_length;
+    int m_length;
     int m_checksum;
   };
 
@@ -162,7 +162,7 @@ public:
   }
 
   /// Get the length of the fields string representation
-  size_t getLength() const
+  int getLength() const
   {
     calculate();
     return m_metrics.getLength();
@@ -223,7 +223,7 @@ private:
     std::distance(start, end, d);
     return field_metrics( d, checksum );
 #else
-    return field_metrics( std::distance( start, end ), checksum );
+    return field_metrics( static_cast<int>(std::distance( start, end )), checksum );
 #endif
   }
 

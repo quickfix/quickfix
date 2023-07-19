@@ -101,7 +101,7 @@ public:
 
 private:
 #ifdef _MSC_VER
-  typedef std::pair < int, int > OffsetSize;
+  typedef std::pair < int, std::size_t > OffsetSize;
 #else
   typedef std::pair < long, std::size_t > OffsetSize;
 #endif

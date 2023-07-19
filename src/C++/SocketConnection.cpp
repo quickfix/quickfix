@@ -83,7 +83,7 @@ bool SocketConnection::processQueue()
 #ifdef _MSC_VER
   struct timeval timeout = { 0, 0 };
   fd_set writeset = m_fds;
-  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0)
+  if( select( 0, 0, &writeset, 0, &timeout ) <= 0)
     return false;
 #else
   struct pollfd pfd = { m_socket, POLLOUT, 0 };
@@ -148,7 +148,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       while( !readMessage( msg ) )
       {
 #if _MSC_VER
-        int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+        int result = select( 0, &readset, 0, 0, &timeout );
 #else
         int result = poll( &pfd, 1, timeout );
 #endif

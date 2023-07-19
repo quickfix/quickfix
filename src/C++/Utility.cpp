@@ -215,12 +215,20 @@ socket_handle socket_accept(socket_handle s )
 
 ssize_t socket_recv(socket_handle s, char* buf, size_t length )
 {
-  return recv( s, buf, length, 0 );
+#ifdef _MSC_VER
+  return recv( s, buf, static_cast<int>(length), 0 );
+#else
+  return recv(s, buf, length, 0);
+#endif
 }
 
 ssize_t socket_send(socket_handle s, const char* msg, size_t length )
 {
-  return send( s, msg, length, 0 );
+#ifdef _MSC_VER
+  return send( s, msg, static_cast<int>(length), 0 );
+#else
+  return send(s, msg, length, 0);
+#endif
 }
 
 void socket_close(socket_handle s )
@@ -478,7 +486,7 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
 #ifdef _MSC_VER
   thread_id result = 0;
   unsigned int id = 0;
-  result = _beginthreadex( NULL, 0, func, var, 0, &id );
+  result = reinterpret_cast<thread_id>(_beginthreadex( NULL, 0, func, var, 0, &id ));
   if ( result == 0 ) return false;
 #else
   thread_id result = 0;
@@ -498,7 +506,7 @@ void thread_join( thread_id thread )
 {
 #ifdef _MSC_VER
   WaitForSingleObject( ( void* ) thread, INFINITE );
-  CloseHandle((HANDLE)thread);
+  CloseHandle(thread);
 #else
   pthread_join( ( pthread_t ) thread, 0 );
 #endif
@@ -507,7 +515,7 @@ void thread_join( thread_id thread )
 void thread_detach( thread_id thread )
 {
 #ifdef _MSC_VER
-  CloseHandle((HANDLE)thread);
+  CloseHandle(thread);
 #else
   pthread_t t = thread;
   pthread_detach( t );
@@ -517,7 +525,7 @@ void thread_detach( thread_id thread )
 thread_id thread_self()
 {
 #ifdef _MSC_VER
-  return (unsigned)GetCurrentThread();
+  return GetCurrentThread();
 #else
   return pthread_self();
 #endif

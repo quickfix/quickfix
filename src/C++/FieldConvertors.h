@@ -139,6 +139,34 @@ inline char* integer_to_string_padded
   return p;
 }
 
+inline char* size_to_string( char* buf, const size_t len, size_t t )
+{
+  char* p = buf + len;
+
+  size_t number = t;
+
+  while( number > 99 )
+  {
+    size_t pos = number % 100;
+    number /= 100;
+
+    *--p = digit_pairs[2 * pos + 1];
+    *--p = digit_pairs[2 * pos];
+  }
+
+  if( number > 9 )
+  {
+    *--p = digit_pairs[2 * number + 1];
+    *--p = digit_pairs[2 * number];
+  }
+  else
+  {
+    *--p = '0' + char(number);
+  }
+
+  return p;
+}
+
 template<typename T>
 T clamp_of( const T& value, const T& lowerBound, const T& upperBound )
 {
@@ -358,8 +386,8 @@ static bool convert( const std::string& value, double& result )
   if( *i || !haveDigit ) return false;
 
   int processed_chars;
-  const int total_length = value.length();
-  result = fast_strtod( value.c_str(), total_length, &processed_chars);
+  const size_t total_length = value.length();
+  result = fast_strtod( value.c_str(), static_cast<int>(total_length), &processed_chars);
 
   return true;
 }
@@ -472,8 +500,8 @@ struct UtcTimeStampConvertor
   static UtcTimeStamp convert( const std::string& value )
   EXCEPT ( FieldConvertError )
   {
-    size_t len = value.size();
-    if (len < 17 || len > 27) throw FieldConvertError(value);
+    size_t length = value.size();
+    if (length < 17 || length > 27) throw FieldConvertError(value);
 
     size_t i = 0;
     int c = 0;
@@ -528,14 +556,14 @@ struct UtcTimeStampConvertor
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if (len == 17)
+    if (length == 17)
       return UtcTimeStamp (hour, min, sec, 0,
                            mday, mon, year);
 
     if( value[i++] != '.' ) throw FieldConvertError(value);
 
     int fraction = 0;
-    for (; i < len; ++i)
+    for (; i < length; ++i)
     {
       char ch = value[i];
       if( !IS_DIGIT(ch)) throw FieldConvertError(value);
@@ -543,7 +571,7 @@ struct UtcTimeStampConvertor
     }
 
     return UtcTimeStamp (hour, min, sec, fraction,
-                         mday, mon, year, len - 17 - 1);
+                         mday, mon, year, static_cast<int>(length - 17 - 1));
   }
 };
 
@@ -579,8 +607,8 @@ struct UtcTimeOnlyConvertor
   static UtcTimeOnly convert( const std::string& value)
   EXCEPT ( FieldConvertError )
   {
-    size_t len = value.size();
-    if (len < 8 || len > 18) throw FieldConvertError(value);
+    size_t length = value.size();
+    if (length < 8 || length > 18) throw FieldConvertError(value);
 
     size_t i = 0;
     int c = 0;
@@ -617,20 +645,20 @@ struct UtcTimeOnlyConvertor
     // No check for >= 0 as no '-' are converted here
     if( 60 < sec ) throw FieldConvertError(value);
 
-    if (len == 8)
+    if (length == 8)
       return UtcTimeOnly (hour, min, sec, 0);
 
     if( value[i++] != '.' ) throw FieldConvertError(value);
 
     int fraction = 0;
-    for (; i < len; ++i)
+    for (; i < length; ++i)
     {
       char ch = value[i];
       if( !IS_DIGIT(ch)) throw FieldConvertError(value);
       fraction = (fraction * 10) + ch - '0';
     }
 
-    return UtcTimeOnly (hour, min, sec, fraction, len - 8 - 1);
+    return UtcTimeOnly (hour, min, sec, fraction, static_cast<int>(length - 8 - 1));
   }
 };
 

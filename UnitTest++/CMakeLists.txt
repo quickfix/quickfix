@@ -1,3 +1,5 @@
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+
 set ( UnitTest++_SOURCES
 src/AssertException.cpp
 src/Checks.cpp

@@ -70,7 +70,7 @@ bool HttpConnection::read()
   {
 #if _MSC_VER
     // Wait for input (1 second timeout)
-    int result = select(1 + m_socket, &readset, 0, 0, &timeout);
+    int result = select( 0, &readset, 0, 0, &timeout );
 #else
     // Wait for input (2 second timeout)
     int result = poll( &pfd, 1, timeout );

@@ -1434,7 +1434,8 @@ TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException)
 
   FIX::Message msg;
   std::string delimSOH = "\x01";
-  std::string rawFixMsg = "8=FIX.4.2" + delimSOH
+  std::string rawFixMsg = 
+        "8=FIX.4.2"     + delimSOH
       + "9=200"         + delimSOH
       + "35=A"          + delimSOH
       + "49=SENDER"     + delimSOH
@@ -1442,7 +1443,7 @@ TEST(setString_SignatureInTrailerWithoutSignatureLength_InvalidMessageException)
       + "34=1"          + delimSOH
       + "98=0"          + delimSOH
       + "108=30"        + delimSOH
-      + "89=200"        + delimSOH; // Signature
+      + "89=200"        + delimSOH  // Signature
       + "10=200"        + delimSOH;
 
   CHECK_THROW(msg.setString(rawFixMsg, false, &dictionary, &dictionary), InvalidMessage);

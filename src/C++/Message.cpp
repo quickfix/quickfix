@@ -234,8 +234,8 @@ std::string& Message::toString( std::string& str,
                                 int bodyLengthField, 
                                 int checkSumField ) const
 {
-  int length = bodyLength( beginStringField, bodyLengthField, checkSumField );
-  m_header.setField( IntField(bodyLengthField, length) );
+  size_t length = bodyLength( beginStringField, bodyLengthField, checkSumField );
+  m_header.setField( IntField(bodyLengthField, static_cast<int>(length)) );
   m_trailer.setField( CheckSumField(checkSumField, checkSum(checkSumField)) );
 
 #if defined(_MSC_VER) && _MSC_VER < 1300
@@ -565,8 +565,8 @@ void Message::validate() const
   {
     const BodyLength& aBodyLength = FIELD_GET_REF( m_header, BodyLength );
 
-    const int expectedLength = (int)aBodyLength;
-    const int receivedLength = bodyLength();
+    const size_t expectedLength = static_cast<size_t>(aBodyLength);
+    const size_t receivedLength = bodyLength();
 
     if ( expectedLength != receivedLength )
     {

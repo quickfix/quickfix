@@ -44,20 +44,20 @@ public:
   SocketMonitor( int timeout = 0 );
   virtual ~SocketMonitor();
 
-  bool addConnect( int socket );
-  bool addRead( int socket );
-  bool addWrite( int socket );
-  bool drop( int socket );
-  void signal( int socket );
-  void unsignal( int socket );
+  bool addConnect( socket_handle socket );
+  bool addRead(socket_handle socket );
+  bool addWrite(socket_handle socket );
+  bool drop(socket_handle socket );
+  void signal(socket_handle socket );
+  void unsignal(socket_handle socket );
   void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
   size_t numSockets() 
   { return m_readSockets.size() - 1; }
 
 private:
-  typedef std::set < int > Sockets;
-  typedef std::queue < int > Queue;
+  typedef std::set < socket_handle > Sockets;
+  typedef std::queue < socket_handle > Queue;
 
   void setsockopt();
   bool bind();
@@ -76,8 +76,8 @@ private:
   clock_t m_ticks;
 #endif
 
-  int m_signal;
-  int m_interrupt;
+  socket_handle m_signal;
+  socket_handle m_interrupt;
   Sockets m_connectSockets;
   Sockets m_readSockets;
   Sockets m_writeSockets;

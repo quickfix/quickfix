@@ -113,7 +113,7 @@ bool ThreadedSocketConnection::read()
   {
     // Wait for input (1 second timeout)
 #if _MSC_VER
-    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+    int result = select( 0, &readset, 0, 0, &timeout );
 #else
     int result = poll( &pfd, 1, timeout );
 #endif
