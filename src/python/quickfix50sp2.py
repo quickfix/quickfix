@@ -841,7 +841,7 @@ class ExecutionReport(Message):
 					order[1] = 1411
 					order[2] = 0
 					fix.Group.__init__(self, 1413, 1412, order)
-p
+
 	class NoRateSources(fix.Group):
 		def __init__(self):
 			order = fix.IntArray(4)
