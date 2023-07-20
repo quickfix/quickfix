@@ -35,7 +35,7 @@ namespace FIX
 SocketConnection::SocketConnection(socket_handle s, Sessions sessions,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
-  m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor )
+  m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor ), m_connected( true ), m_initiator( false )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
@@ -46,7 +46,7 @@ SocketConnection::SocketConnection( SocketInitiator& i,
                                     SocketMonitor* pMonitor )
 : m_socket( s ), m_sendLength( 0 ),
   m_pSession( i.getSession( sessionID, *this ) ),
-  m_pMonitor( pMonitor ) 
+  m_pMonitor( pMonitor ), m_connected( true ), m_initiator( true )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
@@ -82,7 +82,7 @@ bool SocketConnection::processQueue()
     
   const std::string& msg = m_sendQueue.front();
 
-  ssize_t result = socket_send
+  quickfix_ssize_t result = socket_send
     ( m_socket, msg.c_str() + m_sendLength, msg.length() - m_sendLength );
 
   if( result > 0 )
@@ -100,7 +100,8 @@ bool SocketConnection::processQueue()
 void SocketConnection::disconnect()
 {
   if ( m_pMonitor )
-    m_pMonitor->drop( m_socket );
+    if ( m_pMonitor->drop( m_socket ) )
+      m_connected = false;
 }
 
 bool SocketConnection::read( SocketConnector& s )
@@ -157,7 +158,8 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
         m_pSession->next( msg, UtcTimeStamp() );
       if( !m_pSession )
       {
-        s.getMonitor().drop( m_socket );
+        if( s.getMonitor().drop( m_socket ) )
+          m_connected = false;
         return false;
       }
 
@@ -175,11 +177,13 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   {
     if( m_pSession )
       m_pSession->getLog()->onEvent( e.what() );
-    s.getMonitor().drop( m_socket );
+    if( s.getMonitor().drop( m_socket ) )
+      m_connected = false;
   }
   catch ( InvalidMessage& )
   {
-    s.getMonitor().drop( m_socket );
+    if( s.getMonitor().drop( m_socket ) )
+      m_connected = false;
   }
   return false;
 }
@@ -197,7 +201,7 @@ bool SocketConnection::isValidSession()
 void SocketConnection::readFromSocket()
 EXCEPT ( SocketRecvFailed )
 {
-  ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
+  quickfix_ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
   if( size <= 0 ) throw SocketRecvFailed( size );
   m_parser.addToStream( m_buffer, size );
 }
@@ -233,6 +237,12 @@ void SocketConnection::readMessages( SocketMonitor& s )
 
 void SocketConnection::onTimeout()
 {
-  if ( m_pSession ) m_pSession->next();
+  if( m_pSession )
+  {
+#if defined( QUICKFIX_IDLE_DISCONNECTED_CLIENT_SESSION )
+    if( m_connected || ( !m_initiator ) )
+#endif
+      m_pSession->next();
+  }
 }
 } // namespace FIX

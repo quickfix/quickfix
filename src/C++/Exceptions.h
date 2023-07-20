@@ -83,6 +83,15 @@ struct InvalidMessage : public Exception
     : Exception( "Invalid message", what ) {}
 };
 
+#if defined(QUICKFIX_THROWS_IGNORE_MESSAGE)
+/// A message to be ignored
+struct IgnoreMessage : public Exception
+{
+  IgnoreMessage( const std::string& what = "" )
+    : Exception( "Message to ignore", what ) {}
+};
+#endif // QUICKFIX_THROWS_IGNORE_MESSAGE
+
 /// %Application is not configured correctly
 struct ConfigError : public Exception
 {
@@ -277,7 +286,7 @@ struct SocketSendFailed : public SocketException
 /// Socket recv operation failed
 struct SocketRecvFailed : public SocketException
 {
-  SocketRecvFailed( ssize_t size )
+  SocketRecvFailed( quickfix_ssize_t size )
     : SocketException( size == 0 ? "Connection reset by peer." : size < 0 ? errorToWhat() : "Success." ) {}
   SocketRecvFailed( const std::string& what )
     : SocketException( what ) {}

@@ -179,6 +179,10 @@ def start(self):
         throw *((FIX::IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
         throw *((FIX::RejectLogon*)result);
+#ifdef QUICKFIX_THROWS_IGNORE_MESSAGE
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IgnoreMessage, 0 ) != -1 ) {
+        throw *((FIX::IgnoreMessage*)result);
+#endif
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();
@@ -217,6 +221,10 @@ def start(self):
         throw *((FIX::IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
         throw *((FIX::UnsupportedMessageType*)result);
+#ifdef QUICKFIX_THROWS_IGNORE_MESSAGE
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IgnoreMessage, 0 ) != -1 ) {
+        throw *((FIX::IgnoreMessage*)result);
+#endif
       } else {
         PyErr_Restore( ptype, pvalue, ptraceback );
         PyErr_Print();

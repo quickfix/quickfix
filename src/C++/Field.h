@@ -419,6 +419,29 @@ public:
     { return getValue(); }
 };
 
+// A generic template-based int type could be created and a field specialization
+// could be declared for any specific intN_t but this does not go well with SWIG.
+//
+/// Field that contains a 64-bit integer value
+class Int64Field : public FieldBase
+{
+public:
+  explicit Int64Field( int field, int64_t data )
+: FieldBase( field, Int64Convertor::convert( data ) ) {}
+  Int64Field( int field )
+: FieldBase( field, "" ) {}
+
+  void setValue( int64_t value )
+    { setString( Int64Convertor::convert( value ) ); }
+  int64_t getValue() const EXCEPT ( IncorrectDataFormat )
+    { try
+      { return Int64Convertor::convert( getString() ); }
+      catch( FieldConvertError& )
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
+  operator int64_t() const
+    { return getValue(); }
+};
+
 /// Field that contains a boolean value
 class BoolField : public FieldBase
 {
@@ -601,6 +624,8 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
   DEFINE_FIELD_CLASS(NAME, Price, FIX::PRICE)
 #define DEFINE_INT( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Int, FIX::INT)
+#define DEFINE_INT64( NAME ) \
+  DEFINE_FIELD_CLASS(NAME, Int64, FIX::INT64)
 #define DEFINE_AMT( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Amt, FIX::AMT)
 #define DEFINE_QTY( NAME ) \

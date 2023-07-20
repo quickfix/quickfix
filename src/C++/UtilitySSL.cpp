@@ -135,6 +135,10 @@
 
 #ifdef _MSC_VER
 
+#if !defined(snprintf)
+#define snprintf _snprintf
+#endif
+
 #if !defined(strcasecmp)
 #define strcasecmp _stricmp
 #endif

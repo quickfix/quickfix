@@ -40,6 +40,15 @@ namespace FIX
  * The various MessageCracker classes can be used to parse the generic message
  * structure into specific %FIX messages.
  */
+
+#if defined(QUICKFIX_THROWS_IGNORE_MESSAGE)
+#  define QUICKFIX_APP_FROM_ADMIN_EXCEPT EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon, IgnoreMessage )
+#  define QUICKFIX_APP_FROM_APP_EXCEPT   EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType, IgnoreMessage )
+#else
+#  define QUICKFIX_APP_FROM_ADMIN_EXCEPT EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon )
+#  define QUICKFIX_APP_FROM_APP_EXCEPT   EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType )
+#endif // QUICKFIX_THROWS_IGNORE_MESSAGE
+
 class Application
 {
 public:
@@ -57,10 +66,10 @@ public:
   EXCEPT ( DoNotSend ) = 0;
   /// Notification of admin message being received from target
   virtual void fromAdmin( const Message&, const SessionID& )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon ) = 0;
+  QUICKFIX_APP_FROM_ADMIN_EXCEPT = 0;
   /// Notification of app message being received from target
   virtual void fromApp( const Message&, const SessionID& )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
+  QUICKFIX_APP_FROM_APP_EXCEPT = 0;
 };
 
 /**
@@ -90,10 +99,10 @@ public:
   EXCEPT ( DoNotSend )
   { Locker l( m_mutex ); app().toApp( message, sessionID ); }
   void fromAdmin( const Message& message, const SessionID& sessionID )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon )
+  QUICKFIX_APP_FROM_ADMIN_EXCEPT
   { Locker l( m_mutex ); app().fromAdmin( message, sessionID ); }
   void fromApp( const Message& message, const SessionID& sessionID )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType )
+  QUICKFIX_APP_FROM_APP_EXCEPT
   { Locker l( m_mutex ); app().fromApp( message, sessionID ); }
 
   Mutex m_mutex;
@@ -117,9 +126,9 @@ class NullApplication : public Application
   void toApp( Message&, const SessionID& )
   EXCEPT ( DoNotSend ) {}
   void fromAdmin( const Message&, const SessionID& )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon ) {}
+  QUICKFIX_APP_FROM_ADMIN_EXCEPT {}
   void fromApp( const Message&, const SessionID& )
-  EXCEPT ( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
+  QUICKFIX_APP_FROM_APP_EXCEPT {}
 };
 /*! @} */
 }

@@ -180,7 +180,7 @@ public:
   }
 
   int getSecondsFromHandshakeStart(time_t now) {
-    return now - m_handshakeStartTime;
+    return static_cast<int>(now - m_handshakeStartTime);
   }
 
   void onTimeout();

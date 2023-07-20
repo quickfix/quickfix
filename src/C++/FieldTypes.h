@@ -881,6 +881,7 @@ typedef std::string STRING;
 typedef char CHAR;
 typedef double PRICE;
 typedef int INT;
+typedef int64_t INT64;
 typedef double AMT;
 typedef double QTY;
 typedef std::string CURRENCY;

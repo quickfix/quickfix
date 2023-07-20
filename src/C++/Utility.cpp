@@ -150,7 +150,19 @@ socket_handle socket_createConnector()
 int socket_connect(socket_handle socket, const char* address, int port )
 {
   const char* hostname = socket_hostname( address );
-  if( hostname == 0 ) return -1;
+  if( hostname == 0 )
+  {
+#ifdef _MSC_VER
+    // In a case of Windows + MSVC, select() does not fire a write event for
+    // a bare socket (no connection ever attempted). Therefore the later
+    // logic, which is based on unconditional continuation with select(),
+    // leads to a deadlock for the connecting session. So keep going ahead with
+    // a bad address.
+    hostname = address;
+#else
+    return -1;
+#endif
+  }
 
   sockaddr_in addr;
   addr.sin_family = PF_INET;
@@ -169,12 +181,12 @@ socket_handle socket_accept(socket_handle s )
   return accept( s, 0, 0 );
 }
 
-ssize_t socket_recv(socket_handle s, char* buf, size_t length )
+quickfix_ssize_t socket_recv(socket_handle s, char* buf, size_t length )
 {
   return recv( s, buf, length, 0 );
 }
 
-ssize_t socket_send(socket_handle s, const char* msg, size_t length )
+quickfix_ssize_t socket_send(socket_handle s, const char* msg, size_t length )
 {
   return send( s, msg, length, 0 );
 }

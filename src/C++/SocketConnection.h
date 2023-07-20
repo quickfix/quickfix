@@ -97,6 +97,8 @@ private:
   SocketMonitor* m_pMonitor;
   Mutex m_mutex;
   fd_set m_fds;
+  bool m_connected;
+  bool m_initiator;
 };
 }
 
