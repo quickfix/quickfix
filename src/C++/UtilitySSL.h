@@ -206,8 +206,6 @@ X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
 X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
                          passPhraseHandleCallbackType cb, void* passwordCallbackParam);
-
-char *strCat(const char *a, ...);
 }
 
 int setSocketNonBlocking(socket_handle pSocket);

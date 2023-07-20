@@ -140,6 +140,10 @@ void string_replace(const std::string& oldValue,
                     const std::string& newValue,
                     std::string& value);
 
+extern "C" {
+char* string_concat(const char *a, ...);
+}
+
 std::string string_toLower(const std::string& value);
 std::string string_toUpper(const std::string& value);
 std::string string_strip(const std::string& value);
