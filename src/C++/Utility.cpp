@@ -36,6 +36,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <cstdarg>
 
 namespace FIX
 {
@@ -85,6 +86,51 @@ void string_replace( const std::string& oldValue,
     pos += newValue.size();
   }
 }
+
+char *string_concat(const char *a, ...)
+{
+  char *cp, *argp, *res;
+
+  /* Pass one --- find length of required string */
+
+  int len = 0;
+  va_list adummy;
+
+  if (a == 0)
+    return 0;
+
+  va_start(adummy, a);
+
+  len = strlen(a);
+  while ((cp = va_arg(adummy, char *)) != 0)
+    len += strlen(cp);
+
+  va_end(adummy);
+
+  /* Allocate the required string */
+
+  res = new char[len + 1];
+  cp = res;
+  *cp = '\0';
+
+  /* Pass two --- copy the argument strings into the result space */
+
+  va_start(adummy, a);
+
+  strcpy(cp, a);
+  cp += strlen(a);
+  while ((argp = va_arg(adummy, char *)) != 0)
+  {
+    strcpy(cp, argp);
+    cp += strlen(argp);
+  }
+
+  va_end(adummy);
+
+  /* Return the result string */
+
+  return res;
+}                    
 
 std::string string_toUpper( const std::string& value )
 {

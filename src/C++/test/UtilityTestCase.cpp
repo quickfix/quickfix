@@ -63,12 +63,20 @@ TEST(stringReplace_ReplacesAll)
 {
   std::string value = "1~2~3~4";
 
-  //replace ~ with |
   string_replace("~", "|", value);
 
   std::string expected = "1|2|3|4";
 
   CHECK_EQUAL(expected, value);
+}
+
+TEST(stringConcat_ConcatsStrings)
+{
+  std::string actual = string_concat("ABC", "123", "!@#", 0);
+
+  std::string expected = "ABC123!@#";
+
+  CHECK_EQUAL(expected, actual);
 }
 
 TEST(stringToLower_UpperCaseCharactersAllLower)

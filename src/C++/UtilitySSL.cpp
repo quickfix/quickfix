@@ -766,7 +766,7 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
     while ((direntry = ACE_OS::readdir(dir)) != 0)
     {
 #endif
-      cp = strCat(cpCApath, SLASH, direntry->d_name, 0);
+      cp = string_concat(cpCApath, SLASH, direntry->d_name, 0);
       sk = SSL_load_client_CA_file(cp);
       for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++)
       {
@@ -901,51 +901,6 @@ EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
     *key = rc;
   }
   return rc;
-}
-
-char *strCat(const char *a, ...)
-{
-  char *cp, *argp, *res;
-
-  /* Pass one --- find length of required string */
-
-  int len = 0;
-  va_list adummy;
-
-  if (a == 0)
-    return 0;
-
-  va_start(adummy, a);
-
-  len = strlen(a);
-  while ((cp = va_arg(adummy, char *)) != 0)
-    len += strlen(cp);
-
-  va_end(adummy);
-
-  /* Allocate the required string */
-
-  res = new char[len + 1];
-  cp = res;
-  *cp = '\0';
-
-  /* Pass two --- copy the argument strings into the result space */
-
-  va_start(adummy, a);
-
-  strcpy(cp, a);
-  cp += strlen(a);
-  while ((argp = va_arg(adummy, char *)) != 0)
-  {
-    strcpy(cp, argp);
-    cp += strlen(argp);
-  }
-
-  va_end(adummy);
-
-  /* Return the result string */
-
-  return res;
 }
 
 int setSocketNonBlocking(socket_handle pSocket)
