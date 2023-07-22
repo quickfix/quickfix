@@ -117,7 +117,11 @@
 #ifndef FIX_SSLSOCKETACCEPTOR_H
 #define FIX_SSLSOCKETACCEPTOR_H
 
-#if (HAVE_SSL > 0)
+#ifndef HAVE_SSL
+#error SSLSocketAcceptor.h included, but HAVE_SSL not defined
+#endif
+
+#ifdef HAVE_SSL
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
