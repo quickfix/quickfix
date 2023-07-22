@@ -324,7 +324,7 @@ private:
   bool set( int s, const Message& m );
   bool get( int s, Message& m ) const;
 
-  Message * newMessage(const std::string & msgType) const;
+  Message newMessage( const MsgType & msgType ) const;
 
   Application& m_application;
   SessionID m_sessionID;

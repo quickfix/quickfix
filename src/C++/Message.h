@@ -143,13 +143,22 @@ public:
   EXCEPT ( InvalidMessage );
 
   /// Construct a message from a string using a data dictionary
-  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& dataDictionary,
+  Message( const message_order& headerOrder, 
+           const message_order& trailerOrder,  
+           const message_order& order,
+           const std::string& string, 
+           const FIX::DataDictionary& dataDictionary,
            bool validate = true )
   EXCEPT ( InvalidMessage );
 
   /// Construct a message from a string using a session and application data dictionary
-  Message( const message_order& hdrOrder, const message_order& trlOrder,  const message_order& order, const std::string& string, const FIX::DataDictionary& sessionDataDictionary,
-           const FIX::DataDictionary& applicationDataDictionary, bool validate = true )
+  Message( const message_order& headerOrder, 
+           const message_order& trailerOrder,  
+           const message_order& order, 
+           const std::string& string, 
+           const FIX::DataDictionary& sessionDataDictionary,
+           const FIX::DataDictionary& applicationDataDictionary, 
+           bool validate = true )
   EXCEPT ( InvalidMessage );
 
   Message(const Message&) = default;
