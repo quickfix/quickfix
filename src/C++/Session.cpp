@@ -793,40 +793,41 @@ void Session::generateReject( const Message& message, int err, int field )
   switch ( err )
   {
     case SessionRejectReason_INVALID_TAG_NUMBER:
-    reason = SessionRejectReason_INVALID_TAG_NUMBER_TEXT;
-    break;
+      reason = SessionRejectReason_INVALID_TAG_NUMBER_TEXT;
+      break;
     case SessionRejectReason_REQUIRED_TAG_MISSING:
-    reason = SessionRejectReason_REQUIRED_TAG_MISSING_TEXT;
-    break;
+      reason = SessionRejectReason_REQUIRED_TAG_MISSING_TEXT;
+      break;
     case SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE:
-    reason = SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT;
-    break;
+      reason = SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT;
+      break;
     case SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE:
-    reason = SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_TEXT;
-    break;
+      reason = SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_TEXT;
+      break;
     case SessionRejectReason_VALUE_IS_INCORRECT:
-    reason = SessionRejectReason_VALUE_IS_INCORRECT_TEXT;
-    break;
+      reason = SessionRejectReason_VALUE_IS_INCORRECT_TEXT;
+      break;
     case SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE:
-    reason = SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_TEXT;
-    break;
+      reason = SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_TEXT;
+      break;
     case SessionRejectReason_COMPID_PROBLEM:
-    reason = SessionRejectReason_COMPID_PROBLEM_TEXT;
-    break;
+      reason = SessionRejectReason_COMPID_PROBLEM_TEXT;
+      break;
     case SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM:
-    reason = SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT;
-    break;
+      reason = SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT;
+      break;
     case SessionRejectReason_INVALID_MSGTYPE:
-    reason = SessionRejectReason_INVALID_MSGTYPE_TEXT;
-    break;
+      reason = SessionRejectReason_INVALID_MSGTYPE_TEXT;
+      break;
     case SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE:
-    reason = SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT;
-    break;
+      reason = SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT;
+      break;
     case SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER:
-    reason = SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
-    break;
+      reason = SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
+      break;
     case SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP:
-    reason = SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
+      reason = SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
+      break;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
@@ -897,24 +898,24 @@ void Session::generateBusinessReject( const Message& message, int err, int field
     case BusinessRejectReason_UNKNOWN_ID:
       reason = BusinessRejectReason_UNKNOWN_ID_TEXT;
       break;
-      case BusinessRejectReason_UNKNOWN_SECURITY:
+    case BusinessRejectReason_UNKNOWN_SECURITY:
       reason = BusinessRejectReason_UNKNOWN_SECURITY_TEXT;
-    break;
-      case BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE:
+      break;
+    case BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE:
       reason = BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT;
-    break;
-      case BusinessRejectReason_APPLICATION_NOT_AVAILABLE:
+      break;
+    case BusinessRejectReason_APPLICATION_NOT_AVAILABLE:
       reason = BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT;
-    break;
-      case BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING:
+      break;
+    case BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING:
       reason = BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT;
-    break;
-      case BusinessRejectReason_NOT_AUTHORIZED:
+      break;
+    case BusinessRejectReason_NOT_AUTHORIZED:
       reason = BusinessRejectReason_NOT_AUTHORIZED_TEXT;
-    break;
-      case BusinessRejectReason_DELIVER_TO_FIRM_NOT_AVAILABLE_AT_THIS_TIME:
+      break;
+    case BusinessRejectReason_DELIVER_TO_FIRM_NOT_AVAILABLE_AT_THIS_TIME:
       reason = BusinessRejectReason_DELIVER_TO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT;
-    break;
+      break;
   };
 
   if ( reason && field )
