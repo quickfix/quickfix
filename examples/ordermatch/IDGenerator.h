@@ -32,16 +32,12 @@ IDGenerator() : m_orderID( 0 ), m_executionID( 0 ) {}
 
   std::string genOrderID()
   {
-    std::stringstream stream;
-    stream << ++m_orderID;
-    return stream.str();
+    return std::to_string(++m_orderID);
   }
 
   std::string genExecutionID()
   {
-    std::stringstream stream;
-    stream << ++m_executionID;
-    return stream.str();
+    return std::to_string(++m_executionID);
   }
 
 private:
