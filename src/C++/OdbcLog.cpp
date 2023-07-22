@@ -207,7 +207,7 @@ void OdbcLog::backup()
 
 void OdbcLog::insert( const std::string& table, const std::string value )
 {
-  UtcTimeStamp time;
+  UtcTimeStamp time = UtcTimeStamp::now();
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );

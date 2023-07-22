@@ -5,6 +5,7 @@
 **
 ** This file is part of the QuickFIX FIX Engine
 **
+**
 ** This file may be distributed under the terms of the quickfixengine.org
 ** license as defined by quickfixengine.org and appearing in the file
 ** LICENSE included in the packaging of this file.
@@ -584,13 +585,16 @@ class UtcTimeStamp : public DateTime
 public:
   static UtcTimeStamp now()
   {
-    return UtcTimeStamp();
+    return UtcTimeStamp( DateTime::nowUtc() );
   }
 
   /// Defaults to the current date and time
   [[deprecated("Use UtcTimeStamp::now()")]]
   UtcTimeStamp()
   : DateTime( DateTime::nowUtc() ) {}
+
+  UtcTimeStamp(DateTime dateTime)
+  : DateTime(std::move(dateTime)) {}
 
   /// Defaults to the current date
   UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )
