@@ -241,8 +241,8 @@ public:
   const MessageStore* getStore() { return &m_state; }
 
 private:
-  typedef std::map < SessionID, Session* > Sessions;
-  typedef std::set < SessionID > SessionIDs;
+  typedef std::map<SessionID, Session*> Sessions;
+  typedef std::set<SessionID> SessionIDs;
 
   static bool addSession( Session& );
   static void removeSession( Session& );

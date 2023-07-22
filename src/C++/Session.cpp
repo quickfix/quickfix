@@ -354,10 +354,10 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     return;
   }
 
-  std::vector < std::string > messages;
+  std::vector<std::string> messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
 
-  std::vector < std::string > ::iterator i;
+  std::vector<std::string>::iterator i;
   MsgSeqNum msgSeqNum(0);
   MsgType msgType;
   int begin = 0;
