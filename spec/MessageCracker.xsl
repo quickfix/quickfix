@@ -108,10 +108,9 @@ public:
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
     <xsl:for-each select="//fix/messages/message">
-    <xsl:if test="position()!=1">
-    else
-    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
-      onMessage( (const <xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
+    if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      return onMessage( (const <xsl:value-of select="@name"/>&amp;)message, sessionID );
+    </xsl:for-each>
     else onMessage( message, sessionID );
   }
   

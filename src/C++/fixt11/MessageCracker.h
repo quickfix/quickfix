@@ -79,29 +79,31 @@ public:
     const std::string& msgTypeValue 
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
+    
     if( msgTypeValue == "0" )
-      onMessage( (const Heartbeat&)message, sessionID );
-    else
+      return onMessage( (const Heartbeat&)message, sessionID );
+    
     if( msgTypeValue == "1" )
-      onMessage( (const TestRequest&)message, sessionID );
-    else
+      return onMessage( (const TestRequest&)message, sessionID );
+    
     if( msgTypeValue == "2" )
-      onMessage( (const ResendRequest&)message, sessionID );
-    else
+      return onMessage( (const ResendRequest&)message, sessionID );
+    
     if( msgTypeValue == "3" )
-      onMessage( (const Reject&)message, sessionID );
-    else
+      return onMessage( (const Reject&)message, sessionID );
+    
     if( msgTypeValue == "4" )
-      onMessage( (const SequenceReset&)message, sessionID );
-    else
+      return onMessage( (const SequenceReset&)message, sessionID );
+    
     if( msgTypeValue == "5" )
-      onMessage( (const Logout&)message, sessionID );
-    else
+      return onMessage( (const Logout&)message, sessionID );
+    
     if( msgTypeValue == "A" )
-      onMessage( (const Logon&)message, sessionID );
-    else
+      return onMessage( (const Logon&)message, sessionID );
+    
     if( msgTypeValue == "n" )
-      onMessage( (const XMLnonFIX&)message, sessionID );
+      return onMessage( (const XMLnonFIX&)message, sessionID );
+    
     else onMessage( message, sessionID );
   }
   
