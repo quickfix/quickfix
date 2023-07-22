@@ -6,6 +6,11 @@
 
 #undef Yield
 
+#ifdef ReplaceText
+#pragma push("ReplaceText")
+#undef ReplaceText
+#endif
+
 namespace FIX
 {
   DEFINE_SEQNUM(BeginSeqNo);

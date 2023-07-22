@@ -11,4 +11,9 @@ namespace FIX
   DEFINE_STRING(SenderCompID);
   DEFINE_STRING(TargetCompID);
 }
+
+#ifdef ReplaceText
+#pragma pop("ReplaceText")
+#endif
+
 #endif //FIX_FIELDS_H
