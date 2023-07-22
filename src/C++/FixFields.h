@@ -2,13 +2,13 @@
 #define FIX_FIELDS_H
 
 #include "Field.h"
+#include "FixCommonFields.h"
 
 #undef Yield
 
 namespace FIX
 {
   DEFINE_SEQNUM(BeginSeqNo);
-  DEFINE_STRING(BeginString);
   DEFINE_LENGTH(BodyLength);
   DEFINE_CHECKSUM(CheckSum);
   DEFINE_SEQNUM(EndSeqNo);
@@ -17,10 +17,8 @@ namespace FIX
   DEFINE_SEQNUM(NewSeqNo);
   DEFINE_BOOLEAN(PossDupFlag);
   DEFINE_SEQNUM(RefSeqNum);
-  DEFINE_STRING(SenderCompID);
   DEFINE_STRING(SenderSubID);
   DEFINE_UTCTIMESTAMP(SendingTime);
-  DEFINE_STRING(TargetCompID);
   DEFINE_STRING(TargetSubID);
   DEFINE_STRING(Text);
   DEFINE_DATA(Signature);

@@ -47,10 +47,12 @@
 #include <Except.h>
 #include <Exceptions.h>
 #include <FieldTypes.h>
-#include <Field.h>
+#include <Fields.h>
+#include <FixFields.h>
 #include <Message.h>
 #include <Group.h>
-#include <Fields.h>
+#include <Field.h>
+#include <FixCommonFields.h>
 #include <Values.h>
 #include <SessionID.h>
 #include <Dictionary.h>
@@ -397,6 +399,7 @@ typedef FIX::SessionSettings SessionSettings;
 %typedef StringField MultipleStringValueField;
 %typedef StringField MultipleCharValueField;
 %typedef StringField ExchangeField;
+%typedef StringField LocalMktTimeField;
 %typedef StringField LocalMktDateField;
 %typedef StringField DataField;
 %typedef DoubleField FloatField;
@@ -408,10 +411,14 @@ typedef FIX::SessionSettings SessionSettings;
 %typedef IntField LengthField;
 %typedef IntField NumInGroupField;
 %typedef IntField SeqNumField;
+%typedef IntField TagNumField;
 %typedef DoubleField PercentageField;
 %typedef StringField CountryField;
 %typedef StringField TzTimeOnlyField;
 %typedef StringField TzTimeStampField;
+%typedef StringField LanguageField;
+%typedef StringField QidField;
+%typedef StringField QidRefField;
 
 %typedef std::string FIX::STRING;
 %typedef char FIX::CHAR;
@@ -426,6 +433,7 @@ typedef FIX::SessionSettings SessionSettings;
 %typedef std::string FIX::EXCHANGE;
 %typedef UtcTimeStamp FIX::UTCTIMESTAMP;
 %typedef bool FIX::BOOLEAN;
+%typedef std::string FIX::LOCALMKTTIME;
 %typedef std::string FIX::LOCALMKTDATE;
 %typedef std::string FIX::DATA;
 %typedef double FIX::FLOAT;
@@ -438,10 +446,14 @@ typedef FIX::SessionSettings SessionSettings;
 %typedef int FIX::NUMINGROUP;
 %typedef double FIX::PERCENTAGE;
 %typedef int FIX::SEQNUM;
+%typedef int FIX::TAGNUM;
 %typedef int FIX::LENGTH;
 %typedef std::string FIX::COUNTRY;
 %typedef std::string FIX::TZTIMEONLY;
 %typedef std::string FIX::TZTIMESTAMP;
+%typedef std::string FIX::LANGUAGE;
+%typedef std::string FIX::QID;
+%typedef std::string FIX::QIDREF;
 %template(SessionIDSet) std::set<FIX::SessionID>;
 
 %extend FIX::Exception {
@@ -487,8 +499,8 @@ typedef FIX::SessionSettings SessionSettings;
 %include "../C++/FieldMap.h"
 %include "../C++/Message.h"
 %include "../C++/Group.h"
-%include "../C++/Fields.h"
-%include "../C++/FixFields.h"
+%include "../C++/Field.h"
+%include "../C++/FixCommonFields.h"
 %include "../C++/Values.h"
 %include "../C++/FixValues.h"
 %include "../C++/SessionID.h"
