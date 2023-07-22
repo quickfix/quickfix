@@ -83,6 +83,8 @@ libquickfix_la_SOURCES = \
 	Fields.h \
 	FieldMap.cpp \
 	FieldMap.h \
+	FixCommonFields.h \
+	FixFields.h \
 	Message.cpp \
 	Message.h \
 	Group.cpp \
