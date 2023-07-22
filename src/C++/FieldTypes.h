@@ -890,6 +890,7 @@ typedef std::string MULTIPLECHARVALUE;
 typedef std::string EXCHANGE;
 typedef UtcTimeStamp UTCTIMESTAMP;
 typedef bool BOOLEAN;
+typedef std::string LOCALMKTTIME;
 typedef std::string LOCALMKTDATE;
 typedef std::string DATA;
 typedef double FLOAT;
@@ -902,12 +903,15 @@ typedef UtcTimeOnly UTCTIMEONLY;
 typedef int NUMINGROUP;
 typedef double PERCENTAGE;
 typedef int SEQNUM;
+typedef int TAGNUM;
 typedef int LENGTH;
 typedef std::string COUNTRY;
 typedef std::string TZTIMEONLY;
 typedef std::string TZTIMESTAMP;
 typedef std::string XMLDATA;
 typedef std::string LANGUAGE;
+typedef std::string XID;
+typedef std::string XIDREF;
 
 namespace TYPE
 {
@@ -927,6 +931,7 @@ enum Type
   Exchange,
   UtcTimeStamp,
   Boolean,
+  LocalMktTime,
   LocalMktDate,
   Data,
   Float,
@@ -939,12 +944,15 @@ enum Type
   NumInGroup,
   Percentage,
   SeqNum,
+  TagNum,
   Length,
   Country,
   TzTimeOnly,
   TzTimeStamp,
   XmlData,
-  Language
+  Language,
+  Xid,
+  XidRef
 };
 }
 }

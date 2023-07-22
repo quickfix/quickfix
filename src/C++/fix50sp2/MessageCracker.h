@@ -57,7 +57,7 @@ namespace FIX50SP2
   class MarketDataRequestReject; 
   class QuoteCancel; 
   class QuoteStatusRequest; 
-  class MassQuoteAcknowledgement; 
+  class MassQuoteAck; 
   class SecurityDefinitionRequest; 
   class SecurityDefinition; 
   class SecurityStatusRequest; 
@@ -120,7 +120,7 @@ namespace FIX50SP2
   class SecurityListUpdateReport; 
   class AdjustedPositionReport; 
   class AllocationInstructionAlert; 
-  class ExecutionAcknowledgement; 
+  class ExecutionAck; 
   class TradingSessionList; 
   class TradingSessionListRequest; 
   class SettlementObligationReport; 
@@ -137,7 +137,55 @@ namespace FIX50SP2
   class ApplicationMessageReport; 
   class StreamAssignmentRequest; 
   class StreamAssignmentReport; 
-  class StreamAssignmentReportACK;
+  class StreamAssignmentReportACK; 
+  class MarginRequirementInquiry; 
+  class MarginRequirementInquiryAck; 
+  class MarginRequirementReport; 
+  class PartyDetailsListRequest; 
+  class PartyDetailsListReport; 
+  class PartyDetailsListUpdateReport; 
+  class PartyRiskLimitsRequest; 
+  class PartyRiskLimitsReport; 
+  class SecurityMassStatusRequest; 
+  class SecurityMassStatus; 
+  class AccountSummaryReport; 
+  class PartyRiskLimitsUpdateReport; 
+  class PartyRiskLimitsDefinitionRequest; 
+  class PartyRiskLimitsDefinitionRequestAck; 
+  class PartyEntitlementsRequest; 
+  class PartyEntitlementsReport; 
+  class QuoteAck; 
+  class PartyDetailsDefinitionRequest; 
+  class PartyDetailsDefinitionRequestAck; 
+  class PartyEntitlementsUpdateReport; 
+  class PartyEntitlementsDefinitionRequest; 
+  class PartyEntitlementsDefinitionRequestAck; 
+  class TradeMatchReport; 
+  class TradeMatchReportAck; 
+  class PartyRiskLimitsReportAck; 
+  class PartyRiskLimitCheckRequest; 
+  class PartyRiskLimitCheckRequestAck; 
+  class PartyActionRequest; 
+  class PartyActionReport; 
+  class MassOrder; 
+  class MassOrderAck; 
+  class PositionTransferInstruction; 
+  class PositionTransferInstructionAck; 
+  class PositionTransferReport; 
+  class MarketDataStatisticsRequest; 
+  class MarketDataStatisticsReport; 
+  class CollateralReportAck; 
+  class MarketDataReport; 
+  class CrossRequest; 
+  class CrossRequestAck; 
+  class AllocationInstructionAlertRequest; 
+  class AllocationInstructionAlertRequestAck; 
+  class TradeAggregationRequest; 
+  class TradeAggregationReport; 
+  class PayManagementReport; 
+  class PayManagementReportAck; 
+  class PayManagementRequest; 
+  class PayManagementRequestAck;
 
   class MessageCracker
   {
@@ -201,7 +249,7 @@ namespace FIX50SP2
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const QuoteStatusRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MassQuoteAcknowledgement&, const FIX::SessionID& ) 
+  virtual void onMessage( const MassQuoteAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const SecurityDefinitionRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -327,7 +375,7 @@ namespace FIX50SP2
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const AllocationInstructionAlert&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ExecutionAcknowledgement&, const FIX::SessionID& ) 
+  virtual void onMessage( const ExecutionAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const TradingSessionList&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -363,6 +411,102 @@ namespace FIX50SP2
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const StreamAssignmentReportACK&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarginRequirementInquiry&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarginRequirementInquiryAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarginRequirementReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyDetailsListRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyDetailsListReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyDetailsListUpdateReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const SecurityMassStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const SecurityMassStatus&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const AccountSummaryReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsUpdateReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsDefinitionRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsDefinitionRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyEntitlementsRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyEntitlementsReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const QuoteAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyDetailsDefinitionRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyDetailsDefinitionRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyEntitlementsUpdateReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyEntitlementsDefinitionRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyEntitlementsDefinitionRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeMatchReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeMatchReportAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitsReportAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitCheckRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyRiskLimitCheckRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyActionRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PartyActionReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MassOrder&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MassOrderAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionTransferInstruction&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionTransferInstructionAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionTransferReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarketDataStatisticsRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarketDataStatisticsReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralReportAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const MarketDataReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CrossRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CrossRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const AllocationInstructionAlertRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const AllocationInstructionAlertRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeAggregationRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeAggregationReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PayManagementReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PayManagementReportAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PayManagementRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PayManagementRequestAck&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( IOI&, const FIX::SessionID& ) {} 
  virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
  virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
@@ -390,7 +534,7 @@ namespace FIX50SP2
  virtual void onMessage( MarketDataRequestReject&, const FIX::SessionID& ) {} 
  virtual void onMessage( QuoteCancel&, const FIX::SessionID& ) {} 
  virtual void onMessage( QuoteStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( MassQuoteAcknowledgement&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MassQuoteAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityDefinitionRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityDefinition&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityStatusRequest&, const FIX::SessionID& ) {} 
@@ -453,7 +597,7 @@ namespace FIX50SP2
  virtual void onMessage( SecurityListUpdateReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( AdjustedPositionReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( AllocationInstructionAlert&, const FIX::SessionID& ) {} 
- virtual void onMessage( ExecutionAcknowledgement&, const FIX::SessionID& ) {} 
+ virtual void onMessage( ExecutionAck&, const FIX::SessionID& ) {} 
  virtual void onMessage( TradingSessionList&, const FIX::SessionID& ) {} 
  virtual void onMessage( TradingSessionListRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SettlementObligationReport&, const FIX::SessionID& ) {} 
@@ -471,6 +615,54 @@ namespace FIX50SP2
  virtual void onMessage( StreamAssignmentRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( StreamAssignmentReportACK&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarginRequirementInquiry&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarginRequirementInquiryAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarginRequirementReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyDetailsListRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyDetailsListReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyDetailsListUpdateReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( SecurityMassStatusRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( SecurityMassStatus&, const FIX::SessionID& ) {} 
+ virtual void onMessage( AccountSummaryReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsUpdateReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsDefinitionRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsDefinitionRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyEntitlementsRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyEntitlementsReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( QuoteAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyDetailsDefinitionRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyDetailsDefinitionRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyEntitlementsUpdateReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyEntitlementsDefinitionRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyEntitlementsDefinitionRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( TradeMatchReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( TradeMatchReportAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitsReportAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitCheckRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyRiskLimitCheckRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyActionRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PartyActionReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MassOrder&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MassOrderAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PositionTransferInstruction&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PositionTransferInstructionAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PositionTransferReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarketDataStatisticsRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarketDataStatisticsReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( CollateralReportAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( MarketDataReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( CrossRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( CrossRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( AllocationInstructionAlertRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( AllocationInstructionAlertRequestAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( TradeAggregationRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( TradeAggregationReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PayManagementReport&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PayManagementReportAck&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PayManagementRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( PayManagementRequestAck&, const FIX::SessionID& ) {} 
 
 public:
   void crack( const Message& message, 
@@ -561,7 +753,7 @@ public:
       onMessage( (const QuoteStatusRequest&)message, sessionID );
     else
     if( msgTypeValue == "b" )
-      onMessage( (const MassQuoteAcknowledgement&)message, sessionID );
+      onMessage( (const MassQuoteAck&)message, sessionID );
     else
     if( msgTypeValue == "c" )
       onMessage( (const SecurityDefinitionRequest&)message, sessionID );
@@ -750,7 +942,7 @@ public:
       onMessage( (const AllocationInstructionAlert&)message, sessionID );
     else
     if( msgTypeValue == "BN" )
-      onMessage( (const ExecutionAcknowledgement&)message, sessionID );
+      onMessage( (const ExecutionAck&)message, sessionID );
     else
     if( msgTypeValue == "BJ" )
       onMessage( (const TradingSessionList&)message, sessionID );
@@ -802,6 +994,150 @@ public:
     else
     if( msgTypeValue == "CE" )
       onMessage( (const StreamAssignmentReportACK&)message, sessionID );
+    else
+    if( msgTypeValue == "CH" )
+      onMessage( (const MarginRequirementInquiry&)message, sessionID );
+    else
+    if( msgTypeValue == "CI" )
+      onMessage( (const MarginRequirementInquiryAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CJ" )
+      onMessage( (const MarginRequirementReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CF" )
+      onMessage( (const PartyDetailsListRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CG" )
+      onMessage( (const PartyDetailsListReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CK" )
+      onMessage( (const PartyDetailsListUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CL" )
+      onMessage( (const PartyRiskLimitsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CM" )
+      onMessage( (const PartyRiskLimitsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CN" )
+      onMessage( (const SecurityMassStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CO" )
+      onMessage( (const SecurityMassStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "CQ" )
+      onMessage( (const AccountSummaryReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CR" )
+      onMessage( (const PartyRiskLimitsUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CS" )
+      onMessage( (const PartyRiskLimitsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CT" )
+      onMessage( (const PartyRiskLimitsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CU" )
+      onMessage( (const PartyEntitlementsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CV" )
+      onMessage( (const PartyEntitlementsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CW" )
+      onMessage( (const QuoteAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CX" )
+      onMessage( (const PartyDetailsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CY" )
+      onMessage( (const PartyDetailsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CZ" )
+      onMessage( (const PartyEntitlementsUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DA" )
+      onMessage( (const PartyEntitlementsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DB" )
+      onMessage( (const PartyEntitlementsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DC" )
+      onMessage( (const TradeMatchReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DD" )
+      onMessage( (const TradeMatchReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DE" )
+      onMessage( (const PartyRiskLimitsReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DF" )
+      onMessage( (const PartyRiskLimitCheckRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DG" )
+      onMessage( (const PartyRiskLimitCheckRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DH" )
+      onMessage( (const PartyActionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DI" )
+      onMessage( (const PartyActionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DJ" )
+      onMessage( (const MassOrder&)message, sessionID );
+    else
+    if( msgTypeValue == "DK" )
+      onMessage( (const MassOrderAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DL" )
+      onMessage( (const PositionTransferInstruction&)message, sessionID );
+    else
+    if( msgTypeValue == "DM" )
+      onMessage( (const PositionTransferInstructionAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DN" )
+      onMessage( (const PositionTransferReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DO" )
+      onMessage( (const MarketDataStatisticsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DP" )
+      onMessage( (const MarketDataStatisticsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DQ" )
+      onMessage( (const CollateralReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DR" )
+      onMessage( (const MarketDataReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DS" )
+      onMessage( (const CrossRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DT" )
+      onMessage( (const CrossRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DU" )
+      onMessage( (const AllocationInstructionAlertRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DV" )
+      onMessage( (const AllocationInstructionAlertRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DW" )
+      onMessage( (const TradeAggregationRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DX" )
+      onMessage( (const TradeAggregationReport&)message, sessionID );
+    else
+    if( msgTypeValue == "EA" )
+      onMessage( (const PayManagementReport&)message, sessionID );
+    else
+    if( msgTypeValue == "EB" )
+      onMessage( (const PayManagementReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DY" )
+      onMessage( (const PayManagementRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DZ" )
+      onMessage( (const PayManagementRequestAck&)message, sessionID );
     else onMessage( message, sessionID );
   }
   
@@ -894,7 +1230,7 @@ void crack( Message& message,
       onMessage( (QuoteStatusRequest&)message, sessionID );
     else
     if( msgTypeValue == "b" )
-      onMessage( (MassQuoteAcknowledgement&)message, sessionID );
+      onMessage( (MassQuoteAck&)message, sessionID );
     else
     if( msgTypeValue == "c" )
       onMessage( (SecurityDefinitionRequest&)message, sessionID );
@@ -1083,7 +1419,7 @@ void crack( Message& message,
       onMessage( (AllocationInstructionAlert&)message, sessionID );
     else
     if( msgTypeValue == "BN" )
-      onMessage( (ExecutionAcknowledgement&)message, sessionID );
+      onMessage( (ExecutionAck&)message, sessionID );
     else
     if( msgTypeValue == "BJ" )
       onMessage( (TradingSessionList&)message, sessionID );
@@ -1135,6 +1471,150 @@ void crack( Message& message,
     else
     if( msgTypeValue == "CE" )
       onMessage( (StreamAssignmentReportACK&)message, sessionID );
+    else
+    if( msgTypeValue == "CH" )
+      onMessage( (MarginRequirementInquiry&)message, sessionID );
+    else
+    if( msgTypeValue == "CI" )
+      onMessage( (MarginRequirementInquiryAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CJ" )
+      onMessage( (MarginRequirementReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CF" )
+      onMessage( (PartyDetailsListRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CG" )
+      onMessage( (PartyDetailsListReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CK" )
+      onMessage( (PartyDetailsListUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CL" )
+      onMessage( (PartyRiskLimitsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CM" )
+      onMessage( (PartyRiskLimitsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CN" )
+      onMessage( (SecurityMassStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CO" )
+      onMessage( (SecurityMassStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "CQ" )
+      onMessage( (AccountSummaryReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CR" )
+      onMessage( (PartyRiskLimitsUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CS" )
+      onMessage( (PartyRiskLimitsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CT" )
+      onMessage( (PartyRiskLimitsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CU" )
+      onMessage( (PartyEntitlementsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CV" )
+      onMessage( (PartyEntitlementsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "CW" )
+      onMessage( (QuoteAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CX" )
+      onMessage( (PartyDetailsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "CY" )
+      onMessage( (PartyDetailsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "CZ" )
+      onMessage( (PartyEntitlementsUpdateReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DA" )
+      onMessage( (PartyEntitlementsDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DB" )
+      onMessage( (PartyEntitlementsDefinitionRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DC" )
+      onMessage( (TradeMatchReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DD" )
+      onMessage( (TradeMatchReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DE" )
+      onMessage( (PartyRiskLimitsReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DF" )
+      onMessage( (PartyRiskLimitCheckRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DG" )
+      onMessage( (PartyRiskLimitCheckRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DH" )
+      onMessage( (PartyActionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DI" )
+      onMessage( (PartyActionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DJ" )
+      onMessage( (MassOrder&)message, sessionID );
+    else
+    if( msgTypeValue == "DK" )
+      onMessage( (MassOrderAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DL" )
+      onMessage( (PositionTransferInstruction&)message, sessionID );
+    else
+    if( msgTypeValue == "DM" )
+      onMessage( (PositionTransferInstructionAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DN" )
+      onMessage( (PositionTransferReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DO" )
+      onMessage( (MarketDataStatisticsRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DP" )
+      onMessage( (MarketDataStatisticsReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DQ" )
+      onMessage( (CollateralReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DR" )
+      onMessage( (MarketDataReport&)message, sessionID );
+    else
+    if( msgTypeValue == "DS" )
+      onMessage( (CrossRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DT" )
+      onMessage( (CrossRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DU" )
+      onMessage( (AllocationInstructionAlertRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DV" )
+      onMessage( (AllocationInstructionAlertRequestAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DW" )
+      onMessage( (TradeAggregationRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DX" )
+      onMessage( (TradeAggregationReport&)message, sessionID );
+    else
+    if( msgTypeValue == "EA" )
+      onMessage( (PayManagementReport&)message, sessionID );
+    else
+    if( msgTypeValue == "EB" )
+      onMessage( (PayManagementReportAck&)message, sessionID );
+    else
+    if( msgTypeValue == "DY" )
+      onMessage( (PayManagementRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "DZ" )
+      onMessage( (PayManagementRequestAck&)message, sessionID );
     else onMessage( message, sessionID );
   }
 

@@ -24,10 +24,13 @@ namespace FIX50SP2
     class NoBidComponents: public FIX::Group
     {
     public:
-    NoBidComponents() : FIX::Group(420,12,FIX::message_order(12,13,479,497,66,421,54,44,423,406,430,63,64,336,625,58,354,355,0)) {}
+    NoBidComponents() : FIX::Group(420,12,FIX::message_order(12,13,479,2922,1233,1238,497,66,421,54,44,423,406,430,63,64,336,625,58,354,355,0)) {}
       FIELD_SET(*this, FIX::Commission);
       FIELD_SET(*this, FIX::CommType);
       FIELD_SET(*this, FIX::CommCurrency);
+      FIELD_SET(*this, FIX::CommCurrencyCodeSource);
+      FIELD_SET(*this, FIX::CommRate);
+      FIELD_SET(*this, FIX::CommUnitOfMeasure);
       FIELD_SET(*this, FIX::FundRenewWaiv);
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::Country);

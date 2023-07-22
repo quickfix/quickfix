@@ -39,10 +39,11 @@ namespace FIX50SP2
     class NoPartyIDs: public FIX::Group
     {
     public:
-    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,2376,802,0)) {}
       FIELD_SET(*this, FIX::PartyID);
       FIELD_SET(*this, FIX::PartyIDSource);
       FIELD_SET(*this, FIX::PartyRole);
+      FIELD_SET(*this, FIX::PartyRoleQualifier);
       FIELD_SET(*this, FIX::NoPartySubIDs);
       class NoPartySubIDs: public FIX::Group
       {
