@@ -104,7 +104,7 @@ public:
     if( msgTypeValue == "n" )
       return onMessage( (const XMLnonFIX&)message, sessionID );
     
-    else onMessage( message, sessionID );
+    return onMessage( message, sessionID );
   }
   
 void crack( Message& message, 
@@ -114,30 +114,32 @@ void crack( Message& message,
     message.getHeader().getField(msgType);
     std::string msgTypeValue = msgType.getValue();
     
+    
     if( msgTypeValue == "0" )
-      onMessage( (Heartbeat&)message, sessionID );
-    else
+      return onMessage( (Heartbeat&)message, sessionID );
+    
     if( msgTypeValue == "1" )
-      onMessage( (TestRequest&)message, sessionID );
-    else
+      return onMessage( (TestRequest&)message, sessionID );
+    
     if( msgTypeValue == "2" )
-      onMessage( (ResendRequest&)message, sessionID );
-    else
+      return onMessage( (ResendRequest&)message, sessionID );
+    
     if( msgTypeValue == "3" )
-      onMessage( (Reject&)message, sessionID );
-    else
+      return onMessage( (Reject&)message, sessionID );
+    
     if( msgTypeValue == "4" )
-      onMessage( (SequenceReset&)message, sessionID );
-    else
+      return onMessage( (SequenceReset&)message, sessionID );
+    
     if( msgTypeValue == "5" )
-      onMessage( (Logout&)message, sessionID );
-    else
+      return onMessage( (Logout&)message, sessionID );
+    
     if( msgTypeValue == "A" )
-      onMessage( (Logon&)message, sessionID );
-    else
+      return onMessage( (Logon&)message, sessionID );
+    
     if( msgTypeValue == "n" )
-      onMessage( (XMLnonFIX&)message, sessionID );
-    else onMessage( message, sessionID );
+      return onMessage( (XMLnonFIX&)message, sessionID );
+    
+    return onMessage( message, sessionID );
   }
 
   };
