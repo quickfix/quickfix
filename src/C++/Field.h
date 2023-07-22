@@ -568,12 +568,14 @@ typedef StringField TzTimeStampField;
 
 #define DEFINE_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
+static constexpr int tag = NUM; \
 NAME() : TOK##Field(NUM) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 }
 
 #define DEFINE_TRIVIAL_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
+static constexpr int tag = NUM; \
 NAME() : TOK##Field(NUM) {} \
 NAME(TYPE value) : TOK##Field(NUM, value) {} \
 }
@@ -589,6 +591,7 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
 #define DEFINE_FIELD_TIMECLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
+static constexpr int tag = NUM; \
 NAME() : TOK##Field(NUM, false) {} \
 NAME(int precision) : TOK##Field(NUM, precision) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \

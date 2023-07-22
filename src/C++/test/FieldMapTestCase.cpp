@@ -57,7 +57,6 @@ TEST(setMessageOrder)
   CHECK_EQUAL(1, pos1);
   CHECK_EQUAL(2, pos2);
   CHECK_EQUAL(3, pos3);
-
 }
 
 TEST(addGroupPtr_nullptr)

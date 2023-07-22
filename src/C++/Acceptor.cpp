@@ -109,17 +109,13 @@ Session* Acceptor::getSession
   if ( !message.setStringHeader( msg ) )
     return 0;
 
-  BeginString beginString;
-  SenderCompID clSenderCompID;
-  TargetCompID clTargetCompID;
-  MsgType msgType;
   try
   {
-    message.getHeader().getField( beginString );
-    message.getHeader().getField( clSenderCompID );
-    message.getHeader().getField( clTargetCompID );
-    message.getHeader().getField( msgType );
-    if ( msgType != "A" ) return 0;
+    auto const & beginString = message.getHeader().getField<BeginString>();
+    auto const & clSenderCompID = message.getHeader().getField<SenderCompID>();
+    auto const & clTargetCompID = message.getHeader().getField<TargetCompID>();
+    auto const & msgType = message.getHeader().getField<MsgType>();
+    if ( msgType != MsgType_Logon ) return 0;
 
     SenderCompID senderCompID( clTargetCompID );
     TargetCompID targetCompID( clSenderCompID );

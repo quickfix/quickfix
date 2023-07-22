@@ -164,6 +164,14 @@ public:
     return field;
   }
 
+  /// Get a field without type checking
+  template<typename T>
+  const T& getField()
+  const EXCEPT ( FieldNotFound )
+  {
+    return *reinterpret_cast<const T*>(&getFieldRef( T::tag ));
+  }
+
   /// Get a field without a field class
   const std::string& getField( int tag )
   const EXCEPT ( FieldNotFound )
