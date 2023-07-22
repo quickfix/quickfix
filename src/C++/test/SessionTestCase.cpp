@@ -244,7 +244,6 @@ private:
       }
     }
   }
-
 };
 
 void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
@@ -1974,8 +1973,8 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  //Force Heartbeat Interval Flow
-  process_sleep(2);
+  // Force Heartbeat Interval Flow
+  process_sleep(2.1);
 
   object->next();
   CHECK_EQUAL(4, object->getExpectedSenderNum());
@@ -2000,8 +1999,8 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatG
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  //Force Heartbeat Interval Flow
-  process_sleep(2);
+  // Force Heartbeat Interval Flow
+  process_sleep(2.1);
 
   object->next();
   CHECK_EQUAL(4, object->getExpectedSenderNum());
