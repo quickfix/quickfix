@@ -26,6 +26,7 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/File
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FileStore.h ${PROJECT_SOURCE_DIR}/include/quickfix/FileStore.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixFieldNumbers.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixFieldNumbers.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixFields.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixFields.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixCommonFields.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixCommonFields.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixValues.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixValues.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FlexLexer.h ${PROJECT_SOURCE_DIR}/include/quickfix/FlexLexer.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Group.h ${PROJECT_SOURCE_DIR}/include/quickfix/Group.h
