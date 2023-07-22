@@ -727,6 +727,7 @@ typedef StringConvertor MULTIPLECHARVALUE_CONVERTOR;
 typedef StringConvertor EXCHANGE_CONVERTOR;
 typedef UtcTimeStampConvertor UTCTIMESTAMP_CONVERTOR;
 typedef BoolConvertor BOOLEAN_CONVERTOR;
+typedef StringConvertor LOCALMKTTIME_CONVERTOR;
 typedef StringConvertor LOCALMKTDATE_CONVERTOR;
 typedef StringConvertor DATA_CONVERTOR;
 typedef DoubleConvertor FLOAT_CONVERTOR;
@@ -738,12 +739,15 @@ typedef UtcTimeOnlyConvertor UTCTIMEONLY_CONVERTOR;
 typedef IntConvertor NUMINGROUP_CONVERTOR;
 typedef DoubleConvertor PERCENTAGE_CONVERTOR;
 typedef IntConvertor SEQNUM_CONVERTOR;
+typedef IntConvertor TAGNUM_CONVERTOR;
 typedef IntConvertor LENGTH_CONVERTOR;
 typedef StringConvertor COUNTRY_CONVERTOR;
 typedef StringConvertor TZTIMEONLY_CONVERTOR;
 typedef StringConvertor TZTIMESTAMP_CONVERTOR;
 typedef StringConvertor XMLDATA_CONVERTOR;
 typedef StringConvertor LANGUAGE_CONVERTOR;
+typedef StringConvertor XID_CONVERTOR;
+typedef StringConvertor XIDREF_CONVERTOR;
 typedef CheckSumConvertor CHECKSUM_CONVERTOR;
 }
 

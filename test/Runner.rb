@@ -60,14 +60,15 @@ def printResult(test, exception)
 end
 
 def createProcess(file, address, port)
-  [1...10].each do
+  (1...30).each do
     | num |
     begin
-      socket = TCPSocket.open(address, port);
+      socket = TCPSocket.new(address, port);
     rescue
     end
+
     if socket == nil 
-      sleep 3
+      sleep 1
       next
     else
       socket.close

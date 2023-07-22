@@ -455,6 +455,8 @@ private:
         UTCTIMESTAMP_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Boolean:
         BOOLEAN_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::LocalMktTime:
+        LOCALMKTTIME_CONVERTOR::convert( field.getString() ); break;
       case TYPE::LocalMktDate:
         LOCALMKTDATE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Data:
@@ -477,6 +479,8 @@ private:
         PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::SeqNum:
         SEQNUM_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::TagNum:
+        TAGNUM_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Length:
         LENGTH_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Country:
@@ -489,6 +493,10 @@ private:
         XMLDATA_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Language:
         LANGUAGE_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Xid:
+        XID_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::XidRef:
+        XIDREF_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Unknown: break;
       }
     }

@@ -43,6 +43,7 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::BidType);
     FIELD_SET(*this, FIX::NumTickets);
     FIELD_SET(*this, FIX::Currency);
+    FIELD_SET(*this, FIX::CurrencyCodeSource);
     FIELD_SET(*this, FIX::SideValue1);
     FIELD_SET(*this, FIX::SideValue2);
     FIELD_SET(*this, FIX::NoBidDescriptors);

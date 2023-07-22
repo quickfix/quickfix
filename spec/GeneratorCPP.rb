@@ -189,27 +189,48 @@ class GeneratorCPP
   end
 
   def fieldsStart
+    @fc = createBaseFile("FixCommonFields.h")
     @ff = createBaseFile("FixFields.h")
     @fn = createBaseFile("FixFieldNumbers.h")
     @fv = createBaseFile("FixValues.h")
+    fixCommonFieldsStart(@fc)
     fixFieldsStart(@ff)
     fixFieldNumbersStart(@fn)
     fixFieldValuesStart(@fv)
   end
 
   def fields(name, number, type, values)
-    fixFields(@ff, name, number, type)
+    if(name == "BeginString" || name == "SenderCompID" || name == "TargetCompID")
+      fixFields(@fc, name, number, type)
+    else
+      fixFields(@ff, name, number, type)
+    end
     fixFieldNumbers(@fn, name, number, type)
     fixFieldValues(@fv, name, number, type, values)
   end
 
   def fieldsEnd
+    fixCommonFieldsEnd(@fc)
     fixFieldsEnd(@ff)
     fixFieldNumbersEnd(@fn)
     fixFieldValuesEnd(@fv)
+    @fc.close
     @ff.close
     @fn.close
     @fv.close
+  end
+
+  def fixCommonFieldsStart(f)
+    f.puts "#ifndef FIX_COMMON_FIELDS_H"
+    f.puts "#define FIX_COMMON_FIELDS_H"
+    f.puts
+    f.puts '#include "Field.h"'
+    f.puts
+    f.puts "#undef Yield"
+    f.puts
+    f.puts "namespace FIX"
+    f.puts "{"
+    f.indent
   end
 
   def fixFieldsStart(f)
@@ -217,8 +238,14 @@ class GeneratorCPP
     f.puts "#define FIX_FIELDS_H"
     f.puts
     f.puts '#include "Field.h"'
+    f.puts '#include "FixCommonFields.h"'
     f.puts
     f.puts "#undef Yield"
+    f.puts
+    f.puts "#ifdef ReplaceText"
+    f.puts '#pragma push("ReplaceText")'
+    f.puts "#undef ReplaceText"
+    f.puts "#endif"
     f.puts
     f.puts "namespace FIX"
     f.puts "{"
@@ -233,9 +260,20 @@ class GeneratorCPP
     end
   end
 
+  def fixCommonFieldsEnd(f)
+    f.dedent
+    f.puts "}"
+    f.puts "#endif //FIX_COMMON_FIELDS_H"
+  end
+
   def fixFieldsEnd(f)
     f.dedent
     f.puts "}"
+    f.puts
+    f.puts "#ifdef ReplaceText"
+    f.puts '#pragma pop("ReplaceText")'
+    f.puts "#endif"
+    f.puts
     f.puts "#endif //FIX_FIELDS_H"
   end
 

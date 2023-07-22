@@ -18,6 +18,7 @@ class Processor
     @fieldsT = @docT.elements["fix/fields"]
     @components = @doc.elements["fix/components"]
     populateFieldHash()
+    populateComponentHash()
     @generators = generators
   end
 
@@ -37,6 +38,14 @@ class Processor
     }
   end
 
+  def populateComponentHash
+    @componentHash = Hash.new
+    @components.elements.each("component") { |component|
+      name = component.attributes["name"]
+      @componentHash[name] = component
+    }
+  end
+
   def lookupField(name)
     result = @fieldHash[name]
     raise "field '#{name}' not found" if result == nil
@@ -44,7 +53,7 @@ class Processor
   end
 
   def lookupComponent(name)
-    result = @components.elements["component[@name='" + name + "']"]
+    result = @componentHash[name]
     raise "component '#{name}' not found" if result == nil
     return result
   end

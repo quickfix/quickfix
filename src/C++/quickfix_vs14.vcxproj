@@ -616,6 +616,7 @@
     <ClInclude Include="fix50\UserRequest.h" />
     <ClInclude Include="fix50\UserResponse.h" />
     <ClInclude Include="FixFieldNumbers.h" />
+    <ClInclude Include="FixCommonFields.h" />
     <ClInclude Include="FixFields.h" />
     <ClInclude Include="fixt11\Heartbeat.h" />
     <ClInclude Include="fixt11\Logon.h" />
