@@ -47,9 +47,14 @@ Message::Message()
   
 }
 
-Message::Message(const message_order &hdrOrder, const message_order &trlOrder, const message_order& order)
-: FieldMap(order), m_header(hdrOrder),
-  m_trailer(trlOrder), m_validStructure( true ) {}
+Message::Message( const message_order &headerOrder, const message_order &trailerOrder, const message_order& order )
+: FieldMap( order ), 
+  m_header( headerOrder ),
+  m_trailer( trailerOrder ), 
+  m_validStructure( true ) 
+{
+
+}
 
 Message::Message( const std::string& string, bool validate )
 EXCEPT ( InvalidMessage )
@@ -77,32 +82,36 @@ EXCEPT ( InvalidMessage )
 : m_validStructure( true )
 , m_tag( 0 )
 {
-    setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
+  setString( string, validate, &sessionDataDictionary, &applicationDataDictionary );
 }
 
-Message::Message( const message_order &hdrOrder,
-                  const message_order &trlOrder,
+Message::Message( const message_order &headerOrder,
+                  const message_order &trailerOrder,
                   const message_order& order,
                   const std::string& string,
                   const DataDictionary& dataDictionary,
                   bool validate )
 EXCEPT ( InvalidMessage )
-: FieldMap(order), m_header(hdrOrder),
-  m_trailer(trlOrder), m_validStructure( true )
+: FieldMap( order ), 
+  m_header( headerOrder ),
+  m_trailer( trailerOrder ), 
+  m_validStructure( true )
 {
   setString( string, validate, &dataDictionary, &dataDictionary );
 }
 
-Message::Message( const message_order &hdrOrder,
-                  const message_order &trlOrder,
+Message::Message( const message_order &headerOrder,
+                  const message_order &trailerOrder,
                   const message_order& order,
                   const std::string& string,
                   const DataDictionary& sessionDataDictionary,
                   const DataDictionary& applicationDataDictionary,
                   bool validate )
 EXCEPT ( InvalidMessage )
-: FieldMap(order), m_header(hdrOrder),
-  m_trailer(trlOrder), m_validStructure( true )
+: FieldMap( order), 
+  m_header( headerOrder),
+  m_trailer( trailerOrder ), 
+  m_validStructure( true )
 {
   setStringHeader( string );
   if( isAdmin() )
