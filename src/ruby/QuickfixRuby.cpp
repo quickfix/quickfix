@@ -3228,10 +3228,13 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include <SocketAcceptor.h>
 #include <DataDictionary.h>
 #include <SocketMonitor.h>
+#ifdef HAVE_SSL
 #include <SSLSocketAcceptor.h>
 #include <SSLSocketInitiator.h>
 #include <SSLSocketConnection.h>
+#else
 #include <SSLStubs.h>
+#endif
 #include <functional>
 #ifdef SWIGPYTHON
 #include "datetime.h"
