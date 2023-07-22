@@ -47,10 +47,9 @@ public:
     FIX::PossResend possResend( false );
     message.getHeader().getFieldIfSet( possResend );
 
-    FIX::ClOrdID clOrdID;
-    message.getField( clOrdID );
+    auto const & clOrdID = message.getField<FIX::ClOrdID>();
 
-    std::pair < FIX::ClOrdID, FIX::SessionID > pair =
+    std::pair<FIX::ClOrdID, FIX::SessionID> pair =
       std::make_pair( clOrdID, sessionID );
 
     if ( possResend == true )
@@ -185,15 +184,13 @@ class Application : public FIX::Application
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
   EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) 
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField( msgType );
+    auto const& msgType = message.getHeader().getField<FIX::MsgType>();
     if(msgType == FIX::MsgType_Logon)
     {
-      FIX::DefaultApplVerID defaultApplVerID;
-      if(message.isSetField(defaultApplVerID))
+      if(message.isSetField( FIX::FIELD::DefaultApplVerID ))
       {
-        message.getField(defaultApplVerID);
-        FIX::Session::lookupSession(sessionID)->setSenderDefaultApplVerID(defaultApplVerID);
+        auto const & defaultApplVerID = message.getField<FIX::DefaultApplVerID>();
+        FIX::Session::lookupSession(sessionID)->setSenderDefaultApplVerID( defaultApplVerID );
       }
     }
   }
@@ -201,8 +198,7 @@ class Application : public FIX::Application
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField( msgType );
+    auto const& msgType = message.getHeader().getField<FIX::MsgType>();
     if(msgType == FIX::MsgType_Email)
     {
       FIX::Message echo = message;

@@ -464,7 +464,7 @@ public:
   void crack( const Message& message, 
               const FIX::SessionID& sessionID )
   {
-    const std::string& msgTypeValue 
+    const std::string & msgTypeValue 
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
     
@@ -789,9 +789,8 @@ public:
 void crack( Message& message, 
             const FIX::SessionID& sessionID )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField(msgType);
-    std::string msgTypeValue = msgType.getValue();
+    const std::string & msgTypeValue 
+      = message.getHeader().getField( FIX::FIELD::MsgType );
     
     
     if( msgTypeValue == "6" )

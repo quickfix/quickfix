@@ -104,7 +104,7 @@ public:
   void crack( const Message&amp; message, 
               const FIX::SessionID&amp; sessionID )
   {
-    const std::string&amp; msgTypeValue 
+    const std::string &amp; msgTypeValue 
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
     <xsl:for-each select="//fix/messages/message">
@@ -117,9 +117,8 @@ public:
 void crack( Message&amp; message, 
             const FIX::SessionID&amp; sessionID )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField(msgType);
-    std::string msgTypeValue = msgType.getValue();
+    const std::string &amp; msgTypeValue 
+      = message.getHeader().getField( FIX::FIELD::MsgType );
     
     <xsl:for-each select="//fix/messages/message">
     if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
