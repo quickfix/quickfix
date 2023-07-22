@@ -6118,4 +6118,9 @@ namespace FIX
   DEFINE_INT(MultiJurisdictionReportingIndicator);
   DEFINE_INT(SelfMatchPreventionInstruction);
 }
+
+#ifdef ReplaceText
+#pragma pop("ReplaceText")
+#endif
+
 #endif //FIX_FIELDS_H

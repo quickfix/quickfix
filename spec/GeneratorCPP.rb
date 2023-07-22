@@ -263,17 +263,17 @@ class GeneratorCPP
   def fixCommonFieldsEnd(f)
     f.dedent
     f.puts "}"
-    f.puts
-    f.puts "#ifdef ReplaceText"
-    f.puts '#pragma pop("ReplaceText")'
-    f.puts "#endif"
-    f.puts
-    f.puts "#endif //FIX_FIELDS_H"
+    f.puts "#endif //FIX_COMMON_FIELDS_H"
   end
 
   def fixFieldsEnd(f)
     f.dedent
     f.puts "}"
+    f.puts
+    f.puts "#ifdef ReplaceText"
+    f.puts '#pragma pop("ReplaceText")'
+    f.puts "#endif"
+    f.puts
     f.puts "#endif //FIX_FIELDS_H"
   end
 
