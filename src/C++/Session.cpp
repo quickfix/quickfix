@@ -526,7 +526,7 @@ bool Session::sendRaw( Message& message, int num )
     {
       m_application.toAdmin( message, m_sessionID );
 
-      if( msgType == "A" && !m_state.receivedReset() )
+      if( msgType == MsgType_Logon && !m_state.receivedReset() )
       {
         ResetSeqNumFlag resetSeqNumFlag( false );
         message.getFieldIfSet(resetSeqNumFlag);
@@ -545,8 +545,10 @@ bool Session::sendRaw( Message& message, int num )
         persist( message, messageString );
 
       if (
-        msgType == "A" || msgType == "5"
-        || msgType == "2" || msgType == "4"
+        msgType == MsgType_Logon 
+        || msgType == MsgType_Logout
+        || msgType == MsgType_ResendRequest 
+        || msgType == MsgType_SequenceReset
         || isLoggedOn() )
       {
         send( messageString );
@@ -650,10 +652,10 @@ EXCEPT ( IOException )
 
 void Session::generateLogon()
 {
-  std::unique_ptr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Logon ) );
   Message & logon = *pMsg;
 
-  logon.getHeader().setField( MsgType( "A" ) );
+  logon.getHeader().setField( MsgType( MsgType_Logon ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
   if( m_sessionID.isFIXT() )
@@ -675,7 +677,7 @@ void Session::generateLogon()
 
 void Session::generateLogon( const Message& aLogon )
 {
-  std::unique_ptr<Message> pMsg(newMessage("A"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Logon ) );
   Message & logon = *pMsg;
 
   EncryptMethod encryptMethod;
@@ -686,7 +688,7 @@ void Session::generateLogon( const Message& aLogon )
   if( m_state.receivedReset() )
     logon.setField( ResetSeqNumFlag(true) );
   aLogon.getField( heartBtInt );
-  logon.getHeader().setField( MsgType( "A" ) );
+  logon.getHeader().setField( MsgType( MsgType_Logon ) );
   logon.setField( heartBtInt );
   fill( logon.getHeader() );
   sendRaw( logon );
@@ -695,7 +697,7 @@ void Session::generateLogon( const Message& aLogon )
 
 void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
 {
-  std::unique_ptr<Message> pMsg(newMessage("2"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_ResendRequest ) );
   Message & resendRequest = *pMsg;
 
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
@@ -704,7 +706,7 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
     endSeqNo = 0;
   else if( beginString <= FIX::BeginString_FIX41 )
     endSeqNo = 999999;
-  resendRequest.getHeader().setField( MsgType( "2" ) );
+  resendRequest.getHeader().setField( MsgType( MsgType_ResendRequest ) );
   resendRequest.setField( beginSeqNo );
   resendRequest.setField( endSeqNo );
   fill( resendRequest.getHeader() );
@@ -720,11 +722,11 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
 void Session::generateSequenceReset
 ( int beginSeqNo, int endSeqNo )
 {
-  std::unique_ptr<Message> pMsg(newMessage("4"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_SequenceReset ) );
   Message & sequenceReset = *pMsg;
 
   NewSeqNo newSeqNo( endSeqNo );
-  sequenceReset.getHeader().setField( MsgType( "4" ) );
+  sequenceReset.getHeader().setField( MsgType( MsgType_SequenceReset ) );
   sequenceReset.getHeader().setField( PossDupFlag( true ) );
   sequenceReset.setField( newSeqNo );
   fill( sequenceReset.getHeader() );
@@ -741,20 +743,20 @@ void Session::generateSequenceReset
 
 void Session::generateHeartbeat()
 {
-  std::unique_ptr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Heartbeat ) );
   Message & heartbeat = *pMsg;
 
-  heartbeat.getHeader().setField( MsgType( "0" ) );
+  heartbeat.getHeader().setField( MsgType( MsgType_Heartbeat ) );
   fill( heartbeat.getHeader() );
   sendRaw( heartbeat );
 }
 
 void Session::generateHeartbeat( const Message& testRequest )
 {
-  std::unique_ptr<Message> pMsg(newMessage("0"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Heartbeat ) );
   Message & heartbeat = *pMsg;
 
-  heartbeat.getHeader().setField( MsgType( "0" ) );
+  heartbeat.getHeader().setField( MsgType( MsgType_Heartbeat ) );
   fill( heartbeat.getHeader() );
   try
   {
@@ -769,10 +771,10 @@ void Session::generateHeartbeat( const Message& testRequest )
 
 void Session::generateTestRequest( const std::string& id )
 {
-  std::unique_ptr<Message> pMsg(newMessage("1"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_TestRequest ) );
   Message & testRequest = *pMsg;
 
-  testRequest.getHeader().setField( MsgType( "1" ) );
+  testRequest.getHeader().setField( MsgType( MsgType_TestRequest ) );
   fill( testRequest.getHeader() );
   TestReqID testReqID( id );
   testRequest.setField( testReqID );
@@ -784,10 +786,10 @@ void Session::generateReject( const Message& message, int err, int field )
 {
   std::string beginString = m_sessionID.getBeginString();
 
-  std::unique_ptr<Message> pMsg(newMessage("3"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Reject ) );
   Message & reject = *pMsg;
 
-  reject.getHeader().setField( MsgType( "3" ) );
+  reject.getHeader().setField( MsgType( MsgType_Reject ) );
   reject.reverseRoute( message.getHeader() );
   fill( reject.getHeader() );
 
@@ -866,7 +868,7 @@ void Session::generateReject( const Message& message, int err, int field )
   {
     populateRejectReason( reject, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString()
-         + " Rejected: " + reason );
+                     + " Rejected: " + reason );
   }
   else
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
@@ -908,7 +910,7 @@ void Session::generateReject( const Message& message, const std::string& str )
 
 void Session::generateBusinessReject( const Message& message, int err, int field )
 {
-  std::unique_ptr<Message> pMsg(newMessage("j"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_BusinessMessageReject ) );
   Message & reject = *pMsg;
 
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
@@ -963,7 +965,7 @@ void Session::generateBusinessReject( const Message& message, int err, int field
   {
     populateRejectReason( reject, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString()
-         + " Rejected: " + reason );
+                     + " Rejected: " + reason );
   }
   else
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
@@ -973,7 +975,7 @@ void Session::generateBusinessReject( const Message& message, int err, int field
 
 void Session::generateLogout( const std::string& text )
 {
-  std::unique_ptr<Message> pMsg(newMessage("5"));
+  std::unique_ptr<Message> pMsg( newMessage( MsgType_Logout ) );
   Message & logout = *pMsg;
 
   logout.getHeader().setField( MsgType( MsgType_Logout ) );
