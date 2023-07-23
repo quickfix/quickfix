@@ -35,9 +35,11 @@
 #include "Application.h"
 #include "Mutex.h"
 #include "Log.h"
+
 #include <utility>
 #include <map>
 #include <queue>
+#include <functional>
 
 namespace FIX
 {
@@ -45,11 +47,14 @@ namespace FIX
 class Session
 {
 public:
-  Session( Application&, MessageStoreFactory&,
+  Session( std::function<UtcTimeStamp()> timestamper,
+           Application&, 
+           MessageStoreFactory&,
            const SessionID&,
            const DataDictionaryProvider&,
            const TimeRange&,
-           int heartBtInt, LogFactory* pLogFactory );
+           int heartBtInt, 
+           LogFactory* pLogFactory );
   virtual ~Session();
 
   void logon() 
@@ -222,7 +227,7 @@ public:
 
   void setResponder( Responder* pR )
   {
-    if( !checkSessionTime(UtcTimeStamp()) )
+    if( !checkSessionTime(m_timestamper()) )
       reset();
     m_pResponder = pR;
   }
@@ -326,6 +331,7 @@ private:
 
   Message newMessage( const MsgType & msgType ) const;
 
+  std::function<UtcTimeStamp()> m_timestamper;
   Application& m_application;
   SessionID m_sessionID;
   TimeRange m_sessionTime;

@@ -1440,6 +1440,7 @@ _quickfix.Group_swigregister(Group)
 class BeginString(StringField):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
+    tag = _quickfix.BeginString_tag
 
     def __init__(self, *args):
         _quickfix.BeginString_swiginit(self, _quickfix.new_BeginString(*args))
@@ -1451,6 +1452,7 @@ _quickfix.BeginString_swigregister(BeginString)
 class SenderCompID(StringField):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
+    tag = _quickfix.SenderCompID_tag
 
     def __init__(self, *args):
         _quickfix.SenderCompID_swiginit(self, _quickfix.new_SenderCompID(*args))
@@ -1462,6 +1464,7 @@ _quickfix.SenderCompID_swigregister(SenderCompID)
 class TargetCompID(StringField):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
+    tag = _quickfix.TargetCompID_tag
 
     def __init__(self, *args):
         _quickfix.TargetCompID_swiginit(self, _quickfix.new_TargetCompID(*args))
@@ -7537,8 +7540,8 @@ class Session(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, arg2, arg3, arg4, arg5, arg6, heartBtInt, pLogFactory):
-        _quickfix.Session_swiginit(self, _quickfix.new_Session(arg2, arg3, arg4, arg5, arg6, heartBtInt, pLogFactory))
+    def __init__(self, timestamper, arg3, arg4, arg5, arg6, arg7, heartBtInt, pLogFactory):
+        _quickfix.Session_swiginit(self, _quickfix.new_Session(timestamper, arg3, arg4, arg5, arg6, arg7, heartBtInt, pLogFactory))
     __swig_destroy__ = _quickfix.delete_Session
 
     def logon(self):

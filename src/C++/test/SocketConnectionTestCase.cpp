@@ -94,7 +94,7 @@ SUITE(SocketConnectionTests)
   public:
     TestSession(Application& app, MessageStoreFactory& factory, const SessionID& sessionId,
         DataDictionaryProvider& provider, const TimeRange& timeRange, int heartBtInt)
-    : Session(app, factory, sessionId, provider, timeRange, heartBtInt, nullptr) {};
+    : Session([](){ return UtcTimeStamp(); }, app, factory, sessionId, provider, timeRange, heartBtInt, nullptr) {};
     ~TestSession(){};
 
     virtual void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false ) {

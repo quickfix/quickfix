@@ -2302,29 +2302,30 @@ namespace Swig {
 #define SWIGTYPE_p_p_FIX__DataDictionary swig_types[127]
 #define SWIGTYPE_p_size_type swig_types[128]
 #define SWIGTYPE_p_ssize_t swig_types[129]
-#define SWIGTYPE_p_std__istream swig_types[130]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[131]
-#define SWIGTYPE_p_std__logic_error swig_types[132]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[133]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[134]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[135]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[136]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[137]
-#define SWIGTYPE_p_std__ostream swig_types[138]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[139]
-#define SWIGTYPE_p_std__string swig_types[140]
-#define SWIGTYPE_p_std__string__size_type swig_types[141]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[142]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[143]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[144]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[145]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[146]
-#define SWIGTYPE_p_swig__Iterator swig_types[147]
-#define SWIGTYPE_p_tm swig_types[148]
-#define SWIGTYPE_p_value_type swig_types[149]
-#define SWIGTYPE_p_void swig_types[150]
-static swig_type_info *swig_types[152];
-static swig_module_info swig_module = {swig_types, 151, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[130]
+#define SWIGTYPE_p_std__istream swig_types[131]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[132]
+#define SWIGTYPE_p_std__logic_error swig_types[133]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[134]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[135]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[136]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[137]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[138]
+#define SWIGTYPE_p_std__ostream swig_types[139]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[140]
+#define SWIGTYPE_p_std__string swig_types[141]
+#define SWIGTYPE_p_std__string__size_type swig_types[142]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[143]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[144]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[145]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[146]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[147]
+#define SWIGTYPE_p_swig__Iterator swig_types[148]
+#define SWIGTYPE_p_tm swig_types[149]
+#define SWIGTYPE_p_value_type swig_types[150]
+#define SWIGTYPE_p_void swig_types[151]
+static swig_type_info *swig_types[153];
+static swig_module_info swig_module = {swig_types, 152, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -28000,7 +28001,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_FieldMap_getField__SWIG_1(int argc, VALUE *argv, VALUE self) {
+_wrap_FieldMap_getField__SWIG_2(int argc, VALUE *argv, VALUE self) {
   FIX::FieldMap *arg1 = (FIX::FieldMap *) 0 ;
   int arg2 ;
   void *argp1 = 0 ;
@@ -28078,7 +28079,7 @@ SWIGINTERN VALUE _wrap_FieldMap_getField(int nargs, VALUE *args, VALUE self) {
         _v = SWIG_CheckState(res);
       }
       if (_v) {
-        return _wrap_FieldMap_getField__SWIG_1(nargs, args, self);
+        return _wrap_FieldMap_getField__SWIG_2(nargs, args, self);
       }
     }
   }
@@ -32747,10 +32748,10 @@ fail:
     "    Message.new(std::string const &string, FIX::DataDictionary const &dataDictionary)\n"
     "    Message.new(std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary, bool validate)\n"
     "    Message.new(std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary)\n"
-    "    Message.new(message_order const &hdrOrder, message_order const &trlOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &dataDictionary, bool validate)\n"
-    "    Message.new(message_order const &hdrOrder, message_order const &trlOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &dataDictionary)\n"
-    "    Message.new(message_order const &hdrOrder, message_order const &trlOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary, bool validate)\n"
-    "    Message.new(message_order const &hdrOrder, message_order const &trlOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary)\n"
+    "    Message.new(message_order const &headerOrder, message_order const &trailerOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &dataDictionary, bool validate)\n"
+    "    Message.new(message_order const &headerOrder, message_order const &trailerOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &dataDictionary)\n"
+    "    Message.new(message_order const &headerOrder, message_order const &trailerOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary, bool validate)\n"
+    "    Message.new(message_order const &headerOrder, message_order const &trailerOrder, message_order const &order, std::string const &string, FIX::DataDictionary const &sessionDataDictionary, FIX::DataDictionary const &applicationDataDictionary)\n"
     "    Message.new(FIX::Message const &)\n"
     "    Message.new(FIX::Message &&)\n");
   
@@ -94204,87 +94205,101 @@ _wrap_Session_allocate(int argc, VALUE *argv, VALUE self)
 
 SWIGINTERN VALUE
 _wrap_new_Session(int argc, VALUE *argv, VALUE self) {
-  Application *arg1 = 0 ;
-  MessageStoreFactory *arg2 = 0 ;
-  FIX::SessionID *arg3 = 0 ;
-  DataDictionaryProvider *arg4 = 0 ;
-  TimeRange *arg5 = 0 ;
-  int arg6 ;
-  LogFactory *arg7 = (LogFactory *) 0 ;
-  void *argp1 = 0 ;
+  SwigValueWrapper< std::function< FIX::UtcTimeStamp () > > arg1 ;
+  Application *arg2 = 0 ;
+  MessageStoreFactory *arg3 = 0 ;
+  FIX::SessionID *arg4 = 0 ;
+  DataDictionaryProvider *arg5 = 0 ;
+  TimeRange *arg6 = 0 ;
+  int arg7 ;
+  LogFactory *arg8 = (LogFactory *) 0 ;
+  void *argp1 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  void *argp3 ;
+  void *argp3 = 0 ;
   int res3 = 0 ;
   void *argp4 ;
   int res4 = 0 ;
   void *argp5 ;
   int res5 = 0 ;
-  int val6 ;
-  int ecode6 = 0 ;
-  void *argp7 = 0 ;
-  int res7 = 0 ;
+  void *argp6 ;
+  int res6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  void *argp8 = 0 ;
+  int res8 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::Session";
   FIX::Session *result = 0 ;
   
-  if ((argc < 7) || (argc > 7)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 7)",argc); SWIG_fail;
+  if ((argc < 8) || (argc > 8)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 8)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_Application,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Application &","Session", 1, argv[0] )); 
+  {
+    res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::function< FIX::UtcTimeStamp () >","Session", 1, argv[0] )); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::function< FIX::UtcTimeStamp () >","Session", 1, argv[0]));
+    } else {
+      arg1 = *(reinterpret_cast< std::function< FIX::UtcTimeStamp () > * >(argp1));
+    }
   }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "Application &","Session", 1, argv[0])); 
-  }
-  arg1 = reinterpret_cast< Application * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_MessageStoreFactory,  0 );
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_Application,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "MessageStoreFactory &","Session", 2, argv[1] )); 
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "Application &","Session", 2, argv[1] )); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "MessageStoreFactory &","Session", 2, argv[1])); 
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "Application &","Session", 2, argv[1])); 
   }
-  arg2 = reinterpret_cast< MessageStoreFactory * >(argp2);
-  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionID,  0 );
+  arg2 = reinterpret_cast< Application * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_MessageStoreFactory,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionID const &","Session", 3, argv[2] )); 
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "MessageStoreFactory &","Session", 3, argv[2] )); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","Session", 3, argv[2])); 
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "MessageStoreFactory &","Session", 3, argv[2])); 
   }
-  arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
-  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_DataDictionaryProvider,  0 );
+  arg3 = reinterpret_cast< MessageStoreFactory * >(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_FIX__SessionID,  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "DataDictionaryProvider const &","Session", 4, argv[3] )); 
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "FIX::SessionID const &","Session", 4, argv[3] )); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "DataDictionaryProvider const &","Session", 4, argv[3])); 
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","Session", 4, argv[3])); 
   }
-  arg4 = reinterpret_cast< DataDictionaryProvider * >(argp4);
-  res5 = SWIG_ConvertPtr(argv[4], &argp5, SWIGTYPE_p_TimeRange,  0 );
+  arg4 = reinterpret_cast< FIX::SessionID * >(argp4);
+  res5 = SWIG_ConvertPtr(argv[4], &argp5, SWIGTYPE_p_DataDictionaryProvider,  0 );
   if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "TimeRange const &","Session", 5, argv[4] )); 
+    SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "DataDictionaryProvider const &","Session", 5, argv[4] )); 
   }
   if (!argp5) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "TimeRange const &","Session", 5, argv[4])); 
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "DataDictionaryProvider const &","Session", 5, argv[4])); 
   }
-  arg5 = reinterpret_cast< TimeRange * >(argp5);
-  ecode6 = SWIG_AsVal_int(argv[5], &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), Ruby_Format_TypeError( "", "int","Session", 6, argv[5] ));
+  arg5 = reinterpret_cast< DataDictionaryProvider * >(argp5);
+  res6 = SWIG_ConvertPtr(argv[5], &argp6, SWIGTYPE_p_TimeRange,  0 );
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), Ruby_Format_TypeError( "", "TimeRange const &","Session", 6, argv[5] )); 
+  }
+  if (!argp6) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "TimeRange const &","Session", 6, argv[5])); 
+  }
+  arg6 = reinterpret_cast< TimeRange * >(argp6);
+  ecode7 = SWIG_AsVal_int(argv[6], &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), Ruby_Format_TypeError( "", "int","Session", 7, argv[6] ));
   } 
-  arg6 = static_cast< int >(val6);
-  res7 = SWIG_ConvertPtr(argv[6], &argp7,SWIGTYPE_p_LogFactory, 0 |  0 );
-  if (!SWIG_IsOK(res7)) {
-    SWIG_exception_fail(SWIG_ArgError(res7), Ruby_Format_TypeError( "", "LogFactory *","Session", 7, argv[6] )); 
+  arg7 = static_cast< int >(val7);
+  res8 = SWIG_ConvertPtr(argv[7], &argp8,SWIGTYPE_p_LogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res8)) {
+    SWIG_exception_fail(SWIG_ArgError(res8), Ruby_Format_TypeError( "", "LogFactory *","Session", 8, argv[7] )); 
   }
-  arg7 = reinterpret_cast< LogFactory * >(argp7);
+  arg8 = reinterpret_cast< LogFactory * >(argp8);
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (FIX::Session *)new FIX::Session(*arg1,*arg2,(FIX::SessionID const &)*arg3,(DataDictionaryProvider const &)*arg4,(TimeRange const &)*arg5,arg6,arg7);
+      result = (FIX::Session *)new FIX::Session(arg1,*arg2,*arg3,(FIX::SessionID const &)*arg4,(DataDictionaryProvider const &)*arg5,(TimeRange const &)*arg6,arg7,arg8);
           DATA_PTR(self) = result;
           return self;
         fail:
@@ -98010,11 +98025,11 @@ SWIGINTERN VALUE _wrap_Session_next(int nargs, VALUE *args, VALUE self) {
 fail:
   Ruby_Format_OverloadedError( argc, 5, "Session.next", 
     "    void Session.next()\n"
-    "    void Session.next(FIX::UtcTimeStamp const &timeStamp)\n"
-    "    void Session.next(std::string const &, FIX::UtcTimeStamp const &timeStamp, bool queued)\n"
-    "    void Session.next(std::string const &, FIX::UtcTimeStamp const &timeStamp)\n"
-    "    void Session.next(FIX::Message const &, FIX::UtcTimeStamp const &timeStamp, bool queued)\n"
-    "    void Session.next(FIX::Message const &, FIX::UtcTimeStamp const &timeStamp)\n");
+    "    void Session.next(FIX::UtcTimeStamp const &now)\n"
+    "    void Session.next(std::string const &, FIX::UtcTimeStamp const &now, bool queued)\n"
+    "    void Session.next(std::string const &, FIX::UtcTimeStamp const &now)\n"
+    "    void Session.next(FIX::Message const &, FIX::UtcTimeStamp const &now, bool queued)\n"
+    "    void Session.next(FIX::Message const &, FIX::UtcTimeStamp const &now)\n");
   
   return Qnil;
 }
@@ -110643,6 +110658,7 @@ static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_or
 static swig_type_info _swigt__p_p_FIX__DataDictionary = {"_p_p_FIX__DataDictionary", "FIX::DataDictionary **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_size_type = {"_p_size_type", "size_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ssize_t = {"_p_ssize_t", "ssize_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t = {"_p_std__functionT_FIX__UtcTimeStamp_fF_t", "std::function< FIX::UtcTimeStamp () > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__istream = {"_p_std__istream", "std::istream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__lessT_FIX__SessionID_t = {"_p_std__lessT_FIX__SessionID_t", "std::less< FIX::SessionID > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__logic_error = {"_p_std__logic_error", "std::logic_error *", 0, 0, (void*)0, 0};
@@ -110796,6 +110812,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_FIX__DataDictionary,
   &_swigt__p_size_type,
   &_swigt__p_ssize_t,
+  &_swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t,
   &_swigt__p_std__istream,
   &_swigt__p_std__lessT_FIX__SessionID_t,
   &_swigt__p_std__logic_error,
@@ -110949,6 +110966,7 @@ static swig_cast_info _swigc__p_message_order[] = {  {&_swigt__p_message_order, 
 static swig_cast_info _swigc__p_p_FIX__DataDictionary[] = {  {&_swigt__p_p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_size_type[] = {  {&_swigt__p_size_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ssize_t[] = {  {&_swigt__p_ssize_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__functionT_FIX__UtcTimeStamp_fF_t[] = {  {&_swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__istream[] = {  {&_swigt__p_std__istream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__lessT_FIX__SessionID_t[] = {  {&_swigt__p_std__lessT_FIX__SessionID_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__logic_error[] = {  {&_swigt__p_FIX__RequiredTagMissing, _p_FIX__RequiredTagMissingTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__SocketSendFailed, _p_FIX__SocketSendFailedTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__SocketRecvFailed, _p_FIX__SocketRecvFailedTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__InvalidTagNumber, _p_FIX__InvalidTagNumberTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__RejectLogon, _p_FIX__RejectLogonTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__IncorrectDataFormat, _p_FIX__IncorrectDataFormatTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__TagNotDefinedForMessage, _p_FIX__TagNotDefinedForMessageTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__InvalidMessage, _p_FIX__InvalidMessageTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__DoNotSend, _p_FIX__DoNotSendTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__RuntimeError, _p_FIX__RuntimeErrorTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__MessageParseError, _p_FIX__MessageParseErrorTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__DuplicateFieldNumber, _p_FIX__DuplicateFieldNumberTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__FieldNotFound, _p_FIX__FieldNotFoundTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__DataDictionaryNotFound, _p_FIX__DataDictionaryNotFoundTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__SessionNotFound, _p_FIX__SessionNotFoundTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__Exception, _p_FIX__ExceptionTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__IOException, _p_FIX__IOExceptionTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__SocketException, _p_FIX__SocketExceptionTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__ConfigError, _p_FIX__ConfigErrorTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__InvalidMessageType, _p_FIX__InvalidMessageTypeTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__UnsupportedMessageType, _p_FIX__UnsupportedMessageTypeTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__UnsupportedVersion, _p_FIX__UnsupportedVersionTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__IncorrectTagValue, _p_FIX__IncorrectTagValueTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__NoTagValue, _p_FIX__NoTagValueTo_p_std__logic_error, 0, 0},  {&_swigt__p_std__logic_error, 0, 0, 0},  {&_swigt__p_FIX__SocketCloseFailed, _p_FIX__SocketCloseFailedTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__TagOutOfOrder, _p_FIX__TagOutOfOrderTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__RepeatedTag, _p_FIX__RepeatedTagTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__FieldConvertError, _p_FIX__FieldConvertErrorTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__IncorrectMessageStructure, _p_FIX__IncorrectMessageStructureTo_p_std__logic_error, 0, 0},  {&_swigt__p_FIX__RepeatingGroupCountMismatch, _p_FIX__RepeatingGroupCountMismatchTo_p_std__logic_error, 0, 0},{0, 0, 0, 0}};
@@ -111102,6 +111120,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_FIX__DataDictionary,
   _swigc__p_size_type,
   _swigc__p_ssize_t,
+  _swigc__p_std__functionT_FIX__UtcTimeStamp_fF_t,
   _swigc__p_std__istream,
   _swigc__p_std__lessT_FIX__SessionID_t,
   _swigc__p_std__logic_error,
@@ -112128,6 +112147,7 @@ SWIGEXPORT void Init_quickfix(void) {
   SWIG_TypeClientData(SWIGTYPE_p_FIX__BeginString, (void *) &SwigClassBeginString);
   rb_define_alloc_func(SwigClassBeginString.klass, _wrap_BeginString_allocate);
   rb_define_method(SwigClassBeginString.klass, "initialize", VALUEFUNC(_wrap_new_BeginString), -1);
+  rb_define_const(SwigClassBeginString.klass, "Tag", SWIG_From_int(static_cast< int >(FIX::BeginString::tag)));
   SwigClassBeginString.mark = 0;
   SwigClassBeginString.destroy = (void (*)(void *)) free_FIX_BeginString;
   SwigClassBeginString.trackObjects = 0;
@@ -112136,6 +112156,7 @@ SWIGEXPORT void Init_quickfix(void) {
   SWIG_TypeClientData(SWIGTYPE_p_FIX__SenderCompID, (void *) &SwigClassSenderCompID);
   rb_define_alloc_func(SwigClassSenderCompID.klass, _wrap_SenderCompID_allocate);
   rb_define_method(SwigClassSenderCompID.klass, "initialize", VALUEFUNC(_wrap_new_SenderCompID), -1);
+  rb_define_const(SwigClassSenderCompID.klass, "Tag", SWIG_From_int(static_cast< int >(FIX::SenderCompID::tag)));
   SwigClassSenderCompID.mark = 0;
   SwigClassSenderCompID.destroy = (void (*)(void *)) free_FIX_SenderCompID;
   SwigClassSenderCompID.trackObjects = 0;
@@ -112144,6 +112165,7 @@ SWIGEXPORT void Init_quickfix(void) {
   SWIG_TypeClientData(SWIGTYPE_p_FIX__TargetCompID, (void *) &SwigClassTargetCompID);
   rb_define_alloc_func(SwigClassTargetCompID.klass, _wrap_TargetCompID_allocate);
   rb_define_method(SwigClassTargetCompID.klass, "initialize", VALUEFUNC(_wrap_new_TargetCompID), -1);
+  rb_define_const(SwigClassTargetCompID.klass, "Tag", SWIG_From_int(static_cast< int >(FIX::TargetCompID::tag)));
   SwigClassTargetCompID.mark = 0;
   SwigClassTargetCompID.destroy = (void (*)(void *)) free_FIX_TargetCompID;
   SwigClassTargetCompID.trackObjects = 0;

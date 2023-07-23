@@ -38,18 +38,21 @@ Mutex Session::s_mutex;
 #define LOGEX( method ) try { method; } catch( std::exception& e ) \
   { m_state.onEvent( e.what() ); }
 
-Session::Session( Application& application,
+Session::Session( std::function<UtcTimeStamp()> timestamper,
+                  Application& application,
                   MessageStoreFactory& messageStoreFactory,
                   const SessionID& sessionID,
                   const DataDictionaryProvider& dataDictionaryProvider,
                   const TimeRange& sessionTime,
-                  int heartBtInt, LogFactory* pLogFactory )
-: m_application( application ),
+                  int heartBtInt, 
+                  LogFactory* pLogFactory )
+: m_timestamper( std::move(timestamper) ),
+  m_application( application ),
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
   m_logonTime( sessionTime ),
-  m_senderDefaultApplVerID(ApplVerID_FIX50),
-  m_targetDefaultApplVerID(ApplVerID_FIX50),
+  m_senderDefaultApplVerID( ApplVerID_FIX50 ),
+  m_targetDefaultApplVerID( ApplVerID_FIX50 ),
   m_sendRedundantResendRequests( false ),
   m_checkCompId( true ),
   m_checkLatency( true ), 
@@ -72,7 +75,7 @@ Session::Session( Application& application,
   if ( m_pLogFactory )
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
-  if( !checkSessionTime(UtcTimeStamp()) )
+  if( !checkSessionTime(m_timestamper()) )
     m_state.reset();
 
   addSession( *this );
@@ -90,7 +93,7 @@ Session::~Session()
 
 void Session::insertSendingTime( Header& header )
 {
-  header.setField( SendingTime(UtcTimeStamp(), getSupportedTimestampPrecision()) );
+  header.setField( SendingTime(m_timestamper(), getSupportedTimestampPrecision()) );
 }
 
 void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
@@ -100,8 +103,7 @@ void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 
 void Session::fill( Header& header )
 {
-  UtcTimeStamp now;
-  m_state.lastSentTime( now );
+  m_state.lastSentTime( m_timestamper() );
   header.setField( m_sessionID.getBeginString() );
   header.setField( m_sessionID.getSenderCompID() );
   header.setField( m_sessionID.getTargetCompID() );
@@ -111,7 +113,7 @@ void Session::fill( Header& header )
 
 void Session::next()
 {
-  next( UtcTimeStamp() );
+  next( m_timestamper() );
 }
 
 void Session::next( const UtcTimeStamp& timeStamp )
