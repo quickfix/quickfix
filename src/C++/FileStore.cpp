@@ -31,20 +31,20 @@
 
 namespace FIX
 {
-FileStore::FileStore( std::string path, const SessionID& s )
-: m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
+FileStore::FileStore( const UtcTimeStamp& now, std::string path, const SessionID& sessionID )
+: m_cache( now ), m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
 {
   file_mkdir( path.c_str() );
 
   if ( path.empty() ) path = ".";
   const std::string& begin =
-    s.getBeginString().getString();
+    sessionID.getBeginString().getString();
   const std::string& sender =
-    s.getSenderCompID().getString();
+    sessionID.getSenderCompID().getString();
   const std::string& target =
-    s.getTargetCompID().getString();
+    sessionID.getTargetCompID().getString();
   const std::string& qualifier =
-    s.getSessionQualifier();
+    sessionID.getSessionQualifier();
 
   std::string sessionid = begin + "-" + sender + "-" + target;
   if( qualifier.size() )
@@ -178,14 +178,14 @@ void FileStore::populateCache()
   }
 }
 
-MessageStore* FileStoreFactory::create( const SessionID& s )
+MessageStore* FileStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
 {
-  if ( m_path.size() ) return new FileStore( m_path, s );
+  if ( m_path.size() ) return new FileStore( now, m_path, sessionID );
 
   std::string path;
-  Dictionary settings = m_settings.get( s );
+  Dictionary settings = m_settings.get( sessionID );
   path = settings.getString( FILE_STORE_PATH );
-  return new FileStore( path, s );
+  return new FileStore( now, path, sessionID );
 }
 
 void FileStoreFactory::destroy( MessageStore* pStore )
@@ -276,11 +276,11 @@ UtcTimeStamp FileStore::getCreationTime() const EXCEPT ( IOException )
   return m_cache.getCreationTime();
 }
 
-void FileStore::reset() EXCEPT ( IOException )
+void FileStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
 {
   try
   {
-    m_cache.reset();
+    m_cache.reset( now );
     m_offsets.clear();
     open( true );
     setSession();
@@ -295,7 +295,7 @@ void FileStore::refresh() EXCEPT ( IOException )
 {
   try
   {
-    m_cache.reset();
+    m_cache.reset( UtcTimeStamp::now() );
     m_offsets.clear();
     open( false );
   }

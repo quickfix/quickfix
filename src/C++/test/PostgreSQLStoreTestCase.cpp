@@ -46,7 +46,7 @@ struct postgreSQLStoreFixture
 
     try
     {
-      object = factory.create( sessionID );
+      object = factory.create( UtcTimeStamp::now(), sessionID );
     }
     catch( std::exception& e )
     {
@@ -55,7 +55,7 @@ struct postgreSQLStoreFixture
     }
 
     if( reset )
-      object->reset();
+      object->reset( UtcTimeStamp::now() );
 
     this->resetAfter = resetAfter;
   }

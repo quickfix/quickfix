@@ -45,7 +45,7 @@ struct fileStoreFixture
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-    object = factory.create( sessionID );
+    object = factory.create( UtcTimeStamp::now(), sessionID );
 
     this->resetAfter = resetAfter;
   }
@@ -91,7 +91,7 @@ struct resetBeforeAndAfterWithTestFileManager : resetBeforeAndAfterFileStoreFixt
     SessionID sessionID( BeginString( "FIX.4.2" ),
         SenderCompID( "SETGET" ), TargetCompID( "TEST" ), "Test" );
 
-    object = new FileStore( "store", sessionID);
+    object = new FileStore( UtcTimeStamp::now(), "store", sessionID );
   }
 };
 
@@ -132,7 +132,7 @@ TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, FileStore_refresh_reset) {
   CHECK_EQUAL( 3U, messages.size() );
 
   // Should be 0 messages after reset
-  object->reset();
+  object->reset( UtcTimeStamp::now() );
   object->get( 1, 10, messages );
   CHECK_EQUAL( 0U, messages.size() );
 }
@@ -148,7 +148,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Refresh_DeleteFileStartup_N
 
 TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Reset_DeleteFileStartup_NoException) {
   try {
-    object->reset();
+    object->reset( UtcTimeStamp::now() );
   } catch (Exception& e) {
     CHECK(false);
     throw e;
@@ -157,7 +157,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, Reset_DeleteFileStartup_NoE
 
 TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreCreationTime) {
   UtcTimeStamp timeStamp = object->getCreationTime();
-  UtcTimeStamp currentTimeStamp;
+  UtcTimeStamp currentTimeStamp = UtcTimeStamp::now();
   CHECK_EQUAL(currentTimeStamp.getYear(), timeStamp.getYear());
 }
 
@@ -173,7 +173,7 @@ TEST_FIXTURE(resetBeforeAndAfterWithTestFileManager, FileStoreFactory_FileStoreF
   settings.set(sessionID, dictionary);
   FileStoreFactory fileStoreFactory(settings);
 
-  MessageStore* fileStore = fileStoreFactory.create(sessionID);
+  MessageStore* fileStore = fileStoreFactory.create(UtcTimeStamp::now(), sessionID);
   CHECK(fileStore != nullptr);
 }
 #endif // _MSC_VER

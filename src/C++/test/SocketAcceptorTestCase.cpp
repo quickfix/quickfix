@@ -105,7 +105,7 @@ TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
   logon.getHeader().set( SenderCompID("TW") );
   logon.getHeader().set( TargetCompID("ISLD") );
   logon.getHeader().set( MsgSeqNum(1) );
-  logon.getHeader().set( SendingTime() );
+  logon.getHeader().set( SendingTime::now() );
   logon.set( HeartBtInt(30) );
 
   CHECK( socket_send( s, logon.toString().c_str(), (int)strlen(logon.toString().c_str()) ) );

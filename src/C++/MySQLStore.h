@@ -86,10 +86,10 @@ public:
       ( new MySQLConnectionPool(false) );
   }
 
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& );
   void destroy( MessageStore* );
 private:
-  MessageStore* create( const SessionID& s, const Dictionary& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID&, const Dictionary& );
 
   MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
@@ -108,9 +108,9 @@ private:
 class MySQLStore : public MessageStore
 {
 public:
-  MySQLStore( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
-  MySQLStore( const SessionID& s, const std::string& database, const std::string& user,
-                   const std::string& password, const std::string& host, short port );
+  MySQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const DatabaseConnectionID& connection, MySQLConnectionPool* pool );
+  MySQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& database, const std::string& user,
+              const std::string& password, const std::string& host, short port );
   ~MySQLStore();
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
@@ -125,7 +125,7 @@ public:
 
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
 
-  void reset() EXCEPT ( IOException );
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
   void refresh() EXCEPT ( IOException );
 
 private:

@@ -283,7 +283,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
   try
   {
     Session *session = Session::lookupSession(s);
-    if (!session->isSessionTime(UtcTimeStamp()))
+    if (!session->isSessionTime(UtcTimeStamp::now()))
       return;
 
     Log *log = session->getLog();

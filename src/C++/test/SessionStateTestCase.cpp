@@ -58,7 +58,7 @@ SUITE(SessionStateTests)
     TestLog log;
     log.events = 5;
 
-    SessionState state;
+    SessionState state( UtcTimeStamp::now() );
     state.log(&log);
 
     state.clear();
@@ -72,7 +72,7 @@ SUITE(SessionStateTests)
     TestLog log;
     log.events = 5;
 
-    SessionState state;
+    SessionState state( UtcTimeStamp::now() );
 
     state.clear();
 
@@ -85,7 +85,7 @@ SUITE(SessionStateTests)
     TestLog log;
     log.events = 5;
 
-    SessionState state;
+    SessionState state( UtcTimeStamp::now() );
     state.log(&log);
 
     state.backup();
@@ -99,7 +99,7 @@ SUITE(SessionStateTests)
     TestLog log;
     log.events = 5;
 
-    SessionState state;
+    SessionState state( UtcTimeStamp::now() );
 
     state.backup();
 

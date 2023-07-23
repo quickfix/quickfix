@@ -28,9 +28,9 @@
 namespace FIX
 {
 
-MessageStore* NullStoreFactory::create( const SessionID& )
+MessageStore* NullStoreFactory::create( const UtcTimeStamp& now, const SessionID& )
 {
-  return new NullStore();
+  return new NullStore( now );
 }
 
 void NullStoreFactory::destroy( MessageStore* pStore )

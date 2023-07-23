@@ -127,7 +127,7 @@ bool ThreadedSocketConnection::read()
     }
     else if( result == 0 && m_pSession ) // Timeout
     {
-      m_pSession->next();
+      m_pSession->next( UtcTimeStamp::now() );
     }
     else if( result < 0 ) // Error
     {
@@ -179,7 +179,7 @@ void ThreadedSocketConnection::processStream()
     }
     try
     {
-      m_pSession->next( msg, UtcTimeStamp() );
+      m_pSession->next( msg, UtcTimeStamp::now() );
     }
     catch( InvalidMessage& )
     {

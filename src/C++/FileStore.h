@@ -44,7 +44,7 @@ public:
   FileStoreFactory( const std::string& path )
 : m_path( path ) {};
 
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& );
   void destroy( MessageStore* );
 private:
   std::string m_path;
@@ -81,11 +81,11 @@ private:
 class FileStore : public MessageStore
 {
 public:
-  FileStore( std::string, const SessionID& s );
+  FileStore( const UtcTimeStamp& now, std::string, const SessionID& sessionID );
   virtual ~FileStore();
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
+  void get( int, int, std::vector<std::string>& ) const EXCEPT ( IOException );
 
   int getNextSenderMsgSeqNum() const EXCEPT ( IOException );
   int getNextTargetMsgSeqNum() const EXCEPT ( IOException );
@@ -96,16 +96,16 @@ public:
 
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
 
-  void reset() EXCEPT ( IOException );
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
   void refresh() EXCEPT ( IOException );
 
 private:
 #ifdef _MSC_VER
-  typedef std::pair < int, std::size_t > OffsetSize;
+  typedef std::pair<int, std::size_t> OffsetSize;
 #else
-  typedef std::pair < long, std::size_t > OffsetSize;
+  typedef std::pair<long, std::size_t> OffsetSize;
 #endif
-  typedef std::map < int, OffsetSize > NumToOffset;
+  typedef std::map<int, OffsetSize> NumToOffset;
 
   void open( bool deleteFile );
   void populateCache();

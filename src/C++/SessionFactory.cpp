@@ -121,9 +121,10 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
 
   std::unique_ptr<Session> pSession;
-  pSession.reset( new Session( m_application, m_messageStoreFactory,
-    sessionID, dataDictionaryProvider, sessionTimeRange,
-    heartBtInt, m_pLogFactory ) );
+  pSession.reset( 
+    new Session( [](){ return UtcTimeStamp::now(); }, m_application, m_messageStoreFactory,
+                 sessionID, dataDictionaryProvider, sessionTimeRange,
+                 heartBtInt, m_pLogFactory ) );
 
   pSession->setSenderDefaultApplVerID(defaultApplVerID);
 

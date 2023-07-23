@@ -37,7 +37,7 @@ struct memoryStoreFixture
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-    object = factory.create( sessionID );
+    object = factory.create( UtcTimeStamp::now(), sessionID );
   }
 
   ~memoryStoreFixture()

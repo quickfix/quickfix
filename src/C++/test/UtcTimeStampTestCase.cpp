@@ -34,13 +34,13 @@ SUITE(UtcTimeStampTests)
 
 TEST(compare)
 {
-  UtcTimeStamp object;
+  UtcTimeStamp object = UtcTimeStamp::now();
   object.setHour( 12 );
   object.setMinute( 20 );
   object.setSecond( 10 );
   object.setMillisecond( 10 );
 
-  UtcTimeStamp lesserObject;
+  UtcTimeStamp lesserObject = UtcTimeStamp::now();
   lesserObject.setHour( 12 );
   lesserObject.setMinute( 10 );
   lesserObject.setSecond( 5 );
@@ -50,7 +50,7 @@ TEST(compare)
   CHECK( object > lesserObject );
   CHECK( object >= lesserObject );
 
-  UtcTimeStamp greaterObject;
+  UtcTimeStamp greaterObject = UtcTimeStamp::now();
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );

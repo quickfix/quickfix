@@ -271,7 +271,7 @@ bool ThreadedSSLSocketConnection::read()
                                             "> " + error);
             else
             {
-              std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp())
+              std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp::now())
                         << "SSL read error <"
                         << IntConvertor::convert(errCodeSSL) << "> " << error
                         << std::endl;
@@ -346,7 +346,7 @@ void ThreadedSSLSocketConnection::processStream()
     }
     try
     {
-      m_pSession->next(msg, UtcTimeStamp());
+      m_pSession->next(msg, UtcTimeStamp::now());
     }
     catch (InvalidMessage &)
     {

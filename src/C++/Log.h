@@ -170,7 +170,7 @@ private:
   }
 
   std::string m_prefix;
-  UtcTimeStamp m_time;
+  UtcTimeStamp m_time = UtcTimeStamp::now();
   bool m_incoming;
   bool m_outgoing;
   bool m_event;

@@ -173,7 +173,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       if( m_pSession )
         m_pSession = a.getSession( msg, *this );
       if( m_pSession )
-        m_pSession->next( msg, UtcTimeStamp() );
+        m_pSession->next( msg, UtcTimeStamp::now() );
       if( !m_pSession )
       {
         s.getMonitor().drop( m_socket );
@@ -240,7 +240,7 @@ void SocketConnection::readMessages( SocketMonitor& s )
   {
     try
     {
-      m_pSession->next( msg, UtcTimeStamp() );
+      m_pSession->next( msg, UtcTimeStamp::now() );
     }
     catch ( InvalidMessage& )
     {
@@ -252,6 +252,6 @@ void SocketConnection::readMessages( SocketMonitor& s )
 
 void SocketConnection::onTimeout()
 {
-  if ( m_pSession ) m_pSession->next();
+  if ( m_pSession ) m_pSession->next( UtcTimeStamp::now() );
 }
 } // namespace FIX

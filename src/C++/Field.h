@@ -127,7 +127,7 @@ public:
     m_data.clear();
   }
 
-  /// @deprecated Use setTag
+  [[deprecated("Use setTag")]]
   void setField( int field )
   {
     setTag( field );
@@ -144,7 +144,7 @@ public:
   int getTag() const
   { return m_tag; }
 
-  /// @deprecated Use getTag
+  [[deprecated("Use getTag")]]
   int getField() const
   { return getTag(); }
 
@@ -445,8 +445,8 @@ class UtcTimeStampField : public FieldBase
 public:
   explicit UtcTimeStampField( int field, const UtcTimeStamp& data, int precision = 0 )
 : FieldBase( field, UtcTimeStampConvertor::convert( data, precision ) ) {}
-  UtcTimeStampField( int field, int precision = 0 )
-: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
+//   UtcTimeStampField( int field, int precision = 0 )
+// : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
 
   void setValue( const UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
@@ -592,8 +592,10 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define DEFINE_FIELD_TIMECLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
 static constexpr int tag = NUM; \
-NAME() : TOK##Field(NUM, false) {} \
-NAME(int precision) : TOK##Field(NUM, precision) {} \
+static NAME now() { return NAME(TYPE::now()); } \
+static NAME now(int precision) { return NAME(TYPE::now(), precision); } \
+NAME() : TOK##Field(NUM, TYPE::now(), false) {} \
+NAME(int precision) : TOK##Field(NUM, TYPE::now(), precision) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 NAME(const TYPE& value, int precision) : TOK##Field(NUM, value, precision) {} \
 }

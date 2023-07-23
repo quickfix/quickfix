@@ -237,7 +237,7 @@ TEST(booleanConvertFrom)
 
 TEST(utcTimeStampConvertToSecond)
 {
-  UtcTimeStamp input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 0, 0 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
@@ -246,7 +246,7 @@ TEST(utcTimeStampConvertToSecond)
 
 TEST(utcTimeStampConvertToMilli)
 {
-  UtcTimeStamp input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555, 3 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
@@ -255,7 +255,7 @@ TEST(utcTimeStampConvertToMilli)
 
 TEST(utcTimeStampConvertToMicro)
 {
-  UtcTimeStamp input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555, 6 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
@@ -264,7 +264,7 @@ TEST(utcTimeStampConvertToMicro)
 
 TEST(utcTimeStampConvertToNano)
 {
-  UtcTimeStamp input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555555, 9 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
@@ -273,7 +273,7 @@ TEST(utcTimeStampConvertToNano)
 
 TEST(utcTimeStampConvertToPrecisionBounds)
 {
-  UtcTimeStamp input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555555, 9 );
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input, -1000 ) );
@@ -374,7 +374,7 @@ TEST(utcTimeStampConvertFromNano)
 
 TEST(utcTimeOnlyConvertToSecond)
 {
-  UtcTimeOnly input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 0, 0 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, 0) );
@@ -382,7 +382,7 @@ TEST(utcTimeOnlyConvertToSecond)
 
 TEST(utcTimeOnlyConvertToMilli)
 {
-  UtcTimeOnly input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555, 3 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
   CHECK_EQUAL( "12:05:06.555", UtcTimeOnlyConvertor::convert( input, 3 ) );
@@ -390,7 +390,7 @@ TEST(utcTimeOnlyConvertToMilli)
 
 TEST(utcTimeOnlyConvertToMicro)
 {
-  UtcTimeOnly input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555, 6 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
   CHECK_EQUAL( "12:05:06.555555", UtcTimeOnlyConvertor::convert( input, 6 ) );
@@ -398,7 +398,7 @@ TEST(utcTimeOnlyConvertToMicro)
 
 TEST(utcTimeOnlyConvertToNano)
 {
-  UtcTimeOnly input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555555, 9 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
   CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 9 ) );
@@ -406,7 +406,7 @@ TEST(utcTimeOnlyConvertToNano)
 
 TEST(utcTimeOnlyConvertToPrecisionBounds)
 {
-  UtcTimeOnly input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setHMS( 12, 5, 6, 555555555, 9 );
   CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input, -1000 ) );
   CHECK_EQUAL( "12:05:06.555555555", UtcTimeOnlyConvertor::convert( input, 1000 ) );
@@ -424,7 +424,7 @@ TEST(utcTimeOnlyConvertFromMicro)
 
 TEST(utcDateConvertTo)
 {
-  UtcDate input;
+  UtcTimeStamp input = UtcTimeStamp::now();
   input.setYMD( 2000, 4, 26 );
   CHECK_EQUAL( "20000426", UtcDateConvertor::convert( input ) );
 }

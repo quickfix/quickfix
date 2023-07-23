@@ -35,9 +35,11 @@
 #include "Application.h"
 #include "Mutex.h"
 #include "Log.h"
+
 #include <utility>
 #include <map>
 #include <queue>
+#include <functional>
 
 namespace FIX
 {
@@ -45,11 +47,14 @@ namespace FIX
 class Session
 {
 public:
-  Session( Application&, MessageStoreFactory&,
+  Session( std::function<UtcTimeStamp()> timestamper,
+           Application&, 
+           MessageStoreFactory&,
            const SessionID&,
            const DataDictionaryProvider&,
            const TimeRange&,
-           int heartBtInt, LogFactory* pLogFactory );
+           int heartBtInt, 
+           LogFactory* pLogFactory );
   virtual ~Session();
 
   void logon() 
@@ -64,7 +69,7 @@ public:
   bool receivedLogon() { return m_state.receivedLogon(); }
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
   void reset() EXCEPT ( IOException ) 
-  { generateLogout(); disconnect(); m_state.reset(); }
+  { generateLogout(); disconnect(); m_state.reset( m_timestamper() ); }
   void refresh() EXCEPT ( IOException )
   { m_state.refresh(); }
   void setNextSenderMsgSeqNum( int num ) EXCEPT ( IOException )
@@ -106,10 +111,10 @@ public:
   static size_t numSessions();
 
 
-  bool isSessionTime(const UtcTimeStamp& time)
-    { return m_sessionTime.isInRange(time); }
-  bool isLogonTime(const UtcTimeStamp& time)
-    { return m_logonTime.isInRange(time); }
+  bool isSessionTime( const UtcTimeStamp& now )
+    { return m_sessionTime.isInRange( now ); }
+  bool isLogonTime( const UtcTimeStamp& now )
+    { return m_logonTime.isInRange( now ); }
   bool isInitiator()
     { return m_state.initiate(); }
   bool isAcceptor()
@@ -222,13 +227,12 @@ public:
 
   void setResponder( Responder* pR )
   {
-    if( !checkSessionTime(UtcTimeStamp()) )
+    if( !checkSessionTime(m_timestamper()) )
       reset();
     m_pResponder = pR;
   }
 
   bool send( Message& );
-  void next();
   void next( const UtcTimeStamp& now );
   void next( const std::string&, const UtcTimeStamp& now, bool queued = false );
   void next( const Message&, const UtcTimeStamp& now, bool queued = false );
@@ -253,15 +257,13 @@ private:
   void persist( const Message&, const std::string& ) EXCEPT ( IOException );
 
   void insertSendingTime( Header& );
-  void insertOrigSendingTime( Header&,
-                              const UtcTimeStamp& when = UtcTimeStamp () );
+  void insertOrigSendingTime( Header&, const UtcTimeStamp& now );
   void fill( Header& );
 
   bool isGoodTime( const SendingTime& sendingTime )
   {
     if ( !m_checkLatency ) return true;
-    UtcTimeStamp now;
-    return labs( now - sendingTime ) <= m_maxLatency;
+    return labs( m_timestamper() - sendingTime ) <= m_maxLatency;
   }
   bool checkSessionTime( const UtcTimeStamp& now )
   {
@@ -323,6 +325,7 @@ private:
 
   Message newMessage( const MsgType & msgType ) const;
 
+  std::function<UtcTimeStamp()> m_timestamper;
   Application& m_application;
   SessionID m_sessionID;
   TimeRange m_sessionTime;

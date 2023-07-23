@@ -48,24 +48,24 @@ public:
   static const std::string DEFAULT_CONNECTION_STRING;
 
   OdbcStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+  : m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
 
   OdbcStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
+  : m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
 
   OdbcStoreFactory( const std::string& user, const std::string& password, 
                     const std::string& connectionString )
-: m_user( user ), m_password( password ), m_connectionString( connectionString ),
+  : m_user( user ), m_password( password ), m_connectionString( connectionString ),
   m_useSettings( false ), m_useDictionary( false ) {}
 
   OdbcStoreFactory()
-: m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+  : m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
   m_connectionString( DEFAULT_CONNECTION_STRING ), m_useSettings( false ), m_useDictionary( false ) {}
 
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& );
   void destroy( MessageStore* );
 private:
-  MessageStore* create( const SessionID& s, const Dictionary& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& sessionID, const Dictionary& );
 
   Dictionary m_dictionary;
   SessionSettings m_settings;
@@ -81,7 +81,7 @@ private:
 class OdbcStore : public MessageStore
 {
 public:
-  OdbcStore( const SessionID& s, const std::string& user, const std::string& password, 
+  OdbcStore( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& user, const std::string& password, 
              const std::string& connectionString );
   ~OdbcStore();
 
@@ -97,15 +97,15 @@ public:
 
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
 
-  void reset() EXCEPT ( IOException );
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
   void refresh() EXCEPT ( IOException );
 
 private:
   void populateCache();
 
-  OdbcConnection* m_pConnection;
   MemoryStore m_cache;
   SessionID m_sessionID;
+  OdbcConnection* m_pConnection;
 };
 }
 

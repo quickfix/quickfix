@@ -56,7 +56,7 @@ TEST_FIXTURE(callCreateFixture, callCreate)
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
 
-  MessageStore* m = object.create( sessionID );
+  MessageStore* m = object.create( UtcTimeStamp::now(), sessionID );
   CHECK( typeid( FileStore ) == typeid( *m ) );
   object.destroy( m );
 

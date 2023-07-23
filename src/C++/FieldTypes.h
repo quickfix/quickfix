@@ -5,6 +5,7 @@
 **
 ** This file is part of the QuickFIX FIX Engine
 **
+**
 ** This file may be distributed under the terms of the quickfixengine.org
 ** license as defined by quickfixengine.org and appearing in the file
 ** LICENSE included in the packaging of this file.
@@ -160,11 +161,6 @@ struct DateTime
   inline int getMicrosecond() const
   {
     return (getNanosecond() / PRECISION_FACTOR[6]);
-  }
-
-  // deprecated method: use getMicrosecond instead
-  inline int getMicroecond() const {
-    return getMicrosecond();
   }
 
   /// Return the nanosecond portion of the time
@@ -587,9 +583,18 @@ inline int operator-( const DateTime& lhs, const DateTime& rhs )
 class UtcTimeStamp : public DateTime
 {
 public:
+  static UtcTimeStamp now()
+  {
+    return UtcTimeStamp( DateTime::nowUtc() );
+  }
+
   /// Defaults to the current date and time
+  [[deprecated("Use UtcTimeStamp::now()")]]
   UtcTimeStamp()
   : DateTime( DateTime::nowUtc() ) {}
+
+  UtcTimeStamp(DateTime dateTime)
+  : DateTime(std::move(dateTime)) {}
 
   /// Defaults to the current date
   UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )

@@ -65,7 +65,7 @@ public:
   bool set( int, const std::string& ) EXCEPT ( IOException ) {
     throw IOException("set threw an IOException");
   }
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException ) {
+  void get( int, int, std::vector<std::string>& ) const EXCEPT ( IOException ) {
     throw IOException("get threw an IOException");
   }
   int getNextSenderMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
@@ -75,9 +75,9 @@ public:
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException ) {};
   void incrNextTargetMsgSeqNum() EXCEPT ( IOException ) {};
 
-  UtcTimeStamp getCreationTime() const EXCEPT ( IOException ) { return UtcTimeStamp(); };
+  UtcTimeStamp getCreationTime() const EXCEPT ( IOException ) { return UtcTimeStamp::now(); };
 
-  void reset() EXCEPT ( IOException ) {throw IOException("reset IOException");};
+  void reset( const UtcTimeStamp& ) EXCEPT ( IOException ) { throw IOException("reset IOException"); };
   void refresh() EXCEPT ( IOException ) {};
 };
 
@@ -89,7 +89,7 @@ public:
   ExceptionMessageStoreFactory( const std::string& path )
 : m_path( path ) {};
 
-  MessageStore* create( const SessionID& ) {
+  MessageStore* create( const UtcTimeStamp&, const SessionID& ) {
     return new ExeceptionStore();
   };
   void destroy( MessageStore* pStore) {
