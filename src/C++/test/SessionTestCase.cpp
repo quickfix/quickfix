@@ -1632,28 +1632,32 @@ TEST_FIXTURE(initiatorCreatedBeforeStartTimeFixture, initiatorLogonAtStartTime)
   CHECK_EQUAL( true, actuallySentLogon);
 }
 
-TEST_FIXTURE(sessionFixture, SessionRefreshKeepsCurrentMessageState) {
+TEST_FIXTURE(sessionFixture, SessionRefreshKeepsCurrentMessageState) 
+{
   createSession(1);
   int expectedMessageSeq = object->getStore()->getNextSenderMsgSeqNum();
   object->refresh();
   CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, SetSenderMsgSeqNum) {
+TEST_FIXTURE(sessionFixture, SetSenderMsgSeqNum) 
+{
   createSession(1);
   int expectedMessageSeq = 25;
   object->setNextSenderMsgSeqNum(expectedMessageSeq);
   CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextSenderMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, SetTargetMsgSeqNum) {
+TEST_FIXTURE(sessionFixture, SetTargetMsgSeqNum) 
+{
   createSession(1);
   int expectedMessageSeq = 25;
   object->setNextTargetMsgSeqNum(expectedMessageSeq);
   CHECK_EQUAL(expectedMessageSeq, object->getStore()->getNextTargetMsgSeqNum());
 }
 
-TEST_FIXTURE(sessionFixture, TimeIsWithinSessionTime) {
+TEST_FIXTURE(sessionFixture, TimeIsWithinSessionTime) 
+{
   UtcTimeStamp fixedStartTime = UtcTimeStamp(8, 8, 8, 5, 13, 2019);
   UtcTimeStamp fixedEndTime = UtcTimeStamp(16, 16, 16, 5, 13, 2019);
 
@@ -1666,7 +1670,8 @@ TEST_FIXTURE(sessionFixture, TimeIsWithinSessionTime) {
   CHECK(object->isSessionTime(withinSessionTime));
 }
 
-TEST_FIXTURE(sessionFixture, TimeIsOutsideSessionTime) {
+TEST_FIXTURE(sessionFixture, TimeIsOutsideSessionTime) 
+{
   UtcTimeStamp fixedStartTime = UtcTimeStamp(8, 8, 8, 5, 13, 2019);
   UtcTimeStamp fixedEndTime = UtcTimeStamp(16, 16, 16, 5, 13, 2019);
 
@@ -1679,175 +1684,204 @@ TEST_FIXTURE(sessionFixture, TimeIsOutsideSessionTime) {
   CHECK(!object->isSessionTime(outsideSessionTime));
 }
 
-TEST_FIXTURE(sessionFixture, SessionIsAnInitiator) {
+TEST_FIXTURE(sessionFixture, SessionIsAnInitiator) 
+{
   createSession(1);
   CHECK(object->isInitiator());
 }
 
-TEST_FIXTURE(sessionFixture, SessionIsAnAcceptor) {
+TEST_FIXTURE(sessionFixture, SessionIsAnAcceptor) 
+{
   createSession(0);
   CHECK(object->isAcceptor());
 }
 
-TEST_FIXTURE(sessionFixture, SendsRedundantResendRequests) {
+TEST_FIXTURE(sessionFixture, SendsRedundantResendRequests) 
+{
   createSession(1);
   object->setSendRedundantResendRequests(true);
   CHECK(object->getSendRedundantResendRequests());
 }
 
-TEST_FIXTURE(sessionFixture, DoesNotSendRedundantResendRequests) {
+TEST_FIXTURE(sessionFixture, DoesNotSendRedundantResendRequests) 
+{
   createSession(1);
   object->setSendRedundantResendRequests(false);
   CHECK(!object->getSendRedundantResendRequests());
 }
 
-TEST_FIXTURE(sessionFixture, SessionChecksCompId) {
+TEST_FIXTURE(sessionFixture, SessionChecksCompId) 
+{
   createSession(1);
   object->setCheckCompId(true);
   CHECK(object->getCheckCompId());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotCheckCompId) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotCheckCompId) 
+{
   createSession(1);
   object->setCheckCompId(false);
   CHECK(!object->getCheckCompId());
 }
 
-TEST_FIXTURE(sessionFixture, SessionChecksLatency) {
+TEST_FIXTURE(sessionFixture, SessionChecksLatency) 
+{
   createSession(1);
   object->setCheckLatency(true);
   CHECK(object->getCheckLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotCheckLatency) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotCheckLatency) 
+{
   createSession(1);
   object->setCheckLatency(false);
   CHECK(!object->getCheckLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasMaxLatency) {
+TEST_FIXTURE(sessionFixture, SessionHasMaxLatency) 
+{
   createSession(1);
   object->setMaxLatency(5);
   CHECK_EQUAL(5, object->getMaxLatency());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasLogonTimeout) {
+TEST_FIXTURE(sessionFixture, SessionHasLogonTimeout) 
+{
   createSession(1);
   object->setLogonTimeout(5);
   CHECK_EQUAL(5, object->getLogonTimeout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasLogoutTimeout) {
+TEST_FIXTURE(sessionFixture, SessionHasLogoutTimeout) 
+{
   createSession(1);
   object->setLogoutTimeout(5);
   CHECK_EQUAL(5, object->getLogoutTimeout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnLogon) {
+TEST_FIXTURE(sessionFixture, SessionResetsOnLogon) 
+{
   createSession(1);
   object->setResetOnLogon(true);
   CHECK(object->getResetOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogon) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogon) 
+{
   createSession(1);
   object->setResetOnLogon(false);
   CHECK(!object->getResetOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnLogout) {
+TEST_FIXTURE(sessionFixture, SessionResetsOnLogout) 
+{
   createSession(1);
   object->setResetOnLogout(true);
   CHECK(object->getResetOnLogout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogout) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnLogout) 
+{
   createSession(1);
   object->setResetOnLogout(false);
   CHECK(!object->getResetOnLogout());
 }
 
-TEST_FIXTURE(sessionFixture, SessionResetsOnDisconnect) {
+TEST_FIXTURE(sessionFixture, SessionResetsOnDisconnect) 
+{
   createSession(1);
   object->setResetOnDisconnect(true);
   CHECK(object->getResetOnDisconnect());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnDisconnect) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotResetOnDisconnect) 
+{
   createSession(1);
   object->setResetOnDisconnect(false);
   CHECK(!object->getResetOnDisconnect());
 }
 
-TEST_FIXTURE(sessionFixture, SessionRefreshesOnLogon) {
+TEST_FIXTURE(sessionFixture, SessionRefreshesOnLogon) 
+{
   createSession(1);
   object->setRefreshOnLogon(true);
   CHECK(object->getRefreshOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotRefreshOnLogon) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotRefreshOnLogon) 
+{
   createSession(1);
   object->setRefreshOnLogon(false);
   CHECK(!object->getRefreshOnLogon());
 }
 
-TEST_FIXTURE(sessionFixture, SessionHasMillisecondsInTimeStamp) {
+TEST_FIXTURE(sessionFixture, SessionHasMillisecondsInTimeStamp) 
+{
   createSession(1);
   object->setMillisecondsInTimeStamp(true);
   CHECK(object->getMillisecondsInTimeStamp());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotHaveMillisecondsInTimeStamp) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotHaveMillisecondsInTimeStamp) 
+{
   createSession(1);
   object->setMillisecondsInTimeStamp(false);
   CHECK(!object->getMillisecondsInTimeStamp());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_GreaterThanTen_InvalidEntrySetAsPreviousValue) {
+TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_GreaterThanTen_InvalidEntrySetAsPreviousValue) 
+{
   createSession(1);
   int previousVal = object->getTimestampPrecision();
   object->setTimestampPrecision(20);
   CHECK_EQUAL(previousVal, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_LessThanZero_InvalidEntrySetAsPreviousValue) {
+TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_LessThanZero_InvalidEntrySetAsPreviousValue) 
+{
   createSession(1);
   int previousVal = object->getTimestampPrecision();
   object->setTimestampPrecision(-5);
   CHECK_EQUAL(previousVal, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_ValidEntry) {
+TEST_FIXTURE(sessionFixture, SessionTimeStampPrecision_ValidEntry) 
+{
   createSession(1);
   object->setTimestampPrecision(5);
   CHECK_EQUAL(5, object->getTimestampPrecision());
 }
 
-TEST_FIXTURE(sessionFixture, SessionPersistsMessages) {
+TEST_FIXTURE(sessionFixture, SessionPersistsMessages) 
+{
   createSession(1);
   object->setPersistMessages(true);
   CHECK(object->getPersistMessages());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotPersistMessages) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotPersistMessages) 
+{
   createSession(1);
   object->setPersistMessages(false);
   CHECK(!object->getPersistMessages());
 }
 
-TEST_FIXTURE(sessionFixture, SessionValidatesLengthAndChecksum) {
+TEST_FIXTURE(sessionFixture, SessionValidatesLengthAndChecksum) 
+{
   createSession(1);
   object->setValidateLengthAndChecksum(true);
   CHECK(object->getValidateLengthAndChecksum());
 }
 
-TEST_FIXTURE(sessionFixture, SessionDoesNotValidateLengthAndChecksum) {
+TEST_FIXTURE(sessionFixture, SessionDoesNotValidateLengthAndChecksum) 
+{
   createSession(1);
   object->setValidateLengthAndChecksum(false);
   CHECK(!object->getValidateLengthAndChecksum());
 }
 
-TEST_FIXTURE(sessionFixture, SessionCapableOfLogging) {
+TEST_FIXTURE(sessionFixture, SessionCapableOfLogging) 
+{
   Session* sessionObject;
 
   SessionID sessionIDCustom( BeginString( "FIX.4.2" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
@@ -1872,14 +1906,10 @@ TEST_FIXTURE(sessionFixture, SessionCapableOfLogging) {
   delete sessionObject;
 }
 
-TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) 
+{
   createSession(0, 0, 31);
 
-  UtcTimeStamp time;
   object->setResponder( this );
 
   object->logout("test_logout");
@@ -1887,15 +1917,10 @@ TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent) {
   CHECK(!object->sentLogout());
 }
 
-TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) 
+{
   createSession(1, 0, 31);
   object->setLogonTimeout(0);
-
-  UtcTimeStamp time;
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
@@ -1905,15 +1930,10 @@ TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse) {
   CHECK(!object->sentLogon());
 }
 
-TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) 
+{
   createSession(1, 0, 31);
   object->setLogoutTimeout(-1);
-
-  UtcTimeStamp time;
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
@@ -1932,14 +1952,9 @@ TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse) {
 }
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) 
+{
   createSession(1, 0, 31);
-
-  UtcTimeStamp time;
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
@@ -1958,14 +1973,9 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) {
 
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) 
+{
   createSession(1, 0, 31);
-
-  UtcTimeStamp time;
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
@@ -1984,14 +1994,9 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
 }
 
 //SLOW TEST
-TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatGenerated) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatGenerated) 
+{
   createSession(2, 0, 31);
-
-  UtcTimeStamp time;
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
@@ -2010,14 +2015,9 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatG
 
 }
 
-TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {
-
+TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) 
+{
   Session* sessionObject;
-
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
 
   SessionID sessionIDCustom( BeginString( "FIX.4.2" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
   TimeRange sessionTimeCustom( startTime, endTime, 0, 31);
@@ -2042,11 +2042,8 @@ TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {
   delete sessionObject;
 }
 
-TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnRequest) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnRequest) 
+{
   createSession(1, 0, 31);
 
   UtcTimeStamp time;
@@ -2057,11 +2054,8 @@ TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnR
   CHECK(!object->sentLogout());
 }
 
-TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon) 
+{
   createSession(1, 0, 31);
 
   UtcTimeStamp time;
@@ -2078,11 +2072,8 @@ TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon) {
   CHECK(object->isLoggedOn());
 }
 
-TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon) 
+{
   createSession(0, 0, 31);
 
   UtcTimeStamp time;
@@ -2095,11 +2086,8 @@ TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon) {
   CHECK(object->isLoggedOn());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGreaterThenSeqNums) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGreaterThenSeqNums) 
+{
   createSession(1, 0, 31);
 
   object->setPersistMessages(false);
@@ -2122,7 +2110,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGre
 
 }
 
-TEST_FIXTURE(initiatorFixture, Disconnect_ResetOnDisconnect) {
+TEST_FIXTURE(initiatorFixture, Disconnect_ResetOnDisconnect) 
+{
   startLoggedOn();
 
   object->setResetOnDisconnect(true);
@@ -2137,12 +2126,8 @@ TEST_FIXTURE(initiatorFixture, Disconnect_ResetOnDisconnect) {
 
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesFieldOrder) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesFieldOrder) 
+{
   SessionID sessionID( BeginString( "FIX.4.2" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
   TimeRange sessionTime( startTime, endTime, 0, 31);
@@ -2178,12 +2163,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesF
   CHECK_EQUAL(2, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreservesFieldOrder) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreservesFieldOrder) 
+{
   SessionID sessionID( BeginString( "FIXT.1.1" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
   TimeRange sessionTime( startTime, endTime, 0, 31);
@@ -2207,7 +2188,6 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreserves
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
 
-
   FIX::Message sentLogon = createT11Logon( "TW", "ISLD", 1 );
   object->send(sentLogon);
   object->next();
@@ -2223,7 +2203,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreserves
   CHECK_EQUAL(2, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendException) {
+TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendException) 
+{
   startLoggedOn();
 
   FIX::Message neworder1 = createNewOrderSingle("ISLD", "TW", 2);
@@ -2242,7 +2223,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendExc
   CHECK_EQUAL(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) {
+TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) 
+{
   startLoggedOn();
 
   object->setNextSenderMsgSeqNum(15);
@@ -2254,12 +2236,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages) {
   CHECK_EQUAL(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_UnsupportedMessageType) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_UnsupportedMessageType) 
+{
   SessionID sessionID( BeginString( "FIXT.1.1" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
   TimeRange sessionTime( startTime, endTime, 0, 31);
@@ -2300,12 +2278,8 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_Unsupported
   CHECK_EQUAL(3, object->getExpectedTargetNum());
 }
 
-TEST_FIXTURE(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_MessageNotSent) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_MessageNotSent) 
+{
   createSession(1, 0, 31);
 
   object->setResetOnLogon(true);
@@ -2314,7 +2288,8 @@ TEST_FIXTURE(initiatorFixture, SendMessage_NotLoggedInAndResetOnLogonTrue_Messag
   CHECK(!object->send(neworder1));
 }
 
-TEST_FIXTURE(initiatorFixture, SendMessage_DoNotSendNewOrder_MessageNotSent) {
+TEST_FIXTURE(initiatorFixture, SendMessage_DoNotSendNewOrder_MessageNotSent) 
+{
   startLoggedOn();
 
   this->checkForDoNotSend = true;
@@ -2324,44 +2299,40 @@ TEST_FIXTURE(initiatorFixture, SendMessage_DoNotSendNewOrder_MessageNotSent) {
   CHECK(!object->send(neworder1));
 }
 
-TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent) {
-    startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-    endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-    startTime = UtcTimeOnly( startTimeStamp );
-    endTime = UtcTimeOnly( endTimeStamp );
+TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent) 
+{
+  SessionID sessionID( BeginString( "FIX.4.0" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
-    SessionID sessionID( BeginString( "FIX.4.0" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
+  TimeRange sessionTime( startTime, endTime, 0, 31);
 
-    TimeRange sessionTime( startTime, endTime, 0, 31);
+  DataDictionaryProvider provider;
+  provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX40.xml" );
+  DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
 
-    DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX40.xml" );
-    DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
+  std::shared_ptr<DataDictionary> pDataDictionary = std::make_shared<DataDictionary>(dictionary);
 
-    std::shared_ptr<DataDictionary> pDataDictionary = std::make_shared<DataDictionary>(dictionary);
+  provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
+  provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
 
-    provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
-    provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
-
-    object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
-                          sessionTime, 1, 0 );
-    object->setSenderDefaultApplVerID(ApplVerID("20"));
-    object->setTargetDefaultApplVerID(ApplVerID("20"));
+  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+                        sessionTime, 1, 0 );
+  object->setSenderDefaultApplVerID(ApplVerID("20"));
+  object->setTargetDefaultApplVerID(ApplVerID("20"));
 
 
-    FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
-    sentLogon.getHeader().setField(BeginString("FIX.4.0"));
-    object->send(sentLogon);
-    object->next();
-    object->logon();
+  FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
+  sentLogon.getHeader().setField(BeginString("FIX.4.0"));
+  object->send(sentLogon);
+  object->next();
+  object->logon();
 
-    FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-    receivedLogon.getHeader().setField(BeginString("FIX.4.0"));
-    receivedLogon.getHeader().setField(MsgSeqNum(50));
-    object->next(receivedLogon, UtcTimeStamp());
+  FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
+  receivedLogon.getHeader().setField(BeginString("FIX.4.0"));
+  receivedLogon.getHeader().setField(MsgSeqNum(50));
+  object->next(receivedLogon, UtcTimeStamp());
 
-    CHECK_EQUAL(4, object->getExpectedSenderNum());
-    CHECK_EQUAL(1, object->getExpectedTargetNum());
+  CHECK_EQUAL(4, object->getExpectedSenderNum());
+  CHECK_EQUAL(1, object->getExpectedTargetNum());
 }
 
 TEST_FIXTURE(initiatorFixture, InvalidTagNumber_Rejected)
@@ -2420,12 +2391,8 @@ TEST_FIXTURE(initiatorFixture, TagAppearsMoreThanOnce_Rejected)
   CHECK_EQUAL(1, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject) {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject) 
+{
   SessionID sessionID( BeginString( "FIX.4.2" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
   TimeRange sessionTime( startTime, endTime, 0, 31);
@@ -2507,11 +2474,6 @@ TEST_FIXTURE(initiatorFixture, ConditionallyRequiredFieldMissing_Rejected)
 
 TEST_FIXTURE(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
 {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
   createSession(1, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
@@ -2528,11 +2490,6 @@ TEST_FIXTURE(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
 
 TEST_FIXTURE(initiatorFIX40Fixture, CustomFIX40_UnsupportedMessageType_ERReject)
 {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
   SessionID sessionID( BeginString( "FIX.4.0" ),
                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
   TimeRange sessionTime( startTime, endTime, 0, 31 );
@@ -2585,11 +2542,6 @@ TEST_FIXTURE(initiatorFixture, SendingTimeOutsideOfMaxLatency_Rejected)
 
 TEST_FIXTURE(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_Valid)
 {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
   createSession(1, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
@@ -2603,7 +2555,8 @@ TEST_FIXTURE(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_
   CHECK_EQUAL(0, toReject);
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
+TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) 
+{
 
   FIX42::NewOrderSingle newOrderSingle;
   std::string newOrderSingleRawFIX;
@@ -2623,8 +2576,8 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInval
 
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_InvalidMessageException) {
-
+TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_InvalidMessageException) 
+{
   startLoggedOn();
 
   FIX42::NewOrderSingle newOrderSingle;
@@ -2643,13 +2596,8 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_Inv
   CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
 }
 
-TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) {
-
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
+TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) 
+{
   SessionID sessionID( BeginString( "FIXT.1.1" ), SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
   TimeRange sessionTime( startTime, endTime, 0, 31);
@@ -2667,7 +2615,6 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInva
                         sessionTime, 1, 0 );
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
-
 
   FIX42::NewOrderSingle newOrderSingle;
   std::string newOrderSingleRawFIX;
@@ -2725,11 +2672,6 @@ TEST_FIXTURE(initiatorFixture, SendToTarget_MsgMissingTargetButTargetProvidedSep
 
 TEST_FIXTURE(initiatorFixture, QueuedLogonMessages)
 {
-  startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-  endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
-  startTime = UtcTimeOnly( startTimeStamp );
-  endTime = UtcTimeOnly( endTimeStamp );
-
   createSession(1, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
