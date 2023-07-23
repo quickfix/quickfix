@@ -70,8 +70,8 @@ EXCEPT ( ConfigError )
 
 void Acceptor::initialize() EXCEPT ( ConfigError )
 {
-  std::set < SessionID > sessions = m_settings.getSessions();
-  std::set < SessionID > ::iterator i;
+  std::set<SessionID> sessions = m_settings.getSessions();
+  std::set<SessionID> ::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );
@@ -265,7 +265,7 @@ bool Acceptor::isLoggedOn()
 
 THREAD_PROC Acceptor::startThread( void* p )
 {
-  Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
+  Acceptor * pAcceptor = static_cast<Acceptor*>( p );
   auto guard = sg::make_scope_guard([pAcceptor](){ pAcceptor->m_processing = false; });
   pAcceptor->onStart();
   return 0;

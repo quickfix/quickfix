@@ -106,8 +106,8 @@ private:
 
   static THREAD_PROC startThread( void* p );
 
-  typedef std::set < SessionID > SessionIDs;
-  typedef std::map < SessionID, Session* > Sessions;
+  typedef std::set<SessionID> SessionIDs;
+  typedef std::map<SessionID, Session*> Sessions;
 
   thread_id m_threadid;
   Sessions m_sessions;

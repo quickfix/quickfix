@@ -143,7 +143,7 @@ class Log;
 class ThreadedSSLSocketConnection : Responder
 {
 public:
-  typedef std::set< SessionID > Sessions;
+  typedef std::set<SessionID> Sessions;
 
   ThreadedSSLSocketConnection(socket_handle s, SSL *ssl, Sessions sessions, Log *pLog);
   ThreadedSSLSocketConnection(const SessionID &, socket_handle s, SSL *ssl,
@@ -159,7 +159,7 @@ public:
   SSL *sslObject() { return m_ssl; }
 
 private:
-  typedef std::pair< socket_handle, SSL * > SocketKey;
+  typedef std::pair<socket_handle, SSL *> SocketKey;
 
   bool readMessage(std::string &msg) EXCEPT (SocketRecvFailed);
   void processStream();

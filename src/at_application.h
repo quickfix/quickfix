@@ -151,7 +151,7 @@ public:
     process( message, sessionID );
   }
 
-  std::set < std::pair < FIX::ClOrdID, FIX::SessionID > > m_orderIDs;
+  std::set<std::pair<FIX::ClOrdID, FIX::SessionID>> m_orderIDs;
 
 public:
   void reset() { m_orderIDs.clear(); }

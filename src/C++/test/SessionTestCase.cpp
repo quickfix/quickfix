@@ -1973,12 +1973,14 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) {
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  // Force Heartbeat Interval Flow
-  process_sleep(2.1);
+  object->next();
+  CHECK_EQUAL(3, object->getExpectedSenderNum());
+  CHECK(object->isLoggedOn());
 
+  // Force Heartbeat Interval Flow
+  process_sleep(2);
   object->next();
   CHECK_EQUAL(4, object->getExpectedSenderNum());
-  CHECK(object->isLoggedOn());
 }
 
 //SLOW TEST
@@ -1999,13 +2001,13 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatG
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   object->next(receivedLogon, UtcTimeStamp());
 
-  // Force Heartbeat Interval Flow
-  process_sleep(2.1);
-
   object->next();
-  CHECK_EQUAL(4, object->getExpectedSenderNum());
+  CHECK_EQUAL(3, object->getExpectedSenderNum());
   CHECK(object->isLoggedOn());
 
+  // Force Heartbeat Interval Flow
+  process_sleep(2);
+  CHECK_EQUAL(3, object->getExpectedSenderNum());
 }
 
 TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) {

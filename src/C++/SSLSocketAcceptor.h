@@ -154,9 +154,9 @@ public:
 private:
   bool readSettings( const SessionSettings& );
 
-  typedef std::set < SessionID > Sessions;
-  typedef std::map < int, Sessions > PortToSessions;
-  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
+  typedef std::set<SessionID> Sessions;
+  typedef std::map<int, Sessions> PortToSessions;
+  typedef std::map<socket_handle, SSLSocketConnection*> SocketConnections;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );

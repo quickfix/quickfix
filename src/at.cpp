@@ -33,7 +33,7 @@
 #include "getopt-repl.h"
 #include "at_application.h"
 
-typedef std::unique_ptr< FIX::Acceptor > AcceptorPtr;
+typedef std::unique_ptr<FIX::Acceptor> AcceptorPtr;
 
 int main( int argc, char** argv )
 {
