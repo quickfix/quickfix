@@ -50,7 +50,7 @@ public:
   static const short DEFAULT_PORT;
 
   PostgreSQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
+  : m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
   {
     bool poolConnections = false;
     try { poolConnections = settings.get().getBool(POSTGRESQL_STORE_USECONNECTIONPOOL); }
@@ -61,7 +61,7 @@ public:
   }
 
   PostgreSQLStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
+  : m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
@@ -70,25 +70,25 @@ public:
   PostgreSQLStoreFactory( const std::string& database, const std::string& user,
                           const std::string& password, const std::string& host,
                           short port )
-: m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), m_useDictionary( false ) 
+  : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
+    m_useSettings( false ), m_useDictionary( false ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
   }
 
   PostgreSQLStoreFactory()
-: m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
+  : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
+    m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
   {
     m_connectionPoolPtr = PostgreSQLConnectionPoolPtr
       ( new PostgreSQLConnectionPool(false) );
   }
 
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& );
   void destroy( MessageStore* );
 private:
-  MessageStore* create( const SessionID& s, const Dictionary& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID&, const Dictionary& );
 
   PostgreSQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
@@ -107,8 +107,8 @@ private:
 class PostgreSQLStore : public MessageStore
 {
 public:
-  PostgreSQLStore( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p );
-  PostgreSQLStore( const SessionID& s, const std::string& database, const std::string& user,
+  PostgreSQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const DatabaseConnectionID& connection, PostgreSQLConnectionPool* pool );
+  PostgreSQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& database, const std::string& user,
                    const std::string& password, const std::string& host, short port );
   ~PostgreSQLStore();
 
@@ -124,7 +124,7 @@ public:
 
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
 
-  void reset() EXCEPT ( IOException );
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
   void refresh() EXCEPT ( IOException );
 
 private:
