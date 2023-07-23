@@ -968,8 +968,8 @@ class UtcTimeStampField(FieldBase):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, field, data, precision=0):
-        _quickfix.UtcTimeStampField_swiginit(self, _quickfix.new_UtcTimeStampField(field, data, precision))
+    def __init__(self, *args):
+        _quickfix.UtcTimeStampField_swiginit(self, _quickfix.new_UtcTimeStampField(*args))
 
     def setValue(self, value):
         return _quickfix.UtcTimeStampField_setValue(self, value)

@@ -26055,21 +26055,6 @@ fail:
 
 
 SWIGINTERN VALUE
-#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-_wrap_UtcTimeStampField_allocate(VALUE self)
-#else
-_wrap_UtcTimeStampField_allocate(int argc, VALUE *argv, VALUE self)
-#endif
-{
-  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__UtcTimeStampField);
-#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
-  rb_obj_call_init(vresult, argc, argv);
-#endif
-  return vresult;
-}
-
-
-SWIGINTERN VALUE
 _wrap_new_UtcTimeStampField__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   FIX::UtcTimeStamp *arg2 = 0 ;
@@ -26115,6 +26100,99 @@ fail:
 }
 
 
+SWIGINTERN VALUE
+_wrap_new_UtcTimeStampField__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::UtcTimeStampField";
+  FIX::UtcTimeStampField *result = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","UtcTimeStampField", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  ecode2 = SWIG_AsVal_int(argv[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","UtcTimeStampField", 2, argv[1] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::UtcTimeStampField *)new FIX::UtcTimeStampField(arg1,arg2);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_UtcTimeStampField_allocate(VALUE self)
+#else
+_wrap_UtcTimeStampField_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__UtcTimeStampField);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_UtcTimeStampField__SWIG_3(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::UtcTimeStampField";
+  FIX::UtcTimeStampField *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","UtcTimeStampField", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::UtcTimeStampField *)new FIX::UtcTimeStampField(arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
 SWIGINTERN VALUE _wrap_new_UtcTimeStampField(int nargs, VALUE *args, VALUE self) {
   int argc;
   VALUE argv[3];
@@ -26124,6 +26202,16 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStampField(int nargs, VALUE *args, VALUE self)
   if (argc > 3) SWIG_fail;
   for (ii = 0; (ii < argc); ++ii) {
     argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      return _wrap_new_UtcTimeStampField__SWIG_3(nargs, args, self);
+    }
   }
   if (argc == 2) {
     int _v = 0;
@@ -26137,6 +26225,22 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStampField(int nargs, VALUE *args, VALUE self)
       _v = SWIG_CheckState(res);
       if (_v) {
         return _wrap_new_UtcTimeStampField__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      {
+        int res = SWIG_AsVal_int(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_new_UtcTimeStampField__SWIG_2(nargs, args, self);
       }
     }
   }
@@ -26165,7 +26269,9 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStampField(int nargs, VALUE *args, VALUE self)
 fail:
   Ruby_Format_OverloadedError( argc, 3, "UtcTimeStampField.new", 
     "    UtcTimeStampField.new(int field, FIX::UtcTimeStamp const &data, int precision)\n"
-    "    UtcTimeStampField.new(int field, FIX::UtcTimeStamp const &data)\n");
+    "    UtcTimeStampField.new(int field, FIX::UtcTimeStamp const &data)\n"
+    "    UtcTimeStampField.new(int field, int precision)\n"
+    "    UtcTimeStampField.new(int field)\n");
   
   return Qnil;
 }
