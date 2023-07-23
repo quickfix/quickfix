@@ -352,10 +352,10 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     return;
   }
 
-  std::vector < std::string > messages;
+  std::vector<std::string> messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
 
-  std::vector < std::string > ::iterator i;
+  std::vector<std::string>::iterator i;
   MsgSeqNum msgSeqNum(0);
   MsgType msgType;
   int begin = 0;
@@ -848,7 +848,7 @@ void Session::generateReject( const Message& message, int err, int field )
   sendRaw( reject );
 }
 
-void Session::generateReject( const Message& message, const std::string& str )
+void Session::generateReject( const Message& message, const std::string& text )
 {
   std::string beginString = m_sessionID.getBeginString();
 
@@ -867,10 +867,10 @@ void Session::generateReject( const Message& message, const std::string& str )
   if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset )
     m_state.incrNextTargetMsgSeqNum();
 
-  reject.setField( Text( str ) );
+  reject.setField( Text( text ) );
   sendRaw( reject );
   m_state.onEvent( "Message " + msgSeqNum.getString()
-                   + " Rejected: " + str );
+                   + " Rejected: " + text );
 }
 
 void Session::generateBusinessReject( const Message& message, int err, int field )

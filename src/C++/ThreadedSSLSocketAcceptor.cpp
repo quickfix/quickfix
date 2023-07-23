@@ -165,8 +165,8 @@ ThreadedSSLSocketAcceptor::~ThreadedSSLSocketAcceptor()
 
 void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) EXCEPT (ConfigError)
 {
-  std::set< SessionID > sessions = s.getSessions();
-  std::set< SessionID >::iterator i;
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i;
   for (i = sessions.begin(); i != sessions.end(); ++i)
   {
     const Dictionary &settings = s.get(*i);
@@ -217,10 +217,10 @@ void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT (R
   }
 
   short port = 0;
-  std::set< int > ports;
+  std::set<int> ports;
 
-  std::set< SessionID > sessions = s.getSessions();
-  std::set< SessionID >::iterator i = sessions.begin();
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i = sessions.begin();
   for (; i != sessions.end(); ++i)
   {
     const Dictionary &settings = s.get(*i);
@@ -338,7 +338,7 @@ void ThreadedSSLSocketAcceptor::removeThread(SocketKey s)
 
 THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
 {
-  AcceptorThreadInfo *info = reinterpret_cast< AcceptorThreadInfo * >(p);
+  AcceptorThreadInfo *info = reinterpret_cast<AcceptorThreadInfo *>(p);
 
   ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
   socket_handle s = info->m_socket;
@@ -407,7 +407,7 @@ THREAD_PROC ThreadedSSLSocketAcceptor::socketAcceptorThread(void *p)
 
 THREAD_PROC ThreadedSSLSocketAcceptor::socketConnectionThread(void *p)
 {
-  ConnectionThreadInfo *info = reinterpret_cast< ConnectionThreadInfo * >(p);
+  ConnectionThreadInfo *info = reinterpret_cast<ConnectionThreadInfo *>(p);
 
   ThreadedSSLSocketAcceptor *pAcceptor = info->m_pAcceptor;
   ThreadedSSLSocketConnection *pConnection = info->m_pConnection;

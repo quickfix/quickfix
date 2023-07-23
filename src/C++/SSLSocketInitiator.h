@@ -162,8 +162,8 @@ public:
   static int passwordHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
-  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
-  typedef std::map < SessionID, int > SessionToHostNum;
+  typedef std::map<socket_handle, SSLSocketConnection*> SocketConnections;
+  typedef std::map<SessionID, int> SessionToHostNum;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );

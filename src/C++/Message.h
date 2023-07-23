@@ -58,7 +58,7 @@ public:
 
   Group& getGroup( unsigned num, FIX::Group& group ) const EXCEPT ( FieldNotFound )
   { group.clear();
-    return static_cast < Group& >
+    return static_cast<Group&>
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
@@ -93,7 +93,7 @@ public:
 
   Group& getGroup( unsigned num, FIX::Group& group ) const EXCEPT ( FieldNotFound )
   { group.clear();
-    return static_cast < Group& >
+    return static_cast<Group&>
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
@@ -180,7 +180,7 @@ public:
 
   Group& getGroup( unsigned num, FIX::Group& group ) const EXCEPT ( FieldNotFound )
   { group.clear();
-    return static_cast < Group& >
+    return static_cast<Group&>
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 

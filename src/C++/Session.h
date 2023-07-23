@@ -313,18 +313,15 @@ private:
   void generateHeartbeat( const Message& );
   void generateTestRequest( const std::string& );
   void generateReject( const Message&, int err, int field = 0 );
-  void generateReject( const Message&, const std::string& );
+  void generateReject( const Message&, const std::string& text );
   void generateBusinessReject( const Message&, int err, int field = 0 );
   void generateLogout( const std::string& text = "" );
 
-  void populateRejectReason( Message&, int field, const std::string& );
-  void populateRejectReason( Message&, const std::string& );
+  void populateRejectReason( Message&, int field, const std::string& text );
+  void populateRejectReason( Message&, const std::string& text );
 
   bool verify( const Message& msg,
                bool checkTooHigh = true, bool checkTooLow = true );
-
-  bool set( int s, const Message& m );
-  bool get( int s, Message& m ) const;
 
   Message newMessage( const MsgType & msgType ) const;
 

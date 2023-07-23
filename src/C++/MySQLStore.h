@@ -114,7 +114,7 @@ public:
   ~MySQLStore();
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
+  void get( int, int, std::vector<std::string>& ) const EXCEPT ( IOException );
 
   int getNextSenderMsgSeqNum() const EXCEPT ( IOException );
   int getNextTargetMsgSeqNum() const EXCEPT ( IOException );

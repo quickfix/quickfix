@@ -53,7 +53,7 @@
   void* argp;
   FIX::DataDictionary* pDD = 0;
   int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
-  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+  pDD = reinterpret_cast<FIX::DataDictionary *>(argp);
   *pDD = *(*$1);
 }
 
