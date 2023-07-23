@@ -17781,6 +17781,47 @@ fail:
 
 SWIGINTERN VALUE
 _wrap_new_UtcTimeStamp__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::DateTime arg1 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::UtcTimeStamp";
+  FIX::UtcTimeStamp *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  {
+    res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DateTime,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DateTime","UtcTimeStamp", 1, argv[0] )); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DateTime","UtcTimeStamp", 1, argv[0]));
+    } else {
+      arg1 = *(reinterpret_cast< FIX::DateTime * >(argp1));
+    }
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::UtcTimeStamp *)new FIX::UtcTimeStamp(arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_UtcTimeStamp__SWIG_2(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -17839,7 +17880,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_2(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_3(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -17890,7 +17931,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_3(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_4(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -17957,7 +17998,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_4(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_5(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -18032,7 +18073,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_5(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_6(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -18115,7 +18156,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_6(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_7(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int arg3 ;
@@ -18206,7 +18247,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_7(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_8(int argc, VALUE *argv, VALUE self) {
   time_t arg1 ;
   int arg2 ;
   int val2 ;
@@ -18248,7 +18289,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_8(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_9(int argc, VALUE *argv, VALUE self) {
   time_t arg1 ;
   const char *classname SWIGUNUSED = "Quickfix::UtcTimeStamp";
   FIX::UtcTimeStamp *result = 0 ;
@@ -18282,7 +18323,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_9(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_10(int argc, VALUE *argv, VALUE self) {
   time_t arg1 ;
   int arg2 ;
   int arg3 ;
@@ -18332,7 +18373,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_10(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_11(int argc, VALUE *argv, VALUE self) {
   tm *arg1 = (tm *) 0 ;
   int arg2 ;
   void *argp1 = 0 ;
@@ -18375,7 +18416,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_11(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_12(int argc, VALUE *argv, VALUE self) {
   tm *arg1 = (tm *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -18425,7 +18466,7 @@ _wrap_UtcTimeStamp_allocate(int argc, VALUE *argv, VALUE self)
 
 
 SWIGINTERN VALUE
-_wrap_new_UtcTimeStamp__SWIG_12(int argc, VALUE *argv, VALUE self) {
+_wrap_new_UtcTimeStamp__SWIG_13(int argc, VALUE *argv, VALUE self) {
   tm *arg1 = (tm *) 0 ;
   int arg2 ;
   int arg3 ;
@@ -18491,10 +18532,19 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
   if (argc == 1) {
     int _v = 0;
     void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_UtcTimeStamp__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_tm, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_new_UtcTimeStamp__SWIG_11(nargs, args, self);
+      return _wrap_new_UtcTimeStamp__SWIG_12(nargs, args, self);
     }
   }
   if (argc == 1) {
@@ -18503,7 +18553,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
       _v = (NIL_P(argv[0]) || TYPE(rb_funcall(argv[0], rb_intern("respond_to?"), 1, ID2SYM(rb_intern("tv_sec")))) == T_TRUE);
     }
     if (_v) {
-      return _wrap_new_UtcTimeStamp__SWIG_8(nargs, args, self);
+      return _wrap_new_UtcTimeStamp__SWIG_9(nargs, args, self);
     }
   }
   if (argc == 2) {
@@ -18517,7 +18567,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
         _v = SWIG_CheckState(res);
       }
       if (_v) {
-        return _wrap_new_UtcTimeStamp__SWIG_10(nargs, args, self);
+        return _wrap_new_UtcTimeStamp__SWIG_11(nargs, args, self);
       }
     }
   }
@@ -18532,7 +18582,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
         _v = SWIG_CheckState(res);
       }
       if (_v) {
-        return _wrap_new_UtcTimeStamp__SWIG_7(nargs, args, self);
+        return _wrap_new_UtcTimeStamp__SWIG_8(nargs, args, self);
       }
     }
   }
@@ -18552,7 +18602,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
           _v = SWIG_CheckState(res);
         }
         if (_v) {
-          return _wrap_new_UtcTimeStamp__SWIG_12(nargs, args, self);
+          return _wrap_new_UtcTimeStamp__SWIG_13(nargs, args, self);
         }
       }
     }
@@ -18574,7 +18624,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
           _v = SWIG_CheckState(res);
         }
         if (_v) {
-          return _wrap_new_UtcTimeStamp__SWIG_2(nargs, args, self);
+          return _wrap_new_UtcTimeStamp__SWIG_3(nargs, args, self);
         }
       }
     }
@@ -18595,7 +18645,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
           _v = SWIG_CheckState(res);
         }
         if (_v) {
-          return _wrap_new_UtcTimeStamp__SWIG_9(nargs, args, self);
+          return _wrap_new_UtcTimeStamp__SWIG_10(nargs, args, self);
         }
       }
     }
@@ -18622,7 +18672,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
             _v = SWIG_CheckState(res);
           }
           if (_v) {
-            return _wrap_new_UtcTimeStamp__SWIG_1(nargs, args, self);
+            return _wrap_new_UtcTimeStamp__SWIG_2(nargs, args, self);
           }
         }
       }
@@ -18655,7 +18705,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
               _v = SWIG_CheckState(res);
             }
             if (_v) {
-              return _wrap_new_UtcTimeStamp__SWIG_3(nargs, args, self);
+              return _wrap_new_UtcTimeStamp__SWIG_4(nargs, args, self);
             }
           }
         }
@@ -18694,7 +18744,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
                 _v = SWIG_CheckState(res);
               }
               if (_v) {
-                return _wrap_new_UtcTimeStamp__SWIG_4(nargs, args, self);
+                return _wrap_new_UtcTimeStamp__SWIG_5(nargs, args, self);
               }
             }
           }
@@ -18739,7 +18789,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
                   _v = SWIG_CheckState(res);
                 }
                 if (_v) {
-                  return _wrap_new_UtcTimeStamp__SWIG_5(nargs, args, self);
+                  return _wrap_new_UtcTimeStamp__SWIG_6(nargs, args, self);
                 }
               }
             }
@@ -18790,7 +18840,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
                     _v = SWIG_CheckState(res);
                   }
                   if (_v) {
-                    return _wrap_new_UtcTimeStamp__SWIG_6(nargs, args, self);
+                    return _wrap_new_UtcTimeStamp__SWIG_7(nargs, args, self);
                   }
                 }
               }
@@ -18804,6 +18854,7 @@ SWIGINTERN VALUE _wrap_new_UtcTimeStamp(int nargs, VALUE *args, VALUE self) {
 fail:
   Ruby_Format_OverloadedError( argc, 8, "UtcTimeStamp.new", 
     "    UtcTimeStamp.new()\n"
+    "    UtcTimeStamp.new(FIX::DateTime dateTime)\n"
     "    UtcTimeStamp.new(int hour, int minute, int second, int millisecond)\n"
     "    UtcTimeStamp.new(int hour, int minute, int second)\n"
     "    UtcTimeStamp.new(int hour, int minute, int second, int fraction, int precision)\n"
