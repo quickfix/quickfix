@@ -19,20 +19,21 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_POSTGRESQLCONNECTION_H
+#define FIX_POSTGRESQLCONNECTION_H
+
 #ifndef HAVE_POSTGRESQL
 #error PostgreSQLConnection.h included, but HAVE_POSTGRESQL not defined
 #endif
 
 #ifdef HAVE_POSTGRESQL
-#ifndef FIX_POSTGRESQLCONNECTION_H
-#define FIX_POSTGRESQLCONNECTION_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
 #pragma comment( lib, "libpq" )
 #endif
 
-#include <libpq-fe.h>
+#include <postgresql/libpq-fe.h>
 #include "DatabaseConnectionID.h"
 #include "DatabaseConnectionPool.h"
 #include "Mutex.h"

@@ -19,13 +19,14 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_POSTGRESQLSTORE_H
+#define FIX_POSTGRESQLSTORE_H
+
 #ifndef HAVE_POSTGRESQL
 #error PostgreSQLStore.h included, but HAVE_POSTGRESQL not defined
 #endif
 
 #ifdef HAVE_POSTGRESQL
-#ifndef FIX_POSTGRESQLSTORE_H
-#define FIX_POSTGRESQLSTORE_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
