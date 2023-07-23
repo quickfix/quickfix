@@ -229,9 +229,9 @@ public:
 
   bool send( Message& );
   void next();
-  void next( const UtcTimeStamp& timeStamp );
-  void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false );
-  void next( const Message&, const UtcTimeStamp& timeStamp, bool queued = false );
+  void next( const UtcTimeStamp& now );
+  void next( const std::string&, const UtcTimeStamp& now, bool queued = false );
+  void next( const Message&, const UtcTimeStamp& now, bool queued = false );
   void disconnect();
 
   int getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
@@ -263,10 +263,10 @@ private:
     UtcTimeStamp now;
     return labs( now - sendingTime ) <= m_maxLatency;
   }
-  bool checkSessionTime( const UtcTimeStamp& timeStamp )
+  bool checkSessionTime( const UtcTimeStamp& now )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return m_sessionTime.isInSameRange( timeStamp, creationTime );
+    return m_sessionTime.isInSameRange( now, creationTime );
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
@@ -292,16 +292,16 @@ private:
   bool doPossDup( const Message& msg );
   bool doTargetTooLow( const Message& msg );
   void doTargetTooHigh( const Message& msg );
-  void nextQueued( const UtcTimeStamp& timeStamp );
-  bool nextQueued( int num, const UtcTimeStamp& timeStamp );
+  void nextQueued( const UtcTimeStamp& now );
+  bool nextQueued( int num, const UtcTimeStamp& now );
 
-  void nextLogon( const Message&, const UtcTimeStamp& timeStamp );
-  void nextHeartbeat( const Message&, const UtcTimeStamp& timeStamp );
-  void nextTestRequest( const Message&, const UtcTimeStamp& timeStamp );
-  void nextLogout( const Message&, const UtcTimeStamp& timeStamp );
-  void nextReject( const Message&, const UtcTimeStamp& timeStamp );
-  void nextSequenceReset( const Message&, const UtcTimeStamp& timeStamp );
-  void nextResendRequest( const Message&, const UtcTimeStamp& timeStamp );
+  void nextLogon( const Message&, const UtcTimeStamp& now );
+  void nextHeartbeat( const Message&, const UtcTimeStamp& now );
+  void nextTestRequest( const Message&, const UtcTimeStamp& now );
+  void nextLogout( const Message&, const UtcTimeStamp& now );
+  void nextReject( const Message&, const UtcTimeStamp& now );
+  void nextSequenceReset( const Message&, const UtcTimeStamp& now );
+  void nextResendRequest( const Message&, const UtcTimeStamp& now );
 
   void generateLogon();
   void generateLogon( const Message& );
@@ -311,18 +311,15 @@ private:
   void generateHeartbeat( const Message& );
   void generateTestRequest( const std::string& );
   void generateReject( const Message&, int err, int field = 0 );
-  void generateReject( const Message&, const std::string& );
+  void generateReject( const Message&, const std::string& text );
   void generateBusinessReject( const Message&, int err, int field = 0 );
   void generateLogout( const std::string& text = "" );
 
-  void populateRejectReason( Message&, int field, const std::string& );
-  void populateRejectReason( Message&, const std::string& );
+  void populateRejectReason( Message&, int field, const std::string& text );
+  void populateRejectReason( Message&, const std::string& text );
 
   bool verify( const Message& msg,
                bool checkTooHigh = true, bool checkTooLow = true );
-
-  bool set( int s, const Message& m );
-  bool get( int s, Message& m ) const;
 
   Message newMessage( const MsgType & msgType ) const;
 
