@@ -2198,142 +2198,152 @@ namespace Swig {
 #define SWIGTYPE_p_FIX__ConfigError swig_types[15]
 #define SWIGTYPE_p_FIX__DataDictionary swig_types[16]
 #define SWIGTYPE_p_FIX__DataDictionaryNotFound swig_types[17]
-#define SWIGTYPE_p_FIX__DateTime swig_types[18]
-#define SWIGTYPE_p_FIX__Dictionary swig_types[19]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[20]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[21]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[22]
-#define SWIGTYPE_p_FIX__Exception swig_types[23]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[24]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[25]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[26]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[27]
-#define SWIGTYPE_p_FIX__FileLog swig_types[28]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[29]
-#define SWIGTYPE_p_FIX__FileStore swig_types[30]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[31]
-#define SWIGTYPE_p_FIX__Group swig_types[32]
-#define SWIGTYPE_p_FIX__Header swig_types[33]
-#define SWIGTYPE_p_FIX__IOException swig_types[34]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[35]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[36]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[37]
-#define SWIGTYPE_p_FIX__Initiator swig_types[38]
-#define SWIGTYPE_p_FIX__IntField swig_types[39]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[40]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[41]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[42]
-#define SWIGTYPE_p_FIX__LocalDate swig_types[43]
-#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[44]
-#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[45]
-#define SWIGTYPE_p_FIX__Log swig_types[46]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[47]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[48]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[49]
-#define SWIGTYPE_p_FIX__Message swig_types[50]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[51]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[52]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[53]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[54]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[55]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[56]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[57]
-#define SWIGTYPE_p_FIX__NullLog swig_types[58]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[59]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[60]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[61]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[62]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[63]
-#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[64]
-#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[65]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[66]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[67]
-#define SWIGTYPE_p_FIX__SenderCompID swig_types[68]
-#define SWIGTYPE_p_FIX__Session swig_types[69]
-#define SWIGTYPE_p_FIX__SessionID swig_types[70]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[71]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[72]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[73]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[74]
-#define SWIGTYPE_p_FIX__SocketException swig_types[75]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[76]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[77]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[78]
-#define SWIGTYPE_p_FIX__StringField swig_types[79]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[80]
-#define SWIGTYPE_p_FIX__TYPE__Type swig_types[81]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[82]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[83]
-#define SWIGTYPE_p_FIX__TargetCompID swig_types[84]
-#define SWIGTYPE_p_FIX__Trailer swig_types[85]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[86]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[87]
-#define SWIGTYPE_p_FIX__UtcDate swig_types[88]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[89]
-#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[90]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[91]
-#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[92]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[93]
-#define SWIGTYPE_p_Fields swig_types[94]
-#define SWIGTYPE_p_Group swig_types[95]
-#define SWIGTYPE_p_Groups swig_types[96]
-#define SWIGTYPE_p_IntArray swig_types[97]
-#define SWIGTYPE_p_IntField swig_types[98]
-#define SWIGTYPE_p_Log swig_types[99]
-#define SWIGTYPE_p_LogFactory swig_types[100]
-#define SWIGTYPE_p_MessageStore swig_types[101]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[102]
-#define SWIGTYPE_p_MsgType swig_types[103]
-#define SWIGTYPE_p_Mutex swig_types[104]
-#define SWIGTYPE_p_RSA swig_types[105]
-#define SWIGTYPE_p_Responder swig_types[106]
-#define SWIGTYPE_p_SessionID swig_types[107]
-#define SWIGTYPE_p_SessionToPort swig_types[108]
-#define SWIGTYPE_p_StringField swig_types[109]
-#define SWIGTYPE_p_TimeRange swig_types[110]
-#define SWIGTYPE_p_UtcDateField swig_types[111]
-#define SWIGTYPE_p_X509 swig_types[112]
-#define SWIGTYPE_p_allocator_type swig_types[113]
-#define SWIGTYPE_p_bool swig_types[114]
-#define SWIGTYPE_p_char swig_types[115]
-#define SWIGTYPE_p_const_iterator swig_types[116]
-#define SWIGTYPE_p_difference_type swig_types[117]
-#define SWIGTYPE_p_double swig_types[118]
-#define SWIGTYPE_p_g_const_iterator swig_types[119]
-#define SWIGTYPE_p_g_iterator swig_types[120]
-#define SWIGTYPE_p_g_value_type swig_types[121]
-#define SWIGTYPE_p_int swig_types[122]
-#define SWIGTYPE_p_int64_t swig_types[123]
-#define SWIGTYPE_p_iterator swig_types[124]
-#define SWIGTYPE_p_key_type swig_types[125]
-#define SWIGTYPE_p_message_order swig_types[126]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[127]
-#define SWIGTYPE_p_size_type swig_types[128]
-#define SWIGTYPE_p_ssize_t swig_types[129]
-#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[130]
-#define SWIGTYPE_p_std__istream swig_types[131]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[132]
-#define SWIGTYPE_p_std__logic_error swig_types[133]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[134]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[135]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[136]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[137]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[138]
-#define SWIGTYPE_p_std__ostream swig_types[139]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[140]
-#define SWIGTYPE_p_std__string swig_types[141]
-#define SWIGTYPE_p_std__string__size_type swig_types[142]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[143]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[144]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[145]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[146]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[147]
-#define SWIGTYPE_p_swig__Iterator swig_types[148]
-#define SWIGTYPE_p_tm swig_types[149]
-#define SWIGTYPE_p_value_type swig_types[150]
-#define SWIGTYPE_p_void swig_types[151]
-static swig_type_info *swig_types[153];
-static swig_module_info swig_module = {swig_types, 152, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__DatabaseConnectionID swig_types[18]
+#define SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t swig_types[19]
+#define SWIGTYPE_p_FIX__DateTime swig_types[20]
+#define SWIGTYPE_p_FIX__Dictionary swig_types[21]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[22]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[23]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[24]
+#define SWIGTYPE_p_FIX__Exception swig_types[25]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[26]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[27]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[28]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[29]
+#define SWIGTYPE_p_FIX__FileLog swig_types[30]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[31]
+#define SWIGTYPE_p_FIX__FileStore swig_types[32]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[33]
+#define SWIGTYPE_p_FIX__Group swig_types[34]
+#define SWIGTYPE_p_FIX__Header swig_types[35]
+#define SWIGTYPE_p_FIX__IOException swig_types[36]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[37]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[38]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[39]
+#define SWIGTYPE_p_FIX__Initiator swig_types[40]
+#define SWIGTYPE_p_FIX__IntField swig_types[41]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[42]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[43]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[44]
+#define SWIGTYPE_p_FIX__LocalDate swig_types[45]
+#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[46]
+#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[47]
+#define SWIGTYPE_p_FIX__Log swig_types[48]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[49]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[50]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[51]
+#define SWIGTYPE_p_FIX__Message swig_types[52]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[53]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[54]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[55]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[56]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[57]
+#define SWIGTYPE_p_FIX__MySQLConnection swig_types[58]
+#define SWIGTYPE_p_FIX__MySQLLog swig_types[59]
+#define SWIGTYPE_p_FIX__MySQLLogFactory swig_types[60]
+#define SWIGTYPE_p_FIX__MySQLQuery swig_types[61]
+#define SWIGTYPE_p_FIX__MySQLStore swig_types[62]
+#define SWIGTYPE_p_FIX__MySQLStoreFactory swig_types[63]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[64]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[65]
+#define SWIGTYPE_p_FIX__NullLog swig_types[66]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[67]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[68]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[69]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[70]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[71]
+#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[72]
+#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[73]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[74]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[75]
+#define SWIGTYPE_p_FIX__SenderCompID swig_types[76]
+#define SWIGTYPE_p_FIX__Session swig_types[77]
+#define SWIGTYPE_p_FIX__SessionID swig_types[78]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[79]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[80]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[81]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[82]
+#define SWIGTYPE_p_FIX__SocketException swig_types[83]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[84]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[85]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[86]
+#define SWIGTYPE_p_FIX__StringField swig_types[87]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[88]
+#define SWIGTYPE_p_FIX__TYPE__Type swig_types[89]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[90]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[91]
+#define SWIGTYPE_p_FIX__TargetCompID swig_types[92]
+#define SWIGTYPE_p_FIX__Trailer swig_types[93]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[94]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[95]
+#define SWIGTYPE_p_FIX__UtcDate swig_types[96]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[97]
+#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[98]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[99]
+#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[100]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[101]
+#define SWIGTYPE_p_Fields swig_types[102]
+#define SWIGTYPE_p_Group swig_types[103]
+#define SWIGTYPE_p_Groups swig_types[104]
+#define SWIGTYPE_p_IntArray swig_types[105]
+#define SWIGTYPE_p_IntField swig_types[106]
+#define SWIGTYPE_p_Log swig_types[107]
+#define SWIGTYPE_p_LogFactory swig_types[108]
+#define SWIGTYPE_p_MYSQL swig_types[109]
+#define SWIGTYPE_p_MessageStore swig_types[110]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[111]
+#define SWIGTYPE_p_MsgType swig_types[112]
+#define SWIGTYPE_p_Mutex swig_types[113]
+#define SWIGTYPE_p_RSA swig_types[114]
+#define SWIGTYPE_p_Responder swig_types[115]
+#define SWIGTYPE_p_SessionID swig_types[116]
+#define SWIGTYPE_p_SessionToPort swig_types[117]
+#define SWIGTYPE_p_StringField swig_types[118]
+#define SWIGTYPE_p_TimeRange swig_types[119]
+#define SWIGTYPE_p_UtcDateField swig_types[120]
+#define SWIGTYPE_p_X509 swig_types[121]
+#define SWIGTYPE_p_allocator_type swig_types[122]
+#define SWIGTYPE_p_bool swig_types[123]
+#define SWIGTYPE_p_char swig_types[124]
+#define SWIGTYPE_p_const_iterator swig_types[125]
+#define SWIGTYPE_p_difference_type swig_types[126]
+#define SWIGTYPE_p_double swig_types[127]
+#define SWIGTYPE_p_g_const_iterator swig_types[128]
+#define SWIGTYPE_p_g_iterator swig_types[129]
+#define SWIGTYPE_p_g_value_type swig_types[130]
+#define SWIGTYPE_p_int swig_types[131]
+#define SWIGTYPE_p_int64_t swig_types[132]
+#define SWIGTYPE_p_iterator swig_types[133]
+#define SWIGTYPE_p_key_type swig_types[134]
+#define SWIGTYPE_p_message_order swig_types[135]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[136]
+#define SWIGTYPE_p_size_type swig_types[137]
+#define SWIGTYPE_p_ssize_t swig_types[138]
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[139]
+#define SWIGTYPE_p_std__istream swig_types[140]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[141]
+#define SWIGTYPE_p_std__logic_error swig_types[142]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[143]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[144]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[145]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[146]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[147]
+#define SWIGTYPE_p_std__ostream swig_types[148]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[149]
+#define SWIGTYPE_p_std__string swig_types[150]
+#define SWIGTYPE_p_std__string__size_type swig_types[151]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[152]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[153]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[154]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[155]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[156]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[157]
+#define SWIGTYPE_p_swig__Iterator swig_types[158]
+#define SWIGTYPE_p_tm swig_types[159]
+#define SWIGTYPE_p_value_type swig_types[160]
+#define SWIGTYPE_p_void swig_types[161]
+static swig_type_info *swig_types[163];
+static swig_module_info swig_module = {swig_types, 162, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3281,6 +3291,9 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include <SocketAcceptor.h>
 #include <DataDictionary.h>
 #include <SocketMonitor.h>
+#include <DatabaseConnectionID.h>
+#include <DatabaseConnectionPool.h>
+
 #ifdef HAVE_SSL
 #include <SSLSocketAcceptor.h>
 #include <SSLSocketInitiator.h>
@@ -3288,6 +3301,15 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #else
 #include <SSLStubs.h>
 #endif
+
+#ifdef HAVE_MYSQL
+#include <MySQLConnection.h>
+#include <MySQLStore.h>
+#include <MySQLLog.h>
+#else
+#include <MySQLStubs.h>
+#endif
+
 #include <functional>
 #ifdef SWIGPYTHON
 #include "datetime.h"
@@ -5593,6 +5615,29 @@ SWIGINTERN std::string FIX_SessionID___str__(FIX::SessionID *self){
 SWIGINTERN void FIX_SessionSettings_setFromString(FIX::SessionSettings *self,std::string const &str){
         std::stringstream(str) >> (*self);
     }
+
+SWIGINTERN int
+SWIG_AsVal_short (VALUE obj, short *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < SHRT_MIN || v > SHRT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< short >(v);
+    }
+  }  
+  return res;
+}
+
+
+SWIGINTERNINLINE VALUE
+SWIG_From_short  (short value)
+{    
+  return SWIG_From_long  (value);
+}
+
 /* ---------------------------------------------------
  * C++ director class helpers
  * --------------------------------------------------- */
@@ -17369,6 +17414,7 @@ fail:
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
 
 Equality comparison operator.
 */
@@ -17425,6 +17471,7 @@ fail:
   Document-method: Quickfix::FIX.<
 
   call-seq:
+    <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
@@ -23460,6 +23507,7 @@ free_FIX_StringField(void *self) {
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
 
 Lower than comparison operator.
 */
@@ -23675,6 +23723,7 @@ fail:
   Document-method: Quickfix::FIX.==
 
   call-seq:
+    ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
@@ -24006,6 +24055,7 @@ fail:
   Document-method: Quickfix::FIX.<
 
   call-seq:
+    <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
@@ -24360,6 +24410,7 @@ fail:
   Document-method: Quickfix::FIX.==
 
   call-seq:
+    ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
@@ -90736,6 +90787,7 @@ free_FIX_SessionID(void *self) {
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
     <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
 
 Lower than comparison operator.
 */
@@ -90788,114 +90840,11 @@ fail:
 }
 
 
-SWIGINTERN VALUE _wrap___lt__(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[2];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 2) SWIG_fail;
-  for (ii = 0; (ii < argc); ++ii) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_0(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_3(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_1(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_5(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_4(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___lt____SWIG_2(nargs, args, self);
-      }
-    }
-  }
-  
-fail:
-  Ruby_Format_OverloadedError( argc, 2, "__lt__", 
-    "    bool __lt__(FIX::DateTime const &lhs, FIX::DateTime const &rhs)\n"
-    "    bool __lt__(FIX::StringField const &lhs, char const *rhs)\n"
-    "    bool __lt__(char const *lhs, FIX::StringField const &rhs)\n"
-    "    bool __lt__(FIX::StringField const &lhs, std::string const &rhs)\n"
-    "    bool __lt__(std::string const &lhs, FIX::StringField const &rhs)\n"
-    "    bool __lt__(FIX::SessionID const &lhs, FIX::SessionID const &rhs)\n");
-  
-  return Qnil;
-}
-
-
 /*
   Document-method: Quickfix::FIX.==
 
   call-seq:
+    ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
     ==(lhs, rhs) -> bool
@@ -90950,110 +90899,6 @@ _wrap___eq____SWIG_5(int argc, VALUE *argv, VALUE self) {
   vresult = SWIG_From_bool(static_cast< bool >(result));
   return vresult;
 fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE _wrap___eq__(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[2];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 2) SWIG_fail;
-  for (ii = 0; (ii < argc); ++ii) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_0(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_3(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_1(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_5(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_4(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v = 0;
-    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap___eq____SWIG_2(nargs, args, self);
-      }
-    }
-  }
-  
-fail:
-  Ruby_Format_OverloadedError( argc, 2, "__eq__", 
-    "    bool __eq__(FIX::DateTime const &lhs, FIX::DateTime const &rhs)\n"
-    "    bool __eq__(FIX::StringField const &lhs, char const *rhs)\n"
-    "    bool __eq__(char const *lhs, FIX::StringField const &rhs)\n"
-    "    bool __eq__(FIX::StringField const &lhs, std::string const &rhs)\n"
-    "    bool __eq__(std::string const &lhs, FIX::StringField const &rhs)\n"
-    "    bool __eq__(FIX::SessionID const &lhs, FIX::SessionID const &rhs)\n");
-  
   return Qnil;
 }
 
@@ -110381,6 +110226,3985 @@ fail:
 }
 
 
+static swig_class SwigClassDatabaseConnectionID;
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_DatabaseConnectionID_allocate(VALUE self)
+#else
+_wrap_DatabaseConnectionID_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__DatabaseConnectionID);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_DatabaseConnectionID(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::DatabaseConnectionID";
+  FIX::DatabaseConnectionID *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","DatabaseConnectionID", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","DatabaseConnectionID", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","DatabaseConnectionID", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","DatabaseConnectionID", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","DatabaseConnectionID", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","DatabaseConnectionID", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","DatabaseConnectionID", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","DatabaseConnectionID", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","DatabaseConnectionID", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::DatabaseConnectionID *)new FIX::DatabaseConnectionID((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DatabaseConnectionID_getDatabase(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const *","getDatabase", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (std::string *) &((FIX::DatabaseConnectionID const *)arg1)->getDatabase();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DatabaseConnectionID_getUser(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const *","getUser", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (std::string *) &((FIX::DatabaseConnectionID const *)arg1)->getUser();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DatabaseConnectionID_getPassword(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const *","getPassword", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (std::string *) &((FIX::DatabaseConnectionID const *)arg1)->getPassword();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DatabaseConnectionID_getHost(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const *","getHost", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (std::string *) &((FIX::DatabaseConnectionID const *)arg1)->getHost();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_DatabaseConnectionID_getPort(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  short result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const *","getPort", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (short)((FIX::DatabaseConnectionID const *)arg1)->getPort();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_short(static_cast< short >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_DatabaseConnectionID(void *self) {
+    FIX::DatabaseConnectionID *arg1 = (FIX::DatabaseConnectionID *)self;
+    delete arg1;
+}
+
+/*
+  Document-method: Quickfix::FIX.<
+
+  call-seq:
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+    <(lhs, rhs) -> bool
+
+Lower than comparison operator.
+*/
+SWIGINTERN VALUE
+_wrap___lt____SWIG_6(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  FIX::DatabaseConnectionID *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","FIX::operator <", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","FIX::operator <", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","FIX::operator <", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","FIX::operator <", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)FIX::operator <((FIX::DatabaseConnectionID const &)*arg1,(FIX::DatabaseConnectionID const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap___lt__(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[2];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 2) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_0(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_3(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_5(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_6(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_4(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___lt____SWIG_2(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 2, "__lt__", 
+    "    bool __lt__(FIX::DateTime const &lhs, FIX::DateTime const &rhs)\n"
+    "    bool __lt__(FIX::StringField const &lhs, char const *rhs)\n"
+    "    bool __lt__(char const *lhs, FIX::StringField const &rhs)\n"
+    "    bool __lt__(FIX::StringField const &lhs, std::string const &rhs)\n"
+    "    bool __lt__(std::string const &lhs, FIX::StringField const &rhs)\n"
+    "    bool __lt__(FIX::SessionID const &lhs, FIX::SessionID const &rhs)\n"
+    "    bool __lt__(FIX::DatabaseConnectionID const &lhs, FIX::DatabaseConnectionID const &rhs)\n");
+  
+  return Qnil;
+}
+
+
+/*
+  Document-method: Quickfix::FIX.==
+
+  call-seq:
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+    ==(lhs, rhs) -> bool
+
+Equality comparison operator.
+*/
+SWIGINTERN VALUE
+_wrap___eq____SWIG_6(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  FIX::DatabaseConnectionID *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","FIX::operator ==", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","FIX::operator ==", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","FIX::operator ==", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","FIX::operator ==", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)FIX::operator ==((FIX::DatabaseConnectionID const &)*arg1,(FIX::DatabaseConnectionID const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap___eq__(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[2];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 2) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DateTime, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_0(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_3(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_5(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_6(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_4(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap___eq____SWIG_2(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 2, "__eq__", 
+    "    bool __eq__(FIX::DateTime const &lhs, FIX::DateTime const &rhs)\n"
+    "    bool __eq__(FIX::StringField const &lhs, char const *rhs)\n"
+    "    bool __eq__(char const *lhs, FIX::StringField const &rhs)\n"
+    "    bool __eq__(FIX::StringField const &lhs, std::string const &rhs)\n"
+    "    bool __eq__(std::string const &lhs, FIX::StringField const &rhs)\n"
+    "    bool __eq__(FIX::SessionID const &lhs, FIX::SessionID const &rhs)\n"
+    "    bool __eq__(FIX::DatabaseConnectionID const &lhs, FIX::DatabaseConnectionID const &rhs)\n");
+  
+  return Qnil;
+}
+
+
+static swig_class SwigClassMySQLQuery;
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLQuery_allocate(VALUE self)
+#else
+_wrap_MySQLQuery_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLQuery);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLQuery(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLQuery";
+  FIX::MySQLQuery *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","MySQLQuery", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLQuery", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLQuery *)new FIX::MySQLQuery((std::string const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLQuery(void *self) {
+    FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_execute(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  MYSQL *arg2 = (MYSQL *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","execute", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_MYSQL, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "MYSQL *","execute", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< MYSQL * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->execute(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_success(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","success", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->success();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_rows(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","rows", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)(arg1)->rows();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_reason(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","reason", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (std::string *) &(arg1)->reason();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_getValue(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  char *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","getValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","getValue", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","getValue", 3, argv[1] ));
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (char *)(arg1)->getValue(arg2,arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_FromCharPtr((const char *)result);
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLQuery_throwException(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLQuery *arg1 = (FIX::MySQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLQuery *","throwException", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->throwException();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassMySQLConnection;
+
+SWIGINTERN VALUE
+_wrap_new_MySQLConnection__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLConnection";
+  FIX::MySQLConnection *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","MySQLConnection", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","MySQLConnection", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLConnection *)new FIX::MySQLConnection((FIX::DatabaseConnectionID const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLConnection_allocate(VALUE self)
+#else
+_wrap_MySQLConnection_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLConnection);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLConnection__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLConnection";
+  FIX::MySQLConnection *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","MySQLConnection", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLConnection", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","MySQLConnection", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLConnection", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLConnection", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLConnection", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLConnection", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLConnection", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","MySQLConnection", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLConnection *)new FIX::MySQLConnection((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_MySQLConnection(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_MySQLConnection__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_MySQLConnection__SWIG_1(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "MySQLConnection.new", 
+    "    MySQLConnection.new(FIX::DatabaseConnectionID const &id)\n"
+    "    MySQLConnection.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLConnection(void *self) {
+    FIX::MySQLConnection *arg1 = (FIX::MySQLConnection *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_MySQLConnection_connectionID(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLConnection *arg1 = (FIX::MySQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::DatabaseConnectionID *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLConnection *","connectionID", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::DatabaseConnectionID *) &(arg1)->connectionID();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLConnection_connected(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLConnection *arg1 = (FIX::MySQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLConnection *","connected", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->connected();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLConnection_reconnect(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLConnection *arg1 = (FIX::MySQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLConnection *","reconnect", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->reconnect();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLConnection_execute(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLConnection *arg1 = (FIX::MySQLConnection *) 0 ;
+  FIX::MySQLQuery *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLConnection *","execute", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLConnection * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__MySQLQuery,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MySQLQuery &","execute", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::MySQLQuery &","execute", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::MySQLQuery * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->execute(*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassMySQLStoreFactory;
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_DEFAULT_DATABASE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLStoreFactory::DEFAULT_DATABASE));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_DEFAULT_USER_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLStoreFactory::DEFAULT_USER));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_DEFAULT_PASSWORD_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLStoreFactory::DEFAULT_PASSWORD));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_DEFAULT_HOST_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLStoreFactory::DEFAULT_HOST));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_DEFAULT_PORT_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_short(static_cast< short >(FIX::MySQLStoreFactory::DEFAULT_PORT));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStoreFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionSettings *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStoreFactory";
+  FIX::MySQLStoreFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","MySQLStoreFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","MySQLStoreFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStoreFactory *)new FIX::MySQLStoreFactory((FIX::SessionSettings const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStoreFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::Dictionary *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStoreFactory";
+  FIX::MySQLStoreFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Dictionary,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Dictionary const &","MySQLStoreFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Dictionary const &","MySQLStoreFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStoreFactory *)new FIX::MySQLStoreFactory((FIX::Dictionary const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStoreFactory__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStoreFactory";
+  FIX::MySQLStoreFactory *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","MySQLStoreFactory", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStoreFactory", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","MySQLStoreFactory", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStoreFactory", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLStoreFactory", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStoreFactory", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLStoreFactory", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStoreFactory", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","MySQLStoreFactory", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStoreFactory *)new FIX::MySQLStoreFactory((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLStoreFactory_allocate(VALUE self)
+#else
+_wrap_MySQLStoreFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLStoreFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStoreFactory__SWIG_3(int argc, VALUE *argv, VALUE self) {
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStoreFactory";
+  FIX::MySQLStoreFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStoreFactory *)new FIX::MySQLStoreFactory();
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_MySQLStoreFactory(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 0) {
+    return _wrap_new_MySQLStoreFactory__SWIG_3(nargs, args, self);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_MySQLStoreFactory__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_MySQLStoreFactory__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_MySQLStoreFactory__SWIG_2(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "MySQLStoreFactory.new", 
+    "    MySQLStoreFactory.new(FIX::SessionSettings const &settings)\n"
+    "    MySQLStoreFactory.new(FIX::Dictionary const &dictionary)\n"
+    "    MySQLStoreFactory.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    MySQLStoreFactory.new()\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_create(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStoreFactory *arg1 = (FIX::MySQLStoreFactory *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  FIX::SessionID *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  FIX::MessageStore *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStoreFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","create", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","create", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionID const &","create", 3, argv[1] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 3, argv[1])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MessageStore *)(arg1)->create((FIX::UtcTimeStamp const &)*arg2,(FIX::SessionID const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStoreFactory_destroy(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStoreFactory *arg1 = (FIX::MySQLStoreFactory *) 0 ;
+  FIX::MessageStore *arg2 = (FIX::MessageStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStoreFactory *","destroy", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStore *","destroy", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStore * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->destroy(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLStoreFactory(void *self) {
+    FIX::MySQLStoreFactory *arg1 = (FIX::MySQLStoreFactory *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassMySQLStore;
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStore__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::UtcTimeStamp *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  FIX::DatabaseConnectionID *arg3 = 0 ;
+  FIX::MySQLConnectionPool *arg4 = (FIX::MySQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStore";
+  FIX::MySQLStore *result = 0 ;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","MySQLStore", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","MySQLStore", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::UtcTimeStamp * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","MySQLStore", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","MySQLStore", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","MySQLStore", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","MySQLStore", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "FIX::MySQLConnectionPool *","MySQLStore", 4, argv[3] )); 
+  }
+  arg4 = reinterpret_cast< FIX::MySQLConnectionPool * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStore *)new FIX::MySQLStore((FIX::UtcTimeStamp const &)*arg1,(FIX::SessionID const &)*arg2,(FIX::DatabaseConnectionID const &)*arg3,arg4);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLStore_allocate(VALUE self)
+#else
+_wrap_MySQLStore_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLStore);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLStore__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::UtcTimeStamp *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  std::string *arg5 = 0 ;
+  std::string *arg6 = 0 ;
+  short arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  int res5 = SWIG_OLDOBJ ;
+  int res6 = SWIG_OLDOBJ ;
+  short val7 ;
+  int ecode7 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLStore";
+  FIX::MySQLStore *result = 0 ;
+  
+  if ((argc < 7) || (argc > 7)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 7)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","MySQLStore", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","MySQLStore", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::UtcTimeStamp * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","MySQLStore", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","MySQLStore", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLStore", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStore", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLStore", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStore", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res5 = SWIG_AsPtr_std_string(argv[4], &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "std::string const &","MySQLStore", 5, argv[4] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStore", 5, argv[4])); 
+    }
+    arg5 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res6 = SWIG_AsPtr_std_string(argv[5], &ptr);
+    if (!SWIG_IsOK(res6)) {
+      SWIG_exception_fail(SWIG_ArgError(res6), Ruby_Format_TypeError( "", "std::string const &","MySQLStore", 6, argv[5] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLStore", 6, argv[5])); 
+    }
+    arg6 = ptr;
+  }
+  ecode7 = SWIG_AsVal_short(argv[6], &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), Ruby_Format_TypeError( "", "short","MySQLStore", 7, argv[6] ));
+  } 
+  arg7 = static_cast< short >(val7);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLStore *)new FIX::MySQLStore((FIX::UtcTimeStamp const &)*arg1,(FIX::SessionID const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,(std::string const &)*arg5,(std::string const &)*arg6,arg7);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[4], 0 );
+      rb_str_append( argv[4], rb_str_new2(arg5->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[5], 0 );
+      rb_str_append( argv[5], rb_str_new2(arg6->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  if (SWIG_IsNewObj(res6)) delete arg6;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  if (SWIG_IsNewObj(res6)) delete arg6;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_MySQLStore(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[7];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 7) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 4) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_MySQLStore__SWIG_0(nargs, args, self);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 7) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = SWIG_AsPtr_std_string(argv[4], (std::string**)(0));
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              int res = SWIG_AsPtr_std_string(argv[5], (std::string**)(0));
+              _v = SWIG_CheckState(res);
+              if (_v) {
+                {
+                  int res = SWIG_AsVal_short(argv[6], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v) {
+                  return _wrap_new_MySQLStore__SWIG_1(nargs, args, self);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 7, "MySQLStore.new", 
+    "    MySQLStore.new(FIX::UtcTimeStamp const &now, FIX::SessionID const &sessionID, FIX::DatabaseConnectionID const &connection, FIX::MySQLConnectionPool *pool)\n"
+    "    MySQLStore.new(FIX::UtcTimeStamp const &now, FIX::SessionID const &sessionID, std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLStore(void *self) {
+    FIX::MySQLStore *arg1 = (FIX::MySQLStore *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_set(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","set", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","set", 3, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","set", 3, argv[1])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->set(arg2,(std::string const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_get(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< std::string > *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore const *","get", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
+  } 
+  arg3 = static_cast< int >(val3);
+  res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::vector< std::string > &","get", 4, argv[2])); 
+  }
+  arg4 = reinterpret_cast< std::vector< std::string > * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      ((FIX::MySQLStore const *)arg1)->get(arg2,arg3,*arg4);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore const *","getNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::MySQLStore const *)arg1)->getNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore const *","getNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::MySQLStore const *)arg1)->getNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","setNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextSenderMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","setNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextTargetMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_incrNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","incrNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_incrNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","incrNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_getCreationTime(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::UtcTimeStamp result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore const *","getCreationTime", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = ((FIX::MySQLStore const *)arg1)->getCreationTime();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj((new FIX::UtcTimeStamp(result)), SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_reset(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","reset", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","reset", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","reset", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->reset((FIX::UtcTimeStamp const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLStore_refresh(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","refresh", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->refresh();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassMySQLLog;
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLog__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = 0 ;
+  FIX::DatabaseConnectionID *arg2 = 0 ;
+  FIX::MySQLConnectionPool *arg3 = (FIX::MySQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLog";
+  FIX::MySQLLog *result = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionID const &","MySQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","MySQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","MySQLLog", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","MySQLLog", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::MySQLConnectionPool *","MySQLLog", 3, argv[2] )); 
+  }
+  arg3 = reinterpret_cast< FIX::MySQLConnectionPool * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLog *)new FIX::MySQLLog((FIX::SessionID const &)*arg1,(FIX::DatabaseConnectionID const &)*arg2,arg3);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLog__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  FIX::MySQLConnectionPool *arg2 = (FIX::MySQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLog";
+  FIX::MySQLLog *result = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","MySQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","MySQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MySQLConnectionPool *","MySQLLog", 2, argv[1] )); 
+  }
+  arg2 = reinterpret_cast< FIX::MySQLConnectionPool * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLog *)new FIX::MySQLLog((FIX::DatabaseConnectionID const &)*arg1,arg2);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLog__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  std::string *arg5 = 0 ;
+  short arg6 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  int res5 = SWIG_OLDOBJ ;
+  short val6 ;
+  int ecode6 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLog";
+  FIX::MySQLLog *result = 0 ;
+  
+  if ((argc < 6) || (argc > 6)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 6)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionID const &","MySQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","MySQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res5 = SWIG_AsPtr_std_string(argv[4], &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 5, argv[4] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 5, argv[4])); 
+    }
+    arg5 = ptr;
+  }
+  ecode6 = SWIG_AsVal_short(argv[5], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), Ruby_Format_TypeError( "", "short","MySQLLog", 6, argv[5] ));
+  } 
+  arg6 = static_cast< short >(val6);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLog *)new FIX::MySQLLog((FIX::SessionID const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,(std::string const &)*arg5,arg6);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[4], 0 );
+      rb_str_append( argv[4], rb_str_new2(arg5->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLLog_allocate(VALUE self)
+#else
+_wrap_MySQLLog_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLLog);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLog__SWIG_3(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLog";
+  FIX::MySQLLog *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLLog", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLog", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","MySQLLog", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLog *)new FIX::MySQLLog((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_MySQLLog(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[6];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 6) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_MySQLLog__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_MySQLLog__SWIG_0(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_MySQLLog__SWIG_3(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  if (argc == 6) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = SWIG_AsPtr_std_string(argv[4], (std::string**)(0));
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              {
+                int res = SWIG_AsVal_short(argv[5], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v) {
+                return _wrap_new_MySQLLog__SWIG_2(nargs, args, self);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 6, "MySQLLog.new", 
+    "    MySQLLog.new(FIX::SessionID const &sessionID, FIX::DatabaseConnectionID const &connectionID, FIX::MySQLConnectionPool *pool)\n"
+    "    MySQLLog.new(FIX::DatabaseConnectionID const &connectionID, FIX::MySQLConnectionPool *pool)\n"
+    "    MySQLLog.new(FIX::SessionID const &sessionID, std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    MySQLLog.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLLog(void *self) {
+    FIX::MySQLLog *arg1 = (FIX::MySQLLog *)self;
+    delete arg1;
+}
+
+/*
+  Document-method: Quickfix::MySQLLog.clear
+
+  call-seq:
+    clear
+
+Clear MySQLLog contents.
+*/
+SWIGINTERN VALUE
+_wrap_MySQLLog_clear(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","clear", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->clear();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_backup(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","backup", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->backup();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_setIncomingTable(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","setIncomingTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setIncomingTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setIncomingTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setIncomingTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_setOutgoingTable(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","setOutgoingTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setOutgoingTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setOutgoingTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setOutgoingTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_setEventTable(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","setEventTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setEventTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setEventTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setEventTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_onIncoming(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","onIncoming", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onIncoming", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onIncoming", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onIncoming((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","onOutgoing", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onOutgoing", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onOutgoing", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onOutgoing((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLog_onEvent(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLog *arg1 = (FIX::MySQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLog *","onEvent", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onEvent", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onEvent", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onEvent((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+static swig_class SwigClassMySQLLogFactory;
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_DEFAULT_DATABASE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLLogFactory::DEFAULT_DATABASE));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_DEFAULT_USER_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLLogFactory::DEFAULT_USER));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_DEFAULT_PASSWORD_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLLogFactory::DEFAULT_PASSWORD));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_DEFAULT_HOST_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::MySQLLogFactory::DEFAULT_HOST));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_DEFAULT_PORT_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_short(static_cast< short >(FIX::MySQLLogFactory::DEFAULT_PORT));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLogFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionSettings *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLogFactory";
+  FIX::MySQLLogFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","MySQLLogFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","MySQLLogFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLogFactory *)new FIX::MySQLLogFactory((FIX::SessionSettings const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLogFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLogFactory";
+  FIX::MySQLLogFactory *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","MySQLLogFactory", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLogFactory", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","MySQLLogFactory", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLogFactory", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","MySQLLogFactory", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLogFactory", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","MySQLLogFactory", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","MySQLLogFactory", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","MySQLLogFactory", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLogFactory *)new FIX::MySQLLogFactory((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_MySQLLogFactory_allocate(VALUE self)
+#else
+_wrap_MySQLLogFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__MySQLLogFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_MySQLLogFactory__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  const char *classname SWIGUNUSED = "Quickfix::MySQLLogFactory";
+  FIX::MySQLLogFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MySQLLogFactory *)new FIX::MySQLLogFactory();
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_MySQLLogFactory(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 0) {
+    return _wrap_new_MySQLLogFactory__SWIG_2(nargs, args, self);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_MySQLLogFactory__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_MySQLLogFactory__SWIG_1(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "MySQLLogFactory.new", 
+    "    MySQLLogFactory.new(FIX::SessionSettings const &settings)\n"
+    "    MySQLLogFactory.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    MySQLLogFactory.new()\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLogFactory *arg1 = (FIX::MySQLLogFactory *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::Log *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLogFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLogFactory * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Log *)(arg1)->create();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLogFactory *arg1 = (FIX::MySQLLogFactory *) 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  FIX::Log *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLogFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLogFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","create", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Log *)(arg1)->create((FIX::SessionID const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_MySQLLogFactory_create(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[3];
+  int ii;
+  
+  argc = nargs + 1;
+  argv[0] = self;
+  if (argc > 3) SWIG_fail;
+  for (ii = 1; (ii < argc); ++ii) {
+    argv[ii] = args[ii-1];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__MySQLLogFactory, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_MySQLLogFactory_create__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__MySQLLogFactory, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_MySQLLogFactory_create__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 3, "MySQLLogFactory.create", 
+    "    FIX::Log MySQLLogFactory.create()\n"
+    "    FIX::Log * MySQLLogFactory.create(FIX::SessionID const &)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_MySQLLogFactory_destroy(int argc, VALUE *argv, VALUE self) {
+  FIX::MySQLLogFactory *arg1 = (FIX::MySQLLogFactory *) 0 ;
+  FIX::Log *arg2 = (FIX::Log *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__MySQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLLogFactory *","destroy", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::MySQLLogFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::Log *","destroy", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< FIX::Log * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->destroy(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_MySQLLogFactory(void *self) {
+    FIX::MySQLLogFactory *arg1 = (FIX::MySQLLogFactory *)self;
+    delete arg1;
+}
+
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
@@ -110561,6 +114385,9 @@ static void *_p_FIX__SocketInitiatorTo_p_FIX__Initiator(void *x, int *SWIGUNUSED
 static void *_p_FIX__FileLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Log *)  ((FIX::FileLog *) x));
 }
+static void *_p_FIX__MySQLLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::Log *)  ((FIX::MySQLLog *) x));
+}
 static void *_p_FIX__NullLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Log *)  ((FIX::NullLog *) x));
 }
@@ -110569,6 +114396,9 @@ static void *_p_FIX__ScreenLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemo
 }
 static void *_p_FIX__FileLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::LogFactory *)  ((FIX::FileLogFactory *) x));
+}
+static void *_p_FIX__MySQLLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::LogFactory *)  ((FIX::MySQLLogFactory *) x));
 }
 static void *_p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::LogFactory *)  ((FIX::ScreenLogFactory *) x));
@@ -110579,11 +114409,17 @@ static void *_p_FIX__FileStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPAR
 static void *_p_FIX__MemoryStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStore *)  ((FIX::MemoryStore *) x));
 }
+static void *_p_FIX__MySQLStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStore *)  ((FIX::MySQLStore *) x));
+}
 static void *_p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::FileStoreFactory *) x));
 }
 static void *_p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::MemoryStoreFactory *) x));
+}
+static void *_p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStoreFactory *)  ((FIX::MySQLStoreFactory *) x));
 }
 static void *_p_FIX__SocketCloseFailedTo_p_FIX__SocketException(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::SocketException *)  ((FIX::SocketCloseFailed *) x));
@@ -110714,6 +114550,8 @@ static swig_type_info _swigt__p_FIX__CheckSumField = {"_p_FIX__CheckSumField", "
 static swig_type_info _swigt__p_FIX__ConfigError = {"_p_FIX__ConfigError", "FIX::ConfigError *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DataDictionary = {"_p_FIX__DataDictionary", "FIX::DataDictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DataDictionaryNotFound = {"_p_FIX__DataDictionaryNotFound", "FIX::DataDictionaryNotFound *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__DatabaseConnectionID = {"_p_FIX__DatabaseConnectionID", "FIX::DatabaseConnectionID *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t = {"_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t", "FIX::MySQLConnectionPool *|FIX::DatabaseConnectionPool< FIX::MySQLConnection > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DateTime = {"_p_FIX__DateTime", "FIX::DateTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Dictionary = {"_p_FIX__Dictionary", "FIX::Dictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoNotSend = {"_p_FIX__DoNotSend", "FIX::DoNotSend *", 0, 0, (void*)0, 0};
@@ -110752,6 +114590,12 @@ static swig_type_info _swigt__p_FIX__MessageStore = {"_p_FIX__MessageStore", "FI
 static swig_type_info _swigt__p_FIX__MessageStoreExceptionWrapper = {"_p_FIX__MessageStoreExceptionWrapper", "FIX::MessageStoreExceptionWrapper *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__MessageStoreFactory = {"_p_FIX__MessageStoreFactory", "FIX::MessageStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__MessageStoreFactoryExceptionWrapper = {"_p_FIX__MessageStoreFactoryExceptionWrapper", "FIX::MessageStoreFactoryExceptionWrapper *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLConnection = {"_p_FIX__MySQLConnection", "FIX::MySQLConnection *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLLog = {"_p_FIX__MySQLLog", "FIX::MySQLLog *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLLogFactory = {"_p_FIX__MySQLLogFactory", "FIX::MySQLLogFactory *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLQuery = {"_p_FIX__MySQLQuery", "FIX::MySQLQuery *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLStore = {"_p_FIX__MySQLStore", "FIX::MySQLStore *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__MySQLStoreFactory = {"_p_FIX__MySQLStoreFactory", "FIX::MySQLStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NoTagValue = {"_p_FIX__NoTagValue", "FIX::NoTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullApplication = {"_p_FIX__NullApplication", "FIX::NullApplication *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullLog = {"_p_FIX__NullLog", "FIX::NullLog *", 0, 0, (void*)0, 0};
@@ -110797,6 +114641,7 @@ static swig_type_info _swigt__p_IntArray = {"_p_IntArray", "IntArray *", 0, 0, (
 static swig_type_info _swigt__p_IntField = {"_p_IntField", "LengthField *|NumInGroupField *|SeqNumField *|TagNumField *|IntField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Log = {"_p_Log", "Log *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_LogFactory = {"_p_LogFactory", "LogFactory *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MYSQL = {"_p_MYSQL", "MYSQL *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MessageStore = {"_p_MessageStore", "MessageStore *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MessageStoreFactory = {"_p_MessageStoreFactory", "MessageStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MsgType = {"_p_MsgType", "MsgType *", 0, 0, (void*)0, 0};
@@ -110839,6 +114684,7 @@ static swig_type_info _swigt__p_std__ostream = {"_p_std__ostream", "std::ostream
 static swig_type_info _swigt__p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t = {"_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t", "std::set< FIX::SessionID,std::less< FIX::SessionID >,std::allocator< FIX::SessionID > > *|std::set< FIX::SessionID > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "FIX::COUNTRY *|FIX::CURRENCY *|FIX::DATA *|FIX::DAYOFMONTH *|FIX::EXCHANGE *|FIX::LANGUAGE *|FIX::LOCALMKTDATE *|FIX::LOCALMKTTIME *|FIX::MONTHYEAR *|FIX::MULTIPLECHARVALUE *|FIX::MULTIPLESTRINGVALUE *|FIX::MULTIPLEVALUESTRING *|FIX::STRING *|FIX::TZTIMEONLY *|FIX::TZTIMESTAMP *|FIX::XID *|FIX::XIDREF *|FIX::XMLDATA *|std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string__size_type = {"_p_std__string__size_type", "std::string::size_type *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t = {"_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t", "FIX::MySQLConnectionPoolPtr *|std::unique_ptr< FIX::DatabaseConnectionPool< FIX::MySQLConnection > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator = {"_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator", "FIX::FieldMap::const_iterator *|std::vector< FIX::FieldBase,ALLOCATOR< FIX::FieldBase > >::const_iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator = {"_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator", "FIX::FieldMap::iterator *|std::vector< FIX::FieldBase,ALLOCATOR< FIX::FieldBase > >::iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__string_t = {"_p_std__vectorT_std__string_t", "std::vector< std::string > *", 0, 0, (void*)0, 0};
@@ -110868,6 +114714,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__ConfigError,
   &_swigt__p_FIX__DataDictionary,
   &_swigt__p_FIX__DataDictionaryNotFound,
+  &_swigt__p_FIX__DatabaseConnectionID,
+  &_swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t,
   &_swigt__p_FIX__DateTime,
   &_swigt__p_FIX__Dictionary,
   &_swigt__p_FIX__DoNotSend,
@@ -110906,6 +114754,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__MessageStoreExceptionWrapper,
   &_swigt__p_FIX__MessageStoreFactory,
   &_swigt__p_FIX__MessageStoreFactoryExceptionWrapper,
+  &_swigt__p_FIX__MySQLConnection,
+  &_swigt__p_FIX__MySQLLog,
+  &_swigt__p_FIX__MySQLLogFactory,
+  &_swigt__p_FIX__MySQLQuery,
+  &_swigt__p_FIX__MySQLStore,
+  &_swigt__p_FIX__MySQLStoreFactory,
   &_swigt__p_FIX__NoTagValue,
   &_swigt__p_FIX__NullApplication,
   &_swigt__p_FIX__NullLog,
@@ -110951,6 +114805,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_IntField,
   &_swigt__p_Log,
   &_swigt__p_LogFactory,
+  &_swigt__p_MYSQL,
   &_swigt__p_MessageStore,
   &_swigt__p_MessageStoreFactory,
   &_swigt__p_MsgType,
@@ -110993,6 +114848,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t,
   &_swigt__p_std__string,
   &_swigt__p_std__string__size_type,
+  &_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t,
   &_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator,
   &_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator,
   &_swigt__p_std__vectorT_std__string_t,
@@ -111022,6 +114878,8 @@ static swig_cast_info _swigc__p_FIX__CheckSumField[] = {  {&_swigt__p_FIX__Check
 static swig_cast_info _swigc__p_FIX__ConfigError[] = {  {&_swigt__p_FIX__ConfigError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DataDictionary[] = {  {&_swigt__p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DataDictionaryNotFound[] = {  {&_swigt__p_FIX__DataDictionaryNotFound, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DatabaseConnectionID[] = {  {&_swigt__p_FIX__DatabaseConnectionID, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t[] = {  {&_swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DateTime[] = {  {&_swigt__p_FIX__DateTime, 0, 0, 0},  {&_swigt__p_FIX__LocalDate, _p_FIX__LocalDateTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__LocalTimeOnly, _p_FIX__LocalTimeOnlyTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__LocalTimeStamp, _p_FIX__LocalTimeStampTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcDate, _p_FIX__UtcDateTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcTimeOnly, _p_FIX__UtcTimeOnlyTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcTimeStamp, _p_FIX__UtcTimeStampTo_p_FIX__DateTime, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Dictionary[] = {  {&_swigt__p_FIX__Dictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend, 0, 0, 0},{0, 0, 0, 0}};
@@ -111050,16 +114908,22 @@ static swig_cast_info _swigc__p_FIX__InvalidTagNumber[] = {  {&_swigt__p_FIX__In
 static swig_cast_info _swigc__p_FIX__LocalDate[] = {  {&_swigt__p_FIX__LocalDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LocalTimeOnly[] = {  {&_swigt__p_FIX__LocalTimeOnly, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LocalTimeStamp[] = {  {&_swigt__p_FIX__LocalTimeStamp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__NullLog, _p_FIX__NullLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__MySQLLog, _p_FIX__MySQLLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__NullLog, _p_FIX__NullLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__MySQLLogFactory, _p_FIX__MySQLLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryStore, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStoreFactory[] = {  {&_swigt__p_FIX__MemoryStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Message[] = {  {&_swigt__p_FIX__Message, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageParseError[] = {  {&_swigt__p_FIX__MessageParseError, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MySQLStore, _p_FIX__MySQLStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MySQLStoreFactory, _p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreFactoryExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreFactoryExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLConnection[] = {  {&_swigt__p_FIX__MySQLConnection, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLLog[] = {  {&_swigt__p_FIX__MySQLLog, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLLogFactory[] = {  {&_swigt__p_FIX__MySQLLogFactory, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLQuery[] = {  {&_swigt__p_FIX__MySQLQuery, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLStore[] = {  {&_swigt__p_FIX__MySQLStore, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MySQLStoreFactory[] = {  {&_swigt__p_FIX__MySQLStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NoTagValue[] = {  {&_swigt__p_FIX__NoTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullApplication[] = {  {&_swigt__p_FIX__NullApplication, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullLog[] = {  {&_swigt__p_FIX__NullLog, 0, 0, 0},{0, 0, 0, 0}};
@@ -111105,6 +114969,7 @@ static swig_cast_info _swigc__p_IntArray[] = {  {&_swigt__p_IntArray, 0, 0, 0},{
 static swig_cast_info _swigc__p_IntField[] = {  {&_swigt__p_IntField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Log[] = {  {&_swigt__p_Log, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_LogFactory[] = {  {&_swigt__p_LogFactory, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MYSQL[] = {  {&_swigt__p_MYSQL, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MessageStore[] = {  {&_swigt__p_MessageStore, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MessageStoreFactory[] = {  {&_swigt__p_MessageStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MsgType[] = {  {&_swigt__p_MsgType, 0, 0, 0},{0, 0, 0, 0}};
@@ -111147,6 +115012,7 @@ static swig_cast_info _swigc__p_std__ostream[] = {  {&_swigt__p_std__ostream, 0,
 static swig_cast_info _swigc__p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t[] = {  {&_swigt__p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string__size_type[] = {  {&_swigt__p_std__string__size_type, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t[] = {  {&_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator[] = {  {&_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator[] = {  {&_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_std__string_t[] = {  {&_swigt__p_std__vectorT_std__string_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -111176,6 +115042,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__ConfigError,
   _swigc__p_FIX__DataDictionary,
   _swigc__p_FIX__DataDictionaryNotFound,
+  _swigc__p_FIX__DatabaseConnectionID,
+  _swigc__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t,
   _swigc__p_FIX__DateTime,
   _swigc__p_FIX__Dictionary,
   _swigc__p_FIX__DoNotSend,
@@ -111214,6 +115082,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__MessageStoreExceptionWrapper,
   _swigc__p_FIX__MessageStoreFactory,
   _swigc__p_FIX__MessageStoreFactoryExceptionWrapper,
+  _swigc__p_FIX__MySQLConnection,
+  _swigc__p_FIX__MySQLLog,
+  _swigc__p_FIX__MySQLLogFactory,
+  _swigc__p_FIX__MySQLQuery,
+  _swigc__p_FIX__MySQLStore,
+  _swigc__p_FIX__MySQLStoreFactory,
   _swigc__p_FIX__NoTagValue,
   _swigc__p_FIX__NullApplication,
   _swigc__p_FIX__NullLog,
@@ -111259,6 +115133,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_IntField,
   _swigc__p_Log,
   _swigc__p_LogFactory,
+  _swigc__p_MYSQL,
   _swigc__p_MessageStore,
   _swigc__p_MessageStoreFactory,
   _swigc__p_MsgType,
@@ -111301,6 +115176,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t,
   _swigc__p_std__string,
   _swigc__p_std__string__size_type,
+  _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t,
   _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator,
   _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator,
   _swigc__p_std__vectorT_std__string_t,
@@ -118170,8 +122046,6 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassSessionID.mark = 0;
   SwigClassSessionID.destroy = (void (*)(void *)) free_FIX_SessionID;
   SwigClassSessionID.trackObjects = 0;
-  rb_define_module_function(mQuickfix, "<", VALUEFUNC(_wrap___lt__), -1);
-  rb_define_module_function(mQuickfix, "==", VALUEFUNC(_wrap___eq__), -1);
   
   SwigClassDictionary.klass = rb_define_class_under(mQuickfix, "Dictionary", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__Dictionary, (void *) &SwigClassDictionary);
@@ -118771,6 +122645,112 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassSSLSocketInitiatorBase.mark = 0;
   SwigClassSSLSocketInitiatorBase.destroy = (void (*)(void *)) free_FIX_SSLSocketInitiator;
   SwigClassSSLSocketInitiatorBase.trackObjects = 0;
+  
+  SwigClassDatabaseConnectionID.klass = rb_define_class_under(mQuickfix, "DatabaseConnectionID", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__DatabaseConnectionID, (void *) &SwigClassDatabaseConnectionID);
+  rb_define_alloc_func(SwigClassDatabaseConnectionID.klass, _wrap_DatabaseConnectionID_allocate);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "initialize", VALUEFUNC(_wrap_new_DatabaseConnectionID), -1);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "getDatabase", VALUEFUNC(_wrap_DatabaseConnectionID_getDatabase), -1);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "getUser", VALUEFUNC(_wrap_DatabaseConnectionID_getUser), -1);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "getPassword", VALUEFUNC(_wrap_DatabaseConnectionID_getPassword), -1);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "getHost", VALUEFUNC(_wrap_DatabaseConnectionID_getHost), -1);
+  rb_define_method(SwigClassDatabaseConnectionID.klass, "getPort", VALUEFUNC(_wrap_DatabaseConnectionID_getPort), -1);
+  SwigClassDatabaseConnectionID.mark = 0;
+  SwigClassDatabaseConnectionID.destroy = (void (*)(void *)) free_FIX_DatabaseConnectionID;
+  SwigClassDatabaseConnectionID.trackObjects = 0;
+  rb_define_module_function(mQuickfix, "<", VALUEFUNC(_wrap___lt__), -1);
+  rb_define_module_function(mQuickfix, "==", VALUEFUNC(_wrap___eq__), -1);
+  
+  SwigClassMySQLQuery.klass = rb_define_class_under(mQuickfix, "MySQLQuery", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLQuery, (void *) &SwigClassMySQLQuery);
+  rb_define_alloc_func(SwigClassMySQLQuery.klass, _wrap_MySQLQuery_allocate);
+  rb_define_method(SwigClassMySQLQuery.klass, "initialize", VALUEFUNC(_wrap_new_MySQLQuery), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "execute", VALUEFUNC(_wrap_MySQLQuery_execute), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "success", VALUEFUNC(_wrap_MySQLQuery_success), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "rows", VALUEFUNC(_wrap_MySQLQuery_rows), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "reason", VALUEFUNC(_wrap_MySQLQuery_reason), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "getValue", VALUEFUNC(_wrap_MySQLQuery_getValue), -1);
+  rb_define_method(SwigClassMySQLQuery.klass, "throwException", VALUEFUNC(_wrap_MySQLQuery_throwException), -1);
+  SwigClassMySQLQuery.mark = 0;
+  SwigClassMySQLQuery.destroy = (void (*)(void *)) free_FIX_MySQLQuery;
+  SwigClassMySQLQuery.trackObjects = 0;
+  
+  SwigClassMySQLConnection.klass = rb_define_class_under(mQuickfix, "MySQLConnection", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLConnection, (void *) &SwigClassMySQLConnection);
+  rb_define_alloc_func(SwigClassMySQLConnection.klass, _wrap_MySQLConnection_allocate);
+  rb_define_method(SwigClassMySQLConnection.klass, "initialize", VALUEFUNC(_wrap_new_MySQLConnection), -1);
+  rb_define_method(SwigClassMySQLConnection.klass, "connectionID", VALUEFUNC(_wrap_MySQLConnection_connectionID), -1);
+  rb_define_method(SwigClassMySQLConnection.klass, "connected", VALUEFUNC(_wrap_MySQLConnection_connected), -1);
+  rb_define_method(SwigClassMySQLConnection.klass, "reconnect", VALUEFUNC(_wrap_MySQLConnection_reconnect), -1);
+  rb_define_method(SwigClassMySQLConnection.klass, "execute", VALUEFUNC(_wrap_MySQLConnection_execute), -1);
+  SwigClassMySQLConnection.mark = 0;
+  SwigClassMySQLConnection.destroy = (void (*)(void *)) free_FIX_MySQLConnection;
+  SwigClassMySQLConnection.trackObjects = 0;
+  
+  SwigClassMySQLStoreFactory.klass = rb_define_class_under(mQuickfix, "MySQLStoreFactory", ((swig_class *) SWIGTYPE_p_FIX__MessageStoreFactory->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLStoreFactory, (void *) &SwigClassMySQLStoreFactory);
+  rb_define_alloc_func(SwigClassMySQLStoreFactory.klass, _wrap_MySQLStoreFactory_allocate);
+  rb_define_method(SwigClassMySQLStoreFactory.klass, "initialize", VALUEFUNC(_wrap_new_MySQLStoreFactory), -1);
+  rb_define_singleton_method(SwigClassMySQLStoreFactory.klass, "DEFAULT_DATABASE", VALUEFUNC(_wrap_MySQLStoreFactory_DEFAULT_DATABASE_get), 0);
+  rb_define_singleton_method(SwigClassMySQLStoreFactory.klass, "DEFAULT_USER", VALUEFUNC(_wrap_MySQLStoreFactory_DEFAULT_USER_get), 0);
+  rb_define_singleton_method(SwigClassMySQLStoreFactory.klass, "DEFAULT_PASSWORD", VALUEFUNC(_wrap_MySQLStoreFactory_DEFAULT_PASSWORD_get), 0);
+  rb_define_singleton_method(SwigClassMySQLStoreFactory.klass, "DEFAULT_HOST", VALUEFUNC(_wrap_MySQLStoreFactory_DEFAULT_HOST_get), 0);
+  rb_define_singleton_method(SwigClassMySQLStoreFactory.klass, "DEFAULT_PORT", VALUEFUNC(_wrap_MySQLStoreFactory_DEFAULT_PORT_get), 0);
+  rb_define_method(SwigClassMySQLStoreFactory.klass, "create", VALUEFUNC(_wrap_MySQLStoreFactory_create), -1);
+  rb_define_method(SwigClassMySQLStoreFactory.klass, "destroy", VALUEFUNC(_wrap_MySQLStoreFactory_destroy), -1);
+  SwigClassMySQLStoreFactory.mark = 0;
+  SwigClassMySQLStoreFactory.destroy = (void (*)(void *)) free_FIX_MySQLStoreFactory;
+  SwigClassMySQLStoreFactory.trackObjects = 0;
+  
+  SwigClassMySQLStore.klass = rb_define_class_under(mQuickfix, "MySQLStore", ((swig_class *) SWIGTYPE_p_FIX__MessageStore->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLStore, (void *) &SwigClassMySQLStore);
+  rb_define_alloc_func(SwigClassMySQLStore.klass, _wrap_MySQLStore_allocate);
+  rb_define_method(SwigClassMySQLStore.klass, "initialize", VALUEFUNC(_wrap_new_MySQLStore), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "set", VALUEFUNC(_wrap_MySQLStore_set), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "get", VALUEFUNC(_wrap_MySQLStore_get), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "getNextSenderMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_getNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "getNextTargetMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_getNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "setNextSenderMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_setNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "setNextTargetMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_setNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "incrNextSenderMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_incrNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "incrNextTargetMsgSeqNum", VALUEFUNC(_wrap_MySQLStore_incrNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "getCreationTime", VALUEFUNC(_wrap_MySQLStore_getCreationTime), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "reset", VALUEFUNC(_wrap_MySQLStore_reset), -1);
+  rb_define_method(SwigClassMySQLStore.klass, "refresh", VALUEFUNC(_wrap_MySQLStore_refresh), -1);
+  SwigClassMySQLStore.mark = 0;
+  SwigClassMySQLStore.destroy = (void (*)(void *)) free_FIX_MySQLStore;
+  SwigClassMySQLStore.trackObjects = 0;
+  
+  SwigClassMySQLLog.klass = rb_define_class_under(mQuickfix, "MySQLLog", ((swig_class *) SWIGTYPE_p_FIX__Log->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLLog, (void *) &SwigClassMySQLLog);
+  rb_define_alloc_func(SwigClassMySQLLog.klass, _wrap_MySQLLog_allocate);
+  rb_define_method(SwigClassMySQLLog.klass, "initialize", VALUEFUNC(_wrap_new_MySQLLog), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "clear", VALUEFUNC(_wrap_MySQLLog_clear), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "backup", VALUEFUNC(_wrap_MySQLLog_backup), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "setIncomingTable", VALUEFUNC(_wrap_MySQLLog_setIncomingTable), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "setOutgoingTable", VALUEFUNC(_wrap_MySQLLog_setOutgoingTable), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "setEventTable", VALUEFUNC(_wrap_MySQLLog_setEventTable), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "onIncoming", VALUEFUNC(_wrap_MySQLLog_onIncoming), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "onOutgoing", VALUEFUNC(_wrap_MySQLLog_onOutgoing), -1);
+  rb_define_method(SwigClassMySQLLog.klass, "onEvent", VALUEFUNC(_wrap_MySQLLog_onEvent), -1);
+  SwigClassMySQLLog.mark = 0;
+  SwigClassMySQLLog.destroy = (void (*)(void *)) free_FIX_MySQLLog;
+  SwigClassMySQLLog.trackObjects = 0;
+  
+  SwigClassMySQLLogFactory.klass = rb_define_class_under(mQuickfix, "MySQLLogFactory", ((swig_class *) SWIGTYPE_p_FIX__LogFactory->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__MySQLLogFactory, (void *) &SwigClassMySQLLogFactory);
+  rb_define_alloc_func(SwigClassMySQLLogFactory.klass, _wrap_MySQLLogFactory_allocate);
+  rb_define_method(SwigClassMySQLLogFactory.klass, "initialize", VALUEFUNC(_wrap_new_MySQLLogFactory), -1);
+  rb_define_singleton_method(SwigClassMySQLLogFactory.klass, "DEFAULT_DATABASE", VALUEFUNC(_wrap_MySQLLogFactory_DEFAULT_DATABASE_get), 0);
+  rb_define_singleton_method(SwigClassMySQLLogFactory.klass, "DEFAULT_USER", VALUEFUNC(_wrap_MySQLLogFactory_DEFAULT_USER_get), 0);
+  rb_define_singleton_method(SwigClassMySQLLogFactory.klass, "DEFAULT_PASSWORD", VALUEFUNC(_wrap_MySQLLogFactory_DEFAULT_PASSWORD_get), 0);
+  rb_define_singleton_method(SwigClassMySQLLogFactory.klass, "DEFAULT_HOST", VALUEFUNC(_wrap_MySQLLogFactory_DEFAULT_HOST_get), 0);
+  rb_define_singleton_method(SwigClassMySQLLogFactory.klass, "DEFAULT_PORT", VALUEFUNC(_wrap_MySQLLogFactory_DEFAULT_PORT_get), 0);
+  rb_define_method(SwigClassMySQLLogFactory.klass, "create", VALUEFUNC(_wrap_MySQLLogFactory_create), -1);
+  rb_define_method(SwigClassMySQLLogFactory.klass, "destroy", VALUEFUNC(_wrap_MySQLLogFactory_destroy), -1);
+  SwigClassMySQLLogFactory.mark = 0;
+  SwigClassMySQLLogFactory.destroy = (void (*)(void *)) free_FIX_MySQLLogFactory;
+  SwigClassMySQLLogFactory.trackObjects = 0;
   
 #ifndef _MSC_VER
   struct sigaction new_action, old_action;

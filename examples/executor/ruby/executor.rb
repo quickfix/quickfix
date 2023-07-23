@@ -109,5 +109,6 @@ begin
 		sleep(1)
 	end
 rescue Quickfix::ConfigError, Quickfix::RuntimeError => e
-	print e
+	puts e.backtrace.join("\n\t")
+		.sub("\n\t", ": #{e}#{e.class ? " (#{e.class})" : ''}\n\t")
 end

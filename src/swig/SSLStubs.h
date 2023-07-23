@@ -1,4 +1,5 @@
 #ifndef HAVE_SSL
+
 struct SSL{};
 struct RSA{};
 struct X509{};
@@ -19,7 +20,7 @@ public:
                       const SessionSettings& settings ) EXCEPT ( ConfigError ) 
   : Initiator( application, factory, settings)
   {
-    throw ConfigError("SSL not enabled");
+    throw ConfigError("HAVE_SSL not enabled");
   }
 
   SSLSocketInitiator( Application& application, 
@@ -28,7 +29,7 @@ public:
                       LogFactory& logFactory ) EXCEPT ( ConfigError ) 
   : Initiator( application, factory, settings, logFactory )
   {
-    throw ConfigError("SSL not enabled");
+    throw ConfigError("HAVE_SSL not enabled");
   }
 
   virtual ~SSLSocketInitiator() {}
@@ -62,7 +63,7 @@ public:
                      const SessionSettings& settings ) EXCEPT ( ConfigError ) 
   : Acceptor( application, factory, settings)
   {
-    throw ConfigError("SSL not enabled");
+    throw ConfigError("HAVE_SSL not enabled");
   }
 
   SSLSocketAcceptor( Application& application, 
@@ -71,7 +72,7 @@ public:
                      LogFactory& logFactory ) EXCEPT ( ConfigError ) 
   : Acceptor( application, factory, settings, logFactory )
   {
-    throw ConfigError("SSL not enabled");
+    throw ConfigError("HAVE_SSL not enabled");
   }
 
   virtual ~SSLSocketAcceptor() {}
@@ -132,4 +133,5 @@ private:
   void disconnect() override {};
 };
 }
+
 #endif
