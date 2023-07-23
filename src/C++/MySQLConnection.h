@@ -19,21 +19,22 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_MYSQLCONNECTION_H
+#define FIX_MYSQLCONNECTION_H
+
 #ifndef HAVE_MYSQL
 #error MySQLConnection.h included, but HAVE_MYSQL not defined
 #endif
 
 #ifdef HAVE_MYSQL
-#ifndef FIX_MYSQLCONNECTION_H
-#define FIX_MYSQLCONNECTION_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
 #pragma comment( lib, "libMySQL" )
 #endif
 
-#include <mysql.h>
-#include <errmsg.h>
+#include <mysql/mysql.h>
+#include <mysql/errmsg.h>
 #include "DatabaseConnectionID.h"
 #include "DatabaseConnectionPool.h"
 #include "Mutex.h"
@@ -189,7 +190,7 @@ private:
 
 typedef DatabaseConnectionPool<MySQLConnection>
   MySQLConnectionPool;
-typedef std::unique_ptr< MySQLConnectionPool >
+typedef std::unique_ptr<MySQLConnectionPool>
   MySQLConnectionPoolPtr;
 }
 

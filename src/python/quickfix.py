@@ -7219,15 +7219,6 @@ SelfMatchPreventionInstruction_CANCEL_AGGRESSIVE = cvar.SelfMatchPreventionInstr
 SelfMatchPreventionInstruction_CANCEL_PASSIVE = cvar.SelfMatchPreventionInstruction_CANCEL_PASSIVE
 SelfMatchPreventionInstruction_CANCEL_AGGRESSIVE_PASSIVE = cvar.SelfMatchPreventionInstruction_CANCEL_AGGRESSIVE_PASSIVE
 
-
-def __lt__(*args):
-    return _quickfix.__lt__(*args)
-
-def __eq__(*args):
-    return _quickfix.__eq__(*args)
-
-def __ne__(*args):
-    return _quickfix.__ne__(*args)
 class Dictionary(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -8438,6 +8429,211 @@ class SSLSocketInitiatorBase(Initiator):
 
 # Register SSLSocketInitiatorBase in _quickfix:
 _quickfix.SSLSocketInitiatorBase_swigregister(SSLSocketInitiatorBase)
+class DatabaseConnectionID(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, database, user, password, host, port):
+        _quickfix.DatabaseConnectionID_swiginit(self, _quickfix.new_DatabaseConnectionID(database, user, password, host, port))
+
+    def getDatabase(self):
+        return _quickfix.DatabaseConnectionID_getDatabase(self)
+
+    def getUser(self):
+        return _quickfix.DatabaseConnectionID_getUser(self)
+
+    def getPassword(self):
+        return _quickfix.DatabaseConnectionID_getPassword(self)
+
+    def getHost(self):
+        return _quickfix.DatabaseConnectionID_getHost(self)
+
+    def getPort(self):
+        return _quickfix.DatabaseConnectionID_getPort(self)
+    __swig_destroy__ = _quickfix.delete_DatabaseConnectionID
+
+# Register DatabaseConnectionID in _quickfix:
+_quickfix.DatabaseConnectionID_swigregister(DatabaseConnectionID)
+
+def __lt__(*args):
+    return _quickfix.__lt__(*args)
+
+def __eq__(*args):
+    return _quickfix.__eq__(*args)
+
+def __ne__(*args):
+    return _quickfix.__ne__(*args)
+class MySQLQuery(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, query):
+        _quickfix.MySQLQuery_swiginit(self, _quickfix.new_MySQLQuery(query))
+    __swig_destroy__ = _quickfix.delete_MySQLQuery
+
+    def execute(self, pConnection):
+        return _quickfix.MySQLQuery_execute(self, pConnection)
+
+    def success(self):
+        return _quickfix.MySQLQuery_success(self)
+
+    def rows(self):
+        return _quickfix.MySQLQuery_rows(self)
+
+    def reason(self):
+        return _quickfix.MySQLQuery_reason(self)
+
+    def getValue(self, row, column):
+        return _quickfix.MySQLQuery_getValue(self, row, column)
+
+    def throwException(self):
+        return _quickfix.MySQLQuery_throwException(self)
+
+# Register MySQLQuery in _quickfix:
+_quickfix.MySQLQuery_swigregister(MySQLQuery)
+class MySQLConnection(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.MySQLConnection_swiginit(self, _quickfix.new_MySQLConnection(*args))
+    __swig_destroy__ = _quickfix.delete_MySQLConnection
+
+    def connectionID(self):
+        return _quickfix.MySQLConnection_connectionID(self)
+
+    def connected(self):
+        return _quickfix.MySQLConnection_connected(self)
+
+    def reconnect(self):
+        return _quickfix.MySQLConnection_reconnect(self)
+
+    def execute(self, pQuery):
+        return _quickfix.MySQLConnection_execute(self, pQuery)
+
+# Register MySQLConnection in _quickfix:
+_quickfix.MySQLConnection_swigregister(MySQLConnection)
+class MySQLStoreFactory(MessageStoreFactory):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.MySQLStoreFactory_swiginit(self, _quickfix.new_MySQLStoreFactory(*args))
+
+    def create(self, arg2, arg3):
+        return _quickfix.MySQLStoreFactory_create(self, arg2, arg3)
+
+    def destroy(self, arg2):
+        return _quickfix.MySQLStoreFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_MySQLStoreFactory
+
+# Register MySQLStoreFactory in _quickfix:
+_quickfix.MySQLStoreFactory_swigregister(MySQLStoreFactory)
+MySQLStoreFactory.DEFAULT_DATABASE = _quickfix.cvar.MySQLStoreFactory_DEFAULT_DATABASE
+MySQLStoreFactory.DEFAULT_USER = _quickfix.cvar.MySQLStoreFactory_DEFAULT_USER
+MySQLStoreFactory.DEFAULT_PASSWORD = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PASSWORD
+MySQLStoreFactory.DEFAULT_HOST = _quickfix.cvar.MySQLStoreFactory_DEFAULT_HOST
+MySQLStoreFactory.DEFAULT_PORT = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PORT
+
+class MySQLStore(MessageStore):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.MySQLStore_swiginit(self, _quickfix.new_MySQLStore(*args))
+    __swig_destroy__ = _quickfix.delete_MySQLStore
+
+    def set(self, arg2, arg3):
+        return _quickfix.MySQLStore_set(self, arg2, arg3)
+
+    def get(self, arg2, arg3, arg4):
+        return _quickfix.MySQLStore_get(self, arg2, arg3, arg4)
+
+    def getNextSenderMsgSeqNum(self):
+        return _quickfix.MySQLStore_getNextSenderMsgSeqNum(self)
+
+    def getNextTargetMsgSeqNum(self):
+        return _quickfix.MySQLStore_getNextTargetMsgSeqNum(self)
+
+    def setNextSenderMsgSeqNum(self, value):
+        return _quickfix.MySQLStore_setNextSenderMsgSeqNum(self, value)
+
+    def setNextTargetMsgSeqNum(self, value):
+        return _quickfix.MySQLStore_setNextTargetMsgSeqNum(self, value)
+
+    def incrNextSenderMsgSeqNum(self):
+        return _quickfix.MySQLStore_incrNextSenderMsgSeqNum(self)
+
+    def incrNextTargetMsgSeqNum(self):
+        return _quickfix.MySQLStore_incrNextTargetMsgSeqNum(self)
+
+    def getCreationTime(self):
+        return _quickfix.MySQLStore_getCreationTime(self)
+
+    def reset(self, now):
+        return _quickfix.MySQLStore_reset(self, now)
+
+    def refresh(self):
+        return _quickfix.MySQLStore_refresh(self)
+
+# Register MySQLStore in _quickfix:
+_quickfix.MySQLStore_swigregister(MySQLStore)
+class MySQLLog(Log):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.MySQLLog_swiginit(self, _quickfix.new_MySQLLog(*args))
+    __swig_destroy__ = _quickfix.delete_MySQLLog
+
+    def clear(self):
+        return _quickfix.MySQLLog_clear(self)
+
+    def backup(self):
+        return _quickfix.MySQLLog_backup(self)
+
+    def setIncomingTable(self, incomingTable):
+        return _quickfix.MySQLLog_setIncomingTable(self, incomingTable)
+
+    def setOutgoingTable(self, outgoingTable):
+        return _quickfix.MySQLLog_setOutgoingTable(self, outgoingTable)
+
+    def setEventTable(self, eventTable):
+        return _quickfix.MySQLLog_setEventTable(self, eventTable)
+
+    def onIncoming(self, value):
+        return _quickfix.MySQLLog_onIncoming(self, value)
+
+    def onOutgoing(self, value):
+        return _quickfix.MySQLLog_onOutgoing(self, value)
+
+    def onEvent(self, value):
+        return _quickfix.MySQLLog_onEvent(self, value)
+
+# Register MySQLLog in _quickfix:
+_quickfix.MySQLLog_swigregister(MySQLLog)
+class MySQLLogFactory(LogFactory):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.MySQLLogFactory_swiginit(self, _quickfix.new_MySQLLogFactory(*args))
+
+    def create(self, *args):
+        return _quickfix.MySQLLogFactory_create(self, *args)
+
+    def destroy(self, arg2):
+        return _quickfix.MySQLLogFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_MySQLLogFactory
+
+# Register MySQLLogFactory in _quickfix:
+_quickfix.MySQLLogFactory_swigregister(MySQLLogFactory)
+MySQLLogFactory.DEFAULT_DATABASE = _quickfix.cvar.MySQLLogFactory_DEFAULT_DATABASE
+MySQLLogFactory.DEFAULT_USER = _quickfix.cvar.MySQLLogFactory_DEFAULT_USER
+MySQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.MySQLLogFactory_DEFAULT_PASSWORD
+MySQLLogFactory.DEFAULT_HOST = _quickfix.cvar.MySQLLogFactory_DEFAULT_HOST
+MySQLLogFactory.DEFAULT_PORT = _quickfix.cvar.MySQLLogFactory_DEFAULT_PORT
+
 
 try:
   import thread

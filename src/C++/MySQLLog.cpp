@@ -42,29 +42,29 @@ const std::string MySQLLogFactory::DEFAULT_HOST = "localhost";
 const short MySQLLogFactory::DEFAULT_PORT = 0;
 
 MySQLLog::MySQLLog
-( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
-: m_pConnectionPool( p )
+( const SessionID& sessionID, const DatabaseConnectionID& connectionID, MySQLConnectionPool* pool )
+: m_pConnectionPool( pool )
 {
   init();
-  m_pSessionID = new SessionID( s );
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pSessionID = new SessionID( sessionID );
+  m_pConnection = m_pConnectionPool->create( connectionID );
 }
 
 MySQLLog::MySQLLog
-( const DatabaseConnectionID& d, MySQLConnectionPool* p )
-: m_pConnectionPool( p ), m_pSessionID( 0 )
+( const DatabaseConnectionID& connectionID, MySQLConnectionPool* pool )
+: m_pConnectionPool( pool ), m_pSessionID( 0 )
 {
   init();
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pConnection = m_pConnectionPool->create( connectionID );
 }
 
 MySQLLog::MySQLLog
-( const SessionID& s, const std::string& database, const std::string& user,
+( const SessionID& sessionID, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
   : m_pConnectionPool( 0 )
 {
   init();
-  m_pSessionID = new SessionID( s );
+  m_pSessionID = new SessionID( sessionID );
   m_pConnection = new MySQLConnection( database, user, password, host, port );
 }
 

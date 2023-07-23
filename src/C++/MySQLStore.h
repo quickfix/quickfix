@@ -19,13 +19,14 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_MYSQLSTORE_H
+#define FIX_MYSQLSTORE_H
+
 #ifndef HAVE_MYSQL
 #error MySQLStore.h included, but HAVE_MYSQL not defined
 #endif
 
 #ifdef HAVE_MYSQL
-#ifndef FIX_MYSQLSTORE_H
-#define FIX_MYSQLSTORE_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )

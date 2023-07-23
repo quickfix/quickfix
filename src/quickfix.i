@@ -69,6 +69,9 @@
 #include <SocketAcceptor.h>
 #include <DataDictionary.h>
 #include <SocketMonitor.h>
+#include <DatabaseConnectionID.h>
+#include <DatabaseConnectionPool.h>
+
 #ifdef HAVE_SSL
 #include <SSLSocketAcceptor.h>
 #include <SSLSocketInitiator.h>
@@ -76,6 +79,15 @@
 #else
 #include <SSLStubs.h>
 #endif
+
+#ifdef HAVE_MYSQL
+#include <MySQLConnection.h>
+#include <MySQLStore.h>
+#include <MySQLLog.h>
+#else
+#include <MySQLStubs.h>
+#endif
+
 #include <functional>
 #ifdef SWIGPYTHON
 #include "datetime.h"
@@ -523,3 +535,8 @@ typedef FIX::SessionSettings SessionSettings;
 %include "../C++/SocketMonitor.h"
 %include "../C++/SSLSocketAcceptor.h"
 %include "../C++/SSLSocketInitiator.h"
+%include "../C++/DatabaseConnectionID.h"
+%include "../C++/DatabaseConnectionPool.h"
+%include "../C++/MySQLConnection.h"
+%include "../C++/MySQLStore.h"
+%include "../C++/MySQLLog.h"
