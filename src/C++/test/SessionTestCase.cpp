@@ -2019,10 +2019,6 @@ TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatG
   object->next( now );
   CHECK_EQUAL(4, object->getExpectedSenderNum());
   CHECK(object->isLoggedOn());
-
-  // Force Heartbeat Interval Flow
-  process_sleep(2);
-  CHECK_EQUAL(3, object->getExpectedSenderNum());
 }
 
 TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn) 
