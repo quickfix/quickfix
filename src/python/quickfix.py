@@ -8634,6 +8634,177 @@ MySQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.MySQLLogFactory_DEFAULT_PASSWO
 MySQLLogFactory.DEFAULT_HOST = _quickfix.cvar.MySQLLogFactory_DEFAULT_HOST
 MySQLLogFactory.DEFAULT_PORT = _quickfix.cvar.MySQLLogFactory_DEFAULT_PORT
 
+class PostgreSQLQuery(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, query):
+        _quickfix.PostgreSQLQuery_swiginit(self, _quickfix.new_PostgreSQLQuery(query))
+    __swig_destroy__ = _quickfix.delete_PostgreSQLQuery
+
+    def execute(self, pConnection):
+        return _quickfix.PostgreSQLQuery_execute(self, pConnection)
+
+    def success(self):
+        return _quickfix.PostgreSQLQuery_success(self)
+
+    def rows(self):
+        return _quickfix.PostgreSQLQuery_rows(self)
+
+    def reason(self):
+        return _quickfix.PostgreSQLQuery_reason(self)
+
+    def getValue(self, row, column):
+        return _quickfix.PostgreSQLQuery_getValue(self, row, column)
+
+    def throwException(self):
+        return _quickfix.PostgreSQLQuery_throwException(self)
+
+# Register PostgreSQLQuery in _quickfix:
+_quickfix.PostgreSQLQuery_swigregister(PostgreSQLQuery)
+class PostgreSQLConnection(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.PostgreSQLConnection_swiginit(self, _quickfix.new_PostgreSQLConnection(*args))
+    __swig_destroy__ = _quickfix.delete_PostgreSQLConnection
+
+    def connectionID(self):
+        return _quickfix.PostgreSQLConnection_connectionID(self)
+
+    def connected(self):
+        return _quickfix.PostgreSQLConnection_connected(self)
+
+    def reconnect(self):
+        return _quickfix.PostgreSQLConnection_reconnect(self)
+
+    def execute(self, pQuery):
+        return _quickfix.PostgreSQLConnection_execute(self, pQuery)
+
+# Register PostgreSQLConnection in _quickfix:
+_quickfix.PostgreSQLConnection_swigregister(PostgreSQLConnection)
+class PostgreSQLStoreFactory(MessageStoreFactory):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.PostgreSQLStoreFactory_swiginit(self, _quickfix.new_PostgreSQLStoreFactory(*args))
+
+    def create(self, arg2, arg3):
+        return _quickfix.PostgreSQLStoreFactory_create(self, arg2, arg3)
+
+    def destroy(self, arg2):
+        return _quickfix.PostgreSQLStoreFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_PostgreSQLStoreFactory
+
+# Register PostgreSQLStoreFactory in _quickfix:
+_quickfix.PostgreSQLStoreFactory_swigregister(PostgreSQLStoreFactory)
+PostgreSQLStoreFactory.DEFAULT_DATABASE = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_DATABASE
+PostgreSQLStoreFactory.DEFAULT_USER = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_USER
+PostgreSQLStoreFactory.DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_PASSWORD
+PostgreSQLStoreFactory.DEFAULT_HOST = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_HOST
+PostgreSQLStoreFactory.DEFAULT_PORT = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_PORT
+
+class PostgreSQLStore(MessageStore):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.PostgreSQLStore_swiginit(self, _quickfix.new_PostgreSQLStore(*args))
+    __swig_destroy__ = _quickfix.delete_PostgreSQLStore
+
+    def set(self, arg2, arg3):
+        return _quickfix.PostgreSQLStore_set(self, arg2, arg3)
+
+    def get(self, arg2, arg3, arg4):
+        return _quickfix.PostgreSQLStore_get(self, arg2, arg3, arg4)
+
+    def getNextSenderMsgSeqNum(self):
+        return _quickfix.PostgreSQLStore_getNextSenderMsgSeqNum(self)
+
+    def getNextTargetMsgSeqNum(self):
+        return _quickfix.PostgreSQLStore_getNextTargetMsgSeqNum(self)
+
+    def setNextSenderMsgSeqNum(self, value):
+        return _quickfix.PostgreSQLStore_setNextSenderMsgSeqNum(self, value)
+
+    def setNextTargetMsgSeqNum(self, value):
+        return _quickfix.PostgreSQLStore_setNextTargetMsgSeqNum(self, value)
+
+    def incrNextSenderMsgSeqNum(self):
+        return _quickfix.PostgreSQLStore_incrNextSenderMsgSeqNum(self)
+
+    def incrNextTargetMsgSeqNum(self):
+        return _quickfix.PostgreSQLStore_incrNextTargetMsgSeqNum(self)
+
+    def getCreationTime(self):
+        return _quickfix.PostgreSQLStore_getCreationTime(self)
+
+    def reset(self, now):
+        return _quickfix.PostgreSQLStore_reset(self, now)
+
+    def refresh(self):
+        return _quickfix.PostgreSQLStore_refresh(self)
+
+# Register PostgreSQLStore in _quickfix:
+_quickfix.PostgreSQLStore_swigregister(PostgreSQLStore)
+class PostgreSQLLog(Log):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.PostgreSQLLog_swiginit(self, _quickfix.new_PostgreSQLLog(*args))
+    __swig_destroy__ = _quickfix.delete_PostgreSQLLog
+
+    def clear(self):
+        return _quickfix.PostgreSQLLog_clear(self)
+
+    def backup(self):
+        return _quickfix.PostgreSQLLog_backup(self)
+
+    def setIncomingTable(self, incomingTable):
+        return _quickfix.PostgreSQLLog_setIncomingTable(self, incomingTable)
+
+    def setOutgoingTable(self, outgoingTable):
+        return _quickfix.PostgreSQLLog_setOutgoingTable(self, outgoingTable)
+
+    def setEventTable(self, eventTable):
+        return _quickfix.PostgreSQLLog_setEventTable(self, eventTable)
+
+    def onIncoming(self, value):
+        return _quickfix.PostgreSQLLog_onIncoming(self, value)
+
+    def onOutgoing(self, value):
+        return _quickfix.PostgreSQLLog_onOutgoing(self, value)
+
+    def onEvent(self, value):
+        return _quickfix.PostgreSQLLog_onEvent(self, value)
+
+# Register PostgreSQLLog in _quickfix:
+_quickfix.PostgreSQLLog_swigregister(PostgreSQLLog)
+class PostgreSQLLogFactory(LogFactory):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.PostgreSQLLogFactory_swiginit(self, _quickfix.new_PostgreSQLLogFactory(*args))
+
+    def create(self, *args):
+        return _quickfix.PostgreSQLLogFactory_create(self, *args)
+
+    def destroy(self, arg2):
+        return _quickfix.PostgreSQLLogFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_PostgreSQLLogFactory
+
+# Register PostgreSQLLogFactory in _quickfix:
+_quickfix.PostgreSQLLogFactory_swigregister(PostgreSQLLogFactory)
+PostgreSQLLogFactory.DEFAULT_DATABASE = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_DATABASE
+PostgreSQLLogFactory.DEFAULT_USER = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_USER
+PostgreSQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PASSWORD
+PostgreSQLLogFactory.DEFAULT_HOST = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_HOST
+PostgreSQLLogFactory.DEFAULT_PORT = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PORT
+
 
 try:
   import thread

@@ -88,6 +88,14 @@
 #include <MySQLStubs.h>
 #endif
 
+#ifdef HAVE_POSTGRESQL
+#include <PostgreSQLConnection.h>
+#include <PostgreSQLStore.h>
+#include <PostgreSQLLog.h>
+#else
+#include <PostgreSQLStubs.h>
+#endif
+
 #include <functional>
 #ifdef SWIGPYTHON
 #include "datetime.h"
@@ -540,3 +548,6 @@ typedef FIX::SessionSettings SessionSettings;
 %include "../C++/MySQLConnection.h"
 %include "../C++/MySQLStore.h"
 %include "../C++/MySQLLog.h"
+%include "../C++/PostgreSQLConnection.h"
+%include "../C++/PostgreSQLStore.h"
+%include "../C++/PostgreSQLLog.h"

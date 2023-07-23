@@ -2200,150 +2200,159 @@ namespace Swig {
 #define SWIGTYPE_p_FIX__DataDictionaryNotFound swig_types[17]
 #define SWIGTYPE_p_FIX__DatabaseConnectionID swig_types[18]
 #define SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t swig_types[19]
-#define SWIGTYPE_p_FIX__DateTime swig_types[20]
-#define SWIGTYPE_p_FIX__Dictionary swig_types[21]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[22]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[23]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[24]
-#define SWIGTYPE_p_FIX__Exception swig_types[25]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[26]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[27]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[28]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[29]
-#define SWIGTYPE_p_FIX__FileLog swig_types[30]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[31]
-#define SWIGTYPE_p_FIX__FileStore swig_types[32]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[33]
-#define SWIGTYPE_p_FIX__Group swig_types[34]
-#define SWIGTYPE_p_FIX__Header swig_types[35]
-#define SWIGTYPE_p_FIX__IOException swig_types[36]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[37]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[38]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[39]
-#define SWIGTYPE_p_FIX__Initiator swig_types[40]
-#define SWIGTYPE_p_FIX__IntField swig_types[41]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[42]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[43]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[44]
-#define SWIGTYPE_p_FIX__LocalDate swig_types[45]
-#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[46]
-#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[47]
-#define SWIGTYPE_p_FIX__Log swig_types[48]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[49]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[50]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[51]
-#define SWIGTYPE_p_FIX__Message swig_types[52]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[53]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[54]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[55]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[56]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[57]
-#define SWIGTYPE_p_FIX__MySQLConnection swig_types[58]
-#define SWIGTYPE_p_FIX__MySQLLog swig_types[59]
-#define SWIGTYPE_p_FIX__MySQLLogFactory swig_types[60]
-#define SWIGTYPE_p_FIX__MySQLQuery swig_types[61]
-#define SWIGTYPE_p_FIX__MySQLStore swig_types[62]
-#define SWIGTYPE_p_FIX__MySQLStoreFactory swig_types[63]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[64]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[65]
-#define SWIGTYPE_p_FIX__NullLog swig_types[66]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[67]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[68]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[69]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[70]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[71]
-#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[72]
-#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[73]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[74]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[75]
-#define SWIGTYPE_p_FIX__SenderCompID swig_types[76]
-#define SWIGTYPE_p_FIX__Session swig_types[77]
-#define SWIGTYPE_p_FIX__SessionID swig_types[78]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[79]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[80]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[81]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[82]
-#define SWIGTYPE_p_FIX__SocketException swig_types[83]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[84]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[85]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[86]
-#define SWIGTYPE_p_FIX__StringField swig_types[87]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[88]
-#define SWIGTYPE_p_FIX__TYPE__Type swig_types[89]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[90]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[91]
-#define SWIGTYPE_p_FIX__TargetCompID swig_types[92]
-#define SWIGTYPE_p_FIX__Trailer swig_types[93]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[94]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[95]
-#define SWIGTYPE_p_FIX__UtcDate swig_types[96]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[97]
-#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[98]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[99]
-#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[100]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[101]
-#define SWIGTYPE_p_Fields swig_types[102]
-#define SWIGTYPE_p_Group swig_types[103]
-#define SWIGTYPE_p_Groups swig_types[104]
-#define SWIGTYPE_p_IntArray swig_types[105]
-#define SWIGTYPE_p_IntField swig_types[106]
-#define SWIGTYPE_p_Log swig_types[107]
-#define SWIGTYPE_p_LogFactory swig_types[108]
-#define SWIGTYPE_p_MYSQL swig_types[109]
-#define SWIGTYPE_p_MessageStore swig_types[110]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[111]
-#define SWIGTYPE_p_MsgType swig_types[112]
-#define SWIGTYPE_p_Mutex swig_types[113]
-#define SWIGTYPE_p_RSA swig_types[114]
-#define SWIGTYPE_p_Responder swig_types[115]
-#define SWIGTYPE_p_SessionID swig_types[116]
-#define SWIGTYPE_p_SessionToPort swig_types[117]
-#define SWIGTYPE_p_StringField swig_types[118]
-#define SWIGTYPE_p_TimeRange swig_types[119]
-#define SWIGTYPE_p_UtcDateField swig_types[120]
-#define SWIGTYPE_p_X509 swig_types[121]
-#define SWIGTYPE_p_allocator_type swig_types[122]
-#define SWIGTYPE_p_bool swig_types[123]
-#define SWIGTYPE_p_char swig_types[124]
-#define SWIGTYPE_p_const_iterator swig_types[125]
-#define SWIGTYPE_p_difference_type swig_types[126]
-#define SWIGTYPE_p_double swig_types[127]
-#define SWIGTYPE_p_g_const_iterator swig_types[128]
-#define SWIGTYPE_p_g_iterator swig_types[129]
-#define SWIGTYPE_p_g_value_type swig_types[130]
-#define SWIGTYPE_p_int swig_types[131]
-#define SWIGTYPE_p_int64_t swig_types[132]
-#define SWIGTYPE_p_iterator swig_types[133]
-#define SWIGTYPE_p_key_type swig_types[134]
-#define SWIGTYPE_p_message_order swig_types[135]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[136]
-#define SWIGTYPE_p_size_type swig_types[137]
-#define SWIGTYPE_p_ssize_t swig_types[138]
-#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[139]
-#define SWIGTYPE_p_std__istream swig_types[140]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[141]
-#define SWIGTYPE_p_std__logic_error swig_types[142]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[143]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[144]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[145]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[146]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[147]
-#define SWIGTYPE_p_std__ostream swig_types[148]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[149]
-#define SWIGTYPE_p_std__string swig_types[150]
-#define SWIGTYPE_p_std__string__size_type swig_types[151]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[152]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[153]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[154]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[155]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[156]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[157]
-#define SWIGTYPE_p_swig__Iterator swig_types[158]
-#define SWIGTYPE_p_tm swig_types[159]
-#define SWIGTYPE_p_value_type swig_types[160]
-#define SWIGTYPE_p_void swig_types[161]
-static swig_type_info *swig_types[163];
-static swig_module_info swig_module = {swig_types, 162, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t swig_types[20]
+#define SWIGTYPE_p_FIX__DateTime swig_types[21]
+#define SWIGTYPE_p_FIX__Dictionary swig_types[22]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[23]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[24]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[25]
+#define SWIGTYPE_p_FIX__Exception swig_types[26]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[27]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[28]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[29]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[30]
+#define SWIGTYPE_p_FIX__FileLog swig_types[31]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[32]
+#define SWIGTYPE_p_FIX__FileStore swig_types[33]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[34]
+#define SWIGTYPE_p_FIX__Group swig_types[35]
+#define SWIGTYPE_p_FIX__Header swig_types[36]
+#define SWIGTYPE_p_FIX__IOException swig_types[37]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[38]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[39]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[40]
+#define SWIGTYPE_p_FIX__Initiator swig_types[41]
+#define SWIGTYPE_p_FIX__IntField swig_types[42]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[43]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[44]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[45]
+#define SWIGTYPE_p_FIX__LocalDate swig_types[46]
+#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[47]
+#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[48]
+#define SWIGTYPE_p_FIX__Log swig_types[49]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[50]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[51]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[52]
+#define SWIGTYPE_p_FIX__Message swig_types[53]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[54]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[55]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[56]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[57]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[58]
+#define SWIGTYPE_p_FIX__MySQLConnection swig_types[59]
+#define SWIGTYPE_p_FIX__MySQLLog swig_types[60]
+#define SWIGTYPE_p_FIX__MySQLLogFactory swig_types[61]
+#define SWIGTYPE_p_FIX__MySQLQuery swig_types[62]
+#define SWIGTYPE_p_FIX__MySQLStore swig_types[63]
+#define SWIGTYPE_p_FIX__MySQLStoreFactory swig_types[64]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[65]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[66]
+#define SWIGTYPE_p_FIX__NullLog swig_types[67]
+#define SWIGTYPE_p_FIX__PostgreSQLConnection swig_types[68]
+#define SWIGTYPE_p_FIX__PostgreSQLLog swig_types[69]
+#define SWIGTYPE_p_FIX__PostgreSQLLogFactory swig_types[70]
+#define SWIGTYPE_p_FIX__PostgreSQLQuery swig_types[71]
+#define SWIGTYPE_p_FIX__PostgreSQLStore swig_types[72]
+#define SWIGTYPE_p_FIX__PostgreSQLStoreFactory swig_types[73]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[74]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[75]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[76]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[77]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[78]
+#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[79]
+#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[80]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[81]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[82]
+#define SWIGTYPE_p_FIX__SenderCompID swig_types[83]
+#define SWIGTYPE_p_FIX__Session swig_types[84]
+#define SWIGTYPE_p_FIX__SessionID swig_types[85]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[86]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[87]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[88]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[89]
+#define SWIGTYPE_p_FIX__SocketException swig_types[90]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[91]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[92]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[93]
+#define SWIGTYPE_p_FIX__StringField swig_types[94]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[95]
+#define SWIGTYPE_p_FIX__TYPE__Type swig_types[96]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[97]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[98]
+#define SWIGTYPE_p_FIX__TargetCompID swig_types[99]
+#define SWIGTYPE_p_FIX__Trailer swig_types[100]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[101]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[102]
+#define SWIGTYPE_p_FIX__UtcDate swig_types[103]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[104]
+#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[105]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[106]
+#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[107]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[108]
+#define SWIGTYPE_p_Fields swig_types[109]
+#define SWIGTYPE_p_Group swig_types[110]
+#define SWIGTYPE_p_Groups swig_types[111]
+#define SWIGTYPE_p_IntArray swig_types[112]
+#define SWIGTYPE_p_IntField swig_types[113]
+#define SWIGTYPE_p_Log swig_types[114]
+#define SWIGTYPE_p_LogFactory swig_types[115]
+#define SWIGTYPE_p_MYSQL swig_types[116]
+#define SWIGTYPE_p_MessageStore swig_types[117]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[118]
+#define SWIGTYPE_p_MsgType swig_types[119]
+#define SWIGTYPE_p_Mutex swig_types[120]
+#define SWIGTYPE_p_PGconn swig_types[121]
+#define SWIGTYPE_p_RSA swig_types[122]
+#define SWIGTYPE_p_Responder swig_types[123]
+#define SWIGTYPE_p_SessionID swig_types[124]
+#define SWIGTYPE_p_SessionToPort swig_types[125]
+#define SWIGTYPE_p_StringField swig_types[126]
+#define SWIGTYPE_p_TimeRange swig_types[127]
+#define SWIGTYPE_p_UtcDateField swig_types[128]
+#define SWIGTYPE_p_X509 swig_types[129]
+#define SWIGTYPE_p_allocator_type swig_types[130]
+#define SWIGTYPE_p_bool swig_types[131]
+#define SWIGTYPE_p_char swig_types[132]
+#define SWIGTYPE_p_const_iterator swig_types[133]
+#define SWIGTYPE_p_difference_type swig_types[134]
+#define SWIGTYPE_p_double swig_types[135]
+#define SWIGTYPE_p_g_const_iterator swig_types[136]
+#define SWIGTYPE_p_g_iterator swig_types[137]
+#define SWIGTYPE_p_g_value_type swig_types[138]
+#define SWIGTYPE_p_int swig_types[139]
+#define SWIGTYPE_p_int64_t swig_types[140]
+#define SWIGTYPE_p_iterator swig_types[141]
+#define SWIGTYPE_p_key_type swig_types[142]
+#define SWIGTYPE_p_message_order swig_types[143]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[144]
+#define SWIGTYPE_p_size_type swig_types[145]
+#define SWIGTYPE_p_ssize_t swig_types[146]
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[147]
+#define SWIGTYPE_p_std__istream swig_types[148]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[149]
+#define SWIGTYPE_p_std__logic_error swig_types[150]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[151]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[152]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[153]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[154]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[155]
+#define SWIGTYPE_p_std__ostream swig_types[156]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[157]
+#define SWIGTYPE_p_std__string swig_types[158]
+#define SWIGTYPE_p_std__string__size_type swig_types[159]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[160]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[161]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[162]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[163]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[164]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[165]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[166]
+#define SWIGTYPE_p_swig__Iterator swig_types[167]
+#define SWIGTYPE_p_tm swig_types[168]
+#define SWIGTYPE_p_value_type swig_types[169]
+#define SWIGTYPE_p_void swig_types[170]
+static swig_type_info *swig_types[172];
+static swig_module_info swig_module = {swig_types, 171, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3308,6 +3317,14 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include <MySQLLog.h>
 #else
 #include <MySQLStubs.h>
+#endif
+
+#ifdef HAVE_POSTGRESQL
+#include <PostgreSQLConnection.h>
+#include <PostgreSQLStore.h>
+#include <PostgreSQLLog.h>
+#else
+#include <PostgreSQLStubs.h>
 #endif
 
 #include <functional>
@@ -114205,6 +114222,3300 @@ free_FIX_MySQLLogFactory(void *self) {
     delete arg1;
 }
 
+static swig_class SwigClassPostgreSQLQuery;
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLQuery_allocate(VALUE self)
+#else
+_wrap_PostgreSQLQuery_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLQuery);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLQuery(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLQuery";
+  FIX::PostgreSQLQuery *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLQuery", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLQuery", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLQuery *)new FIX::PostgreSQLQuery((std::string const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLQuery(void *self) {
+    FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_execute(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  PGconn *arg2 = (PGconn *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","execute", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_PGconn, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "PGconn *","execute", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< PGconn * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->execute(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_success(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","success", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->success();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_rows(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","rows", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)(arg1)->rows();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_reason(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","reason", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (char *)(arg1)->reason();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_FromCharPtr((const char *)result);
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_getValue(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  char *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","getValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","getValue", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","getValue", 3, argv[1] ));
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (char *)(arg1)->getValue(arg2,arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_FromCharPtr((const char *)result);
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLQuery_throwException(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLQuery *arg1 = (FIX::PostgreSQLQuery *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLQuery, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery *","throwException", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->throwException();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassPostgreSQLConnection;
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLConnection__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLConnection";
+  FIX::PostgreSQLConnection *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","PostgreSQLConnection", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","PostgreSQLConnection", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLConnection *)new FIX::PostgreSQLConnection((FIX::DatabaseConnectionID const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLConnection_allocate(VALUE self)
+#else
+_wrap_PostgreSQLConnection_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLConnection);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLConnection__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLConnection";
+  FIX::PostgreSQLConnection *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLConnection", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLConnection", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLConnection", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLConnection", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLConnection", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLConnection", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLConnection", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLConnection", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","PostgreSQLConnection", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLConnection *)new FIX::PostgreSQLConnection((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_PostgreSQLConnection(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PostgreSQLConnection__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_PostgreSQLConnection__SWIG_1(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "PostgreSQLConnection.new", 
+    "    PostgreSQLConnection.new(FIX::DatabaseConnectionID const &id)\n"
+    "    PostgreSQLConnection.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLConnection(void *self) {
+    FIX::PostgreSQLConnection *arg1 = (FIX::PostgreSQLConnection *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLConnection_connectionID(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLConnection *arg1 = (FIX::PostgreSQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::DatabaseConnectionID *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnection *","connectionID", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::DatabaseConnectionID *) &(arg1)->connectionID();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DatabaseConnectionID, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLConnection_connected(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLConnection *arg1 = (FIX::PostgreSQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnection *","connected", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->connected();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLConnection_reconnect(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLConnection *arg1 = (FIX::PostgreSQLConnection *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnection *","reconnect", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLConnection * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->reconnect();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLConnection_execute(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLConnection *arg1 = (FIX::PostgreSQLConnection *) 0 ;
+  FIX::PostgreSQLQuery *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLConnection, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnection *","execute", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLConnection * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__PostgreSQLQuery,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::PostgreSQLQuery &","execute", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::PostgreSQLQuery &","execute", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::PostgreSQLQuery * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->execute(*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassPostgreSQLStoreFactory;
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_DEFAULT_DATABASE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLStoreFactory::DEFAULT_DATABASE));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_DEFAULT_USER_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLStoreFactory::DEFAULT_USER));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_DEFAULT_PASSWORD_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLStoreFactory::DEFAULT_PASSWORD));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_DEFAULT_HOST_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLStoreFactory::DEFAULT_HOST));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_DEFAULT_PORT_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_short(static_cast< short >(FIX::PostgreSQLStoreFactory::DEFAULT_PORT));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStoreFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionSettings *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStoreFactory";
+  FIX::PostgreSQLStoreFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","PostgreSQLStoreFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","PostgreSQLStoreFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStoreFactory *)new FIX::PostgreSQLStoreFactory((FIX::SessionSettings const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStoreFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::Dictionary *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStoreFactory";
+  FIX::PostgreSQLStoreFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Dictionary,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Dictionary const &","PostgreSQLStoreFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Dictionary const &","PostgreSQLStoreFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStoreFactory *)new FIX::PostgreSQLStoreFactory((FIX::Dictionary const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStoreFactory__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStoreFactory";
+  FIX::PostgreSQLStoreFactory *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStoreFactory", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStoreFactory", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStoreFactory", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStoreFactory", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStoreFactory", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStoreFactory", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStoreFactory", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStoreFactory", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","PostgreSQLStoreFactory", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStoreFactory *)new FIX::PostgreSQLStoreFactory((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLStoreFactory_allocate(VALUE self)
+#else
+_wrap_PostgreSQLStoreFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLStoreFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStoreFactory__SWIG_3(int argc, VALUE *argv, VALUE self) {
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStoreFactory";
+  FIX::PostgreSQLStoreFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStoreFactory *)new FIX::PostgreSQLStoreFactory();
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_PostgreSQLStoreFactory(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 0) {
+    return _wrap_new_PostgreSQLStoreFactory__SWIG_3(nargs, args, self);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PostgreSQLStoreFactory__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PostgreSQLStoreFactory__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_PostgreSQLStoreFactory__SWIG_2(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "PostgreSQLStoreFactory.new", 
+    "    PostgreSQLStoreFactory.new(FIX::SessionSettings const &settings)\n"
+    "    PostgreSQLStoreFactory.new(FIX::Dictionary const &dictionary)\n"
+    "    PostgreSQLStoreFactory.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    PostgreSQLStoreFactory.new()\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_create(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStoreFactory *arg1 = (FIX::PostgreSQLStoreFactory *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  FIX::SessionID *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  FIX::MessageStore *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStoreFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","create", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","create", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionID const &","create", 3, argv[1] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 3, argv[1])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MessageStore *)(arg1)->create((FIX::UtcTimeStamp const &)*arg2,(FIX::SessionID const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStoreFactory_destroy(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStoreFactory *arg1 = (FIX::PostgreSQLStoreFactory *) 0 ;
+  FIX::MessageStore *arg2 = (FIX::MessageStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStoreFactory *","destroy", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStore *","destroy", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStore * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->destroy(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLStoreFactory(void *self) {
+    FIX::PostgreSQLStoreFactory *arg1 = (FIX::PostgreSQLStoreFactory *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassPostgreSQLStore;
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStore__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::UtcTimeStamp *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  FIX::DatabaseConnectionID *arg3 = 0 ;
+  FIX::PostgreSQLConnectionPool *arg4 = (FIX::PostgreSQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStore";
+  FIX::PostgreSQLStore *result = 0 ;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","PostgreSQLStore", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","PostgreSQLStore", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::UtcTimeStamp * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","PostgreSQLStore", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","PostgreSQLStore", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","PostgreSQLStore", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","PostgreSQLStore", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnectionPool *","PostgreSQLStore", 4, argv[3] )); 
+  }
+  arg4 = reinterpret_cast< FIX::PostgreSQLConnectionPool * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStore *)new FIX::PostgreSQLStore((FIX::UtcTimeStamp const &)*arg1,(FIX::SessionID const &)*arg2,(FIX::DatabaseConnectionID const &)*arg3,arg4);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLStore_allocate(VALUE self)
+#else
+_wrap_PostgreSQLStore_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLStore);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLStore__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::UtcTimeStamp *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  std::string *arg5 = 0 ;
+  std::string *arg6 = 0 ;
+  short arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  int res5 = SWIG_OLDOBJ ;
+  int res6 = SWIG_OLDOBJ ;
+  short val7 ;
+  int ecode7 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLStore";
+  FIX::PostgreSQLStore *result = 0 ;
+  
+  if ((argc < 7) || (argc > 7)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 7)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","PostgreSQLStore", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","PostgreSQLStore", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::UtcTimeStamp * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","PostgreSQLStore", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","PostgreSQLStore", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStore", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStore", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStore", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStore", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res5 = SWIG_AsPtr_std_string(argv[4], &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStore", 5, argv[4] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStore", 5, argv[4])); 
+    }
+    arg5 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res6 = SWIG_AsPtr_std_string(argv[5], &ptr);
+    if (!SWIG_IsOK(res6)) {
+      SWIG_exception_fail(SWIG_ArgError(res6), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLStore", 6, argv[5] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLStore", 6, argv[5])); 
+    }
+    arg6 = ptr;
+  }
+  ecode7 = SWIG_AsVal_short(argv[6], &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), Ruby_Format_TypeError( "", "short","PostgreSQLStore", 7, argv[6] ));
+  } 
+  arg7 = static_cast< short >(val7);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLStore *)new FIX::PostgreSQLStore((FIX::UtcTimeStamp const &)*arg1,(FIX::SessionID const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,(std::string const &)*arg5,(std::string const &)*arg6,arg7);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[4], 0 );
+      rb_str_append( argv[4], rb_str_new2(arg5->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[5], 0 );
+      rb_str_append( argv[5], rb_str_new2(arg6->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  if (SWIG_IsNewObj(res6)) delete arg6;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  if (SWIG_IsNewObj(res6)) delete arg6;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_PostgreSQLStore(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[7];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 7) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 4) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_PostgreSQLStore__SWIG_0(nargs, args, self);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 7) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = SWIG_AsPtr_std_string(argv[4], (std::string**)(0));
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              int res = SWIG_AsPtr_std_string(argv[5], (std::string**)(0));
+              _v = SWIG_CheckState(res);
+              if (_v) {
+                {
+                  int res = SWIG_AsVal_short(argv[6], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v) {
+                  return _wrap_new_PostgreSQLStore__SWIG_1(nargs, args, self);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 7, "PostgreSQLStore.new", 
+    "    PostgreSQLStore.new(FIX::UtcTimeStamp const &now, FIX::SessionID const &sessionID, FIX::DatabaseConnectionID const &connection, FIX::PostgreSQLConnectionPool *pool)\n"
+    "    PostgreSQLStore.new(FIX::UtcTimeStamp const &now, FIX::SessionID const &sessionID, std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLStore(void *self) {
+    FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *)self;
+    delete arg1;
+}
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_set(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","set", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","set", 3, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","set", 3, argv[1])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->set(arg2,(std::string const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_get(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< std::string > *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore const *","get", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
+  } 
+  arg3 = static_cast< int >(val3);
+  res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::vector< std::string > &","get", 4, argv[2])); 
+  }
+  arg4 = reinterpret_cast< std::vector< std::string > * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      ((FIX::PostgreSQLStore const *)arg1)->get(arg2,arg3,*arg4);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore const *","getNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::PostgreSQLStore const *)arg1)->getNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore const *","getNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::PostgreSQLStore const *)arg1)->getNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","setNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextSenderMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","setNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextTargetMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_incrNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","incrNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_incrNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","incrNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_getCreationTime(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::UtcTimeStamp result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore const *","getCreationTime", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = ((FIX::PostgreSQLStore const *)arg1)->getCreationTime();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj((new FIX::UtcTimeStamp(result)), SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_reset(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","reset", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","reset", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","reset", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->reset((FIX::UtcTimeStamp const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLStore_refresh(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","refresh", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->refresh();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+static swig_class SwigClassPostgreSQLLog;
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLog__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = 0 ;
+  FIX::DatabaseConnectionID *arg2 = 0 ;
+  FIX::PostgreSQLConnectionPool *arg3 = (FIX::PostgreSQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLog";
+  FIX::PostgreSQLLog *result = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionID const &","PostgreSQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","PostgreSQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","PostgreSQLLog", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","PostgreSQLLog", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnectionPool *","PostgreSQLLog", 3, argv[2] )); 
+  }
+  arg3 = reinterpret_cast< FIX::PostgreSQLConnectionPool * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLog *)new FIX::PostgreSQLLog((FIX::SessionID const &)*arg1,(FIX::DatabaseConnectionID const &)*arg2,arg3);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLog__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::DatabaseConnectionID *arg1 = 0 ;
+  FIX::PostgreSQLConnectionPool *arg2 = (FIX::PostgreSQLConnectionPool *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLog";
+  FIX::PostgreSQLLog *result = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__DatabaseConnectionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::DatabaseConnectionID const &","PostgreSQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::DatabaseConnectionID const &","PostgreSQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::DatabaseConnectionID * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2,SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::PostgreSQLConnectionPool *","PostgreSQLLog", 2, argv[1] )); 
+  }
+  arg2 = reinterpret_cast< FIX::PostgreSQLConnectionPool * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLog *)new FIX::PostgreSQLLog((FIX::DatabaseConnectionID const &)*arg1,arg2);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLog__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionID *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  std::string *arg5 = 0 ;
+  short arg6 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  int res5 = SWIG_OLDOBJ ;
+  short val6 ;
+  int ecode6 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLog";
+  FIX::PostgreSQLLog *result = 0 ;
+  
+  if ((argc < 6) || (argc > 6)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 6)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionID const &","PostgreSQLLog", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","PostgreSQLLog", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res5 = SWIG_AsPtr_std_string(argv[4], &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 5, argv[4] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 5, argv[4])); 
+    }
+    arg5 = ptr;
+  }
+  ecode6 = SWIG_AsVal_short(argv[5], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), Ruby_Format_TypeError( "", "short","PostgreSQLLog", 6, argv[5] ));
+  } 
+  arg6 = static_cast< short >(val6);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLog *)new FIX::PostgreSQLLog((FIX::SessionID const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,(std::string const &)*arg5,arg6);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[4], 0 );
+      rb_str_append( argv[4], rb_str_new2(arg5->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLLog_allocate(VALUE self)
+#else
+_wrap_PostgreSQLLog_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLLog);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLog__SWIG_3(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLog";
+  FIX::PostgreSQLLog *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLog", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLog", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","PostgreSQLLog", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLog *)new FIX::PostgreSQLLog((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_PostgreSQLLog(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[6];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 6) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_PostgreSQLLog__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_PostgreSQLLog__SWIG_0(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_PostgreSQLLog__SWIG_3(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  if (argc == 6) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = SWIG_AsPtr_std_string(argv[4], (std::string**)(0));
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              {
+                int res = SWIG_AsVal_short(argv[5], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v) {
+                return _wrap_new_PostgreSQLLog__SWIG_2(nargs, args, self);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 6, "PostgreSQLLog.new", 
+    "    PostgreSQLLog.new(FIX::SessionID const &s, FIX::DatabaseConnectionID const &d, FIX::PostgreSQLConnectionPool *p)\n"
+    "    PostgreSQLLog.new(FIX::DatabaseConnectionID const &d, FIX::PostgreSQLConnectionPool *p)\n"
+    "    PostgreSQLLog.new(FIX::SessionID const &s, std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    PostgreSQLLog.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLLog(void *self) {
+    FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *)self;
+    delete arg1;
+}
+
+/*
+  Document-method: Quickfix::PostgreSQLLog.clear
+
+  call-seq:
+    clear
+
+Clear PostgreSQLLog contents.
+*/
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_clear(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","clear", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->clear();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_backup(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","backup", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->backup();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_setIncomingTable(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","setIncomingTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setIncomingTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setIncomingTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setIncomingTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_setOutgoingTable(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","setOutgoingTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setOutgoingTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setOutgoingTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setOutgoingTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_setEventTable(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","setEventTable", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","setEventTable", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","setEventTable", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setEventTable((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_onIncoming(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","onIncoming", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onIncoming", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onIncoming", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onIncoming((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","onOutgoing", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onOutgoing", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onOutgoing", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onOutgoing((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLog_onEvent(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLog *arg1 = (FIX::PostgreSQLLog *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLog *","onEvent", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLog * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","onEvent", 2, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","onEvent", 2, argv[0])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->onEvent((std::string const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+static swig_class SwigClassPostgreSQLLogFactory;
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_DEFAULT_DATABASE_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLLogFactory::DEFAULT_DATABASE));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_DEFAULT_USER_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLLogFactory::DEFAULT_USER));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_DEFAULT_PASSWORD_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLLogFactory::DEFAULT_PASSWORD));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_DEFAULT_HOST_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_std_string(static_cast< std::string >(FIX::PostgreSQLLogFactory::DEFAULT_HOST));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_DEFAULT_PORT_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_From_short(static_cast< short >(FIX::PostgreSQLLogFactory::DEFAULT_PORT));
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLogFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::SessionSettings *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLogFactory";
+  FIX::PostgreSQLLogFactory *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","PostgreSQLLogFactory", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","PostgreSQLLogFactory", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLogFactory *)new FIX::PostgreSQLLogFactory((FIX::SessionSettings const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLogFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  short arg5 ;
+  int res1 = SWIG_OLDOBJ ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  short val5 ;
+  int ecode5 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLogFactory";
+  FIX::PostgreSQLLogFactory *result = 0 ;
+  
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLogFactory", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLogFactory", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLogFactory", 2, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLogFactory", 2, argv[1])); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLogFactory", 3, argv[2] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLogFactory", 3, argv[2])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(argv[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::string const &","PostgreSQLLogFactory", 4, argv[3] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","PostgreSQLLogFactory", 4, argv[3])); 
+    }
+    arg4 = ptr;
+  }
+  ecode5 = SWIG_AsVal_short(argv[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "short","PostgreSQLLogFactory", 5, argv[4] ));
+  } 
+  arg5 = static_cast< short >(val5);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLogFactory *)new FIX::PostgreSQLLogFactory((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4,arg5);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return self;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_PostgreSQLLogFactory_allocate(VALUE self)
+#else
+_wrap_PostgreSQLLogFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__PostgreSQLLogFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_PostgreSQLLogFactory__SWIG_2(int argc, VALUE *argv, VALUE self) {
+  const char *classname SWIGUNUSED = "Quickfix::PostgreSQLLogFactory";
+  FIX::PostgreSQLLogFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::PostgreSQLLogFactory *)new FIX::PostgreSQLLogFactory();
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_PostgreSQLLogFactory(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[5];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 5) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 0) {
+    return _wrap_new_PostgreSQLLogFactory__SWIG_2(nargs, args, self);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_PostgreSQLLogFactory__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 5) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_AsPtr_std_string(argv[3], (std::string**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            {
+              int res = SWIG_AsVal_short(argv[4], NULL);
+              _v = SWIG_CheckState(res);
+            }
+            if (_v) {
+              return _wrap_new_PostgreSQLLogFactory__SWIG_1(nargs, args, self);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 5, "PostgreSQLLogFactory.new", 
+    "    PostgreSQLLogFactory.new(FIX::SessionSettings const &settings)\n"
+    "    PostgreSQLLogFactory.new(std::string const &database, std::string const &user, std::string const &password, std::string const &host, short port)\n"
+    "    PostgreSQLLogFactory.new()\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLogFactory *arg1 = (FIX::PostgreSQLLogFactory *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::Log *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLogFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLogFactory * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Log *)(arg1)->create();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLogFactory *arg1 = (FIX::PostgreSQLLogFactory *) 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  FIX::Log *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLogFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLogFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","create", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Log *)(arg1)->create((FIX::SessionID const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_PostgreSQLLogFactory_create(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[3];
+  int ii;
+  
+  argc = nargs + 1;
+  argv[0] = self;
+  if (argc > 3) SWIG_fail;
+  for (ii = 1; (ii < argc); ++ii) {
+    argv[ii] = args[ii-1];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__PostgreSQLLogFactory, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_PostgreSQLLogFactory_create__SWIG_0(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__PostgreSQLLogFactory, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_PostgreSQLLogFactory_create__SWIG_1(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 3, "PostgreSQLLogFactory.create", 
+    "    FIX::Log PostgreSQLLogFactory.create()\n"
+    "    FIX::Log * PostgreSQLLogFactory.create(FIX::SessionID const &)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_PostgreSQLLogFactory_destroy(int argc, VALUE *argv, VALUE self) {
+  FIX::PostgreSQLLogFactory *arg1 = (FIX::PostgreSQLLogFactory *) 0 ;
+  FIX::Log *arg2 = (FIX::Log *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__PostgreSQLLogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLLogFactory *","destroy", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::PostgreSQLLogFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::Log *","destroy", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< FIX::Log * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->destroy(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_PostgreSQLLogFactory(void *self) {
+    FIX::PostgreSQLLogFactory *arg1 = (FIX::PostgreSQLLogFactory *)self;
+    delete arg1;
+}
+
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
@@ -114391,6 +117702,9 @@ static void *_p_FIX__MySQLLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemor
 static void *_p_FIX__NullLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Log *)  ((FIX::NullLog *) x));
 }
+static void *_p_FIX__PostgreSQLLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::Log *)  ((FIX::PostgreSQLLog *) x));
+}
 static void *_p_FIX__ScreenLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Log *)  ((FIX::ScreenLog *) x));
 }
@@ -114399,6 +117713,9 @@ static void *_p_FIX__FileLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSED
 }
 static void *_p_FIX__MySQLLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::LogFactory *)  ((FIX::MySQLLogFactory *) x));
+}
+static void *_p_FIX__PostgreSQLLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::LogFactory *)  ((FIX::PostgreSQLLogFactory *) x));
 }
 static void *_p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::LogFactory *)  ((FIX::ScreenLogFactory *) x));
@@ -114412,6 +117729,9 @@ static void *_p_FIX__MemoryStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDP
 static void *_p_FIX__MySQLStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStore *)  ((FIX::MySQLStore *) x));
 }
+static void *_p_FIX__PostgreSQLStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStore *)  ((FIX::PostgreSQLStore *) x));
+}
 static void *_p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::FileStoreFactory *) x));
 }
@@ -114420,6 +117740,9 @@ static void *_p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, in
 }
 static void *_p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::MySQLStoreFactory *) x));
+}
+static void *_p_FIX__PostgreSQLStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStoreFactory *)  ((FIX::PostgreSQLStoreFactory *) x));
 }
 static void *_p_FIX__SocketCloseFailedTo_p_FIX__SocketException(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::SocketException *)  ((FIX::SocketCloseFailed *) x));
@@ -114552,6 +117875,7 @@ static swig_type_info _swigt__p_FIX__DataDictionary = {"_p_FIX__DataDictionary",
 static swig_type_info _swigt__p_FIX__DataDictionaryNotFound = {"_p_FIX__DataDictionaryNotFound", "FIX::DataDictionaryNotFound *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DatabaseConnectionID = {"_p_FIX__DatabaseConnectionID", "FIX::DatabaseConnectionID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t = {"_p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t", "FIX::MySQLConnectionPool *|FIX::DatabaseConnectionPool< FIX::MySQLConnection > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t = {"_p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t", "FIX::PostgreSQLConnectionPool *|FIX::DatabaseConnectionPool< FIX::PostgreSQLConnection > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DateTime = {"_p_FIX__DateTime", "FIX::DateTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Dictionary = {"_p_FIX__Dictionary", "FIX::Dictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoNotSend = {"_p_FIX__DoNotSend", "FIX::DoNotSend *", 0, 0, (void*)0, 0};
@@ -114599,6 +117923,12 @@ static swig_type_info _swigt__p_FIX__MySQLStoreFactory = {"_p_FIX__MySQLStoreFac
 static swig_type_info _swigt__p_FIX__NoTagValue = {"_p_FIX__NoTagValue", "FIX::NoTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullApplication = {"_p_FIX__NullApplication", "FIX::NullApplication *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullLog = {"_p_FIX__NullLog", "FIX::NullLog *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLConnection = {"_p_FIX__PostgreSQLConnection", "FIX::PostgreSQLConnection *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLLog = {"_p_FIX__PostgreSQLLog", "FIX::PostgreSQLLog *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLLogFactory = {"_p_FIX__PostgreSQLLogFactory", "FIX::PostgreSQLLogFactory *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLQuery = {"_p_FIX__PostgreSQLQuery", "FIX::PostgreSQLQuery *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLStore = {"_p_FIX__PostgreSQLStore", "FIX::PostgreSQLStore *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__PostgreSQLStoreFactory = {"_p_FIX__PostgreSQLStoreFactory", "FIX::PostgreSQLStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RejectLogon = {"_p_FIX__RejectLogon", "FIX::RejectLogon *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RepeatedTag = {"_p_FIX__RepeatedTag", "FIX::RepeatedTag *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__RepeatingGroupCountMismatch = {"_p_FIX__RepeatingGroupCountMismatch", "FIX::RepeatingGroupCountMismatch *", 0, 0, (void*)0, 0};
@@ -114646,6 +117976,7 @@ static swig_type_info _swigt__p_MessageStore = {"_p_MessageStore", "MessageStore
 static swig_type_info _swigt__p_MessageStoreFactory = {"_p_MessageStoreFactory", "MessageStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MsgType = {"_p_MsgType", "MsgType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Mutex = {"_p_Mutex", "Mutex *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PGconn = {"_p_PGconn", "PGconn *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_RSA = {"_p_RSA", "RSA *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Responder = {"_p_Responder", "Responder *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_SessionID = {"_p_SessionID", "SessionID *", 0, 0, (void*)0, 0};
@@ -114685,6 +118016,7 @@ static swig_type_info _swigt__p_std__setT_FIX__SessionID_std__lessT_FIX__Session
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "FIX::COUNTRY *|FIX::CURRENCY *|FIX::DATA *|FIX::DAYOFMONTH *|FIX::EXCHANGE *|FIX::LANGUAGE *|FIX::LOCALMKTDATE *|FIX::LOCALMKTTIME *|FIX::MONTHYEAR *|FIX::MULTIPLECHARVALUE *|FIX::MULTIPLESTRINGVALUE *|FIX::MULTIPLEVALUESTRING *|FIX::STRING *|FIX::TZTIMEONLY *|FIX::TZTIMESTAMP *|FIX::XID *|FIX::XIDREF *|FIX::XMLDATA *|std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string__size_type = {"_p_std__string__size_type", "std::string::size_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t = {"_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t", "FIX::MySQLConnectionPoolPtr *|std::unique_ptr< FIX::DatabaseConnectionPool< FIX::MySQLConnection > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t = {"_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t", "FIX::PostgreSQLConnectionPoolPtr *|std::unique_ptr< FIX::DatabaseConnectionPool< FIX::PostgreSQLConnection > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator = {"_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator", "FIX::FieldMap::const_iterator *|std::vector< FIX::FieldBase,ALLOCATOR< FIX::FieldBase > >::const_iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator = {"_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator", "FIX::FieldMap::iterator *|std::vector< FIX::FieldBase,ALLOCATOR< FIX::FieldBase > >::iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_std__string_t = {"_p_std__vectorT_std__string_t", "std::vector< std::string > *", 0, 0, (void*)0, 0};
@@ -114716,6 +118048,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__DataDictionaryNotFound,
   &_swigt__p_FIX__DatabaseConnectionID,
   &_swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t,
+  &_swigt__p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t,
   &_swigt__p_FIX__DateTime,
   &_swigt__p_FIX__Dictionary,
   &_swigt__p_FIX__DoNotSend,
@@ -114763,6 +118096,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__NoTagValue,
   &_swigt__p_FIX__NullApplication,
   &_swigt__p_FIX__NullLog,
+  &_swigt__p_FIX__PostgreSQLConnection,
+  &_swigt__p_FIX__PostgreSQLLog,
+  &_swigt__p_FIX__PostgreSQLLogFactory,
+  &_swigt__p_FIX__PostgreSQLQuery,
+  &_swigt__p_FIX__PostgreSQLStore,
+  &_swigt__p_FIX__PostgreSQLStoreFactory,
   &_swigt__p_FIX__RejectLogon,
   &_swigt__p_FIX__RepeatedTag,
   &_swigt__p_FIX__RepeatingGroupCountMismatch,
@@ -114810,6 +118149,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_MessageStoreFactory,
   &_swigt__p_MsgType,
   &_swigt__p_Mutex,
+  &_swigt__p_PGconn,
   &_swigt__p_RSA,
   &_swigt__p_Responder,
   &_swigt__p_SessionID,
@@ -114849,6 +118189,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__string,
   &_swigt__p_std__string__size_type,
   &_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t,
+  &_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t,
   &_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator,
   &_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator,
   &_swigt__p_std__vectorT_std__string_t,
@@ -114880,6 +118221,7 @@ static swig_cast_info _swigc__p_FIX__DataDictionary[] = {  {&_swigt__p_FIX__Data
 static swig_cast_info _swigc__p_FIX__DataDictionaryNotFound[] = {  {&_swigt__p_FIX__DataDictionaryNotFound, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DatabaseConnectionID[] = {  {&_swigt__p_FIX__DatabaseConnectionID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t[] = {  {&_swigt__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t[] = {  {&_swigt__p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DateTime[] = {  {&_swigt__p_FIX__DateTime, 0, 0, 0},  {&_swigt__p_FIX__LocalDate, _p_FIX__LocalDateTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__LocalTimeOnly, _p_FIX__LocalTimeOnlyTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__LocalTimeStamp, _p_FIX__LocalTimeStampTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcDate, _p_FIX__UtcDateTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcTimeOnly, _p_FIX__UtcTimeOnlyTo_p_FIX__DateTime, 0, 0},  {&_swigt__p_FIX__UtcTimeStamp, _p_FIX__UtcTimeStampTo_p_FIX__DateTime, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Dictionary[] = {  {&_swigt__p_FIX__Dictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend, 0, 0, 0},{0, 0, 0, 0}};
@@ -114908,15 +118250,15 @@ static swig_cast_info _swigc__p_FIX__InvalidTagNumber[] = {  {&_swigt__p_FIX__In
 static swig_cast_info _swigc__p_FIX__LocalDate[] = {  {&_swigt__p_FIX__LocalDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LocalTimeOnly[] = {  {&_swigt__p_FIX__LocalTimeOnly, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LocalTimeStamp[] = {  {&_swigt__p_FIX__LocalTimeStamp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__MySQLLog, _p_FIX__MySQLLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__NullLog, _p_FIX__NullLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__MySQLLogFactory, _p_FIX__MySQLLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__MySQLLog, _p_FIX__MySQLLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__NullLog, _p_FIX__NullLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__PostgreSQLLog, _p_FIX__PostgreSQLLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__MySQLLogFactory, _p_FIX__MySQLLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__PostgreSQLLogFactory, _p_FIX__PostgreSQLLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryStore, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStoreFactory[] = {  {&_swigt__p_FIX__MemoryStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Message[] = {  {&_swigt__p_FIX__Message, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageParseError[] = {  {&_swigt__p_FIX__MessageParseError, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MySQLStore, _p_FIX__MySQLStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MySQLStore, _p_FIX__MySQLStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__PostgreSQLStore, _p_FIX__PostgreSQLStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MySQLStoreFactory, _p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MySQLStoreFactory, _p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__PostgreSQLStoreFactory, _p_FIX__PostgreSQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreFactoryExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreFactoryExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MySQLConnection[] = {  {&_swigt__p_FIX__MySQLConnection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MySQLLog[] = {  {&_swigt__p_FIX__MySQLLog, 0, 0, 0},{0, 0, 0, 0}};
@@ -114927,6 +118269,12 @@ static swig_cast_info _swigc__p_FIX__MySQLStoreFactory[] = {  {&_swigt__p_FIX__M
 static swig_cast_info _swigc__p_FIX__NoTagValue[] = {  {&_swigt__p_FIX__NoTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullApplication[] = {  {&_swigt__p_FIX__NullApplication, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullLog[] = {  {&_swigt__p_FIX__NullLog, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLConnection[] = {  {&_swigt__p_FIX__PostgreSQLConnection, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLLog[] = {  {&_swigt__p_FIX__PostgreSQLLog, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLLogFactory[] = {  {&_swigt__p_FIX__PostgreSQLLogFactory, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLQuery[] = {  {&_swigt__p_FIX__PostgreSQLQuery, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLStore[] = {  {&_swigt__p_FIX__PostgreSQLStore, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__PostgreSQLStoreFactory[] = {  {&_swigt__p_FIX__PostgreSQLStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RejectLogon[] = {  {&_swigt__p_FIX__RejectLogon, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RepeatedTag[] = {  {&_swigt__p_FIX__RepeatedTag, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__RepeatingGroupCountMismatch[] = {  {&_swigt__p_FIX__RepeatingGroupCountMismatch, 0, 0, 0},{0, 0, 0, 0}};
@@ -114974,6 +118322,7 @@ static swig_cast_info _swigc__p_MessageStore[] = {  {&_swigt__p_MessageStore, 0,
 static swig_cast_info _swigc__p_MessageStoreFactory[] = {  {&_swigt__p_MessageStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MsgType[] = {  {&_swigt__p_MsgType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Mutex[] = {  {&_swigt__p_Mutex, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PGconn[] = {  {&_swigt__p_PGconn, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_RSA[] = {  {&_swigt__p_RSA, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Responder[] = {  {&_swigt__p_Responder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SessionID[] = {  {&_swigt__p_SessionID, 0, 0, 0},{0, 0, 0, 0}};
@@ -115013,6 +118362,7 @@ static swig_cast_info _swigc__p_std__setT_FIX__SessionID_std__lessT_FIX__Session
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string__size_type[] = {  {&_swigt__p_std__string__size_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t[] = {  {&_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t[] = {  {&_swigt__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator[] = {  {&_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator[] = {  {&_swigt__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_std__string_t[] = {  {&_swigt__p_std__vectorT_std__string_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -115044,6 +118394,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__DataDictionaryNotFound,
   _swigc__p_FIX__DatabaseConnectionID,
   _swigc__p_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t,
+  _swigc__p_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t,
   _swigc__p_FIX__DateTime,
   _swigc__p_FIX__Dictionary,
   _swigc__p_FIX__DoNotSend,
@@ -115091,6 +118442,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__NoTagValue,
   _swigc__p_FIX__NullApplication,
   _swigc__p_FIX__NullLog,
+  _swigc__p_FIX__PostgreSQLConnection,
+  _swigc__p_FIX__PostgreSQLLog,
+  _swigc__p_FIX__PostgreSQLLogFactory,
+  _swigc__p_FIX__PostgreSQLQuery,
+  _swigc__p_FIX__PostgreSQLStore,
+  _swigc__p_FIX__PostgreSQLStoreFactory,
   _swigc__p_FIX__RejectLogon,
   _swigc__p_FIX__RepeatedTag,
   _swigc__p_FIX__RepeatingGroupCountMismatch,
@@ -115138,6 +118495,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_MessageStoreFactory,
   _swigc__p_MsgType,
   _swigc__p_Mutex,
+  _swigc__p_PGconn,
   _swigc__p_RSA,
   _swigc__p_Responder,
   _swigc__p_SessionID,
@@ -115177,6 +118535,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__string,
   _swigc__p_std__string__size_type,
   _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t,
+  _swigc__p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t,
   _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator,
   _swigc__p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator,
   _swigc__p_std__vectorT_std__string_t,
@@ -122751,6 +126110,97 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassMySQLLogFactory.mark = 0;
   SwigClassMySQLLogFactory.destroy = (void (*)(void *)) free_FIX_MySQLLogFactory;
   SwigClassMySQLLogFactory.trackObjects = 0;
+  
+  SwigClassPostgreSQLQuery.klass = rb_define_class_under(mQuickfix, "PostgreSQLQuery", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLQuery, (void *) &SwigClassPostgreSQLQuery);
+  rb_define_alloc_func(SwigClassPostgreSQLQuery.klass, _wrap_PostgreSQLQuery_allocate);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLQuery), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "execute", VALUEFUNC(_wrap_PostgreSQLQuery_execute), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "success", VALUEFUNC(_wrap_PostgreSQLQuery_success), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "rows", VALUEFUNC(_wrap_PostgreSQLQuery_rows), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "reason", VALUEFUNC(_wrap_PostgreSQLQuery_reason), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "getValue", VALUEFUNC(_wrap_PostgreSQLQuery_getValue), -1);
+  rb_define_method(SwigClassPostgreSQLQuery.klass, "throwException", VALUEFUNC(_wrap_PostgreSQLQuery_throwException), -1);
+  SwigClassPostgreSQLQuery.mark = 0;
+  SwigClassPostgreSQLQuery.destroy = (void (*)(void *)) free_FIX_PostgreSQLQuery;
+  SwigClassPostgreSQLQuery.trackObjects = 0;
+  
+  SwigClassPostgreSQLConnection.klass = rb_define_class_under(mQuickfix, "PostgreSQLConnection", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLConnection, (void *) &SwigClassPostgreSQLConnection);
+  rb_define_alloc_func(SwigClassPostgreSQLConnection.klass, _wrap_PostgreSQLConnection_allocate);
+  rb_define_method(SwigClassPostgreSQLConnection.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLConnection), -1);
+  rb_define_method(SwigClassPostgreSQLConnection.klass, "connectionID", VALUEFUNC(_wrap_PostgreSQLConnection_connectionID), -1);
+  rb_define_method(SwigClassPostgreSQLConnection.klass, "connected", VALUEFUNC(_wrap_PostgreSQLConnection_connected), -1);
+  rb_define_method(SwigClassPostgreSQLConnection.klass, "reconnect", VALUEFUNC(_wrap_PostgreSQLConnection_reconnect), -1);
+  rb_define_method(SwigClassPostgreSQLConnection.klass, "execute", VALUEFUNC(_wrap_PostgreSQLConnection_execute), -1);
+  SwigClassPostgreSQLConnection.mark = 0;
+  SwigClassPostgreSQLConnection.destroy = (void (*)(void *)) free_FIX_PostgreSQLConnection;
+  SwigClassPostgreSQLConnection.trackObjects = 0;
+  
+  SwigClassPostgreSQLStoreFactory.klass = rb_define_class_under(mQuickfix, "PostgreSQLStoreFactory", ((swig_class *) SWIGTYPE_p_FIX__MessageStoreFactory->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLStoreFactory, (void *) &SwigClassPostgreSQLStoreFactory);
+  rb_define_alloc_func(SwigClassPostgreSQLStoreFactory.klass, _wrap_PostgreSQLStoreFactory_allocate);
+  rb_define_method(SwigClassPostgreSQLStoreFactory.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLStoreFactory), -1);
+  rb_define_singleton_method(SwigClassPostgreSQLStoreFactory.klass, "DEFAULT_DATABASE", VALUEFUNC(_wrap_PostgreSQLStoreFactory_DEFAULT_DATABASE_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLStoreFactory.klass, "DEFAULT_USER", VALUEFUNC(_wrap_PostgreSQLStoreFactory_DEFAULT_USER_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLStoreFactory.klass, "DEFAULT_PASSWORD", VALUEFUNC(_wrap_PostgreSQLStoreFactory_DEFAULT_PASSWORD_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLStoreFactory.klass, "DEFAULT_HOST", VALUEFUNC(_wrap_PostgreSQLStoreFactory_DEFAULT_HOST_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLStoreFactory.klass, "DEFAULT_PORT", VALUEFUNC(_wrap_PostgreSQLStoreFactory_DEFAULT_PORT_get), 0);
+  rb_define_method(SwigClassPostgreSQLStoreFactory.klass, "create", VALUEFUNC(_wrap_PostgreSQLStoreFactory_create), -1);
+  rb_define_method(SwigClassPostgreSQLStoreFactory.klass, "destroy", VALUEFUNC(_wrap_PostgreSQLStoreFactory_destroy), -1);
+  SwigClassPostgreSQLStoreFactory.mark = 0;
+  SwigClassPostgreSQLStoreFactory.destroy = (void (*)(void *)) free_FIX_PostgreSQLStoreFactory;
+  SwigClassPostgreSQLStoreFactory.trackObjects = 0;
+  
+  SwigClassPostgreSQLStore.klass = rb_define_class_under(mQuickfix, "PostgreSQLStore", ((swig_class *) SWIGTYPE_p_FIX__MessageStore->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLStore, (void *) &SwigClassPostgreSQLStore);
+  rb_define_alloc_func(SwigClassPostgreSQLStore.klass, _wrap_PostgreSQLStore_allocate);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLStore), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "set", VALUEFUNC(_wrap_PostgreSQLStore_set), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "get", VALUEFUNC(_wrap_PostgreSQLStore_get), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "getNextSenderMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_getNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "getNextTargetMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_getNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "setNextSenderMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_setNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "setNextTargetMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_setNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "incrNextSenderMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_incrNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "incrNextTargetMsgSeqNum", VALUEFUNC(_wrap_PostgreSQLStore_incrNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "getCreationTime", VALUEFUNC(_wrap_PostgreSQLStore_getCreationTime), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "reset", VALUEFUNC(_wrap_PostgreSQLStore_reset), -1);
+  rb_define_method(SwigClassPostgreSQLStore.klass, "refresh", VALUEFUNC(_wrap_PostgreSQLStore_refresh), -1);
+  SwigClassPostgreSQLStore.mark = 0;
+  SwigClassPostgreSQLStore.destroy = (void (*)(void *)) free_FIX_PostgreSQLStore;
+  SwigClassPostgreSQLStore.trackObjects = 0;
+  
+  SwigClassPostgreSQLLog.klass = rb_define_class_under(mQuickfix, "PostgreSQLLog", ((swig_class *) SWIGTYPE_p_FIX__Log->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLLog, (void *) &SwigClassPostgreSQLLog);
+  rb_define_alloc_func(SwigClassPostgreSQLLog.klass, _wrap_PostgreSQLLog_allocate);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLLog), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "clear", VALUEFUNC(_wrap_PostgreSQLLog_clear), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "backup", VALUEFUNC(_wrap_PostgreSQLLog_backup), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "setIncomingTable", VALUEFUNC(_wrap_PostgreSQLLog_setIncomingTable), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "setOutgoingTable", VALUEFUNC(_wrap_PostgreSQLLog_setOutgoingTable), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "setEventTable", VALUEFUNC(_wrap_PostgreSQLLog_setEventTable), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "onIncoming", VALUEFUNC(_wrap_PostgreSQLLog_onIncoming), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "onOutgoing", VALUEFUNC(_wrap_PostgreSQLLog_onOutgoing), -1);
+  rb_define_method(SwigClassPostgreSQLLog.klass, "onEvent", VALUEFUNC(_wrap_PostgreSQLLog_onEvent), -1);
+  SwigClassPostgreSQLLog.mark = 0;
+  SwigClassPostgreSQLLog.destroy = (void (*)(void *)) free_FIX_PostgreSQLLog;
+  SwigClassPostgreSQLLog.trackObjects = 0;
+  
+  SwigClassPostgreSQLLogFactory.klass = rb_define_class_under(mQuickfix, "PostgreSQLLogFactory", ((swig_class *) SWIGTYPE_p_FIX__LogFactory->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__PostgreSQLLogFactory, (void *) &SwigClassPostgreSQLLogFactory);
+  rb_define_alloc_func(SwigClassPostgreSQLLogFactory.klass, _wrap_PostgreSQLLogFactory_allocate);
+  rb_define_method(SwigClassPostgreSQLLogFactory.klass, "initialize", VALUEFUNC(_wrap_new_PostgreSQLLogFactory), -1);
+  rb_define_singleton_method(SwigClassPostgreSQLLogFactory.klass, "DEFAULT_DATABASE", VALUEFUNC(_wrap_PostgreSQLLogFactory_DEFAULT_DATABASE_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLLogFactory.klass, "DEFAULT_USER", VALUEFUNC(_wrap_PostgreSQLLogFactory_DEFAULT_USER_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLLogFactory.klass, "DEFAULT_PASSWORD", VALUEFUNC(_wrap_PostgreSQLLogFactory_DEFAULT_PASSWORD_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLLogFactory.klass, "DEFAULT_HOST", VALUEFUNC(_wrap_PostgreSQLLogFactory_DEFAULT_HOST_get), 0);
+  rb_define_singleton_method(SwigClassPostgreSQLLogFactory.klass, "DEFAULT_PORT", VALUEFUNC(_wrap_PostgreSQLLogFactory_DEFAULT_PORT_get), 0);
+  rb_define_method(SwigClassPostgreSQLLogFactory.klass, "create", VALUEFUNC(_wrap_PostgreSQLLogFactory_create), -1);
+  rb_define_method(SwigClassPostgreSQLLogFactory.klass, "destroy", VALUEFUNC(_wrap_PostgreSQLLogFactory_destroy), -1);
+  SwigClassPostgreSQLLogFactory.mark = 0;
+  SwigClassPostgreSQLLogFactory.destroy = (void (*)(void *)) free_FIX_PostgreSQLLogFactory;
+  SwigClassPostgreSQLLogFactory.trackObjects = 0;
   
 #ifndef _MSC_VER
   struct sigaction new_action, old_action;
