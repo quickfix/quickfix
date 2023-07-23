@@ -313,7 +313,7 @@ bool SSLSocketConnection::read(SSLSocketAcceptor &acceptor, SocketServer& server
       if( m_pSession )
         m_pSession = acceptor.getSession( message, *this );
       if( m_pSession )
-        m_pSession->next( message, UtcTimeStamp() );
+        m_pSession->next( message, UtcTimeStamp::now() );
       if( !m_pSession )
       {
         server.getMonitor().drop( m_socket );
@@ -406,7 +406,7 @@ EXCEPT ( SocketRecvFailed )
                                         "> " + error);
         else
         {
-          std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp())
+          std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp::now())
                     << "SSL read error <"
                     << IntConvertor::convert(errCodeSSL) << "> " << error
                     << std::endl;
@@ -445,7 +445,7 @@ void SSLSocketConnection::readMessages( SocketMonitor& s )
   {
     try
     {
-      m_pSession->next( msg, UtcTimeStamp() );
+      m_pSession->next( msg, UtcTimeStamp::now() );
     }
     catch ( InvalidMessage& )
     {

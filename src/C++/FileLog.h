@@ -80,13 +80,12 @@ public:
   void backup();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), 9) << " : " << value << std::endl; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl; }
   void onEvent( const std::string& value )
   {
-    UtcTimeStamp now;
-    m_event << UtcTimeStampConvertor::convert( now, 9 )
+    m_event << UtcTimeStampConvertor::convert( UtcTimeStamp::now(), 9 )
             << " : " << value << std::endl;
   }
 

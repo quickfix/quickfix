@@ -43,11 +43,11 @@ struct sharedObjectFixture
   static NullStore object;
 };
 
-NullStore sharedObjectFixture::object;
+NullStore sharedObjectFixture::object( UtcTimeStamp::now() );
 
 TEST( setGet )
 {
-  NullStore object;
+  NullStore object( UtcTimeStamp::now() );
 
   Logon logon;
   logon.getHeader().setField( MsgSeqNum( 1 ) );
@@ -74,7 +74,7 @@ TEST( setGet )
 
 TEST( setGetWithQuote )
 {
-  NullStore object;
+  NullStore object( UtcTimeStamp::now() );
 
   ExecutionReport singleQuote;
   singleQuote.setField( Text("Some Text") );

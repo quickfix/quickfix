@@ -757,7 +757,7 @@ static void fillHeaderTrailer(FIX44::Message& message)
   message.getHeader().set( SenderCompID("FIXTEST") );
   message.getHeader().set( TargetCompID("TW") );
   message.getHeader().set( MsgSeqNum(1) );
-  message.getHeader().set( SendingTime(UtcTimeStamp()) );
+  message.getHeader().set( SendingTime(UtcTimeStamp::now()) );
   message.getTrailer().set( CheckSum(0) );
 }
 

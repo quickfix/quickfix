@@ -69,7 +69,7 @@ public:
   bool receivedLogon() { return m_state.receivedLogon(); }
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
   void reset() EXCEPT ( IOException ) 
-  { generateLogout(); disconnect(); m_state.reset(); }
+  { generateLogout(); disconnect(); m_state.reset( m_timestamper() ); }
   void refresh() EXCEPT ( IOException )
   { m_state.refresh(); }
   void setNextSenderMsgSeqNum( int num ) EXCEPT ( IOException )
@@ -111,10 +111,10 @@ public:
   static size_t numSessions();
 
 
-  bool isSessionTime(const UtcTimeStamp& time)
-    { return m_sessionTime.isInRange(time); }
-  bool isLogonTime(const UtcTimeStamp& time)
-    { return m_logonTime.isInRange(time); }
+  bool isSessionTime( const UtcTimeStamp& now )
+    { return m_sessionTime.isInRange( now ); }
+  bool isLogonTime( const UtcTimeStamp& now )
+    { return m_logonTime.isInRange( now ); }
   bool isInitiator()
     { return m_state.initiate(); }
   bool isAcceptor()
@@ -233,10 +233,9 @@ public:
   }
 
   bool send( Message& );
-  void next();
-  void next( const UtcTimeStamp& timeStamp );
-  void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false );
-  void next( const Message&, const UtcTimeStamp& timeStamp, bool queued = false );
+  void next( const UtcTimeStamp& now );
+  void next( const std::string&, const UtcTimeStamp& now, bool queued = false );
+  void next( const Message&, const UtcTimeStamp& now, bool queued = false );
   void disconnect();
 
   int getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
@@ -246,8 +245,8 @@ public:
   const MessageStore* getStore() { return &m_state; }
 
 private:
-  typedef std::map < SessionID, Session* > Sessions;
-  typedef std::set < SessionID > SessionIDs;
+  typedef std::map<SessionID, Session*> Sessions;
+  typedef std::set<SessionID> SessionIDs;
 
   static bool addSession( Session& );
   static void removeSession( Session& );
@@ -258,20 +257,18 @@ private:
   void persist( const Message&, const std::string& ) EXCEPT ( IOException );
 
   void insertSendingTime( Header& );
-  void insertOrigSendingTime( Header&,
-                              const UtcTimeStamp& when = UtcTimeStamp () );
+  void insertOrigSendingTime( Header&, const UtcTimeStamp& now );
   void fill( Header& );
 
   bool isGoodTime( const SendingTime& sendingTime )
   {
     if ( !m_checkLatency ) return true;
-    UtcTimeStamp now;
-    return labs( now - sendingTime ) <= m_maxLatency;
+    return labs( m_timestamper() - sendingTime ) <= m_maxLatency;
   }
-  bool checkSessionTime( const UtcTimeStamp& timeStamp )
+  bool checkSessionTime( const UtcTimeStamp& now )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return m_sessionTime.isInSameRange( timeStamp, creationTime );
+    return m_sessionTime.isInSameRange( now, creationTime );
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
@@ -297,16 +294,16 @@ private:
   bool doPossDup( const Message& msg );
   bool doTargetTooLow( const Message& msg );
   void doTargetTooHigh( const Message& msg );
-  void nextQueued( const UtcTimeStamp& timeStamp );
-  bool nextQueued( int num, const UtcTimeStamp& timeStamp );
+  void nextQueued( const UtcTimeStamp& now );
+  bool nextQueued( int num, const UtcTimeStamp& now );
 
-  void nextLogon( const Message&, const UtcTimeStamp& timeStamp );
-  void nextHeartbeat( const Message&, const UtcTimeStamp& timeStamp );
-  void nextTestRequest( const Message&, const UtcTimeStamp& timeStamp );
-  void nextLogout( const Message&, const UtcTimeStamp& timeStamp );
-  void nextReject( const Message&, const UtcTimeStamp& timeStamp );
-  void nextSequenceReset( const Message&, const UtcTimeStamp& timeStamp );
-  void nextResendRequest( const Message&, const UtcTimeStamp& timeStamp );
+  void nextLogon( const Message&, const UtcTimeStamp& now );
+  void nextHeartbeat( const Message&, const UtcTimeStamp& now );
+  void nextTestRequest( const Message&, const UtcTimeStamp& now );
+  void nextLogout( const Message&, const UtcTimeStamp& now );
+  void nextReject( const Message&, const UtcTimeStamp& now );
+  void nextSequenceReset( const Message&, const UtcTimeStamp& now );
+  void nextResendRequest( const Message&, const UtcTimeStamp& now );
 
   void generateLogon();
   void generateLogon( const Message& );

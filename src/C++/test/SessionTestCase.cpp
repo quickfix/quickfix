@@ -63,15 +63,19 @@ SUITE(SessionTests)
 class TestCallback : public Responder, public NullApplication
 {
 protected:
-  UtcTimeOnly startTime;
-  UtcTimeOnly endTime;
+  UtcTimeStamp now;
   UtcTimeStamp startTimeStamp;
   UtcTimeStamp endTimeStamp;
+  UtcTimeOnly startTime;
+  UtcTimeOnly endTime;
   FIX::Message lastResent;
 
 public:
   TestCallback()
-  : endTime( startTime ),
+  : now( UtcTimeStamp::now() ),
+    startTimeStamp( UtcTimeStamp::now() ),
+    endTimeStamp( UtcTimeStamp::now() ),
+    endTime( startTime ),
     toLogon( 0 ),
     toResendRequest( 0 ),
     toHeartbeat( 0 ),
@@ -250,7 +254,7 @@ void fillHeader( FIX::Header& header, const char* sender, const char* target, in
 {
   header.setField( SenderCompID( sender ) );
   header.setField( TargetCompID( target ) );
-  header.setField( SendingTime() );
+  header.setField( SendingTime( UtcTimeStamp::now() ) );
   header.setField( MsgSeqNum( seq ) );
 }
 
@@ -370,7 +374,7 @@ FIX42::Reject createReject( const char* sender, const char* target, int seq, int
 FIX42::NewOrderSingle createNewOrderSingle( const char* sender, const char* target, int seq )
 {
   FIX42::NewOrderSingle newOrderSingle
-    ( ClOrdID("ID"), HandlInst('1'), Symbol("SYMBOL"), Side(Side_BUY), TransactTime(), OrdType(OrdType_MARKET) );
+    ( ClOrdID("ID"), HandlInst('1'), Symbol("SYMBOL"), Side(Side_BUY), TransactTime::now(), OrdType(OrdType_MARKET) );
   fillHeader( newOrderSingle.getHeader(), sender, target, seq );
   newOrderSingle.getHeader().setField( BodyLength(newOrderSingle.bodyLength()) );
   newOrderSingle.getTrailer().setField( CheckSum(newOrderSingle.checkSum()) );
@@ -385,12 +389,12 @@ FIX42::ExecutionReport createExecutionReport( const char* sender, const char* ta
   noContraBrokers.set( ContraBroker("BROKER") );
   noContraBrokers.set( ContraTrader("TRADER") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   noContraBrokers.set( ContraBroker("BROKER2") );
   noContraBrokers.set( ContraTrader("TRADER2") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   executionReport.getHeader().setField( BodyLength(executionReport.bodyLength()) );
   executionReport.getTrailer().setField( CheckSum(executionReport.checkSum()) );
@@ -417,12 +421,12 @@ FIX42::ExecutionReport createT1142ExecutionReport( const char* sender, const cha
   noContraBrokers.set( ContraBroker("BROKER") );
   noContraBrokers.set( ContraTrader("TRADER") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   noContraBrokers.set( ContraBroker("BROKER2") );
   noContraBrokers.set( ContraTrader("TRADER2") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   executionReport.getHeader().setField( BodyLength(executionReport.bodyLength()) );
   executionReport.getTrailer().setField( CheckSum(executionReport.checkSum()) );
@@ -437,12 +441,12 @@ FIX42::ExecutionReport createT1150ExecutionReport( const char* sender, const cha
   noContraBrokers.set( ContraBroker("BROKER") );
   noContraBrokers.set( ContraTrader("TRADER") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   noContraBrokers.set( ContraBroker("BROKER2") );
   noContraBrokers.set( ContraTrader("TRADER2") );
   noContraBrokers.set( ContraTradeQty(100) );
-  noContraBrokers.set( ContraTradeTime() );
+  noContraBrokers.set( ContraTradeTime::now() );
   executionReport.addGroup( noContraBrokers );
   executionReport.getHeader().setField( BodyLength(executionReport.bodyLength()) );
   executionReport.getTrailer().setField( CheckSum(executionReport.checkSum()) );
@@ -479,7 +483,7 @@ struct sessionFixture : public TestCallback
 
     DataDictionaryProvider provider;
     provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX42.xml" );
-    object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+    object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setResponder( this );
   }
@@ -522,7 +526,7 @@ struct sessionT11Fixture : public TestCallback
     provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), "../spec/FIX42.xml" );
     provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX40), "../spec/FIX40.xml" );
 
-    object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+    object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setSenderDefaultApplVerID( FIX::Message::toApplVerID(BeginString("FIX.5.0")) );
     object->setResponder( this );
@@ -563,7 +567,7 @@ struct sessionFIX40Fixture : public TestCallback
     DataDictionaryProvider provider;
     provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX40.xml" );
 
-    object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+    object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                            sessionTime, heartBtInt, 0 );
     object->setResponder( this );
   }
@@ -577,7 +581,8 @@ struct initiatorFIX40Fixture : public sessionFIX40Fixture
   initiatorFIX40Fixture() : sessionFIX40Fixture( 1 ) {}
 
   void startLoggedOn() {
-    startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
+    now = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
+    startTimeStamp = now;
     endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
     startTime = UtcTimeOnly( startTimeStamp );
     endTime = UtcTimeOnly( endTimeStamp );
@@ -586,11 +591,11 @@ struct initiatorFIX40Fixture : public sessionFIX40Fixture
 
     FIX::Message sentLogon = createFIX40Logon( "TW", "ISLD", 1 );
     object->send(sentLogon);
-    object->next();
+    object->next( now );
     object->logon();
 
     FIX::Message receivedLogon = createFIX40Logon( "ISLD", "TW", 1 );
-    object->next(receivedLogon, UtcTimeStamp());
+    object->next(receivedLogon, now);
   }
 };
 
@@ -599,7 +604,8 @@ struct initiatorFixture : public sessionFixture
   initiatorFixture() : sessionFixture( 1 ) {}
 
   void startLoggedOn() {
-    startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
+    now = UtcTimeStamp::now();
+    startTimeStamp = now;
     endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
     startTime = UtcTimeOnly( startTimeStamp );
     endTime = UtcTimeOnly( endTimeStamp );
@@ -608,11 +614,11 @@ struct initiatorFixture : public sessionFixture
 
     FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
     object->send(sentLogon);
-    object->next();
+    object->next( now );
     object->logon();
 
     FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-    object->next(receivedLogon, UtcTimeStamp());
+    object->next(receivedLogon, now);
   }
 };
 
@@ -626,19 +632,19 @@ struct initiatorT11Fixture : public sessionT11Fixture
   initiatorT11Fixture() : sessionT11Fixture( 1 ) {}
 
   void startLoggedOn() {
-    startTimeStamp = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
-    endTimeStamp = UtcTimeStamp(16, 16, 16, 13, 5, 2200);
+    now = UtcTimeStamp(8, 8, 8, 13, 5, 2015);
+    endTimeStamp = now;
     startTime = UtcTimeOnly( startTimeStamp );
     endTime = UtcTimeOnly( endTimeStamp );
     createSession(1, 0, 31);
 
     FIX::Message sentLogon = createT11Logon( "TW", "ISLD", 1 );
     object->send(sentLogon);
-    object->next();
+    object->next( now );
     object->logon();
 
     FIX::Message receivedLogon = createT11Logon( "ISLD", "TW", 1 );
-    object->next(receivedLogon, UtcTimeStamp());
+    object->next(receivedLogon, now);
   }
 };
 
@@ -661,21 +667,21 @@ TEST_FIXTURE(acceptorFixture, nextLogon)
 {
   // send with an incorrect SenderCompID
   object->setResponder( this );
-  object->next( createLogon( "BLAH", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "BLAH", "TW", 1 ), now );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 0, toLogon );
   CHECK_EQUAL( 1, disconnected );
 
   // send with an incorrect TargetCompID
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "BLAH", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "BLAH", 1 ), now );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 0, toLogon );
   CHECK_EQUAL( 2, disconnected );
 
   // send a correct logon
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK( object->receivedLogon() );
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 2, disconnected );
@@ -702,7 +708,7 @@ TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
   // send a correct logon
   object->setResponder( this );
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
-  object->next( logon, UtcTimeStamp() );
+  object->next( logon, now );
   CHECK( object->receivedLogon() );
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 0, disconnected );
@@ -727,9 +733,9 @@ TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
 TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 2 ), now );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
@@ -739,7 +745,7 @@ TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
 
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   logon.set( FIX::ResetSeqNumFlag(true) );
-  object->next( logon, UtcTimeStamp() );
+  object->next( logon, now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 }
@@ -747,45 +753,45 @@ TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
 TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithResetSeqNumInResponse)
 {
   object->setResponder( this );
-  object->next();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( now );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 
-  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
 
   object->setResetOnLogon( true );
-  object->next();
+  object->next( now );
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
   logon.set( FIX::ResetSeqNumFlag(true) );
-  object->next( logon, UtcTimeStamp() );
+  object->next( logon, now );
   CHECK( object->isLoggedOn() );
 }
 
 TEST_FIXTURE(initiatorFixture, initiatorResetLogonWithoutResetSeqNumInResponse)
 {
   object->setResponder( this );
-  object->next();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( now );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 
-  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
 
   object->setResetOnLogon( true );
-  object->next();
+  object->next( now );
   FIX42::Logon logon = createLogon( "ISLD", "TW", 1 );
-  object->next( logon, UtcTimeStamp() );
+  object->next( logon, now );
   CHECK( object->isLoggedOn() );
 }
 
 TEST_FIXTURE(acceptorFixture, notifyResendRequest)
 {
-  object->next( createLogon( "ISLD", "TW", 5 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 5 ), now );
   CHECK_EQUAL( 1, toResendRequest );
 }
 
@@ -794,15 +800,15 @@ TEST_FIXTURE(acceptorFixture, incrMsgSeqNum)
   CHECK_EQUAL( 1, object->getExpectedSenderNum() );
   CHECK_EQUAL( 1, object->getExpectedTargetNum() );
 
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
 
-  object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 3 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 4, object->getExpectedTargetNum() );
 }
@@ -810,14 +816,14 @@ TEST_FIXTURE(acceptorFixture, incrMsgSeqNum)
 TEST_FIXTURE(acceptorFixture, callDisconnect)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 0, disconnected );
 
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 1, fromHeartbeat );
 
-  object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 3 ), now );
   CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 2, fromHeartbeat );
 
@@ -825,7 +831,7 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
   FIX42::Heartbeat heartbeat = createHeartbeat( "ISLD", "TW", 2 );
   heartbeat.getHeader().setField( PossDupFlag( true ) );
 
-  UtcTimeStamp timeStamp;
+  UtcTimeStamp timeStamp = now;
   timeStamp.setSecond( 5 );
   OrigSendingTime origSendingTime( timeStamp );
   timeStamp.setSecond( 10 );
@@ -834,13 +840,13 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
   // message is a possible dup, remain connected
   heartbeat.getHeader().setField( sendingTime );
   heartbeat.getHeader().setField( origSendingTime );
-  object->next( heartbeat, UtcTimeStamp() );
+  object->next( heartbeat, now );
   CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 2, fromHeartbeat );
 
   // message is not a possible dup, disconnected
   heartbeat.getHeader().setField( PossDupFlag( false ) );
-  object->next( heartbeat, UtcTimeStamp() );
+  object->next( heartbeat, now );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 2, fromHeartbeat );
 }
@@ -849,7 +855,7 @@ TEST_FIXTURE(sessionFixture, doesSessionExist)
 {
   DataDictionaryProvider provider;
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
-  auto const timestamper = [](){ return UtcTimeStamp(); };
+  auto const timestamper = [this](){ return now; };
 
   Session * pSession1 = new Session
     ( timestamper, *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -921,7 +927,7 @@ TEST_FIXTURE(sessionFixture, lookupSession)
 {
   DataDictionaryProvider provider;
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
-  auto const timestamper = [](){ return UtcTimeStamp(); };
+  auto const timestamper = [this](){ return now; };
 
   Session* pSession1 = new Session
     ( timestamper, *this, factory, SessionID( BeginString( "FIX.4.2" ),
@@ -979,7 +985,7 @@ TEST_FIXTURE(sessionFixture, registerSession)
   provider.addTransportDataDictionary( BeginString("FIX.4.2"), std::shared_ptr<DataDictionary>(new DataDictionary()) );
 
   Session* pSession = new Session
-    ( [](){ return UtcTimeStamp(); }, *this, factory, SessionID( BeginString( "FIX.4.2" ),
+    ( [this](){ return now; }, *this, factory, SessionID( BeginString( "FIX.4.2" ),
       SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), provider,
       TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
@@ -1006,9 +1012,9 @@ TEST_FIXTURE(sessionFixture, registerSession)
 
 TEST_FIXTURE(acceptorFixture, nextTestRequest)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
+  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), now );
   CHECK_EQUAL( 1, fromTestRequest );
   CHECK_EQUAL( 1, toHeartbeat );
 
@@ -1022,16 +1028,16 @@ TEST_FIXTURE(acceptorFixture, outOfOrder)
   CHECK_EQUAL( 1, object->getExpectedSenderNum() );
   CHECK_EQUAL( 1, object->getExpectedTargetNum() );
 
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 
-  object->next( createHeartbeat( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 3 ), now );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
   CHECK_EQUAL( 0, fromHeartbeat );
 
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
   CHECK_EQUAL( 4, object->getExpectedTargetNum() );
   CHECK_EQUAL( 2, fromHeartbeat );
@@ -1040,9 +1046,9 @@ TEST_FIXTURE(acceptorFixture, outOfOrder)
 TEST_FIXTURE(acceptorFixture, nextLogout)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 2 ), now );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
@@ -1052,12 +1058,12 @@ TEST_FIXTURE(acceptorFixture, nextLogout)
 TEST_FIXTURE(initiatorFixture, logoutInitiator)
 {
   object->setResponder( this );
-  object->next();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( now );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 2, object->getExpectedSenderNum() );
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
 
-  object->next( createLogout( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
 }
@@ -1065,27 +1071,27 @@ TEST_FIXTURE(initiatorFixture, logoutInitiator)
 TEST_FIXTURE(acceptorFixture, badOrigSendingTime)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  UtcTimeStamp timeStamp;
+  UtcTimeStamp timeStamp = now;
   timeStamp.setSecond( 10 );
   SendingTime sendingTime( timeStamp );
   timeStamp.setSecond( 20 );
   OrigSendingTime origSendingTime( timeStamp );
 
-  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  object->next( createNewOrderSingle( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), now );
+  object->next( createNewOrderSingle( "ISLD", "TW", 3 ), now );
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.getHeader().setField( sendingTime );
   newOrderSingle.getHeader().setField( origSendingTime );
   newOrderSingle.getHeader().setField( PossDupFlag( true ) );
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL( 1, toReject );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 0, disconnected );
 
-  object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 4 ), now );
   CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
 }
@@ -1093,24 +1099,24 @@ TEST_FIXTURE(acceptorFixture, badOrigSendingTime)
 TEST_FIXTURE(acceptorFixture, noOrigSendingTime)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  UtcTimeStamp timeStamp;
+  UtcTimeStamp timeStamp = now;
   timeStamp.setSecond( 10 );
   SendingTime sendingTime( timeStamp );
 
-  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  object->next( createNewOrderSingle( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), now );
+  object->next( createNewOrderSingle( "ISLD", "TW", 3 ), now );
 
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.getHeader().setField( sendingTime );
   newOrderSingle.getHeader().setField( PossDupFlag( true ) );
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL( 1, toReject );
   CHECK_EQUAL( 0, toLogout );
   CHECK_EQUAL( 0, disconnected );
 
-  object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 4 ), now );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, disconnected );
 }
@@ -1118,31 +1124,31 @@ TEST_FIXTURE(acceptorFixture, noOrigSendingTime)
 TEST_FIXTURE(acceptorFixture, badCompID)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
-  object->next( createNewOrderSingle( "ISLD", "WT", 3 ), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "WT", 3 ), now );
   CHECK_EQUAL( 1, toReject );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 0, disconnected );
 
-  object->next( createLogout( "ISLD", "TW", 4 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 4 ), now );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, nextReject)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), now );
 
-  object->next( createReject( "ISLD", "TW", 3, 2 ), UtcTimeStamp() );
+  object->next( createReject( "ISLD", "TW", 3, 2 ), now );
   CHECK_EQUAL( 1, fromReject );
   CHECK_EQUAL( 0, toReject );
   CHECK_EQUAL( 0, toLogout );
   CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 4, object->getExpectedTargetNum() );
 
-  object->next( createHeartbeat( "ISLD", "TW", 4 ), UtcTimeStamp() );
+  object->next( createHeartbeat( "ISLD", "TW", 4 ), now );
   CHECK_EQUAL( 0, toResendRequest );
 }
 
@@ -1155,34 +1161,34 @@ public:
 TEST_FIXTURE(acceptorFixture, badMsgType)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   MsgWithBadType msgWithBadType;
   fillHeader( msgWithBadType.getHeader(), "ISLD", "TW", 2 );
 
-  object->next( msgWithBadType, UtcTimeStamp() );
+  object->next( msgWithBadType, now );
 
   CHECK_EQUAL( 1, toReject );
   CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 0, toLogout );
 
-  object->next( createLogout( "ISLD", "TW", 3 ), UtcTimeStamp() );
+  object->next( createLogout( "ISLD", "TW", 3 ), now );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, nextSequenceReset)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   // NewSeqNo is greater
-  object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), UtcTimeStamp() );
+  object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), now );
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
   CHECK_EQUAL( 0, toReject );
 
   // NewSeqNo is equal
-  object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), UtcTimeStamp() );
+  object->next( createSequenceReset( "ISLD", "TW", 0, 3 ), now );
   CHECK_EQUAL( 2, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
   CHECK_EQUAL( 0, toReject );
@@ -1191,13 +1197,13 @@ TEST_FIXTURE(acceptorFixture, nextSequenceReset)
   FIX42::SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 0, 3 );
   sequenceReset.getHeader().removeField( 34 );
   // Fiels 34 is a required field in the header. So validation does not pass.
-  object->next( sequenceReset, UtcTimeStamp());
+  object->next( sequenceReset, now);
   CHECK_EQUAL( 2, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
   CHECK_EQUAL( 1, toReject );
 
   // NewSeqNo is less
-  object->next( createSequenceReset( "ISLD", "TW", 0, 2 ), UtcTimeStamp() );
+  object->next( createSequenceReset( "ISLD", "TW", 0, 2 ), now );
   CHECK_EQUAL( 3, fromSequenceReset );
   CHECK_EQUAL( 3, object->getExpectedTargetNum() );
   CHECK_EQUAL( 2, toReject );
@@ -1206,13 +1212,13 @@ TEST_FIXTURE(acceptorFixture, nextSequenceReset)
 TEST_FIXTURE(acceptorFixture, nextGapFill)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   // NewSeqNo is equal
 
   FIX42::SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 2, 20 );
   sequenceReset.set( GapFillFlag( true ) );
-  object->next( sequenceReset, UtcTimeStamp() );
+  object->next( sequenceReset, now );
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 0, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
@@ -1220,7 +1226,7 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   // NewSeqNo is greater
   FIX42::SequenceReset sequenceReset2 = createSequenceReset( "ISLD", "TW", 21, 40 );
   sequenceReset2.set( GapFillFlag( true ) );
-  object->next( sequenceReset2, UtcTimeStamp() );
+  object->next( sequenceReset2, now );
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
@@ -1229,8 +1235,8 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   FIX42::SequenceReset sequenceReset3 = createSequenceReset( "ISLD", "TW", 19, 20 );
   sequenceReset3.set( GapFillFlag( true ) );
   sequenceReset3.getHeader().setField( PossDupFlag( true ) );
-  sequenceReset3.getHeader().setField( OrigSendingTime() );
-  object->next( sequenceReset3, UtcTimeStamp() );
+  sequenceReset3.getHeader().setField( OrigSendingTime::now() );
+  object->next( sequenceReset3, now );
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
@@ -1240,7 +1246,7 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   FIX42::SequenceReset sequenceReset4 = createSequenceReset( "ISLD", "TW", 19, 20 );
   sequenceReset4.set( GapFillFlag( true ) );
   sequenceReset4.getHeader().setField( PossDupFlag( false ) );
-  object->next( sequenceReset4, UtcTimeStamp() );
+  object->next( sequenceReset4, now );
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
@@ -1249,11 +1255,11 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
 
 TEST_FIXTURE(acceptorFixture, nextResendRequest)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), UtcTimeStamp() );
-  object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), now );
+  object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), now );
+  object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), now );
+  object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), now );
   CHECK_EQUAL( 1, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 
@@ -1263,16 +1269,16 @@ TEST_FIXTURE(acceptorFixture, nextResendRequest)
   CHECK( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 8 );
   CHECK( object->send( message ) );
-  object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), now );
   CHECK_EQUAL( 1, toSequenceReset );
   CHECK_EQUAL( 3, resent );
 
   object->setNextSenderMsgSeqNum(15);
-  object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), now );
   CHECK_EQUAL( 2, toSequenceReset );
   CHECK_EQUAL( 3, resent );
 
-  object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), now );
   CHECK_EQUAL( 4, toSequenceReset );
   CHECK_EQUAL( 6, resent );
 
@@ -1280,21 +1286,21 @@ TEST_FIXTURE(acceptorFixture, nextResendRequest)
   CHECK( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 17 );
   CHECK( object->send( message ) );
-  object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), now );
   CHECK_EQUAL( 6, toSequenceReset );
   CHECK_EQUAL( 11, resent );
 }
 
 TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   FIX::Message message = createExecutionReport( "ISLD", "TW", 2 );
   CHECK( object->send( message ) );
-  object->next( createResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 3, 2, 2 ), now );
 
   PossDupFlag possDupFlag;
-  OrigSendingTime origSendingTime;
-  SendingTime sendingTime;
+  OrigSendingTime origSendingTime = OrigSendingTime::now();
+  SendingTime sendingTime = SendingTime::now();
   lastResent.getHeader().getField( possDupFlag );
   lastResent.getHeader().getField( origSendingTime );
   lastResent.getHeader().getField( sendingTime );
@@ -1306,14 +1312,14 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestRepeatingGroup)
 
 TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
 {
-  object->next( createT11Logon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createT11Logon( "ISLD", "TW", 1 ), now );
   FIX::Message message = createT1142ExecutionReport( "ISLD", "TW", 2 );
   CHECK( object->send( message ) );
-  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
+  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), now );
 
   PossDupFlag possDupFlag;
-  OrigSendingTime origSendingTime;
-  SendingTime sendingTime;
+  OrigSendingTime origSendingTime = OrigSendingTime::now();
+  SendingTime sendingTime = SendingTime::now();
   lastResent.getHeader().getField( possDupFlag );
   lastResent.getHeader().getField( origSendingTime );
   lastResent.getHeader().getField( sendingTime );
@@ -1325,14 +1331,14 @@ TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1142RepeatingGroup)
 
 TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
 {
-  object->next( createT11Logon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createT11Logon( "ISLD", "TW", 1 ), now );
   FIX::Message message = createT1150ExecutionReport( "ISLD", "TW", 2 );
   CHECK( object->send( message ) );
-  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), UtcTimeStamp() );
+  object->next( createT11ResendRequest( "ISLD", "TW", 3, 2, 2 ), now );
 
   PossDupFlag possDupFlag;
-  OrigSendingTime origSendingTime;
-  SendingTime sendingTime;
+  OrigSendingTime origSendingTime = OrigSendingTime::now();
+  SendingTime sendingTime = SendingTime::now();
   lastResent.getHeader().getField( possDupFlag );
   lastResent.getHeader().getField( origSendingTime );
   lastResent.getHeader().getField( sendingTime );
@@ -1345,11 +1351,11 @@ TEST_FIXTURE(acceptorT11Fixture, nextResendRequestT1150RepeatingGroup)
 TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
 {
   object->setPersistMessages( false );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), UtcTimeStamp() );
-  object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), UtcTimeStamp() );
-  object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  object->next( createTestRequest( "ISLD", "TW", 2, "HELLO" ), now );
+  object->next( createTestRequest( "ISLD", "TW", 3, "HELLO" ), now );
+  object->next( createTestRequest( "ISLD", "TW", 4, "HELLO" ), now );
+  object->next( createResendRequest( "ISLD", "TW", 5, 1, 4 ), now );
   CHECK_EQUAL( 1, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 
@@ -1359,16 +1365,16 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
   CHECK( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 8 );
   CHECK( object->send( message ) );
-  object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 6, 5, 7 ), now );
   CHECK_EQUAL( 2, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 
   object->setNextSenderMsgSeqNum(15);
-  object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 7, 8, 15 ), now );
   CHECK_EQUAL( 3, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 
-  object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 8, 1, 15 ), now );
   CHECK_EQUAL( 4, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 
@@ -1376,7 +1382,7 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
   CHECK( object->send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 17 );
   CHECK( object->send( message ) );
-  object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), UtcTimeStamp() );
+  object->next( createResendRequest( "ISLD", "TW", 8, 1, 20 ), now );
   CHECK_EQUAL( 5, toSequenceReset );
   CHECK_EQUAL( 0, resent );
 }
@@ -1384,17 +1390,17 @@ TEST_FIXTURE(acceptorFixture, nextResendRequestNoMessagePersist)
 TEST_FIXTURE(acceptorFixture, badBeginString)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   FIX42::TestRequest testRequest = createTestRequest( "ISLD", "TW", 2, "HELLO" );
   testRequest.getHeader().setField( BeginString( BeginString_FIX41 ) );
-  object->next( testRequest, UtcTimeStamp() );
+  object->next( testRequest, now );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 0, disconnected );
 
   FIX42::Logout logout = createLogout( "ISLD", "TW", 3 );
   logout.getHeader().setField( BeginString( BeginString_FIX41 ) );
-  object->next( logout, UtcTimeStamp() );
+  object->next( logout, now );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, disconnected );
 }
@@ -1402,10 +1408,10 @@ TEST_FIXTURE(acceptorFixture, badBeginString)
 TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   FIX42::ExecutionReport message = createExecutionReport( "ISLD", "TW", 2 );
-  object->next( message, UtcTimeStamp() );
+  object->next( message, now );
   CHECK_EQUAL( 1, toBusinessMessageReject );
 }
 
@@ -1413,7 +1419,7 @@ TEST_FIXTURE(acceptorFixture, doNotRespondToLogonWhenDisabled)
 {
   object->setResponder( this );
   object->logout();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   CHECK_EQUAL( 0, toLogon );
   CHECK_EQUAL( 0, toLogout );
@@ -1425,7 +1431,8 @@ struct resetOnEndTimeFixture : public acceptorFixture
 
   void createSession()
   {
-    startTimeStamp.setCurrent();
+    now.setCurrent();
+    startTimeStamp = now;
     startTimeStamp.setMillisecond(0);
 
     endTimeStamp = startTimeStamp;
@@ -1462,10 +1469,11 @@ struct disconnectBeforeStartTimeFixture : public acceptorFixture
 {
   disconnectBeforeStartTimeFixture()
   {
-    startTime.setCurrent();
-    startTime += 100000000;
-    endTime.setCurrent();
-    endTime += 400000000;
+    now.setCurrent();
+    startTime = now;
+    startTime += 1;
+    endTime = now;
+    endTime += 4;
 
     acceptorFixture::createSession( 0 );
   }
@@ -1473,11 +1481,11 @@ struct disconnectBeforeStartTimeFixture : public acceptorFixture
 
 TEST_FIXTURE(disconnectBeforeStartTimeFixture, disconnectedBeforeStartTime)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 1, disconnected );
 
-  process_sleep( 2 );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  now += 2;
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 1, disconnected );
 }
 
@@ -1485,10 +1493,11 @@ struct resetOnNewSessionFixture : public acceptorFixture
 {
   resetOnNewSessionFixture()
   {
-    startTime.setCurrent();
-    endTime = startTime;
-    endTime += 2;
+    now.setCurrent();
+    startTime = now;
     startTime += -2;
+    endTime = now;
+    endTime += 2;
 
     acceptorFixture::createSession( 0 );
   }
@@ -1496,11 +1505,12 @@ struct resetOnNewSessionFixture : public acceptorFixture
 
 TEST_FIXTURE(resetOnNewSessionFixture, resetOnNewSession)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  now += 2;
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 0, disconnected );
 
-  process_sleep( 3 );
-  object->next();
+  now += 3;
+  object->next( now );
   CHECK_EQUAL( 1, disconnected );
 }
 
@@ -1508,17 +1518,18 @@ struct logonAtLogonStartTimeFixture : public acceptorFixture
 {
   logonAtLogonStartTimeFixture()
   {
-    startTime.setCurrent();
+    now.setCurrent();
+    startTime = now;
     startTime.setMillisecond(0);
 
-    endTime.setCurrent();
+    endTime = now;
     endTime.setMillisecond(0);
 
     startTime += -10;
-    endTime += 10;
+    endTime += 10;    
 
-    UtcTimeOnly logonStartTime;
-    UtcTimeOnly logonEndTime;
+    UtcTimeOnly logonStartTime( now );
+    UtcTimeOnly logonEndTime( now );
     logonStartTime += 1;
     logonEndTime += 2;
     TimeRange logonTime( logonStartTime, logonEndTime );
@@ -1529,21 +1540,22 @@ struct logonAtLogonStartTimeFixture : public acceptorFixture
 
 TEST_FIXTURE(logonAtLogonStartTimeFixture, logonAtLogonStartTime)
 {
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
+  object->next( now );
 
   CHECK_EQUAL( 0, toLogon );
   CHECK_EQUAL( 0, toLogout );
-  process_sleep( 1 );
-
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
-  object->next( createHeartbeat( "ISLD", "TW", 2 ), UtcTimeStamp() );
-  object->next();
+  
+  now += 1;
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
+  object->next( now );
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 0, toLogout );
 
-  process_sleep( 2 );
-  object->next();
+  now += 2;
+  object->next( now );
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 1, toLogout );
 }
@@ -1551,18 +1563,18 @@ TEST_FIXTURE(logonAtLogonStartTimeFixture, logonAtLogonStartTime)
 TEST_FIXTURE(acceptorFixture, processQueuedMessages)
 {
   object->setResponder( this );
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
   CHECK_EQUAL( 0, disconnected );
 
   for( int i = 3; i <= 5003; ++i )
   {
-    object->next( createNewOrderSingle( "ISLD", "TW", i ), UtcTimeStamp() );
+    object->next( createNewOrderSingle( "ISLD", "TW", i ), now );
   }
   CHECK_EQUAL( 2, object->getExpectedTargetNum() );
   CHECK_EQUAL( 1, toResendRequest );
-  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "TW", 2 ), now );
   CHECK_EQUAL( 5004, object->getExpectedTargetNum() );
-  object->next( createNewOrderSingle( "ISLD", "TW", 5006 ), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "TW", 5006 ), now );
   CHECK_EQUAL( 2, toResendRequest );
 }
 
@@ -1575,15 +1587,16 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
   int actuallySent;
   bool actuallySentLogon;
   Session * object;
-  MemoryStoreFactory memStoreFactory;
+  MemoryStoreFactory messageStoreFactory;
 
   initiatorCreatedBeforeStartTimeFixture()
     : actuallySent(0), actuallySentLogon(false)
   {
-    startTime.setCurrent();
+    now.setCurrent();
+    startTime = now;
     startTime.setMillisecond(0);
     startTime += STARTTIMEFROMNOW;
-    endTime.setCurrent();
+    endTime = now;
     endTime.setMillisecond(0);
     endTime += ENDTIMEFROMNOW;
     TimeRange sessionTime( startTime, endTime );
@@ -1592,7 +1605,7 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
 
     DataDictionaryProvider provider;
     provider.addTransportDataDictionary( sessionID.getBeginString(), "../spec/FIX42.xml" );
-    object = new Session( [](){ return UtcTimeStamp(); }, *this, memStoreFactory, sessionID, provider, sessionTime, HEARTBTINT, 0 );
+    object = new Session( [this](){ return now; }, *this, messageStoreFactory, sessionID, provider, sessionTime, HEARTBTINT, 0 );
   }
 
   virtual ~initiatorCreatedBeforeStartTimeFixture()
@@ -1618,14 +1631,14 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
   */
 TEST_FIXTURE(initiatorCreatedBeforeStartTimeFixture, initiatorLogonAtStartTime)
 {
-  process_sleep( STARTTIMEFROMNOW );
+  now += STARTTIMEFROMNOW;
 
   CHECK_EQUAL( 0, toLogon );
   CHECK_EQUAL( 0, actuallySent);
   CHECK_EQUAL( false, actuallySentLogon);
 
   object->setResponder( this );
-  object->next();
+  object->next( now );
 
   CHECK_EQUAL( 1, toLogon );
   CHECK_EQUAL( 1, actuallySent);
@@ -1897,7 +1910,7 @@ TEST_FIXTURE(sessionFixture, SessionCapableOfLogging)
   settings.set(sessionIDCustom, dict);
   FileLogFactory fileLogFactory(settings);
 
-  sessionObject = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionIDCustom, providerCustom,
+  sessionObject = new Session( [this](){ return now; }, *this, factory, sessionIDCustom, providerCustom,
       sessionTimeCustom, 1, &fileLogFactory);
 
   Log* log = object->getLog();
@@ -1913,7 +1926,7 @@ TEST_FIXTURE(sessionFixture, LogOut_NotLoggedOn_LogoutNotSent)
   object->setResponder( this );
 
   object->logout("test_logout");
-  object->next();
+  object->next( now );
   CHECK(!object->sentLogout());
 }
 
@@ -1924,8 +1937,8 @@ TEST_FIXTURE(sessionFixture, LogOn_TimeoutWaitingForLogOnResponse)
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
-  object->next();
+  object->next( now );
+  object->next( now );
 
   CHECK(!object->sentLogon());
 }
@@ -1937,79 +1950,73 @@ TEST_FIXTURE(initiatorFixture, LogOut_TimeoutWaitingForLogOutResponse)
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   object->logout("");
   FIX::Message sendLogout = createLogout( "TW", "ISLD", 2);
   object->send(sendLogout);
-  object->next();
+  object->next( now );
 
   CHECK(!object->sentLogout());
 }
 
-//SLOW TEST
 TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TimeOutWaitingForHeartBeat) 
 {
   createSession(1, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
-  //Force Heartbeat Timeout
-  process_sleep(3);
-
-  object->next();
+  // Force Heartbeat Timeout
+  now += 3;
+  object->next( now );
   CHECK(!object->isLoggedOn());
 }
 
 
-//SLOW TEST
 TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNeeded) 
 {
   createSession(1, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   // Force Heartbeat Interval Flow
-  process_sleep(2.1);
-
-  object->next();
+  now += 2;
+  object->next( now );
   CHECK_EQUAL(4, object->getExpectedSenderNum());
   CHECK(object->isLoggedOn());
 }
 
-//SLOW TEST
 TEST_FIXTURE(initiatorFixture, HeartBeatInterval_TestRequestNotNeeded_HeartbeatGenerated) 
 {
   createSession(2, 0, 31);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   // Force Heartbeat Interval Flow
-  process_sleep(2.1);
-
-  object->next();
+  now += 2;
+  object->next( now );
   CHECK_EQUAL(4, object->getExpectedSenderNum());
   CHECK(object->isLoggedOn());
 
@@ -2031,7 +2038,7 @@ TEST_FIXTURE(sessionFixture, Next_IOExceptionHandledAndNotLoggedOn)
   settings.set(sessionIDCustom, dict);
 
   ExceptionMessageStoreFactory exceptionFactory(settings);
-  sessionObject = new Session( [](){ return UtcTimeStamp(); }, *this, exceptionFactory, sessionIDCustom, providerCustom,
+  sessionObject = new Session( [this](){ return now; }, *this, exceptionFactory, sessionIDCustom, providerCustom,
                                sessionTimeCustom, 1, 0);
 
   UtcTimeStamp oldTime(8, 8, 8, 13, 5, 2010);
@@ -2046,10 +2053,8 @@ TEST_FIXTURE(initiatorFixture, LogOnResponse_ReceivedResponseBeforeSendingLogOnR
 {
   createSession(1, 0, 31);
 
-  UtcTimeStamp time;
-
   object->logon();
-  object->next( createLogon( "ISLD", "TW", 1 ), UtcTimeStamp() );
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
 
   CHECK(!object->sentLogout());
 }
@@ -2058,16 +2063,15 @@ TEST_FIXTURE(initiatorFixture, LogOn_RefreshOnLogon)
 {
   createSession(1, 0, 31);
 
-  UtcTimeStamp time;
   object->setRefreshOnLogon(true);
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   CHECK(object->isLoggedOn());
 }
@@ -2076,12 +2080,11 @@ TEST_FIXTURE(acceptorFixture, LogOn_ResetOnLogon)
 {
   createSession(0, 0, 31);
 
-  UtcTimeStamp time;
   object->setResetOnLogon(true);
 
   object->logon();
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   CHECK(object->isLoggedOn());
 }
@@ -2094,16 +2097,16 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_MessagesNotPersistedAndResendEndGre
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   object->setNextSenderMsgSeqNum(5);
 
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 10);
-  object->next(resendReq, UtcTimeStamp());
+  object->next(resendReq, now);
 
   CHECK_EQUAL(5, object->getExpectedSenderNum());
   CHECK_EQUAL(2, object->getExpectedTargetNum());
@@ -2145,19 +2148,19 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIX_DictionaryPreservesF
 
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                          sessionTime, 1, 0 );
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 2);
-  object->next(resendReq, UtcTimeStamp());
+  object->next(resendReq, now);
 
   CHECK_EQUAL(3, object->getExpectedSenderNum());
   CHECK_EQUAL(2, object->getExpectedTargetNum());
@@ -2183,21 +2186,21 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_SessionTypeFIXT_DictionaryPreserves
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
   provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                          sessionTime, 1, 0 );
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
 
   FIX::Message sentLogon = createT11Logon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createT11Logon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   FIX::Message resendReq = createT11ResendRequest( "ISLD", "TW", 2, 1, 2);
-  object->next(resendReq, UtcTimeStamp());
+  object->next(resendReq, now);
 
   CHECK_EQUAL(3, object->getExpectedSenderNum());
   CHECK_EQUAL(2, object->getExpectedTargetNum());
@@ -2217,7 +2220,7 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_AResentMessageReceivesADoNotSendExc
   this->checkForDoNotSend = true;
 
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 8);
-  object->next(resendReq, UtcTimeStamp());
+  object->next(resendReq, now);
 
   CHECK_EQUAL(5, object->getExpectedSenderNum());
   CHECK_EQUAL(3, object->getExpectedTargetNum());
@@ -2230,7 +2233,7 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_EndSeqNumberLargerThanMessages)
   object->setNextSenderMsgSeqNum(15);
 
   FIX::Message resendReq = createResendRequest( "ISLD", "TW", 2, 1, 20);
-  object->next(resendReq, UtcTimeStamp());
+  object->next(resendReq, now);
 
   CHECK_EQUAL(15, object->getExpectedSenderNum());
   CHECK_EQUAL(3, object->getExpectedTargetNum());
@@ -2257,7 +2260,7 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_Unsupported
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
   provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                         sessionTime, 1, 0 );
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
@@ -2265,14 +2268,14 @@ TEST_FIXTURE(initiatorFixture, ResendRequest_FIXTPreservedFieldOrder_Unsupported
 
   FIX::Message sentLogon = createT11Logon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createT11Logon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
-  FIX::Message er = createT1142ExecutionReport( "ISLD", "TW", 2);
-  object->next(er, UtcTimeStamp());
+  FIX::Message executionReport = createT1142ExecutionReport( "ISLD", "TW", 2);
+  object->next(executionReport, now);
 
   CHECK_EQUAL(4, object->getExpectedSenderNum());
   CHECK_EQUAL(3, object->getExpectedTargetNum());
@@ -2314,7 +2317,7 @@ TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent)
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
   provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                         sessionTime, 1, 0 );
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
@@ -2323,13 +2326,13 @@ TEST_FIXTURE(initiatorFixture, LogonSequenceNumberTooHigh_FIX40_ResendSent)
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   sentLogon.getHeader().setField(BeginString("FIX.4.0"));
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   receivedLogon.getHeader().setField(BeginString("FIX.4.0"));
   receivedLogon.getHeader().setField(MsgSeqNum(50));
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   CHECK_EQUAL(4, object->getExpectedSenderNum());
   CHECK_EQUAL(1, object->getExpectedTargetNum());
@@ -2342,7 +2345,7 @@ TEST_FIXTURE(initiatorFixture, InvalidTagNumber_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.setField(100000, "invalidTagNumber");
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2353,7 +2356,7 @@ TEST_FIXTURE(initiatorFixture, TagNotDefinedForMessageType_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.setField(391, "ClientBidID");
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2364,7 +2367,7 @@ TEST_FIXTURE(initiatorFixture, TagSpecifiedWithoutAValue_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.setField(FIELD::ClOrdID, "");
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2375,7 +2378,7 @@ TEST_FIXTURE(initiatorFixture, IncorrectDataFormatForValue_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.setField(FIELD::MinQty, "incorrectFormat");
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2387,7 +2390,7 @@ TEST_FIXTURE(initiatorFixture, TagAppearsMoreThanOnce_Rejected)
   newOrderSingle.setField(Symbol("1stAppearance"));
   newOrderSingle.setField(Symbol("2ndAppearance"), false);
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2411,16 +2414,16 @@ TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject)
   pDataDictionary->addMsgField(FIX::MsgType_Reject, 115);
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                          sessionTime, 1, 0 );
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   FIX42::NewOrderSingle newOrderSingle;
   newOrderSingle.clear();
@@ -2442,7 +2445,7 @@ TEST_FIXTURE(initiatorFixture, MessageTagsOutOfOrder_Reject)
   + "60=20190517-16:08:43" + delimSOH
   + "10=166" + delimSOH;
   newOrderSingle.setString(newOrderSingleRawFIX, false, pDataDictionary.get(), pDataDictionary.get());
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
 
   CHECK_EQUAL(1, toReject);
 }
@@ -2457,7 +2460,7 @@ TEST_FIXTURE(initiatorFixture, IncorrectNumInGroupCount_Rejected)
   newOrderSingle.addGroup(group1);
   newOrderSingle.setField(NoAllocs(2));
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2468,7 +2471,7 @@ TEST_FIXTURE(initiatorFixture, ConditionallyRequiredFieldMissing_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   newOrderSingle.getHeader().removeField(FIELD::TargetCompID);
 
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
   CHECK_EQUAL(1, toBusinessMessageReject);
 }
 
@@ -2478,12 +2481,12 @@ TEST_FIXTURE(initiatorFixture, LoginTargetCompID_RequiredFieldMissing_NoLogon)
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 1 );
   receivedLogon.getHeader().removeField(FIELD::TargetCompID);
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   CHECK(!object->isLoggedOn());
 }
@@ -2506,21 +2509,21 @@ TEST_FIXTURE(initiatorFIX40Fixture, CustomFIX40_UnsupportedMessageType_ERReject)
 
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                          sessionTime, 1, 0 );
   object->setResponder( this );
 
   FIX::Message sentLogon = createFIX40Logon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createFIX40Logon( "ISLD", "TW", 1 );
-  object->next(receivedLogon, UtcTimeStamp());
+  object->next(receivedLogon, now);
 
   FIX::Message executionReport = createFIX40ExecutionReport( "ISLD", "TW", 2 );
 
-  object->next( executionReport, UtcTimeStamp() );
+  object->next( executionReport, now );
   CHECK_EQUAL(1, toReject);
 }
 
@@ -2535,7 +2538,7 @@ TEST_FIXTURE(initiatorFixture, SendingTimeOutsideOfMaxLatency_Rejected)
   FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle( "ISLD", "TW", 2 );
   UtcTimeStamp highLatency(16, 16, 16, 13, 5, 2150);
   newOrderSingle.getHeader().setField(SendingTime(highLatency));
-  object->next( newOrderSingle, UtcTimeStamp() );
+  object->next( newOrderSingle, now );
 
   CHECK_EQUAL(1, toReject);
 }
@@ -2546,18 +2549,17 @@ TEST_FIXTURE(initiatorFixture, ValidLogonState_MsgTypeLogoutAndLogonAlreadySent_
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX42::Logout logout = createLogout( "ISLD", "TW", 2 );
-  object->next( logout, UtcTimeStamp() );
+  object->next( logout, now );
 
   CHECK_EQUAL(0, toReject);
 }
 
 TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) 
 {
-
   FIX42::NewOrderSingle newOrderSingle;
   std::string newOrderSingleRawFIX;
   std::string delimSOH = "\x01";
@@ -2572,7 +2574,7 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageHeaderOrderInval
   + "108=1" + delimSOH
   + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  CHECK_THROW(object->next(newOrderSingleRawFIX, now), InvalidMessage);
 
 }
 
@@ -2593,7 +2595,7 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixMessage_LogonMessageParsingError_Inv
   + "108=1" + delimSOH
   + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  CHECK_THROW(object->next(newOrderSingleRawFIX, now), InvalidMessage);
 }
 
 TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInvalid_InvalidMessageException) 
@@ -2611,7 +2613,7 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInva
   provider.addTransportDataDictionary( sessionID.getBeginString(), pDataDictionary );
   provider.addApplicationDataDictionary(ApplVerID("20"), pDataDictionary);
 
-  object = new Session( [](){ return UtcTimeStamp(); }, *this, factory, sessionID, provider,
+  object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                         sessionTime, 1, 0 );
   object->setSenderDefaultApplVerID(ApplVerID("20"));
   object->setTargetDefaultApplVerID(ApplVerID("20"));
@@ -2630,7 +2632,7 @@ TEST_FIXTURE(initiatorFixture, InvalidRawFixTMessage_LogonMessageHeaderOrderInva
       + "108=1" + delimSOH
       + "10=166" + delimSOH;
 
-  CHECK_THROW(object->next(newOrderSingleRawFIX, UtcTimeStamp()), InvalidMessage);
+  CHECK_THROW(object->next(newOrderSingleRawFIX, now), InvalidMessage);
 }
 
 TEST_FIXTURE(initiatorFixture, SendToTarget_MsgHeaderMissingTarget_SessionNotFoundException)
@@ -2676,20 +2678,20 @@ TEST_FIXTURE(initiatorFixture, QueuedLogonMessages)
 
   FIX::Message sentLogon = createLogon( "TW", "ISLD", 1 );
   object->send(sentLogon);
-  object->next();
+  object->next( now );
   object->logon();
 
   FIX::Message receivedLogon = createLogon( "ISLD", "TW", 2 );
-  object->next(receivedLogon, UtcTimeStamp(), true);
+  object->next(receivedLogon, now, true);
 
   for( int i = 3; i <= 6; ++i )
   {
-      object->next( createNewOrderSingle( "ISLD", "TW", i), UtcTimeStamp() );
+      object->next( createNewOrderSingle( "ISLD", "TW", i), now );
   }
   CHECK_EQUAL( 1, object->getExpectedTargetNum() );
   CHECK_EQUAL( 1, toResendRequest );
 
-  object->next( createNewOrderSingle( "ISLD", "TW", 1), UtcTimeStamp() );
+  object->next( createNewOrderSingle( "ISLD", "TW", 1), now );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 7, object->getExpectedTargetNum() );
 }

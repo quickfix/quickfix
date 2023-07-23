@@ -122,7 +122,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
   std::unique_ptr<Session> pSession;
   pSession.reset( 
-    new Session( [](){ return UtcTimeStamp(); }, m_application, m_messageStoreFactory,
+    new Session( [](){ return UtcTimeStamp::now(); }, m_application, m_messageStoreFactory,
                  sessionID, dataDictionaryProvider, sessionTimeRange,
                  heartBtInt, m_pLogFactory ) );
 

@@ -162,11 +162,6 @@ struct DateTime
     return (getNanosecond() / PRECISION_FACTOR[6]);
   }
 
-  // deprecated method: use getMicrosecond instead
-  inline int getMicroecond() const {
-    return getMicrosecond();
-  }
-
   /// Return the nanosecond portion of the time
   inline unsigned int getNanosecond() const
   {
@@ -587,7 +582,13 @@ inline int operator-( const DateTime& lhs, const DateTime& rhs )
 class UtcTimeStamp : public DateTime
 {
 public:
+  static UtcTimeStamp now()
+  {
+    return UtcTimeStamp();
+  }
+
   /// Defaults to the current date and time
+  [[deprecated("Use UtcTimeStamp::now()")]]
   UtcTimeStamp()
   : DateTime( DateTime::nowUtc() ) {}
 

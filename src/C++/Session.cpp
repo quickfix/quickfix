@@ -64,6 +64,7 @@ Session::Session( std::function<UtcTimeStamp()> timestamper,
   m_timestampPrecision( 3 ),
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
+  m_state( m_timestamper() ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -71,12 +72,12 @@ Session::Session( std::function<UtcTimeStamp()> timestamper,
 {
   m_state.heartBtInt( heartBtInt );
   m_state.initiate( heartBtInt != 0 );
-  m_state.store( m_messageStoreFactory.create( m_sessionID ) );
+  m_state.store( m_messageStoreFactory.create( m_timestamper(), m_sessionID ) );
   if ( m_pLogFactory )
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
-  if( !checkSessionTime(m_timestamper()) )
-    m_state.reset();
+  if( !checkSessionTime( m_timestamper() ) )
+    m_state.reset( m_timestamper() );
 
   addSession( *this );
   m_application.onCreate( m_sessionID );
@@ -96,9 +97,9 @@ void Session::insertSendingTime( Header& header )
   header.setField( SendingTime(m_timestamper(), getSupportedTimestampPrecision()) );
 }
 
-void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
+void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& now )
 {
-  header.setField( OrigSendingTime(when, getSupportedTimestampPrecision()) );
+  header.setField( OrigSendingTime(now, getSupportedTimestampPrecision()) );
 }
 
 void Session::fill( Header& header )
@@ -111,19 +112,14 @@ void Session::fill( Header& header )
   insertSendingTime( header );
 }
 
-void Session::next()
-{
-  next( m_timestamper() );
-}
-
-void Session::next( const UtcTimeStamp& timeStamp )
+void Session::next( const UtcTimeStamp& now )
 {
   try
   {
-    if ( !checkSessionTime(timeStamp) )
+    if ( !checkSessionTime(now) )
       { reset(); return; }
 
-    if( !isEnabled() || !isLogonTime(timeStamp) )
+    if( !isEnabled() || !isLogonTime(now) )
     {
       if( isLoggedOn() )
       {
@@ -139,12 +135,12 @@ void Session::next( const UtcTimeStamp& timeStamp )
 
     if ( !m_state.receivedLogon() )
     {
-      if ( m_state.shouldSendLogon() && isLogonTime(timeStamp) )
+      if ( m_state.shouldSendLogon() && isLogonTime(now) )
       {
         generateLogon();
         m_state.onEvent( "Initiated logon request" );
       }
-      else if ( m_state.alreadySentLogon() && m_state.logonTimedOut() )
+      else if ( m_state.alreadySentLogon() && m_state.logonTimedOut( m_timestamper() ) )
       {
         m_state.onEvent( "Timed out waiting for logon response" );
         disconnect();
@@ -154,28 +150,28 @@ void Session::next( const UtcTimeStamp& timeStamp )
 
     if ( m_state.heartBtInt() == 0 ) return ;
 
-    if ( m_state.logoutTimedOut() )
+    if ( m_state.logoutTimedOut( m_timestamper() ) )
     {
       m_state.onEvent( "Timed out waiting for logout response" );
       disconnect();
     }
 
-    if ( m_state.withinHeartBeat() ) return ;
+    if ( m_state.withinHeartBeat( m_timestamper() ) ) return ;
 
-    if ( m_state.timedOut() )
+    if ( m_state.timedOut( m_timestamper() ) )
     {
       m_state.onEvent( "Timed out waiting for heartbeat" );
       disconnect();
     }
     else
     {
-      if ( m_state.needTestRequest() )
+      if ( m_state.needTestRequest( m_timestamper() ) )
       {
         generateTestRequest( "TEST" );
         m_state.testRequest( m_state.testRequest() + 1 );
         m_state.onEvent( "Sent test request TEST" );
       }
-      else if ( m_state.needHeartbeat() )
+      else if ( m_state.needHeartbeat( m_timestamper() ) )
       {
         generateHeartbeat();
       }
@@ -188,7 +184,7 @@ void Session::next( const UtcTimeStamp& timeStamp )
   }
 }
 
-void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
+void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
 {
   logon.getHeader().getField<SenderCompID>();
   logon.getHeader().getField<TargetCompID>();
@@ -203,7 +199,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
     return;
   }
 
-  if( !isLogonTime(timeStamp) )
+  if( !isLogonTime(now) )
   {
     m_state.onEvent( "Received logon outside of valid logon time" );
     disconnect();
@@ -217,7 +213,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   if( m_state.receivedReset() )
   {
     m_state.onEvent( "Logon contains ResetSeqNumFlag=Y, reseting sequence numbers to 1" );
-    if( !m_state.sentReset() ) m_state.reset();
+    if( !m_state.sentReset() ) m_state.reset( m_timestamper() );
   }
 
   if( m_state.shouldSendLogon() && !m_state.receivedReset() )
@@ -228,7 +224,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   }
 
   if( !m_state.initiate() && m_resetOnLogon )
-    m_state.reset();
+    m_state.reset( m_timestamper() );
 
   if( !verify( logon, false, true ) )
     return;
@@ -256,29 +252,29 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& timeStamp )
   else
   {
     m_state.incrNextTargetMsgSeqNum();
-    nextQueued( timeStamp );
+    nextQueued( now );
   }
 
   if ( isLoggedOn() )
     m_application.onLogon( m_sessionID );
 }
 
-void Session::nextHeartbeat( const Message& heartbeat, const UtcTimeStamp& timeStamp )
+void Session::nextHeartbeat( const Message& heartbeat, const UtcTimeStamp& now )
 {
   if ( !verify( heartbeat ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued( timeStamp );
+  nextQueued( now );
 }
 
-void Session::nextTestRequest( const Message& testRequest, const UtcTimeStamp& timeStamp )
+void Session::nextTestRequest( const Message& testRequest, const UtcTimeStamp& now )
 {
   if ( !verify( testRequest ) ) return ;
   generateHeartbeat( testRequest );
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued( timeStamp );
+  nextQueued( now );
 }
 
-void Session::nextLogout( const Message& logout, const UtcTimeStamp& timeStamp )
+void Session::nextLogout( const Message& logout, const UtcTimeStamp& now )
 {
   if ( !verify( logout, false, false ) ) return ;
   if ( !m_state.sentLogout() )
@@ -291,18 +287,18 @@ void Session::nextLogout( const Message& logout, const UtcTimeStamp& timeStamp )
     m_state.onEvent( "Received logout response" );
 
   m_state.incrNextTargetMsgSeqNum();
-  if ( m_resetOnLogout ) m_state.reset();
+  if ( m_resetOnLogout ) m_state.reset( m_timestamper() );
   disconnect();
 }
 
-void Session::nextReject( const Message& reject, const UtcTimeStamp& timeStamp )
+void Session::nextReject( const Message& reject, const UtcTimeStamp& now )
 {
   if ( !verify( reject, false, true ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
-  nextQueued( timeStamp );
+  nextQueued( now );
 }
 
-void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& timeStamp )
+void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStamp& now )
 {
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
@@ -327,7 +323,7 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
   }
 }
 
-void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStamp& timeStamp )
+void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStamp& now )
 {
   if ( !verify( resendRequest, false, false ) ) return ;
 
@@ -533,7 +529,7 @@ bool Session::sendRaw( Message& message, int num )
 
         if( resetSeqNumFlag )
         {
-          m_state.reset();
+          m_state.reset( m_timestamper() );
           message.getHeader().setField( MsgSeqNum(getExpectedSenderNum()) );
         }
         m_state.sentReset( resetSeqNumFlag );
@@ -615,7 +611,7 @@ void Session::disconnect()
   m_state.clearQueue();
   m_state.logoutReason();
   if ( m_resetOnDisconnect )
-    m_state.reset();
+    m_state.reset( m_timestamper() );
 
   m_state.resendRange( 0, 0 );
 }
@@ -658,13 +654,12 @@ void Session::generateLogon()
   if( m_refreshOnLogon )
     refresh();
   if( m_resetOnLogon )
-    m_state.reset();
+    m_state.reset( m_timestamper() );
   if( shouldSendReset() )
     logon.setField( ResetSeqNumFlag(true) );
 
   fill( logon.getHeader() );
-  UtcTimeStamp now;
-  m_state.lastReceivedTime( now );
+  m_state.lastReceivedTime( m_timestamper() );
   m_state.testRequest( 0 );
   m_state.sentLogon( true );
   sendRaw( logon );
@@ -1037,8 +1032,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     return false;
   }
 
-  UtcTimeStamp now;
-  m_state.lastReceivedTime( now );
+  m_state.lastReceivedTime( m_timestamper() );
   m_state.testRequest( 0 );
 
   fromCallback( pMsgType ? *pMsgType : MsgType(), msg, m_sessionID );
@@ -1099,7 +1093,7 @@ void Session::doBadCompID( const Message& msg )
 
 bool Session::doPossDup( const Message& msg )
 {
-  OrigSendingTime origSendingTime;
+  OrigSendingTime origSendingTime = m_timestamper();
 
   const Header & header = msg.getHeader();
   auto const & msgType = header.getField<MsgType>();
@@ -1172,12 +1166,12 @@ void Session::doTargetTooHigh( const Message& msg )
   generateResendRequest( beginString, msgSeqNum );
 }
 
-void Session::nextQueued( const UtcTimeStamp& timeStamp )
+void Session::nextQueued( const UtcTimeStamp& now )
 {
-  while ( nextQueued( getExpectedTargetNum(), timeStamp ) ) {}
+  while ( nextQueued( getExpectedTargetNum(), now ) ) {}
 }
 
-bool Session::nextQueued( int num, const UtcTimeStamp& timeStamp )
+bool Session::nextQueued( int num, const UtcTimeStamp& now )
 {
   Message msg;
 
@@ -1193,14 +1187,14 @@ bool Session::nextQueued( int num, const UtcTimeStamp& timeStamp )
     }
     else
     {
-      next( msg, timeStamp, true );
+      next( msg, now, true );
     }
     return true;
   }
   return false;
 }
 
-void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool queued )
+void Session::next( const std::string& msg, const UtcTimeStamp& now, bool queued )
 {
   try
   {
@@ -1211,11 +1205,11 @@ void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool 
     {
       const DataDictionary& applicationDD =
         m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
-      next( Message( msg, sessionDD, applicationDD, m_validateLengthAndChecksum ), timeStamp, queued );
+      next( Message( msg, sessionDD, applicationDD, m_validateLengthAndChecksum ), now, queued );
     }
     else
     {
-      next( Message( msg, sessionDD, m_validateLengthAndChecksum ), timeStamp, queued );
+      next( Message( msg, sessionDD, m_validateLengthAndChecksum ), now, queued );
     }
   }
   catch( InvalidMessage& e )
@@ -1234,13 +1228,13 @@ void Session::next( const std::string& msg, const UtcTimeStamp& timeStamp, bool 
   }
 }
 
-void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool queued )
+void Session::next( const Message& message, const UtcTimeStamp& now, bool queued )
 {
   const Header& header = message.getHeader();
 
   try
   {
-    if ( !checkSessionTime(timeStamp) )
+    if ( !checkSessionTime(now) )
       { reset(); return; }
 
     const MsgType& msgType = FIELD_GET_REF( header, MsgType );
@@ -1282,19 +1276,19 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
     }
 
     if ( msgType == MsgType_Logon )
-      nextLogon( message, timeStamp );
+      nextLogon( message, now );
     else if ( msgType == MsgType_Heartbeat )
-      nextHeartbeat( message, timeStamp );
+      nextHeartbeat( message, now );
     else if ( msgType == MsgType_TestRequest )
-      nextTestRequest( message, timeStamp );
+      nextTestRequest( message, now );
     else if ( msgType == MsgType_SequenceReset )
-      nextSequenceReset( message, timeStamp );
+      nextSequenceReset( message, now );
     else if ( msgType == MsgType_Logout )
-      nextLogout( message, timeStamp );
+      nextLogout( message, now );
     else if ( msgType == MsgType_ResendRequest )
-      nextResendRequest( message, timeStamp );
+      nextResendRequest( message, now );
     else if ( msgType == MsgType_Reject )
-      nextReject( message, timeStamp );
+      nextReject( message, now );
     else
     {
       if ( !verify( message ) ) return ;
@@ -1357,7 +1351,7 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   catch ( UnsupportedVersion& )
   {
     if ( header.getField(FIELD::MsgType) == MsgType_Logout )
-      nextLogout( message, timeStamp );
+      nextLogout( message, now );
     else
     {
       generateLogout( "Incorrect BeginString" );
@@ -1371,10 +1365,10 @@ void Session::next( const Message& message, const UtcTimeStamp& timeStamp, bool 
   }
 
   if( !queued )
-    nextQueued( timeStamp );
+    nextQueued( now );
 
   if( isLoggedOn() )
-    next();
+    next( m_timestamper() );
 }
 
 bool Session::sendToTarget( Message& message, const std::string& qualifier )

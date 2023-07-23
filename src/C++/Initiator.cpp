@@ -141,7 +141,7 @@ void Initiator::connect()
   for ( ; i != disconnected.end(); ++i )
   {
     Session* pSession = Session::lookupSession( *i );
-    if ( pSession->isEnabled() && pSession->isSessionTime(UtcTimeStamp()) )
+    if ( pSession->isEnabled() && pSession->isSessionTime(UtcTimeStamp::now()) )
       doConnect( *i, m_settings.get( *i ));
   }
 }

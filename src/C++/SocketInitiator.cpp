@@ -138,7 +138,7 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     short sourcePort = 0;
 
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime(UtcTimeStamp()) ) return;
+    if( !session->isSessionTime(UtcTimeStamp::now()) ) return;
 
     Log* log = session->getLog();
 

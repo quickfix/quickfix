@@ -234,7 +234,7 @@ void HttpConnection::processRoot
       }
       { TD td(b); td.text(pSession->isInitiator() ? "initiator" : "acceptor"); }
       { TD td(b); td.text(pSession->isEnabled() ? "yes" : "no"); }
-      { TD td(b); td.text(pSession->isSessionTime(UtcTimeStamp()) ? "yes" : "no"); }
+      { TD td(b); td.text(pSession->isSessionTime(UtcTimeStamp::now()) ? "yes" : "no"); }
       { TD td(b); td.text(pSession->isLoggedOn() ? "yes" : "no"); }
       { TD td(b); td.text(pSession->getExpectedTargetNum()); }
       { TD td(b); td.text(pSession->getExpectedSenderNum()); }
@@ -541,7 +541,7 @@ void HttpConnection::processSession
 
     showRow( b, "Enabled", pSession->isEnabled(), url );
     showRow( b, "ConnectionType", std::string(pSession->isInitiator() ?"initiator" : "acceptor") );
-    showRow( b, "SessionTime", pSession->isSessionTime(UtcTimeStamp()) );
+    showRow( b, "SessionTime", pSession->isSessionTime(UtcTimeStamp::now()) );
     showRow( b, "Logged On", pSession->isLoggedOn() );
     showRow( b, "Next Incoming", (int)pSession->getExpectedTargetNum(), url );
     showRow( b, "Next Outgoing", (int)pSession->getExpectedSenderNum(), url );

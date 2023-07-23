@@ -187,7 +187,7 @@ TEST(setString)
   dataDictionary.addTrailerField( 60, false );
 
   ClOrdID clOrdID;
-  TransactTime transactTime;
+  TransactTime transactTime = TransactTime::now();
   Symbol symbol;
   object.setString( strBodyFields, true, &dataDictionary );
 
@@ -803,7 +803,7 @@ TEST(newOrderSingleSetString)
   HandlInst handlInst;
   Symbol symbol;
   Side side;
-  TransactTime transactTime;
+  TransactTime transactTime = TransactTime::now();
   OrdType ordType;
   CHECK_EQUAL( "ORDERID", object.get( clOrdID ) );
   CHECK_EQUAL( '3', object.get( handlInst ) );
@@ -932,7 +932,7 @@ TEST(orderCancelReplaceRequestSetString)
   HandlInst handlInst;
   Symbol symbol;
   Side side;
-  TransactTime transactTime;
+  TransactTime transactTime = TransactTime::now();
   OrdType ordType;
   CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
   CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
@@ -969,7 +969,7 @@ TEST(orderCancelRequestSetString)
   ClOrdID clOrdID;
   Symbol symbol;
   Side side;
-  TransactTime transactTime;
+  TransactTime transactTime = UtcTimeStamp::now();
   CHECK_EQUAL( "ORIGINALID", object.get( origClOrdID ) );
   CHECK_EQUAL( "CLIENTID", object.get( clOrdID ) );
   CHECK_EQUAL( "MSFT", object.get( symbol ) );
@@ -1337,10 +1337,10 @@ TEST(allocationInstructionString)
 
   FIX::SenderCompID senderCompID;
   FIX::TargetCompID targetCompID;
-  FIX::SendingTime sendingTime;
+  FIX::SendingTime sendingTime = SendingTime::now();
   FIX::MsgSeqNum msgSeqNum;
   FIX::HopCompID hopCompID;
-  FIX::HopSendingTime hopSendingTime;
+  FIX::HopSendingTime hopSendingTime = HopSendingTime::now();
   FIX::HopRefID hopRefID;
 
   CHECK_EQUAL( "SENDER", object.getHeader().get(senderCompID));

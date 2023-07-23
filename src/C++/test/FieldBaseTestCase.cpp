@@ -65,7 +65,7 @@ TEST(BoolField_getValue_FieldConvertError){
 }
 
 TEST(UtcTimeStampField_getValue_FieldConvertError){
-  UtcTimeStampField utcTimeStampField(1);
+  UtcTimeStampField utcTimeStampField(1, UtcTimeStamp::now());
   utcTimeStampField.setString("1");
   CHECK_THROW(utcTimeStampField.getValue(), IncorrectDataFormat);
 }

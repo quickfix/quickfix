@@ -43,7 +43,7 @@ class Session;
 class NullStoreFactory : public MessageStoreFactory
 {
 public:
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp&, const SessionID& );
   void destroy( MessageStore* );
 };
 /*! @} */
@@ -58,10 +58,16 @@ public:
 class NullStore : public MessageStore
 {
 public:
-  NullStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
+  NullStore( const UtcTimeStamp& now ) 
+  : m_nextSenderMsgSeqNum( 1 )
+  , m_nextTargetMsgSeqNum( 1 ) 
+  , m_creationTime( now )
+  {
+
+  }
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
+  void get( int, int, std::vector<std::string> & ) const EXCEPT ( IOException );
 
   int getNextSenderMsgSeqNum() const EXCEPT ( IOException )
   { return m_nextSenderMsgSeqNum; }
@@ -81,10 +87,11 @@ public:
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException )
   { return m_creationTime; }
 
-  void reset() EXCEPT ( IOException )
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
   {
-    m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
-    m_creationTime.setCurrent();
+    m_nextSenderMsgSeqNum = 1; 
+    m_nextTargetMsgSeqNum = 1;
+    m_creationTime = now;
   }
   void refresh() EXCEPT ( IOException ) {}
 

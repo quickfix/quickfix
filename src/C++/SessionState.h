@@ -39,13 +39,21 @@ class SessionState : public MessageStore, public Log
   typedef std::map < int, Message > Messages;
 
 public:
-  SessionState()
-: m_enabled( true ), m_receivedLogon( false ),
-  m_sentLogout( false ), m_sentLogon( false ),
-  m_sentReset( false ), m_receivedReset( false ),
-  m_initiate( false ), m_logonTimeout( 10 ), 
-  m_logoutTimeout( 2 ), m_testRequest( 0 ),
-  m_pStore( 0 ), m_pLog( 0 ) {}
+  SessionState( const UtcTimeStamp& now )
+: m_enabled( true ), 
+  m_receivedLogon( false ),
+  m_sentLogout( false ), 
+  m_sentLogon( false ),
+  m_sentReset( false ), 
+  m_receivedReset( false ),
+  m_initiate( false ), 
+  m_logonTimeout( 10 ), 
+  m_logoutTimeout( 2 ), 
+  m_testRequest( 0 ),
+  m_lastSentTime( now ),
+  m_lastReceivedTime( now ),
+  m_pStore( 0 ), 
+  m_pLog( 0 ) {}
 
   bool enabled() const { return m_enabled; }
   void enabled( bool value ) { m_enabled = value; }
@@ -114,35 +122,29 @@ public:
 
   bool shouldSendLogon() const { return initiate() && !sentLogon(); }
   bool alreadySentLogon() const { return initiate() && sentLogon(); }
-  bool logonTimedOut() const
+  bool logonTimedOut( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return now - lastReceivedTime() >= logonTimeout();
   }
-  bool logoutTimedOut() const
+  bool logoutTimedOut( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return sentLogout() && ( ( now - lastSentTime() ) >= logoutTimeout() );
   }
-  bool withinHeartBeat() const
+  bool withinHeartBeat( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return ( ( now - lastSentTime() ) < heartBtInt() ) &&
            ( ( now - lastReceivedTime() ) < heartBtInt() );
   }
-  bool timedOut() const
+  bool timedOut( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return ( now - lastReceivedTime() ) >= ( 2.4 * ( double ) heartBtInt() );
   }
-  bool needHeartbeat() const
+  bool needHeartbeat( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return ( ( now - lastSentTime() ) >= heartBtInt() ) && !testRequest();
   }
-  bool needTestRequest() const
+  bool needTestRequest( const UtcTimeStamp& now ) const
   {
-    UtcTimeStamp now;
     return ( now - lastReceivedTime() ) >=
            ( ( 1.2 * ( ( double ) testRequest() + 1 ) ) * ( double ) heartBtInt() );
   }
@@ -188,8 +190,8 @@ public:
   { Locker l( m_mutex ); m_pStore->incrNextTargetMsgSeqNum(); }
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException )
   { Locker l( m_mutex ); return m_pStore->getCreationTime(); }
-  void reset() EXCEPT ( IOException )
-  { Locker l( m_mutex ); m_pStore->reset(); }
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
+  { Locker l( m_mutex ); m_pStore->reset( now ); }
   void refresh() EXCEPT ( IOException )
   { Locker l( m_mutex ); m_pStore->refresh(); }
 

@@ -341,7 +341,7 @@ long testCreateNewOrderSingle( int count )
     FIX::HandlInst handlInst( '1' );
     FIX::Symbol symbol( "LNUX" );
     FIX::Side side( FIX::Side_BUY );
-    FIX::TransactTime transactTime;
+    FIX::TransactTime transactTime = FIX::TransactTime::now();
     FIX::OrdType ordType( FIX::OrdType_MARKET );
     FIX42::NewOrderSingle( clOrdID, handlInst, symbol, side, transactTime, ordType );
   }
@@ -355,7 +355,7 @@ long testSerializeToStringNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -376,7 +376,7 @@ long testSerializeFromStringNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -398,7 +398,7 @@ long testSerializeFromStringAndValidateNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
     ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -617,15 +617,15 @@ long testFileStoreNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
   std::string messageString = message.toString();
 
-  FIX::FileStore store( "store", id );
-  store.reset();
+  FIX::FileStore store( FIX::UtcTimeStamp::now(), "store", id );
+  store.reset( FIX::UtcTimeStamp::now() );
   count = count - 1;
 
   long start = GetTickCount();
@@ -634,7 +634,7 @@ long testFileStoreNewOrderSingle( int count )
     store.set( ++i, messageString );
   }
   long end = GetTickCount();
-  store.reset();
+  store.reset( FIX::UtcTimeStamp::now() );
   return end - start;
 }
 
@@ -644,14 +644,14 @@ long testValidateNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  message.getHeader().set( FIX::SendingTime( ) );
+  message.getHeader().set( FIX::SendingTime::now() );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -672,14 +672,14 @@ long testValidateDictNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  message.getHeader().set( FIX::SendingTime( ) );
+  message.getHeader().set( FIX::SendingTime::now() );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -714,8 +714,7 @@ long testValidateQuoteRequest( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  message.getHeader().set( FIX::SendingTime( ) );
-  message.getHeader().set( FIX::SendingTime( ) );
+  message.getHeader().set( FIX::SendingTime::now() );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -751,7 +750,7 @@ long testValidateDictQuoteRequest( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  message.getHeader().set( FIX::SendingTime( ) );
+  message.getHeader().set( FIX::SendingTime::now() );
   message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
   message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
@@ -810,7 +809,7 @@ long testSendOnSocket( int count, short port )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message( clOrdID, handlInst, symbol, side, transactTime, ordType );
 
@@ -873,7 +872,7 @@ long testSendOnThreadedSocket( int count, short port )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message( clOrdID, handlInst, symbol, side, transactTime, ordType );
 

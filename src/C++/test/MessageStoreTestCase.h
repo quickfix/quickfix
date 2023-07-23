@@ -97,6 +97,6 @@
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_REFRESH                   \
-  object->refresh();                                  \
+  object->refresh();                  \
   CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() ); \
   CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );

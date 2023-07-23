@@ -42,7 +42,7 @@ class MessageStoreFactory
 {
 public:
   virtual ~MessageStoreFactory() {}
-  virtual MessageStore* create( const SessionID& ) = 0;
+  virtual MessageStore* create( const UtcTimeStamp& now, const SessionID& ) = 0;
   virtual void destroy( MessageStore* ) = 0;
 };
 
@@ -55,7 +55,7 @@ public:
 class MemoryStoreFactory : public MessageStoreFactory
 {
 public:
-  MessageStore* create( const SessionID& );
+  MessageStore* create( const UtcTimeStamp& now, const SessionID& );
   void destroy( MessageStore* );
 };
 
@@ -82,7 +82,7 @@ public:
 
   virtual UtcTimeStamp getCreationTime() const EXCEPT ( IOException ) = 0;
 
-  virtual void reset() EXCEPT ( IOException ) = 0;
+  virtual void reset( const UtcTimeStamp& now ) EXCEPT ( IOException ) = 0;
   virtual void refresh() EXCEPT ( IOException ) = 0;
 };
 /*! @} */
@@ -96,7 +96,8 @@ public:
 class MemoryStore : public MessageStore
 {
 public:
-  MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
+  MemoryStore( const UtcTimeStamp& now ) 
+  : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ), m_creationTime( now ) {}
 
   bool set( int, const std::string& ) EXCEPT ( IOException );
   void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
@@ -119,15 +120,17 @@ public:
   UtcTimeStamp getCreationTime() const EXCEPT ( IOException )
   { return m_creationTime; }
 
-  void reset() EXCEPT ( IOException )
+  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
   {
-    m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
-    m_messages.clear(); m_creationTime.setCurrent();
+    m_nextSenderMsgSeqNum = 1; 
+    m_nextTargetMsgSeqNum = 1;
+    m_messages.clear(); 
+    m_creationTime = now;
   }
   void refresh() EXCEPT ( IOException ) {}
 
 private:
-  typedef std::map < int, std::string > Messages;
+  typedef std::map<int, std::string> Messages;
 
   Messages m_messages;
   int m_nextSenderMsgSeqNum;
@@ -143,7 +146,7 @@ public:
   MessageStoreFactoryExceptionWrapper( MessageStoreFactory* pFactory )
   : m_pFactory( pFactory ) {}
 
-  MessageStore* create( const SessionID&, bool&, ConfigError& );
+  MessageStore* create( const UtcTimeStamp& now, const SessionID&, bool&, ConfigError& );
   void destroy( MessageStore* );
 };
 
@@ -156,7 +159,7 @@ public:
   ~MessageStoreExceptionWrapper() { delete m_pStore; }
 
   bool set( int, const std::string&, bool&, IOException& );
-  void get( int, int, std::vector < std::string > &, bool&, IOException& ) const;
+  void get( int, int, std::vector<std::string>&, bool&, IOException& ) const;
   int getNextSenderMsgSeqNum( bool&, IOException& ) const;
   int getNextTargetMsgSeqNum( bool&, IOException& ) const;
   void setNextSenderMsgSeqNum( int, bool&, IOException& );
@@ -166,8 +169,8 @@ public:
 
   UtcTimeStamp getCreationTime( bool&, IOException& );
 
-  void reset( bool&, IOException& );
-  void refresh( bool&, IOException& );
+  void reset( const UtcTimeStamp&, bool&, IOException& );
+  void refresh(bool&, IOException& );
 };
 }
 

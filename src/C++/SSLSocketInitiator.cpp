@@ -289,7 +289,7 @@ void SSLSocketInitiator::doConnect( const SessionID& sessionID, const Dictionary
     short sourcePort = 0;
 
     Session* session = Session::lookupSession( sessionID );
-    if( !session->isSessionTime(UtcTimeStamp()) ) return;
+    if( !session->isSessionTime(UtcTimeStamp::now()) ) return;
 
     Log* log = session->getLog();
 
