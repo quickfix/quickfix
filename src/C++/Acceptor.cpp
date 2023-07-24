@@ -73,7 +73,7 @@ EXCEPT ( ConfigError )
 void Acceptor::initialize() EXCEPT ( ConfigError )
 {
   std::set<SessionID> sessions = m_settings.getSessions();
-  std::set<SessionID> ::iterator i;
+  std::set<SessionID>::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );
