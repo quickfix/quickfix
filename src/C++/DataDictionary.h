@@ -365,6 +365,8 @@ public:
           || i->second == TYPE::MultipleStringValue );
   }
 
+  void suppressAllFieldsChecking( bool value )
+  { m_suppressAllFieldsChecking = value; }
   void checkFieldsOutOfOrder( bool value )
   { m_checkFieldsOutOfOrder = value; }
   void checkFieldsHaveValues( bool value )
@@ -595,6 +597,7 @@ private:
   TYPE::Type XMLTypeToType( const std::string& xmlType ) const;
 
   bool m_hasVersion;
+  bool m_suppressAllFieldsChecking;
   bool m_checkFieldsOutOfOrder;
   bool m_checkFieldsHaveValues;
   bool m_checkUserDefinedFields;
