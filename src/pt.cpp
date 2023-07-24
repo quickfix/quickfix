@@ -53,18 +53,18 @@ long testDoubleToString( int );
 long testStringToDouble( int );
 long testCreateHeartbeat( int );
 long testIdentifyType( int );
-long testSerializeToStringHeartbeat( int );
-long testSerializeFromStringHeartbeat( int );
-long testSerializeFromStringAndValidateHeartbeat( int );
+long testSerializeHeartbeat( int );
+long testDeserializeHeartbeat( int );
+long testDeserializeAndValidateHeartbeat( int );
 long testCreateNewOrderSingle( int );
-long testSerializeToStringNewOrderSingle( int );
-long testSerializeFromStringNewOrderSingle( int );
-long testSerializeFromStringAndValidateNewOrderSingle( int );
+long testSerializeNewOrderSingle( int );
+long testDeserializeNewOrderSingle( int );
+long testDeserializeAndValidateNewOrderSingle( int );
 long testCreateQuoteRequest( int );
 long testReadFromQuoteRequest( int );
-long testSerializeToStringQuoteRequest( int );
-long testSerializeFromStringQuoteRequest( int );
-long testSerializeFromStringAndValidateQuoteRequest( int );
+long testSerializeQuoteRequest( int );
+long testDeserializeQuoteRequest( int );
+long testDeserializeAndValidateQuoteRequest( int );
 long testFileStoreNewOrderSingle( int );
 long testValidateNewOrderSingle( int );
 long testValidateDictNewOrderSingle( int );
@@ -80,10 +80,10 @@ long GetTickCount()
 {
   timeval tv;
   gettimeofday( &tv, 0 );
-  long millsec = tv.tv_sec * 1000;
-  millsec += ( long ) tv.tv_usec / ( 1000 );
+  long microsec = tv.tv_sec * 1e6;
+  microsec += ( long ) tv.tv_usec;
 
-  return ( long ) millsec;
+  return ( long ) microsec;
 }
 #endif
 
@@ -137,38 +137,38 @@ int main( int argc, char** argv )
     std::cout << "Identifying message types: ";
     report( testIdentifyType( count ), count );
 
-    std::cout << "Serializing Heartbeat messages to strings: ";
-    report( testSerializeToStringHeartbeat( count ), count );
+    std::cout << "Serializing Heartbeat messages: ";
+    report( testSerializeHeartbeat( count ), count );
 
-    std::cout << "Serializing Heartbeat messages from strings: ";
-    report( testSerializeFromStringHeartbeat( count ), count );
+    std::cout << "Deserializing Heartbeat messages: ";
+    report( testDeserializeHeartbeat( count ), count );
 
-    std::cout << "Serializing Heartbeat messages from strings and validation: ";
-    report( testSerializeFromStringAndValidateHeartbeat( count ), count );
+    std::cout << "Deserializing and validating Heartbeat messages: ";
+    report( testDeserializeAndValidateHeartbeat( count ), count );
 
     std::cout << "Creating NewOrderSingle messages: ";
     report( testCreateNewOrderSingle( count ), count );
 
-    std::cout << "Serializing NewOrderSingle messages to strings: ";
-    report( testSerializeToStringNewOrderSingle( count ), count );
+    std::cout << "Serializing NewOrderSingle messages: ";
+    report( testSerializeNewOrderSingle( count ), count );
 
-    std::cout << "Serializing NewOrderSingle messages from strings: ";
-    report( testSerializeFromStringNewOrderSingle( count ), count );
+    std::cout << "Deserializing NewOrderSingle messages: ";
+    report( testDeserializeNewOrderSingle( count ), count );
 
-    std::cout << "Serializing NewOrderSingle messages from strings and validation: ";
-    report( testSerializeFromStringAndValidateNewOrderSingle( count ), count );
+    std::cout << "Deserializing and validating NewOrderSingle messages: ";
+    report( testDeserializeAndValidateNewOrderSingle( count ), count );
 
     std::cout << "Creating QuoteRequest messages: ";
     report( testCreateQuoteRequest( count ), count );
 
-    std::cout << "Serializing QuoteRequest messages to strings: ";
-    report( testSerializeToStringQuoteRequest( count ), count );
+    std::cout << "Serializing QuoteRequest messages: ";
+    report( testSerializeQuoteRequest( count ), count );
 
-    std::cout << "Serializing QuoteRequest messages from strings: ";
-    report( testSerializeFromStringQuoteRequest( count ), count );
+    std::cout << "Deserializing QuoteRequest messages: ";
+    report( testDeserializeQuoteRequest( count ), count );
 
-    std::cout << "Serializing QuoteRequest messages from strings and validation: ";
-    report( testSerializeFromStringAndValidateQuoteRequest( count ), count );
+    std::cout << "Deserializing and validating QuoteRequest messages: ";
+    report( testDeserializeAndValidateQuoteRequest( count ), count );
 
     std::cout << "Reading fields from QuoteRequest message: ";
     report( testReadFromQuoteRequest( count ), count );
@@ -203,13 +203,16 @@ int main( int argc, char** argv )
   return EXIT_SUCCESS;
 }
 
-void report( long time, int count )
+void report( long total_micros, int count )
 {
-  double seconds = ( double ) time / 1000;
-  double num_per_second = count / seconds;
+  double total_seconds = static_cast<double>(total_micros) / 1e6;
+  double num_per_second = count / total_seconds;
+  double micros_per = static_cast<double>(total_micros) / count;
   std::cout << std::endl << "    num: " << count
-  << ", seconds: " << seconds
-  << ", num_per_second: " << num_per_second << std::endl;
+  << ", total_seconds: " << total_seconds
+  << ", num_per_second: " << num_per_second 
+  << ", micros_per: " << micros_per 
+  << std::endl;
 }
 
 long testIntegerToString( int count )
@@ -291,7 +294,7 @@ long testIdentifyType( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringHeartbeat( int count )
+long testSerializeHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   count = count - 1;
@@ -304,7 +307,7 @@ long testSerializeToStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringHeartbeat( int count )
+long testDeserializeHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
@@ -318,7 +321,7 @@ long testSerializeFromStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateHeartbeat( int count )
+long testDeserializeAndValidateHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
@@ -349,7 +352,7 @@ long testCreateNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringNewOrderSingle( int count )
+long testSerializeNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -370,7 +373,7 @@ long testSerializeToStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringNewOrderSingle( int count )
+long testDeserializeNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -392,7 +395,7 @@ long testSerializeFromStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateNewOrderSingle( int count )
+long testDeserializeAndValidateNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
@@ -459,7 +462,7 @@ long testCreateQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringQuoteRequest( int count )
+long testSerializeQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -487,7 +490,7 @@ long testSerializeToStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringQuoteRequest( int count )
+long testDeserializeQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -516,7 +519,7 @@ long testSerializeFromStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateQuoteRequest( int count )
+long testDeserializeAndValidateQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;

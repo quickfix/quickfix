@@ -66,8 +66,8 @@ Initiator::Initiator( Application& application,
 
 void Initiator::initialize() EXCEPT ( ConfigError )
 {
-  std::set < SessionID > sessions = m_settings.getSessions();
-  std::set < SessionID > ::iterator i;
+  std::set<SessionID> sessions = m_settings.getSessions();
+  std::set<SessionID>::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );

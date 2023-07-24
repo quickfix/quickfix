@@ -45,6 +45,7 @@ EXCEPT ( ConfigError )
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 {
@@ -62,6 +63,7 @@ EXCEPT ( ConfigError )
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 {
@@ -71,7 +73,7 @@ EXCEPT ( ConfigError )
 void Acceptor::initialize() EXCEPT ( ConfigError )
 {
   std::set<SessionID> sessions = m_settings.getSessions();
-  std::set<SessionID> ::iterator i;
+  std::set<SessionID>::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );
@@ -156,7 +158,7 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
 void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_processing )
-    throw RuntimeError("Initiator::start called when already processing messages");
+    throw RuntimeError("Acceptor::start called when already processing messages");
   
   m_processing = true;
   m_stop = false;
@@ -184,7 +186,7 @@ void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_processing )
-    throw RuntimeError("Initiator::block called when already processing messages");
+    throw RuntimeError("Acceptor::block called when already processing messages");
 
   m_processing = true;
   m_stop = false;
@@ -197,7 +199,7 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
   if( m_processing )
-    throw RuntimeError("Initiator::poll called when already processing messages");
+    throw RuntimeError("Acceptor::poll called when already processing messages");
 
   {
     auto guard = sg::make_scope_guard([this](){ m_processing = false; });
