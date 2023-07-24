@@ -24,6 +24,9 @@ option(HAVE_POSTGRESQL "Build with PostgreSQL")
 option(HAVE_PYTHON "Build with default Python version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
+# add option to build with extendable FIX::FileStore
+option(QUICKFIX_EXTEND_FILE_STORE, "Build with overridable FileStore::setSeqNum()")
+
 # add option to build shared or static
 option(QUICKFIX_SHARED_LIBS "Build using shared libraries" ON)
 # add option to build other targets

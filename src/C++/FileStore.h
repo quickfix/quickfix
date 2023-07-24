@@ -99,6 +99,11 @@ public:
   void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
   void refresh() EXCEPT ( IOException );
 
+#if defined( QUICKFIX_EXTEND_FILE_STORE )
+protected:
+  virtual void setSeqNum();
+#endif
+
 private:
 #ifdef _MSC_VER
   typedef std::pair<int, std::size_t> OffsetSize;
@@ -110,7 +115,9 @@ private:
   void open( bool deleteFile );
   void populateCache();
   bool readFromFile( int offset, int size, std::string& msg );
+#if !defined( QUICKFIX_EXTEND_FILE_STORE )
   void setSeqNum();
+#endif
   void setSession();
 
   bool get( int, std::string& ) const EXCEPT ( IOException );
