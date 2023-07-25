@@ -93030,82 +93030,82 @@ _wrap_PERSIST_MESSAGES_get(VALUE self) {
 
 
 SWIGINTERN VALUE
-_wrap_SERVER_CERT_FILE_get(VALUE self) {
+_wrap_SERVER_CERTIFICATE_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::SERVER_CERT_FILE);
+  _val = SWIG_FromCharPtr(FIX::SERVER_CERTIFICATE_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_SERVER_CERT_KEY_FILE_get(VALUE self) {
+_wrap_SERVER_CERTIFICATE_KEY_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::SERVER_CERT_KEY_FILE);
+  _val = SWIG_FromCharPtr(FIX::SERVER_CERTIFICATE_KEY_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CLIENT_CERT_FILE_get(VALUE self) {
+_wrap_CLIENT_CERTIFICATE_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CLIENT_CERT_FILE);
+  _val = SWIG_FromCharPtr(FIX::CLIENT_CERTIFICATE_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CLIENT_CERT_KEY_FILE_get(VALUE self) {
+_wrap_CLIENT_CERTIFICATE_KEY_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CLIENT_CERT_KEY_FILE);
+  _val = SWIG_FromCharPtr(FIX::CLIENT_CERTIFICATE_KEY_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CERT_AUTH_FILE_get(VALUE self) {
+_wrap_CERTIFICATE_AUTHORITIES_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CERT_AUTH_FILE);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_AUTHORITIES_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CERT_AUTH_DIR_get(VALUE self) {
+_wrap_CERTIFICATE_AUTHORITIES_DIRECTORY_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CERT_AUTH_DIR);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_AUTHORITIES_DIRECTORY);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CRL_FILE_get(VALUE self) {
+_wrap_CERTIFICATE_REVOCATION_LIST_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CRL_FILE);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_REVOCATION_LIST_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CRL_DIR_get(VALUE self) {
+_wrap_CERTIFICATE_REVOCATION_LIST_DIRECTORY_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CRL_DIR);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_REVOCATION_LIST_DIRECTORY);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_VERIFY_LEVEL_get(VALUE self) {
+_wrap_CERTIFICATE_VERIFY_LEVEL_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::VERIFY_LEVEL);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_VERIFY_LEVEL);
   return _val;
 }
 
@@ -125525,15 +125525,15 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "TIMESTAMP_PRECISION", VALUEFUNC(_wrap_TIMESTAMP_PRECISION_get), 0);
   rb_define_singleton_method(mQuickfix, "HTTP_ACCEPT_PORT", VALUEFUNC(_wrap_HTTP_ACCEPT_PORT_get), 0);
   rb_define_singleton_method(mQuickfix, "PERSIST_MESSAGES", VALUEFUNC(_wrap_PERSIST_MESSAGES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SERVER_CERT_FILE", VALUEFUNC(_wrap_SERVER_CERT_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SERVER_CERT_KEY_FILE", VALUEFUNC(_wrap_SERVER_CERT_KEY_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CLIENT_CERT_FILE", VALUEFUNC(_wrap_CLIENT_CERT_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CLIENT_CERT_KEY_FILE", VALUEFUNC(_wrap_CLIENT_CERT_KEY_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CERT_AUTH_FILE", VALUEFUNC(_wrap_CERT_AUTH_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CERT_AUTH_DIR", VALUEFUNC(_wrap_CERT_AUTH_DIR_get), 0);
-  rb_define_singleton_method(mQuickfix, "CRL_FILE", VALUEFUNC(_wrap_CRL_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CRL_DIR", VALUEFUNC(_wrap_CRL_DIR_get), 0);
-  rb_define_singleton_method(mQuickfix, "VERIFY_LEVEL", VALUEFUNC(_wrap_VERIFY_LEVEL_get), 0);
+  rb_define_singleton_method(mQuickfix, "SERVER_CERTIFICATE_FILE", VALUEFUNC(_wrap_SERVER_CERTIFICATE_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "SERVER_CERTIFICATE_KEY_FILE", VALUEFUNC(_wrap_SERVER_CERTIFICATE_KEY_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CLIENT_CERTIFICATE_FILE", VALUEFUNC(_wrap_CLIENT_CERTIFICATE_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CLIENT_CERTIFICATE_KEY_FILE", VALUEFUNC(_wrap_CLIENT_CERTIFICATE_KEY_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_AUTHORITIES_FILE", VALUEFUNC(_wrap_CERTIFICATE_AUTHORITIES_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_AUTHORITIES_DIRECTORY", VALUEFUNC(_wrap_CERTIFICATE_AUTHORITIES_DIRECTORY_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_REVOCATION_LIST_FILE", VALUEFUNC(_wrap_CERTIFICATE_REVOCATION_LIST_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_REVOCATION_LIST_DIRECTORY", VALUEFUNC(_wrap_CERTIFICATE_REVOCATION_LIST_DIRECTORY_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_VERIFY_LEVEL", VALUEFUNC(_wrap_CERTIFICATE_VERIFY_LEVEL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_PROTOCOL", VALUEFUNC(_wrap_SSL_PROTOCOL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_CIPHER_SUITE", VALUEFUNC(_wrap_SSL_CIPHER_SUITE_get), 0);
   
