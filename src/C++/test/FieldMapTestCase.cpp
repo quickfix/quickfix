@@ -77,9 +77,27 @@ TEST(removeGroup_allGroupsWithSameTag)
 
   fieldMap.addGroup(1, group1);
   fieldMap.addGroup(1, group2);
+  CHECK_EQUAL(2ul, fieldMap.groupCount(1));
+
   fieldMap.removeGroup(2, 1);
   fieldMap.removeGroup(1, 1);
+  CHECK_EQUAL(0ul, fieldMap.groupCount(1));
+}
 
+TEST(removeGroup_whenCountFieldIsRemoved)
+{
+  FieldMap fieldMap;
+  FieldMap group1;
+  group1.setField(2, "field2");
+
+  FieldMap group2;
+  group2.setField(2, "field2");
+
+  fieldMap.addGroup(1, group1);
+  fieldMap.addGroup(1, group2);
+  CHECK_EQUAL(2ul, fieldMap.groupCount(1));
+
+  fieldMap.removeField(1);
   CHECK_EQUAL(0ul, fieldMap.groupCount(1));
 }
 
