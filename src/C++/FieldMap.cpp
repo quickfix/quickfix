@@ -154,25 +154,24 @@ void FieldMap::removeGroup( int field )
   Groups::iterator i = m_groups.find( field );
   if ( i == m_groups.end() ) return;
 
-  removeField( field );
-
-  std::vector<FieldMap*> tmp;
-  tmp.swap( i->second );
+  std::vector<FieldMap*> toDelete;
+  toDelete.swap( i->second );
 
   m_groups.erase( i );
 
-  while ( !tmp.empty() )
-  {
-    delete tmp.back();
-    tmp.pop_back();
-  }
+  std::for_each(toDelete.begin(), toDelete.end(), [](FieldMap* group){ delete group; });
+
+  removeField( field );
 }
 
 void FieldMap::removeField( int field )
 {
   Fields::iterator i = findTag( field );
   if ( i != m_fields.end() )
+  {
     m_fields.erase( i );
+    removeGroup( field );
+  }
 }
 
 bool FieldMap::hasGroup( int num, int field ) const
