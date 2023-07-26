@@ -126,14 +126,14 @@ public:
     }
     else
     {
-      Fields::iterator i = findTag( field.getTag() );
-      if( i == m_fields.end() )
+      Fields::iterator foundField = findTag( field.getTag() );
+      if( foundField == m_fields.end() )
       {
         addField( field );
       }
       else
       {
-        i->setString( field.getString() );
+        foundField->setString( field.getString() );
       }
     }
   }
@@ -149,10 +149,10 @@ public:
   /// Get a field if set
   bool getFieldIfSet( FieldBase& field ) const
   {
-    Fields::const_iterator iter = findTag( field.getTag() );
-    if ( iter == m_fields.end() )
+    Fields::const_iterator foundField = findTag( field.getTag() );
+    if ( foundField == m_fields.end() )
       return false;
-    field = (*iter);
+    field = (*foundField);
     return true;
   }
 
@@ -183,10 +183,10 @@ public:
   const FieldBase& getFieldRef( int tag )
   const EXCEPT ( FieldNotFound )
   {
-    Fields::const_iterator iter = findTag( tag );
-    if ( iter == m_fields.end() )
+    Fields::const_iterator field = findTag( tag );
+    if ( field == m_fields.end() )
       throw FieldNotFound( tag );
-    return (*iter);
+    return (*field);
   }
 
   /// Get direct access to a field through a pointer
@@ -226,11 +226,14 @@ public:
   FieldMap& getGroupRef( int num, int tag ) const
   EXCEPT ( FieldNotFound )
   {
-    Groups::const_iterator i = m_groups.find( tag );
-    if( i == m_groups.end() ) throw FieldNotFound( tag );
-    if( num <= 0 ) throw FieldNotFound( tag );
-    if( i->second.size() < (unsigned)num ) throw FieldNotFound( tag );
-    return *( *(i->second.begin() + (num-1) ) );
+    Groups::const_iterator tagWithGroups = m_groups.find( tag );
+    if( tagWithGroups == m_groups.end() ) 
+      throw FieldNotFound( tag );
+    if( num <= 0 ) 
+      throw FieldNotFound( tag );
+    if( tagWithGroups->second.size() < static_cast<unsigned>(num) ) 
+      throw FieldNotFound( tag );
+    return *( *(tagWithGroups->second.begin() + (num-1) ) );
   }
 
   /// Get direct access to a field through a pointer
@@ -301,11 +304,12 @@ protected:
   // message fields are not yet sorted so regular find*** functions might return wrong results
   const FieldBase& reverse_find( int tag ) const
   {
-    Fields::const_reverse_iterator iter = std::find_if( m_fields.rbegin(), m_fields.rend(), finder( tag ) );
-    if( iter == m_fields.rend() )
+    Fields::const_reverse_iterator field = 
+      std::find_if( m_fields.rbegin(), m_fields.rend(), finder( tag ) );
+    if( field == m_fields.rend() )
       throw FieldNotFound( tag );
 
-    return *iter;
+    return *field;
   }
 
   // append field to message without sorting
@@ -345,11 +349,11 @@ private:
     if( numElements < 16 )
       return std::find_if( begin, end, finder( tag ) );
 
-    Iterator iter = std::lower_bound( begin, end, tag, sorter( m_order ) );
-    if( iter != end &&
-        iter->getTag() == tag )
+    Iterator field = std::lower_bound( begin, end, tag, sorter( m_order ) );
+    if( field != end &&
+        field->getTag() == tag )
     {
-      return iter;
+      return field;
     }
 
     return end;
@@ -360,9 +364,9 @@ private:
     if( m_fields.empty() )
       return m_fields.end();
 
-    const FieldBase& last = m_fields.back();
-    if( m_order( last.getTag(), tag ) ||
-        last.getTag() == tag )
+    const FieldBase& lastField = m_fields.back();
+    if( m_order( lastField.getTag(), tag ) ||
+        lastField.getTag() == tag )
     {
       return m_fields.end();
     }
