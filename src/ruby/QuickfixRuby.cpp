@@ -2325,8 +2325,8 @@ namespace Swig {
 #define SWIGTYPE_p_key_type swig_types[142]
 #define SWIGTYPE_p_message_order swig_types[143]
 #define SWIGTYPE_p_p_FIX__DataDictionary swig_types[144]
-#define SWIGTYPE_p_quickfix_ssize_t swig_types[145]
-#define SWIGTYPE_p_size_type swig_types[146]
+#define SWIGTYPE_p_size_type swig_types[145]
+#define SWIGTYPE_p_ssize_t swig_types[146]
 #define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[147]
 #define SWIGTYPE_p_std__istream swig_types[148]
 #define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[149]
@@ -14494,7 +14494,7 @@ static swig_class SwigClassSocketRecvFailed;
 
 SWIGINTERN VALUE
 _wrap_new_SocketRecvFailed__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  quickfix_ssize_t arg1 ;
+  ssize_t arg1 ;
   void *argp1 ;
   int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SocketRecvFailed";
@@ -14504,14 +14504,14 @@ _wrap_new_SocketRecvFailed__SWIG_0(int argc, VALUE *argv, VALUE self) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
   {
-    res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_quickfix_ssize_t,  0 );
+    res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_ssize_t,  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "quickfix_ssize_t","SocketRecvFailed", 1, argv[0] )); 
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "ssize_t","SocketRecvFailed", 1, argv[0] )); 
     }  
     if (!argp1) {
-      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "quickfix_ssize_t","SocketRecvFailed", 1, argv[0]));
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "ssize_t","SocketRecvFailed", 1, argv[0]));
     } else {
-      arg1 = *(reinterpret_cast< quickfix_ssize_t * >(argp1));
+      arg1 = *(reinterpret_cast< ssize_t * >(argp1));
     }
   }
   {
@@ -14610,7 +14610,7 @@ SWIGINTERN VALUE _wrap_new_SocketRecvFailed(int nargs, VALUE *args, VALUE self) 
   if (argc == 1) {
     int _v = 0;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_quickfix_ssize_t, SWIG_POINTER_NO_NULL);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_ssize_t, SWIG_POINTER_NO_NULL);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SocketRecvFailed__SWIG_0(nargs, args, self);
@@ -14627,7 +14627,7 @@ SWIGINTERN VALUE _wrap_new_SocketRecvFailed(int nargs, VALUE *args, VALUE self) 
   
 fail:
   Ruby_Format_OverloadedError( argc, 1, "SocketRecvFailed.new", 
-    "    SocketRecvFailed.new(quickfix_ssize_t size)\n"
+    "    SocketRecvFailed.new(ssize_t size)\n"
     "    SocketRecvFailed.new(std::string const &what)\n");
   
   return Qnil;
@@ -118000,8 +118000,8 @@ static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (
 static swig_type_info _swigt__p_key_type = {"_p_key_type", "key_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_order *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FIX__DataDictionary = {"_p_p_FIX__DataDictionary", "FIX::DataDictionary **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_quickfix_ssize_t = {"_p_quickfix_ssize_t", "quickfix_ssize_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_size_type = {"_p_size_type", "size_type *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ssize_t = {"_p_ssize_t", "ssize_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t = {"_p_std__functionT_FIX__UtcTimeStamp_fF_t", "std::function< FIX::UtcTimeStamp () > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__istream = {"_p_std__istream", "std::istream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__lessT_FIX__SessionID_t = {"_p_std__lessT_FIX__SessionID_t", "std::less< FIX::SessionID > *", 0, 0, (void*)0, 0};
@@ -118173,8 +118173,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_key_type,
   &_swigt__p_message_order,
   &_swigt__p_p_FIX__DataDictionary,
-  &_swigt__p_quickfix_ssize_t,
   &_swigt__p_size_type,
+  &_swigt__p_ssize_t,
   &_swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t,
   &_swigt__p_std__istream,
   &_swigt__p_std__lessT_FIX__SessionID_t,
@@ -118346,8 +118346,8 @@ static swig_cast_info _swigc__p_iterator[] = {  {&_swigt__p_iterator, 0, 0, 0},{
 static swig_cast_info _swigc__p_key_type[] = {  {&_swigt__p_key_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_message_order[] = {  {&_swigt__p_message_order, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FIX__DataDictionary[] = {  {&_swigt__p_p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_quickfix_ssize_t[] = {  {&_swigt__p_quickfix_ssize_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_size_type[] = {  {&_swigt__p_size_type, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ssize_t[] = {  {&_swigt__p_ssize_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__functionT_FIX__UtcTimeStamp_fF_t[] = {  {&_swigt__p_std__functionT_FIX__UtcTimeStamp_fF_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__istream[] = {  {&_swigt__p_std__istream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__lessT_FIX__SessionID_t[] = {  {&_swigt__p_std__lessT_FIX__SessionID_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -118519,8 +118519,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_key_type,
   _swigc__p_message_order,
   _swigc__p_p_FIX__DataDictionary,
-  _swigc__p_quickfix_ssize_t,
   _swigc__p_size_type,
+  _swigc__p_ssize_t,
   _swigc__p_std__functionT_FIX__UtcTimeStamp_fF_t,
   _swigc__p_std__istream,
   _swigc__p_std__lessT_FIX__SessionID_t,
