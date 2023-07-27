@@ -403,7 +403,7 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
   pInitiator->setConnected(sessionID);
   pInitiator->getLog()->onEvent("Connection succeeded");
 
-  pSession->next();
+  pSession->next( UtcTimeStamp::now() );
 
   while (pConnection->read())
   {

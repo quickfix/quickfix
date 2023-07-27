@@ -36,7 +36,7 @@ SUITE(FileStoreTests)
 
 struct fileStoreFixture
 {
-  fileStoreFixture( bool resetBefore, bool resetAfter )
+  fileStoreFixture( bool resetBefore, bool reset )
   : factory( "store" )
   {
     if( resetBefore )
@@ -47,7 +47,7 @@ struct fileStoreFixture
 
     object = factory.create( UtcTimeStamp::now(), sessionID );
 
-    this->resetAfter = resetAfter;
+    this->resetAfter = reset;
   }
 
   ~fileStoreFixture()

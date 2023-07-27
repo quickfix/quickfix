@@ -38,7 +38,7 @@ SUITE(MySQLStoreTests)
 
 struct mySQLStoreFixture
 {
-  mySQLStoreFixture( bool reset )
+  mySQLStoreFixture( bool resetAfter )
   : factory( TestSettings::sessionSettings.get() )
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
@@ -54,7 +54,7 @@ struct mySQLStoreFixture
       throw;
     }
 
-    if( reset )
+    if( resetAfter )
       object->reset( UtcTimeStamp::now() );
 
     this->resetAfter = resetAfter;

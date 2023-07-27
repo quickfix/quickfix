@@ -1,8 +1,4 @@
-if NO_UNIT_TEST
-SUBDIRS =
-else
 SUBDIRS = test
-endif
 
 LEX += -+ -olex.yy.c
 
