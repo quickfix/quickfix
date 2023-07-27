@@ -457,7 +457,7 @@ void SSLSocketConnection::readMessages( SocketMonitor& s )
 
 void SSLSocketConnection::onTimeout()
 {
-  if ( m_pSession ) m_pSession->next();
+  if ( m_pSession ) m_pSession->next( UtcTimeStamp::now() );
 }
 
 } // namespace FIX

@@ -24,17 +24,6 @@
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
-#if ! defined(HAVE_CXX17) && __cplusplus >= 201703L
-#define HAVE_CXX17
-#endif
-#ifdef HAVE_CXX17
-#ifndef HAVE_STD_SHARED_PTR
-#define HAVE_STD_SHARED_PTR
-#endif
-#ifndef HAVE_STD_UNIQUE_PTR
-#define HAVE_STD_UNIQUE_PTR
-#endif
-#endif
 #endif
 
 #ifndef _MSC_VER

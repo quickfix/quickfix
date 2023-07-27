@@ -5967,7 +5967,7 @@ void SwigDirector_Application::toAdmin(FIX::Message &arg0,FIX::SessionID const &
 }
 
 
-void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
@@ -5991,7 +5991,7 @@ void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &ar
 }
 
 
-void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
@@ -6015,7 +6015,7 @@ void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID
 }
 
 
-void SwigDirector_Application::fromApp(FIX::Message const &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::fromApp(FIX::Message const &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;

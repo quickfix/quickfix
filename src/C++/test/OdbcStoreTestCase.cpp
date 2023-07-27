@@ -57,7 +57,7 @@ struct odbcStoreFixture
     if( reset )
       object->reset( UtcTimeStamp::now() );
 
-    this->resetAfter = resetAfter;
+    this->resetAfter = reset;
   }
 
   ~odbcStoreFixture()

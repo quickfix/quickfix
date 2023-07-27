@@ -8,11 +8,7 @@ endif
 
 SUBDIRS = C++ ${PYTHON3_DIR} ${RUBY_DIR}
 
-if NO_UNIT_TEST
-noinst_PROGRAMS =
-else
 noinst_PROGRAMS = at ut pt
-endif
 
 at_SOURCES = at.cpp at_application.h
 ut_SOURCES = ut.cpp
