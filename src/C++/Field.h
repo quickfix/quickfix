@@ -446,7 +446,7 @@ public:
   explicit UtcTimeStampField( int field, const UtcTimeStamp& data, int precision = 0 )
 : FieldBase( field, UtcTimeStampConvertor::convert( data, precision ) ) {}
   UtcTimeStampField( int field, int precision = 0 )
-: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp::now(), precision ) ) {}
 
   void setValue( const UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }

@@ -76,7 +76,7 @@ bool ThreadedSocketConnection::send( const std::string& msg )
   int totalSent = 0;
   while(totalSent < (int)msg.length())
   {
-    quickfix_ssize_t sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
+    ssize_t sent = socket_send( m_socket, msg.c_str() + totalSent, msg.length() );
     if(sent < 0) return false;
     totalSent += sent;
   }
@@ -121,7 +121,7 @@ bool ThreadedSocketConnection::read()
     if( result > 0 ) // Something to read
     {
       // We can read without blocking
-      quickfix_ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
+      ssize_t size = socket_recv( m_socket, m_buffer, sizeof(m_buffer) );
       if ( size <= 0 ) { throw SocketRecvFailed( size ); }
       m_parser.addToStream( m_buffer, size );
     }

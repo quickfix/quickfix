@@ -363,7 +363,7 @@ EXCEPT ( SocketRecvFailed )
   {
     pending = false;
     errno = 0;
-    quickfix_ssize_t size = 0;
+    ssize_t size = 0;
     int errCodeSSL = 0;
     ERR_clear_error();
 
