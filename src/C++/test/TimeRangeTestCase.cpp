@@ -27,7 +27,7 @@
 #include <TimeRange.h>
 #include <FieldConvertors.h>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

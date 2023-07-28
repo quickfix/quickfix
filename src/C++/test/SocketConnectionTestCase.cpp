@@ -37,7 +37,7 @@
 #include <fix42/Logon.h>
 #include <set>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

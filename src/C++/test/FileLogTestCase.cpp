@@ -28,7 +28,7 @@
 #include <Utility.h>
 #include <fstream>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

@@ -27,7 +27,7 @@
 #include <SessionSettings.h>
 #include <sstream>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

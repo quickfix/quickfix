@@ -24,11 +24,11 @@
 #include "config.h"
 #endif
 
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <MessageStore.h>
 #include "MessageStoreTestCase.h"
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

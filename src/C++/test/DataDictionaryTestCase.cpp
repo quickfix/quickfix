@@ -38,7 +38,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

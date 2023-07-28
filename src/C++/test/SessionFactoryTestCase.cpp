@@ -28,7 +28,7 @@
 #include <Application.h>
 #include <MessageStore.h>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

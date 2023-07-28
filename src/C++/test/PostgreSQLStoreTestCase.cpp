@@ -26,11 +26,11 @@
 
 #ifdef HAVE_POSTGRESQL
 
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <PostgreSQLStore.h>
 #include "MessageStoreTestCase.h"
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

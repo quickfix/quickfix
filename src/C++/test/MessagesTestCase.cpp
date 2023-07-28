@@ -46,7 +46,7 @@
 #include <fix44/NewOrderCross.h>
 #include <fix44/AllocationInstruction.h>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 using namespace FIX42;

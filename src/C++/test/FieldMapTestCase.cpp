@@ -28,7 +28,7 @@
 #include <Message.h>
 #include <vector>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

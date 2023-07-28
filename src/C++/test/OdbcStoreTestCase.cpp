@@ -26,11 +26,11 @@
 
 #ifdef HAVE_ODBC
 
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <OdbcStore.h>
 #include "MessageStoreTestCase.h"
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

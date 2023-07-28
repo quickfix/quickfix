@@ -24,9 +24,9 @@
 #include "config.h"
 #endif
 
-#include <TestHelper.h>
+#include "TestHelper.h"
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 int main( int argc, char** argv )
 {

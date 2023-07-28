@@ -27,10 +27,10 @@
 #include <SocketAcceptor.h>
 #include <Utility.h>
 #include <fix42/Logon.h>
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <sstream>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

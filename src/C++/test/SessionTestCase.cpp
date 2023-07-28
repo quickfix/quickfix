@@ -50,9 +50,9 @@
 #include <fixt11/ResendRequest.h>
 #include <fix50/ExecutionReport.h>
 #include <fix42/BusinessMessageReject.h>
-#include <TestHelper.h>
+#include "TestHelper.h"
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

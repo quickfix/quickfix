@@ -26,11 +26,11 @@
 
 #include <FileStore.h>
 #include <Session.h>
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <fstream>
 #include <typeinfo>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

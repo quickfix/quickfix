@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #endif
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

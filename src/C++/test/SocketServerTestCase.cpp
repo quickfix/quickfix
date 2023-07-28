@@ -24,13 +24,13 @@
 #include "config.h"
 #endif
 
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <SocketServer.h>
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 

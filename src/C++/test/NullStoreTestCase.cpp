@@ -31,7 +31,7 @@
 #include <fix42/NewOrderSingle.h>
 #include <fix42/ExecutionReport.h>
 
-#include <catch_amalgamated.hpp>
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 using namespace FIX42;
