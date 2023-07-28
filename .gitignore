@@ -72,3 +72,4 @@ CMakeCache.txt
 *.cmake
 .vscode
 .cache
+compile_commands.json

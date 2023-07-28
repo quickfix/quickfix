@@ -24,24 +24,18 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <TestHelper.h>
 #include <SocketServer.h>
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif
 
+#include <catch_amalgamated.hpp>
+
 using namespace FIX;
 
-class socketServerFixture : public SocketServer::Strategy
+struct TestStrategy : public SocketServer::Strategy
 {
-public:
-  socketServerFixture() 
-  : connect( 0 ), write( 0 ), data( 0 ), disconnect( 0 ),
-    connectSocket( 0 ), writeSocket( 0 ),
-    dataSocket( 0 ), disconnectSocket( 0 ),
-    bufLen( 0 ) {}
-
   void onConnect( SocketServer&, socket_handle accept, socket_handle socket )
   { connect++; connectSocket = socket; }
   void onWrite( SocketServer&, socket_handle socket )
@@ -57,92 +51,98 @@ public:
   void onError( SocketServer& )
   {}
 
-  int connect, write, data, disconnect;
-  socket_handle connectSocket, writeSocket;
-  socket_handle dataSocket, disconnectSocket;
-  char buf[ 1 ]; size_t bufLen;
+  int connect = 0;
+  int write = 0;
+  int data = 0;
+  int disconnect = 0;
+  socket_handle connectSocket = 0;
+  socket_handle writeSocket = 0;
+  socket_handle dataSocket = 0;
+  socket_handle disconnectSocket = 0;
+  char buf[ 1 ]; 
+  size_t bufLen = 0;
 };
 
-SUITE(SocketServerTests)
+TEST_CASE("SocketServerTests")
 {
+  TestStrategy strategy;
 
-TEST_FIXTURE(socketServerFixture, accept)
-{
-  SocketServer object( 0 );
-  socket_handle serverS1 = object.add( 0, true, true );
-  socket_handle clientS1 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
-  CHECK( clientS1 > 0 );
-  process_sleep( 0.1 );
-  socket_handle s1 = object.accept( serverS1 );
-  CHECK( s1 >= 0 );
-  object.block( *this );
-  CHECK( object.numConnections() == 1 );
+  SECTION("accept")
+  {
+    SocketServer object( 0 );
+    socket_handle serverS1 = object.add( 0, true, true );
+    socket_handle clientS1 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
+    CHECK( clientS1 > 0 );
+    process_sleep( 0.1 );
+    socket_handle s1 = object.accept( serverS1 );
+    CHECK( s1 >= 0 );
+    object.block( strategy );
+    CHECK( object.numConnections() == 1 );
 
-  socket_handle clientS2 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
-  CHECK( clientS2 > 0 );
-  process_sleep( 0.1 );
-  socket_handle s2 = object.accept( serverS1 );
-  CHECK( s2 >= 0 );
-  object.block( *this );
-  CHECK( object.numConnections() == 2 );
+    socket_handle clientS2 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
+    CHECK( clientS2 > 0 );
+    process_sleep( 0.1 );
+    socket_handle s2 = object.accept( serverS1 );
+    CHECK( s2 >= 0 );
+    object.block( strategy );
+    CHECK( object.numConnections() == 2 );
 
-  socket_handle clientS3 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
-  CHECK( clientS3 > 0 );
-  process_sleep( 0.1 );
-  socket_handle s3 = object.accept( serverS1 );
-  CHECK( s3 >= 0 );
-  object.block( *this );
-  CHECK( object.numConnections() == 3 );
+    socket_handle clientS3 = createSocket( socket_hostport(serverS1), "127.0.0.1" );
+    CHECK( clientS3 > 0 );
+    process_sleep( 0.1 );
+    socket_handle s3 = object.accept( serverS1 );
+    CHECK( s3 >= 0 );
+    object.block( strategy );
+    CHECK( object.numConnections() == 3 );
 
-  SocketMonitor& monitor = object.getMonitor();
-  CHECK( !monitor.drop( -1 ) );
-  CHECK( object.numConnections() == 3 );
-  CHECK( monitor.drop( s1 ) );
-  CHECK( object.numConnections() == 2 );
-  CHECK( monitor.drop( s2 ) );
-  CHECK( object.numConnections() == 1 );
-  CHECK( monitor.drop( s3 ) );
-  CHECK( object.numConnections() == 0 );
+    SocketMonitor& monitor = object.getMonitor();
+    CHECK( !monitor.drop( -1 ) );
+    CHECK( object.numConnections() == 3 );
+    CHECK( monitor.drop( s1 ) );
+    CHECK( object.numConnections() == 2 );
+    CHECK( monitor.drop( s2 ) );
+    CHECK( object.numConnections() == 1 );
+    CHECK( monitor.drop( s3 ) );
+    CHECK( object.numConnections() == 0 );
 
-  destroySocket( clientS1 );
-  destroySocket( clientS2 );
-  destroySocket( clientS3 );
-}
+    destroySocket( clientS1 );
+    destroySocket( clientS2 );
+    destroySocket( clientS3 );
+  }
 
-TEST_FIXTURE(socketServerFixture, block)
-{
-  SocketServer object( 0 );
-  socket_handle serverS = object.add( 0, true, true );
-  socket_handle clientS = createSocket( socket_hostport(serverS), "127.0.0.1" );
-  CHECK( clientS >= 0 );
+  SECTION("block")
+  {
+    SocketServer object( 0 );
+    socket_handle serverS = object.add( 0, true, true );
+    socket_handle clientS = createSocket( socket_hostport(serverS), "127.0.0.1" );
+    CHECK( clientS >= 0 );
 
-  process_sleep( 0.1 );
-  object.block( *this );
-  CHECK_EQUAL( 1, connect );
-  CHECK( connectSocket > 0 );
+    process_sleep( 0.1 );
+    object.block( strategy );
+    CHECK( 1 == strategy.connect );
+    CHECK( strategy.connectSocket > 0 );
 
-  send( clientS, "1", 1, 0 );
-  process_sleep( 0.1 );
-  object.block( *this );
-  object.block( *this );
-  CHECK_EQUAL( 1, data );
-  CHECK_EQUAL( 1U, bufLen );
-  CHECK_EQUAL( '1', *buf );
-  CHECK( dataSocket > 0 );
+    send( clientS, "1", 1, 0 );
+    process_sleep( 0.1 );
+    object.block( strategy );
+    object.block( strategy );
+    CHECK( 1 == strategy.data );
+    CHECK( 1U == strategy.bufLen );
+    CHECK( '1' == *strategy.buf );
+    CHECK( strategy.dataSocket > 0 );
 
-  destroySocket( clientS );
-  process_sleep( 0.1 );
-  object.block( *this );
-  CHECK_EQUAL( 1, disconnect );
-  CHECK( disconnectSocket > 0 );
-}
+    destroySocket( clientS );
+    process_sleep( 0.1 );
+    object.block( strategy );
+    CHECK( 1 == strategy.disconnect );
+    CHECK( strategy.disconnectSocket > 0 );
+  }
 
-TEST_FIXTURE(socketServerFixture, close)
-{
-  SocketServer object( 0 );
-  object.add( 0, true, true );
-  object.close();
-  object.block( *this );
-}
-
+  SECTION("close")
+  {
+    SocketServer object( 0 );
+    object.add( 0, true, true );
+    object.close();
+    object.block( strategy );
+  }
 }

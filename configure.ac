@@ -7,6 +7,7 @@ AC_INIT([QuickFIX], [1.15.1], [ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
+m4_include([m4/ax_lib_unixodbc.m4])
 m4_include([m4/ax_lib_boost.m4])
 m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
@@ -29,6 +30,7 @@ AM_PROG_LEX
 
 AX_LIB_MYSQL()
 AX_LIB_POSTGRESQL()
+AX_LIB_UNIXODBC()
 AX_LIB_BOOST()
 AX_LIB_SSL()
 AX_ALLOCATOR()
@@ -83,12 +85,12 @@ fi
 ########################################
 
 # libs
-LIBS="$OPENSSL_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
+LIBS="$OPENSSL_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $UNIX_ODBS_LIBS $TBB_LIBS $LIBS"
 # compiler flags
-SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $RUBY_CFLAGS"
-AX_CHECK_COMPILE_FLAG([-Wall], [SHAREDFLAGS="-Wall $SHARED_FLAGS"])
-AX_CHECK_COMPILE_FLAG([-Wno-overloaded-virtual], [SHAREDFLAGS="-Wno-overloaded-virtual $SHARED_FLAGS"])
-AX_CHECK_COMPILE_FLAG([-Wno-deprecated-declarations], [SHAREDFLAGS="-Wno-deprecated-declarations $SHARED_FLAGS"])
+SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $UNIXODBC_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $RUBY_CFLAGS"
+AX_CHECK_COMPILE_FLAG([-Wall], [SHAREDFLAGS+=" -Wall $SHARED_FLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wno-overloaded-virtual], [SHAREDFLAGS+=" -Wno-overloaded-virtual $SHARED_FLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wno-deprecated-declarations], [SHAREDFLAGS+=" -Wno-deprecated-declarations $SHARED_FLAGS"])
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)

@@ -24,28 +24,25 @@
 #include "config.h"
 #endif
 
-#include <SharedArray.h>
+#include <TestHelper.h>
 
 #include <catch_amalgamated.hpp>
 
-using namespace FIX;
-
-TEST_CASE("SharedArrayTests")
+int main( int argc, char** argv )
 {
-  SECTION("SharedArrayEqualsOperator_SharedArraySetEqualToItself")
-  {
-    shared_array<std::string> shared;
-    shared_array<std::string>* pShared = &shared;
+  std::string quickfixConfigFile;
 
-    shared = *pShared;
+  Catch::Session session;
+  auto & cli = session.cli();
+  auto newCli = cli 
+    | Catch::Clara::Opt( [](std::string quickfixConfigFile)
+    {
+      FIX::TestSettings::sessionSettings = FIX::SessionSettings(quickfixConfigFile);
+    }, 
+    "user" )
+    ["--quickfix-config-file"]
+    ("QuickFIX config file for tests");  
+  session.cli( newCli );
 
-    CHECK(*pShared == shared);
-  }
-
-  SECTION("CreateSharedArray_SizeZeroArray")
-  {
-    shared_array<std::string> shared = shared_array<std::string>::create(0);
-
-    CHECK(size_t{0} == shared.size());
-  }
+  return session.run(argc, argv);
 }

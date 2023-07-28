@@ -24,121 +24,121 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <FieldMap.h>
 #include <Message.h>
 #include <vector>
 
+#include <catch_amalgamated.hpp>
+
 using namespace FIX;
 
-SUITE(FieldMapTests)
+TEST_CASE("FieldMapTests")
 {
+  SECTION("setMessageOrder")
+  {
+    int order[] = {1, 2, 3, 0}; // '0' is used to signify the end of array passed to FieldMap()
+    FieldMap fieldMap(order);
+    fieldMap.setField(3, "account");
+    fieldMap.setField(1, "adv_id");
+    fieldMap.setField(2, "adv_ref_id");
 
-TEST(setMessageOrder)
-{
-  int order[] = {1, 2, 3, 0}; // '0' is used to signify the end of array passed to FieldMap()
-  FieldMap fieldMap(order);
-  fieldMap.setField(3, "account");
-  fieldMap.setField(1, "adv_id");
-  fieldMap.setField(2, "adv_ref_id");
-
-  int pos1 = 0, pos2 = 0, pos3 = 0;
-  int iterationCount = 0;
-  for( FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++, iterationCount++) {
-    if(iterationCount == 0) {
-      pos1 = itr->getTag();
-    } else if (iterationCount == 1 ) {
-      pos2 = itr->getTag();
-    } else if (iterationCount == 2) {
-      pos3 = itr->getTag();
+    int pos1 = 0, pos2 = 0, pos3 = 0;
+    int iterationCount = 0;
+    for( FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++, iterationCount++) {
+      if(iterationCount == 0) {
+        pos1 = itr->getTag();
+      } else if (iterationCount == 1 ) {
+        pos2 = itr->getTag();
+      } else if (iterationCount == 2) {
+        pos3 = itr->getTag();
+      }
     }
+
+    CHECK(1 == pos1);
+    CHECK(2 == pos2);
+    CHECK(3 == pos3);
   }
 
-  CHECK_EQUAL(1, pos1);
-  CHECK_EQUAL(2, pos2);
-  CHECK_EQUAL(3, pos3);
-}
+  SECTION("addGroupPtr_nullptr")
+  {
+    FieldMap fieldMap;
+    fieldMap.addGroupPtr(1, nullptr);
+    CHECK(0U == fieldMap.groupCount(0));
+  }
 
-TEST(addGroupPtr_nullptr)
-{
-  FieldMap fieldMap;
-  fieldMap.addGroupPtr(1, nullptr);
-  CHECK_EQUAL(0, (int) fieldMap.groupCount(0));
-}
+  SECTION("removeGroup_allGroupsWithSameTag")
+  {
+    FieldMap fieldMap;
+    FieldMap group1;
+    group1.setField(2, "field2");
 
-TEST(removeGroup_allGroupsWithSameTag)
-{
-  FieldMap fieldMap;
-  FieldMap group1;
-  group1.setField(2, "field2");
+    FieldMap group2;
+    group2.setField(2, "field2");
 
-  FieldMap group2;
-  group2.setField(2, "field2");
+    fieldMap.addGroup(1, group1);
+    fieldMap.addGroup(1, group2);
+    CHECK(2ul == fieldMap.groupCount(1));
 
-  fieldMap.addGroup(1, group1);
-  fieldMap.addGroup(1, group2);
-  CHECK_EQUAL(2ul, fieldMap.groupCount(1));
+    fieldMap.removeGroup(2, 1);
+    fieldMap.removeGroup(1, 1);
+    CHECK(0ul == fieldMap.groupCount(1));
+  }
 
-  fieldMap.removeGroup(2, 1);
-  fieldMap.removeGroup(1, 1);
-  CHECK_EQUAL(0ul, fieldMap.groupCount(1));
-}
+  SECTION("removeGroup_whenCountFieldIsRemoved")
+  {
+    FieldMap fieldMap;
+    FieldMap group1;
+    group1.setField(2, "field2");
 
-TEST(removeGroup_whenCountFieldIsRemoved)
-{
-  FieldMap fieldMap;
-  FieldMap group1;
-  group1.setField(2, "field2");
+    FieldMap group2;
+    group2.setField(2, "field2");
 
-  FieldMap group2;
-  group2.setField(2, "field2");
+    fieldMap.addGroup(1, group1);
+    fieldMap.addGroup(1, group2);
+    CHECK(2ul == fieldMap.groupCount(1));
 
-  fieldMap.addGroup(1, group1);
-  fieldMap.addGroup(1, group2);
-  CHECK_EQUAL(2ul, fieldMap.groupCount(1));
+    fieldMap.removeField(1);
+    CHECK(0ul == fieldMap.groupCount(1));
+  }
 
-  fieldMap.removeField(1);
-  CHECK_EQUAL(0ul, fieldMap.groupCount(1));
-}
+  SECTION("hasGroup_groupExists")
+  {
+    FieldMap fieldMap;
+    FieldMap group;
+    fieldMap.addGroup(1, group);
 
-TEST(hasGroup_groupExists)
-{
-  FieldMap fieldMap;
-  FieldMap group;
-  fieldMap.addGroup(1, group);
+    CHECK(fieldMap.hasGroup(1));
+  }
 
-  CHECK_EQUAL(true, fieldMap.hasGroup(1));
-}
+  SECTION("hasGroup_groupDoesNotExist")
+  {
+    FieldMap fieldMap;
+    FieldMap group;
+    fieldMap.addGroup(1, group);
 
-TEST(hasGroup_groupDoesNotExist)
-{
-  FieldMap fieldMap;
-  FieldMap group;
-  fieldMap.addGroup(1, group);
+    CHECK(!fieldMap.hasGroup(2));
+  }
 
-  CHECK_EQUAL(false, fieldMap.hasGroup(2));
-}
+  SECTION("totalFields")
+  {
+    FieldMap fieldMap;
+    fieldMap.setField(1, "field1");
+    fieldMap.setField(2, "field2");
+    fieldMap.setField(3, "field3");
 
-TEST(totalFields)
-{
-  FieldMap fieldMap;
-  fieldMap.setField(1, "field1");
-  fieldMap.setField(2, "field2");
-  fieldMap.setField(3, "field3");
+    FieldMap group1;
+    group1.setField(4, "field4");
+    fieldMap.addGroup(10, group1);
+    FieldMap group2;
+    group2.setField(5, "field5");
+    group2.setField(6, "field6");
+    fieldMap.addGroup(20, group2);
 
-  FieldMap group1;
-  group1.setField(4, "field4");
-  fieldMap.addGroup(10, group1);
-  FieldMap group2;
-  group2.setField(5, "field5");
-  group2.setField(6, "field6");
-  fieldMap.addGroup(20, group2);
+    CHECK(8ul == fieldMap.totalFields());
+  }
 
-  CHECK_EQUAL(8ul, fieldMap.totalFields());
-}
-
-TEST(setField_16FieldsAlreadyExist_fieldSet)
-{
+  SECTION("setField_16FieldsAlreadyExist_fieldSet")
+  {
     FieldMap fieldMap;
     fieldMap.setField(1, "field1");
     fieldMap.setField(2, "field2");
@@ -167,11 +167,7 @@ TEST(setField_16FieldsAlreadyExist_fieldSet)
     FieldBase actualTag18(18, "");
     fieldMap.getFieldIfSet(actualTag18);
 
-    CHECK_EQUAL(18, actualTag18.getTag());
-    CHECK_EQUAL("field18_new", actualTag18.getString());
+    CHECK(18 == actualTag18.getTag());
+    CHECK("field18_new" == actualTag18.getString());
+  }
 }
-
-}
-
-
-

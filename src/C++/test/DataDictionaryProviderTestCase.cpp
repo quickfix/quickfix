@@ -24,24 +24,23 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <DataDictionaryProvider.h>
+
+#include <catch_amalgamated.hpp>
 
 using namespace FIX;
 
-SUITE(DataDictionaryProviderTests)
+TEST_CASE("DataDictionaryProviderTests")
 {
+  SECTION("getApplicationDataDictionary_DataDictionaryNotSet")
+  {
+    DataDictionaryProvider object;
+    DataDictionary expected;
 
-TEST(getApplicationDataDictionary_DataDictionaryNotSet)
-{
-  DataDictionaryProvider dictionaryProvider;
-  DataDictionary expected;
+    ApplVerID id;
+    DataDictionary actual = object.getApplicationDataDictionary(id);
 
-  ApplVerID id;
-  DataDictionary actual = dictionaryProvider.getApplicationDataDictionary(id);
-
-  CHECK_EQUAL(expected.getVersion(), actual.getVersion());
-  CHECK_EQUAL(expected.getOrderedFields(), actual.getOrderedFields());
-}
-
+    CHECK(expected.getVersion() == actual.getVersion());
+    CHECK(expected.getOrderedFields() == actual.getOrderedFields());
+  }
 }
