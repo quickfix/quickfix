@@ -145,6 +145,494 @@ TEST(integerConvertFrom)
   CHECK_THROW( IntConvertor::convert( "+200" ), FieldConvertError );
 }
 
+namespace
+{
+  typedef IntTConvertor<int8_t>   Int8Convertor;
+  typedef IntTConvertor<int16_t>  Int16Convertor;
+  typedef IntTConvertor<int32_t>  Int32Convertor;
+  typedef IntTConvertor<int64_t>  Int64Convertor;
+
+  typedef IntTConvertor<uint8_t>  UInt8Convertor;
+  typedef IntTConvertor<uint16_t> UInt16Convertor;
+  typedef IntTConvertor<uint32_t> UInt32Convertor;
+  typedef IntTConvertor<uint64_t> UInt64Convertor;
+}
+
+#if defined( max )
+#  undef max
+#endif
+#if defined( min )
+#  undef min
+#endif
+
+TEST(int8_integerConvertTo)
+{
+  CHECK_EQUAL( "0", Int8Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", Int8Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", Int8Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", Int8Convertor::convert( 100 ) );
+  CHECK_EQUAL( "126", Int8Convertor::convert( 126 ) );
+  CHECK_EQUAL( "127", Int8Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_THROW( Int8Convertor::convert( "128" ), FieldConvertError );
+
+  CHECK_EQUAL( "-1", Int8Convertor::convert( -1 ) );
+  CHECK_EQUAL( "-12", Int8Convertor::convert( -12 ) );
+  CHECK_EQUAL( "-100", Int8Convertor::convert( -100 ) );
+  CHECK_EQUAL( "-127", Int8Convertor::convert( -127 ) );
+  CHECK_EQUAL( "-128", Int8Convertor::convert( std::numeric_limits<int8_t>::min() ) );
+  CHECK_THROW( Int8Convertor::convert( "-129" ), FieldConvertError );
+
+  CHECK_THROW( Int8Convertor::convert( "-" ), FieldConvertError );
+}
+
+TEST(int8_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, Int8Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, Int8Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, Int8Convertor::convert( "12" ) );
+  CHECK_EQUAL( 13, Int8Convertor::convert( "13" ) );
+  CHECK_EQUAL( 100, Int8Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), Int8Convertor::convert( "127" ) );
+  CHECK_THROW( Int8Convertor::convert( "128" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int8Convertor::convert( "130" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int8Convertor::convert( "999" ), FieldConvertError ); // overflow
+  
+  CHECK_EQUAL( -1, Int8Convertor::convert( "-1" ) );
+  CHECK_EQUAL( -12, Int8Convertor::convert( "-12" ) );
+  CHECK_EQUAL( -13, Int8Convertor::convert( "-13" ) );
+  CHECK_EQUAL( -100, Int8Convertor::convert( "-100" ) );
+  CHECK_EQUAL( -127, Int8Convertor::convert( "-127" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::min(), Int8Convertor::convert( "-128" ) );
+  CHECK_THROW( Int8Convertor::convert( "-129" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int8Convertor::convert( "-130" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int8Convertor::convert( "-999" ), FieldConvertError ); // overflow
+
+  CHECK_THROW( Int8Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( Int8Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( Int8Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( Int8Convertor::convert( "+200" ), FieldConvertError );
+}
+
+TEST(int16_integerConvertTo)
+{
+  CHECK_EQUAL( "0", Int16Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", Int16Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", Int16Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", Int16Convertor::convert( 100 ) );
+  CHECK_EQUAL( "127", Int16Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", Int16Convertor::convert( 128 ) );
+  CHECK_EQUAL( "1234", Int16Convertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", Int16Convertor::convert( 12345 ) );
+  CHECK_EQUAL( "32767", Int16Convertor::convert( std::numeric_limits<int16_t>::max() ) );
+  CHECK_THROW( Int16Convertor::convert( "32768" ), FieldConvertError );
+
+  CHECK_EQUAL( "-1", Int16Convertor::convert( -1 ) );
+  CHECK_EQUAL( "-12", Int16Convertor::convert( -12 ) );
+  CHECK_EQUAL( "-100", Int16Convertor::convert( -100 ) );
+  CHECK_EQUAL( "-128", Int16Convertor::convert( std::numeric_limits<int8_t>::min() ) );
+  CHECK_EQUAL( "-129", Int16Convertor::convert( -129 ) );
+  CHECK_EQUAL( "-1234", Int16Convertor::convert( -1234 ) );
+  CHECK_EQUAL( "-12345", Int16Convertor::convert( -12345 ) );
+  CHECK_EQUAL( "-32767", Int16Convertor::convert( -32767 ) );
+  CHECK_EQUAL( "-32768", Int16Convertor::convert( std::numeric_limits<int16_t>::min() ) );
+  CHECK_THROW( Int16Convertor::convert( "-32769" ), FieldConvertError );
+
+  CHECK_THROW( Int16Convertor::convert( "-" ), FieldConvertError );
+}
+
+TEST(int16_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, Int16Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, Int16Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, Int16Convertor::convert( "12" ) );
+  CHECK_EQUAL( 100, Int16Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), Int16Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, Int16Convertor::convert( "128" ) );
+  CHECK_EQUAL( 130, Int16Convertor::convert( "130" ) );
+  CHECK_EQUAL( 999, Int16Convertor::convert( "999" ) );
+  CHECK_EQUAL( 1234, Int16Convertor::convert( "1234" ) );
+  CHECK_EQUAL( 3277, Int16Convertor::convert( "3277" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::max(), Int16Convertor::convert( "32767" ) );
+  CHECK_THROW( Int16Convertor::convert( "32768" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int16Convertor::convert( "32770" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int16Convertor::convert( "99999" ), FieldConvertError ); // overflow
+
+  CHECK_EQUAL( -1, Int16Convertor::convert( "-1" ) );
+  CHECK_EQUAL( -12, Int16Convertor::convert( "-12" ) );
+  CHECK_EQUAL( -100, Int16Convertor::convert( "-100" ) );
+  CHECK_EQUAL( -127, Int16Convertor::convert( "-127" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::min(), Int16Convertor::convert( "-128" ) );
+  CHECK_EQUAL( -129, Int16Convertor::convert( "-129" ) );
+  CHECK_EQUAL( -130, Int16Convertor::convert( "-130" ) );
+  CHECK_EQUAL( -999, Int16Convertor::convert( "-999" ) );
+  CHECK_EQUAL( -1234, Int16Convertor::convert( "-1234" ) );
+  CHECK_EQUAL( -32767, Int16Convertor::convert( "-32767" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::min(), Int16Convertor::convert( "-32768" ) );
+  CHECK_THROW( Int16Convertor::convert( "-32769" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int16Convertor::convert( "-32770" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int16Convertor::convert( "-99999" ), FieldConvertError ); // overflow
+
+  CHECK_THROW( Int16Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( Int16Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( Int16Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( Int16Convertor::convert( "+200" ), FieldConvertError );
+}
+
+TEST(int64_integerConvertTo)
+{
+  CHECK_EQUAL( "0", Int64Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", Int64Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", Int64Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", Int64Convertor::convert( 100 ) );
+  CHECK_EQUAL( "127", Int64Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", Int64Convertor::convert( 128 ) );
+  CHECK_EQUAL( "1234", Int64Convertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", Int64Convertor::convert( 12345 ) );
+  CHECK_EQUAL( "32767", Int64Convertor::convert( std::numeric_limits<int16_t>::max() ) );
+  CHECK_EQUAL( "32768", Int64Convertor::convert( 32768 ) );
+  CHECK_EQUAL( "123456", Int64Convertor::convert( 123456 ) );
+  CHECK_EQUAL( "1234567", Int64Convertor::convert( 1234567 ) );
+  CHECK_EQUAL( "12345678", Int64Convertor::convert( 12345678 ) );
+  CHECK_EQUAL( "123456789", Int64Convertor::convert( 123456789 ) );
+  CHECK_EQUAL( "2147483647", Int64Convertor::convert( MAX_INT ) );
+  CHECK_EQUAL( "2147483648", Int64Convertor::convert( 2147483648 ) );
+  CHECK_EQUAL( "12345678912", Int64Convertor::convert( 12345678912LL ) );
+  CHECK_EQUAL( "123456789123", Int64Convertor::convert( 123456789123LL ) );
+  CHECK_EQUAL( "1234567891234", Int64Convertor::convert( 1234567891234LL ) );
+  CHECK_EQUAL( "12345678912345", Int64Convertor::convert( 12345678912345LL ) );
+  CHECK_EQUAL( "123456789123456", Int64Convertor::convert( 123456789123456LL ) );
+  CHECK_EQUAL( "1234567891234567", Int64Convertor::convert( 1234567891234567LL ) );
+  CHECK_EQUAL( "12345678912345678", Int64Convertor::convert( 12345678912345678LL ) );
+  CHECK_EQUAL( "123456789123456789", Int64Convertor::convert( 123456789123456789LL ) );
+  CHECK_EQUAL( "1234567891234567891", Int64Convertor::convert( 1234567891234567891LL ) );
+  CHECK_EQUAL( "9223372036854775807", Int64Convertor::convert( std::numeric_limits<int64_t>::max() ) );
+  CHECK_THROW( Int64Convertor::convert( "9223372036854775808" ), FieldConvertError );
+  
+  CHECK_EQUAL( "-1", Int64Convertor::convert( -1 ) );
+  CHECK_EQUAL( "-12", Int64Convertor::convert( -12 ) );
+  CHECK_EQUAL( "-100", Int64Convertor::convert( -100 ) );
+  CHECK_EQUAL( "-128", Int64Convertor::convert( std::numeric_limits<int8_t>::min() ) );
+  CHECK_EQUAL( "-129", Int64Convertor::convert( -129 ) );
+  CHECK_EQUAL( "-1234", Int64Convertor::convert( -1234 ) );
+  CHECK_EQUAL( "-12345", Int64Convertor::convert( -12345 ) );
+  CHECK_EQUAL( "-32768", Int64Convertor::convert( std::numeric_limits<int16_t>::min() ) );
+  CHECK_EQUAL( "-32769", Int64Convertor::convert( -32769 ) );
+  CHECK_EQUAL( "-123456", Int64Convertor::convert( -123456 ) );
+  CHECK_EQUAL( "-1234567", Int64Convertor::convert( -1234567 ) );
+  CHECK_EQUAL( "-12345678", Int64Convertor::convert( -12345678 ) );
+  CHECK_EQUAL( "-123456789", Int64Convertor::convert( -123456789 ) );
+  CHECK_EQUAL( "-2147483647", Int64Convertor::convert( -2147483647 ) );
+  CHECK_EQUAL( "-2147483648", Int64Convertor::convert( MIN_INT ) );
+  CHECK_EQUAL( "-2147483649", Int64Convertor::convert( -2147483649LL ) );
+  CHECK_EQUAL( "-12345678912", Int64Convertor::convert( -12345678912LL ) );
+  CHECK_EQUAL( "-123456789123", Int64Convertor::convert( -123456789123LL ) );
+  CHECK_EQUAL( "-1234567891234", Int64Convertor::convert( -1234567891234LL ) );
+  CHECK_EQUAL( "-12345678912345", Int64Convertor::convert( -12345678912345LL ) );
+  CHECK_EQUAL( "-123456789123456", Int64Convertor::convert( -123456789123456LL ) );
+  CHECK_EQUAL( "-1234567891234567", Int64Convertor::convert( -1234567891234567LL ) );
+  CHECK_EQUAL( "-12345678912345678", Int64Convertor::convert( -12345678912345678LL ) );
+  CHECK_EQUAL( "-123456789123456789", Int64Convertor::convert( -123456789123456789LL ) );
+  CHECK_EQUAL( "-1234567891234567891", Int64Convertor::convert( -1234567891234567891LL ) );
+  CHECK_EQUAL( "-9223372036854775807", Int64Convertor::convert( -9223372036854775807 ) );
+  CHECK_EQUAL( "-9223372036854775808", Int64Convertor::convert( std::numeric_limits<int64_t>::min() ) );
+  CHECK_THROW( Int64Convertor::convert( "-9223372036854775809" ), FieldConvertError );
+
+  CHECK_THROW( Int64Convertor::convert( "-" ), FieldConvertError );
+}
+
+TEST(int64_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, Int64Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, Int64Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, Int64Convertor::convert( "12" ) );
+  CHECK_EQUAL( 100, Int64Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), Int64Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, Int64Convertor::convert( "128" ) );
+  CHECK_EQUAL( 130, Int64Convertor::convert( "130" ) );
+  CHECK_EQUAL( 999, Int64Convertor::convert( "999" ) );
+  CHECK_EQUAL( 1234, Int64Convertor::convert( "1234" ) );
+  CHECK_EQUAL( 3277, Int64Convertor::convert( "3277" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::max(), Int64Convertor::convert( "32767" ) );
+  CHECK_EQUAL( 32768, Int64Convertor::convert( "32768" ) );
+  CHECK_EQUAL( 32770, Int64Convertor::convert( "32770" ) );
+  CHECK_EQUAL( 99999, Int64Convertor::convert( "99999" ) );
+  CHECK_EQUAL( 214748365, Int64Convertor::convert( "214748365" ) );
+  CHECK_EQUAL( MAX_INT, Int64Convertor::convert( "2147483647" ) );
+  CHECK_EQUAL( 2147483648LL, Int64Convertor::convert( "2147483648" ) );
+  CHECK_EQUAL( 2147483650LL, Int64Convertor::convert( "2147483650" ) );
+  CHECK_EQUAL( 9999999999LL, Int64Convertor::convert( "9999999999" ) );
+  CHECK_EQUAL( 922337203685477581LL, Int64Convertor::convert( "922337203685477581" ) );
+  CHECK_EQUAL( std::numeric_limits<int64_t>::max(), Int64Convertor::convert( "9223372036854775807" ) );
+  CHECK_THROW( Int64Convertor::convert( "9223372036854775808" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int64Convertor::convert( "9223372036854775810" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int64Convertor::convert( "9999999999999999999" ), FieldConvertError ); // overflow
+  
+  CHECK_EQUAL( -1, Int64Convertor::convert( "-1" ) );
+  CHECK_EQUAL( -12, Int64Convertor::convert( "-12" ) );
+  CHECK_EQUAL( -100, Int64Convertor::convert( "-100" ) );
+  CHECK_EQUAL( -127, Int64Convertor::convert( "-127" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::min(), Int64Convertor::convert( "-128" ) );
+  CHECK_EQUAL( -129, Int64Convertor::convert( "-129" ) );
+  CHECK_EQUAL( -130, Int64Convertor::convert( "-130" ) );
+  CHECK_EQUAL( -999, Int64Convertor::convert( "-999" ) );
+  CHECK_EQUAL( -1234, Int64Convertor::convert( "-1234" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::min(), Int64Convertor::convert( "-32768" ) );
+  CHECK_EQUAL( -32769, Int64Convertor::convert( "-32769" ) );
+  CHECK_EQUAL( -32770, Int64Convertor::convert( "-32770" ) );
+  CHECK_EQUAL( -99999, Int64Convertor::convert( "-99999" ) );
+  CHECK_EQUAL( -214748365LL, Int64Convertor::convert( "-214748365" ) );
+  CHECK_EQUAL( -2147483647LL, Int64Convertor::convert( "-2147483647" ) );
+  CHECK_EQUAL( MIN_INT, Int64Convertor::convert( "-2147483648" ) );
+  CHECK_EQUAL( -2147483649LL, Int64Convertor::convert( "-2147483649" ) );
+  CHECK_EQUAL( -2147483650LL, Int64Convertor::convert( "-2147483650" ) );
+  CHECK_EQUAL( -9999999999LL, Int64Convertor::convert( "-9999999999" ) );
+  CHECK_EQUAL( -922337203685477581LL, Int64Convertor::convert( "-922337203685477581" ) );
+  CHECK_EQUAL( std::numeric_limits<int64_t>::min(), Int64Convertor::convert( "-9223372036854775808" ) );
+  CHECK_THROW( Int64Convertor::convert( "-9223372036854775809" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int64Convertor::convert( "-9223372036854775810" ), FieldConvertError ); // overflow
+  CHECK_THROW( Int64Convertor::convert( "-9999999999999999999" ), FieldConvertError ); // overflow
+  
+  CHECK_THROW( Int64Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( Int64Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( Int64Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( Int64Convertor::convert( "+200" ), FieldConvertError );
+}
+
+TEST(uint8_integerConvertTo)
+{
+  CHECK_EQUAL( "0", UInt8Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", UInt8Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", UInt8Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", UInt8Convertor::convert( 100 ) );
+  CHECK_EQUAL( "126", UInt8Convertor::convert( 126 ) );
+  CHECK_EQUAL( "127", UInt8Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", UInt8Convertor::convert( 128 ) );
+  CHECK_EQUAL( "255", UInt8Convertor::convert( 255 ) );
+  CHECK_THROW( UInt8Convertor::convert( "256" ), FieldConvertError );
+
+  CHECK_THROW( UInt8Convertor::convert( "-" ), FieldConvertError );
+  CHECK_THROW( UInt8Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint8_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, UInt8Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, UInt8Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, UInt8Convertor::convert( "12" ) );
+  CHECK_EQUAL( 13, UInt8Convertor::convert( "13" ) );
+  CHECK_EQUAL( 100, UInt8Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), UInt8Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, UInt8Convertor::convert( "128" ) );
+  CHECK_EQUAL( 130, UInt8Convertor::convert( "130" ) );
+  CHECK_EQUAL( 254, UInt8Convertor::convert( "254" ) );
+  CHECK_EQUAL( std::numeric_limits<uint8_t>::max(), UInt8Convertor::convert( "255" ) );
+  CHECK_THROW( UInt8Convertor::convert( "256" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt8Convertor::convert( "258" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt8Convertor::convert( "999" ), FieldConvertError ); // overflow
+  
+  CHECK_THROW( UInt8Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( UInt8Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( UInt8Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( UInt8Convertor::convert( "+200" ), FieldConvertError );
+  CHECK_THROW( UInt8Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint16_integerConvertTo)
+{
+  CHECK_EQUAL( "0", UInt16Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", UInt16Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", UInt16Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", UInt16Convertor::convert( 100 ) );
+  CHECK_EQUAL( "127", UInt16Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", UInt16Convertor::convert( 128 ) );
+  CHECK_EQUAL( "1234", UInt16Convertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", UInt16Convertor::convert( 12345 ) );
+  CHECK_EQUAL( "32767", UInt16Convertor::convert( std::numeric_limits<int16_t>::max() ) );
+  CHECK_EQUAL( "32768", UInt16Convertor::convert( 32768 ) );
+  CHECK_EQUAL( "65535", UInt16Convertor::convert( std::numeric_limits<uint16_t>::max() ) );
+  CHECK_THROW( UInt16Convertor::convert( "65536" ), FieldConvertError );
+
+  CHECK_THROW( UInt16Convertor::convert( "-" ), FieldConvertError );
+  CHECK_THROW( UInt16Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint16_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, UInt16Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, UInt16Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, UInt16Convertor::convert( "12" ) );
+  CHECK_EQUAL( 100, UInt16Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), UInt16Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, UInt16Convertor::convert( "128" ) );
+  CHECK_EQUAL( 254, UInt16Convertor::convert( "254" ) );
+  CHECK_EQUAL( std::numeric_limits<uint8_t>::max(), UInt16Convertor::convert( "255" ) );
+  CHECK_EQUAL( 256, UInt16Convertor::convert( "256" ) );
+  CHECK_EQUAL( 258, UInt16Convertor::convert( "258" ) );
+  CHECK_EQUAL( 999, UInt16Convertor::convert( "999" ) );
+  CHECK_EQUAL( 1234, UInt16Convertor::convert( "1234" ) );
+  CHECK_EQUAL( 3277, UInt16Convertor::convert( "3277" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::max(), UInt16Convertor::convert( "32767" ) );
+  CHECK_EQUAL( 32768, UInt16Convertor::convert( "32768" ) );
+  CHECK_EQUAL( 32770, UInt16Convertor::convert( "32770" ) );
+  CHECK_EQUAL( 6556, UInt16Convertor::convert( "6556" ) );
+  CHECK_EQUAL( std::numeric_limits<uint16_t>::max(), UInt16Convertor::convert( "65535" ) );
+  CHECK_THROW( UInt16Convertor::convert( "65536" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt16Convertor::convert( "65538" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt16Convertor::convert( "99999" ), FieldConvertError ); // overflow
+
+  CHECK_THROW( UInt16Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( UInt16Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( UInt16Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( UInt16Convertor::convert( "+200" ), FieldConvertError );
+  CHECK_THROW( UInt16Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint32_integerConvertTo)
+{
+  CHECK_EQUAL( "0", UInt32Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", UInt32Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", UInt32Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", UInt32Convertor::convert( 100 ) );
+  CHECK_EQUAL( "127", UInt32Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", UInt32Convertor::convert( 128 ) );
+  CHECK_EQUAL( "1234", UInt32Convertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", UInt32Convertor::convert( 12345 ) );
+  CHECK_EQUAL( "32767", UInt32Convertor::convert( std::numeric_limits<int16_t>::max() ) );
+  CHECK_EQUAL( "32768", UInt32Convertor::convert( 32768 ) );
+  CHECK_EQUAL( "123456", UInt32Convertor::convert( 123456 ) );
+  CHECK_EQUAL( "1234567", UInt32Convertor::convert( 1234567 ) );
+  CHECK_EQUAL( "12345678", UInt32Convertor::convert( 12345678 ) );
+  CHECK_EQUAL( "123456789", UInt32Convertor::convert( 123456789 ) );
+  CHECK_EQUAL( "2147483647", UInt32Convertor::convert( MAX_INT ) );
+  CHECK_EQUAL( "2147483648", UInt32Convertor::convert( 2147483648UL ) );
+  CHECK_EQUAL( "4294967295", UInt32Convertor::convert( 4294967295UL ) );
+  CHECK_THROW( UInt32Convertor::convert( "4294967296" ), FieldConvertError );
+
+  CHECK_THROW( UInt32Convertor::convert( "-" ), FieldConvertError );
+  CHECK_THROW( UInt32Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint32_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, UInt32Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, UInt32Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, UInt32Convertor::convert( "12" ) );
+  CHECK_EQUAL( 100, UInt32Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), UInt32Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, UInt32Convertor::convert( "128" ) );
+  CHECK_EQUAL( 254, UInt32Convertor::convert( "254" ) );
+  CHECK_EQUAL( std::numeric_limits<uint8_t>::max(), UInt32Convertor::convert( "255" ) );
+  CHECK_EQUAL( 256, UInt32Convertor::convert( "256" ) );
+  CHECK_EQUAL( 258, UInt32Convertor::convert( "258" ) );
+  CHECK_EQUAL( 999, UInt32Convertor::convert( "999" ) );
+  CHECK_EQUAL( 1234, UInt32Convertor::convert( "1234" ) );
+  CHECK_EQUAL( 3277, UInt32Convertor::convert( "3277" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::max(), UInt32Convertor::convert( "32767" ) );
+  CHECK_EQUAL( 32768, UInt32Convertor::convert( "32768" ) );
+  CHECK_EQUAL( 32770, UInt32Convertor::convert( "32770" ) );
+  CHECK_EQUAL( 6556, UInt32Convertor::convert( "6556" ) );
+  CHECK_EQUAL( std::numeric_limits<uint16_t>::max(), UInt32Convertor::convert( "65535" ) );
+  CHECK_EQUAL( 65536, UInt32Convertor::convert( "65536" ) ); // overflow
+  CHECK_EQUAL( 65538, UInt32Convertor::convert( "65538" ) ); // overflow
+  CHECK_EQUAL( 99999, UInt32Convertor::convert( "99999" ) );
+  CHECK_EQUAL( 214748365, UInt32Convertor::convert( "214748365" ) );
+  CHECK_EQUAL( MAX_INT, UInt32Convertor::convert( "2147483647" ) );
+  CHECK_EQUAL( 2147483648UL, UInt32Convertor::convert( "2147483648" ) );
+  CHECK_EQUAL( 2147483650UL, UInt32Convertor::convert( "2147483650" ) );
+  CHECK_EQUAL( 429496730UL, UInt32Convertor::convert( "429496730" ) );
+  CHECK_EQUAL( std::numeric_limits<uint32_t>::max(), UInt32Convertor::convert( "4294967295" ) );
+  CHECK_THROW( UInt32Convertor::convert( "4294967296" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt32Convertor::convert( "4294967297" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt32Convertor::convert( "9999999999" ), FieldConvertError ); // overflow
+
+  CHECK_THROW( UInt32Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( UInt32Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( UInt32Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( UInt32Convertor::convert( "+200" ), FieldConvertError );
+  CHECK_THROW( UInt32Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint64_integerConvertTo)
+{
+  CHECK_EQUAL( "0", UInt64Convertor::convert( 0 ) );
+  CHECK_EQUAL( "1", UInt64Convertor::convert( 1 ) );
+  CHECK_EQUAL( "12", UInt64Convertor::convert( 12 ) );
+  CHECK_EQUAL( "100", UInt64Convertor::convert( 100 ) );
+  CHECK_EQUAL( "127", UInt64Convertor::convert( std::numeric_limits<int8_t>::max() ) );
+  CHECK_EQUAL( "128", UInt64Convertor::convert( 128 ) );
+  CHECK_EQUAL( "1234", UInt64Convertor::convert( 1234 ) );
+  CHECK_EQUAL( "12345", UInt64Convertor::convert( 12345 ) );
+  CHECK_EQUAL( "32767", UInt64Convertor::convert( std::numeric_limits<int16_t>::max() ) );
+  CHECK_EQUAL( "32768", UInt64Convertor::convert( 32768 ) );
+  CHECK_EQUAL( "123456", UInt64Convertor::convert( 123456 ) );
+  CHECK_EQUAL( "1234567", UInt64Convertor::convert( 1234567 ) );
+  CHECK_EQUAL( "12345678", UInt64Convertor::convert( 12345678 ) );
+  CHECK_EQUAL( "123456789", UInt64Convertor::convert( 123456789 ) );
+  CHECK_EQUAL( "2147483647", UInt64Convertor::convert( MAX_INT ) );
+  CHECK_EQUAL( "2147483648", UInt64Convertor::convert( 2147483648 ) );
+  CHECK_EQUAL( "12345678912", UInt64Convertor::convert( 12345678912LL ) );
+  CHECK_EQUAL( "123456789123", UInt64Convertor::convert( 123456789123LL ) );
+  CHECK_EQUAL( "1234567891234", UInt64Convertor::convert( 1234567891234LL ) );
+  CHECK_EQUAL( "12345678912345", UInt64Convertor::convert( 12345678912345LL ) );
+  CHECK_EQUAL( "123456789123456", UInt64Convertor::convert( 123456789123456LL ) );
+  CHECK_EQUAL( "1234567891234567", UInt64Convertor::convert( 1234567891234567LL ) );
+  CHECK_EQUAL( "12345678912345678", UInt64Convertor::convert( 12345678912345678LL ) );
+  CHECK_EQUAL( "123456789123456789", UInt64Convertor::convert( 123456789123456789LL ) );
+  CHECK_EQUAL( "1234567891234567891", UInt64Convertor::convert( 1234567891234567891ULL ) );
+  CHECK_EQUAL( "9223372036854775807", UInt64Convertor::convert( std::numeric_limits<int64_t>::max() ) );
+  CHECK_EQUAL( "9223372036854775808", UInt64Convertor::convert( 9223372036854775808ULL ) );
+  CHECK_EQUAL( "18446744073709551615", UInt64Convertor::convert( std::numeric_limits<uint64_t>::max() ) );
+  CHECK_THROW( UInt64Convertor::convert( "18446744073709551616" ), FieldConvertError );
+
+  CHECK_THROW( UInt64Convertor::convert( "-" ), FieldConvertError );
+  CHECK_THROW( UInt64Convertor::convert( "-1" ), FieldConvertError );
+}
+
+TEST(uint64_integerConvertFrom)
+{
+  CHECK_EQUAL( 0, UInt64Convertor::convert( "0" ) );
+  CHECK_EQUAL( 1, UInt64Convertor::convert( "1" ) );
+  CHECK_EQUAL( 12, UInt64Convertor::convert( "12" ) );
+  CHECK_EQUAL( 100, UInt64Convertor::convert( "100" ) );
+  CHECK_EQUAL( std::numeric_limits<int8_t>::max(), UInt64Convertor::convert( "127" ) );
+  CHECK_EQUAL( 128, UInt64Convertor::convert( "128" ) );
+  CHECK_EQUAL( 254, UInt64Convertor::convert( "254" ) );
+  CHECK_EQUAL( std::numeric_limits<uint8_t>::max(), UInt64Convertor::convert( "255" ) );
+  CHECK_EQUAL( 256, UInt64Convertor::convert( "256" ) );
+  CHECK_EQUAL( 258, UInt64Convertor::convert( "258" ) );
+  CHECK_EQUAL( 999, UInt64Convertor::convert( "999" ) );
+  CHECK_EQUAL( 1234, UInt64Convertor::convert( "1234" ) );
+  CHECK_EQUAL( 3277, UInt64Convertor::convert( "3277" ) );
+  CHECK_EQUAL( std::numeric_limits<int16_t>::max(), UInt64Convertor::convert( "32767" ) );
+  CHECK_EQUAL( 32768, UInt64Convertor::convert( "32768" ) );
+  CHECK_EQUAL( 32770, UInt64Convertor::convert( "32770" ) );
+  CHECK_EQUAL( 6556, UInt64Convertor::convert( "6556" ) );
+  CHECK_EQUAL( std::numeric_limits<uint16_t>::max(), UInt64Convertor::convert( "65535" ) );
+  CHECK_EQUAL( 65536, UInt64Convertor::convert( "65536" ) ); // overflow
+  CHECK_EQUAL( 65538, UInt64Convertor::convert( "65538" ) ); // overflow
+  CHECK_EQUAL( 99999, UInt64Convertor::convert( "99999" ) );
+  CHECK_EQUAL( 214748365, UInt64Convertor::convert( "214748365" ) );
+  CHECK_EQUAL( MAX_INT, UInt64Convertor::convert( "2147483647" ) );
+  CHECK_EQUAL( 2147483648ULL, UInt64Convertor::convert( "2147483648" ) );
+  CHECK_EQUAL( 2147483650ULL, UInt64Convertor::convert( "2147483650" ) );
+  CHECK_EQUAL( 429496730ULL, UInt64Convertor::convert( "429496730" ) );
+  CHECK_EQUAL( std::numeric_limits<uint32_t>::max(), UInt64Convertor::convert( "4294967295" ) );
+  CHECK_EQUAL( 4294967296ULL, UInt64Convertor::convert( "4294967296" ) );
+  CHECK_EQUAL( 4294967297ULL, UInt64Convertor::convert( "4294967297" ) );
+  CHECK_EQUAL( 429496730ULL, UInt64Convertor::convert( "429496730" ) );
+  CHECK_EQUAL( 9999999999ULL, UInt64Convertor::convert( "9999999999" ) );
+  CHECK_EQUAL( std::numeric_limits<uint64_t>::max(), UInt64Convertor::convert( "18446744073709551615" ) );
+  CHECK_THROW( UInt64Convertor::convert( "18446744073709551616" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt64Convertor::convert( "18446744073709551617" ), FieldConvertError ); // overflow
+  CHECK_THROW( UInt64Convertor::convert( "99999999999999999999" ), FieldConvertError ); // overflow
+  
+  CHECK_THROW( UInt64Convertor::convert( "" ), FieldConvertError );
+  CHECK_THROW( UInt64Convertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( UInt64Convertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( UInt64Convertor::convert( "+200" ), FieldConvertError );
+  CHECK_THROW( UInt64Convertor::convert( "-1" ), FieldConvertError );
+}
+
 TEST(doubleConvertTo)
 {
   CHECK_EQUAL( "45.32", DoubleConvertor::convert( 45.32 ) );
