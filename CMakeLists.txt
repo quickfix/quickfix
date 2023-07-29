@@ -73,10 +73,6 @@ if (QUICKFIX_EXAMPLES)
 endif()
 
 if (QUICKFIX_TESTS)
-  if( WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
-    add_subdirectory(UnitTest++)
-  endif()
-  
   if( WIN32)
     add_subdirectory(test)
   endif()

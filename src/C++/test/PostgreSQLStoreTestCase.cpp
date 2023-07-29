@@ -26,15 +26,13 @@
 
 #ifdef HAVE_POSTGRESQL
 
-#include <UnitTest++.h>
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <PostgreSQLStore.h>
 #include "MessageStoreTestCase.h"
 
-using namespace FIX;
+#include "catch_amalgamated.hpp"
 
-SUITE(PostgreSQLStoreTests)
-{
+using namespace FIX;
 
 struct postgreSQLStoreFixture
 {
@@ -42,7 +40,7 @@ struct postgreSQLStoreFixture
   : factory( TestSettings::sessionSettings.get() )
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
-                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+                        SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
     try
     {
@@ -57,7 +55,7 @@ struct postgreSQLStoreFixture
     if( reset )
       object->reset( UtcTimeStamp::now() );
 
-    this->resetAfter = resetAfter;
+    this->resetAfter = reset;
   }
 
   ~postgreSQLStoreFixture()
@@ -80,31 +78,35 @@ struct resetPostgreSQLStoreFixture : postgreSQLStoreFixture
   resetPostgreSQLStoreFixture() : postgreSQLStoreFixture( true ) {}
 };
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, setGet)
+TEST_CASE_METHOD(resetPostgreSQLStoreFixture, "resetPostgreSQLStoreTests")
 {
-  CHECK_MESSAGE_STORE_SET_GET;
+  SECTION("setGet")
+  {
+    CHECK_MESSAGE_STORE_SET_GET;
+  }
+
+  SECTION("setGetWithQuote")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+  }
+
+  SECTION("other")
+  {
+    CHECK_MESSAGE_STORE_OTHER
+  }
 }
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, setGetWithQuote)
+TEST_CASE_METHOD(noResetPostgreSQLStoreFixture, "noResetPostgreSQLStoreTests")
 {
-  //CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
-}
+  SECTION("reload")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
 
-TEST_FIXTURE(resetPostgreSQLStoreFixture, other)
-{
-  CHECK_MESSAGE_STORE_OTHER
-}
-
-TEST_FIXTURE(noResetPostgreSQLStoreFixture, reload)
-{
-  CHECK_MESSAGE_STORE_RELOAD
-}
-
-TEST_FIXTURE(noResetPostgreSQLStoreFixture, refresh)
-{
-  CHECK_MESSAGE_STORE_RELOAD
-}
-
+  SECTION("refresh")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
 }
 
 #endif

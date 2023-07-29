@@ -1,3 +1,5 @@
+add_subdirectory(test)
+
 set(quickfix_VERSION_MAJOR 16)
 set(quickfix_VERSION_MINOR 0)
 set(quickfix_VERSION_PATCH 1)

@@ -33,8 +33,8 @@
 #pragma comment( lib, "libMySQL" )
 #endif
 
-#include <mysql/mysql.h>
-#include <mysql/errmsg.h>
+#include <mysql.h>
+#include <errmsg.h>
 #include "DatabaseConnectionID.h"
 #include "DatabaseConnectionPool.h"
 #include "Mutex.h"
@@ -168,12 +168,22 @@ private:
     short port = m_connectionID.getPort();
     m_pConnection = mysql_init( NULL );
     if( !mysql_real_connect
-      ( m_pConnection, m_connectionID.getHost().c_str(), m_connectionID.getUser().c_str(), 
-        m_connectionID.getPassword().c_str(), m_connectionID.getDatabase().c_str(), port, 0, 0 ) )
+      ( m_pConnection, 
+      m_connectionID.getHost().c_str(), 
+      m_connectionID.getUser().c_str(), 
+      m_connectionID.getPassword().c_str(), 
+      m_connectionID.getDatabase().c_str(), 
+      port, 
+      0, 
+      0 ) )
     {
-        if( !connected() )
-          throw ConfigError( std::string("Unable to connect to database [") + mysql_error(m_pConnection) + "]" );
+      if( !connected() )
+        throw ConfigError( std::string("Unable to connect to postgres database: ")
+          + "'" + m_connectionID.getDatabase() + "': " 
+          + m_connectionID.getUser() + '@' + m_connectionID.getHost() + ":" + std::to_string(port) 
+          + " [" + mysql_error(m_pConnection) + "]");
     }
+
     #if( MYSQL_VERSION_ID > 80000 )
     bool reconnect = true;
     mysql_options( m_pConnection, MYSQL_OPT_RECONNECT, &reconnect );

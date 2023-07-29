@@ -24,12 +24,25 @@
 #include "config.h"
 #endif
 
-#include "../../../src/getopt-repl.h"
-#include <UnitTest++.h>
+#include "TestHelper.h"
 
-#include "OrderMatcherTestCase.cpp"
+#include "catch_amalgamated.hpp"
 
 int main( int argc, char** argv )
 {
-  return UnitTest::RunAllTests();
+  std::string quickfixConfigFile;
+
+  Catch::Session session;
+  auto & cli = session.cli();
+  auto newCli = cli 
+    | Catch::Clara::Opt( [](std::string quickfixConfigFile)
+    {
+      FIX::TestSettings::sessionSettings = FIX::SessionSettings(quickfixConfigFile);
+    }, 
+    "user" )
+    ["--quickfix-config-file"]
+    ("QuickFIX config file for tests");  
+  session.cli( newCli );
+
+  return session.run(argc, argv);
 }

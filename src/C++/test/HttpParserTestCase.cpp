@@ -24,67 +24,46 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <HttpParser.h>
 #include <string>
 #include <sstream>
 
+#include "catch_amalgamated.hpp"
+
 using namespace FIX;
 
-SUITE(HttpParserTests)
+TEST_CASE("HttpParserTests")
 {
-
-struct readHttpMessageFixture
-{
-  readHttpMessageFixture()
+  HttpParser object;
+  
+  SECTION("readHttpMessage")
   {
-    httpMsg1 = "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-    httpMsg2 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-    httpMsg3 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-
+    std::string httpMsg1 = "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    std::string httpMsg2 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    std::string httpMsg3 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
     object.addToStream( httpMsg1 + httpMsg2 + httpMsg3 );
+
+    std::string readHttpMsg;
+    CHECK( object.readHttpMessage( readHttpMsg ) );
+    CHECK( httpMsg1 == readHttpMsg );
+
+    CHECK( object.readHttpMessage( readHttpMsg ) );
+    CHECK( httpMsg2 == readHttpMsg );
+
+    CHECK( object.readHttpMessage( readHttpMsg ) );
+    CHECK( httpMsg3 == readHttpMsg );
   }
 
-  std::string httpMsg1;
-  std::string httpMsg2;
-  std::string httpMsg3;
-  HttpParser object;
-};
-
-TEST_FIXTURE(readHttpMessageFixture, readHttpMessage)
-{
-  std::string readHttpMsg;
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg1, readHttpMsg );
-
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg2, readHttpMsg );
-
-  CHECK( object.readHttpMessage( readHttpMsg ) );
-  CHECK_EQUAL( httpMsg3, readHttpMsg );
-}
-
-struct readPartialHttpMessageFixture
-{
-  readPartialHttpMessageFixture()
+  SECTION("readPartialHttpMessage")
   {
-    partHttpMsg1 = "GET / HTTP/1.0\r\nContent ";
-    partHttpMsg2 = "Type: text/html\r\n\r\n";
+    std::string partHttpMsg1 = "GET / HTTP/1.0\r\nContent ";
+    std::string partHttpMsg2 = "Type: text/html\r\n\r\n";
     object.addToStream( partHttpMsg1 );
+
+    std::string readPartHttpMsg;
+    CHECK( !object.readHttpMessage( readPartHttpMsg ) );
+    object.addToStream( partHttpMsg2 );
+    CHECK( object.readHttpMessage( readPartHttpMsg ) );
+    CHECK( ( partHttpMsg1 + partHttpMsg2 ) == readPartHttpMsg );
   }
-
-  std::string partHttpMsg1;
-  std::string partHttpMsg2;
-  HttpParser object;
-};
-
-TEST_FIXTURE(readPartialHttpMessageFixture, readPartialHttpMessage)
-{
-  std::string readPartHttpMsg;
-  CHECK( !object.readHttpMessage( readPartHttpMsg ) );
-  object.addToStream( partHttpMsg2 );
-  CHECK( object.readHttpMessage( readPartHttpMsg ) );
-  CHECK_EQUAL( ( partHttpMsg1 + partHttpMsg2 ), readPartHttpMsg );
-}
-
 }

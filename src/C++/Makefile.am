@@ -1,4 +1,4 @@
-SUBDIRS = test
+SUBDIRS = . test
 
 LEX += -+ -olex.yy.c
 
@@ -59,6 +59,11 @@ libquickfix_la_SOURCES = \
 	PostgreSQLStore.h \
 	PostgreSQLLog.cpp \
 	PostgreSQLLog.h \
+	OdbcConnection.h \
+	OdbcStore.cpp \
+	OdbcStore.h \
+	OdbcLog.cpp \
+	OdbcLog.h \
 	DatabaseConnectionID.h \
 	DatabaseConnectionPool.h \
 	Dictionary.cpp \

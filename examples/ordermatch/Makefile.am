@@ -1,5 +1,3 @@
-SUBDIRS = test
-
 noinst_PROGRAMS = ordermatch
 
 ordermatch_SOURCES = \

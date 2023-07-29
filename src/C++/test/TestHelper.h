@@ -14,6 +14,7 @@ struct TestSettings
 {
   static const uint16_t port;
   static FIX::SessionSettings sessionSettings;
+  static std::string postgreSQLUser;
 };
 
 class TestApplication : public NullApplication

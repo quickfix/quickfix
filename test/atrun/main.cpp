@@ -1,9 +1,6 @@
 #include <iostream>
 #include <string>
 #include <signal.h>
-#include <UnitTest++.h>
-
-#include "TestSuite.h"
 
 #include "Process.h"
 
@@ -27,7 +24,6 @@ namespace ATRUN {
 ATRUN::Process server;
 ATRUN::Process client;
 
-int doTestMode();
 int doRunMode(int argc, char** argv );
 bool processArguments(int argc, char** argv);
 void printUsage(char* exe);
@@ -45,25 +41,13 @@ int main( int argc, char** argv )
     return 1;
   }
 
-  if(strcmp(optarg, "test") == 0)
-  {
-    return doTestMode();
-  }
-  else if(strcmp(optarg, "run") == 0)
+  if(strcmp(optarg, "run") == 0)
   {
     return doRunMode( argc, argv );
   }
 
   printUsage(argv[0]);    
   return 1;
-}
-
-int doTestMode()
-{
-  std::cout << "<ut>" << std::endl << "  <output>" << std::endl;
-  int result = UnitTest::RunAllTests();
-  std::cout << "  </output>" << std::endl << "</ut>" << std::endl;
-  return 0;
 }
 
 int doRunMode(int argc, char** argv )

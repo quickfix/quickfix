@@ -5,6 +5,7 @@ jobs:
     build:
       runs-on: ${{ matrix.runner }}
       strategy:
+          fail-fast: false
           matrix:
               runner: [windows-2019, ubuntu-latest, macos-latest]
               configuration: [Debug, Release]

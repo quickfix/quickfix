@@ -25,10 +25,6 @@
 
 #ifdef HAVE_ODBC
 
-#ifndef SQLLEN
-#define SQLLEN SQLINTEGER
-#endif
-
 #include "OdbcStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
