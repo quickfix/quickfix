@@ -109,15 +109,6 @@ namespace
     return logout;
   }
 
-  FIX40::Logon createFIX40Logout( const char* sender, const char* target, int seq )
-  {
-    FIX40::Logout logout;
-    fillHeader( logout.getHeader(), sender, target, seq );
-    logout.getHeader().setField( BodyLength(logout.bodyLength()) );
-    logout.getTrailer().setField( CheckSum(logout.checkSum()) );
-    return logout;
-  }
-
   FIX42::Heartbeat createHeartbeat( const char* sender, const char* target, int seq )
   {
     FIX42::Heartbeat heartbeat;
