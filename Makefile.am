@@ -1,4 +1,4 @@
-SUBDIRS = UnitTest++ src bin spec test examples doc
+SUBDIRS = src bin spec test examples doc
 
 ACLOCAL_AMFLAGS = -I m4
 

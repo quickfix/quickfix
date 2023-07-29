@@ -49,4 +49,4 @@ ut_SOURCES = \
 	UtcTimeStampTestCase.cpp \
 	UtilityTestCase.cpp
 	
-AM_CPPFLAGS = -DCATCH_AMALGAMATED_CUSTOM_MAIN -I.. -I$(top_builddir)/UnitTest++/src
+AM_CPPFLAGS = -DCATCH_AMALGAMATED_CUSTOM_MAIN -I..
