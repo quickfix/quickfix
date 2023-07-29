@@ -1,7 +1,10 @@
 #ifndef CONFIG_H_IN
 #define CONFIG_H_IN
 
-#define HAVE_CXX17
-/* #undef HAVE_STD_SHARED_PTR */
+#ifdef _MSC_VER
+#include "config_windows.h"
+#else
+#include "config_unix.h"
+#endif
 
 #endif

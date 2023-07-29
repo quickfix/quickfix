@@ -20,8 +20,7 @@ at_LDADD = C++/libquickfix.la
 ut_LDADD = C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
 
-AM_CPPFLAGS =-IC++ -IC++/test -I$(top_builddir)/UnitTest++/src
-AM_LDFLAGS =-L$(top_builddir)/UnitTest++ -lUnitTest++
+AM_CPPFLAGS =-IC++ -IC++/test
 
 all-local:
 	rm -f $(top_builddir)/test/ut 
