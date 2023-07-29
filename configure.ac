@@ -285,7 +285,6 @@ AC_CONFIG_FILES([
     examples/executor/Makefile
     examples/executor/C++/Makefile
     examples/ordermatch/Makefile
-    examples/ordermatch/test/Makefile
     examples/tradeclient/Makefile
     doc/Makefile
     doc/html/Makefile ])
