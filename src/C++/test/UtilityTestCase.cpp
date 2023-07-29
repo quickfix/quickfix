@@ -182,13 +182,13 @@ TEST_CASE("UtilityTests")
 
   SECTION("socketHostName_SocketNum_SocketNameUnknown")
   {
-    int socket = 5000;
+    socket_handle socket = 5000;
     CHECK(0 == socket_hostname(socket));
   }
 
   SECTION("socketHostName_SocketNum_SocketNameExists")
   {
-    int actualSocket = socket_createConnector();
+    socket_handle actualSocket = socket_createConnector();
     socket_setsockopt( actualSocket, TCP_NODELAY );
     std::string address = "127.0.0.1";
     socket_connect( actualSocket, address.c_str(), 1000 );
@@ -197,7 +197,7 @@ TEST_CASE("UtilityTests")
 
   SECTION("socketHostName_SocketNameLocalHost_SocketNameFound")
   {
-    int actualSocket = socket_createConnector();
+    socket_handle actualSocket = socket_createConnector();
     socket_setsockopt( actualSocket, TCP_NODELAY );
     std::string address = "127.0.0.1";
     socket_connect( actualSocket, address.c_str(), 1000 );
