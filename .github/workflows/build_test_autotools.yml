@@ -39,7 +39,7 @@ jobs:
 
       - name: Make
         shell: bash
-        run:  make -j
+        run:  make
 
       - name: Make check
         shell: bash
