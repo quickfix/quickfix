@@ -55,8 +55,7 @@ TEST_CASE("UtilityTests")
   SECTION("error_wsaerror")
   {
     std::string expected = "(wsaerror[10048]:Only one usage of each socket address (protocol/network address/port) is normally permitted. )";
-    std::string actual = FIX::error_wsaerror(WSAEADDRINUSE);
-    CHECK(expected == FIX::error_wsaerror(error_number));
+    CHECK(expected == FIX::error_wsaerror(WSAEADDRINUSE));
   }
 #endif
 
@@ -161,20 +160,20 @@ TEST_CASE("UtilityTests")
 #ifndef _MSC_VER
   SECTION("socketIsBad_SocketDoesNotExist_True")
   {
-    int socket = 5000;
+    socket_handle socket = 5000;
     CHECK(socket_isBad(socket));
   }
 #endif
 
   SECTION("socketHostPort_SocketNameUnknown")
   {
-    int socket = 5000;
+    socket_handle socket = 5000;
     CHECK(0 == socket_hostport(socket));
   }
 
   SECTION("socketHostPort_SocketNameExists")
   {
-    int actualSocket = socket_createConnector();
+    socket_handle actualSocket = socket_createConnector();
     socket_setsockopt( actualSocket, TCP_NODELAY );
     std::string address = "127.0.0.1";
     socket_connect( actualSocket, address.c_str(), 1000 );

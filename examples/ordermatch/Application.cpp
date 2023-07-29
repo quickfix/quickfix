@@ -105,8 +105,8 @@ void Application::onMessage( const FIX42::MarketDataRequest& message, const FIX:
 
   message.get( mdReqID );
   message.get( subscriptionRequestType );
-  if ( subscriptionRequestType != FIX::SubscriptionRequestType_SNAPSHOT )
-    EXCEPT( FIX::IncorrectTagValue( subscriptionRequestType.getTag() ) );
+  if (subscriptionRequestType != FIX::SubscriptionRequestType_SNAPSHOT)
+      throw FIX::IncorrectTagValue(subscriptionRequestType.getTag());
   message.get( marketDepth );
   message.get( noRelatedSym );
 
