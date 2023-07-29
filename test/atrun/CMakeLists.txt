@@ -1,7 +1,7 @@
 if (WIN32)
 
 add_executable(atrun
- main.cpp Process.cpp ./test/ProcessTestCase.cpp ${PROJECT_SOURCE_DIR}/src/getopt.c)
+ main.cpp Process.cpp ${PROJECT_SOURCE_DIR}/src/getopt.c)
  
 target_include_directories(atrun PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
