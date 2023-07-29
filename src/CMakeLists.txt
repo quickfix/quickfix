@@ -6,7 +6,7 @@ if (QUICKFIX_EXAMPLES)
   add_executable(at at.cpp getopt.c)
   
   target_include_directories(at PRIVATE ${PROJECT_SOURCE_DIR} 
-    ${PROJECT_SOURCE_DIR}/src/C++)
+    ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src)
     
   target_link_libraries(at ${PROJECT_NAME})
   
@@ -25,7 +25,7 @@ if (QUICKFIX_EXAMPLES)
   add_executable(pt pt.cpp getopt.c)
   
   target_include_directories(pt PRIVATE ${PROJECT_SOURCE_DIR} 
-    ${PROJECT_SOURCE_DIR}/src/C++)
+    ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/UnitTest++/src)
     
   target_link_libraries(pt ${PROJECT_NAME})
   
