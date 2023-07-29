@@ -26,6 +26,17 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#ifdef _MSC_VER
+#  define PRAGMA_PUSH( x )                      \
+   __pragma( warning( push ) )                  \
+   __pragma( warning( disable: x ) ) 
+#  define PRAGMA_POP                            \
+   __pragma( warning( pop ) )
+#else
+#  define PRAGMA_PUSH( x )
+#  define PRAGMA_POP
+#endif
+
 #ifndef _MSC_VER
 #include "Allocator.h"
 #endif

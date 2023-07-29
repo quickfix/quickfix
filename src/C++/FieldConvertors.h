@@ -42,17 +42,6 @@ typedef int64_t signed_int64;
 typedef unsigned int unsigned_int;
 typedef uint64_t unsigned_int64;
 
-#ifdef _MSC_VER
-#  define PRAGMA_PUSH( x )                      \
-   __pragma( warning( push ) )                  \
-   __pragma( warning( disable: x ) ) 
-#  define PRAGMA_POP                            \
-   __pragma( warning( pop ) )
-#else
-#  define PRAGMA_PUSH( x )
-#  define PRAGMA_POP
-#endif
-
 template<typename T>
 inline typename std::make_unsigned<T>::type _UNSIGNED_VALUE_OF( const T x )
 { return x < 0 ? -( typename std::make_unsigned<T>::type )( x ) : ( typename std::make_unsigned<T>::type )( x ); }
