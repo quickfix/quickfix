@@ -36,9 +36,8 @@ dnl @license AllPermissive
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
     AC_ARG_WITH([postgresql],
-        AC_HELP_STRING([--with-postgresql=@<:@ARG@:>@],
-            [use PostgreSQL library @<:@default=yes@:>@, optionally specify path to pg_config]
-        ),
+        AS_HELP_STRING([--with-postgresql=@<:@ARG@:>@],[use PostgreSQL library @<:@default=yes@:>@, optionally specify path to pg_config
+        ]),
         [
         if test "$withval" = "no"; then
             want_postgresql="no"

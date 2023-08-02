@@ -2,13 +2,13 @@
 
 rm -rf *.cache config
 mkdir config
-touch README NEWS AUTHORS INSTALL ChangeLog
+touch NEWS AUTHORS INSTALL ChangeLog
 
 set -ex
 case `uname` in Darwin*) glibtoolize --copy ;;
   *) libtoolize --copy ;; esac
 
-autoreconf -i -Wall,no-obsolete
+autoreconf -i -Wall
 rm -rf autom4te.cache config.h.in~
 set +ex
 

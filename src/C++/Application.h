@@ -105,7 +105,7 @@ public:
 /**
 * An empty implementation of an Application. This can be used if you
 * do not want to provide an implementation for all the callback methods.
-* It is also useful for unit tests writing unit tests where the callback
+* It is also useful for unit tests where the callback
 * values of some or all methods are not of interest.
 */
 class NullApplication : public Application

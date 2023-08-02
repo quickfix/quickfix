@@ -1,7 +1,5 @@
 SUBDIRS = . test
 
-LEX += -+ -olex.yy.c
-
 lib_LTLIBRARIES = libquickfix.la
 
 libquickfix_la_SOURCES = \
