@@ -1,9 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.59])
+AC_PREREQ([2.71])
 
-AC_INIT([QuickFIX], [1.15.1], [ask@quickfixengine.org])
+AC_INIT([QuickFIX],[1.15.1],[ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
@@ -24,9 +24,8 @@ AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
 AC_DISABLE_STATIC
-AC_LIBTOOL_WIN32_DLL
-AM_PROG_LIBTOOL
-AM_PROG_LEX
+
+LT_INIT
 
 AX_LIB_MYSQL()
 AX_LIB_POSTGRESQL()
@@ -137,36 +136,25 @@ AC_CHECK_HEADERS([stdio.h])
 
 
 AC_LANG_SAVE
-AC_LANG_CPLUSPLUS
+AC_LANG([C++])
 
 AC_MSG_CHECKING(for STREAMS ioctl)
-AC_TRY_COMPILE(
-	[#include <sys/types.h>
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
 	 #include <stropts.h>
-	 #include <sys/conf.h>],
-	[ioctl(1,I_NREAD);],
-	AC_MSG_RESULT(yes)
+	 #include <sys/conf.h>]], [[ioctl(1,I_NREAD);]])],[AC_MSG_RESULT(yes)
 	AC_DEFINE(USING_STREAMS, 1,
-	The system supports AT&T STREAMS, presumably standard),
-	AC_MSG_RESULT(no))
+	The system supports AT&T STREAMS, presumably standard)],[AC_MSG_RESULT(no)])
 
 AC_MSG_CHECKING(for socklen_t)
-AC_TRY_COMPILE(
-	[#include <unistd.h>
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>
          #include <sys/types.h>
-         #include <sys/socket.h>],
-	[socklen_t t = 1;],
-	AC_MSG_RESULT(yes),
-	AC_MSG_RESULT(no)
+         #include <sys/socket.h>]], [[socklen_t t = 1;]])],[AC_MSG_RESULT(yes)],[AC_MSG_RESULT(no)
 	AC_DEFINE(socklen_t, int,
-	socklen_t needs to be defined if the system doesn't define it))
+	socklen_t needs to be defined if the system doesn't define it)])
 
 AC_MSG_CHECKING(for ftime)
-AC_TRY_COMPILE(
-	[#include <sys/timeb.h>],
-	[timeb tb;
-         ftime(&tb)],
-	has_ftime=true, has_ftime=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/timeb.h>]], [[timeb tb;
+         ftime(&tb)]])],[has_ftime=true],[has_ftime=false])
 
 if test $has_ftime = true
 then AC_MSG_RESULT(yes)
@@ -176,62 +164,44 @@ fi
 AM_CONDITIONAL(HAVE_FTIME, $has_ftime)
 
 AC_MSG_CHECKING(for set_terminate in the global namespace)
-AC_TRY_COMPILE(
-	[#include <exception>
-	 void term() {}],
-	[set_terminate(term);],
-         set_terminate_is_global=true, set_terminate_is_global=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <exception>
+	 void term() {}]], [[set_terminate(term);]])],[set_terminate_is_global=true],[set_terminate_is_global=false])
 
 if test $set_terminate_is_global = true
 then AC_MSG_RESULT(yes)
 else AC_MSG_RESULT(no)
     AC_MSG_CHECKING(for set_terminate in the std namespace)
-    AC_TRY_COMPILE(
-    [#include <exception>
-     void term() {}],
-    [std::set_terminate(term);],
-    AC_MSG_RESULT(yes)
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <exception>
+     void term() {}]], [[std::set_terminate(term);]])],[AC_MSG_RESULT(yes)
     AC_DEFINE(TERMINATE_IN_STD, 1,
-    For location of set_terminate),
-    AC_MSG_RESULT(no)
-    AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
+    For location of set_terminate)],[AC_MSG_RESULT(no)
+    AC_MSG_ERROR(unable to find set_terminate in std or global namespace)])
 fi
 
 AC_MSG_CHECKING(for typeinfo in the global namespace)
-AC_TRY_COMPILE(
-	[#include <typeinfo>],
-	[const typeinfo& ty = typeid(typeinfo);],
-	typeinfo_is_global=true, typeinfo_is_global=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>]], [[const typeinfo& ty = typeid(typeinfo);]])],[typeinfo_is_global=true],[typeinfo_is_global=false])
 
 if test $typeinfo_is_global = true
 then AC_MSG_RESULT(yes)
 else AC_MSG_RESULT(no)
     AC_MSG_CHECKING(for typeinfo in the std namespace)
-    AC_TRY_COMPILE(
-    [#include <typeinfo>],
-    [const std::type_info& ty = typeid(std::type_info);],
-    AC_MSG_RESULT(yes)
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>]], [[const std::type_info& ty = typeid(std::type_info);]])],[AC_MSG_RESULT(yes)
     AC_DEFINE(TYPEINFO_IN_STD, 1,
-    Whether or not we are using the new-style typeinfo header),
-    AC_MSG_RESULT(no)
-    AC_MSG_ERROR(type_info is required by the test library))
+    Whether or not we are using the new-style typeinfo header)],[AC_MSG_RESULT(no)
+    AC_MSG_ERROR(type_info is required by the test library)])
 fi
 
 # check for gethostbyname_r
 AC_MSG_CHECKING(for gethostbyname_r with input result)
-AC_TRY_COMPILE(
-	[#include <netdb.h>],
-	[const char* name = "localhost";
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <netdb.h>]], [[const char* name = "localhost";
          hostent host;
          char buf[1024];
          hostent* host_ptr;
          int error;
          gethostbyname_r( name, &host, buf, sizeof(buf), &host_ptr, &error );
-	 return 0;],
-	 AC_MSG_RESULT(yes)
+	 return 0;]])],[AC_MSG_RESULT(yes)
 	 AC_DEFINE(GETHOSTBYNAME_R_INPUTS_RESULT, 1,
-	 The system has gethostbyname_r which takes a result as a pass-in param),
-	 AC_MSG_RESULT(no))
+	 The system has gethostbyname_r which takes a result as a pass-in param)],[AC_MSG_RESULT(no)])
 
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 
@@ -244,8 +214,7 @@ AC_CHECK_LIB(iberty, cplus_demangle,
 
 # Checks for runtime behavior
 AC_MSG_CHECKING(if select modifies timeval parameter)
-AC_TRY_RUN(
-[
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/time.h>
@@ -257,12 +226,9 @@ int main(int argc, char** argv)
   select(0,0,0,0,&tv);
   return tv.tv_usec != 1 ? 0 : 1;
 }
-],
-AC_MSG_RESULT(yes)
+]])],[AC_MSG_RESULT(yes)
 AC_DEFINE(SELECT_MODIFIES_TIMEVAL, 1,
-select statement decrements timeval parameter if interupted),
-AC_MSG_RESULT(no),
-AC_MSG_RESULT(unable to determine, assuming no...))
+select statement decrements timeval parameter if interupted)],[AC_MSG_RESULT(no)],[AC_MSG_RESULT(unable to determine, assuming no...)])
 
 AC_CONFIG_FILES([
     quickfix.pc
