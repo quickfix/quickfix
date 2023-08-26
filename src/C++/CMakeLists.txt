@@ -67,6 +67,7 @@ if (HAVE_SSL)
     ThreadedSSLSocketConnection.cpp
     ThreadedSSLSocketInitiator.cpp
     UtilitySSL.cpp)
+    add_definitions(-DHAVE_SSL=1)
 endif()
 
 if (WIN32)
