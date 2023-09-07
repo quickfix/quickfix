@@ -225,6 +225,13 @@ public:
   void setValidateLengthAndChecksum ( bool value )
     { m_validateLengthAndChecksum = value; }
 
+  const std::set<std::string>& getAllowedRemoteAddresses()
+    { return m_allowedRemoteAddresses; }
+  void setAllowedRemoteAddresses ( const std::set<std::string> &value )
+    { m_allowedRemoteAddresses = value; }
+  bool inAllowedRemoteAddresses ( const std::string &value )
+    { return ( m_allowedRemoteAddresses.cend() != m_allowedRemoteAddresses.find( value ) ); }
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(m_timestamper()) )
@@ -344,6 +351,7 @@ private:
   int m_timestampPrecision;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
+  std::set<std::string> m_allowedRemoteAddresses;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;

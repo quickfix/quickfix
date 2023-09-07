@@ -160,6 +160,23 @@ std::string string_strip( const std::string& value )
   return std::string( value, startPos, endPos - startPos + 1 );
 }
 
+std::set<std::string> string_split( const std::string& value, const char delimiter )
+{
+  std::set<std::string> subStrings;
+  std::size_t start = 0;
+  for(std::size_t pos = 0; pos < value.size(); ++pos ) {
+    if( value[pos] == delimiter ) 
+    {
+      if( pos - start > 1 )
+        subStrings.insert( value.substr( start, pos-start ) );
+      start = pos+1;
+    }
+  }
+  if( start < value.size() )
+      subStrings.insert( value.substr( start, value.size() - start ) );
+  return subStrings;
+}
+
 void socket_init()
 {
 #ifdef _MSC_VER

@@ -198,6 +198,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setPersistMessages( settings.getBool( PERSIST_MESSAGES ) );
   if ( settings.has( VALIDATE_LENGTH_AND_CHECKSUM ) )
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
+  if ( settings.has( ALLOWED_REMOTE_ADDRESSES ) )
+    pSession->setAllowedRemoteAddresses( string_split( settings.getString( ALLOWED_REMOTE_ADDRESSES ), ',' ) );
    
   return pSession.release();
 }

@@ -90,4 +90,19 @@ TEST_CASE("StringUtilitiesTests")
     object = "\t\n\r  strip this  \t\n\r";
     CHECK( "strip this" == string_strip(object) );
   }
+  
+  SECTION("split")
+  {
+    std::set<std::string> object = {};
+    CHECK( object == string_split("", ',') );
+    CHECK( object == string_split(",,,,,,,", ',') );
+    object = {"127.0.0.1"};
+    CHECK( object == string_split("127.0.0.1,", ',') );
+    CHECK( object == string_split("127.0.0.1", ',') );
+    CHECK( object == string_split("127.0.0.1,,,,", ',') );
+    CHECK( object == string_split("127.0.0.1,127.0.0.1,,,,,,127.0.0.1,127.0.0.1,127.0.0.1,", ',') );
+    object = {"127.0.0.1", "127.0.0.2"};
+    CHECK( object == string_split("127.0.0.1,127.0.0.2", ',') );
+    CHECK( object == string_split("127.0.0.1,127.0.0.1,127.0.0.1,127.0.0.1,127.0.0.2,127.0.0.2,127.0.0.2,", ',' ) );
+  }
 }
