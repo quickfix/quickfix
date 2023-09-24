@@ -2507,7 +2507,6 @@ TEST_CASE_METHOD(acceptorT11Fixture, "AcceptorT11TestCase")
   SECTION("sendNextExpectedMsgSeqNum")
   {
     NextExpectedMsgSeqNum nextExpectedMsgSeqNum;
-    MsgSeqNum msgSeqNum(0);
 
     object->setSendNextExpectedMsgSeqNum( true );
     object->setResponder( this );
@@ -2535,6 +2534,7 @@ TEST_CASE_METHOD(acceptorT11Fixture, "AcceptorT11TestCase")
 
     sentLogon.getField( nextExpectedMsgSeqNum );
     CHECK( 6 == nextExpectedMsgSeqNum );
+    MsgSeqNum msgSeqNum(0);
     lastResent.getHeader().getFieldIfSet( msgSeqNum );
     CHECK( 3 == msgSeqNum.getValue() ); // retransmitted ExecutionReport
     CHECK( 2 == toSequenceReset );
@@ -2561,7 +2561,6 @@ TEST_CASE_METHOD(initiatorT11Fixture, "InitiatorT11TestCase")
   SECTION("initiatorSendNextExpectedMsgSeqNum")
   {
     NextExpectedMsgSeqNum nextExpectedMsgSeqNum;
-    MsgSeqNum msgSeqNum(0);
 
     object->setSendNextExpectedMsgSeqNum( true );
     object->setResponder( this );
@@ -2591,6 +2590,7 @@ TEST_CASE_METHOD(initiatorT11Fixture, "InitiatorT11TestCase")
     logon.set( NextExpectedMsgSeqNum( 2 ) ); // acceptor pretends to miss SeqNum 2 and 3
     object->next( logon, now );
 
+    MsgSeqNum msgSeqNum(0);
     lastResent.getHeader().getFieldIfSet( msgSeqNum );
     CHECK( 3 == msgSeqNum.getValue()); // retransmitted NewOrderSingle
     CHECK( 2 == toSequenceReset );
