@@ -139,6 +139,7 @@ const char CERTIFICATE_AUTHORITIES_DIRECTORY[] = "CertificationAuthoritiesDirect
 const char CERTIFICATE_REVOCATION_LIST_FILE[] = "CertificateRevocationListFile";
 const char CERTIFICATE_REVOCATION_LIST_DIRECTORY[] = "CertificateRevocationListDirectory";
 const char CERTIFICATE_VERIFY_LEVEL[] = "CertificateVerifyLevel";
+const char SEND_NEXT_EXPECTED_MSG_SEQ_NUM[] = "SendNextExpectedMsgSeqNum";
 /*
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.

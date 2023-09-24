@@ -225,6 +225,11 @@ public:
   void setValidateLengthAndChecksum ( bool value )
     { m_validateLengthAndChecksum = value; }
 
+  bool getSendNextExpectedMsgSeqNum()
+    { return m_sendNextExpectedMsgSeqNum; }
+  void setSendNextExpectedMsgSeqNum ( bool value )
+    { m_sendNextExpectedMsgSeqNum = value; }
+
   void setResponder( Responder* pR )
   {
     if( !checkSessionTime(m_timestamper()) )
@@ -309,6 +314,7 @@ private:
   void generateLogon( const Message& );
   void generateResendRequest( const BeginString&, const MsgSeqNum& );
   void generateSequenceReset( int, int );
+  void generateRetransmits(int beginSeqNo, int endSeqNo);
   void generateHeartbeat();
   void generateHeartbeat( const Message& );
   void generateTestRequest( const std::string& );
@@ -344,6 +350,7 @@ private:
   int m_timestampPrecision;
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
+  bool m_sendNextExpectedMsgSeqNum;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;
