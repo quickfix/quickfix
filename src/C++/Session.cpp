@@ -287,10 +287,21 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
   {
     Locker l( m_mutex );
 
-    const int from = nextExpectedMsgSeqNum.getValue();
-    const int to = getExpectedSenderNum() - 1;
-    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " + IntConvertor::convert( from ) + " TO: " + IntConvertor::convert( to ) );
-    generateRetransmits( from, to );
+    auto beginSeqNo = nextExpectedMsgSeqNum.getValue();
+    auto endSeqNo = getExpectedSenderNum() - 1;
+    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " + IntConvertor::convert( beginSeqNo ) + " TO: " + IntConvertor::convert( endSeqNo ) );
+
+    if ( !m_persistMessages )
+    {
+      endSeqNo = EndSeqNo(endSeqNo + 1);
+      int next = m_state.getNextSenderMsgSeqNum();
+      if( endSeqNo > next )
+        endSeqNo = EndSeqNo(next);
+      generateSequenceReset( beginSeqNo, endSeqNo );
+      return;
+    }
+
+    generateRetransmits( beginSeqNo, endSeqNo );
   }
 }
 
@@ -371,16 +382,6 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
        + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
 
-  generateRetransmits( beginSeqNo.getValue(), endSeqNo.getValue() );
-
-  MsgSeqNum msgSeqNum(0);
-  resendRequest.getHeader().getField( msgSeqNum );
-  if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
-    m_state.incrNextTargetMsgSeqNum();
-}
-
-void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
-{
   std::string beginString = m_sessionID.getBeginString();
   if ( (beginString >= FIX::BeginString_FIX42 && endSeqNo == 0) ||
        (beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999) ||
@@ -397,6 +398,16 @@ void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
     return;
   }
 
+  generateRetransmits( beginSeqNo.getValue(), endSeqNo.getValue() );
+
+  MsgSeqNum msgSeqNum(0);
+  resendRequest.getHeader().getField( msgSeqNum );
+  if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
+    m_state.incrNextTargetMsgSeqNum();
+}
+
+void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
+{
   std::vector<std::string> messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
 
