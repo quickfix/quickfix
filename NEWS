@@ -1,3 +1,6 @@
+
+Session synchronisation at initiation using tag NextExpectedMsgSeqNum (789)
+
 1.15.1
 ------
 Support for python 3.
