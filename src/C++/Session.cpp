@@ -239,8 +239,11 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
       sendRetransmitsAfterLogon = true;
     else if( nextExpectedMsgSeqNum.getValue() > getExpectedSenderNum() )
     {
-      m_state.onEvent( "NextExpectedMsgSeqNum(789) > than last message sent" );
-      generateLogout( "NextExpectedMsgSeqNum(789) > than last message sent" );
+      std::stringstream stream;
+      stream << "NextExpectedMsgSeqNum too low, expecting " << getExpectedSenderNum()
+             << " but received " << nextExpectedMsgSeqNum;
+      m_state.onEvent( stream.str() );
+      generateLogout( stream.str() );
       disconnect();
       return;
     }
