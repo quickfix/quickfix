@@ -47,7 +47,11 @@
 #include <fix40/Logon.h>
 #include <fix40/ExecutionReport.h>
 #include <fixt11/Logon.h>
+#include <fixt11/Logout.h>
+#include <fixt11/Heartbeat.h>
 #include <fixt11/ResendRequest.h>
+#include <fixt11/SequenceReset.h>
+#include <fix50/NewOrderSingle.h>
 #include <fix50/ExecutionReport.h>
 #include <fix42/BusinessMessageReject.h>
 #include "TestHelper.h"
@@ -109,9 +113,27 @@ namespace
     return logout;
   }
 
+  FIX42::Logout createT11Logout( const char* sender, const char* target, int seq )
+  {
+    FIXT11::Logout logout;
+    fillHeader( logout.getHeader(), sender, target, seq );
+    logout.getHeader().setField( BodyLength(logout.bodyLength()) );
+    logout.getTrailer().setField( CheckSum(logout.checkSum()) );
+    return logout;
+  }
+
   FIX42::Heartbeat createHeartbeat( const char* sender, const char* target, int seq )
   {
     FIX42::Heartbeat heartbeat;
+    fillHeader( heartbeat.getHeader(), sender, target, seq );
+    heartbeat.getHeader().setField( BodyLength(heartbeat.bodyLength()) );
+    heartbeat.getTrailer().setField( CheckSum(heartbeat.checkSum()) );
+    return heartbeat;
+  }
+
+  FIXT11::Heartbeat createT11Heartbeat( const char* sender, const char* target, int seq )
+  {
+    FIXT11::Heartbeat heartbeat;
     fillHeader( heartbeat.getHeader(), sender, target, seq );
     heartbeat.getHeader().setField( BodyLength(heartbeat.bodyLength()) );
     heartbeat.getTrailer().setField( CheckSum(heartbeat.checkSum()) );
@@ -131,6 +153,16 @@ namespace
   FIX42::SequenceReset createSequenceReset( const char* sender, const char* target, int seq, int newSeq )
   {
     FIX42::SequenceReset sequenceReset;
+    sequenceReset.set( NewSeqNo( newSeq ) );
+    fillHeader( sequenceReset.getHeader(), sender, target, seq );
+    sequenceReset.getHeader().setField( BodyLength(sequenceReset.bodyLength()) );
+    sequenceReset.getTrailer().setField( CheckSum(sequenceReset.checkSum()) );
+    return sequenceReset;
+  }
+
+  FIXT11::SequenceReset createT11SequenceReset( const char* sender, const char* target, int seq, int newSeq )
+  {
+    FIXT11::SequenceReset sequenceReset;
     sequenceReset.set( NewSeqNo( newSeq ) );
     fillHeader( sequenceReset.getHeader(), sender, target, seq );
     sequenceReset.getHeader().setField( BodyLength(sequenceReset.bodyLength()) );
@@ -174,6 +206,16 @@ namespace
   {
     FIX42::NewOrderSingle newOrderSingle
       ( ClOrdID("ID"), HandlInst('1'), Symbol("SYMBOL"), Side(Side_BUY), TransactTime::now(), OrdType(OrdType_MARKET) );
+    fillHeader( newOrderSingle.getHeader(), sender, target, seq );
+    newOrderSingle.getHeader().setField( BodyLength(newOrderSingle.bodyLength()) );
+    newOrderSingle.getTrailer().setField( CheckSum(newOrderSingle.checkSum()) );
+    return newOrderSingle;
+  }
+
+  FIX50::NewOrderSingle createT1150NewOrderSingle( const char* sender, const char* target, int seq )
+  {
+    FIX50::NewOrderSingle newOrderSingle
+      ( ClOrdID("ID"), Side(Side_BUY), TransactTime(), OrdType(OrdType_MARKET) );
     fillHeader( newOrderSingle.getHeader(), sender, target, seq );
     newOrderSingle.getHeader().setField( BodyLength(newOrderSingle.bodyLength()) );
     newOrderSingle.getTrailer().setField( CheckSum(newOrderSingle.checkSum()) );
@@ -2460,6 +2502,94 @@ TEST_CASE_METHOD(acceptorT11Fixture, "AcceptorT11TestCase")
     message.getHeader().setField( origSendingTime );
     message.getHeader().setField( sendingTime );
     CHECK( message.toString() == lastResent.toString() );
+  }
+
+  SECTION("sendNextExpectedMsgSeqNum")
+  {
+    object->setSendNextExpectedMsgSeqNum( true );
+    object->setResponder( this );
+
+    FIXT11::Logon logon = createT11Logon( "ISLD", "TW", 1 );
+    logon.set( NextExpectedMsgSeqNum( 1 ) );
+    object->next( logon, now );
+    CHECK( 2 == sentLogon.getField<NextExpectedMsgSeqNum>() );
+
+    object->next( createT11Heartbeat( "ISLD", "TW", 2), now );
+    FIX::Message heartbeat = createT11Heartbeat("TW", "ISLD", 2);
+    object->send( heartbeat );
+
+    object->next( createT1150NewOrderSingle( "ISLD", "TW", 3), now );
+    FIX::Message executionReport = createT1142ExecutionReport("TW", "ISLD", 3);
+    object->send( executionReport );
+    object->next( createT11Logout( "ISLD", "TW", 4 ), now );
+
+    logon = createT11Logon( "ISLD", "TW", 10 ); // initiator pretends to have sent SeqNum 5-9 before
+    logon.set( NextExpectedMsgSeqNum( 1 ) ); // initiator pretends to miss SeqNum 2 and 3
+    object->next( logon, now );
+
+    CHECK( 6 == sentLogon.getField<NextExpectedMsgSeqNum>() );
+    CHECK( 3 == lastResent.getHeader().getField<MsgSeqNum>().getValue() ); // retransmitted ExecutionReport
+    CHECK( 2 == toSequenceReset );
+
+    CHECK( 0 == toResendRequest ); // no resend request for SeqNum 5-9, initiator is expected to start message recovery
+    object->next( createT11SequenceReset( "ISLD", "TW", 5, 11), now );
+    CHECK( 11 == object->getExpectedTargetNum() );
+
+    object->next( createT11Logout( "ISLD", "TW", 11 ), now );
+    CHECK( 2 == toLogout );
+    object->next( now );
+    logon = createT11Logon( "ISLD", "TW", 12 );
+    logon.set( NextExpectedMsgSeqNum( 20 ) ); // too high
+    object->next( logon, now );
+    CHECK( 3 == toLogout );
+    CHECK( 1 == disconnected );
+  }
+}
+
+TEST_CASE_METHOD(initiatorT11Fixture, "InitiatorT11TestCase")
+{
+  SECTION("initiatorSendNextExpectedMsgSeqNum")
+  {
+    object->setSendNextExpectedMsgSeqNum( true );
+    object->setResponder( this );
+
+    object->next( now );
+    CHECK( 1 == sentLogon.getField<NextExpectedMsgSeqNum>() );
+
+    FIXT11::Logon logon = createT11Logon( "ISLD", "TW", 1 );
+    logon.set( NextExpectedMsgSeqNum( 2 ) );
+    object->next( logon, now );
+
+    FIX::Message heartbeat = createT11Heartbeat("TW", "ISLD", 2);
+    object->send( heartbeat );
+    object->next( createT11Heartbeat( "ISLD", "TW", 2 ), now );
+
+    FIX::Message newOrderSingle = createNewOrderSingle( "TW", "ISLD", 3);
+    object->send( newOrderSingle );
+    object->next( createT11Heartbeat( "ISLD", "TW", 3 ), now );
+    object->next( createT11Logout( "ISLD", "TW", 4 ), now );
+
+    object->next( now );
+    CHECK( 5 == sentLogon.getField<NextExpectedMsgSeqNum>() );
+    logon = createT11Logon( "ISLD", "TW", 10 ); // acceptor pretends to have sent SeqNum 5-9 before
+    logon.set( NextExpectedMsgSeqNum( 2 ) ); // acceptor pretends to miss SeqNum 2 and 3
+    object->next( logon, now );
+
+    CHECK( 3 == lastResent.getHeader().getField<MsgSeqNum>().getValue() ); // retransmitted NewOrderSingle
+    CHECK( 2 == toSequenceReset );
+
+    CHECK( 0 == toResendRequest ); // no resend request for SeqNum 5-9, acceptor is expected to start message recovery
+    object->next( createT11SequenceReset( "ISLD", "TW", 5, 11), now );
+    CHECK( 11 == object->getExpectedTargetNum() );
+
+    object->next( createT11Logout( "ISLD", "TW", 11 ), now );
+    CHECK( 2 == toLogout );
+    object->next( now );
+    logon = createT11Logon( "ISLD", "TW", 12 );
+    logon.set( NextExpectedMsgSeqNum( 20 ) ); // too high
+    object->next( logon, now );
+    CHECK( 3 == toLogout );
+    CHECK( 1 == disconnected );
   }
 }
 

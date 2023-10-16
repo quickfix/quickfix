@@ -43,6 +43,7 @@ const char CONNECTION_TYPE[] = "ConnectionType";
 const char USE_DATA_DICTIONARY[] = "UseDataDictionary";
 const char SEND_RESETSEQNUMFLAG[] = "SendResetSeqNumFlag";
 const char SEND_REDUNDANT_RESENDREQUESTS[] = "SendRedundantResendRequests";
+const char SEND_NEXT_EXPECTED_MSG_SEQ_NUM[] = "SendNextExpectedMsgSeqNum";
 const char DATA_DICTIONARY[] = "DataDictionary";
 const char TRANSPORT_DATA_DICTIONARY[] = "TransportDataDictionary";
 const char APP_DATA_DICTIONARY[] = "AppDataDictionary";
