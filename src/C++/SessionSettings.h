@@ -43,6 +43,7 @@ const char CONNECTION_TYPE[] = "ConnectionType";
 const char USE_DATA_DICTIONARY[] = "UseDataDictionary";
 const char SEND_RESETSEQNUMFLAG[] = "SendResetSeqNumFlag";
 const char SEND_REDUNDANT_RESENDREQUESTS[] = "SendRedundantResendRequests";
+const char SEND_NEXT_EXPECTED_MSG_SEQ_NUM[] = "SendNextExpectedMsgSeqNum";
 const char DATA_DICTIONARY[] = "DataDictionary";
 const char TRANSPORT_DATA_DICTIONARY[] = "TransportDataDictionary";
 const char APP_DATA_DICTIONARY[] = "AppDataDictionary";
@@ -139,7 +140,6 @@ const char CERTIFICATE_AUTHORITIES_DIRECTORY[] = "CertificationAuthoritiesDirect
 const char CERTIFICATE_REVOCATION_LIST_FILE[] = "CertificateRevocationListFile";
 const char CERTIFICATE_REVOCATION_LIST_DIRECTORY[] = "CertificateRevocationListDirectory";
 const char CERTIFICATE_VERIFY_LEVEL[] = "CertificateVerifyLevel";
-const char SEND_NEXT_EXPECTED_MSG_SEQ_NUM[] = "SendNextExpectedMsgSeqNum";
 /*
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.

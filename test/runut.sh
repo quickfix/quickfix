@@ -2,6 +2,8 @@
 
 trap "trap - TERM && kill -- -$$ 2> /dev/null" INT TERM KILL EXIT
 
+killall at ut
+
 SCRIPT=$(realpath "$0")
 DIR=$(dirname "$0")
 PWD=$(pwd)
