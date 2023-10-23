@@ -12,7 +12,10 @@ namespace FIX50SP2
     SecurityTypes() : Message(MsgType()) {}
     SecurityTypes(const FIX::Message& m) : Message(m) {}
     SecurityTypes(const Message& m) : Message(m) {}
-    SecurityTypes(const SecurityTypes& m) : Message(m) {}
+    SecurityTypes(const SecurityTypes&) = default;
+    SecurityTypes(SecurityTypes&&) = default;
+    SecurityTypes& operator=(const SecurityTypes&) = default;
+    SecurityTypes& operator=(SecurityTypes&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("w"); }
 
     SecurityTypes(
@@ -39,11 +42,12 @@ namespace FIX50SP2
     class NoSecurityTypes: public FIX::Group
     {
     public:
-    NoSecurityTypes() : FIX::Group(558,167,FIX::message_order(167,762,460,461,60,0)) {}
+    NoSecurityTypes() : FIX::Group(558,167,FIX::message_order(167,762,460,461,2891,60,0)) {}
       FIELD_SET(*this, FIX::SecurityType);
       FIELD_SET(*this, FIX::SecuritySubType);
       FIELD_SET(*this, FIX::Product);
       FIELD_SET(*this, FIX::CFICode);
+      FIELD_SET(*this, FIX::UPICode);
       FIELD_SET(*this, FIX::TransactTime);
     };
     FIELD_SET(*this, FIX::Text);

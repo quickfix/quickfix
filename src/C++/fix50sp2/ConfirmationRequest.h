@@ -12,7 +12,10 @@ namespace FIX50SP2
     ConfirmationRequest() : Message(MsgType()) {}
     ConfirmationRequest(const FIX::Message& m) : Message(m) {}
     ConfirmationRequest(const Message& m) : Message(m) {}
-    ConfirmationRequest(const ConfirmationRequest& m) : Message(m) {}
+    ConfirmationRequest(const ConfirmationRequest&) = default;
+    ConfirmationRequest(ConfirmationRequest&&) = default;
+    ConfirmationRequest& operator=(const ConfirmationRequest&) = default;
+    ConfirmationRequest& operator=(ConfirmationRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BH"); }
 
     ConfirmationRequest(
@@ -32,7 +35,7 @@ namespace FIX50SP2
     class NoOrders: public FIX::Group
     {
     public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,756,38,799,800,0)) {}
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,756,38,799,800,40,0)) {}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -42,10 +45,11 @@ namespace FIX50SP2
       class NoNested2PartyIDs: public FIX::Group
       {
       public:
-      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,806,0)) {}
+      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,2381,806,0)) {}
         FIELD_SET(*this, FIX::Nested2PartyID);
         FIELD_SET(*this, FIX::Nested2PartyIDSource);
         FIELD_SET(*this, FIX::Nested2PartyRole);
+        FIELD_SET(*this, FIX::Nested2PartyRoleQualifier);
         FIELD_SET(*this, FIX::NoNested2PartySubIDs);
         class NoNested2PartySubIDs: public FIX::Group
         {
@@ -58,6 +62,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::OrderQty);
       FIELD_SET(*this, FIX::OrderAvgPx);
       FIELD_SET(*this, FIX::OrderBookingQty);
+      FIELD_SET(*this, FIX::OrdType);
     };
     FIELD_SET(*this, FIX::AllocID);
     FIELD_SET(*this, FIX::SecondaryAllocID);

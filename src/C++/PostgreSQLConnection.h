@@ -19,13 +19,14 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_POSTGRESQLCONNECTION_H
+#define FIX_POSTGRESQLCONNECTION_H
+
 #ifndef HAVE_POSTGRESQL
 #error PostgreSQLConnection.h included, but HAVE_POSTGRESQL not defined
 #endif
 
 #ifdef HAVE_POSTGRESQL
-#ifndef FIX_POSTGRESQLCONNECTION_H
-#define FIX_POSTGRESQLCONNECTION_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -153,12 +154,20 @@ private:
   void connect()
   {
     short port = m_connectionID.getPort();
+
     m_pConnection = PQsetdbLogin
-      ( m_connectionID.getHost().c_str(), port == 0 ? "" : IntConvertor::convert( port ).c_str(),
-        "", "", m_connectionID.getDatabase().c_str(), m_connectionID.getUser().c_str(), m_connectionID.getPassword().c_str() );
+      ( m_connectionID.getHost().c_str(), 
+        port == 0 ? "" : IntConvertor::convert( port ).c_str(),
+        "", 
+        "", 
+        m_connectionID.getDatabase().c_str(), 
+        m_connectionID.getUser().c_str(), 
+        m_connectionID.getPassword().c_str() );
 
     if( !connected() )
-      throw ConfigError( "Unable to connect to database" );
+      throw ConfigError( "Unable to connect to postgres database '" 
+        + m_connectionID.getDatabase() + "': " 
+        + m_connectionID.getUser() + '@' + m_connectionID.getHost() + ":" + std::to_string(port) );
   }
 
   PGconn* m_pConnection;
@@ -168,7 +177,7 @@ private:
 
 typedef DatabaseConnectionPool<PostgreSQLConnection>
   PostgreSQLConnectionPool;
-typedef SmartPtr< PostgreSQLConnectionPool >
+typedef std::unique_ptr< PostgreSQLConnectionPool >
   PostgreSQLConnectionPoolPtr;
 }
 

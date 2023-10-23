@@ -22,9 +22,15 @@
 #ifndef FIX_EXCEPT_H
 #define FIX_EXCEPT_H
 
+#if !defined(__cpp_noexcept_function_type) && defined(__cplusplus)
+  #if __cplusplus > 201703L
+    #define __cpp_noexcept_function_type 1
+  #endif
+#endif
+
 #ifdef __cpp_noexcept_function_type
 #define NOEXCEPT noexcept
-#define EXCEPT(...) noexcept(false)
+#define EXCEPT(...)
 #else
 #define NOEXCEPT throw()
 #define EXCEPT(...) throw(__VA_ARGS__)

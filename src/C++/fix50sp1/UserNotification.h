@@ -12,7 +12,10 @@ namespace FIX50SP1
     UserNotification() : Message(MsgType()) {}
     UserNotification(const FIX::Message& m) : Message(m) {}
     UserNotification(const Message& m) : Message(m) {}
-    UserNotification(const UserNotification& m) : Message(m) {}
+    UserNotification(const UserNotification&) = default;
+    UserNotification(UserNotification&&) = default;
+    UserNotification& operator=(const UserNotification&) = default;
+    UserNotification& operator=(UserNotification&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("CB"); }
 
     UserNotification(

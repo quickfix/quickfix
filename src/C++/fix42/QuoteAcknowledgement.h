@@ -12,7 +12,10 @@ namespace FIX42
     QuoteAcknowledgement() : Message(MsgType()) {}
     QuoteAcknowledgement(const FIX::Message& m) : Message(m) {}
     QuoteAcknowledgement(const Message& m) : Message(m) {}
-    QuoteAcknowledgement(const QuoteAcknowledgement& m) : Message(m) {}
+    QuoteAcknowledgement(const QuoteAcknowledgement&) = default;
+    QuoteAcknowledgement(QuoteAcknowledgement&&) = default;
+    QuoteAcknowledgement& operator=(const QuoteAcknowledgement&) = default;
+    QuoteAcknowledgement& operator=(QuoteAcknowledgement&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("b"); }
 
     QuoteAcknowledgement(

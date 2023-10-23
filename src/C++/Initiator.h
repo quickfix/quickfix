@@ -34,6 +34,8 @@
 #include "Exceptions.h"
 #include "Mutex.h"
 #include "Session.h"
+
+#include <atomic>
 #include <set>
 #include <map>
 #include <string>
@@ -63,7 +65,7 @@ public:
   /// Block on the initiator
   void block() EXCEPT ( ConfigError, RuntimeError );
   /// Poll the initiator
-  bool poll( double timeout = 0.0 ) EXCEPT ( ConfigError, RuntimeError );
+  bool poll() EXCEPT ( ConfigError, RuntimeError );
 
   /// Stop initiator.
   void stop( bool force = false );
@@ -113,7 +115,7 @@ private:
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
   /// Implemented to connect and poll for events.
-  virtual bool onPoll( double timeout ) = 0;
+  virtual bool onPoll() = 0;
   /// Implemented to stop a running initiator.
   virtual void onStop() = 0;
   /// Implemented to connect a session to its target.
@@ -141,8 +143,9 @@ private:
   LogFactory* m_pLogFactory;
   Log* m_pLog;
   NullLog m_nullLog;
-  bool m_firstPoll;
-  bool m_stop;
+  std::atomic<bool> m_processing;
+  std::atomic<bool> m_firstPoll;
+  std::atomic<bool> m_stop;
   Mutex m_mutex;
 };
 /*! @} */

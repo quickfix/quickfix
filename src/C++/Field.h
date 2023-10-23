@@ -54,12 +54,12 @@ class FieldBase
   {
   public:
 
-    field_metrics( const size_t length, const int checksum )
+    field_metrics( const int length, const int checksum )
       : m_length( length )
       , m_checksum( checksum )
     {}
 
-    size_t getLength() const
+    int getLength() const
     { return m_length; }
 
     int getCheckSum() const
@@ -70,7 +70,7 @@ class FieldBase
 
   private:
 
-    size_t m_length;
+    int m_length;
     int m_checksum;
   };
 
@@ -127,7 +127,7 @@ public:
     m_data.clear();
   }
 
-  /// @deprecated Use setTag
+  [[deprecated("Use setTag")]]
   void setField( int field )
   {
     setTag( field );
@@ -144,7 +144,7 @@ public:
   int getTag() const
   { return m_tag; }
 
-  /// @deprecated Use getTag
+  [[deprecated("Use getTag")]]
   int getField() const
   { return getTag(); }
 
@@ -162,7 +162,7 @@ public:
   }
 
   /// Get the length of the fields string representation
-  size_t getLength() const
+  int getLength() const
   {
     calculate();
     return m_metrics.getLength();
@@ -223,7 +223,7 @@ private:
     std::distance(start, end, d);
     return field_metrics( d, checksum );
 #else
-    return field_metrics( std::distance( start, end ), checksum );
+    return field_metrics( static_cast<int>(std::distance( start, end )), checksum );
 #endif
   }
 
@@ -419,6 +419,30 @@ public:
     { return getValue(); }
 };
 
+// A generic template-based int field type would be more elegant; a specific field
+// specialization could be declared for any required intN_t but this does not go
+// well with SWIG (it looks breaking the inheritance chain on a template).
+//
+/// Field that contains a 64-bit integer value
+class Int64Field : public FieldBase
+{
+public:
+  explicit Int64Field( int field, int64_t data )
+: FieldBase( field, Int64Convertor::convert( data ) ) {}
+  Int64Field( int field )
+: FieldBase( field, "" ) {}
+
+  void setValue( int64_t value )
+    { setString( Int64Convertor::convert( value ) ); }
+  int64_t getValue() const EXCEPT ( IncorrectDataFormat )
+    { try
+      { return Int64Convertor::convert( getString() ); }
+      catch( FieldConvertError& )
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
+  operator int64_t() const
+    { return getValue(); }
+};
+
 /// Field that contains a boolean value
 class BoolField : public FieldBase
 {
@@ -446,7 +470,7 @@ public:
   explicit UtcTimeStampField( int field, const UtcTimeStamp& data, int precision = 0 )
 : FieldBase( field, UtcTimeStampConvertor::convert( data, precision ) ) {}
   UtcTimeStampField( int field, int precision = 0 )
-: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), precision ) ) {}
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp::now(), precision ) ) {}
 
   void setValue( const UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
@@ -559,6 +583,7 @@ typedef UtcDateField UtcDateOnlyField;
 typedef IntField LengthField;
 typedef IntField NumInGroupField;
 typedef IntField SeqNumField;
+typedef IntField TagNumField;
 typedef DoubleField PercentageField;
 typedef StringField CountryField;
 typedef StringField TzTimeOnlyField;
@@ -567,20 +592,34 @@ typedef StringField TzTimeStampField;
 
 #define DEFINE_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
+static constexpr int tag = NUM; \
 NAME() : TOK##Field(NUM) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 }
 
+#define DEFINE_TRIVIAL_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
+class NAME : public TOK##Field { public: \
+static constexpr int tag = NUM; \
+NAME() : TOK##Field(NUM) {} \
+NAME(TYPE value) : TOK##Field(NUM, value) {} \
+}
+
 #define DEFINE_FIELD_CLASS( NAME, TOK, TYPE ) \
 DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
+
+#define DEFINE_TRIVIAL_FIELD_CLASS( NAME, TOK, TYPE ) \
+DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
 
 #define DEFINE_DEPRECATED_FIELD_CLASS( NAME, TOK, TYPE ) \
 DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
 #define DEFINE_FIELD_TIMECLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
-NAME() : TOK##Field(NUM, false) {} \
-NAME(int precision) : TOK##Field(NUM, precision) {} \
+static constexpr int tag = NUM; \
+static NAME now() { return NAME(TYPE::now()); } \
+static NAME now(int precision) { return NAME(TYPE::now(), precision); } \
+NAME() : TOK##Field(NUM, TYPE::now(), false) {} \
+NAME(int precision) : TOK##Field(NUM, TYPE::now(), precision) {} \
 NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 NAME(const TYPE& value, int precision) : TOK##Field(NUM, value, precision) {} \
 }
@@ -592,7 +631,7 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
 DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
 #define DEFINE_CHECKSUM( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, CheckSum, FIX::INT)
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, CheckSum, FIX::INT)
 #define DEFINE_STRING( NAME ) \
   DEFINE_FIELD_CLASS(NAME, String, FIX::STRING)
 #define DEFINE_CHAR( NAME ) \
@@ -600,7 +639,9 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define DEFINE_PRICE( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Price, FIX::PRICE)
 #define DEFINE_INT( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, Int, FIX::INT)
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, Int, FIX::INT)
+#define DEFINE_INT64( NAME ) \
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, Int64, FIX::INT64)
 #define DEFINE_AMT( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Amt, FIX::AMT)
 #define DEFINE_QTY( NAME ) \
@@ -619,6 +660,8 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
   DEFINE_FIELD_TIMECLASS(NAME, UtcTimeStamp, FIX::UTCTIMESTAMP)
 #define DEFINE_BOOLEAN( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Bool, FIX::BOOLEAN)
+#define DEFINE_LOCALMKTTIME( NAME ) \
+  DEFINE_FIELD_CLASS(NAME, String, FIX::LOCALMKTTIME)
 #define DEFINE_LOCALMKTDATE( NAME ) \
   DEFINE_FIELD_CLASS(NAME, String, FIX::LOCALMKTDATE)
 #define DEFINE_DATA( NAME ) \
@@ -638,11 +681,13 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define DEFINE_UTCTIMEONLY( NAME ) \
   DEFINE_FIELD_CLASS(NAME, UtcTimeOnly, FIX::UTCTIMEONLY)
 #define DEFINE_NUMINGROUP( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, NumInGroup, FIX::NUMINGROUP)
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, NumInGroup, FIX::NUMINGROUP)
 #define DEFINE_SEQNUM( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, SeqNum, FIX::SEQNUM)
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, SeqNum, FIX::SEQNUM)
+#define DEFINE_TAGNUM( NAME ) \
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, TagNum, FIX::TAGNUM)
 #define DEFINE_LENGTH( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, Length, FIX::LENGTH)
+  DEFINE_TRIVIAL_FIELD_CLASS(NAME, Length, FIX::LENGTH)
 #define DEFINE_PERCENTAGE( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Percentage, FIX::PERCENTAGE)
 #define DEFINE_COUNTRY( NAME ) \
@@ -655,6 +700,10 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
   DEFINE_FIELD_CLASS(NAME, String, FIX::XMLDATA)
 #define DEFINE_LANGUAGE( NAME ) \
   DEFINE_FIELD_CLASS(NAME, String, FIX::LANGUAGE)
+#define DEFINE_XID( NAME ) \
+  DEFINE_FIELD_CLASS(NAME, String, FIX::XID)
+#define DEFINE_XIDREF( NAME ) \
+  DEFINE_FIELD_CLASS(NAME, String, FIX::XIDREF)
 
 #define USER_DEFINE_STRING( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::STRING, NUM)
@@ -663,7 +712,7 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define USER_DEFINE_PRICE( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, Price, FIX::PRICE, NUM)
 #define USER_DEFINE_INT( NAME, NUM ) \
-  DEFINE_FIELD_CLASS_NUM(NAME, Int, FIX::INT, NUM)
+  DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, Int, FIX::INT, NUM)
 #define USER_DEFINE_AMT( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, Amt, FIX::AMT, NUM)
 #define USER_DEFINE_QTY( NAME, NUM ) \
@@ -682,6 +731,8 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
   DEFINE_FIELD_TIMECLASS_NUM(NAME, UtcTimeStamp, FIX::UTCTIMESTAMP, NUM)
 #define USER_DEFINE_BOOLEAN( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, Bool, FIX::BOOLEAN, NUM)
+#define USER_DEFINE_LOCALMKTTIME( NAME, NUM ) \
+  DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::LOCALMKTTIME, NUM)
 #define USER_DEFINE_LOCALMKTDATE( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::STRING, NUM)
 #define USER_DEFINE_DATA( NAME, NUM ) \
@@ -701,11 +752,13 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define USER_DEFINE_UTCTIMEONLY( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeOnly, FIX::UTCTIMEONLY, NUM)
 #define USER_DEFINE_NUMINGROUP( NAME, NUM ) \
-  DEFINE_FIELD_CLASS_NUM(NAME, NumInGroup, FIX::NUMINGROUP, NUM)
+  DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, NumInGroup, FIX::NUMINGROUP, NUM)
 #define USER_DEFINE_SEQNUM( NAME, NUM ) \
-  DEFINE_FIELD_CLASS_NUM(NAME, SeqNum, FIX::SEQNUM, NUM)
+  DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, SeqNum, FIX::SEQNUM, NUM)
+#define USER_DEFINE_TAGNUM( NAME, NUM ) \
+  DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, TagNum, FIX::TAGNUM, NUM)
 #define USER_DEFINE_LENGTH( NAME, NUM ) \
-  DEFINE_FIELD_CLASS_NUM(NAME, Length, FIX::LENGTH, NUM)
+  DEFINE_TRIVIAL_FIELD_CLASS_NUM(NAME, Length, FIX::LENGTH, NUM)
 #define USER_DEFINE_PERCENTAGE( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, Percentage, FIX::PERCENTAGE, NUM)
 #define USER_DEFINE_COUNTRY( NAME, NUM ) \
@@ -718,6 +771,10 @@ DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
   DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::XMLDATA, NUM)
 #define USER_DEFINE_LANGUAGE( NAME, NUM ) \
   DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::LANGUAGE, NUM)
+#define USER_DEFINE_XID( NAME, NUM ) \
+  DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::XID, NUM)
+#define USER_DEFINE_XIDREF( NAME, NUM ) \
+  DEFINE_FIELD_CLASS_NUM(NAME, String, FIX::XIDREF, NUM)
 
 #endif
 

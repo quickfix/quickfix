@@ -176,18 +176,18 @@ private:
 
   bool readSettings(const SessionSettings &);
 
-  typedef std::set< socket_handle > Sockets;
-  typedef std::set< SessionID > Sessions;
-  typedef std::map< int, Sessions > PortToSessions;
-  typedef std::map< socket_handle, int > SocketToPort;
-  typedef std::pair< socket_handle, SSL * > SocketKey;
-  typedef std::map< SocketKey, thread_id > SocketToThread;
+  typedef std::set<socket_handle> Sockets;
+  typedef std::set<SessionID> Sessions;
+  typedef std::map<int, Sessions> PortToSessions;
+  typedef std::map<socket_handle, int> SocketToPort;
+  typedef std::pair<socket_handle, SSL *> SocketKey;
+  typedef std::map<SocketKey, thread_id> SocketToThread;
 
   void onConfigure(const SessionSettings &) EXCEPT (ConfigError);
   void onInitialize(const SessionSettings &) EXCEPT (RuntimeError);
 
   void onStart();
-  bool onPoll(double timeout);
+  bool onPoll();
   void onStop();
 
   void addThread(SocketKey s, thread_id t);

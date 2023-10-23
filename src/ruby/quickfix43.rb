@@ -2397,60 +2397,6 @@ class NewOrderCross < Message
 	end
 end
 
-class CrossOrderCancelRequest < Message
-	def initialize
-		super
-		getHeader().setField( Quickfix::MsgType.new("u") )
-	end
-
-	class NoSecurityAltID < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(3)
-			order[0] = 455
-			order[1] = 456
-			order[2] = 0
-			super(454, 455, order)
-		end
-	end
-
-	class NoSides < Quickfix::Group
-		def initialize
-			order = Quickfix::IntArray.new(18)
-			order[0] = 54
-			order[1] = 41
-			order[2] = 11
-			order[3] = 526
-			order[4] = 583
-			order[5] = 586
-			order[6] = 453
-			order[7] = 229
-			order[8] = 38
-			order[9] = 152
-			order[10] = 516
-			order[11] = 468
-			order[12] = 469
-			order[13] = 376
-			order[14] = 58
-			order[15] = 354
-			order[16] = 355
-			order[17] = 0
-			super(552, 54, order)
-		end
-
-		class NoPartyIDs < Quickfix::Group
-			def initialize
-				order = Quickfix::IntArray.new(5)
-				order[0] = 448
-				order[1] = 447
-				order[2] = 452
-				order[3] = 523
-				order[4] = 0
-				super(453, 448, order)
-			end
-		end
-	end
-end
-
 class CrossOrderCancelReplaceRequest < Message
 	def initialize
 		super
@@ -2566,6 +2512,60 @@ class CrossOrderCancelReplaceRequest < Message
 			order[1] = 625
 			order[2] = 0
 			super(386, 336, order)
+		end
+	end
+end
+
+class CrossOrderCancelRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("u") )
+	end
+
+	class NoSecurityAltID < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(3)
+			order[0] = 455
+			order[1] = 456
+			order[2] = 0
+			super(454, 455, order)
+		end
+	end
+
+	class NoSides < Quickfix::Group
+		def initialize
+			order = Quickfix::IntArray.new(18)
+			order[0] = 54
+			order[1] = 41
+			order[2] = 11
+			order[3] = 526
+			order[4] = 583
+			order[5] = 586
+			order[6] = 453
+			order[7] = 229
+			order[8] = 38
+			order[9] = 152
+			order[10] = 516
+			order[11] = 468
+			order[12] = 469
+			order[13] = 376
+			order[14] = 58
+			order[15] = 354
+			order[16] = 355
+			order[17] = 0
+			super(552, 54, order)
+		end
+
+		class NoPartyIDs < Quickfix::Group
+			def initialize
+				order = Quickfix::IntArray.new(5)
+				order[0] = 448
+				order[1] = 447
+				order[2] = 452
+				order[3] = 523
+				order[4] = 0
+				super(453, 448, order)
+			end
 		end
 	end
 end

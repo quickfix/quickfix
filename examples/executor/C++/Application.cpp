@@ -65,7 +65,7 @@ void Application::onMessage( const FIX40::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );
@@ -112,7 +112,7 @@ void Application::onMessage( const FIX41::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );
@@ -161,7 +161,7 @@ void Application::onMessage( const FIX42::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );
@@ -210,7 +210,7 @@ void Application::onMessage( const FIX43::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );
@@ -258,7 +258,7 @@ void Application::onMessage( const FIX44::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );
@@ -306,7 +306,7 @@ void Application::onMessage( const FIX50::NewOrderSingle& message,
   message.get( ordType );
 
   if ( ordType != FIX::OrdType_LIMIT )
-    throw FIX::IncorrectTagValue( ordType.getField() );
+    throw FIX::IncorrectTagValue( ordType.getTag() );
 
   message.get( symbol );
   message.get( side );

@@ -44,17 +44,17 @@ const std::string PostgreSQLStoreFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
 PostgreSQLStore::PostgreSQLStore
-( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
-: m_pConnectionPool( p ), m_sessionID( s )
+( const UtcTimeStamp& now, const SessionID& sessionID, const DatabaseConnectionID& connection, PostgreSQLConnectionPool* pool)
+: m_cache( now ), m_pConnectionPool( pool ), m_sessionID( sessionID )
 {
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pConnection = m_pConnectionPool->create( connection );
   populateCache();
 }
 
 PostgreSQLStore::PostgreSQLStore
-( const SessionID& s, const std::string& database, const std::string& user,
+( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_pConnectionPool( 0 ), m_sessionID( s )
+  : m_cache( now ), m_pConnectionPool( 0 ), m_sessionID( sessionID )
 {
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
   populateCache();
@@ -98,7 +98,7 @@ void PostgreSQLStore::populateCache()
   else
   {
     UtcTimeStamp time = m_cache.getCreationTime();
-    char sqlTime[ 20 ];
+    char sqlTime[ 100 ];
     int year, month, day, hour, minute, second, millis;
     time.getYMD (year, month, day);
     time.getHMS (hour, minute, second, millis);
@@ -121,20 +121,20 @@ void PostgreSQLStore::populateCache()
   }
 }
 
-MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
+MessageStore* PostgreSQLStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
 {
   if( m_useSettings )
-    return create( s, m_settings.get(s) );
+    return create( now, sessionID, m_settings.get( sessionID ) );
   else if( m_useDictionary )
-    return create( s, m_dictionary );
+    return create( now, sessionID, m_dictionary );
   else
   {
     DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
-    return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
+    return new PostgreSQLStore( now, sessionID, id, m_connectionPoolPtr.get() );
   }
 }
 
-MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
+MessageStore* PostgreSQLStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID, const Dictionary& settings )
 {
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
@@ -158,7 +158,7 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictiona
   catch( ConfigError& ) {}
 
   DatabaseConnectionID id( database, user, password, host, port );
-  return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
+  return new PostgreSQLStore( now, sessionID, id, m_connectionPoolPtr.get() );
 }
 
 void PostgreSQLStoreFactory::destroy( MessageStore* pStore )
@@ -285,7 +285,7 @@ UtcTimeStamp PostgreSQLStore::getCreationTime() const EXCEPT ( IOException )
   return m_cache.getCreationTime();
 }
 
-void PostgreSQLStore::reset() EXCEPT ( IOException )
+void PostgreSQLStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
@@ -298,14 +298,14 @@ void PostgreSQLStore::reset() EXCEPT ( IOException )
   if( !m_pConnection->execute(query) )
     query.throwException();
 
-  m_cache.reset();
+  m_cache.reset( now );
   UtcTimeStamp time = m_cache.getCreationTime();
 
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );
 
-  char sqlTime[ 20 ];
+  char sqlTime[ 100 ];
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
@@ -325,7 +325,7 @@ void PostgreSQLStore::reset() EXCEPT ( IOException )
 
 void PostgreSQLStore::refresh() EXCEPT ( IOException )
 {
-  m_cache.reset();
+  m_cache.reset( UtcTimeStamp::now() );
   populateCache(); 
 }
 

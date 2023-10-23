@@ -12,7 +12,10 @@ namespace FIX50SP1
     QuoteStatusReport() : Message(MsgType()) {}
     QuoteStatusReport(const FIX::Message& m) : Message(m) {}
     QuoteStatusReport(const Message& m) : Message(m) {}
-    QuoteStatusReport(const QuoteStatusReport& m) : Message(m) {}
+    QuoteStatusReport(const QuoteStatusReport&) = default;
+    QuoteStatusReport(QuoteStatusReport&&) = default;
+    QuoteStatusReport& operator=(const QuoteStatusReport&) = default;
+    QuoteStatusReport& operator=(QuoteStatusReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AI"); }
 
     FIELD_SET(*this, FIX::QuoteStatusReqID);
@@ -283,7 +286,7 @@ namespace FIX50SP1
     class NoLegs: public FIX::Group
     {
     public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,687,685,690,587,588,683,539,0)) {}
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,566,687,685,690,587,588,683,539,0)) {}
       FIELD_SET(*this, FIX::LegSymbol);
       FIELD_SET(*this, FIX::LegSymbolSfx);
       FIELD_SET(*this, FIX::LegSecurityID);
@@ -342,6 +345,7 @@ namespace FIX50SP1
       FIELD_SET(*this, FIX::LegInterestAccrualDate);
       FIELD_SET(*this, FIX::LegPutOrCall);
       FIELD_SET(*this, FIX::LegOptionRatio);
+      FIELD_SET(*this, FIX::LegPrice);
       FIELD_SET(*this, FIX::LegQty);
       FIELD_SET(*this, FIX::LegOrderQty);
       FIELD_SET(*this, FIX::LegSwapType);

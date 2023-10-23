@@ -12,7 +12,10 @@ namespace FIX44
     MarketDataRequest() : Message(MsgType()) {}
     MarketDataRequest(const FIX::Message& m) : Message(m) {}
     MarketDataRequest(const Message& m) : Message(m) {}
-    MarketDataRequest(const MarketDataRequest& m) : Message(m) {}
+    MarketDataRequest(const MarketDataRequest&) = default;
+    MarketDataRequest(MarketDataRequest&&) = default;
+    MarketDataRequest& operator=(const MarketDataRequest&) = default;
+    MarketDataRequest& operator=(MarketDataRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("V"); }
 
     MarketDataRequest(

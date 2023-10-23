@@ -241,7 +241,7 @@ void ThreadedSSLSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSSLSocketInitiator::onPoll(double timeout) { return false; }
+bool ThreadedSSLSocketInitiator::onPoll() { return false; }
 
 void ThreadedSSLSocketInitiator::onStop()
 {
@@ -283,7 +283,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
   try
   {
     Session *session = Session::lookupSession(s);
-    if (!session->isSessionTime(UtcTimeStamp()))
+    if (!session->isSessionTime(UtcTimeStamp::now()))
       return;
 
     Log *log = session->getLog();
@@ -403,7 +403,7 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
   pInitiator->setConnected(sessionID);
   pInitiator->getLog()->onEvent("Connection succeeded");
 
-  pSession->next();
+  pSession->next( UtcTimeStamp::now() );
 
   while (pConnection->read())
   {

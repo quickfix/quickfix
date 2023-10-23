@@ -19,6 +19,7 @@
 **
 ****************************************************************************/
 
+#include "FixFields.h"
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
 #include "stdafx.h"
@@ -52,18 +53,18 @@ long testDoubleToString( int );
 long testStringToDouble( int );
 long testCreateHeartbeat( int );
 long testIdentifyType( int );
-long testSerializeToStringHeartbeat( int );
-long testSerializeFromStringHeartbeat( int );
-long testSerializeFromStringAndValidateHeartbeat( int );
+long testSerializeHeartbeat( int );
+long testDeserializeHeartbeat( int );
+long testDeserializeAndValidateHeartbeat( int );
 long testCreateNewOrderSingle( int );
-long testSerializeToStringNewOrderSingle( int );
-long testSerializeFromStringNewOrderSingle( int );
-long testSerializeFromStringAndValidateNewOrderSingle( int );
+long testSerializeNewOrderSingle( int );
+long testDeserializeNewOrderSingle( int );
+long testDeserializeAndValidateNewOrderSingle( int );
 long testCreateQuoteRequest( int );
 long testReadFromQuoteRequest( int );
-long testSerializeToStringQuoteRequest( int );
-long testSerializeFromStringQuoteRequest( int );
-long testSerializeFromStringAndValidateQuoteRequest( int );
+long testSerializeQuoteRequest( int );
+long testDeserializeQuoteRequest( int );
+long testDeserializeAndValidateQuoteRequest( int );
 long testFileStoreNewOrderSingle( int );
 long testValidateNewOrderSingle( int );
 long testValidateDictNewOrderSingle( int );
@@ -79,14 +80,14 @@ long GetTickCount()
 {
   timeval tv;
   gettimeofday( &tv, 0 );
-  long millsec = tv.tv_sec * 1000;
-  millsec += ( long ) tv.tv_usec / ( 1000 );
+  long microsec = tv.tv_sec * 1e6;
+  microsec += ( long ) tv.tv_usec;
 
-  return ( long ) millsec;
+  return ( long ) microsec;
 }
 #endif
 
-SmartPtr<FIX::DataDictionary> s_dataDictionary;
+std::unique_ptr<FIX::DataDictionary> s_dataDictionary;
 const bool VALIDATE = true;
 const bool DONT_VALIDATE = false;
 
@@ -110,97 +111,108 @@ int main( int argc, char** argv )
       std::cout << "usage: "
       << argv[ 0 ]
       << " -p port -c count" << std::endl;
-      return 1;
+      return EXIT_FAILURE;
     }
   }
 
-  s_dataDictionary.reset( new FIX::DataDictionary( "../spec/FIX42.xml" ) );
+  try
+  {
+    s_dataDictionary.reset( new FIX::DataDictionary( "../spec/FIX42.xml" ) );
 
-  std::cout << "Converting integers to strings: ";
-  report( testIntegerToString( count ), count );
+    std::cout << "Converting integers to strings: ";
+    report( testIntegerToString( count ), count );
 
-  std::cout << "Converting strings to integers: ";
-  report( testStringToInteger( count ), count );
+    std::cout << "Converting strings to integers: ";
+    report( testStringToInteger( count ), count );
 
-  std::cout << "Converting doubles to strings: ";
-  report( testDoubleToString( count ), count );
+    std::cout << "Converting doubles to strings: ";
+    report( testDoubleToString( count ), count );
 
-  std::cout << "Converting strings to doubles: ";
-  report( testStringToDouble( count ), count );
+    std::cout << "Converting strings to doubles: ";
+    report( testStringToDouble( count ), count );
 
-  std::cout << "Creating Heartbeat messages: ";
-  report( testCreateHeartbeat( count ), count );
+    std::cout << "Creating Heartbeat messages: ";
+    report( testCreateHeartbeat( count ), count );
 
-  std::cout << "Identifying message types: ";
-  report( testIdentifyType( count ), count );
+    std::cout << "Identifying message types: ";
+    report( testIdentifyType( count ), count );
 
-  std::cout << "Serializing Heartbeat messages to strings: ";
-  report( testSerializeToStringHeartbeat( count ), count );
+    std::cout << "Serializing Heartbeat messages: ";
+    report( testSerializeHeartbeat( count ), count );
 
-  std::cout << "Serializing Heartbeat messages from strings: ";
-  report( testSerializeFromStringHeartbeat( count ), count );
+    std::cout << "Deserializing Heartbeat messages: ";
+    report( testDeserializeHeartbeat( count ), count );
 
-  std::cout << "Serializing Heartbeat messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateHeartbeat( count ), count );
+    std::cout << "Deserializing and validating Heartbeat messages: ";
+    report( testDeserializeAndValidateHeartbeat( count ), count );
 
-  std::cout << "Creating NewOrderSingle messages: ";
-  report( testCreateNewOrderSingle( count ), count );
+    std::cout << "Creating NewOrderSingle messages: ";
+    report( testCreateNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages to strings: ";
-  report( testSerializeToStringNewOrderSingle( count ), count );
+    std::cout << "Serializing NewOrderSingle messages: ";
+    report( testSerializeNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages from strings: ";
-  report( testSerializeFromStringNewOrderSingle( count ), count );
+    std::cout << "Deserializing NewOrderSingle messages: ";
+    report( testDeserializeNewOrderSingle( count ), count );
 
-  std::cout << "Serializing NewOrderSingle messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateNewOrderSingle( count ), count );
+    std::cout << "Deserializing and validating NewOrderSingle messages: ";
+    report( testDeserializeAndValidateNewOrderSingle( count ), count );
 
-  std::cout << "Creating QuoteRequest messages: ";
-  report( testCreateQuoteRequest( count ), count );
+    std::cout << "Creating QuoteRequest messages: ";
+    report( testCreateQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages to strings: ";
-  report( testSerializeToStringQuoteRequest( count ), count );
+    std::cout << "Serializing QuoteRequest messages: ";
+    report( testSerializeQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages from strings: ";
-  report( testSerializeFromStringQuoteRequest( count ), count );
+    std::cout << "Deserializing QuoteRequest messages: ";
+    report( testDeserializeQuoteRequest( count ), count );
 
-  std::cout << "Serializing QuoteRequest messages from strings and validation: ";
-  report( testSerializeFromStringAndValidateQuoteRequest( count ), count );
+    std::cout << "Deserializing and validating QuoteRequest messages: ";
+    report( testDeserializeAndValidateQuoteRequest( count ), count );
 
-  std::cout << "Reading fields from QuoteRequest message: ";
-  report( testReadFromQuoteRequest( count ), count );
+    std::cout << "Reading fields from QuoteRequest message: ";
+    report( testReadFromQuoteRequest( count ), count );
 
-  std::cout << "Storing NewOrderSingle messages: ";
-  report( testFileStoreNewOrderSingle( count ), count );
+    std::cout << "Storing NewOrderSingle messages: ";
+    report( testFileStoreNewOrderSingle( count ), count );
 
-  std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
-  report( testValidateNewOrderSingle( count ), count );
+    std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
+    report( testValidateNewOrderSingle( count ), count );
 
-  std::cout << "Validating NewOrderSingle messages with data dictionary: ";
-  report( testValidateDictNewOrderSingle( count ), count );
+    std::cout << "Validating NewOrderSingle messages with data dictionary: ";
+    report( testValidateDictNewOrderSingle( count ), count );
 
-  std::cout << "Validating QuoteRequest messages with no data dictionary: ";
-  report( testValidateQuoteRequest( count ), count );
+    std::cout << "Validating QuoteRequest messages with no data dictionary: ";
+    report( testValidateQuoteRequest( count ), count );
 
-  std::cout << "Validating QuoteRequest messages with data dictionary: ";
-  report( testValidateDictQuoteRequest( count ), count );
+    std::cout << "Validating QuoteRequest messages with data dictionary: ";
+    report( testValidateDictQuoteRequest( count ), count );
 
-  std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
-  report( testSendOnSocket( count, port ), count );
+    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
+    report( testSendOnSocket( count, port ), count );
 
-  std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
-  report( testSendOnThreadedSocket( count, port ), count );
+    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
+    report( testSendOnThreadedSocket( count, port ), count );
+  }
+  catch( std::exception const& e )
+  {
+    std::cerr << e.what() << std::endl;
+    return EXIT_FAILURE;
+  }
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
-void report( long time, int count )
+void report( long total_micros, int count )
 {
-  double seconds = ( double ) time / 1000;
-  double num_per_second = count / seconds;
+  double total_seconds = static_cast<double>(total_micros) / 1e6;
+  double num_per_second = count / total_seconds;
+  double micros_per = static_cast<double>(total_micros) / count;
   std::cout << std::endl << "    num: " << count
-  << ", seconds: " << seconds
-  << ", num_per_second: " << num_per_second << std::endl;
+  << ", total_seconds: " << total_seconds
+  << ", num_per_second: " << num_per_second 
+  << ", micros_per: " << micros_per 
+  << std::endl;
 }
 
 long testIntegerToString( int count )
@@ -282,7 +294,7 @@ long testIdentifyType( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringHeartbeat( int count )
+long testSerializeHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   count = count - 1;
@@ -295,7 +307,7 @@ long testSerializeToStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringHeartbeat( int count )
+long testDeserializeHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
@@ -309,7 +321,7 @@ long testSerializeFromStringHeartbeat( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateHeartbeat( int count )
+long testDeserializeAndValidateHeartbeat( int count )
 {
   FIX42::Heartbeat message;
   std::string string = message.toString();
@@ -332,7 +344,7 @@ long testCreateNewOrderSingle( int count )
     FIX::HandlInst handlInst( '1' );
     FIX::Symbol symbol( "LNUX" );
     FIX::Side side( FIX::Side_BUY );
-    FIX::TransactTime transactTime;
+    FIX::TransactTime transactTime = FIX::TransactTime::now();
     FIX::OrdType ordType( FIX::OrdType_MARKET );
     FIX42::NewOrderSingle( clOrdID, handlInst, symbol, side, transactTime, ordType );
   }
@@ -340,13 +352,13 @@ long testCreateNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringNewOrderSingle( int count )
+long testSerializeNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -361,13 +373,13 @@ long testSerializeToStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringNewOrderSingle( int count )
+long testDeserializeNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -383,13 +395,13 @@ long testSerializeFromStringNewOrderSingle( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateNewOrderSingle( int count )
+long testDeserializeAndValidateNewOrderSingle( int count )
 {
   FIX::ClOrdID clOrdID( "ORDERID" );
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
     ( clOrdID, handlInst, symbol, side, transactTime, ordType );
@@ -450,7 +462,7 @@ long testCreateQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeToStringQuoteRequest( int count )
+long testSerializeQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -478,7 +490,7 @@ long testSerializeToStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringQuoteRequest( int count )
+long testDeserializeQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -507,7 +519,7 @@ long testSerializeFromStringQuoteRequest( int count )
   return GetTickCount() - start;
 }
 
-long testSerializeFromStringAndValidateQuoteRequest( int count )
+long testDeserializeAndValidateQuoteRequest( int count )
 {
   FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
@@ -608,15 +620,15 @@ long testFileStoreNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
   std::string messageString = message.toString();
 
-  FIX::FileStore store( "store", id );
-  store.reset();
+  FIX::FileStore store( FIX::UtcTimeStamp::now(), "store", id );
+  store.reset( FIX::UtcTimeStamp::now() );
   count = count - 1;
 
   long start = GetTickCount();
@@ -625,7 +637,7 @@ long testFileStoreNewOrderSingle( int count )
     store.set( ++i, messageString );
   }
   long end = GetTickCount();
-  store.reset();
+  store.reset( FIX::UtcTimeStamp::now() );
   return end - start;
 }
 
@@ -635,13 +647,16 @@ long testValidateNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime::now() );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   FIX::DataDictionary dataDictionary;
   count = count - 1;
@@ -660,13 +675,16 @@ long testValidateDictNewOrderSingle( int count )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime::now() );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   count = count - 1;
 
@@ -696,6 +714,13 @@ long testValidateQuoteRequest( int count )
     message.addGroup( noRelatedSym );
   }
 
+  message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
+  message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
+  message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime::now() );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
+
   FIX::DataDictionary dataDictionary;
   count = count - 1;
 
@@ -724,6 +749,13 @@ long testValidateDictQuoteRequest( int count )
     noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
     message.addGroup( noRelatedSym );
   }
+
+  message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
+  message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
+  message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+  message.getHeader().set( FIX::SendingTime::now() );
+  message.getHeader().set( FIX::BodyLength( message.calculateLength() ) );
+  message.getTrailer().set( FIX::CheckSum( message.checkSum() ));
 
   count = count - 1;
 
@@ -780,7 +812,7 @@ long testSendOnSocket( int count, short port )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message( clOrdID, handlInst, symbol, side, transactTime, ordType );
 
@@ -843,7 +875,7 @@ long testSendOnThreadedSocket( int count, short port )
   FIX::HandlInst handlInst( '1' );
   FIX::Symbol symbol( "LNUX" );
   FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
+  FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message( clOrdID, handlInst, symbol, side, transactTime, ordType );
 

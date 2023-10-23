@@ -12,7 +12,10 @@ namespace FIX50
     OrderCancelRequest() : Message(MsgType()) {}
     OrderCancelRequest(const FIX::Message& m) : Message(m) {}
     OrderCancelRequest(const Message& m) : Message(m) {}
-    OrderCancelRequest(const OrderCancelRequest& m) : Message(m) {}
+    OrderCancelRequest(const OrderCancelRequest&) = default;
+    OrderCancelRequest(OrderCancelRequest&&) = default;
+    OrderCancelRequest& operator=(const OrderCancelRequest&) = default;
+    OrderCancelRequest& operator=(OrderCancelRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("F"); }
 
     OrderCancelRequest(
@@ -97,7 +100,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);
@@ -191,7 +194,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
       FIELD_SET(*this, FIX::UnderlyingOptAttribute);
       FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
-      FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
+      FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
       FIELD_SET(*this, FIX::UnderlyingTimeUnit);
       FIELD_SET(*this, FIX::UnderlyingCouponRate);
       FIELD_SET(*this, FIX::UnderlyingSecurityExchange);

@@ -117,7 +117,11 @@
 #ifndef FIX_SSLSOCKETCONNECTION_H
 #define FIX_SSLSOCKETCONNECTION_H
 
-#if (HAVE_SSL > 0)
+#ifndef HAVE_SSL
+#error SSLSocketConnection.h included, but HAVE_SSL not defined
+#endif
+
+#ifdef HAVE_SSL
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -165,7 +169,7 @@ public:
   }
 
   void subscribeToSocketWriteAvailableEvents() {
-      m_pMonitor->signal(m_socket);
+    m_pMonitor->signal(m_socket);
   }
 
   void unsignal()
@@ -176,11 +180,11 @@ public:
   }
 
   void setHandshakeStartTime(time_t time) {
-      m_handshakeStartTime = time;
+    m_handshakeStartTime = time;
   }
 
   int getSecondsFromHandshakeStart(time_t now) {
-      return now - m_handshakeStartTime;
+    return now - m_handshakeStartTime;
   }
 
   void onTimeout();
@@ -212,7 +216,9 @@ private:
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
   mutable Mutex m_mutex;
+#ifdef _MSC_VER
   fd_set m_fds;
+#endif
   bool m_processQueueNeedsToReadData = false;
   bool m_readFromSocketNeedsToWriteData = false;
   time_t m_handshakeStartTime = 0;

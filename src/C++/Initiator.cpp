@@ -28,6 +28,8 @@
 #include "Session.h"
 #include "SessionFactory.h"
 #include "HttpServer.h"
+#include "scope_guard.hpp"
+
 #include <algorithm>
 #include <fstream>
 
@@ -42,6 +44,7 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
@@ -56,14 +59,15 @@ Initiator::Initiator( Application& application,
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 { initialize(); }
 
 void Initiator::initialize() EXCEPT ( ConfigError )
 {
-  std::set < SessionID > sessions = m_settings.getSessions();
-  std::set < SessionID > ::iterator i;
+  std::set<SessionID> sessions = m_settings.getSessions();
+  std::set<SessionID>::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );
@@ -137,7 +141,7 @@ void Initiator::connect()
   for ( ; i != disconnected.end(); ++i )
   {
     Session* pSession = Session::lookupSession( *i );
-    if ( pSession->isEnabled() && pSession->isSessionTime(UtcTimeStamp()) )
+    if ( pSession->isEnabled() && pSession->isSessionTime(UtcTimeStamp::now()) )
       doConnect( *i, m_settings.get( *i ));
   }
 }
@@ -189,28 +193,56 @@ bool Initiator::isDisconnected( const SessionID& sessionID )
 
 void Initiator::start() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::start called when already processing messages");
+  
+  m_processing = true;
   m_stop = false;
-  onConfigure( m_settings );
-  onInitialize( m_settings );
 
-  HttpServer::startGlobal( m_settings );
+  try
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings );
+
+    HttpServer::startGlobal( m_settings );
+  }
+  catch(...)
+  {
+    m_processing = false;
+    throw;
+  }
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
+  {
+    m_processing = false;
     throw RuntimeError("Unable to spawn thread");
+  }
 }
-
 
 void Initiator::block() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::block called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+  
+  m_processing = true;
   m_stop = false;
+
   onConfigure( m_settings );
   onInitialize( m_settings );
 
   startThread(this);
 }
 
-bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Initiator::poll() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Initiator::poll called when already processing messages");
+
+  auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+  m_processing = true;
   if( m_firstPoll )
   {
     m_stop = false;
@@ -220,7 +252,7 @@ bool Initiator::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Initiator::stop( bool force )
@@ -267,9 +299,8 @@ void Initiator::stop( bool force )
     thread_join( m_threadid );
   m_threadid = 0;
 
-  std::vector<Session*>::iterator session = enabledSessions.begin();
-  for( ; session != enabledSessions.end(); ++session )
-    (*session)->logon();
+  for( Session* session : enabledSessions )
+    session->logon();
 }
 
 bool Initiator::isLoggedOn()
@@ -289,6 +320,7 @@ bool Initiator::isLoggedOn()
 THREAD_PROC Initiator::startThread( void* p )
 {
   Initiator * pInitiator = static_cast < Initiator* > ( p );
+  auto guard = sg::make_scope_guard([pInitiator](){ pInitiator->m_processing = false; });
   pInitiator->onStart();
   return 0;
 }

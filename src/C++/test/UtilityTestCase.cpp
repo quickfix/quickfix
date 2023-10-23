@@ -24,176 +24,209 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
-#include <DataDictionaryProvider.h>
+#include <Utility.h>
+
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-SUITE(UtilityTests)
+namespace
 {
-
-//Do Nothing Thread For Tests
-THREAD_PROC startTestThread( void* p )
-{
-  return 0;
-}
-
-TEST(stringReplace_ReplacesAll)
-{
-  std::string value = "1~2~3~4";
-
-  //replace ~ with |
-  string_replace("~", "|", value);
-
-  std::string expected = "1|2|3|4";
-
-  CHECK_EQUAL(expected, value);
-}
-
-TEST(stringToLower_UpperCaseCharactersAllLower)
-{
-  std::string value = "ABCD";
-
-  std::string expected = "abcd";
-
-  std::string actual = string_toLower(value);
-
-  CHECK_EQUAL(expected, actual);
-}
-
-TEST(stringStrip_AllTabCharacters_NothingStripped)
-{
-  std::string value = "\t\t\t";
-
-  std::string expected = "\t\t\t";
-
-  std::string actual = string_strip(value);
-
-  CHECK_EQUAL(expected, actual);
-}
-
-TEST(socketBind_HostnameEmpty_SocketSet)
-{
-  int socket = 5000;
-  std::string hostname = "";
-  int port = 1000;
-
-  int actual = socket_bind(socket, hostname.c_str(), port);
-  // -1 expected as not a real socket to connect to
-  CHECK_EQUAL(-1, actual);
-}
-
-TEST(socketBind_HostnameSet_SocketSet)
-{
-  int socket = 5000;
-  std::string hostname = "hostname";
-  int port = 1000;
-
-  int actual = socket_bind(socket, hostname.c_str(), port);
-  // -1 expected as not a real socket to connect to
-  CHECK_EQUAL(-1, actual);
-}
-
-TEST(socketDisconnected_SocketDoesNotExist_True)
-{
-  int socket = 5000;
-  CHECK(socket_disconnected(socket));
-}
-
-TEST(socketFionRead_SocketDoesNotExist_False)
-{
-  int bytes = 10;
-  int socket = 5000;
-
-  CHECK(!socket_fionread(socket, bytes));
-}
-
-TEST(socketGetSockOpt_TCPNoDelaySet_SocketSet)
-{
-  int socket = 5000;
-  int opt = TCP_NODELAY;
-  int optval = 1;
-
-  int actual = socket_getsockopt(socket, opt, optval);
-  // -1 expected as not a real socket to connect to
-  CHECK_EQUAL(-1, actual);
-}
-
-TEST(socketIsBad_SocketDoesNotExist_True)
-{
-  int socket = 5000;
-  CHECK(socket_isBad(socket));
-}
-
-TEST(socketHostPort_SocketNameUnknown)
-{
-  int socket = 5000;
-  CHECK_EQUAL(0, socket_hostport(socket));
-}
-
-TEST(socketHostPort_SocketNameExists)
-{
-  int actualSocket = socket_createConnector();
-  socket_setsockopt( actualSocket, TCP_NODELAY );
-  std::string address = "127.0.0.1";
-  socket_connect( actualSocket, address.c_str(), 1000 );
-  CHECK(0 != socket_hostport(actualSocket));
-}
-
-TEST(socketHostName_SocketNum_SocketNameUnknown)
-{
-  int socket = 5000;
-  CHECK(0 == socket_hostname(socket));
-}
-
-TEST(socketHostName_SocketNum_SocketNameExists)
-{
-  int actualSocket = socket_createConnector();
-  socket_setsockopt( actualSocket, TCP_NODELAY );
-  std::string address = "127.0.0.1";
-  socket_connect( actualSocket, address.c_str(), 1000 );
-  CHECK(0 != socket_hostname(actualSocket));
-}
-
-TEST(socketHostName_SocketNameLocalHost_SocketNameFound)
-{
-  int actualSocket = socket_createConnector();
-  socket_setsockopt( actualSocket, TCP_NODELAY );
-  std::string address = "127.0.0.1";
-  socket_connect( actualSocket, address.c_str(), 1000 );
-  std::string local = "localhost";
-
-  CHECK(0 != socket_hostname(local.c_str()));
-}
-
-TEST(socketPeername_SocketDoesNotExist_SocketNameUnknown)
-{
-  CHECK_EQUAL("UNKNOWN", socket_peername(1000));
-}
-
-TEST(spawnThread_True)
-{
-  std::string test = "test";
-  CHECK(thread_spawn(&startTestThread, &test));
-}
-
-TEST(threadJoinAndDetach_NoException)
-{
-  bool success = true;
-  try{
-    thread_id threadSelf = thread_self();
-    thread_join(threadSelf);
-    thread_detach(threadSelf);
-  }catch(...){
-    success = false;
+  THREAD_PROC startTestThread( void* p )
+  {
+    return 0;
   }
-  CHECK(success);
 }
 
-TEST(fileExists_FileDoesNotExist)
+TEST_CASE("UtilityTests")
 {
-  std::string unknownFile = "unknownfile.txt";
-  CHECK(!file_exists(unknownFile.c_str()));
-}
+  SECTION("error_strerror")
+  {
+    std::string expected = "(errno[5]:Input/output error)";
 
+    auto error_number = EIO;
+    CHECK(expected == FIX::error_strerror(error_number));
+
+    errno = error_number;
+    CHECK(expected == FIX::error_strerror());
+  }
+
+#ifdef _MSC_VER
+  SECTION("error_wsaerror")
+  {
+    std::string expected = "(wsaerror[10048]:Only one usage of each socket address (protocol/network address/port) is normally permitted. )";
+    CHECK(expected == FIX::error_wsaerror(WSAEADDRINUSE));
+  }
+#endif
+
+  SECTION("stringReplace_ReplacesAll")
+  {
+    std::string actual = "1~2~3~4";
+    string_replace("~", "|", actual);
+    std::string expected = "1|2|3|4";
+    CHECK(expected == actual);
+  }
+
+  SECTION("stringConcat_ConcatsStrings")
+  {
+    std::string actual = string_concat("ABC", "123", "!@#", 0);
+    std::string expected = "ABC123!@#";
+    CHECK(expected == actual);
+  }
+
+  SECTION("stringToLower_UpperCaseCharactersAllLower")
+  {
+    std::string actual = string_toLower("ABCD");
+    std::string expected = "abcd";
+
+    CHECK(expected == actual);
+  }
+
+  SECTION("stringStrip_AllTabCharacters_NothingStripped")
+  {
+    std::string actual = string_strip("\t\t\t");
+    std::string expected = "\t\t\t";
+    CHECK(expected == actual);
+  }
+
+  SECTION("socketBind_HostnameEmpty_SocketSet")
+  {
+    int socket = 5000;
+    std::string hostname = "";
+    int port = 1000;
+    int actual = socket_bind(socket, hostname.c_str(), port);
+    // -1 expected as not a real socket to connect to
+    CHECK(-1 == actual);
+  }
+
+  SECTION("socketBind_HostnameSet_SocketSet")
+  {
+    int socket = 5000;
+    std::string hostname = "hostname";
+    int port = 1000;
+    int actual = socket_bind(socket, hostname.c_str(), port);
+    // -1 expected as not a real socket to connect to
+    CHECK(-1 == actual);
+  }
+
+  SECTION("socketDisconnected_SocketDoesNotExist_True")
+  {
+    int socket = 5000;
+    CHECK(socket_disconnected(socket));
+  }
+
+  SECTION("socketFionRead_SocketDoesNotExist_False")
+  {
+    int bytes = 10;
+    int socket = 5000;
+    CHECK(!socket_fionread(socket, bytes));
+  }
+
+  SECTION("socketGetSockOpt_TCPNoDelaySet_SocketSet")
+  {
+    int socket = 5000;
+    int opt = TCP_NODELAY;
+    int optval = 1;
+    int actual = socket_getsockopt(socket, opt, optval);
+    // -1 expected as not a real socket to connect to
+    CHECK(-1 == actual);
+  }
+
+#ifndef _MSC_VER
+  SECTION("socketIsBad_SocketDoesNotExist_True")
+  {
+    int socket = 5000;
+    CHECK(socket_isBad(socket));
+  }
+#endif
+
+  SECTION("socketFionRead_SocketDoesNotExist_False")
+  {
+    int bytes = 10;
+    int socket = 5000;
+    CHECK(!socket_fionread(socket, bytes));
+  }
+
+  SECTION("socketGetSockOpt_TCPNoDelaySet_SocketSet")
+  {
+    int socket = 5000;
+    int opt = TCP_NODELAY;
+    int optval = 1;
+    int actual = socket_getsockopt(socket, opt, optval);
+    // -1 expected as not a real socket to connect to
+    CHECK(-1 == actual);
+  }
+
+#ifndef _MSC_VER
+  SECTION("socketIsBad_SocketDoesNotExist_True")
+  {
+    socket_handle socket = 5000;
+    CHECK(socket_isBad(socket));
+  }
+#endif
+
+  SECTION("socketHostPort_SocketNameUnknown")
+  {
+    socket_handle socket = 5000;
+    CHECK(0 == socket_hostport(socket));
+  }
+
+  SECTION("socketHostPort_SocketNameExists")
+  {
+    socket_handle actualSocket = socket_createConnector();
+    socket_setsockopt( actualSocket, TCP_NODELAY );
+    std::string address = "127.0.0.1";
+    socket_connect( actualSocket, address.c_str(), 1000 );
+    CHECK(0 != socket_hostport(actualSocket));
+  }
+
+  SECTION("socketHostName_SocketNum_SocketNameUnknown")
+  {
+    socket_handle socket = 5000;
+    CHECK(0 == socket_hostname(socket));
+  }
+
+  SECTION("socketHostName_SocketNum_SocketNameExists")
+  {
+    socket_handle actualSocket = socket_createConnector();
+    socket_setsockopt( actualSocket, TCP_NODELAY );
+    std::string address = "127.0.0.1";
+    socket_connect( actualSocket, address.c_str(), 1000 );
+    CHECK(0 != socket_hostname(actualSocket));
+  }
+
+  SECTION("socketHostName_SocketNameLocalHost_SocketNameFound")
+  {
+    socket_handle actualSocket = socket_createConnector();
+    socket_setsockopt( actualSocket, TCP_NODELAY );
+    std::string address = "127.0.0.1";
+    socket_connect( actualSocket, address.c_str(), 1000 );
+    std::string local = "localhost";
+    CHECK(0 != socket_hostname(local.c_str()));
+  }
+
+  SECTION("socketPeername_SocketDoesNotExist_SocketNameUnknown")
+  {
+    CHECK(std::string_view("UNKNOWN") == socket_peername(1000));
+  }
+
+  SECTION("spawnThread_True")
+  {
+    std::string test = "test";
+    CHECK(thread_spawn(&startTestThread, &test));
+  }
+
+  SECTION("threadJoinAndDetach_NoException")
+  {
+    thread_id threadId;
+    CHECK_NOTHROW(thread_spawn(&startTestThread, NULL, threadId));
+    CHECK_NOTHROW(thread_join(threadId));
+    CHECK_NOTHROW(thread_detach(threadId));
+  }
+
+  SECTION("fileExists_FileDoesNotExist")
+  {
+    std::string unknownFile = "unknownfile.txt";
+    CHECK(!file_exists(unknownFile.c_str()));
+  }
 }

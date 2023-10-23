@@ -12,7 +12,10 @@ namespace FIX50SP1
     SettlementInstructions() : Message(MsgType()) {}
     SettlementInstructions(const FIX::Message& m) : Message(m) {}
     SettlementInstructions(const Message& m) : Message(m) {}
-    SettlementInstructions(const SettlementInstructions& m) : Message(m) {}
+    SettlementInstructions(const SettlementInstructions&) = default;
+    SettlementInstructions(SettlementInstructions&&) = default;
+    SettlementInstructions& operator=(const SettlementInstructions&) = default;
+    SettlementInstructions& operator=(SettlementInstructions&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("T"); }
 
     SettlementInstructions(

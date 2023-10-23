@@ -24,37 +24,39 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <SocketConnection.h>
-#include <set>
 #include <Application.h>
 #include <MessageStore.h>
 #include <Dictionary.h>
 #include <SessionSettings.h>
 #include <SocketInitiator.h>
-#include "SocketAcceptor.h"
-#include "SocketServer.h"
+#include <SocketAcceptor.h>
+#include <SocketServer.h>
+#include <Utility.h>
 #include <fix42/NewOrderSingle.h>
 #include <fix42/Logon.h>
-#include <Utility.h>
+#include <set>
 
+#include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-SUITE(SocketConnectionTests)
+TEST_CASE("SocketConnectionTests")
 {
-
-  class TestSocketMonitor : public SocketMonitor {
-  public:
-    virtual void signal( int socket ) {
+  struct TestSocketMonitor : public SocketMonitor 
+  {
+    virtual void signal( int socket ) 
+    {
       signaledSocket = socket;
     }
 
-    virtual void unsignal( int socket ) {
+    virtual void unsignal( int socket ) 
+    {
       unsignalSocket = socket;
     }
 
-    virtual bool drop( int socket ) {
+    virtual bool drop( int socket ) 
+    {
       dropSocket = socket;
       return true;
     }
@@ -62,27 +64,21 @@ SUITE(SocketConnectionTests)
     int signaledSocket = -1;
     int unsignalSocket = -1;
     int dropSocket = -1;
-
   };
 
-  class TestApplication : public FIX::NullApplication
+  struct TestApplication : public FIX::NullApplication
   {
-  public:
-    TestApplication() : m_count(0) {}
-
     void fromApp( const FIX::Message& m, const FIX::SessionID& )
     EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
     {
-      m_count++;
+      count++;
     }
 
-    int getCount() { return m_count; }
-
-  private:
-    int m_count;
+    int count = 0;
   };
 
-  class NullLogFactory : public LogFactory {
+  struct NullLogFactory : public LogFactory 
+  {
   public:
     virtual ~NullLogFactory() {}
     virtual Log* create(){return 0;}
@@ -90,14 +86,15 @@ SUITE(SocketConnectionTests)
     virtual void destroy( Log* ){}
   };
 
-  class TestSession : public Session {
-  public:
+  struct TestSession : public Session 
+  {
     TestSession(Application& app, MessageStoreFactory& factory, const SessionID& sessionId,
         DataDictionaryProvider& provider, const TimeRange& timeRange, int heartBtInt)
-    : Session(app, factory, sessionId, provider, timeRange, heartBtInt, nullptr) {};
+    : Session([](){ return UtcTimeStamp::now(); }, app, factory, sessionId, provider, timeRange, heartBtInt, nullptr) {};
     ~TestSession(){};
 
-    virtual void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false ) {
+    virtual void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false ) 
+    {
       if(nextThrowInvalidMsg)
         throw InvalidMessage();
     }
@@ -106,14 +103,14 @@ SUITE(SocketConnectionTests)
     bool nextThrowInvalidMsg = false;
   };
 
-  class TestSocketInitiator : public SocketInitiator {
-  public:
-    TestSocketInitiator(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session) :
-      SocketInitiator(app, factory, settings), pSession(session){    };
+  struct TestSocketInitiator : public SocketInitiator {
+    TestSocketInitiator(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session) 
+    : SocketInitiator(app, factory, settings), pSession(session) {};
 
     virtual ~TestSocketInitiator(){};
 
-    virtual Session* getSession( const SessionID&, Responder& responder) {
+    virtual Session* getSession( const SessionID&, Responder& responder) 
+    {
       pSession->setResponder(&responder);
       return pSession;
     }
@@ -121,14 +118,14 @@ SUITE(SocketConnectionTests)
     Session* pSession;
   };
 
-  class TestSocketAcceptor : public SocketAcceptor {
-  public:
-    TestSocketAcceptor(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session, LogFactory& log) :
-      SocketAcceptor(app, factory, settings, log), pSession(session){    };
+  struct TestSocketAcceptor : public SocketAcceptor {
+    TestSocketAcceptor(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session, LogFactory& log) 
+    : SocketAcceptor(app, factory, settings, log), pSession(session) {};
 
     virtual ~TestSocketAcceptor(){};
 
-    virtual Session* getSession(const std::string& msg, Responder& responder ) {
+    virtual Session* getSession(const std::string& msg, Responder& responder ) 
+    {
       pSession->setResponder(&responder);
       return pSession;
     }
@@ -138,15 +135,16 @@ SUITE(SocketConnectionTests)
 
   struct BaseSocketConnection
   {
-    BaseSocketConnection() {
+    BaseSocketConnection() 
+    {
       initiatorSessionID = SessionID( BeginString( "FIX.4.2" ),
           SenderCompID( "INITIATOR" ), TargetCompID( "ACCEPT" ) );
 
       acceptorSessionID = SessionID( BeginString( "FIX.4.2" ),
           SenderCompID( "ACCEPT" ), TargetCompID( "INITIATOR" ) );
 
-      initiatorProvider.addTransportDataDictionary( initiatorSessionID.getBeginString(), "../spec/FIX42.xml" );
-      acceptorProvider.addTransportDataDictionary( acceptorSessionID.getBeginString(), "../spec/FIX42.xml" );
+      initiatorProvider.addTransportDataDictionary( initiatorSessionID.getBeginString(), "../../../spec/FIX42.xml" );
+      acceptorProvider.addTransportDataDictionary( acceptorSessionID.getBeginString(), "../../../spec/FIX42.xml" );
 
       sessionTime.reset( new TimeRange(UtcTimeOnly(), UtcTimeOnly(), 0, 31));
 
@@ -178,7 +176,8 @@ SUITE(SocketConnectionTests)
       testInitiator.reset(new TestSocketInitiator(application, factory, settingsInitiator, initiatorSession.get()));
     };
 
-    ~BaseSocketConnection(){
+    ~BaseSocketConnection()
+    {
       socket_close(socket);
     };
 
@@ -208,18 +207,6 @@ SUITE(SocketConnectionTests)
 
     std::unique_ptr<SocketAcceptor> acceptor;
     int socket = 101;
-
-  };
-
-  struct NonTestSessionConnection : public BaseSocketConnection
-  {
-    NonTestSessionConnection() : BaseSocketConnection(){
-      pSocketConnection.reset(new SocketConnection( *initiator, initiatorSessionID, socket, &monitor ));
-    };
-    ~NonTestSessionConnection(){};
-
-    std::unique_ptr<SocketConnection> pSocketConnection;
-
   };
 
   struct TestSessionConnection : public BaseSocketConnection
@@ -230,41 +217,41 @@ SUITE(SocketConnectionTests)
 
     ~TestSessionConnection(){};
 
-    Session* getSession() {
-      if(pSocketConnection->getSession()) {
-        return pSocketConnection->getSession();
-      }else {
-        throw "Session is Null";
-      }
+    Session* getSession() 
+    {
+      return pSocketConnection->getSession();
     }
 
     std::unique_ptr<SocketConnection> pSocketConnection;
   };
 
-
-  TEST_FIXTURE(NonTestSessionConnection, socketTimeout_SessionIsNotNull)
+  SECTION("socketTimeout_SessionIsNotNull")
   {
-    pSocketConnection->onTimeout();
-    Session* session = pSocketConnection->getSession();
-    CHECK(session != nullptr);
+    TestSessionConnection connection;
+    connection.pSocketConnection->onTimeout();
+    Session* session = connection.pSocketConnection->getSession();
+    CHECK(nullptr != session);
   }
 
-  TEST_FIXTURE(TestSessionConnection, ReadSocket_SessionMissing_NoMessagesRead)
+  SECTION("ReadSocket_SessionMissing_NoMessagesRead")
   {
+    TestSessionConnection connection;
     std::set<SessionID> sessions;
-    pSocketConnection.reset(new SocketConnection( socket, sessions, &monitor ));
+    connection.pSocketConnection.reset(new SocketConnection( 
+      connection.socket, sessions, &connection.monitor ));
 
     SocketConnector connector;
-    CHECK(!pSocketConnection->read(connector));
+    CHECK(!connection.pSocketConnection->read(connector));
   }
 
-  TEST_FIXTURE(TestSessionConnection, ReadSocket_SocketException_ReadFailed)
+  SECTION("ReadSocket_SocketException_ReadFailed")
   {
-    Session* session = getSession();
+    TestSessionConnection connection;
+    Session* session = connection.getSession();
+    CHECK(nullptr != session);
     session->disconnect();
 
     SocketConnector connector;
-    CHECK(!pSocketConnection->read(connector));
+    CHECK(!connection.pSocketConnection->read(connector));
   }
-
 }

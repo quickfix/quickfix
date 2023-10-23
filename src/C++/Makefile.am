@@ -1,16 +1,9 @@
-if NO_UNIT_TEST
-SUBDIRS =
-else
-SUBDIRS = test
-endif
-
-LEX += -+ -olex.yy.c
+SUBDIRS = . test
 
 lib_LTLIBRARIES = libquickfix.la
 
 libquickfix_la_SOURCES = \
 	Allocator.h \
-	AtomicCount.h \
 	Session.cpp \
 	Session.h \
 	TimeRange.cpp \
@@ -39,8 +32,9 @@ libquickfix_la_SOURCES = \
 	SocketAcceptor.h \
 	SocketInitiator.cpp \
 	SocketInitiator.h \
-	SocketMonitor.cpp \
 	SocketMonitor.h \
+	SocketMonitor_UNIX.h \
+	SocketMonitor_UNIX.cpp \
 	SocketConnection.cpp \
 	SocketConnection.h \
 	ThreadedSocketAcceptor.cpp \
@@ -63,6 +57,11 @@ libquickfix_la_SOURCES = \
 	PostgreSQLStore.h \
 	PostgreSQLLog.cpp \
 	PostgreSQLLog.h \
+	OdbcConnection.h \
+	OdbcStore.cpp \
+	OdbcStore.h \
+	OdbcLog.cpp \
+	OdbcLog.h \
 	DatabaseConnectionID.h \
 	DatabaseConnectionPool.h \
 	Dictionary.cpp \
@@ -83,6 +82,8 @@ libquickfix_la_SOURCES = \
 	Fields.h \
 	FieldMap.cpp \
 	FieldMap.h \
+	FixCommonFields.h \
+	FixFields.h \
 	Message.cpp \
 	Message.h \
 	Group.cpp \
@@ -110,16 +111,15 @@ libquickfix_la_SOURCES = \
 	Utility.h \
 	Values.h \
 	DeprecatedValues.h \
-	FlexLexer.h \
 	DOMDocument.h \
 	PUGIXML_DOMDocument.cpp \
 	PUGIXML_DOMDocument.h \
 	pugixml.cpp \
 	pugixml.hpp \
 	pugiconfig.hpp \
+	scope_guard.hpp \
 	MessageCracker.h \
-	Responder.h \
-	wx/sharedptr.h
+	Responder.h
 
 if HAVE_SSL
 libquickfix_la_ssl_SOURCES = ThreadedSSLSocketAcceptor.cpp \
@@ -145,7 +145,7 @@ libquickfix_la_SOURCES += $(libquickfix_la_ssl_SOURCES)
 BUILT_SOURCES = Allocator.h
 CLEANFILES = Allocator.h
 Allocator.h: Makefile
-	grep "_ALLOCATOR" config.h >$@
+	grep "_ALLOCATOR" config_unix.h >$@
 
 all-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
@@ -158,7 +158,6 @@ all-local:
 	ln -s ../src/C++/.libs/libquickfix.dylib $(top_builddir)/lib/libquickfix.dylib
 	bash ./copy.sh $(top_builddir)/include/quickfix *.h
 	bash ./copy.sh $(top_builddir)/include/quickfix fix*/*.h
-	bash ./copy.sh $(top_builddir)/include/quickfix wx/*.h
 
 clean-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
@@ -177,7 +176,6 @@ install-exec-local: *.h
 	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp1
 	mkdir $(DESTDIR)$(pkgincludedir)/fix50sp2
 	mkdir $(DESTDIR)$(pkgincludedir)/fixt11
-	mkdir $(DESTDIR)$(pkgincludedir)/wx
 	cp *.h $(DESTDIR)$(pkgincludedir)
 	cp fix40/*.h $(DESTDIR)$(pkgincludedir)/fix40
 	cp fix41/*.h $(DESTDIR)$(pkgincludedir)/fix41
@@ -188,7 +186,6 @@ install-exec-local: *.h
 	cp fix50sp1/*.h $(DESTDIR)$(pkgincludedir)/fix50sp1
 	cp fix50sp2/*.h $(DESTDIR)$(pkgincludedir)/fix50sp2
 	cp fixt11/*.h $(DESTDIR)$(pkgincludedir)/fixt11
-	cp wx/*.h $(DESTDIR)$(pkgincludedir)/wx
 
 uninstall-local:
 	rm -rf $(DESTDIR)$(pkgincludedir)
@@ -197,4 +194,4 @@ EXTRA_DIST = strptime.c strptime.h
 
 libquickfix_la_LDFLAGS = -version-info 17:0:0
 
-INCLUDES =-I. -I.. -I../..
+AM_CPPFLAGS =-I. -I.. -I../..

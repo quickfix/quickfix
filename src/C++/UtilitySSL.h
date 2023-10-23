@@ -206,8 +206,6 @@ X509_STORE *createX509Store(const char *cpFile, const char *cpPath);
 X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam);
 EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
                          passPhraseHandleCallbackType cb, void* passwordCallbackParam);
-
-char *strCat(const char *a, ...);
 }
 
 int setSocketNonBlocking(socket_handle pSocket);
@@ -216,7 +214,8 @@ int setSocketNonBlocking(socket_handle pSocket);
 #define SSL_ALGO_UNKNOWN 0
 #define SSL_ALGO_RSA 1
 #define SSL_ALGO_DSA 2
-#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA)
+#define SSL_ALGO_EC 8  // 8 to match SSL's own enum
+#define SSL_ALGO_ALL (SSL_ALGO_RSA | SSL_ALGO_DSA | SSL_ALGO_EC)
 
 /*
  * Define the SSL Protocol options

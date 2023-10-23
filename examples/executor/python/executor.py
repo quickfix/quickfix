@@ -1,5 +1,6 @@
 import sys
 import time
+import traceback
 import quickfix as fix
 
 class Application(fix.Application):
@@ -65,10 +66,10 @@ class Application(fix.Application):
 
 	def genOrderID(self):
 		self.orderID = self.orderID+1
-		return self.orderID
+		return str(self.orderID)
 	def genExecID(self):
 		self.execID = self.execID+1
-		return self.execID
+		return str(self.execID)
 
 try:
 	file = sys.argv[1]
@@ -80,6 +81,6 @@ try:
 	acceptor.start()
 
 	while 1:
-	      time.sleep(1)
+		time.sleep(1)
 except (fix.ConfigError, fix.RuntimeError) as e:
-	print(e)
+	traceback.print_exc()

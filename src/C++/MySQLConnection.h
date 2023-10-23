@@ -19,13 +19,14 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_MYSQLCONNECTION_H
+#define FIX_MYSQLCONNECTION_H
+
 #ifndef HAVE_MYSQL
 #error MySQLConnection.h included, but HAVE_MYSQL not defined
 #endif
 
 #ifdef HAVE_MYSQL
-#ifndef FIX_MYSQLCONNECTION_H
-#define FIX_MYSQLCONNECTION_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -167,13 +168,26 @@ private:
     short port = m_connectionID.getPort();
     m_pConnection = mysql_init( NULL );
     if( !mysql_real_connect
-      ( m_pConnection, m_connectionID.getHost().c_str(), m_connectionID.getUser().c_str(), 
-        m_connectionID.getPassword().c_str(), m_connectionID.getDatabase().c_str(), port, 0, 0 ) )
+      ( m_pConnection, 
+      m_connectionID.getHost().c_str(), 
+      m_connectionID.getUser().c_str(), 
+      m_connectionID.getPassword().c_str(), 
+      m_connectionID.getDatabase().c_str(), 
+      port, 
+      0, 
+      0 ) )
     {
-        if( !connected() )
-          throw ConfigError( std::string("Unable to connect to database [") + mysql_error(m_pConnection) + "]" );
+      if( !connected() )
+        throw ConfigError( std::string("Unable to connect to postgres database: ")
+          + "'" + m_connectionID.getDatabase() + "': " 
+          + m_connectionID.getUser() + '@' + m_connectionID.getHost() + ":" + std::to_string(port) 
+          + " [" + mysql_error(m_pConnection) + "]");
     }
-    #if( MYSQL_VERSION_ID > 50000 )
+
+    #if( MYSQL_VERSION_ID > 80000 )
+    bool reconnect = true;
+    mysql_options( m_pConnection, MYSQL_OPT_RECONNECT, &reconnect );
+    #else
     my_bool reconnect = 1;
     mysql_options( m_pConnection, MYSQL_OPT_RECONNECT, static_cast<char*>(&reconnect) );
     #endif
@@ -186,7 +200,7 @@ private:
 
 typedef DatabaseConnectionPool<MySQLConnection>
   MySQLConnectionPool;
-typedef SmartPtr< MySQLConnectionPool >
+typedef std::unique_ptr<MySQLConnectionPool>
   MySQLConnectionPoolPtr;
 }
 

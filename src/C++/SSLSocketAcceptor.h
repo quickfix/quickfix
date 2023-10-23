@@ -117,7 +117,11 @@
 #ifndef FIX_SSLSOCKETACCEPTOR_H
 #define FIX_SSLSOCKETACCEPTOR_H
 
-#if (HAVE_SSL > 0)
+#ifndef HAVE_SSL
+#error SSLSocketAcceptor.h included, but HAVE_SSL not defined
+#endif
+
+#ifdef HAVE_SSL
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -135,9 +139,9 @@ class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy
   friend class SSLSocketConnection;
 public:
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings& ) EXCEPT ( ConfigError );
+                     const SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketAcceptor( Application&, MessageStoreFactory&,
-                  const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                     const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketAcceptor();
 
@@ -150,15 +154,15 @@ public:
 private:
   bool readSettings( const SessionSettings& );
 
-  typedef std::set < SessionID > Sessions;
-  typedef std::map < int, Sessions > PortToSessions;
-  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
+  typedef std::set<SessionID> Sessions;
+  typedef std::map<int, Sessions> PortToSessions;
+  typedef std::map<socket_handle, SSLSocketConnection*> SocketConnections;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
   void onConnect( SocketServer&, socket_handle, socket_handle);

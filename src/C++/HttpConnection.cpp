@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #else
 #include "config.h"
+#include <poll.h>
 #endif
 
 #include "HttpConnection.h"
@@ -36,8 +37,10 @@ namespace FIX
 HttpConnection::HttpConnection(socket_handle s )
 : m_socket( s )
 {
+#ifdef _MSC_VER
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
+#endif
 }
 
 bool HttpConnection::send( const std::string& msg )
@@ -55,13 +58,23 @@ void HttpConnection::disconnect( int error )
 
 bool HttpConnection::read()
 {
+#if _MSC_VER
   struct timeval timeout = { 2, 0 };
   fd_set readset = m_fds;
+#else
+  int timeout = 2000; // 2000ms = 2 seconds
+  struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
+#endif
 
   try
   {
+#if _MSC_VER
     // Wait for input (1 second timeout)
-    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
+    int result = select( 0, &readset, 0, 0, &timeout );
+#else
+    // Wait for input (2 second timeout)
+    int result = poll( &pfd, 1, timeout );
+#endif
 
     if( result > 0 ) // Something to read
     {
@@ -204,25 +217,24 @@ void HttpConnection::processRoot
   }
 
   std::set<SessionID> sessions = Session::getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessions )
   {
-    Session* pSession = Session::lookupSession( *i );
+    Session* pSession = Session::lookupSession( sessionID );
     if( !pSession ) continue;
 
     { TR tr(b); tr.text();
       { TD td(b); td.text();
-        std::string href = "/session?BeginString=" + i->getBeginString().getValue() +
-                            "&SenderCompID=" + i->getSenderCompID().getValue() +
-                            "&TargetCompID=" + i->getTargetCompID().getValue();
-        if( i->getSessionQualifier().size() )
-          href += "&SessionQualifier=" + i->getSessionQualifier();
+        std::string href = "/session?BeginString=" + sessionID.getBeginString().getValue() +
+                            "&SenderCompID=" + sessionID.getSenderCompID().getValue() +
+                            "&TargetCompID=" + sessionID.getTargetCompID().getValue();
+        if( sessionID.getSessionQualifier().size() )
+          href += "&SessionQualifier=" + sessionID.getSessionQualifier();
 
-        A a(b); a.href(href).text(i->toString());
+        A a(b); a.href(href).text(sessionID.toString());
       }
       { TD td(b); td.text(pSession->isInitiator() ? "initiator" : "acceptor"); }
       { TD td(b); td.text(pSession->isEnabled() ? "yes" : "no"); }
-      { TD td(b); td.text(pSession->isSessionTime(UtcTimeStamp()) ? "yes" : "no"); }
+      { TD td(b); td.text(pSession->isSessionTime(UtcTimeStamp::now()) ? "yes" : "no"); }
       { TD td(b); td.text(pSession->isLoggedOn() ? "yes" : "no"); }
       { TD td(b); td.text(pSession->getExpectedTargetNum()); }
       { TD td(b); td.text(pSession->getExpectedSenderNum()); }
@@ -244,7 +256,7 @@ void HttpConnection::processResetSessions
       std::set<SessionID> sessions = Session::getSessions();
       std::set<SessionID>::iterator session;
       for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->reset();
+        Session::lookupSession( *session )->reset();
       copy.removeParameter("confirm");
     }
 
@@ -289,9 +301,8 @@ void HttpConnection::processRefreshSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->refresh();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->refresh();
       copy.removeParameter("confirm");
     }
 
@@ -336,9 +347,8 @@ void HttpConnection::processEnableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logon();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logon();
       copy.removeParameter("confirm");
     }
 
@@ -383,9 +393,8 @@ void HttpConnection::processDisableSessions
     {
       confirm = true;
       std::set<SessionID> sessions = Session::getSessions();
-      std::set<SessionID>::iterator session;
-      for( session = sessions.begin(); session != sessions.end(); ++session )
-      Session::lookupSession( *session )->logout();
+      for( const SessionID& sessionID : sessions )
+        Session::lookupSession( sessionID )->logout();
       copy.removeParameter("confirm");
     }
 
@@ -516,7 +525,12 @@ void HttpConnection::processSession
       pSession->setPersistMessages( copy.getParameter(PERSIST_MESSAGES) != "0" );
       copy.removeParameter(PERSIST_MESSAGES);
     }
-
+    if( copy.hasParameter(SEND_NEXT_EXPECTED_MSG_SEQ_NUM) )
+    {
+      pSession->setSendNextExpectedMsgSeqNum( copy.getParameter(SEND_NEXT_EXPECTED_MSG_SEQ_NUM) != "0" );
+      copy.removeParameter(SEND_NEXT_EXPECTED_MSG_SEQ_NUM);
+    }
+    
     if( url != copy.toString() )
       h << "<META http-equiv='refresh' content=0;URL='" << copy.toString() << "'>";
 
@@ -532,7 +546,7 @@ void HttpConnection::processSession
 
     showRow( b, "Enabled", pSession->isEnabled(), url );
     showRow( b, "ConnectionType", std::string(pSession->isInitiator() ?"initiator" : "acceptor") );
-    showRow( b, "SessionTime", pSession->isSessionTime(UtcTimeStamp()) );
+    showRow( b, "SessionTime", pSession->isSessionTime(UtcTimeStamp::now()) );
     showRow( b, "Logged On", pSession->isLoggedOn() );
     showRow( b, "Next Incoming", (int)pSession->getExpectedTargetNum(), url );
     showRow( b, "Next Outgoing", (int)pSession->getExpectedSenderNum(), url );
@@ -548,6 +562,7 @@ void HttpConnection::processSession
     showRow( b, REFRESH_ON_LOGON, pSession->getRefreshOnLogon(), url );
     showRow( b, MILLISECONDS_IN_TIMESTAMP, pSession->getMillisecondsInTimeStamp(), url );
     showRow( b, PERSIST_MESSAGES, pSession->getPersistMessages(), url );
+    showRow( b, SEND_NEXT_EXPECTED_MSG_SEQ_NUM, pSession->getSendNextExpectedMsgSeqNum(), url );
   }
   catch( std::exception& e )
   {

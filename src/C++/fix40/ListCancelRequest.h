@@ -12,7 +12,10 @@ namespace FIX40
     ListCancelRequest() : Message(MsgType()) {}
     ListCancelRequest(const FIX::Message& m) : Message(m) {}
     ListCancelRequest(const Message& m) : Message(m) {}
-    ListCancelRequest(const ListCancelRequest& m) : Message(m) {}
+    ListCancelRequest(const ListCancelRequest&) = default;
+    ListCancelRequest(ListCancelRequest&&) = default;
+    ListCancelRequest& operator=(const ListCancelRequest&) = default;
+    ListCancelRequest& operator=(ListCancelRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("K"); }
 
     ListCancelRequest(

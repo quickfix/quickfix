@@ -11,6 +11,8 @@
 #endif // _MSC_VER > 1000
 
 #define WIN32_LEAN_AND_MEAN// Exclude rarely-used stuff from Windows headers
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include "config.h"

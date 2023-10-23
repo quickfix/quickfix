@@ -12,7 +12,10 @@ namespace FIX44
     AssignmentReport() : Message(MsgType()) {}
     AssignmentReport(const FIX::Message& m) : Message(m) {}
     AssignmentReport(const Message& m) : Message(m) {}
-    AssignmentReport(const AssignmentReport& m) : Message(m) {}
+    AssignmentReport(const AssignmentReport&) = default;
+    AssignmentReport(AssignmentReport&&) = default;
+    AssignmentReport& operator=(const AssignmentReport&) = default;
+    AssignmentReport& operator=(AssignmentReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AW"); }
 
     AssignmentReport(

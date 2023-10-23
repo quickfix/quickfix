@@ -12,7 +12,10 @@ namespace FIX50
     AssignmentReport() : Message(MsgType()) {}
     AssignmentReport(const FIX::Message& m) : Message(m) {}
     AssignmentReport(const Message& m) : Message(m) {}
-    AssignmentReport(const AssignmentReport& m) : Message(m) {}
+    AssignmentReport(const AssignmentReport&) = default;
+    AssignmentReport(AssignmentReport&&) = default;
+    AssignmentReport& operator=(const AssignmentReport&) = default;
+    AssignmentReport& operator=(AssignmentReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AW"); }
 
     AssignmentReport(
@@ -88,7 +91,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);
@@ -138,7 +141,7 @@ namespace FIX50
     class NoLegs: public FIX::Group
     {
     public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1001,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1017,0)) {}
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1001,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1017,566,0)) {}
       FIELD_SET(*this, FIX::LegSymbol);
       FIELD_SET(*this, FIX::LegSymbolSfx);
       FIELD_SET(*this, FIX::LegSecurityID);
@@ -173,7 +176,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::LegStrikeCurrency);
       FIELD_SET(*this, FIX::LegOptAttribute);
       FIELD_SET(*this, FIX::LegContractMultiplier);
-      FIELD_SET(*this, FIX::LegUnitOfMeasure);
+      FIELD_SET(*this, FIX::LegUnitofMeasure);
       FIELD_SET(*this, FIX::LegTimeUnit);
       FIELD_SET(*this, FIX::LegCouponRate);
       FIELD_SET(*this, FIX::LegSecurityExchange);
@@ -191,6 +194,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::LegContractSettlMonth);
       FIELD_SET(*this, FIX::LegInterestAccrualDate);
       FIELD_SET(*this, FIX::LegOptionRatio);
+      FIELD_SET(*this, FIX::LegPrice);
     };
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group
@@ -232,7 +236,7 @@ namespace FIX50
       FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
       FIELD_SET(*this, FIX::UnderlyingOptAttribute);
       FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
-      FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
+      FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
       FIELD_SET(*this, FIX::UnderlyingTimeUnit);
       FIELD_SET(*this, FIX::UnderlyingCouponRate);
       FIELD_SET(*this, FIX::UnderlyingSecurityExchange);

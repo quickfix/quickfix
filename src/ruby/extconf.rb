@@ -1,5 +1,5 @@
 require 'mkmf'
-dir_config("quickfix", ["../..", "../../include", "../C++"], "../../lib")
+dir_config("quickfix", ["../..", "../../include", "../C++", "../swig"], "../../lib")
 have_library("quickfix")
 
 CONFIG["warnflags"].sub!('-Wdeprecated-declarations', '-Wno-deprecated-declarations -Wno-deprecated')
@@ -11,8 +11,8 @@ if( ENV['CXX'] != nil )
   CONFIG["LDSHARED"].gsub!("cc", ENV['CXX'])
 end
 
-warning_flags = ' -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
-$CFLAGS << warning_flags 
-$CXXFLAGS << warning_flags
+additional_flags = ' -std=c++11 -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
+$CFLAGS << additional_flags
+$CXXFLAGS << additional_flags
 
 create_makefile("quickfix")

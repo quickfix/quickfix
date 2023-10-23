@@ -95,7 +95,7 @@ void ThreadedSocketInitiator::onStart()
   }
 }
 
-bool ThreadedSocketInitiator::onPoll( double timeout )
+bool ThreadedSocketInitiator::onPoll()
 {
   return false;
 }
@@ -135,7 +135,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
   try
   {
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime(UtcTimeStamp()) ) return;
+    if( !session->isSessionTime(UtcTimeStamp::now()) ) return;
 
     Log* log = session->getLog();
 
@@ -225,7 +225,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   pInitiator->setConnected( sessionID );
   pInitiator->getLog()->onEvent( "Connection succeeded" );
 
-  pSession->next();
+  pSession->next( UtcTimeStamp::now() );
 
   while ( pConnection->read() ) {}
 

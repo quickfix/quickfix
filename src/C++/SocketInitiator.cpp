@@ -105,7 +105,7 @@ void SocketInitiator::onStart()
   }
 }
 
-bool SocketInitiator::onPoll( double timeout )
+bool SocketInitiator::onPoll()
 {
   time_t start = 0;
   time_t now = 0;
@@ -120,7 +120,7 @@ bool SocketInitiator::onPoll( double timeout )
       return false;
   }
 
-  m_connector.block( *this, true, timeout );
+  m_connector.block( *this, true );
   return true;
 }
 
@@ -138,7 +138,7 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     short sourcePort = 0;
 
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime(UtcTimeStamp()) ) return;
+    if( !session->isSessionTime(UtcTimeStamp::now()) ) return;
 
     Log* log = session->getLog();
 

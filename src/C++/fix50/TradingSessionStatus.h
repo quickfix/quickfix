@@ -12,7 +12,10 @@ namespace FIX50
     TradingSessionStatus() : Message(MsgType()) {}
     TradingSessionStatus(const FIX::Message& m) : Message(m) {}
     TradingSessionStatus(const Message& m) : Message(m) {}
-    TradingSessionStatus(const TradingSessionStatus& m) : Message(m) {}
+    TradingSessionStatus(const TradingSessionStatus&) = default;
+    TradingSessionStatus(TradingSessionStatus&&) = default;
+    TradingSessionStatus& operator=(const TradingSessionStatus&) = default;
+    TradingSessionStatus& operator=(TradingSessionStatus&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("h"); }
 
     TradingSessionStatus(
@@ -83,7 +86,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);

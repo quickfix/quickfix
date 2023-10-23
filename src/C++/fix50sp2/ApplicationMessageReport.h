@@ -12,7 +12,10 @@ namespace FIX50SP2
     ApplicationMessageReport() : Message(MsgType()) {}
     ApplicationMessageReport(const FIX::Message& m) : Message(m) {}
     ApplicationMessageReport(const Message& m) : Message(m) {}
-    ApplicationMessageReport(const ApplicationMessageReport& m) : Message(m) {}
+    ApplicationMessageReport(const ApplicationMessageReport&) = default;
+    ApplicationMessageReport(ApplicationMessageReport&&) = default;
+    ApplicationMessageReport& operator=(const ApplicationMessageReport&) = default;
+    ApplicationMessageReport& operator=(ApplicationMessageReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BY"); }
 
     ApplicationMessageReport(
@@ -25,6 +28,7 @@ namespace FIX50SP2
     }
 
     FIELD_SET(*this, FIX::ApplReportID);
+    FIELD_SET(*this, FIX::ApplReqID);
     FIELD_SET(*this, FIX::ApplReportType);
     FIELD_SET(*this, FIX::NoApplIDs);
     class NoApplIDs: public FIX::Group
@@ -38,7 +42,6 @@ namespace FIX50SP2
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-    FIELD_SET(*this, FIX::ApplReqID);
   };
 
 }

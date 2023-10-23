@@ -62,14 +62,10 @@ public:
   void onMessage( const FIX50::NewOrderSingle&, const FIX::SessionID& );
 
   std::string genOrderID() {
-    std::stringstream stream;
-    stream << ++m_orderID;
-    return stream.str();
+    return std::to_string(++m_orderID);
   }
   std::string genExecID() {
-    std::stringstream stream;
-    stream << ++m_execID;
-    return stream.str();
+    return std::to_string(++m_execID);
   }
 private:
   int m_orderID, m_execID;

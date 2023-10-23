@@ -12,7 +12,10 @@ namespace FIX44
     SecurityDefinition() : Message(MsgType()) {}
     SecurityDefinition(const FIX::Message& m) : Message(m) {}
     SecurityDefinition(const Message& m) : Message(m) {}
-    SecurityDefinition(const SecurityDefinition& m) : Message(m) {}
+    SecurityDefinition(const SecurityDefinition&) = default;
+    SecurityDefinition(SecurityDefinition&&) = default;
+    SecurityDefinition& operator=(const SecurityDefinition&) = default;
+    SecurityDefinition& operator=(SecurityDefinition&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("d"); }
 
     SecurityDefinition(

@@ -127,15 +127,8 @@ EXCEPT ( FIX::Exception )
 {  
   const Header& header = message.getHeader();
   const BeginString& beginString = FIELD_GET_REF( header, BeginString );
-#ifdef HAVE_EMX
-  const std::string & msgType = message.getSubMessageType();
-  if (msgType.empty())
-  {
-    throw InvalidMessageType("empty subMsgType, check Tag 9426/MESSAGE_ID");
-  }
-#else
   const MsgType& msgType = FIELD_GET_REF( header, MsgType );
-#endif
+
   if ( pSessionDD != 0 && pSessionDD->m_hasVersion )
   {
     if( pSessionDD->getVersion() != beginString )
@@ -319,9 +312,10 @@ EXCEPT ( ConfigError )
         std::string name;
         if(!attrs->get("name", name))
           throw ConfigError("<field> does not have a name attribute");
-        std::string required = "false";
+        std::string required;
         attrs->get("required", required);
-        addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+        bool isRequired = (required == "Y" || required == "y");
+        addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), isRequired);
       }
       if(pHeaderFieldNode->getName() == "group")
       {
@@ -354,9 +348,10 @@ EXCEPT ( ConfigError )
         std::string name;
         if(!attrs->get("name", name))
           throw ConfigError("<field> does not have a name attribute");
-        std::string required = "false";
+        std::string required;
         attrs->get("required", required);
-        addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
+        bool isRequired = (required == "Y" || required == "y");
+        addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), isRequired);
       }
       if(pTrailerFieldNode->getName() == "group")
       {
@@ -445,8 +440,9 @@ message_order const& DataDictionary::getOrderedFields() const
   int * tmp = new int[m_orderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_orderedFields.begin(); iter != m_orderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_orderedFields.begin(); 
+       iter != m_orderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_orderedFieldsArray = message_order(tmp);
@@ -465,8 +461,9 @@ message_order const& DataDictionary::getHeaderOrderedFields() const EXCEPT ( Con
   int * tmp = new int[m_headerOrderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_headerOrderedFields.begin(); iter != m_headerOrderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_headerOrderedFields.begin(); 
+       iter != m_headerOrderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_headerOrder = message_order(tmp);
@@ -485,8 +482,9 @@ message_order const& DataDictionary::getTrailerOrderedFields() const EXCEPT ( Co
   int * tmp = new int[m_trailerOrderedFields.size() + 1];
   int * i = tmp;
 
-  OrderedFields::const_iterator iter;
-  for( iter = m_trailerOrderedFields.begin(); iter != m_trailerOrderedFields.end(); *(i++) = *(iter++) ) {}
+  for( OrderedFields::const_iterator iter = m_trailerOrderedFields.begin(); 
+       iter != m_trailerOrderedFields.end(); 
+       *(i++) = *(iter++) ) {}
   *i = 0;
 
   m_trailerOrder = message_order(tmp);

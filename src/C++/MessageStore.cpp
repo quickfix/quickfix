@@ -27,9 +27,9 @@
 
 namespace FIX
 {
-MessageStore* MemoryStoreFactory::create( const SessionID& )
+MessageStore* MemoryStoreFactory::create( const UtcTimeStamp& now, const SessionID& )
 {
-  return new MemoryStore();
+  return new MemoryStore( now );
 }
 
 void MemoryStoreFactory::destroy( MessageStore* pStore )
@@ -54,10 +54,10 @@ EXCEPT ( IOException )
     messages.push_back( find->second );
 }
 
-MessageStore* MessageStoreFactoryExceptionWrapper::create( const SessionID& sessionID, bool& threw, ConfigError& ex )
+MessageStore* MessageStoreFactoryExceptionWrapper::create( const UtcTimeStamp& now, const SessionID& sessionID, bool& threw, ConfigError& ex )
 {
   threw = false;
-  try { return m_pFactory->create( sessionID ); }
+  try { return m_pFactory->create( now, sessionID ); }
   catch ( ConfigError & e ) { threw = true; ex = e; return 0; }
 }
 
@@ -126,13 +126,13 @@ UtcTimeStamp MessageStoreExceptionWrapper::getCreationTime( bool& threw, IOExcep
 {
   threw = false;
   try { return m_pStore->getCreationTime(); }
-  catch ( IOException & e ) { threw = true; ex = e; return UtcTimeStamp(); }
+  catch ( IOException & e ) { threw = true; ex = e; return UtcTimeStamp::now(); }
 }
 
-void MessageStoreExceptionWrapper::reset( bool& threw, IOException& ex )
+void MessageStoreExceptionWrapper::reset( const UtcTimeStamp& now, bool& threw, IOException& ex )
 {
   threw = false;
-  try { m_pStore->reset(); }
+  try { m_pStore->reset( now ); }
   catch ( IOException & e ) { threw = true; ex = e; }
 }
 

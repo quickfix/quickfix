@@ -27,6 +27,7 @@
 #endif
 
 #include "SocketMonitor.h"
+#include "Utility.h"
 #include <string>
 
 namespace FIX

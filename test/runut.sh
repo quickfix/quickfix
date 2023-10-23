@@ -1,10 +1,17 @@
 #!/bin/sh
 
-trap "trap - TERM && kill -- -$$" INT TERM KILL EXIT
+trap "trap - TERM && kill -- -$$ 2> /dev/null" INT TERM KILL EXIT
 
-DIR=`pwd`
+killall at ut
 
-./ut -p $1 -f cfg/ut.cfg
-RESULT=$?
+SCRIPT=$(realpath "$0")
+DIR=$(dirname "$0")
+PWD=$(pwd)
+ABSOLUTE_DIR=$PWD
+
 cd $DIR
+
+cd ../src/C++/test
+./ut --quickfix-config-file $ABSOLUTE_DIR/cfg/ut.cfg
+RESULT=$?
 exit $RESULT

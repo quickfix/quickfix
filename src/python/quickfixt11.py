@@ -40,12 +40,7 @@ class Logon(Message):
 		Message.__init__(self)
 		self.getHeader().setField( fix.MsgType("A") )
 
-	class NoMsgTypes(fix.Group):
-		def __init__(self):
-			order = fix.IntArray(5)
-			order[0] = 372
-			order[1] = 385
-			order[2] = 1130
-			order[3] = 1131
-			order[4] = 0
-			fix.Group.__init__(self, 384, 372, order)
+class XMLnonFIX(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("n") )

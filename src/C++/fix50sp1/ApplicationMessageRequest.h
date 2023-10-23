@@ -12,7 +12,10 @@ namespace FIX50SP1
     ApplicationMessageRequest() : Message(MsgType()) {}
     ApplicationMessageRequest(const FIX::Message& m) : Message(m) {}
     ApplicationMessageRequest(const Message& m) : Message(m) {}
-    ApplicationMessageRequest(const ApplicationMessageRequest& m) : Message(m) {}
+    ApplicationMessageRequest(const ApplicationMessageRequest&) = default;
+    ApplicationMessageRequest(ApplicationMessageRequest&&) = default;
+    ApplicationMessageRequest& operator=(const ApplicationMessageRequest&) = default;
+    ApplicationMessageRequest& operator=(ApplicationMessageRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BW"); }
 
     ApplicationMessageRequest(

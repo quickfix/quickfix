@@ -12,7 +12,10 @@ namespace FIX43
     News() : Message(MsgType()) {}
     News(const FIX::Message& m) : Message(m) {}
     News(const Message& m) : Message(m) {}
-    News(const News& m) : Message(m) {}
+    News(const News&) = default;
+    News(News&&) = default;
+    News& operator=(const News&) = default;
+    News& operator=(News&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("B"); }
 
     News(

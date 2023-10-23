@@ -25,10 +25,6 @@
 
 #ifdef HAVE_ODBC
 
-#ifndef SQLLEN
-#define SQLLEN SQLINTEGER
-#endif
-
 #include "OdbcStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
@@ -47,9 +43,9 @@ const std::string OdbcStoreFactory::DEFAULT_CONNECTION_STRING
   = "DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local);";
 
 OdbcStore::OdbcStore
-( const SessionID& s, const std::string& user, const std::string& password, 
+( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& user, const std::string& password, 
   const std::string& connectionString )
-  : m_sessionID( s )
+  : m_cache( now ), m_sessionID( sessionID )
 {
   m_pConnection = new OdbcConnection( user, password, connectionString );
   populateCache();
@@ -93,7 +89,7 @@ void OdbcStore::populateCache()
     SQLLEN outgoingSeqNumLength;
     SQLGetData( query.statement(), 3, SQL_C_SLONG, &outgoingSeqNum, 0, &outgoingSeqNumLength );
 
-    UtcTimeStamp time;
+    UtcTimeStamp time = UtcTimeStamp::now();
     time.setYMD( creationTime.year, creationTime.month, creationTime.day );
     time.setHMS( creationTime.hour, creationTime.minute, creationTime.second, creationTime.fraction );
     m_cache.setCreationTime( time );
@@ -105,7 +101,7 @@ void OdbcStore::populateCache()
   if( rows == 0 )
   {
     UtcTimeStamp time = m_cache.getCreationTime();
-    char sqlTime[ 20 ];
+    char sqlTime[ 100 ];
     int year, month, day, hour, minute, second, millis;
     time.getYMD (year, month, day);
     time.getHMS (hour, minute, second, millis);
@@ -128,14 +124,14 @@ void OdbcStore::populateCache()
   }
 }
 
-MessageStore* OdbcStoreFactory::create( const SessionID& s )
+MessageStore* OdbcStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
 {
   if( m_useSettings )
-    return create( s, m_settings.get(s) );
+    return create( now, sessionID, m_settings.get(sessionID) );
   else if( m_useDictionary )
-    return create( s, m_dictionary );
+    return create( now, sessionID, m_dictionary );
   else
-    return new OdbcStore( s, m_user, m_password, m_connectionString );
+    return new OdbcStore( now, sessionID, m_user, m_password, m_connectionString );
 }
 
 void OdbcStoreFactory::destroy( MessageStore* pStore )
@@ -143,7 +139,7 @@ void OdbcStoreFactory::destroy( MessageStore* pStore )
   delete pStore;
 }
 
-MessageStore* OdbcStoreFactory::create( const SessionID& s, const Dictionary& settings )
+MessageStore* OdbcStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID, const Dictionary& settings )
 {
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
@@ -158,7 +154,7 @@ MessageStore* OdbcStoreFactory::create( const SessionID& s, const Dictionary& se
   try { connectionString = settings.getString( ODBC_STORE_CONNECTION_STRING ); }
   catch( ConfigError& ) {}
 
-  return new OdbcStore( s, user, password, connectionString );
+  return new OdbcStore( now, sessionID, user, password, connectionString );
 }
 
 bool OdbcStore::set( int msgSeqNum, const std::string& msg )
@@ -288,7 +284,7 @@ UtcTimeStamp OdbcStore::getCreationTime() const EXCEPT ( IOException )
   return m_cache.getCreationTime();
 }
 
-void OdbcStore::reset() EXCEPT ( IOException )
+void OdbcStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
@@ -302,14 +298,14 @@ void OdbcStore::reset() EXCEPT ( IOException )
     query.throwException();
   query.close();
 
-  m_cache.reset();
+  m_cache.reset( now );
   UtcTimeStamp time = m_cache.getCreationTime();
 
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );
 
-  char sqlTime[ 20 ];
+  char sqlTime[ 100 ];
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
@@ -329,7 +325,7 @@ void OdbcStore::reset() EXCEPT ( IOException )
 
 void OdbcStore::refresh() EXCEPT ( IOException )
 {
-  m_cache.reset();
+  m_cache.reset( UtcTimeStamp::now() );
   populateCache(); 
 }
 

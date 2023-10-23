@@ -26,15 +26,13 @@
 
 #ifdef HAVE_ODBC
 
-#include <UnitTest++.h>
-#include <TestHelper.h>
+#include "TestHelper.h"
 #include <OdbcStore.h>
 #include "MessageStoreTestCase.h"
 
-using namespace FIX;
+#include "catch_amalgamated.hpp"
 
-SUITE(OdbcStoreTests)
-{
+using namespace FIX;
 
 struct odbcStoreFixture
 {
@@ -42,11 +40,11 @@ struct odbcStoreFixture
   : factory( TestSettings::sessionSettings.get() )
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
-                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+                        SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
     try
     {
-      object = factory.create( sessionID );
+      object = factory.create( UtcTimeStamp::now(), sessionID );
     }
     catch( std::exception& e )
     {
@@ -55,9 +53,9 @@ struct odbcStoreFixture
     }
 
     if( reset )
-      object->reset();
+      object->reset( UtcTimeStamp::now() );
 
-    this->resetAfter = resetAfter;
+    this->resetAfter = reset;
   }
 
   ~odbcStoreFixture()
@@ -80,31 +78,35 @@ struct resetOdbcStoreFixture : odbcStoreFixture
   resetOdbcStoreFixture() : odbcStoreFixture( true ) {}
 };
 
-TEST_FIXTURE(resetOdbcStoreFixture, setGet)
+TEST_CASE_METHOD(resetOdbcStoreFixture, "resetOdbcStoreTests")
 {
-  CHECK_MESSAGE_STORE_SET_GET;
+  SECTION("setGet")
+  {
+    CHECK_MESSAGE_STORE_SET_GET;
+  }
+
+  SECTION("setGetWithQuote")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+  }
+
+  SECTION("other")
+  {
+    CHECK_MESSAGE_STORE_OTHER
+  }
 }
 
-TEST_FIXTURE(resetOdbcStoreFixture, setGetWithQuote)
+TEST_CASE_METHOD(noResetOdbcStoreFixture, "noResetOdbcStoreTests")
 {
-  //CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
-}
+  SECTION("reload")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
 
-TEST_FIXTURE(resetOdbcStoreFixture, other)
-{
-  CHECK_MESSAGE_STORE_OTHER
-}
-
-TEST_FIXTURE(noResetOdbcStoreFixture, reload)
-{
-  CHECK_MESSAGE_STORE_RELOAD
-}
-
-TEST_FIXTURE(noResetOdbcStoreFixture, refresh)
-{
-  CHECK_MESSAGE_STORE_RELOAD
-}
-
+  SECTION("refresh")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
 }
 
 #endif

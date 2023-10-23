@@ -51,14 +51,12 @@ ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
   socket_term(); 
 }
 
-void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
+void ThreadedSocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
 EXCEPT ( ConfigError )
 {
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i;
-  for( i = sessions.begin(); i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessionSettings.getSessions() )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     settings.getInt( SOCKET_ACCEPT_PORT );
     if( settings.has(SOCKET_REUSE_ADDRESS) )
       settings.getBool( SOCKET_REUSE_ADDRESS );
@@ -67,20 +65,18 @@ EXCEPT ( ConfigError )
   }
 }
 
-void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
 EXCEPT ( RuntimeError )
 {
   short port = 0;
   std::set<int> ports;
 
-  std::set<SessionID> sessions = s.getSessions();
-  std::set<SessionID>::iterator i = sessions.begin();
-  for( ; i != sessions.end(); ++i )
+  for( const SessionID& sessionID : sessionSettings.getSessions() )
   {
-    const Dictionary& settings = s.get( *i );
+    const Dictionary& settings = sessionSettings.get( sessionID );
     port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
 
-    m_portToSessions[port].insert( *i );
+    m_portToSessions[port].insert( sessionID );
 
     if( ports.find(port) != ports.end() )
       continue;
@@ -120,19 +116,18 @@ EXCEPT ( RuntimeError )
 
 void ThreadedSocketAcceptor::onStart()
 {
-  Sockets::iterator i;
-  for( i = m_sockets.begin(); i != m_sockets.end(); ++i )
+  for( const Sockets::value_type& socket : m_sockets )
   {
     Locker l( m_mutex );
-    int port = m_socketToPort[*i];
-    AcceptorThreadInfo* info = new AcceptorThreadInfo( this, *i, port );
+    int port = m_socketToPort[socket];
+    AcceptorThreadInfo* info = new AcceptorThreadInfo( this, socket, port );
     thread_id thread;
     thread_spawn( &socketAcceptorThread, info, thread );
-    addThread( *i, thread );
+    addThread( socket, thread );
   }
 }
 
-bool ThreadedSocketAcceptor::onPoll( double timeout )
+bool ThreadedSocketAcceptor::onPoll()
 {
   return false;
 }

@@ -32,9 +32,11 @@
 #include "quickfix/Log.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <memory>
 
 void wait()
 {
@@ -62,7 +64,6 @@ int main( int argc, char** argv )
   }
 #endif
 
-  FIX::Acceptor * acceptor = 0;
   try
   {
     FIX::SessionSettings settings( file );
@@ -71,25 +72,28 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory storeFactory( settings );
     FIX::ScreenLogFactory logFactory( settings );
 
+    std::unique_ptr<FIX::Acceptor> acceptor;
 #ifdef HAVE_SSL
     if (isSSL.compare("SSL") == 0)
-      acceptor = new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+      acceptor = std::unique_ptr<FIX::Acceptor>(
+        new FIX::ThreadedSSLSocketAcceptor ( application, storeFactory, settings, logFactory ));
     else if (isSSL.compare("SSL-ST") == 0)
-      acceptor = new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory );
+      acceptor = std::unique_ptr<FIX::Acceptor>(
+        new FIX::SSLSocketAcceptor ( application, storeFactory, settings, logFactory ));
     else
 #endif
-    acceptor = new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory );
+    acceptor = std::unique_ptr<FIX::Acceptor>(
+      new FIX::SocketAcceptor ( application, storeFactory, settings, logFactory ));
 
     acceptor->start();
     wait();
     acceptor->stop();
-    delete acceptor;
+    
     return 0;
   }
   catch ( std::exception & e )
   {
     std::cout << e.what() << std::endl;
-    delete acceptor;
     return 1;
   }
 }

@@ -12,7 +12,10 @@ namespace FIX50SP2
     TradingSessionListRequest() : Message(MsgType()) {}
     TradingSessionListRequest(const FIX::Message& m) : Message(m) {}
     TradingSessionListRequest(const Message& m) : Message(m) {}
-    TradingSessionListRequest(const TradingSessionListRequest& m) : Message(m) {}
+    TradingSessionListRequest(const TradingSessionListRequest&) = default;
+    TradingSessionListRequest(TradingSessionListRequest&&) = default;
+    TradingSessionListRequest& operator=(const TradingSessionListRequest&) = default;
+    TradingSessionListRequest& operator=(TradingSessionListRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BI"); }
 
     TradingSessionListRequest(

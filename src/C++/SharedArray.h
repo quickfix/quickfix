@@ -23,7 +23,11 @@
 #define SHARED_ARRAY
 
 #include "config-all.h"
-#include "AtomicCount.h"
+
+#include <atomic>
+#include <cstring>
+#include <cstdlib>
+#include <new>
 
 namespace FIX
 {
@@ -34,7 +38,7 @@ namespace FIX
   {
     enum
     {
-      data_offset = ( sizeof(atomic_count) / sizeof(T) + 1 )
+      data_offset = ( sizeof(std::atomic<long>) / sizeof(T) + 1 )
     };
 
   public:
@@ -50,8 +54,32 @@ namespace FIX
       rhs.attach();
     }
 
+    shared_array(shared_array&& rhs)
+    : m_size(rhs.m_size)
+    , m_buffer(rhs.m_buffer)
+    {
+      rhs.m_size = 0;
+      rhs.m_buffer = 0;
+    }
+
     ~shared_array()
     { release(); }
+
+    shared_array& operator=(shared_array&& rhs)
+    {
+      if( &rhs == this )
+        return *this;
+
+      release();
+
+      m_size = rhs.m_size;
+      m_buffer = rhs.m_buffer;
+
+      rhs.m_size = 0;
+      rhs.m_buffer = 0;
+
+      return *this;
+    }
 
     shared_array& operator=(const shared_array& rhs)
     {
@@ -87,11 +115,11 @@ namespace FIX
 
       //allocate and zero-fill the buffer
       T* storage = new T[ sizeToAllocate ];
-      memset(storage, 0, sizeToAllocate * sizeof(T));
+      memset(reinterpret_cast<void*>(storage), 0, sizeToAllocate * sizeof(T));
 
       // create the counter object at the end of the storage
       // with initial reference count set to 1
-      new (storage) atomic_count( 1 );
+      new (storage) std::atomic<long>( 1 );
 
       return shared_array(storage, nSize);
     }
@@ -105,20 +133,20 @@ namespace FIX
 
     }
 
-    atomic_count* get_counter() const
+    std::atomic<long>* get_counter() const
     {
-      return reinterpret_cast<atomic_count*>( m_buffer );
+      return reinterpret_cast<std::atomic<long>*>( m_buffer );
     }
 
     void increment_reference_count() const
     {
-      atomic_count* counter = get_counter();
+      std::atomic<long>* counter = get_counter();
       ++(*counter);
     }
 
     long decrement_reference_count() const
     {
-      atomic_count* counter = get_counter();
+      std::atomic<long>* counter = get_counter();
       return --(*counter);
     }
 
@@ -137,13 +165,13 @@ namespace FIX
       if( decrement_reference_count() == 0)
       {
         T * tmpBuff = m_buffer;
-        atomic_count* tmpCounter = get_counter();
+        std::atomic<long>* tmpCounter = get_counter();
 
         m_buffer = 0;
         m_size = 0;
 
         //explicitly call destructor for the counter object
-        tmpCounter->~atomic_count();
+        tmpCounter->~atomic<long>();
 
         delete [] tmpBuff;
       }
@@ -166,6 +194,7 @@ namespace FIX
     shared_array(const shared_array& rhs)
     : m_size(rhs.m_size)
     , m_buffer(rhs.m_buffer)
+    , m_pCtr(rhs.m_pCtr)
     {
       rhs.attach();
     }
@@ -204,7 +233,7 @@ namespace FIX
         return shared_array();
 
       //verify the needed buffer size to allocate counter object and nSize elements
-      const std::size_t sizeToAllocate = (nSize * sizeof(T)) + sizeof(atomic_count) + 15;
+      const std::size_t sizeToAllocate = (nSize * sizeof(T)) + sizeof(std::atomic<long>) + 15;
 
       //allocate and zero-fill the buffer
       void * buf = std::malloc(sizeToAllocate);
@@ -214,7 +243,7 @@ namespace FIX
       // with initial reference count set to 1
       /* round up to multiple of alignment : add (alignment - 1) and then round down by masking */
       void *ptr = (void *) (((uintptr_t)(buf) + nSize * sizeof(T) + 15) & ~ (uintptr_t)0x0F);
-      new (ptr) atomic_count( 1 );
+      new (ptr) std::atomic<long>( 1 );
 
       T* storage = reinterpret_cast<T*>(buf);
       return shared_array(storage, nSize, ptr);
@@ -230,20 +259,20 @@ namespace FIX
 
     }
 
-    atomic_count* get_counter() const
+    std::atomic<long>* get_counter() const
     {
-      return reinterpret_cast<atomic_count*>( m_pCtr );
+      return reinterpret_cast<std::atomic<long>*>( m_pCtr );
     }
 
     void increment_reference_count() const
     {
-      atomic_count* counter = get_counter();
+      std::atomic<long>* counter = get_counter();
       ++(*counter);
     }
 
     long decrement_reference_count() const
     {
-      atomic_count* counter = get_counter();
+      std::atomic<long>* counter = get_counter();
       return --(*counter);
     }
 
@@ -262,13 +291,13 @@ namespace FIX
       if( decrement_reference_count() == 0)
       {
         T * tmpBuff = m_buffer;
-        atomic_count* tmpCounter = get_counter();
+        std::atomic<long>* tmpCounter = get_counter();
 
         m_buffer = 0;
         m_size = 0;
 
         //explicitly call destructor for the counter object
-        tmpCounter->~atomic_count();
+        tmpCounter->~atomic<long>();
 
         std::free(tmpBuff);
       }

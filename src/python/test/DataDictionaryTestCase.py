@@ -143,7 +143,7 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.InvalidTagNumber as e:
             self.assertTrue( 1 )
 
         self.object.addField( 501 )
@@ -151,21 +151,21 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 1 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 0 )
 
         message.setField( 5000, "value" )
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.InvalidTagNumber as e:
             self.assertTrue( 1 )
 
         self.object.checkUserDefinedFields( False )
         try:
             self.object.validate( message )
             self.assertTrue( 1 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 0 )
 
     def test_checkHasValue(self):
@@ -175,7 +175,7 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.NoTagValue as e:
             self.assertTrue( 1 )
 
     def test_checkIsInMessage(self):
@@ -196,14 +196,14 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 1 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 0 )
 
         message.setField( fix.Symbol("MSFT") )
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.TagNotDefinedForMessage as e:
             self.assertTrue( 1 )
 
     def test_checkHasRequired(self):
@@ -225,21 +225,21 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 1 )
 
         message.getHeader().setField( fix.SenderCompID("SENDER") )
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 1 )
 
         message.setField( fix.TestReqID("1") )
         try:
             self.object.validate( message )
             self.assertTrue( 1 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 0 )
 
         message.getHeader().removeField( fix.SenderCompID().getTag() )
@@ -247,7 +247,7 @@ class DataDictionaryTestCase(unittest.TestCase):
         try:
             self.object.validate( message )
             self.assertTrue( 0 )
-        except fix.FIXException as e:
+        except fix.RequiredTagMissing as e:
             self.assertTrue( 1 )
 
 if __name__ == '__main__':

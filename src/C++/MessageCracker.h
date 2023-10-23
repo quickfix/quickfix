@@ -111,9 +111,9 @@ public:
       ((FIX44::MessageCracker&)(*this)).crack((const FIX44::Message&) message, sessionID);
     if ( applVerID == ApplVerID_FIX50 )
       ((FIX50::MessageCracker&)(*this)).crack((const FIX50::Message&) message, sessionID);
-    if ( applVerID == ApplVerID_FIX50SP1 )
+    if ( applVerID == ApplVerID_FIX50_SP1 )
       ((FIX50SP1::MessageCracker&)(*this)).crack((const FIX50SP1::Message&) message, sessionID);
-    if ( applVerID == ApplVerID_FIX50SP2 )
+    if ( applVerID == ApplVerID_FIX50_SP2 )
       ((FIX50SP2::MessageCracker&)(*this)).crack((const FIX50SP2::Message&) message, sessionID);
   }
 
@@ -176,9 +176,9 @@ public:
       ((FIX44::MessageCracker&)(*this)).crack((FIX44::Message&) message, sessionID);
     if ( applVerID == ApplVerID_FIX50 )
       ((FIX50::MessageCracker&)(*this)).crack((FIX50::Message&) message, sessionID);
-    if ( applVerID == ApplVerID_FIX50SP1 )
+    if ( applVerID == ApplVerID_FIX50_SP1 )
       ((FIX50SP1::MessageCracker&)(*this)).crack((FIX50SP1::Message&) message, sessionID);
-    if ( applVerID == ApplVerID_FIX50SP2 )
+    if ( applVerID == ApplVerID_FIX50_SP2 )
       ((FIX50SP2::MessageCracker&)(*this)).crack((FIX50SP2::Message&) message, sessionID);
   }
 

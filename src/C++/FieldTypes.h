@@ -5,6 +5,7 @@
 **
 ** This file is part of the QuickFIX FIX Engine
 **
+**
 ** This file may be distributed under the terms of the quickfixengine.org
 ** license as defined by quickfixengine.org and appearing in the file
 ** LICENSE included in the packaging of this file.
@@ -160,11 +161,6 @@ struct DateTime
   inline int getMicrosecond() const
   {
     return (getNanosecond() / PRECISION_FACTOR[6]);
-  }
-
-  // deprecated method: use getMicrosecond instead
-  inline int getMicroecond() const {
-    return getMicrosecond();
   }
 
   /// Return the nanosecond portion of the time
@@ -384,13 +380,13 @@ struct DateTime
   /// Add a number of seconds to this
   void operator+=( int seconds )
   {
-    int d = seconds / SECONDS_PER_DAY;
-    int s = seconds % SECONDS_PER_DAY;
+    int daysToAdd = seconds / SECONDS_PER_DAY;
+    int secondsToAdd = seconds % SECONDS_PER_DAY;
 
-    m_date += d;
-    m_time += s * NANOS_PER_SEC;
+    m_date += daysToAdd;
+    m_time += secondsToAdd * NANOS_PER_SEC;
 
-    if( m_time > NANOS_PER_DAY )
+    if( m_time >= NANOS_PER_DAY )
     {
       m_date++;
       m_time %= NANOS_PER_DAY;
@@ -587,9 +583,18 @@ inline int operator-( const DateTime& lhs, const DateTime& rhs )
 class UtcTimeStamp : public DateTime
 {
 public:
+  static UtcTimeStamp now()
+  {
+    return UtcTimeStamp( DateTime::nowUtc() );
+  }
+
   /// Defaults to the current date and time
+  [[deprecated("Use UtcTimeStamp::now()")]]
   UtcTimeStamp()
   : DateTime( DateTime::nowUtc() ) {}
+
+  UtcTimeStamp(DateTime dateTime)
+  : DateTime(std::move(dateTime)) {}
 
   /// Defaults to the current date
   UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )
@@ -881,6 +886,7 @@ typedef std::string STRING;
 typedef char CHAR;
 typedef double PRICE;
 typedef int INT;
+typedef int64_t INT64;
 typedef double AMT;
 typedef double QTY;
 typedef std::string CURRENCY;
@@ -890,6 +896,7 @@ typedef std::string MULTIPLECHARVALUE;
 typedef std::string EXCHANGE;
 typedef UtcTimeStamp UTCTIMESTAMP;
 typedef bool BOOLEAN;
+typedef std::string LOCALMKTTIME;
 typedef std::string LOCALMKTDATE;
 typedef std::string DATA;
 typedef double FLOAT;
@@ -902,12 +909,15 @@ typedef UtcTimeOnly UTCTIMEONLY;
 typedef int NUMINGROUP;
 typedef double PERCENTAGE;
 typedef int SEQNUM;
+typedef int TAGNUM;
 typedef int LENGTH;
 typedef std::string COUNTRY;
 typedef std::string TZTIMEONLY;
 typedef std::string TZTIMESTAMP;
 typedef std::string XMLDATA;
 typedef std::string LANGUAGE;
+typedef std::string XID;
+typedef std::string XIDREF;
 
 namespace TYPE
 {
@@ -927,6 +937,7 @@ enum Type
   Exchange,
   UtcTimeStamp,
   Boolean,
+  LocalMktTime,
   LocalMktDate,
   Data,
   Float,
@@ -939,12 +950,15 @@ enum Type
   NumInGroup,
   Percentage,
   SeqNum,
+  TagNum,
   Length,
   Country,
   TzTimeOnly,
   TzTimeStamp,
   XmlData,
-  Language
+  Language,
+  Xid,
+  XidRef
 };
 }
 }

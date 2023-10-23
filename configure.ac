@@ -1,22 +1,21 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.59])
+AC_PREREQ([2.71])
 
-AC_INIT([QuickFIX], [1.14.3], [ask@quickfixengine.org])
+AC_INIT([QuickFIX],[1.15.1],[ask@quickfixengine.org])
 AC_CONFIG_MACRO_DIR([m4])
 m4_include([m4/ax_lib_mysql.m4])
 m4_include([m4/ax_lib_postgresql.m4])
+m4_include([m4/ax_lib_unixodbc.m4])
 m4_include([m4/ax_lib_boost.m4])
-m4_include([m4/ax_lib_stlport.m4])
 m4_include([m4/ax_lib_ssl.m4])
 m4_include([m4/ax_allocator.m4])
 m4_include([m4/ax_python.m4])
 m4_include([m4/ax_ruby.m4])
-m4_include([m4/ax_java.m4])
 m4_include([m4/ax_cxx_compile_stdcxx.m4])
 AC_CONFIG_SRCDIR([src/ut.cpp])
-AC_CONFIG_HEADERS([src/C++/config.h])
+AC_CONFIG_HEADERS([src/C++/config_unix.h])
 AC_CONFIG_AUX_DIR([config])
 AM_INIT_AUTOMAKE
 
@@ -25,47 +24,22 @@ AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
 AC_DISABLE_STATIC
-AC_LIBTOOL_WIN32_DLL
-AM_PROG_LIBTOOL
-AM_PROG_LEX
+
+LT_INIT
 
 AX_LIB_MYSQL()
 AX_LIB_POSTGRESQL()
+AX_LIB_UNIXODBC()
 AX_LIB_BOOST()
-AX_LIB_STLPORT()
 AX_LIB_SSL()
 AX_ALLOCATOR()
 AX_PYTHON()
 AX_RUBY()
-AX_JAVA()
-
-########################################
-# Disable unit tests on Solaris, AIX
 
 AC_CANONICAL_HOST
 
-build_no_unit_test = no
-
-# Detect the target system
-case "${host_os}" in
-    *sunos*)
-        build_no_unit_test=yes
-        ;;
-    *solaris*)
-        build_no_unit_test=yes
-        ;;
-    *aix*)
-        build_no_unit_test=yes
-        ;;
-    *)
-        ;;
-esac
-
-# Pass the conditionals to automake
-AM_CONDITIONAL([NO_UNIT_TEST], [test "$build_no_unit_test" = "yes"])
-
-########################################
-
+AX_CXX_COMPILE_STDCXX( [11], [noext], mandatory)
+AX_CXX_COMPILE_STDCXX( [14], [noext], optional)
 AX_CXX_COMPILE_STDCXX( [17], [noext], optional)
 
 ########################################
@@ -110,28 +84,18 @@ fi
 ########################################
 
 # libs
-LIBS="$OPENSSL_LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $TBB_LIBS $LIBS"
-# gcc flags
-if test `uname` == SunOS; then
-   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $RUBY_CFLAGS"
-else
-  if test `uname` == AIX; then
-   	SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
-  else
-    SHAREDFLAGS="-Wall -ansi -Wno-unused-command-line-argument -Wpointer-arith -Wwrite-strings -Wno-overloaded-virtual -Wno-deprecated-declarations -Wno-deprecated $TBB_CFLAGS $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
-  fi
-fi
+LIBS="$OPENSSL_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LDFLAGS $UNIX_ODBS_LIBS $TBB_LIBS $LIBS"
+# compiler flags
+SHAREDFLAGS="$TBB_CFLAGS $BOOST_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $UNIXODBC_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $RUBY_CFLAGS"
+AX_CHECK_COMPILE_FLAG([-Wall], [SHAREDFLAGS+=" -Wall $SHARED_FLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wno-overloaded-virtual], [SHAREDFLAGS+=" -Wno-overloaded-virtual $SHARED_FLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wno-deprecated-declarations], [SHAREDFLAGS+=" -Wno-deprecated-declarations $SHARED_FLAGS"])
 
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 
-if test "x$NO_MODERN_CPP" != "x"; then
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
-else
-CXXFLAGS="$CXXFLAGS $SHAREDFLAGS -std=c++0x"
-fi
 AC_SUBST(CXXFLAGS)
-
 
 # Checks for libraries.
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
@@ -172,36 +136,25 @@ AC_CHECK_HEADERS([stdio.h])
 
 
 AC_LANG_SAVE
-AC_LANG_CPLUSPLUS
+AC_LANG([C++])
 
 AC_MSG_CHECKING(for STREAMS ioctl)
-AC_TRY_COMPILE(
-	[#include <sys/types.h>
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
 	 #include <stropts.h>
-	 #include <sys/conf.h>],
-	[ioctl(1,I_NREAD);],
-	AC_MSG_RESULT(yes)
+	 #include <sys/conf.h>]], [[ioctl(1,I_NREAD);]])],[AC_MSG_RESULT(yes)
 	AC_DEFINE(USING_STREAMS, 1,
-	The system supports AT&T STREAMS, presumably standard),
-	AC_MSG_RESULT(no))
+	The system supports AT&T STREAMS, presumably standard)],[AC_MSG_RESULT(no)])
 
 AC_MSG_CHECKING(for socklen_t)
-AC_TRY_COMPILE(
-	[#include <unistd.h>
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>
          #include <sys/types.h>
-         #include <sys/socket.h>],
-	[socklen_t t = 1;],
-	AC_MSG_RESULT(yes),
-	AC_MSG_RESULT(no)
+         #include <sys/socket.h>]], [[socklen_t t = 1;]])],[AC_MSG_RESULT(yes)],[AC_MSG_RESULT(no)
 	AC_DEFINE(socklen_t, int,
-	socklen_t needs to be defined if the system doesn't define it))
+	socklen_t needs to be defined if the system doesn't define it)])
 
 AC_MSG_CHECKING(for ftime)
-AC_TRY_COMPILE(
-	[#include <sys/timeb.h>],
-	[timeb tb;
-         ftime(&tb)],
-	has_ftime=true, has_ftime=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/timeb.h>]], [[timeb tb;
+         ftime(&tb)]])],[has_ftime=true],[has_ftime=false])
 
 if test $has_ftime = true
 then AC_MSG_RESULT(yes)
@@ -211,98 +164,44 @@ fi
 AM_CONDITIONAL(HAVE_FTIME, $has_ftime)
 
 AC_MSG_CHECKING(for set_terminate in the global namespace)
-AC_TRY_COMPILE(
-	[#include <exception>
-	 void term() {}],
-	[set_terminate(term);],
-         set_terminate_is_global=true, set_terminate_is_global=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <exception>
+	 void term() {}]], [[set_terminate(term);]])],[set_terminate_is_global=true],[set_terminate_is_global=false])
 
 if test $set_terminate_is_global = true
 then AC_MSG_RESULT(yes)
 else AC_MSG_RESULT(no)
     AC_MSG_CHECKING(for set_terminate in the std namespace)
-    AC_TRY_COMPILE(
-    [#include <exception>
-     void term() {}],
-    [std::set_terminate(term);],
-    AC_MSG_RESULT(yes)
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <exception>
+     void term() {}]], [[std::set_terminate(term);]])],[AC_MSG_RESULT(yes)
     AC_DEFINE(TERMINATE_IN_STD, 1,
-    For location of set_terminate),
-    AC_MSG_RESULT(no)
-    AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
+    For location of set_terminate)],[AC_MSG_RESULT(no)
+    AC_MSG_ERROR(unable to find set_terminate in std or global namespace)])
 fi
 
-AC_MSG_CHECKING(for std::tr1::shared_ptr)
-AC_TRY_COMPILE(
-	[#include <tr1/memory>],
-	[std::tr1::shared_ptr<int> ptr;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_STD_TR1_SHARED_PTR_FROM_TR1_MEMORY_HEADER, 1,
-	The system supports std::tr1::shared_ptr),
-	AC_MSG_RESULT(no))
-
-AC_MSG_CHECKING(for std::shared_ptr)
-AC_TRY_COMPILE(
-	[#include <memory>],
-	[std::shared_ptr<int> ptr;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_STD_SHARED_PTR, 1,
-	The system supports std::shared_ptr),
-	AC_MSG_RESULT(no))
-
-AC_MSG_CHECKING(for boost::shared_ptr)
-AC_TRY_COMPILE(
-        [#include <boost/shared_ptr.hpp>],
-        [boost::shared_ptr<int> ptr;],
-        AC_MSG_RESULT(yes)
-        AC_DEFINE(HAVE_BOOST_SHARED_PTR, 1,
-        The system supports boost::shared_ptr),
-        AC_MSG_RESULT(no))
-
-AC_MSG_CHECKING(for std::unique_ptr)
-AC_TRY_COMPILE(
-	[#include <memory>],
-	[std::unique_ptr<int> ptr;],
-	AC_MSG_RESULT(yes)
-	AC_DEFINE(HAVE_STD_UNIQUE_PTR, 1,
-	The system supports std::unique_ptr),
-	AC_MSG_RESULT(no))
-
 AC_MSG_CHECKING(for typeinfo in the global namespace)
-AC_TRY_COMPILE(
-	[#include <typeinfo>],
-	[const typeinfo& ty = typeid(typeinfo);],
-	typeinfo_is_global=true, typeinfo_is_global=false)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>]], [[const typeinfo& ty = typeid(typeinfo);]])],[typeinfo_is_global=true],[typeinfo_is_global=false])
 
 if test $typeinfo_is_global = true
 then AC_MSG_RESULT(yes)
 else AC_MSG_RESULT(no)
     AC_MSG_CHECKING(for typeinfo in the std namespace)
-    AC_TRY_COMPILE(
-    [#include <typeinfo>],
-    [const std::type_info& ty = typeid(std::type_info);],
-    AC_MSG_RESULT(yes)
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>]], [[const std::type_info& ty = typeid(std::type_info);]])],[AC_MSG_RESULT(yes)
     AC_DEFINE(TYPEINFO_IN_STD, 1,
-    Whether or not we are using the new-style typeinfo header),
-    AC_MSG_RESULT(no)
-    AC_MSG_ERROR(type_info is required by the test library))
+    Whether or not we are using the new-style typeinfo header)],[AC_MSG_RESULT(no)
+    AC_MSG_ERROR(type_info is required by the test library)])
 fi
 
 # check for gethostbyname_r
 AC_MSG_CHECKING(for gethostbyname_r with input result)
-AC_TRY_COMPILE(
-	[#include <netdb.h>],
-	[const char* name = "localhost";
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <netdb.h>]], [[const char* name = "localhost";
          hostent host;
          char buf[1024];
          hostent* host_ptr;
          int error;
          gethostbyname_r( name, &host, buf, sizeof(buf), &host_ptr, &error );
-	 return 0;],
-	 AC_MSG_RESULT(yes)
+	 return 0;]])],[AC_MSG_RESULT(yes)
 	 AC_DEFINE(GETHOSTBYNAME_R_INPUTS_RESULT, 1,
-	 The system has gethostbyname_r which takes a result as a pass-in param),
-	 AC_MSG_RESULT(no))
+	 The system has gethostbyname_r which takes a result as a pass-in param)],[AC_MSG_RESULT(no)])
 
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 
@@ -315,8 +214,7 @@ AC_CHECK_LIB(iberty, cplus_demangle,
 
 # Checks for runtime behavior
 AC_MSG_CHECKING(if select modifies timeval parameter)
-AC_TRY_RUN(
-[
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/time.h>
@@ -328,12 +226,9 @@ int main(int argc, char** argv)
   select(0,0,0,0,&tv);
   return tv.tv_usec != 1 ? 0 : 1;
 }
-],
-AC_MSG_RESULT(yes)
+]])],[AC_MSG_RESULT(yes)
 AC_DEFINE(SELECT_MODIFIES_TIMEVAL, 1,
-select statement decrements timeval parameter if interupted),
-AC_MSG_RESULT(no),
-AC_MSG_RESULT(unable to determine, assuming no...))
+select statement decrements timeval parameter if interupted)],[AC_MSG_RESULT(no)],[AC_MSG_RESULT(unable to determine, assuming no...)])
 
 AC_CONFIG_FILES([
     quickfix.pc
@@ -341,7 +236,6 @@ AC_CONFIG_FILES([
     src/Makefile
     src/C++/Makefile
     src/C++/test/Makefile
-    src/python2/Makefile
     src/python3/Makefile
     src/ruby/Makefile
     bin/Makefile
@@ -357,15 +251,7 @@ AC_CONFIG_FILES([
     examples/executor/Makefile
     examples/executor/C++/Makefile
     examples/ordermatch/Makefile
-    examples/ordermatch/test/Makefile
     examples/tradeclient/Makefile
-    examples/tradeclientgui/Makefile
-    examples/tradeclientgui/banzai/Makefile
-    examples/tradeclientgui/banzai/test/Makefile
-    examples/tradeclientgui/banzai/src/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/Makefile
-    examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
     doc/Makefile
     doc/html/Makefile ])
 AC_OUTPUT

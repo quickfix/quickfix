@@ -31,20 +31,20 @@
 
 namespace FIX
 {
-FileStore::FileStore( std::string path, const SessionID& s )
-: m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
+FileStore::FileStore( const UtcTimeStamp& now, std::string path, const SessionID& sessionID )
+: m_cache( now ), m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
 {
   file_mkdir( path.c_str() );
 
   if ( path.empty() ) path = ".";
   const std::string& begin =
-    s.getBeginString().getString();
+    sessionID.getBeginString().getString();
   const std::string& sender =
-    s.getSenderCompID().getString();
+    sessionID.getSenderCompID().getString();
   const std::string& target =
-    s.getTargetCompID().getString();
+    sessionID.getTargetCompID().getString();
   const std::string& qualifier =
-    s.getSessionQualifier();
+    sessionID.getSessionQualifier();
 
   std::string sessionid = begin + "-" + sender + "-" + target;
   if( qualifier.size() )
@@ -99,15 +99,18 @@ void FileStore::open( bool deleteFile )
   populateCache();
   m_msgFile = file_fopen( m_msgFileName.c_str(), "r+" );
   if ( !m_msgFile ) m_msgFile = file_fopen( m_msgFileName.c_str(), "w+" );
-  if ( !m_msgFile ) throw ConfigError( "Could not open body file: " + m_msgFileName );
+  if ( !m_msgFile ) throw ConfigError( 
+    "Could not open body file: " + m_msgFileName + " " + error_strerror() );
 
   m_headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
-  if ( !m_headerFile ) throw ConfigError( "Could not open header file: " + m_headerFileName );
+  if ( !m_headerFile ) throw ConfigError( 
+    "Could not open header file: " + m_headerFileName + " " + error_strerror() );
 
   m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
   if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "w+" );
-  if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file: " + m_seqNumsFileName );
+  if ( !m_seqNumsFile ) throw ConfigError( 
+    "Could not open seqnums file: " + m_seqNumsFileName + " " + error_strerror() );
 
   bool setCreationTime = false;
   m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r" );
@@ -116,7 +119,8 @@ void FileStore::open( bool deleteFile )
 
   m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
   if ( !m_sessionFile ) m_sessionFile = file_fopen( m_sessionFileName.c_str(), "w+" );
-  if ( !m_sessionFile ) throw ConfigError( "Could not open session file" );
+  if ( !m_sessionFile ) throw ConfigError( 
+    "Could not open session file " + error_strerror() );
   if ( setCreationTime ) setSession();
 
   setNextSenderMsgSeqNum( getNextSenderMsgSeqNum() );
@@ -132,11 +136,11 @@ void FileStore::populateCache()
     long offset;
     std::size_t size;
 
-    while (FILE_FSCANF(headerFile, "%d,%ld,%lu ", &num, &offset, &size) == 3)
+    while (FILE_FSCANF(headerFile, "%d,%ld,%zu ", &num, &offset, &size) == 3)
     {
       std::pair<NumToOffset::iterator, bool> it = 
         m_offsets.insert(NumToOffset::value_type(num, std::make_pair(offset, size)));
-      //std::cout << it.first->second.first << " --- " << it.first->second.second << '\n';
+
       if (it.second == false)
       {
         it.first->second = std::make_pair(offset, size);
@@ -174,14 +178,14 @@ void FileStore::populateCache()
   }
 }
 
-MessageStore* FileStoreFactory::create( const SessionID& s )
+MessageStore* FileStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
 {
-  if ( m_path.size() ) return new FileStore( m_path, s );
+  if ( m_path.size() ) return new FileStore( now, m_path, sessionID );
 
   std::string path;
-  Dictionary settings = m_settings.get( s );
+  Dictionary settings = m_settings.get( sessionID );
   path = settings.getString( FILE_STORE_PATH );
-  return new FileStore( path, s );
+  return new FileStore( now, path, sessionID );
 }
 
 void FileStoreFactory::destroy( MessageStore* pStore )
@@ -202,7 +206,7 @@ EXCEPT ( IOException )
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
   std::size_t size = msg.size();
 
-  if ( fprintf( m_headerFile, "%d,%ld,%lu ", msgSeqNum, offset, size ) < 0 )
+  if ( fprintf( m_headerFile, "%d,%ld,%zu ", msgSeqNum, offset, size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
   std::pair<NumToOffset::iterator, bool> it = 
     m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
@@ -272,11 +276,12 @@ UtcTimeStamp FileStore::getCreationTime() const EXCEPT ( IOException )
   return m_cache.getCreationTime();
 }
 
-void FileStore::reset() EXCEPT ( IOException )
+void FileStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
 {
   try
   {
-    m_cache.reset();
+    m_cache.reset( now );
+    m_offsets.clear();
     open( true );
     setSession();
   }
@@ -290,7 +295,8 @@ void FileStore::refresh() EXCEPT ( IOException )
 {
   try
   {
-    m_cache.reset();
+    m_cache.reset( UtcTimeStamp::now() );
+    m_offsets.clear();
     open( false );
   }
   catch( std::exception& e )

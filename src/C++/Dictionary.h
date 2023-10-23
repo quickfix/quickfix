@@ -43,6 +43,7 @@ public:
   typedef std::map < std::string, std::string > Data;
   typedef Data::const_iterator iterator;
   typedef iterator const_iterator;
+  typedef Data::value_type value_type;
 
   /// Get the name of the dictionary.
   std::string getName() const { return m_name; }

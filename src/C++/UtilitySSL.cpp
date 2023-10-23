@@ -386,30 +386,6 @@ void ssl_socket_close(socket_handle socket, SSL *ssl)
   }
 }
 
-static void locking_callback(int mode, int type, const char *file, int line)
-{
-#ifdef _MSC_VER
-  if (mode & CRYPTO_LOCK)
-    WaitForSingleObject(lock_cs[type], INFINITE);
-  else
-    ReleaseMutex(lock_cs[type]);
-#else
-  if (mode & CRYPTO_LOCK)
-    pthread_mutex_lock(&(lock_cs[type]));
-  else
-    pthread_mutex_unlock(&(lock_cs[type]));
-#endif
-}
-
-static unsigned long thread_id_func()
-{
-#ifdef _MSC_VER
-  return (unsigned)GetCurrentThreadId();
-#else
-  return (unsigned long)pthread_self();
-#endif
-}
-
 static void thread_setup(void)
 {
 
@@ -506,19 +482,6 @@ static void ssl_rand_seed(void)
   */
   n = ssl_rand_choose_num(0, sizeof(stackdata) - 128 - 1);
   RAND_seed(stackdata + n, 128);
-}
-
-const char *socket_error(char *tempbuf, int buflen)
-{
-#ifdef _MSC_VER
-  int code = WSAGetLastError();
-  snprintf(tempbuf, buflen, "%s(%d)", WSAErrString(code), code);
-#else /* UNIX */
-  snprintf(tempbuf, buflen, "%s(errno=%d)", strerror(errno), errno);
-#endif
-  tempbuf[buflen - 1] = 0;
-
-  return tempbuf;
 }
 
 int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b)
@@ -734,6 +697,9 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
     case EVP_PKEY_DSA:
       t = SSL_ALGO_DSA;
       break;
+    case EVP_PKEY_EC:
+      t = SSL_ALGO_EC;
+      break;
     default:
       break;
     }
@@ -800,7 +766,7 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
     while ((direntry = ACE_OS::readdir(dir)) != 0)
     {
 #endif
-      cp = strCat(cpCApath, SLASH, direntry->d_name, 0);
+      cp = string_concat(cpCApath, SLASH, direntry->d_name, 0);
       sk = SSL_load_client_CA_file(cp);
       for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++)
       {
@@ -935,51 +901,6 @@ EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
     *key = rc;
   }
   return rc;
-}
-
-char *strCat(const char *a, ...)
-{
-  char *cp, *argp, *res;
-
-  /* Pass one --- find length of required string */
-
-  int len = 0;
-  va_list adummy;
-
-  if (a == 0)
-    return 0;
-
-  va_start(adummy, a);
-
-  len = strlen(a);
-  while ((cp = va_arg(adummy, char *)) != 0)
-    len += strlen(cp);
-
-  va_end(adummy);
-
-  /* Allocate the required string */
-
-  res = new char[len + 1];
-  cp = res;
-  *cp = '\0';
-
-  /* Pass two --- copy the argument strings into the result space */
-
-  va_start(adummy, a);
-
-  strcpy(cp, a);
-  cp += strlen(a);
-  while ((argp = va_arg(adummy, char *)) != 0)
-  {
-    strcpy(cp, argp);
-    cp += strlen(argp);
-  }
-
-  va_end(adummy);
-
-  /* Return the result string */
-
-  return res;
 }
 
 int setSocketNonBlocking(socket_handle pSocket)
@@ -1238,23 +1159,23 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   if (server)
   {
-    if (!settings.get().has(SERVER_CERT_FILE))
+    if (!settings.get().has(SERVER_CERTIFICATE_FILE))
     {
-      errStr.assign(SERVER_CERT_FILE);
+      errStr.assign(SERVER_CERTIFICATE_FILE);
       errStr.append(" parameter not found");
       return false;
     }
 
-    cert.assign(settings.get().getString(SERVER_CERT_FILE));
+    cert.assign(settings.get().getString(SERVER_CERTIFICATE_FILE));
 
-    if (settings.get().has(SERVER_CERT_KEY_FILE))
-      key.assign(settings.get().getString(SERVER_CERT_KEY_FILE));
+    if (settings.get().has(SERVER_CERTIFICATE_KEY_FILE))
+      key.assign(settings.get().getString(SERVER_CERTIFICATE_KEY_FILE));
     else
       key.assign(cert);
   }
   else
   {
-    if (!settings.get().has(CLIENT_CERT_FILE))
+    if (!settings.get().has(CLIENT_CERTIFICATE_FILE))
     {
       log->onEvent("No SSL certificate configured for client.");
 
@@ -1274,10 +1195,10 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
       return true;
     }
 
-    cert.assign(settings.get().getString(CLIENT_CERT_FILE));
+    cert.assign(settings.get().getString(CLIENT_CERTIFICATE_FILE));
 
-    if (settings.get().has(CLIENT_CERT_KEY_FILE))
-      key.assign(settings.get().getString(CLIENT_CERT_KEY_FILE));
+    if (settings.get().has(CLIENT_CERTIFICATE_KEY_FILE))
+      key.assign(settings.get().getString(CLIENT_CERTIFICATE_KEY_FILE));
     else
       key.assign(cert);
   }
@@ -1331,6 +1252,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
     }
     break;
 
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client certificate");
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
+    {
+      errStr.assign("Unable to configure EC client certificate");
+      return false;
+    }
+    break;
+
   default:
     errStr.assign("Unable to configure client certificate");
     return false;
@@ -1375,6 +1305,15 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
       return false;
     }
     break;
+    
+  case SSL_ALGO_EC:
+    log->onEvent("Configuring EC client private key");
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
+    {
+      errStr.assign("Unable to configure EC server private key");
+      return false;
+    }
+    break;
   default:
 
     errStr.assign("Unable to configure client certificate");
@@ -1416,12 +1355,12 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   log->onEvent("Loading CA info");
 
   std::string caFile;
-  if (settings.get().has(CERT_AUTH_FILE))
-    caFile.assign(settings.get().getString(CERT_AUTH_FILE));
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_FILE))
+    caFile.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_FILE));
 
   std::string caDir;
-  if (settings.get().has(CERT_AUTH_DIR))
-    caDir.assign(settings.get().getString(CERT_AUTH_DIR));
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_DIRECTORY))
+    caDir.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_DIRECTORY));
 
   if (caFile.empty() && caDir.empty())
     return true;
@@ -1447,8 +1386,8 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   if (server)
   {
-    if (settings.get().has(VERIFY_LEVEL))
-      verifyLevel = (settings.get().getInt(VERIFY_LEVEL));
+    if (settings.get().has(CERTIFICATE_VERIFY_LEVEL))
+      verifyLevel = (settings.get().getInt(CERTIFICATE_VERIFY_LEVEL));
 
     if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET)
     {
@@ -1483,12 +1422,12 @@ X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
   errStr.erase();
 
   std::string crlFile;
-  if (settings.get().has(CRL_FILE))
-    crlFile.assign(settings.get().getString(CRL_FILE));
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_FILE))
+    crlFile.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_FILE));
 
   std::string crlDir;
-  if (settings.get().has(CRL_DIR))
-    crlDir.assign(settings.get().getString(CRL_DIR));
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_DIRECTORY))
+    crlDir.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_DIRECTORY));
 
   if (crlFile.empty() && crlDir.empty())
     return revocationStore;

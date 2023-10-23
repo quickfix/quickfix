@@ -12,7 +12,10 @@ namespace FIXT11
     Reject() : Message(MsgType()) {}
     Reject(const FIX::Message& m) : Message(m) {}
     Reject(const Message& m) : Message(m) {}
-    Reject(const Reject& m) : Message(m) {}
+    Reject(const Reject&) = default;
+    Reject(Reject&&) = default;
+    Reject& operator=(const Reject&) = default;
+    Reject& operator=(Reject&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("3"); }
 
     Reject(
@@ -25,6 +28,9 @@ namespace FIXT11
     FIELD_SET(*this, FIX::RefSeqNum);
     FIELD_SET(*this, FIX::RefTagID);
     FIELD_SET(*this, FIX::RefMsgType);
+    FIELD_SET(*this, FIX::RefApplVerID);
+    FIELD_SET(*this, FIX::RefApplExtID);
+    FIELD_SET(*this, FIX::RefCstmApplVerID);
     FIELD_SET(*this, FIX::SessionRejectReason);
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);

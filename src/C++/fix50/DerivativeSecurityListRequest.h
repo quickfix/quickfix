@@ -12,7 +12,10 @@ namespace FIX50
     DerivativeSecurityListRequest() : Message(MsgType()) {}
     DerivativeSecurityListRequest(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityListRequest(const Message& m) : Message(m) {}
-    DerivativeSecurityListRequest(const DerivativeSecurityListRequest& m) : Message(m) {}
+    DerivativeSecurityListRequest(const DerivativeSecurityListRequest&) = default;
+    DerivativeSecurityListRequest(DerivativeSecurityListRequest&&) = default;
+    DerivativeSecurityListRequest& operator=(const DerivativeSecurityListRequest&) = default;
+    DerivativeSecurityListRequest& operator=(DerivativeSecurityListRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("z"); }
 
     DerivativeSecurityListRequest(
@@ -61,7 +64,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
     FIELD_SET(*this, FIX::UnderlyingOptAttribute);
     FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
-    FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
+    FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
     FIELD_SET(*this, FIX::UnderlyingTimeUnit);
     FIELD_SET(*this, FIX::UnderlyingCouponRate);
     FIELD_SET(*this, FIX::UnderlyingSecurityExchange);

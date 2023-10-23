@@ -12,7 +12,10 @@ namespace FIX50SP2
     TradingSessionList() : Message(MsgType()) {}
     TradingSessionList(const FIX::Message& m) : Message(m) {}
     TradingSessionList(const Message& m) : Message(m) {}
-    TradingSessionList(const TradingSessionList& m) : Message(m) {}
+    TradingSessionList(const TradingSessionList&) = default;
+    TradingSessionList(TradingSessionList&&) = default;
+    TradingSessionList& operator=(const TradingSessionList&) = default;
+    TradingSessionList& operator=(TradingSessionList&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BJ"); }
 
     FIELD_SET(*this, FIX::ApplID);
@@ -24,9 +27,10 @@ namespace FIX50SP2
     class NoTradingSessions: public FIX::Group
     {
     public:
-    NoTradingSessions() : FIX::Group(386,336,FIX::message_order(336,625,207,1301,1300,1326,338,339,325,340,567,341,342,343,344,345,387,58,354,355,60,1327,0)) {}
+    NoTradingSessions() : FIX::Group(386,336,FIX::message_order(336,625,1327,207,1301,1300,1326,338,339,325,340,567,341,342,343,344,345,387,60,58,354,355,0)) {}
       FIELD_SET(*this, FIX::TradingSessionID);
       FIELD_SET(*this, FIX::TradingSessionSubID);
+      FIELD_SET(*this, FIX::TradSesUpdateAction);
       FIELD_SET(*this, FIX::SecurityExchange);
       FIELD_SET(*this, FIX::MarketID);
       FIELD_SET(*this, FIX::MarketSegmentID);
@@ -63,28 +67,45 @@ namespace FIX50SP2
       NoExecInstRules() : FIX::Group(1232,1308,FIX::message_order(1308,0)) {}
         FIELD_SET(*this, FIX::ExecInstValue);
       };
+      FIELD_SET(*this, FIX::NoAuctionTypeRules);
+      class NoAuctionTypeRules: public FIX::Group
+      {
+      public:
+      NoAuctionTypeRules() : FIX::Group(2548,1803,FIX::message_order(1803,2549,0)) {}
+        FIELD_SET(*this, FIX::AuctionType);
+        FIELD_SET(*this, FIX::AuctionTypeProductComplex);
+      };
       FIELD_SET(*this, FIX::NoMatchRules);
       class NoMatchRules: public FIX::Group
       {
       public:
-      NoMatchRules() : FIX::Group(1235,1142,FIX::message_order(1142,574,0)) {}
+      NoMatchRules() : FIX::Group(1235,1142,FIX::message_order(1142,574,2569,2570,0)) {}
         FIELD_SET(*this, FIX::MatchAlgorithm);
         FIELD_SET(*this, FIX::MatchType);
+        FIELD_SET(*this, FIX::MatchRuleProductComplex);
+        FIELD_SET(*this, FIX::CustomerPriority);
       };
       FIELD_SET(*this, FIX::NoMDFeedTypes);
       class NoMDFeedTypes: public FIX::Group
       {
       public:
-      NoMDFeedTypes() : FIX::Group(1141,1022,FIX::message_order(1022,264,1021,0)) {}
+      NoMDFeedTypes() : FIX::Group(1141,1022,FIX::message_order(1022,1683,264,2563,2564,2565,2566,1021,1173,2567,2568,0)) {}
         FIELD_SET(*this, FIX::MDFeedType);
+        FIELD_SET(*this, FIX::MDSubFeedType);
         FIELD_SET(*this, FIX::MarketDepth);
+        FIELD_SET(*this, FIX::MarketDepthTimeInterval);
+        FIELD_SET(*this, FIX::MarketDepthTimeIntervalUnit);
+        FIELD_SET(*this, FIX::MDRecoveryTimeInterval);
+        FIELD_SET(*this, FIX::MDRecoveryTimeIntervalUnit);
         FIELD_SET(*this, FIX::MDBookType);
+        FIELD_SET(*this, FIX::MDSubBookType);
+        FIELD_SET(*this, FIX::PrimaryServiceLocationID);
+        FIELD_SET(*this, FIX::SecondaryServiceLocationID);
       };
+      FIELD_SET(*this, FIX::TransactTime);
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);
-      FIELD_SET(*this, FIX::TransactTime);
-      FIELD_SET(*this, FIX::TradSesUpdateAction);
     };
   };
 

@@ -12,7 +12,10 @@ namespace FIX50SP1
     TradingSessionList() : Message(MsgType()) {}
     TradingSessionList(const FIX::Message& m) : Message(m) {}
     TradingSessionList(const Message& m) : Message(m) {}
-    TradingSessionList(const TradingSessionList& m) : Message(m) {}
+    TradingSessionList(const TradingSessionList&) = default;
+    TradingSessionList(TradingSessionList&&) = default;
+    TradingSessionList& operator=(const TradingSessionList&) = default;
+    TradingSessionList& operator=(TradingSessionList&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BJ"); }
 
     FIELD_SET(*this, FIX::ApplID);

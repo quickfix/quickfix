@@ -235,8 +235,8 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );
 
-  char sqlTime[ 24 ];
-  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d.%003d",
+  char sqlTime[ 100 ];
+  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d.%03d",
            year, month, day, hour, minute, second, millis );
   
   char* valueCopy = new char[ (value.size() * 2) + 1 ];

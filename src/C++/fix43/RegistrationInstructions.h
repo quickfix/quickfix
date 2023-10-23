@@ -12,7 +12,10 @@ namespace FIX43
     RegistrationInstructions() : Message(MsgType()) {}
     RegistrationInstructions(const FIX::Message& m) : Message(m) {}
     RegistrationInstructions(const Message& m) : Message(m) {}
-    RegistrationInstructions(const RegistrationInstructions& m) : Message(m) {}
+    RegistrationInstructions(const RegistrationInstructions&) = default;
+    RegistrationInstructions(RegistrationInstructions&&) = default;
+    RegistrationInstructions& operator=(const RegistrationInstructions&) = default;
+    RegistrationInstructions& operator=(RegistrationInstructions&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("o"); }
 
     RegistrationInstructions(
@@ -43,6 +46,7 @@ namespace FIX43
     FIELD_SET(*this, FIX::Account);
     FIELD_SET(*this, FIX::RegistAcctType);
     FIELD_SET(*this, FIX::TaxAdvantageType);
+    FIELD_SET(*this, FIX::OwnershipType);
     FIELD_SET(*this, FIX::OwnershipType);
     FIELD_SET(*this, FIX::NoRegistDtls);
     class NoRegistDtls: public FIX::Group

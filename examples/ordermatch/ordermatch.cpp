@@ -27,6 +27,7 @@
 #include "quickfix/SocketAcceptor.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>

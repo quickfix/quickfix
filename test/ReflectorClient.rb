@@ -108,7 +108,7 @@ class ReflectorClient
     @sockets.each do
       |cid, s|
       begin
-	s.close
+	      s.close
       rescue
       end
     end

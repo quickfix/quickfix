@@ -43,6 +43,7 @@ const char CONNECTION_TYPE[] = "ConnectionType";
 const char USE_DATA_DICTIONARY[] = "UseDataDictionary";
 const char SEND_RESETSEQNUMFLAG[] = "SendResetSeqNumFlag";
 const char SEND_REDUNDANT_RESENDREQUESTS[] = "SendRedundantResendRequests";
+const char SEND_NEXT_EXPECTED_MSG_SEQ_NUM[] = "SendNextExpectedMsgSeqNum";
 const char DATA_DICTIONARY[] = "DataDictionary";
 const char TRANSPORT_DATA_DICTIONARY[] = "TransportDataDictionary";
 const char APP_DATA_DICTIONARY[] = "AppDataDictionary";
@@ -130,15 +131,15 @@ const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
 const char TIMESTAMP_PRECISION[] = "TimestampPrecision";
 const char HTTP_ACCEPT_PORT[] = "HttpAcceptPort";
 const char PERSIST_MESSAGES[] = "PersistMessages";
-const char SERVER_CERT_FILE[] = "ServerCertificateFile";
-const char SERVER_CERT_KEY_FILE[] = "ServerCertificateKeyFile";
-const char CLIENT_CERT_FILE[] = "ClientCertificateFile";
-const char CLIENT_CERT_KEY_FILE[] = "ClientCertificateKeyFile";
-const char CERT_AUTH_FILE[] = "CertificationAuthoritiesFile";
-const char CERT_AUTH_DIR[] = "CertificationAuthoritiesDirectory";
-const char CRL_FILE[] = "CertificateRevocationListFile";
-const char CRL_DIR[] = "CertificateRevocationListDirectory";
-const char VERIFY_LEVEL[] = "CertificateVerifyLevel";
+const char SERVER_CERTIFICATE_FILE[] = "ServerCertificateFile";
+const char SERVER_CERTIFICATE_KEY_FILE[] = "ServerCertificateKeyFile";
+const char CLIENT_CERTIFICATE_FILE[] = "ClientCertificateFile";
+const char CLIENT_CERTIFICATE_KEY_FILE[] = "ClientCertificateKeyFile";
+const char CERTIFICATE_AUTHORITIES_FILE[] = "CertificationAuthoritiesFile";
+const char CERTIFICATE_AUTHORITIES_DIRECTORY[] = "CertificationAuthoritiesDirectory";
+const char CERTIFICATE_REVOCATION_LIST_FILE[] = "CertificateRevocationListFile";
+const char CERTIFICATE_REVOCATION_LIST_DIRECTORY[] = "CertificateRevocationListDirectory";
+const char CERTIFICATE_VERIFY_LEVEL[] = "CertificateVerifyLevel";
 /*
 # This directive can be used to control the SSL protocol flavors the application
 # should use when establishing its environment.

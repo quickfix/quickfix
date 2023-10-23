@@ -117,7 +117,11 @@
 #ifndef FIX_SSLSOCKETINITIATOR_H
 #define FIX_SSLSOCKETINITIATOR_H
 
-#if (HAVE_SSL > 0)
+#ifndef HAVE_SSL
+#error SSLSocketInitiator.h included, but HAVE_SSL not defined
+#endif
+
+#ifdef HAVE_SSL
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -139,9 +143,9 @@ class SSLSocketInitiator : public Initiator, SocketConnector::Strategy
 {
 public:
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) EXCEPT ( ConfigError );
+                      const SessionSettings& ) EXCEPT ( ConfigError );
   SSLSocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+                      const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
 
   virtual ~SSLSocketInitiator();
 
@@ -158,14 +162,14 @@ public:
   static int passwordHandleCB(char *buf, int bufsize, int verify, void *instance);
 
 private:
-  typedef std::map < socket_handle, SSLSocketConnection* > SocketConnections;
-  typedef std::map < SessionID, int > SessionToHostNum;
+  typedef std::map<socket_handle, SSLSocketConnection*> SocketConnections;
+  typedef std::map<SessionID, int> SessionToHostNum;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
   void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
 
   void onStart();
-  bool onPoll( double timeout );
+  bool onPoll();
   void onStop();
 
   void doConnect( const SessionID&, const Dictionary& d );

@@ -19,13 +19,14 @@
 **
 ****************************************************************************/
 
+#ifndef FIX_MYSQLLOG_H
+#define FIX_MYSQLLOG_H
+
 #ifndef HAVE_MYSQL
 #error MySQLLog.h included, but HAVE_MYSQL not defined
 #endif
 
 #ifdef HAVE_MYSQL
-#ifndef FIX_MYSQLLOG_H
-#define FIX_MYSQLLOG_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -44,9 +45,9 @@ namespace FIX
 class MySQLLog : public Log
 {
 public:
-  MySQLLog( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
-  MySQLLog( const DatabaseConnectionID& d, MySQLConnectionPool* p );
-  MySQLLog( const SessionID& s, const std::string& database, const std::string& user,
+  MySQLLog( const SessionID& sessionID, const DatabaseConnectionID& connectionID, MySQLConnectionPool* pool );
+  MySQLLog( const DatabaseConnectionID& connectionID, MySQLConnectionPool* pool );
+  MySQLLog( const SessionID& sessionID, const std::string& database, const std::string& user,
             const std::string& password, const std::string& host, short port );
   MySQLLog( const std::string& database, const std::string& user,
             const std::string& password, const std::string& host, short port );

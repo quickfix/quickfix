@@ -35,9 +35,45 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <iostream>
+#include <cstdarg>
 
 namespace FIX
 {
+std::string error_strerror(decltype(errno) error_number)
+{
+  return "(errno[" + std::to_string(error_number) + "]:" + std::strerror(error_number) + ")"; 
+}
+
+std::string error_strerror()
+{
+  return error_strerror(errno);
+}
+
+#ifdef _MSC_VER
+std::string error_wsaerror(int wsa_error_number)
+{
+  auto format = FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_MAX_WIDTH_MASK;
+  LPSTR buffer = NULL;
+
+  FormatMessageA(
+    format,
+    0, 
+    wsa_error_number,
+    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+    (LPSTR)&buffer, 
+    0, 
+    NULL);
+
+  return "(wsaerror[" + std::to_string(wsa_error_number) + "]:" + buffer + ")";
+}
+
+std::string error_wsaerror()
+{
+  return error_wsaerror(WSAGetLastError());
+}
+#endif
+
 void string_replace( const std::string& oldValue,
                      const std::string& newValue,
                      std::string& value )
@@ -50,6 +86,51 @@ void string_replace( const std::string& oldValue,
     pos += newValue.size();
   }
 }
+
+char *string_concat(const char *a, ...)
+{
+  char *cp, *argp, *res;
+
+  /* Pass one --- find length of required string */
+
+  int len = 0;
+  va_list adummy;
+
+  if (a == 0)
+    return 0;
+
+  va_start(adummy, a);
+
+  len = strlen(a);
+  while ((cp = va_arg(adummy, char *)) != 0)
+    len += strlen(cp);
+
+  va_end(adummy);
+
+  /* Allocate the required string */
+
+  res = new char[len + 1];
+  cp = res;
+  *cp = '\0';
+
+  /* Pass two --- copy the argument strings into the result space */
+
+  va_start(adummy, a);
+
+  strcpy(cp, a);
+  cp += strlen(a);
+  while ((argp = va_arg(adummy, char *)) != 0)
+  {
+    strcpy(cp, argp);
+    cp += strlen(argp);
+  }
+
+  va_end(adummy);
+
+  /* Return the result string */
+
+  return res;
+}                    
 
 std::string string_toUpper( const std::string& value )
 {
@@ -101,6 +182,15 @@ void socket_term()
 #endif
 }
 
+std::string socket_error()
+{
+#ifdef _MSC_VER
+  return error_wsaerror();
+#else
+  return error_strerror();
+#endif  
+}
+
 int socket_bind(socket_handle socket, const char* hostname, int port )
 {
   sockaddr_in address;
@@ -150,7 +240,19 @@ socket_handle socket_createConnector()
 int socket_connect(socket_handle socket, const char* address, int port )
 {
   const char* hostname = socket_hostname( address );
-  if( hostname == 0 ) return -1;
+  if( hostname == 0 )
+  {
+#ifdef _MSC_VER
+    // In a case of Windows + MSVC, select() does not fire a write event for
+    // a bare socket (no connection ever attempted). Therefore the later
+    // logic, which is based on unconditional continuation with select(),
+    // leads to a deadlock (the select never gets back) for the connecting session.
+    // So keep going ahead with a bad address to issue a faulty connect.
+    hostname = address;
+#else
+    return -1;
+#endif
+  }
 
   sockaddr_in addr;
   addr.sin_family = PF_INET;
@@ -171,12 +273,20 @@ socket_handle socket_accept(socket_handle s )
 
 ssize_t socket_recv(socket_handle s, char* buf, size_t length )
 {
-  return recv( s, buf, length, 0 );
+#ifdef _MSC_VER
+  return recv( s, buf, static_cast<int>(length), 0 );
+#else
+  return recv(s, buf, length, 0);
+#endif
 }
 
 ssize_t socket_send(socket_handle s, const char* msg, size_t length )
 {
-  return send( s, msg, length, 0 );
+#ifdef _MSC_VER
+  return send( s, msg, static_cast<int>(length), 0 );
+#else
+  return send(s, msg, length, 0);
+#endif
 }
 
 void socket_close(socket_handle s )
@@ -281,8 +391,6 @@ int socket_getfcntlflag( int s, int arg )
 
 int socket_setfcntlflag( int s, int arg )
 {
-  int oldValue = socket_getfcntlflag( s, arg );
-  oldValue |= arg;
   return socket_fcntl( s, F_SETFL, arg );
 }
 #endif
@@ -314,26 +422,26 @@ bool socket_isBad( int s )
 }
 #endif
 
-void socket_invalidate(socket_handle& socket )
+void socket_invalidate( socket_handle& socket )
 {
   socket = INVALID_SOCKET_HANDLE;
 }
 
-short socket_hostport(socket_handle socket )
+short socket_hostport( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
-  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) != 0 )
     return 0;
 
   return ntohs( addr.sin_port );
 }
 
-const char* socket_hostname(socket_handle socket )
+const char* socket_hostname( socket_handle socket )
 {
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
-  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) != 0 )
     return 0;
 
   return inet_ntoa( addr.sin_addr );
@@ -436,7 +544,7 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, thread_id& thread )
 #ifdef _MSC_VER
   thread_id result = 0;
   unsigned int id = 0;
-  result = _beginthreadex( NULL, 0, func, var, 0, &id );
+  result = reinterpret_cast<thread_id>(_beginthreadex( NULL, 0, func, var, 0, &id ));
   if ( result == 0 ) return false;
 #else
   thread_id result = 0;
@@ -456,7 +564,7 @@ void thread_join( thread_id thread )
 {
 #ifdef _MSC_VER
   WaitForSingleObject( ( void* ) thread, INFINITE );
-  CloseHandle((HANDLE)thread);
+  CloseHandle(thread);
 #else
   pthread_join( ( pthread_t ) thread, 0 );
 #endif
@@ -465,7 +573,7 @@ void thread_join( thread_id thread )
 void thread_detach( thread_id thread )
 {
 #ifdef _MSC_VER
-  CloseHandle((HANDLE)thread);
+  CloseHandle(thread);
 #else
   pthread_t t = thread;
   pthread_detach( t );
@@ -475,7 +583,7 @@ void thread_detach( thread_id thread )
 thread_id thread_self()
 {
 #ifdef _MSC_VER
-  return (unsigned)GetCurrentThread();
+  return GetCurrentThread();
 #else
   return pthread_self();
 #endif
@@ -526,12 +634,10 @@ void file_mkdir( const char* path )
 
 FILE* file_fopen( const char* path, const char* mode )
 {
-#if( _MSC_VER >= 1400 )
-  FILE* result = 0;
-  fopen_s( &result, path, mode );
-  return result;
+#ifdef _MSC_VER
+  return _fsopen(path, mode, _SH_DENYWR);
 #else
-  return fopen( path, mode );
+  return fopen(path, mode);
 #endif
 }
 

@@ -12,7 +12,10 @@ namespace FIX50SP1
     PositionMaintenanceReport() : Message(MsgType()) {}
     PositionMaintenanceReport(const FIX::Message& m) : Message(m) {}
     PositionMaintenanceReport(const Message& m) : Message(m) {}
-    PositionMaintenanceReport(const PositionMaintenanceReport& m) : Message(m) {}
+    PositionMaintenanceReport(const PositionMaintenanceReport&) = default;
+    PositionMaintenanceReport(PositionMaintenanceReport&&) = default;
+    PositionMaintenanceReport& operator=(const PositionMaintenanceReport&) = default;
+    PositionMaintenanceReport& operator=(PositionMaintenanceReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AM"); }
 
     PositionMaintenanceReport(
@@ -176,7 +179,7 @@ namespace FIX50SP1
     class NoLegs: public FIX::Group
     {
     public:
-    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,0)) {}
+    NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,1212,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,999,1224,1421,1422,1001,1420,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,1358,1017,566,0)) {}
       FIELD_SET(*this, FIX::LegSymbol);
       FIELD_SET(*this, FIX::LegSymbolSfx);
       FIELD_SET(*this, FIX::LegSecurityID);
@@ -235,6 +238,7 @@ namespace FIX50SP1
       FIELD_SET(*this, FIX::LegInterestAccrualDate);
       FIELD_SET(*this, FIX::LegPutOrCall);
       FIELD_SET(*this, FIX::LegOptionRatio);
+      FIELD_SET(*this, FIX::LegPrice);
     };
     FIELD_SET(*this, FIX::NoUnderlyings);
     class NoUnderlyings: public FIX::Group

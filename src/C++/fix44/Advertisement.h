@@ -12,7 +12,10 @@ namespace FIX44
     Advertisement() : Message(MsgType()) {}
     Advertisement(const FIX::Message& m) : Message(m) {}
     Advertisement(const Message& m) : Message(m) {}
-    Advertisement(const Advertisement& m) : Message(m) {}
+    Advertisement(const Advertisement&) = default;
+    Advertisement(Advertisement&&) = default;
+    Advertisement& operator=(const Advertisement&) = default;
+    Advertisement& operator=(Advertisement&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("7"); }
 
     Advertisement(

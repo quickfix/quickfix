@@ -1,11 +1,22 @@
-#ifdef SWIGRUBY
+%exception
+{
+  if(tryRubyException([&]() mutable 
+  { 
+    $action
+    return self;
+  fail:
+    return Qnil;
+  }) == Qnil) 
+  {
+    SWIG_fail;
+  }
+}
+
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
 %rename(_getValueName) FIX::DataDictionary::getValueName;
 %rename(_getFieldTag) FIX::DataDictionary::getFieldTag;
 %rename(_getGroup) FIX::DataDictionary::getGroup;
-#endif
 
-#ifdef SWIGRUBY 	 
 %typemap(in) std::string& (std::string temp) {
   temp = std::string((char*)StringValuePtr($input));
   $1 = &temp;
@@ -30,7 +41,6 @@
     vresult = result ? SWIG_From_int(static_cast< int >(*$1)) : Qnil;
   }
 }
-#endif 	 
 
 %typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
   $1 = new FIX::DataDictionary*[1];
@@ -52,47 +62,38 @@
 %include ../quickfix.i
 	  	 
 %feature("director:except") FIX::Application::onCreate {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
     printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::onLogon {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
     printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::onLogout {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
     printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::toAdmin {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     VALUE message = rb_obj_as_string( $error );
     printf( "%s\n", RSTRING_PTR(message) );
     exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::toApp {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
 
@@ -106,11 +107,9 @@
       exit(1);
     }
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::fromAdmin {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
 
@@ -130,11 +129,9 @@
       exit(1);
     }
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::fromApp {
-#ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
 
@@ -154,7 +151,6 @@
       exit(1);
     }
   }
-#endif
 }
 
 %init %{

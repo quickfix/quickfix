@@ -28,6 +28,8 @@
 #include "Session.h"
 #include "SessionFactory.h"
 #include "HttpServer.h"
+#include "scope_guard.hpp"
+
 #include <algorithm>
 #include <fstream>
 
@@ -43,6 +45,7 @@ EXCEPT ( ConfigError )
   m_settings( settings ),
   m_pLogFactory( 0 ),
   m_pLog( 0 ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 {
@@ -60,6 +63,7 @@ EXCEPT ( ConfigError )
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
   m_pLog( logFactory.create() ),
+  m_processing( false ),
   m_firstPoll( true ),
   m_stop( true )
 {
@@ -68,8 +72,8 @@ EXCEPT ( ConfigError )
 
 void Acceptor::initialize() EXCEPT ( ConfigError )
 {
-  std::set < SessionID > sessions = m_settings.getSessions();
-  std::set < SessionID > ::iterator i;
+  std::set<SessionID> sessions = m_settings.getSessions();
+  std::set<SessionID>::iterator i;
 
   if ( !sessions.size() )
     throw ConfigError( "No sessions defined" );
@@ -107,17 +111,13 @@ Session* Acceptor::getSession
   if ( !message.setStringHeader( msg ) )
     return 0;
 
-  BeginString beginString;
-  SenderCompID clSenderCompID;
-  TargetCompID clTargetCompID;
-  MsgType msgType;
   try
   {
-    message.getHeader().getField( beginString );
-    message.getHeader().getField( clSenderCompID );
-    message.getHeader().getField( clTargetCompID );
-    message.getHeader().getField( msgType );
-    if ( msgType != "A" ) return 0;
+    auto const & beginString = message.getHeader().getField<BeginString>();
+    auto const & clSenderCompID = message.getHeader().getField<SenderCompID>();
+    auto const & clTargetCompID = message.getHeader().getField<TargetCompID>();
+    auto const & msgType = message.getHeader().getField<MsgType>();
+    if ( msgType != MsgType_Logon ) return 0;
 
     SenderCompID senderCompID( clTargetCompID );
     TargetCompID targetCompID( clSenderCompID );
@@ -157,18 +157,38 @@ const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID
 
 void Acceptor::start() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Acceptor::start called when already processing messages");
+  
+  m_processing = true;
   m_stop = false;
-  onConfigure( m_settings );
-  onInitialize( m_settings );
 
-  HttpServer::startGlobal( m_settings );
+  try
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings );
+
+    HttpServer::startGlobal( m_settings );
+  }
+  catch(...)
+  {
+    m_processing = false;
+    throw;
+  }
 
   if( !thread_spawn( &startThread, this, m_threadid ) )
+  {
+    m_processing = false;
     throw RuntimeError("Unable to spawn thread");
+  }
 }
 
 void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
 {
+  if( m_processing )
+    throw RuntimeError("Acceptor::block called when already processing messages");
+
+  m_processing = true;
   m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -176,17 +196,25 @@ void Acceptor::block() EXCEPT ( ConfigError, RuntimeError )
   startThread(this);
 }
 
-bool Acceptor::poll( double timeout ) EXCEPT ( ConfigError, RuntimeError )
+bool Acceptor::poll() EXCEPT ( ConfigError, RuntimeError )
 {
-  if( m_firstPoll )
+  if( m_processing )
+    throw RuntimeError("Acceptor::poll called when already processing messages");
+
   {
-    m_stop = false;
-    onConfigure( m_settings );
-    onInitialize( m_settings );
-    m_firstPoll = false;
+    auto guard = sg::make_scope_guard([this](){ m_processing = false; });
+
+    m_processing = true;
+    if( m_firstPoll )
+    {
+      m_stop = false;
+      onConfigure( m_settings );
+      onInitialize( m_settings );
+      m_firstPoll = false;
+    }
   }
 
-  return onPoll( timeout );
+  return onPoll();
 }
 
 void Acceptor::stop( bool force )
@@ -222,18 +250,16 @@ void Acceptor::stop( bool force )
     thread_join( m_threadid );
   m_threadid = 0;
 
-  std::vector<Session*>::iterator session = enabledSessions.begin();
-  for( ; session != enabledSessions.end(); ++session )
-    (*session)->logon();
+  for( Session* session : enabledSessions )
+    session->logon();
 }
 
 bool Acceptor::isLoggedOn()
 {
   Sessions sessions = m_sessions;
-  Sessions::iterator i = sessions.begin();
-  for ( ; i != sessions.end(); ++i )
+  for ( Sessions::value_type const& sessionIDWithSession : sessions )
   {
-    if( i->second->isLoggedOn() )
+    if( sessionIDWithSession.second->isLoggedOn() )
       return true;
   }
   return false;
@@ -241,7 +267,8 @@ bool Acceptor::isLoggedOn()
 
 THREAD_PROC Acceptor::startThread( void* p )
 {
-  Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
+  Acceptor * pAcceptor = static_cast<Acceptor*>( p );
+  auto guard = sg::make_scope_guard([pAcceptor](){ pAcceptor->m_processing = false; });
   pAcceptor->onStart();
   return 0;
 }

@@ -104,30 +104,27 @@ public:
   void crack( const Message&amp; message, 
               const FIX::SessionID&amp; sessionID )
   {
-    const std::string&amp; msgTypeValue 
+    const std::string &amp; msgTypeValue 
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
     <xsl:for-each select="//fix/messages/message">
-    <xsl:if test="position()!=1">
-    else
-    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
-      onMessage( (const <xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
-    else onMessage( message, sessionID );
+    if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      return onMessage( (const <xsl:value-of select="@name"/>&amp;)message, sessionID );
+    </xsl:for-each>
+    return onMessage( message, sessionID );
   }
   
 void crack( Message&amp; message, 
             const FIX::SessionID&amp; sessionID )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField(msgType);
-    std::string msgTypeValue = msgType.getValue();
+    const std::string &amp; msgTypeValue 
+      = message.getHeader().getField( FIX::FIELD::MsgType );
     
     <xsl:for-each select="//fix/messages/message">
-    <xsl:if test="position()!=1">
-    else
-    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
-      onMessage( (<xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
-    else onMessage( message, sessionID );
+    if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      return onMessage( (<xsl:value-of select="@name"/>&amp;)message, sessionID );
+    </xsl:for-each>
+    return onMessage( message, sessionID );
   }
 </xsl:template>
 

@@ -1,10 +1,19 @@
-#ifdef SWIGPYTHON
+%exception
+{
+  if(!tryPythonException([&]() mutable 
+  { 
+    $action
+    return true;
+  fail:
+    return false;
+  })) 
+  {
+    SWIG_fail;
+  }
+}
+
 %typemap(in) std::string& (std::string temp) {
-%#if PYTHON_MAJOR_VERSION >= 3
   temp = std::string((char*)PyUnicode_AsUTF8($input));
-%#else
-  temp = std::string((char*)PyString_AsString($input));
-%#endif
   $1 = &temp;
 }
 
@@ -13,11 +22,7 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-%#if PYTHON_MAJOR_VERSION >= 3
     PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString($1->c_str()) );
-%#else
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
-%#endif
   }
 }
 
@@ -31,14 +36,9 @@
   {
     if( !PyDict_Check(resultobj) )
       resultobj = PyDict_New();
-%#if PYTHON_MAJOR_VERSION >= 3
     PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyLong_FromLong(*$1) );    
-%#else
-    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );
-%#endif
   }
 }
-#endif
 
 %typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
   $1 = new FIX::DataDictionary*[1];
@@ -53,8 +53,17 @@
   void* argp;
   FIX::DataDictionary* pDD = 0;
   int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
-  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+  pDD = reinterpret_cast<FIX::DataDictionary *>(argp);
   *pDD = *(*$1);
+}
+
+%extend FIX::UtcTimeStamp {
+  PyObject *getDateTime() {
+      int y, m, d, h, mi, s, fs;
+      $self->getYMD(y, m, d);
+      $self->getHMS(h, mi, s, fs, 6);
+      return PyDateTime_FromDateAndTime(y, m, d, h, mi, s, fs);
+  }
 }
 
 %rename(FIXException) FIX::Exception;
@@ -62,7 +71,6 @@
 %include ../quickfix.i
 
 %pythoncode %{
-#ifdef SWIGPYTHON
 try:
   import thread
 except ImportError:
@@ -70,7 +78,6 @@ except ImportError:
 
 def _quickfix_start_thread(i_or_a):
   i_or_a.block()
-#endif
 %}
 
 %feature("shadow") FIX::Initiator::start() %{
@@ -84,7 +91,6 @@ def start(self):
 %}
 
 %feature("director:except") FIX::Application::onCreate {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
@@ -92,11 +98,9 @@ def start(self):
     PyErr_Print();
     Py_Exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::onLogon {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
@@ -104,11 +108,9 @@ def start(self):
     PyErr_Print();
     Py_Exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::onLogout {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
@@ -116,11 +118,9 @@ def start(self):
     PyErr_Print();
     Py_Exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::toAdmin {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
@@ -128,119 +128,69 @@ def start(self):
     PyErr_Print();
     Py_Exit(1);
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::toApp {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
     void *result;
 
-    try {
-      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
-        throw *((FIX::DoNotSend*)result);
-      } else {
-        PyErr_Restore( ptype, pvalue, ptraceback );
-        PyErr_Print();
-        Py_Exit(1);
-      }
-    } catch( std::exception& e ) {
-      std::cout << e.what() << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
-    } catch( ... ) {
-      std::cout << "Fatal exception" << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
+    if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
+      throw *((FIX::DoNotSend*)result);
+    } else {
+      PyErr_Restore( ptype, pvalue, ptraceback );
+      PyErr_Print();
+      Py_Exit(1);
     }
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::fromAdmin {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
     void *result;
 
-    try {
-      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-        throw *((FIX::FieldNotFound*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-        throw *((FIX::IncorrectDataFormat*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-        throw *((FIX::IncorrectTagValue*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
-        throw *((FIX::RejectLogon*)result);
-      } else {
-        PyErr_Restore( ptype, pvalue, ptraceback );
-        PyErr_Print();
-        Py_Exit(1);
-      }
-    } catch( std::exception& e ) {
-      std::cout << e.what() << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
-    } catch( ... ) {
-      std::cout << "Fatal exception" << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
+    if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+      throw *((FIX::FieldNotFound*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+      throw *((FIX::IncorrectDataFormat*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+      throw *((FIX::IncorrectTagValue*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
+      throw *((FIX::RejectLogon*)result);
+    } else {
+      PyErr_Restore( ptype, pvalue, ptraceback );
+      PyErr_Print();
+      Py_Exit(1);
     }
   }
-#endif
 }
 
 %feature("director:except") FIX::Application::fromApp {
-#ifdef SWIGPYTHON
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
     PyErr_Fetch( &ptype, &pvalue, &ptraceback );
     void *result;
 
-    try {
-      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-        throw *((FIX::FieldNotFound*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-        throw *((FIX::IncorrectDataFormat*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-        throw *((FIX::IncorrectTagValue*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
-        throw *((FIX::UnsupportedMessageType*)result);
-      } else {
-        PyErr_Restore( ptype, pvalue, ptraceback );
-        PyErr_Print();
-        Py_Exit(1);
-      }
-    } catch( std::exception& e ) {
-      std::cout << e.what() << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
-    } catch( ... ) {
-      std::cout << "Fatal exception" << std::endl;
-      Py_XDECREF( ptype );
-      Py_XDECREF( pvalue );
-      Py_XDECREF( ptraceback );
-      throw;
+    if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+      throw *((FIX::FieldNotFound*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+      throw *((FIX::IncorrectDataFormat*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+      throw *((FIX::IncorrectTagValue*)result);
+    } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
+      throw *((FIX::UnsupportedMessageType*)result);
+    } else {
+      PyErr_Restore( ptype, pvalue, ptraceback );
+      PyErr_Print();
+      Py_Exit(1);
     }
   }
-#endif
 }
 
 %pythoncode %{
-#ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
   application = 0
   storeFactory = 0
@@ -274,6 +224,41 @@ class SocketAcceptor(SocketAcceptorBase):
     self.storeFactory = storeFactory
     self.settings = settings
     self.logFactory = logFactory
+
+#if (HAVE_SSL > 0)
+class SSLSocketInitiator(SSLSocketInitiatorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      SSLSocketInitiatorBase.__init__(self, application, storeFactory, settings)
+    else:
+      SSLSocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class SSLSocketAcceptor(SSLSocketAcceptorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      SSLSocketAcceptorBase.__init__(self, application, storeFactory, settings)
+    else:
+      SSLSocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
 #endif
 %}
 
@@ -286,3 +271,4 @@ class SocketAcceptor(SocketAcceptorBase):
       sigaction( SIGINT, &new_action, &old_action );
 #endif
 %}
+

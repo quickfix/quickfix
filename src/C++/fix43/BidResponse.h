@@ -12,7 +12,10 @@ namespace FIX43
     BidResponse() : Message(MsgType()) {}
     BidResponse(const FIX::Message& m) : Message(m) {}
     BidResponse(const Message& m) : Message(m) {}
-    BidResponse(const BidResponse& m) : Message(m) {}
+    BidResponse(const BidResponse&) = default;
+    BidResponse(BidResponse&&) = default;
+    BidResponse& operator=(const BidResponse&) = default;
+    BidResponse& operator=(BidResponse&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("l"); }
 
     FIELD_SET(*this, FIX::BidID);

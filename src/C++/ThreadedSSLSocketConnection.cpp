@@ -190,13 +190,11 @@ bool ThreadedSSLSocketConnection::send(const std::string &msg)
       }
       else
       {
-        char errbuf[200];
-
-        socket_error(errbuf, sizeof(errbuf));
+        std::string error = socket_error();
 
         m_pSession->getLog()->onEvent("SSL send error <" +
                                       IntConvertor::convert(errCodeSSL) + "> " +
-                                      errbuf);
+                                      error);
 
         return false;
       }
@@ -265,19 +263,17 @@ bool ThreadedSSLSocketConnection::read()
           }
           else
           {
-            char errbuf[200];
-
-            socket_error(errbuf, sizeof(errbuf));
+            std::string error = socket_error();
 
             if (m_pSession)
               m_pSession->getLog()->onEvent("SSL read error <" +
                                             IntConvertor::convert(errCodeSSL) +
-                                            "> " + errbuf);
+                                            "> " + error);
             else
             {
-              std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp())
+              std::cerr << UtcTimeStampConvertor::convert(UtcTimeStamp::now())
                         << "SSL read error <"
-                        << IntConvertor::convert(errCodeSSL) << "> " << errbuf
+                        << IntConvertor::convert(errCodeSSL) << "> " << error
                         << std::endl;
             }
 
@@ -290,7 +286,7 @@ bool ThreadedSSLSocketConnection::read()
     }
     else if (result == 0 && m_pSession) // Timeout
     {
-      m_pSession->next();
+      m_pSession->next( UtcTimeStamp::now() );
     }
     else if (result < 0) // Error
     {
@@ -350,7 +346,7 @@ void ThreadedSSLSocketConnection::processStream()
     }
     try
     {
-      m_pSession->next(msg, UtcTimeStamp());
+      m_pSession->next(msg, UtcTimeStamp::now());
     }
     catch (InvalidMessage &)
     {

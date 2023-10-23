@@ -12,7 +12,10 @@ namespace FIX50
     OrderMassStatusRequest() : Message(MsgType()) {}
     OrderMassStatusRequest(const FIX::Message& m) : Message(m) {}
     OrderMassStatusRequest(const Message& m) : Message(m) {}
-    OrderMassStatusRequest(const OrderMassStatusRequest& m) : Message(m) {}
+    OrderMassStatusRequest(const OrderMassStatusRequest&) = default;
+    OrderMassStatusRequest(OrderMassStatusRequest&&) = default;
+    OrderMassStatusRequest& operator=(const OrderMassStatusRequest&) = default;
+    OrderMassStatusRequest& operator=(OrderMassStatusRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AF"); }
 
     OrderMassStatusRequest(
@@ -89,7 +92,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);
@@ -169,7 +172,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::UnderlyingStrikeCurrency);
     FIELD_SET(*this, FIX::UnderlyingOptAttribute);
     FIELD_SET(*this, FIX::UnderlyingContractMultiplier);
-    FIELD_SET(*this, FIX::UnderlyingUnitOfMeasure);
+    FIELD_SET(*this, FIX::UnderlyingUnitofMeasure);
     FIELD_SET(*this, FIX::UnderlyingTimeUnit);
     FIELD_SET(*this, FIX::UnderlyingCouponRate);
     FIELD_SET(*this, FIX::UnderlyingSecurityExchange);

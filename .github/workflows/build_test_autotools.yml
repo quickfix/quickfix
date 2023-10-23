@@ -5,6 +5,7 @@ jobs:
     build:
       runs-on: ${{ matrix.runner }}
       strategy:
+          fail-fast: false
           matrix:
               runner: [ubuntu-latest, macos-latest]
               configuration: [Release]
@@ -38,14 +39,8 @@ jobs:
 
       - name: Make
         shell: bash
-        run:  make -j
+        run:  make
 
       - name: Make check
         shell: bash
         run: make check
-
-      - name: Cat test-suite.log
-        if: ${{ always() }}
-        shell: bash
-        run: |
-          test -f test/test-suite.log && cat test/test-suite.log

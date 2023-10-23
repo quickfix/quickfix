@@ -12,7 +12,10 @@ namespace FIX50
     AdjustedPositionReport() : Message(MsgType()) {}
     AdjustedPositionReport(const FIX::Message& m) : Message(m) {}
     AdjustedPositionReport(const Message& m) : Message(m) {}
-    AdjustedPositionReport(const AdjustedPositionReport& m) : Message(m) {}
+    AdjustedPositionReport(const AdjustedPositionReport&) = default;
+    AdjustedPositionReport(AdjustedPositionReport&&) = default;
+    AdjustedPositionReport& operator=(const AdjustedPositionReport&) = default;
+    AdjustedPositionReport& operator=(AdjustedPositionReport&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BL"); }
 
     AdjustedPositionReport(
@@ -116,7 +119,7 @@ namespace FIX50
     FIELD_SET(*this, FIX::OptAttribute);
     FIELD_SET(*this, FIX::ContractMultiplier);
     FIELD_SET(*this, FIX::MinPriceIncrement);
-    FIELD_SET(*this, FIX::UnitOfMeasure);
+    FIELD_SET(*this, FIX::UnitofMeasure);
     FIELD_SET(*this, FIX::TimeUnit);
     FIELD_SET(*this, FIX::CouponRate);
     FIELD_SET(*this, FIX::SecurityExchange);

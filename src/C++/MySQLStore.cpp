@@ -44,17 +44,17 @@ const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
 const short MySQLStoreFactory::DEFAULT_PORT = 3306;
 
 MySQLStore::MySQLStore
-( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
-  : m_pConnectionPool( p ), m_sessionID( s )
+( const UtcTimeStamp& now, const SessionID& sessionID, const DatabaseConnectionID& connection, MySQLConnectionPool* pool )
+  : m_cache( now ), m_pConnectionPool( pool ), m_sessionID( sessionID )
 {
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pConnection = m_pConnectionPool->create( connection );
   populateCache();
 }
 
 MySQLStore::MySQLStore
-( const SessionID& s, const std::string& database, const std::string& user,
+( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_pConnectionPool( 0 ), m_sessionID( s )
+  : m_cache( now ), m_pConnectionPool( 0 ), m_sessionID( sessionID )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
   populateCache();
@@ -98,7 +98,7 @@ void MySQLStore::populateCache()
   else
   {
     UtcTimeStamp time = m_cache.getCreationTime();
-    char sqlTime[ 20 ];
+    char sqlTime[ 100 ];
     int year, month, day, hour, minute, second, millis;
     time.getYMD (year, month, day);
     time.getHMS (hour, minute, second, millis);
@@ -121,20 +121,20 @@ void MySQLStore::populateCache()
   }
 }
 
-MessageStore* MySQLStoreFactory::create( const SessionID& s )
+MessageStore* MySQLStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
 {
   if( m_useSettings )
-    return create( s, m_settings.get(s) );
+    return create( now, sessionID, m_settings.get(sessionID) );
   else if( m_useDictionary )
-    return create( s, m_dictionary );
+    return create( now, sessionID, m_dictionary );
   else
   {
     DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
-    return new MySQLStore( s, id, m_connectionPoolPtr.get() );
+    return new MySQLStore( now, sessionID, id, m_connectionPoolPtr.get() );
   }
 }
 
-MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
+MessageStore* MySQLStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID, const Dictionary& settings )
 {
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
@@ -158,7 +158,7 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& s
   catch( ConfigError& ) {}
 
   DatabaseConnectionID id( database, user, password, host, port );
-  return new MySQLStore( s, id, m_connectionPoolPtr.get() );
+  return new MySQLStore( now, sessionID, id, m_connectionPoolPtr.get() );
 }
 
 void MySQLStoreFactory::destroy( MessageStore* pStore )
@@ -282,7 +282,7 @@ UtcTimeStamp MySQLStore::getCreationTime() const EXCEPT ( IOException )
   return m_cache.getCreationTime();
 }
 
-void MySQLStore::reset() EXCEPT ( IOException )
+void MySQLStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
@@ -295,14 +295,14 @@ void MySQLStore::reset() EXCEPT ( IOException )
   if( !m_pConnection->execute(query) )
     query.throwException();
 
-  m_cache.reset();
+  m_cache.reset( now );
   UtcTimeStamp time = m_cache.getCreationTime();
 
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
   time.getHMS( hour, minute, second, millis );
 
-  char sqlTime[ 20 ];
+  char sqlTime[ 100 ];
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
@@ -322,7 +322,7 @@ void MySQLStore::reset() EXCEPT ( IOException )
 
 void MySQLStore::refresh() EXCEPT ( IOException )
 {
-  m_cache.reset();
+  m_cache.reset( UtcTimeStamp::now() );
   populateCache(); 
 }
 

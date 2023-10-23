@@ -1,3 +1,6 @@
+
+Session synchronisation at initiation using tag NextExpectedMsgSeqNum (789)
+
 1.15.1
 ------
 Support for python 3.
@@ -16,7 +19,7 @@ Custom data fields can be decoded in header and trailer.
 
 Can decode data fields in message body that contain more than 16 fields.
 
-FieldNap iterators changed to non-const.
+FieldMap iterators changed to non-const.
 
 Message generator works with recursive components.
 

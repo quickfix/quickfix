@@ -82,8 +82,8 @@ namespace FIX43
   class OrderMassCancelRequest; 
   class OrderMassCancelReport; 
   class NewOrderCross; 
-  class CrossOrderCancelRequest; 
   class CrossOrderCancelReplaceRequest; 
+  class CrossOrderCancelRequest; 
   class SecurityTypeRequest; 
   class SecurityTypes; 
   class SecurityListRequest; 
@@ -211,9 +211,9 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const NewOrderCross&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const SecurityTypeRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -295,8 +295,8 @@ namespace FIX43
  virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( OrderMassCancelReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( NewOrderCross&, const FIX::SessionID& ) {} 
- virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityTypeRequest&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityTypes&, const FIX::SessionID& ) {} 
  virtual void onMessage( SecurityListRequest&, const FIX::SessionID& ) {} 
@@ -316,426 +316,429 @@ public:
   void crack( const Message& message, 
               const FIX::SessionID& sessionID )
   {
-    const std::string& msgTypeValue 
+    const std::string & msgTypeValue 
       = message.getHeader().getField( FIX::FIELD::MsgType );
     
+    
     if( msgTypeValue == "0" )
-      onMessage( (const Heartbeat&)message, sessionID );
-    else
+      return onMessage( (const Heartbeat&)message, sessionID );
+    
     if( msgTypeValue == "1" )
-      onMessage( (const TestRequest&)message, sessionID );
-    else
+      return onMessage( (const TestRequest&)message, sessionID );
+    
     if( msgTypeValue == "2" )
-      onMessage( (const ResendRequest&)message, sessionID );
-    else
+      return onMessage( (const ResendRequest&)message, sessionID );
+    
     if( msgTypeValue == "3" )
-      onMessage( (const Reject&)message, sessionID );
-    else
+      return onMessage( (const Reject&)message, sessionID );
+    
     if( msgTypeValue == "4" )
-      onMessage( (const SequenceReset&)message, sessionID );
-    else
+      return onMessage( (const SequenceReset&)message, sessionID );
+    
     if( msgTypeValue == "5" )
-      onMessage( (const Logout&)message, sessionID );
-    else
+      return onMessage( (const Logout&)message, sessionID );
+    
     if( msgTypeValue == "6" )
-      onMessage( (const IOI&)message, sessionID );
-    else
+      return onMessage( (const IOI&)message, sessionID );
+    
     if( msgTypeValue == "7" )
-      onMessage( (const Advertisement&)message, sessionID );
-    else
+      return onMessage( (const Advertisement&)message, sessionID );
+    
     if( msgTypeValue == "8" )
-      onMessage( (const ExecutionReport&)message, sessionID );
-    else
+      return onMessage( (const ExecutionReport&)message, sessionID );
+    
     if( msgTypeValue == "9" )
-      onMessage( (const OrderCancelReject&)message, sessionID );
-    else
+      return onMessage( (const OrderCancelReject&)message, sessionID );
+    
     if( msgTypeValue == "A" )
-      onMessage( (const Logon&)message, sessionID );
-    else
+      return onMessage( (const Logon&)message, sessionID );
+    
     if( msgTypeValue == "B" )
-      onMessage( (const News&)message, sessionID );
-    else
+      return onMessage( (const News&)message, sessionID );
+    
     if( msgTypeValue == "C" )
-      onMessage( (const Email&)message, sessionID );
-    else
+      return onMessage( (const Email&)message, sessionID );
+    
     if( msgTypeValue == "D" )
-      onMessage( (const NewOrderSingle&)message, sessionID );
-    else
+      return onMessage( (const NewOrderSingle&)message, sessionID );
+    
     if( msgTypeValue == "E" )
-      onMessage( (const NewOrderList&)message, sessionID );
-    else
+      return onMessage( (const NewOrderList&)message, sessionID );
+    
     if( msgTypeValue == "F" )
-      onMessage( (const OrderCancelRequest&)message, sessionID );
-    else
+      return onMessage( (const OrderCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "G" )
-      onMessage( (const OrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (const OrderCancelReplaceRequest&)message, sessionID );
+    
     if( msgTypeValue == "H" )
-      onMessage( (const OrderStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const OrderStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "J" )
-      onMessage( (const Allocation&)message, sessionID );
-    else
+      return onMessage( (const Allocation&)message, sessionID );
+    
     if( msgTypeValue == "K" )
-      onMessage( (const ListCancelRequest&)message, sessionID );
-    else
+      return onMessage( (const ListCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "L" )
-      onMessage( (const ListExecute&)message, sessionID );
-    else
+      return onMessage( (const ListExecute&)message, sessionID );
+    
     if( msgTypeValue == "M" )
-      onMessage( (const ListStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const ListStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "N" )
-      onMessage( (const ListStatus&)message, sessionID );
-    else
+      return onMessage( (const ListStatus&)message, sessionID );
+    
     if( msgTypeValue == "P" )
-      onMessage( (const AllocationAck&)message, sessionID );
-    else
+      return onMessage( (const AllocationAck&)message, sessionID );
+    
     if( msgTypeValue == "Q" )
-      onMessage( (const DontKnowTrade&)message, sessionID );
-    else
+      return onMessage( (const DontKnowTrade&)message, sessionID );
+    
     if( msgTypeValue == "R" )
-      onMessage( (const QuoteRequest&)message, sessionID );
-    else
+      return onMessage( (const QuoteRequest&)message, sessionID );
+    
     if( msgTypeValue == "S" )
-      onMessage( (const Quote&)message, sessionID );
-    else
+      return onMessage( (const Quote&)message, sessionID );
+    
     if( msgTypeValue == "T" )
-      onMessage( (const SettlementInstructions&)message, sessionID );
-    else
+      return onMessage( (const SettlementInstructions&)message, sessionID );
+    
     if( msgTypeValue == "V" )
-      onMessage( (const MarketDataRequest&)message, sessionID );
-    else
+      return onMessage( (const MarketDataRequest&)message, sessionID );
+    
     if( msgTypeValue == "W" )
-      onMessage( (const MarketDataSnapshotFullRefresh&)message, sessionID );
-    else
+      return onMessage( (const MarketDataSnapshotFullRefresh&)message, sessionID );
+    
     if( msgTypeValue == "X" )
-      onMessage( (const MarketDataIncrementalRefresh&)message, sessionID );
-    else
+      return onMessage( (const MarketDataIncrementalRefresh&)message, sessionID );
+    
     if( msgTypeValue == "Y" )
-      onMessage( (const MarketDataRequestReject&)message, sessionID );
-    else
+      return onMessage( (const MarketDataRequestReject&)message, sessionID );
+    
     if( msgTypeValue == "Z" )
-      onMessage( (const QuoteCancel&)message, sessionID );
-    else
+      return onMessage( (const QuoteCancel&)message, sessionID );
+    
     if( msgTypeValue == "a" )
-      onMessage( (const QuoteStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const QuoteStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "b" )
-      onMessage( (const MassQuoteAcknowledgement&)message, sessionID );
-    else
+      return onMessage( (const MassQuoteAcknowledgement&)message, sessionID );
+    
     if( msgTypeValue == "c" )
-      onMessage( (const SecurityDefinitionRequest&)message, sessionID );
-    else
+      return onMessage( (const SecurityDefinitionRequest&)message, sessionID );
+    
     if( msgTypeValue == "d" )
-      onMessage( (const SecurityDefinition&)message, sessionID );
-    else
+      return onMessage( (const SecurityDefinition&)message, sessionID );
+    
     if( msgTypeValue == "e" )
-      onMessage( (const SecurityStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const SecurityStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "f" )
-      onMessage( (const SecurityStatus&)message, sessionID );
-    else
+      return onMessage( (const SecurityStatus&)message, sessionID );
+    
     if( msgTypeValue == "g" )
-      onMessage( (const TradingSessionStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const TradingSessionStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "h" )
-      onMessage( (const TradingSessionStatus&)message, sessionID );
-    else
+      return onMessage( (const TradingSessionStatus&)message, sessionID );
+    
     if( msgTypeValue == "i" )
-      onMessage( (const MassQuote&)message, sessionID );
-    else
+      return onMessage( (const MassQuote&)message, sessionID );
+    
     if( msgTypeValue == "j" )
-      onMessage( (const BusinessMessageReject&)message, sessionID );
-    else
+      return onMessage( (const BusinessMessageReject&)message, sessionID );
+    
     if( msgTypeValue == "k" )
-      onMessage( (const BidRequest&)message, sessionID );
-    else
+      return onMessage( (const BidRequest&)message, sessionID );
+    
     if( msgTypeValue == "l" )
-      onMessage( (const BidResponse&)message, sessionID );
-    else
+      return onMessage( (const BidResponse&)message, sessionID );
+    
     if( msgTypeValue == "m" )
-      onMessage( (const ListStrikePrice&)message, sessionID );
-    else
+      return onMessage( (const ListStrikePrice&)message, sessionID );
+    
     if( msgTypeValue == "n" )
-      onMessage( (const XMLnonFIX&)message, sessionID );
-    else
+      return onMessage( (const XMLnonFIX&)message, sessionID );
+    
     if( msgTypeValue == "o" )
-      onMessage( (const RegistrationInstructions&)message, sessionID );
-    else
+      return onMessage( (const RegistrationInstructions&)message, sessionID );
+    
     if( msgTypeValue == "p" )
-      onMessage( (const RegistrationInstructionsResponse&)message, sessionID );
-    else
+      return onMessage( (const RegistrationInstructionsResponse&)message, sessionID );
+    
     if( msgTypeValue == "q" )
-      onMessage( (const OrderMassCancelRequest&)message, sessionID );
-    else
+      return onMessage( (const OrderMassCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "r" )
-      onMessage( (const OrderMassCancelReport&)message, sessionID );
-    else
+      return onMessage( (const OrderMassCancelReport&)message, sessionID );
+    
     if( msgTypeValue == "s" )
-      onMessage( (const NewOrderCross&)message, sessionID );
-    else
-    if( msgTypeValue == "u" )
-      onMessage( (const CrossOrderCancelRequest&)message, sessionID );
-    else
+      return onMessage( (const NewOrderCross&)message, sessionID );
+    
     if( msgTypeValue == "t" )
-      onMessage( (const CrossOrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (const CrossOrderCancelReplaceRequest&)message, sessionID );
+    
+    if( msgTypeValue == "u" )
+      return onMessage( (const CrossOrderCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "v" )
-      onMessage( (const SecurityTypeRequest&)message, sessionID );
-    else
+      return onMessage( (const SecurityTypeRequest&)message, sessionID );
+    
     if( msgTypeValue == "w" )
-      onMessage( (const SecurityTypes&)message, sessionID );
-    else
+      return onMessage( (const SecurityTypes&)message, sessionID );
+    
     if( msgTypeValue == "x" )
-      onMessage( (const SecurityListRequest&)message, sessionID );
-    else
+      return onMessage( (const SecurityListRequest&)message, sessionID );
+    
     if( msgTypeValue == "y" )
-      onMessage( (const SecurityList&)message, sessionID );
-    else
+      return onMessage( (const SecurityList&)message, sessionID );
+    
     if( msgTypeValue == "z" )
-      onMessage( (const DerivativeSecurityListRequest&)message, sessionID );
-    else
+      return onMessage( (const DerivativeSecurityListRequest&)message, sessionID );
+    
     if( msgTypeValue == "AA" )
-      onMessage( (const DerivativeSecurityList&)message, sessionID );
-    else
+      return onMessage( (const DerivativeSecurityList&)message, sessionID );
+    
     if( msgTypeValue == "AB" )
-      onMessage( (const NewOrderMultileg&)message, sessionID );
-    else
+      return onMessage( (const NewOrderMultileg&)message, sessionID );
+    
     if( msgTypeValue == "AC" )
-      onMessage( (const MultilegOrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (const MultilegOrderCancelReplaceRequest&)message, sessionID );
+    
     if( msgTypeValue == "AD" )
-      onMessage( (const TradeCaptureReportRequest&)message, sessionID );
-    else
+      return onMessage( (const TradeCaptureReportRequest&)message, sessionID );
+    
     if( msgTypeValue == "AE" )
-      onMessage( (const TradeCaptureReport&)message, sessionID );
-    else
+      return onMessage( (const TradeCaptureReport&)message, sessionID );
+    
     if( msgTypeValue == "AF" )
-      onMessage( (const OrderMassStatusRequest&)message, sessionID );
-    else
+      return onMessage( (const OrderMassStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "AG" )
-      onMessage( (const QuoteRequestReject&)message, sessionID );
-    else
+      return onMessage( (const QuoteRequestReject&)message, sessionID );
+    
     if( msgTypeValue == "AH" )
-      onMessage( (const RFQRequest&)message, sessionID );
-    else
+      return onMessage( (const RFQRequest&)message, sessionID );
+    
     if( msgTypeValue == "AI" )
-      onMessage( (const QuoteStatusReport&)message, sessionID );
-    else onMessage( message, sessionID );
+      return onMessage( (const QuoteStatusReport&)message, sessionID );
+    
+    return onMessage( message, sessionID );
   }
   
 void crack( Message& message, 
             const FIX::SessionID& sessionID )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField(msgType);
-    std::string msgTypeValue = msgType.getValue();
+    const std::string & msgTypeValue 
+      = message.getHeader().getField( FIX::FIELD::MsgType );
+    
     
     if( msgTypeValue == "0" )
-      onMessage( (Heartbeat&)message, sessionID );
-    else
+      return onMessage( (Heartbeat&)message, sessionID );
+    
     if( msgTypeValue == "1" )
-      onMessage( (TestRequest&)message, sessionID );
-    else
+      return onMessage( (TestRequest&)message, sessionID );
+    
     if( msgTypeValue == "2" )
-      onMessage( (ResendRequest&)message, sessionID );
-    else
+      return onMessage( (ResendRequest&)message, sessionID );
+    
     if( msgTypeValue == "3" )
-      onMessage( (Reject&)message, sessionID );
-    else
+      return onMessage( (Reject&)message, sessionID );
+    
     if( msgTypeValue == "4" )
-      onMessage( (SequenceReset&)message, sessionID );
-    else
+      return onMessage( (SequenceReset&)message, sessionID );
+    
     if( msgTypeValue == "5" )
-      onMessage( (Logout&)message, sessionID );
-    else
+      return onMessage( (Logout&)message, sessionID );
+    
     if( msgTypeValue == "6" )
-      onMessage( (IOI&)message, sessionID );
-    else
+      return onMessage( (IOI&)message, sessionID );
+    
     if( msgTypeValue == "7" )
-      onMessage( (Advertisement&)message, sessionID );
-    else
+      return onMessage( (Advertisement&)message, sessionID );
+    
     if( msgTypeValue == "8" )
-      onMessage( (ExecutionReport&)message, sessionID );
-    else
+      return onMessage( (ExecutionReport&)message, sessionID );
+    
     if( msgTypeValue == "9" )
-      onMessage( (OrderCancelReject&)message, sessionID );
-    else
+      return onMessage( (OrderCancelReject&)message, sessionID );
+    
     if( msgTypeValue == "A" )
-      onMessage( (Logon&)message, sessionID );
-    else
+      return onMessage( (Logon&)message, sessionID );
+    
     if( msgTypeValue == "B" )
-      onMessage( (News&)message, sessionID );
-    else
+      return onMessage( (News&)message, sessionID );
+    
     if( msgTypeValue == "C" )
-      onMessage( (Email&)message, sessionID );
-    else
+      return onMessage( (Email&)message, sessionID );
+    
     if( msgTypeValue == "D" )
-      onMessage( (NewOrderSingle&)message, sessionID );
-    else
+      return onMessage( (NewOrderSingle&)message, sessionID );
+    
     if( msgTypeValue == "E" )
-      onMessage( (NewOrderList&)message, sessionID );
-    else
+      return onMessage( (NewOrderList&)message, sessionID );
+    
     if( msgTypeValue == "F" )
-      onMessage( (OrderCancelRequest&)message, sessionID );
-    else
+      return onMessage( (OrderCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "G" )
-      onMessage( (OrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (OrderCancelReplaceRequest&)message, sessionID );
+    
     if( msgTypeValue == "H" )
-      onMessage( (OrderStatusRequest&)message, sessionID );
-    else
+      return onMessage( (OrderStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "J" )
-      onMessage( (Allocation&)message, sessionID );
-    else
+      return onMessage( (Allocation&)message, sessionID );
+    
     if( msgTypeValue == "K" )
-      onMessage( (ListCancelRequest&)message, sessionID );
-    else
+      return onMessage( (ListCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "L" )
-      onMessage( (ListExecute&)message, sessionID );
-    else
+      return onMessage( (ListExecute&)message, sessionID );
+    
     if( msgTypeValue == "M" )
-      onMessage( (ListStatusRequest&)message, sessionID );
-    else
+      return onMessage( (ListStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "N" )
-      onMessage( (ListStatus&)message, sessionID );
-    else
+      return onMessage( (ListStatus&)message, sessionID );
+    
     if( msgTypeValue == "P" )
-      onMessage( (AllocationAck&)message, sessionID );
-    else
+      return onMessage( (AllocationAck&)message, sessionID );
+    
     if( msgTypeValue == "Q" )
-      onMessage( (DontKnowTrade&)message, sessionID );
-    else
+      return onMessage( (DontKnowTrade&)message, sessionID );
+    
     if( msgTypeValue == "R" )
-      onMessage( (QuoteRequest&)message, sessionID );
-    else
+      return onMessage( (QuoteRequest&)message, sessionID );
+    
     if( msgTypeValue == "S" )
-      onMessage( (Quote&)message, sessionID );
-    else
+      return onMessage( (Quote&)message, sessionID );
+    
     if( msgTypeValue == "T" )
-      onMessage( (SettlementInstructions&)message, sessionID );
-    else
+      return onMessage( (SettlementInstructions&)message, sessionID );
+    
     if( msgTypeValue == "V" )
-      onMessage( (MarketDataRequest&)message, sessionID );
-    else
+      return onMessage( (MarketDataRequest&)message, sessionID );
+    
     if( msgTypeValue == "W" )
-      onMessage( (MarketDataSnapshotFullRefresh&)message, sessionID );
-    else
+      return onMessage( (MarketDataSnapshotFullRefresh&)message, sessionID );
+    
     if( msgTypeValue == "X" )
-      onMessage( (MarketDataIncrementalRefresh&)message, sessionID );
-    else
+      return onMessage( (MarketDataIncrementalRefresh&)message, sessionID );
+    
     if( msgTypeValue == "Y" )
-      onMessage( (MarketDataRequestReject&)message, sessionID );
-    else
+      return onMessage( (MarketDataRequestReject&)message, sessionID );
+    
     if( msgTypeValue == "Z" )
-      onMessage( (QuoteCancel&)message, sessionID );
-    else
+      return onMessage( (QuoteCancel&)message, sessionID );
+    
     if( msgTypeValue == "a" )
-      onMessage( (QuoteStatusRequest&)message, sessionID );
-    else
+      return onMessage( (QuoteStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "b" )
-      onMessage( (MassQuoteAcknowledgement&)message, sessionID );
-    else
+      return onMessage( (MassQuoteAcknowledgement&)message, sessionID );
+    
     if( msgTypeValue == "c" )
-      onMessage( (SecurityDefinitionRequest&)message, sessionID );
-    else
+      return onMessage( (SecurityDefinitionRequest&)message, sessionID );
+    
     if( msgTypeValue == "d" )
-      onMessage( (SecurityDefinition&)message, sessionID );
-    else
+      return onMessage( (SecurityDefinition&)message, sessionID );
+    
     if( msgTypeValue == "e" )
-      onMessage( (SecurityStatusRequest&)message, sessionID );
-    else
+      return onMessage( (SecurityStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "f" )
-      onMessage( (SecurityStatus&)message, sessionID );
-    else
+      return onMessage( (SecurityStatus&)message, sessionID );
+    
     if( msgTypeValue == "g" )
-      onMessage( (TradingSessionStatusRequest&)message, sessionID );
-    else
+      return onMessage( (TradingSessionStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "h" )
-      onMessage( (TradingSessionStatus&)message, sessionID );
-    else
+      return onMessage( (TradingSessionStatus&)message, sessionID );
+    
     if( msgTypeValue == "i" )
-      onMessage( (MassQuote&)message, sessionID );
-    else
+      return onMessage( (MassQuote&)message, sessionID );
+    
     if( msgTypeValue == "j" )
-      onMessage( (BusinessMessageReject&)message, sessionID );
-    else
+      return onMessage( (BusinessMessageReject&)message, sessionID );
+    
     if( msgTypeValue == "k" )
-      onMessage( (BidRequest&)message, sessionID );
-    else
+      return onMessage( (BidRequest&)message, sessionID );
+    
     if( msgTypeValue == "l" )
-      onMessage( (BidResponse&)message, sessionID );
-    else
+      return onMessage( (BidResponse&)message, sessionID );
+    
     if( msgTypeValue == "m" )
-      onMessage( (ListStrikePrice&)message, sessionID );
-    else
+      return onMessage( (ListStrikePrice&)message, sessionID );
+    
     if( msgTypeValue == "n" )
-      onMessage( (XMLnonFIX&)message, sessionID );
-    else
+      return onMessage( (XMLnonFIX&)message, sessionID );
+    
     if( msgTypeValue == "o" )
-      onMessage( (RegistrationInstructions&)message, sessionID );
-    else
+      return onMessage( (RegistrationInstructions&)message, sessionID );
+    
     if( msgTypeValue == "p" )
-      onMessage( (RegistrationInstructionsResponse&)message, sessionID );
-    else
+      return onMessage( (RegistrationInstructionsResponse&)message, sessionID );
+    
     if( msgTypeValue == "q" )
-      onMessage( (OrderMassCancelRequest&)message, sessionID );
-    else
+      return onMessage( (OrderMassCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "r" )
-      onMessage( (OrderMassCancelReport&)message, sessionID );
-    else
+      return onMessage( (OrderMassCancelReport&)message, sessionID );
+    
     if( msgTypeValue == "s" )
-      onMessage( (NewOrderCross&)message, sessionID );
-    else
-    if( msgTypeValue == "u" )
-      onMessage( (CrossOrderCancelRequest&)message, sessionID );
-    else
+      return onMessage( (NewOrderCross&)message, sessionID );
+    
     if( msgTypeValue == "t" )
-      onMessage( (CrossOrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (CrossOrderCancelReplaceRequest&)message, sessionID );
+    
+    if( msgTypeValue == "u" )
+      return onMessage( (CrossOrderCancelRequest&)message, sessionID );
+    
     if( msgTypeValue == "v" )
-      onMessage( (SecurityTypeRequest&)message, sessionID );
-    else
+      return onMessage( (SecurityTypeRequest&)message, sessionID );
+    
     if( msgTypeValue == "w" )
-      onMessage( (SecurityTypes&)message, sessionID );
-    else
+      return onMessage( (SecurityTypes&)message, sessionID );
+    
     if( msgTypeValue == "x" )
-      onMessage( (SecurityListRequest&)message, sessionID );
-    else
+      return onMessage( (SecurityListRequest&)message, sessionID );
+    
     if( msgTypeValue == "y" )
-      onMessage( (SecurityList&)message, sessionID );
-    else
+      return onMessage( (SecurityList&)message, sessionID );
+    
     if( msgTypeValue == "z" )
-      onMessage( (DerivativeSecurityListRequest&)message, sessionID );
-    else
+      return onMessage( (DerivativeSecurityListRequest&)message, sessionID );
+    
     if( msgTypeValue == "AA" )
-      onMessage( (DerivativeSecurityList&)message, sessionID );
-    else
+      return onMessage( (DerivativeSecurityList&)message, sessionID );
+    
     if( msgTypeValue == "AB" )
-      onMessage( (NewOrderMultileg&)message, sessionID );
-    else
+      return onMessage( (NewOrderMultileg&)message, sessionID );
+    
     if( msgTypeValue == "AC" )
-      onMessage( (MultilegOrderCancelReplaceRequest&)message, sessionID );
-    else
+      return onMessage( (MultilegOrderCancelReplaceRequest&)message, sessionID );
+    
     if( msgTypeValue == "AD" )
-      onMessage( (TradeCaptureReportRequest&)message, sessionID );
-    else
+      return onMessage( (TradeCaptureReportRequest&)message, sessionID );
+    
     if( msgTypeValue == "AE" )
-      onMessage( (TradeCaptureReport&)message, sessionID );
-    else
+      return onMessage( (TradeCaptureReport&)message, sessionID );
+    
     if( msgTypeValue == "AF" )
-      onMessage( (OrderMassStatusRequest&)message, sessionID );
-    else
+      return onMessage( (OrderMassStatusRequest&)message, sessionID );
+    
     if( msgTypeValue == "AG" )
-      onMessage( (QuoteRequestReject&)message, sessionID );
-    else
+      return onMessage( (QuoteRequestReject&)message, sessionID );
+    
     if( msgTypeValue == "AH" )
-      onMessage( (RFQRequest&)message, sessionID );
-    else
+      return onMessage( (RFQRequest&)message, sessionID );
+    
     if( msgTypeValue == "AI" )
-      onMessage( (QuoteStatusReport&)message, sessionID );
-    else onMessage( message, sessionID );
+      return onMessage( (QuoteStatusReport&)message, sessionID );
+    
+    return onMessage( message, sessionID );
   }
 
   };

@@ -19,11 +19,11 @@ Makefile
 .libs
 *.la
 *.so
+*.so.*
 *.dylib
 ChangeLog
-UnitTest++/TestUnitTest++
 aclocal.m4
-config.h
+config_unix.h
 config.log
 config.status
 config/
@@ -41,7 +41,6 @@ bin/ordermatch
 bin/tradeclient
 examples/executor/C++/executor
 examples/ordermatch/ordermatch
-examples/ordermatch/test/ordermatch_ut
 examples/tradeclient/tradeclient
 include/
 src/at
@@ -55,7 +54,6 @@ test/ut_debug
 test/cfg
 test/store
 autom4te.cache/
-lib/python2
 lib/python3
 COPYING
 INSTALL
@@ -66,3 +64,10 @@ core
 \#*#
 *.log
 *.trs
+build*
+CMakeFiles
+CMakeCache.txt
+*.cmake
+.vscode
+.cache
+compile_commands.json

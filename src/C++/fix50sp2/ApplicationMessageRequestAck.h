@@ -12,7 +12,10 @@ namespace FIX50SP2
     ApplicationMessageRequestAck() : Message(MsgType()) {}
     ApplicationMessageRequestAck(const FIX::Message& m) : Message(m) {}
     ApplicationMessageRequestAck(const Message& m) : Message(m) {}
-    ApplicationMessageRequestAck(const ApplicationMessageRequestAck& m) : Message(m) {}
+    ApplicationMessageRequestAck(const ApplicationMessageRequestAck&) = default;
+    ApplicationMessageRequestAck(ApplicationMessageRequestAck&&) = default;
+    ApplicationMessageRequestAck& operator=(const ApplicationMessageRequestAck&) = default;
+    ApplicationMessageRequestAck& operator=(ApplicationMessageRequestAck&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("BX"); }
 
     ApplicationMessageRequestAck(
@@ -31,8 +34,9 @@ namespace FIX50SP2
     class NoApplIDs: public FIX::Group
     {
     public:
-    NoApplIDs() : FIX::Group(1351,1355,FIX::message_order(1355,1182,1183,1357,1354,539,1433,0)) {}
+    NoApplIDs() : FIX::Group(1351,1355,FIX::message_order(1355,1433,1182,1183,1357,1354,539,0)) {}
       FIELD_SET(*this, FIX::RefApplID);
+      FIELD_SET(*this, FIX::RefApplReqID);
       FIELD_SET(*this, FIX::ApplBegSeqNum);
       FIELD_SET(*this, FIX::ApplEndSeqNum);
       FIELD_SET(*this, FIX::RefApplLastSeqNum);
@@ -41,10 +45,11 @@ namespace FIX50SP2
       class NoNestedPartyIDs: public FIX::Group
       {
       public:
-      NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,804,0)) {}
+      NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,2384,804,0)) {}
         FIELD_SET(*this, FIX::NestedPartyID);
         FIELD_SET(*this, FIX::NestedPartyIDSource);
         FIELD_SET(*this, FIX::NestedPartyRole);
+        FIELD_SET(*this, FIX::NestedPartyRoleQualifier);
         FIELD_SET(*this, FIX::NoNestedPartySubIDs);
         class NoNestedPartySubIDs: public FIX::Group
         {
@@ -54,19 +59,16 @@ namespace FIX50SP2
           FIELD_SET(*this, FIX::NestedPartySubIDType);
         };
       };
-      FIELD_SET(*this, FIX::RefApplReqID);
     };
-    FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::EncodedTextLen);
-    FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NoPartyIDs);
     class NoPartyIDs: public FIX::Group
     {
     public:
-    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,2376,802,0)) {}
       FIELD_SET(*this, FIX::PartyID);
       FIELD_SET(*this, FIX::PartyIDSource);
       FIELD_SET(*this, FIX::PartyRole);
+      FIELD_SET(*this, FIX::PartyRoleQualifier);
       FIELD_SET(*this, FIX::NoPartySubIDs);
       class NoPartySubIDs: public FIX::Group
       {
@@ -76,6 +78,9 @@ namespace FIX50SP2
         FIELD_SET(*this, FIX::PartySubIDType);
       };
     };
+    FIELD_SET(*this, FIX::Text);
+    FIELD_SET(*this, FIX::EncodedTextLen);
+    FIELD_SET(*this, FIX::EncodedText);
   };
 
 }

@@ -17,9 +17,7 @@ then
   LIBS_SAVED="$LIBS"
 	LIBS="$LIBS_SAVED -lssl -lcrypto"
 	AC_MSG_CHECKING(linking with openssl)
-	AC_TRY_LINK([#include "openssl/ssl.h"],[ SSL_library_init(); return(0); ],
-		[ AC_MSG_RESULT(ok) ],
-		[ AC_MSG_RESULT(failed)
+	AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include "openssl/ssl.h"]], [[ SSL_library_init(); return(0); ]])],[ AC_MSG_RESULT(ok) ],[ AC_MSG_RESULT(failed)
 		  AC_MSG_ERROR(Unable to link with the openssl library; use --without-openssl to disable)
 		])
   LIBS="$LIBS_SAVED"
@@ -40,9 +38,7 @@ then
   LIBS_SAVED="$LIBS"
 	LIBS="$LIBS_SAVED -lssl -lcrypto"
 	AC_MSG_CHECKING(linking with openssl)
-	AC_TRY_LINK([#include "$with_openssl/include/openssl/ssl.h"],[ SSL_library_init(); return(0); ],
-		[ AC_MSG_RESULT(ok) ],
-		[ AC_MSG_RESULT(failed)
+	AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include "$with_openssl/include/openssl/ssl.h"]], [[ SSL_library_init(); return(0); ]])],[ AC_MSG_RESULT(ok) ],[ AC_MSG_RESULT(failed)
 		  AC_MSG_ERROR(Unable to link with the openssl library; use --without-openssl to disable)
 		])
   LIBS="$LIBS_SAVED"

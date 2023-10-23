@@ -12,7 +12,10 @@ namespace FIX43
     MultilegOrderCancelReplaceRequest() : Message(MsgType()) {}
     MultilegOrderCancelReplaceRequest(const FIX::Message& m) : Message(m) {}
     MultilegOrderCancelReplaceRequest(const Message& m) : Message(m) {}
-    MultilegOrderCancelReplaceRequest(const MultilegOrderCancelReplaceRequest& m) : Message(m) {}
+    MultilegOrderCancelReplaceRequest(const MultilegOrderCancelReplaceRequest&) = default;
+    MultilegOrderCancelReplaceRequest(MultilegOrderCancelReplaceRequest&&) = default;
+    MultilegOrderCancelReplaceRequest& operator=(const MultilegOrderCancelReplaceRequest&) = default;
+    MultilegOrderCancelReplaceRequest& operator=(MultilegOrderCancelReplaceRequest&&) = default;
     static FIX::MsgType MsgType() { return FIX::MsgType("AC"); }
 
     MultilegOrderCancelReplaceRequest(

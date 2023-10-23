@@ -1,4 +1,4 @@
-require 'PrintFile'
+require "PrintFile"
 
 class GeneratorCPP
   def initialize(type, major, minor, sp, verid, basedir)
@@ -6,7 +6,7 @@ class GeneratorCPP
     @major = major
     @minor = minor
     @namespace = type + major + minor
-    if( sp != "0" )
+    if (sp != "0")
       @namespace += "SP#{sp}"
     end
     @verid = verid
@@ -80,14 +80,17 @@ class GeneratorCPP
     @f.puts "Message( const FIX::MsgType& msgtype )"
     @f.puts ": FIX::Message("
     @f.puts "  FIX::BeginString(\"" + @beginstring + "\"), msgtype )"
-    if( @verid == "0" )
+    if (@verid == "0")
       @f.puts " {} "
     else
       @f.puts " { getHeader().setField( FIX::ApplVerID(\"" + @verid + "\") ); }"
     end
     @f.puts
     @f.puts "Message(const FIX::Message& m) : FIX::Message(m) {}"
-    @f.puts "Message(const Message& m) : FIX::Message(m) {}"
+    @f.puts "Message(const Message& m) = default;"
+    @f.puts "Message(Message&& m) = default;"
+    @f.puts "Message& operator=(Message&&) = default;"
+    @f.puts "Message& operator=(const Message&) = default;"
     @f.puts "Header& getHeader() { return (Header&)m_header; }"
     @f.puts "const Header& getHeader() const { return (Header&)m_header; }"
     @f.puts "Trailer& getTrailer() { return (Trailer&)m_trailer; }"
@@ -102,7 +105,7 @@ class GeneratorCPP
   end
 
   def groupStart(name, number, delim, order)
-    @f.indent    
+    @f.indent
     @f.puts "class " + name + ": public FIX::Group"
     @f.puts "{"
     @f.puts "public:"
@@ -135,17 +138,20 @@ class GeneratorCPP
     @f.puts name + "() : Message(MsgType()) {}"
     @f.puts name + "(const FIX::Message& m) : Message(m) {}"
     @f.puts name + "(const Message& m) : Message(m) {}"
-    @f.puts name + "(const #{name}& m) : Message(m) {}"
+    @f.puts name + "(const #{name}&) = default;"
+    @f.puts name + "(#{name}&&) = default;"
+    @f.puts name + "& operator=(const #{name}&) = default;"
+    @f.puts name + "& operator=(#{name}&&) = default;"
     @f.puts "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
 
-    if( required.size > 0 )
+    if (required.size > 0)
       @f.puts
       @f.puts name + "("
       @f.indent
       required.each_index { |i|
         field = required[i]
-        @f.print "const FIX::" + field + "& a" + field 
-        if(i != required.size-1)
+        @f.print "const FIX::" + field + "& a" + field
+        if (i != required.size - 1)
           @f.putsInline ","
         else
           @f.putsInline " )"
@@ -156,7 +162,8 @@ class GeneratorCPP
       @f.puts "{"
       @f.indent
       required.each { |field|
-  @f.puts "set(a" + field + ");" }
+        @f.puts "set(a" + field + ");"
+      }
       @f.dedent
       @f.puts "}"
     end
@@ -182,32 +189,40 @@ class GeneratorCPP
   end
 
   def fieldsStart
+    @fc = createBaseFile("FixCommonFields.h")
     @ff = createBaseFile("FixFields.h")
     @fn = createBaseFile("FixFieldNumbers.h")
     @fv = createBaseFile("FixValues.h")
+    fixCommonFieldsStart(@fc)
     fixFieldsStart(@ff)
     fixFieldNumbersStart(@fn)
     fixFieldValuesStart(@fv)
   end
 
   def fields(name, number, type, values)
-    fixFields(@ff, name, number, type)
+    if(name == "BeginString" || name == "SenderCompID" || name == "TargetCompID")
+      fixFields(@fc, name, number, type)
+    else
+      fixFields(@ff, name, number, type)
+    end
     fixFieldNumbers(@fn, name, number, type)
     fixFieldValues(@fv, name, number, type, values)
   end
 
   def fieldsEnd
+    fixCommonFieldsEnd(@fc)
     fixFieldsEnd(@ff)
     fixFieldNumbersEnd(@fn)
     fixFieldValuesEnd(@fv)
+    @fc.close
     @ff.close
     @fn.close
     @fv.close
   end
 
-  def fixFieldsStart(f)
-    f.puts "#ifndef FIX_FIELDS_H"
-    f.puts "#define FIX_FIELDS_H"
+  def fixCommonFieldsStart(f)
+    f.puts "#ifndef FIX_COMMON_FIELDS_H"
+    f.puts "#define FIX_COMMON_FIELDS_H"
     f.puts
     f.puts '#include "Field.h"'
     f.puts
@@ -217,18 +232,48 @@ class GeneratorCPP
     f.puts "{"
     f.indent
   end
-    
+
+  def fixFieldsStart(f)
+    f.puts "#ifndef FIX_FIELDS_H"
+    f.puts "#define FIX_FIELDS_H"
+    f.puts
+    f.puts '#include "Field.h"'
+    f.puts '#include "FixCommonFields.h"'
+    f.puts
+    f.puts "#undef Yield"
+    f.puts
+    f.puts "#ifdef ReplaceText"
+    f.puts '#pragma push("ReplaceText")'
+    f.puts "#undef ReplaceText"
+    f.puts "#endif"
+    f.puts
+    f.puts "namespace FIX"
+    f.puts "{"
+    f.indent
+  end
+
   def fixFields(f, name, number, type)
-    if( name == "CheckSum" )
+    if (name == "CheckSum")
       f.puts "DEFINE_CHECKSUM(#{name});"
     else
       f.puts "DEFINE_#{type.upcase}(#{name});"
     end
   end
 
+  def fixCommonFieldsEnd(f)
+    f.dedent
+    f.puts "}"
+    f.puts "#endif //FIX_COMMON_FIELDS_H"
+  end
+
   def fixFieldsEnd(f)
     f.dedent
     f.puts "}"
+    f.puts
+    f.puts "#ifdef ReplaceText"
+    f.puts '#pragma pop("ReplaceText")'
+    f.puts "#endif"
+    f.puts
     f.puts "#endif //FIX_FIELDS_H"
   end
 
@@ -243,7 +288,7 @@ class GeneratorCPP
     f.puts "{"
     f.indent
   end
-    
+
   def fixFieldNumbers(f, name, number, type)
     f.puts "const int #{name} = #{number};"
   end
@@ -270,12 +315,12 @@ class GeneratorCPP
   def fixFieldValues(f, name, number, type, values)
     values.each { |description, enum|
       case type
-        when "INT"
-          f.puts "const int #{name}_#{description} = #{enum};"
-        when "STRING", "MULTIPLESTRINGVALUE"
-          f.puts "const char #{name}_#{description}[] = \"#{enum}\";"
-        else
-          f.puts "const char #{name}_#{description} = '#{enum}';"
+      when "INT"
+        f.puts "const int #{name}_#{description} = #{enum};"
+      when "STRING", "MULTIPLESTRINGVALUE"
+        f.puts "const char #{name}_#{description}[] = \"#{enum}\";"
+      else
+        f.puts "const char #{name}_#{description} = '#{enum}';"
       end
     }
   end
@@ -284,5 +329,4 @@ class GeneratorCPP
     f.puts "}"
     f.puts "#endif //FIX_VALUES_H"
   end
-
 end
