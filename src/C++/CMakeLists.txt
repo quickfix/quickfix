@@ -89,6 +89,19 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJE
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+
+get_target_property(debug_postfix ${PROJECT_NAME} DEBUG_POSTFIX)
+if(${debug_postfix} STREQUAL debug_postfix-NOTFOUND)
+   set (debug_postfix "")
+else()
+   string(TOUPPER ${CMAKE_BUILD_TYPE} build_type)
+   if(NOT ${build_type} STREQUAL DEBUG)
+      set (debug_postfix "")
+   endif()
+endif()
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/${PROJECT_NAME}${debug_postfix}.pdb:${PROJECT_NAME} DESTINATION lib OPTIONAL)
+
+
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/C++/ DESTINATION include/quickfix
         FILES_MATCHING PATTERN "*.h"
         PATTERN double-conversion EXCLUDE
