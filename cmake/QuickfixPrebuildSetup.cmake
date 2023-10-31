@@ -29,6 +29,7 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixF
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixCommonFields.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixCommonFields.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixValues.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixValues.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Group.h ${PROJECT_SOURCE_DIR}/include/quickfix/Group.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HostDetailsProvider.h ${PROJECT_SOURCE_DIR}/include/quickfix/HostDetailsProvider.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HtmlBuilder.h ${PROJECT_SOURCE_DIR}/include/quickfix/HtmlBuilder.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HttpConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/HttpConnection.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HttpMessage.h ${PROJECT_SOURCE_DIR}/include/quickfix/HttpMessage.h
