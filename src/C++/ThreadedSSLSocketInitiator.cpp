@@ -176,6 +176,8 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT (C
     m_sendBufSize = dict.getInt(SOCKET_SEND_BUFFER_SIZE);
   if (dict.has(SOCKET_RECEIVE_BUFFER_SIZE))
     m_rcvBufSize = dict.getInt(SOCKET_RECEIVE_BUFFER_SIZE);
+  if( dict.has(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL) )
+    m_hostDetailsProvider.setStartOverInterval(dict.getInt(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL));
 }
 
 void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT (RuntimeError)
@@ -288,9 +290,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
 
     Log *log = session->getLog();
 
-    std::string address;
-    short port = 0;
-    getHost(s, d, address, port);
+    HostDetails host = m_hostDetailsProvider.getHost(s, d);
 
     socket_handle socket = socket_createConnector();
     if (m_noDelay)
@@ -301,8 +301,8 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
       socket_setsockopt(socket, SO_RCVBUF, m_rcvBufSize);
 
     setPending(s);
-    log->onEvent("Connecting to " + address + " on port " +
-                 IntConvertor::convert((unsigned short)port));
+    log->onEvent("Connecting to " + host.address + " on port " +
+                 IntConvertor::convert((unsigned short)host.port));
 
     SSL *ssl = SSL_new(m_ctx);
     if (ssl == 0)
@@ -315,7 +315,7 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     SSL_set_bio(ssl, sbio, sbio);
 
     ThreadedSSLSocketConnection *pConnection = new ThreadedSSLSocketConnection(
-        s, socket, ssl, address, port, getLog());
+        s, socket, ssl, host.address, host.port, getLog());
 
     ThreadPair *pair = new ThreadPair(this, pConnection);
 
@@ -416,38 +416,6 @@ THREAD_PROC ThreadedSSLSocketInitiator::socketThread(void *p)
 
   pInitiator->setDisconnected(sessionID);
   return 0;
-}
-
-void ThreadedSSLSocketInitiator::getHost(const SessionID &s,
-                                         const Dictionary &d,
-                                         std::string &address, short &port)
-{
-  int num = 0;
-  SessionToHostNum::iterator i = m_sessionToHostNum.find(s);
-  if (i != m_sessionToHostNum.end())
-    num = i->second;
-
-  std::stringstream hostStream;
-  hostStream << SOCKET_CONNECT_HOST << num;
-  std::string hostString = hostStream.str();
-
-  std::stringstream portStream;
-  portStream << SOCKET_CONNECT_PORT << num;
-  std::string portString = portStream.str();
-
-  if (d.has(hostString) && d.has(portString))
-  {
-    address = d.getString(hostString);
-    port = (short)d.getInt(portString);
-  }
-  else
-  {
-    num = 0;
-    address = d.getString(SOCKET_CONNECT_HOST);
-    port = (short)d.getInt(SOCKET_CONNECT_PORT);
-  }
-
-  m_sessionToHostNum[s] = ++num;
 }
 
 int ThreadedSSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize,
