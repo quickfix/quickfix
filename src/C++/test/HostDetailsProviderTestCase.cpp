@@ -61,13 +61,11 @@ TEST_CASE("HostDetailsProviderTests")
     settings.setString("SocketConnectSourcePort3", "7003");
 
     settings.setString(HOST_SELECTION_POLICY, HostDetailsProvider::HOST_SELECTION_POLICY_PRIORITY);
-
-    int startOvertIntervalInSeconds = 20;
+    settings.setInt(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL, 20);
 
     HostDetailsProvider detailsProvider;
-    detailsProvider.setStartOverInterval(startOvertIntervalInSeconds);
-
     HostDetails host;
+    detailsProvider.getTime = []() { return 0; };
 
     // First time ever should return first host
     host = detailsProvider.getHost(SessionID(), settings);
@@ -91,7 +89,7 @@ TEST_CASE("HostDetailsProviderTests")
     CHECK(std::to_string(host.sourcePort) == "7002");
 
     // Return top host, startOverIntervalInSeconds has elapsed
-    std::this_thread::sleep_for(std::chrono::seconds(startOvertIntervalInSeconds));
+    detailsProvider.getTime = []() { return 21; };
     host = detailsProvider.getHost(SessionID(), settings);
     CHECK(host.address == "127.0.0.0");
     CHECK(std::to_string(host.port) == "8000");
@@ -127,7 +125,7 @@ TEST_CASE("HostDetailsProviderTests")
     int startOvertIntervalInSeconds = 20;
 
     HostDetailsProvider detailsProvider;
-    detailsProvider.setStartOverInterval(startOvertIntervalInSeconds);
+    detailsProvider.getTime = []() { return 0; };
 
     HostDetails host;
 
@@ -150,7 +148,7 @@ TEST_CASE("HostDetailsProviderTests")
     CHECK(std::to_string(host.sourcePort) == "7002");
 
     // Should return the next host regardless of interval since last connection
-    std::this_thread::sleep_for(std::chrono::seconds(startOvertIntervalInSeconds));
+    detailsProvider.getTime = []() { return 21; };
     host = detailsProvider.getHost(SessionID(), settings);
     CHECK(host.address == "127.0.0.3");
     CHECK(std::to_string(host.port) == "8003");

@@ -11,77 +11,76 @@ const std::string FIX::HostDetailsProvider::HOST_SELECTION_POLICY_PRIORITY = "PR
     hostSelectionPolicy = d.getString(HOST_SELECTION_POLICY);
   }
 
-  auto sessionIt = m_sessionToLastConnectionDetails.find(s);
-  if(hostSelectionPolicy == HOST_SELECTION_POLICY_PRIORITY )
-  {
-    time_t now;
-    ::time(&now);
+  auto sessionIt = m_sessionToLastConnectionAttempt.find(s);
 
-    if( sessionIt == m_sessionToLastConnectionDetails.end()
-      || ( now - sessionIt->second.lastConnectionTime >= m_startOverIntervalInSeconds ) )
-    {
-      m_sessionToLastConnectionDetails[s] = { 0, now };
-    }
-    else
-    {
-      ++sessionIt->second.hostNumber;
-      sessionIt->second.lastConnectionTime = now;
-    }
-    
+  time_t now = getTime();
+
+  if (sessionIt == m_sessionToLastConnectionAttempt.end()) {
+      auto result = m_sessionToLastConnectionAttempt.emplace(s, LastConnectionAttempt{ 0, now });
+      sessionIt = result.first;
+  }
+  else {
+      if (hostSelectionPolicy == HOST_SELECTION_POLICY_PRIORITY)
+      {
+          int startOverInterval = 120;
+          if (d.has(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL)) {
+              startOverInterval = d.getInt(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL);
+          }
+
+          if ((now - sessionIt->second.time >= startOverInterval))
+          {
+              sessionIt->second.hostNumber = 0;
+              sessionIt->second.time = now;
+          }
+          else
+          {
+              ++sessionIt->second.hostNumber;
+              sessionIt->second.time = now;
+          }
+      }
+      else {
+          ++sessionIt->second.hostNumber;
+          sessionIt->second.time = now;
+      }
   }
 
-  int num = sessionIt->second.hostNumber;
   HostDetails details;
+  bool isDefinedInSettings = populateHostDetails(sessionIt->second.hostNumber, d, details);
 
-  std::stringstream hostStream;
-  hostStream << SOCKET_CONNECT_HOST << num;
-  std::string hostString = hostStream.str();
-
-  std::stringstream portStream;
-  portStream << SOCKET_CONNECT_PORT << num;
-  std::string portString = portStream.str();
-
-  if( d.has(hostString) && d.has(portString) )
-  {
-    details.address = d.getString(hostString);
-    details.port = (short)d.getInt(portString);
-
-    std::stringstream sourceHostStream;
-    sourceHostStream << SOCKET_CONNECT_SOURCE_HOST << num;
-    hostString = sourceHostStream.str();
-    if( d.has(hostString) )
-      details.sourceAddress = d.getString(hostString);
-
-    std::stringstream sourcePortStream;
-    sourcePortStream << SOCKET_CONNECT_SOURCE_PORT << num;
-    portString = sourcePortStream.str();
-    if( d.has(portString) )
-      details.sourcePort = (short)d.getInt(portString);
+  if(!isDefinedInSettings){
+      populateHostDetails(0, d, details);
+      sessionIt->second.hostNumber = 0;
   }
-  else
-  {
-    num = 0;
-    details.address = d.getString(SOCKET_CONNECT_HOST);
-    details.port = (short)d.getInt(SOCKET_CONNECT_PORT);
 
-    if( d.has(SOCKET_CONNECT_SOURCE_HOST) )
-      details.sourceAddress = d.getString(SOCKET_CONNECT_SOURCE_HOST);
-    if( d.has(SOCKET_CONNECT_SOURCE_PORT) )
-      details.sourcePort = (short)d.getInt(SOCKET_CONNECT_SOURCE_PORT);
-  }
-  
-  if ( hostSelectionPolicy == HOST_SELECTION_POLICY_PRIORITY )
-  {
-    sessionIt->second.hostNumber = num;
-  }
-  else
-  {
-    sessionIt->second.hostNumber = ++num;
-  }
   return details;
 }
 
- void FIX::HostDetailsProvider::setStartOverInterval(int seconds)
- {
-   m_startOverIntervalInSeconds = seconds;
+ bool FIX::HostDetailsProvider::populateHostDetails(int n, const Dictionary& d, HostDetails& out) {
+	 std::string host = SOCKET_CONNECT_HOST;
+	 std::string port = SOCKET_CONNECT_PORT;
+	 std::string sourceHost = SOCKET_CONNECT_SOURCE_HOST;
+	 std::string sourcePort = SOCKET_CONNECT_SOURCE_PORT;
+     
+     if (n > 0) {
+         std::string suffix = std::to_string(n);
+         host += suffix;
+         port += suffix;
+         sourceHost += suffix;
+         sourcePort += suffix;
+     }
+
+     if (d.has(host) && d.has(port))
+     {
+         out.address = d.getString(host);
+         out.port = (short)d.getInt(port);
+
+         if (d.has(sourceHost))
+             out.sourceAddress = d.getString(sourceHost);
+
+         if (d.has(sourcePort))
+             out.sourcePort = (short)d.getInt(sourcePort);
+
+         return true;
+     }
+     return false;
  }

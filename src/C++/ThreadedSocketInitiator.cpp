@@ -70,8 +70,6 @@ EXCEPT ( ConfigError )
     m_sendBufSize = dict.getInt( SOCKET_SEND_BUFFER_SIZE );
   if( dict.has( SOCKET_RECEIVE_BUFFER_SIZE ) )
     m_rcvBufSize = dict.getInt( SOCKET_RECEIVE_BUFFER_SIZE );
-  if( dict.has(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL) )
-    m_hostDetailsProvider.setStartOverInterval(dict.getInt(HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL));
 }
 
 void ThreadedSocketInitiator::onInitialize( const SessionSettings& s )

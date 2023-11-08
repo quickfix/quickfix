@@ -4,18 +4,13 @@
 #include <time.h>
 #include <string>
 #include <map>
+#include <optional>
+#include <functional>
 
 namespace FIX
 {
   class Dictionary;
   class SessionID;
-
-
-  struct SessionConnection
-  {
-    int hostNumber;
-    time_t lastConnectionTime;
-  };
 
   struct HostDetails
   {
@@ -25,20 +20,24 @@ namespace FIX
     short sourcePort{ 0 };
   };
 
-
   class HostDetailsProvider
   {
   public:
     static const std::string HOST_SELECTION_POLICY_PRIORITY;
 
-
     HostDetails getHost(const SessionID& s, const Dictionary& d);
-    void setStartOverInterval(int seconds);
+
+    std::function<time_t()> getTime = []() { time_t now; ::time(&now); return now; };
 
   private:
-    std::map<SessionID, SessionConnection> m_sessionToLastConnectionDetails;
-    int m_startOverIntervalInSeconds{ 120 };
-  
+    bool populateHostDetails(int n, const Dictionary& d, HostDetails& out);
+
+    struct LastConnectionAttempt
+    {
+        int hostNumber;
+        time_t time;
+    };
+    std::map<SessionID, LastConnectionAttempt> m_sessionToLastConnectionAttempt;
   };
 }
 
