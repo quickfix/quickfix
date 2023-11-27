@@ -73,7 +73,7 @@ public:
   void stop( bool force = false );
 
   /// Check to see if any sessions are currently logged on
-  bool isLoggedOn();
+  bool isLoggedOn() const;
 
   Session* getSession( const std::string& msg, Responder& );
 
@@ -81,13 +81,13 @@ public:
   Session* getSession( const SessionID& sessionID ) const;
   const Dictionary* const getSessionSettings( const SessionID& sessionID ) const;
 
-  bool has( const SessionID& id )
+  bool has( const SessionID& id ) const
   { return m_sessions.find( id ) != m_sessions.end(); }
 
-  bool isStopped() { return m_stop; }
+  bool isStopped() const { return m_stop; }
 
-  Application& getApplication() { return m_application; }
-  MessageStoreFactory& getMessageStoreFactory()
+  Application& getApplication() const { return m_application; }
+  MessageStoreFactory& getMessageStoreFactory() const
   { return m_messageStoreFactory; }
 
 private:

@@ -173,19 +173,19 @@ void Initiator::setDisconnected( const SessionID& sessionID )
   m_disconnected.insert( sessionID );
 }
 
-bool Initiator::isPending( const SessionID& sessionID )
+bool Initiator::isPending( const SessionID& sessionID ) const
 {
   Locker l(m_mutex);
   return m_pending.find( sessionID ) != m_pending.end();
 }
 
-bool Initiator::isConnected( const SessionID& sessionID )
+bool Initiator::isConnected( const SessionID& sessionID ) const
 {
   Locker l(m_mutex);
   return m_connected.find( sessionID ) != m_connected.end();
 }
 
-bool Initiator::isDisconnected( const SessionID& sessionID )
+bool Initiator::isDisconnected( const SessionID& sessionID ) const
 {
   Locker l(m_mutex);
   return m_disconnected.find( sessionID ) != m_disconnected.end();
@@ -303,7 +303,7 @@ void Initiator::stop( bool force )
     session->logon();
 }
 
-bool Initiator::isLoggedOn()
+bool Initiator::isLoggedOn() const
 {
   Locker l(m_mutex);
 
