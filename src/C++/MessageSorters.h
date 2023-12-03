@@ -74,9 +74,10 @@ struct trailer_order
   static bool compare( const int x, const int y )
   {
     if ( x == FIELD::CheckSum ) return false;
-    else
-      if ( y == FIELD::CheckSum ) return true;
-      else return x < y;
+    else if ( y == FIELD::CheckSum ) return true;
+    else if ( x == FIELD::SignatureLength ) return true;
+    else if ( y == FIELD::SignatureLength ) return false;
+    else return x < y;
   }
 };
 
