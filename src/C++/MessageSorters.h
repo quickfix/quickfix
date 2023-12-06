@@ -75,7 +75,7 @@ struct trailer_order
   {
     if ( x == FIELD::CheckSum ) return false;
     else if ( y == FIELD::CheckSum ) return true;
-    else if ( x == FIELD::SignatureLength ) return true;
+    else if ( x == FIELD::SignatureLength ) return y != FIELD::SignatureLength;
     else if ( y == FIELD::SignatureLength ) return false;
     else return x < y;
   }
