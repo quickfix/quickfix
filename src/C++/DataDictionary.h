@@ -57,9 +57,6 @@ class DataDictionary
 
   struct MessageFieldsOrderHolder
   {
-    MessageFieldsOrderHolder()
-    {}
-
     ~MessageFieldsOrderHolder()
     {}
 
