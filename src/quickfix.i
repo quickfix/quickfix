@@ -23,6 +23,8 @@
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
 %rename(SSLSocketInitiatorBase) FIX::SSLSocketInitiator;
 %rename(SSLSocketAcceptorBase) FIX::SSLSocketAcceptor;
+%rename(ThreadedSocketInitiatorBase) FIX::ThreadedSocketInitiator;
+%rename(ThreadedSocketAcceptorBase) FIX::ThreadedSocketAcceptor;
 
 // Rename enum's as they're clashing with some classes
 %rename("%(regex:/^FIX::TYPE::(.*)/Enum\\1/)s", regextarget=1, fullname=1) "^FIX::TYPE::";
@@ -71,6 +73,10 @@
 #include <SocketMonitor.h>
 #include <DatabaseConnectionID.h>
 #include <DatabaseConnectionPool.h>
+#include <ThreadedSocketAcceptor.h>
+#include <ThreadedSocketInitiator.h>
+#include <ThreadedSocketConnection.h>
+#include <NullStore.h>
 
 #ifdef HAVE_SSL
 #include <SSLSocketAcceptor.h>
@@ -551,3 +557,6 @@ typedef FIX::SessionSettings SessionSettings;
 %include "../C++/PostgreSQLConnection.h"
 %include "../C++/PostgreSQLStore.h"
 %include "../C++/PostgreSQLLog.h"
+%include "../C++/ThreadedSocketAcceptor.h"
+%include "../C++/ThreadedSocketInitiator.h"
+%include "../C++/NullStore.h"

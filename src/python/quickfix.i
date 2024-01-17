@@ -225,6 +225,40 @@ class SocketAcceptor(SocketAcceptorBase):
     self.settings = settings
     self.logFactory = logFactory
 
+class ThreadedSocketInitiator(ThreadedSocketInitiatorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class ThreadedSocketAcceptor(ThreadedSocketAcceptorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
 #if (HAVE_SSL > 0)
 class SSLSocketInitiator(SSLSocketInitiatorBase):
   application = 0
