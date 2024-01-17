@@ -127,7 +127,6 @@ public:
     m_data.clear();
   }
 
-  [[deprecated("Use setTag")]]
   void setField( int field )
   {
     setTag( field );
@@ -144,7 +143,6 @@ public:
   int getTag() const
   { return m_tag; }
 
-  [[deprecated("Use getTag")]]
   int getField() const
   { return getTag(); }
 
