@@ -7814,17 +7814,25 @@ def Session_supportsSubSecondTimestamps(beginString):
 
 class LogFactory(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-
-    def __init__(self, *args, **kwargs):
-        raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_LogFactory
 
     def create(self, *args):
         return _quickfix.LogFactory_create(self, *args)
 
-    def destroy(self, arg2):
-        return _quickfix.LogFactory_destroy(self, arg2)
+    def destroy(self, arg0):
+        return _quickfix.LogFactory_destroy(self, arg0)
+
+    def __init__(self):
+        if self.__class__ == LogFactory:
+            _self = None
+        else:
+            _self = self
+        _quickfix.LogFactory_swiginit(self, _quickfix.new_LogFactory(_self, ))
+    def __disown__(self):
+        self.this.disown()
+        _quickfix.disown_LogFactory(self)
+        return weakref.proxy(self)
 
 # Register LogFactory in _quickfix:
 _quickfix.LogFactory_swigregister(LogFactory)
@@ -7848,9 +7856,6 @@ _quickfix.ScreenLogFactory_swigregister(ScreenLogFactory)
 
 class Log(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-
-    def __init__(self, *args, **kwargs):
-        raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Log
 
@@ -7860,14 +7865,25 @@ class Log(object):
     def backup(self):
         return _quickfix.Log_backup(self)
 
-    def onIncoming(self, arg2):
-        return _quickfix.Log_onIncoming(self, arg2)
+    def onIncoming(self, arg0):
+        return _quickfix.Log_onIncoming(self, arg0)
 
-    def onOutgoing(self, arg2):
-        return _quickfix.Log_onOutgoing(self, arg2)
+    def onOutgoing(self, arg0):
+        return _quickfix.Log_onOutgoing(self, arg0)
 
-    def onEvent(self, arg2):
-        return _quickfix.Log_onEvent(self, arg2)
+    def onEvent(self, arg0):
+        return _quickfix.Log_onEvent(self, arg0)
+
+    def __init__(self):
+        if self.__class__ == Log:
+            _self = None
+        else:
+            _self = self
+        _quickfix.Log_swiginit(self, _quickfix.new_Log(_self, ))
+    def __disown__(self):
+        self.this.disown()
+        _quickfix.disown_Log(self)
+        return weakref.proxy(self)
 
 # Register Log in _quickfix:
 _quickfix.Log_swigregister(Log)
