@@ -589,6 +589,7 @@ public:
   }
 
   /// Defaults to the current date and time
+  [[deprecated("Use UtcTimeStamp::now()")]]
   UtcTimeStamp()
   : DateTime( DateTime::nowUtc() ) {}
 
