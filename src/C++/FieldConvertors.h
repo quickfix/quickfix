@@ -249,10 +249,8 @@ struct IntTConvertor
 
     if( isNegative )
     {
-      PRAGMA_PUSH( 4146 );
-      if( nx > typename std::make_unsigned<T>::type( -VALUE_MIN ) )
+      if( nx > UNSIGNED_VALUE_OF( VALUE_MIN ) )
         return false; // overflow
-      PRAGMA_POP;
     }
     else if ( nx > VALUE_MAX )
       return false; // overflow
