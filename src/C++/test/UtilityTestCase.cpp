@@ -207,7 +207,7 @@ TEST_CASE("UtilityTests")
 
   SECTION("socketPeername_SocketDoesNotExist_SocketNameUnknown")
   {
-    CHECK(std::string_view("UNKNOWN") == socket_peername(1000));
+    CHECK(std::string("UNKNOWN") == socket_peername(1000));
   }
 
   SECTION("spawnThread_True")
