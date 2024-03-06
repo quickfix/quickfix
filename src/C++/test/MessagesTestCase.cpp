@@ -24,6 +24,7 @@
 #include "config.h"
 #endif
 
+#include "TestHelper.h"
 #include <Values.h>
 #include <Utility.h>
 #include <fix44/MarketDataRequest.h>
@@ -202,7 +203,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithGroup")
   {
     FIX::Message object;
-    DataDictionary dataDictionary( "../../../spec/FIX43.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX43"));
     static const char* str =
       "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
       "=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111"
@@ -217,7 +218,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithGroupWithoutDelimiter")
   {
     FIX::Message object;
-    DataDictionary dataDictionary( "../../../spec/FIX43.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX43"));
     static const char* str =
       "8=FIX.4.3\0019=171\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
       "=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\001"
@@ -232,7 +233,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithHeaderGroup")
   {
     FIX::Message object;
-    DataDictionary dataDictionary( "../../../spec/FIX43.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX43"));
     static const char* str =
       "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
       "52=20040916-16:19:18.328\00156=SELLSIDE\001"
@@ -247,7 +248,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithHeaderGroupDefinedInComponent")
   {
     FIX::Message object;
-    DataDictionary dataDictionary( "../../../spec/FIX44.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX44"));
     static const char* str =
       "8=FIX.4.4\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
       "52=20040916-16:19:18.328\00156=SELLSIDE\001"
@@ -262,7 +263,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithHighBit")
   {
     FIX::Message object;
-    DataDictionary dataDictionary( "../../../spec/FIX42.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     FIX::Headline headline( "client" );
     FIX42::News msg( headline );
@@ -287,7 +288,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithDataFieldWithoutDataLength")
   {
     FIX::Message object;
-    DataDictionary dataDictionary("../../../spec/FIX42.xml");
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     FIX::Headline headline("client");
     FIX42::News msg(headline);
@@ -309,7 +310,7 @@ TEST_CASE("MessageTests")
   SECTION("setStringWithDataFieldAndGarbageAsDataLength")
   {
     FIX::Message object;
-    DataDictionary dataDictionary("../../../spec/FIX42.xml");
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     FIX::Headline headline("client");
     FIX42::News msg(headline);
@@ -423,7 +424,7 @@ TEST_CASE("MessageTests")
 
   SECTION("getXML")
   {
-    FIX::Message::InitializeXML("../../../spec/FIX42.xml");
+    FIX::Message::InitializeXML(FIX::TestSettings::pathForSpec("FIX42"));
     FIX::Message message;
     message.getHeader().setField(BeginString("FIX.4.2"));
     message.getHeader().setField(SenderCompID("SENDER"));
@@ -982,8 +983,7 @@ TEST_CASE("MessageTests")
   {
     // XMLnonFIX message
     FIX::Message object;
-
-    DataDictionary dataDictionary( "../../../spec/FIX42.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     std::string encodedFIXmessage = "8=FIX.4.2\0019=390\001"
       "35=8\00134=136\001369=131\00152=20150220-14:40:24.991\00149=CME\00150=G\001"
@@ -1111,8 +1111,7 @@ TEST_CASE("MessageTests")
   SECTION("newOrderListSetString")
   {
     FIX42::NewOrderList object;
-
-    DataDictionary dataDictionary( "../../../spec/FIX42.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     object.setString
       ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
@@ -1194,8 +1193,7 @@ TEST_CASE("MessageTests")
   SECTION("massQuoteSetString")
   {
     MassQuote object;
-
-    DataDictionary dataDictionary( "../../../spec/FIX42.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
 
     object.setString
       ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
@@ -1256,8 +1254,7 @@ TEST_CASE("MessageTests")
   SECTION("newOrderCrossSetString")
   {
     NewOrderCross object;
-
-    DataDictionary dataDictionary( "../../../spec/FIX44.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX44"));
 
     object.setString
       ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
@@ -1328,7 +1325,7 @@ TEST_CASE("MessageTests")
   SECTION("allocationInstructionString")
   {
     AllocationInstruction object;
-    DataDictionary dataDictionary( "../../../spec/FIX44.xml" );
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX44"));
 
     object.setString
       ( "8=FIX.4.4\0019=198\00135=J\00134=1\00149=SENDER\00152=20170317-15:55:23.685\001"

@@ -128,6 +128,6 @@ jobs:
         shell: bash
         working-directory: ./test
         run: |
-          $ut -f cfg/ut.cfg
+          $ut --quickfix-config-file cfg/ut.cfg --quickfix-spec-path ../spec
         env:
           ut: ${{ env.ut }}
