@@ -1332,7 +1332,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     object->next(resendReq, now);
 
     CHECK(5 == object->getExpectedSenderNum());
-    CHECK(2 == object->getExpectedTargetNum());
+    CHECK(3 == object->getExpectedTargetNum());
   }
 
   SECTION("disconnect_ResetOnDisconnect") 
