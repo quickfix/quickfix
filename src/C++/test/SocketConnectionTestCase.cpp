@@ -24,6 +24,7 @@
 #include "config.h"
 #endif
 
+#include "TestHelper.h"
 #include <SocketConnection.h>
 #include <Application.h>
 #include <MessageStore.h>
@@ -143,8 +144,8 @@ TEST_CASE("SocketConnectionTests")
       acceptorSessionID = SessionID( BeginString( "FIX.4.2" ),
           SenderCompID( "ACCEPT" ), TargetCompID( "INITIATOR" ) );
 
-      initiatorProvider.addTransportDataDictionary( initiatorSessionID.getBeginString(), "../../../spec/FIX42.xml" );
-      acceptorProvider.addTransportDataDictionary( acceptorSessionID.getBeginString(), "../../../spec/FIX42.xml" );
+      initiatorProvider.addTransportDataDictionary( initiatorSessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
+      acceptorProvider.addTransportDataDictionary( acceptorSessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
 
       sessionTime.reset( new TimeRange(UtcTimeOnly(), UtcTimeOnly(), 0, 31));
 

@@ -3,9 +3,10 @@
 
 #include <Application.h>
 #include <SessionSettings.h>
-#include "Log.h"
-#include "FileLog.h"
-#include "FileStore.h"
+#include <Log.h>
+#include <FileLog.h>
+#include <FileStore.h>
+#include <DataDictionary.h>
 #include <iostream>
 
 namespace FIX
@@ -14,7 +15,9 @@ struct TestSettings
 {
   static const uint16_t port;
   static FIX::SessionSettings sessionSettings;
-  static std::string postgreSQLUser;
+  static std::string specPath;
+
+  static std::string pathForSpec(const std::string& spec);
 };
 
 class TestApplication : public NullApplication

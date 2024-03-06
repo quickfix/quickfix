@@ -502,7 +502,7 @@ namespace
       TimeRange sessionTime( startTime, endTime, startDay, endDay);
 
       DataDictionaryProvider provider;
-      provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX42.xml" );
+      provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
       object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                             sessionTime, heartBtInt, 0 );
       object->setResponder( this );
@@ -541,10 +541,10 @@ namespace
       TimeRange sessionTime( startTime, endTime, startDay, endDay );
 
       DataDictionaryProvider provider;
-      provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIXT11.xml" );
-      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), "../../../spec/FIX50.xml" );
-      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), "../../../spec/FIX42.xml" );
-      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX40), "../../../spec/FIX40.xml" );
+      provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIXT11") );
+      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX50), FIX::TestSettings::pathForSpec("FIX50") );
+      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX42), FIX::TestSettings::pathForSpec("FIX42") );
+      provider.addApplicationDataDictionary( ApplVerID(ApplVerID_FIX40), FIX::TestSettings::pathForSpec("FIX40") );
 
       object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                             sessionTime, heartBtInt, 0 );
@@ -585,7 +585,7 @@ namespace
       TimeRange sessionTime( startTime, endTime, startDay, endDay );
 
       DataDictionaryProvider provider;
-      provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX40.xml" );
+      provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX40") );
 
       object = new Session( [this](){ return now; }, *this, factory, sessionID, provider,
                             sessionTime, heartBtInt, 0 );
@@ -1089,7 +1089,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
     TimeRange sessionTimeCustom( startTime, endTime );
 
     DataDictionaryProvider providerCustom;
-    providerCustom.addTransportDataDictionary( sessionIDCustom.getBeginString(), "../../../spec/FIX42.xml" );
+    providerCustom.addTransportDataDictionary( sessionIDCustom.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
     Dictionary dict;
     dict.setString("ConnectionType", "initiator");
     dict.setString("FileLogPath", "log");
@@ -1135,7 +1135,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
     TimeRange sessionTimeCustom( startTime, endTime, 0, 31);
 
     DataDictionaryProvider providerCustom;
-    providerCustom.addTransportDataDictionary( sessionIDCustom.getBeginString(), "../../../spec/FIX42.xml" );
+    providerCustom.addTransportDataDictionary( sessionIDCustom.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
     Dictionary dict;
     dict.setString("ConnectionType", "initiator");
 
@@ -1357,7 +1357,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX42.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
     dictionary.preserveMessageFieldsOrder(true);
 
@@ -1394,7 +1394,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIXT11.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIXT11") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
     dictionary.preserveMessageFieldsOrder(true);
 
@@ -1467,7 +1467,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIXT11.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIXT11") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
     dictionary.preserveMessageFieldsOrder(true);
 
@@ -1529,7 +1529,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX40.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX40") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
 
     std::shared_ptr<DataDictionary> pDataDictionary = std::make_shared<DataDictionary>(dictionary);
@@ -1620,7 +1620,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX42.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
     dictionary.preserveMessageFieldsOrder(true);
     dictionary.checkFieldsOutOfOrder(true);
@@ -1786,7 +1786,7 @@ TEST_CASE_METHOD(initiatorFixture, "InitiatorSessionTestCase")
     TimeRange sessionTime( startTime, endTime, 0, 31);
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIXT11.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIXT11") );
     DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
 
     std::shared_ptr<DataDictionary> pDataDictionary = std::make_shared<DataDictionary>(dictionary);
@@ -2754,7 +2754,7 @@ struct initiatorCreatedBeforeStartTimeFixture : public TestCallback
     SessionID sessionID( BeginString( "FIX.4.2" ), SenderCompID( "MJKG" ), TargetCompID( "IZZY" ) );
 
     DataDictionaryProvider provider;
-    provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX42.xml" );
+    provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
     object = new Session( [this](){ return now; }, *this, messageStoreFactory, sessionID, provider, sessionTime, HEARTBTINT, 0 );
   }
 
@@ -2802,7 +2802,7 @@ TEST_CASE_METHOD(initiatorFIX40Fixture, "customFIX40_UnsupportedMessageType_ERRe
   TimeRange sessionTime( startTime, endTime, 0, 31 );
 
   DataDictionaryProvider provider;
-  provider.addTransportDataDictionary( sessionID.getBeginString(), "../../../spec/FIX40.xml" );
+  provider.addTransportDataDictionary( sessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX40") );
   DataDictionary dictionary = provider.getSessionDataDictionary(sessionID.getBeginString());
 
   std::shared_ptr<DataDictionary> pDataDictionary = std::make_shared<DataDictionary>(dictionary);

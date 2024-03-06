@@ -24,6 +24,7 @@
 #include "config.h"
 #endif
 
+#include "TestHelper.h"
 #include <FieldNumbers.h>
 #include <Values.h>
 #include <PUGIXML_DOMDocument.h>
@@ -332,7 +333,7 @@ TEST_CASE("DataDictionaryTests")
 
   SECTION("checkRequiredAttribute") 
   {
-    DataDictionary object( "../../../spec/FIX42.xml" );
+    DataDictionary object(FIX::TestSettings::pathForSpec("FIX42"));
 
     FIX42::Heartbeat message;
     // All required fields are present
@@ -700,7 +701,7 @@ TEST_CASE("DataDictionaryTests")
 
   SECTION("checkGroupRequiredFields")
   {
-    DataDictionary object( "../../../spec/FIX44.xml" );
+    DataDictionary object(FIX::TestSettings::pathForSpec("FIX44"));
     FIX44::NewOrderList newOrderList;
     newOrderList.setString("8=FIX.4.49=18635=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=111=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=119", false, &object);
     object.validate( newOrderList );
@@ -766,7 +767,7 @@ TEST_CASE("DataDictionaryTests")
 
   SECTION("readFromFile")
   {
-    DataDictionary object( "../../../spec/FIX43.xml" );
+    DataDictionary object(FIX::TestSettings::pathForSpec("FIX43"));
     CHECK( object.isHeaderField( 56 ) );
     CHECK( !object.isHeaderField( 38 ) );
     CHECK( !object.isHeaderField( 10 ) );
@@ -824,7 +825,7 @@ TEST_CASE("DataDictionaryTests")
 
   SECTION("readFromStream")
   {
-    std::fstream stream( "../../../spec/FIX43.xml" );
+    std::fstream stream( FIX::TestSettings::pathForSpec("FIX43") );
     DataDictionary object( stream );
   }
 
