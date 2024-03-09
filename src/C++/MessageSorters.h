@@ -73,11 +73,29 @@ struct trailer_order
 {
   static bool compare( const int x, const int y )
   {
-    if ( x == FIELD::CheckSum ) return false;
-    else if ( y == FIELD::CheckSum ) return true;
-    else if ( x == FIELD::SignatureLength ) return y != FIELD::SignatureLength;
-    else if ( y == FIELD::SignatureLength ) return false;
-    else return x < y;
+    int orderedX = getOrderedPosition( x );
+    int orderedY = getOrderedPosition( y );
+
+    if ( orderedX && orderedY )
+      return orderedX < orderedY;
+    else
+      if ( orderedX )
+        return true;
+      else
+        if ( orderedY )
+          return false;
+        else
+          return x < y;
+  }
+
+  static int getOrderedPosition( const int field )
+  {
+    switch ( field )
+    {
+      case FIELD::SignatureLength: return 1;
+      case FIELD::Signature: return 2;
+      default: return 0;
+    };
   }
 };
 
