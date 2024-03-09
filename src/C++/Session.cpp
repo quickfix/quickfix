@@ -301,10 +301,11 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
       if( endSeqNo > next )
         endSeqNo = EndSeqNo(next);
       generateSequenceReset( beginSeqNo, endSeqNo );
-      return;
     }
-
-    generateRetransmits( beginSeqNo, endSeqNo );
+    else
+    {
+      generateRetransmits( beginSeqNo, endSeqNo );
+    }
   }
 }
 
