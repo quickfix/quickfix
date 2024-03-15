@@ -29,14 +29,16 @@ namespace FIX
 {
 Mutex ScreenLog::s_mutex;
 
-Log* ScreenLogFactory::create()
+
+    Log* ScreenLogFactory::create()
 {
   bool incoming, outgoing, event;
   init( m_settings.get(), incoming, outgoing, event );
   return new ScreenLog( incoming, outgoing, event );
 }
 
-Log* ScreenLogFactory::create( const SessionID& sessionID )
+
+    Log* ScreenLogFactory::create(const SessionID& sessionID )
 {
   Dictionary settings;
   if( m_settings.has(sessionID) ) 
@@ -47,7 +49,8 @@ Log* ScreenLogFactory::create( const SessionID& sessionID )
   return new ScreenLog( sessionID, incoming, outgoing, event );
 }
 
-void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const
+
+    void ScreenLogFactory::init(const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const
 {  
   if( m_useSettings )
   {
@@ -70,7 +73,15 @@ void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& o
   }
 }
 
-void ScreenLogFactory::destroy( Log* pLog )
+/**
+ * @brief Destroy a Log object.
+ *
+ * This function destroys a Log object by deleting the dynamically allocated memory.
+ *
+ * @param pLog A pointer to the Log object to be destroyed.
+ * @return None
+ */
+    void ScreenLogFactory::destroy(Log* pLog )
 {
   delete pLog;
 }
