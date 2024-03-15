@@ -36,7 +36,7 @@ Log* ScreenLogFactory::create()
   return new ScreenLog( incoming, outgoing, event );
 }
 
-Log* ScreenLogFactory::create(const SessionID& sessionID )
+Log* ScreenLogFactory::create( const SessionID& sessionID )
 {
   Dictionary settings;
   if( m_settings.has(sessionID) ) 
@@ -47,7 +47,7 @@ Log* ScreenLogFactory::create(const SessionID& sessionID )
   return new ScreenLog( sessionID, incoming, outgoing, event );
 }
 
-void ScreenLogFactory::init(const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const
+void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const
 {  
   if( m_useSettings )
   {
@@ -70,7 +70,7 @@ void ScreenLogFactory::init(const Dictionary& settings, bool& incoming, bool& ou
   }
 }
 
-void ScreenLogFactory::destroy(Log* pLog )
+void ScreenLogFactory::destroy( Log* pLog )
 {
   delete pLog;
 }
