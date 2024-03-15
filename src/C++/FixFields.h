@@ -7,7 +7,11 @@
 #undef Yield
 
 #ifdef ReplaceText
-#pragma push("ReplaceText")
+   #ifdef _MSC_VER
+    #pragma push_macro("ReplaceText")
+   #else
+    #pragma push("ReplaceText")
+   #endif
 #undef ReplaceText
 #endif
 
@@ -6119,8 +6123,12 @@ namespace FIX
   DEFINE_INT(SelfMatchPreventionInstruction);
 }
 
-#ifdef ReplaceText
-#pragma pop("ReplaceText")
-#endif
+  #ifdef ReplaceText
+   #ifdef _MSC_VER
+    #pragma pop_macro("ReplaceText")
+   #else
+    #pragma pop("ReplaceText")
+   #endif
+  #endif
 
 #endif //FIX_FIELDS_H

@@ -125,6 +125,7 @@
 
 #include "Initiator.h"
 #include "ThreadedSSLSocketConnection.h"
+#include "HostDetailsProvider.h"
 #include <map>
 
 namespace FIX
@@ -159,7 +160,6 @@ public:
 private:
   typedef std::pair<socket_handle, SSL *> SocketKey;
   typedef std::map<SocketKey, thread_id> SocketToThread;
-  typedef std::map<SessionID, int> SessionToHostNum;
   typedef std::pair<ThreadedSSLSocketInitiator *,
                     ThreadedSSLSocketConnection *> ThreadPair;
 
@@ -177,9 +177,7 @@ private:
   void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread(void *p);
 
-  void getHost(const SessionID &, const Dictionary &, std::string &, short &);
-
-  SessionToHostNum m_sessionToHostNum;
+  HostDetailsProvider m_hostDetailsProvider;
   time_t m_lastConnect;
   int m_reconnectInterval;
   bool m_noDelay;
