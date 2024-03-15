@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include <map>
+#include <utility>
 #include <vector>
 
 namespace FIX
@@ -44,7 +45,7 @@ class Log;
 class LogFactory
 {
 public:
-  virtual ~LogFactory() {}
+  virtual ~LogFactory() = default;
   virtual Log* create() = 0;
   virtual Log* create( const SessionID& ) = 0;
   virtual void destroy( Log* ) = 0;
@@ -58,21 +59,21 @@ public:
 class ScreenLogFactory : public LogFactory
 {
 public:
-  ScreenLogFactory( const SessionSettings& settings )
-: m_useSettings( true ), m_settings( settings ) {};
+  explicit ScreenLogFactory( SessionSettings  settings )
+: m_useSettings( true ), m_settings(std::move( settings )) {};
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
 : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_useSettings( false ) {}
 
-  Log* create();
-  Log* create( const SessionID& );
-  void destroy( Log* log );
+  Log* create() override ;
+  Log* create( const SessionID& ) override;
+  void destroy( Log* log ) override;
 
 private:
-  void init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event );
+  void init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const;
 
-  bool m_incoming;
-  bool m_outgoing;
-  bool m_event;
+  bool m_incoming{};
+  bool m_outgoing{};
+  bool m_event{};
   bool m_useSettings;
   SessionSettings m_settings;
 };
@@ -83,7 +84,7 @@ private:
 class Log
 {
 public:
-  virtual ~Log() {}
+  virtual ~Log() = default;
 
   virtual void clear() = 0;
   virtual void backup() = 0;
@@ -102,11 +103,11 @@ public:
 class NullLog : public Log
 {
 public:
-  void clear() {}
-  void backup() {}
-  void onIncoming( const std::string& ) {}
-  void onOutgoing( const std::string& ) {}
-  void onEvent( const std::string& ) {}
+  void clear() override {}
+  void backup() override {}
+  void onIncoming( const std::string& ) override {}
+  void onOutgoing( const std::string& ) override {}
+  void onEvent( const std::string& ) override {}
 };
 
 /**
@@ -126,10 +127,10 @@ public:
 : m_prefix( sessionID.toString() ),
   m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 
-  void clear() {}
-  void backup() {}
+  void clear() override {}
+  void backup() override {}
 
-  void onIncoming( const std::string& value )
+  void onIncoming( const std::string& value ) override
   {
     if ( !m_incoming ) return ;
     Locker l( s_mutex );
@@ -140,7 +141,7 @@ public:
               << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
-  void onOutgoing( const std::string& value )
+  void onOutgoing( const std::string& value ) override
   {
     if ( !m_outgoing ) return ;
     Locker l( s_mutex );
@@ -151,7 +152,7 @@ public:
               << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
-  void onEvent( const std::string& value )
+  void onEvent( const std::string& value ) override
   {
     if ( !m_event ) return ;
     Locker l( s_mutex );
@@ -163,7 +164,7 @@ public:
   }
 
 private:
-  std::string replaceSOHWithPipe( std::string value )
+  static std::string replaceSOHWithPipe( std::string value )
   {
     std::replace( value.begin(), value.end(), '\001', '|');
     return value;
