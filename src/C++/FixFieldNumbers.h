@@ -1,6 +1,16 @@
 #ifndef FIX_FIELD_NUMBERS_H
 #define FIX_FIELD_NUMBERS_H
 
+#ifdef ReplaceText
+ #ifdef _MSC_VER
+  #pragma push_macro("ReplaceText")
+ #else
+  #pragma push("ReplaceText")
+ #endif
+ #undef ReplaceText
+#endif
+
+
 namespace FIX
 {
   namespace FIELD
@@ -6113,5 +6123,13 @@ namespace FIX
     const int MultiJurisdictionReportingIndicator = 2963;
     const int SelfMatchPreventionInstruction = 2964;
   }
+  
+  #ifdef ReplaceText
+   #ifdef _MSC_VER
+    #pragma pop_macro("ReplaceText")
+   #else
+    #pragma pop("ReplaceText")
+   #endif
+  #endif
 }
 #endif //FIX_FIELDNUMBERS_H

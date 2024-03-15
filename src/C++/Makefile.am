@@ -21,6 +21,8 @@ libquickfix_la_SOURCES = \
 	Settings.h \
 	MessageStore.cpp \
 	MessageStore.h \
+	HostDetailsProvider.cpp \
+	HostDetailsProvider.h \
 	SocketServer.cpp \
 	SocketServer.h \
 	SocketConnector.cpp \

@@ -139,11 +139,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
 
     Log* log = session->getLog();
 
-    std::string address;
-    short port = 0;
-    std::string sourceAddress;
-    short sourcePort = 0;
-    getHost( s, d, address, port, sourceAddress, sourcePort );
+    HostDetails host = m_hostDetailsProvider.getHost(s, d);
 
     socket_handle socket = socket_createConnector();
     if( m_noDelay )
@@ -154,10 +150,10 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
       socket_setsockopt( socket, SO_RCVBUF, m_rcvBufSize );
 
     setPending( s );
-    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) + " (Source " + sourceAddress + ":" + IntConvertor::convert((unsigned short)sourcePort) + ")");
+    log->onEvent( "Connecting to " + host.address + " on port " + IntConvertor::convert((unsigned short)host.port) + " (Source " + host.sourceAddress + ":" + IntConvertor::convert((unsigned short)host.sourcePort) + ")");
 
     ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( s, socket, address, port, getLog(), sourceAddress, sourcePort );
+      new ThreadedSocketConnection( s, socket, host.address, host.port, getLog(), host.sourceAddress, host.sourcePort );
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 
@@ -236,53 +232,4 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   pInitiator->setDisconnected( sessionID );
   return 0;
 }
-
-void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
-                                       std::string& address, short& port,
-                                       std::string& sourceAddress, short& sourcePort )
-{
-  int num = 0;
-  SessionToHostNum::iterator i = m_sessionToHostNum.find( s );
-  if ( i != m_sessionToHostNum.end() ) num = i->second;
-
-  std::stringstream hostStream;
-  hostStream << SOCKET_CONNECT_HOST << num;
-  std::string hostString = hostStream.str();
-
-  std::stringstream portStream;
-  portStream << SOCKET_CONNECT_PORT << num;
-  std::string portString = portStream.str();
-
-  if( d.has(hostString) && d.has(portString) )
-  {
-    address = d.getString( hostString );
-    port = ( short ) d.getInt( portString );
-
-    std::stringstream sourceHostStream;
-    sourceHostStream << SOCKET_CONNECT_SOURCE_HOST << num;
-    hostString = sourceHostStream.str();
-    if( d.has(hostString) )
-      sourceAddress = d.getString( hostString );
-
-    std::stringstream sourcePortStream;
-    sourcePortStream << SOCKET_CONNECT_SOURCE_PORT << num;
-    portString = sourcePortStream.str();
-    if( d.has(portString) )
-      sourcePort = ( short ) d.getInt( portString );
-  }
-  else
-  {
-    num = 0;
-    address = d.getString( SOCKET_CONNECT_HOST );
-    port = ( short ) d.getInt( SOCKET_CONNECT_PORT );
-
-    if( d.has(SOCKET_CONNECT_SOURCE_HOST) )
-      sourceAddress = d.getString( SOCKET_CONNECT_SOURCE_HOST );
-    if( d.has(SOCKET_CONNECT_SOURCE_PORT) )
-      sourcePort = ( short ) d.getInt( SOCKET_CONNECT_SOURCE_PORT );
-  }
-
-  m_sessionToHostNum[ s ] = ++num;
-}
-
 }

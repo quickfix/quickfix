@@ -283,22 +283,18 @@ void SSLSocketInitiator::doConnect( const SessionID& sessionID, const Dictionary
 {
   try
   {    
-    std::string address;
-    short port = 0;
-    std::string sourceAddress;
-    short sourcePort = 0;
 
     Session* session = Session::lookupSession( sessionID );
     if( !session->isSessionTime(UtcTimeStamp::now()) ) return;
 
     Log* log = session->getLog();
 
-    getHost( sessionID, dictionary, address, port, sourceAddress, sourcePort );
+    HostDetails host = m_hostDetailsProvider.getHost(sessionID, dictionary);
 
-    log->onEvent( "Connecting to " + address 
-                  + " on port " + IntConvertor::convert((unsigned short)port) 
-                  + " (Source " + sourceAddress + ":" + IntConvertor::convert((unsigned short)sourcePort) + ")");
-    socket_handle result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize, sourceAddress, sourcePort );
+    log->onEvent( "Connecting to " + host.address
+                  + " on port " + IntConvertor::convert((unsigned short)host.port)
+                  + " (Source " + host.sourceAddress + ":" + IntConvertor::convert((unsigned short)host.sourcePort) + ")");
+    socket_handle result = m_connector.connect( host.address, host.port, m_noDelay, m_sendBufSize, m_rcvBufSize, host.sourceAddress, host.sourcePort );
 
     log->onEvent("Socket created with handle:" + std::to_string(result));
 
@@ -544,56 +540,6 @@ void SSLSocketInitiator::disconnectPendingSSLHandshakesThatTakeTooLong(time_t no
   }
 }
 
-void SSLSocketInitiator::getHost( const SessionID& sessionID, const Dictionary& dictionary,
-                                  std::string& address, short& port,
-                                  std::string& sourceAddress, short& sourcePort)
-{
-  int num = 0;
-  SessionToHostNum::iterator i = m_sessionToHostNum.find( sessionID );
-  if ( i != m_sessionToHostNum.end() ) num = i->second;
-
-  std::stringstream hostStream;
-  hostStream << SOCKET_CONNECT_HOST << num;
-  std::string hostString = hostStream.str();
-
-  std::stringstream portStream;
-  portStream << SOCKET_CONNECT_PORT << num;
-  std::string portString = portStream.str();
-
-  sourcePort = 0;
-  sourceAddress.clear();
-
-  if( dictionary.has(hostString) && dictionary.has(portString) )
-  {
-    address = dictionary.getString( hostString );
-    port = ( short ) dictionary.getInt( portString );
-
-    std::stringstream sourceHostStream;
-    sourceHostStream << SOCKET_CONNECT_SOURCE_HOST << num;
-    hostString = sourceHostStream.str();
-    if( dictionary.has(hostString) )
-      sourceAddress = dictionary.getString( hostString );
-
-    std::stringstream sourcePortStream;
-    sourcePortStream << SOCKET_CONNECT_SOURCE_PORT << num;
-    portString = sourcePortStream.str();
-    if( dictionary.has(portString) )
-      sourcePort = ( short ) dictionary.getInt( portString );
-  }
-  else
-  {
-    num = 0;
-    address = dictionary.getString( SOCKET_CONNECT_HOST );
-    port = ( short ) dictionary.getInt( SOCKET_CONNECT_PORT );
-
-    if( dictionary.has(SOCKET_CONNECT_SOURCE_HOST) )
-      sourceAddress = dictionary.getString( SOCKET_CONNECT_SOURCE_HOST );
-    if( dictionary.has(SOCKET_CONNECT_SOURCE_PORT) )
-      sourcePort = ( short ) dictionary.getInt( SOCKET_CONNECT_SOURCE_PORT );
-  }
-
-  m_sessionToHostNum[ sessionID ] = ++num;
-}
 
 int SSLSocketInitiator::passwordHandleCallback(char *buf, size_t bufsize, int verify)
 {
