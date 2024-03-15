@@ -24,20 +24,35 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
+#include "TestHelper.h"
 #include <MessageStore.h>
+#include "MessageStoreTestCase.h"
 
-namespace FIX
-{
+#include "catch_amalgamated.hpp"
+
+using namespace FIX;
 
 struct memoryStoreFixture
 {
-  memoryStoreFixture()
+  memoryStoreFixture( bool reset )
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-    object = factory.create( UtcTimeStamp::now(), sessionID );
+    try
+    {
+      object = factory.create( UtcTimeStamp::now(), sessionID );
+    }
+    catch( std::exception& e )
+    {
+      std::cerr << e.what() << std::endl;
+      throw;
+    }
+
+    if( reset )
+      object->reset( UtcTimeStamp::now() );
+
+    this->resetAfter = reset;
   }
 
   ~memoryStoreFixture()
@@ -47,6 +62,33 @@ struct memoryStoreFixture
 
   MemoryStoreFactory factory;
   MessageStore* object;
+  bool resetAfter;
 };
 
+struct noResetMemoryStoreFixture : memoryStoreFixture
+{
+  noResetMemoryStoreFixture() : memoryStoreFixture( false ) {}
+};
+
+struct resetMemoryStoreFixture : memoryStoreFixture
+{
+  resetMemoryStoreFixture() : memoryStoreFixture( true ) {}
+};
+
+TEST_CASE_METHOD(resetMemoryStoreFixture, "resetMemoryStoreTests")
+{
+  SECTION("setGet")
+  {
+    CHECK_MESSAGE_STORE_SET_GET;
+  }
+
+  SECTION("setGetWithQuote")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+  }
+
+  SECTION("other")
+  {
+    CHECK_MESSAGE_STORE_OTHER
+  }
 }

@@ -24,48 +24,47 @@
 #include "config.h"
 #endif
 
-#include <UnitTest++.h>
 #include <SessionFactory.h>
 #include <Application.h>
 #include <MessageStore.h>
 
+#include "catch_amalgamated.hpp"
+
 using namespace FIX;
 
-SUITE(SessionFactoryTests)
+TEST_CASE("SessionFactoryTests")
 {
+  SECTION("validConfiguration")
+  {
+    NullApplication application;
+    MemoryStoreFactory messageStoreFactory;
+    SessionFactory object(application, messageStoreFactory, 0);
 
-TEST(validConfiguration)
-{
-  NullApplication application;
-  MemoryStoreFactory messageStoreFactory;
-  SessionFactory object(application, messageStoreFactory, 0);
+    SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(START_TIME, "12:00:00");
+    settings.setString(END_TIME, "12:00:00");
+    settings.setString(HEARTBTINT, "30");
+    object.destroy(object.create(sessionID, settings));
+  }
 
-  SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
-  Dictionary settings;
-  settings.setString(CONNECTION_TYPE, "initiator");
-  settings.setString(USE_DATA_DICTIONARY, "N");
-  settings.setString(START_TIME, "12:00:00");
-  settings.setString(END_TIME, "12:00:00");
-  settings.setString(HEARTBTINT, "30");
-  object.destroy(object.create(sessionID, settings));
-}
+  SECTION("startDayAndEndDayAreDifferent")
+  {
+    NullApplication application;
+    MemoryStoreFactory messageStoreFactory;
+    SessionFactory object(application, messageStoreFactory, 0);
 
-TEST(startDayAndEndDayAreDifferent)
-{
-  NullApplication application;
-  MemoryStoreFactory messageStoreFactory;
-  SessionFactory object(application, messageStoreFactory, 0);
-
-  SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
-  Dictionary settings;
-  settings.setString(CONNECTION_TYPE, "initiator");
-  settings.setString(USE_DATA_DICTIONARY, "N");
-  settings.setString(START_TIME, "12:00:00");
-  settings.setString(END_TIME, "12:00:00");
-  settings.setString(START_DAY, "Sun");
-  settings.setString(END_DAY, "Mon");
-  settings.setString(HEARTBTINT, "30");
-  object.destroy(object.create(sessionID, settings));
-}
-
+    SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(START_TIME, "12:00:00");
+    settings.setString(END_TIME, "12:00:00");
+    settings.setString(START_DAY, "Sun");
+    settings.setString(END_DAY, "Mon");
+    settings.setString(HEARTBTINT, "30");
+    object.destroy(object.create(sessionID, settings));
+  }
 }

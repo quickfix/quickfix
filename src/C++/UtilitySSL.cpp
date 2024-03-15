@@ -1163,23 +1163,23 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   if (server)
   {
-    if (!settings.get().has(SERVER_CERT_FILE))
+    if (!settings.get().has(SERVER_CERTIFICATE_FILE))
     {
-      errStr.assign(SERVER_CERT_FILE);
+      errStr.assign(SERVER_CERTIFICATE_FILE);
       errStr.append(" parameter not found");
       return false;
     }
 
-    cert.assign(settings.get().getString(SERVER_CERT_FILE));
+    cert.assign(settings.get().getString(SERVER_CERTIFICATE_FILE));
 
-    if (settings.get().has(SERVER_CERT_KEY_FILE))
-      key.assign(settings.get().getString(SERVER_CERT_KEY_FILE));
+    if (settings.get().has(SERVER_CERTIFICATE_KEY_FILE))
+      key.assign(settings.get().getString(SERVER_CERTIFICATE_KEY_FILE));
     else
       key.assign(cert);
   }
   else
   {
-    if (!settings.get().has(CLIENT_CERT_FILE))
+    if (!settings.get().has(CLIENT_CERTIFICATE_FILE))
     {
       log->onEvent("No SSL certificate configured for client.");
 
@@ -1199,10 +1199,10 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
       return true;
     }
 
-    cert.assign(settings.get().getString(CLIENT_CERT_FILE));
+    cert.assign(settings.get().getString(CLIENT_CERTIFICATE_FILE));
 
-    if (settings.get().has(CLIENT_CERT_KEY_FILE))
-      key.assign(settings.get().getString(CLIENT_CERT_KEY_FILE));
+    if (settings.get().has(CLIENT_CERTIFICATE_KEY_FILE))
+      key.assign(settings.get().getString(CLIENT_CERTIFICATE_KEY_FILE));
     else
       key.assign(cert);
   }
@@ -1359,12 +1359,12 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   log->onEvent("Loading CA info");
 
   std::string caFile;
-  if (settings.get().has(CERT_AUTH_FILE))
-    caFile.assign(settings.get().getString(CERT_AUTH_FILE));
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_FILE))
+    caFile.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_FILE));
 
   std::string caDir;
-  if (settings.get().has(CERT_AUTH_DIR))
-    caDir.assign(settings.get().getString(CERT_AUTH_DIR));
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_DIRECTORY))
+    caDir.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_DIRECTORY));
 
   if (caFile.empty() && caDir.empty())
     return true;
@@ -1390,8 +1390,8 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   if (server)
   {
-    if (settings.get().has(VERIFY_LEVEL))
-      verifyLevel = (settings.get().getInt(VERIFY_LEVEL));
+    if (settings.get().has(CERTIFICATE_VERIFY_LEVEL))
+      verifyLevel = (settings.get().getInt(CERTIFICATE_VERIFY_LEVEL));
 
     if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET)
     {
@@ -1426,12 +1426,12 @@ X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
   errStr.erase();
 
   std::string crlFile;
-  if (settings.get().has(CRL_FILE))
-    crlFile.assign(settings.get().getString(CRL_FILE));
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_FILE))
+    crlFile.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_FILE));
 
   std::string crlDir;
-  if (settings.get().has(CRL_DIR))
-    crlDir.assign(settings.get().getString(CRL_DIR));
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_DIRECTORY))
+    crlDir.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_DIRECTORY));
 
   if (crlFile.empty() && crlDir.empty())
     return revocationStore;

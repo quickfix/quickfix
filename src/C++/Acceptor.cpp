@@ -254,7 +254,7 @@ void Acceptor::stop( bool force )
     session->logon();
 }
 
-bool Acceptor::isLoggedOn()
+bool Acceptor::isLoggedOn() const
 {
   Sessions sessions = m_sessions;
   for ( Sessions::value_type const& sessionIDWithSession : sessions )

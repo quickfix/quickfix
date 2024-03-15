@@ -39,18 +39,18 @@
                                                             \
   std::vector < std::string > messages;                     \
   object->get( 1, 3, messages );                            \
-  CHECK_EQUAL( 3U, messages.size() );                        \
-  CHECK_EQUAL( logon.toString(), messages[ 0 ] );           \
-  CHECK_EQUAL( heartbeat.toString(), messages[ 1 ] );       \
-  CHECK_EQUAL( newOrderSingle.toString(), messages[ 2 ] );  \
+  CHECK( 3U == messages.size() );                           \
+  CHECK( logon.toString() == messages[ 0 ] );               \
+  CHECK( heartbeat.toString() == messages[ 1 ] );           \
+  CHECK( newOrderSingle.toString() == messages[ 2 ] );      \
                                                             \
   object->get( 4, 6, messages );                            \
-  CHECK_EQUAL( 0U, messages.size() );                        \
+  CHECK( 0U == messages.size() );                           \
                                                             \
   object->get( 2, 6, messages );                            \
-  CHECK_EQUAL( 2U, messages.size() );                        \
-  CHECK_EQUAL( heartbeat.toString(), messages[ 0 ] );       \
-  CHECK_EQUAL( newOrderSingle.toString(), messages[ 1 ] );
+  CHECK( 2U == messages.size() );                           \
+  CHECK( heartbeat.toString() == messages[ 0 ] );           \
+  CHECK( newOrderSingle.toString() == messages[ 1 ] );
 
 #define CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE        \
   FIX42::ExecutionReport singleQuote;                 \
@@ -69,34 +69,34 @@
   escape.setField( Text("\\Some Text\\") );           \
   object->set( 4, escape.toString() );                \
                                                       \
-  std::vector < std::string > messages;               \
+  std::vector<std::string> messages;                  \
   object->get( 1, 4, messages );                      \
-  CHECK_EQUAL( 4U, messages.size() );                  \
-  CHECK_EQUAL( singleQuote.toString(), messages[0] ); \
-  CHECK_EQUAL( doubleQuote.toString(), messages[1] ); \
-  CHECK_EQUAL( bothQuote.toString(), messages[2] );   \
-  CHECK_EQUAL( escape.toString(), messages[3] );
+  CHECK( 4U == messages.size() );                     \
+  CHECK( singleQuote.toString() == messages[0] );     \
+  CHECK( doubleQuote.toString() == messages[1] );     \
+  CHECK( bothQuote.toString() == messages[2] );       \
+  CHECK( escape.toString() == messages[3] );
 
 #define CHECK_MESSAGE_STORE_OTHER                       \
   object->setNextSenderMsgSeqNum( 10 );                 \
-  CHECK_EQUAL( 10, object->getNextSenderMsgSeqNum() );  \
+  CHECK( 10 == object->getNextSenderMsgSeqNum() );      \
   object->setNextTargetMsgSeqNum( 20 );                 \
-  CHECK_EQUAL( 20, object->getNextTargetMsgSeqNum() );  \
+  CHECK( 20 == object->getNextTargetMsgSeqNum() );      \
   object->incrNextSenderMsgSeqNum();                    \
-  CHECK_EQUAL( 11, object->getNextSenderMsgSeqNum() );  \
+  CHECK( 11 == object->getNextSenderMsgSeqNum() );      \
   object->incrNextTargetMsgSeqNum();                    \
-  CHECK_EQUAL( 21, object->getNextTargetMsgSeqNum() );  \
+  CHECK( 21 == object->getNextTargetMsgSeqNum() );      \
                                                         \
   object->setNextSenderMsgSeqNum( 5 );                  \
   object->setNextTargetMsgSeqNum( 6 );
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_RELOAD                      \
-  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() );   \
-  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
+  CHECK( 5 == object->getNextSenderMsgSeqNum() );       \
+  CHECK( 6 == object->getNextTargetMsgSeqNum() );
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_REFRESH                   \
-  object->refresh();                  \
-  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() ); \
-  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
+  object->refresh();                                  \
+  CHECK( 5 == object->getNextSenderMsgSeqNum() );     \
+  CHECK( 6 == object->getNextTargetMsgSeqNum() );

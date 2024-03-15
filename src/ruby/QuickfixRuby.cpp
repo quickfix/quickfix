@@ -2222,137 +2222,138 @@ namespace Swig {
 #define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[39]
 #define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[40]
 #define SWIGTYPE_p_FIX__Initiator swig_types[41]
-#define SWIGTYPE_p_FIX__IntField swig_types[42]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[43]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[44]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[45]
-#define SWIGTYPE_p_FIX__LocalDate swig_types[46]
-#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[47]
-#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[48]
-#define SWIGTYPE_p_FIX__Log swig_types[49]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[50]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[51]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[52]
-#define SWIGTYPE_p_FIX__Message swig_types[53]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[54]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[55]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[56]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[57]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[58]
-#define SWIGTYPE_p_FIX__MySQLConnection swig_types[59]
-#define SWIGTYPE_p_FIX__MySQLLog swig_types[60]
-#define SWIGTYPE_p_FIX__MySQLLogFactory swig_types[61]
-#define SWIGTYPE_p_FIX__MySQLQuery swig_types[62]
-#define SWIGTYPE_p_FIX__MySQLStore swig_types[63]
-#define SWIGTYPE_p_FIX__MySQLStoreFactory swig_types[64]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[65]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[66]
-#define SWIGTYPE_p_FIX__NullLog swig_types[67]
-#define SWIGTYPE_p_FIX__PostgreSQLConnection swig_types[68]
-#define SWIGTYPE_p_FIX__PostgreSQLLog swig_types[69]
-#define SWIGTYPE_p_FIX__PostgreSQLLogFactory swig_types[70]
-#define SWIGTYPE_p_FIX__PostgreSQLQuery swig_types[71]
-#define SWIGTYPE_p_FIX__PostgreSQLStore swig_types[72]
-#define SWIGTYPE_p_FIX__PostgreSQLStoreFactory swig_types[73]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[74]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[75]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[76]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[77]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[78]
-#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[79]
-#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[80]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[81]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[82]
-#define SWIGTYPE_p_FIX__SenderCompID swig_types[83]
-#define SWIGTYPE_p_FIX__Session swig_types[84]
-#define SWIGTYPE_p_FIX__SessionID swig_types[85]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[86]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[87]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[88]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[89]
-#define SWIGTYPE_p_FIX__SocketException swig_types[90]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[91]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[92]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[93]
-#define SWIGTYPE_p_FIX__StringField swig_types[94]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[95]
-#define SWIGTYPE_p_FIX__TYPE__Type swig_types[96]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[97]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[98]
-#define SWIGTYPE_p_FIX__TargetCompID swig_types[99]
-#define SWIGTYPE_p_FIX__Trailer swig_types[100]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[101]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[102]
-#define SWIGTYPE_p_FIX__UtcDate swig_types[103]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[104]
-#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[105]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[106]
-#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[107]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[108]
-#define SWIGTYPE_p_Fields swig_types[109]
-#define SWIGTYPE_p_Group swig_types[110]
-#define SWIGTYPE_p_Groups swig_types[111]
-#define SWIGTYPE_p_IntArray swig_types[112]
-#define SWIGTYPE_p_IntField swig_types[113]
-#define SWIGTYPE_p_Log swig_types[114]
-#define SWIGTYPE_p_LogFactory swig_types[115]
-#define SWIGTYPE_p_MYSQL swig_types[116]
-#define SWIGTYPE_p_MessageStore swig_types[117]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[118]
-#define SWIGTYPE_p_MsgType swig_types[119]
-#define SWIGTYPE_p_Mutex swig_types[120]
-#define SWIGTYPE_p_PGconn swig_types[121]
-#define SWIGTYPE_p_RSA swig_types[122]
-#define SWIGTYPE_p_Responder swig_types[123]
-#define SWIGTYPE_p_SessionID swig_types[124]
-#define SWIGTYPE_p_SessionToPort swig_types[125]
-#define SWIGTYPE_p_StringField swig_types[126]
-#define SWIGTYPE_p_TimeRange swig_types[127]
-#define SWIGTYPE_p_UtcDateField swig_types[128]
-#define SWIGTYPE_p_X509 swig_types[129]
-#define SWIGTYPE_p_allocator_type swig_types[130]
-#define SWIGTYPE_p_bool swig_types[131]
-#define SWIGTYPE_p_char swig_types[132]
-#define SWIGTYPE_p_const_iterator swig_types[133]
-#define SWIGTYPE_p_difference_type swig_types[134]
-#define SWIGTYPE_p_double swig_types[135]
-#define SWIGTYPE_p_g_const_iterator swig_types[136]
-#define SWIGTYPE_p_g_iterator swig_types[137]
-#define SWIGTYPE_p_g_value_type swig_types[138]
-#define SWIGTYPE_p_int swig_types[139]
-#define SWIGTYPE_p_int64_t swig_types[140]
-#define SWIGTYPE_p_iterator swig_types[141]
-#define SWIGTYPE_p_key_type swig_types[142]
-#define SWIGTYPE_p_message_order swig_types[143]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[144]
-#define SWIGTYPE_p_size_type swig_types[145]
-#define SWIGTYPE_p_ssize_t swig_types[146]
-#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[147]
-#define SWIGTYPE_p_std__istream swig_types[148]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[149]
-#define SWIGTYPE_p_std__logic_error swig_types[150]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[151]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[152]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[153]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[154]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[155]
-#define SWIGTYPE_p_std__ostream swig_types[156]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[157]
-#define SWIGTYPE_p_std__string swig_types[158]
-#define SWIGTYPE_p_std__string__size_type swig_types[159]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[160]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[161]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[162]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[163]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[164]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[165]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[166]
-#define SWIGTYPE_p_swig__Iterator swig_types[167]
-#define SWIGTYPE_p_tm swig_types[168]
-#define SWIGTYPE_p_value_type swig_types[169]
-#define SWIGTYPE_p_void swig_types[170]
-static swig_type_info *swig_types[172];
-static swig_module_info swig_module = {swig_types, 171, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__Int64Field swig_types[42]
+#define SWIGTYPE_p_FIX__IntField swig_types[43]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[44]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[45]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[46]
+#define SWIGTYPE_p_FIX__LocalDate swig_types[47]
+#define SWIGTYPE_p_FIX__LocalTimeOnly swig_types[48]
+#define SWIGTYPE_p_FIX__LocalTimeStamp swig_types[49]
+#define SWIGTYPE_p_FIX__Log swig_types[50]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[51]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[52]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[53]
+#define SWIGTYPE_p_FIX__Message swig_types[54]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[55]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[56]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[57]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[58]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[59]
+#define SWIGTYPE_p_FIX__MySQLConnection swig_types[60]
+#define SWIGTYPE_p_FIX__MySQLLog swig_types[61]
+#define SWIGTYPE_p_FIX__MySQLLogFactory swig_types[62]
+#define SWIGTYPE_p_FIX__MySQLQuery swig_types[63]
+#define SWIGTYPE_p_FIX__MySQLStore swig_types[64]
+#define SWIGTYPE_p_FIX__MySQLStoreFactory swig_types[65]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[66]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[67]
+#define SWIGTYPE_p_FIX__NullLog swig_types[68]
+#define SWIGTYPE_p_FIX__PostgreSQLConnection swig_types[69]
+#define SWIGTYPE_p_FIX__PostgreSQLLog swig_types[70]
+#define SWIGTYPE_p_FIX__PostgreSQLLogFactory swig_types[71]
+#define SWIGTYPE_p_FIX__PostgreSQLQuery swig_types[72]
+#define SWIGTYPE_p_FIX__PostgreSQLStore swig_types[73]
+#define SWIGTYPE_p_FIX__PostgreSQLStoreFactory swig_types[74]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[75]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[76]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[77]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[78]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[79]
+#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[80]
+#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[81]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[82]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[83]
+#define SWIGTYPE_p_FIX__SenderCompID swig_types[84]
+#define SWIGTYPE_p_FIX__Session swig_types[85]
+#define SWIGTYPE_p_FIX__SessionID swig_types[86]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[87]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[88]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[89]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[90]
+#define SWIGTYPE_p_FIX__SocketException swig_types[91]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[92]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[93]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[94]
+#define SWIGTYPE_p_FIX__StringField swig_types[95]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[96]
+#define SWIGTYPE_p_FIX__TYPE__Type swig_types[97]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[98]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[99]
+#define SWIGTYPE_p_FIX__TargetCompID swig_types[100]
+#define SWIGTYPE_p_FIX__Trailer swig_types[101]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[102]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[103]
+#define SWIGTYPE_p_FIX__UtcDate swig_types[104]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[105]
+#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[106]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[107]
+#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[108]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[109]
+#define SWIGTYPE_p_Fields swig_types[110]
+#define SWIGTYPE_p_Group swig_types[111]
+#define SWIGTYPE_p_Groups swig_types[112]
+#define SWIGTYPE_p_IntArray swig_types[113]
+#define SWIGTYPE_p_IntField swig_types[114]
+#define SWIGTYPE_p_Log swig_types[115]
+#define SWIGTYPE_p_LogFactory swig_types[116]
+#define SWIGTYPE_p_MYSQL swig_types[117]
+#define SWIGTYPE_p_MessageStore swig_types[118]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[119]
+#define SWIGTYPE_p_MsgType swig_types[120]
+#define SWIGTYPE_p_Mutex swig_types[121]
+#define SWIGTYPE_p_PGconn swig_types[122]
+#define SWIGTYPE_p_RSA swig_types[123]
+#define SWIGTYPE_p_Responder swig_types[124]
+#define SWIGTYPE_p_SessionID swig_types[125]
+#define SWIGTYPE_p_SessionToPort swig_types[126]
+#define SWIGTYPE_p_StringField swig_types[127]
+#define SWIGTYPE_p_TimeRange swig_types[128]
+#define SWIGTYPE_p_UtcDateField swig_types[129]
+#define SWIGTYPE_p_X509 swig_types[130]
+#define SWIGTYPE_p_allocator_type swig_types[131]
+#define SWIGTYPE_p_bool swig_types[132]
+#define SWIGTYPE_p_char swig_types[133]
+#define SWIGTYPE_p_const_iterator swig_types[134]
+#define SWIGTYPE_p_difference_type swig_types[135]
+#define SWIGTYPE_p_double swig_types[136]
+#define SWIGTYPE_p_g_const_iterator swig_types[137]
+#define SWIGTYPE_p_g_iterator swig_types[138]
+#define SWIGTYPE_p_g_value_type swig_types[139]
+#define SWIGTYPE_p_int swig_types[140]
+#define SWIGTYPE_p_int64_t swig_types[141]
+#define SWIGTYPE_p_iterator swig_types[142]
+#define SWIGTYPE_p_key_type swig_types[143]
+#define SWIGTYPE_p_message_order swig_types[144]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[145]
+#define SWIGTYPE_p_size_type swig_types[146]
+#define SWIGTYPE_p_ssize_t swig_types[147]
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[148]
+#define SWIGTYPE_p_std__istream swig_types[149]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[150]
+#define SWIGTYPE_p_std__logic_error swig_types[151]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[152]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[153]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[154]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[155]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[156]
+#define SWIGTYPE_p_std__ostream swig_types[157]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_std__lessT_FIX__SessionID_t_std__allocatorT_FIX__SessionID_t_t swig_types[158]
+#define SWIGTYPE_p_std__string swig_types[159]
+#define SWIGTYPE_p_std__string__size_type swig_types[160]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[161]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[162]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[163]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[164]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[165]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[166]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[167]
+#define SWIGTYPE_p_swig__Iterator swig_types[168]
+#define SWIGTYPE_p_tm swig_types[169]
+#define SWIGTYPE_p_value_type swig_types[170]
+#define SWIGTYPE_p_void swig_types[171]
+static swig_type_info *swig_types[173];
+static swig_module_info swig_module = {swig_types, 172, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5967,7 +5968,7 @@ void SwigDirector_Application::toAdmin(FIX::Message &arg0,FIX::SessionID const &
 }
 
 
-void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
@@ -5991,7 +5992,7 @@ void SwigDirector_Application::toApp(FIX::Message &arg0,FIX::SessionID const &ar
 }
 
 
-void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
@@ -6015,7 +6016,7 @@ void SwigDirector_Application::fromAdmin(FIX::Message const &arg0,FIX::SessionID
 }
 
 
-void SwigDirector_Application::fromApp(FIX::Message const &arg0,FIX::SessionID const &arg1) noexcept {
+void SwigDirector_Application::fromApp(FIX::Message const &arg0,FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
@@ -25841,6 +25842,239 @@ fail:
 SWIGINTERN void
 free_FIX_IntField(void *self) {
     FIX::IntField *arg1 = (FIX::IntField *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassInt64Field;
+
+SWIGINTERN VALUE
+_wrap_new_Int64Field__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int64_t arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::Int64Field";
+  FIX::Int64Field *result = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","Int64Field", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_int64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "int64_t","Int64Field", 2, argv[1] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "int64_t","Int64Field", 2, argv[1]));
+    } else {
+      arg2 = *(reinterpret_cast< int64_t * >(argp2));
+    }
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Int64Field *)new FIX::Int64Field(arg1,arg2);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_Int64Field_allocate(VALUE self)
+#else
+_wrap_Int64Field_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__Int64Field);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_Int64Field__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::Int64Field";
+  FIX::Int64Field *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","Int64Field", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::Int64Field *)new FIX::Int64Field(arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_Int64Field(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[2];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 2) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      return _wrap_new_Int64Field__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_int64_t, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_Int64Field__SWIG_0(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 2, "Int64Field.new", 
+    "    Int64Field.new(int field, int64_t data)\n"
+    "    Int64Field.new(int field)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Int64Field_setValue(int argc, VALUE *argv, VALUE self) {
+  FIX::Int64Field *arg1 = (FIX::Int64Field *) 0 ;
+  int64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Int64Field, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Int64Field *","setValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::Int64Field * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_int64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "int64_t","setValue", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "int64_t","setValue", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< int64_t * >(argp2));
+    }
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setValue(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Int64Field_getValue(int argc, VALUE *argv, VALUE self) {
+  FIX::Int64Field *arg1 = (FIX::Int64Field *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Int64Field, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Int64Field const *","getValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::Int64Field * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = ((FIX::Int64Field const *)arg1)->getValue();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj((new int64_t(result)), SWIGTYPE_p_int64_t, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_Int64Field(void *self) {
+    FIX::Int64Field *arg1 = (FIX::Int64Field *)self;
     delete arg1;
 }
 
@@ -93030,82 +93264,82 @@ _wrap_PERSIST_MESSAGES_get(VALUE self) {
 
 
 SWIGINTERN VALUE
-_wrap_SERVER_CERT_FILE_get(VALUE self) {
+_wrap_SERVER_CERTIFICATE_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::SERVER_CERT_FILE);
+  _val = SWIG_FromCharPtr(FIX::SERVER_CERTIFICATE_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_SERVER_CERT_KEY_FILE_get(VALUE self) {
+_wrap_SERVER_CERTIFICATE_KEY_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::SERVER_CERT_KEY_FILE);
+  _val = SWIG_FromCharPtr(FIX::SERVER_CERTIFICATE_KEY_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CLIENT_CERT_FILE_get(VALUE self) {
+_wrap_CLIENT_CERTIFICATE_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CLIENT_CERT_FILE);
+  _val = SWIG_FromCharPtr(FIX::CLIENT_CERTIFICATE_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CLIENT_CERT_KEY_FILE_get(VALUE self) {
+_wrap_CLIENT_CERTIFICATE_KEY_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CLIENT_CERT_KEY_FILE);
+  _val = SWIG_FromCharPtr(FIX::CLIENT_CERTIFICATE_KEY_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CERT_AUTH_FILE_get(VALUE self) {
+_wrap_CERTIFICATE_AUTHORITIES_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CERT_AUTH_FILE);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_AUTHORITIES_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CERT_AUTH_DIR_get(VALUE self) {
+_wrap_CERTIFICATE_AUTHORITIES_DIRECTORY_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CERT_AUTH_DIR);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_AUTHORITIES_DIRECTORY);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CRL_FILE_get(VALUE self) {
+_wrap_CERTIFICATE_REVOCATION_LIST_FILE_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CRL_FILE);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_REVOCATION_LIST_FILE);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_CRL_DIR_get(VALUE self) {
+_wrap_CERTIFICATE_REVOCATION_LIST_DIRECTORY_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::CRL_DIR);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_REVOCATION_LIST_DIRECTORY);
   return _val;
 }
 
 
 SWIGINTERN VALUE
-_wrap_VERIFY_LEVEL_get(VALUE self) {
+_wrap_CERTIFICATE_VERIFY_LEVEL_get(VALUE self) {
   VALUE _val;
   
-  _val = SWIG_FromCharPtr(FIX::VERIFY_LEVEL);
+  _val = SWIG_FromCharPtr(FIX::CERTIFICATE_VERIFY_LEVEL);
   return _val;
 }
 
@@ -117654,6 +117888,9 @@ static void *_p_FIX__CheckSumFieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPA
 static void *_p_FIX__DoubleFieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::FieldBase *)  ((FIX::DoubleField *) x));
 }
+static void *_p_FIX__Int64FieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::FieldBase *)  ((FIX::Int64Field *) x));
+}
 static void *_p_FIX__IntFieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::FieldBase *)  ((FIX::IntField *) x));
 }
@@ -117897,6 +118134,7 @@ static swig_type_info _swigt__p_FIX__IncorrectDataFormat = {"_p_FIX__IncorrectDa
 static swig_type_info _swigt__p_FIX__IncorrectMessageStructure = {"_p_FIX__IncorrectMessageStructure", "FIX::IncorrectMessageStructure *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__IncorrectTagValue = {"_p_FIX__IncorrectTagValue", "FIX::IncorrectTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Initiator = {"_p_FIX__Initiator", "FIX::Initiator *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__Int64Field = {"_p_FIX__Int64Field", "FIX::Int64Field *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__IntField = {"_p_FIX__IntField", "FIX::LengthField *|FIX::NumInGroupField *|FIX::SeqNumField *|FIX::TagNumField *|FIX::IntField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__InvalidMessage = {"_p_FIX__InvalidMessage", "FIX::InvalidMessage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__InvalidMessageType = {"_p_FIX__InvalidMessageType", "FIX::InvalidMessageType *", 0, 0, (void*)0, 0};
@@ -117995,7 +118233,7 @@ static swig_type_info _swigt__p_g_const_iterator = {"_p_g_const_iterator", "g_co
 static swig_type_info _swigt__p_g_iterator = {"_p_g_iterator", "g_iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_g_value_type = {"_p_g_value_type", "g_value_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "FIX::INT *|FIX::LENGTH *|FIX::NUMINGROUP *|FIX::SEQNUM *|FIX::TAGNUM *|int *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int64_t = {"_p_int64_t", "int64_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int64_t = {"_p_int64_t", "FIX::INT64 *|int64_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_key_type = {"_p_key_type", "key_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_order *", 0, 0, (void*)0, 0};
@@ -118070,6 +118308,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__IncorrectMessageStructure,
   &_swigt__p_FIX__IncorrectTagValue,
   &_swigt__p_FIX__Initiator,
+  &_swigt__p_FIX__Int64Field,
   &_swigt__p_FIX__IntField,
   &_swigt__p_FIX__InvalidMessage,
   &_swigt__p_FIX__InvalidMessageType,
@@ -118228,7 +118467,7 @@ static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend
 static swig_cast_info _swigc__p_FIX__DoubleField[] = {  {&_swigt__p_FIX__DoubleField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DuplicateFieldNumber[] = {  {&_swigt__p_FIX__DuplicateFieldNumber, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Exception[] = {  {&_swigt__p_FIX__Exception, 0, 0, 0},  {&_swigt__p_FIX__ConfigError, _p_FIX__ConfigErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DataDictionaryNotFound, _p_FIX__DataDictionaryNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DoNotSend, _p_FIX__DoNotSendTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DuplicateFieldNumber, _p_FIX__DuplicateFieldNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldConvertError, _p_FIX__FieldConvertErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldNotFound, _p_FIX__FieldNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IOException, _p_FIX__IOExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectDataFormat, _p_FIX__IncorrectDataFormatTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectMessageStructure, _p_FIX__IncorrectMessageStructureTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectTagValue, _p_FIX__IncorrectTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessage, _p_FIX__InvalidMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessageType, _p_FIX__InvalidMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidTagNumber, _p_FIX__InvalidTagNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__MessageParseError, _p_FIX__MessageParseErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__NoTagValue, _p_FIX__NoTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RejectLogon, _p_FIX__RejectLogonTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatedTag, _p_FIX__RepeatedTagTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatingGroupCountMismatch, _p_FIX__RepeatingGroupCountMismatchTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RequiredTagMissing, _p_FIX__RequiredTagMissingTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RuntimeError, _p_FIX__RuntimeErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SessionNotFound, _p_FIX__SessionNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketCloseFailed, _p_FIX__SocketCloseFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketException, _p_FIX__SocketExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketRecvFailed, _p_FIX__SocketRecvFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketSendFailed, _p_FIX__SocketSendFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagNotDefinedForMessage, _p_FIX__TagNotDefinedForMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagOutOfOrder, _p_FIX__TagOutOfOrderTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedMessageType, _p_FIX__UnsupportedMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedVersion, _p_FIX__UnsupportedVersionTo_p_FIX__Exception, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__BeginString, _p_FIX__BeginStringTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SenderCompID, _p_FIX__SenderCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TargetCompID, _p_FIX__TargetCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__BeginString, _p_FIX__BeginStringTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Int64Field, _p_FIX__Int64FieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SenderCompID, _p_FIX__SenderCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TargetCompID, _p_FIX__TargetCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldConvertError[] = {  {&_swigt__p_FIX__FieldConvertError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldMap[] = {  {&_swigt__p_FIX__FieldMap, 0, 0, 0},  {&_swigt__p_FIX__Group, _p_FIX__GroupTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Header, _p_FIX__HeaderTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Message, _p_FIX__MessageTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Trailer, _p_FIX__TrailerTo_p_FIX__FieldMap, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldNotFound[] = {  {&_swigt__p_FIX__FieldNotFound, 0, 0, 0},{0, 0, 0, 0}};
@@ -118243,6 +118482,7 @@ static swig_cast_info _swigc__p_FIX__IncorrectDataFormat[] = {  {&_swigt__p_FIX_
 static swig_cast_info _swigc__p_FIX__IncorrectMessageStructure[] = {  {&_swigt__p_FIX__IncorrectMessageStructure, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IncorrectTagValue[] = {  {&_swigt__p_FIX__IncorrectTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Initiator[] = {  {&_swigt__p_FIX__Initiator, 0, 0, 0},  {&_swigt__p_FIX__SSLSocketInitiator, _p_FIX__SSLSocketInitiatorTo_p_FIX__Initiator, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Initiator, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Int64Field[] = {  {&_swigt__p_FIX__Int64Field, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IntField[] = {  {&_swigt__p_FIX__IntField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidMessage[] = {  {&_swigt__p_FIX__InvalidMessage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidMessageType[] = {  {&_swigt__p_FIX__InvalidMessageType, 0, 0, 0},{0, 0, 0, 0}};
@@ -118416,6 +118656,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__IncorrectMessageStructure,
   _swigc__p_FIX__IncorrectTagValue,
   _swigc__p_FIX__Initiator,
+  _swigc__p_FIX__Int64Field,
   _swigc__p_FIX__IntField,
   _swigc__p_FIX__InvalidMessage,
   _swigc__p_FIX__InvalidMessageType,
@@ -119378,6 +119619,16 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassIntField.mark = 0;
   SwigClassIntField.destroy = (void (*)(void *)) free_FIX_IntField;
   SwigClassIntField.trackObjects = 0;
+  
+  SwigClassInt64Field.klass = rb_define_class_under(mQuickfix, "Int64Field", ((swig_class *) SWIGTYPE_p_FIX__FieldBase->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__Int64Field, (void *) &SwigClassInt64Field);
+  rb_define_alloc_func(SwigClassInt64Field.klass, _wrap_Int64Field_allocate);
+  rb_define_method(SwigClassInt64Field.klass, "initialize", VALUEFUNC(_wrap_new_Int64Field), -1);
+  rb_define_method(SwigClassInt64Field.klass, "setValue", VALUEFUNC(_wrap_Int64Field_setValue), -1);
+  rb_define_method(SwigClassInt64Field.klass, "getValue", VALUEFUNC(_wrap_Int64Field_getValue), -1);
+  SwigClassInt64Field.mark = 0;
+  SwigClassInt64Field.destroy = (void (*)(void *)) free_FIX_Int64Field;
+  SwigClassInt64Field.trackObjects = 0;
   
   SwigClassBoolField.klass = rb_define_class_under(mQuickfix, "BoolField", ((swig_class *) SWIGTYPE_p_FIX__FieldBase->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__BoolField, (void *) &SwigClassBoolField);
@@ -125525,15 +125776,15 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "TIMESTAMP_PRECISION", VALUEFUNC(_wrap_TIMESTAMP_PRECISION_get), 0);
   rb_define_singleton_method(mQuickfix, "HTTP_ACCEPT_PORT", VALUEFUNC(_wrap_HTTP_ACCEPT_PORT_get), 0);
   rb_define_singleton_method(mQuickfix, "PERSIST_MESSAGES", VALUEFUNC(_wrap_PERSIST_MESSAGES_get), 0);
-  rb_define_singleton_method(mQuickfix, "SERVER_CERT_FILE", VALUEFUNC(_wrap_SERVER_CERT_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "SERVER_CERT_KEY_FILE", VALUEFUNC(_wrap_SERVER_CERT_KEY_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CLIENT_CERT_FILE", VALUEFUNC(_wrap_CLIENT_CERT_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CLIENT_CERT_KEY_FILE", VALUEFUNC(_wrap_CLIENT_CERT_KEY_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CERT_AUTH_FILE", VALUEFUNC(_wrap_CERT_AUTH_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CERT_AUTH_DIR", VALUEFUNC(_wrap_CERT_AUTH_DIR_get), 0);
-  rb_define_singleton_method(mQuickfix, "CRL_FILE", VALUEFUNC(_wrap_CRL_FILE_get), 0);
-  rb_define_singleton_method(mQuickfix, "CRL_DIR", VALUEFUNC(_wrap_CRL_DIR_get), 0);
-  rb_define_singleton_method(mQuickfix, "VERIFY_LEVEL", VALUEFUNC(_wrap_VERIFY_LEVEL_get), 0);
+  rb_define_singleton_method(mQuickfix, "SERVER_CERTIFICATE_FILE", VALUEFUNC(_wrap_SERVER_CERTIFICATE_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "SERVER_CERTIFICATE_KEY_FILE", VALUEFUNC(_wrap_SERVER_CERTIFICATE_KEY_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CLIENT_CERTIFICATE_FILE", VALUEFUNC(_wrap_CLIENT_CERTIFICATE_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CLIENT_CERTIFICATE_KEY_FILE", VALUEFUNC(_wrap_CLIENT_CERTIFICATE_KEY_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_AUTHORITIES_FILE", VALUEFUNC(_wrap_CERTIFICATE_AUTHORITIES_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_AUTHORITIES_DIRECTORY", VALUEFUNC(_wrap_CERTIFICATE_AUTHORITIES_DIRECTORY_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_REVOCATION_LIST_FILE", VALUEFUNC(_wrap_CERTIFICATE_REVOCATION_LIST_FILE_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_REVOCATION_LIST_DIRECTORY", VALUEFUNC(_wrap_CERTIFICATE_REVOCATION_LIST_DIRECTORY_get), 0);
+  rb_define_singleton_method(mQuickfix, "CERTIFICATE_VERIFY_LEVEL", VALUEFUNC(_wrap_CERTIFICATE_VERIFY_LEVEL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_PROTOCOL", VALUEFUNC(_wrap_SSL_PROTOCOL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_CIPHER_SUITE", VALUEFUNC(_wrap_SSL_CIPHER_SUITE_get), 0);
   

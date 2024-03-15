@@ -28,8 +28,8 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixF
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixFields.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixFields.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixCommonFields.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixCommonFields.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FixValues.h ${PROJECT_SOURCE_DIR}/include/quickfix/FixValues.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/FlexLexer.h ${PROJECT_SOURCE_DIR}/include/quickfix/FlexLexer.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Group.h ${PROJECT_SOURCE_DIR}/include/quickfix/Group.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HostDetailsProvider.h ${PROJECT_SOURCE_DIR}/include/quickfix/HostDetailsProvider.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HtmlBuilder.h ${PROJECT_SOURCE_DIR}/include/quickfix/HtmlBuilder.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HttpConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/HttpConnection.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/HttpMessage.h ${PROJECT_SOURCE_DIR}/include/quickfix/HttpMessage.h
@@ -110,3 +110,9 @@ COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/src/C++/fixt11 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfix/wx
 COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/src/C++/fixt11 ${PROJECT_SOURCE_DIR}/include/quickfix/wx/
 )
+
+if (EXISTS ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h)
+add_custom_target(QUICKFIX_ALLOCATOR_HEADERS_COPY ALL
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h ${PROJECT_SOURCE_DIR}/include/quickfix/Allocator.h
+)
+endif()

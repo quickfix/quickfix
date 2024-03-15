@@ -22,7 +22,6 @@ Makefile
 *.so.*
 *.dylib
 ChangeLog
-UnitTest++/TestUnitTest++
 aclocal.m4
 config_unix.h
 config.log
@@ -42,7 +41,6 @@ bin/ordermatch
 bin/tradeclient
 examples/executor/C++/executor
 examples/ordermatch/ordermatch
-examples/ordermatch/test/ordermatch_ut
 examples/tradeclient/tradeclient
 include/
 src/at
@@ -72,3 +70,7 @@ CMakeCache.txt
 *.cmake
 .vscode
 .cache
+compile_commands.json
+*.vcxproj
+*.vcxproj.filters
+*.sln

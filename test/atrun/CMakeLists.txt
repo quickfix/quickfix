@@ -1,11 +1,11 @@
 if (WIN32)
 
 add_executable(atrun
- main.cpp Process.cpp ./test/ProcessTestCase.cpp ${PROJECT_SOURCE_DIR}/src/getopt.c)
+ main.cpp Process.cpp ${PROJECT_SOURCE_DIR}/src/getopt.c)
  
-target_include_directories(atrun PRIVATE ${PROJECT_SOURCE_DIR}/UnitTest++/src ${PROJECT_SOURCE_DIR}/src)
+target_include_directories(atrun PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
-target_link_libraries(atrun UnitTest++)
+target_link_libraries(atrun)
 
 set_target_properties(atrun PROPERTIES
                       RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/test/debug/at/
