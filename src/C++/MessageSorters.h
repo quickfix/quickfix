@@ -73,6 +73,10 @@ struct trailer_order
 {
   static bool compare( const int x, const int y )
   {
+    if ( x == FIELD::CheckSum ) return false;
+    else
+      if ( y == FIELD::CheckSum ) return true;
+      
     int orderedX = getOrderedPosition( x );
     int orderedY = getOrderedPosition( y );
 

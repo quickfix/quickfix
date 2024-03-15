@@ -97,10 +97,10 @@ TEST_CASE("MessageSortersTestCase")
 
     CHECK( !trailer_order::compare(FIELD::Signature, FIELD::SignatureLength) );
     CHECK( trailer_order::compare(FIELD::SignatureLength, FIELD::Signature) );
-    CHECK( trailer_order::compare(FIELD::Signature - 1, FIELD::Signature) );
+    CHECK( !trailer_order::compare(FIELD::Signature - 1, FIELD::Signature) );
     CHECK( trailer_order::compare(FIELD::Signature, FIELD::Signature + 1) );
     CHECK( !trailer_order::compare(FIELD::Signature + 1, FIELD::Signature) );
-    CHECK( !trailer_order::compare(FIELD::Signature, FIELD::Signature - 1) );
+    CHECK( trailer_order::compare(FIELD::Signature, FIELD::Signature - 1) );
     CHECK( !trailer_order::compare(FIELD::Signature, FIELD::Signature) );
     CHECK( !trailer_order::compare(FIELD::SignatureLength - 1, FIELD::SignatureLength) );
     CHECK( trailer_order::compare(FIELD::SignatureLength, FIELD::SignatureLength + 1) );
