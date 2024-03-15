@@ -91,7 +91,7 @@ private:
 
   Parser m_parser;
   Queue m_sendQueue;
-  unsigned m_sendLength;
+  ssize_t m_sendLength;
   Sessions m_sessions;
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
