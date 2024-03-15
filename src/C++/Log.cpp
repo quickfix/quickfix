@@ -73,14 +73,7 @@ Mutex ScreenLog::s_mutex;
   }
 }
 
-/**
- * @brief Destroy a Log object.
- *
- * This function destroys a Log object by deleting the dynamically allocated memory.
- *
- * @param pLog A pointer to the Log object to be destroyed.
- * @return None
- */
+
     void ScreenLogFactory::destroy(Log* pLog )
 {
   delete pLog;
