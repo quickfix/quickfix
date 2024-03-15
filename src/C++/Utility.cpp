@@ -93,7 +93,7 @@ char *string_concat(const char *a, ...)
 
   /* Pass one --- find length of required string */
 
-  int len = 0;
+  std::size_t len = 0;
   va_list adummy;
 
   if (a == 0)
