@@ -232,6 +232,8 @@ public:
 
   void setResponder( Responder* pR )
   {
+    if (m_refreshOnLogon)
+      refresh();
     if( !checkSessionTime(m_timestamper()) )
       reset();
     m_pResponder = pR;
