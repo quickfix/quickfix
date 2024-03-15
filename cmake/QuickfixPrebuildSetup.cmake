@@ -109,3 +109,9 @@ COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/src/C++/fixt11 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfix/wx
 COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/src/C++/fixt11 ${PROJECT_SOURCE_DIR}/include/quickfix/wx/
 )
+
+if (EXISTS ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h)
+add_custom_target(QUICKFIX_ALLOCATOR_HEADERS_COPY ALL
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h ${PROJECT_SOURCE_DIR}/include/quickfix/Allocator.h
+)
+endif()
