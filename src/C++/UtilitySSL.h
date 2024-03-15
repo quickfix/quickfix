@@ -136,8 +136,6 @@ namespace FIX
 
 #if defined(_MSC_VER)
 
-#define snprintf _snprintf
-
 static const char *WSAErrString(int code)
 /********************************************************************************
 * Translate WSA error code to message string (abreviated)
@@ -183,6 +181,7 @@ static const char *WSAErrString(int code)
   return "Unknown error code";
 }
 
+#undef  expand
 #define SLASH "\\"
 #define SUFFIX "*"
 

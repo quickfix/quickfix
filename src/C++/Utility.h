@@ -122,11 +122,7 @@ namespace FIX
 {
 #ifdef _MSC_VER
 typedef int socklen_t;
-#ifdef MS_WIN64
-typedef __int64 ssize_t;
-#else
-typedef _W64 int ssize_t;
-#endif
+typedef SSIZE_T ssize_t;
 typedef SOCKET socket_handle;
 #else
 typedef int socket_handle;
