@@ -90,6 +90,73 @@ def start(self):
   thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
 
+%feature("director:except") FIX::Log::clear {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+%feature("director:except") FIX::Log::backup {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+%feature("director:except") FIX::Log::onIncoming {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+%feature("director:except") FIX::Log::onOutgoing {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+%feature("director:except") FIX::Log::onEvent {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+
+%feature("director:except") FIX::LogFactory::create {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+%feature("director:except") FIX::LogFactory::destroy {
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+}
+
+
+
 %feature("director:except") FIX::Application::onCreate {
   if( $error != NULL ) {
     PyObject *ptype, *pvalue, *ptraceback;
@@ -219,6 +286,40 @@ class SocketAcceptor(SocketAcceptorBase):
       SocketAcceptorBase.__init__(self, application, storeFactory, settings)
     else:
       SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class ThreadedSocketInitiator(ThreadedSocketInitiatorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class ThreadedSocketAcceptor(ThreadedSocketAcceptorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 
     self.application = application
     self.storeFactory = storeFactory
