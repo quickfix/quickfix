@@ -39,13 +39,13 @@
 namespace FIX
 {
 DataDictionary::DataDictionary()
-: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+: m_hasVersion( false ), m_suppressAllFieldsChecking( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(false)
 {}
 
 DataDictionary::DataDictionary( std::istream& stream, bool preserveMsgFldsOrder )
 EXCEPT ( ConfigError )
-: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+: m_hasVersion( false ), m_suppressAllFieldsChecking( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder)
 {
   readFromStream( stream );
@@ -53,7 +53,7 @@ EXCEPT ( ConfigError )
 
 DataDictionary::DataDictionary( const std::string& url, bool preserveMsgFldsOrder )
 EXCEPT ( ConfigError )
-: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+: m_hasVersion( false ), m_suppressAllFieldsChecking( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ), m_allowUnknownMessageFields( false ), m_storeMsgFieldsOrder(preserveMsgFldsOrder), m_orderedFieldsArray(0)
 {
   readFromURL( url );
@@ -80,6 +80,7 @@ DataDictionary::~DataDictionary()
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
 {
   m_hasVersion = rhs.m_hasVersion;
+  m_suppressAllFieldsChecking = rhs.m_suppressAllFieldsChecking;
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
   m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
   m_storeMsgFieldsOrder = rhs.m_storeMsgFieldsOrder;
@@ -136,6 +137,10 @@ EXCEPT ( FIX::Exception )
       throw UnsupportedVersion();
     }
   }
+
+  if( (pSessionDD !=0 && pSessionDD->m_suppressAllFieldsChecking) || 
+      (pAppDD != 0 && pAppDD->m_suppressAllFieldsChecking) )
+      return;
 
   int field = 0;
   if( (pSessionDD !=0 && pSessionDD->m_checkFieldsOutOfOrder) || 
