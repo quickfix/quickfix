@@ -186,7 +186,7 @@ TEST_CASE("DataDictionaryTests")
     object.addFieldName( 8, "BeginString" );
 
     std::string name;
-    int field;
+    int field = 0;
     CHECK( object.getFieldName( 1, name ) );
     CHECK( "Account" == name );
     CHECK( object.getFieldTag( name, field ) );
