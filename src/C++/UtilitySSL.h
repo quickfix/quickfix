@@ -225,9 +225,15 @@ int setSocketNonBlocking(socket_handle pSocket);
 #define SSL_PROTOCOL_TLSV1 (1 << 2)
 #define SSL_PROTOCOL_TLSV1_1 (1 << 3)
 #define SSL_PROTOCOL_TLSV1_2 (1 << 4)
-#define SSL_PROTOCOL_ALL                                                       \
-  (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
-   SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
+#if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
+#   define SSL_PROTOCOL_TLSV1_3 (1 << 5)
+#   define SSL_PROTOCOL_ALL                                                        \
+      (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
+       SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2 | SSL_PROTOCOL_TLSV1_3)
+#else
+#   define SSL_PROTOCOL_ALL                                                        \
+      (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
+       SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
 
 typedef enum {
   SSL_CLIENT_VERIFY_NONE = 0,
