@@ -230,6 +230,13 @@ public:
   void setSendNextExpectedMsgSeqNum ( bool value )
     { m_sendNextExpectedMsgSeqNum = value; }
 
+  const std::set<std::string>& getAllowedRemoteAddresses()
+    { return m_allowedRemoteAddresses; }
+  void setAllowedRemoteAddresses ( const std::set<std::string> &value )
+    { m_allowedRemoteAddresses = value; }
+  bool inAllowedRemoteAddresses ( const std::string &value )
+    { return ( m_allowedRemoteAddresses.cend() != m_allowedRemoteAddresses.find( value ) ); }
+
   void setResponder( Responder* pR )
   {
     if (m_refreshOnLogon)
@@ -353,6 +360,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_sendNextExpectedMsgSeqNum;
+  std::set<std::string> m_allowedRemoteAddresses;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;

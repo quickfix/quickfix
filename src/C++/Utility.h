@@ -112,6 +112,7 @@
 
 #include <string>
 #include <cstring>
+#include <set>
 #include <cctype>
 #include <ctime>
 #include <cstdio>
@@ -147,6 +148,7 @@ char* string_concat(const char *a, ...);
 std::string string_toLower(const std::string& value);
 std::string string_toUpper(const std::string& value);
 std::string string_strip(const std::string& value);
+std::set<std::string> string_split(const std::string& value, const char delimiter);
 
 void socket_init();
 void socket_term();
