@@ -188,6 +188,9 @@ const char CERTIFICATE_VERIFY_LEVEL[] = "CertificateVerifyLevel";
 */
 const char SSL_PROTOCOL[] = "SSLProtocol";
 /*
+# DISCLAIMER: This setting only work for TLSv1.2 and below
+# see: https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_cipher_list.html
+#
 # This complex directive uses a colon-separated cipher-spec string consisting
 # of OpenSSL cipher specifications to configure the Cipher Suite the client is
 # permitted to negotiate in the SSL handshake phase. Notice that this directive
@@ -217,6 +220,22 @@ const char SSL_PROTOCOL[] = "SSLProtocol";
 # Example: RC4+RSA:+HIGH:
 */
 const char SSL_CIPHER_SUITE[] = "SSLCipherSuite";
+/*
+# DISCLAIMER: This setting only work for TLSv1.3 and upper
+# see: https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_ciphersuites.html
+#
+# This is a simple colon (":") separated list of TLSv1.3 ciphersuite names in
+# order of preference. Valid TLSv1.3 ciphersuite names are:
+#   TLS_AES_128_GCM_SHA256
+#   TLS_AES_256_GCM_SHA384
+#   TLS_CHACHA20_POLY1305_SHA256
+#   TLS_AES_128_CCM_SHA256
+#   TLS_AES_128_CCM_8_SHA256
+#
+# An empty list is permissible. The default value for the this setting is:
+# "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
+*/
+const char TLS_CIPHER_SUITES[] = "TLSCipherSuites";
 
 
 /// Container for setting dictionaries mapped to sessions.
