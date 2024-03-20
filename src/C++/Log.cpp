@@ -47,7 +47,7 @@ Log* ScreenLogFactory::create( const SessionID& sessionID )
   return new ScreenLog( sessionID, incoming, outgoing, event );
 }
 
-void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event )
+void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const
 {  
   if( m_useSettings )
   {
