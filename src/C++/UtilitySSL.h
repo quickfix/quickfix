@@ -234,6 +234,7 @@ int setSocketNonBlocking(socket_handle pSocket);
 #   define SSL_PROTOCOL_ALL                                                        \
       (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
        SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
+#endif
 
 typedef enum {
   SSL_CLIENT_VERIFY_NONE = 0,
