@@ -230,6 +230,11 @@ public:
   void setSendNextExpectedMsgSeqNum ( bool value )
     { m_sendNextExpectedMsgSeqNum = value; }
 
+  bool getIsNonStopSession() const
+    { return m_isNonStopSession; }
+  void setIsNonStopSession ( bool value )
+    { m_isNonStopSession = value; }
+
   void setResponder( Responder* pR )
   {
     if (m_refreshOnLogon)
@@ -274,6 +279,7 @@ private:
   }
   bool checkSessionTime( const UtcTimeStamp& now )
   {
+    if( getIsNonStopSession() ) return true;
     UtcTimeStamp creationTime = m_state.getCreationTime();
     return m_sessionTime.isInSameRange( now, creationTime );
   }
@@ -353,6 +359,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_sendNextExpectedMsgSeqNum;
+  bool m_isNonStopSession;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;
