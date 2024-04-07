@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=`pwd`
+DIR=$(pwd)
 
 cd ../src/python
 ./test-python3.sh

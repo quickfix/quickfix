@@ -234,6 +234,7 @@ int setSocketNonBlocking(socket_handle pSocket);
 #   define SSL_PROTOCOL_ALL                                                        \
       (SSL_PROTOCOL_SSLV2 | SSL_PROTOCOL_SSLV3 | SSL_PROTOCOL_TLSV1 |              \
        SSL_PROTOCOL_TLSV1_1 | SSL_PROTOCOL_TLSV1_2)
+#endif
 
 typedef enum {
   SSL_CLIENT_VERIFY_NONE = 0,
@@ -276,6 +277,7 @@ X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
 int acceptSSLConnection(socket_handle socket, SSL * ssl, Log * log, int verify);
 }
 
-#endif
 
-#endif
+#endif // HAVE_SSL
+
+#endif // FIX_UTILITY_SSL_H
