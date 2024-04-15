@@ -1415,27 +1415,19 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   }
   SSL_CTX_set_client_CA_list(ctx, caList);
 
-  if (server)
-  {
-    if (settings.get().has(CERTIFICATE_VERIFY_LEVEL))
-      verifyLevel = (settings.get().getInt(CERTIFICATE_VERIFY_LEVEL));
+  if (settings.get().has(CERTIFICATE_VERIFY_LEVEL))
+    verifyLevel = (settings.get().getInt(CERTIFICATE_VERIFY_LEVEL));
 
-    if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET)
-    {
-      /* configure new state */
-      int cVerify = SSL_VERIFY_NONE;
-      if (verifyLevel == SSL_CLIENT_VERIFY_REQUIRE)
-        cVerify |= SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT;
-      else if (verifyLevel == SSL_CLIENT_VERIFY_OPTIONAL)
-        cVerify |= SSL_VERIFY_PEER;
-
-      SSL_CTX_set_verify(ctx, cVerify, callbackVerify);
-    }
-  }
-  else
+  if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET)
   {
-    /* Set the certificate verification callback */
-    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, callbackVerify);
+    /* configure new state */
+    int cVerify = SSL_VERIFY_NONE;
+    if (verifyLevel == SSL_CLIENT_VERIFY_REQUIRE)
+      cVerify |= SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT;
+    else if (verifyLevel == SSL_CLIENT_VERIFY_OPTIONAL)
+      cVerify |= SSL_VERIFY_PEER;
+
+    SSL_CTX_set_verify(ctx, cVerify, callbackVerify);
   }
 
   return true;
