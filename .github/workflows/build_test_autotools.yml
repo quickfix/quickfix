@@ -16,6 +16,11 @@ jobs:
                 - runner: macos-latest
                   compiler-settings: CXX=g++ CC=gcc
       steps:
+      - name: Install dependencies
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.10' 
+            
       - name: Checkout
         uses: actions/checkout@v2
 
