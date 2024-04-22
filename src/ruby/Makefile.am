@@ -9,14 +9,12 @@ all-local:
 	mkdir -p $(local_ruby_lib)
 	bash ./make_ruby.sh "$(CXX)" "$(CXXFLAGS)" "$(LIBS)"
 	ln -sf $(local_ruby_src)/quickfix* $(local_ruby_lib)
-	unlink spec
 	ln -sf $(top_builddir)/spec spec
 
 clean-local:
 	$(MAKE) -f Makefile.ruby clean
 	rm -f Makefile.ruby
 	rm -f quickfix.bundle
-	rm -f spec
 	rm -rf $(local_ruby_lib)
 
 install-exec-local:
