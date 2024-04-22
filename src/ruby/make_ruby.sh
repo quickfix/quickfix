@@ -2,19 +2,29 @@ export CXX=$1
 export CXXFLAGS=$2
 export LIBS=$3
 
-echo $1
-echo $2
-echo $3
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-rm -rf ../temp
-mkdir ../temp
-cp *.cpp ../temp
-cp *.h ../temp
-cp extconf.rb ../temp
-pushd ../temp
+TEMP=`mktemp -d "${TMPDIR:-/tmp}/zombie.XXXXXXXXX"`
+
+if [[ ! "$TEMP" || ! -d "$TEMP" ]]; then
+  echo "Could not create temp dir"
+  exit 1
+fi
+
+function cleanup {
+  rm -rf "$TEMP"
+  echo "Deleted temp working directory $TEMP"
+}
+
+trap cleanup EXIT
+
+cp *.cpp $TEMP
+cp *.h $TEMP
+cp extconf.rb $TEMP
+pushd $TEMP
 ruby extconf.rb
 popd
-cp ../temp/Makefile Makefile.ruby
-rm -rf ../temp
+cp $TEMP/Makefile Makefile.ruby
+rm -rf $TEMP
 
 make -f Makefile.ruby
