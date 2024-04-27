@@ -1101,7 +1101,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
     Session sessionObject = Session( [this](){ return now; }, *this, factory, sessionIDCustom, providerCustom,
         sessionTimeCustom, 1, &fileLogFactory);
 
-    Log* log = object->getLog();
+    Log* log = sessionObject.getLog();
     CHECK(log != nullptr);
   }
 
