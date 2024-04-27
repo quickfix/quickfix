@@ -1491,14 +1491,14 @@ Session* Session::lookupSession( const SessionID& sessionID )
   if ( find != s_sessions.end() )
     return find->second;
   else
-    return 0;
+    return nullptr;
 }
 
 Session* Session::lookupSession( const std::string& string, bool reverse )
 {
   Message message;
   if ( !message.setStringHeader( string ) )
-    return 0;
+    return nullptr;
 
   try
   {
@@ -1516,7 +1516,7 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
     return lookupSession( SessionID( beginString, senderCompID,
                           targetCompID ) );
   }
-  catch ( FieldNotFound& ) { return 0; }
+  catch ( FieldNotFound& ) { return nullptr; }
 }
 
 bool Session::isSessionRegistered( const SessionID& sessionID )
@@ -1529,8 +1529,8 @@ Session* Session::registerSession( const SessionID& sessionID )
 {
   Locker locker( s_mutex );
   Session* pSession = lookupSession( sessionID );
-  if ( pSession == 0 ) return 0;
-  if ( isSessionRegistered( sessionID ) ) return 0;
+  if ( pSession == nullptr ) return nullptr;
+  if ( isSessionRegistered( sessionID ) ) return nullptr;
   s_registered[ sessionID ] = pSession;
   return pSession;
 }
