@@ -24,9 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install autoconf and automake for macOS
+      - name: Install autotools for macOS
         if: matrix.runner == 'macos-latest'
-        run: brew install autoconf automake
+        run: brew install autoconf automake libtool
 
       - name: Bootstrap
         shell: bash
