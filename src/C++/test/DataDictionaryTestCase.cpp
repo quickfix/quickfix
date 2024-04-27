@@ -161,7 +161,7 @@ TEST_CASE("DataDictionaryTests")
     object.addGroup( "A", 200, 201, group2 );
     object.addGroup( "A", 300, 301, group3 );
 
-    int delim;
+    int delim = 0;
     const DataDictionary* pDD = 0;
 
     CHECK( object.getGroup( "A", 100, delim, pDD ) );
@@ -846,7 +846,7 @@ TEST_CASE("DataDictionaryTests")
 
     DataDictionary copy = object;
     TYPE::Type type;
-    int delim;
+    int delim = 0;
 
     CHECK( BeginString_FIX40 == object.getVersion() );
     CHECK( copy.isMsgType( MsgType_NewOrderSingle ) );
