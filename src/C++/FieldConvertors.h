@@ -257,7 +257,7 @@ struct IntTConvertor
     
     PRAGMA_PUSH( 4146 );
     if( isNegative )
-      x = -static_cast<T>(x);
+      x = -x;
     PRAGMA_POP;
 
     result = x;
