@@ -14,7 +14,7 @@ jobs:
                 - runner: ubuntu-latest
                   compiler-settings: CXX=clang++ CC=clang
                 - runner: macos-latest
-                  compiler-settings: CXX=g++ CC=gcc CPPFLAGS=-I//opt/homebrew/Cellar/openssl@3/3.3.0/include LDFLAGS=-L/opt/homebrew/Cellar/openssl@3/3.3.0/lib
+                  compiler-settings: CXX=g++ CC=gcc CPPFLAGS=-I/opt/homebrew/Cellar/openssl@3/3.3.0/include LDFLAGS=-L/opt/homebrew/Cellar/openssl@3/3.3.0/lib
       steps:
       - name: Install dependencies
         uses: actions/setup-python@v5
