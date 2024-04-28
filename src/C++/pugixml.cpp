@@ -6840,7 +6840,7 @@ PUGI__NS_BEGIN
 	PUGI__FN void convert_number_to_mantissa_exponent(double value, char* buffer, size_t buffer_size, char** out_mantissa, int* out_exponent)
 	{
 		// get a scientific notation value with IEEE DBL_DIG decimals
-		snprintf(buffer, sizeof(buffer), "%.*e", DBL_DIG, value);
+		snprintf(buffer, buffer_size, "%.*e", DBL_DIG, value);
 		assert(strlen(buffer) < buffer_size);
 		(void)!buffer_size;
 
