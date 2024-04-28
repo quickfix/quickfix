@@ -14,7 +14,7 @@ jobs:
                 - runner: ubuntu-latest
                   compiler-settings: CXX=clang++ CC=clang
                 - runner: macos-latest
-                  compiler-settings: CXX=g++ CC=gcc CPPFLAGS=-I/opt/homebrew/Cellar/openssl@3/3.3.0/include LDFLAGS=-L/opt/homebrew/Cellar/openssl@3/3.3.0/lib
+                  compiler-settings: CXX=g++ CC=gcc
       steps:
       - name: Install dependencies
         uses: actions/setup-python@v5
@@ -43,7 +43,7 @@ jobs:
 
       - name: Configure
         shell: bash
-        run: ./configure --with-python3 --with-ruby --with-openssl
+        run: CPPFLAGS=-I/opt/homebrew/opt/openssl/include LDFLAGS=-L/opt/homebrew/opt/openssl/lib ./configure --with-python3 --with-ruby --with-openssl
         if: ${{ success() && matrix.compiler-settings == '' }}
 
       - name: Make
