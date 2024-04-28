@@ -1159,9 +1159,9 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
     }
   }
 
-  if (settings.get().has(TLSCipherSuites))
+  if (settings.get().has(TLS_CIPHER_SUITES))
   {
-    std::string strCipherSuites = settings.get().getString(TLSCipherSuites);
+    std::string strCipherSuites = settings.get().getString(TLS_CIPHER_SUITES);
 
 #if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
     if (!strCipherSuites.empty() &&
