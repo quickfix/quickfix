@@ -24,9 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install autotools for macOS
+      - name: Install dependencies for macOS
         if: matrix.runner == 'macos-latest'
         run: brew install autoconf automake libtool openssl
+
+      - name: Link dependencies for macOS
+        if: matrix.runner == 'macos-latest'
+        run: brew link autoconf automake libtool openssl
 
       - name: Bootstrap
         shell: bash
