@@ -26,7 +26,7 @@ jobs:
 
       - name: Install autotools for macOS
         if: matrix.runner == 'macos-latest'
-        run: brew install autoconf automake libtool
+        run: brew install autoconf automake libtool openssl
 
       - name: Bootstrap
         shell: bash
@@ -39,7 +39,7 @@ jobs:
 
       - name: Configure
         shell: bash
-        run: ./configure --with-python3 --with-ruby
+        run: ./configure --with-python3 --with-ruby --with-openssl
         if: ${{ success() && matrix.compiler-settings == '' }}
 
       - name: Make
