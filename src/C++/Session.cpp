@@ -240,7 +240,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
     else if( nextExpectedMsgSeqNum.getValue() > getExpectedSenderNum() )
     {
       std::stringstream stream;
-      stream << "NextExpectedMsgSeqNum too low, expecting " << getExpectedSenderNum()
+      stream << "NextExpectedMsgSeqNum too high, expecting " << getExpectedSenderNum()
              << " but received " << nextExpectedMsgSeqNum;
       m_state.onEvent( stream.str() );
       generateLogout( stream.str() );
