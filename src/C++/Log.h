@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include <map>
+#include <utility>
 #include <vector>
 
 namespace FIX
@@ -44,7 +45,7 @@ class Log;
 class LogFactory
 {
 public:
-  virtual ~LogFactory() {}
+  virtual ~LogFactory() = default;
   virtual Log* create() = 0;
   virtual Log* create( const SessionID& ) = 0;
   virtual void destroy( Log* ) = 0;
@@ -58,21 +59,55 @@ public:
 class ScreenLogFactory : public LogFactory
 {
 public:
-  ScreenLogFactory( const SessionSettings& settings )
-: m_useSettings( true ), m_settings( settings ) {};
+  explicit ScreenLogFactory( SessionSettings  settings )
+: m_useSettings( true ), m_settings(std::move( settings )) {};
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
 : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_useSettings( false ) {}
 
-  Log* create();
-  Log* create( const SessionID& );
-  void destroy( Log* log );
+  /**
+  * \brief Create a new instance of the ScreenLog class.
+  *
+  * This function initializes the incoming, outgoing, and event variables based on the
+  * settings provided. It then creates a new instance of the ScreenLog class with the
+  * initialized variables and returns a pointer to it.
+  *
+  * \return A pointer to the created ScreenLog object.
+  */
+  Log* create() override ;
+   /**
+  * Creates a `Log` object for the given session ID.
+  * @param sessionID The session ID.
+  * @return A pointer to the created `Log` object.
+  */
+  Log* create( const SessionID& ) override;
+  /**
+  * @brief Destroy a Log object.
+  *
+  * This function destroys a Log object by deleting the dynamically allocated memory.
+  *
+  * @param pLog A pointer to the Log object to be destroyed.
+  * @return None
+  */
+  void destroy( Log* log ) override;
 
 private:
-  void init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event );
+ /**
+ * @brief Initializes the screen logging settings.
+ *
+ * This function initializes the screen logging settings based on the provided dictionary.
+ * If m_useSettings is true, the settings from the dictionary are used to set the values of the incoming, outgoing, and event parameters.
+ * If m_useSettings is false, the values of incoming, outgoing, and event are set to the values of m_incoming, m_outgoing, and m_event respectively.
+ *
+ * @param settings The dictionary containing the screen logging settings.
+ * @param incoming A boolean reference to store the value of whether to show incoming log events.
+ * @param outgoing A boolean reference to store the value of whether to show outgoing log events.
+ * @param event A boolean reference to store the value of whether to show event log events.
+ */
+  void init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event ) const;
 
-  bool m_incoming;
-  bool m_outgoing;
-  bool m_event;
+  bool m_incoming{};
+  bool m_outgoing{};
+  bool m_event{};
   bool m_useSettings;
   SessionSettings m_settings;
 };
@@ -83,7 +118,7 @@ private:
 class Log
 {
 public:
-  virtual ~Log() {}
+  virtual ~Log() = default;
 
   virtual void clear() = 0;
   virtual void backup() = 0;
@@ -102,11 +137,11 @@ public:
 class NullLog : public Log
 {
 public:
-  void clear() {}
-  void backup() {}
-  void onIncoming( const std::string& ) {}
-  void onOutgoing( const std::string& ) {}
-  void onEvent( const std::string& ) {}
+  void clear() override {}
+  void backup() override {}
+  void onIncoming( const std::string& ) override {}
+  void onOutgoing( const std::string& ) override {}
+  void onEvent( const std::string& ) override {}
 };
 
 /**
@@ -126,10 +161,18 @@ public:
 : m_prefix( sessionID.toString() ),
   m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 
-  void clear() {}
-  void backup() {}
+  void clear() override {}
+  void backup() override {}
 
-  void onIncoming( const std::string& value )
+    /**
+     * @brief Handles incoming messages.
+     *
+     * This function is called when an incoming message is received.
+     * It locks a mutex, retrieves the current timestamp, and prints the incoming message to the standard output.
+     *
+     * @param[in] value The incoming message.
+     */
+    void onIncoming(const std::string& value ) override
   {
     if ( !m_incoming ) return ;
     Locker l( s_mutex );
@@ -140,7 +183,18 @@ public:
               << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
-  void onOutgoing( const std::string& value )
+    /**
+     * @brief Handles outgoing messages.
+     *
+     * This function is called when an outgoing message is sent. It prints the outgoing message to the standard output.
+     * The method first checks if outgoing logging is enabled. If not, it returns without performing any action.
+     * It locks a mutex to ensure thread safety, retrieves the current timestamp, and prints the outgoing message to the standard output.
+     *
+     * @param[in] value The outgoing message.
+     *
+     * @return void
+     */
+    void onOutgoing(const std::string& value ) override
   {
     if ( !m_outgoing ) return ;
     Locker l( s_mutex );
@@ -151,7 +205,18 @@ public:
               << "  (" << replaceSOHWithPipe(value) << ")" << std::endl;
   }
 
-  void onEvent( const std::string& value )
+    /**
+     * Handles an event by printing the event details to the standard output.
+     *
+     * This function first checks if the m_event flag is set to true. If not,
+     * it returns without performing any action.
+     * It then locks a mutex to ensure thread safety, retrieves the current timestamp,
+     * and prints the event details to the standard output.
+     *
+     * @param[in] value The event details.
+     * @return void
+     */
+    void onEvent(const std::string& value ) override
   {
     if ( !m_event ) return ;
     Locker l( s_mutex );
@@ -163,7 +228,13 @@ public:
   }
 
 private:
-  std::string replaceSOHWithPipe( std::string value )
+    /**
+     * Replaces all occurrences of Start Of Header (SOH) character ('\001') in a given string with a pipe ('|') character.
+     *
+     * @param value The input string.
+     * @return The modified string with SOH replaced by pipe character.
+     */
+    static std::string replaceSOHWithPipe(std::string value )
   {
     std::replace( value.begin(), value.end(), '\001', '|');
     return value;
