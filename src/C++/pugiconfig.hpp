@@ -1,8 +1,8 @@
 /**
- * pugixml parser - version 1.4
+ * pugixml parser - version 1.14
  * --------------------------------------------------------
- * Copyright (C) 2006-2014, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
- * Report bugs and download new versions at http://pugixml.org/
+ * Copyright (C) 2006-2024, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
+ * Report bugs and download new versions at https://pugixml.org/
  *
  * This library is distributed under the MIT License. See notice at the end
  * of this file.
@@ -16,6 +16,9 @@
 
 // Uncomment this to enable wchar_t mode
 // #define PUGIXML_WCHAR_MODE
+
+// Uncomment this to enable compact mode
+// #define PUGIXML_COMPACT
 
 // Uncomment this to disable XPath
 // #define PUGIXML_NO_XPATH
@@ -37,9 +40,11 @@
 // #define PUGIXML_MEMORY_OUTPUT_STACK 10240
 // #define PUGIXML_MEMORY_XPATH_PAGE_SIZE 4096
 
+// Tune this constant to adjust max nesting for XPath queries
+// #define PUGIXML_XPATH_DEPTH_LIMIT 1024
+
 // Uncomment this to switch to header-only version
 // #define PUGIXML_HEADER_ONLY
-// #include "pugixml.cpp"
 
 // Uncomment this to enable long long support
 // #define PUGIXML_HAS_LONG_LONG
@@ -47,7 +52,7 @@
 #endif
 
 /**
- * Copyright (c) 2006-2014 Arseny Kapoulkine
+ * Copyright (c) 2006-2024 Arseny Kapoulkine
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -60,7 +65,7 @@
  *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
