@@ -64,11 +64,11 @@ SocketConnection::~SocketConnection()
     Session::unregisterSession( m_pSession->getSessionID() );
 }
 
-bool SocketConnection::send( const std::string& msg )
+bool SocketConnection::send( const std::string& message )
 {
   Locker l( m_mutex );
 
-  m_sendQueue.push_back( msg );
+  m_sendQueue.push_back( message );
   processQueue();
   signal();
   return true;
@@ -130,9 +130,9 @@ bool SocketConnection::read( SocketConnector& s )
   return true;
 }
 
-bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
+bool SocketConnection::read( SocketAcceptor& acceptor, SocketServer& server )
 {
-  std::string msg;
+  std::string message;
   try
   {
     if ( !m_pSession )
@@ -145,7 +145,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       struct pollfd pfd = { m_socket, POLLIN | POLLPRI, 0 };
 #endif
 
-      while( !readMessage( msg ) )
+      while( !readMessage( message ) )
       {
 #if _MSC_VER
         int result = select( 0, &readset, 0, 0, &timeout );
@@ -160,23 +160,23 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
           return false;
       }
 
-      m_pSession = Session::lookupSession( msg, true );
+      m_pSession = Session::lookupSession( message, true );
       if( !isValidSession() )
       {
         m_pSession = 0;
-        if( a.getLog() )
+        if( acceptor.getLog() )
         {
-          a.getLog()->onEvent( "Session not found for incoming message: " + msg );
-          a.getLog()->onIncoming( msg );
+          acceptor.getLog()->onEvent( "Session not found for incoming message: " + message );
+          acceptor.getLog()->onIncoming( message );
         }
       }
       if( m_pSession )
-        m_pSession = a.getSession( msg, *this );
+        m_pSession = acceptor.getSession( message, *this );
       if( m_pSession )
-        m_pSession->next( msg, UtcTimeStamp::now() );
+        m_pSession->next( message, UtcTimeStamp::now() );
       if( !m_pSession )
       {
-        s.getMonitor().drop( m_socket );
+        server.getMonitor().drop( m_socket );
         return false;
       }
 
@@ -186,7 +186,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
     else
     {
       readFromSocket();
-      readMessages( s.getMonitor() );
+      readMessages( server.getMonitor() );
       return true;
     }
   }
@@ -194,11 +194,11 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   {
     if( m_pSession )
       m_pSession->getLog()->onEvent( e.what() );
-    s.getMonitor().drop( m_socket );
+    server.getMonitor().drop( m_socket );
   }
   catch ( InvalidMessage& )
   {
-    s.getMonitor().drop( m_socket );
+    server.getMonitor().drop( m_socket );
   }
   return false;
 }
@@ -231,21 +231,21 @@ bool SocketConnection::readMessage( std::string& msg )
   return true;
 }
 
-void SocketConnection::readMessages( SocketMonitor& s )
+void SocketConnection::readMessages( SocketMonitor& socketMonitor )
 {
   if( !m_pSession ) return;
 
-  std::string msg;
-  while( readMessage( msg ) )
+  std::string message;
+  while( readMessage( message ) )
   {
     try
     {
-      m_pSession->next( msg, UtcTimeStamp::now() );
+      m_pSession->next( message, UtcTimeStamp::now() );
     }
     catch ( InvalidMessage& )
     {
       if( !m_pSession->isLoggedOn() )
-        s.drop( m_socket );
+        socketMonitor.drop( m_socket );
     }
   }
 }
