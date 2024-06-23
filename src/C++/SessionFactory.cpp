@@ -79,6 +79,10 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if( settings.has(USE_LOCAL_TIME) )
     useLocalTime = settings.getBool( USE_LOCAL_TIME );
 
+  bool isNonStopSession = false;
+  if( settings.has(NON_STOP_SESSION) )
+    isNonStopSession = settings.getBool( NON_STOP_SESSION );
+
   int startDay = -1;
   int endDay = -1;
   try
@@ -89,8 +93,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
   catch( ConfigError & ) {}
   catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
-  UtcTimeOnly startTime;
-  UtcTimeOnly endTime;
+  UtcTimeOnly startTime = UtcTimeOnly(0, 0, 0);
+  UtcTimeOnly endTime = UtcTimeOnly(0, 0, 0);
   try
   {
     startTime = UtcTimeOnlyConvertor::convert
@@ -98,6 +102,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     endTime = UtcTimeOnlyConvertor::convert
               ( settings.getString( END_TIME ) );
   }
+  catch( ConfigError & e ) { if( !isNonStopSession ) throw e; }
   catch ( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
   TimeRange utcSessionTime
@@ -112,6 +117,11 @@ Session* SessionFactory::create( const SessionID& sessionID,
     throw ConfigError( "StartDay used without EndDay" );
   if( endDay >= 0 && startDay < 0 )
     throw ConfigError( "EndDay used without StartDay" );
+
+  if( isNonStopSession && (startDay >= 0 || endDay >= 0 || startTime != UtcTimeOnly(0, 0, 0) || endTime != UtcTimeOnly(0, 0, 0)) )
+  {
+    throw ConfigError( "NonStopSession used with StartTime/EndTime/StartDay/EndDay" );
+  }
 
   HeartBtInt heartBtInt( 0 );
   if ( connectionType == "initiator" )
@@ -200,6 +210,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setValidateLengthAndChecksum( settings.getBool( VALIDATE_LENGTH_AND_CHECKSUM ) );
   if ( settings.has( SEND_NEXT_EXPECTED_MSG_SEQ_NUM ) )
     pSession->setSendNextExpectedMsgSeqNum( settings.getBool( SEND_NEXT_EXPECTED_MSG_SEQ_NUM ) );
+  if ( isNonStopSession )
+    pSession->setIsNonStopSession( isNonStopSession );
 
   return pSession.release();
 }
