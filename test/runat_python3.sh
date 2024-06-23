@@ -1,6 +1,9 @@
 #!/bin/sh
 
-export PYTHONPATH=../lib/python
+export LD_LIBRARY_PATH=../src/C++/.libs
+export DYLD_LIBRARY_PATH=../src/C++/.libs
+export PYTHONPATH=../lib/python3
+export QUICKFIX_PATH=../
 
 DIR=`pwd`
 PORT=$1

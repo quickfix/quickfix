@@ -2290,111 +2290,115 @@ namespace Swig {
 #define SWIGTYPE_p_FIX__NoTagValue swig_types[66]
 #define SWIGTYPE_p_FIX__NullApplication swig_types[67]
 #define SWIGTYPE_p_FIX__NullLog swig_types[68]
-#define SWIGTYPE_p_FIX__PostgreSQLConnection swig_types[69]
-#define SWIGTYPE_p_FIX__PostgreSQLLog swig_types[70]
-#define SWIGTYPE_p_FIX__PostgreSQLLogFactory swig_types[71]
-#define SWIGTYPE_p_FIX__PostgreSQLQuery swig_types[72]
-#define SWIGTYPE_p_FIX__PostgreSQLStore swig_types[73]
-#define SWIGTYPE_p_FIX__PostgreSQLStoreFactory swig_types[74]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[75]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[76]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[77]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[78]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[79]
-#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[80]
-#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[81]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[82]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[83]
-#define SWIGTYPE_p_FIX__SenderCompID swig_types[84]
-#define SWIGTYPE_p_FIX__Session swig_types[85]
-#define SWIGTYPE_p_FIX__SessionID swig_types[86]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[87]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[88]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[89]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[90]
-#define SWIGTYPE_p_FIX__SocketException swig_types[91]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[92]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[93]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[94]
-#define SWIGTYPE_p_FIX__StringField swig_types[95]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[96]
-#define SWIGTYPE_p_FIX__TYPE__Type swig_types[97]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[98]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[99]
-#define SWIGTYPE_p_FIX__TargetCompID swig_types[100]
-#define SWIGTYPE_p_FIX__Trailer swig_types[101]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[102]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[103]
-#define SWIGTYPE_p_FIX__UtcDate swig_types[104]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[105]
-#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[106]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[107]
-#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[108]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[109]
-#define SWIGTYPE_p_Fields swig_types[110]
-#define SWIGTYPE_p_Group swig_types[111]
-#define SWIGTYPE_p_Groups swig_types[112]
-#define SWIGTYPE_p_IntArray swig_types[113]
-#define SWIGTYPE_p_IntField swig_types[114]
-#define SWIGTYPE_p_Log swig_types[115]
-#define SWIGTYPE_p_LogFactory swig_types[116]
-#define SWIGTYPE_p_MYSQL swig_types[117]
-#define SWIGTYPE_p_MessageStore swig_types[118]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[119]
-#define SWIGTYPE_p_MsgType swig_types[120]
-#define SWIGTYPE_p_Mutex swig_types[121]
-#define SWIGTYPE_p_PGconn swig_types[122]
-#define SWIGTYPE_p_RSA swig_types[123]
-#define SWIGTYPE_p_Responder swig_types[124]
-#define SWIGTYPE_p_SessionID swig_types[125]
-#define SWIGTYPE_p_SessionToPort swig_types[126]
-#define SWIGTYPE_p_StringField swig_types[127]
-#define SWIGTYPE_p_TimeRange swig_types[128]
-#define SWIGTYPE_p_UtcDateField swig_types[129]
-#define SWIGTYPE_p_X509 swig_types[130]
-#define SWIGTYPE_p_allocator_type swig_types[131]
-#define SWIGTYPE_p_bool swig_types[132]
-#define SWIGTYPE_p_char swig_types[133]
-#define SWIGTYPE_p_const_iterator swig_types[134]
-#define SWIGTYPE_p_difference_type swig_types[135]
-#define SWIGTYPE_p_double swig_types[136]
-#define SWIGTYPE_p_g_const_iterator swig_types[137]
-#define SWIGTYPE_p_g_iterator swig_types[138]
-#define SWIGTYPE_p_g_value_type swig_types[139]
-#define SWIGTYPE_p_int swig_types[140]
-#define SWIGTYPE_p_int64_t swig_types[141]
-#define SWIGTYPE_p_iterator swig_types[142]
-#define SWIGTYPE_p_key_type swig_types[143]
-#define SWIGTYPE_p_message_order swig_types[144]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[145]
-#define SWIGTYPE_p_size_type swig_types[146]
-#define SWIGTYPE_p_ssize_t swig_types[147]
-#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[148]
-#define SWIGTYPE_p_std__istream swig_types[149]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[150]
-#define SWIGTYPE_p_std__logic_error swig_types[151]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[152]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[153]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[154]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[155]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[156]
-#define SWIGTYPE_p_std__ostream swig_types[157]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_t swig_types[158]
-#define SWIGTYPE_p_std__string swig_types[159]
-#define SWIGTYPE_p_std__string__size_type swig_types[160]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[161]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[162]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[163]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[164]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[165]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[166]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[167]
-#define SWIGTYPE_p_swig__Iterator swig_types[168]
-#define SWIGTYPE_p_tm swig_types[169]
-#define SWIGTYPE_p_value_type swig_types[170]
-#define SWIGTYPE_p_void swig_types[171]
-static swig_type_info *swig_types[173];
-static swig_module_info swig_module = {swig_types, 172, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__NullStore swig_types[69]
+#define SWIGTYPE_p_FIX__NullStoreFactory swig_types[70]
+#define SWIGTYPE_p_FIX__PostgreSQLConnection swig_types[71]
+#define SWIGTYPE_p_FIX__PostgreSQLLog swig_types[72]
+#define SWIGTYPE_p_FIX__PostgreSQLLogFactory swig_types[73]
+#define SWIGTYPE_p_FIX__PostgreSQLQuery swig_types[74]
+#define SWIGTYPE_p_FIX__PostgreSQLStore swig_types[75]
+#define SWIGTYPE_p_FIX__PostgreSQLStoreFactory swig_types[76]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[77]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[78]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[79]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[80]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[81]
+#define SWIGTYPE_p_FIX__SSLSocketAcceptor swig_types[82]
+#define SWIGTYPE_p_FIX__SSLSocketInitiator swig_types[83]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[84]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[85]
+#define SWIGTYPE_p_FIX__SenderCompID swig_types[86]
+#define SWIGTYPE_p_FIX__Session swig_types[87]
+#define SWIGTYPE_p_FIX__SessionID swig_types[88]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[89]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[90]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[91]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[92]
+#define SWIGTYPE_p_FIX__SocketException swig_types[93]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[94]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[95]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[96]
+#define SWIGTYPE_p_FIX__StringField swig_types[97]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[98]
+#define SWIGTYPE_p_FIX__TYPE__Type swig_types[99]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[100]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[101]
+#define SWIGTYPE_p_FIX__TargetCompID swig_types[102]
+#define SWIGTYPE_p_FIX__ThreadedSocketAcceptor swig_types[103]
+#define SWIGTYPE_p_FIX__ThreadedSocketInitiator swig_types[104]
+#define SWIGTYPE_p_FIX__Trailer swig_types[105]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[106]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[107]
+#define SWIGTYPE_p_FIX__UtcDate swig_types[108]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[109]
+#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[110]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[111]
+#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[112]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[113]
+#define SWIGTYPE_p_Fields swig_types[114]
+#define SWIGTYPE_p_Group swig_types[115]
+#define SWIGTYPE_p_Groups swig_types[116]
+#define SWIGTYPE_p_IntArray swig_types[117]
+#define SWIGTYPE_p_IntField swig_types[118]
+#define SWIGTYPE_p_Log swig_types[119]
+#define SWIGTYPE_p_LogFactory swig_types[120]
+#define SWIGTYPE_p_MYSQL swig_types[121]
+#define SWIGTYPE_p_MessageStore swig_types[122]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[123]
+#define SWIGTYPE_p_MsgType swig_types[124]
+#define SWIGTYPE_p_Mutex swig_types[125]
+#define SWIGTYPE_p_PGconn swig_types[126]
+#define SWIGTYPE_p_RSA swig_types[127]
+#define SWIGTYPE_p_Responder swig_types[128]
+#define SWIGTYPE_p_SessionID swig_types[129]
+#define SWIGTYPE_p_SessionToPort swig_types[130]
+#define SWIGTYPE_p_StringField swig_types[131]
+#define SWIGTYPE_p_TimeRange swig_types[132]
+#define SWIGTYPE_p_UtcDateField swig_types[133]
+#define SWIGTYPE_p_X509 swig_types[134]
+#define SWIGTYPE_p_allocator_type swig_types[135]
+#define SWIGTYPE_p_bool swig_types[136]
+#define SWIGTYPE_p_char swig_types[137]
+#define SWIGTYPE_p_const_iterator swig_types[138]
+#define SWIGTYPE_p_difference_type swig_types[139]
+#define SWIGTYPE_p_double swig_types[140]
+#define SWIGTYPE_p_g_const_iterator swig_types[141]
+#define SWIGTYPE_p_g_iterator swig_types[142]
+#define SWIGTYPE_p_g_value_type swig_types[143]
+#define SWIGTYPE_p_int swig_types[144]
+#define SWIGTYPE_p_int64_t swig_types[145]
+#define SWIGTYPE_p_iterator swig_types[146]
+#define SWIGTYPE_p_key_type swig_types[147]
+#define SWIGTYPE_p_message_order swig_types[148]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[149]
+#define SWIGTYPE_p_size_type swig_types[150]
+#define SWIGTYPE_p_ssize_t swig_types[151]
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[152]
+#define SWIGTYPE_p_std__istream swig_types[153]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[154]
+#define SWIGTYPE_p_std__logic_error swig_types[155]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[156]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[157]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[158]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[159]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[160]
+#define SWIGTYPE_p_std__ostream swig_types[161]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_t swig_types[162]
+#define SWIGTYPE_p_std__string swig_types[163]
+#define SWIGTYPE_p_std__string__size_type swig_types[164]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[165]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[166]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[167]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[168]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[169]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[170]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[171]
+#define SWIGTYPE_p_swig__Iterator swig_types[172]
+#define SWIGTYPE_p_tm swig_types[173]
+#define SWIGTYPE_p_value_type swig_types[174]
+#define SWIGTYPE_p_void swig_types[175]
+static swig_type_info *swig_types[177];
+static swig_module_info swig_module = {swig_types, 176, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3348,6 +3352,10 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include <SocketMonitor.h>
 #include <DatabaseConnectionID.h>
 #include <DatabaseConnectionPool.h>
+#include <ThreadedSocketAcceptor.h>
+#include <ThreadedSocketInitiator.h>
+#include <ThreadedSocketConnection.h>
+#include <NullStore.h>
 
 #ifdef HAVE_SSL
 #include <SSLSocketAcceptor.h>
@@ -5920,6 +5928,112 @@ VALUE Application_fromApp_rescue(VALUE args, VALUE error) {
  * --------------------------------------------------- */
 
 #include "QuickfixRuby.h"
+
+SwigDirector_LogFactory::SwigDirector_LogFactory(VALUE self): FIX::LogFactory(), Swig::Director(self) {
+  
+}
+
+
+
+SwigDirector_LogFactory::~SwigDirector_LogFactory() {
+}
+
+FIX::Log *SwigDirector_LogFactory::create() {
+  FIX::Log *c_result = 0 ;
+  VALUE SWIGUNUSED result;
+  void *swig_argp ;
+  int swig_res ;
+  swig_owntype own ;
+  
+  result = rb_funcall(swig_get_self(), rb_intern("create"), 0, Qnil);
+  swig_res = SWIG_ConvertPtrAndOwn(result, &swig_argp, SWIGTYPE_p_FIX__Log,  0  | SWIG_POINTER_DISOWN, &own);
+  if (!SWIG_IsOK(swig_res)) {
+    Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""FIX::Log *""'");
+  }
+  c_result = reinterpret_cast< FIX::Log * >(swig_argp);
+  swig_acquire_ownership_obj(SWIG_as_voidptr(c_result), own /* & TODO: SWIG_POINTER_OWN */);
+  return (FIX::Log *) c_result;
+}
+
+
+FIX::Log *SwigDirector_LogFactory::create(FIX::SessionID const &arg0) {
+  FIX::Log *c_result = 0 ;
+  VALUE obj0 = Qnil ;
+  VALUE SWIGUNUSED result;
+  void *swig_argp ;
+  int swig_res ;
+  swig_owntype own ;
+  
+  obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg0), SWIGTYPE_p_FIX__SessionID,  0 );
+  result = rb_funcall(swig_get_self(), rb_intern("create"), 1,obj0);
+  swig_res = SWIG_ConvertPtrAndOwn(result, &swig_argp, SWIGTYPE_p_FIX__Log,  0  | SWIG_POINTER_DISOWN, &own);
+  if (!SWIG_IsOK(swig_res)) {
+    Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""FIX::Log *""'");
+  }
+  c_result = reinterpret_cast< FIX::Log * >(swig_argp);
+  swig_acquire_ownership_obj(SWIG_as_voidptr(c_result), own /* & TODO: SWIG_POINTER_OWN */);
+  return (FIX::Log *) c_result;
+}
+
+
+void SwigDirector_LogFactory::destroy(FIX::Log *arg0) {
+  VALUE obj0 = Qnil ;
+  VALUE SWIGUNUSED result;
+  
+  obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(arg0), SWIGTYPE_p_FIX__Log,  0 );
+  result = rb_funcall(swig_get_self(), rb_intern("destroy"), 1,obj0);
+}
+
+
+SwigDirector_Log::SwigDirector_Log(VALUE self): FIX::Log(), Swig::Director(self) {
+  
+}
+
+
+
+SwigDirector_Log::~SwigDirector_Log() {
+}
+
+void SwigDirector_Log::clear() {
+  VALUE SWIGUNUSED result;
+  
+  result = rb_funcall(swig_get_self(), rb_intern("clear"), 0, Qnil);
+}
+
+
+void SwigDirector_Log::backup() {
+  VALUE SWIGUNUSED result;
+  
+  result = rb_funcall(swig_get_self(), rb_intern("backup"), 0, Qnil);
+}
+
+
+void SwigDirector_Log::onIncoming(std::string const &arg0) {
+  VALUE obj0 = Qnil ;
+  VALUE SWIGUNUSED result;
+  
+  obj0 = SWIG_From_std_string(static_cast< std::string >(arg0));
+  result = rb_funcall(swig_get_self(), rb_intern("onIncoming"), 1,obj0);
+}
+
+
+void SwigDirector_Log::onOutgoing(std::string const &arg0) {
+  VALUE obj0 = Qnil ;
+  VALUE SWIGUNUSED result;
+  
+  obj0 = SWIG_From_std_string(static_cast< std::string >(arg0));
+  result = rb_funcall(swig_get_self(), rb_intern("onOutgoing"), 1,obj0);
+}
+
+
+void SwigDirector_Log::onEvent(std::string const &arg0) {
+  VALUE obj0 = Qnil ;
+  VALUE SWIGUNUSED result;
+  
+  obj0 = SWIG_From_std_string(static_cast< std::string >(arg0));
+  result = rb_funcall(swig_get_self(), rb_intern("onEvent"), 1,obj0);
+}
+
 
 SwigDirector_Application::SwigDirector_Application(VALUE self): FIX::Application(), Swig::Director(self) {
   
@@ -92611,6 +92725,15 @@ _wrap_END_DAY_get(VALUE self) {
 
 
 SWIGINTERN VALUE
+_wrap_NON_STOP_SESSION_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::NON_STOP_SESSION);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
 _wrap_LOGON_TIME_get(VALUE self) {
   VALUE _val;
   
@@ -93434,6 +93557,15 @@ _wrap_SSL_CIPHER_SUITE_get(VALUE self) {
   VALUE _val;
   
   _val = SWIG_FromCharPtr(FIX::SSL_CIPHER_SUITE);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
+_wrap_TLS_CIPHER_SUITES_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::TLS_CIPHER_SUITES);
   return _val;
 }
 
@@ -97826,6 +97958,81 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_Session_getIsNonStopSession(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Session const *","getIsNonStopSession", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)((FIX::Session const *)arg1)->getIsNonStopSession();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_Session_setIsNonStopSession(int argc, VALUE *argv, VALUE self) {
+  FIX::Session *arg1 = (FIX::Session *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Session, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Session *","setIsNonStopSession", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::Session * >(argp1);
+  ecode2 = SWIG_AsVal_bool(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "bool","setIsNonStopSession", 2, argv[0] ));
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setIsNonStopSession(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_Session_setResponder(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
   Responder *arg2 = (Responder *) 0 ;
@@ -98519,6 +98726,8 @@ _wrap_LogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::LogFactory *arg1 = (FIX::LogFactory *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -98530,19 +98739,33 @@ _wrap_LogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::LogFactory *","create", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::LogFactory * >(argp1);
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      result = (FIX::Log *)(arg1)->create();
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::LogFactory::create");
+            } else {
+          result = (FIX::Log *)(arg1)->create();
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (director) {
+    SWIG_AcquirePtr(vresult, director->swig_release_ownership(SWIG_as_voidptr(result)));
+  }
   return vresult;
 fail:
   return Qnil;
@@ -98557,6 +98780,8 @@ _wrap_LogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -98576,19 +98801,33 @@ _wrap_LogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 2, argv[0])); 
   }
   arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      result = (FIX::Log *)(arg1)->create((FIX::SessionID const &)*arg2);
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::LogFactory::create");
+            } else {
+          result = (FIX::Log *)(arg1)->create((FIX::SessionID const &)*arg2);
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (director) {
+    SWIG_AcquirePtr(vresult, director->swig_release_ownership(SWIG_as_voidptr(result)));
+  }
   return vresult;
 fail:
   return Qnil;
@@ -98633,7 +98872,7 @@ SWIGINTERN VALUE _wrap_LogFactory_create(int nargs, VALUE *args, VALUE self) {
 fail:
   Ruby_Format_OverloadedError( argc, 3, "LogFactory.create", 
     "    FIX::Log LogFactory.create()\n"
-    "    FIX::Log * LogFactory.create(FIX::SessionID const &)\n");
+    "    FIX::Log * LogFactory.create(FIX::SessionID const &arg0)\n");
   
   return Qnil;
 }
@@ -98647,6 +98886,8 @@ _wrap_LogFactory_destroy(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -98661,10 +98902,72 @@ _wrap_LogFactory_destroy(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::Log *","destroy", 2, argv[0] )); 
   }
   arg2 = reinterpret_cast< FIX::Log * >(argp2);
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
+    {
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::LogFactory::destroy");
+            } else {
+          (arg1)->destroy(arg2);
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
+    }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_LogFactory_allocate(VALUE self)
+#else
+_wrap_LogFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__LogFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_LogFactory(int argc, VALUE *argv, VALUE self) {
+  VALUE arg1 = (VALUE) 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::LogFactory";
+  FIX::LogFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  arg1 = self;
   {
     if(tryRubyException([&]() mutable 
         {
-      (arg1)->destroy(arg2);
+      if ( strcmp(rb_obj_classname(self), classname) != 0 ) {
+        /* subclassed */
+            result = (FIX::LogFactory *)new SwigDirector_LogFactory(arg1); 
+          } else {
+        rb_raise(rb_eNameError,"accessing abstract class or protected constructor"); 
+            return Qnil;
+          }
+          
+          DATA_PTR(self) = result;
           return self;
         fail:
           return Qnil;
@@ -98673,6 +98976,31 @@ _wrap_LogFactory_destroy(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_disown_LogFactory(int argc, VALUE *argv, VALUE self) {
+  FIX::LogFactory *arg1 = (FIX::LogFactory *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_FIX__LogFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::LogFactory *","disown_LogFactory", 1, argv[0] )); 
+  }
+  arg1 = reinterpret_cast< FIX::LogFactory * >(argp1);
+  {
+    Swig::Director *director = SWIG_DIRECTOR_CAST(arg1);
+    if (director) director->swig_disown();
+  }
+  
   return Qnil;
 fail:
   return Qnil;
@@ -98683,8 +99011,8 @@ static swig_class SwigClassScreenLogFactory;
 
 SWIGINTERN VALUE
 _wrap_new_ScreenLogFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  FIX::SessionSettings *arg1 = 0 ;
-  void *argp1 = 0 ;
+  FIX::SessionSettings arg1 ;
+  void *argp1 ;
   int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ScreenLogFactory";
   FIX::ScreenLogFactory *result = 0 ;
@@ -98692,18 +99020,21 @@ _wrap_new_ScreenLogFactory__SWIG_0(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","ScreenLogFactory", 1, argv[0] )); 
+  {
+    res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__SessionSettings,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::SessionSettings","ScreenLogFactory", 1, argv[0] )); 
+    }  
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings","ScreenLogFactory", 1, argv[0]));
+    } else {
+      arg1 = *(reinterpret_cast< FIX::SessionSettings * >(argp1));
+    }
   }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","ScreenLogFactory", 1, argv[0])); 
-  }
-  arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (FIX::ScreenLogFactory *)new FIX::ScreenLogFactory((FIX::SessionSettings const &)*arg1);
+      result = (FIX::ScreenLogFactory *)new FIX::ScreenLogFactory(arg1);
           DATA_PTR(self) = result;
           return self;
         fail:
@@ -98829,7 +99160,7 @@ SWIGINTERN VALUE _wrap_new_ScreenLogFactory(int nargs, VALUE *args, VALUE self) 
   
 fail:
   Ruby_Format_OverloadedError( argc, 3, "ScreenLogFactory.new", 
-    "    ScreenLogFactory.new(FIX::SessionSettings const &settings)\n"
+    "    ScreenLogFactory.new(FIX::SessionSettings settings)\n"
     "    ScreenLogFactory.new(bool incoming, bool outgoing, bool event)\n");
   
   return Qnil;
@@ -99028,6 +99359,8 @@ _wrap_Log_clear(int argc, VALUE *argv, VALUE self) {
   FIX::Log *arg1 = (FIX::Log *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
@@ -99037,17 +99370,28 @@ _wrap_Log_clear(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Log *","clear", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::Log * >(argp1);
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      (arg1)->clear();
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::Log::clear");
+            } else {
+          (arg1)->clear();
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   return Qnil;
 fail:
@@ -99060,6 +99404,8 @@ _wrap_Log_backup(int argc, VALUE *argv, VALUE self) {
   FIX::Log *arg1 = (FIX::Log *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
@@ -99069,17 +99415,28 @@ _wrap_Log_backup(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Log *","backup", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::Log * >(argp1);
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      (arg1)->backup();
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::Log::backup");
+            } else {
+          (arg1)->backup();
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   return Qnil;
 fail:
@@ -99094,6 +99451,8 @@ _wrap_Log_onIncoming(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -99115,17 +99474,28 @@ _wrap_Log_onIncoming(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      (arg1)->onIncoming((std::string const &)*arg2);
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::Log::onIncoming");
+            } else {
+          (arg1)->onIncoming((std::string const &)*arg2);
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   {
     if( std::string("std::string const &") == "std::string &" ) 	 
@@ -99149,6 +99519,8 @@ _wrap_Log_onOutgoing(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -99170,17 +99542,28 @@ _wrap_Log_onOutgoing(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      (arg1)->onOutgoing((std::string const &)*arg2);
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::Log::onOutgoing");
+            } else {
+          (arg1)->onOutgoing((std::string const &)*arg2);
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   {
     if( std::string("std::string const &") == "std::string &" ) 	 
@@ -99204,6 +99587,8 @@ _wrap_Log_onEvent(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  Swig::Director *director = 0;
+  bool upcall = false;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -99225,17 +99610,28 @@ _wrap_Log_onEvent(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  {
-    if(tryRubyException([&]() mutable 
-        {
-      (arg1)->onEvent((std::string const &)*arg2);
-          return self;
-        fail:
-          return Qnil;
-        }) == Qnil) 
+  director = dynamic_cast<Swig::Director *>(arg1);
+  upcall = (director && (director->swig_get_self() == self));
+  try {
     {
-      SWIG_fail;
+      if(tryRubyException([&]() mutable 
+          {
+        if (upcall) {
+          Swig::DirectorPureVirtualException::raise("FIX::Log::onEvent");
+            } else {
+          (arg1)->onEvent((std::string const &)*arg2);
+            }
+            return self;
+          fail:
+            return Qnil;
+          }) == Qnil) 
+      {
+        SWIG_fail;
+      }
     }
+  } catch (Swig::DirectorException& e) {
+    rb_exc_raise(e.getError());
+    SWIG_fail;
   }
   {
     if( std::string("std::string const &") == "std::string &" ) 	 
@@ -99248,6 +99644,82 @@ _wrap_Log_onEvent(int argc, VALUE *argv, VALUE self) {
   return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_Log_allocate(VALUE self)
+#else
+_wrap_Log_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__Log);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_Log(int argc, VALUE *argv, VALUE self) {
+  VALUE arg1 = (VALUE) 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::Log";
+  FIX::Log *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  arg1 = self;
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      if ( strcmp(rb_obj_classname(self), classname) != 0 ) {
+        /* subclassed */
+            result = (FIX::Log *)new SwigDirector_Log(arg1); 
+          } else {
+        rb_raise(rb_eNameError,"accessing abstract class or protected constructor"); 
+            return Qnil;
+          }
+          
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_disown_Log(int argc, VALUE *argv, VALUE self) {
+  FIX::Log *arg1 = (FIX::Log *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_FIX__Log, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Log *","disown_Log", 1, argv[0] )); 
+  }
+  arg1 = reinterpret_cast< FIX::Log * >(argp1);
+  {
+    Swig::Director *director = SWIG_DIRECTOR_CAST(arg1);
+    if (director) director->swig_disown();
+  }
+  
+  return Qnil;
+fail:
   return Qnil;
 }
 
@@ -100211,6 +100683,7 @@ _wrap_FileLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::FileLogFactory *arg1 = (FIX::FileLogFactory *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -100234,7 +100707,12 @@ _wrap_FileLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -100249,6 +100727,7 @@ _wrap_FileLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -100280,7 +100759,12 @@ _wrap_FileLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -105727,6 +106211,7 @@ _wrap_Initiator_getLog(int argc, VALUE *argv, VALUE self) {
   FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -105750,7 +106235,12 @@ _wrap_Initiator_getLog(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -105987,6 +106477,7 @@ _wrap_Acceptor_getLog(int argc, VALUE *argv, VALUE self) {
   FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -106010,7 +106501,12 @@ _wrap_Acceptor_getLog(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -114441,6 +114937,7 @@ _wrap_MySQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLLogFactory *arg1 = (FIX::MySQLLogFactory *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -114464,7 +114961,12 @@ _wrap_MySQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -114479,6 +114981,7 @@ _wrap_MySQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -114510,7 +115013,12 @@ _wrap_MySQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -117735,6 +118243,7 @@ _wrap_PostgreSQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::PostgreSQLLogFactory *arg1 = (FIX::PostgreSQLLogFactory *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -117758,7 +118267,12 @@ _wrap_PostgreSQLLogFactory_create__SWIG_0(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -117773,6 +118287,7 @@ _wrap_PostgreSQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  Swig::Director *director = 0;
   FIX::Log *result = 0 ;
   VALUE vresult = Qnil;
   
@@ -117804,7 +118319,12 @@ _wrap_PostgreSQLLogFactory_create__SWIG_1(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  director = dynamic_cast<Swig::Director *>(result);
+  if (director) {
+    vresult = director->swig_get_self();
+  } else {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -117901,6 +118421,1139 @@ free_FIX_PostgreSQLLogFactory(void *self) {
     delete arg1;
 }
 
+static swig_class SwigClassThreadedSocketAcceptorBase;
+
+SWIGINTERN VALUE
+_wrap_new_ThreadedSocketAcceptorBase__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::Application *arg1 = 0 ;
+  FIX::MessageStoreFactory *arg2 = 0 ;
+  FIX::SessionSettings *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::ThreadedSocketAcceptorBase";
+  FIX::ThreadedSocketAcceptor *result = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Application,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Application &","ThreadedSocketAcceptor", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Application &","ThreadedSocketAcceptor", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Application * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__MessageStoreFactory,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStoreFactory &","ThreadedSocketAcceptor", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::MessageStoreFactory &","ThreadedSocketAcceptor", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStoreFactory * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","ThreadedSocketAcceptor", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","ThreadedSocketAcceptor", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionSettings * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::ThreadedSocketAcceptor *)new FIX::ThreadedSocketAcceptor(*arg1,*arg2,(FIX::SessionSettings const &)*arg3);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_ThreadedSocketAcceptorBase_allocate(VALUE self)
+#else
+_wrap_ThreadedSocketAcceptorBase_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ThreadedSocketAcceptor);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_ThreadedSocketAcceptorBase__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::Application *arg1 = 0 ;
+  FIX::MessageStoreFactory *arg2 = 0 ;
+  FIX::SessionSettings *arg3 = 0 ;
+  FIX::LogFactory *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::ThreadedSocketAcceptorBase";
+  FIX::ThreadedSocketAcceptor *result = 0 ;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Application,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Application &","ThreadedSocketAcceptor", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Application &","ThreadedSocketAcceptor", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Application * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__MessageStoreFactory,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStoreFactory &","ThreadedSocketAcceptor", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::MessageStoreFactory &","ThreadedSocketAcceptor", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStoreFactory * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","ThreadedSocketAcceptor", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","ThreadedSocketAcceptor", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionSettings * >(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_FIX__LogFactory,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "FIX::LogFactory &","ThreadedSocketAcceptor", 4, argv[3] )); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::LogFactory &","ThreadedSocketAcceptor", 4, argv[3])); 
+  }
+  arg4 = reinterpret_cast< FIX::LogFactory * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::ThreadedSocketAcceptor *)new FIX::ThreadedSocketAcceptor(*arg1,*arg2,(FIX::SessionSettings const &)*arg3,*arg4);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_ThreadedSocketAcceptorBase(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[4];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 4) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 3) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Application, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__MessageStoreFactory, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_ThreadedSocketAcceptorBase__SWIG_0(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Application, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__MessageStoreFactory, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__LogFactory, SWIG_POINTER_NO_NULL);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ThreadedSocketAcceptorBase__SWIG_1(nargs, args, self);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 4, "ThreadedSocketAcceptor.new", 
+    "    ThreadedSocketAcceptor.new(FIX::Application &, FIX::MessageStoreFactory &, FIX::SessionSettings const &)\n"
+    "    ThreadedSocketAcceptor.new(FIX::Application &, FIX::MessageStoreFactory &, FIX::SessionSettings const &, FIX::LogFactory &)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_ThreadedSocketAcceptor(void *self) {
+    FIX::ThreadedSocketAcceptor *arg1 = (FIX::ThreadedSocketAcceptor *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassThreadedSocketInitiatorBase;
+
+SWIGINTERN VALUE
+_wrap_new_ThreadedSocketInitiatorBase__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  FIX::Application *arg1 = 0 ;
+  FIX::MessageStoreFactory *arg2 = 0 ;
+  FIX::SessionSettings *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::ThreadedSocketInitiatorBase";
+  FIX::ThreadedSocketInitiator *result = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Application,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Application &","ThreadedSocketInitiator", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Application &","ThreadedSocketInitiator", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Application * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__MessageStoreFactory,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStoreFactory &","ThreadedSocketInitiator", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::MessageStoreFactory &","ThreadedSocketInitiator", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStoreFactory * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","ThreadedSocketInitiator", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","ThreadedSocketInitiator", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionSettings * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::ThreadedSocketInitiator *)new FIX::ThreadedSocketInitiator(*arg1,*arg2,(FIX::SessionSettings const &)*arg3);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_ThreadedSocketInitiatorBase_allocate(VALUE self)
+#else
+_wrap_ThreadedSocketInitiatorBase_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__ThreadedSocketInitiator);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_ThreadedSocketInitiatorBase__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  FIX::Application *arg1 = 0 ;
+  FIX::MessageStoreFactory *arg2 = 0 ;
+  FIX::SessionSettings *arg3 = 0 ;
+  FIX::LogFactory *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::ThreadedSocketInitiatorBase";
+  FIX::ThreadedSocketInitiator *result = 0 ;
+  
+  if ((argc < 4) || (argc > 4)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__Application,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Application &","ThreadedSocketInitiator", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::Application &","ThreadedSocketInitiator", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::Application * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__MessageStoreFactory,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStoreFactory &","ThreadedSocketInitiator", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::MessageStoreFactory &","ThreadedSocketInitiator", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStoreFactory * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[2], &argp3, SWIGTYPE_p_FIX__SessionSettings,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionSettings const &","ThreadedSocketInitiator", 3, argv[2] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionSettings const &","ThreadedSocketInitiator", 3, argv[2])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionSettings * >(argp3);
+  res4 = SWIG_ConvertPtr(argv[3], &argp4, SWIGTYPE_p_FIX__LogFactory,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "FIX::LogFactory &","ThreadedSocketInitiator", 4, argv[3] )); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::LogFactory &","ThreadedSocketInitiator", 4, argv[3])); 
+  }
+  arg4 = reinterpret_cast< FIX::LogFactory * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::ThreadedSocketInitiator *)new FIX::ThreadedSocketInitiator(*arg1,*arg2,(FIX::SessionSettings const &)*arg3,*arg4);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_ThreadedSocketInitiatorBase(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[4];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 4) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 3) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Application, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__MessageStoreFactory, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_ThreadedSocketInitiatorBase__SWIG_0(nargs, args, self);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Application, SWIG_POINTER_NO_NULL);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__MessageStoreFactory, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NO_NULL);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__LogFactory, SWIG_POINTER_NO_NULL);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ThreadedSocketInitiatorBase__SWIG_1(nargs, args, self);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 4, "ThreadedSocketInitiator.new", 
+    "    ThreadedSocketInitiator.new(FIX::Application &, FIX::MessageStoreFactory &, FIX::SessionSettings const &)\n"
+    "    ThreadedSocketInitiator.new(FIX::Application &, FIX::MessageStoreFactory &, FIX::SessionSettings const &, FIX::LogFactory &)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_ThreadedSocketInitiator(void *self) {
+    FIX::ThreadedSocketInitiator *arg1 = (FIX::ThreadedSocketInitiator *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassNullStoreFactory;
+
+SWIGINTERN VALUE
+_wrap_NullStoreFactory_create(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStoreFactory *arg1 = (FIX::NullStoreFactory *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  FIX::SessionID *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  FIX::MessageStore *result = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStoreFactory *","create", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","create", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","create", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SessionID const &","create", 3, argv[1] )); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","create", 3, argv[1])); 
+  }
+  arg3 = reinterpret_cast< FIX::SessionID * >(argp3);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::MessageStore *)(arg1)->create((FIX::UtcTimeStamp const &)*arg2,(FIX::SessionID const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStoreFactory_destroy(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStoreFactory *arg1 = (FIX::NullStoreFactory *) 0 ;
+  FIX::MessageStore *arg2 = (FIX::MessageStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStoreFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStoreFactory *","destroy", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStoreFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2,SWIGTYPE_p_FIX__MessageStore, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::MessageStore *","destroy", 2, argv[0] )); 
+  }
+  arg2 = reinterpret_cast< FIX::MessageStore * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->destroy(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_NullStoreFactory_allocate(VALUE self)
+#else
+_wrap_NullStoreFactory_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__NullStoreFactory);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_NullStoreFactory(int argc, VALUE *argv, VALUE self) {
+  const char *classname SWIGUNUSED = "Quickfix::NullStoreFactory";
+  FIX::NullStoreFactory *result = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::NullStoreFactory *)new FIX::NullStoreFactory();
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_NullStoreFactory(void *self) {
+    FIX::NullStoreFactory *arg1 = (FIX::NullStoreFactory *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassNullStore;
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_NullStore_allocate(VALUE self)
+#else
+_wrap_NullStore_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__NullStore);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_NullStore(int argc, VALUE *argv, VALUE self) {
+  FIX::UtcTimeStamp *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::NullStore";
+  FIX::NullStore *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","NullStore", 1, argv[0] )); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","NullStore", 1, argv[0])); 
+  }
+  arg1 = reinterpret_cast< FIX::UtcTimeStamp * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::NullStore *)new FIX::NullStore((FIX::UtcTimeStamp const &)*arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_set(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","set", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "std::string const &","set", 3, argv[1] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","set", 3, argv[1])); 
+    }
+    arg3 = ptr;
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (bool)(arg1)->set(arg2,(std::string const &)*arg3);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_get(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< std::string > *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  
+  if ((argc < 3) || (argc > 3)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore const *","get", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(argv[1], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
+  } 
+  arg3 = static_cast< int >(val3);
+  res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::vector< std::string > &","get", 4, argv[2])); 
+  }
+  arg4 = reinterpret_cast< std::vector< std::string > * >(argp4);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      ((FIX::NullStore const *)arg1)->get(arg2,arg3,*arg4);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore const *","getNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::NullStore const *)arg1)->getNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore const *","getNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (int)((FIX::NullStore const *)arg1)->getNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_int(static_cast< int >(result));
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","setNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextSenderMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","setNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  ecode2 = SWIG_AsVal_int(argv[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setNextTargetMsgSeqNum(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_incrNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","incrNextSenderMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextSenderMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_incrNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","incrNextTargetMsgSeqNum", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->incrNextTargetMsgSeqNum();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_setCreationTime(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","setCreationTime", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","setCreationTime", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","setCreationTime", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setCreationTime((FIX::UtcTimeStamp const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_getCreationTime(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  FIX::UtcTimeStamp result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore const *","getCreationTime", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = ((FIX::NullStore const *)arg1)->getCreationTime();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj((new FIX::UtcTimeStamp(result)), SWIGTYPE_p_FIX__UtcTimeStamp, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_reset(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  FIX::UtcTimeStamp *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","reset", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_FIX__UtcTimeStamp,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::UtcTimeStamp const &","reset", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::UtcTimeStamp const &","reset", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< FIX::UtcTimeStamp * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->reset((FIX::UtcTimeStamp const &)*arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_NullStore_refresh(int argc, VALUE *argv, VALUE self) {
+  FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__NullStore, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","refresh", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->refresh();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_NullStore(void *self) {
+    FIX::NullStore *arg1 = (FIX::NullStore *)self;
+    delete arg1;
+}
+
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
@@ -117912,6 +119565,9 @@ static void *_p_FIX__SSLSocketAcceptorTo_p_FIX__Acceptor(void *x, int *SWIGUNUSE
 }
 static void *_p_FIX__SocketAcceptorTo_p_FIX__Acceptor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Acceptor *)  ((FIX::SocketAcceptor *) x));
+}
+static void *_p_FIX__ThreadedSocketAcceptorTo_p_FIX__Acceptor(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::Acceptor *)  ((FIX::ThreadedSocketAcceptor *) x));
 }
 static void *_p_FIX__NullApplicationTo_p_FIX__Application(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Application *)  ((FIX::NullApplication *) x));
@@ -118081,6 +119737,9 @@ static void *_p_FIX__SSLSocketInitiatorTo_p_FIX__Initiator(void *x, int *SWIGUNU
 static void *_p_FIX__SocketInitiatorTo_p_FIX__Initiator(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Initiator *)  ((FIX::SocketInitiator *) x));
 }
+static void *_p_FIX__ThreadedSocketInitiatorTo_p_FIX__Initiator(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::Initiator *)  ((FIX::ThreadedSocketInitiator *) x));
+}
 static void *_p_FIX__FileLogTo_p_FIX__Log(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::Log *)  ((FIX::FileLog *) x));
 }
@@ -118117,6 +119776,9 @@ static void *_p_FIX__MemoryStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDP
 static void *_p_FIX__MySQLStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStore *)  ((FIX::MySQLStore *) x));
 }
+static void *_p_FIX__NullStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStore *)  ((FIX::NullStore *) x));
+}
 static void *_p_FIX__PostgreSQLStoreTo_p_FIX__MessageStore(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStore *)  ((FIX::PostgreSQLStore *) x));
 }
@@ -118128,6 +119790,9 @@ static void *_p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, in
 }
 static void *_p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::MySQLStoreFactory *) x));
+}
+static void *_p_FIX__NullStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::MessageStoreFactory *)  ((FIX::NullStoreFactory *) x));
 }
 static void *_p_FIX__PostgreSQLStoreFactoryTo_p_FIX__MessageStoreFactory(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::MessageStoreFactory *)  ((FIX::PostgreSQLStoreFactory *) x));
@@ -118312,6 +119977,8 @@ static swig_type_info _swigt__p_FIX__MySQLStoreFactory = {"_p_FIX__MySQLStoreFac
 static swig_type_info _swigt__p_FIX__NoTagValue = {"_p_FIX__NoTagValue", "FIX::NoTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullApplication = {"_p_FIX__NullApplication", "FIX::NullApplication *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__NullLog = {"_p_FIX__NullLog", "FIX::NullLog *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__NullStore = {"_p_FIX__NullStore", "FIX::NullStore *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__NullStoreFactory = {"_p_FIX__NullStoreFactory", "FIX::NullStoreFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__PostgreSQLConnection = {"_p_FIX__PostgreSQLConnection", "FIX::PostgreSQLConnection *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__PostgreSQLLog = {"_p_FIX__PostgreSQLLog", "FIX::PostgreSQLLog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__PostgreSQLLogFactory = {"_p_FIX__PostgreSQLLogFactory", "FIX::PostgreSQLLogFactory *", 0, 0, (void*)0, 0};
@@ -118344,6 +120011,8 @@ static swig_type_info _swigt__p_FIX__TYPE__Type = {"_p_FIX__TYPE__Type", "FIX::T
 static swig_type_info _swigt__p_FIX__TagNotDefinedForMessage = {"_p_FIX__TagNotDefinedForMessage", "FIX::TagNotDefinedForMessage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__TagOutOfOrder = {"_p_FIX__TagOutOfOrder", "FIX::TagOutOfOrder *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__TargetCompID = {"_p_FIX__TargetCompID", "FIX::TargetCompID *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__ThreadedSocketAcceptor = {"_p_FIX__ThreadedSocketAcceptor", "FIX::ThreadedSocketAcceptor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__ThreadedSocketInitiator = {"_p_FIX__ThreadedSocketInitiator", "FIX::ThreadedSocketInitiator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Trailer = {"_p_FIX__Trailer", "FIX::Trailer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedMessageType = {"_p_FIX__UnsupportedMessageType", "FIX::UnsupportedMessageType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedVersion = {"_p_FIX__UnsupportedVersion", "FIX::UnsupportedVersion *", 0, 0, (void*)0, 0};
@@ -118486,6 +120155,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__NoTagValue,
   &_swigt__p_FIX__NullApplication,
   &_swigt__p_FIX__NullLog,
+  &_swigt__p_FIX__NullStore,
+  &_swigt__p_FIX__NullStoreFactory,
   &_swigt__p_FIX__PostgreSQLConnection,
   &_swigt__p_FIX__PostgreSQLLog,
   &_swigt__p_FIX__PostgreSQLLogFactory,
@@ -118518,6 +120189,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__TagNotDefinedForMessage,
   &_swigt__p_FIX__TagOutOfOrder,
   &_swigt__p_FIX__TargetCompID,
+  &_swigt__p_FIX__ThreadedSocketAcceptor,
+  &_swigt__p_FIX__ThreadedSocketInitiator,
   &_swigt__p_FIX__Trailer,
   &_swigt__p_FIX__UnsupportedMessageType,
   &_swigt__p_FIX__UnsupportedVersion,
@@ -118600,7 +120273,7 @@ static swig_cast_info _swigc__p_DataDictionary[] = {  {&_swigt__p_DataDictionary
 static swig_cast_info _swigc__p_DataDictionaryProvider[] = {  {&_swigt__p_DataDictionaryProvider, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dictionaries[] = {  {&_swigt__p_Dictionaries, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DoubleField[] = {  {&_swigt__p_DoubleField, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Acceptor[] = {  {&_swigt__p_FIX__Acceptor, 0, 0, 0},  {&_swigt__p_FIX__SSLSocketAcceptor, _p_FIX__SSLSocketAcceptorTo_p_FIX__Acceptor, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Acceptor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Acceptor[] = {  {&_swigt__p_FIX__Acceptor, 0, 0, 0},  {&_swigt__p_FIX__SSLSocketAcceptor, _p_FIX__SSLSocketAcceptorTo_p_FIX__Acceptor, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Acceptor, 0, 0},  {&_swigt__p_FIX__ThreadedSocketAcceptor, _p_FIX__ThreadedSocketAcceptorTo_p_FIX__Acceptor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Application[] = {  {&_swigt__p_FIX__Application, 0, 0, 0},  {&_swigt__p_FIX__NullApplication, _p_FIX__NullApplicationTo_p_FIX__Application, 0, 0},  {&_swigt__p_FIX__SynchronizedApplication, _p_FIX__SynchronizedApplicationTo_p_FIX__Application, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__BeginString[] = {  {&_swigt__p_FIX__BeginString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__BoolField[] = {  {&_swigt__p_FIX__BoolField, 0, 0, 0},{0, 0, 0, 0}};
@@ -118632,7 +120305,7 @@ static swig_cast_info _swigc__p_FIX__IOException[] = {  {&_swigt__p_FIX__IOExcep
 static swig_cast_info _swigc__p_FIX__IncorrectDataFormat[] = {  {&_swigt__p_FIX__IncorrectDataFormat, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IncorrectMessageStructure[] = {  {&_swigt__p_FIX__IncorrectMessageStructure, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IncorrectTagValue[] = {  {&_swigt__p_FIX__IncorrectTagValue, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Initiator[] = {  {&_swigt__p_FIX__Initiator, 0, 0, 0},  {&_swigt__p_FIX__SSLSocketInitiator, _p_FIX__SSLSocketInitiatorTo_p_FIX__Initiator, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Initiator, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Initiator[] = {  {&_swigt__p_FIX__Initiator, 0, 0, 0},  {&_swigt__p_FIX__SSLSocketInitiator, _p_FIX__SSLSocketInitiatorTo_p_FIX__Initiator, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Initiator, 0, 0},  {&_swigt__p_FIX__ThreadedSocketInitiator, _p_FIX__ThreadedSocketInitiatorTo_p_FIX__Initiator, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Int64Field[] = {  {&_swigt__p_FIX__Int64Field, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__IntField[] = {  {&_swigt__p_FIX__IntField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__InvalidMessage[] = {  {&_swigt__p_FIX__InvalidMessage, 0, 0, 0},{0, 0, 0, 0}};
@@ -118647,9 +120320,9 @@ static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryS
 static swig_cast_info _swigc__p_FIX__MemoryStoreFactory[] = {  {&_swigt__p_FIX__MemoryStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Message[] = {  {&_swigt__p_FIX__Message, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageParseError[] = {  {&_swigt__p_FIX__MessageParseError, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MySQLStore, _p_FIX__MySQLStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__PostgreSQLStore, _p_FIX__PostgreSQLStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStore[] = {  {&_swigt__p_FIX__MessageStore, 0, 0, 0},  {&_swigt__p_FIX__FileStore, _p_FIX__FileStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MemoryStore, _p_FIX__MemoryStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__MySQLStore, _p_FIX__MySQLStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__NullStore, _p_FIX__NullStoreTo_p_FIX__MessageStore, 0, 0},  {&_swigt__p_FIX__PostgreSQLStore, _p_FIX__PostgreSQLStoreTo_p_FIX__MessageStore, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MySQLStoreFactory, _p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__PostgreSQLStoreFactory, _p_FIX__PostgreSQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__MessageStoreFactory[] = {  {&_swigt__p_FIX__MessageStoreFactory, 0, 0, 0},  {&_swigt__p_FIX__FileStoreFactory, _p_FIX__FileStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MemoryStoreFactory, _p_FIX__MemoryStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__MySQLStoreFactory, _p_FIX__MySQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__NullStoreFactory, _p_FIX__NullStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},  {&_swigt__p_FIX__PostgreSQLStoreFactory, _p_FIX__PostgreSQLStoreFactoryTo_p_FIX__MessageStoreFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MessageStoreFactoryExceptionWrapper[] = {  {&_swigt__p_FIX__MessageStoreFactoryExceptionWrapper, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MySQLConnection[] = {  {&_swigt__p_FIX__MySQLConnection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MySQLLog[] = {  {&_swigt__p_FIX__MySQLLog, 0, 0, 0},{0, 0, 0, 0}};
@@ -118660,6 +120333,8 @@ static swig_cast_info _swigc__p_FIX__MySQLStoreFactory[] = {  {&_swigt__p_FIX__M
 static swig_cast_info _swigc__p_FIX__NoTagValue[] = {  {&_swigt__p_FIX__NoTagValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullApplication[] = {  {&_swigt__p_FIX__NullApplication, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__NullLog[] = {  {&_swigt__p_FIX__NullLog, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__NullStore[] = {  {&_swigt__p_FIX__NullStore, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__NullStoreFactory[] = {  {&_swigt__p_FIX__NullStoreFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__PostgreSQLConnection[] = {  {&_swigt__p_FIX__PostgreSQLConnection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__PostgreSQLLog[] = {  {&_swigt__p_FIX__PostgreSQLLog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__PostgreSQLLogFactory[] = {  {&_swigt__p_FIX__PostgreSQLLogFactory, 0, 0, 0},{0, 0, 0, 0}};
@@ -118692,6 +120367,8 @@ static swig_cast_info _swigc__p_FIX__TYPE__Type[] = {  {&_swigt__p_FIX__TYPE__Ty
 static swig_cast_info _swigc__p_FIX__TagNotDefinedForMessage[] = {  {&_swigt__p_FIX__TagNotDefinedForMessage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TagOutOfOrder[] = {  {&_swigt__p_FIX__TagOutOfOrder, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__TargetCompID[] = {  {&_swigt__p_FIX__TargetCompID, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__ThreadedSocketAcceptor[] = {  {&_swigt__p_FIX__ThreadedSocketAcceptor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__ThreadedSocketInitiator[] = {  {&_swigt__p_FIX__ThreadedSocketInitiator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Trailer[] = {  {&_swigt__p_FIX__Trailer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedMessageType[] = {  {&_swigt__p_FIX__UnsupportedMessageType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedVersion[] = {  {&_swigt__p_FIX__UnsupportedVersion, 0, 0, 0},{0, 0, 0, 0}};
@@ -118834,6 +120511,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__NoTagValue,
   _swigc__p_FIX__NullApplication,
   _swigc__p_FIX__NullLog,
+  _swigc__p_FIX__NullStore,
+  _swigc__p_FIX__NullStoreFactory,
   _swigc__p_FIX__PostgreSQLConnection,
   _swigc__p_FIX__PostgreSQLLog,
   _swigc__p_FIX__PostgreSQLLogFactory,
@@ -118866,6 +120545,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__TagNotDefinedForMessage,
   _swigc__p_FIX__TagOutOfOrder,
   _swigc__p_FIX__TargetCompID,
+  _swigc__p_FIX__ThreadedSocketAcceptor,
+  _swigc__p_FIX__ThreadedSocketInitiator,
   _swigc__p_FIX__Trailer,
   _swigc__p_FIX__UnsupportedMessageType,
   _swigc__p_FIX__UnsupportedVersion,
@@ -125849,6 +127530,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "END_TIME", VALUEFUNC(_wrap_END_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "START_DAY", VALUEFUNC(_wrap_START_DAY_get), 0);
   rb_define_singleton_method(mQuickfix, "END_DAY", VALUEFUNC(_wrap_END_DAY_get), 0);
+  rb_define_singleton_method(mQuickfix, "NON_STOP_SESSION", VALUEFUNC(_wrap_NON_STOP_SESSION_get), 0);
   rb_define_singleton_method(mQuickfix, "LOGON_TIME", VALUEFUNC(_wrap_LOGON_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "LOGOUT_TIME", VALUEFUNC(_wrap_LOGOUT_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "LOGON_DAY", VALUEFUNC(_wrap_LOGON_DAY_get), 0);
@@ -125941,6 +127623,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "CERTIFICATE_VERIFY_LEVEL", VALUEFUNC(_wrap_CERTIFICATE_VERIFY_LEVEL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_PROTOCOL", VALUEFUNC(_wrap_SSL_PROTOCOL_get), 0);
   rb_define_singleton_method(mQuickfix, "SSL_CIPHER_SUITE", VALUEFUNC(_wrap_SSL_CIPHER_SUITE_get), 0);
+  rb_define_singleton_method(mQuickfix, "TLS_CIPHER_SUITES", VALUEFUNC(_wrap_TLS_CIPHER_SUITES_get), 0);
   rb_define_module_function(mQuickfix, ">>", VALUEFUNC(_wrap___rshift__), -1);
   rb_define_module_function(mQuickfix, "<<", VALUEFUNC(_wrap___lshift__), -1);
   
@@ -126026,6 +127709,8 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(SwigClassSession.klass, "setValidateLengthAndChecksum", VALUEFUNC(_wrap_Session_setValidateLengthAndChecksum), -1);
   rb_define_method(SwigClassSession.klass, "getSendNextExpectedMsgSeqNum", VALUEFUNC(_wrap_Session_getSendNextExpectedMsgSeqNum), -1);
   rb_define_method(SwigClassSession.klass, "setSendNextExpectedMsgSeqNum", VALUEFUNC(_wrap_Session_setSendNextExpectedMsgSeqNum), -1);
+  rb_define_method(SwigClassSession.klass, "getIsNonStopSession", VALUEFUNC(_wrap_Session_getIsNonStopSession), -1);
+  rb_define_method(SwigClassSession.klass, "setIsNonStopSession", VALUEFUNC(_wrap_Session_setIsNonStopSession), -1);
   rb_define_method(SwigClassSession.klass, "setResponder", VALUEFUNC(_wrap_Session_setResponder), -1);
   rb_define_method(SwigClassSession.klass, "send", VALUEFUNC(_wrap_Session_send), -1);
   rb_define_method(SwigClassSession.klass, "next", VALUEFUNC(_wrap_Session_next), -1);
@@ -126037,10 +127722,12 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassSession.mark = 0;
   SwigClassSession.destroy = (void (*)(void *)) free_FIX_Session;
   SwigClassSession.trackObjects = 0;
+  rb_define_module_function(mQuickfix, "disown_LogFactory", VALUEFUNC(_wrap_disown_LogFactory), -1);
   
   SwigClassLogFactory.klass = rb_define_class_under(mQuickfix, "LogFactory", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__LogFactory, (void *) &SwigClassLogFactory);
-  rb_undef_alloc_func(SwigClassLogFactory.klass);
+  rb_define_alloc_func(SwigClassLogFactory.klass, _wrap_LogFactory_allocate);
+  rb_define_method(SwigClassLogFactory.klass, "initialize", VALUEFUNC(_wrap_new_LogFactory), -1);
   rb_define_method(SwigClassLogFactory.klass, "create", VALUEFUNC(_wrap_LogFactory_create), -1);
   rb_define_method(SwigClassLogFactory.klass, "destroy", VALUEFUNC(_wrap_LogFactory_destroy), -1);
   SwigClassLogFactory.mark = 0;
@@ -126056,10 +127743,12 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassScreenLogFactory.mark = 0;
   SwigClassScreenLogFactory.destroy = (void (*)(void *)) free_FIX_ScreenLogFactory;
   SwigClassScreenLogFactory.trackObjects = 0;
+  rb_define_module_function(mQuickfix, "disown_Log", VALUEFUNC(_wrap_disown_Log), -1);
   
   SwigClassLog.klass = rb_define_class_under(mQuickfix, "Log", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__Log, (void *) &SwigClassLog);
-  rb_undef_alloc_func(SwigClassLog.klass);
+  rb_define_alloc_func(SwigClassLog.klass, _wrap_Log_allocate);
+  rb_define_method(SwigClassLog.klass, "initialize", VALUEFUNC(_wrap_new_Log), -1);
   rb_define_method(SwigClassLog.klass, "clear", VALUEFUNC(_wrap_Log_clear), -1);
   rb_define_method(SwigClassLog.klass, "backup", VALUEFUNC(_wrap_Log_backup), -1);
   rb_define_method(SwigClassLog.klass, "onIncoming", VALUEFUNC(_wrap_Log_onIncoming), -1);
@@ -126608,6 +128297,52 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassPostgreSQLLogFactory.mark = 0;
   SwigClassPostgreSQLLogFactory.destroy = (void (*)(void *)) free_FIX_PostgreSQLLogFactory;
   SwigClassPostgreSQLLogFactory.trackObjects = 0;
+  
+  SwigClassThreadedSocketAcceptorBase.klass = rb_define_class_under(mQuickfix, "ThreadedSocketAcceptorBase", ((swig_class *) SWIGTYPE_p_FIX__Acceptor->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__ThreadedSocketAcceptor, (void *) &SwigClassThreadedSocketAcceptorBase);
+  rb_define_alloc_func(SwigClassThreadedSocketAcceptorBase.klass, _wrap_ThreadedSocketAcceptorBase_allocate);
+  rb_define_method(SwigClassThreadedSocketAcceptorBase.klass, "initialize", VALUEFUNC(_wrap_new_ThreadedSocketAcceptorBase), -1);
+  SwigClassThreadedSocketAcceptorBase.mark = 0;
+  SwigClassThreadedSocketAcceptorBase.destroy = (void (*)(void *)) free_FIX_ThreadedSocketAcceptor;
+  SwigClassThreadedSocketAcceptorBase.trackObjects = 0;
+  
+  SwigClassThreadedSocketInitiatorBase.klass = rb_define_class_under(mQuickfix, "ThreadedSocketInitiatorBase", ((swig_class *) SWIGTYPE_p_FIX__Initiator->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__ThreadedSocketInitiator, (void *) &SwigClassThreadedSocketInitiatorBase);
+  rb_define_alloc_func(SwigClassThreadedSocketInitiatorBase.klass, _wrap_ThreadedSocketInitiatorBase_allocate);
+  rb_define_method(SwigClassThreadedSocketInitiatorBase.klass, "initialize", VALUEFUNC(_wrap_new_ThreadedSocketInitiatorBase), -1);
+  SwigClassThreadedSocketInitiatorBase.mark = 0;
+  SwigClassThreadedSocketInitiatorBase.destroy = (void (*)(void *)) free_FIX_ThreadedSocketInitiator;
+  SwigClassThreadedSocketInitiatorBase.trackObjects = 0;
+  
+  SwigClassNullStoreFactory.klass = rb_define_class_under(mQuickfix, "NullStoreFactory", ((swig_class *) SWIGTYPE_p_FIX__MessageStoreFactory->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__NullStoreFactory, (void *) &SwigClassNullStoreFactory);
+  rb_define_alloc_func(SwigClassNullStoreFactory.klass, _wrap_NullStoreFactory_allocate);
+  rb_define_method(SwigClassNullStoreFactory.klass, "initialize", VALUEFUNC(_wrap_new_NullStoreFactory), -1);
+  rb_define_method(SwigClassNullStoreFactory.klass, "create", VALUEFUNC(_wrap_NullStoreFactory_create), -1);
+  rb_define_method(SwigClassNullStoreFactory.klass, "destroy", VALUEFUNC(_wrap_NullStoreFactory_destroy), -1);
+  SwigClassNullStoreFactory.mark = 0;
+  SwigClassNullStoreFactory.destroy = (void (*)(void *)) free_FIX_NullStoreFactory;
+  SwigClassNullStoreFactory.trackObjects = 0;
+  
+  SwigClassNullStore.klass = rb_define_class_under(mQuickfix, "NullStore", ((swig_class *) SWIGTYPE_p_FIX__MessageStore->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__NullStore, (void *) &SwigClassNullStore);
+  rb_define_alloc_func(SwigClassNullStore.klass, _wrap_NullStore_allocate);
+  rb_define_method(SwigClassNullStore.klass, "initialize", VALUEFUNC(_wrap_new_NullStore), -1);
+  rb_define_method(SwigClassNullStore.klass, "set", VALUEFUNC(_wrap_NullStore_set), -1);
+  rb_define_method(SwigClassNullStore.klass, "get", VALUEFUNC(_wrap_NullStore_get), -1);
+  rb_define_method(SwigClassNullStore.klass, "getNextSenderMsgSeqNum", VALUEFUNC(_wrap_NullStore_getNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "getNextTargetMsgSeqNum", VALUEFUNC(_wrap_NullStore_getNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "setNextSenderMsgSeqNum", VALUEFUNC(_wrap_NullStore_setNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "setNextTargetMsgSeqNum", VALUEFUNC(_wrap_NullStore_setNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "incrNextSenderMsgSeqNum", VALUEFUNC(_wrap_NullStore_incrNextSenderMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "incrNextTargetMsgSeqNum", VALUEFUNC(_wrap_NullStore_incrNextTargetMsgSeqNum), -1);
+  rb_define_method(SwigClassNullStore.klass, "setCreationTime", VALUEFUNC(_wrap_NullStore_setCreationTime), -1);
+  rb_define_method(SwigClassNullStore.klass, "getCreationTime", VALUEFUNC(_wrap_NullStore_getCreationTime), -1);
+  rb_define_method(SwigClassNullStore.klass, "reset", VALUEFUNC(_wrap_NullStore_reset), -1);
+  rb_define_method(SwigClassNullStore.klass, "refresh", VALUEFUNC(_wrap_NullStore_refresh), -1);
+  SwigClassNullStore.mark = 0;
+  SwigClassNullStore.destroy = (void (*)(void *)) free_FIX_NullStore;
+  SwigClassNullStore.trackObjects = 0;
   
 #ifndef _MSC_VER
   struct sigaction new_action, old_action;

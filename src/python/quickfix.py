@@ -7340,6 +7340,7 @@ START_TIME = cvar.START_TIME
 END_TIME = cvar.END_TIME
 START_DAY = cvar.START_DAY
 END_DAY = cvar.END_DAY
+NON_STOP_SESSION = cvar.NON_STOP_SESSION
 LOGON_TIME = cvar.LOGON_TIME
 LOGOUT_TIME = cvar.LOGOUT_TIME
 LOGON_DAY = cvar.LOGON_DAY
@@ -7432,6 +7433,7 @@ CERTIFICATE_REVOCATION_LIST_DIRECTORY = cvar.CERTIFICATE_REVOCATION_LIST_DIRECTO
 CERTIFICATE_VERIFY_LEVEL = cvar.CERTIFICATE_VERIFY_LEVEL
 SSL_PROTOCOL = cvar.SSL_PROTOCOL
 SSL_CIPHER_SUITE = cvar.SSL_CIPHER_SUITE
+TLS_CIPHER_SUITES = cvar.TLS_CIPHER_SUITES
 
 def __rshift__(*args):
     return _quickfix.__rshift__(*args)
@@ -7648,6 +7650,12 @@ class Session(object):
     def setSendNextExpectedMsgSeqNum(self, value):
         return _quickfix.Session_setSendNextExpectedMsgSeqNum(self, value)
 
+    def getIsNonStopSession(self):
+        return _quickfix.Session_getIsNonStopSession(self)
+
+    def setIsNonStopSession(self, value):
+        return _quickfix.Session_setIsNonStopSession(self, value)
+
     def setResponder(self, pR):
         return _quickfix.Session_setResponder(self, pR)
 
@@ -7676,17 +7684,25 @@ class Session(object):
 _quickfix.Session_swigregister(Session)
 class LogFactory(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-
-    def __init__(self, *args, **kwargs):
-        raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_LogFactory
 
     def create(self, *args):
         return _quickfix.LogFactory_create(self, *args)
 
-    def destroy(self, arg2):
-        return _quickfix.LogFactory_destroy(self, arg2)
+    def destroy(self, arg0):
+        return _quickfix.LogFactory_destroy(self, arg0)
+
+    def __init__(self):
+        if self.__class__ == LogFactory:
+            _self = None
+        else:
+            _self = self
+        _quickfix.LogFactory_swiginit(self, _quickfix.new_LogFactory(_self, ))
+    def __disown__(self):
+        self.this.disown()
+        _quickfix.disown_LogFactory(self)
+        return weakref.proxy(self)
 
 # Register LogFactory in _quickfix:
 _quickfix.LogFactory_swigregister(LogFactory)
@@ -7708,9 +7724,6 @@ class ScreenLogFactory(LogFactory):
 _quickfix.ScreenLogFactory_swigregister(ScreenLogFactory)
 class Log(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-
-    def __init__(self, *args, **kwargs):
-        raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Log
 
@@ -7720,14 +7733,25 @@ class Log(object):
     def backup(self):
         return _quickfix.Log_backup(self)
 
-    def onIncoming(self, arg2):
-        return _quickfix.Log_onIncoming(self, arg2)
+    def onIncoming(self, arg0):
+        return _quickfix.Log_onIncoming(self, arg0)
 
-    def onOutgoing(self, arg2):
-        return _quickfix.Log_onOutgoing(self, arg2)
+    def onOutgoing(self, arg0):
+        return _quickfix.Log_onOutgoing(self, arg0)
 
-    def onEvent(self, arg2):
-        return _quickfix.Log_onEvent(self, arg2)
+    def onEvent(self, arg0):
+        return _quickfix.Log_onEvent(self, arg0)
+
+    def __init__(self):
+        if self.__class__ == Log:
+            _self = None
+        else:
+            _self = self
+        _quickfix.Log_swiginit(self, _quickfix.new_Log(_self, ))
+    def __disown__(self):
+        self.this.disown()
+        _quickfix.disown_Log(self)
+        return weakref.proxy(self)
 
 # Register Log in _quickfix:
 _quickfix.Log_swigregister(Log)
@@ -8832,6 +8856,88 @@ PostgreSQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLLogFactory_DEFA
 PostgreSQLLogFactory.DEFAULT_HOST = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_HOST
 PostgreSQLLogFactory.DEFAULT_PORT = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PORT
 
+class ThreadedSocketAcceptorBase(Acceptor):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.ThreadedSocketAcceptorBase_swiginit(self, _quickfix.new_ThreadedSocketAcceptorBase(*args))
+    __swig_destroy__ = _quickfix.delete_ThreadedSocketAcceptorBase
+
+# Register ThreadedSocketAcceptorBase in _quickfix:
+_quickfix.ThreadedSocketAcceptorBase_swigregister(ThreadedSocketAcceptorBase)
+class ThreadedSocketInitiatorBase(Initiator):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.ThreadedSocketInitiatorBase_swiginit(self, _quickfix.new_ThreadedSocketInitiatorBase(*args))
+    __swig_destroy__ = _quickfix.delete_ThreadedSocketInitiatorBase
+
+# Register ThreadedSocketInitiatorBase in _quickfix:
+_quickfix.ThreadedSocketInitiatorBase_swigregister(ThreadedSocketInitiatorBase)
+class NullStoreFactory(MessageStoreFactory):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def create(self, arg2, arg3):
+        return _quickfix.NullStoreFactory_create(self, arg2, arg3)
+
+    def destroy(self, arg2):
+        return _quickfix.NullStoreFactory_destroy(self, arg2)
+
+    def __init__(self):
+        _quickfix.NullStoreFactory_swiginit(self, _quickfix.new_NullStoreFactory())
+    __swig_destroy__ = _quickfix.delete_NullStoreFactory
+
+# Register NullStoreFactory in _quickfix:
+_quickfix.NullStoreFactory_swigregister(NullStoreFactory)
+class NullStore(MessageStore):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, now):
+        _quickfix.NullStore_swiginit(self, _quickfix.new_NullStore(now))
+
+    def set(self, arg2, arg3):
+        return _quickfix.NullStore_set(self, arg2, arg3)
+
+    def get(self, arg2, arg3, arg4):
+        return _quickfix.NullStore_get(self, arg2, arg3, arg4)
+
+    def getNextSenderMsgSeqNum(self):
+        return _quickfix.NullStore_getNextSenderMsgSeqNum(self)
+
+    def getNextTargetMsgSeqNum(self):
+        return _quickfix.NullStore_getNextTargetMsgSeqNum(self)
+
+    def setNextSenderMsgSeqNum(self, value):
+        return _quickfix.NullStore_setNextSenderMsgSeqNum(self, value)
+
+    def setNextTargetMsgSeqNum(self, value):
+        return _quickfix.NullStore_setNextTargetMsgSeqNum(self, value)
+
+    def incrNextSenderMsgSeqNum(self):
+        return _quickfix.NullStore_incrNextSenderMsgSeqNum(self)
+
+    def incrNextTargetMsgSeqNum(self):
+        return _quickfix.NullStore_incrNextTargetMsgSeqNum(self)
+
+    def setCreationTime(self, creationTime):
+        return _quickfix.NullStore_setCreationTime(self, creationTime)
+
+    def getCreationTime(self):
+        return _quickfix.NullStore_getCreationTime(self)
+
+    def reset(self, now):
+        return _quickfix.NullStore_reset(self, now)
+
+    def refresh(self):
+        return _quickfix.NullStore_refresh(self)
+    __swig_destroy__ = _quickfix.delete_NullStore
+
+# Register NullStore in _quickfix:
+_quickfix.NullStore_swigregister(NullStore)
 
 try:
   import thread
@@ -8870,6 +8976,40 @@ class SocketAcceptor(SocketAcceptorBase):
       SocketAcceptorBase.__init__(self, application, storeFactory, settings)
     else:
       SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class ThreadedSocketInitiator(ThreadedSocketInitiatorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
+
+    self.application = application
+    self.storeFactory = storeFactory
+    self.settings = settings
+    self.logFactory = logFactory
+
+class ThreadedSocketAcceptor(ThreadedSocketAcceptorBase):
+  application = 0
+  storeFactory = 0
+  setting = 0
+  logFactory = 0
+
+  def __init__(self, application, storeFactory, settings, logFactory=None):
+    if logFactory == None:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings)
+    else:
+      ThreadedSocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 
     self.application = application
     self.storeFactory = storeFactory

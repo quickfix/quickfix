@@ -14,6 +14,30 @@ namespace Swig {
 }
 
 
+class SwigDirector_LogFactory : public FIX::LogFactory, public Swig::Director {
+
+public:
+    SwigDirector_LogFactory(VALUE self);
+    virtual ~SwigDirector_LogFactory();
+    virtual FIX::Log *create();
+    virtual FIX::Log *create(FIX::SessionID const &arg0);
+    virtual void destroy(FIX::Log *arg0);
+};
+
+
+class SwigDirector_Log : public FIX::Log, public Swig::Director {
+
+public:
+    SwigDirector_Log(VALUE self);
+    virtual ~SwigDirector_Log();
+    virtual void clear();
+    virtual void backup();
+    virtual void onIncoming(std::string const &arg0);
+    virtual void onOutgoing(std::string const &arg0);
+    virtual void onEvent(std::string const &arg0);
+};
+
+
 class SwigDirector_Application : public FIX::Application, public Swig::Director {
 
 public:
