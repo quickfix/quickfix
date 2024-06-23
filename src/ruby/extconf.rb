@@ -11,7 +11,7 @@ if( ENV['CXX'] != nil )
   CONFIG["LDSHARED"].gsub!("cc", ENV['CXX'])
 end
 
-additional_flags = ' -std=c++11 -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
+additional_flags = ' -Wno-deprecated-declarations -Wno-deprecated -Wno-maybe-uninitialized -Wno-unused-but-set-variable'
 $CFLAGS << additional_flags
 $CXXFLAGS << additional_flags
 
