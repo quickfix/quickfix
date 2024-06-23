@@ -52,6 +52,7 @@ const char START_TIME[] = "StartTime";
 const char END_TIME[] = "EndTime";
 const char START_DAY[] = "StartDay";
 const char END_DAY[] = "EndDay";
+const char NON_STOP_SESSION[] = "NonStopSession";
 const char LOGON_TIME[] = "LogonTime";
 const char LOGOUT_TIME[] = "LogoutTime";
 const char LOGON_DAY[] = "LogonDay";

@@ -2795,6 +2795,50 @@ TEST_CASE_METHOD(initiatorCreatedBeforeStartTimeFixture, "initiatorLogonAtStartT
   CHECK( actuallySentLogon );
 }
 
+// Session with StartTime = EndTime = 00:00:00 disconnects every day at 00:00:00
+TEST_CASE_METHOD(sessionFixture, "sessionPeriodicallyDisconnects")
+{
+  now = UtcTimeStamp(23, 59, 58, 2024, 3, 31);
+  startTime = UtcTimeOnly(0, 0, 0);
+  endTime = UtcTimeOnly(0, 0, 0);
+  createSession(0);
+  object->setCheckLatency(false);
+
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  CHECK( 1 == toLogon );
+  CHECK( 0 == toLogout );
+
+  now = UtcTimeStamp(23, 59, 59, 2024, 3, 31);
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
+  CHECK( 0 == toLogout );
+
+  now = UtcTimeStamp(0, 0, 1, 2024, 4, 1);
+  object->next( createHeartbeat( "ISLD", "TW", 3 ), now );
+  CHECK( 1 == toLogout );
+}
+
+TEST_CASE_METHOD(sessionFixture, "sessionNonStop")
+{
+  now = UtcTimeStamp(23, 59, 58, 2024, 3, 31);
+  startTime = UtcTimeOnly(0, 0, 0);
+  endTime = UtcTimeOnly(0, 0, 0);
+  createSession(0);
+  object->setCheckLatency(false);
+  object->setIsNonStopSession(true);
+
+  object->next( createLogon( "ISLD", "TW", 1 ), now );
+  CHECK( 1 == toLogon );
+  CHECK( 0 == toLogout );
+
+  now = UtcTimeStamp(23, 59, 59, 2024, 3, 31);
+  object->next( createHeartbeat( "ISLD", "TW", 2 ), now );
+  CHECK( 0 == toLogout );
+
+  now = UtcTimeStamp(0, 0, 1, 2024, 4, 1);
+  object->next( createHeartbeat( "ISLD", "TW", 3 ), now );
+  CHECK( 0 == toLogout );
+}
+
 TEST_CASE_METHOD(initiatorFIX40Fixture, "customFIX40_UnsupportedMessageType_ERReject")
 {
   SessionID sessionID( BeginString( "FIX.4.0" ),
