@@ -3,7 +3,7 @@ USE quickfix;
 DROP TABLE IF EXISTS event_log;
 
 CREATE TABLE event_log (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   time DATETIME NOT NULL,
   time_milliseconds INT NOT NULL,
   beginstring CHAR(8),
@@ -17,7 +17,7 @@ CREATE TABLE event_log (
 DROP TABLE IF EXISTS event_backup_log;
 
 CREATE TABLE event_backup_log (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   time DATETIME NOT NULL,
   time_milliseconds INT NOT NULL,
   beginstring CHAR(8),

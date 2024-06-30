@@ -33,8 +33,8 @@
 namespace
 {
   auto const seqNumFileFormat = 
-    "%" + std::to_string(std::numeric_limits<uint64_t>::digits10) + 
-    "." + std::to_string(std::numeric_limits<uint64_t>::digits10) + 
+    "%" + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + 
+    "." + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + 
     SCNu64;
 
   auto const seqNumPairFileFormat = (seqNumFileFormat + " : " + seqNumFileFormat);

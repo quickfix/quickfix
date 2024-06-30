@@ -166,7 +166,7 @@ void MySQLStoreFactory::destroy( MessageStore* pStore )
   delete pStore;
 }
 
-bool MySQLStore::set( int msgSeqNum, const std::string& msg )
+bool MySQLStore::set( SEQNUM msgSeqNum, const std::string& msg )
 EXCEPT ( IOException )
 {
   char* msgCopy = new char[ (msg.size() * 2) + 1 ];
@@ -202,7 +202,7 @@ EXCEPT ( IOException )
   return true;
 }
 
-void MySQLStore::get( int begin, int end,
+void MySQLStore::get( SEQNUM begin, SEQNUM end,
                       std::vector < std::string > & result ) const
 EXCEPT ( IOException )
 {
@@ -225,17 +225,17 @@ EXCEPT ( IOException )
     result.push_back( query.getValue( row, 0 ) );
 }
 
-int MySQLStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM MySQLStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextSenderMsgSeqNum();
 }
 
-int MySQLStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM MySQLStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextTargetMsgSeqNum();
 }
 
-void MySQLStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+void MySQLStore::setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
@@ -249,7 +249,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
   m_cache.setNextSenderMsgSeqNum( value );
 }
 
-void MySQLStore::setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+void MySQLStore::setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "

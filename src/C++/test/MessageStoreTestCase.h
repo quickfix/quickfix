@@ -54,7 +54,7 @@
   CHECK( heartbeat.toString() == messages[ 0 ] );           \
   CHECK( newOrderSingle.toString() == messages[ 1 ] );
 
-#define CHECK_MESSAGE_STORE_SET_GET_UINT64_T                \
+#define CHECK_MESSAGE_STORE_SET_GET_UINT64                  \
   uint64_t max = std::numeric_limits<uint64_t>::max();      \
   uint64_t first = max - uint64_t(2);                       \
   uint64_t second = max - uint64_t(1);                      \
@@ -117,7 +117,7 @@
   object->setNextSenderMsgSeqNum( 5 );                  \
   object->setNextTargetMsgSeqNum( 6 );
 
-#define CHECK_MESSAGE_STORE_OTHER_UINT64_T              \
+#define CHECK_MESSAGE_STORE_OTHER_UINT64                \
   uint64_t max = std::numeric_limits<uint64_t>::max();  \
   uint64_t first = max - uint64_t(20);                  \
   uint64_t second = max - uint64_t(10);                 \
