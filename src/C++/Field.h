@@ -443,6 +443,26 @@ public:
     { return getValue(); }
 };
 
+/// Field that contains a 64-bit integer value
+class UInt64Field : public FieldBase
+{
+public:
+  explicit UInt64Field( int field, uint64_t data )
+: FieldBase( field, UInt64Convertor::convert( data ) ) {}
+  UInt64Field( int field )
+: FieldBase( field, "" ) {}
+
+  void setValue( uint64_t value )
+    { setString( UInt64Convertor::convert( value ) ); }
+  uint64_t getValue() const EXCEPT ( IncorrectDataFormat )
+    { try
+      { return UInt64Convertor::convert( getString() ); }
+      catch( FieldConvertError& )
+      { throw IncorrectDataFormat( getTag(), getString() ); } }
+  operator uint64_t() const
+    { return getValue(); }
+};
+
 /// Field that contains a boolean value
 class BoolField : public FieldBase
 {
@@ -582,7 +602,7 @@ typedef StringField DayOfMonthField;
 typedef UtcDateField UtcDateOnlyField;
 typedef IntField LengthField;
 typedef IntField NumInGroupField;
-typedef IntField SeqNumField;
+typedef UInt64Field SeqNumField;
 typedef IntField TagNumField;
 typedef DoubleField PercentageField;
 typedef StringField CountryField;

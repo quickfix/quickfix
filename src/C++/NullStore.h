@@ -66,16 +66,16 @@ public:
 
   }
 
-  bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector<std::string> & ) const EXCEPT ( IOException );
+  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
+  void get( SEQNUM, SEQNUM, std::vector<std::string> & ) const EXCEPT ( IOException );
 
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException )
   { return m_nextSenderMsgSeqNum; }
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException )
   { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
   { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
   { m_nextTargetMsgSeqNum = value; }
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException )
   { ++m_nextSenderMsgSeqNum; }
@@ -96,8 +96,8 @@ public:
   void refresh() EXCEPT ( IOException ) {}
 
 private:
-  int m_nextSenderMsgSeqNum;
-  int m_nextTargetMsgSeqNum;
+  SEQNUM m_nextSenderMsgSeqNum;
+  SEQNUM m_nextTargetMsgSeqNum;
   UtcTimeStamp m_creationTime;
 };
 }

@@ -838,7 +838,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
   SECTION("sessionRefreshKeepsCurrentMessageState") 
   {
     createSession(1);
-    int expectedMessageSeq = object->getStore()->getNextSenderMsgSeqNum();
+    SEQNUM expectedMessageSeq = object->getStore()->getNextSenderMsgSeqNum();
     object->refresh();
     CHECK(expectedMessageSeq == object->getStore()->getNextSenderMsgSeqNum());
   }
@@ -846,7 +846,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
   SECTION("setSenderMsgSeqNum") 
   {
     createSession(1);
-    int expectedMessageSeq = 25;
+    SEQNUM expectedMessageSeq = 25;
     object->setNextSenderMsgSeqNum(expectedMessageSeq);
     CHECK(expectedMessageSeq == object->getStore()->getNextSenderMsgSeqNum());
   }
@@ -854,7 +854,7 @@ TEST_CASE_METHOD(sessionFixture, "SessionTestCase")
   SECTION("setTargetMsgSeqNum") 
   {
     createSession(1);
-    int expectedMessageSeq = 25;
+    SEQNUM expectedMessageSeq = 25;
     object->setNextTargetMsgSeqNum(expectedMessageSeq);
     CHECK(expectedMessageSeq == object->getStore()->getNextTargetMsgSeqNum());
   }

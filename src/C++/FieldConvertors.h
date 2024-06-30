@@ -286,6 +286,9 @@ typedef IntTConvertor<signed_int>   IntConvertor;
 /// Converts 64-bit integer to/from a string
 typedef IntTConvertor<signed_int64> Int64Convertor;
 
+/// Converts 64-bit unsigned integer to/from a string
+typedef IntTConvertor<unsigned_int64> UInt64Convertor;
+
 /// Converts checksum to/from a string
 struct CheckSumConvertor
 {
@@ -772,7 +775,7 @@ typedef UtcDateConvertor UTCDATE_CONVERTOR;
 typedef UtcTimeOnlyConvertor UTCTIMEONLY_CONVERTOR;
 typedef IntConvertor NUMINGROUP_CONVERTOR;
 typedef DoubleConvertor PERCENTAGE_CONVERTOR;
-typedef IntConvertor SEQNUM_CONVERTOR;
+typedef UInt64Convertor SEQNUM_CONVERTOR;
 typedef IntConvertor TAGNUM_CONVERTOR;
 typedef IntConvertor LENGTH_CONVERTOR;
 typedef StringConvertor COUNTRY_CONVERTOR;

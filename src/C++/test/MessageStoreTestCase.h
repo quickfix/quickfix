@@ -24,6 +24,8 @@
 #include <MessageStore.h>
 #include <SessionID.h>
 
+#include <limits.h>
+
 #define CHECK_MESSAGE_STORE_SET_GET                         \
   FIX42::Logon logon;                                       \
   logon.getHeader().setField( MsgSeqNum( 1 ) );             \
@@ -52,6 +54,31 @@
   CHECK( heartbeat.toString() == messages[ 0 ] );           \
   CHECK( newOrderSingle.toString() == messages[ 1 ] );
 
+#define CHECK_MESSAGE_STORE_SET_GET_UINT64_T                \
+  uint64_t max = std::numeric_limits<uint64_t>::max();      \
+  uint64_t first = max - uint64_t(2);                       \
+  uint64_t second = max - uint64_t(1);                      \
+  uint64_t third = max;                                     \
+                                                            \
+  FIX42::Logon logon;                                       \
+  logon.getHeader().setField( MsgSeqNum( first ) );         \
+  object->set( first, logon.toString() );                   \
+                                                            \
+  FIX42::Heartbeat heartbeat;                               \
+  heartbeat.getHeader().setField( MsgSeqNum( second ) );    \
+  object->set( second, heartbeat.toString() );              \
+                                                            \
+  FIX42::NewOrderSingle newOrderSingle;                     \
+  newOrderSingle.getHeader().setField( MsgSeqNum( third ) );\
+  object->set( third, newOrderSingle.toString() );          \
+                                                            \
+  std::vector < std::string > messages;                     \
+  object->get( first, third, messages );                    \
+  CHECK( 3U == messages.size() );                           \
+  CHECK( logon.toString() == messages[ 0 ] );               \
+  CHECK( heartbeat.toString() == messages[ 1 ] );           \
+  CHECK( newOrderSingle.toString() == messages[ 2 ] ); 
+                                                            
 #define CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE        \
   FIX42::ExecutionReport singleQuote;                 \
   singleQuote.setField( Text("Some Text") );          \
@@ -86,6 +113,23 @@
   CHECK( 11 == object->getNextSenderMsgSeqNum() );      \
   object->incrNextTargetMsgSeqNum();                    \
   CHECK( 21 == object->getNextTargetMsgSeqNum() );      \
+                                                        \
+  object->setNextSenderMsgSeqNum( 5 );                  \
+  object->setNextTargetMsgSeqNum( 6 );
+
+#define CHECK_MESSAGE_STORE_OTHER_UINT64_T              \
+  uint64_t max = std::numeric_limits<uint64_t>::max();  \
+  uint64_t first = max - uint64_t(20);                  \
+  uint64_t second = max - uint64_t(10);                 \
+                                                        \
+  object->setNextSenderMsgSeqNum( first );              \
+  CHECK( first == object->getNextSenderMsgSeqNum() );   \
+  object->setNextTargetMsgSeqNum( second );             \
+  CHECK( second == object->getNextTargetMsgSeqNum() );  \
+  object->incrNextSenderMsgSeqNum();                    \
+  CHECK( first + uint64_t(1) == object->getNextSenderMsgSeqNum() ); \
+  object->incrNextTargetMsgSeqNum();                    \
+  CHECK( second + uint64_t(1) == object->getNextTargetMsgSeqNum() ); \
                                                         \
   object->setNextSenderMsgSeqNum( 5 );                  \
   object->setNextTargetMsgSeqNum( 6 );
