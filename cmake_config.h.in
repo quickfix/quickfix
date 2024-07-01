@@ -3,5 +3,8 @@
 
 #cmakedefine HAVE_CXX17
 #cmakedefine HAVE_STD_SHARED_PTR
+#cmakedefine HAVE_MYSQL
+#cmakedefine HAVE_POSTGRESQL
+#cmakedefine HAVE_SSL 1
 
 #endif

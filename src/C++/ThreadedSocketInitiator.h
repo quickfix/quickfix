@@ -28,6 +28,7 @@
 
 #include "Initiator.h"
 #include "ThreadedSocketConnection.h"
+#include "HostDetailsProvider.h"
 #include <map>
 
 namespace FIX
@@ -49,7 +50,6 @@ public:
 
 private:
   typedef std::map < socket_handle, thread_id > SocketToThread;
-  typedef std::map < SessionID, int > SessionToHostNum;
   typedef std::pair < ThreadedSocketInitiator*, ThreadedSocketConnection* > ThreadPair;
 
   void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
@@ -66,10 +66,8 @@ private:
   void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread( void* p );
 
-  void getHost( const SessionID&, const Dictionary&, std::string&, short&, std::string&, short& );
-
   SessionSettings m_settings;
-  SessionToHostNum m_sessionToHostNum;
+  HostDetailsProvider m_hostDetailsProvider;
   time_t m_lastConnect;
   int m_reconnectInterval;
   bool m_noDelay;

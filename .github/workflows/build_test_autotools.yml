@@ -16,12 +16,21 @@ jobs:
                 - runner: macos-latest
                   compiler-settings: CXX=g++ CC=gcc
       steps:
+      - name: Install dependencies
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.10' 
+            
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install autoconf and automake for macOS
+      - name: Install dependencies for macOS
         if: matrix.runner == 'macos-latest'
-        run: brew install autoconf automake
+        run: brew install autoconf automake libtool openssl
+
+      - name: Link dependencies for macOS
+        if: matrix.runner == 'macos-latest'
+        run: brew link autoconf automake libtool openssl
 
       - name: Bootstrap
         shell: bash
@@ -34,7 +43,7 @@ jobs:
 
       - name: Configure
         shell: bash
-        run: ./configure
+        run: CPPFLAGS=-I/opt/homebrew/opt/openssl/include LDFLAGS=-L/opt/homebrew/opt/openssl/lib ./configure --with-python3 --with-ruby --with-openssl
         if: ${{ success() && matrix.compiler-settings == '' }}
 
       - name: Make

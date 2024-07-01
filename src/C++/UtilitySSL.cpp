@@ -135,6 +135,10 @@
 
 #ifdef _MSC_VER
 
+#if !defined(snprintf)
+#define snprintf _snprintf
+#endif
+
 #if !defined(strcasecmp)
 #define strcasecmp _stricmp
 #endif
@@ -993,6 +997,13 @@ long protocolOptions(const char *opt)
         thisopt = SSL_PROTOCOL_TLSV1_2;
         w += 7 /* strlen("TLSv1_2") */;
       }
+#if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
+      else if (!strncasecmp(w, "TLSv1_3", 7 /* strlen("TLSv1_3") */))
+      {
+        thisopt = SSL_PROTOCOL_TLSV1_3;
+        w += 7 /* strlen("TLSv1_3") */;
+      }
+#endif
       else if (!strncasecmp(w, "TLSv1", 5 /* strlen("TLSv1") */))
       {
         thisopt = SSL_PROTOCOL_TLSV1;
@@ -1037,6 +1048,10 @@ void setCtxOptions(SSL_CTX *ctx, long options)
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_1);
   if (!(options & SSL_PROTOCOL_TLSV1_2))
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_2);
+#if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
+  if (!(options & SSL_PROTOCOL_TLSV1_3))
+    SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_3);
+#endif
 }
 
 int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile)
@@ -1142,6 +1157,28 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
       SSL_CTX_free(ctx);
       return 0;
     }
+  }
+
+  if (settings.get().has(TLS_CIPHER_SUITES))
+  {
+    std::string strCipherSuites = settings.get().getString(TLS_CIPHER_SUITES);
+
+#if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
+    if (!strCipherSuites.empty() &&
+        !SSL_CTX_set_ciphersuites(ctx, strCipherSuites.c_str()))
+    {
+      errStr.append("Unable to configure permitted TLS ciphersuites");
+      SSL_CTX_free(ctx);
+      return 0;
+    }
+#else
+    if (!strCipherSuites.empty())
+    {
+      errStr.append("Unable to configure TLS ciphersuites (OpenSSl < 1.1.1)");
+      SSL_CTX_free(ctx);
+      return 0;
+    }
+#endif
   }
 
   return ctx;
@@ -1305,7 +1342,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
       return false;
     }
     break;
-    
+
   case SSL_ALGO_EC:
     log->onEvent("Configuring EC client private key");
     if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)

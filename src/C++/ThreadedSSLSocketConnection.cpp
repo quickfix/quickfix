@@ -128,10 +128,10 @@
 
 namespace FIX
 {
-ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(socket_handle s, SSL *ssl,
+ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(socket_handle socket, SSL *ssl,
                                                          Sessions sessions,
                                                          Log *pLog)
-    : m_socket(s), m_ssl(ssl), m_pLog(pLog), m_sessions(sessions),
+    : m_socket(socket), m_ssl(ssl), m_pLog(pLog), m_sessions(sessions),
       m_pSession(0), m_disconnect(false)
 {
   FD_ZERO(&m_fds);
@@ -139,9 +139,9 @@ ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(socket_handle s, SSL *s
 }
 
 ThreadedSSLSocketConnection::ThreadedSSLSocketConnection(
-    const SessionID &sessionID, socket_handle s, SSL *ssl, const std::string &address,
+    const SessionID &sessionID, socket_handle socket, SSL *ssl, const std::string &address,
     short port, Log *pLog)
-    : m_socket(s), m_ssl(ssl), m_address(address), m_port(port), m_pLog(pLog),
+    : m_socket(socket), m_ssl(ssl), m_address(address), m_port(port), m_pLog(pLog),
       m_pSession(Session::lookupSession(sessionID)), m_disconnect(false)
 {
   FD_ZERO(&m_fds);
@@ -159,11 +159,11 @@ ThreadedSSLSocketConnection::~ThreadedSSLSocketConnection()
   }
 }
 
-bool ThreadedSSLSocketConnection::send(const std::string &msg)
+bool ThreadedSSLSocketConnection::send(const std::string &message)
 {
   int totalSent = 0;
 
-  while (totalSent < (int)msg.length())
+  while (totalSent < (int)message.length())
   {
     errno = 0;
     int errCodeSSL = 0;
@@ -175,7 +175,7 @@ bool ThreadedSSLSocketConnection::send(const std::string &msg)
     {
       Locker locker(m_mutex);
 
-      sent = SSL_write(m_ssl, msg.c_str() + totalSent, msg.length() - totalSent);
+      sent = SSL_write(m_ssl, message.c_str() + totalSent, message.length() - totalSent);
       if (sent <= 0)
         errCodeSSL = SSL_get_error(m_ssl, sent);
     }
@@ -319,26 +319,24 @@ bool ThreadedSSLSocketConnection::read()
   }
 }
 
-bool ThreadedSSLSocketConnection::readMessage(std::string &msg) EXCEPT (SocketRecvFailed)
+bool ThreadedSSLSocketConnection::readMessage(std::string &message) EXCEPT (SocketRecvFailed)
 {
   try
   {
-    return m_parser.readFixMessage(msg);
+    return m_parser.readFixMessage(message);
   }
-  catch (MessageParseError &)
-  {
-  }
+  catch ( MessageParseError & ) {}
   return true;
 }
 
 void ThreadedSSLSocketConnection::processStream()
 {
-  std::string msg;
-  while (readMessage(msg))
+  std::string message;
+  while (readMessage(message))
   {
     if (!m_pSession)
     {
-      if (!setSession(msg))
+      if (!setSession(message))
       {
         disconnect();
         continue;
@@ -346,7 +344,7 @@ void ThreadedSSLSocketConnection::processStream()
     }
     try
     {
-      m_pSession->next(msg, UtcTimeStamp::now());
+      m_pSession->next(message, UtcTimeStamp::now());
     }
     catch (InvalidMessage &)
     {
@@ -359,15 +357,15 @@ void ThreadedSSLSocketConnection::processStream()
   }
 }
 
-bool ThreadedSSLSocketConnection::setSession(const std::string &msg)
+bool ThreadedSSLSocketConnection::setSession(const std::string &message)
 {
-  m_pSession = Session::lookupSession(msg, true);
+  m_pSession = Session::lookupSession(message, true);
   if (!m_pSession)
   {
     if (m_pLog)
     {
-      m_pLog->onEvent("Session not found for incoming message: " + msg);
-      m_pLog->onIncoming(msg);
+      m_pLog->onEvent("Session not found for incoming message: " + message);
+      m_pLog->onIncoming(message);
     }
     return false;
   }

@@ -71,3 +71,6 @@ CMakeCache.txt
 .vscode
 .cache
 compile_commands.json
+*.vcxproj
+*.vcxproj.filters
+*.sln

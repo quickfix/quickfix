@@ -192,20 +192,20 @@ bool SSLSocketConnection::processQueue()
   if ( poll( &pfd, 1, 0 ) <= 0 ) { return false; }
 #endif
     
-  const std::string& msg = m_sendQueue.front();
+  const std::string& message = m_sendQueue.front();
   
   errno = 0;
   int errCodeSSL = 0;
   int sent = 0;
   ERR_clear_error();
 
-  sent = SSL_write(m_ssl, msg.c_str() + m_sendLength,  msg.length() - m_sendLength);
+  sent = SSL_write(m_ssl, message.c_str() + m_sendLength,  message.length() - m_sendLength);
       
   if (sent > 0)
   {
     m_sendLength += sent;
 
-    if (m_sendLength == msg.length())
+    if (m_sendLength == message.length())
     {
       m_sendLength = 0;
       m_sendQueue.pop_front();
@@ -426,31 +426,31 @@ bool SSLSocketConnection::didReadFromSocketRequestToWrite() const
     return m_readFromSocketNeedsToWriteData;
 }
 
-bool SSLSocketConnection::readMessage( std::string& msg )
+bool SSLSocketConnection::readMessage( std::string& message )
 {
   try
   {
-    return m_parser.readFixMessage( msg );
+    return m_parser.readFixMessage( message );
   }
   catch ( MessageParseError& ) {}
   return true;
 }
 
-void SSLSocketConnection::readMessages( SocketMonitor& s )
+void SSLSocketConnection::readMessages( SocketMonitor& socketMonitor )
 {
   if( !m_pSession ) return;
 
-  std::string msg;
-  while( readMessage( msg ) )
+  std::string message;
+  while( readMessage( message ) )
   {
     try
     {
-      m_pSession->next( msg, UtcTimeStamp::now() );
+      m_pSession->next( message, UtcTimeStamp::now() );
     }
     catch ( InvalidMessage& )
     {
       if( !m_pSession->isLoggedOn() )
-        s.drop( m_socket );
+        socketMonitor.drop( m_socket );
     }
   }
 }

@@ -1,4 +1,6 @@
-source quickfix_database.sql;
+DROP DATABASE IF EXISTS quickfix;
+CREATE DATABASE quickfix;
+
 source sessions_table.sql;
 source messages_table.sql;
 source messages_log_table.sql;

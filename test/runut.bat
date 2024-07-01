@@ -1,3 +1,4 @@
+
 echo off
 if "%1" == "" goto usage
 
@@ -14,7 +15,7 @@ set DIR=release\ut
 goto start
 
 :start
-%DIR%\ut.exe -f cfg\ut.cfg
+%DIR%\ut.exe --quickfix-config-file cfg\ut.cfg --quickfix-spec-path ..\spec
 goto quit
 
 :usage

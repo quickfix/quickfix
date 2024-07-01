@@ -230,6 +230,11 @@ public:
   void setSendNextExpectedMsgSeqNum ( bool value )
     { m_sendNextExpectedMsgSeqNum = value; }
 
+  bool getIsNonStopSession() const
+    { return m_isNonStopSession; }
+  void setIsNonStopSession ( bool value )
+    { m_isNonStopSession = value; }
+  
   const std::set<std::string>& getAllowedRemoteAddresses()
     { return m_allowedRemoteAddresses; }
   void setAllowedRemoteAddresses ( const std::set<std::string> &value )
@@ -239,6 +244,8 @@ public:
 
   void setResponder( Responder* pR )
   {
+    if (m_refreshOnLogon)
+      refresh();
     if( !checkSessionTime(m_timestamper()) )
       reset();
     m_pResponder = pR;
@@ -279,6 +286,7 @@ private:
   }
   bool checkSessionTime( const UtcTimeStamp& now )
   {
+    if( getIsNonStopSession() ) return true;
     UtcTimeStamp creationTime = m_state.getCreationTime();
     return m_sessionTime.isInSameRange( now, creationTime );
   }
@@ -358,6 +366,7 @@ private:
   bool m_persistMessages;
   bool m_validateLengthAndChecksum;
   bool m_sendNextExpectedMsgSeqNum;
+  bool m_isNonStopSession;
   std::set<std::string> m_allowedRemoteAddresses;
 
   SessionState m_state;

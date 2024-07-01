@@ -29,7 +29,7 @@
 #ifdef _MSC_VER
 #  define PRAGMA_PUSH( x )                      \
    __pragma( warning( push ) )                  \
-   __pragma( warning( disable: x ) ) 
+   __pragma( warning( disable: x ) )
 #  define PRAGMA_POP                            \
    __pragma( warning( pop ) )
 #else
@@ -123,7 +123,7 @@ namespace FIX
 {
 #ifdef _MSC_VER
 typedef int socklen_t;
-typedef int ssize_t;
+typedef SSIZE_T ssize_t;
 typedef SOCKET socket_handle;
 #else
 typedef int socket_handle;

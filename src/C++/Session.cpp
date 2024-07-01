@@ -65,6 +65,7 @@ Session::Session( std::function<UtcTimeStamp()> timestamper,
   m_persistMessages( true ),
   m_validateLengthAndChecksum( true ),
   m_sendNextExpectedMsgSeqNum( false ),
+  m_isNonStopSession( false ),
   m_state( m_timestamper() ),
   m_dataDictionaryProvider( dataDictionaryProvider ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -240,7 +241,7 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
     else if( nextExpectedMsgSeqNum.getValue() > getExpectedSenderNum() )
     {
       std::stringstream stream;
-      stream << "NextExpectedMsgSeqNum too low, expecting " << getExpectedSenderNum()
+      stream << "NextExpectedMsgSeqNum too high, expecting " << getExpectedSenderNum()
              << " but received " << nextExpectedMsgSeqNum;
       m_state.onEvent( stream.str() );
       generateLogout( stream.str() );
@@ -301,10 +302,11 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
       if( endSeqNo > next )
         endSeqNo = EndSeqNo(next);
       generateSequenceReset( beginSeqNo, endSeqNo );
-      return;
     }
-
-    generateRetransmits( beginSeqNo, endSeqNo );
+    else
+    {
+      generateRetransmits( beginSeqNo, endSeqNo );
+    }
   }
 }
 
@@ -398,10 +400,11 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
     generateSequenceReset( beginSeqNo, endSeqNo );
-    return;
   }
-
-  generateRetransmits( beginSeqNo.getValue(), endSeqNo.getValue() );
+  else
+  {
+    generateRetransmits( beginSeqNo.getValue(), endSeqNo.getValue() );
+  }
 
   MsgSeqNum msgSeqNum(0);
   resendRequest.getHeader().getField( msgSeqNum );
@@ -1489,14 +1492,14 @@ Session* Session::lookupSession( const SessionID& sessionID )
   if ( find != s_sessions.end() )
     return find->second;
   else
-    return 0;
+    return nullptr;
 }
 
 Session* Session::lookupSession( const std::string& string, bool reverse )
 {
   Message message;
   if ( !message.setStringHeader( string ) )
-    return 0;
+    return nullptr;
 
   try
   {
@@ -1514,7 +1517,7 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
     return lookupSession( SessionID( beginString, senderCompID,
                           targetCompID ) );
   }
-  catch ( FieldNotFound& ) { return 0; }
+  catch ( FieldNotFound& ) { return nullptr; }
 }
 
 bool Session::isSessionRegistered( const SessionID& sessionID )
@@ -1527,8 +1530,8 @@ Session* Session::registerSession( const SessionID& sessionID )
 {
   Locker locker( s_mutex );
   Session* pSession = lookupSession( sessionID );
-  if ( pSession == 0 ) return 0;
-  if ( isSessionRegistered( sessionID ) ) return 0;
+  if ( pSession == nullptr ) return nullptr;
+  if ( isSessionRegistered( sessionID ) ) return nullptr;
   s_registered[ sessionID ] = pSession;
   return pSession;
 }

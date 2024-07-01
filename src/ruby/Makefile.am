@@ -13,6 +13,8 @@ all-local:
 
 clean-local:
 	$(MAKE) -f Makefile.ruby clean
+	rm -f Makefile.ruby
+	rm -f quickfix.bundle
 	rm -rf $(local_ruby_lib)
 
 install-exec-local:

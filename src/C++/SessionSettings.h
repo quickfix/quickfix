@@ -52,6 +52,7 @@ const char START_TIME[] = "StartTime";
 const char END_TIME[] = "EndTime";
 const char START_DAY[] = "StartDay";
 const char END_DAY[] = "EndDay";
+const char NON_STOP_SESSION[] = "NonStopSession";
 const char LOGON_TIME[] = "LogonTime";
 const char LOGOUT_TIME[] = "LogoutTime";
 const char LOGON_DAY[] = "LogonDay";
@@ -69,6 +70,8 @@ const char SOCKET_CONNECT_SOURCE_PORT[] = "SocketConnectSourcePort";
 const char SOCKET_NODELAY[] = "SocketNodelay";
 const char SOCKET_SEND_BUFFER_SIZE[] = "SocketSendBufferSize";
 const char SOCKET_RECEIVE_BUFFER_SIZE[] = "SocketReceiveBufferSize";
+const char HOST_SELECTION_POLICY[] = "HostSelectionPolicy";
+const char HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL[] = "HostSelectionPolicyPriorityStartOverInterval";
 const char RECONNECT_INTERVAL[] = "ReconnectInterval";
 const char VALIDATE_LENGTH_AND_CHECKSUM[] = "ValidateLengthAndChecksum";
 const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
@@ -187,6 +190,9 @@ const char ALLOWED_REMOTE_ADDRESSES[] = "AllowedRemoteAddresses";
 */
 const char SSL_PROTOCOL[] = "SSLProtocol";
 /*
+# DISCLAIMER: This setting only work for TLSv1.2 and below
+# see: https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_cipher_list.html
+#
 # This complex directive uses a colon-separated cipher-spec string consisting
 # of OpenSSL cipher specifications to configure the Cipher Suite the client is
 # permitted to negotiate in the SSL handshake phase. Notice that this directive
@@ -216,6 +222,22 @@ const char SSL_PROTOCOL[] = "SSLProtocol";
 # Example: RC4+RSA:+HIGH:
 */
 const char SSL_CIPHER_SUITE[] = "SSLCipherSuite";
+/*
+# DISCLAIMER: This setting only work for TLSv1.3 and upper
+# see: https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_ciphersuites.html
+#
+# This is a simple colon (":") separated list of TLSv1.3 ciphersuite names in
+# order of preference. Valid TLSv1.3 ciphersuite names are:
+#   TLS_AES_128_GCM_SHA256
+#   TLS_AES_256_GCM_SHA384
+#   TLS_CHACHA20_POLY1305_SHA256
+#   TLS_AES_128_CCM_SHA256
+#   TLS_AES_128_CCM_8_SHA256
+#
+# An empty list is permissible. The default value for the this setting is:
+# "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
+*/
+const char TLS_CIPHER_SUITES[] = "TLSCipherSuites";
 
 
 /// Container for setting dictionaries mapped to sessions.

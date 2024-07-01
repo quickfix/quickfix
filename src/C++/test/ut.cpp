@@ -38,10 +38,15 @@ int main( int argc, char** argv )
     | Catch::Clara::Opt( [](std::string quickfixConfigFile)
     {
       FIX::TestSettings::sessionSettings = FIX::SessionSettings(quickfixConfigFile);
-    }, 
-    "user" )
+    }, "user" )
     ["--quickfix-config-file"]
-    ("QuickFIX config file for tests");  
+    ("QuickFIX config file for tests")
+    | Catch::Clara::Opt( [](std::string quickfixSpecPath)
+    {
+      FIX::TestSettings::specPath = quickfixSpecPath;
+    }, "user")
+    ["--quickfix-spec-path"]
+    ("QuickFIX spec path");  
   session.cli( newCli );
 
   return session.run(argc, argv);

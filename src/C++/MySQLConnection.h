@@ -178,7 +178,7 @@ private:
       0 ) )
     {
       if( !connected() )
-        throw ConfigError( std::string("Unable to connect to postgres database: ")
+        throw ConfigError( std::string("Unable to connect to mysql database: ")
           + "'" + m_connectionID.getDatabase() + "': " 
           + m_connectionID.getUser() + '@' + m_connectionID.getHost() + ":" + std::to_string(port) 
           + " [" + mysql_error(m_pConnection) + "]");

@@ -33,7 +33,7 @@ then
   CPPFLAGS="$CPPFLAGS -I$with_openssl/include"
   LDFLAGS="$LDFLAGS -L$with_openssl/lib"
   # Check for OpenSSL headers
-	AC_CHECK_HEADERS([$with_openssl/include/openssl/ssl.h],,AC_MSG_ERROR([Unable to find the OpenSSL headers]))
+	AC_CHECK_HEADER([$with_openssl/include/openssl/ssl.h],,AC_MSG_ERROR([Unable to find the OpenSSL headers]))
 	# Check for OpenSSL library
   LIBS_SAVED="$LIBS"
 	LIBS="$LIBS_SAVED -lssl -lcrypto"
