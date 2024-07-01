@@ -112,35 +112,33 @@
   object->incrNextSenderMsgSeqNum();                    \
   CHECK( 11 == object->getNextSenderMsgSeqNum() );      \
   object->incrNextTargetMsgSeqNum();                    \
-  CHECK( 21 == object->getNextTargetMsgSeqNum() );      \
-                                                        \
-  object->setNextSenderMsgSeqNum( 5 );                  \
-  object->setNextTargetMsgSeqNum( 6 );
+  CHECK( 21 == object->getNextTargetMsgSeqNum() );
 
-#define CHECK_MESSAGE_STORE_OTHER_UINT64                \
-  uint64_t max = std::numeric_limits<uint64_t>::max();  \
-  uint64_t first = max - uint64_t(20);                  \
-  uint64_t second = max - uint64_t(10);                 \
-                                                        \
-  object->setNextSenderMsgSeqNum( first );              \
-  CHECK( first == object->getNextSenderMsgSeqNum() );   \
-  object->setNextTargetMsgSeqNum( second );             \
-  CHECK( second == object->getNextTargetMsgSeqNum() );  \
-  object->incrNextSenderMsgSeqNum();                    \
+#define CHECK_MESSAGE_STORE_OTHER_UINT64                            \
+  uint64_t max = std::numeric_limits<uint64_t>::max();              \
+  uint64_t first = max - uint64_t(20);                              \
+  uint64_t second = max - uint64_t(10);                             \
+                                                                    \
+  object->setNextSenderMsgSeqNum( first );                          \
+  CHECK( first == object->getNextSenderMsgSeqNum() );               \
+  object->setNextTargetMsgSeqNum( second );                         \
+  CHECK( second == object->getNextTargetMsgSeqNum() );              \
+  object->incrNextSenderMsgSeqNum();                                \
   CHECK( first + uint64_t(1) == object->getNextSenderMsgSeqNum() ); \
-  object->incrNextTargetMsgSeqNum();                    \
-  CHECK( second + uint64_t(1) == object->getNextTargetMsgSeqNum() ); \
-                                                        \
-  object->setNextSenderMsgSeqNum( 5 );                  \
-  object->setNextTargetMsgSeqNum( 6 );
+  object->incrNextTargetMsgSeqNum();                                \
+  CHECK( second + uint64_t(1) == object->getNextTargetMsgSeqNum() );
+
+#define SET_SEQUENCE_NUMBERS                          \
+  object->setNextSenderMsgSeqNum( std::numeric_limits<uint64_t>::max() - uint64_t(1) ); \
+  object->setNextTargetMsgSeqNum( std::numeric_limits<uint64_t>::max() );
 
 // use same session from previous test
-#define CHECK_MESSAGE_STORE_RELOAD                      \
-  CHECK( 5 == object->getNextSenderMsgSeqNum() );       \
-  CHECK( 6 == object->getNextTargetMsgSeqNum() );
+#define CHECK_MESSAGE_STORE_RELOAD                    \
+  CHECK( std::numeric_limits<uint64_t>::max() - uint64_t(1) == object->getNextSenderMsgSeqNum() );     \
+  CHECK( std::numeric_limits<uint64_t>::max() == object->getNextTargetMsgSeqNum() );
 
 // use same session from previous test
 #define CHECK_MESSAGE_STORE_REFRESH                   \
   object->refresh();                                  \
-  CHECK( 5 == object->getNextSenderMsgSeqNum() );     \
-  CHECK( 6 == object->getNextTargetMsgSeqNum() );
+  CHECK( std::numeric_limits<uint64_t>::max() - uint64_t(1) == object->getNextSenderMsgSeqNum() );     \
+  CHECK( std::numeric_limits<uint64_t>::max() == object->getNextTargetMsgSeqNum() );

@@ -93,7 +93,7 @@ struct resetBeforeAndAfterWithTestFileManager : resetBeforeAndAfterFileStoreFixt
   }
 };
 
-TEST_CASE_METHOD(resetBeforeAndAfterFileStoreFixture, "FileStoreTests_1")
+TEST_CASE_METHOD(resetBeforeFileStoreFixture, "resetFileStoreTests")
 {
   SECTION("setGet")
   {
@@ -109,10 +109,7 @@ TEST_CASE_METHOD(resetBeforeAndAfterFileStoreFixture, "FileStoreTests_1")
   {
     CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE
   }
-}
 
-TEST_CASE_METHOD(resetBeforeFileStoreFixture, "FileStoreTests_2")
-{
   SECTION("other")
   {
     CHECK_MESSAGE_STORE_OTHER
@@ -121,6 +118,21 @@ TEST_CASE_METHOD(resetBeforeFileStoreFixture, "FileStoreTests_2")
   SECTION("otherUint64")
   {
     CHECK_MESSAGE_STORE_OTHER_UINT64
+  }
+
+  SET_SEQUENCE_NUMBERS
+}
+
+TEST_CASE_METHOD(noResetFileStoreFixture, "noResetFileStoreTests")
+{
+  SECTION("reload")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
+
+  SECTION("refresh")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
   }
 }
 

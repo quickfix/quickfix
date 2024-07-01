@@ -33,6 +33,7 @@
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
+#include <string>
 
 namespace FIX
 {
@@ -80,7 +81,7 @@ void PostgreSQLStore::populateCache()
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw ConfigError( "No entries found for session in database" );
+    throw ConfigError( "Unable to query sessions table" );
 
   int rows = query.rows();
   if( rows > 1 )
@@ -92,8 +93,8 @@ void PostgreSQLStore::populateCache()
     std::string sqlTime = query.getValue( 0, 0 );
     strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", &time );
     m_cache.setCreationTime (UtcTimeStamp (&time));
-    m_cache.setNextTargetMsgSeqNum( atol( query.getValue( 0, 1 ) ) );
-    m_cache.setNextSenderMsgSeqNum( atol( query.getValue( 0, 2 ) ) );
+    m_cache.setNextTargetMsgSeqNum( std::stoull( query.getValue( 0, 1 ) ) );
+    m_cache.setNextSenderMsgSeqNum( std::stoull( query.getValue( 0, 2 ) ) );
   }
   else
   {

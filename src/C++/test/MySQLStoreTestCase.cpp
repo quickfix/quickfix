@@ -104,6 +104,8 @@ TEST_CASE_METHOD(resetMySQLStoreFixture, "resetMySQLStoreTests")
   {
     CHECK_MESSAGE_STORE_OTHER_UINT64
   }
+
+  SET_SEQUENCE_NUMBERS
 }
 
 TEST_CASE_METHOD(noResetMySQLStoreFixture, "noResetMySQLStoreTests")
