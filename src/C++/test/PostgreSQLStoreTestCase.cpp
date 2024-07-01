@@ -82,17 +82,27 @@ TEST_CASE_METHOD(resetPostgreSQLStoreFixture, "resetPostgreSQLStoreTests")
 {
   SECTION("setGet")
   {
-    CHECK_MESSAGE_STORE_SET_GET;
+    CHECK_MESSAGE_STORE_SET_GET
+  }
+
+  SECTION("setGetUint64")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_UINT64
   }
 
   SECTION("setGetWithQuote")
   {
-    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE
   }
 
   SECTION("other")
   {
     CHECK_MESSAGE_STORE_OTHER
+  }
+
+  SECTION("otherUint64")
+  {
+    CHECK_MESSAGE_STORE_OTHER_UINT64
   }
 }
 

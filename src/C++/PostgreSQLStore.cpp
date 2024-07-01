@@ -166,7 +166,7 @@ void PostgreSQLStoreFactory::destroy( MessageStore* pStore )
   delete pStore;
 }
 
-bool PostgreSQLStore::set( int msgSeqNum, const std::string& msg )
+bool PostgreSQLStore::set( SEQNUM msgSeqNum, const std::string& msg )
 EXCEPT ( IOException )
 {
   char* msgCopy = new char[ (msg.size() * 2) + 1 ];
@@ -203,7 +203,7 @@ EXCEPT ( IOException )
   return true;
 }
 
-void PostgreSQLStore::get( int begin, int end,
+void PostgreSQLStore::get( SEQNUM begin, SEQNUM end,
                       std::vector < std::string > & result ) const
 EXCEPT ( IOException )
 {
@@ -226,17 +226,17 @@ EXCEPT ( IOException )
     result.push_back( query.getValue( row, 0 ) );
 }
 
-int PostgreSQLStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM PostgreSQLStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextSenderMsgSeqNum();
 }
 
-int PostgreSQLStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM PostgreSQLStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextTargetMsgSeqNum();
 }
 
-void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+void PostgreSQLStore::setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
@@ -252,7 +252,7 @@ void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
   m_cache.setNextSenderMsgSeqNum( value );
 }
 
-void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+void PostgreSQLStore::setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "

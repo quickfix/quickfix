@@ -113,13 +113,13 @@ public:
                    const std::string& password, const std::string& host, short port );
   ~PostgreSQLStore();
 
-  bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
+  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
+  void get( SEQNUM, SEQNUM, std::vector < std::string > & ) const EXCEPT ( IOException );
 
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException );
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException );
-  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException );
-  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException );
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException );
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException );
+  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
+  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException );
   void incrNextTargetMsgSeqNum() EXCEPT ( IOException );
 
