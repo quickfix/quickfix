@@ -101,11 +101,11 @@ public:
 
 private:
 #ifdef _MSC_VER
-  typedef std::pair<SEQNUM, std::size_t> OffsetSize;
+  typedef std::pair<long, std::size_t> OffsetSize;
 #else
-  typedef std::pair<int, std::size_t> OffsetSize;
+  typedef std::pair<long, std::size_t> OffsetSize;
 #endif
-  typedef std::map<long, OffsetSize> NumToOffset;
+  typedef std::map<SEQNUM, OffsetSize> NumToOffset;
 
   void open( bool deleteFile );
   void populateCache();

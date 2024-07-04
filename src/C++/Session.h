@@ -72,9 +72,9 @@ public:
   { generateLogout(); disconnect(); m_state.reset( m_timestamper() ); }
   void refresh() EXCEPT ( IOException )
   { m_state.refresh(); }
-  void setNextSenderMsgSeqNum( int num ) EXCEPT ( IOException )
+  void setNextSenderMsgSeqNum( SEQNUM num ) EXCEPT ( IOException )
   { m_state.setNextSenderMsgSeqNum( num ); }
-  void setNextTargetMsgSeqNum( int num ) EXCEPT ( IOException )
+  void setNextTargetMsgSeqNum( SEQNUM num ) EXCEPT ( IOException )
   { m_state.setNextTargetMsgSeqNum( num ); }
 
   const SessionID& getSessionID() const

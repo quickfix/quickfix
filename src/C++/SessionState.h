@@ -36,7 +36,7 @@ namespace FIX
 /// Maintains all of state for the Session class.
 class SessionState : public MessageStore, public Log
 {
-  typedef std::map < int, Message > Messages;
+  typedef std::map < SEQNUM, Message > Messages;
 
 public:
   SessionState( const UtcTimeStamp& now )
@@ -154,9 +154,9 @@ public:
   void logoutReason( const std::string& value ) 
   { Locker l( m_mutex ); m_logoutReason = value; }
 
-  void queue( int msgSeqNum, const Message& message )
+  void queue( SEQNUM msgSeqNum, const Message& message )
   { Locker l( m_mutex ); m_queue[ msgSeqNum ] = message; }
-  bool retrieve( int msgSeqNum, Message& message )
+  bool retrieve( SEQNUM msgSeqNum, Message& message )
   {
     Locker l( m_mutex );
     Messages::iterator i = m_queue.find( msgSeqNum );

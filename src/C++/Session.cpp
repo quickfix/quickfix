@@ -269,7 +269,9 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
   {
     if( m_sendNextExpectedMsgSeqNum )
     {
-      m_state.onEvent( "Expecting retransmits FROM: " + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() ) + " TO: " + SEQNUM_CONVERTOR::convert( msgSeqNum - 1 ) );
+      m_state.onEvent( "Expecting retransmits FROM: " 
+                       + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() ) 
+                       + " TO: " + SEQNUM_CONVERTOR::convert( msgSeqNum - 1 ) );
       m_state.queue( msgSeqNum, logon );
       m_state.resendRange( getExpectedTargetNum(), msgSeqNum - 1 );
     }
@@ -293,7 +295,9 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
 
     auto beginSeqNo = nextExpectedMsgSeqNum.getValue();
     auto endSeqNo = getExpectedSenderNum() - 1;
-    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " + IntConvertor::convert( beginSeqNo ) + " TO: " + IntConvertor::convert( endSeqNo ) );
+    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " 
+                     + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                     + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
     if ( !m_persistMessages )
     {
@@ -364,8 +368,8 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
   if ( sequenceReset.getFieldIfSet( newSeqNo ) )
   {
     m_state.onEvent( "Received SequenceReset FROM: "
-                     + IntConvertor::convert( getExpectedTargetNum() ) +
-                     " TO: " + IntConvertor::convert( newSeqNo ) );
+                     + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() ) +
+                     " TO: " + SEQNUM_CONVERTOR::convert( newSeqNo ) );
 
     if ( newSeqNo > getExpectedTargetNum() )
       m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
@@ -384,8 +388,8 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   auto endSeqNo = resendRequest.getField<EndSeqNo>();
 
   m_state.onEvent( "Received ResendRequest FROM: "
-       + IntConvertor::convert( beginSeqNo ) +
-                   " TO: " + IntConvertor::convert( endSeqNo ) );
+                   + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                   + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
   std::string beginString = m_sessionID.getBeginString();
   if ( (beginString >= FIX::BeginString_FIX42 && endSeqNo == 0) ||
@@ -758,8 +762,8 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
   sendRaw( resendRequest );
 
   m_state.onEvent( "Sent ResendRequest FROM: "
-                   + SEQNUM_CONVERTOR::convert( beginSeqNo ) +
-                   " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
+                   + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                   + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
   m_state.resendRange( beginSeqNo, msgSeqNum - 1 );
 }
@@ -1079,10 +1083,10 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
  
       if ( *pMsgSeqNum >= range.second )
       {
-        m_state.onEvent ("ResendRequest for messages FROM: " +
-                         SEQNUM_CONVERTOR::convert (range.first) + " TO: " +
-                         SEQNUM_CONVERTOR::convert (range.second) +
-                         " has been satisfied.");
+        m_state.onEvent ("ResendRequest for messages FROM: "
+                         + SEQNUM_CONVERTOR::convert (range.first) + " TO: "
+                         + SEQNUM_CONVERTOR::convert (range.second)
+                         + " has been satisfied.");
         m_state.resendRange (0, 0);
       }
     }
@@ -1217,10 +1221,10 @@ void Session::doTargetTooHigh( const Message& msg )
 
     if( !m_sendRedundantResendRequests && msgSeqNum >= range.first )
     {
-          m_state.onEvent ("Already sent ResendRequest FROM: " +
-                           SEQNUM_CONVERTOR::convert (range.first) + " TO: " +
-                           SEQNUM_CONVERTOR::convert (range.second) +
-                           ".  Not sending another.");
+          m_state.onEvent ("Already sent ResendRequest FROM: "
+                           + SEQNUM_CONVERTOR::convert (range.first) + " TO: "
+                           + SEQNUM_CONVERTOR::convert (range.second)
+                           + ".  Not sending another.");
           return;
     }
   }
