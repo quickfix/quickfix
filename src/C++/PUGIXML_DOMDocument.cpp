@@ -104,7 +104,7 @@ namespace FIX
 
   DOMNodePtr PUGIXML_DOMDocument::getNode( const std::string& XPath )
   {
-    pugi::xpath_node result = m_pDoc.select_single_node(XPath.c_str());
+    pugi::xpath_node result = m_pDoc.select_node(XPath.c_str());
     if( !result ) return DOMNodePtr();
 
     return DOMNodePtr(new PUGIXML_DOMNode(result.node()));
