@@ -89,7 +89,7 @@ public:
   {
     if( m_statement ) SQLFreeHandle( SQL_HANDLE_STMT, m_statement );
     SQLAllocHandle( SQL_HANDLE_STMT, connection, &m_statement );
-    m_result = SQLExecDirect( m_statement, (SQLCHAR*)m_query.c_str(), m_query.size() );
+    m_result = SQLExecDirect( m_statement, (SQLCHAR*)m_query.c_str(), (SQLINTEGER)m_query.size() );
     if( success() || m_result == SQL_NO_DATA )
       return true;
     m_reason = odbcError( SQL_HANDLE_STMT, m_statement );

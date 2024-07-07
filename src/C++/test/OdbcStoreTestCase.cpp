@@ -85,14 +85,14 @@ TEST_CASE_METHOD(resetOdbcStoreFixture, "resetOdbcStoreTests")
     CHECK_MESSAGE_STORE_SET_GET
   }
 
-  SECTION("setGetUint64")
-  {
-    CHECK_MESSAGE_STORE_SET_GET_UINT64
-  }
-
   SECTION("setGetWithQuote")
   {
     CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE
+  }
+
+  SECTION("setGetUint64")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_UINT64
   }
 
   SECTION("other")

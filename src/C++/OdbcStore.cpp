@@ -81,14 +81,14 @@ void OdbcStore::populateCache()
     SQL_TIMESTAMP_STRUCT creationTime;  
     SQLLEN creationTimeLength;
     SQLGetData( query.statement(), 1, SQL_C_TYPE_TIMESTAMP, &creationTime, 0, &creationTimeLength );
-    SQLLEN incomingSeqNum;
+    SQLUBIGINT incomingSeqNum;
     SQLLEN incomingSeqNumLength;
-    SQLGetData( query.statement(), 2, SQL_C_SLONG, &incomingSeqNum, 0, &incomingSeqNumLength );
+    SQLGetData( query.statement(), 2, SQL_C_UBIGINT, &incomingSeqNum, 0, &incomingSeqNumLength );
 
-    SQLLEN outgoingSeqNum;
+    SQLUBIGINT outgoingSeqNum;
     SQLLEN outgoingSeqNumLength;
-    SQLGetData( query.statement(), 3, SQL_C_SLONG, &outgoingSeqNum, 0, &outgoingSeqNumLength );
-
+    SQLGetData( query.statement(), 3, SQL_C_UBIGINT, &outgoingSeqNum, 0, &outgoingSeqNumLength );
+    
     UtcTimeStamp time = UtcTimeStamp::now();
     time.setYMD( creationTime.year, creationTime.month, creationTime.day );
     time.setHMS( creationTime.hour, creationTime.minute, creationTime.second, creationTime.fraction );

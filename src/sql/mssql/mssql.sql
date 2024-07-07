@@ -10,8 +10,8 @@ CREATE TABLE sessions (
   targetcompid VARCHAR(64) NOT NULL,
   session_qualifier VARCHAR(64) NOT NULL,
   creation_time DATETIME NOT NULL,
-  incoming_seqnum INT NOT NULL,
-  outgoing_seqnum INT NOT NULL,
+  incoming_seqnum NUMERIC(20,0) NOT NULL,
+  outgoing_seqnum NUMERIC(20,0) NOT NULL,
   PRIMARY KEY (beginstring, sendercompid, targetcompid, session_qualifier)
 );
 
@@ -20,13 +20,13 @@ CREATE TABLE messages (
   sendercompid VARCHAR(64) NOT NULL,
   targetcompid VARCHAR(64) NOT NULL,
   session_qualifier VARCHAR(64) NOT NULL,
-  msgseqnum INT NOT NULL,
+  msgseqnum NUMERIC(20,0) NOT NULL,
   message TEXT NOT NULL,
   PRIMARY KEY (beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum)
 );
 
 CREATE TABLE event_log (
-  id INT NOT NULL IDENTITY,
+  id BIGINT NOT NULL IDENTITY,
   time DATETIME NOT NULL,
   beginstring CHAR(8),
   sendercompid VARCHAR(64),
@@ -37,7 +37,7 @@ CREATE TABLE event_log (
 );
 
 CREATE TABLE event_backup_log (
-  id INT NOT NULL IDENTITY,
+  id BIGINT NOT NULL IDENTITY,
   time DATETIME NOT NULL,
   beginstring CHAR(8),
   sendercompid VARCHAR(64),

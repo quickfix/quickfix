@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 set (quickfix_PROJECT_NAME quickfix)
 
@@ -30,6 +30,7 @@ include(QuickfixPrebuildSetup)
 option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
+option(HAVE_ODBC "Build with ODBC")
 option(HAVE_PYTHON "Build with default Python version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
@@ -65,6 +66,14 @@ find_package(PostgreSQL REQUIRED)
 include_directories(${PostgreSQL_INCLUDE_DIRS})
 
 message("-- Building with POSTGRESQL")
+endif()
+
+if(HAVE_ODBC)
+find_package(ODBC REQUIRED)
+add_definitions(-DHAVE_ODBC)
+include_directories(SYSTEM ${ODBC_INCLUDE_DIRS})
+
+message("-- Building with ODBC")
 endif()
 
 if (HAVE_PYTHON)
