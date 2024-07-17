@@ -959,6 +959,22 @@ class Int64Field(FieldBase):
 
 # Register Int64Field in _quickfix:
 _quickfix.Int64Field_swigregister(Int64Field)
+class UInt64Field(FieldBase):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.UInt64Field_swiginit(self, _quickfix.new_UInt64Field(*args))
+
+    def setValue(self, value):
+        return _quickfix.UInt64Field_setValue(self, value)
+
+    def getValue(self):
+        return _quickfix.UInt64Field_getValue(self)
+    __swig_destroy__ = _quickfix.delete_UInt64Field
+
+# Register UInt64Field in _quickfix:
+_quickfix.UInt64Field_swigregister(UInt64Field)
 class BoolField(FieldBase):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr

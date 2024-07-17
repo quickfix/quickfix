@@ -2327,78 +2327,80 @@ namespace Swig {
 #define SWIGTYPE_p_FIX__ThreadedSocketAcceptor swig_types[103]
 #define SWIGTYPE_p_FIX__ThreadedSocketInitiator swig_types[104]
 #define SWIGTYPE_p_FIX__Trailer swig_types[105]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[106]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[107]
-#define SWIGTYPE_p_FIX__UtcDate swig_types[108]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[109]
-#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[110]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[111]
-#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[112]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[113]
-#define SWIGTYPE_p_Fields swig_types[114]
-#define SWIGTYPE_p_Group swig_types[115]
-#define SWIGTYPE_p_Groups swig_types[116]
-#define SWIGTYPE_p_IntArray swig_types[117]
-#define SWIGTYPE_p_IntField swig_types[118]
-#define SWIGTYPE_p_Log swig_types[119]
-#define SWIGTYPE_p_LogFactory swig_types[120]
-#define SWIGTYPE_p_MYSQL swig_types[121]
-#define SWIGTYPE_p_MessageStore swig_types[122]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[123]
-#define SWIGTYPE_p_MsgType swig_types[124]
-#define SWIGTYPE_p_Mutex swig_types[125]
-#define SWIGTYPE_p_PGconn swig_types[126]
-#define SWIGTYPE_p_RSA swig_types[127]
-#define SWIGTYPE_p_Responder swig_types[128]
-#define SWIGTYPE_p_SessionID swig_types[129]
-#define SWIGTYPE_p_SessionToPort swig_types[130]
-#define SWIGTYPE_p_StringField swig_types[131]
-#define SWIGTYPE_p_TimeRange swig_types[132]
-#define SWIGTYPE_p_UtcDateField swig_types[133]
-#define SWIGTYPE_p_X509 swig_types[134]
-#define SWIGTYPE_p_allocator_type swig_types[135]
-#define SWIGTYPE_p_bool swig_types[136]
-#define SWIGTYPE_p_char swig_types[137]
-#define SWIGTYPE_p_const_iterator swig_types[138]
-#define SWIGTYPE_p_difference_type swig_types[139]
-#define SWIGTYPE_p_double swig_types[140]
-#define SWIGTYPE_p_g_const_iterator swig_types[141]
-#define SWIGTYPE_p_g_iterator swig_types[142]
-#define SWIGTYPE_p_g_value_type swig_types[143]
-#define SWIGTYPE_p_int swig_types[144]
-#define SWIGTYPE_p_int64_t swig_types[145]
-#define SWIGTYPE_p_iterator swig_types[146]
-#define SWIGTYPE_p_key_type swig_types[147]
-#define SWIGTYPE_p_message_order swig_types[148]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[149]
-#define SWIGTYPE_p_size_type swig_types[150]
-#define SWIGTYPE_p_ssize_t swig_types[151]
-#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[152]
-#define SWIGTYPE_p_std__istream swig_types[153]
-#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[154]
-#define SWIGTYPE_p_std__logic_error swig_types[155]
-#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[156]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[157]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[158]
-#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[159]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[160]
-#define SWIGTYPE_p_std__ostream swig_types[161]
-#define SWIGTYPE_p_std__setT_FIX__SessionID_t swig_types[162]
-#define SWIGTYPE_p_std__string swig_types[163]
-#define SWIGTYPE_p_std__string__size_type swig_types[164]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[165]
-#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[166]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[167]
-#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[168]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[169]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[170]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[171]
-#define SWIGTYPE_p_swig__Iterator swig_types[172]
-#define SWIGTYPE_p_tm swig_types[173]
-#define SWIGTYPE_p_value_type swig_types[174]
-#define SWIGTYPE_p_void swig_types[175]
-static swig_type_info *swig_types[177];
-static swig_module_info swig_module = {swig_types, 176, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__UInt64Field swig_types[106]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[107]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[108]
+#define SWIGTYPE_p_FIX__UtcDate swig_types[109]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[110]
+#define SWIGTYPE_p_FIX__UtcTimeOnly swig_types[111]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[112]
+#define SWIGTYPE_p_FIX__UtcTimeStamp swig_types[113]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[114]
+#define SWIGTYPE_p_Fields swig_types[115]
+#define SWIGTYPE_p_Group swig_types[116]
+#define SWIGTYPE_p_Groups swig_types[117]
+#define SWIGTYPE_p_IntArray swig_types[118]
+#define SWIGTYPE_p_IntField swig_types[119]
+#define SWIGTYPE_p_Log swig_types[120]
+#define SWIGTYPE_p_LogFactory swig_types[121]
+#define SWIGTYPE_p_MYSQL swig_types[122]
+#define SWIGTYPE_p_MessageStore swig_types[123]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[124]
+#define SWIGTYPE_p_MsgType swig_types[125]
+#define SWIGTYPE_p_Mutex swig_types[126]
+#define SWIGTYPE_p_PGconn swig_types[127]
+#define SWIGTYPE_p_RSA swig_types[128]
+#define SWIGTYPE_p_Responder swig_types[129]
+#define SWIGTYPE_p_SessionID swig_types[130]
+#define SWIGTYPE_p_SessionToPort swig_types[131]
+#define SWIGTYPE_p_StringField swig_types[132]
+#define SWIGTYPE_p_TimeRange swig_types[133]
+#define SWIGTYPE_p_UtcDateField swig_types[134]
+#define SWIGTYPE_p_X509 swig_types[135]
+#define SWIGTYPE_p_allocator_type swig_types[136]
+#define SWIGTYPE_p_bool swig_types[137]
+#define SWIGTYPE_p_char swig_types[138]
+#define SWIGTYPE_p_const_iterator swig_types[139]
+#define SWIGTYPE_p_difference_type swig_types[140]
+#define SWIGTYPE_p_double swig_types[141]
+#define SWIGTYPE_p_g_const_iterator swig_types[142]
+#define SWIGTYPE_p_g_iterator swig_types[143]
+#define SWIGTYPE_p_g_value_type swig_types[144]
+#define SWIGTYPE_p_int swig_types[145]
+#define SWIGTYPE_p_int64_t swig_types[146]
+#define SWIGTYPE_p_iterator swig_types[147]
+#define SWIGTYPE_p_key_type swig_types[148]
+#define SWIGTYPE_p_message_order swig_types[149]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[150]
+#define SWIGTYPE_p_size_type swig_types[151]
+#define SWIGTYPE_p_ssize_t swig_types[152]
+#define SWIGTYPE_p_std__functionT_FIX__UtcTimeStamp_fF_t swig_types[153]
+#define SWIGTYPE_p_std__istream swig_types[154]
+#define SWIGTYPE_p_std__lessT_FIX__SessionID_t swig_types[155]
+#define SWIGTYPE_p_std__logic_error swig_types[156]
+#define SWIGTYPE_p_std__mapT_FIX__SessionID_uint16_t_t swig_types[157]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t swig_types[158]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__const_iterator swig_types[159]
+#define SWIGTYPE_p_std__mapT_int_std__vectorT_FIX__FieldMap_p_t_std__lessT_int_t_ALLOCATORT_std__pairT_int_const_std__vectorT_FIX__FieldMap_p_t_t_t_t__iterator swig_types[160]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t__const_iterator swig_types[161]
+#define SWIGTYPE_p_std__ostream swig_types[162]
+#define SWIGTYPE_p_std__setT_FIX__SessionID_t swig_types[163]
+#define SWIGTYPE_p_std__string swig_types[164]
+#define SWIGTYPE_p_std__string__size_type swig_types[165]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__MySQLConnection_t_t swig_types[166]
+#define SWIGTYPE_p_std__unique_ptrT_FIX__DatabaseConnectionPoolT_FIX__PostgreSQLConnection_t_t swig_types[167]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__const_iterator swig_types[168]
+#define SWIGTYPE_p_std__vectorT_FIX__FieldBase_ALLOCATORT_FIX__FieldBase_t_t__iterator swig_types[169]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[170]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[171]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[172]
+#define SWIGTYPE_p_swig__Iterator swig_types[173]
+#define SWIGTYPE_p_tm swig_types[174]
+#define SWIGTYPE_p_uint64_t swig_types[175]
+#define SWIGTYPE_p_value_type swig_types[176]
+#define SWIGTYPE_p_void swig_types[177]
+static swig_type_info *swig_types[179];
+static swig_module_info swig_module = {swig_types, 178, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -26238,6 +26240,239 @@ fail:
 SWIGINTERN void
 free_FIX_Int64Field(void *self) {
     FIX::Int64Field *arg1 = (FIX::Int64Field *)self;
+    delete arg1;
+}
+
+static swig_class SwigClassUInt64Field;
+
+SWIGINTERN VALUE
+_wrap_new_UInt64Field__SWIG_0(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  uint64_t arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::UInt64Field";
+  FIX::UInt64Field *result = 0 ;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","UInt64Field", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "uint64_t","UInt64Field", 2, argv[1] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","UInt64Field", 2, argv[1]));
+    } else {
+      arg2 = *(reinterpret_cast< uint64_t * >(argp2));
+    }
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::UInt64Field *)new FIX::UInt64Field(arg1,arg2);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+#ifdef HAVE_RB_DEFINE_ALLOC_FUNC
+_wrap_UInt64Field_allocate(VALUE self)
+#else
+_wrap_UInt64Field_allocate(int argc, VALUE *argv, VALUE self)
+#endif
+{
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_FIX__UInt64Field);
+#ifndef HAVE_RB_DEFINE_ALLOC_FUNC
+  rb_obj_call_init(vresult, argc, argv);
+#endif
+  return vresult;
+}
+
+
+SWIGINTERN VALUE
+_wrap_new_UInt64Field__SWIG_1(int argc, VALUE *argv, VALUE self) {
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  const char *classname SWIGUNUSED = "Quickfix::UInt64Field";
+  FIX::UInt64Field *result = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","UInt64Field", 1, argv[0] ));
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = (FIX::UInt64Field *)new FIX::UInt64Field(arg1);
+          DATA_PTR(self) = result;
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return self;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE _wrap_new_UInt64Field(int nargs, VALUE *args, VALUE self) {
+  int argc;
+  VALUE argv[2];
+  int ii;
+  
+  argc = nargs;
+  if (argc > 2) SWIG_fail;
+  for (ii = 0; (ii < argc); ++ii) {
+    argv[ii] = args[ii];
+  }
+  if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      return _wrap_new_UInt64Field__SWIG_1(nargs, args, self);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_int(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_uint64_t, SWIG_POINTER_NO_NULL);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_UInt64Field__SWIG_0(nargs, args, self);
+      }
+    }
+  }
+  
+fail:
+  Ruby_Format_OverloadedError( argc, 2, "UInt64Field.new", 
+    "    UInt64Field.new(int field, uint64_t data)\n"
+    "    UInt64Field.new(int field)\n");
+  
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_UInt64Field_setValue(int argc, VALUE *argv, VALUE self) {
+  FIX::UInt64Field *arg1 = (FIX::UInt64Field *) 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__UInt64Field, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UInt64Field *","setValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::UInt64Field * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "uint64_t","setValue", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","setValue", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< uint64_t * >(argp2));
+    }
+  }
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      (arg1)->setValue(arg2);
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
+_wrap_UInt64Field_getValue(int argc, VALUE *argv, VALUE self) {
+  FIX::UInt64Field *arg1 = (FIX::UInt64Field *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  uint64_t result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__UInt64Field, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::UInt64Field const *","getValue", 1, self )); 
+  }
+  arg1 = reinterpret_cast< FIX::UInt64Field * >(argp1);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      result = ((FIX::UInt64Field const *)arg1)->getValue();
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_NewPointerObj((new uint64_t(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN void
+free_FIX_UInt64Field(void *self) {
+    FIX::UInt64Field *arg1 = (FIX::UInt64Field *)self;
     delete arg1;
 }
 
@@ -95123,11 +95358,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_Session_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -95137,11 +95372,17 @@ _wrap_Session_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Session *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::Session * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -95163,11 +95404,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_Session_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -95177,11 +95418,17 @@ _wrap_Session_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::Session *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::Session * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -98578,7 +98825,7 @@ _wrap_Session_getExpectedSenderNum(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -98592,7 +98839,7 @@ _wrap_Session_getExpectedSenderNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)(arg1)->getExpectedSenderNum();
+      result = (arg1)->getExpectedSenderNum();
           return self;
         fail:
           return Qnil;
@@ -98601,7 +98848,7 @@ _wrap_Session_getExpectedSenderNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -98613,7 +98860,7 @@ _wrap_Session_getExpectedTargetNum(int argc, VALUE *argv, VALUE self) {
   FIX::Session *arg1 = (FIX::Session *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -98627,7 +98874,7 @@ _wrap_Session_getExpectedTargetNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)(arg1)->getExpectedTargetNum();
+      result = (arg1)->getExpectedTargetNum();
           return self;
         fail:
           return Qnil;
@@ -98636,7 +98883,7 @@ _wrap_Session_getExpectedTargetNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -101718,12 +101965,12 @@ free_FIX_MessageStore(void *self) {
 SWIGINTERN VALUE
 _wrap_MessageStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -101736,11 +101983,17 @@ _wrap_MessageStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -101783,15 +102036,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -101803,16 +102056,28 @@ _wrap_MessageStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -101844,7 +102109,7 @@ _wrap_MessageStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -101858,7 +102123,7 @@ _wrap_MessageStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MessageStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::MessageStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -101867,7 +102132,7 @@ _wrap_MessageStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -101879,7 +102144,7 @@ _wrap_MessageStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -101893,7 +102158,7 @@ _wrap_MessageStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MessageStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::MessageStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -101902,7 +102167,7 @@ _wrap_MessageStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -101912,11 +102177,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -101926,11 +102191,17 @@ _wrap_MessageStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -101952,11 +102223,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStore *arg1 = (FIX::MessageStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -101966,11 +102237,17 @@ _wrap_MessageStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -102221,12 +102498,12 @@ fail:
 SWIGINTERN VALUE
 _wrap_MemoryStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -102239,11 +102516,17 @@ _wrap_MemoryStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MemoryStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MemoryStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -102286,15 +102569,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_MemoryStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -102306,16 +102589,28 @@ _wrap_MemoryStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MemoryStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MemoryStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -102347,7 +102642,7 @@ _wrap_MemoryStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -102361,7 +102656,7 @@ _wrap_MemoryStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MemoryStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::MemoryStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -102370,7 +102665,7 @@ _wrap_MemoryStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -102382,7 +102677,7 @@ _wrap_MemoryStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -102396,7 +102691,7 @@ _wrap_MemoryStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MemoryStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::MemoryStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -102405,7 +102700,7 @@ _wrap_MemoryStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -102415,11 +102710,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MemoryStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -102429,11 +102724,17 @@ _wrap_MemoryStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MemoryStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MemoryStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -102455,11 +102756,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MemoryStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MemoryStore *arg1 = (FIX::MemoryStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -102469,11 +102770,17 @@ _wrap_MemoryStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MemoryStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MemoryStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -102953,14 +103260,14 @@ free_FIX_MessageStoreExceptionWrapper(void *self) {
 SWIGINTERN VALUE
 _wrap_MessageStoreExceptionWrapper_set(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStoreExceptionWrapper *arg1 = (FIX::MessageStoreExceptionWrapper *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   bool *arg4 = 0 ;
   FIX::IOException *arg5 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   void *argp4 = 0 ;
   int res4 = 0 ;
@@ -102977,11 +103284,17 @@ _wrap_MessageStoreExceptionWrapper_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStoreExceptionWrapper *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStoreExceptionWrapper * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -103040,17 +103353,17 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStoreExceptionWrapper_get(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStoreExceptionWrapper *arg1 = (FIX::MessageStoreExceptionWrapper *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   bool *arg5 = 0 ;
   FIX::IOException *arg6 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   void *argp5 = 0 ;
@@ -103066,16 +103379,28 @@ _wrap_MessageStoreExceptionWrapper_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStoreExceptionWrapper const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStoreExceptionWrapper * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -103129,7 +103454,7 @@ _wrap_MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(int argc, VALUE *argv,
   int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
@@ -103159,7 +103484,7 @@ _wrap_MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(int argc, VALUE *argv,
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MessageStoreExceptionWrapper const *)arg1)->getNextSenderMsgSeqNum(*arg2,*arg3);
+      result = ((FIX::MessageStoreExceptionWrapper const *)arg1)->getNextSenderMsgSeqNum(*arg2,*arg3);
           return self;
         fail:
           return Qnil;
@@ -103168,7 +103493,7 @@ _wrap_MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(int argc, VALUE *argv,
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -103186,7 +103511,7 @@ _wrap_MessageStoreExceptionWrapper_getNextTargetMsgSeqNum(int argc, VALUE *argv,
   int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
@@ -103216,7 +103541,7 @@ _wrap_MessageStoreExceptionWrapper_getNextTargetMsgSeqNum(int argc, VALUE *argv,
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MessageStoreExceptionWrapper const *)arg1)->getNextTargetMsgSeqNum(*arg2,*arg3);
+      result = ((FIX::MessageStoreExceptionWrapper const *)arg1)->getNextTargetMsgSeqNum(*arg2,*arg3);
           return self;
         fail:
           return Qnil;
@@ -103225,7 +103550,7 @@ _wrap_MessageStoreExceptionWrapper_getNextTargetMsgSeqNum(int argc, VALUE *argv,
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -103235,13 +103560,13 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStoreExceptionWrapper_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStoreExceptionWrapper *arg1 = (FIX::MessageStoreExceptionWrapper *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   bool *arg3 = 0 ;
   FIX::IOException *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   void *argp4 = 0 ;
@@ -103255,11 +103580,17 @@ _wrap_MessageStoreExceptionWrapper_setNextSenderMsgSeqNum(int argc, VALUE *argv,
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStoreExceptionWrapper *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStoreExceptionWrapper * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_bool,  0 );
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "bool &","setNextSenderMsgSeqNum", 3, argv[1] )); 
@@ -103297,13 +103628,13 @@ fail:
 SWIGINTERN VALUE
 _wrap_MessageStoreExceptionWrapper_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MessageStoreExceptionWrapper *arg1 = (FIX::MessageStoreExceptionWrapper *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   bool *arg3 = 0 ;
   FIX::IOException *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   void *argp4 = 0 ;
@@ -103317,11 +103648,17 @@ _wrap_MessageStoreExceptionWrapper_setNextTargetMsgSeqNum(int argc, VALUE *argv,
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MessageStoreExceptionWrapper *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MessageStoreExceptionWrapper * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_bool,  0 );
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "bool &","setNextTargetMsgSeqNum", 3, argv[1] )); 
@@ -103969,12 +104306,12 @@ free_FIX_FileStore(void *self) {
 SWIGINTERN VALUE
 _wrap_FileStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -103987,11 +104324,17 @@ _wrap_FileStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::FileStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::FileStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -104034,15 +104377,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_FileStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -104054,16 +104397,28 @@ _wrap_FileStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::FileStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::FileStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -104095,7 +104450,7 @@ _wrap_FileStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -104109,7 +104464,7 @@ _wrap_FileStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::FileStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::FileStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -104118,7 +104473,7 @@ _wrap_FileStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -104130,7 +104485,7 @@ _wrap_FileStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -104144,7 +104499,7 @@ _wrap_FileStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::FileStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::FileStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -104153,7 +104508,7 @@ _wrap_FileStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -104163,11 +104518,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_FileStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -104177,11 +104532,17 @@ _wrap_FileStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::FileStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::FileStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -104203,11 +104564,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_FileStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::FileStore *arg1 = (FIX::FileStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -104217,11 +104578,17 @@ _wrap_FileStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::FileStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::FileStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -113281,12 +113648,12 @@ free_FIX_MySQLStore(void *self) {
 SWIGINTERN VALUE
 _wrap_MySQLStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -113299,11 +113666,17 @@ _wrap_MySQLStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -113346,15 +113719,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_MySQLStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -113366,16 +113739,28 @@ _wrap_MySQLStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -113407,7 +113792,7 @@ _wrap_MySQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -113421,7 +113806,7 @@ _wrap_MySQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MySQLStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::MySQLStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -113430,7 +113815,7 @@ _wrap_MySQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -113442,7 +113827,7 @@ _wrap_MySQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -113456,7 +113841,7 @@ _wrap_MySQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::MySQLStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::MySQLStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -113465,7 +113850,7 @@ _wrap_MySQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -113475,11 +113860,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MySQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -113489,11 +113874,17 @@ _wrap_MySQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -113515,11 +113906,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_MySQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::MySQLStore *arg1 = (FIX::MySQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -113529,11 +113920,17 @@ _wrap_MySQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::MySQLStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::MySQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -116587,12 +116984,12 @@ free_FIX_PostgreSQLStore(void *self) {
 SWIGINTERN VALUE
 _wrap_PostgreSQLStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -116605,11 +117002,17 @@ _wrap_PostgreSQLStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -116652,15 +117055,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_PostgreSQLStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -116672,16 +117075,28 @@ _wrap_PostgreSQLStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -116713,7 +117128,7 @@ _wrap_PostgreSQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) 
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -116727,7 +117142,7 @@ _wrap_PostgreSQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) 
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::PostgreSQLStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::PostgreSQLStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -116736,7 +117151,7 @@ _wrap_PostgreSQLStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) 
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -116748,7 +117163,7 @@ _wrap_PostgreSQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) 
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -116762,7 +117177,7 @@ _wrap_PostgreSQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) 
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::PostgreSQLStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::PostgreSQLStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -116771,7 +117186,7 @@ _wrap_PostgreSQLStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) 
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -116781,11 +117196,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_PostgreSQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -116795,11 +117210,17 @@ _wrap_PostgreSQLStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) 
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -116821,11 +117242,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_PostgreSQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::PostgreSQLStore *arg1 = (FIX::PostgreSQLStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -116835,11 +117256,17 @@ _wrap_PostgreSQLStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) 
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::PostgreSQLStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::PostgreSQLStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -119060,12 +119487,12 @@ fail:
 SWIGINTERN VALUE
 _wrap_NullStore_set(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   bool result;
   VALUE vresult = Qnil;
@@ -119078,11 +119505,17 @@ _wrap_NullStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","set", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","set", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","set", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","set", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     std::string *ptr = (std::string *)0;
     res3 = SWIG_AsPtr_std_string(argv[1], &ptr);
@@ -119125,15 +119558,15 @@ fail:
 SWIGINTERN VALUE
 _wrap_NullStore_get(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
-  int arg2 ;
-  int arg3 ;
+  FIX::SEQNUM arg2 ;
+  FIX::SEQNUM arg3 ;
   std::vector< std::string > *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
   
@@ -119145,16 +119578,28 @@ _wrap_NullStore_get(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore const *","get", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","get", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(argv[1], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "int","get", 3, argv[1] ));
-  } 
-  arg3 = static_cast< int >(val3);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
+  {
+    res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), Ruby_Format_TypeError( "", "FIX::SEQNUM","get", 3, argv[1] )); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","get", 3, argv[1]));
+    } else {
+      arg3 = *(reinterpret_cast< FIX::SEQNUM * >(argp3));
+    }
+  }
   res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__vectorT_std__string_t,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "std::vector< std::string > &","get", 4, argv[2] )); 
@@ -119186,7 +119631,7 @@ _wrap_NullStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -119200,7 +119645,7 @@ _wrap_NullStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::NullStore const *)arg1)->getNextSenderMsgSeqNum();
+      result = ((FIX::NullStore const *)arg1)->getNextSenderMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -119209,7 +119654,7 @@ _wrap_NullStore_getNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -119221,7 +119666,7 @@ _wrap_NullStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int result;
+  FIX::SEQNUM result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 0)) {
@@ -119235,7 +119680,7 @@ _wrap_NullStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   {
     if(tryRubyException([&]() mutable 
         {
-      result = (int)((FIX::NullStore const *)arg1)->getNextTargetMsgSeqNum();
+      result = ((FIX::NullStore const *)arg1)->getNextTargetMsgSeqNum();
           return self;
         fail:
           return Qnil;
@@ -119244,7 +119689,7 @@ _wrap_NullStore_getNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
       SWIG_fail;
     }
   }
-  vresult = SWIG_From_int(static_cast< int >(result));
+  vresult = SWIG_NewPointerObj((new FIX::SEQNUM(result)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -119254,11 +119699,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_NullStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -119268,11 +119713,17 @@ _wrap_NullStore_setNextSenderMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","setNextSenderMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextSenderMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextSenderMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -119294,11 +119745,11 @@ fail:
 SWIGINTERN VALUE
 _wrap_NullStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
   FIX::NullStore *arg1 = (FIX::NullStore *) 0 ;
-  int arg2 ;
+  FIX::SEQNUM arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -119308,11 +119759,17 @@ _wrap_NullStore_setNextTargetMsgSeqNum(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "FIX::NullStore *","setNextTargetMsgSeqNum", 1, self )); 
   }
   arg1 = reinterpret_cast< FIX::NullStore * >(argp1);
-  ecode2 = SWIG_AsVal_int(argv[0], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","setNextTargetMsgSeqNum", 2, argv[0] ));
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0] )); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SEQNUM","setNextTargetMsgSeqNum", 2, argv[0]));
+    } else {
+      arg2 = *(reinterpret_cast< FIX::SEQNUM * >(argp2));
+    }
+  }
   {
     if(tryRubyException([&]() mutable 
         {
@@ -119710,6 +120167,9 @@ static void *_p_FIX__StringFieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM
 static void *_p_FIX__TargetCompIDTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::FieldBase *) (FIX::StringField *) ((FIX::TargetCompID *) x));
 }
+static void *_p_FIX__UInt64FieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((FIX::FieldBase *)  ((FIX::UInt64Field *) x));
+}
 static void *_p_FIX__UtcDateFieldTo_p_FIX__FieldBase(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((FIX::FieldBase *)  ((FIX::UtcDateField *) x));
 }
@@ -119951,7 +120411,7 @@ static swig_type_info _swigt__p_FIX__IncorrectMessageStructure = {"_p_FIX__Incor
 static swig_type_info _swigt__p_FIX__IncorrectTagValue = {"_p_FIX__IncorrectTagValue", "FIX::IncorrectTagValue *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Initiator = {"_p_FIX__Initiator", "FIX::Initiator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Int64Field = {"_p_FIX__Int64Field", "FIX::Int64Field *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_FIX__IntField = {"_p_FIX__IntField", "FIX::LengthField *|FIX::NumInGroupField *|FIX::SeqNumField *|FIX::TagNumField *|FIX::IntField *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__IntField = {"_p_FIX__IntField", "FIX::LengthField *|FIX::NumInGroupField *|FIX::TagNumField *|FIX::IntField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__InvalidMessage = {"_p_FIX__InvalidMessage", "FIX::InvalidMessage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__InvalidMessageType = {"_p_FIX__InvalidMessageType", "FIX::InvalidMessageType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__InvalidTagNumber = {"_p_FIX__InvalidTagNumber", "FIX::InvalidTagNumber *", 0, 0, (void*)0, 0};
@@ -120014,6 +120474,7 @@ static swig_type_info _swigt__p_FIX__TargetCompID = {"_p_FIX__TargetCompID", "FI
 static swig_type_info _swigt__p_FIX__ThreadedSocketAcceptor = {"_p_FIX__ThreadedSocketAcceptor", "FIX::ThreadedSocketAcceptor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__ThreadedSocketInitiator = {"_p_FIX__ThreadedSocketInitiator", "FIX::ThreadedSocketInitiator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Trailer = {"_p_FIX__Trailer", "FIX::Trailer *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__UInt64Field = {"_p_FIX__UInt64Field", "FIX::SeqNumField *|FIX::UInt64Field *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedMessageType = {"_p_FIX__UnsupportedMessageType", "FIX::UnsupportedMessageType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UnsupportedVersion = {"_p_FIX__UnsupportedVersion", "FIX::UnsupportedVersion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__UtcDate = {"_p_FIX__UtcDate", "FIX::UTCDATE *|FIX::UTCDATEONLY *|FIX::UtcDateOnly *|FIX::UtcDate *", 0, 0, (void*)0, 0};
@@ -120052,7 +120513,7 @@ static swig_type_info _swigt__p_double = {"_p_double", "FIX::AMT *|FIX::FLOAT *|
 static swig_type_info _swigt__p_g_const_iterator = {"_p_g_const_iterator", "g_const_iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_g_iterator = {"_p_g_iterator", "g_iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_g_value_type = {"_p_g_value_type", "g_value_type *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int = {"_p_int", "FIX::INT *|FIX::LENGTH *|FIX::NUMINGROUP *|FIX::SEQNUM *|FIX::TAGNUM *|int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "FIX::INT *|FIX::LENGTH *|FIX::NUMINGROUP *|FIX::TAGNUM *|int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int64_t = {"_p_int64_t", "FIX::INT64 *|int64_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_key_type = {"_p_key_type", "key_type *", 0, 0, (void*)0, 0};
@@ -120082,6 +120543,7 @@ static swig_type_info _swigt__p_swig__ConstIterator = {"_p_swig__ConstIterator",
 static swig_type_info _swigt__p_swig__GC_VALUE = {"_p_swig__GC_VALUE", "swig::GC_VALUE *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__Iterator = {"_p_swig__Iterator", "swig::Iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_tm = {"_p_tm", "tm *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_uint64_t = {"_p_uint64_t", "FIX::SEQNUM *|uint64_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_value_type = {"_p_value_type", "value_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_void = {"_p_void", "VALUE|void *", 0, 0, (void*)0, 0};
 
@@ -120192,6 +120654,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__ThreadedSocketAcceptor,
   &_swigt__p_FIX__ThreadedSocketInitiator,
   &_swigt__p_FIX__Trailer,
+  &_swigt__p_FIX__UInt64Field,
   &_swigt__p_FIX__UnsupportedMessageType,
   &_swigt__p_FIX__UnsupportedVersion,
   &_swigt__p_FIX__UtcDate,
@@ -120260,6 +120723,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_swig__GC_VALUE,
   &_swigt__p_swig__Iterator,
   &_swigt__p_tm,
+  &_swigt__p_uint64_t,
   &_swigt__p_value_type,
   &_swigt__p_void,
 };
@@ -120291,7 +120755,7 @@ static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend
 static swig_cast_info _swigc__p_FIX__DoubleField[] = {  {&_swigt__p_FIX__DoubleField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DuplicateFieldNumber[] = {  {&_swigt__p_FIX__DuplicateFieldNumber, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Exception[] = {  {&_swigt__p_FIX__Exception, 0, 0, 0},  {&_swigt__p_FIX__ConfigError, _p_FIX__ConfigErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DataDictionaryNotFound, _p_FIX__DataDictionaryNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DoNotSend, _p_FIX__DoNotSendTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__DuplicateFieldNumber, _p_FIX__DuplicateFieldNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldConvertError, _p_FIX__FieldConvertErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__FieldNotFound, _p_FIX__FieldNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IOException, _p_FIX__IOExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectDataFormat, _p_FIX__IncorrectDataFormatTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectMessageStructure, _p_FIX__IncorrectMessageStructureTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__IncorrectTagValue, _p_FIX__IncorrectTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessage, _p_FIX__InvalidMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidMessageType, _p_FIX__InvalidMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__InvalidTagNumber, _p_FIX__InvalidTagNumberTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__MessageParseError, _p_FIX__MessageParseErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__NoTagValue, _p_FIX__NoTagValueTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RejectLogon, _p_FIX__RejectLogonTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatedTag, _p_FIX__RepeatedTagTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RepeatingGroupCountMismatch, _p_FIX__RepeatingGroupCountMismatchTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RequiredTagMissing, _p_FIX__RequiredTagMissingTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__RuntimeError, _p_FIX__RuntimeErrorTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SessionNotFound, _p_FIX__SessionNotFoundTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketCloseFailed, _p_FIX__SocketCloseFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketException, _p_FIX__SocketExceptionTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketRecvFailed, _p_FIX__SocketRecvFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__SocketSendFailed, _p_FIX__SocketSendFailedTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagNotDefinedForMessage, _p_FIX__TagNotDefinedForMessageTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__TagOutOfOrder, _p_FIX__TagOutOfOrderTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedMessageType, _p_FIX__UnsupportedMessageTypeTo_p_FIX__Exception, 0, 0},  {&_swigt__p_FIX__UnsupportedVersion, _p_FIX__UnsupportedVersionTo_p_FIX__Exception, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__BeginString, _p_FIX__BeginStringTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Int64Field, _p_FIX__Int64FieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SenderCompID, _p_FIX__SenderCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TargetCompID, _p_FIX__TargetCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__FieldBase[] = {  {&_swigt__p_FIX__FieldBase, 0, 0, 0},  {&_swigt__p_FIX__BeginString, _p_FIX__BeginStringTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__BoolField, _p_FIX__BoolFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CharField, _p_FIX__CharFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__CheckSumField, _p_FIX__CheckSumFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__DoubleField, _p_FIX__DoubleFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__Int64Field, _p_FIX__Int64FieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__IntField, _p_FIX__IntFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__SenderCompID, _p_FIX__SenderCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__StringField, _p_FIX__StringFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__TargetCompID, _p_FIX__TargetCompIDTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UInt64Field, _p_FIX__UInt64FieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcDateField, _p_FIX__UtcDateFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeOnlyField, _p_FIX__UtcTimeOnlyFieldTo_p_FIX__FieldBase, 0, 0},  {&_swigt__p_FIX__UtcTimeStampField, _p_FIX__UtcTimeStampFieldTo_p_FIX__FieldBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldConvertError[] = {  {&_swigt__p_FIX__FieldConvertError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldMap[] = {  {&_swigt__p_FIX__FieldMap, 0, 0, 0},  {&_swigt__p_FIX__Group, _p_FIX__GroupTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Header, _p_FIX__HeaderTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Message, _p_FIX__MessageTo_p_FIX__FieldMap, 0, 0},  {&_swigt__p_FIX__Trailer, _p_FIX__TrailerTo_p_FIX__FieldMap, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__FieldNotFound[] = {  {&_swigt__p_FIX__FieldNotFound, 0, 0, 0},{0, 0, 0, 0}};
@@ -120370,6 +120834,7 @@ static swig_cast_info _swigc__p_FIX__TargetCompID[] = {  {&_swigt__p_FIX__Target
 static swig_cast_info _swigc__p_FIX__ThreadedSocketAcceptor[] = {  {&_swigt__p_FIX__ThreadedSocketAcceptor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__ThreadedSocketInitiator[] = {  {&_swigt__p_FIX__ThreadedSocketInitiator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Trailer[] = {  {&_swigt__p_FIX__Trailer, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__UInt64Field[] = {  {&_swigt__p_FIX__UInt64Field, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedMessageType[] = {  {&_swigt__p_FIX__UnsupportedMessageType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UnsupportedVersion[] = {  {&_swigt__p_FIX__UnsupportedVersion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__UtcDate[] = {  {&_swigt__p_FIX__UtcDate, 0, 0, 0},{0, 0, 0, 0}};
@@ -120438,6 +120903,7 @@ static swig_cast_info _swigc__p_swig__ConstIterator[] = {  {&_swigt__p_swig__Con
 static swig_cast_info _swigc__p_swig__GC_VALUE[] = {  {&_swigt__p_swig__GC_VALUE, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__Iterator[] = {  {&_swigt__p_swig__Iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_tm[] = {  {&_swigt__p_tm, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_uint64_t[] = {  {&_swigt__p_uint64_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_value_type[] = {  {&_swigt__p_value_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
@@ -120548,6 +121014,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__ThreadedSocketAcceptor,
   _swigc__p_FIX__ThreadedSocketInitiator,
   _swigc__p_FIX__Trailer,
+  _swigc__p_FIX__UInt64Field,
   _swigc__p_FIX__UnsupportedMessageType,
   _swigc__p_FIX__UnsupportedVersion,
   _swigc__p_FIX__UtcDate,
@@ -120616,6 +121083,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_swig__GC_VALUE,
   _swigc__p_swig__Iterator,
   _swigc__p_tm,
+  _swigc__p_uint64_t,
   _swigc__p_value_type,
   _swigc__p_void,
 };
@@ -121461,6 +121929,16 @@ SWIGEXPORT void Init_quickfix(void) {
   SwigClassInt64Field.mark = 0;
   SwigClassInt64Field.destroy = (void (*)(void *)) free_FIX_Int64Field;
   SwigClassInt64Field.trackObjects = 0;
+  
+  SwigClassUInt64Field.klass = rb_define_class_under(mQuickfix, "UInt64Field", ((swig_class *) SWIGTYPE_p_FIX__FieldBase->clientdata)->klass);
+  SWIG_TypeClientData(SWIGTYPE_p_FIX__UInt64Field, (void *) &SwigClassUInt64Field);
+  rb_define_alloc_func(SwigClassUInt64Field.klass, _wrap_UInt64Field_allocate);
+  rb_define_method(SwigClassUInt64Field.klass, "initialize", VALUEFUNC(_wrap_new_UInt64Field), -1);
+  rb_define_method(SwigClassUInt64Field.klass, "setValue", VALUEFUNC(_wrap_UInt64Field_setValue), -1);
+  rb_define_method(SwigClassUInt64Field.klass, "getValue", VALUEFUNC(_wrap_UInt64Field_getValue), -1);
+  SwigClassUInt64Field.mark = 0;
+  SwigClassUInt64Field.destroy = (void (*)(void *)) free_FIX_UInt64Field;
+  SwigClassUInt64Field.trackObjects = 0;
   
   SwigClassBoolField.klass = rb_define_class_under(mQuickfix, "BoolField", ((swig_class *) SWIGTYPE_p_FIX__FieldBase->clientdata)->klass);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__BoolField, (void *) &SwigClassBoolField);
