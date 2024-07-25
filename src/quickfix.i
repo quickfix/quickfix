@@ -12,6 +12,13 @@
 %include carrays.i
 %include std_unique_ptr.i
 %include std_set.i
+%include std_vector.i
+%include stdint.i
+
+namespace std
+{
+  %template(VectorString) vector<std::string>;
+};
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
