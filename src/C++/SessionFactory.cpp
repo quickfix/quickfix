@@ -245,6 +245,8 @@ std::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(const Sessi
 
   std::shared_ptr<DataDictionary> pCopyOfDD = std::shared_ptr<DataDictionary>(new DataDictionary(*pDD));
 
+  if( settings.has( VALIDATE_SUPPRESS ) )
+    pCopyOfDD->suppressAllFieldsChecking( settings.getBool( VALIDATE_SUPPRESS ) );
   if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
     pCopyOfDD->checkFieldsOutOfOrder( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
   if( settings.has( VALIDATE_FIELDS_HAVE_VALUES ) )

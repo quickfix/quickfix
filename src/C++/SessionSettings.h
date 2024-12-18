@@ -73,6 +73,7 @@ const char SOCKET_RECEIVE_BUFFER_SIZE[] = "SocketReceiveBufferSize";
 const char HOST_SELECTION_POLICY[] = "HostSelectionPolicy";
 const char HOST_SELECTION_POLICY_PRIORITY_START_OVER_INTERVAL[] = "HostSelectionPolicyPriorityStartOverInterval";
 const char RECONNECT_INTERVAL[] = "ReconnectInterval";
+const char VALIDATE_SUPPRESS[] = "ValidateSuppress";
 const char VALIDATE_LENGTH_AND_CHECKSUM[] = "ValidateLengthAndChecksum";
 const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
 const char VALIDATE_FIELDS_HAVE_VALUES[] = "ValidateFieldsHaveValues";
