@@ -176,7 +176,7 @@ void FileStore::populateCache()
         m_cache.setNextTargetMsgSeqNum( target );
       }
     }
-    else
+    else // try old int seq num file format
     {
       int sender, target;
       if ( FILE_FSCANF( seqNumsFile, "%d : %d", &sender, &target ) == 2 )
