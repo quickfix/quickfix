@@ -168,7 +168,7 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT (C
 {
   const Dictionary &dict = s.get();
 
-  if (dict.has(RECONNECT_INTERVAL))
+  if (dict.has(RECONNECT_INTERVAL)) // ReconnectInterval in [DEFAULT]
     m_reconnectInterval = dict.getInt(RECONNECT_INTERVAL);
   if (dict.has(SOCKET_NODELAY))
     m_noDelay = dict.getBool(SOCKET_NODELAY);
@@ -289,6 +289,8 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
     Log *log = session->getLog();
 
     HostDetails host = m_hostDetailsProvider.getHost(s, d);
+    if( d.has( RECONNECT_INTERVAL ) ) // ReconnectInterval in [SESSION]
+      m_reconnectInterval = d.getInt( RECONNECT_INTERVAL );
 
     socket_handle socket = socket_createConnector();
     if (m_noDelay)
@@ -300,7 +302,9 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s,
 
     setPending(s);
     log->onEvent("Connecting to " + host.address + " on port " +
-                 IntConvertor::convert((unsigned short)host.port));
+                 IntConvertor::convert((unsigned short)host.port)
+                 + " ReconnectInterval=" +
+                 IntConvertor::convert((int)m_reconnectInterval));
 
     SSL *ssl = SSL_new(m_ctx);
     if (ssl == 0)

@@ -179,7 +179,7 @@ EXCEPT ( ConfigError )
 {
   const Dictionary& dict = s.get();
 
-  if( dict.has( RECONNECT_INTERVAL ) )
+  if( dict.has( RECONNECT_INTERVAL ) ) // ReconnectInterval in [DEFAULT]
     m_reconnectInterval = dict.getInt( RECONNECT_INTERVAL );
   if( dict.has( SOCKET_NODELAY ) )
     m_noDelay = dict.getBool( SOCKET_NODELAY );
@@ -290,10 +290,14 @@ void SSLSocketInitiator::doConnect( const SessionID& sessionID, const Dictionary
     Log* log = session->getLog();
 
     HostDetails host = m_hostDetailsProvider.getHost(sessionID, dictionary);
+    if( d.has( RECONNECT_INTERVAL ) ) // ReconnectInterval in [SESSION]
+      m_reconnectInterval = d.getInt( RECONNECT_INTERVAL );
 
     log->onEvent( "Connecting to " + host.address
                   + " on port " + IntConvertor::convert((unsigned short)host.port)
-                  + " (Source " + host.sourceAddress + ":" + IntConvertor::convert((unsigned short)host.sourcePort) + ")");
+                  + " (Source " + host.sourceAddress + ":" + IntConvertor::convert((unsigned short)host.sourcePort)
+                  + ") ReconnectInterval=" +
+                  IntConvertor::convert((int)m_reconnectInterval));
     socket_handle result = m_connector.connect( host.address, host.port, m_noDelay, m_sendBufSize, m_rcvBufSize, host.sourceAddress, host.sourcePort );
 
     log->onEvent("Socket created with handle:" + std::to_string(result));
