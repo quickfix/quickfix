@@ -66,16 +66,16 @@ class ExeceptionStore : public MessageStore
 public:
   virtual ~ExeceptionStore() {};
 
-  bool set( int, const std::string& ) EXCEPT ( IOException ) {
+  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException ) {
     throw IOException("set threw an IOException");
   }
-  void get( int, int, std::vector<std::string>& ) const EXCEPT ( IOException ) {
+  void get( SEQNUM, SEQNUM, std::vector<std::string>& ) const EXCEPT ( IOException ) {
     throw IOException("get threw an IOException");
   }
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
-  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException ) {};
-  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException ) {};
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException ) {return 0;};
+  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException ) {};
+  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException ) {};
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException ) {};
   void incrNextTargetMsgSeqNum() EXCEPT ( IOException ) {};
 

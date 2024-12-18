@@ -36,7 +36,7 @@ namespace FIX
 /// Maintains all of state for the Session class.
 class SessionState : public MessageStore, public Log
 {
-  typedef std::map < int, Message > Messages;
+  typedef std::map < SEQNUM, Message > Messages;
 
 public:
   SessionState( const UtcTimeStamp& now )
@@ -88,10 +88,10 @@ public:
   bool resendRequested() const
   { return !(m_resendRange.first == 0 && m_resendRange.second == 0); }
 
-  typedef std::pair<int, int> ResendRange;
+  typedef std::pair<SEQNUM, SEQNUM> ResendRange;
 
   ResendRange resendRange () const { return m_resendRange; }
-  void resendRange (int begin, int end)
+  void resendRange (SEQNUM begin, SEQNUM end)
   { m_resendRange = std::make_pair( begin, end ); }
 
   MessageStore* store() { return m_pStore; }
@@ -154,9 +154,9 @@ public:
   void logoutReason( const std::string& value ) 
   { Locker l( m_mutex ); m_logoutReason = value; }
 
-  void queue( int msgSeqNum, const Message& message )
+  void queue( SEQNUM msgSeqNum, const Message& message )
   { Locker l( m_mutex ); m_queue[ msgSeqNum ] = message; }
-  bool retrieve( int msgSeqNum, Message& message )
+  bool retrieve( SEQNUM msgSeqNum, Message& message )
   {
     Locker l( m_mutex );
     Messages::iterator i = m_queue.find( msgSeqNum );
@@ -171,18 +171,18 @@ public:
   void clearQueue()
   { Locker l( m_mutex ); m_queue.clear(); }
 
-  bool set( int s, const std::string& m ) EXCEPT ( IOException )
+  bool set( SEQNUM s, const std::string& m ) EXCEPT ( IOException )
   { Locker l( m_mutex ); return m_pStore->set( s, m ); }
-  void get( int b, int e, std::vector < std::string > &m ) const
+  void get( SEQNUM b, SEQNUM e, std::vector < std::string > &m ) const
   EXCEPT ( IOException )
   { Locker l( m_mutex ); m_pStore->get( b, e, m ); }
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException )
   { Locker l( m_mutex ); return m_pStore->getNextSenderMsgSeqNum(); }
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException )
   { Locker l( m_mutex ); return m_pStore->getNextTargetMsgSeqNum(); }
-  void setNextSenderMsgSeqNum( int n ) EXCEPT ( IOException )
+  void setNextSenderMsgSeqNum( SEQNUM n ) EXCEPT ( IOException )
   { Locker l( m_mutex ); m_pStore->setNextSenderMsgSeqNum( n ); }
-  void setNextTargetMsgSeqNum( int n ) EXCEPT ( IOException )
+  void setNextTargetMsgSeqNum( SEQNUM n ) EXCEPT ( IOException )
   { Locker l( m_mutex ); m_pStore->setNextTargetMsgSeqNum( n ); }
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException )
   { Locker l( m_mutex ); m_pStore->incrNextSenderMsgSeqNum(); }

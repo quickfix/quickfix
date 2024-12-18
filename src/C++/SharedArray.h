@@ -65,7 +65,7 @@ namespace FIX
     ~shared_array()
     { release(); }
 
-    shared_array& operator=(shared_array&& rhs)
+    shared_array& operator=(shared_array&& rhs) noexcept
     {
       if( &rhs == this )
         return *this;

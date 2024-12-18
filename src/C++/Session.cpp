@@ -269,7 +269,9 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
   {
     if( m_sendNextExpectedMsgSeqNum )
     {
-      m_state.onEvent( "Expecting retransmits FROM: " + IntConvertor::convert( getExpectedTargetNum() ) + " TO: " + IntConvertor::convert( msgSeqNum - 1 ) );
+      m_state.onEvent( "Expecting retransmits FROM: " 
+                       + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() ) 
+                       + " TO: " + SEQNUM_CONVERTOR::convert( msgSeqNum - 1 ) );
       m_state.queue( msgSeqNum, logon );
       m_state.resendRange( getExpectedTargetNum(), msgSeqNum - 1 );
     }
@@ -293,12 +295,14 @@ void Session::nextLogon( const Message& logon, const UtcTimeStamp& now )
 
     auto beginSeqNo = nextExpectedMsgSeqNum.getValue();
     auto endSeqNo = getExpectedSenderNum() - 1;
-    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " + IntConvertor::convert( beginSeqNo ) + " TO: " + IntConvertor::convert( endSeqNo ) );
+    m_state.onEvent( "Sending retransmits due to received NextExpectedMsgSeqNum is too low. FROM: " 
+                     + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                     + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
     if ( !m_persistMessages )
     {
       endSeqNo = EndSeqNo(endSeqNo + 1);
-      int next = m_state.getNextSenderMsgSeqNum();
+      auto next = m_state.getNextSenderMsgSeqNum();
       if( endSeqNo > next )
         endSeqNo = EndSeqNo(next);
       generateSequenceReset( beginSeqNo, endSeqNo );
@@ -364,8 +368,8 @@ void Session::nextSequenceReset( const Message& sequenceReset, const UtcTimeStam
   if ( sequenceReset.getFieldIfSet( newSeqNo ) )
   {
     m_state.onEvent( "Received SequenceReset FROM: "
-                     + IntConvertor::convert( getExpectedTargetNum() ) +
-                     " TO: " + IntConvertor::convert( newSeqNo ) );
+                     + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() ) +
+                     " TO: " + SEQNUM_CONVERTOR::convert( newSeqNo ) );
 
     if ( newSeqNo > getExpectedTargetNum() )
       m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
@@ -384,8 +388,8 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   auto endSeqNo = resendRequest.getField<EndSeqNo>();
 
   m_state.onEvent( "Received ResendRequest FROM: "
-       + IntConvertor::convert( beginSeqNo ) +
-                   " TO: " + IntConvertor::convert( endSeqNo ) );
+                   + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                   + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
   std::string beginString = m_sessionID.getBeginString();
   if ( (beginString >= FIX::BeginString_FIX42 && endSeqNo == 0) ||
@@ -396,7 +400,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
   if ( !m_persistMessages )
   {
     endSeqNo = EndSeqNo(endSeqNo + 1);
-    int next = m_state.getNextSenderMsgSeqNum();
+    auto next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
     generateSequenceReset( beginSeqNo, endSeqNo );
@@ -412,7 +416,7 @@ void Session::nextResendRequest( const Message& resendRequest, const UtcTimeStam
     m_state.incrNextTargetMsgSeqNum();
 }
 
-void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
+void Session::generateRetransmits(SEQNUM beginSeqNo, SEQNUM endSeqNo)
 {
   std::vector<std::string> messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
@@ -420,8 +424,8 @@ void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
   std::vector<std::string>::iterator i;
   MsgSeqNum msgSeqNum(0);
   MsgType msgType;
-  int begin = 0;
-  int current = beginSeqNo;
+  SEQNUM begin = 0;
+  SEQNUM current = beginSeqNo;
   bool appMessageJustSent = false;
   std::string messageString;
 
@@ -492,7 +496,7 @@ void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
         if ( begin ) generateSequenceReset( begin, msgSeqNum );
         send( msg.toString(messageString) );
         m_state.onEvent( "Resending Message: "
-                         + IntConvertor::convert( msgSeqNum ) );
+                         + SEQNUM_CONVERTOR::convert( msgSeqNum ) );
         begin = 0;
         appMessageJustSent = true;
       }
@@ -509,7 +513,7 @@ void Session::generateRetransmits(int beginSeqNo, int endSeqNo)
   if ( endSeqNo > msgSeqNum )
   {
     endSeqNo = EndSeqNo(endSeqNo + 1);
-    int next = m_state.getNextSenderMsgSeqNum();
+    auto next = m_state.getNextSenderMsgSeqNum();
     if( endSeqNo > next )
       endSeqNo = EndSeqNo(next);
     if ( appMessageJustSent )
@@ -559,7 +563,7 @@ bool Session::send( Message& message )
   return sendRaw( message );
 }
 
-bool Session::sendRaw( Message& message, int num )
+bool Session::sendRaw( Message& message, SEQNUM num )
 {
   Locker l( m_mutex );
 
@@ -758,14 +762,14 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
   sendRaw( resendRequest );
 
   m_state.onEvent( "Sent ResendRequest FROM: "
-                   + IntConvertor::convert( beginSeqNo ) +
-                   " TO: " + IntConvertor::convert( endSeqNo ) );
+                   + SEQNUM_CONVERTOR::convert( beginSeqNo ) 
+                   + " TO: " + SEQNUM_CONVERTOR::convert( endSeqNo ) );
 
   m_state.resendRange( beginSeqNo, msgSeqNum - 1 );
 }
 
 void Session::generateSequenceReset
-( int beginSeqNo, int endSeqNo )
+( SEQNUM beginSeqNo, SEQNUM endSeqNo )
 {
   Message sequenceReset = newMessage( MsgType( MsgType_SequenceReset ) );
 
@@ -779,7 +783,7 @@ void Session::generateSequenceReset
   sequenceReset.setField( GapFillFlag( true ) );
   sendRaw( sequenceReset, beginSeqNo );
   m_state.onEvent( "Sent SequenceReset TO: "
-                   + IntConvertor::convert( newSeqNo ) );
+                   + SEQNUM_CONVERTOR::convert( newSeqNo ) );
 }
 
 void Session::generateHeartbeat()
@@ -893,7 +897,7 @@ void Session::generateReject( const Message& message, int err, int field )
   {
     populateRejectReason( reject, field, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
-                     + reason + ":" + IntConvertor::convert( field ) );
+                     + reason + ":" + SEQNUM_CONVERTOR::convert( field ) );
   }
   else if ( reason )
   {
@@ -981,7 +985,7 @@ void Session::generateBusinessReject( const Message& message, int err, int field
   {
     populateRejectReason( reject, field, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
-                     + reason + ":" + IntConvertor::convert( field ) );
+                     + reason + ":" + SEQNUM_CONVERTOR::convert( field ) );
   }
   else if ( reason )
   {
@@ -1079,10 +1083,10 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
  
       if ( *pMsgSeqNum >= range.second )
       {
-        m_state.onEvent ("ResendRequest for messages FROM: " +
-                         IntConvertor::convert (range.first) + " TO: " +
-                         IntConvertor::convert (range.second) +
-                         " has been satisfied.");
+        m_state.onEvent ("ResendRequest for messages FROM: "
+                         + SEQNUM_CONVERTOR::convert (range.first) + " TO: "
+                         + SEQNUM_CONVERTOR::convert (range.second)
+                         + " has been satisfied.");
         m_state.resendRange (0, 0);
       }
     }
@@ -1205,9 +1209,9 @@ void Session::doTargetTooHigh( const Message& msg )
   auto const & msgSeqNum = header.getField<MsgSeqNum>();
 
   m_state.onEvent( "MsgSeqNum too high, expecting "
-                   + IntConvertor::convert( getExpectedTargetNum() )
+                   + SEQNUM_CONVERTOR::convert( getExpectedTargetNum() )
                    + " but received "
-                   + IntConvertor::convert( msgSeqNum ) );
+                   + SEQNUM_CONVERTOR::convert( msgSeqNum ) );
 
   m_state.queue( msgSeqNum, msg );
 
@@ -1217,10 +1221,10 @@ void Session::doTargetTooHigh( const Message& msg )
 
     if( !m_sendRedundantResendRequests && msgSeqNum >= range.first )
     {
-          m_state.onEvent ("Already sent ResendRequest FROM: " +
-                           IntConvertor::convert (range.first) + " TO: " +
-                           IntConvertor::convert (range.second) +
-                           ".  Not sending another.");
+          m_state.onEvent ("Already sent ResendRequest FROM: "
+                           + SEQNUM_CONVERTOR::convert (range.first) + " TO: "
+                           + SEQNUM_CONVERTOR::convert (range.second)
+                           + ".  Not sending another.");
           return;
     }
   }
@@ -1233,14 +1237,14 @@ void Session::nextQueued( const UtcTimeStamp& now )
   while ( nextQueued( getExpectedTargetNum(), now ) ) {}
 }
 
-bool Session::nextQueued( int num, const UtcTimeStamp& now )
+bool Session::nextQueued( SEQNUM num, const UtcTimeStamp& now )
 {
   Message msg;
 
   if( m_state.retrieve( num, msg ) )
   {
     m_state.onEvent( "Processing QUEUED message: "
-                     + IntConvertor::convert( num ) );
+                     + SEQNUM_CONVERTOR::convert( num ) );
     auto const & msgType = msg.getHeader().getField<MsgType>();
     if( msgType == MsgType_Logon
         || msgType == MsgType_ResendRequest )

@@ -47,10 +47,9 @@ public:
 
   TAG& text()
   { m_stream << ">"; return *this; }
-  TAG& text( const std::string& value )
+  template<typename T>
+  TAG& text( const T& value )
   { m_value << value; text(); return *this; }
-  TAG& text( int value )
-  { m_value << value; text(); return *this; } 
 
  private:
   std::string m_tag;

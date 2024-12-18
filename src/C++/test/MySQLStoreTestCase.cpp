@@ -82,18 +82,30 @@ TEST_CASE_METHOD(resetMySQLStoreFixture, "resetMySQLStoreTests")
 {
   SECTION("setGet")
   {
-    CHECK_MESSAGE_STORE_SET_GET;
+    CHECK_MESSAGE_STORE_SET_GET
   }
 
   SECTION("setGetWithQuote")
   {
-    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE
+  }
+
+  SECTION("setGetUint64")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_UINT64
   }
 
   SECTION("other")
   {
     CHECK_MESSAGE_STORE_OTHER
   }
+
+  SECTION("otherUint64")
+  {
+    CHECK_MESSAGE_STORE_OTHER_UINT64
+  }
+
+  SET_SEQUENCE_NUMBERS
 }
 
 TEST_CASE_METHOD(noResetMySQLStoreFixture, "noResetMySQLStoreTests")

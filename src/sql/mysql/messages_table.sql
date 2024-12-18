@@ -7,7 +7,7 @@ CREATE TABLE messages (
   sendercompid VARCHAR(64) NOT NULL,
   targetcompid VARCHAR(64) NOT NULL,
   session_qualifier VARCHAR(64) NOT NULL,
-  msgseqnum INT NOT NULL, 
+  msgseqnum BIGINT UNSIGNED NOT NULL, 
   message BLOB NOT NULL,
   PRIMARY KEY (beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum)
 );

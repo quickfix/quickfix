@@ -4,7 +4,7 @@ export LIBS=$3
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-TEMP=`mktemp -d "${TMPDIR:-/tmp}/zombie.XXXXXXXXX"`
+TEMP=`mktemp -d "../zombie.XXXXXXXXX"`
 
 if [[ ! "$TEMP" || ! -d "$TEMP" ]]; then
   echo "Could not create temp dir"

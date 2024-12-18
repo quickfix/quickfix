@@ -28,7 +28,20 @@
 #include "Parser.h"
 #include "Utility.h"
 #include <fstream>
+#include <inttypes.h>
+#include <sys/stat.h>
 
+namespace
+{
+  auto const seqNumFileFormat = 
+    "%" + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + 
+    "." + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + 
+    SCNu64;
+
+  auto const seqNumPairFileFormat = (seqNumFileFormat + " : " + seqNumFileFormat);
+
+  auto constexpr sizeOf64BitSeqNumFile = 43;
+}
 namespace FIX
 {
 FileStore::FileStore( const UtcTimeStamp& now, std::string path, const SessionID& sessionID )
@@ -132,14 +145,14 @@ void FileStore::populateCache()
   FILE* headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( headerFile )
   {
-    int num;
+    SEQNUM msgSeqNum;
     long offset;
     std::size_t size;
 
-    while (FILE_FSCANF(headerFile, "%d,%ld,%zu ", &num, &offset, &size) == 3)
+    while (FILE_FSCANF(headerFile, "%" SCNu64 ",%ld,%zu ", &msgSeqNum, &offset, &size) == 3)
     {
       std::pair<NumToOffset::iterator, bool> it = 
-        m_offsets.insert(NumToOffset::value_type(num, std::make_pair(offset, size)));
+        m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
 
       if (it.second == false)
       {
@@ -149,14 +162,28 @@ void FileStore::populateCache()
     fclose( headerFile );
   }
 
+  struct stat seqNumsFileStat;
   FILE* seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
-  if ( seqNumsFile )
+
+  if ( seqNumsFile && stat( m_seqNumsFileName.c_str(), &seqNumsFileStat ) == 0 )
   {
-    int sender, target;
-    if ( FILE_FSCANF( seqNumsFile, "%d : %d", &sender, &target ) == 2 )
+    if( seqNumsFileStat.st_size == sizeOf64BitSeqNumFile )
     {
-      m_cache.setNextSenderMsgSeqNum( sender );
-      m_cache.setNextTargetMsgSeqNum( target );
+      SEQNUM sender, target;
+      if ( FILE_FSCANF( seqNumsFile, "%" SCNu64 " : %" SCNu64, &sender, &target ) == 2 )
+      {
+        m_cache.setNextSenderMsgSeqNum( sender );
+        m_cache.setNextTargetMsgSeqNum( target );
+      }
+    }
+    else // try old int seq num file format
+    {
+      int sender, target;
+      if ( FILE_FSCANF( seqNumsFile, "%d : %d", &sender, &target ) == 2 )
+      {
+        m_cache.setNextSenderMsgSeqNum( sender );
+        m_cache.setNextTargetMsgSeqNum( target );
+      }
     }
     fclose( seqNumsFile );
   }
@@ -193,7 +220,7 @@ void FileStoreFactory::destroy( MessageStore* pStore )
   delete pStore;
 }
 
-bool FileStore::set( int msgSeqNum, const std::string& msg )
+bool FileStore::set( SEQNUM msgSeqNum, const std::string& msg )
 EXCEPT ( IOException )
 {
   if ( fseek( m_msgFile, 0, SEEK_END ) ) 
@@ -206,7 +233,7 @@ EXCEPT ( IOException )
     throw IOException( "Unable to get file pointer position from " + m_msgFileName );
   std::size_t size = msg.size();
 
-  if ( fprintf( m_headerFile, "%d,%ld,%zu ", msgSeqNum, offset, size ) < 0 )
+  if ( fprintf( m_headerFile, "%" SCNu64 ",%ld,%zu ", msgSeqNum, offset, size ) < 0 )
     throw IOException( "Unable to write to file " + m_headerFileName );
   std::pair<NumToOffset::iterator, bool> it = 
     m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
@@ -224,36 +251,36 @@ EXCEPT ( IOException )
   return true;
 }
 
-void FileStore::get( int begin, int end,
+void FileStore::get( SEQNUM begin, SEQNUM end,
                      std::vector < std::string > & result ) const
 EXCEPT ( IOException )
 {
   result.clear();
   std::string msg;
-  for ( int i = begin; i <= end; ++i )
+  for ( auto i = begin; i <= end && i != 0; ++i )
   {
     if ( get( i, msg ) )
       result.push_back( msg );
   }
 }
 
-int FileStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM FileStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextSenderMsgSeqNum();
 }
 
-int FileStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM FileStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextTargetMsgSeqNum();
 }
 
-void FileStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+void FileStore::setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   m_cache.setNextSenderMsgSeqNum( value );
   setSeqNum();
 }
 
-void FileStore::setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+void FileStore::setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   m_cache.setNextTargetMsgSeqNum( value );
   setSeqNum();
@@ -308,8 +335,7 @@ void FileStore::refresh() EXCEPT ( IOException )
 void FileStore::setSeqNum()
 {
   rewind( m_seqNumsFile );
-  fprintf( m_seqNumsFile, "%10.10d : %10.10d",
-           getNextSenderMsgSeqNum(), getNextTargetMsgSeqNum() );
+  fprintf( m_seqNumsFile, seqNumPairFileFormat.c_str(), getNextSenderMsgSeqNum(), getNextTargetMsgSeqNum() );
   if ( ferror( m_seqNumsFile ) ) 
     throw IOException( "Unable to write to file " + m_seqNumsFileName );
   if ( fflush( m_seqNumsFile ) ) 
@@ -327,7 +353,7 @@ void FileStore::setSession()
     throw IOException( "Unable to flush file " + m_sessionFileName );
 }
 
-bool FileStore::get( int msgSeqNum, std::string& msg ) const
+bool FileStore::get( SEQNUM msgSeqNum, std::string& msg ) const
 EXCEPT ( IOException )
 {
   NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );

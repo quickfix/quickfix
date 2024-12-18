@@ -908,7 +908,7 @@ typedef UtcDateOnly UTCDATEONLY;
 typedef UtcTimeOnly UTCTIMEONLY;
 typedef int NUMINGROUP;
 typedef double PERCENTAGE;
-typedef int SEQNUM;
+typedef uint64_t SEQNUM;
 typedef int TAGNUM;
 typedef int LENGTH;
 typedef std::string COUNTRY;

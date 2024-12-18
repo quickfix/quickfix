@@ -120,6 +120,111 @@ class SwigPyIterator(object):
 
 # Register SwigPyIterator in _quickfix:
 _quickfix.SwigPyIterator_swigregister(SwigPyIterator)
+class VectorString(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def iterator(self):
+        return _quickfix.VectorString_iterator(self)
+    def __iter__(self):
+        return self.iterator()
+
+    def __nonzero__(self):
+        return _quickfix.VectorString___nonzero__(self)
+
+    def __bool__(self):
+        return _quickfix.VectorString___bool__(self)
+
+    def __len__(self):
+        return _quickfix.VectorString___len__(self)
+
+    def __getslice__(self, i, j):
+        return _quickfix.VectorString___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        return _quickfix.VectorString___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        return _quickfix.VectorString___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        return _quickfix.VectorString___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        return _quickfix.VectorString___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        return _quickfix.VectorString___setitem__(self, *args)
+
+    def pop(self):
+        return _quickfix.VectorString_pop(self)
+
+    def append(self, x):
+        return _quickfix.VectorString_append(self, x)
+
+    def empty(self):
+        return _quickfix.VectorString_empty(self)
+
+    def size(self):
+        return _quickfix.VectorString_size(self)
+
+    def swap(self, v):
+        return _quickfix.VectorString_swap(self, v)
+
+    def begin(self):
+        return _quickfix.VectorString_begin(self)
+
+    def end(self):
+        return _quickfix.VectorString_end(self)
+
+    def rbegin(self):
+        return _quickfix.VectorString_rbegin(self)
+
+    def rend(self):
+        return _quickfix.VectorString_rend(self)
+
+    def clear(self):
+        return _quickfix.VectorString_clear(self)
+
+    def get_allocator(self):
+        return _quickfix.VectorString_get_allocator(self)
+
+    def pop_back(self):
+        return _quickfix.VectorString_pop_back(self)
+
+    def erase(self, *args):
+        return _quickfix.VectorString_erase(self, *args)
+
+    def __init__(self, *args):
+        _quickfix.VectorString_swiginit(self, _quickfix.new_VectorString(*args))
+
+    def push_back(self, x):
+        return _quickfix.VectorString_push_back(self, x)
+
+    def front(self):
+        return _quickfix.VectorString_front(self)
+
+    def back(self):
+        return _quickfix.VectorString_back(self)
+
+    def assign(self, n, x):
+        return _quickfix.VectorString_assign(self, n, x)
+
+    def resize(self, *args):
+        return _quickfix.VectorString_resize(self, *args)
+
+    def insert(self, *args):
+        return _quickfix.VectorString_insert(self, *args)
+
+    def reserve(self, n):
+        return _quickfix.VectorString_reserve(self, n)
+
+    def capacity(self):
+        return _quickfix.VectorString_capacity(self)
+    __swig_destroy__ = _quickfix.delete_VectorString
+
+# Register VectorString in _quickfix:
+_quickfix.VectorString_swigregister(VectorString)
 class IntArray(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -959,6 +1064,22 @@ class Int64Field(FieldBase):
 
 # Register Int64Field in _quickfix:
 _quickfix.Int64Field_swigregister(Int64Field)
+class UInt64Field(FieldBase):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        _quickfix.UInt64Field_swiginit(self, _quickfix.new_UInt64Field(*args))
+
+    def setValue(self, value):
+        return _quickfix.UInt64Field_setValue(self, value)
+
+    def getValue(self):
+        return _quickfix.UInt64Field_getValue(self)
+    __swig_destroy__ = _quickfix.delete_UInt64Field
+
+# Register UInt64Field in _quickfix:
+_quickfix.UInt64Field_swigregister(UInt64Field)
 class BoolField(FieldBase):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr

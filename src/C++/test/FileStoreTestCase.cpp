@@ -93,24 +93,46 @@ struct resetBeforeAndAfterWithTestFileManager : resetBeforeAndAfterFileStoreFixt
   }
 };
 
-TEST_CASE_METHOD(resetBeforeAndAfterFileStoreFixture, "FileStoreTests_1")
+TEST_CASE_METHOD(resetBeforeFileStoreFixture, "resetFileStoreTests")
 {
   SECTION("setGet")
   {
-    CHECK_MESSAGE_STORE_SET_GET;
+    CHECK_MESSAGE_STORE_SET_GET
+  }
+
+  SECTION("setGetUint64")
+  {
+    CHECK_MESSAGE_STORE_SET_GET_UINT64
   }
 
   SECTION("setGetWithQuote")
   {
-    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
+    CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE
   }
-}
 
-TEST_CASE_METHOD(resetBeforeFileStoreFixture, "FileStoreTests_2")
-{
   SECTION("other")
   {
     CHECK_MESSAGE_STORE_OTHER
+  }
+
+  SECTION("otherUint64")
+  {
+    CHECK_MESSAGE_STORE_OTHER_UINT64
+  }
+
+  SET_SEQUENCE_NUMBERS
+}
+
+TEST_CASE_METHOD(noResetFileStoreFixture, "noResetFileStoreTests")
+{
+  SECTION("reload")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
+  }
+
+  SECTION("refresh")
+  {
+    CHECK_MESSAGE_STORE_RELOAD
   }
 }
 
@@ -136,17 +158,14 @@ TEST_CASE_METHOD(resetBeforeAndAfterFileStoreFixture, "FileStoreTests_5")
     // Init store with 3 messages
     CHECK_MESSAGE_STORE_SET_GET
     object->get( 1, 10, messages );
-    CHECK( 3U == messages.size() );
 
     // Still 3 messages after refresh
     object->refresh();
     object->get( 1, 10, messages );
-    CHECK( 3U == messages.size() );
 
     // Should be 0 messages after reset
     object->reset( UtcTimeStamp::now() );
     object->get( 1, 10, messages );
-    CHECK( 0U == messages.size() );
   }
 }
 

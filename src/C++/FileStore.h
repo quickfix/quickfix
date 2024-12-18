@@ -84,13 +84,13 @@ public:
   FileStore( const UtcTimeStamp& now, std::string, const SessionID& sessionID );
   virtual ~FileStore();
 
-  bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector<std::string>& ) const EXCEPT ( IOException );
+  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
+  void get( SEQNUM, SEQNUM, std::vector<std::string>& ) const EXCEPT ( IOException );
 
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException );
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException );
-  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException );
-  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException );
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException );
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException );
+  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
+  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException );
   void incrNextTargetMsgSeqNum() EXCEPT ( IOException );
 
@@ -101,11 +101,11 @@ public:
 
 private:
 #ifdef _MSC_VER
-  typedef std::pair<int, std::size_t> OffsetSize;
+  typedef std::pair<long, std::size_t> OffsetSize;
 #else
   typedef std::pair<long, std::size_t> OffsetSize;
 #endif
-  typedef std::map<int, OffsetSize> NumToOffset;
+  typedef std::map<SEQNUM, OffsetSize> NumToOffset;
 
   void open( bool deleteFile );
   void populateCache();
@@ -113,7 +113,7 @@ private:
   void setSeqNum();
   void setSession();
 
-  bool get( int, std::string& ) const EXCEPT ( IOException );
+  bool get( SEQNUM, std::string& ) const EXCEPT ( IOException );
 
   MemoryStore m_cache;
   NumToOffset m_offsets;

@@ -68,15 +68,15 @@ class MessageStore
 public:
   virtual ~MessageStore() {}
 
-  virtual bool set( int, const std::string& )
+  virtual bool set( SEQNUM, const std::string& )
   EXCEPT ( IOException ) = 0;
-  virtual void get( int, int, std::vector < std::string > & ) const
+  virtual void get( SEQNUM, SEQNUM, std::vector < std::string > & ) const
   EXCEPT ( IOException ) = 0;
 
-  virtual int getNextSenderMsgSeqNum() const EXCEPT ( IOException ) = 0;
-  virtual int getNextTargetMsgSeqNum() const EXCEPT ( IOException ) = 0;
-  virtual void setNextSenderMsgSeqNum( int ) EXCEPT ( IOException ) = 0;
-  virtual void setNextTargetMsgSeqNum( int ) EXCEPT ( IOException ) = 0;
+  virtual SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException ) = 0;
+  virtual SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException ) = 0;
+  virtual void setNextSenderMsgSeqNum( SEQNUM ) EXCEPT ( IOException ) = 0;
+  virtual void setNextTargetMsgSeqNum( SEQNUM ) EXCEPT ( IOException ) = 0;
   virtual void incrNextSenderMsgSeqNum() EXCEPT ( IOException ) = 0;
   virtual void incrNextTargetMsgSeqNum() EXCEPT ( IOException ) = 0;
 
@@ -99,16 +99,16 @@ public:
   MemoryStore( const UtcTimeStamp& now ) 
   : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ), m_creationTime( now ) {}
 
-  bool set( int, const std::string& ) EXCEPT ( IOException );
-  void get( int, int, std::vector < std::string > & ) const EXCEPT ( IOException );
+  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
+  void get( SEQNUM, SEQNUM, std::vector < std::string > & ) const EXCEPT ( IOException );
 
-  int getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException )
   { return m_nextSenderMsgSeqNum; }
-  int getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException )
   { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
   { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
   { m_nextTargetMsgSeqNum = value; }
   void incrNextSenderMsgSeqNum() EXCEPT ( IOException )
   { ++m_nextSenderMsgSeqNum; }
@@ -130,11 +130,11 @@ public:
   void refresh() EXCEPT ( IOException ) {}
 
 private:
-  typedef std::map<int, std::string> Messages;
+  typedef std::map<SEQNUM, std::string> Messages;
 
   Messages m_messages;
-  int m_nextSenderMsgSeqNum;
-  int m_nextTargetMsgSeqNum;
+  SEQNUM m_nextSenderMsgSeqNum;
+  SEQNUM m_nextTargetMsgSeqNum;
   UtcTimeStamp m_creationTime;
 };
 
@@ -158,12 +158,12 @@ public:
   MessageStoreExceptionWrapper( MessageStore* pStore ) : m_pStore( pStore ) {}
   ~MessageStoreExceptionWrapper() { delete m_pStore; }
 
-  bool set( int, const std::string&, bool&, IOException& );
-  void get( int, int, std::vector<std::string>&, bool&, IOException& ) const;
-  int getNextSenderMsgSeqNum( bool&, IOException& ) const;
-  int getNextTargetMsgSeqNum( bool&, IOException& ) const;
-  void setNextSenderMsgSeqNum( int, bool&, IOException& );
-  void setNextTargetMsgSeqNum( int, bool&, IOException& );
+  bool set( SEQNUM, const std::string&, bool&, IOException& );
+  void get( SEQNUM, SEQNUM, std::vector<std::string>&, bool&, IOException& ) const;
+  SEQNUM getNextSenderMsgSeqNum( bool&, IOException& ) const;
+  SEQNUM getNextTargetMsgSeqNum( bool&, IOException& ) const;
+  void setNextSenderMsgSeqNum( SEQNUM, bool&, IOException& );
+  void setNextTargetMsgSeqNum( SEQNUM, bool&, IOException& );
   void incrNextSenderMsgSeqNum( bool&, IOException& );
   void incrNextTargetMsgSeqNum( bool&, IOException& );
 

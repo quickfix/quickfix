@@ -69,7 +69,7 @@ void OdbcStore::populateCache()
   OdbcQuery query( queryString.str() );
 
   if( !m_pConnection->execute(query) )
-    throw ConfigError( "Unable to connect to database" );
+    throw ConfigError( "Unable to query sessions table" );
   
   int rows = 0;
   while( query.fetch() )
@@ -81,14 +81,14 @@ void OdbcStore::populateCache()
     SQL_TIMESTAMP_STRUCT creationTime;  
     SQLLEN creationTimeLength;
     SQLGetData( query.statement(), 1, SQL_C_TYPE_TIMESTAMP, &creationTime, 0, &creationTimeLength );
-    SQLLEN incomingSeqNum;
+    SQLUBIGINT incomingSeqNum;
     SQLLEN incomingSeqNumLength;
-    SQLGetData( query.statement(), 2, SQL_C_SLONG, &incomingSeqNum, 0, &incomingSeqNumLength );
+    SQLGetData( query.statement(), 2, SQL_C_UBIGINT, &incomingSeqNum, 0, &incomingSeqNumLength );
 
-    SQLLEN outgoingSeqNum;
+    SQLUBIGINT outgoingSeqNum;
     SQLLEN outgoingSeqNumLength;
-    SQLGetData( query.statement(), 3, SQL_C_SLONG, &outgoingSeqNum, 0, &outgoingSeqNumLength );
-
+    SQLGetData( query.statement(), 3, SQL_C_UBIGINT, &outgoingSeqNum, 0, &outgoingSeqNumLength );
+    
     UtcTimeStamp time = UtcTimeStamp::now();
     time.setYMD( creationTime.year, creationTime.month, creationTime.day );
     time.setHMS( creationTime.hour, creationTime.minute, creationTime.second, creationTime.fraction );
@@ -157,7 +157,7 @@ MessageStore* OdbcStoreFactory::create( const UtcTimeStamp& now, const SessionID
   return new OdbcStore( now, sessionID, user, password, connectionString );
 }
 
-bool OdbcStore::set( int msgSeqNum, const std::string& msg )
+bool OdbcStore::set( SEQNUM msgSeqNum, const std::string& msg )
 EXCEPT ( IOException )
 {
   std::string msgCopy = msg;
@@ -192,8 +192,8 @@ EXCEPT ( IOException )
   return true;
 }
 
-void OdbcStore::get( int begin, int end,
-                    std::vector < std::string > & result ) const
+void OdbcStore::get( SEQNUM begin, SEQNUM end,
+                     std::vector < std::string > & result ) const
 EXCEPT ( IOException )
 {
   result.clear();
@@ -227,17 +227,17 @@ EXCEPT ( IOException )
   }
 }
 
-int OdbcStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM OdbcStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextSenderMsgSeqNum();
 }
 
-int OdbcStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
+SEQNUM OdbcStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
 {
   return m_cache.getNextTargetMsgSeqNum();
 }
 
-void OdbcStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
+void OdbcStore::setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
@@ -251,7 +251,7 @@ void OdbcStore::setNextSenderMsgSeqNum( int value ) EXCEPT ( IOException )
   m_cache.setNextSenderMsgSeqNum( value );
 }
 
-void OdbcStore::setNextTargetMsgSeqNum( int value ) EXCEPT ( IOException )
+void OdbcStore::setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
 {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
