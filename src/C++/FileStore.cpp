@@ -29,6 +29,7 @@
 #include "Utility.h"
 #include <fstream>
 #include <inttypes.h>
+#include <sys/stat.h>
 
 namespace
 {
@@ -38,6 +39,8 @@ namespace
     SCNu64;
 
   auto const seqNumPairFileFormat = (seqNumFileFormat + " : " + seqNumFileFormat);
+
+  auto constexpr sizeOf64BitSeqNumFile = 43;
 }
 namespace FIX
 {
@@ -159,14 +162,28 @@ void FileStore::populateCache()
     fclose( headerFile );
   }
 
+  struct stat seqNumsFileStat;
   FILE* seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
-  if ( seqNumsFile )
+
+  if ( seqNumsFile && stat( m_seqNumsFileName.c_str(), &seqNumsFileStat ) == 0 )
   {
-    SEQNUM sender, target;
-    if ( FILE_FSCANF( seqNumsFile, "%" SCNu64 " : %" SCNu64, &sender, &target ) == 2 )
+    if( seqNumsFileStat.st_size == sizeOf64BitSeqNumFile )
     {
-      m_cache.setNextSenderMsgSeqNum( sender );
-      m_cache.setNextTargetMsgSeqNum( target );
+      SEQNUM sender, target;
+      if ( FILE_FSCANF( seqNumsFile, "%" SCNu64 " : %" SCNu64, &sender, &target ) == 2 )
+      {
+        m_cache.setNextSenderMsgSeqNum( sender );
+        m_cache.setNextTargetMsgSeqNum( target );
+      }
+    }
+    else
+    {
+      int sender, target;
+      if ( FILE_FSCANF( seqNumsFile, "%d : %d", &sender, &target ) == 2 )
+      {
+        m_cache.setNextSenderMsgSeqNum( sender );
+        m_cache.setNextTargetMsgSeqNum( target );
+      }
     }
     fclose( seqNumsFile );
   }
