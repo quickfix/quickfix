@@ -212,6 +212,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setSendNextExpectedMsgSeqNum( settings.getBool( SEND_NEXT_EXPECTED_MSG_SEQ_NUM ) );
   if ( isNonStopSession )
     pSession->setIsNonStopSession( isNonStopSession );
+  if ( settings.has( ALLOWED_REMOTE_ADDRESSES ) )
+    pSession->setAllowedRemoteAddresses( string_split( settings.getString( ALLOWED_REMOTE_ADDRESSES ), ',' ) );
 
   return pSession.release();
 }

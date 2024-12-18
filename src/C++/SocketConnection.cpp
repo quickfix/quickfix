@@ -180,6 +180,18 @@ bool SocketConnection::read( SocketAcceptor& acceptor, SocketServer& server )
         return false;
       }
 
+      if( m_pSession->isAcceptor() )
+      {
+        std::string remote_address = socket_peername( m_socket );
+        if( !m_pSession->getAllowedRemoteAddresses().empty() &&
+            !m_pSession->inAllowedRemoteAddresses( remote_address ) )
+        {
+          m_pSession->getLog()->onEvent( "Deny connections to the acceptor from " + remote_address );
+          return false;
+        }
+        m_pSession->getLog()->onEvent( "Allows connections to the acceptor from " + remote_address );
+      }
+
       Session::registerSession( m_pSession->getSessionID() );
       return true;
     }

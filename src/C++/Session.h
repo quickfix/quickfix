@@ -234,6 +234,13 @@ public:
     { return m_isNonStopSession; }
   void setIsNonStopSession ( bool value )
     { m_isNonStopSession = value; }
+  
+  const std::set<std::string>& getAllowedRemoteAddresses() const
+    { return m_allowedRemoteAddresses; }
+  void setAllowedRemoteAddresses ( const std::set<std::string> &value )
+    { m_allowedRemoteAddresses = value; }
+  bool inAllowedRemoteAddresses ( const std::string &value )  const
+    { return ( m_allowedRemoteAddresses.cend() != m_allowedRemoteAddresses.find( value ) ); }
 
   void setResponder( Responder* pR )
   {
@@ -360,6 +367,7 @@ private:
   bool m_validateLengthAndChecksum;
   bool m_sendNextExpectedMsgSeqNum;
   bool m_isNonStopSession;
+  std::set<std::string> m_allowedRemoteAddresses;
 
   SessionState m_state;
   DataDictionaryProvider m_dataDictionaryProvider;
