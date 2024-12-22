@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -31,20 +31,17 @@
 
 using namespace FIX;
 
-TEST_CASE("SocketMonitorTests")
-{
+TEST_CASE("SocketMonitorTests") {
   SocketMonitor monitor;
   int socket = 101;
 
-  SECTION("addWrite_ReadSocketDoesNotExist_False")
-  {
+  SECTION("addWrite_ReadSocketDoesNotExist_False") {
     CHECK(!monitor.addWrite(socket));
 
     socket_close(socket);
   }
 
-  SECTION("addWrite_WriteSocketAlreadyExists_False")
-  {
+  SECTION("addWrite_WriteSocketAlreadyExists_False") {
     CHECK(monitor.addRead(socket));
     CHECK(monitor.addWrite(socket));
     CHECK(!monitor.addWrite(socket));
@@ -52,8 +49,7 @@ TEST_CASE("SocketMonitorTests")
     socket_close(socket);
   }
 
-  SECTION("Unsignal_SocketExists_WriteSocketErased")
-  {
+  SECTION("Unsignal_SocketExists_WriteSocketErased") {
     CHECK(monitor.addRead(socket));
     CHECK(monitor.addWrite(socket));
     CHECK(monitor.addConnect(socket));
@@ -64,8 +60,7 @@ TEST_CASE("SocketMonitorTests")
     socket_close(socket);
   }
 
-  SECTION("Unsignal_SocketDoesNotExist_WriteSocketErased")
-  {
+  SECTION("Unsignal_SocketDoesNotExist_WriteSocketErased") {
     CHECK(monitor.addRead(socket));
     CHECK(monitor.addConnect(socket));
 

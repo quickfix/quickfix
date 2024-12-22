@@ -23,68 +23,65 @@
 #define FIX_THREADEDSOCKETACCEPTOR_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "Acceptor.h"
-#include "ThreadedSocketConnection.h"
 #include "Mutex.h"
+#include "ThreadedSocketConnection.h"
 
-namespace FIX
-{
+namespace FIX {
 /// Threaded Socket implementation of Acceptor.
-class ThreadedSocketAcceptor : public Acceptor
-{
+class ThreadedSocketAcceptor : public Acceptor {
   friend class SocketConnection;
+
 public:
-  ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings& ) EXCEPT ( ConfigError );
-  ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings&,
-                          LogFactory& ) EXCEPT ( ConfigError );
+  ThreadedSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
+  ThreadedSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &)
+      EXCEPT(ConfigError);
 
   virtual ~ThreadedSocketAcceptor();
 
 private:
-  struct AcceptorThreadInfo
-  {
-    AcceptorThreadInfo( ThreadedSocketAcceptor* pAcceptor, socket_handle socket, int port )
-    : m_pAcceptor( pAcceptor ), m_socket( socket ), m_port( port ) {}
+  struct AcceptorThreadInfo {
+    AcceptorThreadInfo(ThreadedSocketAcceptor *pAcceptor, socket_handle socket, int port)
+        : m_pAcceptor(pAcceptor),
+          m_socket(socket),
+          m_port(port) {}
 
-    ThreadedSocketAcceptor* m_pAcceptor;
+    ThreadedSocketAcceptor *m_pAcceptor;
     socket_handle m_socket;
     int m_port;
   };
 
-  struct ConnectionThreadInfo
-  {
-    ConnectionThreadInfo( ThreadedSocketAcceptor* pAcceptor, 
-                          ThreadedSocketConnection* pConnection )
-    : m_pAcceptor( pAcceptor ), m_pConnection( pConnection ) {}
+  struct ConnectionThreadInfo {
+    ConnectionThreadInfo(ThreadedSocketAcceptor *pAcceptor, ThreadedSocketConnection *pConnection)
+        : m_pAcceptor(pAcceptor),
+          m_pConnection(pConnection) {}
 
-    ThreadedSocketAcceptor* m_pAcceptor;
-    ThreadedSocketConnection* m_pConnection;
+    ThreadedSocketAcceptor *m_pAcceptor;
+    ThreadedSocketConnection *m_pConnection;
   };
 
-  bool readSettings( const SessionSettings& );
+  bool readSettings(const SessionSettings &);
 
-  typedef std::set < socket_handle >  Sockets;
-  typedef std::set < SessionID > Sessions;
-  typedef std::map < int, Sessions > PortToSessions;
-  typedef std::map < socket_handle, int > SocketToPort;
-  typedef std::map < socket_handle, thread_id > SocketToThread;
+  typedef std::set<socket_handle> Sockets;
+  typedef std::set<SessionID> Sessions;
+  typedef std::map<int, Sessions> PortToSessions;
+  typedef std::map<socket_handle, int> SocketToPort;
+  typedef std::map<socket_handle, thread_id> SocketToThread;
 
-  void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
-  void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
+  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
+  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
 
   void onStart();
   bool onPoll();
   void onStop();
 
-  void addThread(socket_handle s, thread_id t );
-  void removeThread(socket_handle s );
-  static THREAD_PROC socketAcceptorThread( void* p );
-  static THREAD_PROC socketConnectionThread( void* p );
+  void addThread(socket_handle s, thread_id t);
+  void removeThread(socket_handle s);
+  static THREAD_PROC socketAcceptorThread(void *p);
+  static THREAD_PROC socketConnectionThread(void *p);
 
   Sockets m_sockets;
   PortToSessions m_portToSessions;
@@ -93,6 +90,6 @@ private:
   Mutex m_mutex;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#endif //FIX_THREADEDSOCKETACCEPTOR_H
+#endif // FIX_THREADEDSOCKETACCEPTOR_H

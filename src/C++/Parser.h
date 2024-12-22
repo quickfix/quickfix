@@ -23,35 +23,28 @@
 #define FIX_PARSER_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "Exceptions.h"
 #include <iostream>
 #include <string>
 
-namespace FIX
-{
+namespace FIX {
 /// Parses %FIX messages off an input stream.
-class Parser
-{
+class Parser {
 public:
   Parser() {}
   ~Parser() {}
 
-  bool extractLength( int& length, std::string::size_type& pos,
-                      const std::string& buffer )
-  EXCEPT ( MessageParseError );
-  bool readFixMessage( std::string& str )
-  EXCEPT ( MessageParseError );
+  bool extractLength(int &length, std::string::size_type &pos, const std::string &buffer) EXCEPT(MessageParseError);
+  bool readFixMessage(std::string &str) EXCEPT(MessageParseError);
 
-  void addToStream( const char* str, size_t len )
-  { m_buffer.append( str, len ); }
-  void addToStream( const std::string& str )
-  { m_buffer.append( str ); }
+  void addToStream(const char *str, size_t len) { m_buffer.append(str, len); }
+  void addToStream(const std::string &str) { m_buffer.append(str); }
 
 private:
   std::string m_buffer;
 };
-}
-#endif //FIX_PARSER_H
+} // namespace FIX
+#endif // FIX_PARSER_H

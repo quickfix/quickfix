@@ -23,20 +23,19 @@
 #define FIX_ACCEPTOR_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "Application.h"
-#include "MessageStore.h"
+#include "Exceptions.h"
 #include "Log.h"
+#include "MessageStore.h"
 #include "Responder.h"
 #include "SessionSettings.h"
-#include "Exceptions.h"
 #include <map>
 #include <string>
 
-namespace FIX
-{
+namespace FIX {
 class Client;
 class Session;
 
@@ -46,57 +45,53 @@ class Session;
  * Most users will not need to implement one of these.  The default
  * SocketAcceptor implementation will be used in most cases.
  */
-class Acceptor
-{
+class Acceptor {
 public:
-  Acceptor( Application&, MessageStoreFactory&,
-            const SessionSettings& ) EXCEPT ( ConfigError );
-  Acceptor( Application&, MessageStoreFactory&,
-            const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+  Acceptor(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
+  Acceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
 
   virtual ~Acceptor();
 
-  Log* getLog() 
-  { 
-    if( m_pLog ) return m_pLog;
+  Log *getLog() {
+    if (m_pLog) {
+      return m_pLog;
+    }
     return &m_nullLog;
   }
 
   /// Start acceptor.
-  void start() EXCEPT ( ConfigError, RuntimeError );
+  void start() EXCEPT(ConfigError, RuntimeError);
   /// Block on the acceptor
-  void block() EXCEPT ( ConfigError, RuntimeError );
+  void block() EXCEPT(ConfigError, RuntimeError);
   /// Poll the acceptor
-  bool poll() EXCEPT ( ConfigError, RuntimeError );
+  bool poll() EXCEPT(ConfigError, RuntimeError);
 
   /// Stop acceptor.
-  void stop( bool force = false );
+  void stop(bool force = false);
 
   /// Check to see if any sessions are currently logged on
   bool isLoggedOn() const;
 
-  Session* getSession( const std::string& msg, Responder& );
+  Session *getSession(const std::string &msg, Responder &);
 
-  const std::set<SessionID>& getSessions() const { return m_sessionIDs; }
-  Session* getSession( const SessionID& sessionID ) const;
-  const Dictionary* const getSessionSettings( const SessionID& sessionID ) const;
+  const std::set<SessionID> &getSessions() const { return m_sessionIDs; }
+  Session *getSession(const SessionID &sessionID) const;
+  const Dictionary *const getSessionSettings(const SessionID &sessionID) const;
 
-  bool has( const SessionID& id ) const
-  { return m_sessions.find( id ) != m_sessions.end(); }
+  bool has(const SessionID &id) const { return m_sessions.find(id) != m_sessions.end(); }
 
   bool isStopped() const { return m_stop; }
 
-  Application& getApplication() const { return m_application; }
-  MessageStoreFactory& getMessageStoreFactory() const
-  { return m_messageStoreFactory; }
+  Application &getApplication() const { return m_application; }
+  MessageStoreFactory &getMessageStoreFactory() const { return m_messageStoreFactory; }
 
 private:
-  void initialize() EXCEPT ( ConfigError );
+  void initialize() EXCEPT(ConfigError);
 
   /// Implemented to configure acceptor
-  virtual void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError ) {};
+  virtual void onConfigure(const SessionSettings &) EXCEPT(ConfigError) {};
   /// Implemented to initialize acceptor
-  virtual void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError ) {};
+  virtual void onInitialize(const SessionSettings &) EXCEPT(RuntimeError) {};
   /// Implemented to start listening for connections.
   virtual void onStart() = 0;
   /// Implemented to connect and poll for events.
@@ -104,27 +99,29 @@ private:
   /// Implemented to stop a running acceptor.
   virtual void onStop() = 0;
 
-  static THREAD_PROC startThread( void* p );
+  static THREAD_PROC startThread(void *p);
 
   typedef std::set<SessionID> SessionIDs;
-  typedef std::map<SessionID, Session*> Sessions;
+  typedef std::map<SessionID, Session *> Sessions;
 
   thread_id m_threadid;
   Sessions m_sessions;
   SessionIDs m_sessionIDs;
-  Application& m_application;
-  MessageStoreFactory& m_messageStoreFactory;
+  Application &m_application;
+  MessageStoreFactory &m_messageStoreFactory;
+
 protected:
   SessionSettings m_settings;
+
 private:
-  LogFactory* m_pLogFactory;
-  Log* m_pLog;
+  LogFactory *m_pLogFactory;
+  Log *m_pLog;
   NullLog m_nullLog;
   std::atomic<bool> m_processing;
   std::atomic<bool> m_firstPoll;
   std::atomic<bool> m_stop;
 };
 /*! @} */
-}
+} // namespace FIX
 
 #endif // FIX_ACCEPTOR_H

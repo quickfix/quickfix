@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,12 +30,10 @@
 
 using namespace FIX;
 
-TEST_CASE("FieldTypesTests")
-{
-  SECTION("DateTime_getFraction_NanoSecond")
-  {
+TEST_CASE("FieldTypesTests") {
+  SECTION("DateTime_getFraction_NanoSecond") {
     FIX::DateTime dateTime;
-    dateTime.setHMS(1,0,0,123456789,9);
+    dateTime.setHMS(1, 0, 0, 123456789, 9);
 
     CHECK(1 == dateTime.getFraction(1));
     CHECK(12 == dateTime.getFraction(2));
@@ -46,39 +44,36 @@ TEST_CASE("FieldTypesTests")
     CHECK(1234567 == dateTime.getFraction(7));
     CHECK(12345678 == dateTime.getFraction(8));
     CHECK(123456789 == dateTime.getFraction(9));
-    CHECK(123456789 ==dateTime.getFraction(25));
+    CHECK(123456789 == dateTime.getFraction(25));
   }
 
-  SECTION("DateTime_convertToNanos")
-  {
-    CHECK(1000000000 == FIX::DateTime::convertToNanos(1,0));
-    CHECK(100000000 == FIX::DateTime::convertToNanos(1,1));
-    CHECK(10000000 == FIX::DateTime::convertToNanos(1,2));
-    CHECK(1000000 == FIX::DateTime::convertToNanos(1,3));
-    CHECK(100000 == FIX::DateTime::convertToNanos(1,4));
-    CHECK(10000 == FIX::DateTime::convertToNanos(1,5));
-    CHECK(1000 == FIX::DateTime::convertToNanos(1,6));
-    CHECK(100 == FIX::DateTime::convertToNanos(1,7));
-    CHECK(10 == FIX::DateTime::convertToNanos(1,8));
-    CHECK(1 == FIX::DateTime::convertToNanos(1,9));
-    CHECK(1 == FIX::DateTime::convertToNanos(1,25));
+  SECTION("DateTime_convertToNanos") {
+    CHECK(1000000000 == FIX::DateTime::convertToNanos(1, 0));
+    CHECK(100000000 == FIX::DateTime::convertToNanos(1, 1));
+    CHECK(10000000 == FIX::DateTime::convertToNanos(1, 2));
+    CHECK(1000000 == FIX::DateTime::convertToNanos(1, 3));
+    CHECK(100000 == FIX::DateTime::convertToNanos(1, 4));
+    CHECK(10000 == FIX::DateTime::convertToNanos(1, 5));
+    CHECK(1000 == FIX::DateTime::convertToNanos(1, 6));
+    CHECK(100 == FIX::DateTime::convertToNanos(1, 7));
+    CHECK(10 == FIX::DateTime::convertToNanos(1, 8));
+    CHECK(1 == FIX::DateTime::convertToNanos(1, 9));
+    CHECK(1 == FIX::DateTime::convertToNanos(1, 25));
   }
 
-  SECTION("DateTime_getTimeT")
-  {
+  SECTION("DateTime_getTimeT") {
     FIX::DateTime dateTime;
-    dateTime.setYMD(2019,5,6);
-    dateTime.setHMS(1,0,0,123456789,9);
+    dateTime.setYMD(2019, 5, 6);
+    dateTime.setHMS(1, 0, 0, 123456789, 9);
 
     CHECK(1557104400 == dateTime.getTimeT());
   }
 
-  SECTION("DateTime_addAndSubtractSeconds")
-  {
+  SECTION("DateTime_addAndSubtractSeconds") {
     int secondsInAnHour = 3600;
     int secondsIn2Hours = 2 * secondsInAnHour;
 
-    FIX::DateTime addSeconds(2019,5,6,23,1,1,0);
+    FIX::DateTime addSeconds(2019, 5, 6, 23, 1, 1, 0);
     addSeconds += secondsIn2Hours;
     CHECK(2019 == addSeconds.getYear());
     CHECK(5 == addSeconds.getMonth());
@@ -87,7 +82,7 @@ TEST_CASE("FieldTypesTests")
     CHECK(1 == addSeconds.getMinute());
     CHECK(1 == addSeconds.getSecond());
 
-    FIX::DateTime subtractSeconds(2019,5,6,1,1,1,0);
+    FIX::DateTime subtractSeconds(2019, 5, 6, 1, 1, 1, 0);
     subtractSeconds += -secondsIn2Hours;
     CHECK(2019 == subtractSeconds.getYear());
     CHECK(5 == subtractSeconds.getMonth());
@@ -97,7 +92,7 @@ TEST_CASE("FieldTypesTests")
     CHECK(1 == subtractSeconds.getSecond());
 
     int secondsInADay = 86400;
-    FIX::DateTime addSecondsDayBoundary(2019,5,6,23,1,1,0);
+    FIX::DateTime addSecondsDayBoundary(2019, 5, 6, 23, 1, 1, 0);
     addSecondsDayBoundary += secondsInADay;
     CHECK(2019 == addSecondsDayBoundary.getYear());
     CHECK(5 == addSecondsDayBoundary.getMonth());
@@ -107,8 +102,7 @@ TEST_CASE("FieldTypesTests")
     CHECK(1 == addSecondsDayBoundary.getSecond());
   }
 
-  SECTION("DateTime_fromLocalTimeT")
-  {
+  SECTION("DateTime_fromLocalTimeT") {
     time_t currTime;
     currTime = time(NULL);
     localtime(&currTime);
@@ -119,14 +113,13 @@ TEST_CASE("FieldTypesTests")
     CHECK(nonFractionalDateTime.m_date > 0);
     CHECK(nonFractionalDateTime.m_time > 0);
 
-    FIX::DateTime fractionalDateTime = FIX::DateTime::fromLocalTimeT(currTime,1,1);
+    FIX::DateTime fractionalDateTime = FIX::DateTime::fromLocalTimeT(currTime, 1, 1);
 
     CHECK(fractionalDateTime.m_date > 0);
     CHECK(fractionalDateTime.m_time > 0);
   }
 
-  SECTION("DateTime_fromTm")
-  {
+  SECTION("DateTime_fromTm") {
     tm expectedTm;
     expectedTm.tm_year = 119;
     expectedTm.tm_mon = 5;
@@ -145,8 +138,7 @@ TEST_CASE("FieldTypesTests")
     CHECK(1 == dateTime.getSecond());
   }
 
-  SECTION("DateTime_nowLocal")
-  {
+  SECTION("DateTime_nowLocal") {
     time_t currTime;
     currTime = time(NULL);
     localtime(&currTime);
@@ -157,8 +149,7 @@ TEST_CASE("FieldTypesTests")
     CHECK(localTime.m_time > 0);
   }
 
-  SECTION("LocalTimeStamp_fromTm")
-  {
+  SECTION("LocalTimeStamp_fromTm") {
     time_t currTime;
     currTime = time(NULL);
     localtime(&currTime);

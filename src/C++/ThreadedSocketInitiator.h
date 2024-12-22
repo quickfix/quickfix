@@ -23,48 +23,44 @@
 #define FIX_THREADEDSOCKETINITIATOR_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
+#include "HostDetailsProvider.h"
 #include "Initiator.h"
 #include "ThreadedSocketConnection.h"
-#include "HostDetailsProvider.h"
 #include <map>
 
-namespace FIX
-{
+namespace FIX {
 /*! \addtogroup user
  *  @{
  */
 /// Threaded Socket implementation of Initiator.
-class ThreadedSocketInitiator : public Initiator
-{
+class ThreadedSocketInitiator : public Initiator {
 public:
-  ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings& ) EXCEPT ( ConfigError );
-  ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings&,
-                           LogFactory& ) EXCEPT ( ConfigError );
+  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
+  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &)
+      EXCEPT(ConfigError);
 
   virtual ~ThreadedSocketInitiator();
 
 private:
-  typedef std::map < socket_handle, thread_id > SocketToThread;
-  typedef std::pair < ThreadedSocketInitiator*, ThreadedSocketConnection* > ThreadPair;
+  typedef std::map<socket_handle, thread_id> SocketToThread;
+  typedef std::pair<ThreadedSocketInitiator *, ThreadedSocketConnection *> ThreadPair;
 
-  void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
-  void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
+  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
+  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
 
   void onStart();
   bool onPoll();
   void onStop();
 
-  void doConnect( const SessionID& s, const Dictionary& d );
+  void doConnect(const SessionID &s, const Dictionary &d);
 
-  void addThread(socket_handle s, thread_id t );
-  void removeThread(socket_handle s );
+  void addThread(socket_handle s, thread_id t);
+  void removeThread(socket_handle s);
   void lock() { Locker l(m_mutex); }
-  static THREAD_PROC socketThread( void* p );
+  static THREAD_PROC socketThread(void *p);
 
   SessionSettings m_settings;
   HostDetailsProvider m_hostDetailsProvider;
@@ -77,6 +73,6 @@ private:
   Mutex m_mutex;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#endif //FIX_THREADEDSOCKETINITIATOR_H
+#endif // FIX_THREADEDSOCKETINITIATOR_H

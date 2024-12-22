@@ -23,44 +23,40 @@
 #define FIX_SOCKETINITIATOR_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
-#include "Initiator.h"
-#include "SocketConnector.h"
-#include "SocketConnection.h"
 #include "HostDetailsProvider.h"
+#include "Initiator.h"
+#include "SocketConnection.h"
+#include "SocketConnector.h"
 
-namespace FIX
-{
+namespace FIX {
 /// Socket implementation of Initiator.
-class SocketInitiator : public Initiator, SocketConnector::Strategy
-{
+class SocketInitiator : public Initiator, SocketConnector::Strategy {
 public:
-  SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings& ) EXCEPT ( ConfigError );
-  SocketInitiator( Application&, MessageStoreFactory&,
-                   const SessionSettings&, LogFactory& ) EXCEPT ( ConfigError );
+  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
+  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
 
   virtual ~SocketInitiator();
 
 private:
-  typedef std::map < socket_handle, SocketConnection* > SocketConnections;
+  typedef std::map<socket_handle, SocketConnection *> SocketConnections;
 
-  void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
-  void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
+  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
+  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
 
   void onStart();
   bool onPoll();
   void onStop();
 
-  void doConnect( const SessionID&, const Dictionary& d );
-  void onConnect( SocketConnector&, socket_handle);
-  void onWrite( SocketConnector&, socket_handle);
-  bool onData( SocketConnector&, socket_handle);
-  void onDisconnect( SocketConnector&, socket_handle);
-  void onError( SocketConnector& );
-  void onTimeout( SocketConnector& );
+  void doConnect(const SessionID &, const Dictionary &d);
+  void onConnect(SocketConnector &, socket_handle);
+  void onWrite(SocketConnector &, socket_handle);
+  bool onData(SocketConnector &, socket_handle);
+  void onDisconnect(SocketConnector &, socket_handle);
+  void onError(SocketConnector &);
+  void onTimeout(SocketConnector &);
 
   SessionSettings m_settings;
 
@@ -75,6 +71,6 @@ private:
   int m_rcvBufSize;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#endif //FIX_SOCKETINITIATOR_H
+#endif // FIX_SOCKETINITIATOR_H

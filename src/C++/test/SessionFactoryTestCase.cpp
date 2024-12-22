@@ -18,25 +18,23 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
-#include <SessionFactory.h>
 #include <Application.h>
 #include <MessageStore.h>
 #include <Session.h>
+#include <SessionFactory.h>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-TEST_CASE("SessionFactoryTests")
-{
-  SECTION("validConfiguration")
-  {
+TEST_CASE("SessionFactoryTests") {
+  SECTION("validConfiguration") {
     NullApplication application;
     MemoryStoreFactory messageStoreFactory;
     SessionFactory object(application, messageStoreFactory, 0);
@@ -51,8 +49,7 @@ TEST_CASE("SessionFactoryTests")
     object.destroy(object.create(sessionID, settings));
   }
 
-  SECTION("startDayAndEndDayAreDifferent")
-  {
+  SECTION("startDayAndEndDayAreDifferent") {
     NullApplication application;
     MemoryStoreFactory messageStoreFactory;
     SessionFactory object(application, messageStoreFactory, 0);
@@ -69,8 +66,7 @@ TEST_CASE("SessionFactoryTests")
     object.destroy(object.create(sessionID, settings));
   }
 
-  SECTION("nonStopSession")
-  {
+  SECTION("nonStopSession") {
     NullApplication application;
     MemoryStoreFactory messageStoreFactory;
     SessionFactory object(application, messageStoreFactory, 0);
@@ -82,14 +78,13 @@ TEST_CASE("SessionFactoryTests")
     settings.setString(NON_STOP_SESSION, "Y");
     settings.setString(HEARTBTINT, "30");
 
-    Session* session = nullptr;
-    CHECK_NOTHROW( session = object.create(sessionID, settings) );
-    CHECK( session->getIsNonStopSession() );
+    Session *session = nullptr;
+    CHECK_NOTHROW(session = object.create(sessionID, settings));
+    CHECK(session->getIsNonStopSession());
     object.destroy(session);
   }
 
-  SECTION("wrongNonStopAndTime")
-  {
+  SECTION("wrongNonStopAndTime") {
     NullApplication application;
     MemoryStoreFactory messageStoreFactory;
     SessionFactory object(application, messageStoreFactory, 0);

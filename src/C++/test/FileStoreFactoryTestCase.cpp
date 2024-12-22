@@ -18,15 +18,15 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
+#include "TestHelper.h"
 #include <FileStore.h>
 #include <Session.h>
-#include "TestHelper.h"
 #include <fstream>
 #include <typeinfo>
 
@@ -34,42 +34,35 @@
 
 using namespace FIX;
 
-struct callCreateFixture
-{
-  callCreateFixture() : object( "store" )
-  {
-    deleteSession( "FS", "FACT" );
+struct callCreateFixture {
+  callCreateFixture()
+      : object("store") {
+    deleteSession("FS", "FACT");
   }
 
-  ~callCreateFixture()
-  {
-    deleteSession( "FS", "FACT" );
-  }
+  ~callCreateFixture() { deleteSession("FS", "FACT"); }
 
   FileStoreFactory object;
 };
 
-TEST_CASE_METHOD(callCreateFixture, "FileStoreFactoryTests")
-{
-  SECTION("callCreate")
-  {
-    SessionID sessionID( BeginString( "FIX.4.2" ),
-                         SenderCompID( "FS" ), TargetCompID( "FACT" ) );
+TEST_CASE_METHOD(callCreateFixture, "FileStoreFactoryTests") {
+  SECTION("callCreate") {
+    SessionID sessionID(BeginString("FIX.4.2"), SenderCompID("FS"), TargetCompID("FACT"));
 
-    MessageStore* messageStore = object.create( UtcTimeStamp::now(), sessionID );
-    CHECK( typeid( FileStore ) == typeid( *messageStore ) );
-    object.destroy( messageStore );
+    MessageStore *messageStore = object.create(UtcTimeStamp::now(), sessionID);
+    CHECK(typeid(FileStore) == typeid(*messageStore));
+    object.destroy(messageStore);
 
-    std::ifstream messageFile( "store/FIX.4.2-FS-FACT.body" );
-    CHECK( !messageFile.fail() );
+    std::ifstream messageFile("store/FIX.4.2-FS-FACT.body");
+    CHECK(!messageFile.fail());
     messageFile.close();
 
-    std::ifstream seqnumsFile( "store/FIX.4.2-FS-FACT.seqnums" );
-    CHECK( !seqnumsFile.fail() );
+    std::ifstream seqnumsFile("store/FIX.4.2-FS-FACT.seqnums");
+    CHECK(!seqnumsFile.fail());
     seqnumsFile.close();
 
-    std::ifstream sessionFile( "store/FIX.4.2-FS-FACT.session" );
-    CHECK( !sessionFile.fail() );
+    std::ifstream sessionFile("store/FIX.4.2-FS-FACT.session");
+    CHECK(!sessionFile.fail());
     sessionFile.close();
   }
-} //namespace FIX
+} // namespace FIX
