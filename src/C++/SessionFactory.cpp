@@ -201,15 +201,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( settings.has( REFRESH_ON_LOGON ) )
     pSession->setRefreshOnLogon( settings.getBool( REFRESH_ON_LOGON ) );
   if ( settings.has( MILLISECONDS_IN_TIMESTAMP ) )
-  {
-    bool useMilliseconds = true;
-    useMilliseconds = settings.getBool( MILLISECONDS_IN_TIMESTAMP );
-    if (useMilliseconds)
-      pSession->setTimestampPrecision(3);
-    else // MillisecondsInTimeStamp=N
-      pSession->setTimestampPrecision(0);
-
-  }
+    pSession->setMillisecondsInTimeStamp( settings.getBool( MILLISECONDS_IN_TIMESTAMP ) );
   if ( settings.has( TIMESTAMP_PRECISION ) )
     pSession->setTimestampPrecision(settings.getInt( TIMESTAMP_PRECISION ) );
   if ( settings.has( PERSIST_MESSAGES ) )
