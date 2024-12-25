@@ -18,58 +18,55 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
+#include "TestHelper.h"
 #include <SocketAcceptor.h>
 #include <Utility.h>
 #include <fix42/Logon.h>
-#include "TestHelper.h"
 #include <sstream>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-TEST_CASE("SocketAcceptorTests")
-{
+TEST_CASE("SocketAcceptorTests") {
   TestApplication application;
   MemoryStoreFactory factory;
   socket_handle socket;
 
   SessionSettings settings;
-  std::string input =
-    "[DEFAULT]\n"
-    "ConnectionType=acceptor\n"
-    "SocketAcceptPort=0\n"
-    "SocketReuseAddress=Y\n"
-    "SendBufferSize=1024\n"
-    "ReceiveBufferSize=1024\n"
-    "StartTime=00:00:00\n"
-    "EndTime=00:00:00\n"
-    "UseDataDictionary=N\n"
-    "CheckLatency=N\n"
-    "[SESSION]\n"
-    "BeginString=FIX.4.2\n"
-    "SenderCompID=ISLD\n"
-    "TargetCompID=TW\n"
-    "[SESSION]\n"
-    "BeginString=FIX.4.1\n"
-    "SenderCompID=ISLD\n"
-    "TargetCompID=WT\n";
-  std::stringstream stream( input );
+  std::string input = "[DEFAULT]\n"
+                      "ConnectionType=acceptor\n"
+                      "SocketAcceptPort=0\n"
+                      "SocketReuseAddress=Y\n"
+                      "SendBufferSize=1024\n"
+                      "ReceiveBufferSize=1024\n"
+                      "StartTime=00:00:00\n"
+                      "EndTime=00:00:00\n"
+                      "UseDataDictionary=N\n"
+                      "CheckLatency=N\n"
+                      "[SESSION]\n"
+                      "BeginString=FIX.4.2\n"
+                      "SenderCompID=ISLD\n"
+                      "TargetCompID=TW\n"
+                      "[SESSION]\n"
+                      "BeginString=FIX.4.1\n"
+                      "SenderCompID=ISLD\n"
+                      "TargetCompID=WT\n";
+  std::stringstream stream(input);
   stream >> settings;
 
-  SocketAcceptor object( application, factory, settings );
+  SocketAcceptor object(application, factory, settings);
   object.poll();
-  socket = createSocket( object.sessionToPort().find(SessionID("FIX.4.2", "ISLD", "TW"))->second, "127.0.0.1" );
+  socket = createSocket(object.sessionToPort().find(SessionID("FIX.4.2", "ISLD", "TW"))->second, "127.0.0.1");
   object.poll();
 
-  SECTION("receivePartialMessage")
-  {
+  SECTION("receivePartialMessage") {
     std::string firstPart = "8=FIX.4.29=28235=834=2369=31450"
                             "52=20041209-15:35:32.68749=TW50=G56=ISLD"
                             "60=20041209-15:35:3259=055=GE54=148=BLA000060467"
@@ -79,29 +76,29 @@ TEST_CASE("SocketAcceptorTests")
                             "1=1234567810=1458=F";
 
     std::string secondPart = "IX.4.29=34035=834=3369=31450"
-                            "52=20041209-15:35:32.69249=TW50=G56=ISLD"
-                            "60=20041209-15:35:3259=055=GE54=148=CME000060467"
-                            "107=BLF5167=FUT44=9740.0041=040=239=238=10"
-                            "37=20041209004077337=0C032=1031=9740.00151=0150=2"
-                            "20=09717=6796017=00687220041209093532TN0002843"
-                            "75=2004120914=011=00067960375=BLA030A16=0"
-                            "432=200412091=1234567810=217";
+                             "52=20041209-15:35:32.69249=TW50=G56=ISLD"
+                             "60=20041209-15:35:3259=055=GE54=148=CME000060467"
+                             "107=BLF5167=FUT44=9740.0041=040=239=238=10"
+                             "37=20041209004077337=0C032=1031=9740.00151=0150=2"
+                             "20=09717=6796017=00687220041209093532TN0002843"
+                             "75=2004120914=011=00067960375=BLA030A16=0"
+                             "432=200412091=1234567810=217";
 
     FIX42::Logon logon;
-    logon.getHeader().set( SenderCompID("TW") );
-    logon.getHeader().set( TargetCompID("ISLD") );
-    logon.getHeader().set( MsgSeqNum(1) );
-    logon.getHeader().set( SendingTime::now() );
-    logon.set( HeartBtInt(30) );
+    logon.getHeader().set(SenderCompID("TW"));
+    logon.getHeader().set(TargetCompID("ISLD"));
+    logon.getHeader().set(MsgSeqNum(1));
+    logon.getHeader().set(SendingTime::now());
+    logon.set(HeartBtInt(30));
 
-    CHECK( socket_send( socket, logon.toString().c_str(), (int)strlen(logon.toString().c_str()) ) );
+    CHECK(socket_send(socket, logon.toString().c_str(), (int)strlen(logon.toString().c_str())));
     object.poll();
-    CHECK( socket_send( socket, firstPart.c_str(), (int)strlen(firstPart.c_str()) ) );
+    CHECK(socket_send(socket, firstPart.c_str(), (int)strlen(firstPart.c_str())));
     object.poll();
-    CHECK( socket_send( socket, secondPart.c_str(), (int)strlen(secondPart.c_str()) ) );
+    CHECK(socket_send(socket, secondPart.c_str(), (int)strlen(secondPart.c_str())));
     object.poll();
   }
 
-  object.stop( true );
-  destroySocket( socket );
+  object.stop(true);
+  destroySocket(socket);
 }

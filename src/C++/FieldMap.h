@@ -23,78 +23,67 @@
 #define FIX_FIELDMAP
 
 #ifdef _MSC_VER
-#pragma warning( disable: 4786 )
+#pragma warning(disable : 4786)
 #endif
 
+#include "Exceptions.h"
 #include "Field.h"
 #include "MessageSorters.h"
-#include "Exceptions.h"
 #include "Utility.h"
-#include <map>
-#include <vector>
-#include <sstream>
 #include <algorithm>
+#include <map>
+#include <sstream>
+#include <vector>
 
-namespace FIX
-{
+namespace FIX {
 /**
  * Stores and organizes a collection of Fields.
  *
  * This is the basis for a message, header, and trailer.  This collection
  * class uses a sorter to keep the fields in a particular order.
  */
-class FieldMap
-{
+class FieldMap {
 
-  class sorter
-  {
+  class sorter {
   public:
-    explicit sorter( const message_order& order ) : m_order( order ) {}
+    explicit sorter(const message_order &order)
+        : m_order(order) {}
 
-    bool operator()( int tag, const FieldBase& right ) const
-    {
-      return m_order( tag, right.getTag() );
-    }
+    bool operator()(int tag, const FieldBase &right) const { return m_order(tag, right.getTag()); }
 
-    bool operator()( const FieldBase& left, int tag ) const
-    {
-      return m_order( left.getTag(), tag );
-    }
+    bool operator()(const FieldBase &left, int tag) const { return m_order(left.getTag(), tag); }
 
-    bool operator()( const FieldBase& left, const FieldBase& right ) const
-    {
-      return m_order( left.getTag(), right.getTag() );
+    bool operator()(const FieldBase &left, const FieldBase &right) const {
+      return m_order(left.getTag(), right.getTag());
     }
 
   private:
-    const message_order& m_order;
+    const message_order &m_order;
   };
 
-  class finder
-  {
+  class finder {
   public:
-    explicit finder( int tag ) : m_tag( tag ) {}
+    explicit finder(int tag)
+        : m_tag(tag) {}
 
-    bool operator()( const FieldBase& field ) const
-    {
-      return m_tag == field.getTag();
-    }
+    bool operator()(const FieldBase &field) const { return m_tag == field.getTag(); }
 
   private:
     int m_tag;
   };
 
-  enum { DEFAULT_SIZE = 16 };
+  enum {
+    DEFAULT_SIZE = 16
+  };
 
 protected:
-
-  FieldMap( const message_order& order, int size );
+  FieldMap(const message_order &order, int size);
 
 public:
-
   typedef std::vector<FieldBase, ALLOCATOR<FieldBase>> Fields;
-  typedef std::map<int, std::vector<FieldMap*>, std::less<int>,
-                   ALLOCATOR<std::pair<const int, std::vector<FieldMap*>>>> Groups;
+  typedef std::
+      map<int, std::vector<FieldMap *>, std::less<int>, ALLOCATOR<std::pair<const int, std::vector<FieldMap *>>>>
+          Groups;
 
   typedef Fields::iterator iterator;
   typedef Fields::const_iterator const_iterator;
@@ -103,161 +92,127 @@ public:
   typedef Groups::const_iterator g_const_iterator;
   typedef Groups::value_type g_value_type;
 
-  FieldMap( const message_order& order =
-            message_order( message_order::normal ) );
+  FieldMap(const message_order &order = message_order(message_order::normal));
 
-  FieldMap( const int order[] );
+  FieldMap(const int order[]);
 
-  FieldMap( const FieldMap& copy );
-  FieldMap(FieldMap&& rhs);
+  FieldMap(const FieldMap &copy);
+  FieldMap(FieldMap &&rhs);
 
   virtual ~FieldMap();
 
-  FieldMap& operator=( const FieldMap& rhs );
-  FieldMap& operator=(FieldMap&& rhs);
+  FieldMap &operator=(const FieldMap &rhs);
+  FieldMap &operator=(FieldMap &&rhs);
 
   /// Set a field without type checking
-  void setField( const FieldBase& field, bool overwrite = true )
-  EXCEPT ( RepeatedTag )
-  {
-    if( !overwrite )
-    {
-      addField( field );
-    }
-    else
-    {
-      Fields::iterator foundField = findTag( field.getTag() );
-      if( foundField == m_fields.end() )
-      {
-        addField( field );
-      }
-      else
-      {
-        foundField->setString( field.getString() );
+  void setField(const FieldBase &field, bool overwrite = true) EXCEPT(RepeatedTag) {
+    if (!overwrite) {
+      addField(field);
+    } else {
+      Fields::iterator foundField = findTag(field.getTag());
+      if (foundField == m_fields.end()) {
+        addField(field);
+      } else {
+        foundField->setString(field.getString());
       }
     }
   }
 
   /// Set a field without a field class
-  void setField( int tag, const std::string& value )
-  EXCEPT ( RepeatedTag, NoTagValue )
-  {
-    FieldBase fieldBase( tag, value );
-    setField( fieldBase );
+  void setField(int tag, const std::string &value) EXCEPT(RepeatedTag, NoTagValue) {
+    FieldBase fieldBase(tag, value);
+    setField(fieldBase);
   }
 
   /// Get a field if set
-  bool getFieldIfSet( FieldBase& field ) const
-  {
-    Fields::const_iterator foundField = findTag( field.getTag() );
-    if ( foundField == m_fields.end() )
+  bool getFieldIfSet(FieldBase &field) const {
+    Fields::const_iterator foundField = findTag(field.getTag());
+    if (foundField == m_fields.end()) {
       return false;
+    }
     field = (*foundField);
     return true;
   }
 
   /// Get a field without type checking
-  FieldBase& getField( FieldBase& field )
-  const EXCEPT ( FieldNotFound )
-  {
-    field = getFieldRef( field.getTag() );
+  FieldBase &getField(FieldBase &field) const EXCEPT(FieldNotFound) {
+    field = getFieldRef(field.getTag());
     return field;
   }
 
   /// Get a field without type checking
-  template<typename T>
-  const T& getField()
-  const EXCEPT ( FieldNotFound )
-  {
-    return *reinterpret_cast<const T*>(&getFieldRef( T::tag ));
+  template <typename T> const T &getField() const EXCEPT(FieldNotFound) {
+    return *reinterpret_cast<const T *>(&getFieldRef(T::tag));
   }
 
   /// Get a field without a field class
-  const std::string& getField( int tag )
-  const EXCEPT ( FieldNotFound )
-  {
-    return getFieldRef( tag ).getString();
-  }
+  const std::string &getField(int tag) const EXCEPT(FieldNotFound) { return getFieldRef(tag).getString(); }
 
   /// Get direct access to a field through a reference
-  const FieldBase& getFieldRef( int tag )
-  const EXCEPT ( FieldNotFound )
-  {
-    Fields::const_iterator field = findTag( tag );
-    if ( field == m_fields.end() )
-      throw FieldNotFound( tag );
+  const FieldBase &getFieldRef(int tag) const EXCEPT(FieldNotFound) {
+    Fields::const_iterator field = findTag(tag);
+    if (field == m_fields.end()) {
+      throw FieldNotFound(tag);
+    }
     return (*field);
   }
 
   /// Get direct access to a field through a pointer
-  const FieldBase* const getFieldPtr( int tag )
-  const EXCEPT ( FieldNotFound )
-  {
-    return &getFieldRef( tag );
-  }
+  const FieldBase *const getFieldPtr(int tag) const EXCEPT(FieldNotFound) { return &getFieldRef(tag); }
 
   /// Check to see if a field is set
-  bool isSetField( const FieldBase& field ) const
-  { return isSetField( field.getTag() ); }
+  bool isSetField(const FieldBase &field) const { return isSetField(field.getTag()); }
   /// Check to see if a field is set by referencing its number
-  bool isSetField( int tag ) const
-  { return findTag( tag ) != m_fields.end(); }
+  bool isSetField(int tag) const { return findTag(tag) != m_fields.end(); }
 
   /// Remove a field. If field is not present, this is a no-op.
-  void removeField( int tag );
+  void removeField(int tag);
 
   /// Add a group.
-  void addGroup( int tag, const FieldMap& group, bool setCount = true );
+  void addGroup(int tag, const FieldMap &group, bool setCount = true);
 
   /// Acquire ownership of Group object
-  void addGroupPtr( int tag, FieldMap * group, bool setCount = true );
+  void addGroupPtr(int tag, FieldMap *group, bool setCount = true);
 
   /// Replace a specific instance of a group.
-  void replaceGroup( int num, int tag, const FieldMap& group );
+  void replaceGroup(int num, int tag, const FieldMap &group);
 
   /// Get a specific instance of a group.
-  FieldMap& getGroup( int num, int tag, FieldMap& group ) const
-  EXCEPT ( FieldNotFound )
-  {
-    return group = getGroupRef( num, tag );
+  FieldMap &getGroup(int num, int tag, FieldMap &group) const EXCEPT(FieldNotFound) {
+    return group = getGroupRef(num, tag);
   }
 
   /// Get direct access to a field through a reference
-  FieldMap& getGroupRef( int num, int tag ) const
-  EXCEPT ( FieldNotFound )
-  {
-    Groups::const_iterator tagWithGroups = m_groups.find( tag );
-    if( tagWithGroups == m_groups.end() ) 
-      throw FieldNotFound( tag );
-    if( num <= 0 ) 
-      throw FieldNotFound( tag );
-    if( tagWithGroups->second.size() < static_cast<unsigned>(num) ) 
-      throw FieldNotFound( tag );
-    return *( *(tagWithGroups->second.begin() + (num-1) ) );
+  FieldMap &getGroupRef(int num, int tag) const EXCEPT(FieldNotFound) {
+    Groups::const_iterator tagWithGroups = m_groups.find(tag);
+    if (tagWithGroups == m_groups.end()) {
+      throw FieldNotFound(tag);
+    }
+    if (num <= 0) {
+      throw FieldNotFound(tag);
+    }
+    if (tagWithGroups->second.size() < static_cast<unsigned>(num)) {
+      throw FieldNotFound(tag);
+    }
+    return *(*(tagWithGroups->second.begin() + (num - 1)));
   }
 
   /// Get direct access to a field through a pointer
-  FieldMap* getGroupPtr( int num, int tag ) const
-  EXCEPT ( FieldNotFound )
-  {
-    return &getGroupRef( num, tag );
-  }
+  FieldMap *getGroupPtr(int num, int tag) const EXCEPT(FieldNotFound) { return &getGroupRef(num, tag); }
 
-  const Groups& groups() const {
-    return m_groups;
-  } 
+  const Groups &groups() const { return m_groups; }
 
   /// Remove a specific instance of a group.
-  void removeGroup( int num, int tag );
+  void removeGroup(int num, int tag);
   /// Remove all instances of a group.
-  void removeGroup( int tag );
+  void removeGroup(int tag);
 
   /// Check to see any instance of a group exists
-  bool hasGroup( int tag ) const;
+  bool hasGroup(int tag) const;
   /// Check to see if a specific instance of a group exists
-  bool hasGroup( int num, int tag ) const;
+  bool hasGroup(int num, int tag) const;
   /// Count the number of instance of a group
-  size_t groupCount( int tag ) const;
+  size_t groupCount(int tag) const;
 
   /// Clear all fields from the map
   void clear();
@@ -266,13 +221,14 @@ public:
 
   size_t totalFields() const;
 
-  std::string& calculateString( std::string& ) const;
+  std::string &calculateString(std::string &) const;
 
-  int calculateLength( int beginStringField = FIELD::BeginString,
-                       int bodyLengthField = FIELD::BodyLength,
-                       int checkSumField = FIELD::CheckSum ) const;
+  int calculateLength(
+      int beginStringField = FIELD::BeginString,
+      int bodyLengthField = FIELD::BodyLength,
+      int checkSumField = FIELD::CheckSum) const;
 
-  int calculateTotal( int checkSumField = FIELD::CheckSum ) const;
+  int calculateTotal(int checkSumField = FIELD::CheckSum) const;
 
   iterator begin() { return m_fields.begin(); }
   iterator end() { return m_fields.end(); }
@@ -284,94 +240,70 @@ public:
   g_const_iterator g_end() const { return m_groups.end(); }
 
 protected:
-
   friend class Message;
 
-  void addField( const FieldBase& field )
-  {
-    Fields::iterator iter = findPositionFor( field.getTag() );
-    if( iter == m_fields.end() )
-    {
-      m_fields.push_back( field );
-    }
-    else
-    {
-      m_fields.insert( iter, field );
+  void addField(const FieldBase &field) {
+    Fields::iterator iter = findPositionFor(field.getTag());
+    if (iter == m_fields.end()) {
+      m_fields.push_back(field);
+    } else {
+      m_fields.insert(iter, field);
     }
   }
 
   // used to find data length fields during message decoding
   // message fields are not yet sorted so regular find*** functions might return wrong results
-  const FieldBase& reverse_find( int tag ) const
-  {
-    Fields::const_reverse_iterator field = 
-      std::find_if( m_fields.rbegin(), m_fields.rend(), finder( tag ) );
-    if( field == m_fields.rend() )
-      throw FieldNotFound( tag );
+  const FieldBase &reverse_find(int tag) const {
+    Fields::const_reverse_iterator field = std::find_if(m_fields.rbegin(), m_fields.rend(), finder(tag));
+    if (field == m_fields.rend()) {
+      throw FieldNotFound(tag);
+    }
 
     return *field;
   }
 
   // append field to message without sorting
   // only applicable during message decoding
-  void appendField( const FieldBase& field )
-  {
-    m_fields.push_back( field );
-  }
+  void appendField(const FieldBase &field) { m_fields.push_back(field); }
 
   // sort fields after message decoding
-  void sortFields()
-  {
-    std::sort( m_fields.begin(), m_fields.end(), sorter(m_order) );
-  }
+  void sortFields() { std::sort(m_fields.begin(), m_fields.end(), sorter(m_order)); }
 
 private:
+  Fields::const_iterator findTag(int tag) const { return lookup(m_fields.begin(), m_fields.end(), tag); }
 
-  Fields::const_iterator findTag( int tag ) const
-  {
-    return lookup( m_fields.begin(), m_fields.end(), tag );
-  }
+  Fields::iterator findTag(int tag) { return lookup(m_fields.begin(), m_fields.end(), tag); }
 
-  Fields::iterator findTag( int tag )
-  {
-    return lookup( m_fields.begin(), m_fields.end(), tag );
-  }
-
-  template <typename Iterator>
-  Iterator lookup(Iterator begin, Iterator end, int tag) const
-  {
+  template <typename Iterator> Iterator lookup(Iterator begin, Iterator end, int tag) const {
 #if defined(__SUNPRO_CC)
     std::size_t numElements;
-    std::distance( begin, end, numElements );
+    std::distance(begin, end, numElements);
 #else
-    std::size_t numElements = std::distance( begin, end );
+    std::size_t numElements = std::distance(begin, end);
 #endif
-    if( numElements < 16 )
-      return std::find_if( begin, end, finder( tag ) );
+    if (numElements < 16) {
+      return std::find_if(begin, end, finder(tag));
+    }
 
-    Iterator field = std::lower_bound( begin, end, tag, sorter( m_order ) );
-    if( field != end &&
-        field->getTag() == tag )
-    {
+    Iterator field = std::lower_bound(begin, end, tag, sorter(m_order));
+    if (field != end && field->getTag() == tag) {
       return field;
     }
 
     return end;
   }
 
-  Fields::iterator findPositionFor( int tag )
-  {
-    if( m_fields.empty() )
-      return m_fields.end();
-
-    const FieldBase& lastField = m_fields.back();
-    if( m_order( lastField.getTag(), tag ) ||
-        lastField.getTag() == tag )
-    {
+  Fields::iterator findPositionFor(int tag) {
+    if (m_fields.empty()) {
       return m_fields.end();
     }
 
-    return std::upper_bound( m_fields.begin(), m_fields.end(), tag, sorter( m_order ) );
+    const FieldBase &lastField = m_fields.back();
+    if (m_order(lastField.getTag(), tag) || lastField.getTag() == tag) {
+      return m_fields.end();
+    }
+
+    return std::upper_bound(m_fields.begin(), m_fields.end(), tag, sorter(m_order));
   }
 
   Fields m_fields;
@@ -379,24 +311,17 @@ private:
   message_order m_order;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#define FIELD_SET( MAP, FIELD )           \
-bool isSet( const FIELD& field ) const    \
-{ return (MAP).isSetField(field); }       \
-void set( const FIELD& field )            \
-{ (MAP).setField(field); }                \
-FIELD& get( FIELD& field ) const          \
-{ return (FIELD&)(MAP).getField(field); } \
-bool getIfSet( FIELD& field ) const       \
-{ return (MAP).getFieldIfSet(field); }
+#define FIELD_SET(MAP, FIELD)                                                                                          \
+  bool isSet(const FIELD &field) const { return (MAP).isSetField(field); }                                             \
+  void set(const FIELD &field) { (MAP).setField(field); }                                                              \
+  FIELD &get(FIELD &field) const { return (FIELD &)(MAP).getField(field); }                                            \
+  bool getIfSet(FIELD &field) const { return (MAP).getFieldIfSet(field); }
 
-#define FIELD_GET_PTR( MAP, FLD ) \
-(const FIX::FLD*)MAP.getFieldPtr( FIX::FIELD::FLD )
-#define FIELD_GET_REF( MAP, FLD ) \
-(const FIX::FLD&)MAP.getFieldRef( FIX::FIELD::FLD )
-#define FIELD_THROW_IF_NOT_FOUND( MAP, FLD ) \
-if( !(MAP).isSetField( FIX::FIELD::FLD) ) \
-  throw FieldNotFound( FIX::FIELD::FLD )
-#endif //FIX_FIELDMAP
-
+#define FIELD_GET_PTR(MAP, FLD) (const FIX::FLD *)MAP.getFieldPtr(FIX::FIELD::FLD)
+#define FIELD_GET_REF(MAP, FLD) (const FIX::FLD &)MAP.getFieldRef(FIX::FIELD::FLD)
+#define FIELD_THROW_IF_NOT_FOUND(MAP, FLD)                                                                             \
+  if (!(MAP).isSetField(FIX::FIELD::FLD))                                                                              \
+  throw FieldNotFound(FIX::FIELD::FLD)
+#endif // FIX_FIELDMAP

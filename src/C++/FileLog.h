@@ -23,40 +23,46 @@
 #define FIX_FILELOG_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "Log.h"
 #include "SessionSettings.h"
 #include <fstream>
 
-namespace FIX
-{
+namespace FIX {
 /**
  * Creates a file based implementation of Log
  *
  * This stores all log events into flat files
  */
-class FileLogFactory : public LogFactory
-{
+class FileLogFactory : public LogFactory {
 public:
-  FileLogFactory( const SessionSettings& settings )
-: m_settings( settings ), m_globalLog(0), m_globalLogCount(0) {};
-  FileLogFactory( const std::string& path )
-: m_path( path ), m_backupPath( path ), m_globalLog(0), m_globalLogCount(0) {};
-  FileLogFactory( const std::string& path, const std::string& backupPath )
-: m_path( path ), m_backupPath( backupPath ), m_globalLog(0), m_globalLogCount(0) {};
+  FileLogFactory(const SessionSettings &settings)
+      : m_settings(settings),
+        m_globalLog(0),
+        m_globalLogCount(0) {};
+  FileLogFactory(const std::string &path)
+      : m_path(path),
+        m_backupPath(path),
+        m_globalLog(0),
+        m_globalLogCount(0) {};
+  FileLogFactory(const std::string &path, const std::string &backupPath)
+      : m_path(path),
+        m_backupPath(backupPath),
+        m_globalLog(0),
+        m_globalLogCount(0) {};
 
 public:
-  Log* create();
-  Log* create( const SessionID& );
-  void destroy( Log* log );
+  Log *create();
+  Log *create(const SessionID &);
+  void destroy(Log *log);
 
 private:
   std::string m_path;
   std::string m_backupPath;
   SessionSettings m_settings;
-  Log* m_globalLog;
+  Log *m_globalLog;
   int m_globalLogCount;
 };
 
@@ -67,31 +73,30 @@ private:
  * and one for events.
  *
  */
-class FileLog : public Log
-{
+class FileLog : public Log {
 public:
-  FileLog( const std::string& path );
-  FileLog( const std::string& path, const std::string& backupPath );
-  FileLog( const std::string& path, const SessionID& sessionID );
-  FileLog( const std::string& path, const std::string& backupPath, const SessionID& sessionID );
+  FileLog(const std::string &path);
+  FileLog(const std::string &path, const std::string &backupPath);
+  FileLog(const std::string &path, const SessionID &sessionID);
+  FileLog(const std::string &path, const std::string &backupPath, const SessionID &sessionID);
   virtual ~FileLog();
 
   void clear();
   void backup();
 
-  void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl; }
-  void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl; }
-  void onEvent( const std::string& value )
-  {
-    m_event << UtcTimeStampConvertor::convert( UtcTimeStamp::now(), 9 )
-            << " : " << value << std::endl;
+  void onIncoming(const std::string &value) {
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl;
+  }
+  void onOutgoing(const std::string &value) {
+    m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl;
+  }
+  void onEvent(const std::string &value) {
+    m_event << UtcTimeStampConvertor::convert(UtcTimeStamp::now(), 9) << " : " << value << std::endl;
   }
 
 private:
-  std::string generatePrefix( const SessionID& sessionID );
-  void init( std::string path, std::string backupPath, const std::string& prefix );
+  std::string generatePrefix(const SessionID &sessionID);
+  void init(std::string path, std::string backupPath, const std::string &prefix);
 
   std::ofstream m_messages;
   std::ofstream m_event;
@@ -100,6 +105,6 @@ private:
   std::string m_fullPrefix;
   std::string m_fullBackupPrefix;
 };
-}
+} // namespace FIX
 
-#endif //FIX_LOG_H
+#endif // FIX_LOG_H

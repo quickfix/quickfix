@@ -18,47 +18,40 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
-#include <SessionState.h>
 #include <Log.h>
-#include <string>
+#include <SessionState.h>
 #include <sstream>
+#include <string>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-TEST_CASE("SessionStateTests")
-{
-  class TestLog : public Log
-  {
+TEST_CASE("SessionStateTests") {
+  class TestLog : public Log {
   public:
-    void clear() {
-      events = 0;
-    }
-    void backup() {
-      eventsBackup = events;
-    }
-    void onIncoming( const std::string& ) {}
-    void onOutgoing( const std::string& ) {}
-    void onEvent( const std::string& ) {}
+    void clear() { events = 0; }
+    void backup() { eventsBackup = events; }
+    void onIncoming(const std::string &) {}
+    void onOutgoing(const std::string &) {}
+    void onEvent(const std::string &) {}
 
     int events = 0;
     int eventsBackup = 0;
   };
 
-  SECTION("ClearSessionLog_StateLogNotNull_LogCleared")
-  {
+  SECTION("ClearSessionLog_StateLogNotNull_LogCleared") {
     SessionSettings settings;
     TestLog log;
     log.events = 5;
 
-    SessionState state( UtcTimeStamp::now() );
+    SessionState state(UtcTimeStamp::now());
     state.log(&log);
 
     state.clear();
@@ -66,26 +59,24 @@ TEST_CASE("SessionStateTests")
     CHECK(0 == log.events);
   }
 
-  SECTION("clearSessionLog_StateLogIsNull_LogNotCleared")
-  {
+  SECTION("clearSessionLog_StateLogIsNull_LogNotCleared") {
     SessionSettings settings;
     TestLog log;
     log.events = 5;
 
-    SessionState state( UtcTimeStamp::now() );
+    SessionState state(UtcTimeStamp::now());
 
     state.clear();
 
     CHECK(5 == log.events);
   }
 
-  SECTION("backupSessionLog_StateLogNotNull_LogBackedUp")
-  {
+  SECTION("backupSessionLog_StateLogNotNull_LogBackedUp") {
     SessionSettings settings;
     TestLog log;
     log.events = 5;
 
-    SessionState state( UtcTimeStamp::now() );
+    SessionState state(UtcTimeStamp::now());
     state.log(&log);
 
     state.backup();
@@ -93,13 +84,12 @@ TEST_CASE("SessionStateTests")
     CHECK(5 == log.eventsBackup);
   }
 
-  SECTION("backupSessionLog_StateLogIsNull_LogBackedUp")
-  {
+  SECTION("backupSessionLog_StateLogIsNull_LogBackedUp") {
     SessionSettings settings;
     TestLog log;
     log.events = 5;
 
-    SessionState state( UtcTimeStamp::now() );
+    SessionState state(UtcTimeStamp::now());
 
     state.backup();
 

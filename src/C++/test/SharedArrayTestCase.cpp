@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,20 +30,17 @@
 
 using namespace FIX;
 
-TEST_CASE("SharedArrayTests")
-{
-  SECTION("SharedArrayEqualsOperator_SharedArraySetEqualToItself")
-  {
+TEST_CASE("SharedArrayTests") {
+  SECTION("SharedArrayEqualsOperator_SharedArraySetEqualToItself") {
     shared_array<std::string> shared;
-    shared_array<std::string>* pShared = &shared;
+    shared_array<std::string> *pShared = &shared;
 
     shared = *pShared;
 
     CHECK(*pShared == shared);
   }
 
-  SECTION("CreateSharedArray_SizeZeroArray")
-  {
+  SECTION("CreateSharedArray_SizeZeroArray") {
     shared_array<std::string> shared = shared_array<std::string>::create(0);
 
     CHECK(size_t{0} == shared.size());

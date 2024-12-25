@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,10 +30,8 @@
 
 using namespace FIX;
 
-TEST_CASE("GroupTests")
-{
-  SECTION("copy")
-  {
+TEST_CASE("GroupTests") {
+  SECTION("copy") {
     Group object(1, 10, message_order(10, 9, 8, 7, 0));
     object.setField(10, "10");
     object.setField(9, "9");
@@ -41,18 +39,17 @@ TEST_CASE("GroupTests")
     object.setField(7, "7");
 
     std::string originalString;
-    object.calculateString( originalString );
-    
+    object.calculateString(originalString);
+
     Group copy = object;
 
     std::string copyString;
-    copy.calculateString( copyString );
+    copy.calculateString(copyString);
 
-    CHECK( originalString == copyString );
+    CHECK(originalString == copyString);
   }
 
-  SECTION("replace")
-  {
+  SECTION("replace") {
     Group parent(5, 100);
 
     Group child(1, 10);
@@ -71,11 +68,9 @@ TEST_CASE("GroupTests")
 
     CHECK("replace_1" == actualChild.getField(1));
     CHECK("replace_2" == actualChild.getField(2));
-
   }
 
-  SECTION("removeGroup")
-  {
+  SECTION("removeGroup") {
     Group parent(5, 100);
 
     Group child(1, 10);
@@ -86,11 +81,9 @@ TEST_CASE("GroupTests")
     parent.removeGroup(child);
 
     CHECK(0U == parent.groupCount(1));
-
   }
 
-  SECTION("removeGroupByNum")
-  {
+  SECTION("removeGroupByNum") {
     Group parent(5, 100);
 
     Group childA(1, 10);
@@ -111,11 +104,9 @@ TEST_CASE("GroupTests")
     parent.getGroup(1, actualChild);
     CHECK("childB_1" == actualChild.getField(1));
     CHECK("childB_2" == actualChild.getField(2));
-
   }
 
-  SECTION("hasGroup")
-  {
+  SECTION("hasGroup") {
     Group parent(5, 100);
 
     Group child(1, 10);
@@ -129,8 +120,7 @@ TEST_CASE("GroupTests")
     CHECK(!parent.hasGroup(missingChild));
   }
 
-  SECTION("hasGroupByNum")
-  {
+  SECTION("hasGroupByNum") {
     Group parent(5, 100);
 
     Group childA(1, 10);

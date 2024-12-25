@@ -1,0 +1,17 @@
+dirent_windows.h
+index.h
+pugixml.cpp
+stdint_msvc.h
+strptime.c
+strptime.h
+PUGIXML_DOMDocument.h
+PUGIXML_DOMDocument.cpp
+fix40/*
+fix41/*
+fix42/*
+fix43/*
+fix44/*
+fix50/*
+fix50sp1/*
+fix50sp2/*
+fixt11/*

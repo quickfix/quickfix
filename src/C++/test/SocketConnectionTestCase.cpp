@@ -18,46 +18,37 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
 #include "TestHelper.h"
-#include <SocketConnection.h>
 #include <Application.h>
-#include <MessageStore.h>
 #include <Dictionary.h>
+#include <MessageStore.h>
 #include <SessionSettings.h>
-#include <SocketInitiator.h>
 #include <SocketAcceptor.h>
+#include <SocketConnection.h>
+#include <SocketInitiator.h>
 #include <SocketServer.h>
 #include <Utility.h>
-#include <fix42/NewOrderSingle.h>
 #include <fix42/Logon.h>
+#include <fix42/NewOrderSingle.h>
 #include <set>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-TEST_CASE("SocketConnectionTests")
-{
-  struct TestSocketMonitor : public SocketMonitor 
-  {
-    virtual void signal( int socket ) 
-    {
-      signaledSocket = socket;
-    }
+TEST_CASE("SocketConnectionTests") {
+  struct TestSocketMonitor : public SocketMonitor {
+    virtual void signal(int socket) { signaledSocket = socket; }
 
-    virtual void unsignal( int socket ) 
-    {
-      unsignalSocket = socket;
-    }
+    virtual void unsignal(int socket) { unsignalSocket = socket; }
 
-    virtual bool drop( int socket ) 
-    {
+    virtual bool drop(int socket) {
       dropSocket = socket;
       return true;
     }
@@ -67,87 +58,105 @@ TEST_CASE("SocketConnectionTests")
     int dropSocket = -1;
   };
 
-  struct TestApplication : public FIX::NullApplication
-  {
-    void fromApp( const FIX::Message& m, const FIX::SessionID& )
-    EXCEPT( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
-    {
+  struct TestApplication : public FIX::NullApplication {
+    void fromApp(const FIX::Message &m, const FIX::SessionID &)
+        EXCEPT(FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType) {
       count++;
     }
 
     int count = 0;
   };
 
-  struct NullLogFactory : public LogFactory 
-  {
+  struct NullLogFactory : public LogFactory {
   public:
     virtual ~NullLogFactory() {}
-    virtual Log* create(){return 0;}
-    virtual Log* create( const SessionID& ){return 0;}
-    virtual void destroy( Log* ){}
+    virtual Log *create() { return 0; }
+    virtual Log *create(const SessionID &) { return 0; }
+    virtual void destroy(Log *) {}
   };
 
-  struct TestSession : public Session 
-  {
-    TestSession(Application& app, MessageStoreFactory& factory, const SessionID& sessionId,
-        DataDictionaryProvider& provider, const TimeRange& timeRange, int heartBtInt)
-    : Session([](){ return UtcTimeStamp::now(); }, app, factory, sessionId, provider, timeRange, heartBtInt, nullptr) {};
-    ~TestSession(){};
+  struct TestSession : public Session {
+    TestSession(
+        Application &app,
+        MessageStoreFactory &factory,
+        const SessionID &sessionId,
+        DataDictionaryProvider &provider,
+        const TimeRange &timeRange,
+        int heartBtInt)
+        : Session(
+              []() { return UtcTimeStamp::now(); },
+              app,
+              factory,
+              sessionId,
+              provider,
+              timeRange,
+              heartBtInt,
+              nullptr) {};
+    ~TestSession() {};
 
-    virtual void next( const std::string&, const UtcTimeStamp& timeStamp, bool queued = false ) 
-    {
-      if(nextThrowInvalidMsg)
+    virtual void next(const std::string &, const UtcTimeStamp &timeStamp, bool queued = false) {
+      if (nextThrowInvalidMsg) {
         throw InvalidMessage();
+      }
     }
 
-    SocketConnection* pConnection = nullptr;
+    SocketConnection *pConnection = nullptr;
     bool nextThrowInvalidMsg = false;
   };
 
   struct TestSocketInitiator : public SocketInitiator {
-    TestSocketInitiator(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session) 
-    : SocketInitiator(app, factory, settings), pSession(session) {};
+    TestSocketInitiator(
+        Application &app,
+        MessageStoreFactory &factory,
+        const SessionSettings &settings,
+        Session *session)
+        : SocketInitiator(app, factory, settings),
+          pSession(session) {};
 
-    virtual ~TestSocketInitiator(){};
+    virtual ~TestSocketInitiator() {};
 
-    virtual Session* getSession( const SessionID&, Responder& responder) 
-    {
+    virtual Session *getSession(const SessionID &, Responder &responder) {
       pSession->setResponder(&responder);
       return pSession;
     }
 
-    Session* pSession;
+    Session *pSession;
   };
 
   struct TestSocketAcceptor : public SocketAcceptor {
-    TestSocketAcceptor(Application& app, MessageStoreFactory& factory, const SessionSettings& settings, Session* session, LogFactory& log) 
-    : SocketAcceptor(app, factory, settings, log), pSession(session) {};
+    TestSocketAcceptor(
+        Application &app,
+        MessageStoreFactory &factory,
+        const SessionSettings &settings,
+        Session *session,
+        LogFactory &log)
+        : SocketAcceptor(app, factory, settings, log),
+          pSession(session) {};
 
-    virtual ~TestSocketAcceptor(){};
+    virtual ~TestSocketAcceptor() {};
 
-    virtual Session* getSession(const std::string& msg, Responder& responder ) 
-    {
+    virtual Session *getSession(const std::string &msg, Responder &responder) {
       pSession->setResponder(&responder);
       return pSession;
     }
 
-    Session* pSession;
+    Session *pSession;
   };
 
-  struct BaseSocketConnection
-  {
-    BaseSocketConnection() 
-    {
-      initiatorSessionID = SessionID( BeginString( "FIX.4.2" ),
-          SenderCompID( "INITIATOR" ), TargetCompID( "ACCEPT" ) );
+  struct BaseSocketConnection {
+    BaseSocketConnection() {
+      initiatorSessionID = SessionID(BeginString("FIX.4.2"), SenderCompID("INITIATOR"), TargetCompID("ACCEPT"));
 
-      acceptorSessionID = SessionID( BeginString( "FIX.4.2" ),
-          SenderCompID( "ACCEPT" ), TargetCompID( "INITIATOR" ) );
+      acceptorSessionID = SessionID(BeginString("FIX.4.2"), SenderCompID("ACCEPT"), TargetCompID("INITIATOR"));
 
-      initiatorProvider.addTransportDataDictionary( initiatorSessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
-      acceptorProvider.addTransportDataDictionary( acceptorSessionID.getBeginString(), FIX::TestSettings::pathForSpec("FIX42") );
+      initiatorProvider.addTransportDataDictionary(
+          initiatorSessionID.getBeginString(),
+          FIX::TestSettings::pathForSpec("FIX42"));
+      acceptorProvider.addTransportDataDictionary(
+          acceptorSessionID.getBeginString(),
+          FIX::TestSettings::pathForSpec("FIX42"));
 
-      sessionTime.reset( new TimeRange(UtcTimeOnly(), UtcTimeOnly(), 0, 31));
+      sessionTime.reset(new TimeRange(UtcTimeOnly(), UtcTimeOnly(), 0, 31));
 
       dictionaryInitiator.setString("ConnectionType", "initiator");
       dictionaryInitiator.setString("FileStorePath", "store");
@@ -169,18 +178,17 @@ TEST_CASE("SocketConnectionTests")
       dictionaryAcceptor.setString(END_DAY, "Mon");
 
       settingsAcceptor.set(acceptorSessionID, dictionaryAcceptor);
-      acceptorSession.reset(new TestSession(application,factory, acceptorSessionID, acceptorProvider, *sessionTime, 1));
+      acceptorSession.reset(
+          new TestSession(application, factory, acceptorSessionID, acceptorProvider, *sessionTime, 1));
       acceptor.reset(new TestSocketAcceptor(application, factory, settingsAcceptor, acceptorSession.get(), logFactory));
 
       initiator.reset(new SocketInitiator(application, factory, settingsInitiator));
-      initiatorSession.reset(new TestSession(application,factory, initiatorSessionID, initiatorProvider, *sessionTime, 1));
+      initiatorSession.reset(
+          new TestSession(application, factory, initiatorSessionID, initiatorProvider, *sessionTime, 1));
       testInitiator.reset(new TestSocketInitiator(application, factory, settingsInitiator, initiatorSession.get()));
     };
 
-    ~BaseSocketConnection()
-    {
-      socket_close(socket);
-    };
+    ~BaseSocketConnection() { socket_close(socket); };
 
     DataDictionaryProvider initiatorProvider;
     DataDictionaryProvider acceptorProvider;
@@ -210,45 +218,38 @@ TEST_CASE("SocketConnectionTests")
     int socket = 101;
   };
 
-  struct TestSessionConnection : public BaseSocketConnection
-  {
-    TestSessionConnection() : BaseSocketConnection(){
-      pSocketConnection.reset(new SocketConnection( *testInitiator, initiatorSessionID, socket, &monitor ));
+  struct TestSessionConnection : public BaseSocketConnection {
+    TestSessionConnection()
+        : BaseSocketConnection() {
+      pSocketConnection.reset(new SocketConnection(*testInitiator, initiatorSessionID, socket, &monitor));
     };
 
-    ~TestSessionConnection(){};
+    ~TestSessionConnection() {};
 
-    Session* getSession() 
-    {
-      return pSocketConnection->getSession();
-    }
+    Session *getSession() { return pSocketConnection->getSession(); }
 
     std::unique_ptr<SocketConnection> pSocketConnection;
   };
 
-  SECTION("socketTimeout_SessionIsNotNull")
-  {
+  SECTION("socketTimeout_SessionIsNotNull") {
     TestSessionConnection connection;
     connection.pSocketConnection->onTimeout();
-    Session* session = connection.pSocketConnection->getSession();
+    Session *session = connection.pSocketConnection->getSession();
     CHECK(nullptr != session);
   }
 
-  SECTION("ReadSocket_SessionMissing_NoMessagesRead")
-  {
+  SECTION("ReadSocket_SessionMissing_NoMessagesRead") {
     TestSessionConnection connection;
     std::set<SessionID> sessions;
-    connection.pSocketConnection.reset(new SocketConnection( 
-      connection.socket, sessions, &connection.monitor ));
+    connection.pSocketConnection.reset(new SocketConnection(connection.socket, sessions, &connection.monitor));
 
     SocketConnector connector;
     CHECK(!connection.pSocketConnection->read(connector));
   }
 
-  SECTION("ReadSocket_SocketException_ReadFailed")
-  {
+  SECTION("ReadSocket_SocketException_ReadFailed") {
     TestSessionConnection connection;
-    Session* session = connection.getSession();
+    Session *session = connection.getSession();
     CHECK(nullptr != session);
     session->disconnect();
 

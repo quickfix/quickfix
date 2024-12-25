@@ -29,46 +29,43 @@
 #include <Winsock2.h>
 typedef int socklen_t;
 
-#include <set>
 #include <queue>
+#include <set>
 #include <time.h>
 
-namespace FIX
-{
+namespace FIX {
 /// Monitors events on a collection of sockets.
-class SocketMonitor
-{
+class SocketMonitor {
 public:
   class Strategy;
 
-  SocketMonitor( int timeout = 0 );
+  SocketMonitor(int timeout = 0);
   virtual ~SocketMonitor();
 
-  bool addConnect( socket_handle socket );
-  bool addRead(socket_handle socket );
-  bool addWrite(socket_handle socket );
-  bool drop(socket_handle socket );
-  void signal(socket_handle socket );
-  void unsignal(socket_handle socket );
-  void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
+  bool addConnect(socket_handle socket);
+  bool addRead(socket_handle socket);
+  bool addWrite(socket_handle socket);
+  bool drop(socket_handle socket);
+  void signal(socket_handle socket);
+  void unsignal(socket_handle socket);
+  void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);
 
-  size_t numSockets() 
-  { return m_readSockets.size() - 1; }
+  size_t numSockets() { return m_readSockets.size() - 1; }
 
 private:
-  typedef std::set < socket_handle > Sockets;
-  typedef std::queue < socket_handle > Queue;
+  typedef std::set<socket_handle> Sockets;
+  typedef std::queue<socket_handle> Queue;
 
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( const Sockets&, fd_set& );
-  inline timeval* getTimeval( bool poll, double timeout );
-  inline bool sleepIfEmpty( bool poll );
+  void buildSet(const Sockets &, fd_set &);
+  inline timeval *getTimeval(bool poll, double timeout);
+  inline bool sleepIfEmpty(bool poll);
 
-  void processReadSet( Strategy&, fd_set& );
-  void processWriteSet( Strategy&, fd_set& );
-  void processExceptSet( Strategy&, fd_set& );
+  void processReadSet(Strategy &, fd_set &);
+  void processWriteSet(Strategy &, fd_set &);
+  void processExceptSet(Strategy &, fd_set &);
 
   int m_timeout;
   timeval m_timeval;
@@ -84,22 +81,19 @@ private:
   Queue m_dropped;
 
 public:
-  class Strategy
-  {
+  class Strategy {
   public:
-    virtual ~Strategy()
-    {}
-    virtual void onConnect( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onEvent( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onWrite( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onError( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onError( SocketMonitor& ) = 0;
-    virtual void onTimeout( SocketMonitor& )
-  {}}
-  ;
+    virtual ~Strategy() {}
+    virtual void onConnect(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onEvent(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onWrite(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onError(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onError(SocketMonitor &) = 0;
+    virtual void onTimeout(SocketMonitor &) {}
+  };
 };
-}
+} // namespace FIX
 
 #endif //_MSC_VER
 
-#endif //FIX_SOCKETMONITOR_WIN32_H
+#endif // FIX_SOCKETMONITOR_WIN32_H

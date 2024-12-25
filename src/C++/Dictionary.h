@@ -23,24 +23,23 @@
 #define FIX_DICTIONARY_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
+#include "Exceptions.h"
 #include <map>
 #include <string>
-#include "Exceptions.h"
 
-namespace FIX
-{
+namespace FIX {
 /// For storage and retrieval of key/value pairs.
-class Dictionary
-{
+class Dictionary {
 public:
-  Dictionary( const std::string& name ) : m_name( name ) {}
+  Dictionary(const std::string &name)
+      : m_name(name) {}
   Dictionary() {}
   virtual ~Dictionary() {}
 
-  typedef std::map < std::string, std::string > Data;
+  typedef std::map<std::string, std::string> Data;
   typedef Data::const_iterator iterator;
   typedef iterator const_iterator;
   typedef Data::value_type value_type;
@@ -51,36 +50,31 @@ public:
   size_t size() const { return m_data.size(); }
 
   /// Get a value as a string.
-  std::string getString( const std::string&, bool capitalize = false ) const
-  EXCEPT ( ConfigError, FieldConvertError );
+  std::string getString(const std::string &, bool capitalize = false) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a int.
-  int getInt( const std::string& ) const
-  EXCEPT ( ConfigError, FieldConvertError );
+  int getInt(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a double.
-  double getDouble( const std::string& ) const
-  EXCEPT ( ConfigError, FieldConvertError );
+  double getDouble(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a bool
-  bool getBool( const std::string& ) const
-  EXCEPT ( ConfigError, FieldConvertError );
+  bool getBool(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a day of week
-  int getDay( const std::string& ) const
-  EXCEPT ( ConfigError, FieldConvertError );
+  int getDay(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
 
   /// Set a value from a string.
-  void setString( const std::string&, const std::string& );
+  void setString(const std::string &, const std::string &);
   /// Set a value from a int.
-  void setInt( const std::string&, int );
+  void setInt(const std::string &, int);
   /// Set a value from a double.
-  void setDouble( const std::string&, double );
+  void setDouble(const std::string &, double);
   /// Set a value from a bool
-  void setBool( const std::string&, bool );
+  void setBool(const std::string &, bool);
   /// Set a value from a day
-  void setDay( const std::string&, int );
+  void setDay(const std::string &, int);
 
   /// Check if the dictionary contains a value for key.
-  bool has( const std::string& ) const;
+  bool has(const std::string &) const;
   /// Merge two dictionaries.
-  void merge( const Dictionary& );
+  void merge(const Dictionary &);
 
   iterator begin() const { return m_data.begin(); }
   iterator end() const { return m_data.end(); }
@@ -90,6 +84,6 @@ private:
   std::string m_name;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#endif //FIX_DICTIONARY_H
+#endif // FIX_DICTIONARY_H

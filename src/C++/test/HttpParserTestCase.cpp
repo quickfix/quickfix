@@ -18,52 +18,49 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
 #include <HttpParser.h>
-#include <string>
 #include <sstream>
+#include <string>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-TEST_CASE("HttpParserTests")
-{
+TEST_CASE("HttpParserTests") {
   HttpParser object;
-  
-  SECTION("readHttpMessage")
-  {
+
+  SECTION("readHttpMessage") {
     std::string httpMsg1 = "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
     std::string httpMsg2 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
     std::string httpMsg3 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-    object.addToStream( httpMsg1 + httpMsg2 + httpMsg3 );
+    object.addToStream(httpMsg1 + httpMsg2 + httpMsg3);
 
     std::string readHttpMsg;
-    CHECK( object.readHttpMessage( readHttpMsg ) );
-    CHECK( httpMsg1 == readHttpMsg );
+    CHECK(object.readHttpMessage(readHttpMsg));
+    CHECK(httpMsg1 == readHttpMsg);
 
-    CHECK( object.readHttpMessage( readHttpMsg ) );
-    CHECK( httpMsg2 == readHttpMsg );
+    CHECK(object.readHttpMessage(readHttpMsg));
+    CHECK(httpMsg2 == readHttpMsg);
 
-    CHECK( object.readHttpMessage( readHttpMsg ) );
-    CHECK( httpMsg3 == readHttpMsg );
+    CHECK(object.readHttpMessage(readHttpMsg));
+    CHECK(httpMsg3 == readHttpMsg);
   }
 
-  SECTION("readPartialHttpMessage")
-  {
+  SECTION("readPartialHttpMessage") {
     std::string partHttpMsg1 = "GET / HTTP/1.0\r\nContent ";
     std::string partHttpMsg2 = "Type: text/html\r\n\r\n";
-    object.addToStream( partHttpMsg1 );
+    object.addToStream(partHttpMsg1);
 
     std::string readPartHttpMsg;
-    CHECK( !object.readHttpMessage( readPartHttpMsg ) );
-    object.addToStream( partHttpMsg2 );
-    CHECK( object.readHttpMessage( readPartHttpMsg ) );
-    CHECK( ( partHttpMsg1 + partHttpMsg2 ) == readPartHttpMsg );
+    CHECK(!object.readHttpMessage(readPartHttpMsg));
+    object.addToStream(partHttpMsg2);
+    CHECK(object.readHttpMessage(readPartHttpMsg));
+    CHECK((partHttpMsg1 + partHttpMsg2) == readPartHttpMsg);
   }
 }

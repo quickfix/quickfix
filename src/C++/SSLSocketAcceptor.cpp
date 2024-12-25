@@ -120,98 +120,91 @@
 
 #if (HAVE_SSL > 0)
 
+#include "Exceptions.h"
 #include "SSLSocketAcceptor.h"
 #include "Session.h"
 #include "Settings.h"
 #include "Utility.h"
-#include "Exceptions.h"
 
-namespace FIX
-{
+namespace FIX {
 
-int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance)
-{
-  return reinterpret_cast<SSLSocketAcceptor*>(instance)->passwordHandleCallback(buf, bufsize, verify);
+int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, void *instance) {
+  return reinterpret_cast<SSLSocketAcceptor *>(instance)->passwordHandleCallback(buf, bufsize, verify);
 }
 
-SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                      MessageStoreFactory& factory,
-                                      const SessionSettings& settings ) EXCEPT ( ConfigError )
-: Acceptor( application, factory, settings ),
-  m_pServer( 0 ), m_sslInit(false),
-  m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
-{
-}
+SSLSocketAcceptor::SSLSocketAcceptor(
+    Application &application,
+    MessageStoreFactory &factory,
+    const SessionSettings &settings) EXCEPT(ConfigError)
+    : Acceptor(application, factory, settings),
+      m_pServer(0),
+      m_sslInit(false),
+      m_verify(SSL_CLIENT_VERIFY_NOTSET),
+      m_ctx(0),
+      m_revocationStore(0) {}
 
-SSLSocketAcceptor::SSLSocketAcceptor( Application& application,
-                                      MessageStoreFactory& factory,
-                                      const SessionSettings& settings,
-                                      LogFactory& logFactory ) EXCEPT ( ConfigError )
-: Acceptor( application, factory, settings, logFactory ),
-  m_pServer( 0 ), m_sslInit(false),
-  m_verify(SSL_CLIENT_VERIFY_NOTSET), m_ctx(0), m_revocationStore(0)
-{
-}
+SSLSocketAcceptor::SSLSocketAcceptor(
+    Application &application,
+    MessageStoreFactory &factory,
+    const SessionSettings &settings,
+    LogFactory &logFactory) EXCEPT(ConfigError)
+    : Acceptor(application, factory, settings, logFactory),
+      m_pServer(0),
+      m_sslInit(false),
+      m_verify(SSL_CLIENT_VERIFY_NOTSET),
+      m_ctx(0),
+      m_revocationStore(0) {}
 
-SSLSocketAcceptor::~SSLSocketAcceptor()
-{
-  for( const SocketConnections::value_type& connection : m_connections )
+SSLSocketAcceptor::~SSLSocketAcceptor() {
+  for (const SocketConnections::value_type &connection : m_connections) {
     delete connection.second;
+  }
 
-  if (m_sslInit)
-  {
+  if (m_sslInit) {
     SSL_CTX_free(m_ctx);
     m_ctx = 0;
     ssl_term();
   }
 }
 
-void SSLSocketAcceptor::onConfigure( const SessionSettings& sessionSettings )
-EXCEPT ( ConfigError )
-{
+void SSLSocketAcceptor::onConfigure(const SessionSettings &sessionSettings) EXCEPT(ConfigError) {
   std::set<SessionID> sessions = sessionSettings.getSessions();
-  for( const SessionID& sessionID : sessions )
-  {
-    const Dictionary& settings = sessionSettings.get( sessionID );
-    settings.getInt( SOCKET_ACCEPT_PORT );
-    if( settings.has(SOCKET_REUSE_ADDRESS) )
-      settings.getBool( SOCKET_REUSE_ADDRESS );
-    if( settings.has(SOCKET_NODELAY) )
-      settings.getBool( SOCKET_NODELAY );
+  for (const SessionID &sessionID : sessions) {
+    const Dictionary &settings = sessionSettings.get(sessionID);
+    settings.getInt(SOCKET_ACCEPT_PORT);
+    if (settings.has(SOCKET_REUSE_ADDRESS)) {
+      settings.getBool(SOCKET_REUSE_ADDRESS);
+    }
+    if (settings.has(SOCKET_NODELAY)) {
+      settings.getBool(SOCKET_NODELAY);
+    }
   }
 }
 
-void SSLSocketAcceptor::onInitialize( const SessionSettings& sessionSettings )
-EXCEPT ( RuntimeError )
-{
-  if (!m_sslInit)
-  {
+void SSLSocketAcceptor::onInitialize(const SessionSettings &sessionSettings) EXCEPT(RuntimeError) {
+  if (!m_sslInit) {
     ssl_init();
 
     std::string errStr;
 
     /* set up the application context */
-    if ((m_ctx = createSSLContext(true, m_settings, errStr)) == 0)
-    {
+    if ((m_ctx = createSSLContext(true, m_settings, errStr)) == 0) {
       ssl_term();
       throw RuntimeError(errStr);
     }
 
-    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, this, errStr))
-    {
+    if (!loadSSLCert(m_ctx, true, m_settings, getLog(), SSLSocketAcceptor::passPhraseHandleCB, this, errStr)) {
       ssl_term();
       throw RuntimeError(errStr);
     }
 
-    if (!loadCAInfo(m_ctx, true, m_settings, getLog(), errStr, m_verify))
-    {
+    if (!loadCAInfo(m_ctx, true, m_settings, getLog(), errStr, m_verify)) {
       ssl_term();
       throw RuntimeError(errStr);
     }
 
     m_revocationStore = loadCRLInfo(m_ctx, m_settings, getLog(), errStr);
-    if (!m_revocationStore && !errStr.empty())
-    {
+    if (!m_revocationStore && !errStr.empty()) {
       ssl_term();
       throw RuntimeError(errStr);
     }
@@ -221,55 +214,48 @@ EXCEPT ( RuntimeError )
 
   short port = 0;
 
-  try
-  {
-    m_pServer = new SocketServer( 1 );
+  try {
+    m_pServer = new SocketServer(1);
 
     std::set<SessionID> sessions = sessionSettings.getSessions();
-    for( const SessionID& sessionID : sessions )
-    {
-      const Dictionary& settings = sessionSettings.get( sessionID );
-      port = (short)settings.getInt( SOCKET_ACCEPT_PORT );
+    for (const SessionID &sessionID : sessions) {
+      const Dictionary &settings = sessionSettings.get(sessionID);
+      port = (short)settings.getInt(SOCKET_ACCEPT_PORT);
 
-      const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
-        settings.getBool( SOCKET_REUSE_ADDRESS ) : true;
+      const bool reuseAddress = settings.has(SOCKET_REUSE_ADDRESS) ? settings.getBool(SOCKET_REUSE_ADDRESS) : true;
 
-      const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
-        settings.getBool( SOCKET_NODELAY ) : false;
+      const bool noDelay = settings.has(SOCKET_NODELAY) ? settings.getBool(SOCKET_NODELAY) : false;
 
-      const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_SEND_BUFFER_SIZE ) : 0;
+      const int sendBufSize = settings.has(SOCKET_SEND_BUFFER_SIZE) ? settings.getInt(SOCKET_SEND_BUFFER_SIZE) : 0;
 
-      const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
-        settings.getInt( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
+      const int rcvBufSize = settings.has(SOCKET_RECEIVE_BUFFER_SIZE) ? settings.getInt(SOCKET_RECEIVE_BUFFER_SIZE) : 0;
 
-      m_portToSessions[port].insert( sessionID );
-      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
-    }    
-  }
-  catch( SocketException& e )
-  {
-    throw RuntimeError( "Unable to create, bind, or listen to port "
-                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
+      m_portToSessions[port].insert(sessionID);
+      m_pServer->add(port, reuseAddress, noDelay, sendBufSize, rcvBufSize);
+    }
+  } catch (SocketException &e) {
+    throw RuntimeError(
+        "Unable to create, bind, or listen to port " + IntConvertor::convert((unsigned short)port) + " (" + e.what()
+        + ")");
   }
 }
 
-void SSLSocketAcceptor::onStart()
-{
-  while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
+void SSLSocketAcceptor::onStart() {
+  while (!isStopped() && m_pServer && m_pServer->block(*this)) {}
 
-  if( !m_pServer )
+  if (!m_pServer) {
     return;
+  }
 
   time_t start = 0;
   time_t now = 0;
 
-  ::time( &start );
-  while ( isLoggedOn() )
-  {
-    m_pServer->block( *this );
-    if( ::time(&now) -5 >= start )
+  ::time(&start);
+  while (isLoggedOn()) {
+    m_pServer->block(*this);
+    if (::time(&now) - 5 >= start) {
       break;
+    }
   }
 
   m_pServer->close();
@@ -277,143 +263,147 @@ void SSLSocketAcceptor::onStart()
   m_pServer = 0;
 }
 
-bool SSLSocketAcceptor::onPoll()
-{
-  if( !m_pServer )
+bool SSLSocketAcceptor::onPoll() {
+  if (!m_pServer) {
     return false;
+  }
 
   time_t start = 0;
   time_t now = 0;
 
-  if( isStopped() )
-  {
-    if( start == 0 )
-      ::time( &start );
-    if( !isLoggedOn() )
-    {
+  if (isStopped()) {
+    if (start == 0) {
+      ::time(&start);
+    }
+    if (!isLoggedOn()) {
       start = 0;
       return false;
     }
-    if( ::time(&now) - 5 >= start )
-    {
+    if (::time(&now) - 5 >= start) {
       start = 0;
       return false;
     }
   }
 
-  m_pServer->block( *this, true );
+  m_pServer->block(*this, true);
   return true;
 }
 
-void SSLSocketAcceptor::onStop()
-{
-}
+void SSLSocketAcceptor::onStop() {}
 
-void SSLSocketAcceptor::onConnect( SocketServer& server, socket_handle a, socket_handle s )
-{
-  if ( !socket_isValid( s ) ) return;
-  SocketConnections::iterator i = m_connections.find( s );
-  if ( i != m_connections.end() ) return;
-  int port = server.socketToPort( a );
+void SSLSocketAcceptor::onConnect(SocketServer &server, socket_handle a, socket_handle s) {
+  if (!socket_isValid(s)) {
+    return;
+  }
+  SocketConnections::iterator i = m_connections.find(s);
+  if (i != m_connections.end()) {
+    return;
+  }
+  int port = server.socketToPort(a);
   Sessions sessions = m_portToSessions[port];
 
   SSL *ssl = SSL_new(m_ctx);
   SSL_clear(ssl);
-  BIO *sBio = BIO_new_socket(s, BIO_NOCLOSE); //Unfortunately OpenSSL assumes socket is int
+  BIO *sBio = BIO_new_socket(s, BIO_NOCLOSE); // Unfortunately OpenSSL assumes socket is int
   SSL_set_bio(ssl, sBio, sBio);
   // TODO - check this
   SSL_set_app_data(ssl, m_revocationStore);
   SSL_set_verify_result(ssl, X509_V_OK);
 
-  SSLSocketConnection * sconn = new SSLSocketConnection( s, ssl, sessions, &server.getMonitor() );
+  SSLSocketConnection *sconn = new SSLSocketConnection(s, ssl, sessions, &server.getMonitor());
   // SSL accept
-  if (acceptSSLConnection(sconn->getSocket(), sconn->sslObject(), getLog(), m_verify) != 0)
-  {
+  if (acceptSSLConnection(sconn->getSocket(), sconn->sslObject(), getLog(), m_verify) != 0) {
     std::stringstream stream;
-    stream << "Failed to accept SSL connection from " << socket_peername( s ) << " on port " << port;
-    if( getLog() )
-      getLog()->onEvent( stream.str() );
+    stream << "Failed to accept SSL connection from " << socket_peername(s) << " on port " << port;
+    if (getLog()) {
+      getLog()->onEvent(stream.str());
+    }
 
     server.getMonitor().drop(sconn->getSocket());
     delete sconn;
     return;
   }
 
-  m_connections[ s ] = sconn;
+  m_connections[s] = sconn;
 
   std::stringstream stream;
-  stream << "Accepted SSL connection from " << socket_peername( s ) << " on port " << port;
+  stream << "Accepted SSL connection from " << socket_peername(s) << " on port " << port;
 
-  if( getLog() )
-    getLog()->onEvent( stream.str() );
+  if (getLog()) {
+    getLog()->onEvent(stream.str());
+  }
 }
 
-void SSLSocketAcceptor::onWrite( SocketServer& server, socket_handle s )
-{
-  SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return ;
-  SSLSocketConnection* pSocketConnection = i->second;
+void SSLSocketAcceptor::onWrite(SocketServer &server, socket_handle s) {
+  SocketConnections::iterator i = m_connections.find(s);
+  if (i == m_connections.end()) {
+    return;
+  }
+  SSLSocketConnection *pSocketConnection = i->second;
 
   if (pSocketConnection->didReadFromSocketRequestToWrite()) {
-     pSocketConnection->read(*this, server);
+    pSocketConnection->read(*this, server);
   }
 
-  if( pSocketConnection->processQueue() )
+  if (pSocketConnection->processQueue()) {
     pSocketConnection->unsignal();
+  }
 }
 
-bool SSLSocketAcceptor::onData( SocketServer& server, socket_handle s )
-{
-  SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return false;
-  SSLSocketConnection* pSocketConnection = i->second;
+bool SSLSocketAcceptor::onData(SocketServer &server, socket_handle s) {
+  SocketConnections::iterator i = m_connections.find(s);
+  if (i == m_connections.end()) {
+    return false;
+  }
+  SSLSocketConnection *pSocketConnection = i->second;
 
   if (pSocketConnection->didProcessQueueRequestToRead()) {
-      pSocketConnection->processQueue();
-      pSocketConnection->signal();
+    pSocketConnection->processQueue();
+    pSocketConnection->signal();
   }
 
-  return pSocketConnection->read( *this, server );
+  return pSocketConnection->read(*this, server);
 }
 
-void SSLSocketAcceptor::onDisconnect( SocketServer&, socket_handle s )
-{
-  SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return ;
-  SSLSocketConnection* pSocketConnection = i->second;
+void SSLSocketAcceptor::onDisconnect(SocketServer &, socket_handle s) {
+  SocketConnections::iterator i = m_connections.find(s);
+  if (i == m_connections.end()) {
+    return;
+  }
+  SSLSocketConnection *pSocketConnection = i->second;
 
-  Session* pSession = pSocketConnection->getSession();
-  if ( pSession ) pSession->disconnect();
+  Session *pSession = pSocketConnection->getSession();
+  if (pSession) {
+    pSession->disconnect();
+  }
 
   delete pSocketConnection;
-  m_connections.erase( s );
+  m_connections.erase(s);
 }
 
-void SSLSocketAcceptor::onError( SocketServer& )
-{
-    if (getLog()) {
-        std::stringstream stream;
-        stream << "acceptor onError " << socket_get_last_error();
-        getLog()->onEvent(stream.str());
-    }    
+void SSLSocketAcceptor::onError(SocketServer &) {
+  if (getLog()) {
+    std::stringstream stream;
+    stream << "acceptor onError " << socket_get_last_error();
+    getLog()->onEvent(stream.str());
+  }
 }
 
-void SSLSocketAcceptor::onTimeout( SocketServer& )
-{
+void SSLSocketAcceptor::onTimeout(SocketServer &) {
   SocketConnections::iterator i;
-  for ( i = m_connections.begin(); i != m_connections.end(); ++i )
+  for (i = m_connections.begin(); i != m_connections.end(); ++i) {
     i->second->onTimeout();
+  }
 }
 
-int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize,
-                                                      int verify)
-{
-  if (m_password.length() > bufsize)
+int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize, int verify) {
+  if (m_password.length() > bufsize) {
     return -1;
+  }
 
   std::strcpy(buf, m_password.c_str());
   return m_password.length();
 }
-}
+} // namespace FIX
 
 #endif

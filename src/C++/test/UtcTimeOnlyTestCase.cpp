@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,39 +30,37 @@
 
 using namespace FIX;
 
-TEST_CASE("UtcTimeOnlyTests")
-{
-  SECTION("compare")
-  {
+TEST_CASE("UtcTimeOnlyTests") {
+  SECTION("compare") {
     UtcTimeOnly object;
-    object.setHour( 12 );
-    object.setMinute( 20 );
-    object.setSecond( 10 );
-    object.setMillisecond( 0 );
+    object.setHour(12);
+    object.setMinute(20);
+    object.setSecond(10);
+    object.setMillisecond(0);
 
     UtcTimeOnly lesserObject;
-    lesserObject.setHour( 12 );
-    lesserObject.setMinute( 10 );
-    lesserObject.setSecond( 5 );
-    lesserObject.setMillisecond( 0 );
+    lesserObject.setHour(12);
+    lesserObject.setMinute(10);
+    lesserObject.setSecond(5);
+    lesserObject.setMillisecond(0);
 
-    CHECK( lesserObject < object );
-    CHECK( lesserObject <= object );
-    CHECK( object > lesserObject );
-    CHECK( object >= lesserObject );
+    CHECK(lesserObject < object);
+    CHECK(lesserObject <= object);
+    CHECK(object > lesserObject);
+    CHECK(object >= lesserObject);
 
     UtcTimeOnly greaterObject;
-    greaterObject.setHour( 13 );
-    greaterObject.setMinute( 10 );
-    greaterObject.setSecond( 5 );
-    greaterObject.setMillisecond( 0 );
-    CHECK( greaterObject > object );
-    CHECK( greaterObject >= object );
-    CHECK( object < greaterObject );
-    CHECK( object <= greaterObject );
+    greaterObject.setHour(13);
+    greaterObject.setMinute(10);
+    greaterObject.setSecond(5);
+    greaterObject.setMillisecond(0);
+    CHECK(greaterObject > object);
+    CHECK(greaterObject >= object);
+    CHECK(object < greaterObject);
+    CHECK(object <= greaterObject);
 
-    CHECK( object <= object );
-    CHECK( object >= object );
-    CHECK( object == object );
+    CHECK(object <= object);
+    CHECK(object >= object);
+    CHECK(object == object);
   }
 }

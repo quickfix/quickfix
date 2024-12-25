@@ -24,57 +24,53 @@
 
 #ifndef _MSC_VER
 
-#include <sys/types.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/time.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+#include <sys/types.h>
 
-#include <set>
-#include <queue>
-#include <time.h>
 #include <poll.h>
+#include <queue>
+#include <set>
+#include <time.h>
 
 #include "Utility.h"
 
-namespace FIX
-{
+namespace FIX {
 /// Monitors events on a collection of sockets.
-class SocketMonitor
-{
+class SocketMonitor {
 public:
   class Strategy;
 
-  SocketMonitor( int timeout = 0 );
+  SocketMonitor(int timeout = 0);
   virtual ~SocketMonitor();
 
-  bool addConnect( socket_handle socket );
-  bool addRead( socket_handle socket );
-  bool addWrite( socket_handle socket );
-  bool drop( socket_handle socket );
-  void signal( socket_handle socket );
-  void unsignal( socket_handle socket );
-  void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
+  bool addConnect(socket_handle socket);
+  bool addRead(socket_handle socket);
+  bool addWrite(socket_handle socket);
+  bool drop(socket_handle socket);
+  void signal(socket_handle socket);
+  void unsignal(socket_handle socket);
+  void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);
 
-  size_t numSockets() 
-  { return m_readSockets.size() - 1; }
+  size_t numSockets() { return m_readSockets.size() - 1; }
 
 private:
-  typedef std::set < socket_handle > Sockets;
-  typedef std::queue < socket_handle > Queue;
+  typedef std::set<socket_handle> Sockets;
+  typedef std::queue<socket_handle> Queue;
 
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( const Sockets&, struct pollfd *pfds, short events );
-  inline int getTimeval( bool poll, double timeout );
-  inline bool sleepIfEmpty( bool poll );
+  void buildSet(const Sockets &, struct pollfd *pfds, short events);
+  inline int getTimeval(bool poll, double timeout);
+  inline bool sleepIfEmpty(bool poll);
 
-  void processRead( Strategy&, socket_handle socket_fd );
-  void processWrite( Strategy&, socket_handle socket_fd );
-  void processError( Strategy&, socket_handle socket_fd );
-  void processPollList( Strategy& strategy, struct pollfd *pfds,
-                        unsigned pfds_size );
+  void processRead(Strategy &, socket_handle socket_fd);
+  void processWrite(Strategy &, socket_handle socket_fd);
+  void processError(Strategy &, socket_handle socket_fd);
+  void processPollList(Strategy &strategy, struct pollfd *pfds, unsigned pfds_size);
 
   int m_timeout;
   clock_t m_ticks;
@@ -87,22 +83,19 @@ private:
   Queue m_dropped;
 
 public:
-  class Strategy
-  {
+  class Strategy {
   public:
-    virtual ~Strategy()
-    {}
-    virtual void onConnect( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onEvent( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onWrite( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onError( SocketMonitor&, socket_handle socket ) = 0;
-    virtual void onError( SocketMonitor& ) = 0;
-    virtual void onTimeout( SocketMonitor& )
-  {}}
-  ;
+    virtual ~Strategy() {}
+    virtual void onConnect(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onEvent(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onWrite(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onError(SocketMonitor &, socket_handle socket) = 0;
+    virtual void onError(SocketMonitor &) = 0;
+    virtual void onTimeout(SocketMonitor &) {}
+  };
 };
-}
+} // namespace FIX
 
 #endif //_MSC_VER
 
-#endif //FIX_SOCKETMONITOR_UNIX_H
+#endif // FIX_SOCKETMONITOR_UNIX_H

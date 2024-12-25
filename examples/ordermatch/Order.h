@@ -22,25 +22,40 @@
 #ifndef ORDERMATCH_ORDER_H
 #define ORDERMATCH_ORDER_H
 
-#include <string>
 #include <iomanip>
 #include <ostream>
+#include <string>
 
-class Order
-{
-  friend std::ostream& operator<<( std::ostream&, const Order& );
+class Order {
+  friend std::ostream &operator<<(std::ostream &, const Order &);
 
 public:
-  enum Side { buy, sell };
-  enum Type { market, limit };
+  enum Side {
+    buy,
+    sell
+  };
+  enum Type {
+    market,
+    limit
+  };
 
-  Order( const std::string& clientId, const std::string& symbol,
-         const std::string& owner, const std::string& target,
-         Side side, Type type, double price, long quantity )
-: m_clientId( clientId ), m_symbol( symbol ), m_owner( owner ),
-  m_target( target ), m_side( side ), m_type( type ), m_price( price ),
-  m_quantity( quantity )
-  {
+  Order(
+      const std::string &clientId,
+      const std::string &symbol,
+      const std::string &owner,
+      const std::string &target,
+      Side side,
+      Type type,
+      double price,
+      long quantity)
+      : m_clientId(clientId),
+        m_symbol(symbol),
+        m_owner(owner),
+        m_target(target),
+        m_side(side),
+        m_type(type),
+        m_price(price),
+        m_quantity(quantity) {
     m_openQuantity = m_quantity;
     m_executedQuantity = 0;
     m_avgExecutedPrice = 0;
@@ -48,10 +63,10 @@ public:
     m_lastExecutedQuantity = 0;
   }
 
-  const std::string& getClientID() const { return m_clientId; }
-  const std::string& getSymbol() const { return m_symbol; }
-  const std::string& getOwner() const { return m_owner; }
-  const std::string& getTarget() const { return m_target; }
+  const std::string &getClientID() const { return m_clientId; }
+  const std::string &getSymbol() const { return m_symbol; }
+  const std::string &getOwner() const { return m_owner; }
+  const std::string &getTarget() const { return m_target; }
   Side getSide() const { return m_side; }
   Type getType() const { return m_type; }
   double getPrice() const { return m_price; }
@@ -66,21 +81,16 @@ public:
   bool isFilled() const { return m_quantity == m_executedQuantity; }
   bool isClosed() const { return m_openQuantity == 0; }
 
-  void execute( double price, long quantity )
-  {
-    m_avgExecutedPrice =
-      ( ( quantity * price ) + ( m_avgExecutedPrice * m_executedQuantity ) )
-      / ( quantity + m_executedQuantity );
+  void execute(double price, long quantity) {
+    m_avgExecutedPrice
+        = ((quantity * price) + (m_avgExecutedPrice * m_executedQuantity)) / (quantity + m_executedQuantity);
 
     m_openQuantity -= quantity;
     m_executedQuantity += quantity;
     m_lastExecutedPrice = price;
     m_lastExecutedQuantity = quantity;
   }
-  void cancel()
-  {
-    m_openQuantity = 0;
-  }
+  void cancel() { m_openQuantity = 0; }
 
 private:
   std::string m_clientId;
@@ -99,13 +109,10 @@ private:
   long m_lastExecutedQuantity;
 };
 
-inline std::ostream& operator<<( std::ostream& ostream, const Order& order )
-{
-  return ostream
-         << "ID: " << std::setw( 10 ) << "," << order.getClientID()
-         << " OWNER: " << std::setw( 10 ) << "," << order.getOwner()
-         << " PRICE: " << std::setw( 10 ) << "," << order.getPrice()
-         << " QUANTITY: " << std::setw( 10 ) << "," << order.getQuantity();
+inline std::ostream &operator<<(std::ostream &ostream, const Order &order) {
+  return ostream << "ID: " << std::setw(10) << "," << order.getClientID() << " OWNER: " << std::setw(10) << ","
+                 << order.getOwner() << " PRICE: " << std::setw(10) << "," << order.getPrice()
+                 << " QUANTITY: " << std::setw(10) << "," << order.getQuantity();
 }
 
 #endif

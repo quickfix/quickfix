@@ -18,64 +18,56 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 )
+#pragma warning(disable : 4503)
 #endif
 #include "config.h"
 
-#include "ThreadedSocketAcceptor.h"
-#include "SocketAcceptor.h"
-#include "SessionSettings.h"
 #include "FileStore.h"
+#include "SessionSettings.h"
+#include "SocketAcceptor.h"
+#include "ThreadedSocketAcceptor.h"
 #include "Utility.h"
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include "getopt-repl.h"
 #include "at_application.h"
+#include "getopt-repl.h"
+#include <fstream>
+#include <iostream>
+#include <memory>
 
 typedef std::unique_ptr<FIX::Acceptor> AcceptorPtr;
 
-int main( int argc, char** argv )
-{
+int main(int argc, char **argv) {
   std::string file;
   bool threaded = false;
 
-  if ( getopt( argc, argv, "+f:" ) == 'f' )
+  if (getopt(argc, argv, "+f:") == 'f') {
     file = optarg;
-  else
-  {
-    std::cout << "usage: " << argv[ 0 ]
-    << " -f FILE [-t]" << std::endl;
+  } else {
+    std::cout << "usage: " << argv[0] << " -f FILE [-t]" << std::endl;
     return 1;
   }
 
-  if ( getopt( argc, argv, "+t" ) == 't' )
+  if (getopt(argc, argv, "+t") == 't') {
     threaded = true;
+  }
 
-  try
-  {
-    FIX::SessionSettings settings( file );
+  try {
+    FIX::SessionSettings settings(file);
     Application application;
-    FIX::FileStoreFactory factory( "store" );
+    FIX::FileStoreFactory factory("store");
 
     AcceptorPtr pAcceptor;
-    if ( threaded )
-    {
-      pAcceptor.reset( new FIX::ThreadedSocketAcceptor
-                       ( application, factory, settings ) );
-    }
-    else
-    {
-      pAcceptor.reset( new FIX::SocketAcceptor
-                       ( application, factory, settings ) );
+    if (threaded) {
+      pAcceptor.reset(new FIX::ThreadedSocketAcceptor(application, factory, settings));
+    } else {
+      pAcceptor.reset(new FIX::SocketAcceptor(application, factory, settings));
     }
 
     pAcceptor->start();
-    while ( true ) FIX::process_sleep( 1 );
+    while (true) {
+      FIX::process_sleep(1);
+    }
     pAcceptor->stop();
-  }
-  catch ( std::exception & e )
-  {
+  } catch (std::exception &e) {
     std::cout << e.what();
     return 2;
   }

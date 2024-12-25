@@ -23,163 +23,156 @@
 #define HTML_BUILDER_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include <sstream>
 
-namespace HTML
-{
-class TAG
-{
+namespace HTML {
+class TAG {
 public:
-  TAG( const std::string& tag, std::ostream& stream )
-  : m_tag( tag ), m_stream( stream ) 
-  {
+  TAG(const std::string &tag, std::ostream &stream)
+      : m_tag(tag),
+        m_stream(stream) {
     m_stream << "<" << m_tag;
   }
 
-  virtual ~TAG() 
-  {
+  virtual ~TAG() {
     m_stream << m_value.str();
     m_stream << "</" << m_tag << ">";
   }
 
-  TAG& text()
-  { m_stream << ">"; return *this; }
-  template<typename T>
-  TAG& text( const T& value )
-  { m_value << value; text(); return *this; }
+  TAG &text() {
+    m_stream << ">";
+    return *this;
+  }
+  template <typename T> TAG &text(const T &value) {
+    m_value << value;
+    text();
+    return *this;
+  }
 
- private:
+private:
   std::string m_tag;
   std::stringstream m_value;
 
- protected:
-  std::ostream& m_stream;
+protected:
+  std::ostream &m_stream;
 };
 
-class SPECIAL
-{
- public:
-  SPECIAL( const std::string& value, std::ostream& stream )
-  {
-    stream << "&" << value << ";";
+class SPECIAL {
+public:
+  SPECIAL(const std::string &value, std::ostream &stream) { stream << "&" << value << ";"; }
+};
+
+class A : public TAG {
+public:
+  A(std::ostream &stream)
+      : TAG("A", stream) {}
+
+  A &href(const std::string &value) {
+    m_stream << " href='" << value << "'";
+    return *this;
   }
 };
 
-class A : public TAG
-{
+class BODY : public TAG {
 public:
-  A( std::ostream& stream )
-  : TAG( "A", stream ) {}
-
-  A& href( const std::string& value )
-  { m_stream << " href='" << value << "'"; return *this; }
+  BODY(std::ostream &stream)
+      : TAG("BODY", stream) {}
 };
 
-class BODY : public TAG
-{
+class BR : public TAG {
 public:
-  BODY( std::ostream& stream )
-  : TAG( "BODY", stream ) {}
+  BR(std::ostream &stream)
+      : TAG("BR", stream) {}
 };
 
-class BR : public TAG
-{
+class CAPTION : public TAG {
 public:
-  BR( std::ostream& stream )
-  : TAG( "BR", stream ) {}
+  CAPTION(std::ostream &stream)
+      : TAG("CAPTION", stream) {}
 };
 
-class CAPTION : public TAG
-{
+class CENTER : public TAG {
 public:
-  CAPTION( std::ostream& stream )
-  : TAG( "CAPTION", stream ) {}
+  CENTER(std::ostream &stream)
+      : TAG("CENTER", stream) {}
 };
 
-class CENTER : public TAG
-{
+class EM : public TAG {
 public:
-  CENTER( std::ostream& stream )
-  : TAG( "CENTER", stream ) {}
+  EM(std::ostream &stream)
+      : TAG("EM", stream) {}
 };
 
-class EM : public TAG
-{
+class H1 : public TAG {
 public:
-  EM( std::ostream& stream )
-  : TAG( "EM", stream ) {}
+  H1(std::ostream &stream)
+      : TAG("H1", stream) {}
 };
 
-class H1 : public TAG
-{
+class H2 : public TAG {
 public:
-  H1( std::ostream& stream )
-  : TAG( "H1", stream ) {}
+  H2(std::ostream &stream)
+      : TAG("H2", stream) {}
 };
 
-class H2 : public TAG
-{
+class HEAD : public TAG {
 public:
-  H2( std::ostream& stream )
-  : TAG( "H2", stream ) {}
+  HEAD(std::ostream &stream)
+      : TAG("HEAD", stream) {}
 };
 
-class HEAD : public TAG
-{
+class HR : public TAG {
 public:
-  HEAD( std::ostream& stream )
-  : TAG( "HEAD", stream ) {}
+  HR(std::ostream &stream)
+      : TAG("HR", stream) {}
 };
 
-class HR : public TAG
-{
+const char *NBSP = "&nbsp;";
+
+class TABLE : public TAG {
 public:
-  HR( std::ostream& stream )
-  : TAG( "HR", stream ) {}
+  TABLE(std::ostream &stream)
+      : TAG("TABLE", stream) {}
+
+  TABLE &border(int value) {
+    m_stream << " border='" << value << "'";
+    return *this;
+  }
+  TABLE &cellspacing(int value) {
+    m_stream << " cellspacing='" << value << "'";
+    return *this;
+  }
+  TABLE &width(int value) {
+    m_stream << " width='" << value << "%'";
+    return *this;
+  }
 };
 
-const char* NBSP = "&nbsp;";
-
-class TABLE : public TAG
-{
+class TD : public TAG {
 public:
-  TABLE( std::ostream& stream )
-  : TAG( "TABLE", stream ) {}
+  TD(std::ostream &stream)
+      : TAG("TD", stream) {}
 
-  TABLE& border( int value )
-  { m_stream << " border='" << value << "'"; return *this; }
-  TABLE& cellspacing( int value )
-  { m_stream << " cellspacing='" << value << "'"; return *this; }
-  TABLE& width( int value )
-  { m_stream << " width='" << value << "%'"; return *this; }
+  TD &align(const std::string &value) {
+    m_stream << " align='" << value << "'";
+    return *this;
+  }
 };
 
-class TD : public TAG
-{
+class TITLE : public TAG {
 public:
-  TD( std::ostream& stream )
-  : TAG( "TD", stream ) {}
-
-  TD& align( const std::string& value )
-  { m_stream << " align='" << value << "'"; return *this; }
+  TITLE(std::ostream &stream)
+      : TAG("TITLE", stream) {}
 };
 
-class TITLE : public TAG
-{
+class TR : public TAG {
 public:
-  TITLE( std::ostream& stream )
-  : TAG( "TITLE", stream ) {}
+  TR(std::ostream &stream)
+      : TAG("TR", stream) {}
 };
-
-class TR : public TAG
-{
-public:
-  TR( std::ostream& stream )
-  : TAG( "TR", stream ) {}
-};
-}
+} // namespace HTML
 
 #endif

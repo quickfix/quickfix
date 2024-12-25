@@ -123,32 +123,27 @@
 #pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
+#include "HostDetailsProvider.h"
 #include "Initiator.h"
 #include "ThreadedSSLSocketConnection.h"
-#include "HostDetailsProvider.h"
 #include <map>
 
-namespace FIX
-{
+namespace FIX {
 /*! \addtogroup user
  *  @{
  */
 /// Threaded Socket implementation of Initiator.
-class ThreadedSSLSocketInitiator : public Initiator
-{
+class ThreadedSSLSocketInitiator : public Initiator {
 public:
-  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
-                             const SessionSettings &) EXCEPT (ConfigError);
-  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &,
-                             const SessionSettings &,
-                             LogFactory &) EXCEPT (ConfigError);
+  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
+  ThreadedSSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &)
+      EXCEPT(ConfigError);
 
   virtual ~ThreadedSSLSocketInitiator();
 
   void setPassword(const std::string &pwd) { m_password.assign(pwd); }
 
-  void setCertAndKey(X509 *cert, RSA *key)
-  {
+  void setCertAndKey(X509 *cert, RSA *key) {
     m_cert = cert;
     m_key = key;
   }
@@ -160,11 +155,10 @@ public:
 private:
   typedef std::pair<socket_handle, SSL *> SocketKey;
   typedef std::map<SocketKey, thread_id> SocketToThread;
-  typedef std::pair<ThreadedSSLSocketInitiator *,
-                    ThreadedSSLSocketConnection *> ThreadPair;
+  typedef std::pair<ThreadedSSLSocketInitiator *, ThreadedSSLSocketConnection *> ThreadPair;
 
-  void onConfigure(const SessionSettings &) EXCEPT (ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT (RuntimeError);
+  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
+  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
 
   void onStart();
   bool onPoll();
@@ -192,7 +186,7 @@ private:
   RSA *m_key;
 };
 /*! @} */
-}
+} // namespace FIX
 
 #endif // FIX_THREADEDSOCKETINITIATOR_H
 

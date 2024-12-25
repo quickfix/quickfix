@@ -25,310 +25,289 @@
 
 #ifdef HAVE_ODBC
 
+#include "FieldConvertors.h"
 #include "OdbcStore.h"
+#include "Parser.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
-#include "FieldConvertors.h"
-#include "Parser.h"
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
 
-namespace FIX
-{
+namespace FIX {
 
 const std::string OdbcStoreFactory::DEFAULT_USER = "sa";
 const std::string OdbcStoreFactory::DEFAULT_PASSWORD = "";
-const std::string OdbcStoreFactory::DEFAULT_CONNECTION_STRING 
-  = "DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local);";
+const std::string OdbcStoreFactory::DEFAULT_CONNECTION_STRING = "DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local);";
 
-OdbcStore::OdbcStore
-( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& user, const std::string& password, 
-  const std::string& connectionString )
-  : m_cache( now ), m_sessionID( sessionID )
-{
-  m_pConnection = new OdbcConnection( user, password, connectionString );
+OdbcStore::OdbcStore(
+    const UtcTimeStamp &now,
+    const SessionID &sessionID,
+    const std::string &user,
+    const std::string &password,
+    const std::string &connectionString)
+    : m_cache(now),
+      m_sessionID(sessionID) {
+  m_pConnection = new OdbcConnection(user, password, connectionString);
   populateCache();
 }
 
-OdbcStore::~OdbcStore()
-{
-  delete m_pConnection;
-}
+OdbcStore::~OdbcStore() { delete m_pConnection; }
 
-void OdbcStore::populateCache()
-{
+void OdbcStore::populateCache() {
   std::stringstream queryString;
 
   queryString << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+              << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+              << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+              << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+              << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  OdbcQuery query( queryString.str() );
+  OdbcQuery query(queryString.str());
 
-  if( !m_pConnection->execute(query) )
-    throw ConfigError( "Unable to query sessions table" );
-  
+  if (!m_pConnection->execute(query)) {
+    throw ConfigError("Unable to query sessions table");
+  }
+
   int rows = 0;
-  while( query.fetch() )
-  {
+  while (query.fetch()) {
     rows++;
-    if( rows > 1 )
-      throw ConfigError( "Multiple entries found for session in database" );
+    if (rows > 1) {
+      throw ConfigError("Multiple entries found for session in database");
+    }
 
-    SQL_TIMESTAMP_STRUCT creationTime;  
+    SQL_TIMESTAMP_STRUCT creationTime;
     SQLLEN creationTimeLength;
-    SQLGetData( query.statement(), 1, SQL_C_TYPE_TIMESTAMP, &creationTime, 0, &creationTimeLength );
+    SQLGetData(query.statement(), 1, SQL_C_TYPE_TIMESTAMP, &creationTime, 0, &creationTimeLength);
     SQLUBIGINT incomingSeqNum;
     SQLLEN incomingSeqNumLength;
-    SQLGetData( query.statement(), 2, SQL_C_UBIGINT, &incomingSeqNum, 0, &incomingSeqNumLength );
+    SQLGetData(query.statement(), 2, SQL_C_UBIGINT, &incomingSeqNum, 0, &incomingSeqNumLength);
 
     SQLUBIGINT outgoingSeqNum;
     SQLLEN outgoingSeqNumLength;
-    SQLGetData( query.statement(), 3, SQL_C_UBIGINT, &outgoingSeqNum, 0, &outgoingSeqNumLength );
-    
+    SQLGetData(query.statement(), 3, SQL_C_UBIGINT, &outgoingSeqNum, 0, &outgoingSeqNumLength);
+
     UtcTimeStamp time = UtcTimeStamp::now();
-    time.setYMD( creationTime.year, creationTime.month, creationTime.day );
-    time.setHMS( creationTime.hour, creationTime.minute, creationTime.second, creationTime.fraction );
-    m_cache.setCreationTime( time );
-    m_cache.setNextTargetMsgSeqNum( incomingSeqNum );
-    m_cache.setNextSenderMsgSeqNum( outgoingSeqNum );
+    time.setYMD(creationTime.year, creationTime.month, creationTime.day);
+    time.setHMS(creationTime.hour, creationTime.minute, creationTime.second, creationTime.fraction);
+    m_cache.setCreationTime(time);
+    m_cache.setNextTargetMsgSeqNum(incomingSeqNum);
+    m_cache.setNextSenderMsgSeqNum(outgoingSeqNum);
   }
   query.close();
 
-  if( rows == 0 )
-  {
+  if (rows == 0) {
     UtcTimeStamp time = m_cache.getCreationTime();
-    char sqlTime[ 100 ];
+    char sqlTime[100];
     int year, month, day, hour, minute, second, millis;
-    time.getYMD (year, month, day);
-    time.getHMS (hour, minute, second, millis);
-    STRING_SPRINTF (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
-             year, month, day, hour, minute, second);
+    time.getYMD(year, month, day);
+    time.getHMS(hour, minute, second, millis);
+    STRING_SPRINTF(sqlTime, "%d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
     std::stringstream queryString2;
     queryString2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
-    << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
-    << "'" << m_sessionID.getBeginString().getValue() << "',"
-    << "'" << m_sessionID.getSenderCompID().getValue() << "',"
-    << "'" << m_sessionID.getTargetCompID().getValue() << "',"
-    << "'" << m_sessionID.getSessionQualifier() << "',"
-    << "{ts '" << sqlTime << "'},"
-    << m_cache.getNextTargetMsgSeqNum() << ","
-    << m_cache.getNextSenderMsgSeqNum() << ")";
+                 << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
+                 << "'" << m_sessionID.getBeginString().getValue() << "',"
+                 << "'" << m_sessionID.getSenderCompID().getValue() << "',"
+                 << "'" << m_sessionID.getTargetCompID().getValue() << "',"
+                 << "'" << m_sessionID.getSessionQualifier() << "',"
+                 << "{ts '" << sqlTime << "'}," << m_cache.getNextTargetMsgSeqNum() << ","
+                 << m_cache.getNextSenderMsgSeqNum() << ")";
 
-    OdbcQuery query2( queryString2.str() );
-    if( !m_pConnection->execute(query2) )
-      throw ConfigError( "Unable to create session in database" );
+    OdbcQuery query2(queryString2.str());
+    if (!m_pConnection->execute(query2)) {
+      throw ConfigError("Unable to create session in database");
+    }
   }
 }
 
-MessageStore* OdbcStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID )
-{
-  if( m_useSettings )
-    return create( now, sessionID, m_settings.get(sessionID) );
-  else if( m_useDictionary )
-    return create( now, sessionID, m_dictionary );
-  else
-    return new OdbcStore( now, sessionID, m_user, m_password, m_connectionString );
+MessageStore *OdbcStoreFactory::create(const UtcTimeStamp &now, const SessionID &sessionID) {
+  if (m_useSettings) {
+    return create(now, sessionID, m_settings.get(sessionID));
+  } else if (m_useDictionary) {
+    return create(now, sessionID, m_dictionary);
+  } else {
+    return new OdbcStore(now, sessionID, m_user, m_password, m_connectionString);
+  }
 }
 
-void OdbcStoreFactory::destroy( MessageStore* pStore )
-{
-  delete pStore;
-}
+void OdbcStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
-MessageStore* OdbcStoreFactory::create( const UtcTimeStamp& now, const SessionID& sessionID, const Dictionary& settings )
-{
+MessageStore *OdbcStoreFactory::create(
+    const UtcTimeStamp &now,
+    const SessionID &sessionID,
+    const Dictionary &settings) {
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
   std::string connectionString = DEFAULT_CONNECTION_STRING;
 
-  try { user = settings.getString( ODBC_STORE_USER ); }
-  catch( ConfigError& ) {}
+  try {
+    user = settings.getString(ODBC_STORE_USER);
+  } catch (ConfigError &) {}
 
-  try { password = settings.getString( ODBC_STORE_PASSWORD ); }
-  catch( ConfigError& ) {}
+  try {
+    password = settings.getString(ODBC_STORE_PASSWORD);
+  } catch (ConfigError &) {}
 
-  try { connectionString = settings.getString( ODBC_STORE_CONNECTION_STRING ); }
-  catch( ConfigError& ) {}
+  try {
+    connectionString = settings.getString(ODBC_STORE_CONNECTION_STRING);
+  } catch (ConfigError &) {}
 
-  return new OdbcStore( now, sessionID, user, password, connectionString );
+  return new OdbcStore(now, sessionID, user, password, connectionString);
 }
 
-bool OdbcStore::set( SEQNUM msgSeqNum, const std::string& msg )
-EXCEPT ( IOException )
-{
+bool OdbcStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
   std::string msgCopy = msg;
-  string_replace( "'", "''", msgCopy );
+  string_replace("'", "''", msgCopy);
 
   std::stringstream queryString;
   queryString << "INSERT INTO messages "
-  << "(beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum, message) "
-  << "VALUES ("
-  << "'" << m_sessionID.getBeginString().getValue() << "',"
-  << "'" << m_sessionID.getSenderCompID().getValue() << "',"
-  << "'" << m_sessionID.getTargetCompID().getValue() << "',"
-  << "'" << m_sessionID.getSessionQualifier() << "',"
-  << msgSeqNum << ","
-  << "'" << msgCopy << "')";
+              << "(beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum, message) "
+              << "VALUES ("
+              << "'" << m_sessionID.getBeginString().getValue() << "',"
+              << "'" << m_sessionID.getSenderCompID().getValue() << "',"
+              << "'" << m_sessionID.getTargetCompID().getValue() << "',"
+              << "'" << m_sessionID.getSessionQualifier() << "'," << msgSeqNum << ","
+              << "'" << msgCopy << "')";
 
-  OdbcQuery query( queryString.str() );
-  if( !m_pConnection->execute(query) )
-  {
+  OdbcQuery query(queryString.str());
+  if (!m_pConnection->execute(query)) {
     query.close();
     std::stringstream queryString2;
     queryString2 << "UPDATE messages SET message='" << msgCopy << "' WHERE "
-    << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-    << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-    << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-    << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
-    << "msgseqnum=" << msgSeqNum;
-    OdbcQuery query2( queryString2.str() );
-    if( !m_pConnection->execute(query2) )
+                 << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+                 << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+                 << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+                 << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
+                 << "msgseqnum=" << msgSeqNum;
+    OdbcQuery query2(queryString2.str());
+    if (!m_pConnection->execute(query2)) {
       query2.throwException();
+    }
   }
   return true;
 }
 
-void OdbcStore::get( SEQNUM begin, SEQNUM end,
-                     std::vector < std::string > & result ) const
-EXCEPT ( IOException )
-{
+void OdbcStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &result) const EXCEPT(IOException) {
   result.clear();
   std::stringstream queryString;
   queryString << "SELECT message FROM messages WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
-  << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
-  << "ORDER BY msgseqnum";
+              << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+              << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+              << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+              << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
+              << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
+              << "ORDER BY msgseqnum";
 
-  OdbcQuery query( queryString.str() );
+  OdbcQuery query(queryString.str());
 
-  if( !m_pConnection->execute(query) )
+  if (!m_pConnection->execute(query)) {
     query.throwException();
+  }
 
-  while( query.fetch() )
-  {
+  while (query.fetch()) {
     std::string message;
     SQLVARCHAR messageBuffer[4096];
     SQLLEN messageLength;
 
-    while( odbcSuccess(SQLGetData( query.statement(), 1, SQL_C_CHAR, &messageBuffer, 4095, &messageLength)) )
-    {  
+    while (odbcSuccess(SQLGetData(query.statement(), 1, SQL_C_CHAR, &messageBuffer, 4095, &messageLength))) {
       messageBuffer[messageLength] = 0;
-      message += (char*)messageBuffer;
+      message += (char *)messageBuffer;
     }
 
-    result.push_back( message );
+    result.push_back(message);
   }
 }
 
-SEQNUM OdbcStore::getNextSenderMsgSeqNum() const EXCEPT ( IOException )
-{
-  return m_cache.getNextSenderMsgSeqNum();
-}
+SEQNUM OdbcStore::getNextSenderMsgSeqNum() const EXCEPT(IOException) { return m_cache.getNextSenderMsgSeqNum(); }
 
-SEQNUM OdbcStore::getNextTargetMsgSeqNum() const EXCEPT ( IOException )
-{
-  return m_cache.getNextTargetMsgSeqNum();
-}
+SEQNUM OdbcStore::getNextTargetMsgSeqNum() const EXCEPT(IOException) { return m_cache.getNextTargetMsgSeqNum(); }
 
-void OdbcStore::setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
-{
+void OdbcStore::setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
-  OdbcQuery query( queryString.str() );
-  if( !m_pConnection->execute(query) )
+              << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+              << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+              << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+              << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+  OdbcQuery query(queryString.str());
+  if (!m_pConnection->execute(query)) {
     query.throwException();
-  m_cache.setNextSenderMsgSeqNum( value );
+  }
+  m_cache.setNextSenderMsgSeqNum(value);
 }
 
-void OdbcStore::setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
-{
+void OdbcStore::setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+              << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+              << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+              << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+              << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  OdbcQuery query( queryString.str() );
-  if( !m_pConnection->execute(query) )
+  OdbcQuery query(queryString.str());
+  if (!m_pConnection->execute(query)) {
     query.throwException();
+  }
 
-  m_cache.setNextTargetMsgSeqNum( value );
+  m_cache.setNextTargetMsgSeqNum(value);
 }
 
-void OdbcStore::incrNextSenderMsgSeqNum() EXCEPT ( IOException )
-{
+void OdbcStore::incrNextSenderMsgSeqNum() EXCEPT(IOException) {
   m_cache.incrNextSenderMsgSeqNum();
-  setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
+  setNextSenderMsgSeqNum(m_cache.getNextSenderMsgSeqNum());
 }
 
-void OdbcStore::incrNextTargetMsgSeqNum() EXCEPT ( IOException )
-{
+void OdbcStore::incrNextTargetMsgSeqNum() EXCEPT(IOException) {
   m_cache.incrNextTargetMsgSeqNum();
-  setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
+  setNextTargetMsgSeqNum(m_cache.getNextTargetMsgSeqNum());
 }
 
-UtcTimeStamp OdbcStore::getCreationTime() const EXCEPT ( IOException )
-{
-  return m_cache.getCreationTime();
-}
+UtcTimeStamp OdbcStore::getCreationTime() const EXCEPT(IOException) { return m_cache.getCreationTime(); }
 
-void OdbcStore::reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
-{
+void OdbcStore::reset(const UtcTimeStamp &now) EXCEPT(IOException) {
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+              << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+              << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+              << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+              << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  OdbcQuery query( queryString.str() );
-  if( !m_pConnection->execute(query) )
+  OdbcQuery query(queryString.str());
+  if (!m_pConnection->execute(query)) {
     query.throwException();
+  }
   query.close();
 
-  m_cache.reset( now );
+  m_cache.reset(now);
   UtcTimeStamp time = m_cache.getCreationTime();
 
   int year, month, day, hour, minute, second, millis;
-  time.getYMD( year, month, day );
-  time.getHMS( hour, minute, second, millis );
+  time.getYMD(year, month, day);
+  time.getHMS(hour, minute, second, millis);
 
-  char sqlTime[ 100 ];
-  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
-           year, month, day, hour, minute, second );
+  char sqlTime[100];
+  STRING_SPRINTF(sqlTime, "%d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
 
   std::stringstream queryString2;
   queryString2 << "UPDATE sessions SET creation_time={ts '" << sqlTime << "'}, "
-  << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
-  << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
-  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
-  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
-  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
-  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+               << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
+               << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
+               << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+               << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+               << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+               << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  OdbcQuery query2( queryString2.str() );
-  if( !m_pConnection->execute(query2) )
+  OdbcQuery query2(queryString2.str());
+  if (!m_pConnection->execute(query2)) {
     query2.throwException();
+  }
 }
 
-void OdbcStore::refresh() EXCEPT ( IOException )
-{
-  m_cache.reset( UtcTimeStamp::now() );
-  populateCache(); 
+void OdbcStore::refresh() EXCEPT(IOException) {
+  m_cache.reset(UtcTimeStamp::now());
+  populateCache();
 }
 
-}
+} // namespace FIX
 
 #endif

@@ -23,15 +23,14 @@
 #define FIX_NULLSTORE_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "MessageStore.h"
 #include "SessionSettings.h"
 #include <string>
 
-namespace FIX
-{
+namespace FIX {
 class Session;
 
 /**
@@ -40,14 +39,12 @@ class Session;
  * Will not actually store messages.  Useful for admin-only or market
  * data-only applications.
  */
-class NullStoreFactory : public MessageStoreFactory
-{
+class NullStoreFactory : public MessageStoreFactory {
 public:
-  MessageStore* create( const UtcTimeStamp&, const SessionID& );
-  void destroy( MessageStore* );
+  MessageStore *create(const UtcTimeStamp &, const SessionID &);
+  void destroy(MessageStore *);
 };
 /*! @} */
-
 
 /**
  * Null implementation of MessageStore.
@@ -55,52 +52,38 @@ public:
  * Will not actually store messages.  Useful for admin-only or market
  * data-only applications.
  */
-class NullStore : public MessageStore
-{
+class NullStore : public MessageStore {
 public:
-  NullStore( const UtcTimeStamp& now ) 
-  : m_nextSenderMsgSeqNum( 1 )
-  , m_nextTargetMsgSeqNum( 1 ) 
-  , m_creationTime( now )
-  {
+  NullStore(const UtcTimeStamp &now)
+      : m_nextSenderMsgSeqNum(1),
+        m_nextTargetMsgSeqNum(1),
+        m_creationTime(now) {}
 
-  }
+  bool set(SEQNUM, const std::string &) EXCEPT(IOException);
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException);
 
-  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
-  void get( SEQNUM, SEQNUM, std::vector<std::string> & ) const EXCEPT ( IOException );
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException) { return m_nextSenderMsgSeqNum; }
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException) { return m_nextTargetMsgSeqNum; }
+  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) { m_nextSenderMsgSeqNum = value; }
+  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) { m_nextTargetMsgSeqNum = value; }
+  void incrNextSenderMsgSeqNum() EXCEPT(IOException) { ++m_nextSenderMsgSeqNum; }
+  void incrNextTargetMsgSeqNum() EXCEPT(IOException) { ++m_nextTargetMsgSeqNum; }
 
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException )
-  { return m_nextSenderMsgSeqNum; }
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException )
-  { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
-  { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException )
-  { m_nextTargetMsgSeqNum = value; }
-  void incrNextSenderMsgSeqNum() EXCEPT ( IOException )
-  { ++m_nextSenderMsgSeqNum; }
-  void incrNextTargetMsgSeqNum() EXCEPT ( IOException )
-  { ++m_nextTargetMsgSeqNum; }
+  void setCreationTime(const UtcTimeStamp &creationTime) EXCEPT(IOException) { m_creationTime = creationTime; }
+  UtcTimeStamp getCreationTime() const EXCEPT(IOException) { return m_creationTime; }
 
-  void setCreationTime( const UtcTimeStamp& creationTime ) EXCEPT ( IOException )
-  { m_creationTime = creationTime; }
-  UtcTimeStamp getCreationTime() const EXCEPT ( IOException )
-  { return m_creationTime; }
-
-  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException )
-  {
-    m_nextSenderMsgSeqNum = 1; 
+  void reset(const UtcTimeStamp &now) EXCEPT(IOException) {
+    m_nextSenderMsgSeqNum = 1;
     m_nextTargetMsgSeqNum = 1;
     m_creationTime = now;
   }
-  void refresh() EXCEPT ( IOException ) {}
+  void refresh() EXCEPT(IOException) {}
 
 private:
   SEQNUM m_nextSenderMsgSeqNum;
   SEQNUM m_nextTargetMsgSeqNum;
   UtcTimeStamp m_creationTime;
 };
-}
+} // namespace FIX
 
 #endif // FIX_NULLSTORE_H
-

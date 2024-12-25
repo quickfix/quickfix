@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,21 +30,18 @@
 
 using namespace FIX;
 
-TEST_CASE("FileUtilitiesTests")
-{
-  SECTION("separator")
-  {
-  #ifdef _MSC_VER
-    CHECK( "\\" == file_separator() );
-  #else
-    CHECK( "/" == file_separator() );
-  #endif
+TEST_CASE("FileUtilitiesTests") {
+  SECTION("separator") {
+#ifdef _MSC_VER
+    CHECK("\\" == file_separator());
+#else
+    CHECK("/" == file_separator());
+#endif
   }
 
-  SECTION("appendpath")
-  {
-    CHECK( ("path" + file_separator() + "file") == file_appendpath("path", "file") );
-    CHECK( "path/file" == file_appendpath("path/", "file") );
-    CHECK( "path\\file" == file_appendpath("path\\", "file") );
+  SECTION("appendpath") {
+    CHECK(("path" + file_separator() + "file") == file_appendpath("path", "file"));
+    CHECK("path/file" == file_appendpath("path/", "file"));
+    CHECK("path\\file" == file_appendpath("path\\", "file"));
   }
 }

@@ -32,8 +32,7 @@
 #include "strptime.h"
 #include <fstream>
 
-namespace FIX
-{
+namespace FIX {
 
 const std::string PostgreSQLLogFactory::DEFAULT_DATABASE = "quickfix";
 const std::string PostgreSQLLogFactory::DEFAULT_USER = "postgres";
@@ -41,75 +40,75 @@ const std::string PostgreSQLLogFactory::DEFAULT_PASSWORD = "";
 const std::string PostgreSQLLogFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLLogFactory::DEFAULT_PORT = 0;
 
-PostgreSQLLog::PostgreSQLLog
-( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
-: m_pConnectionPool( p )
-{
+PostgreSQLLog::PostgreSQLLog(const SessionID &s, const DatabaseConnectionID &d, PostgreSQLConnectionPool *p)
+    : m_pConnectionPool(p) {
   init();
-  m_pSessionID = new SessionID( s );
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pSessionID = new SessionID(s);
+  m_pConnection = m_pConnectionPool->create(d);
 }
 
-PostgreSQLLog::PostgreSQLLog
-( const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
-: m_pConnectionPool( p ), m_pSessionID( 0 )
-{
+PostgreSQLLog::PostgreSQLLog(const DatabaseConnectionID &d, PostgreSQLConnectionPool *p)
+    : m_pConnectionPool(p),
+      m_pSessionID(0) {
   init();
-  m_pConnection = m_pConnectionPool->create( d );
+  m_pConnection = m_pConnectionPool->create(d);
 }
 
-PostgreSQLLog::PostgreSQLLog
-( const SessionID& s, const std::string& database, const std::string& user,
-  const std::string& password, const std::string& host, short port )
-  : m_pConnectionPool( 0 )
-{
+PostgreSQLLog::PostgreSQLLog(
+    const SessionID &s,
+    const std::string &database,
+    const std::string &user,
+    const std::string &password,
+    const std::string &host,
+    short port)
+    : m_pConnectionPool(0) {
   init();
-  m_pSessionID = new SessionID( s );
-  m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
+  m_pSessionID = new SessionID(s);
+  m_pConnection = new PostgreSQLConnection(database, user, password, host, port);
 }
 
-PostgreSQLLog::PostgreSQLLog
-( const std::string& database, const std::string& user,
-  const std::string& password, const std::string& host, short port )
-  : m_pConnectionPool( 0 ), m_pSessionID( 0 )
-{
+PostgreSQLLog::PostgreSQLLog(
+    const std::string &database,
+    const std::string &user,
+    const std::string &password,
+    const std::string &host,
+    short port)
+    : m_pConnectionPool(0),
+      m_pSessionID(0) {
   init();
-  m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
+  m_pConnection = new PostgreSQLConnection(database, user, password, host, port);
 }
 
-void PostgreSQLLog::init()
-{
-  setIncomingTable( "messages_log" );
-  setOutgoingTable( "messages_log" );
-  setEventTable( "event_log" );
+void PostgreSQLLog::init() {
+  setIncomingTable("messages_log");
+  setOutgoingTable("messages_log");
+  setEventTable("event_log");
 }
 
-PostgreSQLLog::~PostgreSQLLog()
-{
-  if( m_pConnectionPool )
-    m_pConnectionPool->destroy( m_pConnection );
-  else
+PostgreSQLLog::~PostgreSQLLog() {
+  if (m_pConnectionPool) {
+    m_pConnectionPool->destroy(m_pConnection);
+  } else {
     delete m_pConnection;
+  }
   delete m_pSessionID;
 }
 
-Log* PostgreSQLLogFactory::create()
-{
+Log *PostgreSQLLogFactory::create() {
   std::string database;
   std::string user;
   std::string password;
   std::string host;
   short port;
 
-  init( m_settings.get(), database, user, password, host, port );
-  DatabaseConnectionID id( database, user, password, host, port );
-  PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
-  initLog( m_settings.get(), *result );
+  init(m_settings.get(), database, user, password, host, port);
+  DatabaseConnectionID id(database, user, password, host, port);
+  PostgreSQLLog *result = new PostgreSQLLog(id, m_connectionPoolPtr.get());
+  initLog(m_settings.get(), *result);
   return result;
 }
 
-Log* PostgreSQLLogFactory::create( const SessionID& s )
-{
+Log *PostgreSQLLogFactory::create(const SessionID &s) {
   std::string database;
   std::string user;
   std::string password;
@@ -117,48 +116,51 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
   short port;
 
   Dictionary settings;
-  if( m_settings.has(s) ) 
-    settings = m_settings.get( s );
+  if (m_settings.has(s)) {
+    settings = m_settings.get(s);
+  }
 
-  init( settings, database, user, password, host, port );
-  DatabaseConnectionID id( database, user, password, host, port );
-  PostgreSQLLog* result = new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
-  initLog( settings, *result );
+  init(settings, database, user, password, host, port);
+  DatabaseConnectionID id(database, user, password, host, port);
+  PostgreSQLLog *result = new PostgreSQLLog(s, id, m_connectionPoolPtr.get());
+  initLog(settings, *result);
   return result;
 }
 
-void PostgreSQLLogFactory::init( const Dictionary& settings, 
-           std::string& database, 
-           std::string& user,
-           std::string& password,
-           std::string& host,
-           short &port )
-{
+void PostgreSQLLogFactory::init(
+    const Dictionary &settings,
+    std::string &database,
+    std::string &user,
+    std::string &password,
+    std::string &host,
+    short &port) {
   database = DEFAULT_DATABASE;
   user = DEFAULT_USER;
   password = DEFAULT_PASSWORD;
   host = DEFAULT_HOST;
   port = DEFAULT_PORT;
 
-  if( m_useSettings )
-  {
-    try { database = settings.getString( POSTGRESQL_LOG_DATABASE ); }
-    catch( ConfigError& ) {}
+  if (m_useSettings) {
+    try {
+      database = settings.getString(POSTGRESQL_LOG_DATABASE);
+    } catch (ConfigError &) {}
 
-    try { user = settings.getString( POSTGRESQL_LOG_USER ); }
-    catch( ConfigError& ) {}
+    try {
+      user = settings.getString(POSTGRESQL_LOG_USER);
+    } catch (ConfigError &) {}
 
-    try { password = settings.getString( POSTGRESQL_LOG_PASSWORD ); }
-    catch( ConfigError& ) {}
+    try {
+      password = settings.getString(POSTGRESQL_LOG_PASSWORD);
+    } catch (ConfigError &) {}
 
-    try { host = settings.getString( POSTGRESQL_LOG_HOST ); }
-    catch( ConfigError& ) {}
+    try {
+      host = settings.getString(POSTGRESQL_LOG_HOST);
+    } catch (ConfigError &) {}
 
-    try { port = ( short ) settings.getInt( POSTGRESQL_LOG_PORT ); }
-    catch( ConfigError& ) {}
-  }
-  else
-  {
+    try {
+      port = (short)settings.getInt(POSTGRESQL_LOG_PORT);
+    } catch (ConfigError &) {}
+  } else {
     database = m_database;
     user = m_user;
     password = m_password;
@@ -167,41 +169,36 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
   }
 }
 
-void PostgreSQLLogFactory::initLog( const Dictionary& settings, PostgreSQLLog& log )
-{
-  try { log.setIncomingTable( settings.getString( POSTGRESQL_LOG_INCOMING_TABLE ) ); }
-  catch( ConfigError& ) {}
+void PostgreSQLLogFactory::initLog(const Dictionary &settings, PostgreSQLLog &log) {
+  try {
+    log.setIncomingTable(settings.getString(POSTGRESQL_LOG_INCOMING_TABLE));
+  } catch (ConfigError &) {}
 
-  try { log.setOutgoingTable( settings.getString( POSTGRESQL_LOG_OUTGOING_TABLE ) ); }
-  catch( ConfigError& ) {}
+  try {
+    log.setOutgoingTable(settings.getString(POSTGRESQL_LOG_OUTGOING_TABLE));
+  } catch (ConfigError &) {}
 
-  try { log.setEventTable( settings.getString( POSTGRESQL_LOG_EVENT_TABLE ) ); }
-  catch( ConfigError& ) {}
+  try {
+    log.setEventTable(settings.getString(POSTGRESQL_LOG_EVENT_TABLE));
+  } catch (ConfigError &) {}
 }
 
-void PostgreSQLLogFactory::destroy( Log* pLog )
-{
-  delete pLog;
-}
+void PostgreSQLLogFactory::destroy(Log *pLog) { delete pLog; }
 
-void PostgreSQLLog::clear()
-{
+void PostgreSQLLog::clear() {
   std::stringstream whereClause;
 
   whereClause << "WHERE ";
 
-  if( m_pSessionID )
-  {
-    whereClause
-    << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
-    << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
-    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "' ";
+  if (m_pSessionID) {
+    whereClause << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
+                << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
+                << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "' ";
 
-    if( m_pSessionID->getSessionQualifier().size() )
+    if (m_pSessionID->getSessionQualifier().size()) {
       whereClause << "AND SessionQualifier = '" << m_pSessionID->getSessionQualifier() << "'";
-  }
-  else
-  {
+    }
+  } else {
     whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
   }
 
@@ -209,68 +206,58 @@ void PostgreSQLLog::clear()
   std::stringstream outgoingQuery;
   std::stringstream eventQuery;
 
-  incomingQuery 
-    << "DELETE FROM " << m_incomingTable << " " << whereClause.str();
-  outgoingQuery 
-    << "DELETE FROM " << m_outgoingTable << " " << whereClause.str();
-  eventQuery 
-    << "DELETE FROM " << m_eventTable << " " << whereClause.str();
+  incomingQuery << "DELETE FROM " << m_incomingTable << " " << whereClause.str();
+  outgoingQuery << "DELETE FROM " << m_outgoingTable << " " << whereClause.str();
+  eventQuery << "DELETE FROM " << m_eventTable << " " << whereClause.str();
 
-  PostgreSQLQuery incoming( incomingQuery.str() );
-  PostgreSQLQuery outgoing( outgoingQuery.str() );
-  PostgreSQLQuery event( eventQuery.str() );
-  m_pConnection->execute( incoming );
-  m_pConnection->execute( outgoing );
-  m_pConnection->execute( event );
+  PostgreSQLQuery incoming(incomingQuery.str());
+  PostgreSQLQuery outgoing(outgoingQuery.str());
+  PostgreSQLQuery event(eventQuery.str());
+  m_pConnection->execute(incoming);
+  m_pConnection->execute(outgoing);
+  m_pConnection->execute(event);
 }
 
-void PostgreSQLLog::backup()
-{
-}
+void PostgreSQLLog::backup() {}
 
-void PostgreSQLLog::insert( const std::string& table, const std::string value )
-{
+void PostgreSQLLog::insert(const std::string &table, const std::string value) {
   UtcTimeStamp time = UtcTimeStamp::now();
   int year, month, day, hour, minute, second, millis;
-  time.getYMD( year, month, day );
-  time.getHMS( hour, minute, second, millis );
+  time.getYMD(year, month, day);
+  time.getHMS(hour, minute, second, millis);
 
-  char sqlTime[ 100 ];
-  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d.%03d",
-           year, month, day, hour, minute, second, millis );
-  
-  char* valueCopy = new char[ (value.size() * 2) + 1 ];
-  PQescapeString( valueCopy, value.c_str(), value.size() );
+  char sqlTime[100];
+  STRING_SPRINTF(sqlTime, "%d-%02d-%02d %02d:%02d:%02d.%03d", year, month, day, hour, minute, second, millis);
+
+  char *valueCopy = new char[(value.size() * 2) + 1];
+  PQescapeString(valueCopy, value.c_str(), value.size());
 
   std::stringstream queryString;
   queryString << "INSERT INTO " << table << " "
-  << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
-  << "VALUES ("
-  << "'" << sqlTime << "',";
+              << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
+              << "VALUES ("
+              << "'" << sqlTime << "',";
 
-  if( m_pSessionID )
-  {
-    queryString
-    << "'" << m_pSessionID->getBeginString().getValue() << "',"
-    << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
-    << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
-    if( m_pSessionID->getSessionQualifier() == "" )
+  if (m_pSessionID) {
+    queryString << "'" << m_pSessionID->getBeginString().getValue() << "',"
+                << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
+                << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
+    if (m_pSessionID->getSessionQualifier() == "") {
       queryString << "NULL" << ",";
-    else
+    } else {
       queryString << "'" << m_pSessionID->getSessionQualifier() << "',";
-  }
-  else
-  {
+    }
+  } else {
     queryString << "NULL, NULL, NULL, NULL, ";
   }
 
   queryString << "'" << valueCopy << "')";
-  delete [] valueCopy;
+  delete[] valueCopy;
 
-  PostgreSQLQuery query( queryString.str() );
-  m_pConnection->execute( query );
+  PostgreSQLQuery query(queryString.str());
+  m_pConnection->execute(query);
 }
 
 } // namespace FIX
 
-#endif //HAVE_POSTGRESQL
+#endif // HAVE_POSTGRESQL

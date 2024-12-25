@@ -122,7 +122,7 @@
 #include "Mutex.h"
 #include "UtilitySSL.h"
 
-//#include "openssl/applink.c" // To prevent crashing (see the OpenSSL FAQ)
+// #include "openssl/applink.c" // To prevent crashing (see the OpenSSL FAQ)
 
 #include "openssl/bio.h" // BIO objects for I/O
 #include "openssl/bn.h"
@@ -149,32 +149,32 @@
 
 #endif
 
-namespace FIX
-{
+namespace FIX {
 
 #ifndef OPENSSL_NO_DH
-static DH *load_dh_param(const char *dhfile)
-{
+static DH *load_dh_param(const char *dhfile) {
   DH *ret = NULL;
   BIO *bio;
 
-  if ((bio = BIO_new_file(dhfile, "r")) == NULL)
+  if ((bio = BIO_new_file(dhfile, "r")) == NULL) {
     goto err;
+  }
   ret = PEM_read_bio_DHparams(bio, NULL, NULL, NULL);
 err:
-  if (bio != NULL)
+  if (bio != NULL) {
     BIO_free(bio);
+  }
   return (ret);
 }
 
 #if (OPENSSL_VERSION_NUMBER < 0x10100000L)
 /* OpenSSL Pre-1.1.0 compatibility */
 /* Taken from OpenSSL 1.1.0 snapshot 20160410 */
-static int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g)
-{
+static int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g) {
   /* q is optional */
-  if (p == NULL || g == NULL)
+  if (p == NULL || g == NULL) {
     return 0;
+  }
   BN_free(dh->p);
   BN_free(dh->q);
   BN_free(dh->g);
@@ -182,8 +182,7 @@ static int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g)
   dh->q = q;
   dh->g = g;
 
-  if (q != NULL)
-  {
+  if (q != NULL) {
     dh->length = BN_num_bits(q);
   }
 
@@ -195,23 +194,19 @@ static int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g)
  * Grab well-defined DH parameters from OpenSSL, see the BN_get_rfc*
  * functions in <openssl/bn.h> for all available primes.
  */
-static DH *make_dh_params(BIGNUM *(*prime)(BIGNUM *))
-{
+static DH *make_dh_params(BIGNUM *(*prime)(BIGNUM *)) {
   DH *dh = DH_new();
   BIGNUM *p, *g;
 
-  if (!dh)
-  {
+  if (!dh) {
     return NULL;
   }
   p = prime(NULL);
   g = BN_new();
-  if (g != NULL)
-  {
+  if (g != NULL) {
     BN_set_word(g, 2);
   }
-  if (!p || !g || !DH_set0_pqg(dh, p, NULL, g))
-  {
+  if (!p || !g || !DH_set0_pqg(dh, p, NULL, g)) {
     DH_free(dh);
     BN_free(p);
     BN_free(g);
@@ -221,33 +216,33 @@ static DH *make_dh_params(BIGNUM *(*prime)(BIGNUM *))
 }
 
 /* Storage and initialization for DH parameters. */
-static struct dhparam
-{
+static struct dhparam {
   BIGNUM *(*const prime)(BIGNUM *); /* function to generate... */
   DH *dh;                           /* ...this, used for keys.... */
   const unsigned int min;           /* ...of length >= this. */
-} dhparams[] = {
-    {get_rfc3526_prime_8192, NULL, 6145}, {get_rfc3526_prime_6144, NULL, 4097},
-    {get_rfc3526_prime_4096, NULL, 3073}, {get_rfc3526_prime_3072, NULL, 2049},
-    {get_rfc3526_prime_2048, NULL, 1025}, {get_rfc2409_prime_1024, NULL, 0}};
+} dhparams[]
+    = {{get_rfc3526_prime_8192, NULL, 6145},
+       {get_rfc3526_prime_6144, NULL, 4097},
+       {get_rfc3526_prime_4096, NULL, 3073},
+       {get_rfc3526_prime_3072, NULL, 2049},
+       {get_rfc3526_prime_2048, NULL, 1025},
+       {get_rfc2409_prime_1024, NULL, 0}};
 
-static void init_dh_params(void)
-{
+static void init_dh_params(void) {
   unsigned n;
 
-  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++) {
     dhparams[n].dh = make_dh_params(dhparams[n].prime);
+  }
 }
 
-static void free_dh_params(void)
-{
+static void free_dh_params(void) {
   unsigned n;
 
   /* DH_free() is a noop for a NULL parameter, so these are harmless
    * in the (unexpected) case where these variables are already
    * NULL. */
-  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
-  {
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++) {
     DH_free(dhparams[n].dh);
     dhparams[n].dh = NULL;
   }
@@ -260,13 +255,14 @@ static void free_dh_params(void)
  * contrast to the keys itself) and code safe as the returned structure
  * is duplicated by OpenSSL anyway. Hence no modification happens
  * to our copy. */
-DH *modssl_get_dh_params(unsigned keylen)
-{
+DH *modssl_get_dh_params(unsigned keylen) {
   unsigned n;
 
-  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++)
-    if (keylen >= dhparams[n].min)
+  for (n = 0; n < sizeof(dhparams) / sizeof(dhparams[0]); n++) {
+    if (keylen >= dhparams[n].min) {
       return dhparams[n].dh;
+    }
+  }
 
   return NULL; /* impossible to reach. */
 }
@@ -274,8 +270,7 @@ DH *modssl_get_dh_params(unsigned keylen)
 /*
  * Hand out standard DH parameters, based on the authentication strength
  */
-DH *ssl_callback_TmpDH(SSL *ssl, int exportvar, int keylen)
-{
+DH *ssl_callback_TmpDH(SSL *ssl, int exportvar, int keylen) {
   EVP_PKEY *pkey;
   int type;
 
@@ -298,8 +293,7 @@ DH *ssl_callback_TmpDH(SSL *ssl, int exportvar, int keylen)
    * 1024-bit DH parameters (with the effect that OpenSSL skips this
    * callback).
    */
-  if ((type == EVP_PKEY_RSA) || (type == EVP_PKEY_DSA))
-  {
+  if ((type == EVP_PKEY_RSA) || (type == EVP_PKEY_DSA)) {
     keylen = EVP_PKEY_bits(pkey);
   }
 
@@ -323,25 +317,25 @@ static void thread_setup(void); // For thread safety.
 static void thread_cleanup(void);
 static void ssl_rand_seed(void);
 
-void ssl_init()
-{
+void ssl_init() {
 
   Locker locker(ssl_mutex);
   ++ssl_users;
 
   thread_setup();
 
-  if (ssl_initialized)
+  if (ssl_initialized) {
     return;
+  }
 
 #if (OPENSSL_VERSION_NUMBER < 0x10100000L)
-  CRYPTO_malloc_init();     // Initialize malloc, free, etc for OpenSSL's use
+  CRYPTO_malloc_init(); // Initialize malloc, free, etc for OpenSSL's use
 #else
   OPENSSL_malloc_init();
 #endif
-  SSL_library_init();       // Initialize OpenSSL's SSL libraries
-  SSL_load_error_strings(); // Load SSL error strings
-  ERR_load_BIO_strings();   // Load BIO error strings
+  SSL_library_init();           // Initialize OpenSSL's SSL libraries
+  SSL_load_error_strings();     // Load SSL error strings
+  ERR_load_BIO_strings();       // Load BIO error strings
   OpenSSL_add_all_algorithms(); // Load all available encryption algorithms
 
   ssl_rand_seed();
@@ -355,14 +349,14 @@ void ssl_init()
   return;
 }
 
-void ssl_term()
-{
+void ssl_term() {
 
   Locker locker(ssl_mutex);
   --ssl_users;
 
-  if (ssl_users > 0)
+  if (ssl_users > 0) {
     return;
+  }
 
   thread_cleanup();
 
@@ -371,11 +365,9 @@ void ssl_term()
 #endif
 }
 
-void ssl_socket_close(socket_handle socket, SSL *ssl)
-{
+void ssl_socket_close(socket_handle socket, SSL *ssl) {
 
-  if (ssl == 0)
-  {
+  if (ssl == 0) {
     socket_close(socket);
     return;
   }
@@ -383,29 +375,28 @@ void ssl_socket_close(socket_handle socket, SSL *ssl)
   int i;
   int rc = 0;
 
-  for (i = 0; i < 4; i++)
-  {
-    if ((rc = SSL_shutdown(ssl)) == 1)
+  for (i = 0; i < 4; i++) {
+    if ((rc = SSL_shutdown(ssl)) == 1) {
       break;
+    }
   }
 }
 
-static void thread_setup(void)
-{
+static void thread_setup(void) {
 
-  if (lock_cs != 0)
+  if (lock_cs != 0) {
     return;
+  }
 
   int i;
 #ifdef _MSC_VER
   lock_cs = (HANDLE *)OPENSSL_malloc(CRYPTO_num_locks() * sizeof(HANDLE));
-  for (i = 0; i < CRYPTO_num_locks(); i++)
+  for (i = 0; i < CRYPTO_num_locks(); i++) {
     lock_cs[i] = CreateMutex(0, FALSE, 0);
+  }
 #else
-  lock_cs = (pthread_mutex_t *)OPENSSL_malloc(CRYPTO_num_locks() *
-                                              sizeof(pthread_mutex_t));
-  for (i = 0; i < CRYPTO_num_locks(); i++)
-  {
+  lock_cs = (pthread_mutex_t *)OPENSSL_malloc(CRYPTO_num_locks() * sizeof(pthread_mutex_t));
+  for (i = 0; i < CRYPTO_num_locks(); i++) {
     pthread_mutex_init(&(lock_cs[i]), 0);
   }
 #endif
@@ -413,15 +404,14 @@ static void thread_setup(void)
 #ifndef _MSC_VER
   CRYPTO_set_id_callback((unsigned long (*)(void))thread_id_func);
 #endif
-  CRYPTO_set_locking_callback(
-      (void (*)(int, int, const char *, int))locking_callback);
+  CRYPTO_set_locking_callback((void (*)(int, int, const char *, int))locking_callback);
 }
 
-static void thread_cleanup(void)
-{
+static void thread_cleanup(void) {
 
-  if (lock_cs == 0)
+  if (lock_cs == 0) {
     return;
+  }
 
 #ifndef _MSC_VER
   CRYPTO_set_id_callback(0);
@@ -430,37 +420,38 @@ static void thread_cleanup(void)
 
   int i;
 #ifdef _MSC_VER
-  for (i = 0; i < CRYPTO_num_locks(); i++)
+  for (i = 0; i < CRYPTO_num_locks(); i++) {
     CloseHandle(lock_cs[i]);
+  }
   OPENSSL_free(lock_cs);
 #else
-  for (i = 0; i < CRYPTO_num_locks(); i++)
+  for (i = 0; i < CRYPTO_num_locks(); i++) {
     pthread_mutex_destroy(&(lock_cs[i]));
+  }
   OPENSSL_free(lock_cs);
 #endif
 
   lock_cs = 0;
 }
 
-static int ssl_rand_choose_num(int l, int h)
-{
+static int ssl_rand_choose_num(int l, int h) {
   int i;
   char buf[50];
 
   srand((unsigned int)time(0));
-  snprintf(buf, sizeof(buf), "%.0f",
-           (((double)(rand() % RAND_MAX) / RAND_MAX) * (h - l)));
+  snprintf(buf, sizeof(buf), "%.0f", (((double)(rand() % RAND_MAX) / RAND_MAX) * (h - l)));
   buf[sizeof(buf) - 1] = 0;
   i = atoi(buf) + 1;
-  if (i < l)
+  if (i < l) {
     i = l;
-  if (i > h)
+  }
+  if (i > h) {
     i = h;
+  }
   return i;
 }
 
-static void ssl_rand_seed(void)
-{
+static void ssl_rand_seed(void) {
 #ifdef _MSC_VER
   int pid;
 #else
@@ -471,32 +462,27 @@ static void ssl_rand_seed(void)
   time_t t = time(0);
 
   /*
-  * seed in the current time (usually just 4 bytes)
-  */
+   * seed in the current time (usually just 4 bytes)
+   */
   l = sizeof(time_t);
   RAND_seed((unsigned char *)&t, l);
   /*
-  * seed in the current process id (usually just 4 bytes)
-  */
+   * seed in the current process id (usually just 4 bytes)
+   */
   pid = getpid();
   l = sizeof(pid);
   RAND_seed((unsigned char *)&pid, l);
   /*
-  * seed in some current state of the run-time stack (128 bytes)
-  */
+   * seed in some current state of the run-time stack (128 bytes)
+   */
   n = ssl_rand_choose_num(0, sizeof(stackdata) - 128 - 1);
   RAND_seed(stackdata + n, 128);
 }
 
-int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b)
-{
-  return (X509_NAME_cmp(*a, *b));
-}
+int caListX509NameCmp(const X509_NAME *const *a, const X509_NAME *const *b) { return (X509_NAME_cmp(*a, *b)); }
 
 #if (OPENSSL_VERSION_NUMBER < 0x10100000L)
-int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
-                    X509_OBJECT *pObj)
-{
+int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName, X509_OBJECT *pObj) {
   X509_STORE_CTX pStoreCtx;
   int rc;
 
@@ -506,8 +492,7 @@ int lookupX509Store(X509_STORE *pStore, int nType, X509_NAME *pName,
   return rc;
 }
 
-int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
-{
+int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore) {
   X509_OBJECT obj;
   X509_NAME *subject;
   X509_NAME *issuer;
@@ -520,8 +505,9 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
   char *cp;
   char *cp2;
 
-  if (revStore == 0)
+  if (revStore == 0) {
     return ok;
+  }
 
   /*
    * Determine certificate ingredients in advance
@@ -537,8 +523,7 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
   memset((char *)&obj, 0, sizeof(obj));
   rc = lookupX509Store(revStore, X509_LU_CRL, subject, &obj);
   crl = obj.data.crl;
-  if (rc > 0 && crl != 0)
-  {
+  if (rc > 0 && crl != 0) {
     bio = BIO_new(BIO_s_mem());
     BIO_printf(bio, "lastUpdate: ");
     ASN1_UTCTIME_print(bio, X509_CRL_get_lastUpdate(crl));
@@ -557,8 +542,7 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
     /*
      * Verify the signature on this CRL
      */
-    if (X509_CRL_verify(crl, X509_get_pubkey(xs)) <= 0)
-    {
+    if (X509_CRL_verify(crl, X509_get_pubkey(xs)) <= 0) {
       printf("Invalid signature on CRL\n");
       X509_STORE_CTX_set_error(ctx, X509_V_ERR_CRL_SIGNATURE_FAILURE);
       X509_OBJECT_free_contents(&obj);
@@ -569,15 +553,13 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
      * Check date of CRL to make sure it's not expired
      */
     i = X509_cmp_current_time(X509_CRL_get_nextUpdate(crl));
-    if (i == 0)
-    {
+    if (i == 0) {
       printf("Found CRL has invalid nextUpdate field\n");
       X509_STORE_CTX_set_error(ctx, X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD);
       X509_OBJECT_free_contents(&obj);
       return 0;
     }
-    if (i < 0)
-    {
+    if (i < 0) {
       printf("Found CRL is expired - revoking all certificates until you get "
              "updated CRL\n");
       X509_STORE_CTX_set_error(ctx, X509_V_ERR_CRL_HAS_EXPIRED);
@@ -594,23 +576,22 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
   memset((char *)&obj, 0, sizeof(obj));
   rc = lookupX509Store(revStore, X509_LU_CRL, issuer, &obj);
   crl = obj.data.crl;
-  if (rc > 0 && crl != NULL)
-  {
+  if (rc > 0 && crl != NULL) {
     /*
      * Check if the current certificate is revoked by this CRL
      */
     n = sk_X509_REVOKED_num(X509_CRL_get_REVOKED(crl));
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++) {
       revoked = sk_X509_REVOKED_value(X509_CRL_get_REVOKED(crl), i);
-      if (ASN1_INTEGER_cmp(revoked->serialNumber, X509_get_serialNumber(xs)) ==
-          0)
-      {
+      if (ASN1_INTEGER_cmp(revoked->serialNumber, X509_get_serialNumber(xs)) == 0) {
         serial = ASN1_INTEGER_get(revoked->serialNumber);
         cp = X509_NAME_oneline(issuer, NULL, 0);
-        printf("Certificate with serial %ld (0x%lX) revoked per CRL from "
-               "issuer %s\n",
-               serial, serial, cp);
+        printf(
+            "Certificate with serial %ld (0x%lX) revoked per CRL from "
+            "issuer %s\n",
+            serial,
+            serial,
+            cp);
         free(cp);
         X509_STORE_CTX_set_error(ctx, X509_V_ERR_CERT_REVOKED);
         X509_OBJECT_free_contents(&obj);
@@ -623,8 +604,7 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore)
 }
 #endif
 
-int callbackVerify(int ok, X509_STORE_CTX *ctx)
-{
+int callbackVerify(int ok, X509_STORE_CTX *ctx) {
   X509 *xs;
   int errnum;
   int errdepth;
@@ -643,53 +623,54 @@ int callbackVerify(int ok, X509_STORE_CTX *ctx)
    */
   cp = X509_NAME_oneline(X509_get_subject_name(xs), NULL, 0);
   cp2 = X509_NAME_oneline(X509_get_issuer_name(xs), NULL, 0);
-  printf("Certificate Verification: depth: %d, subject: %s, issuer: %s\n",
-         errdepth, cp != NULL ? cp : "-unknown-",
-         cp2 != NULL ? cp2 : "-unknown");
+  printf(
+      "Certificate Verification: depth: %d, subject: %s, issuer: %s\n",
+      errdepth,
+      cp != NULL ? cp : "-unknown-",
+      cp2 != NULL ? cp2 : "-unknown");
 
-  if (cp)
+  if (cp) {
     free(cp);
-  if (cp2)
+  }
+  if (cp2) {
     free(cp2);
+  }
 
 #if (OPENSSL_VERSION_NUMBER < 0x10100000L)
   /*
    * Additionally perform CRL-based revocation checks
    */
-  if (ok)
-  {
+  if (ok) {
     SSL *ssl = (SSL *)X509_STORE_CTX_get_app_data(ctx);
     X509_STORE *revStore = (X509_STORE *)SSL_get_app_data(ssl);
     ok = callbackVerifyCRL(ok, ctx, revStore);
-    if (!ok)
+    if (!ok) {
       errnum = X509_STORE_CTX_get_error(ctx);
+    }
   }
 #endif
 
   /*
    * If we already know it's not ok, log the real reason
    */
-  if (!ok)
-  {
-    printf("Certificate Verification: Error (%d): %s\n", errnum,
-           X509_verify_cert_error_string(errnum));
+  if (!ok) {
+    printf("Certificate Verification: Error (%d): %s\n", errnum, X509_verify_cert_error_string(errnum));
     ERR_print_errors_fp(stderr);
   }
 
   return (ok);
 }
 
-int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
-{
+int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey) {
 
   int t;
 
   t = SSL_ALGO_UNKNOWN;
-  if (pCert != 0)
+  if (pCert != 0) {
     pKey = X509_get_pubkey(pCert);
-  if (pKey != 0)
-  {
- #if OPENSSL_VERSION_NUMBER < 0x10100000L
+  }
+  if (pKey != 0) {
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
     switch (EVP_PKEY_type(pKey->type))
 #else
     switch (EVP_PKEY_base_id(pKey))
@@ -711,8 +692,7 @@ int typeofSSLAlgo(X509 *pCert, EVP_PKEY *pKey)
   return t;
 }
 
-STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
-{
+STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
   STACK_OF(X509_NAME) * skCAList;
   STACK_OF(X509_NAME) * sk;
 #ifndef HAVE_ACE_DIRENT
@@ -732,31 +712,27 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
 #ifndef __SUNPRO_CC
   skCAList = sk_X509_NAME_new(caListX509NameCmp);
 #else
-  skCAList =
-      sk_X509_NAME_new((int (*)(const X509_name_st *const *,
-                                const X509_name_st *const *))caListX509NameCmp);
+  skCAList = sk_X509_NAME_new((int (*)(const X509_name_st *const *, const X509_name_st *const *))caListX509NameCmp);
 #endif
 
   /*
    * Process CA certificate bundle file
    */
-  if (cpCAfile != 0)
-  {
+  if (cpCAfile != 0) {
     sk = SSL_load_client_CA_file(cpCAfile);
-    for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++)
-    {
+    for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++) {
       // TODO log->onEvent(std::string("CA certificate: ") +
       // X509_NAME_oneline(sk_X509_NAME_value(sk, n), 0, 0));
-      if (sk_X509_NAME_find(skCAList, sk_X509_NAME_value(sk, n)) < 0)
+      if (sk_X509_NAME_find(skCAList, sk_X509_NAME_value(sk, n)) < 0) {
         sk_X509_NAME_push(skCAList, sk_X509_NAME_value(sk, n));
+      }
     }
   }
 
   /*
    * Process CA certificate path files
    */
-  if (cpCApath != 0)
-  {
+  if (cpCApath != 0) {
 #ifndef HAVE_ACE_DIRENT
     dir = opendir(cpCApath);
 #else
@@ -764,20 +740,18 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
 #endif
 
 #ifndef HAVE_ACE_DIRENT
-    while ((direntry = readdir(dir)) != 0)
-    {
+    while ((direntry = readdir(dir)) != 0) {
 #else
-    while ((direntry = ACE_OS::readdir(dir)) != 0)
-    {
+    while ((direntry = ACE_OS::readdir(dir)) != 0) {
 #endif
       cp = string_concat(cpCApath, SLASH, direntry->d_name, 0);
       sk = SSL_load_client_CA_file(cp);
-      for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++)
-      {
+      for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++) {
         // TODO log->onEvent(std::string("CA certificate: %s") +
         //           X509_NAME_oneline(sk_X509_NAME_value(sk, n), 0, 0));
-        if (sk_X509_NAME_find(skCAList, sk_X509_NAME_value(sk, n)) < 0)
+        if (sk_X509_NAME_find(skCAList, sk_X509_NAME_value(sk, n)) < 0) {
           sk_X509_NAME_push(skCAList, sk_X509_NAME_value(sk, n));
+        }
       }
     }
 #ifndef HAVE_ACE_DIRENT
@@ -794,28 +768,25 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath)
   return skCAList;
 }
 
-X509_STORE *createX509Store(const char *cpFile, const char *cpPath)
-{
+X509_STORE *createX509Store(const char *cpFile, const char *cpPath) {
   X509_STORE *pStore;
   X509_LOOKUP *pLookup;
 
-  if (cpFile == 0 && cpPath == 0)
+  if (cpFile == 0 && cpPath == 0) {
     return 0;
-  if ((pStore = X509_STORE_new()) == 0)
+  }
+  if ((pStore = X509_STORE_new()) == 0) {
     return 0;
-  if (cpFile != 0)
-  {
-    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_file())) == 0)
-    {
+  }
+  if (cpFile != 0) {
+    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_file())) == 0) {
       X509_STORE_free(pStore);
       return 0;
     }
     X509_LOOKUP_load_file(pLookup, cpFile, X509_FILETYPE_PEM);
   }
-  if (cpPath != 0)
-  {
-    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_hash_dir())) == 0)
-    {
+  if (cpPath != 0) {
+    if ((pLookup = X509_STORE_add_lookup(pStore, X509_LOOKUP_hash_dir())) == 0) {
       X509_STORE_free(pStore);
       return 0;
     }
@@ -823,85 +794,80 @@ X509_STORE *createX509Store(const char *cpFile, const char *cpPath)
   }
   return pStore;
 }
-X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void* passwordCallbackParam)
-{
+X509 *readX509(FILE *fp, X509 **x509, passPhraseHandleCallbackType cb, void *passwordCallbackParam) {
   X509 *rc;
   BIO *bioS;
   BIO *bioF;
 
   rc = PEM_read_X509(fp, x509, cb, passwordCallbackParam);
-  if (rc == 0)
-  {
+  if (rc == 0) {
     /* 2. try DER+Base64 */
     fseek(fp, 0L, SEEK_SET);
-    if ((bioS = BIO_new(BIO_s_fd())) == 0)
+    if ((bioS = BIO_new(BIO_s_fd())) == 0) {
       return 0;
+    }
     BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
-    if ((bioF = BIO_new(BIO_f_base64())) == 0)
-    {
+    if ((bioF = BIO_new(BIO_f_base64())) == 0) {
       BIO_free(bioS);
       return 0;
     }
     bioS = BIO_push(bioF, bioS);
     rc = d2i_X509_bio(bioS, 0);
     BIO_free_all(bioS);
-    if (rc == 0)
-    {
+    if (rc == 0) {
       /* 3. try plain DER */
       fseek(fp, 0L, SEEK_SET);
-      if ((bioS = BIO_new(BIO_s_fd())) == 0)
+      if ((bioS = BIO_new(BIO_s_fd())) == 0) {
         return 0;
+      }
       BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
       rc = d2i_X509_bio(bioS, 0);
       BIO_free(bioS);
     }
   }
-  if (rc != 0 && x509 != 0)
-  {
-    if (*x509 != 0)
+  if (rc != 0 && x509 != 0) {
+    if (*x509 != 0) {
       X509_free(*x509);
+    }
     *x509 = rc;
   }
   return rc;
 }
 
-EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
-                         passPhraseHandleCallbackType cb, void* passwordCallbackParam)
-{
+EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key, passPhraseHandleCallbackType cb, void *passwordCallbackParam) {
   EVP_PKEY *rc;
   BIO *bioS;
   BIO *bioF;
 
   rc = PEM_read_PrivateKey(fp, key, cb, passwordCallbackParam);
-  if (rc == 0)
-  {
+  if (rc == 0) {
     /* 2. try DER+Base64 */
     fseek(fp, 0L, SEEK_SET);
-    if ((bioS = BIO_new(BIO_s_fd())) == 0)
+    if ((bioS = BIO_new(BIO_s_fd())) == 0) {
       return 0;
+    }
     BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
-    if ((bioF = BIO_new(BIO_f_base64())) == 0)
-    {
+    if ((bioF = BIO_new(BIO_f_base64())) == 0) {
       BIO_free(bioS);
       return 0;
     }
     bioS = BIO_push(bioF, bioS);
     rc = d2i_PrivateKey_bio(bioS, 0);
     BIO_free_all(bioS);
-    if (rc == 0)
-    {
+    if (rc == 0) {
       fseek(fp, 0L, SEEK_SET);
-      if ((bioS = BIO_new(BIO_s_fd())) == 0)
+      if ((bioS = BIO_new(BIO_s_fd())) == 0) {
         return 0;
+      }
       BIO_set_fd(bioS, fileno(fp), BIO_NOCLOSE);
       rc = d2i_PrivateKey_bio(bioS, 0);
       BIO_free(bioS);
     }
   }
-  if (rc != 0 && key != 0)
-  {
-    if (*key != 0)
+  if (rc != 0 && key != 0) {
+    if (*key != 0) {
       EVP_PKEY_free(*key);
+    }
     *key = rc;
   }
   return rc;
@@ -909,24 +875,22 @@ EVP_PKEY *readPrivateKey(FILE *fp, EVP_PKEY **key,
 
 int setSocketNonBlocking(socket_handle pSocket)
 /********************************************************************************
-* switch socket to non-blocking mode
-* Returns: 0 in the case of success, -1 in the case of error
-*
-*/
+ * switch socket to non-blocking mode
+ * Returns: 0 in the case of success, -1 in the case of error
+ *
+ */
 {
 #ifdef _MSC_VER
   {
     unsigned long arg = 1; /* ie enable non-blocking mode */
 
-    if (ioctlsocket(pSocket, FIONBIO, &arg) == SOCKET_ERROR)
-    {
+    if (ioctlsocket(pSocket, FIONBIO, &arg) == SOCKET_ERROR) {
       int ecode = WSAGetLastError();
 
       /* EINVAL returned when an attempt is made to set non-blocking a socket
        * accepted on a non-blocking listen socket.  dont know why */
 
-      if (ecode != WSAEINVAL)
-      {
+      if (ecode != WSAEINVAL) {
         // TODO LogEvent(
         //  ERROR_ID,
         //"SetSocketNonBlocking:ioctlsocket(%d,FIONBIO,0) failed: %s(%d)",
@@ -941,14 +905,14 @@ int setSocketNonBlocking(socket_handle pSocket)
   {
     int f = fcntl(pSocket, F_GETFL);
 
-    if (f == -1)
+    if (f == -1) {
       // TODO LogEvent(ERROR_ID,
       //       "SetSocketNonBlocking: fcntl(%d,F_GETFL) failed: %s(errno=%d)",
       //     pSocket, strerror(errno), errno);
 
       f |= O_NONBLOCK;
-    if (fcntl(pSocket, F_SETFL, f) == -1)
-    {
+    }
+    if (fcntl(pSocket, F_SETFL, f) == -1) {
       // TODO LogEvent(ERROR_ID,
       //"SetSocketNonBlocking: fcntl(%d,F_SETFL) failed: %s(errno=%d)",
       // pSocket, strerror(errno), errno);
@@ -959,74 +923,61 @@ int setSocketNonBlocking(socket_handle pSocket)
 #endif
 }
 
-long protocolOptions(const char *opt)
-{
+long protocolOptions(const char *opt) {
   long options = SSL_PROTOCOL_NONE, thisopt;
   char action;
   const char *w, *e;
 
-  if (*opt)
-  {
+  if (*opt) {
     w = opt;
     e = w + strlen(w);
-    while (w && (w < e))
-    {
+    while (w && (w < e)) {
       action = '\0';
-      while ((*w == ' ') || (*w == '\t'))
+      while ((*w == ' ') || (*w == '\t')) {
         w++;
-      if (*w == '+' || *w == '-')
+      }
+      if (*w == '+' || *w == '-') {
         action = *(w++);
+      }
 
-      if (!strncasecmp(w, "SSLv2", 5 /* strlen("SSLv2") */))
-      {
+      if (!strncasecmp(w, "SSLv2", 5 /* strlen("SSLv2") */)) {
         thisopt = SSL_PROTOCOL_SSLV2;
         w += 5 /* strlen("SSLv2")*/;
-      }
-      else if (!strncasecmp(w, "SSLv3", 5 /* strlen("SSLv3") */))
-      {
+      } else if (!strncasecmp(w, "SSLv3", 5 /* strlen("SSLv3") */)) {
         thisopt = SSL_PROTOCOL_SSLV3;
         w += 5 /*strlen("SSLv3") */;
-      }
-      else if (!strncasecmp(w, "TLSv1_1", 7 /* strlen("TLSv1_1") */))
-      {
+      } else if (!strncasecmp(w, "TLSv1_1", 7 /* strlen("TLSv1_1") */)) {
         thisopt = SSL_PROTOCOL_TLSV1_1;
         w += 7 /* strlen("TLSv1_1") */;
-      }
-      else if (!strncasecmp(w, "TLSv1_2", 7 /* strlen("TLSv1_2") */))
-      {
+      } else if (!strncasecmp(w, "TLSv1_2", 7 /* strlen("TLSv1_2") */)) {
         thisopt = SSL_PROTOCOL_TLSV1_2;
         w += 7 /* strlen("TLSv1_2") */;
       }
 #if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
-      else if (!strncasecmp(w, "TLSv1_3", 7 /* strlen("TLSv1_3") */))
-      {
+      else if (!strncasecmp(w, "TLSv1_3", 7 /* strlen("TLSv1_3") */)) {
         thisopt = SSL_PROTOCOL_TLSV1_3;
         w += 7 /* strlen("TLSv1_3") */;
       }
 #endif
-      else if (!strncasecmp(w, "TLSv1", 5 /* strlen("TLSv1") */))
-      {
+      else if (!strncasecmp(w, "TLSv1", 5 /* strlen("TLSv1") */)) {
         thisopt = SSL_PROTOCOL_TLSV1;
         w += 5 /* strlen("TLSv1") */;
-      }
-      else if (!strncasecmp(w, "all", 3 /* strlen("all") */))
-      {
+      } else if (!strncasecmp(w, "all", 3 /* strlen("all") */)) {
         thisopt = SSL_PROTOCOL_ALL;
         w += 3 /* strlen("all") */;
-      }
-      else
+      } else {
         return -1;
+      }
 
-      if (action == '-')
+      if (action == '-') {
         options &= ~thisopt;
-      else if (action == '+')
+      } else if (action == '+') {
         options |= thisopt;
-      else
+      } else {
         options = thisopt;
+      }
     }
-  }
-  else
-  { /* default all except SSLv2 */
+  } else { /* default all except SSLv2 */
     options = SSL_PROTOCOL_ALL;
     thisopt = SSL_PROTOCOL_SSLV2;
     options &= ~thisopt;
@@ -1035,44 +986,45 @@ long protocolOptions(const char *opt)
   return options;
 }
 
-void setCtxOptions(SSL_CTX *ctx, long options)
-{
+void setCtxOptions(SSL_CTX *ctx, long options) {
   SSL_CTX_set_options(ctx, SSL_OP_ALL);
-  if (!(options & SSL_PROTOCOL_SSLV2))
+  if (!(options & SSL_PROTOCOL_SSLV2)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
-  if (!(options & SSL_PROTOCOL_SSLV3))
+  }
+  if (!(options & SSL_PROTOCOL_SSLV3)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv3);
-  if (!(options & SSL_PROTOCOL_TLSV1))
+  }
+  if (!(options & SSL_PROTOCOL_TLSV1)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1);
-  if (!(options & SSL_PROTOCOL_TLSV1_1))
+  }
+  if (!(options & SSL_PROTOCOL_TLSV1_1)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_1);
-  if (!(options & SSL_PROTOCOL_TLSV1_2))
+  }
+  if (!(options & SSL_PROTOCOL_TLSV1_2)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_2);
+  }
 #if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
-  if (!(options & SSL_PROTOCOL_TLSV1_3))
+  if (!(options & SSL_PROTOCOL_TLSV1_3)) {
     SSL_CTX_set_options(ctx, SSL_OP_NO_TLSv1_3);
+  }
 #endif
 }
 
-int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile)
-{
+int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile) {
 #ifndef OPENSSL_NO_DH
   int no_dhe = 0;
-  if (!no_dhe)
-  {
+  if (!no_dhe) {
     DH *dh = NULL;
 
-    if (certFile)
+    if (certFile) {
       dh = load_dh_param(certFile);
+    }
 
-    if (dh != NULL)
-    {
+    if (dh != NULL) {
       SSL_CTX_set_tmp_dh(ctx, dh);
 
       DH_free(dh);
-    }
-    else
-    {
+    } else {
       SSL_CTX_set_tmp_dh_callback(ctx, ssl_callback_TmpDH);
     }
     //(void)BIO_flush(bio_s_out);
@@ -1082,8 +1034,7 @@ int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile)
 #ifndef OPENSSL_NO_ECDH
   EC_KEY *ecdh;
   ecdh = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
-  if (ecdh == NULL)
-  {
+  if (ecdh == NULL) {
     return 2;
   }
   SSL_CTX_set_tmp_ecdh(ctx, ecdh);
@@ -1093,16 +1044,13 @@ int enable_DH_ECDH(SSL_CTX *ctx, const char *certFile)
   return 0;
 }
 
-SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
-                          std::string &errStr)
-{
+SSL_CTX *createSSLContext(bool server, const SessionSettings &settings, std::string &errStr) {
   errStr.erase();
 
   SSL_CTX *ctx = 0;
 
   std::string strOptions;
-  if (settings.get().has(SSL_PROTOCOL))
-  {
+  if (settings.get().has(SSL_PROTOCOL)) {
     strOptions = settings.get().getString(SSL_PROTOCOL);
   }
 
@@ -1110,27 +1058,20 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
 
   /* set up the application context */
 #if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
-  if (server)
-  {
-     ctx = SSL_CTX_new(TLS_server_method());
-  }
-  else
-  {
-     ctx = SSL_CTX_new(TLS_client_method());
+  if (server) {
+    ctx = SSL_CTX_new(TLS_server_method());
+  } else {
+    ctx = SSL_CTX_new(TLS_client_method());
   }
 #else
-  if (server)
-  {
+  if (server) {
     ctx = SSL_CTX_new(SSLv23_server_method());
-  }
-  else
-  {
+  } else {
     ctx = SSL_CTX_new(SSLv23_client_method());
   }
 #endif
 
-  if (ctx == 0)
-  {
+  if (ctx == 0) {
     errStr.append("Unable to get context");
     return ctx;
   }
@@ -1138,42 +1079,33 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
   setCtxOptions(ctx, options);
 
   SSL_CTX_set_options(ctx, SSL_OP_SINGLE_DH_USE);
-  if (server)
-  {
+  if (server) {
     SSL_CTX_set_session_cache_mode(ctx, SSL_SESS_CACHE_SERVER);
   }
 
-  SSL_CTX_set_mode(ctx, SSL_MODE_ENABLE_PARTIAL_WRITE |
-                            SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
+  SSL_CTX_set_mode(ctx, SSL_MODE_ENABLE_PARTIAL_WRITE | SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
 
-  if (settings.get().has(SSL_CIPHER_SUITE))
-  {
+  if (settings.get().has(SSL_CIPHER_SUITE)) {
     std::string strCipherSuite = settings.get().getString(SSL_CIPHER_SUITE);
 
-    if (!strCipherSuite.empty() &&
-        !SSL_CTX_set_cipher_list(ctx, strCipherSuite.c_str()))
-    {
+    if (!strCipherSuite.empty() && !SSL_CTX_set_cipher_list(ctx, strCipherSuite.c_str())) {
       errStr.append("Unable to configure permitted SSL ciphers");
       SSL_CTX_free(ctx);
       return 0;
     }
   }
 
-  if (settings.get().has(TLS_CIPHER_SUITES))
-  {
+  if (settings.get().has(TLS_CIPHER_SUITES)) {
     std::string strCipherSuites = settings.get().getString(TLS_CIPHER_SUITES);
 
 #if (OPENSSL_VERSION_NUMBER >= 0x1010100FL)
-    if (!strCipherSuites.empty() &&
-        !SSL_CTX_set_ciphersuites(ctx, strCipherSuites.c_str()))
-    {
+    if (!strCipherSuites.empty() && !SSL_CTX_set_ciphersuites(ctx, strCipherSuites.c_str())) {
       errStr.append("Unable to configure permitted TLS ciphersuites");
       SSL_CTX_free(ctx);
       return 0;
     }
 #else
-    if (!strCipherSuites.empty())
-    {
+    if (!strCipherSuites.empty()) {
       errStr.append("Unable to configure TLS ciphersuites (OpenSSl < 1.1.1)");
       SSL_CTX_free(ctx);
       return 0;
@@ -1184,9 +1116,14 @@ SSL_CTX *createSSLContext(bool server, const SessionSettings &settings,
   return ctx;
 }
 
-bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                 Log *log, passPhraseHandleCallbackType cb, void* passwordCallbackParam, std::string &errStr)
-{
+bool loadSSLCert(
+    SSL_CTX *ctx,
+    bool server,
+    const SessionSettings &settings,
+    Log *log,
+    passPhraseHandleCallbackType cb,
+    void *passwordCallbackParam,
+    std::string &errStr) {
   errStr.erase();
 
   log->onEvent("Loading SSL certificate");
@@ -1194,10 +1131,8 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   std::string cert;
   std::string key;
 
-  if (server)
-  {
-    if (!settings.get().has(SERVER_CERTIFICATE_FILE))
-    {
+  if (server) {
+    if (!settings.get().has(SERVER_CERTIFICATE_FILE)) {
       errStr.assign(SERVER_CERTIFICATE_FILE);
       errStr.append(" parameter not found");
       return false;
@@ -1205,26 +1140,24 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
     cert.assign(settings.get().getString(SERVER_CERTIFICATE_FILE));
 
-    if (settings.get().has(SERVER_CERTIFICATE_KEY_FILE))
+    if (settings.get().has(SERVER_CERTIFICATE_KEY_FILE)) {
       key.assign(settings.get().getString(SERVER_CERTIFICATE_KEY_FILE));
-    else
+    } else {
       key.assign(cert);
-  }
-  else
-  {
-    if (!settings.get().has(CLIENT_CERTIFICATE_FILE))
-    {
+    }
+  } else {
+    if (!settings.get().has(CLIENT_CERTIFICATE_FILE)) {
       log->onEvent("No SSL certificate configured for client.");
 
       int ret = enable_DH_ECDH(ctx, 0);
-      if (ret != 0)
-      {
-        if (ret == 1)
+      if (ret != 0) {
+        if (ret == 1) {
           errStr.assign("Could not enable DH");
-        else if (ret == 2)
+        } else if (ret == 2) {
           errStr.assign("Could not enable ECDH");
-        else
+        } else {
           errStr.assign("Unknown error enabling DH, ECDH");
+        }
 
         return false;
       }
@@ -1234,10 +1167,11 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
     cert.assign(settings.get().getString(CLIENT_CERTIFICATE_FILE));
 
-    if (settings.get().has(CLIENT_CERTIFICATE_KEY_FILE))
+    if (settings.get().has(CLIENT_CERTIFICATE_KEY_FILE)) {
       key.assign(settings.get().getString(CLIENT_CERTIFICATE_KEY_FILE));
-    else
+    } else {
       key.assign(cert);
+    }
   }
 
 #if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && !defined(LIBRESSL_VERSION_NUMBER)
@@ -1250,8 +1184,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   FILE *fp;
 
-  if ((fp = fopen(cert.c_str(), "r")) == 0)
-  {
+  if ((fp = fopen(cert.c_str(), "r")) == 0) {
     errStr.assign(cert);
     errStr.append(" file could not be opened");
     return false;
@@ -1261,20 +1194,17 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   fclose(fp);
 
-  if (X509Cert == 0)
-  {
+  if (X509Cert == 0) {
     errStr.assign(cert);
     errStr.append(" readX509 failed");
     return false;
   }
 
-  switch (typeofSSLAlgo(X509Cert, 0))
-  {
+  switch (typeofSSLAlgo(X509Cert, 0)) {
   case SSL_ALGO_RSA:
     log->onEvent("Configuring RSA client certificate");
 
-    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
-    {
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0) {
       errStr.assign("Unable to configure RSA client certificate");
       return false;
     }
@@ -1282,8 +1212,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   case SSL_ALGO_DSA:
     log->onEvent("Configuring DSA client certificate");
-    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
-    {
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0) {
       errStr.assign("Unable to configure DSA client certificate");
       return false;
     }
@@ -1291,8 +1220,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   case SSL_ALGO_EC:
     log->onEvent("Configuring EC client certificate");
-    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0)
-    {
+    if (SSL_CTX_use_certificate(ctx, X509Cert) <= 0) {
       errStr.assign("Unable to configure EC client certificate");
       return false;
     }
@@ -1305,8 +1233,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   }
   X509_free(X509Cert);
 
-  if ((fp = fopen(key.c_str(), "r")) == 0)
-  {
+  if ((fp = fopen(key.c_str(), "r")) == 0) {
     errStr.assign(key);
     errStr.append(" file could not be opened");
     return false;
@@ -1316,19 +1243,16 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   fclose(fp);
 
-  if (privateKey == 0)
-  {
+  if (privateKey == 0) {
     errStr.assign(key);
     errStr.append(" readPrivateKey failed");
     return false;
   }
 
-  switch (typeofSSLAlgo(0, privateKey))
-  {
+  switch (typeofSSLAlgo(0, privateKey)) {
   case SSL_ALGO_RSA:
     log->onEvent("Configuring RSA client private key");
-    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
-    {
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0) {
       errStr.assign("Unable to configure RSA server private key");
       return false;
     }
@@ -1336,8 +1260,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   case SSL_ALGO_DSA:
     log->onEvent("Configuring DSA client private key");
-    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
-    {
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0) {
       errStr.assign("Unable to configure DSA server private key");
       return false;
     }
@@ -1345,8 +1268,7 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   case SSL_ALGO_EC:
     log->onEvent("Configuring EC client private key");
-    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0)
-    {
+    if (SSL_CTX_use_PrivateKey(ctx, privateKey) <= 0) {
       errStr.assign("Unable to configure EC server private key");
       return false;
     }
@@ -1361,21 +1283,20 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
 
   /* Now we know that a key and cert have been set against
    * the SSL context */
-  if (!SSL_CTX_check_private_key(ctx))
-  {
+  if (!SSL_CTX_check_private_key(ctx)) {
     errStr.assign("Private key does not match the certificate public key");
     return false;
   }
 
   int ret = enable_DH_ECDH(ctx, cert.c_str());
-  if (ret != 0)
-  {
-    if (ret == 1)
+  if (ret != 0) {
+    if (ret == 1) {
       errStr.assign("Could not enable DH");
-    else if (ret == 2)
+    } else if (ret == 2) {
       errStr.assign("Could not enable ECDH");
-    else
+    } else {
       errStr.assign("Unknown error enabling DH, ECDH");
+    }
 
     return false;
   }
@@ -1384,62 +1305,62 @@ bool loadSSLCert(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   ;
 }
 
-bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
-                Log *log, std::string &errStr, int &verifyLevel)
-{
+bool loadCAInfo(
+    SSL_CTX *ctx,
+    bool server,
+    const SessionSettings &settings,
+    Log *log,
+    std::string &errStr,
+    int &verifyLevel) {
   errStr.erase();
 
   log->onEvent("Loading CA info");
 
   std::string caFile;
-  if (settings.get().has(CERTIFICATE_AUTHORITIES_FILE))
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_FILE)) {
     caFile.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_FILE));
+  }
 
   std::string caDir;
-  if (settings.get().has(CERTIFICATE_AUTHORITIES_DIRECTORY))
+  if (settings.get().has(CERTIFICATE_AUTHORITIES_DIRECTORY)) {
     caDir.assign(settings.get().getString(CERTIFICATE_AUTHORITIES_DIRECTORY));
+  }
 
-  if (caFile.empty() && caDir.empty())
+  if (caFile.empty() && caDir.empty()) {
     return true;
+  }
 
-  if (!SSL_CTX_load_verify_locations(ctx, caFile.empty() ? 0 : caFile.c_str(),
-                                     caDir.empty() ? 0 : caDir.c_str()) ||
-      !SSL_CTX_set_default_verify_paths(ctx))
-  {
-    errStr.assign(
-        "Unable to configure verify locations for client authentication");
+  if (!SSL_CTX_load_verify_locations(ctx, caFile.empty() ? 0 : caFile.c_str(), caDir.empty() ? 0 : caDir.c_str())
+      || !SSL_CTX_set_default_verify_paths(ctx)) {
+    errStr.assign("Unable to configure verify locations for client authentication");
     return false;
   }
 
   STACK_OF(X509_NAME) * caList;
-  if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(),
-                           caDir.empty() ? 0 : caDir.c_str())) == 0)
-  {
+  if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(), caDir.empty() ? 0 : caDir.c_str())) == 0) {
     errStr.assign("Unable to determine list of available CA certificates "
                   "for client authentication");
     return false;
   }
   SSL_CTX_set_client_CA_list(ctx, caList);
 
-  if (server)
-  {
-    if (settings.get().has(CERTIFICATE_VERIFY_LEVEL))
+  if (server) {
+    if (settings.get().has(CERTIFICATE_VERIFY_LEVEL)) {
       verifyLevel = (settings.get().getInt(CERTIFICATE_VERIFY_LEVEL));
+    }
 
-    if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET)
-    {
+    if (verifyLevel != SSL_CLIENT_VERIFY_NOTSET) {
       /* configure new state */
       int cVerify = SSL_VERIFY_NONE;
-      if (verifyLevel == SSL_CLIENT_VERIFY_REQUIRE)
+      if (verifyLevel == SSL_CLIENT_VERIFY_REQUIRE) {
         cVerify |= SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT;
-      else if (verifyLevel == SSL_CLIENT_VERIFY_OPTIONAL)
+      } else if (verifyLevel == SSL_CLIENT_VERIFY_OPTIONAL) {
         cVerify |= SSL_VERIFY_PEER;
+      }
 
       SSL_CTX_set_verify(ctx, cVerify, callbackVerify);
     }
-  }
-  else
-  {
+  } else {
     /* Set the certificate verification callback */
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, callbackVerify);
   }
@@ -1447,9 +1368,7 @@ bool loadCAInfo(SSL_CTX *ctx, bool server, const SessionSettings &settings,
   return true;
 }
 
-X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
-                        std::string &errStr)
-{
+X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log, std::string &errStr) {
   errStr.erase();
 
   X509_STORE *revocationStore = 0;
@@ -1459,50 +1378,46 @@ X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log,
   errStr.erase();
 
   std::string crlFile;
-  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_FILE))
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_FILE)) {
     crlFile.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_FILE));
+  }
 
   std::string crlDir;
-  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_DIRECTORY))
+  if (settings.get().has(CERTIFICATE_REVOCATION_LIST_DIRECTORY)) {
     crlDir.assign(settings.get().getString(CERTIFICATE_REVOCATION_LIST_DIRECTORY));
+  }
 
-  if (crlFile.empty() && crlDir.empty())
+  if (crlFile.empty() && crlDir.empty()) {
     return revocationStore;
+  }
 
 #if (OPENSSL_VERSION_NUMBER < 0x10100000L)
-  revocationStore =
-      createX509Store(crlFile.c_str(), crlDir.empty() ? 0 : crlDir.c_str());
-  if (revocationStore == 0)
-  {
+  revocationStore = createX509Store(crlFile.c_str(), crlDir.empty() ? 0 : crlDir.c_str());
+  if (revocationStore == 0) {
     errStr.assign("Unable to create revocation store");
   }
 #else
   X509_STORE *store = SSL_CTX_get_cert_store(ctx);
-  if (!store || !X509_STORE_load_locations(store, crlFile.c_str(),
-                                           crlDir.c_str()))
-  {
+  if (!store || !X509_STORE_load_locations(store, crlFile.c_str(), crlDir.c_str())) {
     errStr.assign("Unable to create revocation store");
     return 0;
   }
-  X509_STORE_set_flags(store, X509_V_FLAG_CRL_CHECK|X509_V_FLAG_CRL_CHECK_ALL);
+  X509_STORE_set_flags(store, X509_V_FLAG_CRL_CHECK | X509_V_FLAG_CRL_CHECK_ALL);
 #endif
 
   return revocationStore;
 }
 
-int doAccept(SSL *ssl, int &result)
-{
+int doAccept(SSL *ssl, int &result) {
   int rc = SSL_accept(ssl);
-  if (rc <= 0)
-  {
+  if (rc <= 0) {
     result = SSL_get_error(ssl, rc);
   }
 
   return rc;
 }
 
-int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
-{
+int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify) {
   int rc;
   int result = -1;
   char *subjName = 0;
@@ -1513,31 +1428,27 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
   /*
    * Now enter the SSL Handshake Phase
    */
-  while (!SSL_is_init_finished(ssl))
-  {
+  while (!SSL_is_init_finished(ssl)) {
     ERR_clear_error();
-    while ((rc = doAccept(ssl, result)) <= 0)
-    {
+    while ((rc = doAccept(ssl, result)) <= 0) {
 
       if (result == SSL_ERROR_WANT_READ)
         ;
       else if (result == SSL_ERROR_WANT_WRITE)
         ;
-      else if (result == SSL_ERROR_ZERO_RETURN)
-      {
+      else if (result == SSL_ERROR_ZERO_RETURN) {
         /*
          * The case where the connection was closed before any data
          * was transferred. That's not a real error and can occur
          * sporadically with some clients.
          */
-        if (log)
+        if (log) {
           log->onEvent("SSL handshake stopped: connection was closed");
+        }
         SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
         ssl_socket_close(socket, ssl);
         return result;
-      }
-      else if (ERR_GET_REASON(ERR_peek_error()) == SSL_R_HTTP_REQUEST)
-      {
+      } else if (ERR_GET_REASON(ERR_peek_error()) == SSL_R_HTTP_REQUEST) {
         /*
          * The case where OpenSSL has recognized a HTTP request:
          * This means the client speaks plain HTTP on our HTTPS
@@ -1553,20 +1464,18 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
         int rv;
 
         /* log the situation */
-        if (log)
+        if (log) {
           log->onEvent("SSL handshake failed: HTTP spoken on HTTPS port");
+        }
 
         /* first: skip the remaining bytes of the request line */
-        do
-        {
+        do {
 #ifndef _MSC_VER // Unix
-          do
-          {
+          do {
             rv = read(socket, ca, 1);
           } while (rv == -1 && errno == EINTR);
 #else // Windows
-          do
-          {
+          do {
             rv = recv(socket, ca, 1, 0);
           } while (rv == -1 && errno == EINTR);
 #endif
@@ -1576,80 +1485,70 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
         ssl_socket_close(socket, ssl);
         ;
         return result;
-      }
-      else if (result == SSL_ERROR_SYSCALL)
-      {
+      } else if (result == SSL_ERROR_SYSCALL) {
 #ifdef __TOS_AIX__
-        if (errno == EINTR)
+        if (errno == EINTR) {
           continue;
-        else if (errno == EAGAIN)
-        {
+        } else if (errno == EAGAIN) {
           // Please refer:
           // http://community.emailogy.com/scripts/wa-COMMUNITY.exe?A2=ind0303&L=lstsrv-l&O=A&P=19558
           // http://mirt.net/pipermail/stunnel-users/2007-May/001570.html
           ++retries;
-          if (retries <= 100)
-          {
-            if (log)
-              log->onEvent(
-                  "EAGAIN received during SSL handshake, trying again");
+          if (retries <= 100) {
+            if (log) {
+              log->onEvent("EAGAIN received during SSL handshake, trying again");
+            }
             process_sleep(0.005);
             continue;
           }
         }
-        if (errno > 0)
-        {
-          if (log)
-            log->onEvent(
-                std::string("SSL handshake interrupted by system, errno " +
-                            IntConvertor::convert(errno)));
-        }
-        else if (log)
+        if (errno > 0) {
+          if (log) {
+            log->onEvent(std::string("SSL handshake interrupted by system, errno " + IntConvertor::convert(errno)));
+          }
+        } else if (log) {
           log->onEvent("Spurious SSL handshake interrupt");
+        }
 #elif defined(_MSC_VER)
         // MS Windows will not set errno, but WSEGetLastError() must be queried
         int lastSocketError = WSAGetLastError();
-        if ((lastSocketError == WSAEINTR) ||
-            (lastSocketError == WSAEWOULDBLOCK))
+        if ((lastSocketError == WSAEINTR) || (lastSocketError == WSAEWOULDBLOCK)) {
           continue;
-        if (log)
+        }
+        if (log) {
           log->onEvent(
-              std::string(
-                  "SSL handshake interrupted by system, system error ") +
-              IntConvertor::convert(lastSocketError) + " socket " +
-              std::to_string(socket));
+              std::string("SSL handshake interrupted by system, system error ") + IntConvertor::convert(lastSocketError)
+              + " socket " + std::to_string(socket));
+        }
 
 #else
-        if (errno == EINTR)
+        if (errno == EINTR) {
           continue;
-        if (errno > 0)
-        {
-          if (log)
-            log->onEvent(
-                std::string("SSL handshake interrupted by system, errno ") +
-                IntConvertor::convert(errno));
         }
-        else if (log)
+        if (errno > 0) {
+          if (log) {
+            log->onEvent(std::string("SSL handshake interrupted by system, errno ") + IntConvertor::convert(errno));
+          }
+        } else if (log) {
           log->onEvent("Spurious SSL handshake interrupt");
+        }
 #endif
         SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
         ssl_socket_close(socket, ssl);
         return result;
-      }
-      else
-      {
+      } else {
         /*
          * Ok, anything else is a fatal error
          */
         unsigned long err = ERR_get_error();
-        if (log)
+        if (log) {
           log->onEvent("SSL handshake failed");
+        }
 
-        while (err)
-        {
-          if (log)
-            log->onEvent(std::string("SSL failure reason: ") +
-                         ERR_reason_error_string(err));
+        while (err) {
+          if (log) {
+            log->onEvent(std::string("SSL failure reason: ") + ERR_reason_error_string(err));
+          }
           err = ERR_get_error();
         }
 
@@ -1663,10 +1562,10 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
         ssl_socket_close(socket, ssl);
         return result;
       }
-      if (time(0) > timeout)
-      {
-        if (log)
+      if (time(0) > timeout) {
+        if (log) {
           log->onEvent("SSL handshake stopped: connection was closed");
+        }
         SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
         ssl_socket_close(socket, ssl);
         return result;
@@ -1679,37 +1578,35 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify)
     /*
      * Check for failed client authentication
      */
-    if ((result = SSL_get_verify_result(ssl)) != X509_V_OK)
-    {
-      if (log)
+    if ((result = SSL_get_verify_result(ssl)) != X509_V_OK) {
+      if (log) {
         log->onEvent("SSL client authentication failed: ");
+      }
       SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
       ssl_socket_close(socket, ssl);
       return result;
-    }
-    else
-    {
-      if ((xs = SSL_get_peer_certificate(ssl)) != 0)
-      {
+    } else {
+      if ((xs = SSL_get_peer_certificate(ssl)) != 0) {
         subjName = X509_NAME_oneline(X509_get_subject_name(xs), 0, 0);
       }
     }
   }
 
-  if ((verify == SSL_CLIENT_VERIFY_REQUIRE) && subjName == 0)
-  {
-    if (log)
+  if ((verify == SSL_CLIENT_VERIFY_REQUIRE) && subjName == 0) {
+    if (log) {
       log->onEvent("No acceptable peer certificate available");
+    }
     SSL_set_shutdown(ssl, SSL_RECEIVED_SHUTDOWN);
     ssl_socket_close(socket, ssl);
     result = 2;
   }
 
-  if (subjName)
+  if (subjName) {
     free(subjName);
+  }
 
   return result;
 }
-}
+} // namespace FIX
 
 #endif
