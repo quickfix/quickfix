@@ -18,13 +18,10 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
-int main( int argc, char** argv )
-{
-  return 0;
-}
+int main(int argc, char **argv) { return 0; }

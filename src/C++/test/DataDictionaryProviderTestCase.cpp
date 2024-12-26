@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -30,10 +30,8 @@
 
 using namespace FIX;
 
-TEST_CASE("DataDictionaryProviderTests")
-{
-  SECTION("getApplicationDataDictionary_DataDictionaryNotSet")
-  {
+TEST_CASE("DataDictionaryProviderTests") {
+  SECTION("getApplicationDataDictionary_DataDictionaryNotSet") {
     DataDictionaryProvider object;
     DataDictionary expected;
 

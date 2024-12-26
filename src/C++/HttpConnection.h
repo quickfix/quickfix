@@ -23,49 +23,43 @@
 #define FIX_HTTPCONNECTION_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "HttpParser.h"
 #include <stdio.h>
 
-namespace FIX
-{
+namespace FIX {
 class HttpMessage;
 
 /// Encapsulates a HTTP socket file descriptor
-class HttpConnection
-{
+class HttpConnection {
 public:
-  HttpConnection(socket_handle s );
+  HttpConnection(socket_handle s);
 
   socket_handle getSocket() const { return m_socket; }
   bool read();
 
 private:
-  bool readMessage( std::string& msg ) EXCEPT ( SocketRecvFailed );
+  bool readMessage(std::string &msg) EXCEPT(SocketRecvFailed);
   void processStream();
-  void processRequest( const HttpMessage& );
-  void processRoot( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processResetSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processRefreshSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processEnableSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processDisableSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processResetSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
-  void processRefreshSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
- 
- void showToggle
-    ( std::stringstream& s, const std::string& name, bool value, const std::string& url );
-  void showRow
-    ( std::stringstream& s, const std::string& name, bool value, const std::string& url = "" );
-  void showRow
-    ( std::stringstream& s, const std::string& name, const std::string& value, const std::string& url = "" );
-  void showRow
-    ( std::stringstream& s, const std::string& name, int value, const std::string& url = "" );
+  void processRequest(const HttpMessage &);
+  void processRoot(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processResetSessions(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processRefreshSessions(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processEnableSessions(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processDisableSessions(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processSession(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processResetSession(const HttpMessage &, std::stringstream &h, std::stringstream &b);
+  void processRefreshSession(const HttpMessage &, std::stringstream &h, std::stringstream &b);
 
-  bool send( const std::string& );
-  void disconnect( int error = 0 );
+  void showToggle(std::stringstream &s, const std::string &name, bool value, const std::string &url);
+  void showRow(std::stringstream &s, const std::string &name, bool value, const std::string &url = "");
+  void showRow(std::stringstream &s, const std::string &name, const std::string &value, const std::string &url = "");
+  void showRow(std::stringstream &s, const std::string &name, int value, const std::string &url = "");
+
+  bool send(const std::string &);
+  void disconnect(int error = 0);
 
   socket_handle m_socket;
   char m_buffer[BUFSIZ];
@@ -75,6 +69,6 @@ private:
   fd_set m_fds;
 #endif
 };
-}
+} // namespace FIX
 
 #endif

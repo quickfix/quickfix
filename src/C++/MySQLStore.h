@@ -29,21 +29,19 @@
 #ifdef HAVE_MYSQL
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
-#pragma comment( lib, "libMySQL" )
+#pragma warning(disable : 4503 4355 4786 4290)
+#pragma comment(lib, "libMySQL")
 #endif
 
 #include "MessageStore.h"
-#include "SessionSettings.h"
 #include "MySQLConnection.h"
+#include "SessionSettings.h"
 #include <fstream>
 #include <string>
 
-namespace FIX
-{
+namespace FIX {
 /// Creates a MySQL based implementation of MessageStore.
-class MySQLStoreFactory : public MessageStoreFactory
-{
+class MySQLStoreFactory : public MessageStoreFactory {
 public:
   static const std::string DEFAULT_DATABASE;
   static const std::string DEFAULT_USER;
@@ -51,46 +49,57 @@ public:
   static const std::string DEFAULT_HOST;
   static const short DEFAULT_PORT;
 
-  MySQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
-  {
+  MySQLStoreFactory(const SessionSettings &settings)
+      : m_settings(settings),
+        m_useSettings(true),
+        m_useDictionary(false) {
     bool poolConnections = false;
-    try { poolConnections = settings.get().getBool(MYSQL_STORE_USECONNECTIONPOOL); }
-    catch( ConfigError& ) {}
+    try {
+      poolConnections = settings.get().getBool(MYSQL_STORE_USECONNECTIONPOOL);
+    } catch (ConfigError &) {}
 
-    m_connectionPoolPtr = MySQLConnectionPoolPtr
-      ( new MySQLConnectionPool(poolConnections) );
+    m_connectionPoolPtr = MySQLConnectionPoolPtr(new MySQLConnectionPool(poolConnections));
   }
 
-  MySQLStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
-  {
-    m_connectionPoolPtr = MySQLConnectionPoolPtr
-      ( new MySQLConnectionPool(false) );
+  MySQLStoreFactory(const Dictionary &dictionary)
+      : m_dictionary(dictionary),
+        m_useSettings(false),
+        m_useDictionary(true) {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr(new MySQLConnectionPool(false));
   }
 
-  MySQLStoreFactory( const std::string& database, const std::string& user,
-                     const std::string& password, const std::string& host,
-                     short port )
-: m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), m_useDictionary( false ) 
-  {
-    m_connectionPoolPtr = MySQLConnectionPoolPtr
-      ( new MySQLConnectionPool(false) );
+  MySQLStoreFactory(
+      const std::string &database,
+      const std::string &user,
+      const std::string &password,
+      const std::string &host,
+      short port)
+      : m_database(database),
+        m_user(user),
+        m_password(password),
+        m_host(host),
+        m_port(port),
+        m_useSettings(false),
+        m_useDictionary(false) {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr(new MySQLConnectionPool(false));
   }
 
   MySQLStoreFactory()
-: m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
-  {
-    m_connectionPoolPtr = MySQLConnectionPoolPtr
-      ( new MySQLConnectionPool(false) );
+      : m_database(DEFAULT_DATABASE),
+        m_user(DEFAULT_USER),
+        m_password(DEFAULT_PASSWORD),
+        m_host(DEFAULT_HOST),
+        m_port(DEFAULT_PORT),
+        m_useSettings(false),
+        m_useDictionary(false) {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr(new MySQLConnectionPool(false));
   }
 
-  MessageStore* create( const UtcTimeStamp&, const SessionID& );
-  void destroy( MessageStore* );
+  MessageStore *create(const UtcTimeStamp &, const SessionID &);
+  void destroy(MessageStore *);
+
 private:
-  MessageStore* create( const UtcTimeStamp&, const SessionID&, const Dictionary& );
+  MessageStore *create(const UtcTimeStamp &, const SessionID &, const Dictionary &);
 
   MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
@@ -106,38 +115,47 @@ private:
 /*! @} */
 
 /// MySQL based implementation of MessageStore.
-class MySQLStore : public MessageStore
-{
+class MySQLStore : public MessageStore {
 public:
-  MySQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const DatabaseConnectionID& connection, MySQLConnectionPool* pool );
-  MySQLStore( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& database, const std::string& user,
-              const std::string& password, const std::string& host, short port );
+  MySQLStore(
+      const UtcTimeStamp &now,
+      const SessionID &sessionID,
+      const DatabaseConnectionID &connection,
+      MySQLConnectionPool *pool);
+  MySQLStore(
+      const UtcTimeStamp &now,
+      const SessionID &sessionID,
+      const std::string &database,
+      const std::string &user,
+      const std::string &password,
+      const std::string &host,
+      short port);
   ~MySQLStore();
 
-  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
-  void get( SEQNUM, SEQNUM, std::vector<std::string>& ) const EXCEPT ( IOException );
+  bool set(SEQNUM, const std::string &) EXCEPT(IOException);
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException);
 
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException );
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException );
-  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
-  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
-  void incrNextSenderMsgSeqNum() EXCEPT ( IOException );
-  void incrNextTargetMsgSeqNum() EXCEPT ( IOException );
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException);
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException);
+  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException);
+  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException);
+  void incrNextSenderMsgSeqNum() EXCEPT(IOException);
+  void incrNextTargetMsgSeqNum() EXCEPT(IOException);
 
-  UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
+  UtcTimeStamp getCreationTime() const EXCEPT(IOException);
 
-  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
-  void refresh() EXCEPT ( IOException );
+  void reset(const UtcTimeStamp &now) EXCEPT(IOException);
+  void refresh() EXCEPT(IOException);
 
 private:
   void populateCache();
 
   MemoryStore m_cache;
-  MySQLConnection* m_pConnection;
-  MySQLConnectionPool* m_pConnectionPool;
+  MySQLConnection *m_pConnection;
+  MySQLConnectionPool *m_pConnectionPool;
   SessionID m_sessionID;
 };
-}
+} // namespace FIX
 
-#endif //FIX_MYSQLSTORE_H
-#endif //HAVE_MYSQL
+#endif // FIX_MYSQLSTORE_H
+#endif // HAVE_MYSQL

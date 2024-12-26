@@ -25,163 +25,152 @@
 
 #include "FileLog.h"
 
-namespace FIX
-{
-Log* FileLogFactory::create()
-{
-  if ( ++m_globalLogCount > 1 ) return m_globalLog;
+namespace FIX {
+Log *FileLogFactory::create() {
+  if (++m_globalLogCount > 1) {
+    return m_globalLog;
+  }
 
-  if ( m_path.size() ) return new FileLog(m_path);
+  if (m_path.size()) {
+    return new FileLog(m_path);
+  }
 
-  try
-  {
+  try {
 
-    const Dictionary& settings = m_settings.get();
+    const Dictionary &settings = m_settings.get();
     std::string path = settings.getString(FILE_LOG_PATH);
     std::string backupPath = path;
 
-    if ( settings.has( FILE_LOG_BACKUP_PATH ) )
-      backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
+    if (settings.has(FILE_LOG_BACKUP_PATH)) {
+      backupPath = settings.getString(FILE_LOG_BACKUP_PATH);
+    }
 
-    return m_globalLog = new FileLog( path, backupPath );
-
-  }
-  catch( ConfigError& )
-  {
+    return m_globalLog = new FileLog(path, backupPath);
+  } catch (ConfigError &) {
     m_globalLogCount--;
     throw;
   }
 }
 
-Log* FileLogFactory::create( const SessionID& s )
-{
-  if ( m_path.size() && m_backupPath.size() )
-    return new FileLog( m_path, m_backupPath, s );
-  if ( m_path.size() )
-    return new FileLog( m_path, s );
+Log *FileLogFactory::create(const SessionID &s) {
+  if (m_path.size() && m_backupPath.size()) {
+    return new FileLog(m_path, m_backupPath, s);
+  }
+  if (m_path.size()) {
+    return new FileLog(m_path, s);
+  }
 
   std::string path;
   std::string backupPath;
-  Dictionary settings = m_settings.get( s );
-  path = settings.getString( FILE_LOG_PATH );
+  Dictionary settings = m_settings.get(s);
+  path = settings.getString(FILE_LOG_PATH);
   backupPath = path;
-  if( settings.has( FILE_LOG_BACKUP_PATH ) )
-    backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
+  if (settings.has(FILE_LOG_BACKUP_PATH)) {
+    backupPath = settings.getString(FILE_LOG_BACKUP_PATH);
+  }
 
-  return new FileLog( path, backupPath, s );
+  return new FileLog(path, backupPath, s);
 }
 
-void FileLogFactory::destroy( Log* pLog )
-{
-  if ( pLog != m_globalLog || --m_globalLogCount == 0 )
-  {
+void FileLogFactory::destroy(Log *pLog) {
+  if (pLog != m_globalLog || --m_globalLogCount == 0) {
     delete pLog;
   }
 }
 
-FileLog::FileLog( const std::string& path )
-{
-  init( path, path, "GLOBAL" );
+FileLog::FileLog(const std::string &path) { init(path, path, "GLOBAL"); }
+
+FileLog::FileLog(const std::string &path, const std::string &backupPath) { init(path, backupPath, "GLOBAL"); }
+
+FileLog::FileLog(const std::string &path, const SessionID &s) { init(path, path, generatePrefix(s)); }
+
+FileLog::FileLog(const std::string &path, const std::string &backupPath, const SessionID &s) {
+  init(path, backupPath, generatePrefix(s));
 }
 
-FileLog::FileLog( const std::string& path, const std::string& backupPath )
-{
-  init( path, backupPath, "GLOBAL" );
-}
-
-FileLog::FileLog( const std::string& path, const SessionID& s )
-{
-  init( path, path, generatePrefix(s) );
-}
-
-FileLog::FileLog( const std::string& path, const std::string& backupPath, const SessionID& s )
-{
-  init( path, backupPath, generatePrefix(s) );
-}
-
-std::string FileLog::generatePrefix( const SessionID& s )
-{
-  const std::string& begin =
-    s.getBeginString().getString();
-  const std::string& sender =
-    s.getSenderCompID().getString();
-  const std::string& target =
-    s.getTargetCompID().getString();
-  const std::string& qualifier =
-    s.getSessionQualifier();
+std::string FileLog::generatePrefix(const SessionID &s) {
+  const std::string &begin = s.getBeginString().getString();
+  const std::string &sender = s.getSenderCompID().getString();
+  const std::string &target = s.getTargetCompID().getString();
+  const std::string &qualifier = s.getSessionQualifier();
 
   std::string prefix = begin + "-" + sender + "-" + target;
-  if( qualifier.size() )
+  if (qualifier.size()) {
     prefix += "-" + qualifier;
+  }
 
   return prefix;
 }
 
-void FileLog::init( std::string path, std::string backupPath, const std::string& prefix )
-{
-  file_mkdir( path.c_str() );
-  file_mkdir( backupPath.c_str() );
+void FileLog::init(std::string path, std::string backupPath, const std::string &prefix) {
+  file_mkdir(path.c_str());
+  file_mkdir(backupPath.c_str());
 
-  if ( path.empty() ) path = ".";
-  if ( backupPath.empty() ) backupPath = path;
+  if (path.empty()) {
+    path = ".";
+  }
+  if (backupPath.empty()) {
+    backupPath = path;
+  }
 
-  m_fullPrefix
-    = file_appendpath(path, prefix + ".");
-  m_fullBackupPrefix
-    = file_appendpath(backupPath, prefix + ".");
+  m_fullPrefix = file_appendpath(path, prefix + ".");
+  m_fullBackupPrefix = file_appendpath(backupPath, prefix + ".");
 
   m_messagesFileName = m_fullPrefix + "messages.current.log";
   m_eventFileName = m_fullPrefix + "event.current.log";
 
-  m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file: " + m_messagesFileName );
-  m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_event.is_open() ) throw ConfigError( "Could not open event file: " + m_eventFileName );
+  m_messages.open(m_messagesFileName.c_str(), std::ios::out | std::ios::app);
+  if (!m_messages.is_open()) {
+    throw ConfigError("Could not open messages file: " + m_messagesFileName);
+  }
+  m_event.open(m_eventFileName.c_str(), std::ios::out | std::ios::app);
+  if (!m_event.is_open()) {
+    throw ConfigError("Could not open event file: " + m_eventFileName);
+  }
 }
 
-FileLog::~FileLog()
-{
+FileLog::~FileLog() {
   m_messages.close();
   m_event.close();
 }
 
-void FileLog::clear()
-{
+void FileLog::clear() {
   m_messages.close();
   m_event.close();
 
-  m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::trunc );
-  m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
+  m_messages.open(m_messagesFileName.c_str(), std::ios::out | std::ios::trunc);
+  m_event.open(m_eventFileName.c_str(), std::ios::out | std::ios::trunc);
 }
 
-void FileLog::backup()
-{
+void FileLog::backup() {
   m_messages.close();
   m_event.close();
 
   int i = 0;
-  while( true )
-  {
+  while (true) {
     std::stringstream messagesFileName;
     std::stringstream eventFileName;
 
     messagesFileName << m_fullBackupPrefix << "messages.backup." << ++i << ".log";
     eventFileName << m_fullBackupPrefix << "event.backup." << i << ".log";
-    FILE* messagesLogFile = file_fopen( messagesFileName.str().c_str(), "r" );
-    FILE* eventLogFile = file_fopen( eventFileName.str().c_str(), "r" );
+    FILE *messagesLogFile = file_fopen(messagesFileName.str().c_str(), "r");
+    FILE *eventLogFile = file_fopen(eventFileName.str().c_str(), "r");
 
-    if( messagesLogFile == NULL && eventLogFile == NULL )
-    {
-      file_rename( m_messagesFileName.c_str(), messagesFileName.str().c_str() );
-      file_rename( m_eventFileName.c_str(), eventFileName.str().c_str() );
-      m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::trunc );
-      m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
+    if (messagesLogFile == NULL && eventLogFile == NULL) {
+      file_rename(m_messagesFileName.c_str(), messagesFileName.str().c_str());
+      file_rename(m_eventFileName.c_str(), eventFileName.str().c_str());
+      m_messages.open(m_messagesFileName.c_str(), std::ios::out | std::ios::trunc);
+      m_event.open(m_eventFileName.c_str(), std::ios::out | std::ios::trunc);
       return;
     }
 
-    if( messagesLogFile != NULL ) file_fclose( messagesLogFile );
-    if( eventLogFile != NULL ) file_fclose( eventLogFile );
+    if (messagesLogFile != NULL) {
+      file_fclose(messagesLogFile);
+    }
+    if (eventLogFile != NULL) {
+      file_fclose(eventLogFile);
+    }
   }
 }
 
-} //namespace FIX
+} // namespace FIX

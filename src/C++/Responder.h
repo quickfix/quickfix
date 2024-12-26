@@ -23,21 +23,19 @@
 #define FIX_RESPONDER_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include <string>
 
-namespace FIX
-{
-  /// Interface implements sending on and disconnecting a transport.
-  class Responder
-  {
-  public:
-    virtual ~Responder() {}
-    virtual bool send( const std::string& ) = 0;
-    virtual void disconnect() = 0;
-  };
-}
+namespace FIX {
+/// Interface implements sending on and disconnecting a transport.
+class Responder {
+public:
+  virtual ~Responder() {}
+  virtual bool send(const std::string &) = 0;
+  virtual void disconnect() = 0;
+};
+} // namespace FIX
 
 #endif

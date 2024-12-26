@@ -123,16 +123,15 @@
 #pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
+#include "Mutex.h"
 #include "Parser.h"
 #include "Responder.h"
 #include "SessionID.h"
-#include "Mutex.h"
 #include "UtilitySSL.h"
-#include <set>
 #include <map>
+#include <set>
 
-namespace FIX
-{
+namespace FIX {
 class ThreadedSSLSocketAcceptor;
 class ThreadedSSLSocketInitiator;
 class Session;
@@ -140,15 +139,18 @@ class Application;
 class Log;
 
 /// Encapsulates a socket file descriptor (multi-threaded).
-class ThreadedSSLSocketConnection : Responder
-{
+class ThreadedSSLSocketConnection : Responder {
 public:
   typedef std::set<SessionID> Sessions;
 
   ThreadedSSLSocketConnection(socket_handle s, SSL *ssl, Sessions sessions, Log *pLog);
-  ThreadedSSLSocketConnection(const SessionID &, socket_handle s, SSL *ssl,
-                              const std::string &address, short port,
-                              Log *pLog);
+  ThreadedSSLSocketConnection(
+      const SessionID &,
+      socket_handle s,
+      SSL *ssl,
+      const std::string &address,
+      short port,
+      Log *pLog);
   virtual ~ThreadedSSLSocketConnection();
 
   Session *getSession() const { return m_pSession; }
@@ -161,7 +163,7 @@ public:
 private:
   typedef std::pair<socket_handle, SSL *> SocketKey;
 
-  bool readMessage(std::string &msg) EXCEPT (SocketRecvFailed);
+  bool readMessage(std::string &msg) EXCEPT(SocketRecvFailed);
   void processStream();
   bool send(const std::string &);
   bool setSession(const std::string &msg);
@@ -182,7 +184,7 @@ private:
 
   Mutex m_mutex;
 };
-}
+} // namespace FIX
 
 #endif // FIX_THREADEDSOCKETCONNECTION_H
 

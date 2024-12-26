@@ -18,26 +18,23 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
 #endif
 
-#include <chrono>
-#include <thread>
 #include "HostDetailsProvider.h"
 #include <SessionSettings.h>
+#include <chrono>
+#include <thread>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
-
-TEST_CASE("HostDetailsProviderTests")
-{
-  SECTION("getHost_PrioritizeTopHosts")
-  {
+TEST_CASE("HostDetailsProviderTests") {
+  SECTION("getHost_PrioritizeTopHosts") {
     Dictionary settings;
 
     settings.setString("SocketConnectHost", "127.0.0.0");
@@ -95,11 +92,9 @@ TEST_CASE("HostDetailsProviderTests")
     CHECK(std::to_string(host.port) == "8000");
     CHECK(host.sourceAddress == "192.0.0.0");
     CHECK(std::to_string(host.sourcePort) == "7000");
-
   }
 
-  SECTION("getHost_RotateHosts")
-  {
+  SECTION("getHost_RotateHosts") {
     Dictionary settings;
 
     settings.setString("SocketConnectHost", "127.0.0.0");

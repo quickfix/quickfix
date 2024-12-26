@@ -23,46 +23,44 @@
 #define FIX_HTTPSERVER_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
-#include "SocketServer.h"
-#include "SessionSettings.h"
 #include "Exceptions.h"
 #include "Mutex.h"
+#include "SessionSettings.h"
+#include "SocketServer.h"
 
-namespace FIX
-{
+namespace FIX {
 /// Basic HTTP Server
-class HttpServer : public SocketServer::Strategy
-{
+class HttpServer : public SocketServer::Strategy {
 public:
-  HttpServer( const SessionSettings& ) EXCEPT ( ConfigError );
+  HttpServer(const SessionSettings &) EXCEPT(ConfigError);
 
-  static void startGlobal( const SessionSettings& ) EXCEPT ( ConfigError, RuntimeError );
+  static void startGlobal(const SessionSettings &) EXCEPT(ConfigError, RuntimeError);
   static void stopGlobal();
 
-  void start() EXCEPT ( ConfigError, RuntimeError );
+  void start() EXCEPT(ConfigError, RuntimeError);
   void stop();
 
 private:
-  void onConfigure( const SessionSettings& ) EXCEPT ( ConfigError );
-  void onInitialize( const SessionSettings& ) EXCEPT ( RuntimeError );
+  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
+  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
 
   void onStart();
   bool onPoll();
   void onStop();
 
-  void onConnect( SocketServer&, socket_handle, socket_handle);
-  void onWrite( SocketServer&, socket_handle);
-  bool onData( SocketServer&, socket_handle);
-  void onDisconnect( SocketServer&, socket_handle);
-  void onError( SocketServer& );
-  void onTimeout( SocketServer& );
+  void onConnect(SocketServer &, socket_handle, socket_handle);
+  void onWrite(SocketServer &, socket_handle);
+  bool onData(SocketServer &, socket_handle);
+  void onDisconnect(SocketServer &, socket_handle);
+  void onError(SocketServer &);
+  void onTimeout(SocketServer &);
 
-  static THREAD_PROC startThread( void* p );
+  static THREAD_PROC startThread(void *p);
 
-  SocketServer* m_pServer;
+  SocketServer *m_pServer;
   SessionSettings m_settings;
   thread_id m_threadid;
   int m_port;
@@ -70,9 +68,9 @@ private:
 
   static Mutex s_mutex;
   static int s_count;
-  static HttpServer* s_pServer;
+  static HttpServer *s_pServer;
 };
 /*! @} */
-}
+} // namespace FIX
 
-#endif //FIX_HTTPSERVER_H
+#endif // FIX_HTTPSERVER_H

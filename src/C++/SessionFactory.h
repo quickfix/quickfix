@@ -23,15 +23,14 @@
 #define FIX_SESSIONFACTORY_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
-#include "Log.h"
-#include "Exceptions.h"
 #include "Dictionary.h"
+#include "Exceptions.h"
+#include "Log.h"
 
-namespace FIX
-{
+namespace FIX {
 class SessionID;
 class Session;
 class Application;
@@ -43,44 +42,43 @@ class DataDictionaryProvider;
  *  optional LogFactory to create all the required sessions for an
  *  Application.
  */
-class SessionFactory
-{
+class SessionFactory {
 public:
-  SessionFactory( Application& application,
-                  MessageStoreFactory& messageStoreFactory,
-                  LogFactory* pLogFactory )
-: m_application( application ),
-  m_messageStoreFactory( messageStoreFactory ),
-  m_pLogFactory( pLogFactory ) {}
+  SessionFactory(Application &application, MessageStoreFactory &messageStoreFactory, LogFactory *pLogFactory)
+      : m_application(application),
+        m_messageStoreFactory(messageStoreFactory),
+        m_pLogFactory(pLogFactory) {}
 
   ~SessionFactory();
 
-  Session* create( const SessionID& sessionID,
-                   const Dictionary& settings ) EXCEPT ( ConfigError );
-  void destroy( Session* pSession );
+  Session *create(const SessionID &sessionID, const Dictionary &settings) EXCEPT(ConfigError);
+  void destroy(Session *pSession);
 
 private:
-  typedef std::map < std::string, std::shared_ptr<DataDictionary> > Dictionaries;
+  typedef std::map<std::string, std::shared_ptr<DataDictionary>> Dictionaries;
 
-  std::shared_ptr<DataDictionary> createDataDictionary(const SessionID& sessionID, 
-                                                       const Dictionary& settings, 
-                                                       const std::string& settingsKey) EXCEPT (ConfigError);
+  std::shared_ptr<DataDictionary> createDataDictionary(
+      const SessionID &sessionID,
+      const Dictionary &settings,
+      const std::string &settingsKey) EXCEPT(ConfigError);
 
-  void processFixtDataDictionaries(const SessionID& sessionID, 
-                                   const Dictionary& settings, 
-                                   DataDictionaryProvider& provider) EXCEPT (ConfigError);
+  void processFixtDataDictionaries(
+      const SessionID &sessionID,
+      const Dictionary &settings,
+      DataDictionaryProvider &provider) EXCEPT(ConfigError);
 
-  void processFixDataDictionary(const SessionID& sessionID, 
-                                const Dictionary& settings, 
-                                DataDictionaryProvider& provider) EXCEPT (ConfigError);
+  void processFixDataDictionary(
+      const SessionID &sessionID,
+      const Dictionary &settings,
+      DataDictionaryProvider &provider) EXCEPT(ConfigError);
 
-  std::string toApplVerID(const std::string& value);
+  std::string toApplVerID(const std::string &value);
 
-  Application& m_application;
-  MessageStoreFactory& m_messageStoreFactory;
-  LogFactory* m_pLogFactory;
+  Application &m_application;
+  MessageStoreFactory &m_messageStoreFactory;
+  LogFactory *m_pLogFactory;
   Dictionaries m_dictionaries;
 };
-}
+} // namespace FIX
 
 #endif

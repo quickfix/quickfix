@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -32,10 +32,8 @@
 
 using namespace FIX;
 
-TEST_CASE("FieldMapTests")
-{
-  SECTION("setMessageOrder")
-  {
+TEST_CASE("FieldMapTests") {
+  SECTION("setMessageOrder") {
     int order[] = {1, 2, 3, 0}; // '0' is used to signify the end of array passed to FieldMap()
     FieldMap fieldMap(order);
     fieldMap.setField(3, "account");
@@ -44,10 +42,10 @@ TEST_CASE("FieldMapTests")
 
     int pos1 = 0, pos2 = 0, pos3 = 0;
     int iterationCount = 0;
-    for( FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++, iterationCount++) {
-      if(iterationCount == 0) {
+    for (FieldMap::iterator itr = fieldMap.begin(); itr != fieldMap.end(); itr++, iterationCount++) {
+      if (iterationCount == 0) {
         pos1 = itr->getTag();
-      } else if (iterationCount == 1 ) {
+      } else if (iterationCount == 1) {
         pos2 = itr->getTag();
       } else if (iterationCount == 2) {
         pos3 = itr->getTag();
@@ -59,15 +57,13 @@ TEST_CASE("FieldMapTests")
     CHECK(3 == pos3);
   }
 
-  SECTION("addGroupPtr_nullptr")
-  {
+  SECTION("addGroupPtr_nullptr") {
     FieldMap fieldMap;
     fieldMap.addGroupPtr(1, nullptr);
     CHECK(0U == fieldMap.groupCount(0));
   }
 
-  SECTION("removeGroup_allGroupsWithSameTag")
-  {
+  SECTION("removeGroup_allGroupsWithSameTag") {
     FieldMap fieldMap;
     FieldMap group1;
     group1.setField(2, "field2");
@@ -84,8 +80,7 @@ TEST_CASE("FieldMapTests")
     CHECK(0ul == fieldMap.groupCount(1));
   }
 
-  SECTION("removeGroup_whenCountFieldIsRemoved")
-  {
+  SECTION("removeGroup_whenCountFieldIsRemoved") {
     FieldMap fieldMap;
     FieldMap group1;
     group1.setField(2, "field2");
@@ -101,8 +96,7 @@ TEST_CASE("FieldMapTests")
     CHECK(0ul == fieldMap.groupCount(1));
   }
 
-  SECTION("hasGroup_groupExists")
-  {
+  SECTION("hasGroup_groupExists") {
     FieldMap fieldMap;
     FieldMap group;
     fieldMap.addGroup(1, group);
@@ -110,8 +104,7 @@ TEST_CASE("FieldMapTests")
     CHECK(fieldMap.hasGroup(1));
   }
 
-  SECTION("hasGroup_groupDoesNotExist")
-  {
+  SECTION("hasGroup_groupDoesNotExist") {
     FieldMap fieldMap;
     FieldMap group;
     fieldMap.addGroup(1, group);
@@ -119,8 +112,7 @@ TEST_CASE("FieldMapTests")
     CHECK(!fieldMap.hasGroup(2));
   }
 
-  SECTION("totalFields")
-  {
+  SECTION("totalFields") {
     FieldMap fieldMap;
     fieldMap.setField(1, "field1");
     fieldMap.setField(2, "field2");
@@ -137,8 +129,7 @@ TEST_CASE("FieldMapTests")
     CHECK(8ul == fieldMap.totalFields());
   }
 
-  SECTION("setField_16FieldsAlreadyExist_fieldSet")
-  {
+  SECTION("setField_16FieldsAlreadyExist_fieldSet") {
     FieldMap fieldMap;
     fieldMap.setField(1, "field1");
     fieldMap.setField(2, "field2");

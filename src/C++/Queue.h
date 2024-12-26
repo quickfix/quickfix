@@ -22,54 +22,45 @@
 #ifndef FIX_QUEUE_H
 #define FIX_QUEUE_H
 
-#include "Utility.h"
 #include "Event.h"
 #include "Mutex.h"
+#include "Utility.h"
 #include <queue>
 
-namespace FIX
-{
+namespace FIX {
 /// A thread safe monitored queue
-template < typename T > class Queue
-{
+template <typename T> class Queue {
 public:
-  void push( const T& value )
-  {
-    Locker locker( m_mutex );
-    m_queue.push( value );
+  void push(const T &value) {
+    Locker locker(m_mutex);
+    m_queue.push(value);
     signal();
   }
 
-  bool pop( T& value )
-  {
-    Locker locker( m_mutex );
-    if ( !m_queue.size() ) return false;
+  bool pop(T &value) {
+    Locker locker(m_mutex);
+    if (!m_queue.size()) {
+      return false;
+    }
     value = m_queue.front();
     m_queue.pop();
     return true;
   }
 
-  int size()
-  {
-    Locker locker( m_mutex );
+  int size() {
+    Locker locker(m_mutex);
     return m_queue.size();
   }
 
-  void wait( double s )
-  {
-    m_event.wait( s );
-  }
+  void wait(double s) { m_event.wait(s); }
 
-  void signal()
-  {
-    m_event.signal();
-  }
+  void signal() { m_event.signal(); }
 
 private:
   Event m_event;
   Mutex m_mutex;
-  std::queue < T > m_queue;
+  std::queue<T> m_queue;
 };
-}
+} // namespace FIX
 
 #endif

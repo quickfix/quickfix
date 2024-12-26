@@ -23,69 +23,62 @@
 #define FIX_DATABASECONNECTIONPOOL_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
 #include "DatabaseConnectionID.h"
-#include <string>
 #include <map>
+#include <string>
 
-namespace FIX
-{
-template< typename T > class DatabaseConnectionPool
-{
+namespace FIX {
+template <typename T> class DatabaseConnectionPool {
 public:
-  DatabaseConnectionPool( bool poolConnections )
-  : m_poolConnections( poolConnections ) {}
+  DatabaseConnectionPool(bool poolConnections)
+      : m_poolConnections(poolConnections) {}
 
-  T* create( const DatabaseConnectionID& id )
-  {
-    if( !m_poolConnections )
-      return new T( id );
+  T *create(const DatabaseConnectionID &id) {
+    if (!m_poolConnections) {
+      return new T(id);
+    }
 
-    if( m_connections.find( id ) == m_connections.end() )
-    {
-      m_connections[id] = Connection
-        ( new T(id), 0 );
+    if (m_connections.find(id) == m_connections.end()) {
+      m_connections[id] = Connection(new T(id), 0);
     }
     m_connections[id].second++;
     return m_connections[id].first;
   }
 
-  bool destroy( T* pConnection )
-  {
-    if( !m_poolConnections )
-    {
+  bool destroy(T *pConnection) {
+    if (!m_poolConnections) {
       delete pConnection;
       return true;
     }
 
-    const DatabaseConnectionID& id = pConnection->connectionID();
-    if( m_connections.find( id ) == m_connections.end() )
+    const DatabaseConnectionID &id = pConnection->connectionID();
+    if (m_connections.find(id) == m_connections.end()) {
       return false;
+    }
 
-    Connection& connection = m_connections[id];
-    if( connection.first != pConnection )
+    Connection &connection = m_connections[id];
+    if (connection.first != pConnection) {
       return false;
+    }
 
     connection.second--;
-    if( connection.second == 0 )
-    {
-      m_connections.erase( id );
+    if (connection.second == 0) {
+      m_connections.erase(id);
       delete pConnection;
     }
     return true;
   }
 
 private:
-  typedef std::pair<T*, int>
-    Connection;
-  typedef std::map<DatabaseConnectionID, Connection>
-    Connections;
+  typedef std::pair<T *, int> Connection;
+  typedef std::map<DatabaseConnectionID, Connection> Connections;
 
   Connections m_connections;
   bool m_poolConnections;
 };
-}
+} // namespace FIX
 
 #endif

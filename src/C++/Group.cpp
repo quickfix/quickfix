@@ -25,40 +25,20 @@
 
 #include "Group.h"
 
-namespace FIX
-{
-void Group::addGroup( const Group& group )
-{
-  FieldMap::addGroup( group.field(), group );
+namespace FIX {
+void Group::addGroup(const Group &group) { FieldMap::addGroup(group.field(), group); }
+
+void Group::replaceGroup(unsigned num, const FIX::Group &group) { FieldMap::replaceGroup(num, group.field(), group); }
+
+Group &Group::getGroup(unsigned num, Group &group) const EXCEPT(FieldNotFound) {
+  return static_cast<Group &>(FieldMap::getGroup(num, group.field(), group));
 }
 
-void Group::replaceGroup( unsigned num, const FIX::Group& group )
-{
-  FieldMap::replaceGroup( num, group.field(), group ); 
-}
+void Group::removeGroup(unsigned num, const Group &group) { FieldMap::removeGroup(num, group.field()); }
 
-Group& Group::getGroup( unsigned num, Group& group ) const EXCEPT ( FieldNotFound )
-{
-  return static_cast < Group& > ( FieldMap::getGroup( num, group.field(), group ) );
-}
+void Group::removeGroup(const Group &group) { FieldMap::removeGroup(group.field()); }
 
-void Group::removeGroup( unsigned num, const Group& group )
-{
-  FieldMap::removeGroup( num, group.field() );
-}
+bool Group::hasGroup(unsigned num, const Group &group) { return FieldMap::hasGroup(num, group.field()); }
 
-void Group::removeGroup( const Group& group )
-{
-  FieldMap::removeGroup( group.field() );
-}
-
-bool Group::hasGroup( unsigned num, const Group& group )
-{
-  return FieldMap::hasGroup( num, group.field() );
-}
-
-bool Group::hasGroup( const Group& group )
-{
-  return FieldMap::hasGroup( group.field() );
-}
-}
+bool Group::hasGroup(const Group &group) { return FieldMap::hasGroup(group.field()); }
+} // namespace FIX

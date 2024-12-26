@@ -14,11 +14,11 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <stdio.h>
 #include "config.h"
+#include <stdio.h>
 
 #if _MSC_VER >= 1300
-  #define TERMINATE_IN_STD 1
+#define TERMINATE_IN_STD 1
 #endif
 
 #define _WIN32_DCOM

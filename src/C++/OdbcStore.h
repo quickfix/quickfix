@@ -28,44 +28,52 @@
 #define FIX_ODBCSTORE_H
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 4290 )
+#pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
-#include "OdbcConnection.h"
 #include "MessageStore.h"
+#include "OdbcConnection.h"
 #include "SessionSettings.h"
 #include <fstream>
 #include <string>
 
-namespace FIX
-{
+namespace FIX {
 /// Creates a Odbc based implementation of MessageStore.
-class OdbcStoreFactory : public MessageStoreFactory
-{
+class OdbcStoreFactory : public MessageStoreFactory {
 public:
   static const std::string DEFAULT_USER;
   static const std::string DEFAULT_PASSWORD;
   static const std::string DEFAULT_CONNECTION_STRING;
 
-  OdbcStoreFactory( const SessionSettings& settings )
-  : m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+  OdbcStoreFactory(const SessionSettings &settings)
+      : m_settings(settings),
+        m_useSettings(true),
+        m_useDictionary(false) {}
 
-  OdbcStoreFactory( const Dictionary& dictionary )
-  : m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
+  OdbcStoreFactory(const Dictionary &dictionary)
+      : m_dictionary(dictionary),
+        m_useSettings(false),
+        m_useDictionary(true) {}
 
-  OdbcStoreFactory( const std::string& user, const std::string& password, 
-                    const std::string& connectionString )
-  : m_user( user ), m_password( password ), m_connectionString( connectionString ),
-  m_useSettings( false ), m_useDictionary( false ) {}
+  OdbcStoreFactory(const std::string &user, const std::string &password, const std::string &connectionString)
+      : m_user(user),
+        m_password(password),
+        m_connectionString(connectionString),
+        m_useSettings(false),
+        m_useDictionary(false) {}
 
   OdbcStoreFactory()
-  : m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_connectionString( DEFAULT_CONNECTION_STRING ), m_useSettings( false ), m_useDictionary( false ) {}
+      : m_user(DEFAULT_USER),
+        m_password(DEFAULT_PASSWORD),
+        m_connectionString(DEFAULT_CONNECTION_STRING),
+        m_useSettings(false),
+        m_useDictionary(false) {}
 
-  MessageStore* create( const UtcTimeStamp&, const SessionID& );
-  void destroy( MessageStore* );
+  MessageStore *create(const UtcTimeStamp &, const SessionID &);
+  void destroy(MessageStore *);
+
 private:
-  MessageStore* create( const UtcTimeStamp&, const SessionID& sessionID, const Dictionary& );
+  MessageStore *create(const UtcTimeStamp &, const SessionID &sessionID, const Dictionary &);
 
   Dictionary m_dictionary;
   SessionSettings m_settings;
@@ -78,36 +86,39 @@ private:
 /*! @} */
 
 /// Odbc based implementation of MessageStore.
-class OdbcStore : public MessageStore
-{
+class OdbcStore : public MessageStore {
 public:
-  OdbcStore( const UtcTimeStamp& now, const SessionID& sessionID, const std::string& user, const std::string& password, 
-             const std::string& connectionString );
+  OdbcStore(
+      const UtcTimeStamp &now,
+      const SessionID &sessionID,
+      const std::string &user,
+      const std::string &password,
+      const std::string &connectionString);
   ~OdbcStore();
 
-  bool set( SEQNUM, const std::string& ) EXCEPT ( IOException );
-  void get( SEQNUM, SEQNUM, std::vector < std::string > & ) const EXCEPT ( IOException );
+  bool set(SEQNUM, const std::string &) EXCEPT(IOException);
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException);
 
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT ( IOException );
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT ( IOException );
-  void setNextSenderMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
-  void setNextTargetMsgSeqNum( SEQNUM value ) EXCEPT ( IOException );
-  void incrNextSenderMsgSeqNum() EXCEPT ( IOException );
-  void incrNextTargetMsgSeqNum() EXCEPT ( IOException );
+  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException);
+  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException);
+  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException);
+  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException);
+  void incrNextSenderMsgSeqNum() EXCEPT(IOException);
+  void incrNextTargetMsgSeqNum() EXCEPT(IOException);
 
-  UtcTimeStamp getCreationTime() const EXCEPT ( IOException );
+  UtcTimeStamp getCreationTime() const EXCEPT(IOException);
 
-  void reset( const UtcTimeStamp& now ) EXCEPT ( IOException );
-  void refresh() EXCEPT ( IOException );
+  void reset(const UtcTimeStamp &now) EXCEPT(IOException);
+  void refresh() EXCEPT(IOException);
 
 private:
   void populateCache();
 
   MemoryStore m_cache;
   SessionID m_sessionID;
-  OdbcConnection* m_pConnection;
+  OdbcConnection *m_pConnection;
 };
-}
+} // namespace FIX
 
 #endif
 #endif

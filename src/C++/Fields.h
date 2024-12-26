@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
- 
+
 /****************************************************************************
 ** Copyright (c) 2001-2014
 **
@@ -22,10 +22,9 @@
 #ifndef FIX_FIELDS_BASE_H
 #define FIX_FIELDS_BASE_H
 
-#include "FixFields.h"
 #include "Field.h"
+#include "FixFields.h"
 
 #undef Yield
 
-#endif //FIX_FIELDS_BASE_H
-
+#endif // FIX_FIELDS_BASE_H

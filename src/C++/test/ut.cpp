@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
+#pragma warning(disable : 4503 4355 4786)
 #include "stdafx.h"
 #else
 #include "config.h"
@@ -28,26 +28,21 @@
 
 #include "catch_amalgamated.hpp"
 
-int main( int argc, char** argv )
-{
+int main(int argc, char **argv) {
   std::string quickfixConfigFile;
 
   Catch::Session session;
-  auto & cli = session.cli();
-  auto newCli = cli 
-    | Catch::Clara::Opt( [](std::string quickfixConfigFile)
-    {
-      FIX::TestSettings::sessionSettings = FIX::SessionSettings(quickfixConfigFile);
-    }, "user" )
-    ["--quickfix-config-file"]
-    ("QuickFIX config file for tests")
-    | Catch::Clara::Opt( [](std::string quickfixSpecPath)
-    {
-      FIX::TestSettings::specPath = quickfixSpecPath;
-    }, "user")
-    ["--quickfix-spec-path"]
-    ("QuickFIX spec path");  
-  session.cli( newCli );
+  auto &cli = session.cli();
+  auto newCli = cli
+                | Catch::Clara::Opt(
+                    [](std::string quickfixConfigFile) {
+                      FIX::TestSettings::sessionSettings = FIX::SessionSettings(quickfixConfigFile);
+                    },
+                    "user")["--quickfix-config-file"]("QuickFIX config file for tests")
+                | Catch::Clara::Opt(
+                    [](std::string quickfixSpecPath) { FIX::TestSettings::specPath = quickfixSpecPath; },
+                    "user")["--quickfix-spec-path"]("QuickFIX spec path");
+  session.cli(newCli);
 
   return session.run(argc, argv);
 }
