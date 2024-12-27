@@ -62,7 +62,6 @@ private:
   void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread(void *p);
 
-  SessionSettings m_settings;
   HostDetailsProvider m_hostDetailsProvider;
   time_t m_lastConnect;
   int m_reconnectInterval;
