@@ -149,6 +149,7 @@ public:
         m_largest(0) {}
   message_order(int first, ...);
   message_order(const int order[]);
+  message_order(const int order[], int size);
   message_order(const message_order &) = default;
   message_order(message_order &&) = default;
 
@@ -172,7 +173,7 @@ public:
   operator bool() const { return !m_groupOrder.empty(); }
 
 private:
-  void setOrder(int size, const int order[]);
+  void setOrder(const int order[], int size);
 
   cmp_mode m_mode;
   int m_delim;
