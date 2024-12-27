@@ -281,7 +281,7 @@ bool SSLSocketInitiator::onPoll() {
 
 void SSLSocketInitiator::onStop() {}
 
-void SSLSocketInitiator::doConnect(const SessionID &sessionID, const Dictionary &dictionary) {
+void SSLSocketInitiator::doConnect(const SessionID &sessionID, const Dictionary &d) {
   try {
 
     Session *session = Session::lookupSession(sessionID);
@@ -291,7 +291,7 @@ void SSLSocketInitiator::doConnect(const SessionID &sessionID, const Dictionary 
 
     Log *log = session->getLog();
 
-    HostDetails host = m_hostDetailsProvider.getHost(sessionID, dictionary);
+    HostDetails host = m_hostDetailsProvider.getHost(sessionID, d);
     if (d.has(RECONNECT_INTERVAL)) // ReconnectInterval in [SESSION]
     {
       m_reconnectInterval = d.getInt(RECONNECT_INTERVAL);
