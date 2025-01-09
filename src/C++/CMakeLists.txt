@@ -1,8 +1,8 @@
 add_subdirectory(test)
 
-set(quickfix_VERSION_MAJOR 16)
+set(quickfix_VERSION_MAJOR 17)
 set(quickfix_VERSION_MINOR 0)
-set(quickfix_VERSION_PATCH 1)
+set(quickfix_VERSION_PATCH 0)
 set(quickfix_VERSION ${quickfix_VERSION_MAJOR}.${quickfix_VERSION_MINOR}.${quickfix_VERSION_PATCH} )
 
 set(quickfix_SOURCES

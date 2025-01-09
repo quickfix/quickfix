@@ -1,5 +1,99 @@
 
+1.16.0
+------
+
 Session synchronisation at initiation using tag NextExpectedMsgSeqNum (789)
+
+MillisecondsInTimeStamp=N config correctly disabled milliseconds
+
+A session level configuration item 'AllowedRemoteAddresses' for acceptor
+
+ReconnectInterval value in [SESSION] dominates the value in [DEFAULT]
+
+uint64 sequence numbers
+
+Support Non Stop Session (new option NonStopSession=Y)
+
+Expected message too low should read too high
+
+Fix build with HAVE_SSL
+
+FieldConvertors: avoid undefined behaviour on negation of signed MIN_INT
+
+UtilitySSL: Add support of TLS 1.3
+
+Added HostSelectionPolicy setting
+
+Support building on win_arm64
+
+Checksum should always sort last
+
+Ensure that SignatureLength directly precedes Signature
+
+Session: on received ResendRequest: update target MsgSeqNum regardless of m_persistMessages
+
+Catch2 unit test port
+
+Fixing Windows + MSVC socket connection logic in a case of non-resolved host name
+
+Fix Acceptor processing detection with proper initialization
+
+Posgres support through python and ruby apis
+
+Support for mysql through python api
+
+Get rid of heap allocation creating new session messages
+
+Fix50 sp2 extension pack 280
+
+Display errno and strerror when failing to open file
+
+Switch from socket select to poll on unix systems
+
+Fix display of expected vs received length and checksum
+
+Remove support for python2
+
+Support native bool type when using mysql version greater than 8
+
+Remove unused timeout argument from poll
+
+Only reset state on session construction
+
+Remove support for stlport
+
+Fix day boundary incrementing data time
+
+Allow opening log file in another application when quickfix is running
+
+Require support of std::unique_ptr aand std::shared_ptr
+
+Replace assembly atomic counter with std::atomic
+
+Expose the SSL capabilities within the Python module
+
+fix double close socket
+
+Enable use of eliptic curve client certs
+
+SSLSocketInitiator timeout fix, SSLSocketAcceptor monitor fix
+
+Fix incorrect processing of the 'required' tag in 'header' and 'trailer' elements of the XML spec in C++
+
+Detect overflow in IntConvertor, send Reject
+
+NoSides values in FixValues.h are int not char
+
+SSL Private key password now uses password of the appropriate instance rather than last created one
+
+Fix Sunday Crossover Bug
+
+Add QF/J's 'appMessageJustSent' logic for Resend
+
+Fix session overlap bug
+
+Fix isInSameRange where weekly session resets on Sun
+
 
 1.15.1
 ------
