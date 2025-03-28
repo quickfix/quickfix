@@ -113,14 +113,15 @@
 ** not clear to you.
 **
 ****************************************************************************/
-#ifndef FIX_THREADEDSSLSOCKETACCEPTOR_H
-#define FIX_THREADEDSSLSOCKETACCEPTOR_H
-
-#if (HAVE_SSL > 0)
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4503 4355 4786 4290)
 #endif
+
+#ifndef FIX_THREADEDSSLSOCKETACCEPTOR_H
+#define FIX_THREADEDSSLSOCKETACCEPTOR_H
+
+#if (HAVE_SSL > 0)
 
 #include "Acceptor.h"
 #include "Mutex.h"
@@ -203,6 +204,6 @@ private:
 /*! @} */
 } // namespace FIX
 
-#endif // FIX_THREADEDSOCKETACCEPTOR_H
+#endif // HAVE_SSL
 
-#endif
+#endif // FIX_THREADEDSSLSOCKETACCEPTOR_H
