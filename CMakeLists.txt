@@ -15,6 +15,10 @@ message("-- Project name ${CMAKE_PROJECT_NAME}")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED OFF)
 
+if( MSVC )
+  add_compile_options(/MP)
+endif()
+
 # Allow overriding the output directory for libraries and executables.
 # Default: <project-root>/lib
 set(QUICKFIX_LIB_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/lib" CACHE PATH "Top-level output directory for quickfix libraries and runtime files")
@@ -24,7 +28,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 
-# Multi-config generators (Visual Studio, Xcode) � set per-config variables
+# Multi-config generators (Visual Studio, Xcode)� set per-config variables
 foreach(cfg IN ITEMS Debug Release RelWithDebInfo MinSizeRel)
   string(TOUPPER "${cfg}" cfg_up)
   set("CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${cfg_up}" "${QUICKFIX_LIB_OUTPUT_DIR}")
