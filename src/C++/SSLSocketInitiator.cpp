@@ -294,7 +294,7 @@ void SSLSocketInitiator::doConnect(const SessionID &sessionID, const Dictionary 
     HostDetails host = m_hostDetailsProvider.getHost(sessionID, dictionary);
     if (dictionary.has(RECONNECT_INTERVAL)) // ReconnectInterval in [SESSION]
     {
-      m_reconnectInterval = d.getInt(RECONNECT_INTERVAL);
+      m_reconnectInterval = dictionary.getInt(RECONNECT_INTERVAL);
     }
 
     log->onEvent(
