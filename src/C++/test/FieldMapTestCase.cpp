@@ -161,4 +161,16 @@ TEST_CASE("FieldMapTests") {
     CHECK(18 == actualTag18.getTag());
     CHECK("field18_new" == actualTag18.getString());
   }
+
+#ifdef HAVE_CXX17
+  SECTION("getFieldOptional") {
+    FieldMap fieldMap;
+    fieldMap.setField(FIX::BeginSeqNo(42));
+    auto beginSeqNo = fieldMap.getFieldOptional<FIX::BeginSeqNo>();
+    CHECK(beginSeqNo.has_value());
+    CHECK(beginSeqNo.value() == 42);
+    auto endSeqNo = fieldMap.getFieldOptional<FIX::EndSeqNo>();
+    CHECK(!endSeqNo.has_value());
+  }
+#endif
 }

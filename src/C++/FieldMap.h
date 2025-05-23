@@ -35,6 +35,10 @@
 #include <sstream>
 #include <vector>
 
+#ifdef HAVE_CXX17
+#include <optional>
+#endif
+
 namespace FIX {
 /**
  * Stores and organizes a collection of Fields.
@@ -144,6 +148,13 @@ public:
   template <typename T> const T &getField() const EXCEPT(FieldNotFound) {
     return *reinterpret_cast<const T *>(&getFieldRef(T::tag));
   }
+
+#ifdef HAVE_CXX17
+  template <typename F> std::optional<F> getFieldOptional() const {
+    F field;
+    return getFieldIfSet(field) ? std::optional<F>{field} : std::nullopt;
+  }
+#endif
 
   /// Get a field without a field class
   const std::string &getField(int tag) const EXCEPT(FieldNotFound) { return getFieldRef(tag).getString(); }
