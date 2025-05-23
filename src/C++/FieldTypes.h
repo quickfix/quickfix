@@ -37,6 +37,10 @@
 #include <string>
 #include <time.h>
 
+#if __cplusplus >= 201103L
+#include <chrono>
+#endif
+
 namespace FIX {
 /*! \addtogroup user
  *  @{
@@ -221,6 +225,12 @@ struct DateTime {
   /// Convert the DateTime to a time_t.  Note that this operation
   /// can overflow on 32-bit platforms when we go beyond year 2038.
   inline time_t getTimeT() const { return (SECONDS_PER_DAY * (m_date - JULIAN_19700101) + m_time / NANOS_PER_SEC); }
+
+#if __cplusplus >= 201103L
+  std::chrono::system_clock::time_point getTimePoint() const {
+    return std::chrono::system_clock::from_time_t(getTimeT());
+  }
+#endif
 
   /// Convert the DateTime to a struct tm which is in UTC
   tm getTmUtc() const {
