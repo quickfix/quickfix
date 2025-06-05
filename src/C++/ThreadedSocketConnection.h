@@ -82,6 +82,8 @@ private:
   bool m_disconnect;
 #if _MSC_VER
   fd_set m_fds;
+#else
+  int m_epfd = -1;
 #endif
 };
 } // namespace FIX

@@ -95,6 +95,9 @@ private:
   Mutex m_mutex;
 #ifdef _MSC_VER
   fd_set m_fds;
+#else
+  int m_repfd = -1;
+  int m_wepfd = -1;
 #endif
 };
 } // namespace FIX

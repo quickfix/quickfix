@@ -38,6 +38,19 @@ HttpConnection::HttpConnection(socket_handle s)
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
+#else
+  m_epfd = epoll_create1(0);
+  if (m_epfd < 0) {
+    return;
+  }
+  struct epoll_event revent{};
+  revent.data.fd = m_socket;
+  revent.events = EPOLLIN | EPOLLPRI;
+  if (epoll_ctl(m_epfd, EPOLL_CTL_ADD, m_socket, &revent) < 0) {
+    close(m_epfd);
+    m_epfd = -1;
+    return;
+  }
 #endif
 }
 
@@ -55,9 +68,6 @@ bool HttpConnection::read() {
 #if _MSC_VER
   struct timeval timeout = {2, 0};
   fd_set readset = m_fds;
-#else
-  int timeout = 2000; // 2000ms = 2 seconds
-  struct pollfd pfd = {m_socket, POLLIN | POLLPRI, 0};
 #endif
 
   try {
@@ -65,8 +75,13 @@ bool HttpConnection::read() {
     // Wait for input (1 second timeout)
     int result = select(0, &readset, 0, 0, &timeout);
 #else
+    if (m_epfd < 0) {
+      return false;
+    }
     // Wait for input (2 second timeout)
-    int result = poll(&pfd, 1, timeout);
+    int timeout = 2000; // 2000ms
+    struct epoll_event event{};
+    int result = epoll_wait(m_epfd, &event, 1, timeout);
 #endif
 
     if (result > 0) // Something to read
