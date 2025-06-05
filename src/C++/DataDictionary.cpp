@@ -420,7 +420,7 @@ message_order const &DataDictionary::getOrderedFields() const {
     return m_orderedFieldsArray;
   }
 
-  return m_orderedFieldsArray = message_order(m_orderedFields.data(), m_orderedFields.size());
+  return m_orderedFieldsArray = message_order(m_orderedFields.data(), static_cast<int>(m_orderedFields.size()));
 }
 
 message_order const &DataDictionary::getHeaderOrderedFields() const EXCEPT(ConfigError) {
@@ -432,7 +432,7 @@ message_order const &DataDictionary::getHeaderOrderedFields() const EXCEPT(Confi
     throw ConfigError("<Header> does not have a stored message order");
   }
 
-  return m_headerOrder = message_order(m_headerOrderedFields.data(), m_headerOrderedFields.size());
+  return m_headerOrder = message_order(m_headerOrderedFields.data(), static_cast<int>(m_headerOrderedFields.size()));
 }
 
 message_order const &DataDictionary::getTrailerOrderedFields() const EXCEPT(ConfigError) {
@@ -444,7 +444,7 @@ message_order const &DataDictionary::getTrailerOrderedFields() const EXCEPT(Conf
     throw ConfigError("<Trailer> does not have a stored message order");
   }
 
-  return m_trailerOrder = message_order(m_trailerOrderedFields.data(), m_trailerOrderedFields.size());
+  return m_trailerOrder = message_order(m_trailerOrderedFields.data(), static_cast<int>(m_trailerOrderedFields.size()));
 }
 
 const message_order &DataDictionary::getMessageOrderedFields(const std::string &msgType) const EXCEPT(ConfigError) {
