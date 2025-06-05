@@ -84,6 +84,7 @@
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <sys/types.h>
+#include <sys/epoll.h>
 #if defined(__SUNPRO_CC)
 #include <sys/filio.h>
 #endif
