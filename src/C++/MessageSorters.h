@@ -149,7 +149,7 @@ public:
         m_largest(0) {}
   message_order(int first, ...);
   message_order(const int order[]);
-  message_order(const int order[], int size);
+  message_order(const int order[], size_t size);
   message_order(const message_order &) = default;
   message_order(message_order &&) = default;
 
@@ -166,14 +166,14 @@ public:
       return x < y;
     }
   }
-
+  
   message_order &operator=(const message_order &) = default;
   message_order &operator=(message_order &&) = default;
 
   operator bool() const { return !m_groupOrder.empty(); }
 
 private:
-  void setOrder(const int order[], int size);
+  void setOrder(const int order[], size_t size);
 
   cmp_mode m_mode;
   int m_delim;
