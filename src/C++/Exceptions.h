@@ -22,6 +22,7 @@
 #ifndef FIX_EXCEPTIONS_H
 #define FIX_EXCEPTIONS_H
 
+#include "Except.h"
 #include "Utility.h"
 
 #include <stdexcept>
