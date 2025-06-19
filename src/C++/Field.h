@@ -239,9 +239,9 @@ public:
   void setValue(const std::string &value) { setString(value); }
   const std::string &getValue() const { return getString(); }
   operator const std::string &() const { return getString(); }
-  #if HAVE_CXX17
+#if HAVE_CXX17
   operator std::string_view() const { return getString(); }
-  #endif
+#endif
 
   bool operator<(const StringField &rhs) const { return getString() < rhs.getString(); }
   bool operator>(const StringField &rhs) const { return getString() > rhs.getString(); }
