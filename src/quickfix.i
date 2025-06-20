@@ -461,7 +461,7 @@ typedef FIX::SessionSettings SessionSettings;
 %typedef std::string FIX::STRING;
 %typedef char FIX::CHAR;
 %typedef double FIX::PRICE;
-%typedef int FIX::INT;
+%typedef int64_t FIX::INT;
 %typedef double FIX::AMT;
 %typedef double FIX::QTY;
 %typedef std::string FIX::CURRENCY;
