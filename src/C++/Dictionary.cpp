@@ -43,7 +43,7 @@ std::string Dictionary::getString(const std::string &key, bool capitalize) const
   return result;
 }
 
-int Dictionary::getInt(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
+int64_t Dictionary::getInt(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
   try {
     return Int64Convertor::convert(getString(key));
   } catch (FieldConvertError &) {

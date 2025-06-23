@@ -46,10 +46,12 @@ TEST_CASE("DictionaryTests") {
     Dictionary object;
     object.setInt("INTKEY1", 12);
     object.setInt("INTKEY2", 9827362);
+    object.setString("INT64KEY", "12345678912");
     object.setString("BADINTKEY", "AB12");
 
     CHECK(12 == object.getInt("INTKEY1"));
     CHECK(9827362 == object.getInt("INTKEY2"));
+    CHECK(12345678912 == object.getInt("INT64KEY"));
     CHECK_THROWS_AS(object.getInt("INTKEY3"), ConfigError);
     CHECK_THROWS_AS(object.getInt("BADINTKEY"), ConfigError);
   }
