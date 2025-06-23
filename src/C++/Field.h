@@ -336,15 +336,15 @@ public:
 /// Field that contains an integer value
 class IntField : public FieldBase {
 public:
-  explicit IntField(int field, int data)
-      : FieldBase(field, IntConvertor::convert(data)) {}
+  explicit IntField(int field, int64_t data)
+      : FieldBase(field, Int64Convertor::convert(data)) {}
   IntField(int field)
       : FieldBase(field, "") {}
 
-  void setValue(int value) { setString(IntConvertor::convert(value)); }
-  int getValue() const EXCEPT(IncorrectDataFormat) {
+  void setValue(int64_t value) { setString(Int64Convertor::convert(value)); }
+  int64_t getValue() const EXCEPT(IncorrectDataFormat) {
     try {
-      return IntConvertor::convert(getString());
+      return Int64Convertor::convert(getString());
     } catch (FieldConvertError &) {
       throw IncorrectDataFormat(getTag(), getString());
     }
