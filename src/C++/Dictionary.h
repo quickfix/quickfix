@@ -52,7 +52,7 @@ public:
   /// Get a value as a string.
   std::string getString(const std::string &, bool capitalize = false) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a int.
-  int getInt(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
+  int64_t getInt(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a double.
   double getDouble(const std::string &) const EXCEPT(ConfigError, FieldConvertError);
   /// Get a value as a bool
