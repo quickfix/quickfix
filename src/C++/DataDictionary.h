@@ -390,7 +390,7 @@ private:
         PRICE_CONVERTOR::convert(field.getString());
         break;
       case TYPE::Int:
-        INT_CONVERTOR::convert(field.getString());
+        INT64_CONVERTOR::convert(field.getString());
         break;
       case TYPE::Amt:
         AMT_CONVERTOR::convert(field.getString());
