@@ -45,7 +45,7 @@ std::string Dictionary::getString(const std::string &key, bool capitalize) const
 
 int Dictionary::getInt(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
   try {
-    return IntConvertor::convert(getString(key));
+    return Int64Convertor::convert(getString(key));
   } catch (FieldConvertError &) {
     throw ConfigError("Illegal value " + getString(key) + " for " + key);
   }
