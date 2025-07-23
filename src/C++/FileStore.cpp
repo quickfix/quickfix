@@ -32,6 +32,14 @@
 #include <inttypes.h>
 #include <sys/stat.h>
 
+#ifdef _MSC_VER
+#define FILE_SEEK _fseeki64
+#define FILE_TELL _ftelli64
+#else
+#define FILE_SEEK fseeko
+#define FILE_TELL ftello
+#endif
+
 namespace {
 auto const seqNumFileFormat = "%" + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + "."
                               + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + SCNu64;
@@ -233,14 +241,14 @@ MessageStore *FileStoreFactory::create(const UtcTimeStamp &now, const SessionID 
 void FileStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
 bool FileStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
-  if (_fseeki64(m_msgFile, 0, SEEK_END)) {
+  if (FILE_SEEK(m_msgFile, 0, SEEK_END)) {
     throw IOException("Cannot seek to end of " + m_msgFileName);
   }
-  if (_fseeki64(m_headerFile, 0, SEEK_END)) {
+  if (FILE_SEEK(m_headerFile, 0, SEEK_END)) {
     throw IOException("Cannot seek to end of " + m_headerFileName);
   }
 
-  int64_t offset = _ftelli64(m_msgFile);
+  int64_t offset = FILE_TELL(m_msgFile);
   if (offset < 0) {
     throw IOException("Unable to get file pointer position from " + m_msgFileName);
   }
@@ -352,7 +360,7 @@ bool FileStore::get(SEQNUM msgSeqNum, std::string &msg) const EXCEPT(IOException
     return false;
   }
   const OffsetSize &offset = find->second;
-  if (_fseeki64(m_msgFile, offset.first, SEEK_SET)) {
+  if (FILE_SEEK(m_msgFile, offset.first, SEEK_SET)) {
     throw IOException("Unable to seek in file " + m_msgFileName);
   }
   char *buffer = new char[offset.second + 1];
