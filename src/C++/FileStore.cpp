@@ -27,9 +27,18 @@
 #include "Parser.h"
 #include "SessionID.h"
 #include "Utility.h"
+#include <cstdint>
 #include <fstream>
 #include <inttypes.h>
 #include <sys/stat.h>
+
+#ifdef _MSC_VER
+#define FILE_SEEK _fseeki64
+#define FILE_TELL _ftelli64
+#else
+#define FILE_SEEK fseeko
+#define FILE_TELL ftello
+#endif
 
 namespace {
 auto const seqNumFileFormat = "%" + std::to_string(std::numeric_limits<uint64_t>::digits10 + 1) + "."
@@ -168,10 +177,10 @@ void FileStore::populateCache() {
   FILE *headerFile = file_fopen(m_headerFileName.c_str(), "r+");
   if (headerFile) {
     SEQNUM msgSeqNum;
-    long offset;
+    int64_t offset;
     std::size_t size;
 
-    while (FILE_FSCANF(headerFile, "%" SCNu64 ",%ld,%zu ", &msgSeqNum, &offset, &size) == 3) {
+    while (FILE_FSCANF(headerFile, "%" SCNu64 ",%" SCNi64 ",%zu ", &msgSeqNum, &offset, &size) == 3) {
       std::pair<NumToOffset::iterator, bool> it
           = m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
 
@@ -232,20 +241,20 @@ MessageStore *FileStoreFactory::create(const UtcTimeStamp &now, const SessionID 
 void FileStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
 bool FileStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
-  if (fseek(m_msgFile, 0, SEEK_END)) {
+  if (FILE_SEEK(m_msgFile, 0, SEEK_END)) {
     throw IOException("Cannot seek to end of " + m_msgFileName);
   }
-  if (fseek(m_headerFile, 0, SEEK_END)) {
+  if (FILE_SEEK(m_headerFile, 0, SEEK_END)) {
     throw IOException("Cannot seek to end of " + m_headerFileName);
   }
 
-  long offset = ftell(m_msgFile);
+  int64_t offset = FILE_TELL(m_msgFile);
   if (offset < 0) {
     throw IOException("Unable to get file pointer position from " + m_msgFileName);
   }
   std::size_t size = msg.size();
 
-  if (fprintf(m_headerFile, "%" SCNu64 ",%ld,%zu ", msgSeqNum, offset, size) < 0) {
+  if (fprintf(m_headerFile, "%" SCNu64 ",%" PRId64 ",%zu ", msgSeqNum, offset, size) < 0) {
     throw IOException("Unable to write to file " + m_headerFileName);
   }
   std::pair<NumToOffset::iterator, bool> it
@@ -351,7 +360,7 @@ bool FileStore::get(SEQNUM msgSeqNum, std::string &msg) const EXCEPT(IOException
     return false;
   }
   const OffsetSize &offset = find->second;
-  if (fseek(m_msgFile, offset.first, SEEK_SET)) {
+  if (FILE_SEEK(m_msgFile, offset.first, SEEK_SET)) {
     throw IOException("Unable to seek in file " + m_msgFileName);
   }
   char *buffer = new char[offset.second + 1];

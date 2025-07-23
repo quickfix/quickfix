@@ -28,6 +28,7 @@
 
 #include "MessageStore.h"
 #include "SessionSettings.h"
+#include <cstdint>
 #include <fstream>
 #include <string>
 
@@ -98,16 +99,12 @@ public:
   void refresh() EXCEPT(IOException);
 
 private:
-#ifdef _MSC_VER
-  typedef std::pair<long, std::size_t> OffsetSize;
-#else
-  typedef std::pair<long, std::size_t> OffsetSize;
-#endif
+  typedef std::pair<int64_t, std::size_t> OffsetSize;
   typedef std::map<SEQNUM, OffsetSize> NumToOffset;
 
   void open(bool deleteFile);
   void populateCache();
-  bool readFromFile(int offset, int size, std::string &msg);
+  bool readFromFile(int64_t offset, int size, std::string &msg);
   void setSeqNum();
   void setSession();
 
