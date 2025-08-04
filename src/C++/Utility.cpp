@@ -87,7 +87,7 @@ char *string_concat(const char *a, ...) {
 
   va_end(adummy);
 
-  /* Allocate the required string */
+  /* Allocate the required string. We need to dealllocate after used. */
 
   res = new char[len + 1];
   cp = res;
