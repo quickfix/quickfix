@@ -746,6 +746,7 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
 #endif
       cp = string_concat(cpCApath, SLASH, direntry->d_name, 0);
       sk = SSL_load_client_CA_file(cp);
+      delete [] cp;
       for (n = 0; sk != 0 && n < sk_X509_NAME_num(sk); n++) {
         // TODO log->onEvent(std::string("CA certificate: %s") +
         //           X509_NAME_oneline(sk_X509_NAME_value(sk, n), 0, 0));
