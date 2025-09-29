@@ -83,6 +83,12 @@ else()
   target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES} ${MYSQL_CLIENT_LIBS} ${PostgreSQL_LIBRARIES} pthread)
 endif()
 
+include(CheckFunctionExists)
+check_symbol_exists(ftime "sys/timeb.h" HAVE_FTIME)
+if(HAVE_FTIME)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE HAVE_FTIME)
+endif()
+
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/src/C++)
