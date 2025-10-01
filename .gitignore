@@ -16,6 +16,7 @@ Makefile
 *.o
 *.d
 *.a
+*a./
 .libs
 *.la
 *.so
