@@ -397,11 +397,12 @@ void SSLSocketAcceptor::onTimeout(SocketServer &) {
 }
 
 int SSLSocketAcceptor::passwordHandleCallback(char *buf, size_t bufsize, int verify) {
-  if (m_password.length() > bufsize) {
+  if (m_password.length() >= bufsize) {
     return -1;
   }
 
-  std::strcpy(buf, m_password.c_str());
+  memcpy(buf, m_password.c_str(), m_password.length());
+  buf[m_password.length()] = '\0';
   return m_password.length();
 }
 } // namespace FIX
