@@ -7613,6 +7613,10 @@ class Session(object):
         return _quickfix.Session_getDataDictionaryProvider(self)
 
     @staticmethod
+    def sendBareToTarget(messageString, sessionID):
+        return _quickfix.Session_sendBareToTarget(messageString, sessionID)
+
+    @staticmethod
     def sendToTarget(*args):
         return _quickfix.Session_sendToTarget(*args)
 

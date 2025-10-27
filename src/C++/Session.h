@@ -87,8 +87,9 @@ public:
 
   static bool sendToTarget(Message &message, const std::string &qualifier = "") EXCEPT(SessionNotFound);
   static bool sendToTarget(Message &message, const SessionID &sessionID) EXCEPT(SessionNotFound);
+  static bool sendBareToTarget(const std::string &messageString, const SessionID &sessionID) EXCEPT(SessionNotFound);
   static bool sendToTarget(
-      Message &,
+      Message &message,
       const SenderCompID &senderCompID,
       const TargetCompID &targetCompID,
       const std::string &qualifier = "") EXCEPT(SessionNotFound);
@@ -232,6 +233,7 @@ private:
 
   bool send(const std::string &);
   bool sendRaw(Message &, SEQNUM msgSeqNum = 0);
+  bool sendBare(const std::string&);
   bool resend(Message &message);
   void persist(const Message &, const std::string &) EXCEPT(IOException);
 
