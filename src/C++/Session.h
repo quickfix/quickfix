@@ -233,7 +233,7 @@ private:
 
   bool send(const std::string &);
   bool sendRaw(Message &, SEQNUM msgSeqNum = 0);
-  bool sendBare(const std::string&);
+  bool sendBare(const std::string &);
   bool resend(Message &message);
   void persist(const Message &, const std::string &) EXCEPT(IOException);
 
