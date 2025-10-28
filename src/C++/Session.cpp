@@ -1344,7 +1344,7 @@ bool Session::sendToTarget(Message &message, const SessionID &sessionID) EXCEPT(
 }
 
 bool Session::sendBareToTarget(const std::string &messageString, const SessionID &sessionID) EXCEPT(SessionNotFound) {
-  Session* pSession = lookupSession(sessionID);
+  Session *pSession = lookupSession(sessionID);
   if (!pSession) {
     throw SessionNotFound();
   }
