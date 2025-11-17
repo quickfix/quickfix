@@ -43,7 +43,7 @@ protected:
     typedef std::uint8_t byte_t;
 
     Buffer()
-      : m_marker(0) {}
+        : m_marker(0) {}
 
     template <class T> void push_back(T value) {
       m_data.insert(m_data.end(), reinterpret_cast<byte_t *>(&value), reinterpret_cast<byte_t *>(&value + 1));
