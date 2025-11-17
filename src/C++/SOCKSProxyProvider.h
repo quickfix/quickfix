@@ -3,6 +3,7 @@
 
 #include "Utility.h"
 #include <cstddef>
+#include <stdint.h>
 #include <functional>
 #include <map>
 #include <string>
