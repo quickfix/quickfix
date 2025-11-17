@@ -31,6 +31,12 @@
 #include <string>
 
 namespace FIX {
+enum SOCKSHandshakeStatus {
+  SOCKS_HANDSHAKE_FAILED = 0,
+  SOCKS_HANDSHAKE_SUCCEDED = 1,
+  SOCKS_HANDSHAKE_IN_PROGRESS = 2
+};
+
 /// Connects sockets to remote ports and addresses.
 class SocketConnector {
 public:
