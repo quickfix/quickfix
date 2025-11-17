@@ -24,7 +24,11 @@ struct SOCKSProxyDetails {
 
 class SOCKSInitiator {
 public:
-  enum ConnectionStatus { STATUS_SUCCEEDED = 0, STATUS_FAILED = 1, STATUS_IN_PROGRESS = 2 };
+  enum ConnectionStatus {
+    STATUS_SUCCEEDED = 0,
+    STATUS_FAILED = 1,
+    STATUS_IN_PROGRESS = 2
+  };
 
 public:
   SOCKSInitiator(const std::string &targetAddress, short targetPort, const SOCKSProxyDetails &details);
@@ -38,7 +42,8 @@ protected:
   public:
     typedef std::uint8_t byte_t;
 
-    Buffer() : m_marker(0) {}
+    Buffer()
+      : m_marker(0) {}
 
     template <class T> void push_back(T value) {
       m_data.insert(m_data.end(), reinterpret_cast<byte_t *>(&value), reinterpret_cast<byte_t *>(&value + 1));
