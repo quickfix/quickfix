@@ -3,7 +3,7 @@
 
 #include "Utility.h"
 #include <cstddef>
-#include <stdint.h>
+#include <cstdint>
 #include <functional>
 #include <map>
 #include <string>
@@ -31,7 +31,8 @@ public:
   };
 
 public:
-  SOCKSInitiator(const std::string &targetAddress, short targetPort, const SOCKSProxyDetails &details);
+  SOCKSInitiator(const std::string &targetAddress, short targetPort,
+                 const SOCKSProxyDetails &details);
 
   ConnectionStatus connect(socket_handle);
   const std::string &errorMessage() const { return m_error; }
@@ -42,11 +43,11 @@ protected:
   public:
     typedef std::uint8_t byte_t;
 
-    Buffer()
-        : m_marker(0) {}
+    Buffer() : m_marker(0) {}
 
     template <class T> void push_back(T value) {
-      m_data.insert(m_data.end(), reinterpret_cast<byte_t *>(&value), reinterpret_cast<byte_t *>(&value + 1));
+      m_data.insert(m_data.end(), reinterpret_cast<byte_t *>(&value),
+                    reinterpret_cast<byte_t *>(&value + 1));
     }
 
     byte_t operator[](size_t i) const { return m_data[i]; }
@@ -102,10 +103,9 @@ public:
 
   SOCKSProxyDetails getSOCKSProxy(const SessionID &s, const Dictionary &d);
 
-  SOCKSInitiator *getSOCKSInitiator(
-      const std::string &targetAddress,
-      short targetPort,
-      const SOCKSProxyDetails &details);
+  SOCKSInitiator *getSOCKSInitiator(const std::string &targetAddress,
+                                    short targetPort,
+                                    const SOCKSProxyDetails &details);
 
   static void release(SOCKSInitiator *socks);
 };
