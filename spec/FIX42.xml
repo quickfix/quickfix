@@ -1165,7 +1165,7 @@
   <message name='QuoteAcknowledgement' msgtype='b' msgcat='app'>
    <field name='QuoteReqID' required='N' />
    <field name='QuoteID' required='N' />
-   <field name='QuoteAckStatus' required='Y' />
+   <field name='QuoteStatus' required='Y' />
    <field name='QuoteRejectReason' required='N' />
    <field name='QuoteResponseLevel' required='N' />
    <field name='TradingSessionID' required='N' />
@@ -2381,7 +2381,7 @@
   <field number='294' name='DefOfferSize' type='QTY' />
   <field number='295' name='NoQuoteEntries' type='INT' />
   <field number='296' name='NoQuoteSets' type='INT' />
-  <field number='297' name='QuoteAckStatus' type='INT'>
+  <field number='297' name='QuoteStatus' type='INT'>
    <value enum='0' description='ACCEPTED' />
    <value enum='1' description='CANCEL_FOR_SYMBOL' />
    <value enum='2' description='CANCELED_FOR_SECURITY_TYPE' />

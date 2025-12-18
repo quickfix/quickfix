@@ -4248,7 +4248,7 @@
   <field number='136' name='NoMiscFees' type='NUMINGROUP' />
   <field number='137' name='MiscFeeAmt' type='AMT' />
   <field number='138' name='MiscFeeCurr' type='CURRENCY' />
-  <field number='139' name='MiscFeeType' type='CHAR'>
+  <field number='139' name='MiscFeeType' type='STRING'>
    <value enum='1' description='REGULATORY' />
    <value enum='2' description='TAX' />
    <value enum='3' description='LOCAL_COMMISSION' />
@@ -5498,7 +5498,7 @@
    <value enum='6' description='CANCEL_ORDERS_FOR_A_TRADING_SESSION' />
    <value enum='7' description='CANCEL_ALL_ORDERS' />
   </field>
-  <field number='532' name='MassCancelRejectReason' type='CHAR'>
+  <field number='532' name='MassCancelRejectReason' type='STRING'>
    <value enum='0' description='MASS_CANCEL_NOT_SUPPORTED' />
    <value enum='1' description='INVALID_OR_UNKNOWN_SECURITY' />
    <value enum='2' description='INVALID_OR_UNKOWN_UNDERLYING_SECURITY' />
