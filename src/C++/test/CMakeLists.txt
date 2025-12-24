@@ -43,8 +43,9 @@ if (QUICKFIX_TESTS)
   ${PROJECT_SOURCE_DIR}/src/C++/test/TimeRangeTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/UtcTimeOnlyTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/UtcTimeStampTestCase.cpp
-  ${PROJECT_SOURCE_DIR}/src/C++/test/UtilityTestCase.cpp)
-  
+  ${PROJECT_SOURCE_DIR}/src/C++/test/UtilityTestCase.cpp
+  ${PROJECT_SOURCE_DIR}/src/C++/test/UtilitySSLTestCase.cpp)
+
   add_executable(ut ut.cpp ${ut_SOURCES})
   
   target_include_directories(ut PRIVATE ${PROJECT_SOURCE_DIR} 

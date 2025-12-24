@@ -329,6 +329,9 @@ void ThreadedSSLSocketInitiator::doConnect(const SessionID &s, const Dictionary 
     BIO *sbio = BIO_new_socket(socket, BIO_CLOSE); // unfortunately OpenSSL uses int for socket handles
     SSL_set_bio(ssl, sbio, sbio);
 
+    // Set SNI hostname for TLS connections
+    ssl_set_sni_hostname(ssl, host.address, log);
+
     ThreadedSSLSocketConnection *pConnection
         = new ThreadedSSLSocketConnection(s, socket, ssl, host.address, host.port, getLog());
 

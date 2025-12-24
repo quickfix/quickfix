@@ -1607,6 +1607,67 @@ int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify) {
 
   return result;
 }
+
+bool is_ip_address(const std::string &address) {
+  if (address.empty()) {
+    return false;
+  }
+
+  // Check for IPv6 address in brackets [::1]
+  std::string addr = address;
+  if (addr.front() == '[' && addr.back() == ']') {
+    addr = addr.substr(1, addr.size() - 2);
+  }
+
+  // Try to parse as IPv4
+  struct in_addr ipv4_addr;
+  if (inet_pton(AF_INET, addr.c_str(), &ipv4_addr) == 1) {
+    return true;
+  }
+
+  // Try to parse as IPv6
+  struct in6_addr ipv6_addr;
+  if (inet_pton(AF_INET6, addr.c_str(), &ipv6_addr) == 1) {
+    return true;
+  }
+
+  return false;
+}
+
+bool ssl_set_sni_hostname(SSL *ssl, const std::string &hostname, Log *log) {
+  if (ssl == nullptr) {
+    return false;
+  }
+
+  if (hostname.empty()) {
+    return true;
+  }
+
+  // Don't set SNI for IP addresses (SNI is only for hostnames)
+  if (is_ip_address(hostname)) {
+    if (log) {
+      log->onEvent("SNI not set: address is an IP address");
+    }
+    return true;
+  }
+
+  // Set SNI hostname
+  // SSL_set_tlsext_host_name returns 1 on success, 0 on failure
+  if (SSL_set_tlsext_host_name(ssl, hostname.c_str()) != 1) {
+    if (log) {
+      log->onEvent("Failed to set SNI hostname: " + hostname);
+    }
+    // Don't fail the connection - SNI is optional
+    return true;
+  }
+
+  if (log) {
+    log->onEvent("SNI hostname set: " + hostname);
+  }
+
+  return true;
+}
+
 } // namespace FIX
 
 #endif
