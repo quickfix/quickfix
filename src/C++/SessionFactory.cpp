@@ -216,6 +216,9 @@ Session *SessionFactory::create(const SessionID &sessionID, const Dictionary &se
   if (settings.has(MILLISECONDS_IN_TIMESTAMP)) {
     pSession->setMillisecondsInTimeStamp(settings.getBool(MILLISECONDS_IN_TIMESTAMP));
   }
+  if (settings.has(TIMESTAMP_PRECISION)) {
+    pSession->setTimestampPrecision(settings.getInt(TIMESTAMP_PRECISION));
+  }
   if (settings.has(PERSIST_MESSAGES)) {
     pSession->setPersistMessages(settings.getBool(PERSIST_MESSAGES));
   }
