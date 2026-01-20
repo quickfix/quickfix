@@ -175,12 +175,17 @@ private:
   void onError(SocketConnector &);
   void onTimeout(SocketConnector &);
   void disconnectPendingSSLHandshakesThatTakeTooLong(time_t now);
+  void disconnectPendingSOCKSHandshakesThatTakeTooLong(time_t now);
   SSLHandshakeStatus handshakeSSL(SSLSocketConnection *connection);
+  SOCKSHandshakeStatus handshakeSOCKS(SSLSocketConnection *connection);
   void handshakeSSLAndHandleConnection(SocketConnector &connector, socket_handle s);
+  void handshakeSOCKSAndHandleConnection(SocketConnector &connector, socket_handle s);
 
   SocketConnector m_connector;
 
   HostDetailsProvider m_hostDetailsProvider;
+  SOCKSProxyProvider m_SOCKSProxyProvider;
+  SocketConnections m_pendingSOCKSHandshakes;
   SocketConnections m_pendingSSLHandshakes;
   SocketConnections m_pendingConnections;
   SocketConnections m_connections;
