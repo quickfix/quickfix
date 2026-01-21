@@ -72,21 +72,14 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Sock
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_UNIX.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_UNIX.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_WIN32.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_WIN32.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketServer.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketServer.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketAcceptor.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketConnection.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketInitiator.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/stdafx.h ${PROJECT_SOURCE_DIR}/include/quickfix/stdafx.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/stdint_msvc.h ${PROJECT_SOURCE_DIR}/include/quickfix/stdint_msvc.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/strptime.h ${PROJECT_SOURCE_DIR}/include/quickfix/strptime.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSocketAcceptor.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSocketConnection.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSocketInitiator.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketAcceptor.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketConnection.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketInitiator.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/TimeRange.h ${PROJECT_SOURCE_DIR}/include/quickfix/TimeRange.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Utility.h ${PROJECT_SOURCE_DIR}/include/quickfix/Utility.h
-COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/UtilitySSL.h ${PROJECT_SOURCE_DIR}/include/quickfix/UtilitySSL.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Values.h ${PROJECT_SOURCE_DIR}/include/quickfix/Values.h
 
 COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/include/quickfix/fix40
@@ -114,5 +107,17 @@ COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/src/C++/fixt11 
 if (EXISTS ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h)
 add_custom_target(QUICKFIX_ALLOCATOR_HEADERS_COPY ALL
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Allocator.h ${PROJECT_SOURCE_DIR}/include/quickfix/Allocator.h
+)
+endif()
+
+if (HAVE_SSL)
+add_custom_target(QUICKFIX_SSL_HEADERS_COPY ALL
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketAcceptor.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketConnection.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketInitiator.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketAcceptor.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketConnection.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/ThreadedSSLSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/ThreadedSSLSocketInitiator.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/UtilitySSL.h ${PROJECT_SOURCE_DIR}/include/quickfix/UtilitySSL.h
 )
 endif()
