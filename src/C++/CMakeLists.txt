@@ -80,7 +80,7 @@ else()
    else()
 	   add_library(${PROJECT_NAME} STATIC  ${quickfix_SOURCES})
   endif()
-  target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES} ${MYSQL_CLIENT_LIBS} ${PostgreSQL_LIBRARIES} pthread)
+  target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES} ${MYSQL_CLIENT_LIBS} ${PostgreSQL_LIBRARIES} ${ODBC_LIBRARIES} pthread)
 endif()
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
