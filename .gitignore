@@ -74,3 +74,4 @@ compile_commands.json
 *.vcxproj
 *.vcxproj.filters
 *.sln
+*.swp
