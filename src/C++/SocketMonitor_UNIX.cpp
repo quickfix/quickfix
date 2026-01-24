@@ -171,12 +171,10 @@ void SocketMonitor::block(Strategy &strategy, bool should_poll, double timeout) 
     return;
   }
 
-
   int result;
   do {
-    result = poll(&*fds.begin(), (int)fds.size(), timeout);
+    result = poll(pfds, pfds_size, getTimeval(should_poll, timeout));
   } while (result < 0 && errno == EINTR);
-
 
   if (result == 0) {
     strategy.onTimeout(*this);
