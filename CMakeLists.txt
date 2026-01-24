@@ -72,6 +72,7 @@ if(HAVE_ODBC)
 find_package(ODBC REQUIRED)
 add_definitions(-DHAVE_ODBC)
 include_directories(SYSTEM ${ODBC_INCLUDE_DIRS})
+set(ODBC_LIBRARIES "ODBC::ODBC")
 
 message("-- Building with ODBC")
 endif()
