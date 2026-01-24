@@ -4,6 +4,11 @@ set (quickfix_PROJECT_NAME quickfix)
 
 add_definitions(-DNOMINMAX)
 
+# Large file support
+if(UNIX)
+  add_definitions(-D_FILE_OFFSET_BITS=64)
+endif()
+
 project(${quickfix_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX C)
 message("-- Project name ${CMAKE_PROJECT_NAME}")
 
