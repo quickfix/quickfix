@@ -14,9 +14,21 @@ uint64 sequence numbers
 
 Support Non Stop Session (new option NonStopSession=Y)
 
+Add DateTime::getTimePoint() which returns a std::chrono time_point
+
 Expected message too low should read too high
 
 Fix build with HAVE_SSL
+
+Fix FileStore ftell IO Error when .body file exceeds 2GB size
+
+SocketMonitor_UNIX: poll() should retry on EINTR to avoid false wakeups
+
+Fix undeclared variable in SSLSocketInitiator::doConnect
+
+Fix off-by-one buffer overflow in SSL password callback
+
+Restore TimestampPrecision setting handling in SessionFactory
 
 FieldConvertors: avoid undefined behaviour on negation of signed MIN_INT
 
@@ -49,6 +61,8 @@ Fix50 sp2 extension pack 280
 Display errno and strerror when failing to open file
 
 Switch from socket select to poll on unix systems
+
+Fix socket poll from PR conflicts
 
 Fix display of expected vs received length and checksum
 
