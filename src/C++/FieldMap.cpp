@@ -197,7 +197,7 @@ size_t FieldMap::totalFields() const {
 
 std::string &FieldMap::calculateString(std::string &result) const {
   for (auto const &field : m_fields) {
-    result += field.getFixString();
+    field.appendTo(result);
 
     // add groups if they exist
     if (!m_groups.size()) {

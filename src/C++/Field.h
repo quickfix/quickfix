@@ -144,6 +144,19 @@ public:
     return m_data;
   }
 
+  /// Append the string representation of the Field directly to output buffer
+  /// This is more efficient than getFixString() + concatenation as it avoids
+  /// intermediate string copies
+  void appendTo(std::string &result) const {
+    if (!m_data.empty()) {
+      result.append(m_data);
+    } else {
+      // Encode directly to result to avoid double-copy and also cache
+      encodeTo(m_data);
+      result.append(m_data);
+    }
+  }
+
   /// Get the length of the fields string representation
   int getLength() const {
     calculate();

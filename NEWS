@@ -24,8 +24,6 @@ Fix FileStore ftell IO Error when .body file exceeds 2GB size
 
 SocketMonitor_UNIX: poll() should retry on EINTR to avoid false wakeups
 
-Fix undeclared variable in SSLSocketInitiator::doConnect
-
 Fix off-by-one buffer overflow in SSL password callback
 
 Restore TimestampPrecision setting handling in SessionFactory
@@ -61,8 +59,6 @@ Fix50 sp2 extension pack 280
 Display errno and strerror when failing to open file
 
 Switch from socket select to poll on unix systems
-
-Fix socket poll from PR conflicts
 
 Fix display of expected vs received length and checksum
 
