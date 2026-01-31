@@ -6281,7 +6281,7 @@
    <value enum='c' description='REGULAR_ETH' />
    <value enum='d' description='AUTOMATIC_EXECUTION' />
    <value enum='e' description='AUTOMATIC_EXECUTION_ETH' />
-   <value enum='f ' description='FAST_MARKET_ETH' />
+   <value enum='f' description='FAST_MARKET_ETH' />
    <value enum='g' description='INACTIVE_ETH' />
    <value enum='h' description='ROTATION' />
    <value enum='i' description='ROTATION_ETH' />

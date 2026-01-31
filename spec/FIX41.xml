@@ -1169,7 +1169,7 @@
    <value enum='1' description='BROKER_CREDIT' />
    <value enum='2' description='INSTITUTION' />
   </field>
-  <field number='166' name='SettlLocation' type='CHAR'>
+  <field number='166' name='SettlLocation' type='STRING'>
    <value enum='CED' description='CEDEL' />
    <value enum='DTC' description='DEPOSITORY_TRUST_COMPANY' />
    <value enum='EUR' description='EURO_CLEAR' />
@@ -1178,7 +1178,7 @@
    <value enum='PNY' description='PHYSICAL' />
    <value enum='PTC' description='PARTICIPANT_TRUST_COMPANY' />
   </field>
-  <field number='167' name='SecurityType' type='CHAR'>
+  <field number='167' name='SecurityType' type='STRING'>
    <value enum='BA' description='BANKERS_ACCEPTANCE' />
    <value enum='CD' description='CERTIFICATE_OF_DEPOSIT' />
    <value enum='CMO' description='COLLATERALIZED_MORTGAGE_OBLIGATION' />
