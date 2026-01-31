@@ -267,6 +267,27 @@ bool loadCAInfo(
 X509_STORE *loadCRLInfo(SSL_CTX *ctx, const SessionSettings &settings, Log *log, std::string &errStr);
 
 int acceptSSLConnection(socket_handle socket, SSL *ssl, Log *log, int verify);
+
+/**
+ * Check if a string is an IP address (IPv4 or IPv6).
+ * IPv6 addresses in brackets [::1] are also detected.
+ *
+ * @param address The address string to check
+ * @return true if the string is an IP address
+ */
+bool is_ip_address(const std::string &address);
+
+/**
+ * Set SNI (Server Name Indication) hostname on an SSL connection.
+ * SNI is only set for valid hostnames (not IP addresses).
+ *
+ * @param ssl The SSL connection object
+ * @param hostname The hostname to set for SNI
+ * @param log Optional log for diagnostic messages (can be nullptr)
+ * @return true if SNI was set or appropriately skipped, false on error
+ */
+bool ssl_set_sni_hostname(SSL *ssl, const std::string &hostname, Log *log = nullptr);
+
 } // namespace FIX
 
 #endif

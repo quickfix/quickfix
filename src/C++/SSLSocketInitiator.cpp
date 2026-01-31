@@ -123,6 +123,7 @@
 #include "SSLSocketInitiator.h"
 #include "Session.h"
 #include "Settings.h"
+#include "UtilitySSL.h"
 
 namespace FIX {
 
@@ -325,6 +326,9 @@ void SSLSocketInitiator::doConnect(const SessionID &sessionID, const Dictionary 
       return;
     }
     SSL_set_bio(ssl, sbio, sbio);
+
+    // Set SNI hostname for TLS connections
+    ssl_set_sni_hostname(ssl, host.address, log);
 
     setPending(sessionID);
     m_pendingConnections[result] = new SSLSocketConnection(*this, sessionID, result, ssl, &m_connector.getMonitor());
