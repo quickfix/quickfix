@@ -42,7 +42,7 @@ namespace FIX50SP2
     class NoSettlInst: public FIX::Group
     {
     public:
-    NoSettlInst() : FIX::Group(778,162,FIX::message_order(162,163,214,453,54,460,167,461,2891,120,2899,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0)) {}
+    NoSettlInst() : FIX::Group(778,162,FIX::message_order(162,163,214,453,54,460,167,461,120,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0)) {}
       FIELD_SET(*this, FIX::SettlInstID);
       FIELD_SET(*this, FIX::SettlInstTransType);
       FIELD_SET(*this, FIX::SettlInstRefID);
@@ -50,11 +50,10 @@ namespace FIX50SP2
       class NoPartyIDs: public FIX::Group
       {
       public:
-      NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,2376,802,0)) {}
+      NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
         FIELD_SET(*this, FIX::PartyID);
         FIELD_SET(*this, FIX::PartyIDSource);
         FIELD_SET(*this, FIX::PartyRole);
-        FIELD_SET(*this, FIX::PartyRoleQualifier);
         FIELD_SET(*this, FIX::NoPartySubIDs);
         class NoPartySubIDs: public FIX::Group
         {
@@ -68,9 +67,7 @@ namespace FIX50SP2
       FIELD_SET(*this, FIX::Product);
       FIELD_SET(*this, FIX::SecurityType);
       FIELD_SET(*this, FIX::CFICode);
-      FIELD_SET(*this, FIX::UPICode);
       FIELD_SET(*this, FIX::SettlCurrency);
-      FIELD_SET(*this, FIX::SettlCurrencyCodeSource);
       FIELD_SET(*this, FIX::EffectiveTime);
       FIELD_SET(*this, FIX::ExpireTime);
       FIELD_SET(*this, FIX::LastUpdateTime);
@@ -89,11 +86,10 @@ namespace FIX50SP2
         class NoSettlPartyIDs: public FIX::Group
         {
         public:
-        NoSettlPartyIDs() : FIX::Group(781,782,FIX::message_order(782,783,784,2389,801,0)) {}
+        NoSettlPartyIDs() : FIX::Group(781,782,FIX::message_order(782,783,784,801,0)) {}
           FIELD_SET(*this, FIX::SettlPartyID);
           FIELD_SET(*this, FIX::SettlPartyIDSource);
           FIELD_SET(*this, FIX::SettlPartyRole);
-          FIELD_SET(*this, FIX::SettlPartyRoleQualifier);
           FIELD_SET(*this, FIX::NoSettlPartySubIDs);
           class NoSettlPartySubIDs: public FIX::Group
           {

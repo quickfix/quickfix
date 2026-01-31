@@ -127,7 +127,7 @@ class DataDictionary
       type = inputFieldElement.attributes['type']
       name = toFieldName(name, lambda {type})
       outputFieldElement = outputFieldsElement.add_element('field', {'number' => number, 'name' => name, 'type' => type.upcase})
-
+      
       isBool = false;
       if(inputFieldElement.elements.size == 2)
         value1 = inputFieldElement.elements[1].attributes['value']
