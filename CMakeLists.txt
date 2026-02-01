@@ -15,6 +15,23 @@ message("-- Project name ${CMAKE_PROJECT_NAME}")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED OFF)
 
+# Allow overriding the output directory for libraries and executables.
+# Default: <project-root>/lib
+set(QUICKFIX_LIB_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/lib" CACHE PATH "Top-level output directory for quickfix libraries and runtime files")
+
+# Single-config generators
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
+
+# Multi-config generators (Visual Studio, Xcode) — set per-config variables
+foreach(cfg IN ITEMS Debug Release RelWithDebInfo MinSizeRel)
+  string(TOUPPER "${cfg}" cfg_up)
+  set("CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${cfg_up}" "${QUICKFIX_LIB_OUTPUT_DIR}")
+  set("CMAKE_LIBRARY_OUTPUT_DIRECTORY_${cfg_up}" "${QUICKFIX_LIB_OUTPUT_DIR}")
+  set("CMAKE_RUNTIME_OUTPUT_DIRECTORY_${cfg_up}" "${QUICKFIX_LIB_OUTPUT_DIR}")
+endforeach()
+
 if( MSVC AND STATIC_RUNTIME )
   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
   set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} /MT")
