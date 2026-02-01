@@ -61,7 +61,9 @@ TEST_CASE("UtilityTests") {
   }
 
   SECTION("stringConcat_ConcatsStrings") {
-    std::string actual = string_concat("ABC", "123", "!@#", 0);
+    char* ch = string_concat("ABC", "123", "!@#", 0);
+    std::string actual(ch);
+    delete [] ch;
     std::string expected = "ABC123!@#";
     CHECK(expected == actual);
   }
