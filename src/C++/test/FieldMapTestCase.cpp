@@ -26,6 +26,7 @@
 
 #include <FieldMap.h>
 #include <Message.h>
+#include <fix44/MarketDataRequest.h>
 #include <vector>
 
 #include "catch_amalgamated.hpp"
@@ -161,4 +162,16 @@ TEST_CASE("FieldMapTests") {
     CHECK(18 == actualTag18.getTag());
     CHECK("field18_new" == actualTag18.getString());
   }
+
+#if __cplusplus >= 201703L
+  SECTION("tryGet") {
+    FIX44::MarketDataRequest fieldMap;
+    fieldMap.setField(FIX::MarketDepth(3));
+    auto mdOpt = fieldMap.tryGet<MarketDepth>();
+    CHECK(mdOpt.has_value());
+    CHECK(mdOpt.value() == 3);
+    auto unset = fieldMap.tryGet<FIX::AggregatedBook>();
+    CHECK(!unset.has_value());
+  }
+#endif
 }
