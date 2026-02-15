@@ -131,6 +131,7 @@ namespace FIX {
 SSLSocketConnection::SSLSocketConnection(socket_handle socket, SSL *ssl, Sessions sessions, SocketMonitor *pMonitor)
     : m_socket(socket),
       m_ssl(ssl),
+      m_socks(0),
       m_sendLength(0),
       m_sessions(sessions),
       m_pSession(0),
@@ -167,6 +168,7 @@ SSLSocketConnection::~SSLSocketConnection() {
   ssl_socket_close(m_socket, m_ssl);
 
   SSL_free(m_ssl);
+  SOCKSProxyProvider::release(m_socks);
 }
 
 bool SSLSocketConnection::send(const std::string &message) {

@@ -72,6 +72,7 @@ COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/Sock
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_UNIX.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_UNIX.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketMonitor_WIN32.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketMonitor_WIN32.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SocketServer.h ${PROJECT_SOURCE_DIR}/include/quickfix/SocketServer.h
+COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SOCKSProxyProvider.h ${PROJECT_SOURCE_DIR}/include/quickfix/SOCKSProxyProvider.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketAcceptor.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketAcceptor.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketConnection.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketConnection.h
 COMMAND ${CMAKE_COMMAND} -E copy_if_different ${PROJECT_SOURCE_DIR}/src/C++/SSLSocketInitiator.h ${PROJECT_SOURCE_DIR}/include/quickfix/SSLSocketInitiator.h
