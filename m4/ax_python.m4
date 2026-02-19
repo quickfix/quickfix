@@ -22,6 +22,25 @@ AC_SUBST(PYTHON3_PREFIX)
 
 if test $has_python3 = true
 then
+    # If the following python command returns an error, the python dev environment 
+    # is misconfigured and the build will fail during `make`.
+    #
+    # Make sure `pip` is installed and try `pip install setuptools` to resolve this.
+    #
+
+    can_import=false
+    py_output=$( (python3 -c 'from distutils import sysconfig;') 2>&1 )
+    if echo "$py_output" | grep -q "Traceback"; then
+      can_import=true
+    fi
+    AC_MSG_CHECKING([whether python3 modules are available])
+    AS_IF([test $can_import = true], [
+      AC_MSG_RESULT([no])
+      AC_MSG_ERROR([$py_output])
+    ], [
+      AC_MSG_RESULT([yes])
+    ])
+
     PYTHON3_INCLUDE_PATH=[`python3 -c 'from distutils import sysconfig; print( sysconfig.get_python_inc(1) )'`]
     PYTHON3_CFLAGS="-I${PYTHON3_INCLUDE_PATH}"
     AC_SUBST(PYTHON3_CFLAGS)
