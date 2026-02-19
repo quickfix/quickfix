@@ -606,6 +606,18 @@ bool Session::sendRaw(Message &message, SEQNUM num) {
   }
 }
 
+bool Session::sendBare(const std::string &messageString) {
+  Locker l(m_mutex);
+
+  try {
+    send(messageString);
+    return true;
+  } catch (IOException &e) {
+    m_state.onEvent(e.what());
+    return false;
+  }
+}
+
 bool Session::send(const std::string &string) {
   if (!m_pResponder) {
     return false;
@@ -1329,6 +1341,14 @@ bool Session::sendToTarget(Message &message, const SessionID &sessionID) EXCEPT(
     throw SessionNotFound();
   }
   return pSession->send(message);
+}
+
+bool Session::sendBareToTarget(const std::string &messageString, const SessionID &sessionID) EXCEPT(SessionNotFound) {
+  Session *pSession = lookupSession(sessionID);
+  if (!pSession) {
+    throw SessionNotFound();
+  }
+  return pSession->sendBare(messageString);
 }
 
 bool Session::sendToTarget(
