@@ -74,14 +74,14 @@ message_order::message_order(const int order[])
   setOrder(order, size);
 }
 
-message_order::message_order(const int order[], int size)
+message_order::message_order(const int order[], size_t size)
     : m_mode(group),
       m_delim(0),
       m_largest(0) {
   setOrder(order, size);
 }
 
-void message_order::setOrder(const int order[], int size) {
+void message_order::setOrder(const int order[], size_t size) {
   if (size < 1) {
     return;
   }
