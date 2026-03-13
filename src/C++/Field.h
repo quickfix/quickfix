@@ -33,6 +33,9 @@
 #include <numeric>
 #include <sstream>
 
+#ifdef HAVE_CXX17
+#include <string_view>
+#endif
 #if defined(__SUNPRO_CC)
 #include <algorithm>
 #endif
@@ -235,6 +238,9 @@ public:
   void setValue(const std::string &value) { setString(value); }
   const std::string &getValue() const { return getString(); }
   operator const std::string &() const { return getString(); }
+#ifdef HAVE_CXX17
+  operator std::string_view() const { return getString(); }
+#endif
 
   bool operator<(const StringField &rhs) const { return getString() < rhs.getString(); }
   bool operator>(const StringField &rhs) const { return getString() > rhs.getString(); }
