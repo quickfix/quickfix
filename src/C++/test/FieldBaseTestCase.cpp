@@ -73,9 +73,11 @@ TEST_CASE("FieldBaseTests") {
     CHECK(stringField <= "string");
     CHECK(stringField <= "string_long");
     CHECK(!(stringField <= "str"));
-    std::string_view sv = "string";
-    CHECK(stringField <= sv);
-    std::string_view sv_long = "string_long";
-    CHECK(stringField <= sv_long);
+  #if __cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L)
+      std::string_view sv = "string";
+      CHECK(stringField <= sv);
+      std::string_view sv_long = "string_long";
+      CHECK(stringField <= sv_long);
+  #endif
   }
 }

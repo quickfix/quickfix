@@ -32,8 +32,9 @@
 #include "Utility.h"
 #include <numeric>
 #include <sstream>
-#include <string_view>
-
+#if __cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L)
+  #include <string_view>
+#endif
 #if defined(__SUNPRO_CC)
 #include <algorithm>
 #endif
@@ -236,7 +237,9 @@ public:
   void setValue(const std::string &value) { setString(value); }
   const std::string &getValue() const { return getString(); }
   operator const std::string &() const { return getString(); }
-  operator std::string_view() const { return getString(); }
+  #if __cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L)
+    operator std::string_view() const { return getString(); }
+  #endif
 
   bool operator<(const StringField &rhs) const { return getString() < rhs.getString(); }
   bool operator>(const StringField &rhs) const { return getString() > rhs.getString(); }
