@@ -73,5 +73,9 @@ TEST_CASE("FieldBaseTests") {
     CHECK(stringField <= "string");
     CHECK(stringField <= "string_long");
     CHECK(!(stringField <= "str"));
+    std::string_view sv = "string";
+    CHECK(stringField <= sv);
+    std::string_view sv_long = "string_long";
+    CHECK(stringField <= sv_long);
   }
 }

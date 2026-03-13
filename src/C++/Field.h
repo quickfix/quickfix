@@ -32,6 +32,7 @@
 #include "Utility.h"
 #include <numeric>
 #include <sstream>
+#include <string_view>
 
 #if defined(__SUNPRO_CC)
 #include <algorithm>
@@ -235,6 +236,7 @@ public:
   void setValue(const std::string &value) { setString(value); }
   const std::string &getValue() const { return getString(); }
   operator const std::string &() const { return getString(); }
+  operator std::string_view() const { return getString(); }
 
   bool operator<(const StringField &rhs) const { return getString() < rhs.getString(); }
   bool operator>(const StringField &rhs) const { return getString() > rhs.getString(); }
