@@ -26,8 +26,8 @@
 #include "Dictionary.h"
 #include "FieldConvertors.h"
 #include <algorithm>
-#include <set>
 #include <cctype>
+#include <set>
 
 namespace FIX {
 std::string Dictionary::getString(const std::string &key, bool capitalize) const
@@ -105,27 +105,20 @@ int Dictionary::getDay(const std::string &key) const EXCEPT(ConfigError, FieldCo
 }
 
 void Dictionary::setString(const std::string &key, const std::string &value) {
-    const std::string upperKey = string_strip(string_toUpper(key));
-    const std::string strippedVal = string_strip(value);
+  const std::string upperKey = string_strip(string_toUpper(key));
+  const std::string strippedVal = string_strip(value);
 
-    static const std::set<std::string> numericKeys = {
-        "HEARTBTINT",
-        "MAXLATENCY",
-        "LOGONTIMEOUT",
-        "LOGOUTTIMEOUT",
-        "RECONNECTINTERVAL",
-        "SOCKETCONNECTPORT"
-    };
+  static const std::set<std::string> numericKeys
+      = {"HEARTBTINT", "MAXLATENCY", "LOGONTIMEOUT", "LOGOUTTIMEOUT", "RECONNECTINTERVAL", "SOCKETCONNECTPORT"};
 
-    // Validate numeric settings
-    if (numericKeys.count(upperKey)) {
-        if (!std::all_of(strippedVal.begin(), strippedVal.end(),
-                         [](unsigned char c) { return std::isdigit(c); })) {
-            throw ConfigError("Expected numeric value for: " + upperKey);
-        }
+  // Validate numeric settings
+  if (numericKeys.count(upperKey)) {
+    if (!std::all_of(strippedVal.begin(), strippedVal.end(), [](unsigned char c) { return std::isdigit(c); })) {
+      throw ConfigError("Expected numeric value for: " + upperKey);
     }
+  }
 
-    m_data[upperKey] = strippedVal;
+  m_data[upperKey] = strippedVal;
 }
 
 void Dictionary::setInt(const std::string &key, int value) {

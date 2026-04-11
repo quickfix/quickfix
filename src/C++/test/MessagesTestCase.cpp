@@ -662,8 +662,9 @@ TEST_CASE("MessageTests") {
   SECTION("rejectSetString") {
     Reject object;
 
-    object.setString("8=FIX.4.2\0019=36\00135=3\00145=73\001"
-                     "58=This Message SUCKS!!!\00110=029\001");
+    object.setString(
+        "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+        "58=This Message SUCKS!!!\00110=029\001");
 
     RefSeqNum refSeqNum;
     Text text;
@@ -727,8 +728,9 @@ TEST_CASE("MessageTests") {
   SECTION("newOrderSingleSetString") {
     NewOrderSingle object;
 
-    object.setString("8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
-                     "54=1\00155=MSFT\00160=TODAY\00110=028\001");
+    object.setString(
+        "8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
+        "54=1\00155=MSFT\00160=TODAY\00110=028\001");
 
     ClOrdID clOrdID;
     HandlInst handlInst;
@@ -768,9 +770,10 @@ TEST_CASE("MessageTests") {
   SECTION("executionReportSetString") {
     ExecutionReport object;
 
-    object.setString("8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
-                     "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\001"
-                     "55=MSFT\001150=2\001151=200\00110=052\001");
+    object.setString(
+        "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+        "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\001"
+        "55=MSFT\001150=2\001151=200\00110=052\001");
 
     OrderID orderID;
     ExecID execID;
@@ -812,8 +815,9 @@ TEST_CASE("MessageTests") {
   SECTION("dontKnowTradeSetString") {
     DontKnowTrade object;
 
-    object.setString("8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
-                     "54=2\00155=MSFT\001127=1\00110=195\001");
+    object.setString(
+        "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+        "54=2\00155=MSFT\001127=1\00110=195\001");
 
     OrderID orderID;
     ExecID execID;
@@ -848,9 +852,10 @@ TEST_CASE("MessageTests") {
   SECTION("orderCancelReplaceRequestSetString") {
     OrderCancelReplaceRequest object;
 
-    object.setString("8=FIX.4.2\0019=63\00135=G\00111=CLIENTID\00121=1\001"
-                     "40=3\00141=ORIGINALID\00154=2\00155=MSFT\00160=TODAY\001"
-                     "10=228\001");
+    object.setString(
+        "8=FIX.4.2\0019=63\00135=G\00111=CLIENTID\00121=1\001"
+        "40=3\00141=ORIGINALID\00154=2\00155=MSFT\00160=TODAY\001"
+        "10=228\001");
 
     OrigClOrdID origClOrdID;
     ClOrdID clOrdID;
@@ -885,8 +890,9 @@ TEST_CASE("MessageTests") {
   SECTION("orderCancelRequestSetString") {
     OrderCancelRequest object;
 
-    object.setString("8=FIX.4.2\0019=53\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
-                     "54=1\00155=MSFT\00160=TODAY\00110=058\001");
+    object.setString(
+        "8=FIX.4.2\0019=53\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+        "54=1\00155=MSFT\00160=TODAY\00110=058\001");
 
     OrigClOrdID origClOrdID;
     ClOrdID clOrdID;
@@ -914,10 +920,10 @@ TEST_CASE("MessageTests") {
           "337=TRADE\001375=CME000A\001432=20150220\001442=1\001527=642276191612015022031303\001"
           "1028=N\0011057=N\00110=000\001";
 
-    std::string xmlNonFIXMessage
-        = std::string("8=FIX.4.2\0019=501\00135=n\00134=158\001369=130\00152=20150220-14:40:24.991\001"
-                      "49=CME\00150=G\00156=QQQQQQN\00157=QQQ\001212=413\001213=")
-          + encodedFIXmessage + std::string("\00110=129\001");
+    std::string xmlNonFIXMessage = std::string(
+                                       "8=FIX.4.2\0019=501\00135=n\00134=158\001369=130\00152=20150220-14:40:24.991\001"
+                                       "49=CME\00150=G\00156=QQQQQQN\00157=QQQ\001212=413\001213=")
+                                   + encodedFIXmessage + std::string("\00110=129\001");
 
     object.setString(xmlNonFIXMessage, true, &dataDictionary);
 
@@ -949,8 +955,9 @@ TEST_CASE("MessageTests") {
   SECTION("orderCancelRejectSetString") {
     OrderCancelReject object;
 
-    object.setString("8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
-                     "39=1\00141=ORIGINALID\001434=2\00110=229\001");
+    object.setString(
+        "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+        "39=1\00141=ORIGINALID\001434=2\00110=229\001");
 
     OrderID orderID;
     ClOrdID clOrdID;
@@ -980,8 +987,9 @@ TEST_CASE("MessageTests") {
   SECTION("orderStatusRequestSetString") {
     OrderStatusRequest object;
 
-    object.setString("8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
-                     "55=MSFT\00110=141\001");
+    object.setString(
+        "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+        "55=MSFT\00110=141\001");
 
     ClOrdID clOrdID;
     Symbol symbol;

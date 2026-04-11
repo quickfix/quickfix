@@ -211,8 +211,9 @@ void DataDictionary::readFromDocument(const DOMDocumentPtr &pDoc) EXCEPT(ConfigE
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");
   if (!pFixNode.get()) {
-    throw ConfigError("Could not parse data dictionary file"
-                      ", or no <fix> node found at root");
+    throw ConfigError(
+        "Could not parse data dictionary file"
+        ", or no <fix> node found at root");
   }
   DOMAttributesPtr attrs = pFixNode->getAttributes();
   std::string type = "FIX";
