@@ -54,12 +54,10 @@ public:
   virtual void toApp(Message &, const SessionID &) EXCEPT(DoNotSend) = 0;
   /// Notification of admin message being received from target
   virtual void fromAdmin(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon)
-      = 0;
+      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon) = 0;
   /// Notification of app message being received from target
   virtual void fromApp(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType)
-      = 0;
+      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) = 0;
 };
 
 /**

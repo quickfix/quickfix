@@ -64,9 +64,7 @@ TEST_CASE("UtilitySSLTests") {
     CHECK_FALSE(is_ip_address("server123"));
   }
 
-  SECTION("is_ip_address_Empty_ReturnsFalse") {
-    CHECK_FALSE(is_ip_address(""));
-  }
+  SECTION("is_ip_address_Empty_ReturnsFalse") { CHECK_FALSE(is_ip_address("")); }
 
   SECTION("is_ip_address_InvalidInput_ReturnsFalse") {
     CHECK_FALSE(is_ip_address("not-an-ip"));
@@ -75,9 +73,7 @@ TEST_CASE("UtilitySSLTests") {
     CHECK_FALSE(is_ip_address("[incomplete"));
   }
 
-  SECTION("ssl_set_sni_hostname_NullSSL_ReturnsFalse") {
-    CHECK_FALSE(ssl_set_sni_hostname(nullptr, "example.com"));
-  }
+  SECTION("ssl_set_sni_hostname_NullSSL_ReturnsFalse") { CHECK_FALSE(ssl_set_sni_hostname(nullptr, "example.com")); }
 
   SECTION("ssl_set_sni_hostname_EmptyHostname_ReturnsTrue") {
     // Empty hostname should be skipped silently

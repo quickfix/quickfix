@@ -399,8 +399,9 @@ inline std::ostream &operator<<(std::ostream &stream, const Message &message) {
 
 /// Parse the type of a message from a string.
 inline MsgType identifyType(const std::string &message) EXCEPT(MessageParseError) {
-  std::string::size_type pos = message.find("\001"
-                                            "35=");
+  std::string::size_type pos = message.find(
+      "\001"
+      "35=");
   if (pos == std::string::npos) {
     throw MessageParseError();
   }

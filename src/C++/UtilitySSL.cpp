@@ -560,8 +560,9 @@ int callbackVerifyCRL(int ok, X509_STORE_CTX *ctx, X509_STORE *revStore) {
       return 0;
     }
     if (i < 0) {
-      printf("Found CRL is expired - revoking all certificates until you get "
-             "updated CRL\n");
+      printf(
+          "Found CRL is expired - revoking all certificates until you get "
+          "updated CRL\n");
       X509_STORE_CTX_set_error(ctx, X509_V_ERR_CRL_HAS_EXPIRED);
       X509_OBJECT_free_contents(&obj);
       return false;
@@ -1338,8 +1339,9 @@ bool loadCAInfo(
 
   STACK_OF(X509_NAME) * caList;
   if ((caList = findCAList(caFile.empty() ? 0 : caFile.c_str(), caDir.empty() ? 0 : caDir.c_str())) == 0) {
-    errStr.assign("Unable to determine list of available CA certificates "
-                  "for client authentication");
+    errStr.assign(
+        "Unable to determine list of available CA certificates "
+        "for client authentication");
     return false;
   }
   SSL_CTX_set_client_CA_list(ctx, caList);
