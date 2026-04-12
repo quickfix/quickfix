@@ -159,7 +159,7 @@ sudo make install
 
     <p>QuickFIX also supports traditional autotools-based builds on Unix-like systems.</p>
 
-    <h2>Linux / Solaris / FreeBSD / macOS</h2>
+    <h2>Linux / macOS</h2>
     <pre class='fragment'>
 ./bootstrap
 ./configure
@@ -217,27 +217,6 @@ sudo make install
         <td>Compile with PostgreSQL support</td>
       </tr>
     </table>
-
-    <br/><hr/>
-    <h2>Platform-Specific Notes</h2>
-
-    <h3>Solaris with SUNPro Compiler</h3>
-    <p>See <a href="../../README.SunOS">README.SunOS</a> for detailed instructions. When using the SUNPro compiler:<br>
-    <br>
-    <b>CC</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
-    <b>CFLAGS</b>=<i>-g -xs</i><br>
-    <b>CXX</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
-    <b>CXXFLAGS</b>=<i>-g -xs</i><br>
-    <b>LD</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
-    <b>LDFLAGS</b>=<i>-g -xs -lCstd</i><br>
-    <b>AR</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
-    <b>AR_FLAGS</b>=<i>-g -xs -xar -o</i><br></p>
-
-    <h3>AIX</h3>
-    <p>See <a href="../../README.AIX">README.AIX</a> for detailed build instructions on AIX systems.</p>
-
-    <h3>FreeBSD</h3>
-    <p>FreeBSD is supported via autotools. CMake support may require minor adjustments.</p>
 
     <br/><hr/>
     <h2>Testing Your Build</h2>

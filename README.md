@@ -12,7 +12,7 @@ QuickFIX is a free, open-source implementation of the [FIX protocol](http://www.
 - **Database Support**: MySQL, PostgreSQL, ODBC
 - **SSL/TLS Support**: Native OpenSSL integration
 - **Flexible Architecture**: Pluggable message stores and logging
-- **Cross-Platform**: Windows, Linux, macOS, FreeBSD, Solaris, AIX
+- **Cross-Platform**: Windows, Linux, macOS
 - **Production Ready**: Used by banks, brokers, and trading firms worldwide
 
 ## Supported Platforms
@@ -21,9 +21,6 @@ QuickFIX is tested on:
 - **Windows**: Windows Server 2019, Windows Server 2022
 - **Linux**: Ubuntu (latest), various distributions
 - **macOS**: Latest versions
-- **FreeBSD**: Supported via autotools
-- **Solaris**: See [README.SunOS](README.SunOS)
-- **AIX**: See [README.AIX](README.AIX)
 
 ## Quick Start
 

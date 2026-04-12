@@ -106,12 +106,6 @@ g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread -lpq
 
     <h2>Platform-Specific Notes</h2>
 
-    <h3>Solaris</h3>
-    <p>On Solaris, you must also link with network libraries:</p>
-    <pre class='fragment'>
-g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread -lnsl -lsocket
-</pre>
-
     <h3>macOS</h3>
     <p>On macOS, use the system Clang compiler:</p>
     <pre class='fragment'>
@@ -120,7 +114,7 @@ clang++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread
 
     <h2>Linker Order</h2>
     <p>Note: GNU <code>ld</code> is a one-pass linker. Place more
-    generally useful libraries (like <code>-lpthread</code>, <code>-lsocket</code>)
+    generally useful libraries (like <code>-lpthread</code>)
     <b>after</b> more specific libraries on the command line.</p>
 
     <br/><hr/>
