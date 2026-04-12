@@ -401,6 +401,20 @@ If set, overrrides MillisecondsInTimeStamp.</td>
           <td>N</td>
         </tr>
 
+        <tr align="left" valign="middle">
+          <td><b>NonStopSession</b></td>
+
+          <td>When set to Y, the session will never stop based on
+          time (StartTime/EndTime are ignored). The session will
+          remain active 24/7. Useful for sessions that need to
+          run continuously.</td>
+
+          <td>Y<br>
+          N</td>
+
+          <td>N</td>
+        </tr>
+
         <tr align="center" valign="middle">
           <td colspan="4" bgcolor="#DDDDDD"><h2>Validation</h2></td>
         </tr>
@@ -753,6 +767,33 @@ AppDataDictionary.FIX.4.4=FIX44.xml
         </tr>
 
         <tr align="left" valign="middle">
+          <td><b>HostSelectionPolicy</b></td>
+
+          <td>Determines how QuickFIX selects between multiple
+          configured hosts when failover addresses are configured.
+          When set to PRIORITY, QuickFIX will prioritize hosts in
+          the order they are configured and periodically try to
+          reconnect to higher priority hosts.</td>
+
+          <td>PRIORITY<br>
+          ROUNDROBIN</td>
+
+          <td>ROUNDROBIN</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>HostSelectionPolicyPriorityStartOverInterval</b></td>
+
+          <td>When HostSelectionPolicy is set to PRIORITY, this
+          defines the interval (in seconds) at which QuickFIX will
+          attempt to reconnect to a higher priority host.</td>
+
+          <td>positive integer</td>
+
+          <td>120</td>
+        </tr>
+
+        <tr align="left" valign="middle">
           <td><b>SocketNodelay</b></td>
 
           <td>Indicates a socket should be created with
@@ -836,6 +877,21 @@ AppDataDictionary.FIX.4.4=FIX44.xml
           N</td>
 
           <td>N</td>
+        </tr>
+
+        <tr align="left" valign="middle">
+          <td><b>AllowedRemoteAddresses</b></td>
+
+          <td>Comma-separated list of IP addresses from which
+          connections will be accepted. This provides an IP
+          whitelist for additional security. Only applicable to
+          acceptor sessions. If not specified, connections from
+          any IP address are allowed.</td>
+
+          <td>Comma-separated list of IP addresses<br>
+          Example: 192.168.1.100,10.0.0.5</td>
+
+          <td></td>
         </tr>
 
         <tr align="center" valign="middle">

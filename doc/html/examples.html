@@ -15,21 +15,61 @@
   </div>
 
   <div class='contents'>
-    <p>QuickFIX comes with several example applications in the
-    <b>quickfix/examples</b> directory.</p>
+    <p>QuickFIX includes several example applications in the
+    <b>examples/</b> directory to demonstrate various FIX application patterns.</p>
 
-    <p><b>ordermatch</b> is a c++ server that will match and
-    execute limit orders</p>
+    <h2>ordermatch</h2>
+    <p><b>ordermatch</b> is a C++ server application that implements a simple
+    matching engine. It accepts limit orders and matches them when buy and sell
+    orders cross. This example demonstrates:</p>
+    <ul>
+      <li>FIX acceptor implementation</li>
+      <li>Order management and matching logic</li>
+      <li>Execution reports and order status handling</li>
+      <li>Multi-session support</li>
+    </ul>
 
-    <p><b>tradeclient</b> is a little c++ console based trading
-    client.</p>
+    <h2>tradeclient</h2>
+    <p><b>tradeclient</b> is a C++ console-based trading client that allows
+    you to interactively send orders and view executions. This example demonstrates:</p>
+    <ul>
+      <li>FIX initiator implementation</li>
+      <li>Interactive order entry</li>
+      <li>Message creation and sending</li>
+      <li>Receiving and displaying execution reports</li>
+    </ul>
 
-    <p><b>banzai</b> is a Java GUI based trading
-    client.</p><b>executor</b> is a server that fills every
-    limit order it receives.
+    <h2>executor</h2>
+    <p><b>executor</b> is a simple server that automatically fills every
+    limit order it receives. This example is available in multiple languages
+    to demonstrate language binding usage:</p>
+    <ul>
+      <li><b>C++</b> - Full-featured implementation</li>
+      <li><b>Python</b> - Demonstrates Python bindings</li>
+      <li><b>Ruby</b> - Demonstrates Ruby bindings</li>
+    </ul>
+    <p>The executor example is particularly useful for testing trading clients
+    and demonstrates basic order execution flow.</p>
 
-    <p>Executor has been implemented in <i>C++, Python</i> and
-    <i>Ruby</i>.</p>
+    <h2>Running the Examples</h2>
+    <p>Example configuration files are provided in <b>examples/cfg/</b>.
+    To run the examples:</p>
+    <ol>
+      <li>Build QuickFIX with examples enabled (<code>-DQUICKFIX_EXAMPLES=ON</code> for CMake)</li>
+      <li>Navigate to the example directory</li>
+      <li>Run the executable with the appropriate configuration file</li>
+    </ol>
+
+    <h2>Using Examples as Templates</h2>
+    <p>These examples serve as excellent templates for building your own
+    FIX applications. They demonstrate:</p>
+    <ul>
+      <li>Application interface implementation</li>
+      <li>Message handling and routing</li>
+      <li>Configuration file setup</li>
+      <li>Error handling patterns</li>
+      <li>Best practices for FIX applications</li>
+    </ul>
   </div>
 </body>
 </html>

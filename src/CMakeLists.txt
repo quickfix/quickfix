@@ -42,8 +42,6 @@ endif()
 
 endif()
 
-if (HAVE_PYTHON)
-add_subdirectory(python)
-elseif (HAVE_PYTHON3)
+if (HAVE_PYTHON3)
 add_subdirectory(python3)
 endif ()
